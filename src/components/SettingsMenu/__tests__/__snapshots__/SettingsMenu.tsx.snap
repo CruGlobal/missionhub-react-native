@@ -1414,7 +1414,95 @@ exports[`renders correctly for try it now user 1`] = `
             ]
           }
         >
-          SIGN OUT
+          SIGN IN
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          SIGN UP
         </Text>
       </View>
     </View>

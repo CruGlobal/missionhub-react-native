@@ -9,7 +9,7 @@ import { navigatePush } from '../../../actions/navigation';
 import * as common from '../../../utils/common';
 import { loadHome } from '../../../actions/auth/userData';
 import {
-  skipOnbardingAddPerson,
+  skipOnboardingAddPerson,
   setOnboardingCommunity,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
@@ -125,7 +125,7 @@ describe('WelcomeScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    skipOnbardingAddPerson.mockReturnValue(() => Promise.resolve());
+    skipOnboardingAddPerson.mockReturnValue(() => Promise.resolve());
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showReminderOnLoad.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
@@ -147,7 +147,7 @@ describe('SetupScreen next', () => {
         .props.next(),
     );
 
-    expect(skipOnbardingAddPerson).toHaveBeenCalled();
+    expect(skipOnboardingAddPerson).toHaveBeenCalled();
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,

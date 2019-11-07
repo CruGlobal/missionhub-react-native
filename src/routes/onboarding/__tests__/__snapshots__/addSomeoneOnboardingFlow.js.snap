@@ -91,6 +91,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
     }
   }
   next={[Function]}
+  stages={Array []}
 />
 `;
 

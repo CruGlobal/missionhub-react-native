@@ -54,7 +54,7 @@ const store = configureStore([thunk])({
     },
   },
   organizations: { all: [] },
-  stages: { stges: [] },
+  stages: { stages: [] },
 });
 
 beforeEach(() => {

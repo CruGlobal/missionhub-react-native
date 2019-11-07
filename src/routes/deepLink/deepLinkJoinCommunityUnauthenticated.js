@@ -9,7 +9,7 @@ import {
   joinStashedCommunity,
   landOnStashedCommunityScreen,
   setOnboardingCommunity,
-  skipOnbardingAddPerson,
+  skipOnboardingAddPerson,
 } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
@@ -47,7 +47,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(
       SetupScreen,
       () => async dispatch => {
-        dispatch(skipOnbardingAddPerson());
+        dispatch(skipOnboardingAddPerson());
         await dispatch(
           showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
         );

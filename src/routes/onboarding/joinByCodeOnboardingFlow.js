@@ -7,7 +7,7 @@ import {
   joinStashedCommunity,
   landOnStashedCommunityScreen,
   setOnboardingCommunity,
-  skipOnbardingAddPerson,
+  skipOnboardingAddPerson,
 } from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import JoinGroupScreen, {
@@ -37,7 +37,7 @@ export const JoinByCodeOnboardingFlowScreens = {
     wrapNextAction(
       SetupScreen,
       () => async dispatch => {
-        dispatch(skipOnbardingAddPerson());
+        dispatch(skipOnboardingAddPerson());
         await dispatch(joinStashedCommunity());
         await dispatch(
           showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),

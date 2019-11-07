@@ -66,7 +66,7 @@ export const setOnboardingCommunity = (community: {
   community,
 });
 
-export const skipOnbardingAddPerson = (): SkipOnboardingAddPersonAction => ({
+export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
   type: SKIP_ONBOARDING_ADD_PERSON,
 });
 
@@ -135,7 +135,7 @@ export const createPerson = (firstName: string, lastName: string) => async (
 export function skipOnboardingComplete() {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-    dispatch(skipOnbardingAddPerson());
+    dispatch(skipOnboardingAddPerson());
     dispatch(
       navigatePush(CELEBRATION_SCREEN, {
         trackingObj: buildTrackingObj('onboarding : complete', 'onboarding'),

@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {
   setOnboardingPersonId,
   setOnboardingCommunity,
-  skipOnbardingAddPerson,
+  skipOnboardingAddPerson,
   createMyPerson,
   createPerson,
   skipOnboarding,
@@ -88,9 +88,9 @@ describe('setOnboardingCommunity', () => {
   });
 });
 
-describe('skipOnbardingAddPerson', () => {
+describe('skipOnboardingAddPerson', () => {
   it('should fire correct action', () => {
-    expect(skipOnbardingAddPerson()).toMatchInlineSnapshot(`
+    expect(skipOnboardingAddPerson()).toMatchInlineSnapshot(`
       Object {
         "type": "SKIP_ONBOARDING_ADD_PERSON",
       }

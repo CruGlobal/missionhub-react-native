@@ -9,7 +9,7 @@ import { renderShallow } from '../../../../testUtils';
 import { loadHome } from '../../../actions/auth/userData';
 import {
   setOnboardingCommunity,
-  skipOnbardingAddPerson,
+  skipOnboardingAddPerson,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
 } from '../../../actions/onboarding';
@@ -79,7 +79,7 @@ describe('WelcomeScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    skipOnbardingAddPerson.mockReturnValue(() => Promise.resolve());
+    skipOnboardingAddPerson.mockReturnValue(() => Promise.resolve());
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showReminderOnLoad.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
@@ -93,7 +93,7 @@ describe('SetupScreen next', () => {
         .props.next(),
     );
 
-    expect(skipOnbardingAddPerson).toHaveBeenCalled();
+    expect(skipOnboardingAddPerson).toHaveBeenCalled();
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
