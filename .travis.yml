@@ -46,7 +46,7 @@ matrix:
       if: branch = master and type = push
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode11.2
+      osx_image: xcode11.2.1
       env:
         - ENVFILE=.env.production
       before_install:
