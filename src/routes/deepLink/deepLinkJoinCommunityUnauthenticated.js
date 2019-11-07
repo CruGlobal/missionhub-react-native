@@ -1,16 +1,16 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth/userData';
+import { loadHome } from '../../actions/auth/userData';
 import {
-  completeOnboarding,
-  stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
+  setOnboardingCommunity,
+  skipOnboardingAddPerson,
+} from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
@@ -31,7 +31,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextAction(
       DeepLinkConfirmJoinGroupScreen,
       ({ community }) => dispatch => {
-        dispatch(stashCommunityToJoin({ community }));
+        dispatch(setOnboardingCommunity(community));
         dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
       },
     ),
@@ -44,14 +44,19 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => async dispatch => {
-      dispatch(firstTime());
-      dispatch(completeOnboarding());
-      await dispatch(
-        showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-      );
-      dispatch(finishAuth());
-    }),
+    wrapNextAction(
+      SetupScreen,
+      () => async dispatch => {
+        dispatch(skipOnboardingAddPerson());
+        await dispatch(
+          showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+        );
+        dispatch(finishAuth());
+      },
+      {
+        isMe: true,
+      },
+    ),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   ...authFlowGenerator({

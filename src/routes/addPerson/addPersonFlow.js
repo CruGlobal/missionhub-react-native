@@ -1,6 +1,8 @@
 /*  eslint max-lines-per-function: 0 */
 
-import { createStackNavigator, StackActions } from 'react-navigation';
+// eslint-disable-next-line import/named
+import { StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { CREATE_STEP, PEOPLE_TAB } from '../../constants';
 import {
@@ -49,19 +51,11 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   ),
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
-    ({ stage, firstName, personId, orgId }) => dispatch => {
+    ({ personId, orgId }) => dispatch => {
       dispatch(
         navigatePush(PERSON_SELECT_STEP_SCREEN, {
-          contactStage: stage,
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
-          contactName: firstName,
-          contactId: personId,
-          organization: { id: orgId },
+          personId,
+          orgId,
           enableSkipButton: true,
         }),
       );

@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 import { onboardingFlowGenerator } from '../onboarding/onboardingFlowGenerator';

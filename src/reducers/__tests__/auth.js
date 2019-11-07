@@ -131,7 +131,6 @@ it('logs in with facebook', () => {
 
   const state = callAuth(REQUESTS.FACEBOOK_LOGIN.SUCCESS, result);
 
-  expect(state.isFirstTime).toBe(false);
   expect(state.token).toBe(token);
 });
 
@@ -209,7 +208,6 @@ it("should clear the user's upgradeToken", () => {
 it('should reset state on logout', () => {
   const state = auth(
     {
-      isFirstTime: true,
       token: 'some token',
       refreshToken: 'some refresh token',
       person: { user: { id: '1' } },
@@ -222,7 +220,6 @@ it('should reset state on logout', () => {
   );
 
   expect(state).toEqual({
-    isFirstTime: false,
     token: '',
     refreshToken: '',
     person: { user: {} },

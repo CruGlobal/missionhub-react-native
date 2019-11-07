@@ -15,10 +15,10 @@ import { AuthState } from '../../reducers/auth';
 interface SettingsMenuProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
-  isFirstTime: boolean;
+  isAnonymousUser: boolean;
 }
 
-const SettingsMenu = ({ dispatch, isFirstTime }: SettingsMenuProps) => {
+const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
   const { t } = useTranslation('settingsMenu');
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);
@@ -54,7 +54,7 @@ const SettingsMenu = ({ dispatch, isFirstTime }: SettingsMenuProps) => {
       label: t('tos'),
       action: () => openUrl(LINKS.terms),
     },
-    ...(isFirstTime
+    ...(isAnonymousUser
       ? [
           {
             label: t('signIn'),
@@ -76,6 +76,6 @@ const SettingsMenu = ({ dispatch, isFirstTime }: SettingsMenuProps) => {
 };
 
 const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  isFirstTime: auth.isFirstTime,
+  isAnonymousUser: !!auth.upgradeToken,
 });
 export default connect(mapStateToProps)(SettingsMenu);

@@ -17,8 +17,7 @@ const community = { id: '1', community_url: '1234567890123456' };
 
 const store = configureStore([thunk])({
   auth: { person: { id: '1' } },
-  profile: {
-    firstName: 'Test',
+  onboarding: {
     community,
   },
 });

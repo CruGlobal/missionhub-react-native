@@ -51,12 +51,16 @@ const contactAssignment = {
   id: contactAssignmentId,
   organization: { id: orgId },
   assigned_to: { id: myId },
+  pathway_stage_id: '1',
 };
 
 const mePerson = {
   id: myId,
   first_name: myName,
   organizational_permissions: [{ organization_id: orgId }],
+  user: {
+    pathway_stage_id: '1',
+  },
 };
 const assignedPerson = {
   id: assignedPersonId,
@@ -72,7 +76,7 @@ const unassignedPerson = {
 };
 
 const state = {
-  auth: { person: { id: myId } },
+  auth: { person: mePerson },
   people: {
     allByOrg: {
       [orgId]: {
@@ -292,12 +296,6 @@ describe('setStage', () => {
         personId: myId,
       };
       const nextProps = {
-        stage,
-        firstName: myName,
-        personId: myId,
-        contactAssignmentId: undefined,
-        orgId,
-        isAlreadySelected: false,
         isMe: true,
       };
 
@@ -327,12 +325,6 @@ describe('setStage', () => {
         selectedStageId,
       };
       const nextProps = {
-        stage,
-        firstName: myName,
-        personId: myId,
-        contactAssignmentId: undefined,
-        orgId,
-        isAlreadySelected: true,
         isMe: true,
       };
 
@@ -366,12 +358,6 @@ describe('setStage', () => {
         personId: assignedPersonId,
       };
       const nextProps = {
-        stage,
-        firstName: assignedPersonName,
-        personId: assignedPersonId,
-        contactAssignmentId,
-        orgId,
-        isAlreadySelected: false,
         isMe: false,
       };
 
@@ -404,12 +390,6 @@ describe('setStage', () => {
         selectedStageId,
       };
       const nextProps = {
-        stage,
-        firstName: assignedPersonName,
-        personId: assignedPersonId,
-        contactAssignmentId,
-        orgId,
-        isAlreadySelected: true,
         isMe: false,
       };
 
@@ -443,12 +423,6 @@ describe('setStage', () => {
         personId: unassignedPersonId,
       };
       const nextProps = {
-        stage,
-        firstName: unassignedPersonName,
-        personId: unassignedPersonId,
-        contactAssignmentId: undefined,
-        orgId,
-        isAlreadySelected: false,
         isMe: false,
       };
 
@@ -483,12 +457,6 @@ describe('setStage', () => {
         selectedStageId,
       };
       const nextProps = {
-        stage,
-        firstName: unassignedPersonName,
-        personId: unassignedPersonId,
-        contactAssignmentId: undefined,
-        orgId,
-        isAlreadySelected: true,
         isMe: false,
       };
 

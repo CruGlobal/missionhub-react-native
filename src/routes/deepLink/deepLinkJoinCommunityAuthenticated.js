@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { navigateReset } from '../../actions/navigation';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';

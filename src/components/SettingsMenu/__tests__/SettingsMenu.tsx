@@ -7,12 +7,17 @@ import { LINKS } from '../../../constants';
 
 import SettingsMenu from '..';
 
-function getState(isFirstTime = false) {
-  return { drawer: { isOpen: false }, auth: { isFirstTime } };
+function getState(isAnonymousUser: boolean) {
+  return {
+    drawer: { isOpen: false },
+    auth: { upgradeToken: isAnonymousUser },
+  };
 }
 
 it('renders correctly for authenticated user', () => {
-  renderWithContext(<SettingsMenu />, { initialState: getState() }).snapshot();
+  renderWithContext(<SettingsMenu />, {
+    initialState: getState(false),
+  }).snapshot();
 });
 
 it('renders correctly for try it now user', () => {
@@ -24,7 +29,7 @@ it('renders correctly for try it now user', () => {
 describe('menu items and links', () => {
   function getMenuItems() {
     const { getByTestId } = renderWithContext(<SettingsMenu />, {
-      initialState: getState(),
+      initialState: getState(false),
     });
     return getByTestId('Menu').props.menuItems;
   }
