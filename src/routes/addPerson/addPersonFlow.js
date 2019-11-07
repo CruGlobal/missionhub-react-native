@@ -80,12 +80,6 @@ export const AddPersonFlowScreens = onFlowComplete => ({
             type: CREATE_STEP,
             personId: receiverId,
             orgId,
-            trackingObj: buildTrackingObj(
-              'people : person : steps : create',
-              'people',
-              'person',
-              'steps',
-            ),
           }),
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(

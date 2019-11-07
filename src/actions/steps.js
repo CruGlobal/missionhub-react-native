@@ -10,12 +10,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
 } from '../constants';
-import {
-  buildTrackingObj,
-  formatApiDate,
-  getAnalyticsSubsection,
-  isCustomStep,
-} from '../utils/common';
+import { formatApiDate, isCustomStep } from '../utils/common';
 import { buildCustomStep } from '../utils/steps';
 import {
   COMPLETE_STEP_FLOW,
@@ -221,17 +216,10 @@ function completeChallengeAPI(step) {
 }
 
 export function completeStep(step, screen, extraBack = false) {
-  return (dispatch, getState) => {
-    const {
-      auth: {
-        person: { id: myId },
-      },
-    } = getState();
+  return dispatch => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
-
-    const subsection = getAnalyticsSubsection(receiverId, myId);
 
     dispatch(
       navigatePush(
@@ -242,12 +230,6 @@ export function completeStep(step, screen, extraBack = false) {
           orgId,
           onSetComplete: () => dispatch(completeChallengeAPI(step)),
           type: STEP_NOTE,
-          trackingObj: buildTrackingObj(
-            `people : ${subsection} : steps : complete comment`,
-            'people',
-            subsection,
-            'steps',
-          ),
         },
       ),
     );

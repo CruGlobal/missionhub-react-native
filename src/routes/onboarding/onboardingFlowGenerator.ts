@@ -117,12 +117,6 @@ export const onboardingFlowGenerator = ({
                 : navigatePush(ADD_STEP_SCREEN, {
                     type: CREATE_STEP,
                     personId: receiverId,
-                    trackingObj: buildTrackingObj(
-                      'onboarding : self : steps : create',
-                      'onboarding',
-                      'self',
-                      'steps',
-                    ),
                   }),
           ),
           buildTrackingObj(
@@ -200,12 +194,6 @@ export const onboardingFlowGenerator = ({
           : navigatePush(ADD_STEP_SCREEN, {
               type: CREATE_STEP,
               personId: receiverId,
-              trackingObj: buildTrackingObj(
-                'onboarding : person : steps : create',
-                'onboarding',
-                'person',
-                'steps',
-              ),
             }),
     ),
     buildTrackingObj(

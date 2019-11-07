@@ -3,7 +3,6 @@ import { createStackNavigator } from 'react-navigation';
 import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { buildTrackingObj } from '../../utils/common';
 import { wrapNextScreen, wrapNextAction } from '../helpers';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
@@ -29,12 +28,6 @@ export const AddPersonStepFlowScreens = {
             type: CREATE_STEP,
             personId: receiverId,
             orgId,
-            trackingObj: buildTrackingObj(
-              'people : person : steps : create',
-              'people',
-              'person',
-              'steps',
-            ),
           }),
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextScreen(
