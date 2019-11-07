@@ -93,7 +93,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "rollbar-react-native": "^0.5.0",
+    "rollbar-react-native": "^0.7.0",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
