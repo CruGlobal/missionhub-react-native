@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image, View } from 'react-native';
-import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import { Text } from '../../components/common';

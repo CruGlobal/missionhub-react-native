@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
-import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';

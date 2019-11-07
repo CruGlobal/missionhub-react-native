@@ -2,7 +2,6 @@ import React from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
