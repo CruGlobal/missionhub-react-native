@@ -1,7 +1,6 @@
 /* eslint complexity: 0 */
 
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -12,7 +11,27 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
 import ItemHeaderText from '../ItemHeaderText';
 
+import { AuthState } from '../../reducers/auth';
+import { StagesState } from '../../reducers/stages';
+import { PersonProfileState } from '../../reducers/personProfile';
+import { Person } from '../../reducers/people';
+import { OrganizationsState } from '../../reducers/organizations';
+
 import styles from './styles';
+
+interface GroupMemberItemProps {
+  onSelect: (person: Person) => void;
+  person: Person;
+  personOrgPermission: any;
+  stagesObj: any;
+  me: any;
+  organization: any;
+  iAmAdmin: boolean;
+  iAmOwner: boolean;
+  personIsOwner: boolean;
+  personIsAdmin: boolean;
+  isUserCreatedOrg: boolean;
+}
 
 const GroupMemberItem = ({
   onSelect,
@@ -26,7 +45,7 @@ const GroupMemberItem = ({
   personIsOwner,
   personIsAdmin,
   isUserCreatedOrg,
-}) => {
+}: GroupMemberItemProps) => {
   const { t } = useTranslation('groupItem');
 
   const handleSelect = () => {
@@ -48,7 +67,7 @@ const GroupMemberItem = ({
     }
   };
 
-  const renderUserCreatedDetails = isMe => {
+  const renderUserCreatedDetails = (isMe: boolean) => {
     let stage = null;
 
     const contactAssignments = person.reverse_contact_assignments || [];
@@ -56,7 +75,7 @@ const GroupMemberItem = ({
       stage = me.stage;
     } else if (stagesObj) {
       const contactAssignment = contactAssignments.find(
-        a => a.assigned_to.id === me.id,
+        (a: any) => a.assigned_to.id === me.id,
       );
       if (
         contactAssignment &&
@@ -67,7 +86,7 @@ const GroupMemberItem = ({
       }
     }
 
-    const permissionText = this.orgPermissionText();
+    const permissionText = orgPermissionText();
 
     return (
       <Fragment>
@@ -136,26 +155,25 @@ const GroupMemberItem = ({
   );
 };
 
-GroupMemberItem.propTypes = {
-  person: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    full_name: PropTypes.string.isRequired,
-    contact_count: PropTypes.number,
-    uncontacted_count: PropTypes.number,
-  }).isRequired,
-  organization: PropTypes.object.isRequired,
-  myOrgPermission: PropTypes.object.isRequired,
-  onSelect: PropTypes.func,
-};
-
 const mapStateToProps = (
-  { auth, stages },
-  { person, organization, myOrgPermission },
-) => {
-  const personOrgPermission = orgPermissionSelector(null, {
+  { auth, stages }: { auth: AuthState; stages: StagesState },
+  {
     person,
     organization,
-  });
+    myOrgPermission,
+  }: {
+    person: PersonProfileState;
+    organization: OrganizationsState;
+    myOrgPermission: any;
+  },
+) => {
+  const personOrgPermission = orgPermissionSelector(
+    {},
+    {
+      person,
+      organization,
+    },
+  );
 
   return {
     me: auth.person,
