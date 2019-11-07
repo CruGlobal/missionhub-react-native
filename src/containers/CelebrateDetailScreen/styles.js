@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  safeAreaContainer: {
+  pageContainer: {
     flex: 1,
     backgroundColor: theme.white,
   },

@@ -139,6 +139,7 @@ it('renders correctly with completed steps', () => {
 
   component
     .childAt(0)
+    .childAt(0)
     .childAt(1)
     .props()
     .onPress();
@@ -158,6 +159,7 @@ describe('renderItem', () => {
   it('renders row', () => {
     expect(
       component
+        .childAt(0)
         .childAt(0)
         .childAt(0)
         .props()
@@ -205,6 +207,7 @@ describe('handleComplete', () => {
 
   it('triggers complete step flow', async () => {
     await component
+      .childAt(0)
       .childAt(0)
       .childAt(0)
       .props()
