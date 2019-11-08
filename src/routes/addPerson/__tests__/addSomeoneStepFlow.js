@@ -187,16 +187,16 @@ describe('PersonSelectStepScreen next', () => {
   });
 
   it('should fire required next actions for suggested step', async () => {
-    await store.dispatch(next({ receiverId: personId, step }));
+    await store.dispatch(next({ personId, step }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
-      receiverId: personId,
+      personId,
     });
   });
 
   it('should fire required next actions for create step', async () => {
-    await store.dispatch(next({ receiverId: personId, step: undefined }));
+    await store.dispatch(next({ personId, step: undefined }));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
@@ -222,7 +222,7 @@ describe('SuggestedStepDetailScreen next', () => {
           state: {
             params: {
               step,
-              receiverId: myId,
+              personId: myId,
             },
           },
         }}
