@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { SafeAreaView, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 
 import { Flex, Button, IconButton } from '../common';
 

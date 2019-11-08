@@ -2,7 +2,6 @@
 
 import {
   CLEAR_UPGRADE_TOKEN,
-  FIRST_TIME,
   LOGOUT,
   UPDATE_STAGES,
   UPDATE_TOKEN,
@@ -11,21 +10,17 @@ import { userIsJean } from '../utils/common';
 import { getLocalizedStages } from '../utils/stages';
 import { REQUESTS } from '../api/routes';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AuthPerson = any;
+import { Person } from './people';
 
 export interface AuthState {
-  isFirstTime: boolean;
   token: string;
   refreshToken: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  person: AuthPerson; // TODO: use GraphQL type
+  person: Person;
   isJean: boolean;
-  upgradeToken: boolean | null;
+  upgradeToken: string | null;
 }
 
 const initialAuthState: AuthState = {
-  isFirstTime: false,
   token: '',
   refreshToken: '',
   person: { user: {} },
@@ -43,7 +38,6 @@ function authReducer(state = initialAuthState, action: any) {
         ...state,
         token: results.access_token,
         refreshToken: results.refresh_token,
-        isFirstTime: false,
       };
     case REQUESTS.KEY_REFRESH_TOKEN.SUCCESS:
       return {
@@ -58,7 +52,6 @@ function authReducer(state = initialAuthState, action: any) {
           ...state.person,
           id: `${results.person_id}`,
         },
-        isFirstTime: false,
       };
     case REQUESTS.FACEBOOK_LOGIN.SUCCESS:
       return {
@@ -68,12 +61,6 @@ function authReducer(state = initialAuthState, action: any) {
           ...state.person,
           id: `${results.person_id}`,
         },
-        isFirstTime: false,
-      };
-    case FIRST_TIME:
-      return {
-        ...state,
-        isFirstTime: true,
       };
     case REQUESTS.CREATE_MY_PERSON.SUCCESS:
       return {

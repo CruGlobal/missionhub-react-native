@@ -43,7 +43,7 @@ Object {
 `;
 
 exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -146,28 +146,35 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
           >
             STEPS OF FAITH
           </MyText>
-          <MyText
+          <View
             style={
               Object {
-                "color": "#505256",
-                "fontSize": 16,
                 "paddingHorizontal": 70,
                 "paddingVertical": 10,
-                "textAlign": "center",
               }
             }
           >
-            Choose a person in People view and add some new steps.
-          </MyText>
+            <MyText
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Choose a person in People view and add some new steps.
+            </MyText>
+          </View>
         </Flex>
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders loading screen correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -198,11 +205,11 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
   >
     <LoadingGuy />
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -358,11 +365,11 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with max reminders correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -545,11 +552,11 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with no focused steps and less than 4 unfocused steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -685,11 +692,11 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with no focused steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -834,11 +841,11 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -930,20 +937,37 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
           >
             STEPS OF FAITH
           </MyText>
-          <MyText
+          <View
             style={
               Object {
-                "color": "#505256",
-                "fontSize": 16,
                 "paddingHorizontal": 70,
                 "paddingVertical": 10,
-                "textAlign": "center",
               }
             }
           >
-            You don't have any Steps of Faith.
-Choose a person and add some new steps.
-          </MyText>
+            <MyText
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              You don't have any Steps of Faith.
+            </MyText>
+            <MyText
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Choose a person and add some new steps.
+            </MyText>
+          </View>
         </Flex>
       </ScrollViewMock>
       <BottomButton
@@ -952,5 +976,5 @@ Choose a person and add some new steps.
       />
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;

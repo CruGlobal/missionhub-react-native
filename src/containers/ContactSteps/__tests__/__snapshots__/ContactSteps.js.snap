@@ -13,105 +13,113 @@ exports[`renderItem renders row 1`] = `
 `;
 
 exports[`renders correctly with completed steps 1`] = `
-<SafeAreaView
-  flex={1}
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
 >
   <ScrollViewMock
     flex={1}
   >
-    <FlatList
-      data={
-        Array [
-          Object {
-            "id": "1",
-            "title": "Test Step",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
+    <View
       style={
         Object {
           "flex": 1,
+          "paddingBottom": 96,
           "paddingTop": 16,
         }
       }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#A0A2A6",
-          "fontSize": 14,
-          "letterSpacing": 1,
-          "lineHeight": 18,
+    >
+      <FlatList
+        data={
+          Array [
+            Object {
+              "id": "1",
+              "title": "Test Step",
+            },
+          ]
         }
-      }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-          "borderColor": "#A0A2A6",
-          "borderWidth": 1,
-          "height": 36,
-          "marginHorizontal": 68,
-          "marginVertical": 15,
-        }
-      }
-      text="HIDE COMPLETED STEPS"
-    />
-    <FlatList
-      data={
-        Array [
+        disableVirtualization={false}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+      <Button
+        buttonTextStyle={
           Object {
-            "completed_at": "time",
-            "id": "1",
-            "title": "Test Step",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
-      style={
-        Object {
-          "flex": 1,
-          "paddingBottom": 16,
+            "color": "#A0A2A6",
+            "fontSize": 14,
+            "letterSpacing": 1,
+            "lineHeight": 18,
+          }
         }
-      }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
+        onPress={[Function]}
+        pill={true}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderColor": "#A0A2A6",
+            "borderWidth": 1,
+            "height": 36,
+            "marginHorizontal": 68,
+            "marginVertical": 15,
+          }
+        }
+        text="HIDE COMPLETED STEPS"
+      />
+      <FlatList
+        data={
+          Array [
+            Object {
+              "completed_at": "time",
+              "id": "1",
+              "title": "Test Step",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+    </View>
   </ScrollViewMock>
   <BottomButton
     onPress={[Function]}
     text="Add a step of faith"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`renders correctly with no steps 1`] = `
-<SafeAreaView
-  flex={1}
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
 >
   <NullStateComponent
     content={null}
@@ -127,49 +135,58 @@ exports[`renders correctly with no steps 1`] = `
     onPress={[Function]}
     text="Add a step of faith"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`renders correctly with steps 1`] = `
-<SafeAreaView
-  flex={1}
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
 >
   <ScrollViewMock
     flex={1}
   >
-    <FlatList
-      data={
-        Array [
-          Object {
-            "id": "1",
-            "title": "Test Step",
-          },
-        ]
-      }
-      disableVirtualization={false}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onEndReachedThreshold={2}
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={50}
-      showsVerticalScrollIndicator={false}
+    <View
       style={
         Object {
           "flex": 1,
+          "paddingBottom": 96,
           "paddingTop": 16,
         }
       }
-      updateCellsBatchingPeriod={50}
-      windowSize={21}
-    />
+    >
+      <FlatList
+        data={
+          Array [
+            Object {
+              "id": "1",
+              "title": "Test Step",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+    </View>
   </ScrollViewMock>
   <BottomButton
     onPress={[Function]}
     text="Add a step of faith"
   />
-</SafeAreaView>
+</View>
 `;

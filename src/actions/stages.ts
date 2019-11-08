@@ -1,12 +1,18 @@
 import i18n from 'i18next';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { StagesState } from '../reducers/stages';
 
 import callApi from './api';
 
 export function getStagesIfNotExists() {
-  return (dispatch, getState) => {
+  return (
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    getState: () => { stages: StagesState },
+  ) => {
     const { stages } = getState().stages;
 
     const localeNotChanged =
@@ -24,9 +30,12 @@ export function getStagesIfNotExists() {
 }
 
 export function getStages() {
-  return dispatch => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (dispatch: ThunkDispatch<{}, {}, any>) => {
     return dispatch(
-      callApi(REQUESTS.GET_STAGES, { include: 'localized_pathway_stages' }),
+      callApi(REQUESTS.GET_STAGES, {
+        include: 'localized_pathway_stages',
+      }),
     );
   };
 }

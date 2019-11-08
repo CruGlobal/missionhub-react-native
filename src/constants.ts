@@ -3,7 +3,7 @@
 import Config from 'react-native-config';
 
 export const LOGOUT = 'app/LOGOUT';
-export const FIRST_TIME = 'app/FIRST_TIME';
+export type LogoutAction = { type: typeof LOGOUT };
 export const FIRST_NAME_CHANGED = 'app/FIRST_NAME_CHANGED';
 export const LAST_NAME_CHANGED = 'app/LAST_NAME_CHANGED';
 export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
@@ -32,10 +32,8 @@ export const RESET_STEP_COUNT = 'app/RESET_STEP_COUNT';
 export const UPDATE_STAGES = 'app/UPDATE_STAGES';
 export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
-export const STASH_COMMUNITY_TO_JOIN = 'app/STASH_COMMUNITY_TO_JOIN';
 export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const UPDATE_CHALLENGE = 'app/UPDATE_CHALLENGE';
-export const COMPLETE_ONBOARDING = 'app/COMPLETE_ONBOARDING';
 export const REQUEST_NOTIFICATIONS = 'app/REQUEST_NOTIFICATIONS';
 export const LOAD_HOME_NOTIFICATION_REMINDER =
   'app/LOAD_HOME_NOTIFICATION_REMINDER';

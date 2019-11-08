@@ -34,18 +34,16 @@ exports[`should render correctly 1`] = `
     }
   }
 >
-  <SafeAreaView>
-    <Header
-      right={
-        <IconButton
-          name="deleteIcon"
-          onPress={[Function]}
-          type="MissionHub"
-        />
-      }
-      title="Reported Comments"
-    />
-  </SafeAreaView>
+  <Header
+    right={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="Reported Comments"
+  />
   <FlatList
     contentContainerStyle={
       Object {
@@ -100,18 +98,16 @@ exports[`should render empty correctly 1`] = `
     }
   }
 >
-  <SafeAreaView>
-    <Header
-      right={
-        <IconButton
-          name="deleteIcon"
-          onPress={[Function]}
-          type="MissionHub"
-        />
-      }
-      title="Reported Comments"
-    />
-  </SafeAreaView>
+  <Header
+    right={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="Reported Comments"
+  />
   <NullStateComponent
     descriptionText="No comments have been reported."
     headerText="NO REPORTED COMMENTS"

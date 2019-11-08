@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -299,12 +298,11 @@ Let's figure out where you are on your journey.
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders without back button correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -514,5 +512,5 @@ Let's figure out where you are on your journey.
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

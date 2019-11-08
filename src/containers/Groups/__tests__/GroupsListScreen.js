@@ -189,7 +189,7 @@ describe('GroupsListScreen', () => {
   it('navigates to Upgrade Account Screen if not signed in', () => {
     const store = mockStore({
       organizations,
-      auth: { isFirstTime: true },
+      auth: { upgradeToken: 'some-upgrade-token' },
       swipe,
     });
 

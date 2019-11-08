@@ -3,10 +3,9 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import {
-  createMaterialTopTabNavigator,
-  NavigationActions,
-} from 'react-navigation';
+// eslint-disable-next-line import/named
+import { NavigationActions } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import ViewOverflow from 'react-native-view-overflow';
 
 import { Flex, Touchable } from '../common';

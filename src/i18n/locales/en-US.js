@@ -181,7 +181,7 @@ export default {
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
-  setup: {
+  onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
   },
@@ -436,8 +436,10 @@ export default {
   stepsTab: {
     nullHeader: 'STEPS OF FAITH',
     nullWithReminders: 'Choose a person in People view and add some new steps.',
-    nullNoReminders:
-      "You don't have any Steps of Faith.\nChoose a person and add some new steps.",
+    nullNoReminders: {
+      part1: "You don't have any Steps of Faith.",
+      part2: 'Choose a person and add some new steps.',
+    },
     title: 'Steps of Faith',
     reminderTitle: 'Focus your week',
     reminderDescription:

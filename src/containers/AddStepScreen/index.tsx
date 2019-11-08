@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
-import { StatusBar, SafeAreaView, Keyboard, Alert, View } from 'react-native';
+import { StatusBar, Keyboard, Alert, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam, useNavigation } from 'react-navigation-hooks';
@@ -104,7 +104,7 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header
         left={<BackButton iconStyle={styles.backButtonStyle} />}
         right={
@@ -136,7 +136,7 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
         text={buttonText}
         testID="saveStepButton"
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

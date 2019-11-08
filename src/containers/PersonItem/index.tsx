@@ -20,8 +20,9 @@ import {
 import { navToPersonScreen } from '../../actions/person';
 import { hasOrgPermissions, orgIsCru } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
-import { AuthPerson, AuthState } from '../../reducers/auth';
+import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
@@ -30,7 +31,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 interface PersonItemProps {
   person: PersonAttributes;
   organization?: Organization;
-  me: AuthPerson;
+  me: Person;
   stagesObj: StagesObj;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
@@ -96,20 +97,16 @@ const PersonItem = ({
     dispatch(navigateToAddStepFlow(isMe, person, organization));
 
   const renderStageIcon = () => {
-    return stage ? (
-      <Touchable
-        testID="stageIcon"
-        style={styles.stageButtonWrapper}
-        onPress={handleChangeStage}
-      >
-        <Image
-          style={styles.image}
-          resizeMode={'contain'}
-          source={stageIcons[stage.id - 1]}
-        />
-      </Touchable>
-    ) : (
-      <View style={styles.stageEmptyWrapper} />
+    return (
+      <View style={styles.stageIconWrapper}>
+        {stage ? (
+          <Image
+            style={styles.image}
+            resizeMode={'contain'}
+            source={stageIcons[stage.id - 1]}
+          />
+        ) : null}
+      </View>
     );
   };
 

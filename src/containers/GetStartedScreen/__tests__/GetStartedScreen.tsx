@@ -12,13 +12,8 @@ jest.mock('react-native-device-info');
 jest.mock('../../../utils/common');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
 
-const id = '1';
-
 const initialState = {
-  profile: {
-    id,
-    firstName: 'Roger',
-  },
+  auth: { person: { first_name: 'Roger' } },
 };
 const next = jest.fn();
 const back = jest.fn();
@@ -55,7 +50,7 @@ it('navigates to next screen', () => {
 
   fireEvent.press(getByTestId('bottomButton'));
 
-  expect(next).toHaveBeenCalledWith({ id });
+  expect(next).toHaveBeenCalledWith();
   expect(store.getActions()).toEqual([nextResult]);
 });
 

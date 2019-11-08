@@ -50,9 +50,10 @@ exports[`Members renderHeader match snapshot 1`] = `
 `;
 
 exports[`Members should render correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
@@ -64,6 +65,11 @@ exports[`Members should render correctly 1`] = `
       />
     }
     ListHeaderComponent={[Function]}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 90,
+      }
+    }
     data={
       Array [
         Object {
@@ -99,12 +105,6 @@ exports[`Members should render correctly 1`] = `
     removeClippedSubviews={false}
     renderItem={[Function]}
     scrollEventThrottle={50}
-    style={
-      Object {
-        "backgroundColor": "#ECEEF2",
-        "flex": 1,
-      }
-    }
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
@@ -112,5 +112,5 @@ exports[`Members should render correctly 1`] = `
     onPress={[Function]}
     text="Send Invite"
   />
-</SafeAreaView>
+</View>
 `;

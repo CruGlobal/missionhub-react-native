@@ -5,7 +5,6 @@ import {
   Keyboard,
   Image,
   KeyboardAvoidingView,
-  SafeAreaView,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
@@ -112,7 +111,7 @@ class CreateGroupScreen extends Component {
     const { name, isCreatingCommunity } = this.state;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={
             <IconButton
@@ -123,45 +122,42 @@ class CreateGroupScreen extends Component {
           }
           title={t('createCommunity')}
         />
-        <View style={{ flex: 1 }}>
-          <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
-            <ImagePicker onSelectImage={this.handleImageChange}>
-              <Flex align="center" justify="center" style={styles.imageWrap}>
-                {this.renderImage()}
-              </Flex>
-            </ImagePicker>
+        <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
+          <ImagePicker onSelectImage={this.handleImageChange}>
+            <Flex align="center" justify="center" style={styles.imageWrap}>
+              {this.renderImage()}
+            </Flex>
+          </ImagePicker>
 
-            <KeyboardAvoidingView
-              keyboardVerticalOffset={theme.buttonHeight}
-              style={styles.flex}
-            >
-              <Flex style={styles.fieldWrap}>
-                <Text style={styles.label} header={true}>
-                  {t('name')}
-                </Text>
-                <Input
-                  ref={this.ref}
-                  onChangeText={this.onChangeText}
-                  value={name}
-                  autoFocus={true}
-                  autoCorrect={true}
-                  selectionColor={theme.white}
-                  returnKeyType="done"
-                  style={styles.input}
-                  blurOnSubmit={true}
-                  placeholder=""
-                />
-              </Flex>
-            </KeyboardAvoidingView>
-          </ScrollView>
-
-          <BottomButton
-            disabled={!name || isCreatingCommunity}
-            onPress={this.createCommunity}
-            text={t('createCommunity')}
-          />
-        </View>
-      </SafeAreaView>
+          <KeyboardAvoidingView
+            keyboardVerticalOffset={theme.buttonHeight}
+            style={styles.flex}
+          >
+            <Flex style={styles.fieldWrap}>
+              <Text style={styles.label} header={true}>
+                {t('name')}
+              </Text>
+              <Input
+                ref={this.ref}
+                onChangeText={this.onChangeText}
+                value={name}
+                autoFocus={true}
+                autoCorrect={true}
+                selectionColor={theme.white}
+                returnKeyType="done"
+                style={styles.input}
+                blurOnSubmit={true}
+                placeholder=""
+              />
+            </Flex>
+          </KeyboardAvoidingView>
+        </ScrollView>
+        <BottomButton
+          disabled={!name || isCreatingCommunity}
+          onPress={this.createCommunity}
+          text={t('createCommunity')}
+        />
+      </View>
     );
   }
 }

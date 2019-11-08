@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
-import { SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
@@ -200,10 +200,10 @@ const ContactSteps = ({
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       {steps.length > 0 || !hideCompleted ? renderSteps() : renderNull()}
       <BottomButton onPress={handleCreateStep} text={t('addStep')} />
-    </SafeAreaView>
+    </View>
   );
 };
 

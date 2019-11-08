@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { NavigationActions, StackActions } from 'react-navigation';
 
 import { MAIN_TABS, STEPS_TAB } from '../constants';

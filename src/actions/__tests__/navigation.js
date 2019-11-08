@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 
 import {

@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime } from '../../actions/auth/userData';
 import { Button, Text } from '../../components/common';
 import {
   FULL_ONBOARDING_FLOW,
@@ -37,7 +36,6 @@ const LandingScreen = ({
   const { t } = useTranslation('landing');
 
   const tryItNow = () => {
-    dispatch(firstTime());
     dispatch(navigatePush(FULL_ONBOARDING_FLOW));
   };
 
@@ -50,7 +48,7 @@ const LandingScreen = ({
   };
 
   return (
-    <SafeAreaView style={container}>
+    <View style={container}>
       <View style={imageWrap}>
         <Image source={LOGO} />
       </View>
@@ -73,7 +71,7 @@ const LandingScreen = ({
             buttonTextStyle={buttonText}
           />
         </View>
-        <View style={signInWrap}>
+        <SafeAreaView style={signInWrap}>
           <Text style={memberText}>{t('member').toUpperCase()}</Text>
           <Button
             testID={'signInButton'}
@@ -82,9 +80,9 @@ const LandingScreen = ({
             onPress={signIn}
             buttonTextStyle={[buttonText, signInBtnText]}
           />
-        </View>
+        </SafeAreaView>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-import { firstTime } from '../../../actions/auth/userData';
 import {
   FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
@@ -18,8 +17,6 @@ jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigate push' }),
 }));
 
-firstTime.mockReturnValue({ type: 'first time' });
-
 it('renders correctly', () => {
   renderWithContext(<LandingScreen />).snapshot();
 });
@@ -29,7 +26,6 @@ describe('a button is clicked', () => {
     const { getByTestId } = renderWithContext(<LandingScreen />);
     fireEvent.press(getByTestId('tryItNowButton'));
 
-    expect(firstTime).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(FULL_ONBOARDING_FLOW);
   });
 
