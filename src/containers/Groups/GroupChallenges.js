@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
@@ -17,6 +17,8 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
+
+import styles from './styles';
 
 @withTranslation('groupsChallenge')
 class GroupChallenges extends Component {
@@ -62,23 +64,24 @@ class GroupChallenges extends Component {
     const { refreshing } = this.state;
     const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
+    const canCreate = isAdminOrOwner(myOrgPermissions);
+
     return (
-      <>
-        <View style={{ flex: 1 }}>
+      <View flex={1}>
+        <View style={styles.cardList}>
           <ChallengeFeed
             organization={organization}
             items={challengeItems}
             loadMoreItemsCallback={this.loadItems}
             refreshCallback={this.refreshItems}
             refreshing={refreshing}
+            extraPadding={canCreate}
           />
         </View>
-        {isAdminOrOwner(myOrgPermissions) ? (
-          <SafeAreaView>
-            <BottomButton onPress={this.create} text={t('create')} />
-          </SafeAreaView>
+        {canCreate ? (
+          <BottomButton onPress={this.create} text={t('create')} />
         ) : null}
-      </>
+      </View>
     );
   }
 }

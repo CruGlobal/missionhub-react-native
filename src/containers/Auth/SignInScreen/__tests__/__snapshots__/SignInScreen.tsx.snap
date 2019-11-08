@@ -173,13 +173,14 @@ exports[`key login button is pressed shows email verification required message a
 - First value
 + Second value
 
-@@ -6,10 +6,31 @@
+@@ -6,10 +6,32 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
     }
   >
-+   <View
++   <RCTSafeAreaView
++     emulateUnlessSupported={true}
 +     style={
 +       Object {
 +         \\"alignItems\\": \\"center\\",
@@ -199,13 +200,13 @@ exports[`key login button is pressed shows email verification required message a
 +     >
 +       Verify your account via Email
 +     </Text>
-+   </View>
++   </RCTSafeAreaView>
     <Header
       left={<BackButton />}
     />
     <Flex
       align=\\"center\\"
-@@ -54,11 +75,11 @@
+@@ -54,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -218,7 +219,7 @@ exports[`key login button is pressed shows email verification required message a
       <View
         style={
           Object {
-@@ -82,11 +103,11 @@
+@@ -82,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -231,7 +232,7 @@ exports[`key login button is pressed shows email verification required message a
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +128,36 @@
+@@ -107,69 +129,36 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -276,9 +277,8 @@ exports[`key login button is pressed shows email verification required message a
               \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
-+             \\"width\\": 650,
-            }
-          }
+-         }
+-       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -290,8 +290,9 @@ exports[`key login button is pressed shows email verification required message a
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"
@@ -322,13 +323,14 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,31 @@
+@@ -6,10 +6,32 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
     }
   >
-+   <View
++   <RCTSafeAreaView
++     emulateUnlessSupported={true}
 +     style={
 +       Object {
 +         \\"alignItems\\": \\"center\\",
@@ -348,13 +350,13 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     >
 +       Your Email or Password is Incorrect
 +     </Text>
-+   </View>
++   </RCTSafeAreaView>
     <Header
       left={<BackButton />}
     />
     <Flex
       align=\\"center\\"
-@@ -54,11 +75,11 @@
+@@ -54,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -367,7 +369,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -82,11 +103,11 @@
+@@ -82,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -380,7 +382,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +128,36 @@
+@@ -107,69 +129,36 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -425,9 +427,8 @@ exports[`key login button is pressed shows invalid credentials message and track
               \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
-+             \\"width\\": 650,
-            }
-          }
+-         }
+-       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -439,8 +440,9 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"
@@ -471,13 +473,14 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -6,10 +6,31 @@
+@@ -6,10 +6,32 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
     }
   >
-+   <View
++   <RCTSafeAreaView
++     emulateUnlessSupported={true}
 +     style={
 +       Object {
 +         \\"alignItems\\": \\"center\\",
@@ -497,13 +500,13 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     >
 +       Your Email or Password is Incorrect
 +     </Text>
-+   </View>
++   </RCTSafeAreaView>
     <Header
       left={<BackButton />}
     />
     <Flex
       align=\\"center\\"
-@@ -54,11 +75,11 @@
+@@ -54,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -516,7 +519,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -82,11 +103,11 @@
+@@ -82,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -529,7 +532,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +128,36 @@
+@@ -107,69 +129,36 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -574,9 +577,8 @@ exports[`key login button is pressed shows invalid credentials message and track
               \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
-+             \\"width\\": 650,
-            }
-          }
+-         }
+-       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -588,8 +590,9 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"

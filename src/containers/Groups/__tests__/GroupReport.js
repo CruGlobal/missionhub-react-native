@@ -80,7 +80,6 @@ it('should call navigate back', () => {
   );
   component
     .childAt(0)
-    .childAt(0)
     .props()
     .right.props.onPress();
   expect(navigateBack).toHaveBeenCalled();

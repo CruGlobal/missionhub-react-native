@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusReasonScreen should render correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -64,5 +64,5 @@ exports[`StatusReasonScreen should render correctly 1`] = `
       value=""
     />
   </Flex>
-</SafeAreaView>
+</View>
 `;
