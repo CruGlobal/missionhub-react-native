@@ -58,6 +58,7 @@ const AcceptedStepDetailScreen = ({
         </View>
         {reminder ? (
           <Button
+            testID="removeReminderButton"
             onPress={handleRemoveReminder}
             style={styles.cancelIconButton}
           >
@@ -74,6 +75,7 @@ const AcceptedStepDetailScreen = ({
       CenterHeader={null}
       RightHeader={
         <Button
+          testID="removeStepButton"
           type="transparent"
           text={t('removeStep').toUpperCase()}
           onPress={handleRemoveStep}

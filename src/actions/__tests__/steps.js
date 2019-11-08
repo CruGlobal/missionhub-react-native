@@ -459,7 +459,7 @@ describe('create custom step', () => {
   });
 });
 
-describe('complete challenge', () => {
+describe('complete step', () => {
   const stepId = 34556;
   const stepOrgId = '555';
   const step = {
@@ -556,12 +556,6 @@ describe('complete challenge', () => {
           id: stepId,
           onSetComplete: expect.any(Function),
           orgId: stepOrgId,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
         },
       },
       trackActionResult,
@@ -608,12 +602,6 @@ describe('complete challenge', () => {
           id: stepId,
           onSetComplete: expect.any(Function),
           orgId: null,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
         },
       },
       trackActionResult,
