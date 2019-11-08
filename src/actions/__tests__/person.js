@@ -326,7 +326,7 @@ describe('makeAdmin', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       {
-        personId: personId,
+        personId,
         include: expectedIncludeWithContactAssignmentPerson,
       },
       {
@@ -362,7 +362,7 @@ describe('removeAsAdmin', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       {
-        personId: personId,
+        personId,
         include: expectedIncludeWithContactAssignmentPerson,
       },
       {
@@ -399,7 +399,7 @@ describe('updateOrgPermission', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       {
-        personId: personId,
+        personId,
         include: expectedIncludeWithContactAssignmentPerson,
       },
       {
@@ -434,7 +434,7 @@ describe('archiveOrgPermission', () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_PERSON,
       {
-        personId: personId,
+        personId,
         include: expectedIncludeWithContactAssignmentPerson,
       },
       {

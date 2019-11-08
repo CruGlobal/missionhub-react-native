@@ -368,7 +368,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
             contactStageId="3"
             onPressCreateStep={[Function]}
             onPressStep={[Function]}
-            receiverId="252342354234"
+            personId="252342354234"
           />
         </View>
         <View
@@ -928,7 +928,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
             contactStageId="3"
             onPressCreateStep={[Function]}
             onPressStep={[Function]}
-            receiverId="252342354234"
+            personId="252342354234"
           />
         </View>
         <View
