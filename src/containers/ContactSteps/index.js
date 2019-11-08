@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -169,7 +169,6 @@ class ContactSteps extends Component {
     return (
       <FlatList
         ref={this.ref}
-        style={styles.topList}
         data={data}
         keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
@@ -181,7 +180,6 @@ class ContactSteps extends Component {
   renderCompletedList(data) {
     return (
       <FlatList
-        style={styles.bottomList}
         data={data}
         keyExtractor={keyExtractorId}
         renderItem={this.renderRow}
@@ -196,9 +194,11 @@ class ContactSteps extends Component {
 
     return (
       <ScrollView flex={1}>
-        {this.renderList(steps)}
-        {this.renderCompletedStepsButton()}
-        {hideCompleted ? null : this.renderCompletedList(completedSteps)}
+        <View style={styles.list}>
+          {this.renderList(steps)}
+          {this.renderCompletedStepsButton()}
+          {hideCompleted ? null : this.renderCompletedList(completedSteps)}
+        </View>
       </ScrollView>
     );
   }
@@ -221,12 +221,12 @@ class ContactSteps extends Component {
     const { t, steps } = this.props;
     const { hideCompleted } = this.state;
     return (
-      <SafeAreaView flex={1}>
+      <View style={styles.container}>
         {steps.length > 0 || !hideCompleted
           ? this.renderSteps()
           : this.renderNull()}
         <BottomButton onPress={this.handleCreateStep} text={t('addStep')} />
-      </SafeAreaView>
+      </View>
     );
   }
 }

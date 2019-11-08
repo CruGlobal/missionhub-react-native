@@ -1,4 +1,6 @@
-import { createStackNavigator, StackActions } from 'react-navigation';
+// eslint-disable-next-line import/named
+import { StackActions } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';

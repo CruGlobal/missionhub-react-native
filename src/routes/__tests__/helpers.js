@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+// eslint-disable-next-line import/named
 import { StackActions } from 'react-navigation';
 
 import {

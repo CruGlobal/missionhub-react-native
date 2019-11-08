@@ -10,6 +10,7 @@ export default StyleSheet.create({
     borderTopWidth: theme.separatorHeight,
     paddingTop: 5,
     paddingBottom: 5,
+    flexDirection: 'column',
   },
   actionSelectionWrap: {
     backgroundColor: theme.primaryColor,

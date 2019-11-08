@@ -73,7 +73,11 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={Object {}}
+  organization={
+    Object {
+      "id": undefined,
+    }
+  }
 />
 `;
 
@@ -93,14 +97,17 @@ exports[`SelectStageScreen renders correctly 1`] = `
     }
   }
   next={[Function]}
+  stages={Array []}
 />
 `;
 
 exports[`SetupPersonScreen next renders correctly 1`] = `
-<SetupPersonScreen
+<SetupScreen
   dispatch={[Function]}
-  myId="123"
+  isMe={false}
+  loadedFirstName="Someone"
   next={[Function]}
+  personId="321"
 />
 `;
 

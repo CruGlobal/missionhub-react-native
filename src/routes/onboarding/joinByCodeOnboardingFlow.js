@@ -1,14 +1,14 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
-import { firstTime, loadHome } from '../../actions/auth/userData';
+import { loadHome } from '../../actions/auth/userData';
 import {
-  completeOnboarding,
-  stashCommunityToJoin,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../../actions/onboardingProfile';
+  setOnboardingCommunity,
+  skipOnboardingAddPerson,
+} from '../../actions/onboarding';
 import { showReminderOnLoad } from '../../actions/notifications';
 import JoinGroupScreen, {
   JOIN_GROUP_SCREEN,
@@ -23,7 +23,7 @@ import SetupScreen from '../../containers/SetupScreen';
 export const JoinByCodeOnboardingFlowScreens = {
   [JOIN_GROUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(JoinGroupScreen, ({ community }) => dispatch => {
-      dispatch(stashCommunityToJoin({ community }));
+      dispatch(setOnboardingCommunity(community));
       dispatch(navigatePush(WELCOME_SCREEN));
     }),
     buildTrackingObj('communities : join', 'communities', 'join'),
@@ -34,16 +34,21 @@ export const JoinByCodeOnboardingFlowScreens = {
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(SetupScreen, () => async dispatch => {
-      dispatch(firstTime());
-      dispatch(completeOnboarding());
-      await dispatch(joinStashedCommunity());
-      await dispatch(
-        showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-      );
-      await dispatch(loadHome());
-      dispatch(landOnStashedCommunityScreen());
-    }),
+    wrapNextAction(
+      SetupScreen,
+      () => async dispatch => {
+        dispatch(skipOnboardingAddPerson());
+        await dispatch(joinStashedCommunity());
+        await dispatch(
+          showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+        );
+        await dispatch(loadHome());
+        dispatch(landOnStashedCommunityScreen());
+      },
+      {
+        isMe: true,
+      },
+    ),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
 };

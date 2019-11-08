@@ -34,8 +34,9 @@ const trackingObj = buildTrackingObj(
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
-  personProfile: { id: '1', personFirstName: otherName },
+  onboarding: { personId: otherId },
   people: { allByOrg: { [otherId]: { id: otherId } } },
+  organizations: { all: [] },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
@@ -96,10 +97,8 @@ describe('PersonSelectStepScreen next', () => {
       await buildAndCallNext(
         PERSON_SELECT_STEP_SCREEN,
         {
-          contactStage: stage,
-          contactId: otherId,
-          organization: { id: orgId },
-          contactName: otherName,
+          personId: otherId,
+          orgId,
         },
         { receiverId: otherId, step: undefined, orgId },
       );

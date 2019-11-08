@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ScrollView, FlatList, SafeAreaView } from 'react-native';
+import { ScrollView, FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
@@ -40,14 +40,14 @@ import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 const GroupsListScreen = ({
   dispatch,
   orgs,
-  isFirstTime,
+  isAnonymousUser,
   scrollToId,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orgs: any[];
-  isFirstTime?: boolean;
+  isAnonymousUser: boolean;
   scrollToId?: string | number | null;
 }) => {
   const { t } = useTranslation('groupsList');
@@ -97,7 +97,7 @@ const GroupsListScreen = ({
   const create = () => {
     dispatch(
       navigatePush(
-        isFirstTime
+        isAnonymousUser
           ? CREATE_COMMUNITY_UNAUTHENTICATED_FLOW
           : CREATE_GROUP_SCREEN,
       ),
@@ -109,7 +109,7 @@ const GroupsListScreen = ({
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.primaryColor }}>
+    <View style={{ flex: 1, backgroundColor: theme.primaryColor }}>
       <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
@@ -165,7 +165,7 @@ const GroupsListScreen = ({
           />
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -179,7 +179,7 @@ const mapStateToProps = ({
   swipe: SwipeState;
 }) => ({
   orgs: communitiesSelector({ organizations, auth }),
-  isFirstTime: auth.isFirstTime,
+  isAnonymousUser: !!auth.upgradeToken,
   scrollToId: swipe.groupScrollToId,
 });
 

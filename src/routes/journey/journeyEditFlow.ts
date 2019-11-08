@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { wrapNextAction } from '../helpers';
