@@ -1,8 +1,13 @@
+// eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 
 import nav from '../nav';
 import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
+
+jest.mock('../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 describe('navReducer', () => {
   it('should get state for nav action', () => {

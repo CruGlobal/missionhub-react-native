@@ -126,6 +126,11 @@ export default {
     message:
       "It's been a while since you've signed in.\nPlease sign in so we know it's you.",
   },
+  goBackAlert: {
+    title: 'Go back?',
+    description: 'You will lose any info you have entered and be logged out',
+    action: 'Go Back',
+  },
   settingsMenu: {
     about: 'About',
     help: 'Help',
@@ -176,14 +181,9 @@ export default {
     welcomeDescription:
       'Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.',
   },
-  setup: {
+  onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    goBackAlert: {
-      title: 'Go back?',
-      description: 'You will lose any info you have entered and be logged out',
-      action: 'Go Back',
-    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -217,7 +217,10 @@ export default {
     monthly: 'Monthly',
   },
   selectStep: {
-    meHeader: 'How do you want to move forward on your spiritual journey?',
+    meHeader: {
+      part1: 'How do you want to move',
+      part2: 'forward on your spiritual journey?',
+    },
     personHeader: {
       part1: 'Choose a step of faith',
       part2: ' to take with {{name}} this week...',
@@ -433,8 +436,10 @@ export default {
   stepsTab: {
     nullHeader: 'STEPS OF FAITH',
     nullWithReminders: 'Choose a person in People view and add some new steps.',
-    nullNoReminders:
-      "You don't have any Steps of Faith.\nChoose a person to view and add some new steps.",
+    nullNoReminders: {
+      part1: "You don't have any Steps of Faith.",
+      part2: 'Choose a person and add some new steps.',
+    },
     title: 'Steps of Faith',
     reminderTitle: 'Focus your week',
     reminderDescription:

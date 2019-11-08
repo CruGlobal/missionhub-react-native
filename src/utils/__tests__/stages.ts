@@ -1,6 +1,7 @@
 import i18next from 'i18next';
 
 import { getLocalizedStages } from '../stages';
+import { Stage } from '../../reducers/stages';
 
 const locale = 'en_TEST';
 i18next.language = locale;
@@ -36,7 +37,7 @@ const stage2 = {
 };
 
 it('replaces stage text data with localized text', () => {
-  const stages = [stage1, stage2];
+  const stages = ([stage1, stage2] as unknown) as Stage[];
 
   expect(getLocalizedStages(stages)).toEqual([
     {
@@ -44,6 +45,7 @@ it('replaces stage text data with localized text', () => {
       name: localizedStage1.name,
       description: localizedStage1.description,
       self_followup_description: localizedStage1.self_followup_description,
+      locale,
       localized_pathway_stages: stage1.localized_pathway_stages,
     },
     {
@@ -51,22 +53,23 @@ it('replaces stage text data with localized text', () => {
       name: localizedStage2.name,
       description: localizedStage2.description,
       self_followup_description: localizedStage2.self_followup_description,
+      locale,
       localized_pathway_stages: stage2.localized_pathway_stages,
     },
   ]);
 });
 
 it('does not replace stage text data if there are no localized stages', () => {
-  const stages = [
+  const stages = ([
     { ...stage1, localized_pathway_stages: [] },
     { ...stage2, localized_pathway_stages: [] },
-  ];
+  ] as unknown) as Stage[];
 
   expect(getLocalizedStages(stages)).toEqual(stages);
 });
 
 it('does not replace stage text data if localized stages are not the right locale', () => {
-  const stages = [
+  const stages = ([
     {
       ...stage1,
       localized_pathway_stages: [{ ...localizedStage1, locale: 'trk' }],
@@ -75,7 +78,7 @@ it('does not replace stage text data if localized stages are not the right local
       ...stage2,
       localized_pathway_stages: [{ ...localizedStage2, locale: 'trk' }],
     },
-  ];
+  ] as unknown) as Stage[];
 
   expect(getLocalizedStages(stages)).toEqual(stages);
 });

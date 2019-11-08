@@ -21,7 +21,6 @@ jest.mock('../../../utils/common');
 const myId = '1';
 const otherId = '2';
 const stageId = '3';
-const stageIndex = 2;
 
 const mockStages = {
   [stageId]: {
@@ -224,48 +223,6 @@ describe('handleChangeStage', () => {
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
-
-    it('navigates to my stage screen by pressing text', () => {
-      const { getByTestId, store } = renderWithContext(
-        <PersonItem
-          person={(mePerson as unknown) as PersonAttributes}
-          organization={mockOrganization}
-        />,
-        { initialState: mockState },
-      );
-
-      fireEvent.press(getByTestId('stageText'));
-
-      expect(navigateToStageScreen).toHaveBeenCalledWith(
-        true,
-        mePerson,
-        {},
-        mockOrganization,
-        stageIndex,
-      );
-      expect(store.getActions()).toEqual([navigateToStageScreenResult]);
-    });
-
-    it('navigates to my stage screen by pressing icon', () => {
-      const { getByTestId, store } = renderWithContext(
-        <PersonItem
-          person={(mePerson as unknown) as PersonAttributes}
-          organization={mockOrganization}
-        />,
-        { initialState: mockState },
-      );
-
-      fireEvent.press(getByTestId('stageIcon'));
-
-      expect(navigateToStageScreen).toHaveBeenCalledWith(
-        true,
-        mePerson,
-        {},
-        mockOrganization,
-        stageIndex,
-      );
-      expect(store.getActions()).toEqual([navigateToStageScreenResult]);
-    });
   });
 
   describe('not isMe', () => {
@@ -291,48 +248,6 @@ describe('handleChangeStage', () => {
         mockContactAssignmentNoStage,
         mockOrganization,
         undefined,
-      );
-      expect(store.getActions()).toEqual([navigateToStageScreenResult]);
-    });
-
-    it('navigates to person stage screen by pressing text', () => {
-      const { getByTestId, store } = renderWithContext(
-        <PersonItem
-          person={(mockPerson as unknown) as PersonAttributes}
-          organization={mockOrganization}
-        />,
-        { initialState: mockState },
-      );
-
-      fireEvent.press(getByTestId('stageText'));
-
-      expect(navigateToStageScreen).toHaveBeenCalledWith(
-        false,
-        mockPerson,
-        mockContactAssignment,
-        mockOrganization,
-        stageIndex,
-      );
-      expect(store.getActions()).toEqual([navigateToStageScreenResult]);
-    });
-
-    it('navigates to person stage screen by pressing icon', () => {
-      const { getByTestId, store } = renderWithContext(
-        <PersonItem
-          person={(mockPerson as unknown) as PersonAttributes}
-          organization={mockOrganization}
-        />,
-        { initialState: mockState },
-      );
-
-      fireEvent.press(getByTestId('stageIcon'));
-
-      expect(navigateToStageScreen).toHaveBeenCalledWith(
-        false,
-        mockPerson,
-        mockContactAssignment,
-        mockOrganization,
-        stageIndex,
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });

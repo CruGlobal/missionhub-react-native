@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { ADD_SOMEONE_SCREEN } from '../../containers/AddSomeoneScreen';
 
@@ -6,7 +6,6 @@ import { onboardingFlowGenerator } from './onboardingFlowGenerator';
 
 export const AddSomeoneOnboardingFlowScreens = onboardingFlowGenerator({
   startScreen: ADD_SOMEONE_SCREEN,
-  enableBackButton: false,
 });
 
 export const AddSomeoneOnboardingFlowNavigator = createStackNavigator(

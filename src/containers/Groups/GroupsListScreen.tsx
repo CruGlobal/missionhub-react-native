@@ -40,14 +40,14 @@ import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
 const GroupsListScreen = ({
   dispatch,
   orgs,
-  isFirstTime,
+  isAnonymousUser,
   scrollToId,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orgs: any[];
-  isFirstTime?: boolean;
+  isAnonymousUser: boolean;
   scrollToId?: string | number | null;
 }) => {
   const { t } = useTranslation('groupsList');
@@ -97,7 +97,7 @@ const GroupsListScreen = ({
   const create = () => {
     dispatch(
       navigatePush(
-        isFirstTime
+        isAnonymousUser
           ? CREATE_COMMUNITY_UNAUTHENTICATED_FLOW
           : CREATE_GROUP_SCREEN,
       ),
@@ -179,7 +179,7 @@ const mapStateToProps = ({
   swipe: SwipeState;
 }) => ({
   orgs: communitiesSelector({ organizations, auth }),
-  isFirstTime: auth.isFirstTime,
+  isAnonymousUser: !!auth.upgradeToken,
   scrollToId: swipe.groupScrollToId,
 });
 

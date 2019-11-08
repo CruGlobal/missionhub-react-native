@@ -146,19 +146,26 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
           >
             STEPS OF FAITH
           </MyText>
-          <MyText
+          <View
             style={
               Object {
-                "color": "#505256",
-                "fontSize": 16,
                 "paddingHorizontal": 70,
                 "paddingVertical": 10,
-                "textAlign": "center",
               }
             }
           >
-            Choose a person in People view and add some new steps.
-          </MyText>
+            <MyText
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Choose a person in People view and add some new steps.
+            </MyText>
+          </View>
         </Flex>
       </ScrollViewMock>
     </View>
@@ -930,20 +937,37 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
           >
             STEPS OF FAITH
           </MyText>
-          <MyText
+          <View
             style={
               Object {
-                "color": "#505256",
-                "fontSize": 16,
                 "paddingHorizontal": 70,
                 "paddingVertical": 10,
-                "textAlign": "center",
               }
             }
           >
-            You don't have any Steps of Faith.
-Choose a person to view and add some new steps.
-          </MyText>
+            <MyText
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              You don't have any Steps of Faith.
+            </MyText>
+            <MyText
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Choose a person and add some new steps.
+            </MyText>
+          </View>
         </Flex>
       </ScrollViewMock>
       <BottomButton

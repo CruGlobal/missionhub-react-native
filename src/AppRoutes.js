@@ -2,11 +2,11 @@
 
 import React from 'react';
 import {
-  createBottomTabNavigator,
-  createDrawerNavigator,
   createStackNavigator,
   StackViewTransitionConfigs,
-} from 'react-navigation';
+} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
@@ -37,17 +37,9 @@ import AcceptedStepDetailScreen, {
 import CompletedStepDetailScreen, {
   COMPLETED_STEP_DETAIL_SCREEN,
 } from './containers/CompletedStepDetailScreen';
-import WelcomeScreen, { WELCOME_SCREEN } from './containers/WelcomeScreen';
-import SetupScreen, { SETUP_SCREEN } from './containers/SetupScreen';
-import GetStartedScreen, {
-  GET_STARTED_SCREEN,
-} from './containers/GetStartedScreen';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
 } from './containers/SelectStageScreen';
-import StageSuccessScreen, {
-  STAGE_SUCCESS_SCREEN,
-} from './containers/StageSuccessScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from './containers/AddSomeoneScreen';
@@ -57,9 +49,6 @@ import AddContactScreen, {
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from './containers/NotificationPrimerScreen';
-import SetupPersonScreen, {
-  SETUP_PERSON_SCREEN,
-} from './containers/SetupPersonScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from './containers/CelebrationScreen';
@@ -138,7 +127,7 @@ import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
 import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
-import { buildTrackedScreen, wrapNextScreen } from './routes/helpers';
+import { buildTrackedScreen } from './routes/helpers';
 import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,
   ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
@@ -291,7 +280,6 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
   },
   {
     contentComponent: SettingsMenu,
-    defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
     backBehavior: 'none', // We're handling it on our own
   },
 );
@@ -305,7 +293,6 @@ const buildPersonScreenRoute = screen =>
       {
         contentComponent: PersonSideMenu,
         drawerPosition: 'right',
-        defaultNavigationOptions: { drawerLockMode: 'locked-closed' },
         backBehavior: 'none', // We're handling it on our own
       },
     ),
@@ -338,26 +325,6 @@ const screens = {
     StepReminderScreen,
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
-  [WELCOME_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-    buildTrackingObj('onboarding : welcome', 'onboarding'),
-  ),
-  [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextScreen(SetupScreen, GET_STARTED_SCREEN),
-    buildTrackingObj('onboarding : name', 'onboarding'),
-  ),
-  [GET_STARTED_SCREEN]: buildTrackedScreen(
-    GetStartedScreen,
-    buildTrackingObj('onboarding : get started', 'onboarding'),
-  ),
-  [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-    StageSuccessScreen,
-    buildTrackingObj(
-      'onboarding : self : choose my steps',
-      'onboarding',
-      'self',
-    ),
-  ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
     SelectMyStepScreen,
     buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
@@ -378,15 +345,6 @@ const screens = {
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     AddContactScreen,
     buildTrackingObj('people : add person', 'people', 'add person'),
-  ),
-  [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    SetupPersonScreen,
-    buildTrackingObj(
-      'onboarding : add person : name',
-      'onboarding',
-      'add person',
-    ),
-    { gesturesEnabled: true },
   ),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
     NotificationPrimerScreen,

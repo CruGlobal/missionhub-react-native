@@ -58,7 +58,7 @@ exports[`renders correctly 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -201,7 +201,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Friend test
+        We are glad you are here, Test Fname!
       </Text>
     </View>
     <RCTSafeAreaView
@@ -216,7 +216,7 @@ exports[`renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -343,7 +343,7 @@ exports[`renders correctly with default state 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -486,7 +486,7 @@ exports[`renders correctly with default state 1`] = `
           ]
         }
       >
-        We are glad you are here, Friend!
+        We are glad you are here, Test Fname!
       </Text>
     </View>
     <RCTSafeAreaView
@@ -501,7 +501,7 @@ exports[`renders correctly with default state 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}

@@ -20,8 +20,9 @@ import {
 import { navToPersonScreen } from '../../actions/person';
 import { hasOrgPermissions, orgIsCru } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
-import { AuthPerson, AuthState } from '../../reducers/auth';
+import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
@@ -30,7 +31,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 interface PersonItemProps {
   person: PersonAttributes;
   organization?: Organization;
-  me: AuthPerson;
+  me: Person;
   stagesObj: StagesObj;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
@@ -96,20 +97,16 @@ const PersonItem = ({
     dispatch(navigateToAddStepFlow(isMe, person, organization));
 
   const renderStageIcon = () => {
-    return stage ? (
-      <Touchable
-        testID="stageIcon"
-        style={styles.image}
-        onPress={handleChangeStage}
-      >
-        <Image
-          style={styles.image}
-          resizeMode={'contain'}
-          source={stageIcons[stage.id - 1]}
-        />
-      </Touchable>
-    ) : (
-      <View style={styles.image} />
+    return (
+      <View style={styles.stageIconWrapper}>
+        {stage ? (
+          <Image
+            style={styles.image}
+            resizeMode={'contain'}
+            source={stageIcons[stage.id - 1]}
+          />
+        ) : null}
+      </View>
     );
   };
 
@@ -118,11 +115,15 @@ const PersonItem = ({
       <View style={styles.textWrapper}>
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
-          <Touchable testID="stageText" onPress={handleChangeStage}>
-            <Text style={[styles.stage, stage ? {} : styles.addStage]}>
-              {stage ? stage.name : t('peopleScreen:addStage')}
-            </Text>
-          </Touchable>
+          {stage ? (
+            <Text style={styles.stage}>{stage.name}</Text>
+          ) : (
+            <Touchable testID="stageText" onPress={handleChangeStage}>
+              <Text style={[styles.stage, styles.addStage]}>
+                {t('peopleScreen:addStage')}
+              </Text>
+            </Touchable>
+          )}
           {status ? (
             <View style={styles.textRow}>
               <Dot style={styles.stage} />
@@ -140,10 +141,22 @@ const PersonItem = ({
     //TODO: get count of steps for each contact
     const stepsCount = 0;
 
-    return (
+    return stepsCount > 0 ? (
+      <View style={styles.stepButtonWrapper}>
+        <Icon
+          type="MissionHub"
+          name="stepsIcon"
+          size={30}
+          style={styles.stepIcon}
+        />
+        <View style={styles.badge}>
+          <Text style={styles.badgeText}>{stepsCount}</Text>
+        </View>
+      </View>
+    ) : (
       <Touchable
         testID="stepIcon"
-        style={{ alignItems: 'center', justifyContent: 'center' }}
+        style={styles.stepButtonWrapper}
         onPress={handleAddStep}
       >
         <Icon
@@ -152,18 +165,12 @@ const PersonItem = ({
           size={30}
           style={styles.stepIcon}
         />
-        {stepsCount > 0 ? (
-          <View style={styles.badge}>
-            <Text style={styles.badgeText}>{stepsCount}</Text>
-          </View>
-        ) : (
-          <Icon
-            type="MissionHub"
-            name="plusIcon"
-            size={14}
-            style={styles.stepPlusIcon}
-          />
-        )}
+        <Icon
+          type="MissionHub"
+          name="plusIcon"
+          size={14}
+          style={styles.stepPlusIcon}
+        />
       </Touchable>
     );
   };

@@ -3,7 +3,7 @@
 exports[`renders touchable 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -27,7 +27,7 @@ exports[`renders touchable 1`] = `
 exports[`renders touchable highlight 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -49,7 +49,7 @@ exports[`renders touchable highlight 1`] = `
 exports[`renders touchable without feedback 1`] = `
 <Text
   accessible={true}
-  clickable={true}
+  focusable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}

@@ -146,7 +146,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       >
                         <View
                           accessible={true}
-                          clickable={true}
+                          focusable={true}
                           isTVSelectable={true}
                           onClick={[Function]}
                           onResponderGrant={[Function]}
@@ -227,7 +227,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                     >
                       <View
                         accessible={true}
-                        clickable={true}
+                        focusable={true}
                         isTVSelectable={true}
                         onClick={[Function]}
                         onResponderGrant={[Function]}
@@ -324,7 +324,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    H
+                    Header Text 1
                   </Text>
                   <Text
                     style={
@@ -347,7 +347,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    e
+                    Header Text 2
                   </Text>
                 </View>
               </View>
@@ -485,7 +485,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    clickable={true}
+                    focusable={true}
                     isTVSelectable={true}
                     onClick={[Function]}
                     onResponderGrant={[Function]}
@@ -566,7 +566,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
               >
                 <View
                   accessible={true}
-                  clickable={true}
+                  focusable={true}
                   isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
@@ -787,7 +787,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       >
                         <View
                           accessible={true}
-                          clickable={true}
+                          focusable={true}
                           isTVSelectable={true}
                           onClick={[Function]}
                           onResponderGrant={[Function]}
@@ -897,7 +897,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    H
+                    Header Text 1
                   </Text>
                   <Text
                     style={
@@ -920,7 +920,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    e
+                    Header Text 2
                   </Text>
                 </View>
               </View>
@@ -1058,7 +1058,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                 >
                   <View
                     accessible={true}
-                    clickable={true}
+                    focusable={true}
                     isTVSelectable={true}
                     onClick={[Function]}
                     onResponderGrant={[Function]}

@@ -7,9 +7,9 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
-import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import { ProfileState } from '../../reducers/profile';
+import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import Header from '../../components/Header';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
@@ -17,29 +17,34 @@ interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (props: { id: string | null }) => ThunkAction<void, any, null, never>;
-  id: string | null;
+  next: () => ThunkAction<void, any, null, never>;
   name: string;
   enableBackButton?: boolean;
+  logoutOnBack?: boolean;
 }
 
 const GetStartedScreen = ({
   dispatch,
   next,
-  id,
   name = '',
   enableBackButton = true,
+  logoutOnBack = false,
 }: GetStartedScreenProps) => {
-  useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('getStarted');
 
+  const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
+
   const navigateNext = () => {
-    dispatch(next({ id }));
+    dispatch(next());
   };
 
   return (
     <View style={styles.container}>
-      <Header left={enableBackButton ? <BackButton /> : null} />
+      <Header
+        left={
+          enableBackButton ? <BackButton customNavigate={handleBack} /> : null
+        }
+      />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
           <Text header={true} style={styles.headerTitle}>
@@ -55,9 +60,8 @@ const GetStartedScreen = ({
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
-  id: profile.id,
-  name: profile.firstName,
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+  name: auth.person.first_name,
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);

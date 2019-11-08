@@ -14,7 +14,7 @@ import Header from '../../components/Header';
 
 import styles from './styles';
 
-interface Step {
+export interface Step {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
@@ -25,7 +25,7 @@ interface SelectStepScreenProps {
   organization?: { [key: string]: any };
   contactName?: string;
   contactStageId: string;
-  headerText: string;
+  headerText: [string, string];
   enableSkipButton?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;

@@ -1,4 +1,4 @@
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import configureStore from 'redux-mock-store';
 
 import {
@@ -19,6 +19,9 @@ import {
 } from '../../containers/Groups/GroupScreen';
 
 jest.mock('../../actions/analytics');
+jest.mock('../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 const mockStore = configureStore([tracking]);
 let store;

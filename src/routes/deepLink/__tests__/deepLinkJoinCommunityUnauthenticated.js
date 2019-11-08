@@ -7,13 +7,13 @@ import { DeepLinkJoinCommunityUnauthenticatedScreens } from '../deepLinkJoinComm
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import * as common from '../../../utils/common';
-import { firstTime, loadHome } from '../../../actions/auth/userData';
+import { loadHome } from '../../../actions/auth/userData';
 import {
-  completeOnboarding,
-  stashCommunityToJoin,
+  skipOnboardingAddPerson,
+  setOnboardingCommunity,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
-} from '../../../actions/onboardingProfile';
+} from '../../../actions/onboarding';
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
@@ -23,9 +23,12 @@ import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
-jest.mock('../../../actions/onboardingProfile');
+jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 common.isAndroid = false;
 
@@ -33,8 +36,7 @@ const community = { id: '1', community_url: '1234567890123456' };
 
 const store = configureStore([thunk])({
   auth: { person: { id: '1' } },
-  profile: {
-    firstName: 'Test',
+  onboarding: {
     community,
   },
 });
@@ -46,7 +48,7 @@ beforeEach(() => {
 
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
-    stashCommunityToJoin.mockReturnValue(() => Promise.resolve());
+    setOnboardingCommunity.mockReturnValue(() => Promise.resolve());
 
     const Component =
       DeepLinkJoinCommunityUnauthenticatedScreens[
@@ -68,7 +70,7 @@ describe('JoinGroupScreen next', () => {
         }),
     );
 
-    expect(stashCommunityToJoin).toHaveBeenCalledWith({ community });
+    expect(setOnboardingCommunity).toHaveBeenCalledWith(community);
     expect(navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN, {
       allowSignIn: true,
     });
@@ -123,8 +125,7 @@ describe('WelcomeScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    firstTime.mockReturnValue(() => Promise.resolve());
-    completeOnboarding.mockReturnValue(() => Promise.resolve());
+    skipOnboardingAddPerson.mockReturnValue(() => Promise.resolve());
     joinStashedCommunity.mockReturnValue(() => Promise.resolve());
     showReminderOnLoad.mockReturnValue(() => Promise.resolve());
     loadHome.mockReturnValue(() => Promise.resolve());
@@ -146,8 +147,7 @@ describe('SetupScreen next', () => {
         .props.next(),
     );
 
-    expect(firstTime).toHaveBeenCalled();
-    expect(completeOnboarding).toHaveBeenCalled();
+    expect(skipOnboardingAddPerson).toHaveBeenCalled();
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,

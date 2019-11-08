@@ -3,7 +3,7 @@
 exports[`renders cru org contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -22,9 +22,8 @@ exports[`renders cru org contact correctly 1`] = `
       "flexDirection": "row",
       "height": 70,
       "marginHorizontal": 16,
-      "marginVertical": 6,
+      "marginVertical": 8,
       "opacity": 1,
-      "paddingHorizontal": 16,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -37,24 +36,16 @@ exports[`renders cru org contact correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 32,
-        "opacity": 1,
-        "width": 32,
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -78,7 +69,7 @@ exports[`renders cru org contact correctly 1`] = `
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
-        "paddingLeft": 10,
+        "paddingLeft": 4,
       }
     }
   >
@@ -111,48 +102,26 @@ exports[`renders cru org contact correctly 1`] = `
         }
       }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
+            },
+          ]
         }
-        testID="stageText"
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 12,
-                  "lineHeight": 14,
-                  "paddingTop": 6,
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-      </View>
+        Stage 1
+      </Text>
       <View
         style={
           Object {
@@ -212,7 +181,7 @@ exports[`renders cru org contact correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -224,8 +193,11 @@ exports[`renders cru org contact correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "height": 70,
         "justifyContent": "center",
         "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
     }
     testID="stepIcon"
@@ -276,10 +248,10 @@ exports[`renders cru org contact correctly 1`] = `
               "fontSize": 14,
             },
             Object {
-              "bottom": -3,
+              "bottom": 16,
               "color": "#52C5DC",
+              "left": 24,
               "position": "absolute",
-              "right": -3,
             },
           ],
           Object {
@@ -300,7 +272,7 @@ exports[`renders cru org contact correctly 1`] = `
 exports[`renders cru org contact without stage correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -319,9 +291,8 @@ exports[`renders cru org contact without stage correctly 1`] = `
       "flexDirection": "row",
       "height": 70,
       "marginHorizontal": 16,
-      "marginVertical": 6,
+      "marginVertical": 8,
       "opacity": 1,
-      "paddingHorizontal": 16,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -336,8 +307,12 @@ exports[`renders cru org contact without stage correctly 1`] = `
   <View
     style={
       Object {
-        "height": 32,
-        "width": 32,
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
       }
     }
   />
@@ -348,7 +323,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
-        "paddingLeft": 10,
+        "paddingLeft": 4,
       }
     }
   >
@@ -383,7 +358,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -484,7 +459,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -496,8 +471,11 @@ exports[`renders cru org contact without stage correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "height": 70,
         "justifyContent": "center",
         "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
     }
     testID="stepIcon"
@@ -548,10 +526,10 @@ exports[`renders cru org contact without stage correctly 1`] = `
               "fontSize": 14,
             },
             Object {
-              "bottom": -3,
+              "bottom": 16,
               "color": "#52C5DC",
+              "left": 24,
               "position": "absolute",
-              "right": -3,
             },
           ],
           Object {
@@ -572,7 +550,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
 exports[`renders cru org member correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -591,9 +569,8 @@ exports[`renders cru org member correctly 1`] = `
       "flexDirection": "row",
       "height": 70,
       "marginHorizontal": 16,
-      "marginVertical": 6,
+      "marginVertical": 8,
       "opacity": 1,
-      "paddingHorizontal": 16,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -606,24 +583,16 @@ exports[`renders cru org member correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 32,
-        "opacity": 1,
-        "width": 32,
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -647,7 +616,7 @@ exports[`renders cru org member correctly 1`] = `
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
-        "paddingLeft": 10,
+        "paddingLeft": 4,
       }
     }
   >
@@ -680,53 +649,31 @@ exports[`renders cru org member correctly 1`] = `
         }
       }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
+            },
+          ]
         }
-        testID="stageText"
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 12,
-                  "lineHeight": 14,
-                  "paddingTop": 6,
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-      </View>
+        Stage 1
+      </Text>
     </View>
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -738,8 +685,11 @@ exports[`renders cru org member correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "height": 70,
         "justifyContent": "center",
         "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
     }
     testID="stepIcon"
@@ -790,10 +740,10 @@ exports[`renders cru org member correctly 1`] = `
               "fontSize": 14,
             },
             Object {
-              "bottom": -3,
+              "bottom": 16,
               "color": "#52C5DC",
+              "left": 24,
               "position": "absolute",
-              "right": -3,
             },
           ],
           Object {
@@ -814,7 +764,7 @@ exports[`renders cru org member correctly 1`] = `
 exports[`renders me correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -833,9 +783,8 @@ exports[`renders me correctly 1`] = `
       "flexDirection": "row",
       "height": 70,
       "marginHorizontal": 16,
-      "marginVertical": 6,
+      "marginVertical": 8,
       "opacity": 1,
-      "paddingHorizontal": 16,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -848,24 +797,16 @@ exports[`renders me correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 32,
-        "opacity": 1,
-        "width": 32,
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -889,7 +830,7 @@ exports[`renders me correctly 1`] = `
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
-        "paddingLeft": 10,
+        "paddingLeft": 4,
       }
     }
   >
@@ -922,53 +863,31 @@ exports[`renders me correctly 1`] = `
         }
       }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
+            },
+          ]
         }
-        testID="stageText"
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 12,
-                  "lineHeight": 14,
-                  "paddingTop": 6,
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-      </View>
+        Stage 1
+      </Text>
     </View>
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -980,8 +899,11 @@ exports[`renders me correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "height": 70,
         "justifyContent": "center",
         "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
     }
     testID="stepIcon"
@@ -1032,10 +954,10 @@ exports[`renders me correctly 1`] = `
               "fontSize": 14,
             },
             Object {
-              "bottom": -3,
+              "bottom": 16,
               "color": "#52C5DC",
+              "left": 24,
               "position": "absolute",
-              "right": -3,
             },
           ],
           Object {
@@ -1056,7 +978,7 @@ exports[`renders me correctly 1`] = `
 exports[`renders personal ministry contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1075,9 +997,8 @@ exports[`renders personal ministry contact correctly 1`] = `
       "flexDirection": "row",
       "height": 70,
       "marginHorizontal": 16,
-      "marginVertical": 6,
+      "marginVertical": 8,
       "opacity": 1,
-      "paddingHorizontal": 16,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -1090,24 +1011,16 @@ exports[`renders personal ministry contact correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 32,
-        "opacity": 1,
-        "width": 32,
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -1131,7 +1044,7 @@ exports[`renders personal ministry contact correctly 1`] = `
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
-        "paddingLeft": 10,
+        "paddingLeft": 4,
       }
     }
   >
@@ -1164,53 +1077,31 @@ exports[`renders personal ministry contact correctly 1`] = `
         }
       }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
+            },
+          ]
         }
-        testID="stageText"
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 12,
-                  "lineHeight": 14,
-                  "paddingTop": 6,
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-      </View>
+        Stage 1
+      </Text>
     </View>
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -1222,8 +1113,11 @@ exports[`renders personal ministry contact correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "height": 70,
         "justifyContent": "center",
         "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
     }
     testID="stepIcon"
@@ -1274,10 +1168,10 @@ exports[`renders personal ministry contact correctly 1`] = `
               "fontSize": 14,
             },
             Object {
-              "bottom": -3,
+              "bottom": 16,
               "color": "#52C5DC",
+              "left": 24,
               "position": "absolute",
-              "right": -3,
             },
           ],
           Object {
@@ -1298,7 +1192,7 @@ exports[`renders personal ministry contact correctly 1`] = `
 exports[`renders uncontacted cru org contact correctly 1`] = `
 <View
   accessible={true}
-  clickable={true}
+  focusable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -1317,9 +1211,8 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
       "flexDirection": "row",
       "height": 70,
       "marginHorizontal": 16,
-      "marginVertical": 6,
+      "marginVertical": 8,
       "opacity": 1,
-      "paddingHorizontal": 16,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -1332,24 +1225,16 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
   testID="personCard"
 >
   <View
-    accessible={true}
-    clickable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 32,
-        "opacity": 1,
-        "width": 32,
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
       }
     }
-    testID="stageIcon"
   >
     <Image
       resizeMode="contain"
@@ -1373,7 +1258,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
         "flex": 1,
         "flexDirection": "column",
         "justifyContent": "center",
-        "paddingLeft": 10,
+        "paddingLeft": 4,
       }
     }
   >
@@ -1406,48 +1291,26 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
         }
       }
     >
-      <View
-        accessible={true}
-        clickable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      <Text
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
+            },
+          ]
         }
-        testID="stageText"
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 12,
-                  "lineHeight": 14,
-                  "paddingTop": 6,
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          Stage 1
-        </Text>
-      </View>
+        Stage 1
+      </Text>
       <View
         style={
           Object {
@@ -1507,7 +1370,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
   </View>
   <View
     accessible={true}
-    clickable={true}
+    focusable={true}
     isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -1519,8 +1382,11 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
+        "height": 70,
         "justifyContent": "center",
         "opacity": 1,
+        "paddingLeft": 6,
+        "paddingRight": 16,
       }
     }
     testID="stepIcon"
@@ -1571,10 +1437,10 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
               "fontSize": 14,
             },
             Object {
-              "bottom": -3,
+              "bottom": 16,
               "color": "#52C5DC",
+              "left": 24,
               "position": "absolute",
-              "right": -3,
             },
           ],
           Object {

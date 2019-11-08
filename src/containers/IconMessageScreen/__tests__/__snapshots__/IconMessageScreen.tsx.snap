@@ -58,7 +58,7 @@ exports[`renders back button correctly 1`] = `
         >
           <View
             accessible={true}
-            clickable={true}
+            focusable={true}
             isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
@@ -216,7 +216,7 @@ exports[`renders back button correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -422,7 +422,7 @@ exports[`renders correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -551,7 +551,7 @@ exports[`renders skip button correctly 1`] = `
       >
         <View
           accessible={true}
-          clickable={true}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -696,7 +696,7 @@ exports[`renders skip button correctly 1`] = `
     >
       <View
         accessible={true}
-        clickable={true}
+        focusable={true}
         isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}

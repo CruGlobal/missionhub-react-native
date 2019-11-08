@@ -29,7 +29,7 @@ beforeEach(() => {
       organization={organization}
       receiverId={receiverId}
       enableSkipButton={enableSkipButton}
-      headerText="Header Text"
+      headerText={['Header Text 1', 'Header Text 2']}
       contactName={contactName}
       next={next}
     />,

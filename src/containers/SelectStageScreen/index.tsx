@@ -52,21 +52,15 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 interface SelectStageScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  next: (props?: {
-    stage: Stage;
-    firstName: string;
-    personId: string;
-    contactAssignmentId: string | undefined;
-    orgId?: string;
-    isAlreadySelected: boolean;
+  next: (props: {
     isMe: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, {}, never>; // TODO: make next required when only used in flows
+  }) => ThunkAction<void, any, {}, never>;
   myId: string;
   firstName: string;
   contactAssignmentId?: string;
   isMe: boolean;
-  stages: Stage;
+  stages: Stage[];
   testID?: string;
 }
 
@@ -104,8 +98,6 @@ const SelectStageScreen = ({
 
   const startIndex = selectedStageId || 0;
 
-  const loadStages = () => dispatch(getStages());
-
   const handleSnapToItem = (index: number) => {
     if (stages[index]) {
       const trackingObj = buildTrackingObj(
@@ -125,7 +117,7 @@ const SelectStageScreen = ({
 
   useEffect(() => {
     async function loadStagesAndScrollToId() {
-      await loadStages();
+      await dispatch(getStages());
       handleSnapToItem(startIndex);
     }
 
@@ -144,12 +136,6 @@ const SelectStageScreen = ({
 
     dispatch(
       next({
-        stage,
-        firstName,
-        personId,
-        contactAssignmentId,
-        orgId,
-        isAlreadySelected,
         isMe,
       }),
     );

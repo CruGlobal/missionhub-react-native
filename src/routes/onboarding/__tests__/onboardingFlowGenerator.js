@@ -17,30 +17,33 @@ import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
-import { SETUP_PERSON_SCREEN } from '../../../containers/SetupPersonScreen';
+import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { onboardingFlowGenerator } from '../onboardingFlowGenerator';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
-import { skipOnboarding } from '../../../actions/onboardingProfile';
+import {
+  skipOnboarding,
+  setOnboardingPersonId,
+} from '../../../actions/onboarding';
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/navigation');
-jest.mock('../../../actions/onboardingProfile');
+jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/steps');
+jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
+  useLogoutOnBack: jest.fn(),
+}));
 
 const myId = '123';
-const myFirstName = 'Me';
-const myLastName = 'Myself';
 const personId = '321';
 const personFirstName = 'Someone';
-const personLastName = 'Else';
 const stageId = '3';
 const stage = { id: stageId };
 const step = { id: '111' };
@@ -48,8 +51,6 @@ const text = 'Step Text';
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
-  profile: { firstName: myFirstName, lastName: myLastName },
-  personProfile: { firstName: personFirstName, lastName: personLastName },
   people: {
     allByOrg: {
       personal: {
@@ -57,7 +58,9 @@ const store = configureStore([thunk])({
       },
     },
   },
-  stages: { stges: [] },
+  organizations: { all: [] },
+  stages: { stages: [] },
+  onboarding: { personId },
 });
 
 const testFlow = onboardingFlowGenerator({});
@@ -70,6 +73,7 @@ beforeEach(() => {
   showReminderOnLoad.mockReturnValue(() => Promise.resolve());
   trackActionWithoutData.mockReturnValue(() => Promise.resolve());
   createCustomStep.mockReturnValue(() => Promise.resolve());
+  setOnboardingPersonId.mockReturnValue(() => Promise.resolve());
 });
 
 describe('WelcomeScreen next', () => {
@@ -151,9 +155,7 @@ describe('SelectStageScreen next', () => {
           .props.next({ stage, isMe: true }),
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN, {
-        selectedStage: stage,
-      });
+      expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN);
     });
   });
 
@@ -174,17 +176,12 @@ describe('SelectStageScreen next', () => {
         )
           .instance()
           .props.next({
-            stage: stage,
-            personId,
-            firstName: personFirstName,
             isMe: false,
           }),
       );
 
       expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-        contactStage: stage,
-        contactName: personFirstName,
-        contactId: personId,
+        personId,
       });
     });
   });
@@ -202,12 +199,10 @@ describe('StageSuccessScreen next', () => {
         store,
       )
         .instance()
-        .props.next({ selectedStage: stage }),
+        .props.next(),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
-      contactStage: stage,
-    });
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, undefined);
   });
 });
 
@@ -347,9 +342,7 @@ describe('PersonSelectStepScreen next', () => {
         navigation={{
           state: {
             params: {
-              contactStage: stage,
-              contactName: personFirstName,
-              contactId: personId,
+              personId,
             },
           },
         }}
