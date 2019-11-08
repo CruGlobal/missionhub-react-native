@@ -139,15 +139,18 @@ export const StepsScreen = ({
   );
 
   const renderSteps = () => (
-    <FlatList
-      style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
-      data={steps}
-      keyExtractor={keyExtractorId}
-      renderItem={renderItem}
-      showsVerticalScrollIndicator={false}
-      initialNumToRender={10}
-      ListFooterComponent={paging ? <FooterLoading /> : null}
-    />
+    <>
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+      <FlatList
+        style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
+        data={steps}
+        keyExtractor={keyExtractorId}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+        initialNumToRender={10}
+        ListFooterComponent={paging ? <FooterLoading /> : null}
+      />
+    </>
   );
 
   const renderContent = () => (
@@ -184,14 +187,7 @@ export const StepsScreen = ({
         title={t('title').toUpperCase()}
       />
       <View style={styles.contentContainer}>
-        {firstTimeLoading ? (
-          <LoadingGuy />
-        ) : (
-          <>
-            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
-            {renderContent()}
-          </>
-        )}
+        {firstTimeLoading ? <LoadingGuy /> : renderContent()}
       </View>
     </View>
   );

@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
@@ -20,16 +21,15 @@ import styles from './styles';
 
 interface AcceptedStepDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  step: Step;
   reminder?: ReminderType;
 }
 
 const AcceptedStepDetailScreen = ({
   dispatch,
-  step,
   reminder,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
+  const step: Step = useNavigationParam('step');
 
   const { id: stepId, challenge_suggestion, title, receiver } = step;
 
@@ -105,7 +105,6 @@ const mapStateToProps = (
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => ({
-  step,
   reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 

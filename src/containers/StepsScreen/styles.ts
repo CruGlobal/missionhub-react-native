@@ -12,23 +12,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
-  top: {
-    width: theme.fullWidth,
-    backgroundColor: theme.backgroundColor,
-  },
-  topEmpty: {
-    paddingHorizontal: 27,
-    paddingVertical: 32,
-  },
-  title: {
-    fontSize: 36,
-    color: theme.white,
-    textAlign: 'center',
-  },
-  description: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
   list: {
     overflow: 'scroll',
     backgroundColor: theme.extraLightGrey,

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { StatusBar, SafeAreaView, Keyboard, Alert, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { useNavigationParam, useNavigation } from 'react-navigation-hooks';
 
 import { Input } from '../../components/common';
 import theme from '../../theme';
@@ -26,36 +27,28 @@ const characterLimit = 255;
 
 interface AddStepScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  initialText: string;
-  id: string;
-  type: string;
-  personId: string;
-  orgId: string;
-  next: (props?: {
+  next: (props: {
     text: string | undefined;
-    id: string;
+    id: string | undefined;
     type: string;
     personId: string;
-    orgId: string;
+    orgId: string | undefined;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
-  onSetComplete: () => void;
   isMe: boolean;
 }
 
-const AddStepScreen = ({
-  dispatch,
-  initialText = '',
-  id,
-  type,
-  personId,
-  orgId,
-  next,
-  onSetComplete,
-  isMe,
-}: AddStepScreenProps) => {
+const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   const { t } = useTranslation('addStep');
   useAndroidBackButton();
+  const type: string = useNavigationParam('type');
+  const personId: string = useNavigationParam('personId');
+  const orgId: string | undefined = useNavigationParam('orgId');
+  const id: string | undefined = useNavigationParam('id');
+  const initialText: string | undefined = useNavigationParam('initialText');
+  const onSetComplete: () => void | undefined = useNavigationParam(
+    'onSetComplete',
+  );
 
   const isStepNote = type === STEP_NOTE;
   const isCreateStep = type === CREATE_STEP;
@@ -74,10 +67,7 @@ const AddStepScreen = ({
   };
 
   const navigateNext = async (text?: string) => {
-    if (onSetComplete) {
-      await onSetComplete();
-    }
-
+    onSetComplete && (await onSetComplete());
     dispatch(next({ text, id, type, personId, orgId }));
   };
 
@@ -155,19 +145,13 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { type, initialText, id, personId, orgId, onSetComplete },
+        params: { personId },
       },
     },
     next,
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => ({
-  type,
-  initialText,
-  id,
-  personId,
-  orgId,
-  onSetComplete,
   next,
   isMe: auth.person.id === personId,
 });

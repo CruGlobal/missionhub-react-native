@@ -14,9 +14,10 @@ import styles from './styles';
 
 interface SuggestedStepDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  next: (props?: {
+  next: (props: {
     contactId: string;
-    orgId: string;
+    orgId: string | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
 }
 
@@ -25,10 +26,9 @@ const SuggestedStepDetailScreen = ({
   next,
 }: SuggestedStepDetailScreenProps) => {
   const { t } = useTranslation('suggestedStepDetail');
-
   const step: Step = useNavigationParam('step');
   const receiverId: string = useNavigationParam('receiverId');
-  const orgId: string = useNavigationParam('orgId');
+  const orgId: string | undefined = useNavigationParam('orgId');
 
   const { body, description_markdown } = step;
 
@@ -53,14 +53,15 @@ const SuggestedStepDetailScreen = ({
 };
 
 const mapStateToProps = (
-  {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  _: any,
   {
     next,
   }: {
-    next: (props?: {
+    next: (props: {
       contactId: string;
-      orgId: string;
-    }) => ThunkAction<void, any, null, never>;
+      orgId: string | undefined;
+    }) => ThunkAction<void, any, {}, never>;
   },
 ) => ({
   next,

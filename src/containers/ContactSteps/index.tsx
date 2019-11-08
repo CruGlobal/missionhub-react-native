@@ -4,6 +4,7 @@ import { SafeAreaView, FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { navigatePush } from '../../actions/navigation';
 import { getContactSteps } from '../../actions/steps';
@@ -19,10 +20,7 @@ import {
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/prompt';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
-import {
-  contactAssignmentSelector,
-  personSelector,
-} from '../../selectors/people';
+import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
@@ -30,7 +28,7 @@ import {
 import NullStateComponent from '../../components/NullStateComponent';
 import { AuthState } from '../../reducers/auth';
 import { Step, StepsState } from '../../reducers/steps';
-import { Person, PeopleState } from '../../reducers/people';
+import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
@@ -43,8 +41,6 @@ interface ContactStepsProps {
   completedSteps: Step[];
   contactAssignment: any;
   isMe: boolean;
-  person: Person;
-  organization: Organization;
 }
 
 const ContactSteps = ({
@@ -55,11 +51,11 @@ const ContactSteps = ({
   completedSteps,
   contactAssignment,
   isMe,
-  person,
-  organization,
 }: ContactStepsProps) => {
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
+  const person: Person = useNavigationParam('person');
+  const organization: Organization = useNavigationParam('organization');
 
   const handleGetSteps = () =>
     dispatch(getContactSteps(person.id, organization.id));
@@ -126,7 +122,7 @@ const ContactSteps = ({
       }
     }
 
-    dispatch(assignContactAndPickStage(person, organization, myId));
+    dispatch(assignContactAndPickStage(person, organization));
   };
 
   const handleCreateStep = () => {
@@ -212,28 +208,24 @@ const ContactSteps = ({
 };
 
 const mapStateToProps = (
-  {
-    auth,
-    steps,
-    people,
-  }: { auth: AuthState; steps: StepsState; people: PeopleState },
+  { auth, steps }: { auth: AuthState; steps: StepsState },
   {
     person,
     organization = { id: 'personal' },
   }: { person: Person; organization: Organization },
 ) => {
   const allSteps = steps.contactSteps[`${person.id}-${organization.id}`] || {};
+  const myId = auth.person.id;
   return {
     showAssignPrompt: orgIsCru(organization),
-    myId: auth.person.id,
+    myId,
     steps: allSteps.steps || [],
     completedSteps: allSteps.completedSteps || [],
     contactAssignment: contactAssignmentSelector(
       { auth },
       { person, orgId: organization.id },
     ),
-    isMe: person.id === auth.person.id,
-    person,
+    isMe: person.id === myId,
   };
 };
 
