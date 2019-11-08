@@ -20,7 +20,7 @@ export interface Step {
 }
 
 interface SelectStepScreenProps {
-  receiverId: string | null;
+  receiverId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   organization?: { [key: string]: any };
   contactName?: string;
@@ -30,7 +30,7 @@ interface SelectStepScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   next: (nextProps: {
-    receiverId: string | null;
+    receiverId: string;
     step?: Step;
     skip: boolean;
     orgId: string;

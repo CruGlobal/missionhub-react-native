@@ -6,7 +6,6 @@ import { ThunkAction } from 'redux-thunk';
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
 import { PeopleState } from '../reducers/people';
-import { PersonProfileState } from '../reducers/personProfile';
 import { OrganizationsState } from '../reducers/organizations';
 
 import SelectStepScreen from './SelectStepScreen';
@@ -22,10 +21,10 @@ interface PersonSelectStepScreenProps {
   };
   personFirstName?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  personId: string | null;
+  personId: string;
   organization: OrganizationsState;
   next: (nextProps: {
-    receiverId: string | null;
+    receiverId: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     step?: any | undefined;
     skip: boolean;
@@ -40,14 +39,13 @@ const PersonSelectStepScreen = ({
   contactId,
   contactStage,
   contactAssignment,
-  personFirstName,
   personId,
   organization,
   next,
   enableSkipButton,
 }: PersonSelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  const name = contactName ? contactName : personFirstName;
+  const name = contactName;
   const stageId = contactAssignment
     ? contactAssignment.pathway_stage_id
     : contactStage.id;
@@ -67,11 +65,9 @@ const PersonSelectStepScreen = ({
 
 const mapStateToProps = (
   {
-    personProfile,
     auth,
     people,
   }: {
-    personProfile: PersonProfileState;
     auth: AuthState;
     people: PeopleState;
   },
@@ -80,7 +76,7 @@ const mapStateToProps = (
       state: {
         params: {
           contactName,
-          contactId,
+          personId,
           contactStage,
           organization = {},
           enableSkipButton,
@@ -93,18 +89,16 @@ const mapStateToProps = (
 ) => {
   const person = personSelector(
     { people },
-    { personId: contactId, orgId: organization.id },
+    { personId, orgId: organization.id },
   );
 
   return {
     contactName,
-    contactId,
+    personId,
     contactStage,
     organization,
     enableSkipButton,
     next,
-    personFirstName: personProfile.personFirstName,
-    personId: personProfile.id,
     contactAssignment:
       person &&
       contactAssignmentSelector(

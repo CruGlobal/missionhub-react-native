@@ -152,7 +152,7 @@ export function navigateToAddStepFlow(
         navigatePush(ADD_PERSON_STEP_FLOW, {
           ...trackingParams,
           contactName: person.first_name,
-          contactId: person.id,
+          personId: person.id,
           organization,
           createStepTracking: buildTrackingObj(
             'people : person : steps : create',
