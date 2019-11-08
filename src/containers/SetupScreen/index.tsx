@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, View, Keyboard, TextInput, Image } from 'react-native';
+import { View, Keyboard, TextInput, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -97,7 +97,7 @@ const SetupScreen = ({
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
@@ -138,7 +138,6 @@ const SetupScreen = ({
             testID="InputFirstName"
           />
         </View>
-
         <View style={{ paddingVertical: 30 }}>
           <Input
             ref={lastNameRef}
@@ -164,7 +163,7 @@ const SetupScreen = ({
         onPress={saveAndNavigateNext}
         text={t('next')}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 const mapStateToProps = (

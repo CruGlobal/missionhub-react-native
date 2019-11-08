@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType, View } from 'react-native';
+import { Image, ImageSourcePropType, View } from 'react-native';
 
 import { Flex, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -27,7 +27,7 @@ const IconMessageScreen = ({
   onSkip,
   onBack,
 }: IconMessageScreenProps) => (
-  <SafeAreaView style={styles.container}>
+  <View style={styles.container}>
     <Header
       left={onBack ? <BackButton customNavigate={onBack} /> : null}
       right={onSkip ? <Skip onSkip={onSkip} /> : null}
@@ -37,11 +37,9 @@ const IconMessageScreen = ({
         <Image source={iconPath} style={styles.image} />
         <Text style={styles.text}>{mainText}</Text>
       </Flex>
-      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-        <BottomButton onPress={onComplete} text={buttonText} />
-      </View>
+      <BottomButton onPress={onComplete} text={buttonText} />
     </Flex>
-  </SafeAreaView>
+  </View>
 );
 
 export default IconMessageScreen;

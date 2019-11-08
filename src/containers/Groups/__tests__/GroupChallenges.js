@@ -78,6 +78,27 @@ it('should render correctly', () => {
   );
 });
 
+it('should render correctly for basic member', () => {
+  testSnapshotShallow(
+    <GroupChallenges
+      orgId={orgId}
+      store={createThunkStore({
+        ...store,
+        auth: {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: org.id,
+                permission_id: ORG_PERMISSIONS.USER,
+              },
+            ],
+          },
+        },
+      })}
+    />,
+  );
+});
+
 it('should render empty correctly', () => {
   testSnapshotShallow(
     <GroupChallenges
@@ -126,7 +147,6 @@ it('should call create', () => {
 
   component
     .childAt(1)
-    .childAt(0)
     .props()
     .onPress();
 

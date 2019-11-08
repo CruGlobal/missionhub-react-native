@@ -96,7 +96,7 @@ class ChallengeFeed extends Component {
   );
 
   render() {
-    const { items, refreshing } = this.props;
+    const { items, refreshing, extraPadding } = this.props;
 
     return (
       <SectionList
@@ -111,8 +111,10 @@ class ChallengeFeed extends Component {
         onRefresh={this.handleRefreshing}
         refreshing={refreshing || false}
         extraData={this.state}
-        style={styles.list}
-        contentContainerStyle={styles.listContent}
+        contentContainerStyle={[
+          styles.list,
+          extraPadding ? styles.listExtraPadding : null,
+        ]}
       />
     );
   }
@@ -122,6 +124,7 @@ ChallengeFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
   refreshing: PropTypes.bool,
+  extraPadding: PropTypes.bool,
 };
 
 const mapStateToProps = ({ auth }) => ({

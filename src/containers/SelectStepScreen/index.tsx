@@ -73,10 +73,12 @@ const SelectStepScreen = ({
 
   const renderForeground = () => {
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
+      <View style={{ flex: 1 }}>
         {renderHeader()}
-        <Text style={styles.headerText}>{headerText[0]}</Text>
-        <Text style={styles.headerText}>{headerText[1]}</Text>
+        <View style={{ flex: 1, alignItems: 'center' }}>
+          <Text style={styles.headerText}>{headerText[0]}</Text>
+          <Text style={styles.headerText}>{headerText[1]}</Text>
+        </View>
       </View>
     );
   };
@@ -91,9 +93,9 @@ const SelectStepScreen = ({
   const { headerHeight } = theme;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
       <ParallaxScrollView
-        style={{ flex: 1 }}
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
         parallaxHeaderHeight={150}
@@ -109,7 +111,7 @@ const SelectStepScreen = ({
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

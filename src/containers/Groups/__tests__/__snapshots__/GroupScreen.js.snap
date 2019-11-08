@@ -61,7 +61,7 @@ Array [
 `;
 
 exports[`GroupScreen should render header correctly for cru community 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -87,11 +87,11 @@ exports[`GroupScreen should render header correctly for cru community 1`] = `
     }
     title="Test  Org"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`GroupScreen should render header correctly for global community 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -110,11 +110,11 @@ exports[`GroupScreen should render header correctly for global community 1`] = `
     right={null}
     title="MissionHub Community"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`GroupScreen should render header correctly for user_created community 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -139,5 +139,5 @@ exports[`GroupScreen should render header correctly for user_created community 1
     }
     title="Test  Org"
   />
-</SafeAreaView>
+</View>
 `;

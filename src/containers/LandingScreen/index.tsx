@@ -48,7 +48,7 @@ const LandingScreen = ({
   };
 
   return (
-    <SafeAreaView style={container}>
+    <View style={container}>
       <View style={imageWrap}>
         <Image source={LOGO} />
       </View>
@@ -71,7 +71,7 @@ const LandingScreen = ({
             buttonTextStyle={buttonText}
           />
         </View>
-        <View style={signInWrap}>
+        <SafeAreaView style={signInWrap}>
           <Text style={memberText}>{t('member').toUpperCase()}</Text>
           <Button
             testID={'signInButton'}
@@ -80,9 +80,9 @@ const LandingScreen = ({
             onPress={signIn}
             buttonTextStyle={[buttonText, signInBtnText]}
           />
-        </View>
+        </SafeAreaView>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

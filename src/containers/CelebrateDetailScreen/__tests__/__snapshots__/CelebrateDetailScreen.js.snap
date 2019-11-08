@@ -19,7 +19,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
           "padding": 14,
           "paddingBottom": 5,
         }
