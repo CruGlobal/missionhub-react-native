@@ -23,7 +23,7 @@ class PersonSelectStepScreen extends Component {
     return (
       <SelectStepScreen
         contactStageId={stageId}
-        receiverId={person.id}
+        personId={person.id}
         contactName={person.first_name}
         headerText={[
           t('personHeader.part1'),

@@ -20,7 +20,7 @@ export interface Step {
 }
 
 interface SelectStepScreenProps {
-  receiverId: string;
+  personId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   organization?: { [key: string]: any };
   contactName?: string;
@@ -30,7 +30,7 @@ interface SelectStepScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   next: (nextProps: {
-    receiverId: string;
+    personId: string;
     step?: Step;
     skip: boolean;
     orgId: string;
@@ -39,7 +39,7 @@ interface SelectStepScreenProps {
 }
 
 const SelectStepScreen = ({
-  receiverId,
+  personId,
   organization,
   contactName,
   contactStageId,
@@ -51,7 +51,7 @@ const SelectStepScreen = ({
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
       next({
-        receiverId,
+        personId,
         step,
         skip,
         orgId: organization && organization.id,
@@ -106,7 +106,7 @@ const SelectStepScreen = ({
         <StepsList
           onPressCreateStep={navToCreateStep}
           contactName={contactName}
-          receiverId={receiverId}
+          receiverId={personId}
           contactStageId={contactStageId}
           onPressStep={navToSuggestedStep}
         />
