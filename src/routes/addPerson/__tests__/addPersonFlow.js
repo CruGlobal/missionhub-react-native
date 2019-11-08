@@ -183,13 +183,13 @@ describe('PersonSelectStepScreen next', () => {
       await buildAndCallNext(
         PERSON_SELECT_STEP_SCREEN,
         {},
-        { receiverId: contactId, step, orgId },
+        { personId: contactId, step, orgId },
       );
     });
 
     it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
-        receiverId: contactId,
+        personId: contactId,
         step,
         orgId,
       });
@@ -202,7 +202,7 @@ describe('PersonSelectStepScreen next', () => {
       await buildAndCallNext(
         PERSON_SELECT_STEP_SCREEN,
         {},
-        { receiverId: contactId, step: undefined, orgId },
+        { personId: contactId, step: undefined, orgId },
       );
     });
 
@@ -222,7 +222,7 @@ describe('SuggestedStepDetailScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
       SUGGESTED_STEP_DETAIL_SCREEN,
-      { receiverId: contactId, step, orgId },
+      { personId: contactId, step, orgId },
       { orgId },
     );
   });
