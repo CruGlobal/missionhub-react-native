@@ -6,24 +6,18 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { navigatePush } from '../../actions/navigation';
 import { getContactSteps } from '../../actions/steps';
 import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
-import {
-  buildTrackingObj,
-  getAnalyticsSubsection,
-  orgIsCru,
-  keyExtractorId,
-} from '../../utils/common';
+import { orgIsCru, keyExtractorId } from '../../utils/common';
 import { promptToAssign } from '../../utils/prompt';
-import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
 import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
+  navigateToAddStepFlow,
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
 import { AuthState } from '../../reducers/auth';
@@ -36,26 +30,26 @@ import styles from './styles';
 interface ContactStepsProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   showAssignPrompt: boolean;
-  myId: string;
   steps: Step[];
   completedSteps: Step[];
   contactAssignment: any;
   isMe: boolean;
+  person: Person;
+  organization: Organization;
 }
 
 const ContactSteps = ({
   dispatch,
   showAssignPrompt,
-  myId,
   steps,
   completedSteps,
   contactAssignment,
   isMe,
+  person,
+  organization,
 }: ContactStepsProps) => {
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
-  const person: Person = useNavigationParam('person');
-  const organization: Organization = useNavigationParam('organization');
 
   const handleGetSteps = () =>
     dispatch(getContactSteps(person.id, organization.id));
@@ -66,53 +60,6 @@ const ContactSteps = ({
 
   const handleComplete = () => {
     handleGetSteps();
-  };
-
-  const handleNavToStage = () =>
-    dispatch(
-      navigateToStageScreen(
-        false,
-        person,
-        contactAssignment,
-        organization,
-        null,
-      ),
-    );
-
-  const handleNavToSteps = () => {
-    const subsection = getAnalyticsSubsection(person.id, myId);
-    const trackingParams = {
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
-    };
-
-    if (isMe) {
-      dispatch(
-        navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
-          organization,
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_STEP_FLOW, {
-          ...trackingParams,
-          contactName: person.first_name,
-          contactId: person.id,
-          organization,
-          createStepTracking: buildTrackingObj(
-            `people : ${subsection} : steps : create`,
-            'people',
-            subsection,
-            'steps',
-          ),
-        }),
-      );
-    }
   };
 
   const handleAssign = async () => {
@@ -127,16 +74,28 @@ const ContactSteps = ({
 
   const handleCreateStep = () => {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
-      ? handleNavToSteps()
+      ? dispatch(navigateToAddStepFlow(person, organization))
       : contactAssignment
-      ? handleNavToStage()
+      ? dispatch(
+          navigateToStageScreen(
+            false,
+            person,
+            contactAssignment,
+            organization,
+            null,
+          ),
+        )
       : handleAssign();
   };
 
   const toggleCompletedSteps = () => setHideCompleted(!hideCompleted);
 
   const renderRow = ({ item }: { item: Step }) => (
-    <AcceptedStepItem step={item} onComplete={handleComplete} />
+    <AcceptedStepItem
+      testID="stepItem"
+      step={item}
+      onComplete={handleComplete}
+    />
   );
 
   const renderCompletedStepsButton = () => {
@@ -146,6 +105,7 @@ const ContactSteps = ({
 
     return (
       <Button
+        testID="completedStepsButton"
         pill={true}
         text={t(
           hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps',
@@ -163,6 +123,7 @@ const ContactSteps = ({
     }
     return (
       <FlatList
+        testID="stepsList"
         style={styles.topList}
         data={data}
         keyExtractor={keyExtractorId}
@@ -212,7 +173,7 @@ const mapStateToProps = (
   {
     person,
     organization = { id: 'personal' },
-  }: { person: Person; organization: Organization },
+  }: { person: Person; organization?: Organization },
 ) => {
   const allSteps = steps.contactSteps[`${person.id}-${organization.id}`] || {};
   const myId = auth.person.id;
@@ -226,6 +187,8 @@ const mapStateToProps = (
       { person, orgId: organization.id },
     ),
     isMe: person.id === myId,
+    person,
+    organization,
   };
 };
 

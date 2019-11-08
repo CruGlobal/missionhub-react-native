@@ -26,7 +26,7 @@ const stepReminders = {
   },
 };
 
-const baseStep = {
+const step = {
   id: stepId,
   title: 'ROBERT',
   challenge_suggestion,
@@ -54,7 +54,7 @@ describe('without description, without reminder', () => {
 
     renderWithContext(<AcceptedStepDetailScreen />, {
       initialState: { stepReminders },
-      navParams: { step: { ...baseStep, challenge_suggestion: {} } },
+      navParams: { step: { ...step, challenge_suggestion: {} } },
     }).snapshot();
 
     expect(reminderSelector).toHaveBeenCalledWith(
@@ -70,7 +70,7 @@ describe('with description, without reminder', () => {
 
     renderWithContext(<AcceptedStepDetailScreen />, {
       initialState: { stepReminders },
-      navParams: { step: baseStep },
+      navParams: { step },
     }).snapshot();
 
     expect(reminderSelector).toHaveBeenCalledWith(
@@ -84,7 +84,7 @@ describe('with description, with reminder', () => {
   it('renders correctly', () => {
     renderWithContext(<AcceptedStepDetailScreen />, {
       initialState: { stepReminders },
-      navParams: { step: baseStep },
+      navParams: { step },
     }).snapshot();
 
     expect(reminderSelector).toHaveBeenCalledWith(
@@ -99,13 +99,13 @@ it('completes step', () => {
     <AcceptedStepDetailScreen />,
     {
       initialState: { stepReminders },
-      navParams: { step: baseStep },
+      navParams: { step },
     },
   );
 
   fireEvent.press(getByTestId('bottomButton'));
 
-  expect(completeStep).toHaveBeenCalledWith(baseStep, 'Step Detail', true);
+  expect(completeStep).toHaveBeenCalledWith(step, 'Step Detail', true);
   expect(store.getActions()).toEqual([completeStepResult]);
 });
 
@@ -114,13 +114,13 @@ it('deletes step', () => {
     <AcceptedStepDetailScreen />,
     {
       initialState: { stepReminders },
-      navParams: { step: baseStep },
+      navParams: { step },
     },
   );
 
   fireEvent.press(getByTestId('removeStepButton'));
 
-  expect(deleteStepWithTracking).toHaveBeenCalledWith(baseStep, 'Step Detail');
+  expect(deleteStepWithTracking).toHaveBeenCalledWith(step, 'Step Detail');
   expect(navigateBack).toHaveBeenCalled();
   expect(store.getActions()).toEqual([deleteStepResult, navigateBackResult]);
 });
@@ -130,7 +130,7 @@ it('deletes reminder', () => {
     <AcceptedStepDetailScreen />,
     {
       initialState: { stepReminders },
-      navParams: { step: baseStep },
+      navParams: { step },
     },
   );
 
