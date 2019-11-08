@@ -104,7 +104,7 @@ const SelectStepScreen = ({
         <StepsList
           onPressCreateStep={navToCreateStep}
           contactName={contactName}
-          receiverId={personId}
+          personId={personId}
           contactStageId={contactStageId}
           onPressStep={navToSuggestedStep}
         />
