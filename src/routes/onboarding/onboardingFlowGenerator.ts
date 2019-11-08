@@ -120,7 +120,7 @@ export const onboardingFlowGenerator = ({
               step
                 ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
                     step,
-                    receiverId: personId,
+                    personId,
                   })
                 : navigatePush(ADD_STEP_SCREEN, {
                     type: CREATE_STEP,
@@ -203,7 +203,7 @@ export const onboardingFlowGenerator = ({
         step
           ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
               step,
-              receiverId: personId,
+              personId,
             })
           : navigatePush(ADD_STEP_SCREEN, {
               type: CREATE_STEP,

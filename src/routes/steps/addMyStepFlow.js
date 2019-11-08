@@ -22,7 +22,7 @@ export const AddMyStepFlowScreens = {
       step
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             step,
-            receiverId: personId,
+            personId,
             orgId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
