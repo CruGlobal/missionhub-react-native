@@ -51,7 +51,6 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
 <PersonSelectStepScreen
-  contactId="321"
   contactName="Someone"
   contactStage={
     Object {
@@ -73,11 +72,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={
-    Object {
-      "id": undefined,
-    }
-  }
+  organization={Object {}}
 />
 `;
 

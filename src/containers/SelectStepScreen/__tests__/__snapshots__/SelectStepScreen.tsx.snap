@@ -295,37 +295,61 @@ exports[`with enableSkipButton renders correctly 1`] = `
                     </View>
                   </View>
                 </RCTSafeAreaView>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Header Text
-                </Text>
-                <Text
+                <View
                   style={
                     Object {
                       "alignItems": "center",
                       "flex": 1,
                     }
                   }
-                />
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Header Text 1
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Header Text 2
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -844,37 +868,61 @@ exports[`without enableSkipButton renders correctly 1`] = `
                     />
                   </View>
                 </RCTSafeAreaView>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Header Text
-                </Text>
-                <Text
+                <View
                   style={
                     Object {
                       "alignItems": "center",
                       "flex": 1,
                     }
                   }
-                />
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Header Text 1
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Header Text 2
+                  </Text>
+                </View>
               </View>
             </View>
           </View>

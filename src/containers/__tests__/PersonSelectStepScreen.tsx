@@ -8,7 +8,7 @@ import { renderWithContext } from '../../../testUtils';
 jest.mock('../../selectors/people');
 
 const myId = '14312';
-const contactId = '123';
+const personId = '123';
 const stageId = '2';
 const organization = { id: '889' };
 const contactAssignment = { id: '444', pathway_stage_id: stageId };
@@ -27,9 +27,9 @@ const initialState = {
 
 const navParams = {
   contactName: 'Ron',
-  contactId: contactId,
+  personId: personId,
   contactStage: { id: stageId },
-  contact: { id: contactId },
+  contact: { id: personId },
   organization,
   enableBackButton: true,
   enableSkipButton: false,
