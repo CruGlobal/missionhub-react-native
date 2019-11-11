@@ -210,7 +210,9 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 apply plugin: 'com.google.gms.google-services' // For Firebase
 
-com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true // Waiting on a fix here: https://github.com/google/play-services-plugins/issues/30. Workaround from here: https://github.com/invertase/react-native-firebase/issues/1676#issuecomment-441243419.
+googleServices {
+    disableVersionCheck = true // Waiting on a fix here: https://github.com/google/play-services-plugins/issues/30.
+}
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 
