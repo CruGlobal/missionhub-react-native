@@ -8682,10 +8682,10 @@ react-native-config@^0.11.7:
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.11.7.tgz#a2b323f2ecd76a4df88cbb6bc86eaa2ef9febee7"
 
-react-native-default-preference@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-default-preference/-/react-native-default-preference-1.4.0.tgz#52b9fb81fb8376c505f2f0b2aacd457a3c5f2d47"
-  integrity sha512-40yjYNvwbrMxd+8Gz6riHzjkHgCZ7CtrAeTeN82NEZRC9sV0N1qJSxWhqnBlzVjmkqA24P/ZYOeZmmZLKzyl6w==
+react-native-default-preference@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-default-preference/-/react-native-default-preference-1.4.1.tgz#3baccbc50ff3eff57d0c86128239667203405f63"
+  integrity sha512-UHX8Hsgq2AwEI8SA1IkjU+u6y+Uroht0sCP70UVLhEZWyqRnn8elrcEjRSInWFNUwxSeFF/c7Tnf17fWFHZEcw==
 
 react-native-device-info@^2.3.2:
   version "2.3.2"
