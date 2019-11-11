@@ -20,8 +20,10 @@ const addStepResponse = { type: 'add step' };
 
 const next = jest.fn();
 
-next.mockReturnValue(nextResponse);
-addStep.mockReturnValue(addStepResponse);
+beforeEach(() => {
+  next.mockReturnValue(nextResponse);
+  ((addStep as unknown) as jest.Mock).mockReturnValue(addStepResponse);
+});
 
 it('renders correctly', () => {
   renderWithContext(<SuggestedStepDetailScreen next={next} />, {

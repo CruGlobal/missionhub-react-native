@@ -34,7 +34,7 @@ import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackTabChange from '../TrackTabChange';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
-} from '../../containers/Groups/OnboardingCard';
+} from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
 
 import styles from './styles';
@@ -126,12 +126,14 @@ export const StepsScreen = ({
       <Text header={true} style={styles.nullHeader}>
         {t('nullHeader')}
       </Text>
-      <Text style={styles.nullText}>{t('nullNoReminders')}</Text>
+      <Text style={styles.nullText}>{t('nullNoReminders.part1')}</Text>
+      <Text style={styles.nullText}>{t('nullNoReminders.part2')}</Text>
     </View>
   );
 
   const renderItem = ({ item }: { item: Step }) => (
     <StepItem
+      testID={`stepItem${item.id}`}
       step={item}
       onSelect={handleRowSelect}
       onPressName={handleNavToPerson}
@@ -156,8 +158,13 @@ export const StepsScreen = ({
   const renderContent = () => (
     <View style={{ flex: 1 }}>
       <ScrollView
+        testID="scrollView"
         refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
+          <RefreshControl
+            testID="refreshControl"
+            refreshing={isRefreshing}
+            onRefresh={refresh}
+          />
         }
         onScroll={handleScroll}
         scrollEventThrottle={16}
@@ -179,6 +186,7 @@ export const StepsScreen = ({
       <Header
         left={
           <IconButton
+            testID="menuButton"
             name="menuIcon"
             type="MissionHub"
             onPress={handleOpenMainMenu}
