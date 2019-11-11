@@ -231,6 +231,7 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
     );
 
     expect(state).toEqual({
+      ...initialState,
       mine: [newStep, { id: '6' }],
       contactSteps: {
         '123-456': { steps: [{ id: '6' }], completedSteps: [] },
@@ -261,6 +262,7 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
     );
 
     expect(state).toEqual({
+      ...initialState,
       mine: [newStep, { id: '6' }],
       contactSteps: {
         '123-456': { steps: [newStep, { id: '6' }], completedSteps: [] },
@@ -290,6 +292,7 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   );
 
   expect(state).toEqual({
+    ...initialState,
     mine: [{ id: '6' }],
     contactSteps: {
       '123-456': { steps: [{ id: '6' }], completedSteps: [] },

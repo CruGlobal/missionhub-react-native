@@ -26,7 +26,6 @@ import SuggestedStepDetailScreen, {
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import { wrapNextAction } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(

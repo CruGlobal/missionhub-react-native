@@ -43,6 +43,7 @@ describe('bottomButtonProps', () => {
     fireEvent.press(getByTestId('bottomButton'));
 
     expect(addStep).toHaveBeenCalledWith(step, personId, orgId);
+    expect(next).toHaveBeenCalledWith({ personId, orgId });
     expect(store.getActions()).toEqual([addStepResponse, nextResponse]);
   });
 });

@@ -131,14 +131,16 @@ export const StepsScreen = ({
     </View>
   );
 
-  const renderItem = ({ item }: { item: Step }) => (
-    <StepItem
-      testID={`stepItem${item.id}`}
-      step={item}
-      onSelect={handleRowSelect}
-      onPressName={handleNavToPerson}
-    />
-  );
+  const renderItem = ({ item }: { item: Step }) => {
+    return (
+      <StepItem
+        testID={`stepItem${item.id}`}
+        step={item}
+        onSelect={handleRowSelect}
+        onPressName={handleNavToPerson}
+      />
+    );
+  };
 
   const renderSteps = () => (
     <>
@@ -160,11 +162,7 @@ export const StepsScreen = ({
       <ScrollView
         testID="scrollView"
         refreshControl={
-          <RefreshControl
-            testID="refreshControl"
-            refreshing={isRefreshing}
-            onRefresh={refresh}
-          />
+          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }
         onScroll={handleScroll}
         scrollEventThrottle={16}
@@ -184,9 +182,9 @@ export const StepsScreen = ({
     <View style={styles.container}>
       <TrackTabChange screen={STEPS_TAB} />
       <Header
+        testID="header"
         left={
           <IconButton
-            testID="menuButton"
             name="menuIcon"
             type="MissionHub"
             onPress={handleOpenMainMenu}

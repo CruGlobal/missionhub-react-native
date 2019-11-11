@@ -382,7 +382,7 @@ describe('SuggestedStepDetailScreen next', () => {
         store,
       )
         .instance()
-        .props.next({ contactId: myId }),
+        .props.next({ personId: myId }),
     );
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_SOMEONE_SCREEN);

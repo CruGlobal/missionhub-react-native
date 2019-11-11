@@ -8,7 +8,7 @@ import { PEOPLE_TAB } from '../../../constants';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { getMySteps, getMyStepsNextPage } from '../../../actions/steps';
 import { navToPersonScreen } from '../../../actions/person';
-import { openMainMenu } from '../../../utils/common';
+import * as common from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { myStepsSelector } from '../../../selectors/steps';
@@ -22,6 +22,16 @@ jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/steps');
 jest.mock('../../../utils/common');
+jest.mock('../../../components/common', () => ({
+  Card: 'Card',
+  Flex: 'Flex',
+  IconButton: 'IconButton',
+  RefreshControl: 'RefreshControl',
+  Text: 'Text',
+  LoadingGuy: 'LoadingGuy',
+}));
+jest.mock('../../../components/Header', () => 'Header');
+jest.mock('../../../components/BottomButton', () => 'BottomButton');
 jest.mock('../../TrackTabChange', () => () => null);
 jest.mock('../../../components/StepItem', () => 'StepItem');
 
@@ -89,7 +99,9 @@ const getMyStepsResult = { type: 'get steps' };
 const getMyStepsNextPageResult = { type: 'get steps next page' };
 
 beforeEach(() => {
-  ((openMainMenu as unknown) as jest.Mock).mockReturnValue(openMainMenuResult);
+  (common.openMainMenu as jest.Mock) = jest
+    .fn()
+    .mockReturnValue(openMainMenuResult);
   ((navigatePush as unknown) as jest.Mock).mockReturnValue(navigatePushResult);
   ((navigateToMainTabs as unknown) as jest.Mock).mockReturnValue(
     navigateToMainTabsResult,
@@ -132,9 +144,8 @@ describe('handleOpenMainMenu', () => {
     initialState,
   });
 
-  fireEvent.press(getByTestId('menuButton'));
-
-  expect(openMainMenu).toHaveBeenCalledWith();
+  fireEvent.press(getByTestId('header').props.left);
+  expect(common.openMainMenu).toHaveBeenCalled();
   expect(store.getActions()).toEqual([openMainMenuResult]);
 });
 
@@ -143,7 +154,7 @@ describe('handleRowSelect', () => {
     initialState: stateWithSteps,
   });
 
-  fireEvent(getByTestId(`stepItem${steps[0].id}`), 'onSelect', steps[0]);
+  fireEvent(getByTestId(`stepItem0`), 'onSelect', steps[0]);
 
   expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
     step: steps[0],
@@ -181,7 +192,7 @@ describe('handleRefresh', () => {
     initialState: stateWithSteps,
   });
 
-  fireEvent(getByTestId('refreshControl'), 'onRefresh');
+  fireEvent(getByTestId('scrollView').props.refreshControl, 'onRefresh');
 
   expect(checkForUnreadComments).toHaveBeenCalledWith();
   expect(getMySteps).toHaveBeenCalledWith();
