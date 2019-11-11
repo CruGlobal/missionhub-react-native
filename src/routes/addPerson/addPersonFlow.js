@@ -63,16 +63,16 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   ),
   [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
     PersonSelectStepScreen,
-    ({ receiverId, step, orgId }) =>
+    ({ personId, step, orgId }) =>
       step
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             step,
-            receiverId,
+            personId,
             orgId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
             type: CREATE_STEP,
-            personId: receiverId,
+            personId,
             orgId,
             trackingObj: buildTrackingObj(
               'people : person : steps : create',

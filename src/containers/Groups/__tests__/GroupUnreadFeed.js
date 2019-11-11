@@ -99,7 +99,6 @@ it('should call navigate back', () => {
 
   component
     .childAt(1)
-    .childAt(0)
     .props()
     .left.props.onPress();
   expect(navigateBack).toHaveBeenCalled();
@@ -110,7 +109,6 @@ it('should call mark comments read and go back', async () => {
 
   await component
     .childAt(1)
-    .childAt(0)
     .props()
     .right.props.onPress();
   expect(markCommentsRead).toHaveBeenCalledWith(org.id);

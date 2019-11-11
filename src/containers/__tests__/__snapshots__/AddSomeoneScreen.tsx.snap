@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -353,12 +352,11 @@ Take a moment and pray. Who do you want to take steps of faith with?
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders without back button correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -630,12 +628,11 @@ Take a moment and pray. Who do you want to take steps of faith with?
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders without skip button correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -918,5 +915,5 @@ Take a moment and pray. Who do you want to take steps of faith with?
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

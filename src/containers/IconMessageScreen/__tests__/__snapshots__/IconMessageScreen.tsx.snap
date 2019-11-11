@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders back button correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -283,12 +282,11 @@ exports[`renders back button correctly 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -490,12 +488,11 @@ exports[`renders correctly 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders skip button correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -765,5 +762,5 @@ exports[`renders skip button correctly 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

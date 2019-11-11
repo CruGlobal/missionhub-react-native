@@ -9,7 +9,7 @@ exports[`renders correctly for onboarding 1`] = `
     ]
   }
   next={[MockFunction]}
-  receiverId="1234"
+  personId="1234"
 />
 `;
 
@@ -22,7 +22,7 @@ exports[`renders correctly with back button 1`] = `
     ]
   }
   next={[MockFunction]}
-  receiverId="1234"
+  personId="1234"
 />
 `;
 
@@ -35,6 +35,6 @@ exports[`renders correctly without back button 1`] = `
     ]
   }
   next={[MockFunction]}
-  receiverId="1234"
+  personId="1234"
 />
 `;

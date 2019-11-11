@@ -136,7 +136,6 @@ describe('Contact', () => {
       <AssignedPersonScreen {...props} dispatch={dispatch} />,
     );
     component
-      .dive()
       .find('Header')
       .props()
       .right.props.onPress();

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, View, SafeAreaView } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
@@ -66,19 +66,17 @@ export class GroupReport extends Component {
 
     return (
       <View style={styles.redPageContainer}>
-        <SafeAreaView>
-          <Header
-            right={
-              <IconButton
-                name="deleteIcon"
-                type="MissionHub"
-                onPress={this.navigateBack}
-              />
-            }
-            style={styles.reportHeader}
-            title={t('title')}
-          />
-        </SafeAreaView>
+        <Header
+          right={
+            <IconButton
+              name="deleteIcon"
+              type="MissionHub"
+              onPress={this.navigateBack}
+            />
+          }
+          style={styles.reportHeader}
+          title={t('title')}
+        />
         {this.renderList()}
       </View>
     );

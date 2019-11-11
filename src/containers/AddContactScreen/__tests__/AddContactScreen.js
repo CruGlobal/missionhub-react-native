@@ -89,7 +89,6 @@ describe('handleUpdateData', () => {
     component
       .childAt(1)
       .childAt(0)
-      .childAt(0)
       .props()
       .onUpdateData({ firstName: contactFName });
 
@@ -141,8 +140,7 @@ describe('savePerson', () => {
     });
 
     await component
-      .childAt(1)
-      .childAt(1)
+      .childAt(2)
       .props()
       .onPress();
   });

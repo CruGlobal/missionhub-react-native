@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import { StatusBar, SafeAreaView, View } from 'react-native';
+import React from 'react';
+import { StatusBar, View } from 'react-native';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
 
@@ -33,10 +33,10 @@ const StepDetailScreen = ({
   bottomButtonProps,
   receiver,
 }: StepDetailScreenProps) => {
-  const { stepTitleText, backButton, flex1 } = styles;
+  const { stepTitleText, backButton, pageContainer } = styles;
 
   return (
-    <SafeAreaView style={flex1}>
+    <View style={pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={<BackButton iconStyle={backButton} />}
@@ -45,7 +45,7 @@ const StepDetailScreen = ({
       />
       <Text style={stepTitleText}>{text}</Text>
       {CenterContent}
-      <View style={flex1}>
+      <View style={{ flex: 1 }}>
         {markdown ? (
           <ScrollView
             style={styles.body}
@@ -61,7 +61,7 @@ const StepDetailScreen = ({
         ) : null}
       </View>
       {bottomButtonProps && <BottomButton {...bottomButtonProps} />}
-    </SafeAreaView>
+    </View>
   );
 };
 

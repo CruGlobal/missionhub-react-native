@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -82,7 +82,7 @@ class StatusSelectScreen extends Component {
     const { t } = this.props;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={
             <Button
@@ -117,7 +117,7 @@ class StatusSelectScreen extends Component {
           {this.renderItem('completed')}
           {this.renderItem('do_not_contact')}
         </Flex>
-      </SafeAreaView>
+      </View>
     );
   }
 }

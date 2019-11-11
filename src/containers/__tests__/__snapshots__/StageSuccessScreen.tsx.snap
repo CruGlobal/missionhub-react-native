@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -283,12 +282,11 @@ exports[`renders correctly 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders correctly with default state 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -569,5 +567,5 @@ exports[`renders correctly with default state 1`] = `
       </View>
     </RCTSafeAreaView>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

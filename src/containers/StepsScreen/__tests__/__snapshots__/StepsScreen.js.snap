@@ -43,7 +43,7 @@ Object {
 `;
 
 exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -170,11 +170,11 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders loading screen correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -205,11 +205,11 @@ exports[`StepsScreen renders loading screen correctly 1`] = `
   >
     <LoadingGuy />
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders screen with some focused and unfocused steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -365,11 +365,11 @@ exports[`StepsScreen renders screen with some focused and unfocused steps correc
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with max reminders correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -552,11 +552,11 @@ exports[`StepsScreen renders with max reminders correctly 1`] = `
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with no focused steps and less than 4 unfocused steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -692,11 +692,11 @@ exports[`StepsScreen renders with no focused steps and less than 4 unfocused ste
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with no focused steps correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -841,11 +841,11 @@ exports[`StepsScreen renders with no focused steps correctly 1`] = `
       </ScrollViewMock>
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;
 
 exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -976,5 +976,5 @@ exports[`StepsScreen renders with no steps (focused or unfocused) correctly 1`] 
       />
     </View>
   </View>
-</SafeAreaView>
+</View>
 `;

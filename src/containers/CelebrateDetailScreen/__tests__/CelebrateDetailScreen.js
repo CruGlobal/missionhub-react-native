@@ -107,8 +107,7 @@ describe('refresh', () => {
   it('calls handleRefresh', () => {
     common.refresh = jest.fn();
     screen
-      .childAt(0)
-      .childAt(2)
+      .childAt(1)
       .childAt(2)
       .props()
       .listProps.refreshControl.props.onRefresh();
@@ -122,9 +121,7 @@ describe('refresh', () => {
 describe('celebrate add complete', () => {
   it('scrolls to end on add complete', () => {
     screen
-      .childAt(0)
       .childAt(2)
-      .childAt(3)
       .props()
       .onAddComplete();
     expect(listRef.scrollToEnd).toHaveBeenCalled();
