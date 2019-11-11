@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -10,12 +10,6 @@ exports[`contact notes and editing is set to true button message changes to DONE
   }
 >
   <Flex
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
     value={1}
   >
     <Input
@@ -31,7 +25,7 @@ exports[`contact notes and editing is set to true button message changes to DONE
           "color": "#505256",
           "fontSize": 16,
           "marginTop": 30,
-          "paddingBottom": 30,
+          "paddingBottom": 96,
           "paddingHorizontal": 36,
           "textAlign": "left",
         }
@@ -42,11 +36,11 @@ exports[`contact notes and editing is set to true button message changes to DONE
     onPress={[Function]}
     text="Done"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -67,11 +61,11 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -92,11 +86,11 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
     onPress={[Function]}
     text="ADD PRIVATE NOTES"
   />
-</SafeAreaView>
+</View>
 `;
 
 exports[`contact notes notes are shown 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -105,12 +99,6 @@ exports[`contact notes notes are shown 1`] = `
   }
 >
   <Flex
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-      }
-    }
     value={1}
   >
     <ScrollViewMock>
@@ -121,7 +109,7 @@ exports[`contact notes notes are shown 1`] = `
             "color": "#505256",
             "fontSize": 16,
             "marginTop": 30,
-            "paddingBottom": 30,
+            "paddingBottom": 96,
             "paddingHorizontal": 36,
             "textAlign": "left",
           }
@@ -135,5 +123,5 @@ exports[`contact notes notes are shown 1`] = `
     onPress={[Function]}
     text="EDIT PRIVATE NOTES"
   />
-</SafeAreaView>
+</View>
 `;

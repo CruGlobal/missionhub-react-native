@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#ffffff",
@@ -9,14 +9,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <View
-    style={
-      Object {
-        "backgroundColor": "#505256",
-        "flex": 1,
-      }
-    }
-  >
+  <SafeAreaView>
     <StatusBar
       animated={true}
       backgroundColor="#006789"
@@ -26,7 +19,7 @@ exports[`renders correctly 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "white",
+          "backgroundColor": "#ffffff",
           "padding": 14,
           "paddingBottom": 5,
         }
@@ -78,73 +71,78 @@ exports[`renders correctly 1`] = `
         />
       </View>
     </View>
-    <View
-      flex={1}
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/Trailss.png",
-          }
+  </SafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
+        "flex": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/Trailss.png",
         }
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
+      }
+      style={
+        Object {
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
         }
-      />
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/TrailGrey.png",
-          }
+      }
+    />
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/TrailGrey.png",
         }
-        style={
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "position": "absolute",
-          }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
         }
-      />
-      <Connect(withI18nextTranslation(CommentsList))
-        event={
-          Object {
-            "changed_attribute_value": "2019-04-11T13:51:49.888",
-            "id": "90001",
-            "organization": Object {
-              "id": "24234234",
-            },
-            "subject_person_name": "Roger",
-          }
+      }
+    />
+    <Connect(withI18nextTranslation(CommentsList))
+      event={
+        Object {
+          "changed_attribute_value": "2019-04-11T13:51:49.888",
+          "id": "90001",
+          "organization": Object {
+            "id": "24234234",
+          },
+          "subject_person_name": "Roger",
         }
-        listProps={
-          Object {
-            "ListHeaderComponent": [Function],
-            "ref": [Function],
-            "refreshControl": <MyRefreshControl
-              onRefresh={[Function]}
-              refreshing={false}
-            />,
-          }
+      }
+      listProps={
+        Object {
+          "ListHeaderComponent": [Function],
+          "ref": [Function],
+          "refreshControl": <MyRefreshControl
+            onRefresh={[Function]}
+            refreshing={false}
+          />,
         }
-      />
-      <Connect(CelebrateCommentBox)
-        event={
-          Object {
-            "changed_attribute_value": "2019-04-11T13:51:49.888",
-            "id": "90001",
-            "organization": Object {
-              "id": "24234234",
-            },
-            "subject_person_name": "Roger",
-          }
-        }
-        onAddComplete={[Function]}
-      />
-    </View>
+      }
+    />
   </View>
-</SafeAreaView>
+  <Connect(CelebrateCommentBox)
+    event={
+      Object {
+        "changed_attribute_value": "2019-04-11T13:51:49.888",
+        "id": "90001",
+        "organization": Object {
+          "id": "24234234",
+        },
+        "subject_person_name": "Roger",
+      }
+    }
+    onAddComplete={[Function]}
+  />
+</View>
 `;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import i18next from 'i18next';
 
@@ -81,7 +81,7 @@ class GroupScreen extends Component {
     const { organization } = this.props;
 
     return (
-      <SafeAreaView style={{ backgroundColor: theme.primaryColor }}>
+      <View style={{ backgroundColor: theme.primaryColor }}>
         <Header
           left={
             <IconButton
@@ -94,7 +94,7 @@ class GroupScreen extends Component {
           title={organization.name}
           right={this.renderAddContactIcon()}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

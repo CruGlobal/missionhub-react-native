@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, View, SafeAreaView } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
@@ -66,30 +66,28 @@ class GroupUnreadFeed extends Component {
     return (
       <View style={styles.pageContainer}>
         <StatusBar {...theme.statusBar.darkContent} />
-        <SafeAreaView>
-          <Header
-            left={
-              <IconButton
-                name="backIcon"
-                type="MissionHub"
-                style={styles.backIcon}
-                onPress={this.back}
-              />
-            }
-            right={
-              <Button
-                type="transparent"
-                text={t('clearAll').toUpperCase()}
-                style={styles.clearAllButton}
-                buttonTextStyle={styles.clearAllButtonText}
-                onPress={this.markRead}
-              />
-            }
-            shadow={true}
-            title={t('title', { count })}
-            titleStyle={styles.unreadTitle}
-          />
-        </SafeAreaView>
+        <Header
+          left={
+            <IconButton
+              name="backIcon"
+              type="MissionHub"
+              style={styles.backIcon}
+              onPress={this.back}
+            />
+          }
+          right={
+            <Button
+              type="transparent"
+              text={t('clearAll').toUpperCase()}
+              style={styles.clearAllButton}
+              buttonTextStyle={styles.clearAllButtonText}
+              onPress={this.markRead}
+            />
+          }
+          shadow={true}
+          title={t('title', { count })}
+          titleStyle={styles.unreadTitle}
+        />
         <View style={styles.cardList}>
           <CelebrateFeed
             organization={organization}

@@ -1,22 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly for me 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
-      "backgroundColor": "#007398",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  />
   <View
     onLayout={[Function]}
     style={
       Array [
-        Object {
-          "flex": 1,
-        },
+        undefined,
         Object {
           "backgroundColor": "transparent",
           "flex": 1,
@@ -88,7 +93,6 @@ exports[`renders correctly for me 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "center",
                     "flex": 1,
                   }
                 }
@@ -223,52 +227,61 @@ exports[`renders correctly for me 1`] = `
                     />
                   </View>
                 </RCTSafeAreaView>
-                <Text
+                <View
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                    }
                   }
                 >
-                  Choose a step of faith
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                   to take with  this week...
-                </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Choose a step of faith
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                     to take with  this week...
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -604,26 +617,31 @@ exports[`renders correctly for me 1`] = `
       </View>
     </View>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders correctly for other person 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
-      "backgroundColor": "#007398",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  />
   <View
     onLayout={[Function]}
     style={
       Array [
-        Object {
-          "flex": 1,
-        },
+        undefined,
         Object {
           "backgroundColor": "transparent",
           "flex": 1,
@@ -695,7 +713,6 @@ exports[`renders correctly for other person 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "center",
                     "flex": 1,
                   }
                 }
@@ -830,52 +847,61 @@ exports[`renders correctly for other person 1`] = `
                     />
                   </View>
                 </RCTSafeAreaView>
-                <Text
+                <View
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                    }
                   }
                 >
-                  Choose a step of faith
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                   to take with  this week...
-                </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Choose a step of faith
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                     to take with  this week...
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -1211,26 +1237,31 @@ exports[`renders correctly for other person 1`] = `
       </View>
     </View>
   </View>
-</RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders correctly for person in orgization 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
-      "backgroundColor": "#007398",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
 >
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  />
   <View
     onLayout={[Function]}
     style={
       Array [
-        Object {
-          "flex": 1,
-        },
+        undefined,
         Object {
           "backgroundColor": "transparent",
           "flex": 1,
@@ -1302,7 +1333,6 @@ exports[`renders correctly for person in orgization 1`] = `
               <View
                 style={
                   Object {
-                    "alignItems": "center",
                     "flex": 1,
                   }
                 }
@@ -1437,52 +1467,61 @@ exports[`renders correctly for person in orgization 1`] = `
                     />
                   </View>
                 </RCTSafeAreaView>
-                <Text
+                <View
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
+                    Object {
+                      "alignItems": "center",
+                      "flex": 1,
+                    }
                   }
                 >
-                  Choose a step of faith
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "letterSpacing": 1,
-                        "lineHeight": 30,
-                        "paddingHorizontal": 30,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                   to take with  this week...
-                </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Choose a step of faith
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 24,
+                          "fontWeight": "300",
+                          "letterSpacing": 1,
+                          "lineHeight": 30,
+                          "paddingHorizontal": 30,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                     to take with  this week...
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -1818,5 +1857,5 @@ exports[`renders correctly for person in orgization 1`] = `
       </View>
     </View>
   </View>
-</RCTSafeAreaView>
+</View>
 `;

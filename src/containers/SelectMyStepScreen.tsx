@@ -12,7 +12,7 @@ interface SelectMyStepScreenProps {
   me: Person;
   stageId: string;
   next: (nextProps: {
-    receiverId: string;
+    personId: string;
     step?: Step;
   }) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ThunkAction<void, any, null, never>;
@@ -24,7 +24,7 @@ const SelectMyStepScreen = ({ me, stageId, next }: SelectMyStepScreenProps) => {
   return (
     <SelectStepScreen
       contactStageId={stageId}
-      receiverId={me.id}
+      personId={me.id}
       headerText={[t('meHeader.part1'), t('meHeader.part2')]}
       next={next}
     />

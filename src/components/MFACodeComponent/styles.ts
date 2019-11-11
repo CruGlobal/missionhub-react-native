@@ -11,7 +11,6 @@ export default StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: theme.primaryColor,
     paddingHorizontal: 40,
   },
   label: {

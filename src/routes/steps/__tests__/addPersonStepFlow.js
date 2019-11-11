@@ -78,13 +78,13 @@ describe('PersonSelectStepScreen next', () => {
           organization: { id: orgId },
           contactName: otherName,
         },
-        { receiverId: otherId, step, orgId },
+        { personId: otherId, step, orgId },
       );
     });
 
     it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
-        receiverId: otherId,
+        personId: otherId,
         step,
         orgId,
       });
@@ -100,7 +100,7 @@ describe('PersonSelectStepScreen next', () => {
           personId: otherId,
           orgId,
         },
-        { receiverId: otherId, step: undefined, orgId },
+        { personId: otherId, step: undefined, orgId },
       );
     });
 
@@ -120,7 +120,7 @@ describe('SuggestedStepDetailScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
       SUGGESTED_STEP_DETAIL_SCREEN,
-      { receiverId: otherId, step, orgId },
+      { personId: otherId, step, orgId },
       {},
     );
   });

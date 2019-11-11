@@ -1,7 +1,7 @@
 /* eslint max-lines: 0, max-lines-per-function: 0 */
 
 import React, { Component } from 'react';
-import { View, SafeAreaView, Alert, Image, ScrollView } from 'react-native';
+import { View, Alert, Image, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -177,8 +177,8 @@ class GroupProfile extends Component {
     const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
-      <>
-        <SafeAreaView style={styles.container} forceInset={{ bottom: 'never' }}>
+      <View flex={1}>
+        <View style={styles.container} forceInset={{ bottom: 'never' }}>
           <Header
             left={
               <IconButton
@@ -200,7 +200,7 @@ class GroupProfile extends Component {
               )
             }
           />
-        </SafeAreaView>
+        </View>
         <View style={styles.content}>
           {this.renderImage()}
           <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
@@ -311,7 +311,7 @@ class GroupProfile extends Component {
             </Flex>
           </ScrollView>
         </View>
-      </>
+      </View>
     );
   }
 }
