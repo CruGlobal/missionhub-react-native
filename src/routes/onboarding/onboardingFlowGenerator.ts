@@ -116,15 +116,15 @@ export const onboardingFlowGenerator = ({
         [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
           wrapNextAction(
             SelectMyStepScreen,
-            ({ receiverId, step }: { receiverId: string; step: object }) =>
+            ({ personId, step }: { personId: string; step: object }) =>
               step
                 ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
                     step,
-                    receiverId,
+                    personId,
                   })
                 : navigatePush(ADD_STEP_SCREEN, {
                     type: CREATE_STEP,
-                    personId: receiverId,
+                    personId,
                   }),
           ),
           buildTrackingObj(
@@ -193,15 +193,15 @@ export const onboardingFlowGenerator = ({
   [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       PersonSelectStepScreen,
-      ({ receiverId, step }: { receiverId: string; step: object }) =>
+      ({ personId, step }: { personId: string; step: object }) =>
         step
           ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
               step,
-              receiverId,
+              personId,
             })
           : navigatePush(ADD_STEP_SCREEN, {
               type: CREATE_STEP,
-              personId: receiverId,
+              personId,
             }),
     ),
     buildTrackingObj(

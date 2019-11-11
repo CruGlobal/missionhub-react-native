@@ -12,7 +12,7 @@ jest.mock('../../../actions/navigation');
 const next = jest.fn(() => () => ({}));
 const organization = { id: '4234234' };
 const contactStageId = '3';
-const receiverId = '252342354234';
+const personId = '252342354234';
 const contactName = 'roger';
 const state = {
   auth: { person: { id: '89123' } },
@@ -27,7 +27,7 @@ beforeEach(() => {
     <SelectStepScreen
       contactStageId={contactStageId}
       organization={organization}
-      receiverId={receiverId}
+      personId={personId}
       enableSkipButton={enableSkipButton}
       headerText={['Header Text 1', 'Header Text 2']}
       contactName={contactName}
@@ -69,7 +69,7 @@ xdescribe('skip button', () => {
     fireEvent.press(screen.getAllByTestId('skipButton')[0]);
 
     expect(next).toHaveBeenCalledWith({
-      receiverId,
+      receiverId: personId,
       step: undefined,
       skip: true,
       orgId: organization.id,
@@ -80,7 +80,7 @@ xdescribe('skip button', () => {
     fireEvent.press(screen.getAllByTestId('skipButton')[1]);
 
     expect(next).toHaveBeenCalledWith({
-      receiverId,
+      receiverId: personId,
       step: undefined,
       skip: true,
       orgId: organization.id,

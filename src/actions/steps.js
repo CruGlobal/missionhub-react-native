@@ -87,7 +87,7 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addStep(stepSuggestion, receiverId, orgId) {
+export function addStep(stepSuggestion, personId, orgId) {
   return async dispatch => {
     const payload = {
       data: {
@@ -99,7 +99,7 @@ export function addStep(stepSuggestion, receiverId, orgId) {
           receiver: {
             data: {
               type: 'person',
-              id: receiverId,
+              id: personId,
             },
           },
           challenge_suggestion: {
@@ -128,20 +128,20 @@ export function addStep(stepSuggestion, receiverId, orgId) {
     await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
     dispatch(trackStepAdded(stepSuggestion));
     dispatch(getMySteps());
-    dispatch(getContactSteps(receiverId, orgId));
+    dispatch(getContactSteps(personId, orgId));
   };
 }
 
-export function createCustomStep(stepText, receiverId, orgId) {
+export function createCustomStep(stepText, personId, orgId) {
   return (dispatch, getState) => {
     const {
       auth: {
         person: { id: myId },
       },
     } = getState();
-    const isMe = receiverId === myId;
+    const isMe = personId === myId;
 
-    dispatch(addStep(buildCustomStep(stepText, isMe), receiverId, orgId));
+    dispatch(addStep(buildCustomStep(stepText, isMe), personId, orgId));
   };
 }
 
