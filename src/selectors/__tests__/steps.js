@@ -2,6 +2,7 @@ import {
   reminderStepsSelector,
   nonReminderStepsSelector,
   hasReminderStepsSelector,
+  myStepsSelector,
 } from '../steps';
 
 const people = {
@@ -88,6 +89,12 @@ const nonReminders = [
 const steps = {
   mine: [...reminders, ...nonReminders],
 };
+
+describe('myStepsSelector', () => {
+  it('should get my steps', () => {
+    expect(myStepsSelector({ steps })).toEqual(steps.mine);
+  });
+});
 
 describe('hasReminderStepsSelector', () => {
   it('should return true if reminder steps exist', () => {

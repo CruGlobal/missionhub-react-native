@@ -1,11 +1,23 @@
 import { REQUESTS } from '../../api/routes';
-import steps from '../steps';
+import steps, { Step, StepsState } from '../steps';
 import {
   COMPLETED_STEP_COUNT,
   TOGGLE_STEP_FOCUS,
   RESET_STEP_COUNT,
   STEP_SUGGESTION,
 } from '../../constants';
+
+const initialState = {
+  mine: null,
+  suggestedForMe: {},
+  suggestedForOthers: {},
+  userStepCount: {},
+  pagination: {
+    hasNextPage: true,
+    page: 1,
+  },
+  contactSteps: {},
+};
 
 it('loads step suggestions for me', () => {
   const stageId = '5';
@@ -19,10 +31,10 @@ it('loads step suggestions for me', () => {
     { id: '5', type: STEP_SUGGESTION },
     { id: '6', type: STEP_SUGGESTION },
   ];
-  newSuggestions.findAll = () => newSuggestions;
 
   const state = steps(
     {
+      ...initialState,
       suggestedForMe: {
         [stageId]: oldSuggestions,
       },
@@ -59,10 +71,10 @@ it('loads step suggestions for others', () => {
     { id: '5', type: STEP_SUGGESTION },
     { id: '6', type: STEP_SUGGESTION },
   ];
-  newSuggestions.findAll = () => newSuggestions;
 
   const state = steps(
     {
+      ...initialState,
       suggestedForMe: {
         [stageId]: [],
       },
@@ -106,6 +118,7 @@ it('resets a user step count', () => {
 it('increments existing user step count', () => {
   const state = steps(
     {
+      ...initialState,
       userStepCount: { [1]: 1 },
     },
     {
@@ -119,8 +132,8 @@ it('increments existing user step count', () => {
 it('adds new items to existing mine array', () => {
   const state = steps(
     {
+      ...initialState,
       mine: Array(25).fill({ id: '1' }),
-      reminders: [],
     },
     {
       type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
@@ -140,8 +153,8 @@ it('receives reminders', () => {
 
   const state = steps(
     {
+      ...initialState,
       mine: [],
-      reminders: [],
     },
     {
       type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
@@ -158,6 +171,7 @@ it('receives reminders', () => {
 it('receives contact steps and sorts completed', () => {
   const state = steps(
     {
+      ...initialState,
       contactSteps: {
         '123-456': { steps: [{ id: '6' }], completedSteps: [] },
         '987-personal': { steps: [], completedSteps: [] },
@@ -203,6 +217,7 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
 
     const state = steps(
       {
+        ...initialState,
         mine: [{ id: '6' }],
         contactSteps: {
           '123-456': { steps: [{ id: '6' }], completedSteps: [] },
@@ -232,6 +247,7 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
 
     const state = steps(
       {
+        ...initialState,
         mine: [{ id: '6' }],
         contactSteps: {
           '123-456': { steps: [{ id: '6' }], completedSteps: [] },
@@ -257,6 +273,7 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
 it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   const state = steps(
     {
+      ...initialState,
       mine: [{ id: '6' }, { id: '3' }],
       contactSteps: {
         '123-456': { steps: [{ id: '6' }, { id: '3' }], completedSteps: [] },
@@ -291,6 +308,7 @@ describe('it should toggle step focus', () => {
   it('should toggle from false to true', () => {
     const state = steps(
       {
+        ...initialState,
         mine: existingSteps,
       },
       {
@@ -309,6 +327,7 @@ describe('it should toggle step focus', () => {
   it('should toggle from true to false', () => {
     const state = steps(
       {
+        ...initialState,
         mine: existingSteps,
       },
       {

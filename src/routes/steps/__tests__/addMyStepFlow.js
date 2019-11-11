@@ -23,13 +23,6 @@ const stepText = 'hello';
 const stage = { id: '1' };
 const step = { id: '444', title: stepText };
 
-const trackingObj = buildTrackingObj(
-  'people : self : steps : create',
-  'people',
-  'self',
-  'steps',
-);
-
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
 });
@@ -104,7 +97,6 @@ describe('SelectMyStep next', () => {
         type: CREATE_STEP,
         personId: myId,
         orgId,
-        trackingObj,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -134,7 +126,6 @@ describe('AddStepScreen next', () => {
         type: CREATE_STEP,
         personId: myId,
         orgId,
-        trackingObj,
       },
       { text: stepText, personId: myId, orgId },
     );

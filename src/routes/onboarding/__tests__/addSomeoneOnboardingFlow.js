@@ -203,12 +203,6 @@ describe('PersonSelectStepScreen next', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       personId,
-      trackingObj: buildTrackingObj(
-        'onboarding : person : steps : create',
-        'onboarding',
-        'person',
-        'steps',
-      ),
     });
   });
 });
@@ -263,12 +257,6 @@ describe('AddStepScreen next', () => {
             params: {
               type: CREATE_STEP,
               personId,
-              trackingObj: buildTrackingObj(
-                'onboarding : person : steps : create',
-                'onboarding',
-                'person',
-                'steps',
-              ),
             },
           },
         }}

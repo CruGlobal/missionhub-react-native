@@ -30,12 +30,6 @@ const contact = {
 };
 const stepText = 'Step';
 const step = { id: '567', title: stepText };
-const trackingObj = buildTrackingObj(
-  'people : person : steps : create',
-  'people',
-  'person',
-  'steps',
-);
 
 const onFlowComplete = jest.fn();
 
@@ -211,7 +205,6 @@ describe('PersonSelectStepScreen next', () => {
         type: CREATE_STEP,
         personId: contactId,
         orgId,
-        trackingObj,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -241,7 +234,6 @@ describe('AddStepScreen next', () => {
         type: CREATE_STEP,
         personId: contactId,
         orgId,
-        trackingObj,
       },
       { text: stepText, personId: contactId, orgId },
     );
