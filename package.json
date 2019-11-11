@@ -123,7 +123,7 @@
     "@typescript-eslint/parser": "^2.6.1",
     "apollo": "^2.18.1",
     "apollo-client": "^2.6.4",
-    "apollo-link-schema": "^1.2.3",
+    "apollo-link-schema": "^1.2.4",
     "appcenter-cli": "^2.1.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
