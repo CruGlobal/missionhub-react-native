@@ -113,7 +113,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     Object {
       "state": Object {
         "params": Object {
-          "receiverId": "123",
+          "personId": "123",
           "step": Object {
             "id": "111",
           },
@@ -122,7 +122,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  receiverId="123"
+  personId="123"
   step={
     Object {
       "id": "111",

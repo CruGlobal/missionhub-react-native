@@ -29,7 +29,7 @@ interface StepsComputedProps {
 }
 
 interface StepsListOwnProps {
-  receiverId: string;
+  personId: string;
   contactStageId: string;
   contactName?: string;
   onPressStep: (step: Step) => void;
@@ -103,11 +103,11 @@ const StepsList = ({
 };
 
 const mapStateToProps = (
-  { auth, steps }: { auth: AuthState; steps: Step },
-  { receiverId, contactStageId }: StepsListOwnProps,
+  { auth, steps }: { auth: AuthState; steps: Step }, // eslint-disable-line @typescript-eslint/no-explicit-any
+  { personId, contactStageId }: StepsListOwnProps,
 ) => {
   const myId = auth.person.id;
-  const isMe = receiverId === myId;
+  const isMe = personId === myId;
 
   return {
     isMe,
