@@ -1,6 +1,6 @@
 /* eslint max-lines-per-function: 0 */
 import React, { Component } from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, View, SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -250,38 +250,40 @@ export default class CommentBox extends Component {
     } = styles;
 
     return (
-      <Flex direction="column" style={[container, containerStyle]}>
-        <Flex direction="row" align="center" justify="center" style={boxWrap}>
-          {!hideActions && !action ? (
-            <Flex
-              align="center"
-              justify="center"
-              style={[actionSelectionWrap, showActions ? actionsOpen : null]}
-            >
-              <IconButton
-                name={showActions ? 'deleteIcon' : 'plusIcon'}
-                type="MissionHub"
-                size={13}
-                onPress={this.handleActionPress}
-                style={actionSelection}
-              />
-            </Flex>
-          ) : null}
-          {!action && editingComment ? (
-            <Flex style={cancelWrap}>
-              <IconButton
-                name="deleteIcon"
-                type="MissionHub"
-                onPress={this.cancel}
-                style={cancelIcon}
-                size={12}
-              />
-            </Flex>
-          ) : null}
-          {this.renderInput()}
-        </Flex>
-        {this.renderActions()}
-      </Flex>
+      <View style={[container, containerStyle]}>
+        <SafeAreaView>
+          <Flex direction="row" align="center" justify="center" style={boxWrap}>
+            {!hideActions && !action ? (
+              <Flex
+                align="center"
+                justify="center"
+                style={[actionSelectionWrap, showActions ? actionsOpen : null]}
+              >
+                <IconButton
+                  name={showActions ? 'deleteIcon' : 'plusIcon'}
+                  type="MissionHub"
+                  size={13}
+                  onPress={this.handleActionPress}
+                  style={actionSelection}
+                />
+              </Flex>
+            ) : null}
+            {!action && editingComment ? (
+              <Flex style={cancelWrap}>
+                <IconButton
+                  name="deleteIcon"
+                  type="MissionHub"
+                  onPress={this.cancel}
+                  style={cancelIcon}
+                  size={12}
+                />
+              </Flex>
+            ) : null}
+            {this.renderInput()}
+          </Flex>
+          {this.renderActions()}
+        </SafeAreaView>
+      </View>
     );
   }
 }

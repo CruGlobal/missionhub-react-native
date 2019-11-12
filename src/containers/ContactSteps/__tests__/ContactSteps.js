@@ -139,6 +139,7 @@ it('renders correctly with completed steps', () => {
 
   component
     .childAt(0)
+    .childAt(0)
     .childAt(1)
     .props()
     .onPress();
@@ -158,6 +159,7 @@ describe('renderItem', () => {
   it('renders row', () => {
     expect(
       component
+        .childAt(0)
         .childAt(0)
         .childAt(0)
         .props()
@@ -205,6 +207,7 @@ describe('handleComplete', () => {
 
   it('triggers complete step flow', async () => {
     await component
+      .childAt(0)
       .childAt(0)
       .childAt(0)
       .props()
@@ -276,7 +279,7 @@ describe('handleCreateStep', () => {
 
       expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
         contactName: mockPerson.first_name,
-        contactId: mockPerson.id,
+        personId: mockPerson.id,
         organization: undefined,
         createStepTracking: buildTrackingObj(
           'people : person : steps : create',

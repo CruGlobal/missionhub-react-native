@@ -12,13 +12,13 @@ jest.mock('../../../actions/steps', () => ({
 }));
 jest.mock('../../../components/LoadMore', () => 'LoadMore');
 
-let personId: string;
+let authPersonId: string;
 let contactStageId: string;
 let screen: ReturnType<typeof renderWithContext>;
 
 const navToCreateStep = jest.fn();
 const stageIdWithSteps = '3';
-const receiverId = '252342354234';
+const personId = '252342354234';
 const contactName = 'Bill';
 const suggestedForMe = {
   [stageIdWithSteps]: [
@@ -48,13 +48,13 @@ beforeEach(() => {
     <StepsList
       onPressCreateStep={navToCreateStep}
       contactStageId={contactStageId}
-      receiverId={receiverId}
+      personId={personId}
       contactName={contactName}
       onPressStep={onPressStep}
     />,
     {
       initialState: {
-        auth: { person: { id: personId } },
+        auth: { person: { id: authPersonId } },
         steps: { suggestedForMe, suggestedForOthers },
       },
     },
@@ -63,7 +63,7 @@ beforeEach(() => {
 
 describe('for me', () => {
   beforeAll(() => {
-    personId = receiverId;
+    authPersonId = personId;
   });
 
   describe('without steps', () => {
@@ -99,7 +99,7 @@ describe('for me', () => {
 
 describe('for another person', () => {
   beforeAll(() => {
-    personId = '99900111';
+    authPersonId = '99900111';
   });
 
   describe('without steps', () => {

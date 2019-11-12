@@ -5,14 +5,14 @@ exports[`facebook login button is pressed facebook button calls facebook login l
 - First value
 + Second value
 
-@@ -166,6 +166,7 @@
+@@ -170,6 +170,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
       </Button>
-    </Flex>
+    </RCTSafeAreaView>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`forgot password button is pressed should call forgot password logic 1`] = `
@@ -20,14 +20,14 @@ exports[`forgot password button is pressed should call forgot password logic 1`]
 - First value
 + Second value
 
-@@ -166,6 +166,7 @@
+@@ -170,6 +170,7 @@
             SIGN IN WITH FACEBOOK
           </Text>
         </Flex>
       </Button>
-    </Flex>
+    </RCTSafeAreaView>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`key login button is pressed key login is called 1`] = `
@@ -35,7 +35,7 @@ exports[`key login button is pressed key login is called 1`] = `
 - First value
 + Second value
 
-@@ -55,11 +55,11 @@
+@@ -54,11 +54,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -48,7 +48,7 @@ exports[`key login button is pressed key login is called 1`] = `
       <View
         style={
           Object {
-@@ -83,11 +83,11 @@
+@@ -82,11 +82,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -61,19 +61,30 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -109,63 +109,17 @@
+@@ -107,69 +107,37 @@
+          text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
       </View>
     </Flex>
-    <Flex
--     align=\\"center\\"
--     justify=\\"center\\"
--     value={1}
++   <Flex
 +     align=\\"stretch\\"
 +     justify=\\"end\\"
-    >
-      <Button
++   >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+-         \\"alignItems\\": \\"center\\",
+-         \\"flex\\": 1,
+-         \\"justifyContent\\": \\"center\\",
++           \\"bottom\\": 20,
++           \\"left\\": 50,
++           \\"position\\": \\"absolute\\",
+          }
+        }
+      >
+        <Button
 -       buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
@@ -84,17 +95,20 @@ exports[`key login button is pressed key login is called 1`] = `
 -         }
 -       }
 -       onPress={[Function facebookLogin]}
--       pill={true}
--       style={
--         Object {
++         onPress={[Function handlePress]}
+          pill={true}
+          style={
+            Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
--           \\"height\\": 48,
++             \\"alignItems\\": \\"center\\",
+              \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
--         }
--       }
++             \\"width\\": 650,
+            }
+          }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -109,11 +123,10 @@ exports[`key login button is pressed key login is called 1`] = `
 -             }
 -           }
 -           type=\\"MissionHub\\"
-+       onPress={[Function login]}
-+       testID=\\"loginButton\\"
-+       text=\\"LOGIN\\"
-+       type=\\"secondary\\"
-      />
++         testID=\\"bottomButton\\"
++         text=\\"LOGIN\\"
++         type=\\"secondary\\"
+        />
 -         <Text
 -           style={
 -             Object {
@@ -127,11 +140,12 @@ exports[`key login button is pressed key login is called 1`] = `
 -         >
 -           SIGN IN WITH FACEBOOK
 -         </Text>
++     </RCTSafeAreaView>
     </Flex>
 -     </Button>
--   </Flex>
+-   </RCTSafeAreaView>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`key login button is pressed mfa_required is returned from the Key should send user to MFA screen and clear credentials 1`] = `
@@ -144,14 +158,14 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -119,6 +119,7 @@
-        testID=\\"loginButton\\"
-        text=\\"LOGIN\\"
-        type=\\"secondary\\"
-      />
+@@ -137,6 +137,7 @@
+          text=\\"LOGIN\\"
+          type=\\"secondary\\"
+        />
+      </RCTSafeAreaView>
     </Flex>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`key login button is pressed shows email verification required message and tracks user error when email has not been verified 1`] = `
@@ -159,13 +173,14 @@ exports[`key login button is pressed shows email verification required message a
 - First value
 + Second value
 
-@@ -7,10 +7,31 @@
+@@ -6,10 +6,32 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
     }
   >
-+   <View
++   <RCTSafeAreaView
++     emulateUnlessSupported={true}
 +     style={
 +       Object {
 +         \\"alignItems\\": \\"center\\",
@@ -185,13 +200,13 @@ exports[`key login button is pressed shows email verification required message a
 +     >
 +       Verify your account via Email
 +     </Text>
-+   </View>
++   </RCTSafeAreaView>
     <Header
       left={<BackButton />}
     />
     <Flex
       align=\\"center\\"
-@@ -55,11 +76,11 @@
+@@ -54,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -204,7 +219,7 @@ exports[`key login button is pressed shows email verification required message a
       <View
         style={
           Object {
-@@ -83,11 +104,11 @@
+@@ -82,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -217,19 +232,30 @@ exports[`key login button is pressed shows email verification required message a
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -109,63 +130,16 @@
+@@ -107,69 +129,36 @@
+          text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
       </View>
     </Flex>
-    <Flex
--     align=\\"center\\"
--     justify=\\"center\\"
--     value={1}
++   <Flex
 +     align=\\"stretch\\"
 +     justify=\\"end\\"
-    >
-      <Button
++   >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+-         \\"alignItems\\": \\"center\\",
+-         \\"flex\\": 1,
+-         \\"justifyContent\\": \\"center\\",
++           \\"bottom\\": 20,
++           \\"left\\": 50,
++           \\"position\\": \\"absolute\\",
+          }
+        }
+      >
+        <Button
 -       buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
@@ -240,13 +266,15 @@ exports[`key login button is pressed shows email verification required message a
 -         }
 -       }
 -       onPress={[Function facebookLogin]}
--       pill={true}
--       style={
--         Object {
++         onPress={[Function handlePress]}
+          pill={true}
+          style={
+            Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
--           \\"height\\": 48,
++             \\"alignItems\\": \\"center\\",
+              \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
@@ -262,14 +290,14 @@ exports[`key login button is pressed shows email verification required message a
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
-+       onPress={[Function login]}
-+       testID=\\"loginButton\\"
-+       text=\\"LOGIN\\"
-+       type=\\"secondary\\"
-      />
++         testID=\\"bottomButton\\"
++         text=\\"LOGIN\\"
++         type=\\"secondary\\"
+        />
 -         <Text
 -           style={
 -             Object {
@@ -283,10 +311,11 @@ exports[`key login button is pressed shows email verification required message a
 -         >
 -           SIGN IN WITH FACEBOOK
 -         </Text>
--       </Flex>
--     </Button>
++     </RCTSafeAreaView>
     </Flex>
-  </RCTSafeAreaView>"
+-     </Button>
+-   </RCTSafeAreaView>
+  </View>"
 `;
 
 exports[`key login button is pressed shows invalid credentials message and tracks user error when email or password is missing 1`] = `
@@ -294,13 +323,14 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -7,10 +7,31 @@
+@@ -6,10 +6,32 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
     }
   >
-+   <View
++   <RCTSafeAreaView
++     emulateUnlessSupported={true}
 +     style={
 +       Object {
 +         \\"alignItems\\": \\"center\\",
@@ -320,13 +350,13 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     >
 +       Your Email or Password is Incorrect
 +     </Text>
-+   </View>
++   </RCTSafeAreaView>
     <Header
       left={<BackButton />}
     />
     <Flex
       align=\\"center\\"
-@@ -55,11 +76,11 @@
+@@ -54,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -339,7 +369,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -83,11 +104,11 @@
+@@ -82,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -352,19 +382,30 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -109,63 +130,16 @@
+@@ -107,69 +129,36 @@
+          text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
       </View>
     </Flex>
-    <Flex
--     align=\\"center\\"
--     justify=\\"center\\"
--     value={1}
++   <Flex
 +     align=\\"stretch\\"
 +     justify=\\"end\\"
-    >
-      <Button
++   >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+-         \\"alignItems\\": \\"center\\",
+-         \\"flex\\": 1,
+-         \\"justifyContent\\": \\"center\\",
++           \\"bottom\\": 20,
++           \\"left\\": 50,
++           \\"position\\": \\"absolute\\",
+          }
+        }
+      >
+        <Button
 -       buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
@@ -375,13 +416,15 @@ exports[`key login button is pressed shows invalid credentials message and track
 -         }
 -       }
 -       onPress={[Function facebookLogin]}
--       pill={true}
--       style={
--         Object {
++         onPress={[Function handlePress]}
+          pill={true}
+          style={
+            Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
--           \\"height\\": 48,
++             \\"alignItems\\": \\"center\\",
+              \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
@@ -397,14 +440,14 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
-+       onPress={[Function login]}
-+       testID=\\"loginButton\\"
-+       text=\\"LOGIN\\"
-+       type=\\"secondary\\"
-      />
++         testID=\\"bottomButton\\"
++         text=\\"LOGIN\\"
++         type=\\"secondary\\"
+        />
 -         <Text
 -           style={
 -             Object {
@@ -418,10 +461,11 @@ exports[`key login button is pressed shows invalid credentials message and track
 -         >
 -           SIGN IN WITH FACEBOOK
 -         </Text>
--       </Flex>
--     </Button>
++     </RCTSafeAreaView>
     </Flex>
-  </RCTSafeAreaView>"
+-     </Button>
+-   </RCTSafeAreaView>
+  </View>"
 `;
 
 exports[`key login button is pressed shows invalid credentials message and tracks user error when invalid credentials are entered 1`] = `
@@ -429,13 +473,14 @@ exports[`key login button is pressed shows invalid credentials message and track
 - First value
 + Second value
 
-@@ -7,10 +7,31 @@
+@@ -6,10 +6,32 @@
         \\"flexDirection\\": \\"column\\",
         \\"justifyContent\\": \\"space-between\\",
       }
     }
   >
-+   <View
++   <RCTSafeAreaView
++     emulateUnlessSupported={true}
 +     style={
 +       Object {
 +         \\"alignItems\\": \\"center\\",
@@ -455,13 +500,13 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     >
 +       Your Email or Password is Incorrect
 +     </Text>
-+   </View>
++   </RCTSafeAreaView>
     <Header
       left={<BackButton />}
     />
     <Flex
       align=\\"center\\"
-@@ -55,11 +76,11 @@
+@@ -54,11 +76,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -474,7 +519,7 @@ exports[`key login button is pressed shows invalid credentials message and track
       <View
         style={
           Object {
-@@ -83,11 +104,11 @@
+@@ -82,11 +104,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -487,19 +532,30 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -109,63 +130,16 @@
+@@ -107,69 +129,36 @@
+          text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
       </View>
     </Flex>
-    <Flex
--     align=\\"center\\"
--     justify=\\"center\\"
--     value={1}
++   <Flex
 +     align=\\"stretch\\"
 +     justify=\\"end\\"
-    >
-      <Button
++   >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+-         \\"alignItems\\": \\"center\\",
+-         \\"flex\\": 1,
+-         \\"justifyContent\\": \\"center\\",
++           \\"bottom\\": 20,
++           \\"left\\": 50,
++           \\"position\\": \\"absolute\\",
+          }
+        }
+      >
+        <Button
 -       buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
@@ -510,13 +566,15 @@ exports[`key login button is pressed shows invalid credentials message and track
 -         }
 -       }
 -       onPress={[Function facebookLogin]}
--       pill={true}
--       style={
--         Object {
++         onPress={[Function handlePress]}
+          pill={true}
+          style={
+            Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
--           \\"height\\": 48,
++             \\"alignItems\\": \\"center\\",
+              \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
@@ -532,14 +590,14 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
-+       onPress={[Function login]}
-+       testID=\\"loginButton\\"
-+       text=\\"LOGIN\\"
-+       type=\\"secondary\\"
-      />
++         testID=\\"bottomButton\\"
++         text=\\"LOGIN\\"
++         type=\\"secondary\\"
+        />
 -         <Text
 -           style={
 -             Object {
@@ -553,10 +611,11 @@ exports[`key login button is pressed shows invalid credentials message and track
 -         >
 -           SIGN IN WITH FACEBOOK
 -         </Text>
--       </Flex>
--     </Button>
++     </RCTSafeAreaView>
     </Flex>
-  </RCTSafeAreaView>"
+-     </Button>
+-   </RCTSafeAreaView>
+  </View>"
 `;
 
 exports[`key login button is pressed tracks system error for unexpected error 1`] = `
@@ -564,7 +623,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 - First value
 + Second value
 
-@@ -55,11 +55,11 @@
+@@ -54,11 +54,11 @@
           onSubmitEditing={[Function focusPassword]}
           placeholder=\\"Email\\"
           placeholderTextColor=\\"white\\"
@@ -577,7 +636,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
       <View
         style={
           Object {
-@@ -83,11 +83,11 @@
+@@ -82,11 +82,11 @@
           placeholder=\\"Password\\"
           placeholderTextColor=\\"white\\"
           returnKeyType=\\"done\\"
@@ -590,19 +649,30 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -109,63 +109,16 @@
+@@ -107,69 +107,36 @@
+          text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
       </View>
     </Flex>
-    <Flex
--     align=\\"center\\"
--     justify=\\"center\\"
--     value={1}
++   <Flex
 +     align=\\"stretch\\"
 +     justify=\\"end\\"
-    >
-      <Button
++   >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={
+          Object {
+-         \\"alignItems\\": \\"center\\",
+-         \\"flex\\": 1,
+-         \\"justifyContent\\": \\"center\\",
++           \\"bottom\\": 20,
++           \\"left\\": 50,
++           \\"position\\": \\"absolute\\",
+          }
+        }
+      >
+        <Button
 -       buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
@@ -613,13 +683,15 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -         }
 -       }
 -       onPress={[Function facebookLogin]}
--       pill={true}
--       style={
--         Object {
++         onPress={[Function handlePress]}
+          pill={true}
+          style={
+            Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
--           \\"height\\": 48,
++             \\"alignItems\\": \\"center\\",
+              \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
@@ -635,14 +707,14 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
--             }
--           }
++             \\"width\\": 650,
+            }
+          }
 -           type=\\"MissionHub\\"
-+       onPress={[Function login]}
-+       testID=\\"loginButton\\"
-+       text=\\"LOGIN\\"
-+       type=\\"secondary\\"
-      />
++         testID=\\"bottomButton\\"
++         text=\\"LOGIN\\"
++         type=\\"secondary\\"
+        />
 -         <Text
 -           style={
 -             Object {
@@ -658,8 +730,9 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -         </Text>
 -       </Flex>
 -     </Button>
-    </Flex>
-  </RCTSafeAreaView>"
+      </RCTSafeAreaView>
++   </Flex>
+  </View>"
 `;
 
 exports[`keyboard listeners should hide sign in logo when the keyboard is shown 1`] = `
@@ -667,7 +740,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 - First value
 + Second value
 
-@@ -11,26 +11,10 @@
+@@ -10,26 +10,10 @@
   >
     <Header
       left={<BackButton />}
@@ -701,7 +774,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 - First value
 + Second value
 
-@@ -11,10 +11,26 @@
+@@ -10,10 +10,26 @@
   >
     <Header
       left={<BackButton />}
@@ -731,8 +804,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 `;
 
 exports[`renders correctly 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -843,10 +915,15 @@ exports[`renders correctly 1`] = `
       />
     </View>
   </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
   >
     <Button
       buttonTextStyle={
@@ -900,13 +977,12 @@ exports[`renders correctly 1`] = `
         </Text>
       </Flex>
     </Button>
-  </Flex>
-</RCTSafeAreaView>
+  </RCTSafeAreaView>
+</View>
 `;
 
 exports[`renders correctly for forced logout 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -1021,10 +1097,15 @@ Please sign in so we know it's you.
       />
     </View>
   </Flex>
-  <Flex
-    align="center"
-    justify="center"
-    value={1}
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
   >
     <Button
       buttonTextStyle={
@@ -1078,6 +1159,6 @@ Please sign in so we know it's you.
         </Text>
       </Flex>
     </Button>
-  </Flex>
-</RCTSafeAreaView>
+  </RCTSafeAreaView>
+</View>
 `;

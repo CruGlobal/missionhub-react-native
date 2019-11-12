@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
@@ -39,9 +39,11 @@ const GetStartedScreen = ({
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header
-        left={handleBack ? <BackButton customNavigate={handleBack} /> : null}
+        left={
+          enableBackButton ? <BackButton customNavigate={handleBack} /> : null
+        }
       />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
@@ -54,7 +56,7 @@ const GetStartedScreen = ({
         </Flex>
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
       </Flex>
-    </SafeAreaView>
+    </View>
   );
 };
 

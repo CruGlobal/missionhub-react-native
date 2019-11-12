@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
-import { View, Image, SafeAreaView } from 'react-native';
+import { View, Image } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
@@ -199,7 +199,7 @@ const SelectStageScreen = ({
           },
         ]}
       />
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header left={<BackButton />} />
         <View style={styles.content}>
           <Text style={styles.title}>{headerText}</Text>
@@ -220,7 +220,7 @@ const SelectStageScreen = ({
             />
           ) : null}
         </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 };

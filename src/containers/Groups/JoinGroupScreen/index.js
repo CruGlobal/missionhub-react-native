@@ -4,7 +4,7 @@ import {
   Keyboard,
   Image,
   KeyboardAvoidingView,
-  SafeAreaView,
+  View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
@@ -121,7 +121,7 @@ class JoinGroupScreen extends Component {
     const { code, errorMessage, community } = this.state;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={<BackButton customIcon="deleteIcon" />}
           title={t('joinCommunity')}
@@ -152,7 +152,7 @@ class JoinGroupScreen extends Component {
             style={styles.flex}
           />
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 }
