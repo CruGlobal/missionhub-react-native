@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { Flex, Button, IconButton } from '../common';
