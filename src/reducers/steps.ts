@@ -8,12 +8,14 @@ import {
   COMPLETED_STEP_COUNT,
   RESET_STEP_COUNT,
 } from '../constants';
+import { getPagination, shuffleArray } from '../utils/common';
+
 import { Person } from './people';
 import { Organization } from './organizations';
-import { getPagination, shuffleArray } from '../utils/common';
 
 export type SuggestedStep = {
   id: string;
+  body: string;
   description_markdown: string;
 };
 

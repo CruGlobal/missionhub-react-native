@@ -1,13 +1,8 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import { renderWithContext } from '../../../../testUtils';
 
 import CompletedStepDetailScreen from '..';
-
-const mockStore = configureStore([thunk]);
-let store;
 
 const challenge_suggestion = { description_markdown: 'roge rules' };
 const step = {

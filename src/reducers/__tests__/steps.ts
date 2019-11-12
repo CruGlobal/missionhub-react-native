@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import { REQUESTS } from '../../api/routes';
 import { Person } from '../people';
 import steps, { Step } from '../steps';
