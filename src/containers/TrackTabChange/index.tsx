@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+// eslint-disable-next-line import/named
 import { NavigationEvents } from 'react-navigation';
 import { ThunkDispatch } from 'redux-thunk';
 
