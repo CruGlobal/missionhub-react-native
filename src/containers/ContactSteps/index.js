@@ -68,36 +68,19 @@ class ContactSteps extends Component {
 
   handleNavToSteps() {
     const { dispatch, person, organization, isMe } = this.props;
-    const subsection = getAnalyticsSubsection(person.id, this.props.myId);
-    const trackingParams = {
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
-    };
 
     if (isMe) {
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
           organization,
         }),
       );
     } else {
       dispatch(
         navigatePush(ADD_PERSON_STEP_FLOW, {
-          ...trackingParams,
           contactName: person.first_name,
           personId: person.id,
           organization,
-          createStepTracking: buildTrackingObj(
-            `people : ${subsection} : steps : create`,
-            'people',
-            subsection,
-            'steps',
-          ),
         }),
       );
     }
