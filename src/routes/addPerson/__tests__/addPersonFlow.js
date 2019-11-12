@@ -45,10 +45,7 @@ const store = configureStore([thunk])({
       id: myId,
     },
   },
-  personProfile: {
-    id: contactId,
-    personFirstName: contactName,
-  },
+  personId: contactId,
   people: {
     allByOrg: {
       [orgId]: {
@@ -59,6 +56,7 @@ const store = configureStore([thunk])({
       },
     },
   },
+  organizations: { all: [] },
   stages: { stages: [] },
 });
 
@@ -152,16 +150,8 @@ describe('PersonStageScreen next', () => {
 
   it('should fire required next actions', () => {
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-      contactStage: stage,
-      createStepTracking: buildTrackingObj(
-        'people : person : steps : create',
-        'people',
-        'person',
-        'steps',
-      ),
-      contactName,
-      contactId,
-      organization: { id: orgId },
+      personId: contactId,
+      orgId,
       enableSkipButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResponse]);
@@ -179,16 +169,8 @@ describe('PersonStageScreen next', () => {
 
   it('should fire required next actions', () => {
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-      contactStage: stage,
-      createStepTracking: buildTrackingObj(
-        'people : person : steps : create',
-        'people',
-        'person',
-        'steps',
-      ),
-      contactName,
-      contactId,
-      organization: { id: orgId },
+      personId: contactId,
+      orgId,
       enableSkipButton: true,
     });
     expect(store.getActions()).toEqual([navigatePushResponse]);
@@ -201,13 +183,13 @@ describe('PersonSelectStepScreen next', () => {
       await buildAndCallNext(
         PERSON_SELECT_STEP_SCREEN,
         {},
-        { receiverId: contactId, step, orgId },
+        { personId: contactId, step, orgId },
       );
     });
 
     it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
-        receiverId: contactId,
+        personId: contactId,
         step,
         orgId,
       });
@@ -220,7 +202,7 @@ describe('PersonSelectStepScreen next', () => {
       await buildAndCallNext(
         PERSON_SELECT_STEP_SCREEN,
         {},
-        { receiverId: contactId, step: undefined, orgId },
+        { personId: contactId, step: undefined, orgId },
       );
     });
 
@@ -240,7 +222,7 @@ describe('SuggestedStepDetailScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
       SUGGESTED_STEP_DETAIL_SCREEN,
-      { receiverId: contactId, step, orgId },
+      { personId: contactId, step, orgId },
       { orgId },
     );
   });

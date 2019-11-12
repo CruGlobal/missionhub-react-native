@@ -4,9 +4,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 <SectionList
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "paddingBottom": 10,
+      },
+      null,
+    ]
   }
   data={Array []}
   disableVirtualization={false}
@@ -103,11 +107,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
     ]
   }
   stickySectionHeadersEnabled={true}
-  style={
-    Object {
-      "backgroundColor": "#ECEEF2",
-    }
-  }
   updateCellsBatchingPeriod={50}
   windowSize={21}
 />

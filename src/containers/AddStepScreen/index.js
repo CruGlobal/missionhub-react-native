@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { StatusBar, SafeAreaView, Keyboard, Alert } from 'react-native';
+import { StatusBar, Keyboard, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -127,7 +128,8 @@ class AddStepScreen extends Component {
     } = styles;
 
     return (
-      <SafeAreaView style={container}>
+      <View style={container}>
+        <StatusBar {...theme.statusBar.darkContent} />
         <Header
           left={<BackButton iconStyle={backButtonStyle} />}
           right={
@@ -136,7 +138,6 @@ class AddStepScreen extends Component {
             ) : null
           }
         />
-        <StatusBar {...theme.statusBar.darkContent} />
         <Flex value={1} align="stretch" justify="center" style={fieldWrap}>
           <Input
             testID="stepInput"
@@ -160,7 +161,7 @@ class AddStepScreen extends Component {
           text={this.getButtonText()}
           testID="saveStepButton"
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

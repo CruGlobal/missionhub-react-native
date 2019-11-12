@@ -2,7 +2,7 @@ PODS:
   - AdobeMobileLibrary (4.13.8)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
-  - CodePush (5.6.1):
+  - CodePush (5.7.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
     - React
@@ -323,7 +323,7 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
     - ReactCommon/jscallinvoker (= 0.61.2)
-  - RNDefaultPreference (1.4.0):
+  - RNDefaultPreference (1.4.1):
     - React
   - RNDeviceInfo (2.3.2):
     - React
@@ -336,7 +336,7 @@ PODS:
     - Fabric
     - Firebase/Core
     - React
-  - RNGestureHandler (1.4.1):
+  - RNGestureHandler (1.5.0):
     - React
   - RNImageCropPicker (0.25.0):
     - QBImagePickerController
@@ -345,10 +345,12 @@ PODS:
     - RSKImageCropper
   - RNOmniture (0.0.1):
     - React
+  - RNReanimated (1.4.0):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - Rollbar (1.5.2)
-  - RollbarReactNative (0.5.0):
+  - RollbarReactNative (0.7.0):
     - React
     - Rollbar (~> 1.5.0)
   - RSKImageCropper (2.2.2)
@@ -399,12 +401,13 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNOmniture (from `../node_modules/react-native-omniture`)
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - RollbarReactNative (from `../node_modules/rollbar-react-native`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Base64
     - boost-for-react-native
     - Crashlytics
@@ -498,6 +501,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-crop-picker"
   RNOmniture:
     :path: "../node_modules/react-native-omniture"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   RollbarReactNative:
@@ -509,7 +514,7 @@ SPEC CHECKSUMS:
   AdobeMobileLibrary: 067db283616af75ff813711d6e0039a6f4c5a1a9
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CodePush: 5fead4bea79a99aefcd3841607709846796177b3
+  CodePush: d2e54ad42df82a8db65b2d23d8191b950ba945e1
   Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
@@ -553,19 +558,20 @@ SPEC CHECKSUMS:
   React-RCTText: e3ef6191cdb627855ff7fe8fa0c1e14094967fb8
   React-RCTVibration: fb54c732fd20405a76598e431aa2f8c2bf527de9
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
-  RNDefaultPreference: e3f61f101387ca8d5c6d9ea02f4620a7347b93e1
+  RNDefaultPreference: 628cb35719f2fe4111c000ccfa7e186400bbc47e
   RNDeviceInfo: 17e34f6dd902f08d88cbe2c0b7a01be948d43641
   RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
-  RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
+  RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
   RNImageCropPicker: 0a731d984e64ee4c28bddaa7ce52262e4b80979f
   RNOmniture: 04a549b9f6c28b0ab9e6fb00d8f47fa3d08585a0
+  RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Rollbar: 5060e3fc9fa28ae75e70c61e95b1b31b2b22710c
-  RollbarReactNative: 90812f66d5ecbfd7cdccbb2f0b666c0888b7ee47
+  RollbarReactNative: 25ee22263928c9c7f3ba89ecc9af03e71a5c1ec8
   RSKImageCropper: 05e3b82a18da83ea3c2b7bffa7f2199a621d6802
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
 PODFILE CHECKSUM: bb901fc7350ddce858f9abc63ff87da668a0089b
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

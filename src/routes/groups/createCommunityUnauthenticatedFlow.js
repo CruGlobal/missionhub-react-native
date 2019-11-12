@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { navigateNestedReset } from '../../actions/navigation';
 import { MAIN_TABS } from '../../constants';

@@ -51,13 +51,6 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
 <withI18nextTranslation(PersonSelectStepScreen)
-  contactId="321"
-  contactName="Someone"
-  contactStage={
-    Object {
-      "id": "3",
-    }
-  }
   dispatch={[Function]}
   enableSkipButton={false}
   navigation={
@@ -74,7 +67,11 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={Object {}}
+  organization={
+    Object {
+      "id": undefined,
+    }
+  }
 />
 `;
 
@@ -94,14 +91,17 @@ exports[`SelectStageScreen renders correctly 1`] = `
     }
   }
   next={[Function]}
+  stages={Array []}
 />
 `;
 
 exports[`SetupPersonScreen next renders correctly 1`] = `
-<SetupPersonScreen
+<SetupScreen
   dispatch={[Function]}
-  myId="123"
+  isMe={false}
+  loadedFirstName="Someone"
   next={[Function]}
+  personId="321"
 />
 `;
 
@@ -112,7 +112,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     Object {
       "state": Object {
         "params": Object {
-          "receiverId": "123",
+          "personId": "123",
           "step": Object {
             "id": "111",
           },
@@ -121,7 +121,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  receiverId="123"
+  personId="123"
   step={
     Object {
       "id": "111",
