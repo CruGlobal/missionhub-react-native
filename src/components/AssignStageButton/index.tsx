@@ -23,7 +23,7 @@ interface AssignStageButtonProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   contactAssignment: any;
   firstItemIndex: number;
-  pathwayStage: Stage;
+  pathwayStage: Stage | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
 }

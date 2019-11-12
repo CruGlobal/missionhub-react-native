@@ -12,7 +12,7 @@ const step = {
   body: 'do this step',
   description_markdown: 'some markdown',
 };
-const receiverId = '423325';
+const personId = '423325';
 const orgId = '880124';
 
 const nextResponse = { type: 'next' };
@@ -25,7 +25,7 @@ addStep.mockReturnValue(addStepResponse);
 
 it('renders correctly', () => {
   renderWithContext(<SuggestedStepDetailScreen next={next} />, {
-    navParams: { step, receiverId, orgId },
+    navParams: { step, personId, orgId },
   }).snapshot();
 });
 
@@ -34,13 +34,13 @@ describe('bottomButtonProps', () => {
     const { getByTestId, store } = renderWithContext(
       <SuggestedStepDetailScreen next={next} />,
       {
-        navParams: { step, receiverId, orgId },
+        navParams: { step, personId, orgId },
       },
     );
 
     fireEvent.press(getByTestId('bottomButton'));
 
-    expect(addStep).toHaveBeenCalledWith(step, receiverId, orgId);
+    expect(addStep).toHaveBeenCalledWith(step, personId, orgId);
     expect(store.getActions()).toEqual([addStepResponse, nextResponse]);
   });
 });

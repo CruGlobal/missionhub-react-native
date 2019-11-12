@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
+import { organizationSelector } from '../selectors/organizations';
 
 import SelectStepScreen from './SelectStepScreen';
 
@@ -12,31 +13,23 @@ class PersonSelectStepScreen extends Component {
   render() {
     const {
       t,
-      contactName,
-      personFirstName,
-      contactStage,
-      contactAssignment,
-      contactId,
-      personId,
+      person,
+      stageId,
       organization,
       next,
       enableSkipButton,
     } = this.props;
 
-    const name = contactName ? contactName : personFirstName;
-    const stageId = contactAssignment
-      ? contactAssignment.pathway_stage_id
-      : contactStage.id;
-
     return (
       <SelectStepScreen
         contactStageId={stageId}
-        receiverId={contactId ? contactId : personId}
-        contactName={name}
+        personId={person.id}
+        contactName={person.first_name}
         headerText={[
           t('personHeader.part1'),
-          t('personHeader.part2', { name }),
+          t('personHeader.part2', { name: person.first_name }),
         ]}
+        contact={person || null}
         organization={organization}
         enableSkipButton={enableSkipButton}
         next={next}
@@ -60,45 +53,27 @@ PersonSelectStepScreen.propTypes = {
 };
 
 const mapStateToProps = (
-  { personProfile, auth, people },
+  { auth, people, organizations },
   {
     navigation: {
       state: {
-        params: {
-          contactName,
-          contactId,
-          contactStage,
-          organization = {},
-          enableSkipButton,
-        },
+        params: { personId, orgId, enableSkipButton },
       },
     },
     next,
   },
 ) => {
-  const person = personSelector(
-    { people },
-    { personId: contactId, orgId: organization.id },
-  );
-
+  const isMe = auth.person.id === personId;
+  const person = personSelector({ people }, { personId, orgId });
   return {
-    contactName,
-    contactId,
-    contactStage,
-    organization,
+    person,
+    stageId: isMe
+      ? (auth.person.user || {}).pathway_stage_id
+      : (contactAssignmentSelector({ auth }, { person, orgId }) || {})
+          .pathway_stage_id,
+    organization: organizationSelector({ organizations }, { orgId }),
     enableSkipButton,
     next,
-    personFirstName: personProfile.personFirstName,
-    personId: personProfile.id,
-    contactAssignment:
-      person &&
-      contactAssignmentSelector(
-        { auth },
-        {
-          person,
-          orgId: organization.id,
-        },
-      ),
   };
 };
 

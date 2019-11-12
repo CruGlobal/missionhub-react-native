@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, Alert, Share, FlatList } from 'react-native';
+import { Alert, Share, FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -106,12 +106,12 @@ class Members extends Component {
   render() {
     const { t, members, pagination } = this.props;
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.cardList}>
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}
           keyExtractor={keyExtractorId}
-          style={styles.cardList}
+          contentContainerStyle={{ paddingBottom: 90 }}
           renderItem={this.renderItem}
           refreshControl={
             <RefreshControl
@@ -128,7 +128,7 @@ class Members extends Component {
           }
         />
         <BottomButton onPress={this.handleInvite} text={t('invite')} />
-      </SafeAreaView>
+      </View>
     );
   }
 }

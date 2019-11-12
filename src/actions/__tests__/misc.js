@@ -251,7 +251,7 @@ describe('navigateToAddStepFlow', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
       trackingObj: buildTrackingObjResult,
       contactName: person.first_name,
-      contactId: person.id,
+      personId: person.id,
       organization,
       createStepTracking: buildTrackingObjResult,
     });

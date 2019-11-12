@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusSelectScreen should render correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -246,5 +246,5 @@ exports[`StatusSelectScreen should render correctly 1`] = `
       </MyText>
     </TouchableIOS>
   </Flex>
-</SafeAreaView>
+</View>
 `;

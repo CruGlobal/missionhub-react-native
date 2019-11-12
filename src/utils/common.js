@@ -8,7 +8,7 @@ import {
   Keyboard,
   Clipboard,
 } from 'react-native';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import Config from 'react-native-config';

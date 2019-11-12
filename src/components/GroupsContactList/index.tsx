@@ -57,7 +57,7 @@ const GroupsContactList = ({
     person.full_name ||
     `${person.first_name}${person.last_name ? ` ${person.last_name}` : ''}`;
   return (
-    <Flex value={1}>
+    <Flex style={{ flex: 1 }}>
       <Flex style={styles.header} align="center" justify="center">
         <Text style={styles.name}>{name}</Text>
         <AssignToMeButton

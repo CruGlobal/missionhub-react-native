@@ -28,4 +28,19 @@ export const migrations = {
       },
     },
   }),
+  //  Move data from profile and personProfile to new onboarding reducer and remove them
+  2: ({ profile = {}, personProfile = {}, ...state }) => ({
+    ...state,
+    onboarding: {
+      ...state.onboarding,
+      personId: personProfile.id,
+      community: {
+        id: '',
+        community_code: '',
+        community_url: '',
+        ...(profile.community || {}),
+      },
+      skippedAddingPerson: personProfile.hasCompletedOnboarding,
+    },
+  }),
 };

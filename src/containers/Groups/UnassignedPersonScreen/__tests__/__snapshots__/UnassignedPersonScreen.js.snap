@@ -1,60 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Contact should render correctly 1`] = `
-<Fragment>
-  <SafeAreaView
-    style={
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    left={<Connect(BackButton) />}
+    title="Test Org"
+  />
+  <GroupsContactList
+    activity={Array []}
+    myId="me"
+    onAssign={[MockFunction]}
+    organization={
       Object {
-        "backgroundColor": "#007398",
+        "id": "1",
+        "name": "Test Org",
+      }
+    }
+    person={
+      Object {
+        "full_name": "Test Person",
+        "id": "1",
       }
     }
   />
-  <SafeAreaView
-    style={
+  <Connect(JourneyCommentBox)
+    onSubmit={[Function]}
+    organization={
       Object {
-        "backgroundColor": "#ffffff",
-        "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "space-between",
+        "id": "1",
+        "name": "Test Org",
       }
     }
-  >
-    <Header
-      left={<Connect(BackButton) />}
-      title="Test Org"
-    />
-    <GroupsContactList
-      activity={Array []}
-      myId="me"
-      onAssign={[MockFunction]}
-      organization={
-        Object {
-          "id": "1",
-          "name": "Test Org",
-        }
+    person={
+      Object {
+        "full_name": "Test Person",
+        "id": "1",
       }
-      person={
-        Object {
-          "full_name": "Test Person",
-          "id": "1",
-        }
-      }
-    />
-    <Connect(JourneyCommentBox)
-      onSubmit={[Function]}
-      organization={
-        Object {
-          "id": "1",
-          "name": "Test Org",
-        }
-      }
-      person={
-        Object {
-          "full_name": "Test Person",
-          "id": "1",
-        }
-      }
-    />
-  </SafeAreaView>
-</Fragment>
+    }
+  />
+</View>
 `;
