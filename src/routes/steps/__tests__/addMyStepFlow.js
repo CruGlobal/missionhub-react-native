@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 
 import { CREATE_STEP } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
-import { buildTrackingObj } from '../../../utils/common';
 import { AddMyStepFlowScreens } from '../addMyStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
@@ -22,13 +21,6 @@ const stepText = 'hello';
 
 const stage = { id: '1' };
 const step = { id: '444', title: stepText };
-
-const trackingObj = buildTrackingObj(
-  'people : self : steps : create',
-  'people',
-  'self',
-  'steps',
-);
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
@@ -104,7 +96,6 @@ describe('SelectMyStep next', () => {
         type: CREATE_STEP,
         personId: myId,
         orgId,
-        trackingObj,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
     });
@@ -134,7 +125,6 @@ describe('AddStepScreen next', () => {
         type: CREATE_STEP,
         personId: myId,
         orgId,
-        trackingObj,
       },
       { text: stepText, personId: myId, orgId },
     );

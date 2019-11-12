@@ -10,7 +10,6 @@ import {
   renderShallow,
 } from '../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
-import { buildTrackingObj } from '../../../utils/common';
 import {
   getContactSteps,
   completeStep,
@@ -82,12 +81,6 @@ const mockOrg = { id: '1111', user_created: true };
 const mockContactAssignment = {
   id: 333,
 };
-const trackingObj = buildTrackingObj(
-  'people : person : steps : add',
-  'people',
-  'person',
-  'steps',
-);
 
 getContactSteps.mockReturnValue(() => {
   response: steps;
@@ -232,9 +225,7 @@ describe('handleCreateStep', () => {
     it('navigates to select my steps flow', () => {
       instance.handleCreateStep();
 
-      expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
-        trackingObj,
-      });
+      expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW);
     });
   });
 
@@ -281,13 +272,6 @@ describe('handleCreateStep', () => {
         contactName: mockPerson.first_name,
         personId: mockPerson.id,
         organization: undefined,
-        createStepTracking: buildTrackingObj(
-          'people : person : steps : create',
-          'people',
-          'person',
-          'steps',
-        ),
-        trackingObj,
       });
     });
   });

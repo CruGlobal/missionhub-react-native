@@ -10,12 +10,7 @@ import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
-import {
-  buildTrackingObj,
-  getAnalyticsSubsection,
-  orgIsCru,
-  keyExtractorId,
-} from '../../utils/common';
+import { orgIsCru, keyExtractorId } from '../../utils/common';
 import { promptToAssign } from '../../utils/prompt';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
 import {
@@ -70,11 +65,7 @@ class ContactSteps extends Component {
     const { dispatch, person, organization, isMe } = this.props;
 
     if (isMe) {
-      dispatch(
-        navigatePush(ADD_MY_STEP_FLOW, {
-          organization,
-        }),
-      );
+      dispatch(navigatePush(ADD_MY_STEP_FLOW));
     } else {
       dispatch(
         navigatePush(ADD_PERSON_STEP_FLOW, {

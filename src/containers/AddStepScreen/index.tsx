@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StatusBar, Keyboard, Alert, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useNavigationParam, useNavigation } from 'react-navigation-hooks';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Input } from '../../components/common';
 import theme from '../../theme';
