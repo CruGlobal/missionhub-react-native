@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -20,8 +20,8 @@ import { buildUpdatedPagination } from '../../utils/pagination';
 import ShareSurveyMenu from '../../components/ShareSurveyMenu';
 import { getOrganizationContacts } from '../../actions/organizations';
 
-import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 import styles from './styles';
+import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
 @withTranslation('groupsSurveyContacts')
 class SurveyContacts extends Component {
@@ -132,7 +132,7 @@ class SurveyContacts extends Component {
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={<BackButton />}
           title={orgName}
@@ -151,7 +151,7 @@ class SurveyContacts extends Component {
           filters={filters}
           placeholder={t('searchPlaceholder')}
         />
-      </SafeAreaView>
+      </View>
     );
   }
 }

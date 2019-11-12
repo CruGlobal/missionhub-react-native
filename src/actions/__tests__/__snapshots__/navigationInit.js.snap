@@ -1,6 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`initialRoute logged in user has completed onboarding but does not have contact with pathway stage should go to MainTabs 1`] = `
+exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage does not have self stage should go to GetStarted 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage has self stage should go to AddSomeone 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/ADD_SOMEONE_ONBOARDING_FLOW",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage should not check my reverse contact assignments 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      Object {
+        "params": Object {},
+        "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
+        "type": "Navigation/NAVIGATE",
+      },
+    ],
+    "index": 0,
+    "key": null,
+    "type": "Navigation/RESET",
+  },
+]
+`;
+
+exports[`initialRoute logged in user has not completed onboarding but has a contact with pathway stage should go to MainTabs 1`] = `
 Array [
   Object {
     "data": Object {},
@@ -55,58 +106,7 @@ Array [
 ]
 `;
 
-exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage does not have self stage should go to GetStarted 1`] = `
-Array [
-  Object {
-    "actions": Array [
-      Object {
-        "params": Object {},
-        "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
-        "type": "Navigation/NAVIGATE",
-      },
-    ],
-    "index": 0,
-    "key": null,
-    "type": "Navigation/RESET",
-  },
-]
-`;
-
-exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage has self stage should go to AddSomeone 1`] = `
-Array [
-  Object {
-    "actions": Array [
-      Object {
-        "params": Object {},
-        "routeName": "nav/ADD_SOMEONE_ONBOARDING_FLOW",
-        "type": "Navigation/NAVIGATE",
-      },
-    ],
-    "index": 0,
-    "key": null,
-    "type": "Navigation/RESET",
-  },
-]
-`;
-
-exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage should not check my reverse contact assignments 1`] = `
-Array [
-  Object {
-    "actions": Array [
-      Object {
-        "params": Object {},
-        "routeName": "nav/GET_STARTED_ONBOARDING_FLOW",
-        "type": "Navigation/NAVIGATE",
-      },
-    ],
-    "index": 0,
-    "key": null,
-    "type": "Navigation/RESET",
-  },
-]
-`;
-
-exports[`initialRoute logged in user has not completed onboarding but has a contact with pathway stage should go to MainTabs 1`] = `
+exports[`initialRoute logged in user has skipped adding person but does not have contact with pathway stage should go to MainTabs 1`] = `
 Array [
   Object {
     "data": Object {},

@@ -34,8 +34,9 @@ const trackingObj = buildTrackingObj(
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
-  personProfile: { id: '1', personFirstName: otherName },
+  onboarding: { personId: otherId },
   people: { allByOrg: { [otherId]: { id: otherId } } },
+  organizations: { all: [] },
 });
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
@@ -77,13 +78,13 @@ describe('PersonSelectStepScreen next', () => {
           organization: { id: orgId },
           contactName: otherName,
         },
-        { receiverId: otherId, step, orgId },
+        { personId: otherId, step, orgId },
       );
     });
 
     it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
-        receiverId: otherId,
+        personId: otherId,
         step,
         orgId,
       });
@@ -96,12 +97,10 @@ describe('PersonSelectStepScreen next', () => {
       await buildAndCallNext(
         PERSON_SELECT_STEP_SCREEN,
         {
-          contactStage: stage,
-          contactId: otherId,
-          organization: { id: orgId },
-          contactName: otherName,
+          personId: otherId,
+          orgId,
         },
-        { receiverId: otherId, step: undefined, orgId },
+        { personId: otherId, step: undefined, orgId },
       );
     });
 
@@ -121,7 +120,7 @@ describe('SuggestedStepDetailScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
       SUGGESTED_STEP_DETAIL_SCREEN,
-      { receiverId: otherId, step, orgId },
+      { personId: otherId, step, orgId },
       {},
     );
   });

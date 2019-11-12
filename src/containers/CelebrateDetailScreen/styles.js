@@ -3,16 +3,16 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  safeAreaContainer: {
+  pageContainer: {
     flex: 1,
     backgroundColor: theme.white,
   },
-  container: {
+  contentContainer: {
     flex: 1,
     backgroundColor: theme.grey,
   },
   header: {
-    backgroundColor: 'white',
+    backgroundColor: theme.white,
     padding: 14,
     paddingBottom: 5,
   },
@@ -32,5 +32,8 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
+  },
+  commentBoxWrapper: {
+    backgroundColor: theme.grey3,
   },
 });

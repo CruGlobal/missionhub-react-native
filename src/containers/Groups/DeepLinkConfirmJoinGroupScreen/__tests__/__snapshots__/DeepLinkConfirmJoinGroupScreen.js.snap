@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -49,11 +49,11 @@ Double check your link.
       </MyText>
     </Flex>
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -101,11 +101,11 @@ Double check your link.
       </MyText>
     </Flex>
   </Flex>
-</SafeAreaView>
+</View>
 `;
 
 exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
-<SafeAreaView
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -153,5 +153,5 @@ Double check your link.
       </MyText>
     </Flex>
   </Flex>
-</SafeAreaView>
+</View>
 `;

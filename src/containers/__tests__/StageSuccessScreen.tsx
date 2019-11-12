@@ -9,12 +9,16 @@ import { navigatePush } from '../../actions/navigation';
 jest.mock('../../actions/navigation');
 
 const mockState = {
-  profile: {},
-  selectedStage: {},
-};
-const navParams = {
-  selectedStage: {
-    self_followup_description: '<<user>> test',
+  auth: {
+    person: { first_name: 'Test Fname', user: { pathway_stage_id: '1' } },
+  },
+  stages: {
+    stages: [
+      {
+        id: '1',
+        self_followup_description: 'We are glad you are here, <<user>>!',
+      },
+    ],
   },
 };
 
@@ -29,7 +33,6 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<StageSuccessScreen next={next} />, {
     initialState: mockState,
-    navParams,
   }).snapshot();
 });
 
@@ -44,9 +47,8 @@ it('calls next with selected stage', () => {
     <StageSuccessScreen next={next} />,
     {
       initialState: mockState,
-      navParams,
     },
   );
   fireEvent(getByTestId('IconMessageScreen'), 'onComplete');
-  expect(next).toHaveBeenCalledWith({ selectedStage: navParams.selectedStage });
+  expect(next).toHaveBeenCalledWith();
 });

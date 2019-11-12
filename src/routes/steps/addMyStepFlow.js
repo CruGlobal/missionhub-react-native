@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';
@@ -18,16 +18,16 @@ import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 export const AddMyStepFlowScreens = {
   [SELECT_MY_STEP_SCREEN]: wrapNextAction(
     SelectMyStepScreen,
-    ({ receiverId, step, orgId }) =>
+    ({ personId, step, orgId }) =>
       step
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             step,
-            receiverId,
+            personId,
             orgId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
             type: CREATE_STEP,
-            personId: receiverId,
+            personId,
             orgId,
             trackingObj: buildTrackingObj(
               'people : self : steps : create',

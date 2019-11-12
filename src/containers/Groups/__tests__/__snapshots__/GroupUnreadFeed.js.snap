@@ -15,47 +15,45 @@ exports[`should render empty correctly 1`] = `
     barStyle="dark-content"
     showHideTransition="fade"
   />
-  <SafeAreaView>
-    <Header
-      left={
-        <IconButton
-          name="backIcon"
-          onPress={[Function]}
-          style={
-            Object {
-              "color": "#000000",
-            }
+  <Header
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#000000",
           }
-          type="MissionHub"
-        />
-      }
-      right={
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#000000",
-              "fontSize": 10,
-            }
-          }
-          onPress={[Function]}
-          style={
-            Object {
-              "paddingRight": 5,
-            }
-          }
-          text="CLEAR ALL"
-          type="transparent"
-        />
-      }
-      shadow={true}
-      title="0 New Comments"
-      titleStyle={
-        Object {
-          "fontWeight": "400",
         }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        text="CLEAR ALL"
+        type="transparent"
+      />
+    }
+    shadow={true}
+    title="0 New Comments"
+    titleStyle={
+      Object {
+        "fontWeight": "400",
       }
-    />
-  </SafeAreaView>
+    }
+  />
   <View
     style={
       Object {
@@ -96,47 +94,45 @@ exports[`should render items correctly 1`] = `
     barStyle="dark-content"
     showHideTransition="fade"
   />
-  <SafeAreaView>
-    <Header
-      left={
-        <IconButton
-          name="backIcon"
-          onPress={[Function]}
-          style={
-            Object {
-              "color": "#000000",
-            }
+  <Header
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#000000",
           }
-          type="MissionHub"
-        />
-      }
-      right={
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#000000",
-              "fontSize": 10,
-            }
-          }
-          onPress={[Function]}
-          style={
-            Object {
-              "paddingRight": 5,
-            }
-          }
-          text="CLEAR ALL"
-          type="transparent"
-        />
-      }
-      shadow={true}
-      title="0 New Comments"
-      titleStyle={
-        Object {
-          "fontWeight": "400",
         }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        text="CLEAR ALL"
+        type="transparent"
+      />
+    }
+    shadow={true}
+    title="0 New Comments"
+    titleStyle={
+      Object {
+        "fontWeight": "400",
       }
-    />
-  </SafeAreaView>
+    }
+  />
   <View
     style={
       Object {

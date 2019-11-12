@@ -13,7 +13,7 @@ export default StyleSheet.create({
     textAlign: 'left',
     paddingHorizontal: 36,
     marginTop: 30,
-    paddingBottom: 30,
+    paddingBottom: 96,
     borderBottomWidth: 0,
   },
   list: {
