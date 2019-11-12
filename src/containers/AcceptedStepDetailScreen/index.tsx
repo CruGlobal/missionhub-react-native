@@ -111,7 +111,7 @@ interface PropsInterface {
     state: {
       params: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        step: any;
+        step?: any;
       };
     };
   };
