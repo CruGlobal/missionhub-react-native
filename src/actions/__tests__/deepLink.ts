@@ -1,6 +1,7 @@
-import firebase from 'react-native-firebase';
-import configureStore from 'redux-mock-store';
+import dynamicLinks from '@react-native-firebase/dynamic-links';
+import { AnyAction } from 'redux';
 import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
 // eslint-disable-next-line import/named
 import { NavigationActions, StackActions } from 'react-navigation';
 
@@ -10,30 +11,32 @@ import {
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
 } from '../../routes/constants';
 
-jest.mock('react-native-firebase', () => ({
-  links: jest.fn(),
-}));
-
-const mockStore = auth => configureStore([thunk])({ auth: { token: !!auth } });
+const mockStore = (auth: boolean) =>
+  configureStore([thunk])({ auth: { token: !!auth } });
 
 const test = async ({
-  auth,
-  initialLink,
+  auth = false,
+  initialLink = false,
   expectedActions,
-  deepLink = 'https://missionhub.com/c/1234567890123456',
+  deepLinkUrl = 'https://missionhub.com/c/1234567890123456',
+}: {
+  auth?: boolean;
+  initialLink?: boolean;
+  expectedActions: object[];
+  deepLinkUrl?: string;
 }) => {
-  firebase.links.mockReturnValue({
+  ((dynamicLinks as unknown) as jest.Mock).mockReturnValue({
     getInitialLink: initialLink
-      ? jest.fn().mockResolvedValue(deepLink)
+      ? jest.fn().mockResolvedValue({ url: deepLinkUrl })
       : jest.fn().mockResolvedValue(null),
     onLink: initialLink
       ? jest.fn()
-      : jest.fn().mockImplementation(cb => cb(deepLink)),
+      : jest.fn().mockImplementation(cb => cb({ url: deepLinkUrl })),
   });
 
   const store = mockStore(auth);
 
-  await store.dispatch(setupFirebaseDynamicLinks());
+  await store.dispatch((setupFirebaseDynamicLinks() as unknown) as AnyAction);
 
   expect(store.getActions()).toEqual(expectedActions);
 };
@@ -122,37 +125,37 @@ describe('setupFirebaseDynamicLinks', () => {
   describe('unknown links', () => {
     it('should ignore an empty link', () =>
       test({
-        deepLink: '',
+        deepLinkUrl: '',
         expectedActions: [],
       }));
     it('should ignore a link with the wrong domain', async () => {
       await test({
-        deepLink: 'https://mhub.cc/c/1234567890123456',
+        deepLinkUrl: 'https://mhub.cc/c/1234567890123456',
         expectedActions: [],
       });
       await test({
-        deepLink: 'https://missionhub.page.link/c/1234567890123456',
+        deepLinkUrl: 'https://missionhub.page.link/c/1234567890123456',
         expectedActions: [],
       });
     });
     it('should ignore a link with the wrong path', async () => {
       await test({
-        deepLink: 'https://missionhub.com/s/1234567890123456',
+        deepLinkUrl: 'https://missionhub.com/s/1234567890123456',
         expectedActions: [],
       });
       await test({
-        deepLink: 'https://missionhub.com/1234567890123456',
+        deepLinkUrl: 'https://missionhub.com/1234567890123456',
         expectedActions: [],
       });
     });
     it('should ignore a link using http', () =>
       test({
-        deepLink: 'http://missionhub.com/c/1234567890123456',
+        deepLinkUrl: 'http://missionhub.com/c/1234567890123456',
         expectedActions: [],
       }));
     it('should ignore a link with too short of a code', () =>
       test({
-        deepLink: 'https://missionhub.com/c/123456789012345',
+        deepLinkUrl: 'https://missionhub.com/c/123456789012345',
         expectedActions: [],
       }));
   });
