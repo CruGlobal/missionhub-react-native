@@ -206,7 +206,7 @@ describe('journey methods', () => {
     expect(navigation.navigatePush).toHaveBeenCalledWith(JOURNEY_EDIT_FLOW, {
       id: interactionId,
       type: EDIT_JOURNEY_STEP,
-      text: interactionNote,
+      initialText: interactionNote,
       personId,
       orgId,
     });
@@ -226,7 +226,7 @@ describe('journey methods', () => {
     expect(navigation.navigatePush).toHaveBeenCalledWith(JOURNEY_EDIT_FLOW, {
       id: interactionId,
       type: EDIT_JOURNEY_ITEM,
-      text: interactionComment,
+      initialText: interactionComment,
       personId,
       orgId,
     });

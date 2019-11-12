@@ -62,7 +62,7 @@ class ContactJourney extends Component {
       navigatePush(JOURNEY_EDIT_FLOW, {
         id: interaction.id,
         type: isStep ? EDIT_JOURNEY_STEP : EDIT_JOURNEY_ITEM,
-        text: isStep ? interaction.note : interaction.comment,
+        initialText: isStep ? interaction.note : interaction.comment,
         personId: person.id,
         orgId: organization && organization.id,
       }),
