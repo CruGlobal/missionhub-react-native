@@ -38,9 +38,6 @@ target 'MissionHub' do
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
 
-  pod 'Firebase/Core'
-  pod 'Firebase/DynamicLinks'
-
   pod 'AdobeMobileLibrary', :path => 'AdobeMobileLibrary'
 
   target 'MissionHubTests' do
