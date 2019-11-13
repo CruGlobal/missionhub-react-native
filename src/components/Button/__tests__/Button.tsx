@@ -1,13 +1,13 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 
 import { renderWithContext } from '../../../../testUtils';
 
 import Button, { ButtonProps } from '..';
 
 // Tell jest to mock this import
-jest.mock('lodash/debounce');
+jest.mock('lodash.debounce');
 
 beforeAll(() => {
   (debounce as jest.Mock).mockImplementation(fn => fn); // Assign the import a new implementation, in this case it's execute the function given to you

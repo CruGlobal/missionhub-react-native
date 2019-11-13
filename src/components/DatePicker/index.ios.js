@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Modal, DatePickerIOS, Animated, Keyboard } from 'react-native';
 import { withTranslation } from 'react-i18next';
+import { getLocales } from 'react-native-localize';
 
 import { Text, Touchable, Button } from '../common';
 import { getDate } from '../../utils/date';
-import { locale, isFunction } from '../../utils/common';
+import { isFunction } from '../../utils/common';
 
 import styles from './styles';
 
@@ -155,7 +156,7 @@ class MyDatePickerIOS extends Component {
                 timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
               }
               style={[datePicker, customStyles.datePicker]}
-              locale={locale}
+              locale={(getLocales()[0] || {}).languageTag}
             />
             {iOSModalContent}
             <View style={topWrap}>
