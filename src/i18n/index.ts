@@ -20,21 +20,21 @@ const aliases = {
   ...createBaseLocaleAliases(oneSkyTranslations),
 };
 
-const resourceLanguaages = {
+const resourceLanguages = {
   // Use downloaded translations if available but use en-US from source to make development easier
   ...mapOneSkyToResourceLanguages(oneSkyTranslations),
   ...{ 'en-US': en_US as ResourceLanguage },
 };
 
-const aliasedResourceLanguaages: Resource = aliasLanguages(
+const aliasedResourceLanguages: Resource = aliasLanguages(
   aliases,
-  resourceLanguaages,
+  resourceLanguages,
 );
 
 const languageDetector: LanguageDetectorModule = {
   type: 'languageDetector',
   detect: () =>
-    (findBestAvailableLanguage(Object.keys(aliasedResourceLanguaages)) || {})
+    (findBestAvailableLanguage(Object.keys(aliasedResourceLanguages)) || {})
       .languageTag,
   init: () => {},
   cacheUserLanguage: () => {},
@@ -46,7 +46,7 @@ i18n
   .init({
     fallbackLng: 'en-US',
 
-    resources: aliasedResourceLanguaages,
+    resources: aliasedResourceLanguages,
 
     // have a common namespace used around the full app
     ns: ['common'],
