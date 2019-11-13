@@ -38,9 +38,9 @@ export const SelectPersonStageFlowScreens = {
 
       dispatch(
         isAlreadySelected
-          ? navigatePush(CELEBRATION_SCREEN, { contactId: person.id, orgId })
+          ? navigatePush(CELEBRATION_SCREEN, { personId, orgId })
           : navigatePush(PERSON_SELECT_STEP_SCREEN, {
-              personId: person.id,
+              personId,
               orgId,
             }),
       );
