@@ -9,7 +9,6 @@ import {
   Clipboard,
 } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
-import DeviceInfo from 'react-native-device-info';
 import lodash from 'lodash';
 import Config from 'react-native-config';
 import i18n from 'i18next';
@@ -39,8 +38,6 @@ export const shuffleArray = arr => {
 };
 
 export const isAndroid = Platform.OS === 'android';
-export const hasNotch = () => DeviceInfo.hasNotch();
-export const locale = DeviceInfo.getDeviceLocale();
 
 export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
