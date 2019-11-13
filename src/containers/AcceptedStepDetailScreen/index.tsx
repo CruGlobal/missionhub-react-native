@@ -104,8 +104,7 @@ const mapStateToProps = (
         params: { step },
       },
     },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
+  }: { navigation: { state: { params: { step: Step } } } },
 ) => ({
   reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
