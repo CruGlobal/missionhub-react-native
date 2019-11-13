@@ -9,7 +9,6 @@ import {
   Clipboard,
 } from 'react-native';
 import { DrawerActions } from 'react-navigation-drawer';
-import lodash from 'lodash';
 import Config from 'react-native-config';
 import i18n from 'i18next';
 
@@ -140,9 +139,6 @@ export const disableBack = {
   remove: () =>
     BackHandler.removeEventListener('hardwareBackPress', disableBackPress),
 };
-
-export const merge = lodash.merge;
-export const capitalize = lodash.capitalize;
 
 export const useFirstExists = (...args) => {
   for (let i = 0; i < args.length; i++) {

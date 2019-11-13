@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 
 import {
   showNotificationPrompt,
