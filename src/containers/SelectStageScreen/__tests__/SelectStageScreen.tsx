@@ -296,6 +296,7 @@ describe('setStage', () => {
         personId: myId,
       };
       const nextProps = {
+        isAlreadySelected: false,
         isMe: true,
         personId: myId,
         stage: stage,
@@ -327,6 +328,7 @@ describe('setStage', () => {
         selectedStageId,
       };
       const nextProps = {
+        isAlreadySelected: true,
         isMe: true,
         personId: myId,
         stage: stage,
@@ -362,6 +364,7 @@ describe('setStage', () => {
         personId: assignedPersonId,
       };
       const nextProps = {
+        isAlreadySelected: false,
         isMe: false,
         personId: assignedPersonId,
         stage: stage,
@@ -396,6 +399,7 @@ describe('setStage', () => {
         selectedStageId,
       };
       const nextProps = {
+        isAlreadySelected: true,
         isMe: false,
         personId: assignedPersonId,
         stage: stage,
@@ -431,6 +435,7 @@ describe('setStage', () => {
         personId: unassignedPersonId,
       };
       const nextProps = {
+        isAlreadySelected: false,
         isMe: false,
         personId: unassignedPersonId,
         stage: stage,
@@ -467,6 +472,7 @@ describe('setStage', () => {
         selectedStageId,
       };
       const nextProps = {
+        isAlreadySelected: true,
         isMe: false,
         personId: unassignedPersonId,
         stage: stage,
