@@ -297,6 +297,8 @@ describe('setStage', () => {
       };
       const nextProps = {
         isMe: true,
+        personId: myId,
+        stage: stage,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -326,6 +328,8 @@ describe('setStage', () => {
       };
       const nextProps = {
         isMe: true,
+        personId: myId,
+        stage: stage,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -359,6 +363,8 @@ describe('setStage', () => {
       };
       const nextProps = {
         isMe: false,
+        personId: assignedPersonId,
+        stage: stage,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -391,6 +397,8 @@ describe('setStage', () => {
       };
       const nextProps = {
         isMe: false,
+        personId: assignedPersonId,
+        stage: stage,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -424,6 +432,8 @@ describe('setStage', () => {
       };
       const nextProps = {
         isMe: false,
+        personId: unassignedPersonId,
+        stage: stage,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -458,6 +468,8 @@ describe('setStage', () => {
       };
       const nextProps = {
         isMe: false,
+        personId: unassignedPersonId,
+        stage: stage,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
