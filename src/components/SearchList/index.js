@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
