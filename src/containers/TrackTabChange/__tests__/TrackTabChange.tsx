@@ -12,7 +12,7 @@ import { TrackTabChange } from '..';
 
 jest.mock('../../../actions/unreadComments');
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let dispatch: any;
+let dispatch: jest.Mock;
 
 beforeEach(() => {
   dispatch = jest.fn(async () => {});
