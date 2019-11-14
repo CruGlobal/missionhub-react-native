@@ -44,7 +44,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
       // Send them through to celebrate and complete
       if (!hasHitCount && !isNotSure) {
         return dispatch(
-          navigatePush(CELEBRATION_SCREEN, { contactId: personId, orgId }),
+          navigatePush(CELEBRATION_SCREEN, { personId: personId, orgId }),
         );
       }
 
@@ -70,8 +70,8 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
   ...SelectPersonStageFlowScreens,
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    ({ contactId, orgId }) => dispatch => {
-      dispatch(reloadJourney(contactId, orgId));
+    ({ personId, orgId }) => dispatch => {
+      dispatch(reloadJourney(personId, orgId));
       dispatch(StackActions.popToTop());
 
       dispatch(StackActions.pop({ immediate: true }));

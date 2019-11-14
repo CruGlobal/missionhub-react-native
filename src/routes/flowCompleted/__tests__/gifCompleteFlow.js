@@ -59,8 +59,8 @@ describe('CelebrationScreen next', () => {
   beforeEach(async () => {
     await buildAndCallNext(
       CELEBRATION_SCREEN,
-      { contactId: myId, orgId },
-      { contactId: myId, orgId },
+      { personId: myId, orgId },
+      { personId: myId, orgId },
     );
   });
 
