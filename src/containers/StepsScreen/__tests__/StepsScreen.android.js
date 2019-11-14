@@ -9,7 +9,6 @@ jest.mock('react-native-device-info');
 jest.mock('../../../utils/common', () => ({
   exists: v => typeof v !== 'undefined',
   isAndroid: true,
-  hasNotch: jest.fn(),
   buildTrackingObj: jest.fn(),
 }));
 jest.mock('../../TrackTabChange', () => () => null);
