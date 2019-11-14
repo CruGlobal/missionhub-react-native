@@ -65,7 +65,11 @@ class ContactSteps extends Component {
     const { dispatch, person, organization, isMe } = this.props;
 
     if (isMe) {
-      dispatch(navigatePush(ADD_MY_STEP_FLOW));
+      dispatch(
+        navigatePush(ADD_MY_STEP_FLOW, {
+          organization,
+        }),
+      );
     } else {
       dispatch(
         navigatePush(ADD_PERSON_STEP_FLOW, {
