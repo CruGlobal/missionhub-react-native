@@ -31,7 +31,7 @@ interface ContactStepsProps {
   showAssignPrompt: boolean;
   steps: Step[];
   completedSteps: Step[];
-  contactAssignment: any;
+  contactAssignment?: { pathway_stage_id: string };
   isMe: boolean;
   person: Person;
   organization: Organization;
@@ -171,10 +171,8 @@ const mapStateToProps = (
   { auth, steps }: { auth: AuthState; steps: StepsState },
   { person, organization }: { person: Person; organization: Organization },
 ) => {
-  const { id: personId } = person;
-  const { id: orgId = 'personal' } = organization;
-
-  const allSteps = steps.contactSteps[`${personId}-${orgId}`] || {};
+  const allSteps =
+    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
   const myId = auth.person.id;
 
   return {
@@ -182,8 +180,11 @@ const mapStateToProps = (
     myId,
     steps: allSteps.steps || [],
     completedSteps: allSteps.completedSteps || [],
-    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
-    isMe: personId === myId,
+    contactAssignment: contactAssignmentSelector(
+      { auth },
+      { person, orgId: organization.id },
+    ),
+    isMe: person.id === myId,
     person,
     organization,
   };

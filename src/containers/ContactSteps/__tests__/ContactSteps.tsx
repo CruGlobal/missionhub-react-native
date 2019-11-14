@@ -92,24 +92,30 @@ beforeEach(() => {
 });
 
 it('renders correctly with no steps', () => {
-  renderWithContext(<ContactSteps person={person} />, {
-    initialState: initialStateNoSteps,
-  }).snapshot();
+  renderWithContext(
+    <ContactSteps person={person} organization={{ id: undefined }} />,
+    {
+      initialState: initialStateNoSteps,
+    },
+  ).snapshot();
 
-  expect(getContactSteps).toHaveBeenCalledWith(person.id, 'personal');
+  expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
 it('renders correctly with steps', () => {
-  renderWithContext(<ContactSteps person={person} />, {
-    initialState: initialStateWithSteps,
-  }).snapshot();
+  renderWithContext(
+    <ContactSteps person={person} organization={{ id: undefined }} />,
+    {
+      initialState: initialStateWithSteps,
+    },
+  ).snapshot();
 
-  expect(getContactSteps).toHaveBeenCalledWith(person.id, 'personal');
+  expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
 it('renders correctly with completed steps', () => {
   const { getByTestId, snapshot } = renderWithContext(
-    <ContactSteps person={person} />,
+    <ContactSteps person={person} organization={{ id: undefined }} />,
     {
       initialState: initialStateWithCompleted,
     },
@@ -119,7 +125,7 @@ it('renders correctly with completed steps', () => {
 
   snapshot();
 
-  expect(getContactSteps).toHaveBeenCalledWith(person.id, 'personal');
+  expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
 it('renders correctly with org', () => {
@@ -136,16 +142,16 @@ it('renders correctly with org', () => {
 describe('step item', () => {
   it('gets contact steps on complete step', () => {
     const { getByTestId } = renderWithContext(
-      <ContactSteps person={person} />,
+      <ContactSteps person={person} organization={organization} />,
       {
-        initialState: initialStateWithSteps,
+        initialState: initialStateWithStepsOrg,
       },
     );
 
     fireEvent(getByTestId('stepItem'), 'onComplete');
 
     expect(getContactSteps).toHaveBeenCalledTimes(2);
-    expect(getContactSteps).toHaveBeenCalledWith(person.id, 'personal');
+    expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
   });
 });
 
@@ -164,6 +170,7 @@ describe('handleCreateStep', () => {
       fireEvent.press(getByTestId('bottomButton'));
 
       expect(navigateToAddStepFlow).toHaveBeenCalledWith(
+        true,
         mePerson,
         organization,
       );
@@ -211,7 +218,11 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToAddStepFlow).toHaveBeenCalledWith(person, organization);
+      expect(navigateToAddStepFlow).toHaveBeenCalledWith(
+        false,
+        person,
+        organization,
+      );
     });
   });
 

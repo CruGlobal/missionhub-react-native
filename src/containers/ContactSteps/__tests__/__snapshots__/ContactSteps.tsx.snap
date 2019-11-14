@@ -4,202 +4,207 @@ exports[`renders correctly with completed steps 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
 >
-  <RCTScrollView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
+  <RCTScrollView>
     <View>
-      <RCTScrollView
-        data={
-          Array [
-            Object {
-              "id": "1",
-              "title": "Test Step",
-            },
-          ]
-        }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        testID="stepsList"
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <AcceptedStepItem
-              onComplete={[Function]}
-              step={
-                Object {
-                  "id": "1",
-                  "title": "Test Step",
-                }
-              }
-              testID="stepItem"
-            />
-          </View>
-        </View>
-      </RCTScrollView>
       <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "flex": 1,
+            "marginBottom": 96,
+            "marginTop": 16,
           }
         }
-        testID="completedStepsButton"
       >
-        <View
-          style={
+        <RCTScrollView
+          data={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "transparent",
-                "borderColor": "#A0A2A6",
-                "borderWidth": 1,
-                "height": 36,
-                "marginHorizontal": 68,
-                "marginVertical": 15,
-              },
-              Object {
-                "borderRadius": 50,
+                "id": "1",
+                "title": "Test Step",
               },
             ]
           }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          testID="stepsList"
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
         >
-          <Text
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <AcceptedStepItem
+                onComplete={[Function]}
+                step={
+                  Object {
+                    "id": "1",
+                    "title": "Test Step",
+                  }
+                }
+                testID="stepItem"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="completedStepsButton"
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderColor": "#A0A2A6",
+                  "borderWidth": 1,
+                  "height": 36,
+                  "marginHorizontal": 68,
+                  "marginVertical": 15,
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "borderRadius": 50,
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 14,
-                    "letterSpacing": 1,
-                    "lineHeight": 18,
-                  },
-                ],
               ]
             }
           >
-            HIDE COMPLETED STEPS
-          </Text>
-        </View>
-      </View>
-      <RCTScrollView
-        data={
-          Array [
-            Object {
-              "completed_at": "time",
-              "id": "1",
-              "title": "Test Step",
-            },
-          ]
-        }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <AcceptedStepItem
-              onComplete={[Function]}
-              step={
-                Object {
-                  "completed_at": "time",
-                  "id": "1",
-                  "title": "Test Step",
-                }
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 14,
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                    },
+                  ],
+                ]
               }
-              testID="stepItem"
-            />
+            >
+              HIDE COMPLETED STEPS
+            </Text>
           </View>
         </View>
-      </RCTScrollView>
+        <RCTScrollView
+          data={
+            Array [
+              Object {
+                "completed_at": "time",
+                "id": "1",
+                "title": "Test Step",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <AcceptedStepItem
+                onComplete={[Function]}
+                step={
+                  Object {
+                    "completed_at": "time",
+                    "id": "1",
+                    "title": "Test Step",
+                  }
+                }
+                testID="stepItem"
+              />
+            </View>
+          </View>
+        </RCTScrollView>
+      </View>
     </View>
   </RCTScrollView>
   <RCTSafeAreaView
@@ -286,6 +291,7 @@ exports[`renders correctly with no steps 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
@@ -442,70 +448,75 @@ exports[`renders correctly with org 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
 >
-  <RCTScrollView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
+  <RCTScrollView>
     <View>
-      <RCTScrollView
-        data={
-          Array [
-            Object {
-              "id": "1",
-              "title": "Test Step",
-            },
-          ]
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginBottom": 96,
+            "marginTop": 16,
+          }
         }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        testID="stepsList"
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
       >
-        <View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <AcceptedStepItem
-              onComplete={[Function]}
-              step={
-                Object {
-                  "id": "1",
-                  "title": "Test Step",
+        <RCTScrollView
+          data={
+            Array [
+              Object {
+                "id": "1",
+                "title": "Test Step",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          testID="stepsList"
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <AcceptedStepItem
+                onComplete={[Function]}
+                step={
+                  Object {
+                    "id": "1",
+                    "title": "Test Step",
+                  }
                 }
-              }
-              testID="stepItem"
-            />
+                testID="stepItem"
+              />
+            </View>
           </View>
-        </View>
-      </RCTScrollView>
+        </RCTScrollView>
+      </View>
     </View>
   </RCTScrollView>
   <RCTSafeAreaView
@@ -592,70 +603,75 @@ exports[`renders correctly with steps 1`] = `
 <View
   style={
     Object {
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
 >
-  <RCTScrollView
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
+  <RCTScrollView>
     <View>
-      <RCTScrollView
-        data={
-          Array [
-            Object {
-              "id": "1",
-              "title": "Test Step",
-            },
-          ]
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginBottom": 96,
+            "marginTop": 16,
+          }
         }
-        disableVirtualization={false}
-        getItem={[Function]}
-        getItemCount={[Function]}
-        horizontal={false}
-        initialNumToRender={10}
-        keyExtractor={[Function]}
-        maxToRenderPerBatch={10}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReachedThreshold={2}
-        onLayout={[Function]}
-        onMomentumScrollEnd={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onScrollEndDrag={[Function]}
-        removeClippedSubviews={false}
-        renderItem={[Function]}
-        scrollEventThrottle={50}
-        showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={Array []}
-        testID="stepsList"
-        updateCellsBatchingPeriod={50}
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
       >
-        <View>
-          <View
-            onLayout={[Function]}
-            style={null}
-          >
-            <AcceptedStepItem
-              onComplete={[Function]}
-              step={
-                Object {
-                  "id": "1",
-                  "title": "Test Step",
+        <RCTScrollView
+          data={
+            Array [
+              Object {
+                "id": "1",
+                "title": "Test Step",
+              },
+            ]
+          }
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          showsVerticalScrollIndicator={false}
+          stickyHeaderIndices={Array []}
+          testID="stepsList"
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View>
+            <View
+              onLayout={[Function]}
+              style={null}
+            >
+              <AcceptedStepItem
+                onComplete={[Function]}
+                step={
+                  Object {
+                    "id": "1",
+                    "title": "Test Step",
+                  }
                 }
-              }
-              testID="stepItem"
-            />
+                testID="stepItem"
+              />
+            </View>
           </View>
-        </View>
-      </RCTScrollView>
+        </RCTScrollView>
+      </View>
     </View>
   </RCTScrollView>
   <RCTSafeAreaView
