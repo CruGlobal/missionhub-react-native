@@ -67,97 +67,51 @@ exports[`StepsScreen renders empty screen with one reminder correctly 1`] = `
   <View
     style={
       Object {
+        "alignItems": "center",
         "backgroundColor": "#ECEEF2",
         "flex": 1,
+        "justifyContent": "center",
       }
     }
   >
-    <Connect(withI18nextTranslation(OnboardingCard))
-      type="steps"
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/footprints.png",
+        }
+      }
     />
-    <View
+    <MyText
+      header={true}
       style={
         Object {
-          "backgroundColor": "#007398",
-          "flex": 1,
+          "color": "#007398",
+          "fontSize": 42,
+          "paddingTop": 10,
         }
       }
     >
-      <ScrollViewMock
-        contentContainerStyle={
-          Array [
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "flex": 1,
-            },
-            Object {
-              "flex": 1,
-            },
-          ]
+      STEPS OF FAITH
+    </MyText>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 70,
+          "paddingVertical": 10,
         }
-        onScroll={[Function]}
-        refreshControl={
-          <MyRefreshControl
-            onRefresh={[Function]}
-            refreshing={false}
-          />
-        }
-        scrollEventThrottle={16}
+      }
+    >
+      <MyText
         style={
-          Array [
-            Object {
-              "backgroundColor": "#ECEEF2",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "textAlign": "center",
+          }
         }
       >
-        <Flex
-          align="center"
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#66D9F0",
-                "width": 750,
-              },
-            ]
-          }
-        />
-        <FlatList
-          ListFooterComponent={null}
-          bounces={false}
-          data={Array []}
-          disableVirtualization={false}
-          extraData={
-            Object {
-              "hideStars": false,
-            }
-          }
-          horizontal={false}
-          initialNumToRender={10}
-          keyExtractor={[Function]}
-          maxToRenderPerBatch={10}
-          numColumns={1}
-          onEndReachedThreshold={2}
-          removeClippedSubviews={false}
-          renderItem={[Function]}
-          scrollEventThrottle={50}
-          showsVerticalScrollIndicator={false}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ECEEF2",
-                "overflow": "scroll",
-                "paddingBottom": undefined,
-              },
-              Object {
-                "paddingBottom": 40,
-              },
-            ]
-          }
-          updateCellsBatchingPeriod={50}
-          windowSize={21}
-        />
-      </ScrollViewMock>
+        Choose a person in People view and add some new steps.
+      </MyText>
     </View>
   </View>
 </View>

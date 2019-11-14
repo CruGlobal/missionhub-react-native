@@ -235,10 +235,12 @@ export class StepsScreen extends Component {
             </>
           )}
         </View>
-        <BottomButton
-          text={t('mainTabs:takeAStepWithSomeone')}
-          onPress={this.navToPersonScreen}
-        />
+        {this.hasReminders() ? null : (
+          <BottomButton
+            text={t('mainTabs:takeAStepWithSomeone')}
+            onPress={this.navToPersonScreen}
+          />
+        )}
       </View>
     );
   }
@@ -334,7 +336,7 @@ export class StepsScreen extends Component {
   openMainMenu = () => this.props.dispatch(openMainMenu());
 
   render() {
-    const { t, steps, reminders } = this.props;
+    const { t, steps } = this.props;
 
     return (
       <View style={styles.container}>
@@ -350,7 +352,7 @@ export class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         {steps ? (
-          steps.length > 0 || (reminders && reminders.length > 0) ? (
+          steps.length > 0 ? (
             <View style={styles.contentContainer}>
               <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
               {this.renderSteps()}
