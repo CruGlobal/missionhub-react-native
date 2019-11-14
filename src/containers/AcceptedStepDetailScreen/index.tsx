@@ -103,10 +103,10 @@ const mapStateToProps = (
       state: {
         params: { step },
       },
-    },
-  }: { navigation: { state: { params: { step: Step } } } },
+    } = { state: { params: { step: {} as Step } } },
+  }: { navigation?: { state: { params: { step: Step } } } },
 ) => ({
-  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
+  reminder: reminderSelector({ stepReminders }, { stepId: step && step.id }),
 });
 
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);
