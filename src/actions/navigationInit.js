@@ -8,10 +8,10 @@ import { LANDING_SCREEN } from '../containers/LandingScreen';
 import { navigateReset, navigateToMainTabs } from './navigation';
 
 export const resetToInitialRoute = () => (dispatch, getState) => {
-  const { auth, personProfile, people } = getState();
+  const { auth, onboarding, people } = getState();
   if (auth && isAuthenticated(auth)) {
     if (
-      personProfile.hasCompletedOnboarding ||
+      onboarding.skippedAddingPerson ||
       hasContactWithPathwayStage(auth.person.id, people)
     ) {
       return dispatch(navigateToMainTabs());

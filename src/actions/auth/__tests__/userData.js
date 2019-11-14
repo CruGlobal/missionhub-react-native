@@ -6,15 +6,9 @@ import * as RNOmniture from 'react-native-omniture';
 
 import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
-import {
-  updateLocaleAndTimezone,
-  firstTime,
-  authSuccess,
-  loadHome,
-} from '../userData';
-import { FIRST_TIME, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
+import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { showReminderOnLoad } from '../../notifications';
-import { resetPerson } from '../../onboardingProfile';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
@@ -23,7 +17,6 @@ import { getMySteps } from '../../steps';
 import { rollbar } from '../../../utils/rollbar.config';
 
 const notificationsResult = { type: 'show notification reminder' };
-const resetOnboardingPersonResult = { type: 'onboarding data cleared' };
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
 const getPeopleResult = { type: 'get my people' };
@@ -33,7 +26,7 @@ const updateUserResult = { type: 'updated locale and TZ' };
 
 jest.mock('react-native-omniture');
 jest.mock('../../notifications');
-jest.mock('../../onboardingProfile');
+jest.mock('../../onboarding');
 jest.mock('../../organizations');
 jest.mock('../../person');
 jest.mock('../../people');
@@ -57,13 +50,6 @@ beforeEach(() => {
         user: {},
       },
     },
-  });
-});
-
-describe('firstTime', () => {
-  it('should dispatch FIRST_TIME', () => {
-    store.dispatch(firstTime());
-    expect(store.getActions()).toEqual([{ type: FIRST_TIME }]);
   });
 });
 
@@ -153,7 +139,6 @@ describe('loadHome', () => {
     getMyCommunities.mockReturnValue(getMyCommunitiesResult);
     getStagesIfNotExists.mockReturnValue(getStagesResult);
     showReminderOnLoad.mockReturnValue(notificationsResult);
-    resetPerson.mockReturnValue(resetOnboardingPersonResult);
     callApi.default.mockReturnValue(updateUserResult);
 
     await store.dispatch(loadHome());
@@ -173,7 +158,6 @@ describe('loadHome', () => {
       getMyCommunitiesResult,
       getStagesResult,
       updateUserResult,
-      resetOnboardingPersonResult,
       getStepsResult,
       notificationsResult,
     ]);

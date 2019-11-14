@@ -4,7 +4,7 @@ import {
   Keyboard,
   Image,
   KeyboardAvoidingView,
-  SafeAreaView,
+  View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
@@ -65,13 +65,13 @@ class JoinGroupScreen extends Component {
     }
 
     try {
-      const org = await dispatch(lookupOrgCommunityCode(text));
+      const community = await dispatch(lookupOrgCommunityCode(text));
 
-      if (!org) {
+      if (!community) {
         this.setState(errorState);
         return;
       }
-      this.setState({ errorMessage: '', community: org });
+      this.setState({ errorMessage: '', community });
     } catch (e) {
       this.setState(errorState);
     }
@@ -150,7 +150,7 @@ class JoinGroupScreen extends Component {
     const { code, errorMessage, community } = this.state;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={<BackButton customIcon="deleteIcon" />}
           title={t('joinCommunity')}
@@ -181,7 +181,7 @@ class JoinGroupScreen extends Component {
             style={styles.flex}
           />
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 }

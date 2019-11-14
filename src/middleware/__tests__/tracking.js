@@ -1,4 +1,4 @@
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import configureStore from 'redux-mock-store';
 
 import {

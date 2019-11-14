@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView } from 'react-native';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
@@ -8,8 +8,8 @@ import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
-import { ProfileState } from '../../reducers/profile';
 import Header from '../../components/Header';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
@@ -17,8 +17,7 @@ interface GetStartedScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (props: { id: string | null }) => ThunkAction<void, any, null, never>;
-  id: string | null;
+  next: () => ThunkAction<void, any, null, never>;
   name: string;
   enableBackButton?: boolean;
   logoutOnBack?: boolean;
@@ -27,7 +26,6 @@ interface GetStartedScreenProps {
 const GetStartedScreen = ({
   dispatch,
   next,
-  id,
   name = '',
   enableBackButton = true,
   logoutOnBack = false,
@@ -37,13 +35,15 @@ const GetStartedScreen = ({
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);
 
   const navigateNext = () => {
-    dispatch(next({ id }));
+    dispatch(next());
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Header
-        left={handleBack ? <BackButton customNavigate={handleBack} /> : null}
+        left={
+          enableBackButton ? <BackButton customNavigate={handleBack} /> : null
+        }
       />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex align="start" justify="center" value={4}>
@@ -56,13 +56,12 @@ const GetStartedScreen = ({
         </Flex>
         <BottomButton onPress={navigateNext} text={t('getStarted')} />
       </Flex>
-    </SafeAreaView>
+    </View>
   );
 };
 
-const mapStateToProps = ({ profile }: { profile: ProfileState }) => ({
-  id: profile.id,
-  name: profile.firstName,
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+  name: auth.person.first_name,
 });
 
 export default connect(mapStateToProps)(GetStartedScreen);

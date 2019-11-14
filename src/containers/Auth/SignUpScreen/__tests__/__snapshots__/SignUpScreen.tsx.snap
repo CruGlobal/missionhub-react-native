@@ -5,14 +5,14 @@ exports[`a login button is clicked email signup button is pressed key sign in bu
 - First value
 + Second value
 
-@@ -305,6 +305,7 @@
-            type=\\"transparent\\"
-          />
-        </Flex>
-      </Flex>
+@@ -309,6 +309,7 @@
+          text=\\"SIGN IN\\"
+          type=\\"transparent\\"
+        />
+      </RCTSafeAreaView>
     </Flex>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`a login button is clicked facebook signup button is pressed facebook button fires fb sign in actions 1`] = `
@@ -20,14 +20,14 @@ exports[`a login button is clicked facebook signup button is pressed facebook bu
 - First value
 + Second value
 
-@@ -305,6 +305,7 @@
-            type=\\"transparent\\"
-          />
-        </Flex>
-      </Flex>
+@@ -309,6 +309,7 @@
+          text=\\"SIGN IN\\"
+          type=\\"transparent\\"
+        />
+      </RCTSafeAreaView>
     </Flex>
 +   <LoadingWheel />
-  </RCTSafeAreaView>"
+  </View>"
 `;
 
 exports[`renders correctly for Create Community 1`] = `
@@ -35,7 +35,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -61,17 +61,53 @@
+@@ -60,17 +60,53 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -93,8 +93,7 @@ exports[`renders correctly for Create Community 1`] = `
 `;
 
 exports[`renders correctly with logo 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
+<View
   style={
     Object {
       "backgroundColor": "#007398",
@@ -363,44 +362,49 @@ exports[`renders correctly with logo 1`] = `
           </Flex>
         </Flex>
       </Flex>
-      <Flex
-        align="end"
-        direction="row"
-        value={1}
-      >
-        <Text
-          style={
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "marginBottom": 20,
-              "marginRight": 10,
-              "paddingTop": 2,
-            }
-          }
-        >
-          ALREADY A MEMBER?
-        </Text>
-        <Button
-          buttonTextStyle={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
-              "marginBottom": 20,
-              "paddingTop": 2,
-            }
-          }
-          onPress={[Function]}
-          testID="loginButton"
-          text="SIGN IN"
-          type="transparent"
-        />
-      </Flex>
     </Flex>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "marginBottom": 20,
+            "marginRight": 10,
+            "paddingTop": 2,
+          }
+        }
+      >
+        ALREADY A MEMBER?
+      </Text>
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "fontWeight": "500",
+            "letterSpacing": 1.5,
+            "marginBottom": 20,
+            "paddingTop": 2,
+          }
+        }
+        onPress={[Function]}
+        testID="loginButton"
+        text="SIGN IN"
+        type="transparent"
+      />
+    </RCTSafeAreaView>
   </Flex>
-</RCTSafeAreaView>
+</View>
 `;

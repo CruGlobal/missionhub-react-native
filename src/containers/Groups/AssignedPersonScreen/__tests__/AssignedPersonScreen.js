@@ -1,5 +1,5 @@
 import React from 'react';
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import { shallow } from 'enzyme/build/index';
 
 import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
@@ -136,7 +136,6 @@ describe('Contact', () => {
       <AssignedPersonScreen {...props} dispatch={dispatch} />,
     );
     component
-      .dive()
       .find('Header')
       .props()
       .right.props.onPress();

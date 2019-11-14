@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, SafeAreaView } from 'react-native';
+import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -111,7 +111,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
     const { errorMessage, community } = this.state;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header
           left={
             <IconButton
@@ -134,7 +134,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
             ? this.renderGroupCard()
             : this.renderStart()}
         </Flex>
-      </SafeAreaView>
+      </View>
     );
   }
 }

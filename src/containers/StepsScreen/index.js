@@ -1,10 +1,10 @@
 /* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
-import { View, Image, ScrollView, FlatList, SafeAreaView } from 'react-native';
+import { View, Image, ScrollView, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 
 import {
   showNotificationPrompt,
@@ -340,7 +340,7 @@ export class StepsScreen extends Component {
     const { t, steps } = this.props;
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <TrackTabChange screen={STEPS_TAB} />
         <Header
           left={
@@ -362,7 +362,7 @@ export class StepsScreen extends Component {
             <LoadingGuy />
           </View>
         )}
-      </SafeAreaView>
+      </View>
     );
   }
 }

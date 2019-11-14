@@ -1,6 +1,6 @@
 /* eslint max-lines: 0 */
 
-import { DrawerActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
 
 import {
@@ -37,7 +37,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 
-jest.mock('react-navigation', () => ({
+jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
     openDrawer: jest.fn(),
   },

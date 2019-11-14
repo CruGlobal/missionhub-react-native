@@ -12,11 +12,11 @@ import styles from './styles';
 @withTranslation('suggestedStepDetail')
 class SuggestedStepDetailScreen extends Component {
   addStep = () => {
-    const { dispatch, step, receiverId, orgId, next } = this.props;
+    const { dispatch, step, personId, orgId, next } = this.props;
 
-    dispatch(addStep(step, receiverId, orgId));
+    dispatch(addStep(step, personId, orgId));
 
-    dispatch(next({ contactId: receiverId, orgId }));
+    dispatch(next({ contactId: personId, orgId }));
   };
   render() {
     const {
@@ -43,7 +43,7 @@ class SuggestedStepDetailScreen extends Component {
 
 SuggestedStepDetailScreen.propTypes = {
   step: PropTypes.object.isRequired,
-  receiverId: PropTypes.string.isRequired,
+  personId: PropTypes.string.isRequired,
   orgId: PropTypes.string,
   next: PropTypes.func.isRequired,
 };
@@ -53,14 +53,14 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step, receiverId, orgId },
+        params: { step, personId, orgId },
       },
     },
     next,
   },
 ) => ({
   step,
-  receiverId,
+  personId,
   orgId,
   next,
 });
