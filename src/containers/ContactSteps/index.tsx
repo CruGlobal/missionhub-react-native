@@ -73,7 +73,7 @@ const ContactSteps = ({
 
   const handleCreateStep = () => {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
-      ? dispatch(navigateToAddStepFlow(person, organization))
+      ? dispatch(navigateToAddStepFlow(isMe, person, organization))
       : contactAssignment
       ? dispatch(
           navigateToStageScreen(
@@ -141,10 +141,12 @@ const ContactSteps = ({
   );
 
   const renderSteps = () => (
-    <ScrollView style={styles.list}>
-      {renderList(steps)}
-      {renderCompletedStepsButton()}
-      {hideCompleted ? null : renderCompletedList(completedSteps)}
+    <ScrollView>
+      <View style={styles.list}>
+        {renderList(steps)}
+        {renderCompletedStepsButton()}
+        {hideCompleted ? null : renderCompletedList(completedSteps)}
+      </View>
     </ScrollView>
   );
 
@@ -158,7 +160,7 @@ const ContactSteps = ({
   );
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       {steps.length > 0 || !hideCompleted ? renderSteps() : renderNull()}
       <BottomButton onPress={handleCreateStep} text={t('addStep')} />
     </View>
@@ -167,23 +169,21 @@ const ContactSteps = ({
 
 const mapStateToProps = (
   { auth, steps }: { auth: AuthState; steps: StepsState },
-  {
-    person,
-    organization = { id: 'personal' },
-  }: { person: Person; organization?: Organization },
+  { person, organization }: { person: Person; organization: Organization },
 ) => {
-  const allSteps = steps.contactSteps[`${person.id}-${organization.id}`] || {};
+  const { id: personId } = person;
+  const { id: orgId = 'personal' } = organization;
+
+  const allSteps = steps.contactSteps[`${personId}-${orgId}`] || {};
   const myId = auth.person.id;
+
   return {
     showAssignPrompt: orgIsCru(organization),
     myId,
     steps: allSteps.steps || [],
     completedSteps: allSteps.completedSteps || [],
-    contactAssignment: contactAssignmentSelector(
-      { auth },
-      { person, orgId: organization.id },
-    ),
-    isMe: person.id === myId,
+    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
+    isMe: personId === myId,
     person,
     organization,
   };
