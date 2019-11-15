@@ -126,12 +126,16 @@ class JoinGroupScreen extends Component {
     const group = {
       id,
       name,
-      owner: owner
-        ? {
-            firstName: owner.first_name,
-            lastName: owner.last_name,
-          }
-        : null,
+      owner: {
+        nodes: owner
+          ? [
+              {
+                firstName: owner.first_name,
+                lastName: owner.last_name,
+              },
+            ]
+          : [],
+      },
       report: {
         contactCount: contactReport.contactsCount || 0,
         unassignedCount: contactReport.unassignedCount || 0,

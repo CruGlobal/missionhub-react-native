@@ -90,8 +90,14 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
       id,
       name,
       owner: {
-        firstName: owner.first_name,
-        lastName: owner.last_name,
+        nodes: owner
+          ? [
+              {
+                firstName: owner.first_name,
+                lastName: owner.last_name,
+              },
+            ]
+          : [],
       },
       report: {
         contactCount: contactReport.contactsCount || 0,
