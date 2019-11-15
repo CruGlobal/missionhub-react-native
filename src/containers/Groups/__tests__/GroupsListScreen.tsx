@@ -23,7 +23,7 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/common');
 jest.mock('../../TrackTabChange', () => () => null);
 
-const auth = { isFirstTime: false };
+const auth = { upgradeToken: null };
 const swipe = { groupScrollToId: null };
 const initialState = { auth, swipe };
 
@@ -203,7 +203,7 @@ describe('GroupsListScreen', () => {
       const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
         initialState: {
           ...initialState,
-          auth: { isFirstTime: true },
+          auth: { upgradeToken: 'aabbcc' },
         },
       });
 

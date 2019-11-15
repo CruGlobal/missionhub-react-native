@@ -34,8 +34,10 @@ import {
 
 export const GET_COMMUNITIES_QUERY = gql`
   query GetCommunities {
-    usersReport {
-      usersCount
+    globalCommunity {
+      usersReport {
+        usersCount
+      }
     }
     communities(ministryActivitiesOnly: true, sortBy: name_ASC) {
       nodes {
@@ -44,9 +46,8 @@ export const GET_COMMUNITIES_QUERY = gql`
         unreadCommentsCount
         userCreated
         communityPhotoUrl
-        people(permissions: [owner]) {
+        owner: people(permissions: [owner]) {
           nodes {
-            id
             firstName
             lastName
           }
@@ -61,23 +62,24 @@ export const GET_COMMUNITIES_QUERY = gql`
   }
 `;
 
+interface GroupsListScreenProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  isAnonymousUser: boolean;
+  scrollToId: string | null;
+}
+
 const GroupsListScreen = ({
   dispatch,
   isAnonymousUser,
   scrollToId,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  isAnonymousUser: boolean;
-  scrollToId: string | null;
-}) => {
+}: GroupsListScreenProps) => {
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
 
   const {
     data: {
-      usersReport: { usersCount = 0 } = {},
+      globalCommunity: { usersReport: { usersCount = 0 } = {} } = {},
       communities: { nodes = [] } = {},
     } = {},
     refetch: refetchCommunities,
@@ -90,7 +92,7 @@ const GroupsListScreen = ({
     unreadCommentsCount: 0,
     userCreated: true,
     communityPhotoUrl: null,
-    people: { __typename: 'PersonConnection', nodes: [] },
+    owner: { __typename: 'PersonConnection', nodes: [] },
     report: {
       __typename: 'CommunitiesReport',
       contactCount: 0,
@@ -155,7 +157,7 @@ const GroupsListScreen = ({
   );
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.primaryColor }}>
+    <View style={styles.container}>
       <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
