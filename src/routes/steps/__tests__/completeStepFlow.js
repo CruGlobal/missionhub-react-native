@@ -101,7 +101,7 @@ describe('AddStepScreen next', () => {
         store.getState,
       );
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-        contactId: myId,
+        personId: myId,
         orgId,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
@@ -197,7 +197,7 @@ describe('AddStepScreen next', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-        contactId: otherId,
+        personId: otherId,
         orgId,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
@@ -320,8 +320,8 @@ describe('CelebrationScreen next', () => {
 
       await buildAndCallNext(
         CELEBRATION_SCREEN,
-        { contactId: myId, orgId },
-        { contactId: myId, orgId },
+        { personId: myId, orgId },
+        { personId: myId, orgId },
       );
     });
 
@@ -360,8 +360,8 @@ describe('CelebrationScreen next', () => {
 
       await buildAndCallNext(
         CELEBRATION_SCREEN,
-        { contactId: myId, orgId },
-        { contactId: myId, orgId },
+        { personId: myId, orgId },
+        { personId: myId, orgId },
       );
     });
 
