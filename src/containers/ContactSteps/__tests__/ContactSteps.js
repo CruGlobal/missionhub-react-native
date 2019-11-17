@@ -225,7 +225,9 @@ describe('handleCreateStep', () => {
     it('navigates to select my steps flow', () => {
       instance.handleCreateStep();
 
-      expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW);
+      expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
+        organization: undefined,
+      });
     });
   });
 
