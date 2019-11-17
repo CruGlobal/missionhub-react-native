@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
-import debounce from 'lodash/debounce';
+import debounce from 'lodash.debounce';
 
 import { Touchable, Text } from '../common';
 import { exists } from '../../utils/common';
