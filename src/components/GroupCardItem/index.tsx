@@ -34,9 +34,11 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   const handlePress = () => {
     onPress && onPress(group);
   };
+
   const handleJoin = () => {
     onJoin && onJoin(group);
   };
+
   function renderInfo() {
     if (onJoin) {
       return (
@@ -69,6 +71,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
       </Text>
     );
   }
+
   function getSource() {
     if (communityPhotoUrl) {
       return { uri: communityPhotoUrl };
@@ -80,11 +83,13 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
       return DEFAULT_MISSIONHUB_IMAGE;
     }
   }
+
   const source = getSource();
   const isGlobal = orgIsGlobal(group);
   const hasNotification = !isGlobal && unreadCommentsCount !== 0;
   //not passing a value for onPress to Card makes the card unclickable.
   //In some cases we want to prevent clicking on GroupCardItem.
+
   return (
     <Card
       testID="CardButton"

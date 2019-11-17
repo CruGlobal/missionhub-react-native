@@ -751,8 +751,12 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
             "id": "123",
             "name": "Org Name",
             "owner": Object {
-              "firstName": "Owner",
-              "lastName": "Ofthisgroup",
+              "nodes": Array [
+                Object {
+                  "firstName": "Owner",
+                  "lastName": "Ofthisgroup",
+                },
+              ],
             },
             "report": Object {
               "contactCount": 0,

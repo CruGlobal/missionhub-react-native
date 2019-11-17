@@ -3,6 +3,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { GetCommunities_communities_nodes } from '../../../containers/Groups/__generated__/GetCommunities';
 
 import GroupCardItem, { GroupCardItemProps } from '..';
 
@@ -10,9 +11,17 @@ const contactCount = 768;
 const unassignedCount = 13;
 const memberCount = 5;
 
-const group: GroupCardItemProps['group'] = {
+const group: GetCommunities_communities_nodes = {
+  __typename: 'Community',
+  id: '1',
+  communityPhotoUrl: null,
   name: 'Group Name',
+  owner: {
+    __typename: 'PersonConnection',
+    nodes: [],
+  },
   report: {
+    __typename: 'CommunitiesReport',
     contactCount: 0,
     unassignedCount: 0,
     memberCount: 0,
@@ -195,7 +204,16 @@ describe('GroupCardItem', () => {
           ...group.report,
           memberCount,
         },
-        owner: { firstName: 'Roge', lastName: 'Egor' },
+        owner: {
+          ...group.owner,
+          nodes: [
+            {
+              __typename: 'Person',
+              firstName: 'Roge',
+              lastName: 'Egor',
+            },
+          ],
+        },
       },
       onJoin: jest.fn(),
     };

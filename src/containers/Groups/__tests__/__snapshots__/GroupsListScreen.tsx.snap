@@ -377,7 +377,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "communityPhotoUrl": null,
               "id": "_global_community_id",
               "name": "MissionHub Community",
-              "people": Object {
+              "owner": Object {
                 "__typename": "PersonConnection",
                 "nodes": Array [],
               },
@@ -395,13 +395,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "communityPhotoUrl": "image.jpg",
               "id": "1",
               "name": "Community 1",
-              "people": Object {
+              "owner": Object {
                 "__typename": "PersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
                     "firstName": "Owner",
-                    "id": "11",
                     "lastName": "First",
                   },
                 ],
@@ -420,13 +419,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "communityPhotoUrl": "photo.jpg",
               "id": "2",
               "name": "Community 2",
-              "people": Object {
+              "owner": Object {
                 "__typename": "PersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
                     "firstName": "Owner",
-                    "id": "22",
                     "lastName": "Second",
                   },
                 ],
@@ -478,7 +476,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "communityPhotoUrl": null,
                   "id": "_global_community_id",
                   "name": "MissionHub Community",
-                  "people": Object {
+                  "owner": Object {
                     "__typename": "PersonConnection",
                     "nodes": Array [],
                   },
@@ -507,13 +505,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "communityPhotoUrl": "image.jpg",
                   "id": "1",
                   "name": "Community 1",
-                  "people": Object {
+                  "owner": Object {
                     "__typename": "PersonConnection",
                     "nodes": Array [
                       Object {
                         "__typename": "Person",
                         "firstName": "Owner",
-                        "id": "11",
                         "lastName": "First",
                       },
                     ],
@@ -543,13 +540,12 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "communityPhotoUrl": "photo.jpg",
                   "id": "2",
                   "name": "Community 2",
-                  "people": Object {
+                  "owner": Object {
                     "__typename": "PersonConnection",
                     "nodes": Array [
                       Object {
                         "__typename": "Person",
                         "firstName": "Owner",
-                        "id": "22",
                         "lastName": "Second",
                       },
                     ],
@@ -959,7 +955,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
               "communityPhotoUrl": null,
               "id": "_global_community_id",
               "name": "MissionHub Community",
-              "people": Object {
+              "owner": Object {
                 "__typename": "PersonConnection",
                 "nodes": Array [],
               },
@@ -1010,7 +1006,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "communityPhotoUrl": null,
                   "id": "_global_community_id",
                   "name": "MissionHub Community",
-                  "people": Object {
+                  "owner": Object {
                     "__typename": "PersonConnection",
                     "nodes": Array [],
                   },
