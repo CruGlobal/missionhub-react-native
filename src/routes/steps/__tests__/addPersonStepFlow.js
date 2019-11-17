@@ -66,7 +66,7 @@ describe('PersonSelectStepScreen next', () => {
         PERSON_SELECT_STEP_SCREEN,
         {
           contactStage: stage,
-          contactId: otherId,
+          personId: otherId,
           organization: { id: orgId },
           contactName: otherName,
         },
