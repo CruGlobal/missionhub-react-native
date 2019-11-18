@@ -58,11 +58,7 @@ function isCloseToBottom({
   );
 }
 
-export const StepsScreen = ({
-  dispatch,
-  steps,
-  hasMoreSteps,
-}: StepsScreenProps) => {
+const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   const { t } = useTranslation('stepsTab');
 
   const [paging, setPaging] = useState(false);
@@ -115,8 +111,11 @@ export const StepsScreen = ({
     const shouldPaginate = isCloseToBottom(nativeEvent);
 
     // Reset pagingError once we are out of the isCloseToBottom zone
-    if (pagingError && !shouldPaginate) {
-      return setPagingError(false);
+    if (!shouldPaginate) {
+      if (pagingError) {
+        setPagingError(false);
+      }
+      return;
     }
 
     handleNextPage();
@@ -185,6 +184,7 @@ export const StepsScreen = ({
         testID="header"
         left={
           <IconButton
+            testID="menuIcon"
             name="menuIcon"
             type="MissionHub"
             onPress={handleOpenMainMenu}

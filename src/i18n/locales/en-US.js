@@ -435,18 +435,11 @@ export default {
   },
   stepsTab: {
     nullHeader: 'STEPS OF FAITH',
-    nullWithReminders: 'Choose a person in People view and add some new steps.',
     nullNoReminders: {
       part1: "You don't have any Steps of Faith.",
       part2: 'Choose a person and add some new steps.',
     },
     title: 'Steps of Faith',
-    reminderTitle: 'Focus your week',
-    reminderDescription:
-      'Star up to three steps and get weekly handcrafted reminders.',
-    holdDescription:
-      'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
-    reminderAddedToast: '✔ Reminder Added',
   },
   contactSideMenu: {
     edit: 'Edit',

@@ -1,74 +1,32 @@
-/* eslint max-lines: 0 */
-
-import { ScrollView } from 'react-native';
+import { NativeScrollEvent } from 'react-native';
 import React from 'react';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../testUtils';
-import {
-  reminderStepsSelector,
-  nonReminderStepsSelector,
-} from '../../../selectors/steps';
-import theme from '../../../theme';
-import { trackActionWithoutData } from '../../../actions/analytics';
-import {
-  ACTIONS,
-  NOTIFICATION_PROMPT_TYPES,
-  PEOPLE_TAB,
-} from '../../../constants';
-import {
-  showNotificationPrompt,
-  showWelcomeNotification,
-} from '../../../actions/notifications';
+import { renderWithContext } from '../../../../testUtils';
+import { myStepsSelector } from '../../../selectors/steps';
+import { PEOPLE_TAB } from '../../../constants';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
-import { setStepFocus, getMySteps } from '../../../actions/steps';
+import { getMySteps, getMyStepsNextPage } from '../../../actions/steps';
 import { navToPersonScreen } from '../../../actions/person';
-import * as common from '../../../utils/common';
+import { openMainMenu } from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
+import { Step, StepsState } from '../../../reducers/steps';
+import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 
-import { StepsScreen, mapStateToProps } from '..';
+import StepsScreen from '..';
 
 jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
-jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
+jest.mock('../../../utils/common');
 jest.mock('../../TrackTabChange', () => () => null);
+jest.mock('../../../components/StepItem', () => 'StepItem');
 
-const dispatch = jest.fn(async () => {});
-
-const store = {
-  steps: {
-    mine: true,
-    pagination: {
-      hasNextPage: true,
-    },
-  },
-  people: {},
-  notifications: {
-    token: '',
-    showReminder: true,
-  },
-};
-
-const reminders = [
-  {
-    id: 0,
-    reminder: true,
-  },
-  {
-    id: 1,
-    reminder: true,
-  },
-  {
-    id: 2,
-    reminder: true,
-  },
-];
-
-const steps = [
+const steps = ([
   {
     id: 0,
     receiver: { id: '00' },
@@ -89,373 +47,206 @@ const steps = [
     receiver: { id: '33' },
     organization: { id: '333' },
   },
-];
+] as unknown) as Step[];
 
-const baseProps = {
-  areNotificationsOff: true,
-  hasMoreSteps: true,
-  showNotificationReminder: true,
-  showStepBump: true,
-  showStepReminderBump: true,
-  dispatch,
-  reminders,
-  steps,
-};
+const initialState = ({
+  steps: {
+    mine: steps,
+    pagination: {
+      hasNextPage: true,
+      page: 1,
+    },
+  },
+  swipe: {
+    groupOnboarding: {
+      [GROUP_ONBOARDING_TYPES.steps]: true,
+    },
+  },
+} as unknown) as { steps: StepsState };
 
-common.toast = jest.fn();
+const openMainMenuResult = { type: 'open main menu' };
+const checkForUnreadCommentsResult = { type: 'check for unread comments' };
+const getMyStepsResult = { type: 'get my steps' };
+const getMyStepsNextPageResult = { type: 'get my steps next page' };
+const navigatePushResult = { type: 'navigate push' };
+const navToPersonScreenResult = { type: 'navigate to person screen' };
+const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
-describe('StepsScreen', () => {
-  let component;
-  let props;
+beforeEach(() => {
+  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
+  ((openMainMenu as unknown) as jest.Mock).mockReturnValue(openMainMenuResult);
+  ((checkForUnreadComments as unknown) as jest.Mock).mockReturnValue(
+    checkForUnreadCommentsResult,
+  );
+  ((getMySteps as unknown) as jest.Mock).mockReturnValue(getMyStepsResult);
+  ((getMyStepsNextPage as unknown) as jest.Mock).mockReturnValue(
+    getMyStepsNextPageResult,
+  );
+  ((navigatePush as unknown) as jest.Mock).mockReturnValue(navigatePushResult);
+  ((navToPersonScreen as unknown) as jest.Mock).mockReturnValue(
+    navToPersonScreenResult,
+  );
+  ((navigateToMainTabs as unknown) as jest.Mock).mockReturnValue(
+    navigateToMainTabsResult,
+  );
+});
 
-  describe('mapStateToProps', () => {
-    it('should provide the necessary props', () => {
-      reminderStepsSelector.mockReturnValue([{ id: 1, reminder: true }]);
-      nonReminderStepsSelector.mockReturnValue([{ id: 2 }, { id: 3 }]);
-      expect(mapStateToProps(store)).toMatchSnapshot();
-    });
-  });
+it('renders loading screen correctly', () => {
+  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(null);
 
-  const createComponent = componentProps =>
-    renderShallow(<StepsScreen {...componentProps} />);
+  renderWithContext(<StepsScreen />, {
+    initialState,
+  }).snapshot();
+});
 
-  const stopLoad = component => {
-    component.instance().setState({ loading: false });
-    component.update();
-    return component;
-  };
+it('renders empty screen correctly', () => {
+  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue([]);
 
-  const testRender = () => {
-    component = createComponent(props);
-    component = stopLoad(component);
-    expect(component).toMatchSnapshot();
-  };
+  renderWithContext(<StepsScreen />, {
+    initialState,
+  }).snapshot();
+});
 
-  it('renders loading screen correctly', () => {
-    props = {
-      ...baseProps,
-      reminders: [],
-      steps: null,
-    };
+it('renders screen with steps correctly', () => {
+  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
 
-    component = createComponent(props);
+  renderWithContext(<StepsScreen />, {
+    initialState,
+  }).snapshot();
+});
 
-    expect(component).toMatchSnapshot();
-  });
-
-  it('renders empty screen with one reminder correctly', () => {
-    props = {
-      ...baseProps,
-      reminders: reminders.slice(0, 1),
-      steps: [],
-    };
-    testRender();
-  });
-
-  it('renders with no steps (focused or unfocused) correctly', () => {
-    props = {
-      ...baseProps,
-      reminders: [],
-      steps: [],
-    };
-    testRender();
-  });
-
-  it('renders with no focused steps correctly', () => {
-    props = {
-      ...baseProps,
-      reminders: [],
-      steps,
-    };
-    testRender();
-  });
-
-  it('renders with no focused steps and less than 4 unfocused steps correctly', () => {
-    props = {
-      ...baseProps,
-      reminders: [],
-      steps: steps.slice(0, 3),
-    };
-    testRender();
-  });
-
-  it('renders screen with some focused and unfocused steps correctly', () => {
-    props = {
-      ...baseProps,
-      reminders: reminders.slice(0, 1),
-      steps: steps,
-    };
-    testRender();
-  });
-
-  it('renders with max reminders correctly', () => {
-    props = {
-      ...baseProps,
-      reminders,
-      steps,
-    };
-    testRender();
-  });
-
-  describe('Background color changes with scrolling', () => {
-    beforeEach(() => {
-      component = createComponent(baseProps);
-      component = stopLoad(component);
+describe('handleOpenMainMenu', () => {
+  it('should open main menu', () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
     });
 
-    const getBackgroundColor = component => {
-      return component
-        .find(ScrollView)
-        .props()
-        .style.find(element => {
-          return element.backgroundColor;
-        }).backgroundColor;
-    };
+    fireEvent.press(getByTestId('menuIcon'));
 
-    it('Starts with extraLightGrey background', () => {
-      expect(getBackgroundColor(component)).toBe(theme.extraLightGrey);
+    expect(openMainMenu).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([openMainMenuResult]);
+  });
+});
+
+describe('handleRefresh', () => {
+  it('refetches steps and checks for unread comments', () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
     });
 
-    it('Background is blue when overscrolling up', () => {
-      component.instance().handleScroll({
-        nativeEvent: {
-          contentOffset: { y: -1 },
-          layoutMeasurement: { height: 200 },
-          contentSize: { height: 400 },
+    fireEvent(getByTestId('scrollView').props.refreshControl, 'onRefresh');
+
+    expect(checkForUnreadComments).toHaveBeenCalledWith();
+    expect(getMySteps).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([
+      checkForUnreadCommentsResult,
+      getMyStepsResult,
+    ]);
+  });
+});
+
+describe('handleRowSelect', () => {
+  it('should navigate to step detail screen', () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
+    });
+    const step = steps[0];
+
+    fireEvent(getByTestId('stepItem0'), 'onSelect', step);
+
+    expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
+      step,
+    });
+    expect(store.getActions()).toEqual([navigatePushResult]);
+  });
+});
+
+describe('handleNavToPerson', () => {
+  it('should navigate to person screen', () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
+    });
+    const step = steps[0];
+
+    fireEvent(getByTestId('stepItem0'), 'onPressName', step);
+
+    expect(navToPersonScreen).toHaveBeenCalledWith(
+      step.receiver,
+      step.organization,
+    );
+    expect(store.getActions()).toEqual([navToPersonScreenResult]);
+  });
+});
+
+describe('handleNavToPeopleTab', () => {
+  it('should navigate to person screen', () => {
+    ((myStepsSelector as unknown) as jest.Mock).mockReturnValue([]);
+
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
+    });
+
+    fireEvent.press(getByTestId('bottomButton'));
+
+    expect(navigateToMainTabs).toHaveBeenCalledWith(PEOPLE_TAB);
+    expect(store.getActions()).toEqual([navigateToMainTabsResult]);
+  });
+});
+
+describe('handleScroll', () => {
+  const nativeEvent = {
+    layoutMeasurement: { height: 40, width: 40 },
+    contentOffset: { x: 0, y: 21 },
+    contentSize: { height: 80, width: 40 },
+  } as NativeScrollEvent;
+
+  it('paginates when close to bottom', async () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
+    });
+
+    fireEvent(getByTestId('scrollView'), 'onScroll', { nativeEvent });
+
+    await flushMicrotasksQueue();
+
+    expect(getMyStepsNextPage).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([getMyStepsNextPageResult]);
+  });
+
+  it('does not paginate if no more steps', async () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState: {
+        ...initialState,
+        steps: {
+          ...initialState.steps,
+          pagination: { hasNextPage: false, page: 1 },
         },
-      });
-      component.update();
-      expect(getBackgroundColor(component)).toBe(theme.backgroundColor);
+      },
     });
 
-    it('Background is extraLightGrey when scrolling back down', () => {
-      component.instance().handleScroll({
-        nativeEvent: {
-          contentOffset: { y: -1 },
-          layoutMeasurement: { height: 200 },
-          contentSize: { height: 400 },
-        },
-      });
-      component.update();
-      component.instance().handleScroll({
-        nativeEvent: {
-          contentOffset: { y: 1 },
-          layoutMeasurement: { height: 200 },
-          contentSize: { height: 400 },
-        },
-      });
-      component.update();
-      expect(getBackgroundColor(component)).toBe(theme.extraLightGrey);
-    });
+    fireEvent(getByTestId('scrollView'), 'onScroll', { nativeEvent });
 
-    it('runs handle next', () => {
-      component.instance().handleNextPage();
+    await flushMicrotasksQueue();
 
-      expect(component.state('paging')).toBe(false);
-    });
-
-    it('should not run handle next', () => {
-      component.setState({ paging: true });
-      component.instance().handleNextPage();
-
-      expect(component.state('paging')).toBe(true);
-    });
+    expect(getMyStepsNextPage).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
   });
 
-  describe('handleSetReminder', () => {
-    it('should focus a step', () => {
-      const component = createComponent({
-        ...baseProps,
-        reminders: [],
-      });
-
-      component.instance().handleSetReminder('testStep');
-
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.STEP_PRIORITIZED,
-      );
-      expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
-      expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showNotificationPrompt).toHaveBeenCalledWith(
-        NOTIFICATION_PROMPT_TYPES.FOCUS_STEP,
-      );
-      expect(showWelcomeNotification).toHaveBeenCalled();
+  it('does not paginate if not close to bottom', async () => {
+    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      initialState,
     });
 
-    it('should focus a step and not show notification reminder screen if reminders already exist', () => {
-      const component = createComponent({
-        ...baseProps,
-        reminders: ['someStep'],
-      });
-
-      component.instance().handleSetReminder('testStep');
-
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.STEP_PRIORITIZED,
-      );
-      expect(common.toast).toHaveBeenCalledWith('✔ Reminder Added');
-      expect(setStepFocus).toHaveBeenCalledWith('testStep', true);
-      expect(showNotificationPrompt).not.toHaveBeenCalled();
-      expect(showWelcomeNotification).toHaveBeenCalled();
+    fireEvent(getByTestId('scrollView'), 'onScroll', {
+      nativeEvent: {
+        ...nativeEvent,
+        contentOffset: { x: 0, y: 19 },
+      },
     });
 
-    it('should not focus a step when reminders slots are filled', () => {
-      const component = createComponent({
-        ...baseProps,
-        reminders: ['step1', 'step2', 'step3'],
-      });
+    await flushMicrotasksQueue();
 
-      component.instance().handleSetReminder('testStep');
-
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.STEP_PRIORITIZED,
-      );
-      expect(common.toast).not.toHaveBeenCalled();
-      expect(setStepFocus).not.toHaveBeenCalled();
-      expect(showNotificationPrompt).not.toHaveBeenCalled();
-      expect(showWelcomeNotification).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('handleRemoveReminder', () => {
-    it('should remove reminder', () => {
-      const step = 'some step';
-      const component = createComponent({
-        ...baseProps,
-        reminders: [step],
-      });
-
-      component.instance().handleRemoveReminder(step);
-
-      expect(trackActionWithoutData).toHaveBeenCalledWith(
-        ACTIONS.STEP_DEPRIORITIZED,
-      );
-      expect(setStepFocus).toHaveBeenCalledWith(step, false);
-    });
-  });
-
-  describe('arrow functions', () => {
-    it('should render item correctly', () => {
-      const component = createComponent(baseProps);
-
-      const renderedItem = component
-        .instance()
-        .renderItem({ item: baseProps.steps[0], index: 0 });
-      expect(renderedItem).toMatchSnapshot();
-    });
-    it('should list ref', () => {
-      const instance = createComponent(baseProps).instance();
-      const ref = 'test';
-      instance.listRef(ref);
-      expect(instance.list).toEqual(ref);
-    });
-    it('should open main menu', () => {
-      const instance = createComponent(baseProps).instance();
-      common.openMainMenu = jest.fn();
-      instance.openMainMenu();
-      expect(common.openMainMenu).toHaveBeenCalled();
-    });
-  });
-
-  describe('handle card select', () => {
-    it('should navigate to step detail screen', () => {
-      const step = baseProps.steps[0];
-      const screen = createComponent(baseProps);
-      const listItem = screen
-        .childAt(2)
-        .childAt(1)
-        .childAt(0)
-        .childAt(1)
-        .props()
-        .renderItem({ item: step });
-
-      listItem.props.onSelect(step);
-
-      expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
-        step,
-      });
-    });
-  });
-
-  describe('handleNavToPerson', () => {
-    const navToPersonResult = { type: 'nav to person screen' };
-
-    beforeEach(() => {
-      navToPersonScreen.mockReturnValue(navToPersonResult);
-    });
-
-    it('should navigate to person screen', () => {
-      const step = baseProps.steps[0];
-      const screen = createComponent(baseProps);
-      const listItem = screen
-        .childAt(2)
-        .childAt(1)
-        .childAt(0)
-        .childAt(1)
-        .props()
-        .renderItem({ item: step });
-
-      listItem.props.onPressName(step);
-
-      expect(navToPersonScreen).toHaveBeenCalledWith(
-        step.receiver,
-        step.organization,
-      );
-    });
-  });
-
-  describe('handleRefresh', () => {
-    let screen;
-    let instance;
-
-    beforeEach(() => {
-      getMySteps.mockReturnValue({ type: 'get steps' });
-      checkForUnreadComments.mockReturnValue({
-        type: 'check for unread comments',
-      });
-      common.refresh = jest.fn((_, refreshMethod) => refreshMethod());
-
-      screen = createComponent(baseProps);
-      instance = screen.instance();
-
-      instance.handleRefresh();
-    });
-
-    it('should get me', () => {
-      expect(checkForUnreadComments).toHaveBeenCalled();
-    });
-
-    it('should refresh with getSteps method', () => {
-      expect(common.refresh).toHaveBeenCalledWith(instance, instance.getSteps);
-    });
-
-    it('should get steps', () => {
-      expect(getMySteps).toHaveBeenCalled();
-    });
-  });
-
-  describe('navToPersonScreen', () => {
-    let screen;
-
-    beforeEach(() => {
-      navigateToMainTabs.mockReturnValue({ type: 'nav to main tabs' });
-
-      screen = createComponent({
-        ...baseProps,
-        reminders: [],
-        steps: [],
-      });
-    });
-
-    it('navigates to people screen', () => {
-      screen
-        .childAt(2)
-        .childAt(1)
-        .childAt(1)
-        .props()
-        .onPress();
-
-      expect(navigateToMainTabs).toHaveBeenCalledWith(PEOPLE_TAB);
-    });
+    expect(getMyStepsNextPage).not.toHaveBeenCalled();
+    expect(store.getActions()).toEqual([]);
   });
 });
