@@ -12,6 +12,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
+import ShareStoryInput from '../Groups/ShareStoryInput';
 
 import styles from './styles';
 
@@ -80,9 +81,12 @@ class CelebrateFeed extends Component {
   };
 
   renderHeader = () => {
-    const { isMember, organization } = this.props;
+    const { isMember, organization, dispatch } = this.props;
     return (
-      <CelebrateFeedHeader isMember={isMember} organization={organization} />
+      <>
+        <CelebrateFeedHeader isMember={isMember} organization={organization} />
+        <ShareStoryInput dispatch={dispatch} />
+      </>
     );
   };
 
@@ -90,21 +94,23 @@ class CelebrateFeed extends Component {
     const { items, refreshing, noHeader } = this.props;
 
     return (
-      <SectionList
-        sections={items}
-        ListHeaderComponent={noHeader ? undefined : this.renderHeader}
-        renderSectionHeader={this.renderSectionHeader}
-        renderItem={this.renderItem}
-        keyExtractor={keyExtractorId}
-        onEndReachedThreshold={0.2}
-        onEndReached={this.handleOnEndReached}
-        onScrollEndDrag={this.handleEndDrag}
-        onRefresh={this.handleRefreshing}
-        refreshing={refreshing || false}
-        extraData={this.state}
-        style={styles.list}
-        contentContainerStyle={styles.listContent}
-      />
+      <View>
+        <SectionList
+          sections={items}
+          ListHeaderComponent={noHeader ? undefined : this.renderHeader}
+          renderSectionHeader={this.renderSectionHeader}
+          renderItem={this.renderItem}
+          keyExtractor={keyExtractorId}
+          onEndReachedThreshold={0.2}
+          onEndReached={this.handleOnEndReached}
+          onScrollEndDrag={this.handleEndDrag}
+          onRefresh={this.handleRefreshing}
+          refreshing={refreshing || false}
+          extraData={this.state}
+          style={styles.list}
+          contentContainerStyle={styles.listContent}
+        />
+      </View>
     );
   }
 }

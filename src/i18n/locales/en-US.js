@@ -521,6 +521,10 @@ export default {
     createCommunity: 'Create a Community',
     globalCommunity: 'MissionHub Community',
   },
+  shareAStoryScreen: {
+    shareStory: 'Share Story',
+    inputPlaceholder: 'Share a Story...',
+  },
   celebrateFeeds: {
     title: '',
     emptyFeedTitle: 'Celebrate!',

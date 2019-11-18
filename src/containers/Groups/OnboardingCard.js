@@ -51,7 +51,13 @@ class OnboardingCard extends Component {
       return null;
     }
     return (
-      <Card style={styles.onboardingCard}>
+      <Card
+        style={
+          type === GROUP_ONBOARDING_TYPES.celebrate
+            ? styles.onboardCardNoShadow
+            : styles.onboardingCard
+        }
+      >
         <Flex
           value={1}
           align="center"
