@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import { isAndroid } from '../../utils/common';
 import theme from '../../theme';
 
 export default StyleSheet.create({
