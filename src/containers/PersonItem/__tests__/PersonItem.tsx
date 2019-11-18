@@ -149,7 +149,7 @@ it('renders personal ministry contact correctly', () => {
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
-it('renders personal ministry with no steps correctly', async () => {
+it('renders personal ministry with no steps correctly', () => {
   (orgIsCru as jest.Mock).mockReturnValue(false);
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
