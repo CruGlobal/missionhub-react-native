@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FlatList,
   ScrollView,
@@ -8,17 +8,20 @@ import {
   View,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/react-hooks';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 
+import IconButton from '../IconButton';
 import PersonItem from '../../containers/PersonItem';
 import { Flex, Text, RefreshControl } from '../common';
 import { keyExtractorId } from '../../utils/common';
-import IconButton from '../IconButton';
 
+import { GET_PEOPLE_STEPS_COUNT } from './queries';
+import { GetPeopleStepsCount } from './__generated__/GetPeopleStepsCount';
 import styles from './styles';
 
 interface PeopleListProps {
@@ -40,6 +43,29 @@ export default ({
   const { t } = useTranslation('peopleScreen');
 
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
+  const [peopleIds, setPeopleIds] = useState([]);
+  const {
+    data: { people: { nodes = [] } = {} } = {},
+    refetch: refetchCommunities,
+  } = useQuery<GetPeopleStepsCount>(GET_PEOPLE_STEPS_COUNT, {
+    variables: {
+      ids: peopleIds,
+    },
+  });
+
+  useEffect(() => {
+    setPeopleIds(getPeopleIds(items));
+    refetchCommunities();
+  }, [onRefresh]);
+  // Create an array of all the ids we need to query for.
+  const getPeopleIds = (organizations: any) =>
+    organizations
+      .reduce((obj: any, item: any) => {
+        return obj.concat(item.people);
+      }, [])
+      .map((person: any) => {
+        return person ? person.id : null;
+      });
 
   const toggleSection = (id: string) => {
     collapsedOrgs.has(id) ? collapsedOrgs.delete(id) : collapsedOrgs.add(id);
@@ -47,9 +73,20 @@ export default ({
     setCollapsedOrgs(new Set(collapsedOrgs));
   };
 
-  const renderItem = (organization: any) => ({ item }: { item: any }) => (
-    <PersonItem person={item} organization={organization} />
-  );
+  const renderItem = (organization: any) => ({ item }: { item: any }) => {
+    const personStepData = nodes.reduce((obj: any, item) => {
+      obj[item.id] = item;
+      return obj;
+    }, {});
+
+    return (
+      <PersonItem
+        person={item}
+        organization={organization}
+        stepsData={personStepData[item.id]}
+      />
+    );
+  };
 
   const renderList = (items: any, organization?: any) => {
     return (

@@ -21,6 +21,7 @@ jest.mock('../../../utils/common');
 const myId = '1';
 const otherId = '2';
 const stageId = '3';
+const mockStepsCount = 4;
 
 const mockStages = {
   [stageId]: {
@@ -69,6 +70,35 @@ const mockPerson = {
   organizational_permissions: [mockOrgPermission],
   reverse_contact_assignments: [mockContactAssignment],
 };
+const mockPersonWithSteps = {
+  id: otherId,
+  first_name: 'Graph',
+  last_name: 'Champion',
+  full_name: 'Graph Champion',
+  organizational_permissions: [mockOrgPermission],
+  reverse_contact_assignments: [mockContactAssignment],
+  totalCount: mockStepsCount,
+};
+
+const totalStepCount = {
+  full_name: mockPersonWithSteps.full_name,
+  id: mockPersonWithSteps.id,
+  steps: {
+    pageInfo: {
+      totalCount: mockStepsCount,
+    },
+  },
+};
+
+const noStepsCount = {
+  ...totalStepCount,
+  steps: {
+    pageInfo: {
+      totalCount: 0,
+    },
+  },
+};
+
 const mePerson = { ...mockPerson, id: myId, reverse_contact_assignments: [] };
 
 const navToPersonScreenResult = { type: 'nav to person screen' };
@@ -93,6 +123,7 @@ it('renders me correctly', () => {
     <PersonItem
       person={(mePerson as unknown) as PersonAttributes}
       organization={mockPersonalMinistry}
+      stepsData={totalStepCount}
     />,
     { initialState: mockState },
   ).snapshot();
@@ -109,10 +140,31 @@ it('renders personal ministry contact correctly', () => {
     <PersonItem
       person={(mockPerson as unknown) as PersonAttributes}
       organization={mockPersonalMinistry}
+      stepsData={totalStepCount}
     />,
     { initialState: mockState },
   ).snapshot();
 
+  expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
+  expect(hasOrgPermissions).not.toHaveBeenCalled();
+});
+
+it('renders personal ministry with no steps correctly', async () => {
+  (orgIsCru as jest.Mock).mockReturnValue(false);
+  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
+
+  const { getByTestId, snapshot } = renderWithContext(
+    <PersonItem
+      person={(mockPersonWithSteps as unknown) as PersonAttributes}
+      organization={mockPersonalMinistry}
+      stepsData={noStepsCount}
+    />,
+    {
+      initialState: mockState,
+    },
+  );
+  snapshot();
+  expect(getByTestId('stepIcon')).toBeTruthy();
   expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
@@ -125,6 +177,7 @@ it('renders cru org contact correctly', () => {
     <PersonItem
       person={(mockPerson as unknown) as PersonAttributes}
       organization={mockOrganization}
+      stepsData={totalStepCount}
     />,
     { initialState: mockState },
   ).snapshot();
@@ -146,6 +199,7 @@ it('renders cru org contact without stage correctly', () => {
         } as unknown) as PersonAttributes
       }
       organization={mockOrganization}
+      stepsData={totalStepCount}
     />,
     { initialState: mockState },
   ).snapshot();
@@ -167,6 +221,7 @@ it('renders uncontacted cru org contact correctly', () => {
         } as unknown) as PersonAttributes
       }
       organization={mockOrganization}
+      stepsData={totalStepCount}
     />,
     { initialState: mockState },
   ).snapshot();
@@ -183,6 +238,7 @@ it('renders cru org member correctly', () => {
     <PersonItem
       person={(mockPerson as unknown) as PersonAttributes}
       organization={mockOrganization}
+      stepsData={totalStepCount}
     />,
     { initialState: mockState },
   ).snapshot();
@@ -198,6 +254,7 @@ describe('handleChangeStage', () => {
         <PersonItem
           person={(mePerson as unknown) as PersonAttributes}
           organization={mockOrganization}
+          stepsData={totalStepCount}
         />,
         {
           initialState: {
@@ -236,6 +293,7 @@ describe('handleChangeStage', () => {
         <PersonItem
           person={(mockPersonNoStage as unknown) as PersonAttributes}
           organization={mockOrganization}
+          stepsData={totalStepCount}
         />,
         { initialState: mockState },
       );
@@ -260,6 +318,7 @@ describe('handleSelect', () => {
       <PersonItem
         person={(mePerson as unknown) as PersonAttributes}
         organization={mockOrganization}
+        stepsData={totalStepCount}
       />,
       { initialState: mockState },
     );
@@ -275,6 +334,7 @@ describe('handleSelect', () => {
       <PersonItem
         person={(mockPerson as unknown) as PersonAttributes}
         organization={mockOrganization}
+        stepsData={totalStepCount}
       />,
       { initialState: mockState },
     );
@@ -293,6 +353,7 @@ describe('handleSelect', () => {
       <PersonItem
         person={(mockPerson as unknown) as PersonAttributes}
         organization={mockPersonalMinistry}
+        stepsData={totalStepCount}
       />,
       { initialState: mockState },
     );
@@ -310,6 +371,7 @@ describe('handleAddStep', () => {
       <PersonItem
         person={(mePerson as unknown) as PersonAttributes}
         organization={mockOrganization}
+        stepsData={noStepsCount}
       />,
       { initialState: mockState },
     );
@@ -329,6 +391,7 @@ describe('handleAddStep', () => {
       <PersonItem
         person={(mockPerson as unknown) as PersonAttributes}
         organization={mockOrganization}
+        stepsData={noStepsCount}
       />,
       { initialState: mockState },
     );
