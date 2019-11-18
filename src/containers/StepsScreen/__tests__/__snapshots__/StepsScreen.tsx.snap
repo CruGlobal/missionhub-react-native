@@ -178,185 +178,182 @@ exports[`renders empty screen correctly 1`] = `
       }
     }
   >
-    <View
-      style={
+    <RCTScrollView
+      contentContainerStyle={
         Object {
           "flex": 1,
         }
       }
+      onScroll={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      testID="scrollView"
     >
-      <RCTScrollView
-        onScroll={[Function]}
-        refreshControl={
-          <MyRefreshControl
-            onRefresh={[Function]}
-            refreshing={false}
-          />
-        }
-        scrollEventThrottle={16}
-        testID="scrollView"
-      >
-        <RCTRefreshControl />
-        <View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "justifyContent": "center",
-              }
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "testUri": "../../../assets/images/footprints.png",
-                }
-              }
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "AmaticSC-Bold",
-                  },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 42,
-                    "paddingTop": 10,
-                  },
-                ]
-              }
-            >
-              steps of faith
-            </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "textAlign": "center",
-                  },
-                ]
-              }
-            >
-              You don't have any Steps of Faith.
-            </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "textAlign": "center",
-                  },
-                ]
-              }
-            >
-              Choose a person and add some new steps.
-            </Text>
-          </View>
-        </View>
-      </RCTScrollView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "bottom": 20,
-            "left": 50,
-            "position": "absolute",
-          }
-        }
-      >
+      <RCTRefreshControl />
+      <View>
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "opacity": 1,
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
             }
           }
-          testID="bottomButton"
         >
-          <View
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/footprints.png",
+              }
+            }
+          />
+          <Text
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
+                  "color": "#505256",
                 },
                 Object {
-                  "borderRadius": 50,
+                  "fontFamily": "AmaticSC-Bold",
+                },
+                Object {
+                  "color": "#007398",
+                  "fontSize": 42,
+                  "paddingTop": 10,
                 },
               ]
             }
           >
-            <Text
+            steps of faith
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            You don't have any Steps of Faith.
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Choose a person and add some new steps.
+          </Text>
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
+            style={
+              Object {
+                "bottom": 20,
+                "left": 50,
+                "position": "absolute",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="bottomButton"
+            >
+              <View
+                style={
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
                     },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              TAKE A STEP WITH SOMEONE
-            </Text>
-          </View>
+                    null,
+                    Object {
+                      "alignItems": "center",
+                      "height": 48,
+                      "width": 650,
+                    },
+                    Object {
+                      "borderRadius": 50,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "backgroundColor": "rgba(0,0,0,0)",
+                          "color": "#ffffff",
+                          "fontSize": 14,
+                          "fontWeight": "500",
+                          "letterSpacing": 1.5,
+                          "textAlign": "center",
+                        },
+                        Object {},
+                      ],
+                    ]
+                  }
+                >
+                  TAKE A STEP WITH SOMEONE
+                </Text>
+              </View>
+            </View>
+          </RCTSafeAreaView>
         </View>
-      </RCTSafeAreaView>
-    </View>
+      </View>
+    </RCTScrollView>
   </View>
 </View>
 `;
@@ -812,398 +809,393 @@ exports[`renders screen with steps correctly 1`] = `
   >
     <View
       style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 4,
+            "flexDirection": "row",
+            "marginHorizontal": 16,
+            "marginVertical": 8,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 2,
+          },
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 0,
+            "marginBottom": 5,
+            "marginHorizontal": 0,
+            "marginVertical": 0,
+            "position": "relative",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "padding": 25,
+              "paddingTop": 35,
+            },
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/footprints.png",
+            }
+          }
+          style={
+            Object {
+              "height": 60,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "AmaticSC-Bold",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 42,
+                "paddingTop": 5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          steps of faith
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 40,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Choose a person in People view to add a new step
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "position": "absolute",
+              "right": 10,
+              "top": 10,
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          hitSlop={
+            Object {
+              "bottom": 10,
+              "left": 10,
+              "right": 10,
+              "top": 10,
+            }
+          }
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 12,
+                      },
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <RCTScrollView
+      contentContainerStyle={
         Object {
           "flex": 1,
         }
       }
+      onScroll={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      scrollEventThrottle={16}
+      testID="scrollView"
     >
-      <RCTScrollView
-        onScroll={[Function]}
-        refreshControl={
-          <MyRefreshControl
-            onRefresh={[Function]}
-            refreshing={false}
-          />
-        }
-        scrollEventThrottle={16}
-        testID="scrollView"
-      >
-        <RCTRefreshControl />
-        <View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
+      <RCTRefreshControl />
+      <View>
+        <View
+          style={
+            Object {
+              "flex": 1,
             }
+          }
+        >
+          <RCTScrollView
+            ListFooterComponent={null}
+            data={
+              Array [
+                Object {
+                  "id": 0,
+                  "organization": Object {
+                    "id": "000",
+                  },
+                  "receiver": Object {
+                    "id": "00",
+                  },
+                },
+                Object {
+                  "id": 1,
+                  "organization": Object {
+                    "id": "111",
+                  },
+                  "receiver": Object {
+                    "id": "11",
+                  },
+                },
+                Object {
+                  "id": 2,
+                  "organization": Object {
+                    "id": "222",
+                  },
+                  "receiver": Object {
+                    "id": "22",
+                  },
+                },
+                Object {
+                  "id": 3,
+                  "organization": Object {
+                    "id": "333",
+                  },
+                  "receiver": Object {
+                    "id": "33",
+                  },
+                },
+              ]
+            }
+            disableVirtualization={false}
+            getItem={[Function]}
+            getItemCount={[Function]}
+            horizontal={false}
+            initialNumToRender={10}
+            keyExtractor={[Function]}
+            maxToRenderPerBatch={10}
+            numColumns={1}
+            onContentSizeChange={[Function]}
+            onEndReachedThreshold={2}
+            onLayout={[Function]}
+            onMomentumScrollEnd={[Function]}
+            onScroll={[Function]}
+            onScrollBeginDrag={[Function]}
+            onScrollEndDrag={[Function]}
+            removeClippedSubviews={false}
+            renderItem={[Function]}
+            scrollEventThrottle={50}
+            showsVerticalScrollIndicator={false}
+            stickyHeaderIndices={Array []}
+            style={
+              Array [
+                Object {
+                  "paddingVertical": 8,
+                },
+                Object {
+                  "paddingBottom": 40,
+                },
+              ]
+            }
+            updateCellsBatchingPeriod={50}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={21}
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 8,
-                    "elevation": 4,
-                    "flexDirection": "row",
-                    "marginHorizontal": 16,
-                    "marginVertical": 8,
-                    "shadowColor": "#000000",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
-                    },
-                    "shadowOpacity": 0.3,
-                    "shadowRadius": 2,
-                  },
-                  Object {
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 0,
-                    "marginBottom": 5,
-                    "marginHorizontal": 0,
-                    "marginVertical": 0,
-                    "position": "relative",
-                  },
-                ]
-              }
-            >
+            <View>
               <View
-                style={
-                  Array [
-                    Object {
-                      "padding": 25,
-                      "paddingTop": 35,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "flex": 1,
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
+                onLayout={[Function]}
+                style={null}
               >
-                <Image
-                  resizeMode="contain"
-                  source={
+                <StepItem
+                  onPressName={[Function]}
+                  onSelect={[Function]}
+                  step={
                     Object {
-                      "testUri": "../../../assets/images/footprints.png",
+                      "id": 0,
+                      "organization": Object {
+                        "id": "000",
+                      },
+                      "receiver": Object {
+                        "id": "00",
+                      },
                     }
                   }
-                  style={
-                    Object {
-                      "height": 60,
-                    }
-                  }
+                  testID="stepItem0"
                 />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "AmaticSC-Bold",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 42,
-                        "paddingTop": 5,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  steps of faith
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "paddingHorizontal": 40,
-                        "paddingVertical": 5,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Choose a person in People view to add a new step
-                </Text>
               </View>
               <View
-                style={
-                  Array [
-                    Object {
-                      "position": "absolute",
-                      "right": 10,
-                      "top": 10,
-                    },
-                    Object {},
-                  ]
-                }
+                onLayout={[Function]}
+                style={null}
               >
-                <View
-                  accessible={true}
-                  focusable={true}
-                  hitSlop={
+                <StepItem
+                  onPressName={[Function]}
+                  onSelect={[Function]}
+                  step={
                     Object {
-                      "bottom": 10,
-                      "left": 10,
-                      "right": 10,
-                      "top": 10,
+                      "id": 1,
+                      "organization": Object {
+                        "id": "111",
+                      },
+                      "receiver": Object {
+                        "id": "11",
+                      },
                     }
                   }
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
+                  testID="stepItem1"
+                />
+              </View>
+              <View
+                onLayout={[Function]}
+                style={null}
+              >
+                <StepItem
+                  onPressName={[Function]}
+                  onSelect={[Function]}
+                  step={
                     Object {
-                      "opacity": 1,
+                      "id": 2,
+                      "organization": Object {
+                        "id": "222",
+                      },
+                      "receiver": Object {
+                        "id": "22",
+                      },
                     }
                   }
-                  testID="IconButton"
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "alignItems": "center",
-                          "backgroundColor": "transparent",
-                          "borderRadius": 0,
-                          "borderWidth": 0,
-                          "height": 60,
-                          "justifyContent": "center",
-                          "margin": 0,
-                          "paddingHorizontal": 20,
-                          "paddingVertical": 10,
-                        },
-                        null,
-                        Object {},
-                        null,
-                      ]
+                  testID="stepItem2"
+                />
+              </View>
+              <View
+                onLayout={[Function]}
+                style={null}
+              >
+                <StepItem
+                  onPressName={[Function]}
+                  onSelect={[Function]}
+                  step={
+                    Object {
+                      "id": 3,
+                      "organization": Object {
+                        "id": "333",
+                      },
+                      "receiver": Object {
+                        "id": "33",
+                      },
                     }
-                  >
-                    <Text
-                      allowFontScaling={false}
-                      style={
-                        Array [
-                          Object {
-                            "color": undefined,
-                            "fontSize": 12,
-                          },
-                          Array [
-                            Object {
-                              "color": "#ffffff",
-                            },
-                            Object {
-                              "fontSize": 18,
-                            },
-                            Array [
-                              Object {
-                                "margin": 10,
-                              },
-                              Object {
-                                "color": "#007398",
-                                "fontSize": 12,
-                              },
-                            ],
-                          ],
-                          Object {
-                            "fontFamily": "icomoon",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                          },
-                          Object {},
-                        ]
-                      }
-                    >
-                      
-                    </Text>
-                  </View>
-                </View>
+                  }
+                  testID="stepItem3"
+                />
               </View>
             </View>
-            <RCTScrollView
-              ListFooterComponent={null}
-              data={
-                Array [
-                  Object {
-                    "id": 0,
-                    "organization": Object {
-                      "id": "000",
-                    },
-                    "receiver": Object {
-                      "id": "00",
-                    },
-                  },
-                  Object {
-                    "id": 1,
-                    "organization": Object {
-                      "id": "111",
-                    },
-                    "receiver": Object {
-                      "id": "11",
-                    },
-                  },
-                  Object {
-                    "id": 2,
-                    "organization": Object {
-                      "id": "222",
-                    },
-                    "receiver": Object {
-                      "id": "22",
-                    },
-                  },
-                  Object {
-                    "id": 3,
-                    "organization": Object {
-                      "id": "333",
-                    },
-                    "receiver": Object {
-                      "id": "33",
-                    },
-                  },
-                ]
-              }
-              disableVirtualization={false}
-              getItem={[Function]}
-              getItemCount={[Function]}
-              horizontal={false}
-              initialNumToRender={10}
-              keyExtractor={[Function]}
-              maxToRenderPerBatch={10}
-              numColumns={1}
-              onContentSizeChange={[Function]}
-              onEndReachedThreshold={2}
-              onLayout={[Function]}
-              onMomentumScrollEnd={[Function]}
-              onScroll={[Function]}
-              onScrollBeginDrag={[Function]}
-              onScrollEndDrag={[Function]}
-              removeClippedSubviews={false}
-              renderItem={[Function]}
-              scrollEventThrottle={50}
-              showsVerticalScrollIndicator={false}
-              stickyHeaderIndices={Array []}
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "#ECEEF2",
-                    "overflow": "scroll",
-                    "paddingBottom": undefined,
-                  },
-                  Object {
-                    "paddingBottom": 40,
-                  },
-                ]
-              }
-              updateCellsBatchingPeriod={50}
-              viewabilityConfigCallbackPairs={Array []}
-              windowSize={21}
-            >
-              <View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
-                  <StepItem
-                    onPressName={[Function]}
-                    onSelect={[Function]}
-                    step={
-                      Object {
-                        "id": 0,
-                        "organization": Object {
-                          "id": "000",
-                        },
-                        "receiver": Object {
-                          "id": "00",
-                        },
-                      }
-                    }
-                    testID="stepItem0"
-                  />
-                </View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
-                  <StepItem
-                    onPressName={[Function]}
-                    onSelect={[Function]}
-                    step={
-                      Object {
-                        "id": 1,
-                        "organization": Object {
-                          "id": "111",
-                        },
-                        "receiver": Object {
-                          "id": "11",
-                        },
-                      }
-                    }
-                    testID="stepItem1"
-                  />
-                </View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
-                  <StepItem
-                    onPressName={[Function]}
-                    onSelect={[Function]}
-                    step={
-                      Object {
-                        "id": 2,
-                        "organization": Object {
-                          "id": "222",
-                        },
-                        "receiver": Object {
-                          "id": "22",
-                        },
-                      }
-                    }
-                    testID="stepItem2"
-                  />
-                </View>
-                <View
-                  onLayout={[Function]}
-                  style={null}
-                >
-                  <StepItem
-                    onPressName={[Function]}
-                    onSelect={[Function]}
-                    step={
-                      Object {
-                        "id": 3,
-                        "organization": Object {
-                          "id": "333",
-                        },
-                        "receiver": Object {
-                          "id": "33",
-                        },
-                      }
-                    }
-                    testID="stepItem3"
-                  />
-                </View>
-              </View>
-            </RCTScrollView>
-          </View>
+          </RCTScrollView>
         </View>
-      </RCTScrollView>
-    </View>
+      </View>
+    </RCTScrollView>
   </View>
 </View>
 `;

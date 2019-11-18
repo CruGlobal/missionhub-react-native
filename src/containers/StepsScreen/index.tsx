@@ -65,6 +65,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   const [pagingError, setPagingError] = useState(false);
 
   const firstTimeLoading = !steps;
+  const hasSteps = steps && steps.length > 0;
 
   const handleOpenMainMenu = () => dispatch(openMainMenu());
 
@@ -129,6 +130,10 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
       </Text>
       <Text style={styles.nullText}>{t('nullNoReminders.part1')}</Text>
       <Text style={styles.nullText}>{t('nullNoReminders.part2')}</Text>
+      <BottomButton
+        text={t('mainTabs:takeAStepWithSomeone')}
+        onPress={handleNavToPeopleTab}
+      />
     </View>
   );
 
@@ -143,9 +148,8 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
 
   const renderSteps = () => (
     <View style={{ flex: 1 }}>
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
       <FlatList
-        style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
+        style={[styles.list, hasMoreSteps ? styles.listExtraPadding : null]}
         data={steps}
         keyExtractor={keyExtractorId}
         renderItem={renderItem}
@@ -157,24 +161,17 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   );
 
   const renderContent = () => (
-    <View style={{ flex: 1 }}>
-      <ScrollView
-        testID="scrollView"
-        refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
-        }
-        onScroll={handleScroll}
-        scrollEventThrottle={16}
-      >
-        {steps && steps.length > 0 ? renderSteps() : renderNull()}
-      </ScrollView>
-      {steps && steps.length > 0 ? null : (
-        <BottomButton
-          text={t('mainTabs:takeAStepWithSomeone')}
-          onPress={handleNavToPeopleTab}
-        />
-      )}
-    </View>
+    <ScrollView
+      testID="scrollView"
+      refreshControl={
+        <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
+      }
+      contentContainerStyle={{ flex: 1 }}
+      onScroll={handleScroll}
+      scrollEventThrottle={16}
+    >
+      {hasSteps ? renderSteps() : renderNull()}
+    </ScrollView>
   );
 
   return (
@@ -193,6 +190,9 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
         title={t('title').toUpperCase()}
       />
       <View style={styles.contentContainer}>
+        {hasSteps ? (
+          <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+        ) : null}
         {firstTimeLoading ? <LoadingGuy /> : renderContent()}
       </View>
     </View>

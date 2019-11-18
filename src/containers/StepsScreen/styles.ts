@@ -13,9 +13,10 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   list: {
-    overflow: 'scroll',
-    backgroundColor: theme.extraLightGrey,
-    paddingBottom: isAndroid ? 50 : undefined,
+    paddingVertical: 8,
+  },
+  listExtraPadding: {
+    paddingBottom: 40,
   },
   nullWrap: {
     flex: 1,
