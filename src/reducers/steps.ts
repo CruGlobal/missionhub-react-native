@@ -2,12 +2,7 @@
 import { AnyAction } from 'redux';
 
 import { REQUESTS } from '../api/routes';
-import {
-  LOGOUT,
-  TOGGLE_STEP_FOCUS,
-  COMPLETED_STEP_COUNT,
-  RESET_STEP_COUNT,
-} from '../constants';
+import { LOGOUT, COMPLETED_STEP_COUNT, RESET_STEP_COUNT } from '../constants';
 import { getPagination, shuffleArray } from '../utils/common';
 
 import { Person } from './people';
@@ -23,7 +18,6 @@ export type Step = {
   id: string;
   challenge_suggestion: SuggestedStep;
   completed_at: Date;
-  focus: boolean;
   organization: Organization | null;
   receiver: Person;
   title: string;
@@ -157,11 +151,6 @@ export default function stepsReducer(state = initialState, action: AnyAction) {
           {},
         ),
       };
-    case TOGGLE_STEP_FOCUS:
-      return {
-        ...state,
-        mine: toggleStepReminder(state.mine || [], action.step),
-      };
     case COMPLETED_STEP_COUNT:
       const currentCount = state.userStepCount[action.userId] || 0;
       return {
@@ -185,12 +174,6 @@ export default function stepsReducer(state = initialState, action: AnyAction) {
       return state;
   }
 }
-
-const toggleStepReminder = (steps: Step[], step: Step) =>
-  steps.map((s: Step) => ({
-    ...s,
-    focus: s && s.id === step.id ? !s.focus : s.focus,
-  }));
 
 function sortByCompleted(arr: Step[]) {
   // Sort by most recent date first
