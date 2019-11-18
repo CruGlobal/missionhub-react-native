@@ -42,7 +42,7 @@ import styles from './styles';
 
 interface StepsScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  steps: Step[];
+  steps: Step[] | null;
   hasMoreSteps: boolean;
 }
 
@@ -143,7 +143,7 @@ export const StepsScreen = ({
   );
 
   const renderSteps = () => (
-    <>
+    <View style={{ flex: 1 }}>
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
       <FlatList
         style={[styles.list, { paddingBottom: hasMoreSteps ? 40 : undefined }]}
@@ -154,7 +154,7 @@ export const StepsScreen = ({
         initialNumToRender={10}
         ListFooterComponent={paging ? <FooterLoading /> : null}
       />
-    </>
+    </View>
   );
 
   const renderContent = () => (
@@ -167,9 +167,9 @@ export const StepsScreen = ({
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
-        {steps.length > 0 ? renderSteps() : renderNull()}
+        {steps && steps.length > 0 ? renderSteps() : renderNull()}
       </ScrollView>
-      {steps.length > 0 ? null : (
+      {steps && steps.length > 0 ? null : (
         <BottomButton
           text={t('mainTabs:takeAStepWithSomeone')}
           onPress={handleNavToPeopleTab}
