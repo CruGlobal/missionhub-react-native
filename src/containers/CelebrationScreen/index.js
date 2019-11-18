@@ -40,13 +40,13 @@ class CelebrationScreen extends Component {
       onComplete,
       next,
       nextScreen,
-      contactId,
+      personId,
       orgId,
     } = this.props;
     disableBack.remove();
 
     if (next) {
-      dispatch(next({ contactId, orgId }));
+      dispatch(next({ personId, orgId }));
     } else if (onComplete) {
       onComplete();
     } else {
