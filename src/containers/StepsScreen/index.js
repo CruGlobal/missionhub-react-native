@@ -338,6 +338,8 @@ export class StepsScreen extends Component {
   render() {
     const { t, steps } = this.props;
 
+    const hasSteps = steps && steps.length > 0;
+
     return (
       <View style={styles.container}>
         <TrackTabChange screen={STEPS_TAB} />
@@ -352,7 +354,7 @@ export class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         {steps ? (
-          steps.length > 0 ? (
+          hasSteps || this.hasReminders() ? (
             <View style={styles.contentContainer}>
               <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
               {this.renderSteps()}
