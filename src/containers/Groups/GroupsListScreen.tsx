@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  ScrollView,
   FlatList,
   View,
   NativeScrollEvent,
@@ -16,7 +15,9 @@ import { TFunction } from 'i18next';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
-import { IconButton, RefreshControl, Button } from '../../components/common';
+import { GroupCardHeight } from '../../components/GroupCardItem/styles';
+import { CardVerticalMargin } from '../../components/Card/styles';
+import { IconButton, Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
@@ -113,6 +114,15 @@ const isCloseToBottom = ({
   );
 };
 
+const ItemHeight = GroupCardHeight + CardVerticalMargin * 2;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getItemLayout = (_: any, index: number) => ({
+  length: ItemHeight,
+  offset: ItemHeight * index,
+  index,
+});
+
 const GroupsListScreen = ({
   dispatch,
   isAnonymousUser,
@@ -179,20 +189,24 @@ const GroupsListScreen = ({
   useEffect(() => {
     function loadGroupsAndScrollToId() {
       // Always load groups when this tab mounts
-      if (scrollToId) {
-        const index = communities.findIndex(o => o.id === scrollToId);
-        if (index >= 0 && flatList.current) {
-          try {
-            flatList.current.scrollToIndex({
-              animated: true,
-              index,
-              // Put the new org in the top of the list if already there or the center
-              viewPosition: index === 0 ? 0 : 0.5,
-            });
-          } catch (e) {}
-        }
-        dispatch(resetScrollGroups());
+      if (!scrollToId || !communities || !flatList.current) {
+        return;
       }
+
+      const index = communities.findIndex(o => o.id === scrollToId);
+
+      if (index < 0) {
+        return;
+      }
+
+      try {
+        flatList.current.scrollToIndex({
+          index,
+          viewPosition: index === 0 ? 0 : 0.5,
+        });
+      } catch (e) {}
+
+      dispatch(resetScrollGroups());
     }
 
     loadGroupsAndScrollToId();
@@ -275,21 +289,18 @@ const GroupsListScreen = ({
           />
         </View>
       </View>
-      <ScrollView
-        style={styles.scrollView}
-        refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
-        }
+      <FlatList
+        testID="FlatList"
+        refreshing={isRefreshing}
+        onRefresh={refresh}
         onScroll={handleScroll}
-      >
-        <FlatList
-          testID="FlatList"
-          ref={flatList}
-          data={communities}
-          keyExtractor={keyExtractorId}
-          renderItem={renderItem}
-        />
-      </ScrollView>
+        getItemLayout={getItemLayout}
+        style={styles.scrollView}
+        ref={flatList}
+        data={communities}
+        keyExtractor={keyExtractorId}
+        renderItem={renderItem}
+      />
     </View>
   );
 };
