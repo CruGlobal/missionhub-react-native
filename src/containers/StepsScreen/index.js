@@ -226,21 +226,13 @@ export class StepsScreen extends Component {
           {t('nullHeader')}
         </Text>
         <View style={styles.nulltextWrapper}>
-          {this.hasReminders() ? (
-            <Text style={styles.nullText}>{t('nullWithReminders')}</Text>
-          ) : (
-            <>
-              <Text style={styles.nullText}>{t('nullNoReminders.part1')}</Text>
-              <Text style={styles.nullText}>{t('nullNoReminders.part2')}</Text>
-            </>
-          )}
+          <Text style={styles.nullText}>{t('nullNoReminders.part1')}</Text>
+          <Text style={styles.nullText}>{t('nullNoReminders.part2')}</Text>
         </View>
-        {this.hasReminders() ? null : (
-          <BottomButton
-            text={t('mainTabs:takeAStepWithSomeone')}
-            onPress={this.navToPersonScreen}
-          />
-        )}
+        <BottomButton
+          text={t('mainTabs:takeAStepWithSomeone')}
+          onPress={this.navToPersonScreen}
+        />
       </View>
     );
   }
