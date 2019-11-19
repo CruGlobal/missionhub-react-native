@@ -1,11 +1,21 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from '../../../components/common';
+import { Text, Input } from '../../../components/common';
+import BottomButton from '../../../components/BottomButton';
+import Header from '../../../components/Header';
+import BackButton from '../../BackButton';
+
+import { useTranslation } from 'react-i18next';
+import styles from './styles';
+import theme from '../../../theme';
 
 const ShareStoryScreen = () => {
+  const { t } = useTranslation('shareAStoryScreen');
+  const { container, backButton } = styles;
   return (
-    <View>
-      <Text>Hi</Text>
+    <View style={container}>
+      <Header left={<BackButton iconStyle={backButton} />} />
+      <BottomButton text={t('shareStory')} onPress={() => console.log('hi')} />
     </View>
   );
 };
