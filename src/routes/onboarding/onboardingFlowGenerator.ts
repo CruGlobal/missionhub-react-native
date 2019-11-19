@@ -68,7 +68,7 @@ export const onboardingFlowGenerator = ({
 }: {
   startScreen?: string;
   hideSkipBtn?: boolean;
-}) => ({
+} = {}) => ({
   ...(startScreen === WELCOME_SCREEN
     ? {
         [WELCOME_SCREEN]: buildTrackedScreen(
