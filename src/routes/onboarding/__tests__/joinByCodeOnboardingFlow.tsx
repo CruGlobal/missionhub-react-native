@@ -1,10 +1,8 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeOnboardingFlowScreens } from '../joinByCodeOnboardingFlow';
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import {
   setOnboardingCommunity,
   joinStashedCommunity,
@@ -28,15 +26,14 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 
 const community = { id: '1', community_code: '123456' };
 
-const store = configureStore([thunk])({
+const initialState = {
   auth: { person: { id: '1' } },
   onboarding: {
     community,
   },
-});
+};
 
 beforeEach(() => {
-  store.clearActions();
   (navigationActions.navigatePush as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
@@ -50,14 +47,20 @@ describe('JoinGroupScreen next', () => {
 
     const Component = JoinByCodeOnboardingFlowScreens[JOIN_GROUP_SCREEN].screen;
 
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    const originalComponent = getByType(Component).children[0];
+
+    if (typeof originalComponent === 'string') {
+      throw "Can't access component props";
+    }
+
     await store.dispatch(
-      renderShallow(<Component />, store)
-        .instance()
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        .props.next({
-          community,
-        }),
+      originalComponent.props.next({
+        community,
+      }),
     );
 
     expect(setOnboardingCommunity).toHaveBeenCalledWith(community);
@@ -73,13 +76,17 @@ describe('SetupScreen next', () => {
 
     const Component = JoinByCodeOnboardingFlowScreens[SETUP_SCREEN].screen;
 
-    await store.dispatch(
-      renderShallow(<Component />, store)
-        .instance()
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        .props.next(),
-    );
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    const originalComponent = getByType(Component).children[0];
+
+    if (typeof originalComponent === 'string') {
+      throw "Can't access component props";
+    }
+
+    await store.dispatch(originalComponent.props.next());
 
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
@@ -100,13 +107,17 @@ describe('CelebrationScreen next', () => {
     const Component =
       JoinByCodeOnboardingFlowScreens[CELEBRATION_SCREEN].screen;
 
-    await store.dispatch(
-      renderShallow(<Component navigation={{ state: {} }} />, store)
-        .instance()
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        .props.next(),
-    );
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    const originalComponent = getByType(Component).children[0];
+
+    if (typeof originalComponent === 'string') {
+      throw "Can't access component props";
+    }
+
+    await store.dispatch(originalComponent.props.next());
 
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();
     expect(setOnboardingPersonId).toHaveBeenCalled();
