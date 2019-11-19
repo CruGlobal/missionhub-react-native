@@ -45,7 +45,7 @@
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-cache-persist": "^0.1.1",
     "apollo-link": "^1.2.13",
-    "apollo-link-error": "^1.1.11",
+    "apollo-link-error": "^1.1.12",
     "apollo-link-http": "^1.5.15",
     "base64-url": "^2.3.2",
     "buffer": "^5.4.0",
