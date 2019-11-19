@@ -1,11 +1,18 @@
-import React, { useEffect, useRef } from 'react';
-import { ScrollView, FlatList, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  ScrollView,
+  FlatList,
+  View,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+} from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { TFunction } from 'i18next';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
@@ -33,13 +40,18 @@ import {
 } from './__generated__/GetCommunities';
 
 export const GET_COMMUNITIES_QUERY = gql`
-  query GetCommunities {
+  query GetCommunities($communityCursor: String) {
     globalCommunity {
       usersReport {
         usersCount
       }
     }
-    communities(ministryActivitiesOnly: true, sortBy: name_ASC) {
+    communities(
+      ministryActivitiesOnly: true
+      sortBy: name_ASC
+      first: 10
+      after: $communityCursor
+    ) {
       nodes {
         id
         name
@@ -58,6 +70,10 @@ export const GET_COMMUNITIES_QUERY = gql`
           unassignedCount
         }
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
     }
   }
 `;
@@ -68,24 +84,8 @@ interface GroupsListScreenProps {
   scrollToId: string | null;
 }
 
-const GroupsListScreen = ({
-  dispatch,
-  isAnonymousUser,
-  scrollToId,
-}: GroupsListScreenProps) => {
-  const { t } = useTranslation('groupsList');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const flatList = useRef<FlatList<any>>(null);
-
-  const {
-    data: {
-      globalCommunity: { usersReport: { usersCount = 0 } = {} } = {},
-      communities: { nodes = [] } = {},
-    } = {},
-    refetch: refetchCommunities,
-  } = useQuery<GetCommunities>(GET_COMMUNITIES_QUERY);
-
-  const globalCommunity: GetCommunities_communities_nodes = {
+const createGlobalCommunity = (t: TFunction, usersCount: number) =>
+  ({
     __typename: 'Community',
     id: GLOBAL_COMMUNITY_ID,
     name: t('globalCommunity'),
@@ -99,12 +99,82 @@ const GroupsListScreen = ({
       unassignedCount: 0,
       memberCount: usersCount,
     },
-  };
+  } as GetCommunities_communities_nodes);
 
+const isCloseToBottom = ({
+  layoutMeasurement,
+  contentOffset,
+  contentSize,
+}: NativeScrollEvent) => {
+  const paddingToBottom = 20;
+  return (
+    layoutMeasurement.height + contentOffset.y >=
+    contentSize.height - paddingToBottom
+  );
+};
+
+const GroupsListScreen = ({
+  dispatch,
+  isAnonymousUser,
+  scrollToId,
+}: GroupsListScreenProps) => {
+  const { t } = useTranslation('groupsList');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const flatList = useRef<FlatList<any>>(null);
+  const [paging, setPaging] = useState(false);
+  const [pagingError, setPagingError] = useState(false);
+
+  const {
+    data: {
+      globalCommunity: { usersReport: { usersCount = 0 } = {} } = {},
+      communities: {
+        nodes = [],
+        pageInfo: { endCursor = null, hasNextPage = true } = {},
+      } = {},
+    } = {},
+    fetchMore,
+    refetch,
+  } = useQuery<GetCommunities>(GET_COMMUNITIES_QUERY);
+
+  const globalCommunity = createGlobalCommunity(t, usersCount);
   const communities: GetCommunities_communities_nodes[] = [
     globalCommunity,
     ...nodes,
   ];
+
+  const { isRefreshing, refresh } = useRefreshing(refetch);
+
+  const handleNextPage = async () => {
+    if (paging || !hasNextPage || pagingError) {
+      return;
+    }
+
+    setPaging(true);
+    try {
+      await fetchMore({
+        variables: { communityCursor: endCursor },
+        updateQuery: (prev, { fetchMoreResult }) =>
+          fetchMoreResult
+            ? {
+                ...prev,
+                ...fetchMoreResult,
+                communities: {
+                  ...prev.communities,
+                  ...fetchMoreResult.communities,
+                  nodes: [
+                    ...(prev.communities.nodes || []),
+                    ...(fetchMoreResult.communities.nodes || []),
+                  ],
+                },
+              }
+            : prev,
+      });
+    } catch (e) {
+      setPagingError(true);
+    } finally {
+      setPaging(false);
+    }
+  };
 
   useEffect(() => {
     function loadGroupsAndScrollToId() {
@@ -128,20 +198,33 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const { isRefreshing, refresh } = useRefreshing(() => {
-    refetchCommunities();
-  });
-
   const handlePress = (community: GetCommunities_communities_nodes) => {
     dispatch(navigateToOrg(community.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
-  const dispatchOpenMainMenu = () => {
+
+  const handleOpenMainMenu = () => {
     dispatch(openMainMenu());
   };
+
+  const handleScroll = ({
+    nativeEvent,
+  }: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const shouldPaginate = isCloseToBottom(nativeEvent);
+
+    // Reset pagingError once we are out of the isCloseToBottom zone
+    if (!shouldPaginate) {
+      pagingError && setPagingError(false);
+      return;
+    }
+
+    handleNextPage();
+  };
+
   const join = () => {
     dispatch(navigatePush(JOIN_BY_CODE_FLOW));
   };
+
   const create = () => {
     dispatch(
       navigatePush(
@@ -165,7 +248,7 @@ const GroupsListScreen = ({
             testID="IconButton"
             name="menuIcon"
             type="MissionHub"
-            onPress={dispatchOpenMainMenu}
+            onPress={handleOpenMainMenu}
           />
         }
         title={t('header').toUpperCase()}
@@ -197,6 +280,7 @@ const GroupsListScreen = ({
         refreshControl={
           <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
         }
+        onScroll={handleScroll}
       >
         <FlatList
           testID="FlatList"
