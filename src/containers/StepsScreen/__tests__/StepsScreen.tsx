@@ -134,7 +134,7 @@ describe('handleRefresh', () => {
       initialState,
     });
 
-    fireEvent(getByTestId('scrollView').props.refreshControl, 'onRefresh');
+    fireEvent(getByTestId('stepsList'), 'onRefresh');
 
     expect(checkForUnreadComments).toHaveBeenCalledWith();
     expect(getMySteps).toHaveBeenCalledWith();
@@ -205,7 +205,7 @@ describe('handleScroll', () => {
       initialState,
     });
 
-    fireEvent(getByTestId('scrollView'), 'onScroll', { nativeEvent });
+    fireEvent(getByTestId('stepsList'), 'onScroll', { nativeEvent });
 
     await flushMicrotasksQueue();
 
@@ -224,7 +224,7 @@ describe('handleScroll', () => {
       },
     });
 
-    fireEvent(getByTestId('scrollView'), 'onScroll', { nativeEvent });
+    fireEvent(getByTestId('stepsList'), 'onScroll', { nativeEvent });
 
     await flushMicrotasksQueue();
 
@@ -237,7 +237,7 @@ describe('handleScroll', () => {
       initialState,
     });
 
-    fireEvent(getByTestId('scrollView'), 'onScroll', {
+    fireEvent(getByTestId('stepsList'), 'onScroll', {
       nativeEvent: {
         ...nativeEvent,
         contentOffset: { x: 0, y: 19 },

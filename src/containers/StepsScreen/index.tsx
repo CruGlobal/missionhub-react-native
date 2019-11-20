@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   View,
   Image,
-  ScrollView,
   FlatList,
   NativeSyntheticEvent,
   NativeScrollEvent,
@@ -17,12 +16,7 @@ import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
 import { myStepsSelector } from '../../selectors/steps';
-import {
-  Text,
-  IconButton,
-  RefreshControl,
-  LoadingGuy,
-} from '../../components/common';
+import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
@@ -147,31 +141,20 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   );
 
   const renderSteps = () => (
-    <View style={{ flex: 1 }}>
-      <FlatList
-        style={[styles.list, hasMoreSteps ? styles.listExtraPadding : null]}
-        data={steps}
-        keyExtractor={keyExtractorId}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        initialNumToRender={10}
-        ListFooterComponent={paging ? <FooterLoading /> : null}
-      />
-    </View>
-  );
-
-  const renderContent = () => (
-    <ScrollView
-      testID="scrollView"
-      refreshControl={
-        <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
-      }
-      contentContainerStyle={{ flex: 1 }}
+    <FlatList
+      testID="stepsList"
+      refreshing={isRefreshing}
+      onRefresh={refresh}
       onScroll={handleScroll}
       scrollEventThrottle={16}
-    >
-      {hasSteps ? renderSteps() : renderNull()}
-    </ScrollView>
+      style={[styles.list, hasMoreSteps ? styles.listExtraPadding : null]}
+      data={steps}
+      keyExtractor={keyExtractorId}
+      renderItem={renderItem}
+      showsVerticalScrollIndicator={false}
+      initialNumToRender={10}
+      ListFooterComponent={paging ? <FooterLoading /> : null}
+    />
   );
 
   return (
@@ -193,7 +176,13 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
         {hasSteps ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
-        {firstTimeLoading ? <LoadingGuy /> : renderContent()}
+        {firstTimeLoading ? (
+          <LoadingGuy />
+        ) : hasSteps ? (
+          renderSteps()
+        ) : (
+          renderNull()
+        )}
       </View>
     </View>
   );
