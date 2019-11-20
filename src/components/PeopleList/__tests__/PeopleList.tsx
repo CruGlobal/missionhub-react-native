@@ -88,72 +88,9 @@ const props = {
   personId: personId,
 };
 
-const GetPeopleStepsCount = {
-  communities: {
-    nodes: [
-      {
-        people: {
-          nodes: [
-            {
-              fullName: 'John Doe',
-              id: '1234',
-              steps: {
-                pageInfo: {
-                  totalCount: 4,
-                },
-              },
-            },
-          ],
-        },
-      },
-    ],
-  },
-  currentUser: {
-    person: {
-      contactAssignments: {
-        nodes: [
-          {
-            person: {
-              fullName: 'Christian Huffman',
-              id: '4321',
-              steps: {
-                pageInfo: {
-                  totalCount: 5,
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-  },
-};
-
-const Query = () => ({
-  data: () => GetPeopleStepsCount,
-});
-
 it('renders correctly as Casey', async () => {
   const { snapshot } = renderWithContext(
     <PeopleList {...props} sections={false} items={people} />,
-    {
-      mocks: {
-        Query: () => ({
-          // target the whole query
-          communities: () => ({
-            // name of root type field
-            nodes: () => [], // Oh no, no communities
-          }),
-          currentUser: () => ({
-            person: () => ({
-              contactAssignments: () => ({
-                nodes: () => [],
-              }),
-            }),
-          }),
-        }),
-      },
-    },
   );
   await flushMicrotasksQueue();
   snapshot();
@@ -162,24 +99,6 @@ it('renders correctly as Casey', async () => {
 it('renders correctly as Jean', async () => {
   const { snapshot } = renderWithContext(
     <PeopleList {...props} sections={true} items={orgs} />,
-    {
-      mocks: {
-        Query: () => ({
-          // target the whole query
-          communities: () => ({
-            // name of root type field
-            nodes: () => [], // Oh no, no communities
-          }),
-          currentUser: () => ({
-            person: () => ({
-              contactAssignments: () => ({
-                nodes: () => [],
-              }),
-            }),
-          }),
-        }),
-      },
-    },
   );
   await flushMicrotasksQueue();
   snapshot();
@@ -189,24 +108,6 @@ describe('button presses', () => {
   it('onAddContact is called when add contact icon is pressed', async () => {
     const { getAllByTestId } = renderWithContext(
       <PeopleList {...props} sections={true} items={orgs} />,
-      {
-        mocks: {
-          Query: () => ({
-            // target the whole query
-            communities: () => ({
-              // name of root type field
-              nodes: () => [], // Oh no, no communities
-            }),
-            currentUser: () => ({
-              person: () => ({
-                contactAssignments: () => ({
-                  nodes: () => [],
-                }),
-              }),
-            }),
-          }),
-        },
-      },
     );
     await flushMicrotasksQueue();
 
@@ -219,24 +120,6 @@ describe('button presses', () => {
   it('arrow icon toggles collapsed sections', async () => {
     const { recordSnapshot, getAllByTestId, diffSnapshot } = renderWithContext(
       <PeopleList {...props} sections={true} items={orgs} />,
-      {
-        mocks: {
-          Query: () => ({
-            // target the whole query
-            communities: () => ({
-              // name of root type field
-              nodes: () => [], // Oh no, no communities
-            }),
-            currentUser: () => ({
-              person: () => ({
-                contactAssignments: () => ({
-                  nodes: () => [],
-                }),
-              }),
-            }),
-          }),
-        },
-      },
     );
     await flushMicrotasksQueue();
 

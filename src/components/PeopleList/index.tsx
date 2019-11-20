@@ -44,14 +44,13 @@ export default ({
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
-  const { data, refetch: refetchCommunities } = useQuery<GetPeopleStepsCount>(
-    GET_PEOPLE_STEPS_COUNT,
-    {
-      variables: {
-        id: [personId],
-      },
+  const { data, refetch: refetchCommunities, loading } = useQuery<
+    GetPeopleStepsCount
+  >(GET_PEOPLE_STEPS_COUNT, {
+    variables: {
+      id: [personId],
     },
-  );
+  });
 
   useEffect(() => {
     refetchCommunities();
@@ -59,7 +58,7 @@ export default ({
 
   // Convert the data from graphQL into one big object of people data that can be indexed by the person id.
   const convertData = () => {
-    if (!data) {
+    if (loading || !data) {
       return {};
     }
 
