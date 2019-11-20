@@ -287,7 +287,7 @@ const GroupsListScreen = ({
         </View>
       </View>
       <FlatList
-        testID="FlatList"
+        testID="flatList"
         refreshing={isRefreshing}
         onRefresh={refresh}
         onScroll={handleScroll}

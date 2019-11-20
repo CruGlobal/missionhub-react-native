@@ -27,7 +27,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     userCreated,
     communityPhotoUrl,
     unreadCommentsCount,
-    report: { contactCount = 0, unassignedCount = 0, memberCount = 0 },
+    report: { contactCount, unassignedCount, memberCount },
   } = group;
   const owner = group.owner.nodes[0];
 

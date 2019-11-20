@@ -221,6 +221,23 @@ describe('GroupCardItem', () => {
     test();
   });
 
+  it('renders for join screen userCreated no owner', () => {
+    props = {
+      ...props,
+      group: {
+        ...group,
+        report: {
+          ...group.report,
+          memberCount,
+        },
+        userCreated: true,
+      },
+      onJoin: jest.fn(),
+    };
+
+    test();
+  });
+
   it('calls props.onPress when pressed', () => {
     const onPress = jest.fn();
     const { getByTestId } = renderWithContext(

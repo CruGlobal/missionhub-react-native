@@ -1,4 +1,5 @@
 import React from 'react';
+import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import GroupsListScreen from '../GroupsListScreen';
@@ -14,6 +15,7 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
+import { cursorTo } from 'readline';
 
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
@@ -61,6 +63,7 @@ const community2 = {
     unassignedCount: 333,
   }),
 };
+
 const communities = [community1, community2];
 
 const Query = () => ({
@@ -227,6 +230,101 @@ describe('GroupsListScreen', () => {
         CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
       );
       expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+
+  describe('handleScroll', () => {
+    const communitiesForPagination = [
+      community1,
+      community2,
+      { ...community1, id: '3' },
+      { ...community1, id: '4' },
+      { ...community1, id: '5' },
+      { ...community1, id: '6' },
+      { ...community1, id: '7' },
+      { ...community1, id: '8' },
+      { ...community1, id: '9' },
+      { ...community1, id: '10' },
+      { ...community1, id: '11' },
+      { ...community1, id: '12' },
+    ];
+    let query: () => {};
+
+    const testScroll = async () => {
+      const { snapshot, getByType } = renderWithContext(<GroupsListScreen />, {
+        initialState,
+        mocks: {
+          Query: query,
+        },
+      });
+
+      await flushMicrotasksQueue();
+
+      const flatList = getByType(FlatList);
+
+      const fireScroll = (offset: number) =>
+        fireEvent.scroll(flatList, {
+          nativeEvent: {
+            layoutMeasurement: { height: 400, width: 400 },
+            contentOffset: { x: 0, y: offset },
+            contentSize: { height: 800, width: 400 },
+          },
+        });
+
+      return {
+        scrollDown: (offset: number = 1) => fireScroll(offset),
+        snapshot,
+        flushMicrotasksQueue,
+      };
+    };
+
+    it('paginates when close to bottom', async () => {
+      query = () => ({
+        usersReport: () => usersReport,
+        communities: () => ({
+          edges: communitiesForPagination.map(c => ({ cursor: c.id, node: c })),
+          nodes: communitiesForPagination,
+          pageInfo: { endCursor: '9', hasNextPage: true },
+        }),
+      });
+
+      const { scrollDown, flushMicrotasksQueue, snapshot } = await testScroll();
+      scrollDown(380);
+
+      await flushMicrotasksQueue();
+      snapshot();
+    });
+
+    it('should not load more when not scrolling close to bottom', async () => {
+      query = () => ({
+        usersReport: () => usersReport,
+        communities: () => ({
+          nodes: communitiesForPagination,
+          pageInfo: { hasNextPage: true },
+        }),
+      });
+
+      const { scrollDown, flushMicrotasksQueue, snapshot } = await testScroll();
+      scrollDown(379);
+
+      await flushMicrotasksQueue();
+      snapshot();
+    });
+
+    it('should not load more when no next page', async () => {
+      query = () => ({
+        usersReport: () => usersReport,
+        communities: () => ({
+          nodes: communitiesForPagination,
+          pageInfo: { hasNextPage: false },
+        }),
+      });
+
+      const { scrollDown, flushMicrotasksQueue, snapshot } = await testScroll();
+      scrollDown(380);
+
+      await flushMicrotasksQueue();
+      snapshot();
     });
   });
 });
