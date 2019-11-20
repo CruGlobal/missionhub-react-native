@@ -44,14 +44,14 @@ export default ({
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
-  const {
-    data: { communities = {}, currentUser = {} } = {},
-    refetch: refetchCommunities,
-  } = useQuery<GetPeopleStepsCount>(GET_PEOPLE_STEPS_COUNT, {
-    variables: {
-      id: [personId],
+  const { data, refetch: refetchCommunities } = useQuery<GetPeopleStepsCount>(
+    GET_PEOPLE_STEPS_COUNT,
+    {
+      variables: {
+        id: [personId],
+      },
     },
-  });
+  );
 
   useEffect(() => {
     refetchCommunities();
@@ -59,17 +59,21 @@ export default ({
 
   // Convert the data from graphQL into one big object of people data that can be indexed by the person id.
   const convertData = () => {
+    if (!data) {
+      return {};
+    }
+
+    const { communities, currentUser } = data;
     const currentUserData = currentUser.person.contactAssignments.nodes
-      .map((node: any) => node.person)
-      .reduce((accumulator: any, currentValue: any) => {
+      .map(node => node.person)
+      .reduce((accumulator: any, currentValue) => {
         accumulator[currentValue.id] = currentValue;
         return accumulator;
       }, {});
 
     const communityData = communities.nodes
-      .map((node: any) => node.people.nodes.map((person: any) => person))
-      .flat(1)
-      .reduce((accumulator: any, currentValue: any) => {
+      .flatMap(node => node.people.nodes.map(person => person))
+      .reduce((accumulator: any, currentValue) => {
         accumulator[currentValue.id] = currentValue;
         return accumulator;
       }, {});
@@ -84,7 +88,6 @@ export default ({
 
   const renderItem = (organization: any) => ({ item }: { item: any }) => {
     const personStepData = convertData();
-
     return (
       <PersonItem
         person={item}

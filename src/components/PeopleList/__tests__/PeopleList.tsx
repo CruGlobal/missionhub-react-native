@@ -138,9 +138,18 @@ it('renders correctly as Casey', async () => {
     <PeopleList {...props} sections={false} items={people} />,
     {
       mocks: {
-        Steps: () => ({
-          pageInfo: () => ({
-            totalCount: () => 5,
+        Query: () => ({
+          // target the whole query
+          communities: () => ({
+            // name of root type field
+            nodes: () => [], // Oh no, no communities
+          }),
+          currentUser: () => ({
+            person: () => ({
+              contactAssignments: () => ({
+                nodes: () => [],
+              }),
+            }),
           }),
         }),
       },
@@ -155,7 +164,20 @@ it('renders correctly as Jean', async () => {
     <PeopleList {...props} sections={true} items={orgs} />,
     {
       mocks: {
-        Query,
+        Query: () => ({
+          // target the whole query
+          communities: () => ({
+            // name of root type field
+            nodes: () => [], // Oh no, no communities
+          }),
+          currentUser: () => ({
+            person: () => ({
+              contactAssignments: () => ({
+                nodes: () => [],
+              }),
+            }),
+          }),
+        }),
       },
     },
   );
@@ -169,7 +191,20 @@ describe('button presses', () => {
       <PeopleList {...props} sections={true} items={orgs} />,
       {
         mocks: {
-          Query,
+          Query: () => ({
+            // target the whole query
+            communities: () => ({
+              // name of root type field
+              nodes: () => [], // Oh no, no communities
+            }),
+            currentUser: () => ({
+              person: () => ({
+                contactAssignments: () => ({
+                  nodes: () => [],
+                }),
+              }),
+            }),
+          }),
         },
       },
     );
@@ -186,7 +221,20 @@ describe('button presses', () => {
       <PeopleList {...props} sections={true} items={orgs} />,
       {
         mocks: {
-          Query,
+          Query: () => ({
+            // target the whole query
+            communities: () => ({
+              // name of root type field
+              nodes: () => [], // Oh no, no communities
+            }),
+            currentUser: () => ({
+              person: () => ({
+                contactAssignments: () => ({
+                  nodes: () => [],
+                }),
+              }),
+            }),
+          }),
         },
       },
     );
