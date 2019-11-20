@@ -543,7 +543,7 @@ exports[`renders isMe version correctly 1`] = `
             ]
           }
         >
-          NEXT
+          CONTINUE
         </Text>
       </View>
     </View>
