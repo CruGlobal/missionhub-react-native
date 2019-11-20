@@ -1,6 +1,6 @@
 import React from 'react';
 import { LayoutAnimation } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 
@@ -16,6 +16,7 @@ jest.mock('../../common', () => ({
 
 LayoutAnimation.configureNext = jest.fn();
 
+const personId = '4321';
 const orgs = [
   {
     id: 'personal',
@@ -84,25 +85,95 @@ const props = {
   onAddContact: jest.fn(),
   refreshing: false,
   onRefresh: jest.fn(),
+  personId: personId,
 };
 
-it('renders correctly as Casey', () => {
-  renderWithContext(
-    <PeopleList {...props} sections={false} items={people} />,
-  ).snapshot();
+const GetPeopleStepsCount = {
+  communities: {
+    nodes: [
+      {
+        people: {
+          nodes: [
+            {
+              fullName: 'John Doe',
+              id: '1234',
+              steps: {
+                pageInfo: {
+                  totalCount: 4,
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
+  currentUser: {
+    person: {
+      contactAssignments: {
+        nodes: [
+          {
+            person: {
+              fullName: 'Christian Huffman',
+              id: '4321',
+              steps: {
+                pageInfo: {
+                  totalCount: 5,
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  },
+};
+
+const Query = () => ({
+  data: () => GetPeopleStepsCount,
 });
 
-it('renders correctly as Jean', () => {
-  renderWithContext(
+it('renders correctly as Casey', async () => {
+  const { snapshot } = renderWithContext(
+    <PeopleList {...props} sections={false} items={people} />,
+    {
+      mocks: {
+        Steps: () => ({
+          pageInfo: () => ({
+            totalCount: () => 5,
+          }),
+        }),
+      },
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+});
+
+it('renders correctly as Jean', async () => {
+  const { snapshot } = renderWithContext(
     <PeopleList {...props} sections={true} items={orgs} />,
-  ).snapshot();
+    {
+      mocks: {
+        Query,
+      },
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
 });
 
 describe('button presses', () => {
-  it('onAddContact is called when add contact icon is pressed', () => {
+  it('onAddContact is called when add contact icon is pressed', async () => {
     const { getAllByTestId } = renderWithContext(
       <PeopleList {...props} sections={true} items={orgs} />,
+      {
+        mocks: {
+          Query,
+        },
+      },
     );
+    await flushMicrotasksQueue();
 
     const addContactBtn = getAllByTestId('addContactBtn')[0];
     fireEvent(addContactBtn, 'press', addContactBtn.props.pressProps[0]);
@@ -110,10 +181,16 @@ describe('button presses', () => {
     expect(props.onAddContact).toHaveBeenCalledWith(undefined);
   });
 
-  it('arrow icon toggles collapsed sections', () => {
+  it('arrow icon toggles collapsed sections', async () => {
     const { recordSnapshot, getAllByTestId, diffSnapshot } = renderWithContext(
       <PeopleList {...props} sections={true} items={orgs} />,
+      {
+        mocks: {
+          Query,
+        },
+      },
     );
+    await flushMicrotasksQueue();
 
     recordSnapshot();
     const toggleSectionBtn = getAllByTestId('toggleSectionBtn')[0];

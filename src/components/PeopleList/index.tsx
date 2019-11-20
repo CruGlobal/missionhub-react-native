@@ -31,6 +31,7 @@ interface PeopleListProps {
   onRefresh: () => Promise<void>;
   onAddContact: (org: any) => void;
   testID?: string;
+  personId: string;
 }
 
 export default ({
@@ -39,33 +40,41 @@ export default ({
   refreshing,
   onRefresh,
   onAddContact,
+  personId,
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
-
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
-  const [peopleIds, setPeopleIds] = useState([]);
   const {
-    data: { people: { nodes = [] } = {} } = {},
+    data: { communities = {}, currentUser = {} } = {},
     refetch: refetchCommunities,
   } = useQuery<GetPeopleStepsCount>(GET_PEOPLE_STEPS_COUNT, {
     variables: {
-      ids: peopleIds,
+      id: [personId],
     },
   });
 
   useEffect(() => {
-    setPeopleIds(getPeopleIds(items));
     refetchCommunities();
   }, [onRefresh]);
-  // Create an array of all the ids we need to query for.
-  const getPeopleIds = (organizations: any) =>
-    organizations
-      .reduce((obj: any, item: any) => {
-        return obj.concat(item.people);
-      }, [])
-      .map((person: any) => {
-        return person ? person.id : null;
-      });
+
+  // Convert the data from graphQL into one big object of people data that can be indexed by the person id.
+  const convertData = () => {
+    const currentUserData = currentUser.person.contactAssignments.nodes
+      .map((node: any) => node.person)
+      .reduce((accumulator: any, currentValue: any) => {
+        accumulator[currentValue.id] = currentValue;
+        return accumulator;
+      }, {});
+
+    const communityData = communities.nodes
+      .map((node: any) => node.people.nodes.map((person: any) => person))
+      .flat(1)
+      .reduce((accumulator: any, currentValue: any) => {
+        accumulator[currentValue.id] = currentValue;
+        return accumulator;
+      }, {});
+    return { ...currentUserData, ...communityData };
+  };
 
   const toggleSection = (id: string) => {
     collapsedOrgs.has(id) ? collapsedOrgs.delete(id) : collapsedOrgs.add(id);
@@ -74,10 +83,7 @@ export default ({
   };
 
   const renderItem = (organization: any) => ({ item }: { item: any }) => {
-    const personStepData = nodes.reduce((obj: any, item) => {
-      obj[item.id] = item;
-      return obj;
-    }, {});
+    const personStepData = convertData();
 
     return (
       <PersonItem
