@@ -15,7 +15,6 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
-import { cursorTo } from 'readline';
 
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
@@ -235,34 +234,37 @@ describe('GroupsListScreen', () => {
 
   describe('handleScroll', () => {
     const communitiesForPagination = [
-      community1,
-      community2,
-      { ...community1, id: '3' },
-      { ...community1, id: '4' },
-      { ...community1, id: '5' },
-      { ...community1, id: '6' },
-      { ...community1, id: '7' },
-      { ...community1, id: '8' },
-      { ...community1, id: '9' },
-      { ...community1, id: '10' },
-      { ...community1, id: '11' },
-      { ...community1, id: '12' },
+      { name: 'Community 1' },
+      { name: 'Community 2' },
+      { name: 'Community 3' },
+      { name: 'Community 4' },
+      { name: 'Community 5' },
+      { name: 'Community 6' },
+      { name: 'Community 7' },
+      { name: 'Community 8' },
+      { name: 'Community 9' },
+      { name: 'Community 10' },
+      { name: 'Community 11' },
+      { name: 'Community 12' },
     ];
     let query: () => {};
 
     const testScroll = async () => {
-      const { snapshot, getByType } = renderWithContext(<GroupsListScreen />, {
-        initialState,
-        mocks: {
-          Query: query,
+      const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
+        <GroupsListScreen />,
+        {
+          initialState,
+          mocks: {
+            Query: query,
+          },
         },
-      });
+      );
 
       await flushMicrotasksQueue();
 
       const flatList = getByType(FlatList);
 
-      const fireScroll = (offset: number) =>
+      const scrollDown = (offset: number) =>
         fireEvent.scroll(flatList, {
           nativeEvent: {
             layoutMeasurement: { height: 400, width: 400 },
@@ -272,8 +274,9 @@ describe('GroupsListScreen', () => {
         });
 
       return {
-        scrollDown: (offset: number = 1) => fireScroll(offset),
-        snapshot,
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
         flushMicrotasksQueue,
       };
     };
@@ -282,17 +285,24 @@ describe('GroupsListScreen', () => {
       query = () => ({
         usersReport: () => usersReport,
         communities: () => ({
-          edges: communitiesForPagination.map(c => ({ cursor: c.id, node: c })),
           nodes: communitiesForPagination,
-          pageInfo: { endCursor: '9', hasNextPage: true },
+          pageInfo: { hasNextPage: true },
         }),
       });
 
-      const { scrollDown, flushMicrotasksQueue, snapshot } = await testScroll();
-      scrollDown(380);
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
 
+      recordSnapshot();
+
+      scrollDown(380);
       await flushMicrotasksQueue();
-      snapshot();
+
+      diffSnapshot();
     });
 
     it('should not load more when not scrolling close to bottom', async () => {
@@ -304,11 +314,19 @@ describe('GroupsListScreen', () => {
         }),
       });
 
-      const { scrollDown, flushMicrotasksQueue, snapshot } = await testScroll();
-      scrollDown(379);
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
 
+      recordSnapshot();
+
+      scrollDown(379);
       await flushMicrotasksQueue();
-      snapshot();
+
+      diffSnapshot();
     });
 
     it('should not load more when no next page', async () => {
@@ -320,11 +338,19 @@ describe('GroupsListScreen', () => {
         }),
       });
 
-      const { scrollDown, flushMicrotasksQueue, snapshot } = await testScroll();
-      scrollDown(380);
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
 
+      recordSnapshot();
+
+      scrollDown(380);
       await flushMicrotasksQueue();
-      snapshot();
+
+      diffSnapshot();
     });
   });
 });

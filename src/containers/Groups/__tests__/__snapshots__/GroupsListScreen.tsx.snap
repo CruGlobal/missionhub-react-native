@@ -1,3444 +1,420 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-    }
-  }
->
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "backgroundColor": "transparent",
-      }
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "flexDirection": "row",
-            "height": 56,
-            "paddingTop": 0,
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -362,11 +362,11 @@
+              \\"nodes\\": Array [],
+            },
+            \\"report\\": Object {
+              \\"__typename\\": \\"CommunitiesReport\\",
+              \\"contactCount\\": 0,
+-             \\"memberCount\\": 41702,
++             \\"memberCount\\": 39767,
+              \\"unassignedCount\\": 0,
+            },
+            \\"unreadCommentsCount\\": 0,
+            \\"userCreated\\": true,
           },
-          undefined,
-          null,
+@@ -714,12 +714,360 @@
+              \\"contactCount\\": 13747,
+              \\"memberCount\\": 44798,
+              \\"unassignedCount\\": 13927,
+            },
+            \\"unreadCommentsCount\\": 13996,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"et molestiae ea\\",
++           \\"id\\": \\"13\\",
++           \\"name\\": \\"Community 1\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Fanny\\",
++                 \\"lastName\\": \\"Marks\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Nestor\\",
++                 \\"lastName\\": \\"Nienow\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 72599,
++             \\"memberCount\\": 12631,
++             \\"unassignedCount\\": 88330,
++           },
++           \\"unreadCommentsCount\\": 53842,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"est placeat ex\\",
++           \\"id\\": \\"14\\",
++           \\"name\\": \\"Community 2\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Favian\\",
++                 \\"lastName\\": \\"Ruecker\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Dominique\\",
++                 \\"lastName\\": \\"Hermann\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 89588,
++             \\"memberCount\\": 75278,
++             \\"unassignedCount\\": 42809,
++           },
++           \\"unreadCommentsCount\\": 69020,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"aut nam et\\",
++           \\"id\\": \\"15\\",
++           \\"name\\": \\"Community 3\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Lillie\\",
++                 \\"lastName\\": \\"Bins\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Betsy\\",
++                 \\"lastName\\": \\"Schaefer\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 94948,
++             \\"memberCount\\": 6406,
++             \\"unassignedCount\\": 44991,
++           },
++           \\"unreadCommentsCount\\": 88134,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"earum voluptate vel\\",
++           \\"id\\": \\"16\\",
++           \\"name\\": \\"Community 4\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Dasia\\",
++                 \\"lastName\\": \\"Ruecker\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Stewart\\",
++                 \\"lastName\\": \\"Russel\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 57367,
++             \\"memberCount\\": 30136,
++             \\"unassignedCount\\": 287,
++           },
++           \\"unreadCommentsCount\\": 35531,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"sequi voluptas culpa\\",
++           \\"id\\": \\"17\\",
++           \\"name\\": \\"Community 5\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Julianne\\",
++                 \\"lastName\\": \\"Altenwerth\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Sheldon\\",
++                 \\"lastName\\": \\"Quitzon\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 35726,
++             \\"memberCount\\": 47064,
++             \\"unassignedCount\\": 90853,
++           },
++           \\"unreadCommentsCount\\": 77273,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"totam perferendis ut\\",
++           \\"id\\": \\"18\\",
++           \\"name\\": \\"Community 6\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Tobin\\",
++                 \\"lastName\\": \\"Sipes\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Maryse\\",
++                 \\"lastName\\": \\"Lubowitz\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 99732,
++             \\"memberCount\\": 7008,
++             \\"unassignedCount\\": 17234,
++           },
++           \\"unreadCommentsCount\\": 76459,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"quod recusandae consectetur\\",
++           \\"id\\": \\"19\\",
++           \\"name\\": \\"Community 7\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Maverick\\",
++                 \\"lastName\\": \\"Kohler\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Annabel\\",
++                 \\"lastName\\": \\"Fay\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 75546,
++             \\"memberCount\\": 50824,
++             \\"unassignedCount\\": 75387,
++           },
++           \\"unreadCommentsCount\\": 47247,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"ab quo occaecati\\",
++           \\"id\\": \\"20\\",
++           \\"name\\": \\"Community 8\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Bradley\\",
++                 \\"lastName\\": \\"D'Amore\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Aisha\\",
++                 \\"lastName\\": \\"Huels\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 2621,
++             \\"memberCount\\": 10736,
++             \\"unassignedCount\\": 2830,
++           },
++           \\"unreadCommentsCount\\": 20856,
+            \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"aut eos quis\\",
++           \\"id\\": \\"21\\",
++           \\"name\\": \\"Community 9\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Kali\\",
++                 \\"lastName\\": \\"Fay\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Kattie\\",
++                 \\"lastName\\": \\"Wisoky\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 84203,
++             \\"memberCount\\": 27831,
++             \\"unassignedCount\\": 12417,
++           },
++           \\"unreadCommentsCount\\": 50981,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"sunt qui similique\\",
++           \\"id\\": \\"22\\",
++           \\"name\\": \\"Community 10\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Wade\\",
++                 \\"lastName\\": \\"Johnson\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Kelley\\",
++                 \\"lastName\\": \\"Hilll\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 1864,
++             \\"memberCount\\": 81299,
++             \\"unassignedCount\\": 80063,
++           },
++           \\"unreadCommentsCount\\": 23362,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"porro aut laborum\\",
++           \\"id\\": \\"23\\",
++           \\"name\\": \\"Community 11\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Gideon\\",
++                 \\"lastName\\": \\"Kautzer\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Salma\\",
++                 \\"lastName\\": \\"Rolfson\\",
+                },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 74712,
++             \\"memberCount\\": 42781,
++             \\"unassignedCount\\": 55624,
++           },
++           \\"unreadCommentsCount\\": 28976,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"commodi inventore sequi\\",
++           \\"id\\": \\"24\\",
++           \\"name\\": \\"Community 12\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Bobbie\\",
++                 \\"lastName\\": \\"Wehner\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Alvah\\",
++                 \\"lastName\\": \\"Von\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 10749,
++             \\"memberCount\\": 78195,
++             \\"unassignedCount\\": 22570,
++           },
++           \\"unreadCommentsCount\\": 42838,
++           \\"userCreated\\": false,
++         },
         ]
       }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "paddingLeft": 5,
-            },
-            Object {
-              "alignItems": "flex-start",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+      getItemCount={[Function anonymous]}
+@@ -777,11 +1125,11 @@
+                  \\"nodes\\": Array [],
                 },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+                \\"report\\": Object {
+                  \\"__typename\\": \\"CommunitiesReport\\",
+                  \\"contactCount\\": 0,
+-                 \\"memberCount\\": 41702,
++                 \\"memberCount\\": 39767,
+                  \\"unassignedCount\\": 0,
+                },
+                \\"unreadCommentsCount\\": 0,
+                \\"userCreated\\": true,
               }
-            >
-              
-            </Text>
-          </View>
+@@ -1142,11 +1490,11 @@
+          />
         </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "flex": 4,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <Text
-          numberOfLines={1}
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                undefined,
-              ],
-            ]
-          }
-        >
-          COMMUNITIES
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "paddingRight": 5,
-            },
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      />
-    </View>
-  </RCTSafeAreaView>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="joinCommunity"
-      >
         <View
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "backgroundColor": "#005A7F",
-                  "flexBasis": 40,
-                  "justifyContent": "center",
-                  "paddingVertical": 13,
-                },
-                Object {
-                  "borderRightColor": "#007398",
-                  "borderRightWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            JOIN A COMMUNITY
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="createCommunity"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "backgroundColor": "#005A7F",
-                "flexBasis": 40,
-                "justifyContent": "center",
-                "paddingVertical": 13,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            CREATE A COMMUNITY
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <RCTScrollView
-    data={
-      Array [
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": null,
-          "id": "_global_community_id",
-          "name": "MissionHub Community",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 2738,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "1",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "photo.jpg",
-          "id": "2",
-          "name": "Community 2",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "Second",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 222,
-            "memberCount": 234,
-            "unassignedCount": 333,
-          },
-          "unreadCommentsCount": 2,
-          "userCreated": false,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "3",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "4",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "5",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "6",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "7",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "8",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "9",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "10",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "11",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "12",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "1",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "photo.jpg",
-          "id": "2",
-          "name": "Community 2",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "Second",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 222,
-            "memberCount": 234,
-            "unassignedCount": 333,
-          },
-          "unreadCommentsCount": 2,
-          "userCreated": false,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "3",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "4",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "5",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "6",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "7",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "8",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "9",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "10",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "11",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "12",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-      ]
-    }
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    getItemLayout={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onRefresh={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    refreshControl={
-      <RefreshControlMock
-        onRefresh={[Function]}
-        refreshing={false}
-      />
-    }
-    refreshing={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "backgroundColor": "#ECEEF2",
-        "flex": 1,
-        "paddingVertical": 8,
-      }
-    }
-    testID="flatList"
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
-  >
-    <RCTRefreshControl />
-    <View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
             Object {
-              "__typename": "Community",
-              "communityPhotoUrl": null,
-              "id": "_global_community_id",
-              "name": "MissionHub Community",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 2738,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
+-             \\"height\\": 5038.5,
++             \\"height\\": 10077,
             }
           }
-          onPress={[Function]}
-          testID="GroupCard"
         />
       </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "1",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "photo.jpg",
-              "id": "2",
-              "name": "Community 2",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "Second",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 222,
-                "memberCount": 234,
-                "unassignedCount": 333,
-              },
-              "unreadCommentsCount": 2,
-              "userCreated": false,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "3",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "4",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "5",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "6",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "7",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "8",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "9",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "height": 10077,
-          }
-        }
-      />
-    </View>
-  </RCTScrollView>
-</View>
+    </RCTScrollView>"
 `;
 
 exports[`GroupsListScreen handleScroll should not load more when no next page 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-    }
-  }
->
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "backgroundColor": "transparent",
-      }
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "flexDirection": "row",
-            "height": 56,
-            "paddingTop": 0,
-          },
-          undefined,
-          null,
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "paddingLeft": 5,
-            },
-            Object {
-              "alignItems": "flex-start",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "flex": 4,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <Text
-          numberOfLines={1}
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                undefined,
-              ],
-            ]
-          }
-        >
-          COMMUNITIES
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "paddingRight": 5,
-            },
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      />
-    </View>
-  </RCTSafeAreaView>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="joinCommunity"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "backgroundColor": "#005A7F",
-                  "flexBasis": 40,
-                  "justifyContent": "center",
-                  "paddingVertical": 13,
-                },
-                Object {
-                  "borderRightColor": "#007398",
-                  "borderRightWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            JOIN A COMMUNITY
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="createCommunity"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "backgroundColor": "#005A7F",
-                "flexBasis": 40,
-                "justifyContent": "center",
-                "paddingVertical": 13,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            CREATE A COMMUNITY
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <RCTScrollView
-    data={
-      Array [
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": null,
-          "id": "_global_community_id",
-          "name": "MissionHub Community",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 41702,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "1",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "photo.jpg",
-          "id": "2",
-          "name": "Community 2",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "Second",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 222,
-            "memberCount": 234,
-            "unassignedCount": 333,
-          },
-          "unreadCommentsCount": 2,
-          "userCreated": false,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "3",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "4",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "5",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "6",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "7",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "8",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "9",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "10",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "11",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "12",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-      ]
-    }
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    getItemLayout={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onRefresh={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    refreshControl={
-      <RefreshControlMock
-        onRefresh={[Function]}
-        refreshing={false}
-      />
-    }
-    refreshing={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "backgroundColor": "#ECEEF2",
-        "flex": 1,
-        "paddingVertical": 8,
-      }
-    }
-    testID="flatList"
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
-  >
-    <RCTRefreshControl />
-    <View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": null,
-              "id": "_global_community_id",
-              "name": "MissionHub Community",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 41702,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "1",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "photo.jpg",
-              "id": "2",
-              "name": "Community 2",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "Second",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 222,
-                "memberCount": 234,
-                "unassignedCount": 333,
-              },
-              "unreadCommentsCount": 2,
-              "userCreated": false,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "3",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "4",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "5",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "6",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "7",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "8",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "9",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "height": 5038.5,
-          }
-        }
-      />
-    </View>
-  </RCTScrollView>
-</View>
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
 
 exports[`GroupsListScreen handleScroll should not load more when not scrolling close to bottom 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-    }
-  }
->
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "backgroundColor": "transparent",
-      }
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "flexDirection": "row",
-            "height": 56,
-            "paddingTop": 0,
-          },
-          undefined,
-          null,
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "paddingLeft": 5,
-            },
-            Object {
-              "alignItems": "flex-start",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "flex": 4,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <Text
-          numberOfLines={1}
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                undefined,
-              ],
-            ]
-          }
-        >
-          COMMUNITIES
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "paddingRight": 5,
-            },
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      />
-    </View>
-  </RCTSafeAreaView>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="joinCommunity"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "backgroundColor": "#005A7F",
-                  "flexBasis": 40,
-                  "justifyContent": "center",
-                  "paddingVertical": 13,
-                },
-                Object {
-                  "borderRightColor": "#007398",
-                  "borderRightWidth": 1,
-                },
-              ],
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            JOIN A COMMUNITY
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="createCommunity"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "backgroundColor": "#005A7F",
-                "flexBasis": 40,
-                "justifyContent": "center",
-                "paddingVertical": 13,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
-              ]
-            }
-          >
-            CREATE A COMMUNITY
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <RCTScrollView
-    data={
-      Array [
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": null,
-          "id": "_global_community_id",
-          "name": "MissionHub Community",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 41702,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "1",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "photo.jpg",
-          "id": "2",
-          "name": "Community 2",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "Second",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 222,
-            "memberCount": 234,
-            "unassignedCount": 333,
-          },
-          "unreadCommentsCount": 2,
-          "userCreated": false,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "3",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "4",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "5",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "6",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "7",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "8",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "9",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "10",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "11",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-        Object {
-          "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
-          "id": "12",
-          "name": "Community 1",
-          "owner": Object {
-            "__typename": "PersonConnection",
-            "nodes": Array [
-              Object {
-                "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
-              },
-            ],
-          },
-          "report": Object {
-            "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
-          },
-          "unreadCommentsCount": 0,
-          "userCreated": true,
-        },
-      ]
-    }
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    getItemLayout={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    numColumns={1}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onRefresh={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    refreshControl={
-      <RefreshControlMock
-        onRefresh={[Function]}
-        refreshing={false}
-      />
-    }
-    refreshing={false}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
-        "backgroundColor": "#ECEEF2",
-        "flex": 1,
-        "paddingVertical": 8,
-      }
-    }
-    testID="flatList"
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
-  >
-    <RCTRefreshControl />
-    <View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": null,
-              "id": "_global_community_id",
-              "name": "MissionHub Community",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 41702,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "1",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "photo.jpg",
-              "id": "2",
-              "name": "Community 2",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "Second",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 222,
-                "memberCount": 234,
-                "unassignedCount": 333,
-              },
-              "unreadCommentsCount": 2,
-              "userCreated": false,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "3",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "4",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "5",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "6",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "7",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "8",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={null}
-      >
-        <GroupCardItem
-          group={
-            Object {
-              "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
-              "id": "9",
-              "name": "Community 1",
-              "owner": Object {
-                "__typename": "PersonConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
-                  },
-                ],
-              },
-              "report": Object {
-                "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
-              },
-              "unreadCommentsCount": 0,
-              "userCreated": true,
-            }
-          }
-          onPress={[Function]}
-          testID="GroupCard"
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "height": 5038.5,
-          }
-        }
-      />
-    </View>
-  </RCTScrollView>
-</View>
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
 
 exports[`GroupsListScreen renders with communities 1`] = `
