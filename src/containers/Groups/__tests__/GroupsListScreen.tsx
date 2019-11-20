@@ -159,18 +159,32 @@ describe('GroupsListScreen', () => {
       expect(resetScrollGroups).toHaveBeenCalledWith();
     });
 
-    it('should not scroll to index', async () => {
+    it('should not scroll to index when ScrollToId is null', async () => {
       renderWithContext(<GroupsListScreen />, {
         initialState: {
           ...initialState,
-          swipe: { groupScrollToId: 'doesnt exist' },
+          swipe: { groupScrollToId: null },
         },
       });
 
       await flushMicrotasksQueue();
       // TODO: Not sure how to test ref
       // expect(flatList.scrollToIndex).not.toHaveBeenCalled();
-      expect(resetScrollGroups).toHaveBeenCalledWith();
+      expect(resetScrollGroups).not.toHaveBeenCalled();
+    });
+
+    it('should not scroll to index when ScrollToId is not found', async () => {
+      renderWithContext(<GroupsListScreen />, {
+        initialState: {
+          ...initialState,
+          swipe: { groupScrollToId: 'ID' },
+        },
+      });
+
+      await flushMicrotasksQueue();
+      // TODO: Not sure how to test ref
+      // expect(flatList.scrollToIndex).not.toHaveBeenCalled();
+      expect(resetScrollGroups).not.toHaveBeenCalled();
     });
   });
 

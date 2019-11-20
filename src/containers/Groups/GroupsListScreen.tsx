@@ -114,14 +114,11 @@ const isCloseToBottom = ({
   );
 };
 
-const ItemHeight = GroupCardHeight + CardVerticalMargin * 2;
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getItemLayout = (_: any, index: number) => ({
-  length: ItemHeight,
-  offset: ItemHeight * index,
-  index,
-});
+const getItemLayout = (_: any, index: number) => {
+  const ItemHeight = GroupCardHeight + CardVerticalMargin * 2;
+  return { length: ItemHeight, offset: ItemHeight * index, index };
+};
 
 const GroupsListScreen = ({
   dispatch,
