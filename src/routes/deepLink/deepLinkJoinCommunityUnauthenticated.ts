@@ -1,7 +1,11 @@
 import { createStackNavigator } from 'react-navigation-stack';
+import { ThunkDispatch } from 'redux-thunk';
 
-import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
-import { buildTrackedScreen, wrapNextAction } from '../helpers';
+import {
+  buildTrackedScreen,
+  wrapNextAction,
+  wrapNextScreenFn,
+} from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { loadHome } from '../../actions/auth/userData';
@@ -9,9 +13,8 @@ import {
   joinStashedCommunity,
   landOnStashedCommunityScreen,
   setOnboardingCommunity,
-  skipOnboardingAddPerson,
+  setOnboardingPersonId,
 } from '../../actions/onboarding';
-import { showReminderOnLoad } from '../../actions/notifications';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
@@ -19,12 +22,11 @@ import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import { SIGN_IN_SCREEN } from '../../containers/Auth/SignInScreen';
 import { authFlowGenerator } from '../auth/authFlowGenerator';
-
-const finishAuth = () => async dispatch => {
-  await dispatch(joinStashedCommunity());
-  await dispatch(loadHome());
-  dispatch(landOnStashedCommunityScreen());
-};
+import { onboardingFlowGenerator } from '../onboarding/onboardingFlowGenerator';
+import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
+import CelebrationScreen, {
+  CELEBRATION_SCREEN,
+} from '../../containers/CelebrationScreen';
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -37,21 +39,23 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     ),
     buildTrackingObj('communities : join', 'communities', 'join'),
   ),
+  ...onboardingFlowGenerator(),
   [WELCOME_SCREEN]: buildTrackedScreen(
-    wrapNextAction(WelcomeScreen, ({ signin }) => dispatch => {
-      dispatch(navigatePush(signin ? SIGN_IN_SCREEN : SETUP_SCREEN));
-    }),
+    wrapNextScreenFn(WelcomeScreen, ({ signin }) =>
+      signin ? SIGN_IN_SCREEN : SETUP_SCREEN,
+    ),
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       SetupScreen,
       () => async dispatch => {
-        dispatch(skipOnboardingAddPerson());
-        await dispatch(
-          showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+        await dispatch(joinStashedCommunity());
+        dispatch(
+          navigatePush(GET_STARTED_SCREEN, {
+            isMe: true,
+          }),
         );
-        dispatch(finishAuth());
       },
       {
         isMe: true,
@@ -59,8 +63,26 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     ),
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
+  [CELEBRATION_SCREEN]: buildTrackedScreen(
+    wrapNextAction(
+      CelebrationScreen,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      () => async (dispatch: ThunkDispatch<{}, {}, any>) => {
+        await dispatch(loadHome());
+        dispatch(landOnStashedCommunityScreen());
+        dispatch(setOnboardingPersonId(''));
+      },
+    ),
+    buildTrackingObj('onboarding : complete', 'onboarding'),
+  ),
   ...authFlowGenerator({
-    completeAction: finishAuth(),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    completeAction: async (dispatch: ThunkDispatch<{}, {}, any>) => {
+      await dispatch(joinStashedCommunity());
+      await dispatch(loadHome());
+      dispatch(landOnStashedCommunityScreen());
+      dispatch(setOnboardingPersonId(''));
+    },
     includeSignUp: false,
   }),
 };
