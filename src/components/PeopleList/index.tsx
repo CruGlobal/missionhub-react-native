@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
@@ -20,9 +21,45 @@ import PersonItem from '../../containers/PersonItem';
 import { Flex, Text, RefreshControl } from '../common';
 import { keyExtractorId } from '../../utils/common';
 
-import { GET_PEOPLE_STEPS_COUNT } from './queries';
 import { GetPeopleStepsCount } from './__generated__/GetPeopleStepsCount';
 import styles from './styles';
+
+export const GET_PEOPLE_STEPS_COUNT = gql`
+  query GetPeopleStepsCount($id: [ID!]) {
+    communities {
+      nodes {
+        people(assignedTos: $id) {
+          nodes {
+            fullName
+            id
+            steps(completed: false) {
+              pageInfo {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    }
+    currentUser {
+      person {
+        contactAssignments(organizationIds: "") {
+          nodes {
+            person {
+              fullName
+              id
+              steps(completed: false) {
+                pageInfo {
+                  totalCount
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 interface PeopleListProps {
   items: any;
