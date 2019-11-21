@@ -25,10 +25,10 @@ import { GetPeopleStepsCount } from './__generated__/GetPeopleStepsCount';
 import styles from './styles';
 
 export const GET_PEOPLE_STEPS_COUNT = gql`
-  query GetPeopleStepsCount($id: [ID!]) {
+  query GetPeopleStepsCount($myId: [ID!]) {
     communities {
       nodes {
-        people(assignedTos: $id) {
+        people(assignedTos: $myId) {
           nodes {
             fullName
             id
@@ -85,7 +85,7 @@ export default ({
     GetPeopleStepsCount
   >(GET_PEOPLE_STEPS_COUNT, {
     variables: {
-      id: [personId],
+      myId: [personId],
     },
   });
 
@@ -100,20 +100,14 @@ export default ({
     }
 
     const { communities, currentUser } = data;
-    const currentUserData = currentUser.person.contactAssignments.nodes
-      .map(node => node.person)
-      .reduce((accumulator: any, currentValue) => {
-        accumulator[currentValue.id] = currentValue;
-        return accumulator;
-      }, {});
-
-    const communityData = communities.nodes
-      .flatMap(node => node.people.nodes.map(person => person))
-      .reduce((accumulator: any, currentValue) => {
-        accumulator[currentValue.id] = currentValue;
-        return accumulator;
-      }, {});
-    return { ...currentUserData, ...communityData };
+    const combinedData = [
+      ...currentUser.person.contactAssignments.nodes.map(node => node.person),
+      ...communities.nodes.flatMap(node => node.people.nodes),
+    ].reduce((accumulator: any, currentValue) => {
+      accumulator[currentValue.id] = currentValue;
+      return accumulator;
+    }, {});
+    return combinedData;
   };
 
   const toggleSection = (id: string) => {
