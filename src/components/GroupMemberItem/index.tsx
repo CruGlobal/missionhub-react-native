@@ -1,6 +1,6 @@
 /* eslint complexity: 0 */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -97,33 +97,33 @@ const GroupMemberItem = ({
     const permissionText = orgPermissionText();
 
     return (
-      <Fragment>
+      <>
         {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
         {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
           <Text style={styles.detailText}>{orgPermissionText()}</Text>
         ) : null}
-      </Fragment>
+      </>
     );
   };
   // REMOVE_IN_SPLIT
   const renderCruDetails = () => {
     return (
-      <Fragment>
+      <>
         <Text style={styles.detailText}>
           {t('numAssigned', { count: person.contact_count || 0 })}
         </Text>
         {person.uncontacted_count ? (
-          <Fragment>
+          <>
             <Dot style={styles.detailText} />
             <Text style={styles.detailTextRed}>
               {t('numUncontacted', {
                 count: person.uncontacted_count,
               })}
             </Text>
-          </Fragment>
+          </>
         ) : null}
-      </Fragment>
+      </>
     );
   };
 
