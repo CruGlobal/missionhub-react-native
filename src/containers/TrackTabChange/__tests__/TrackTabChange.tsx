@@ -19,7 +19,9 @@ beforeEach(() => {
 
 describe('TrackTabChange', () => {
   it('renders component correctly', () => {
-    renderWithContext(<TrackTabChange dispatch={dispatch} screen="test" />);
+    renderWithContext(
+      <TrackTabChange dispatch={dispatch} screen="test" />,
+    ).snapshot();
   });
 
   describe('ComponentDidMount', () => {
