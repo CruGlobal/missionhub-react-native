@@ -161,7 +161,7 @@ const SetupScreen = ({
         testID="SaveBottomButton"
         disabled={isLoading}
         onPress={saveAndNavigateNext}
-        text={t(isMe ? 'continue' : 'next')}
+        text={t('continue')}
       />
     </View>
   );

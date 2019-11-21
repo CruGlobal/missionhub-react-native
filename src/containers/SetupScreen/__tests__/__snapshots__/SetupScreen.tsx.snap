@@ -969,7 +969,7 @@ exports[`renders other person version correctly 1`] = `
             ]
           }
         >
-          NEXT
+          CONTINUE
         </Text>
       </View>
     </View>
