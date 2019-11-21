@@ -216,6 +216,27 @@ export class StepsScreen extends Component {
     );
   }
 
+  renderNull() {
+    const { t } = this.props;
+
+    return (
+      <View style={styles.nullContainer}>
+        <Image source={NULL} />
+        <Text header={true} style={styles.nullHeader}>
+          {t('nullHeader')}
+        </Text>
+        <View style={styles.nulltextWrapper}>
+          <Text style={styles.nullText}>{t('nullNoReminders.part1')}</Text>
+          <Text style={styles.nullText}>{t('nullNoReminders.part2')}</Text>
+        </View>
+        <BottomButton
+          text={t('mainTabs:takeAStepWithSomeone')}
+          onPress={this.navToPersonScreen}
+        />
+      </View>
+    );
+  }
+
   renderReminders() {
     const { reminders } = this.props;
     const focusedSteps = reminders.filter(r => r && r.id);
@@ -254,31 +275,7 @@ export class StepsScreen extends Component {
   };
 
   renderList() {
-    const { steps, t, hasMoreSteps } = this.props;
-    if (steps.length === 0) {
-      return (
-        <Flex value={1} align="center" justify="center">
-          <Image source={NULL} />
-          <Text header={true} style={styles.nullHeader}>
-            {t('nullHeader')}
-          </Text>
-          <View style={styles.nulltextWrapper}>
-            {this.hasReminders() ? (
-              <Text style={styles.nullText}>{t('nullWithReminders')}</Text>
-            ) : (
-              <>
-                <Text style={styles.nullText}>
-                  {t('nullNoReminders.part1')}
-                </Text>
-                <Text style={styles.nullText}>
-                  {t('nullNoReminders.part2')}
-                </Text>
-              </>
-            )}
-          </View>
-        </Flex>
-      );
-    }
+    const { steps, hasMoreSteps } = this.props;
 
     return (
       <FlatList
@@ -298,7 +295,7 @@ export class StepsScreen extends Component {
   }
 
   renderSteps() {
-    const { steps, reminders, t } = this.props;
+    const { steps } = this.props;
 
     return (
       <View style={styles.container}>
@@ -324,12 +321,6 @@ export class StepsScreen extends Component {
           {this.renderReminders()}
           {this.renderList()}
         </ScrollView>
-        {steps.length > 0 || reminders.length > 0 ? null : (
-          <BottomButton
-            text={t('mainTabs:takeAStepWithSomeone')}
-            onPress={this.navToPersonScreen}
-          />
-        )}
       </View>
     );
   }
@@ -338,6 +329,8 @@ export class StepsScreen extends Component {
 
   render() {
     const { t, steps } = this.props;
+
+    const hasSteps = steps && steps.length > 0;
 
     return (
       <View style={styles.container}>
@@ -353,10 +346,14 @@ export class StepsScreen extends Component {
           title={t('title').toUpperCase()}
         />
         {steps ? (
-          <View style={styles.contentContainer}>
-            <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
-            {this.renderSteps()}
-          </View>
+          hasSteps || this.hasReminders() ? (
+            <View style={styles.contentContainer}>
+              <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
+              {this.renderSteps()}
+            </View>
+          ) : (
+            this.renderNull()
+          )
         ) : (
           <View style={styles.contentContainer}>
             <LoadingGuy />
