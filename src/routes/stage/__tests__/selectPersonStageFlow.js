@@ -122,7 +122,7 @@ describe('SelectStageScreen next', () => {
 
       it('should navigate to CelebrationScreen', () => {
         expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-          contactId: otherId,
+          personId: otherId,
           orgId,
         });
       });
@@ -176,7 +176,7 @@ describe('SelectStageScreen next', () => {
 
       it('should navigate to CelebrationScreen', () => {
         expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-          contactId: otherId,
+          personId: otherId,
           orgId,
         });
       });
