@@ -1,10 +1,6 @@
 import React from 'react';
 
-import {
-  renderShallow,
-  renderWithContext,
-  testSnapshotShallow,
-} from '../../../../testUtils';
+import { renderShallow, renderWithContext } from '../../../../testUtils';
 import { TRACK_TAB } from '../../../constants';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 
@@ -23,7 +19,7 @@ beforeEach(() => {
 
 describe('TrackTabChange', () => {
   it('renders component correctly', () => {
-    testSnapshotShallow(<TrackTabChange dispatch={dispatch} screen="test" />);
+    renderWithContext(<TrackTabChange dispatch={dispatch} screen="test" />);
   });
 
   describe('ComponentDidMount', () => {
