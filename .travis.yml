@@ -9,8 +9,8 @@ matrix:
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
       script:
+        - yarn gql:codegen
         - yarn gql:schema
-        - yarn gql:codegen # TODO: reenable once the first GraphQL query is added. Fails with non-zero exit code when no queries are found.
         - yarn test:coverage --maxWorkers=4
         - yarn lint
         - yarn lint:ts
