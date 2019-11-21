@@ -54,6 +54,9 @@ interface SelectStageScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props: {
     isMe: boolean;
+    personId: string;
+    stage: Stage;
+    isAlreadySelected: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   myId: string;
@@ -137,6 +140,9 @@ const SelectStageScreen = ({
     dispatch(
       next({
         isMe,
+        personId,
+        stage,
+        isAlreadySelected,
       }),
     );
 
