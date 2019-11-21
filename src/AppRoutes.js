@@ -487,7 +487,7 @@ const screens = {
   [CELEBRATE_SHARE_STORY_SCREEN]: buildTrackedScreen(
     ShareStoryScreen,
     buildTrackingObj(
-      'communities : celebration : comment',
+      'communities : celebration : sharestory',
       'communities',
       'celebration',
     ),

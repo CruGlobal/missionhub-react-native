@@ -12,4 +12,14 @@ export default StyleSheet.create({
     fontSize: 16,
     color: theme.lightGrey,
   },
+  textInput: {
+    fontSize: 32,
+    fontWeight: '300',
+    lineHeight: 38,
+    color: theme.lightGrey,
+    borderBottomWidth: 0,
+    marginTop: 64,
+    marginBottom: 26,
+    paddingHorizontal: 32,
+  },
 });
