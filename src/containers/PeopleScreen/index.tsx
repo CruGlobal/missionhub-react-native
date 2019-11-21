@@ -22,6 +22,7 @@ import { PEOPLE_TAB } from '../../constants';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { AuthState } from '../../reducers/auth';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
@@ -32,6 +33,7 @@ interface PeopleScreenProps {
   items: any;
   isJean: boolean;
   hasNoContacts: boolean;
+  person: Person;
 }
 
 export const PeopleScreen = ({
@@ -39,6 +41,7 @@ export const PeopleScreen = ({
   items,
   isJean,
   hasNoContacts,
+  person,
 }: PeopleScreenProps) => {
   const { t } = useTranslation('peopleScreen');
 
@@ -102,6 +105,7 @@ export const PeopleScreen = ({
         onAddContact={handleAddContact}
         onRefresh={refresh}
         refreshing={isRefreshing}
+        personId={person.id}
       />
       {hasNoContacts ? (
         <BottomButton
@@ -121,7 +125,7 @@ export const mapStateToProps = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   people: any;
 }) => {
-  const { isJean } = auth;
+  const { isJean, person } = auth;
   const items = isJean
     ? peopleByOrgSelector({ people, auth })
     : allAssignedPeopleSelector({ people, auth });
@@ -134,6 +138,7 @@ export const mapStateToProps = ({
     isJean,
     items,
     hasNoContacts,
+    person,
   };
 };
 
