@@ -12,7 +12,6 @@ import SelectStepScreen from './SelectStepScreen';
 
 interface PersonSelectStepScreenProps {
   contactName: string;
-  contactId: string;
   contactStage: {
     id: string;
   };
@@ -24,7 +23,7 @@ interface PersonSelectStepScreenProps {
   personId: string;
   organization: OrganizationsState;
   next: (nextProps: {
-    receiverId: string;
+    personId: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     step?: any | undefined;
     skip: boolean;
@@ -36,7 +35,6 @@ interface PersonSelectStepScreenProps {
 
 const PersonSelectStepScreen = ({
   contactName,
-  contactId,
   contactStage,
   contactAssignment,
   personId,
@@ -53,7 +51,7 @@ const PersonSelectStepScreen = ({
   return (
     <SelectStepScreen
       contactStageId={stageId}
-      receiverId={contactId ? contactId : personId}
+      personId={personId}
       contactName={name}
       headerText={[t('personHeader.part1'), t('personHeader.part2', { name })]}
       organization={organization}
