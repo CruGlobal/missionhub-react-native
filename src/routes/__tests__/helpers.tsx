@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 // eslint-disable-next-line import/named
-import { StackActions } from 'react-navigation';
+import { StackActions, NavigationScreenComponent } from 'react-navigation';
 
 import {
   wrapNextScreen,
@@ -20,6 +20,8 @@ const nextScreenName = 'testNextScreenName';
 const routeParams = { testKey: 'testValue' };
 
 const TestComponent = connect()(({ next, dispatch }) =>
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
   dispatch(next(routeParams)),
 );
 
@@ -93,11 +95,23 @@ describe('wrapProps', () => {
 describe('buildTrackedScreen', () => {
   it('should convert function params into an object', () => {
     expect(
-      buildTrackedScreen('screen', 'tracking', 'navigationOptions'),
-    ).toEqual({
-      screen: 'screen',
-      tracking: 'tracking',
-      navigationOptions: 'navigationOptions',
-    });
+      buildTrackedScreen(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ('screen' as unknown) as NavigationScreenComponent<any, any>,
+        { name: 'trackedScreen', section: 'section' },
+        { headerShown: true },
+      ),
+    ).toMatchInlineSnapshot(`
+      Object {
+        "navigationOptions": Object {
+          "headerShown": true,
+        },
+        "screen": "screen",
+        "tracking": Object {
+          "name": "trackedScreen",
+          "section": "section",
+        },
+      }
+    `);
   });
 });
