@@ -1081,6 +1081,166 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
 </View>
 `;
 
+exports[`render contacts count cru org should render assigned and uncontacted 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          5 Assigned
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
+          }
+        >
+           · 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              },
+            ]
+          }
+        >
+          3 Uncontacted
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`render contacts count user created org should render no stage, admin permissions 1`] = `
 <View
   accessible={true}

@@ -162,7 +162,7 @@ describe('render contacts count', () => {
     it('should render assigned and uncontacted', () => {
       renderWithContext(<GroupMemberItem {...props} />, {
         initialState,
-      });
+      }).snapshot();
     });
 
     it('should render 0 assigned', () => {

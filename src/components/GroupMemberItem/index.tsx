@@ -85,13 +85,13 @@ const GroupMemberItem = ({
       const contactAssignment = contactAssignments.find(
         (a: Person) => a.assigned_to.id === me.id,
       );
-      const { pathway_stage_id } = contactAssignment;
+
       if (
         contactAssignment &&
-        pathway_stage_id &&
-        stagesObj[pathway_stage_id]
+        contactAssignment.pathway_stage_id &&
+        stagesObj[contactAssignment.pathway_stage_id]
       ) {
-        stage = stagesObj[pathway_stage_id];
+        stage = stagesObj[contactAssignment.pathway_stage_id];
       }
     }
 
