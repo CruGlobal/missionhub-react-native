@@ -21,7 +21,7 @@ import { IconButton, Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
-import { navigateToOrg } from '../../actions/organizations';
+import { navigateToCommunity } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
@@ -207,7 +207,7 @@ const GroupsListScreen = ({
   }, [communities, scrollToId, flatList]);
 
   const handlePress = (community: GetCommunities_communities_nodes) => {
-    dispatch(navigateToOrg(community.id));
+    dispatch(navigateToCommunity(community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 

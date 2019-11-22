@@ -18,6 +18,7 @@ import {
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
+import { ActionSheetIOS } from 'react-native';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Organization = any; // TODO: use GraphQL type
@@ -69,11 +70,13 @@ function organizationsReducer(state = initialState, action: any) {
     case REQUESTS.GET_ORGANIZATION.SUCCESS:
       return {
         ...state,
-        all: state.all.map(o =>
-          o.id === action.query.orgId
-            ? { ...o, ...action.results.response }
-            : o,
-        ),
+        all: state.all.find(o => o.id === action.query.orgId)
+          ? state.all.map(o =>
+              o.id === action.query.id
+                ? { ...orgId, ...action.results.response }
+                : o,
+            )
+          : [...state.all, action.results.response],
       };
     case GET_ORGANIZATIONS_CONTACTS_REPORT:
       const { reports } = action;

@@ -607,13 +607,13 @@ export function removeOrganizationMember(personId, orgId) {
   };
 }
 
-export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
-  return (dispatch, getState) => {
-    const { organizations } = getState();
-    const { user_created } = organizationSelector({ organizations }, { orgId });
+export function navigateToCommunity(community, initialTab) {
+  return dispatch => {
+    console.log(community);
+    const { id: orgId, userCreated } = community;
 
     return dispatch(
-      navigatePush(getScreenForOrg(orgId, user_created), {
+      navigatePush(getScreenForOrg(orgId, userCreated), {
         orgId,
         initialTab,
       }),
