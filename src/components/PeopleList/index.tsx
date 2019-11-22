@@ -43,6 +43,12 @@ export const GET_PEOPLE_STEPS_COUNT = gql`
     }
     currentUser {
       person {
+        id
+        steps(completed: false) {
+          pageInfo {
+            totalCount
+          }
+        }
         contactAssignments(organizationIds: "") {
           nodes {
             person {
@@ -100,7 +106,9 @@ export default ({
     }
 
     const { communities, currentUser } = data;
+
     const combinedData = [
+      { id: currentUser.person.id, steps: currentUser.person.steps },
       ...currentUser.person.contactAssignments.nodes.map(node => node.person),
       ...communities.nodes.flatMap(node => node.people.nodes),
     ].reduce((accumulator: any, currentValue) => {
