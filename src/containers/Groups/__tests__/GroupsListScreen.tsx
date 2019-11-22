@@ -15,6 +15,7 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
+import { MockList } from 'graphql-tools';
 
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
@@ -27,50 +28,6 @@ jest.mock('../../TrackTabChange', () => () => null);
 const auth = { upgradeToken: null };
 const swipe = { groupScrollToId: null };
 const initialState = { auth, swipe };
-
-const usersReport = {
-  id: 4,
-  usersCount: 1123,
-};
-const community1 = {
-  id: '1',
-  name: 'Community 1',
-  unreadCommentsCount: 0,
-  userCreated: true,
-  communityPhotoUrl: 'image.jpg',
-  people: () => ({
-    nodes: [{ id: '11', firstName: 'Owner', lastName: 'First' }],
-  }),
-  report: () => ({
-    contactCount: 0,
-    memberCount: 123,
-    unassignedCount: 0,
-  }),
-};
-const community2 = {
-  id: '2',
-  name: 'Community 2',
-  unreadCommentsCount: 2,
-  userCreated: false,
-  communityPhotoUrl: 'photo.jpg',
-  people: () => ({
-    nodes: [{ id: '22', firstName: 'Owner', lastName: 'Second' }],
-  }),
-  report: () => ({
-    contactCount: 222,
-    memberCount: 234,
-    unassignedCount: 333,
-  }),
-};
-
-const communities = [community1, community2];
-
-const Query = () => ({
-  usersReport: () => usersReport,
-  communities: () => ({
-    nodes: communities,
-  }),
-});
 
 const navigatePushResponse = { type: 'navigate push' };
 const navigateToOrgResponse = { type: 'navigate to org' };
@@ -90,14 +47,19 @@ beforeEach(() => {
 
 describe('GroupsListScreen', () => {
   it('renders with only global community', () => {
-    renderWithContext(<GroupsListScreen />, { initialState }).snapshot();
+    renderWithContext(<GroupsListScreen />, {
+      initialState,
+      mocks: {
+        CommunityConnection: () => ({ nodes: () => [] }),
+      },
+    }).snapshot();
   });
 
   it('renders with communities', async () => {
     const { snapshot } = renderWithContext(<GroupsListScreen />, {
       initialState,
       mocks: {
-        Query,
+        CommunityConnection: () => ({ nodes: () => new MockList(5) }),
       },
     });
 
@@ -112,17 +74,18 @@ describe('GroupsListScreen', () => {
         {
           initialState,
           mocks: {
-            Query,
+            CommunityConnection: () => ({ nodes: () => new MockList(5) }),
           },
         },
       );
 
       await flushMicrotasksQueue();
       const groupCard = getAllByTestId('GroupCard')[1];
+      const community = groupCard.props.group;
 
-      fireEvent(groupCard, 'onPress', groupCard.props.group);
+      fireEvent(groupCard, 'onPress', community);
 
-      expect(navigateToOrg).toHaveBeenCalledWith(communities[0].id);
+      expect(navigateToOrg).toHaveBeenCalledWith(community.id);
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.SELECT_COMMUNITY,
       );
@@ -137,6 +100,9 @@ describe('GroupsListScreen', () => {
     it('should open main menu', () => {
       const { getByTestId, store } = renderWithContext(<GroupsListScreen />, {
         initialState,
+        mocks: {
+          CommunityConnection: () => ({ nodes: () => [] }),
+        },
       });
 
       fireEvent.press(getByTestId('IconButton'));
@@ -149,6 +115,9 @@ describe('GroupsListScreen', () => {
     it('should scroll to index 0', async () => {
       renderWithContext(<GroupsListScreen />, {
         initialState: { ...initialState, swipe: { groupScrollToId: '1' } },
+        mocks: {
+          CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+        },
       });
 
       await flushMicrotasksQueue();
@@ -167,6 +136,9 @@ describe('GroupsListScreen', () => {
           ...initialState,
           swipe: { groupScrollToId: null },
         },
+        mocks: {
+          CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+        },
       });
 
       await flushMicrotasksQueue();
@@ -180,6 +152,9 @@ describe('GroupsListScreen', () => {
         initialState: {
           ...initialState,
           swipe: { groupScrollToId: 'ID' },
+        },
+        mocks: {
+          CommunityConnection: () => ({ nodes: () => new MockList(5) }),
         },
       });
 
@@ -233,21 +208,7 @@ describe('GroupsListScreen', () => {
   });
 
   describe('handleScroll', () => {
-    const communitiesForPagination = [
-      { name: 'Community 1' },
-      { name: 'Community 2' },
-      { name: 'Community 3' },
-      { name: 'Community 4' },
-      { name: 'Community 5' },
-      { name: 'Community 6' },
-      { name: 'Community 7' },
-      { name: 'Community 8' },
-      { name: 'Community 9' },
-      { name: 'Community 10' },
-      { name: 'Community 11' },
-      { name: 'Community 12' },
-    ];
-    let query: () => {};
+    let query = () => {};
 
     const testScroll = async () => {
       const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
@@ -283,10 +244,10 @@ describe('GroupsListScreen', () => {
 
     it('paginates when close to bottom', async () => {
       query = () => ({
-        usersReport: () => usersReport,
         communities: () => ({
-          nodes: communitiesForPagination,
-          pageInfo: { hasNextPage: true },
+          nodes: (_: any, args: { [key: string]: any }) =>
+            args.after ? [{ id: '11' }, { id: '12' }] : new MockList(10),
+          pageInfo: () => ({ hasNextPage: true }),
         }),
       });
 
@@ -307,10 +268,9 @@ describe('GroupsListScreen', () => {
 
     it('should not load more when not scrolling close to bottom', async () => {
       query = () => ({
-        usersReport: () => usersReport,
         communities: () => ({
-          nodes: communitiesForPagination,
-          pageInfo: { hasNextPage: true },
+          nodes: () => new MockList(10),
+          pageInfo: () => ({ hasNextPage: true }),
         }),
       });
 
@@ -331,10 +291,9 @@ describe('GroupsListScreen', () => {
 
     it('should not load more when no next page', async () => {
       query = () => ({
-        usersReport: () => usersReport,
         communities: () => ({
-          nodes: communitiesForPagination,
-          pageInfo: { hasNextPage: false },
+          nodes: () => new MockList(10),
+          pageInfo: () => ({ hasNextPage: false }),
         }),
       });
 

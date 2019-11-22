@@ -12,257 +12,25 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
               \\"__typename\\": \\"CommunitiesReport\\",
               \\"contactCount\\": 0,
 -             \\"memberCount\\": 41702,
-+             \\"memberCount\\": 39767,
++             \\"memberCount\\": 44991,
               \\"unassignedCount\\": 0,
             },
             \\"unreadCommentsCount\\": 0,
             \\"userCreated\\": true,
           },
-@@ -714,12 +714,360 @@
-              \\"contactCount\\": 13747,
-              \\"memberCount\\": 44798,
-              \\"unassignedCount\\": 13927,
+@@ -656,12 +656,302 @@
+              \\"contactCount\\": 62169,
+              \\"memberCount\\": 7379,
+              \\"unassignedCount\\": 11474,
             },
-            \\"unreadCommentsCount\\": 13996,
+            \\"unreadCommentsCount\\": 35653,
 +           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"et molestiae ea\\",
-+           \\"id\\": \\"13\\",
-+           \\"name\\": \\"Community 1\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Fanny\\",
-+                 \\"lastName\\": \\"Marks\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Nestor\\",
-+                 \\"lastName\\": \\"Nienow\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 72599,
-+             \\"memberCount\\": 12631,
-+             \\"unassignedCount\\": 88330,
-+           },
-+           \\"unreadCommentsCount\\": 53842,
-+           \\"userCreated\\": false,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"est placeat ex\\",
-+           \\"id\\": \\"14\\",
-+           \\"name\\": \\"Community 2\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Favian\\",
-+                 \\"lastName\\": \\"Ruecker\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Dominique\\",
-+                 \\"lastName\\": \\"Hermann\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 89588,
-+             \\"memberCount\\": 75278,
-+             \\"unassignedCount\\": 42809,
-+           },
-+           \\"unreadCommentsCount\\": 69020,
-+           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"aut nam et\\",
-+           \\"id\\": \\"15\\",
-+           \\"name\\": \\"Community 3\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Lillie\\",
-+                 \\"lastName\\": \\"Bins\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Betsy\\",
-+                 \\"lastName\\": \\"Schaefer\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 94948,
-+             \\"memberCount\\": 6406,
-+             \\"unassignedCount\\": 44991,
-+           },
-+           \\"unreadCommentsCount\\": 88134,
-+           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"earum voluptate vel\\",
-+           \\"id\\": \\"16\\",
-+           \\"name\\": \\"Community 4\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Dasia\\",
-+                 \\"lastName\\": \\"Ruecker\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Stewart\\",
-+                 \\"lastName\\": \\"Russel\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 57367,
-+             \\"memberCount\\": 30136,
-+             \\"unassignedCount\\": 287,
-+           },
-+           \\"unreadCommentsCount\\": 35531,
-+           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"sequi voluptas culpa\\",
-+           \\"id\\": \\"17\\",
-+           \\"name\\": \\"Community 5\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Julianne\\",
-+                 \\"lastName\\": \\"Altenwerth\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Sheldon\\",
-+                 \\"lastName\\": \\"Quitzon\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 35726,
-+             \\"memberCount\\": 47064,
-+             \\"unassignedCount\\": 90853,
-+           },
-+           \\"unreadCommentsCount\\": 77273,
-+           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"totam perferendis ut\\",
-+           \\"id\\": \\"18\\",
-+           \\"name\\": \\"Community 6\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Tobin\\",
-+                 \\"lastName\\": \\"Sipes\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Maryse\\",
-+                 \\"lastName\\": \\"Lubowitz\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 99732,
-+             \\"memberCount\\": 7008,
-+             \\"unassignedCount\\": 17234,
-+           },
-+           \\"unreadCommentsCount\\": 76459,
-+           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"quod recusandae consectetur\\",
-+           \\"id\\": \\"19\\",
-+           \\"name\\": \\"Community 7\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Maverick\\",
-+                 \\"lastName\\": \\"Kohler\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Annabel\\",
-+                 \\"lastName\\": \\"Fay\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 75546,
-+             \\"memberCount\\": 50824,
-+             \\"unassignedCount\\": 75387,
-+           },
-+           \\"unreadCommentsCount\\": 47247,
-+           \\"userCreated\\": false,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"ab quo occaecati\\",
-+           \\"id\\": \\"20\\",
-+           \\"name\\": \\"Community 8\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Bradley\\",
-+                 \\"lastName\\": \\"D'Amore\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Aisha\\",
-+                 \\"lastName\\": \\"Huels\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 2621,
-+             \\"memberCount\\": 10736,
-+             \\"unassignedCount\\": 2830,
-+           },
-+           \\"unreadCommentsCount\\": 20856,
-            \\"userCreated\\": true,
 +         },
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"aut eos quis\\",
-+           \\"id\\": \\"21\\",
-+           \\"name\\": \\"Community 9\\",
++           \\"id\\": \\"11\\",
++           \\"name\\": \\"Grass-roots logistical task-force\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -290,8 +58,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"sunt qui similique\\",
-+           \\"id\\": \\"22\\",
-+           \\"name\\": \\"Community 10\\",
++           \\"id\\": \\"12\\",
++           \\"name\\": \\"Intuitive exuding core\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -319,8 +87,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"porro aut laborum\\",
-+           \\"id\\": \\"23\\",
-+           \\"name\\": \\"Community 11\\",
++           \\"id\\": \\"13\\",
++           \\"name\\": \\"Right-sized transitional product\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -333,7 +101,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Salma\\",
 +                 \\"lastName\\": \\"Rolfson\\",
-                },
++               },
 +             ],
 +           },
 +           \\"report\\": Object {
@@ -348,8 +116,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"commodi inventore sequi\\",
-+           \\"id\\": \\"24\\",
-+           \\"name\\": \\"Community 12\\",
++           \\"id\\": \\"14\\",
++           \\"name\\": \\"Organized disintermediate ability\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -374,32 +142,206 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"unreadCommentsCount\\": 42838,
 +           \\"userCreated\\": false,
 +         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"aperiam natus et\\",
++           \\"id\\": \\"15\\",
++           \\"name\\": \\"Robust mobile capability\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Adolph\\",
++                 \\"lastName\\": \\"Christiansen\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Antonietta\\",
++                 \\"lastName\\": \\"Greenholt\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 96727,
++             \\"memberCount\\": 36081,
++             \\"unassignedCount\\": 56810,
++           },
++           \\"unreadCommentsCount\\": 61632,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"architecto magnam voluptatem\\",
++           \\"id\\": \\"16\\",
++           \\"name\\": \\"Function-based logistical interface\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Natalia\\",
++                 \\"lastName\\": \\"Crooks\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Cleta\\",
++                 \\"lastName\\": \\"Wehner\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 58135,
++             \\"memberCount\\": 37113,
++             \\"unassignedCount\\": 97001,
++           },
++           \\"unreadCommentsCount\\": 27464,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"quod labore ullam\\",
++           \\"id\\": \\"17\\",
++           \\"name\\": \\"Adaptive tangible orchestration\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Jeremie\\",
++                 \\"lastName\\": \\"Doyle\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Liliana\\",
++                 \\"lastName\\": \\"Wunsch\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 82898,
++             \\"memberCount\\": 89302,
++             \\"unassignedCount\\": 15679,
++           },
++           \\"unreadCommentsCount\\": 5001,
+            \\"userCreated\\": true,
+          },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"et quasi eaque\\",
++           \\"id\\": \\"18\\",
++           \\"name\\": \\"Grass-roots holistic support\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Jeanie\\",
++                 \\"lastName\\": \\"Schulist\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Lemuel\\",
++                 \\"lastName\\": \\"Ruecker\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 56885,
++             \\"memberCount\\": 45528,
++             \\"unassignedCount\\": 31736,
++           },
++           \\"unreadCommentsCount\\": 75934,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"aut culpa ratione\\",
++           \\"id\\": \\"19\\",
++           \\"name\\": \\"Right-sized mobile implementation\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Genoveva\\",
++                 \\"lastName\\": \\"Lang\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Kathryn\\",
++                 \\"lastName\\": \\"Emard\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 74533,
++             \\"memberCount\\": 91644,
++             \\"unassignedCount\\": 66923,
++           },
++           \\"unreadCommentsCount\\": 53182,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"magni et voluptas\\",
++           \\"id\\": \\"20\\",
++           \\"name\\": \\"Advanced didactic system engine\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Fritz\\",
++                 \\"lastName\\": \\"Effertz\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Lola\\",
++                 \\"lastName\\": \\"Blanda\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 21017,
++             \\"memberCount\\": 9541,
++             \\"unassignedCount\\": 75275,
++           },
++           \\"unreadCommentsCount\\": 46215,
++           \\"userCreated\\": false,
++         },
         ]
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -777,11 +1125,11 @@
+@@ -719,11 +1009,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
                   \\"__typename\\": \\"CommunitiesReport\\",
                   \\"contactCount\\": 0,
 -                 \\"memberCount\\": 41702,
-+                 \\"memberCount\\": 39767,
++                 \\"memberCount\\": 44991,
                   \\"unassignedCount\\": 0,
                 },
                 \\"unreadCommentsCount\\": 0,
                 \\"userCreated\\": true,
               }
-@@ -1142,11 +1490,11 @@
+@@ -1084,11 +1374,11 @@
           />
         </View>
         <View
           style={
             Object {
--             \\"height\\": 5038.5,
-+             \\"height\\": 10077,
+-             \\"height\\": 4198.75,
++             \\"height\\": 8397.5,
             }
           }
         />
@@ -792,51 +734,148 @@ exports[`GroupsListScreen renders with communities 1`] = `
         },
         Object {
           "__typename": "Community",
-          "communityPhotoUrl": "image.jpg",
+          "communityPhotoUrl": "blanditiis natus et",
           "id": "1",
-          "name": "Community 1",
+          "name": "Vision-oriented non-volatile system engine",
           "owner": Object {
             "__typename": "PersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "First",
+                "firstName": "Brooklyn",
+                "lastName": "Weimann",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Clotilde",
+                "lastName": "Sanford",
               },
             ],
           },
           "report": Object {
             "__typename": "CommunitiesReport",
-            "contactCount": 0,
-            "memberCount": 123,
-            "unassignedCount": 0,
+            "contactCount": 80074,
+            "memberCount": 71597,
+            "unassignedCount": 96826,
           },
-          "unreadCommentsCount": 0,
+          "unreadCommentsCount": 91396,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "explicabo eligendi occaecati",
+          "id": "2",
+          "name": "Adaptive bandwidth-monitored encryption",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Selina",
+                "lastName": "Streich",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Soledad",
+                "lastName": "Simonis",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 8504,
+            "memberCount": 82960,
+            "unassignedCount": 3905,
+          },
+          "unreadCommentsCount": 80275,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "inventore debitis libero",
+          "id": "3",
+          "name": "Vision-oriented bifurcated core",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Ayden",
+                "lastName": "Medhurst",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Helena",
+                "lastName": "Osinski",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 95788,
+            "memberCount": 41178,
+            "unassignedCount": 53316,
+          },
+          "unreadCommentsCount": 27304,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "nostrum ipsam qui",
+          "id": "4",
+          "name": "Compatible foreground collaboration",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Marques",
+                "lastName": "Sawayn",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Roberta",
+                "lastName": "Jenkins",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 1828,
+            "memberCount": 3417,
+            "unassignedCount": 75014,
+          },
+          "unreadCommentsCount": 19755,
           "userCreated": true,
         },
         Object {
           "__typename": "Community",
-          "communityPhotoUrl": "photo.jpg",
-          "id": "2",
-          "name": "Community 2",
+          "communityPhotoUrl": "distinctio placeat ullam",
+          "id": "5",
+          "name": "Innovative encompassing moratorium",
           "owner": Object {
             "__typename": "PersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
-                "firstName": "Owner",
-                "lastName": "Second",
+                "firstName": "Dylan",
+                "lastName": "Kilback",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Patience",
+                "lastName": "Ernser",
               },
             ],
           },
           "report": Object {
             "__typename": "CommunitiesReport",
-            "contactCount": 222,
-            "memberCount": 234,
-            "unassignedCount": 333,
+            "contactCount": 10322,
+            "memberCount": 7336,
+            "unassignedCount": 44789,
           },
-          "unreadCommentsCount": 2,
-          "userCreated": false,
+          "unreadCommentsCount": 62402,
+          "userCreated": true,
         },
       ]
     }
@@ -917,26 +956,148 @@ exports[`GroupsListScreen renders with communities 1`] = `
           group={
             Object {
               "__typename": "Community",
-              "communityPhotoUrl": "image.jpg",
+              "communityPhotoUrl": "blanditiis natus et",
               "id": "1",
-              "name": "Community 1",
+              "name": "Vision-oriented non-volatile system engine",
               "owner": Object {
                 "__typename": "PersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "First",
+                    "firstName": "Brooklyn",
+                    "lastName": "Weimann",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Clotilde",
+                    "lastName": "Sanford",
                   },
                 ],
               },
               "report": Object {
                 "__typename": "CommunitiesReport",
-                "contactCount": 0,
-                "memberCount": 123,
-                "unassignedCount": 0,
+                "contactCount": 80074,
+                "memberCount": 71597,
+                "unassignedCount": 96826,
               },
-              "unreadCommentsCount": 0,
+              "unreadCommentsCount": 91396,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "explicabo eligendi occaecati",
+              "id": "2",
+              "name": "Adaptive bandwidth-monitored encryption",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Selina",
+                    "lastName": "Streich",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Soledad",
+                    "lastName": "Simonis",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 8504,
+                "memberCount": 82960,
+                "unassignedCount": 3905,
+              },
+              "unreadCommentsCount": 80275,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "inventore debitis libero",
+              "id": "3",
+              "name": "Vision-oriented bifurcated core",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Ayden",
+                    "lastName": "Medhurst",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Helena",
+                    "lastName": "Osinski",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 95788,
+                "memberCount": 41178,
+                "unassignedCount": 53316,
+              },
+              "unreadCommentsCount": 27304,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "nostrum ipsam qui",
+              "id": "4",
+              "name": "Compatible foreground collaboration",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Marques",
+                    "lastName": "Sawayn",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Roberta",
+                    "lastName": "Jenkins",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 1828,
+                "memberCount": 3417,
+                "unassignedCount": 75014,
+              },
+              "unreadCommentsCount": 19755,
               "userCreated": true,
             }
           }
@@ -951,27 +1112,32 @@ exports[`GroupsListScreen renders with communities 1`] = `
           group={
             Object {
               "__typename": "Community",
-              "communityPhotoUrl": "photo.jpg",
-              "id": "2",
-              "name": "Community 2",
+              "communityPhotoUrl": "distinctio placeat ullam",
+              "id": "5",
+              "name": "Innovative encompassing moratorium",
               "owner": Object {
                 "__typename": "PersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
-                    "firstName": "Owner",
-                    "lastName": "Second",
+                    "firstName": "Dylan",
+                    "lastName": "Kilback",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Patience",
+                    "lastName": "Ernser",
                   },
                 ],
               },
               "report": Object {
                 "__typename": "CommunitiesReport",
-                "contactCount": 222,
-                "memberCount": 234,
-                "unassignedCount": 333,
+                "contactCount": 10322,
+                "memberCount": 7336,
+                "unassignedCount": 44789,
               },
-              "unreadCommentsCount": 2,
-              "userCreated": false,
+              "unreadCommentsCount": 62402,
+              "userCreated": true,
             }
           }
           onPress={[Function]}
@@ -981,7 +1147,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
       <View
         style={
           Object {
-            "height": 839.75,
+            "height": 2099.375,
           }
         }
       />

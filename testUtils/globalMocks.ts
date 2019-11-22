@@ -1,4 +1,5 @@
 import faker from 'faker/locale/en';
+import { MockList } from 'graphql-tools';
 
 let currentId = 1;
 const nextId = () => currentId++;
@@ -33,4 +34,10 @@ export const globalMocks = {
       lastName,
     };
   },
+  Community: () => ({
+    name: faker.company.catchPhrase(),
+    owner: () => ({
+      nodes: () => new MockList(1),
+    }),
+  }),
 };
