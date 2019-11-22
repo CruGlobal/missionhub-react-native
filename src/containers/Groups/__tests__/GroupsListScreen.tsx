@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { MockList } from 'graphql-tools';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderWithContext } from '../../../../testUtils';
@@ -15,7 +16,6 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
-import { MockList } from 'graphql-tools';
 
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
