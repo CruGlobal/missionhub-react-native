@@ -35,6 +35,7 @@ const {
   acceptedCommunityChallenge,
   createdCommunity,
   joinedCommunity,
+  story,
 } = CELEBRATEABLE_TYPES;
 const {
   MHInteractionTypePersonalDecision,
@@ -175,6 +176,8 @@ const CelebrateItemContent = ({
         return buildCreateCommunityMessage(name);
       case joinedCommunity:
         return buildJoinedCommunityMessage(name);
+      case story:
+        return buildStory();
     }
   };
 
@@ -193,6 +196,10 @@ const CelebrateItemContent = ({
         </Button>
       </View>
     ) : null;
+  };
+
+  const buildStory = () => {
+    return object_description;
   };
 
   return (
