@@ -1,771 +1,1859 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           5 Assigned
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           3 Uncontacted
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render MemberOptionsMenu should not render menu if person is owner 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           5 Assigned
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           3 Uncontacted
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render MemberOptionsMenu should render menu if I am admin and person is not owner 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           5 Assigned
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           3 Uncontacted
-        </MyText>
-      </Flex>
-    </Flex>
-    <Connect(withI18nextTranslation(MemberOptionsMenu))
-      iAmAdmin={true}
-      iAmOwner={false}
-      myId="1"
-      organization={
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "id": "1234",
-          "user_created": false,
+          "opacity": 1,
         }
       }
-      person={
-        Object {
-          "contact_count": 5,
-          "full_name": "Full Name",
-          "id": "123",
-          "uncontacted_count": 3,
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            null,
+          ]
         }
-      }
-      personIsAdmin={false}
-      personOrgPermission={
-        Object {
-          "id": "111",
-          "permission_id": "4",
-        }
-      }
-    />
-  </Flex>
-</Card>
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#B2B0B2",
+                      "margin": 0,
+                      "paddingHorizontal": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           5 Assigned
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           3 Uncontacted
-        </MyText>
-      </Flex>
-    </Flex>
-    <Connect(withI18nextTranslation(MemberOptionsMenu))
-      iAmAdmin={false}
-      iAmOwner={false}
-      myId="1"
-      organization={
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "id": "1234",
-          "user_created": false,
+          "opacity": 1,
         }
       }
-      person={
-        Object {
-          "contact_count": 5,
-          "full_name": "Full Name",
-          "id": "1",
-          "uncontacted_count": 3,
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            null,
+          ]
         }
-      }
-      personIsAdmin={false}
-      personOrgPermission={
-        Object {
-          "id": "111",
-          "permission_id": "4",
-        }
-      }
-    />
-  </Flex>
-</Card>
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#B2B0B2",
+                      "margin": 0,
+                      "paddingHorizontal": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count cru org should render 0 assigned 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           0 Assigned
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#FF5532",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           3 Uncontacted
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count cru org should render 0 uncontacted 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           5 Assigned
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
-`;
-
-exports[`render contacts count cru org should render assigned and uncontacted 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
-    }
-    value={1}
-  >
-    <Flex
-      direction="column"
-      value={1}
-    >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        >
-          5 Assigned
-        </MyText>
-        <Dot
-          style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
-          }
-        />
-        <MyText
-          style={
-            Object {
-              "color": "#FF5532",
-              "fontSize": 14,
-            }
-          }
-        >
-          3 Uncontacted
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count user created org should render no stage, admin permissions 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Admin
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count user created org should render no stage, member permissions 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
       />
-      <Flex
-        align="center"
-        direction="row"
-      />
-    </Flex>
-  </Flex>
-</Card>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count user created org should render no stage, owner permissions 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Owner
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count user created org should render stage, admin permissions 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Uninterested
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Admin
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count user created org should render stage, member permissions 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Uninterested
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
 exports[`render contacts count user created org should render stage, owner permissions 1`] = `
-<Card
-  onPress={[Function]}
->
-  <Flex
-    align="center"
-    direction="row"
-    justify="center"
-    style={
-      Object {
-        "height": 50,
-        "paddingLeft": 16,
-        "paddingRight": 0,
-        "paddingVertical": 10,
-      }
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
-    value={1}
+  }
+  testID="GroupMemberItem"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 50,
+          "paddingLeft": 16,
+          "paddingRight": 0,
+          "paddingVertical": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+      ]
+    }
   >
-    <Flex
-      direction="column"
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+            "flexDirection": "column",
+          },
+        ]
+      }
     >
-      <ItemHeaderText
-        text="Full Name"
-      />
-      <Flex
-        align="center"
-        direction="row"
-      >
-        <MyText
-          style={
+      <Text
+        style={
+          Array [
             Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#007398",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Full Name
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Uninterested
-        </MyText>
-        <Dot
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "fontWeight": "bold",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 14,
+                },
+              ],
+            ]
           }
-        />
-        <MyText
+        >
+           · 
+        </Text>
+        <Text
           style={
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 14,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 14,
+              },
+            ]
           }
         >
           Owner
-        </MyText>
-      </Flex>
-    </Flex>
-  </Flex>
-</Card>
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;

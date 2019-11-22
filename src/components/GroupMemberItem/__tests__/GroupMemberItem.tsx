@@ -1,12 +1,9 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
 import { ORG_PERMISSIONS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
-import {
-  renderShallow,
-  testSnapshotShallow,
-  createThunkStore,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import GroupMemberItem from '..';
 
@@ -60,16 +57,14 @@ const props = {
   organization,
 };
 
-const store = createThunkStore({
-  auth: {
-    person: me,
-  },
+const initialState = {
+  auth: { person: me },
   stages: {
     stagesObj: {
       [`${stage.id}`]: stage,
     },
   },
-});
+};
 
 beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
@@ -84,37 +79,37 @@ describe('render contacts count', () => {
     it('should not crash without an org permission', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
 
-      renderShallow(
+      renderWithContext(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
-        store,
+        { initialState },
       );
     });
 
     it('should render no stage, member permissions', () => {
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
 
     it('should render no stage, admin permissions', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
         adminPermissions,
       );
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
 
     it('should render no stage, owner permissions', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
         ownerPermissions,
       );
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem {...{ ...props, organization: newOrg }} />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
 
     it('should render stage, member permissions', () => {
@@ -122,12 +117,12 @@ describe('render contacts count', () => {
         ...member,
         reverse_contact_assignments,
       };
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem
           {...{ ...props, organization: newOrg, person: newMember }}
         />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
 
     it('should render stage, admin permissions', () => {
@@ -138,12 +133,12 @@ describe('render contacts count', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
         adminPermissions,
       );
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem
           {...{ ...props, organization: newOrg, person: newMember }}
         />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
 
     it('should render stage, owner permissions', () => {
@@ -154,34 +149,36 @@ describe('render contacts count', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
         ownerPermissions,
       );
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem
           {...{ ...props, organization: newOrg, person: newMember }}
         />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
   });
 
   describe('cru org', () => {
     it('should render assigned and uncontacted', () => {
-      testSnapshotShallow(<GroupMemberItem {...props} />, store);
+      renderWithContext(<GroupMemberItem {...props} />, {
+        initialState,
+      });
     });
 
     it('should render 0 assigned', () => {
       const newMember = { ...member, contact_count: 0 };
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem {...{ ...props, person: newMember }} />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
 
     it('should render 0 uncontacted', () => {
       const newMember = { ...member, uncontacted_count: 0 };
-      testSnapshotShallow(
+      renderWithContext(
         <GroupMemberItem {...{ ...props, person: newMember }} />,
-        store,
-      );
+        { initialState },
+      ).snapshot();
     });
   });
 });
@@ -192,46 +189,51 @@ describe('render MemberOptionsMenu', () => {
       memberPermissions,
     );
     const newMember = { ...member, id: myId };
-    testSnapshotShallow(
+    renderWithContext(
       <GroupMemberItem {...{ ...props, person: newMember }} />,
-      store,
-    );
+      { initialState },
+    ).snapshot();
   });
 
   it('should render menu if I am admin and person is not owner', () => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
       memberPermissions,
     );
-    testSnapshotShallow(
+    renderWithContext(
       <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
-      store,
-    );
+      { initialState },
+    ).snapshot();
   });
 
   it('should not render menu if person is owner', () => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
       ownerPermissions,
     );
-    testSnapshotShallow(
+    renderWithContext(
       <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
-      store,
-    );
+      { initialState },
+    ).snapshot();
   });
 
   it('should not render menu if I am member', () => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
       memberPermissions,
     );
-    testSnapshotShallow(<GroupMemberItem {...props} />, store);
+    renderWithContext(<GroupMemberItem {...props} />, {
+      initialState,
+    }).snapshot();
   });
 });
 
 describe('onSelect', () => {
   it('calls onSelect prop', () => {
-    // const onSelect = jest.fn();
-    // renderShallow(<GroupMemberItem {...{ ...props, onSelect }} />, store)
-    //   .instance()
-    //   .handleSelect();
-    // expect(onSelect).toHaveBeenCalled();
+    const onSelect = jest.fn();
+    const { getByTestId } = renderWithContext(
+      <GroupMemberItem {...{ ...props, onSelect }} />,
+      { initialState },
+    );
+    fireEvent.press(getByTestId('GroupMemberItem'));
+
+    expect(onSelect).toHaveBeenCalled();
   });
 });

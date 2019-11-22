@@ -24,7 +24,7 @@ interface PersonOrgPermissionInterface {
   id: string;
   organization: Organization;
   organization_id: string;
-  permission_id: 1;
+  permission_id: string;
 }
 
 interface GroupMemberItemProps {
@@ -65,7 +65,7 @@ const GroupMemberItem = ({
       return '';
     }
 
-    switch (`${personOrgPermission.permission_id}`) {
+    switch (personOrgPermission.permission_id) {
       case ORG_PERMISSIONS.ADMIN:
         return t('profileLabels.admin');
       case ORG_PERMISSIONS.OWNER:
@@ -85,12 +85,13 @@ const GroupMemberItem = ({
       const contactAssignment = contactAssignments.find(
         (a: Person) => a.assigned_to.id === me.id,
       );
+      const { pathway_stage_id } = contactAssignment;
       if (
         contactAssignment &&
-        contactAssignment.pathway_stage_id &&
-        stagesObj[`${contactAssignment.pathway_stage_id}`]
+        pathway_stage_id &&
+        stagesObj[pathway_stage_id]
       ) {
-        stage = stagesObj[`${contactAssignment.pathway_stage_id}`];
+        stage = stagesObj[pathway_stage_id];
       }
     }
 
@@ -106,7 +107,7 @@ const GroupMemberItem = ({
       </>
     );
   };
-  // REMOVE_IN_SPLIT
+  // TODO: REMOVE_IN_SPLIT
   const renderCruDetails = () => {
     return (
       <>
@@ -131,7 +132,7 @@ const GroupMemberItem = ({
   const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
 
   return (
-    <Card onPress={handleSelect}>
+    <Card onPress={handleSelect} testID="GroupMemberItem">
       <Flex
         value={1}
         justify="center"
