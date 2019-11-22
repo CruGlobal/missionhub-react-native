@@ -103,7 +103,7 @@ const StepsList = ({
 };
 
 const mapStateToProps = (
-  { auth, steps }: { auth: AuthState; steps: Step }, // eslint-disable-line @typescript-eslint/no-explicit-any
+  { auth, steps }: { auth: AuthState; steps: Step },
   { personId, contactStageId }: StepsListOwnProps,
 ) => {
   const myId = auth.person.id;

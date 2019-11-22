@@ -8,6 +8,7 @@ import { AuthState } from '../reducers/auth';
 import { PeopleState } from '../reducers/people';
 import { OrganizationsState } from '../reducers/organizations';
 
+import { Step } from './SelectStepScreen';
 import SelectStepScreen from './SelectStepScreen';
 
 interface PersonSelectStepScreenProps {
@@ -18,14 +19,11 @@ interface PersonSelectStepScreenProps {
   contactAssignment: {
     pathway_stage_id: string;
   };
-  personFirstName?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   personId: string;
   organization: OrganizationsState;
   next: (nextProps: {
     personId: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    step?: any | undefined;
+    step?: Step;
     skip: boolean;
     orgId: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
