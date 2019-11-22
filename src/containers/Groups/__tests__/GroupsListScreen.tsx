@@ -245,6 +245,7 @@ describe('GroupsListScreen', () => {
     it('paginates when close to bottom', async () => {
       query = () => ({
         communities: () => ({
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           nodes: (_: any, args: { [key: string]: any }) =>
             args.after ? [{ id: '11' }, { id: '12' }] : new MockList(10),
           pageInfo: () => ({ hasNextPage: true }),
