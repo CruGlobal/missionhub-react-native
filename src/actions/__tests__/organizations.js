@@ -59,13 +59,10 @@ jest.mock('../person');
 jest.mock('../challenges');
 jest.mock('../navigation');
 jest.mock('../../selectors/selectorUtils');
-jest.mock('../../apolloClient', () => ({
-  apolloClient: {
-    query: jest.fn(),
-  },
-}));
 
 global.FormData = require('react-native/Libraries/Network/FormData');
+
+apolloClient.query = jest.fn();
 
 const myId = '1';
 
@@ -103,7 +100,7 @@ describe('getMyCommunities', () => {
 
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -619,7 +616,7 @@ describe('addNewOrganization', () => {
     expect(getMe).toHaveBeenCalledWith();
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
@@ -671,7 +668,7 @@ describe('addNewOrganization', () => {
     expect(getMe).toHaveBeenCalledWith();
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
@@ -715,7 +712,7 @@ describe('updateOrganization', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -758,7 +755,7 @@ describe('updateOrganizationImage', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -793,7 +790,7 @@ describe('deleteOrganization', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -924,7 +921,7 @@ describe('joinCommunity', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -952,7 +949,7 @@ describe('joinCommunity', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -982,7 +979,7 @@ describe('joinCommunity', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
