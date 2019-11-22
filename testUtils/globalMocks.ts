@@ -1,4 +1,5 @@
 import faker from 'faker/locale/en';
+import { IMocks } from 'graphql-tools';
 
 let currentId = 1;
 const nextId = () => currentId++;
@@ -8,20 +9,20 @@ export const resetGlobalMockSeeds = () => {
 };
 resetGlobalMockSeeds();
 
-export const globalMocks = {
+export const globalMocks: IMocks = {
   String: () => faker.lorem.words(),
   Int: () => faker.random.number(),
   Float: () => faker.random.number({ precision: 0.01 }),
   Boolean: () => faker.random.boolean(),
   ID: () => nextId(),
 
-  PageInfo: () => ({
+  BasePageInfo: () => ({
     endCursor: null,
     hasNextPage: false,
     hasPreviousPage: false,
     startCursor: null,
   }),
-  AcceptedChallenge: () => ({
+  Step: () => ({
     title: faker.lorem.sentence(),
   }),
   Person: () => {

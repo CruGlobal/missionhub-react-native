@@ -28,6 +28,16 @@ import styles from './styles';
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
+interface StepsDataInterface {
+  full_name: string;
+  id: string;
+  steps: {
+    pageInfo: {
+      totalCount: number;
+    };
+  };
+}
+
 interface PersonItemProps {
   person: PersonAttributes;
   organization?: Organization;
@@ -35,6 +45,7 @@ interface PersonItemProps {
   stagesObj: StagesObj;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
+  stepsData: StepsDataInterface;
 }
 
 const PersonItem = ({
@@ -43,8 +54,10 @@ const PersonItem = ({
   me,
   stagesObj,
   dispatch,
+  stepsData,
 }: PersonItemProps) => {
   const { t } = useTranslation();
+  const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
   const orgId = organization && organization.id;
   const isMe = person.id === me.id;
   const isPersonal = orgId === 'personal';
@@ -138,10 +151,7 @@ const PersonItem = ({
   };
 
   const renderStepIcon = () => {
-    //TODO: get count of steps for each contact
-    const stepsCount = 0;
-
-    return stepsCount > 0 ? (
+    return totalCount > 0 ? (
       <View style={styles.stepButtonWrapper}>
         <Icon
           type="MissionHub"
@@ -149,8 +159,8 @@ const PersonItem = ({
           size={30}
           style={styles.stepIcon}
         />
-        <View style={styles.badge}>
-          <Text style={styles.badgeText}>{stepsCount}</Text>
+        <View style={styles.badge} testID="stepsCount">
+          <Text style={styles.badgeText}>{totalCount}</Text>
         </View>
       </View>
     ) : (
