@@ -128,6 +128,7 @@ const GroupsListScreen = ({
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
+  const [overflowBottom, setOverflowBottom] = useState(false);
   const [paging, setPaging] = useState(false);
   const [pagingError, setPagingError] = useState(false);
 
@@ -152,10 +153,6 @@ const GroupsListScreen = ({
   const { isRefreshing, refresh } = useRefreshing(refetch);
 
   const handleNextPage = async () => {
-    if (paging || !hasNextPage || pagingError) {
-      return;
-    }
-
     setPaging(true);
     try {
       await fetchMore({
@@ -221,15 +218,17 @@ const GroupsListScreen = ({
   const handleScroll = ({
     nativeEvent,
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const shouldPaginate = isCloseToBottom(nativeEvent);
+    const closeToBottom = isCloseToBottom(nativeEvent);
 
-    // Reset pagingError once we are out of the isCloseToBottom zone
-    if (!shouldPaginate) {
-      pagingError && setPagingError(false);
-      return;
+    if (closeToBottom) {
+      if (!overflowBottom && !paging && !pagingError && hasNextPage) {
+        handleNextPage();
+      }
+    } else {
+      setPagingError(false);
     }
 
-    handleNextPage();
+    setOverflowBottom(closeToBottom);
   };
 
   const join = () => {
