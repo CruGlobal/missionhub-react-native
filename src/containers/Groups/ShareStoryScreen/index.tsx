@@ -9,14 +9,59 @@ import { useTranslation } from 'react-i18next';
 import styles from './styles';
 import theme from '../../../theme';
 import { useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
-const ShareStoryScreen = () => {
+export const CREATE_A_STORY = gql`
+  mutation CreateAStory($input: CreateStoryInput!) {
+    createStory(input: $input) {
+      story {
+        content
+        createdAt
+        id
+        community {
+          name
+        }
+        author {
+          fullName
+          id
+        }
+      }
+
+      errors {
+        message
+        path
+      }
+    }
+  }
+`;
+
+interface ShareStoryScreenProps {
+  onComplete: () => void;
+}
+
+const ShareStoryScreen = ({ navigation }: any) => {
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const [story, changeStory] = useState('');
+  const {
+    state: {
+      params: {
+        onComplete,
+        organization: { id },
+      },
+    },
+  } = navigation;
 
+  const [createStory] = useMutation(CREATE_A_STORY);
   const saveStory = () => {
+    if (!story) {
+      return null;
+    }
     Keyboard.dismiss();
+    createStory({
+      variables: { input: { content: story, organizationId: id } },
+    });
+    onComplete();
   };
   return (
     <View style={container}>

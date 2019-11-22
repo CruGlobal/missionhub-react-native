@@ -48,7 +48,12 @@ class CelebrateFeed extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, itemNamePressable, onClearNotification } = this.props;
+    const {
+      organization,
+      itemNamePressable,
+      onClearNotification,
+      items,
+    } = this.props;
 
     return (
       <CelebrateItem
@@ -81,11 +86,15 @@ class CelebrateFeed extends Component {
   };
 
   renderHeader = () => {
-    const { isMember, organization, dispatch } = this.props;
+    const { isMember, organization, dispatch, refreshCallback } = this.props;
     return (
       <>
         <CelebrateFeedHeader isMember={isMember} organization={organization} />
-        <ShareStoryInput dispatch={dispatch} />
+        <ShareStoryInput
+          dispatch={dispatch}
+          refreshItems={refreshCallback}
+          organization={organization}
+        />
       </>
     );
   };
