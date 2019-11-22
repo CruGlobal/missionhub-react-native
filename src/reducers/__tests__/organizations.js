@@ -67,7 +67,7 @@ describe('LOAD_ORGANIZATIONS', () => {
   });
 });
 
-it('should load single org', () => {
+it('should update single org', () => {
   const startOrg = {
     id: org1Id,
     name: 'test org 1',
@@ -97,6 +97,33 @@ it('should load single org', () => {
     ),
   ).toEqual({
     all: [resultOrg],
+  });
+});
+
+it('should load single org', () => {
+  const startOrg = {
+    id: org1Id,
+    name: 'test org 1',
+    community_photo_url: 'Photo',
+  };
+  const newOrg = {
+    id: org2Id,
+    name: 'new test org 1',
+    user_created: true,
+  };
+  expect(
+    organizations(
+      { all: [startOrg] },
+      {
+        type: REQUESTS.GET_ORGANIZATION.SUCCESS,
+        results: {
+          response: newOrg,
+        },
+        query: { orgId: org2Id },
+      },
+    ),
+  ).toEqual({
+    all: [startOrg, newOrg],
   });
 });
 

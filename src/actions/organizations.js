@@ -13,6 +13,7 @@ import {
   LOAD_PERSON_DETAILS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
+import { orgIsUserCreated } from '../utils/common';
 import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
@@ -609,8 +610,8 @@ export function removeOrganizationMember(personId, orgId) {
 
 export function navigateToCommunity(community, initialTab) {
   return dispatch => {
-    console.log(community);
-    const { id: orgId, userCreated } = community;
+    const orgId = (community && community.id) || GLOBAL_COMMUNITY_ID;
+    const userCreated = orgIsUserCreated(community);
 
     return dispatch(
       navigatePush(getScreenForOrg(orgId, userCreated), {

@@ -37,7 +37,7 @@ import {
   generateNewLink,
   joinCommunity,
   lookupOrgCommunityUrl,
-  navigateToOrg,
+  navigateToCommunity,
   navigateToCelebrateComments,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
@@ -1055,24 +1055,16 @@ describe('removeOrganizationMember', () => {
   });
 });
 
-describe('navigateToOrg', () => {
-  const cruOrgId = '123456';
-  const cruOrg = { id: cruOrgId, user_created: false };
-  const userCreatedOrgId = '654321';
-  const userCreatedOrg = { id: userCreatedOrgId, user_created: true };
+describe('navigateToCommunity', () => {
+  const orgId = '123456';
 
   beforeEach(() => {
-    store = mockStore({
-      organizations: {
-        all: [globalCommunity, cruOrg, userCreatedOrg],
-      },
-    });
     navigatePush.mockReturnValue({ type: 'test' });
   });
 
   describe('default', () => {
     beforeEach(() => {
-      store.dispatch(navigateToOrg());
+      store.dispatch(navigateToCommunity());
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
@@ -1084,37 +1076,49 @@ describe('navigateToOrg', () => {
   });
 
   describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch(navigateToOrg(cruOrgId));
+    it('navigates to GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: orgId, userCreated: false }));
+
+      expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
+        orgId,
+        initialTab: undefined,
+      });
     });
 
     it('navigates to GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: orgId, user_created: false }));
+
       expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
-        orgId: cruOrgId,
+        orgId,
         initialTab: undefined,
       });
     });
   });
 
   describe('user-created org', () => {
-    beforeEach(() => {
-      store.dispatch(navigateToOrg(userCreatedOrgId));
+    it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: orgId, userCreated: true }));
+
+      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+        orgId,
+        initialTab: undefined,
+      });
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: orgId, user_created: true }));
+
       expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
-        orgId: userCreatedOrgId,
+        orgId,
         initialTab: undefined,
       });
     });
   });
 
   describe('global org', () => {
-    beforeEach(() => {
-      store.dispatch(navigateToOrg(GLOBAL_COMMUNITY_ID));
-    });
-
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: GLOBAL_COMMUNITY_ID }));
+
       expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
         orgId: GLOBAL_COMMUNITY_ID,
         initialTab: undefined,
@@ -1123,13 +1127,13 @@ describe('navigateToOrg', () => {
   });
 
   describe('intial tab', () => {
-    beforeEach(async () => {
-      await store.dispatch(navigateToOrg(userCreatedOrgId, GROUP_CHALLENGES));
-    });
-
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
+      store.dispatch(
+        navigateToCommunity({ id: orgId, userCreated: true }, GROUP_CHALLENGES),
+      );
+
       expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
-        orgId: userCreatedOrgId,
+        orgId,
         initialTab: GROUP_CHALLENGES,
       });
     });

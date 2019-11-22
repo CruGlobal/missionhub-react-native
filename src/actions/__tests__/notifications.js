@@ -34,7 +34,7 @@ import {
 } from '../navigation';
 import {
   refreshCommunity,
-  navigateToOrg,
+  navigateToCommunity,
   navigateToCelebrateComments,
 } from '../organizations';
 import { reloadGroupCelebrateFeed } from '../celebration';
@@ -517,11 +517,11 @@ describe('askNotificationPermissions', () => {
     const finish = jest.fn();
     const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
-    const refreshCommunityResult = { type: 'refresh community' };
+    const refreshCommunityResult = organization;
     const reloadGroupCelebrateFeedResult = { type: 'reload celebrate feed' };
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
     const navToCelebrateResult = { type: 'navigated to celebrate comments' };
-    const navToOrgResult = { type: 'navigated to org' };
+    const navToCommunityResult = { type: 'navigated to community' };
 
     beforeEach(() => {
       common.isAndroid = true;
@@ -532,7 +532,7 @@ describe('askNotificationPermissions', () => {
       reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
       reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
       navigateToCelebrateComments.mockReturnValue(navToCelebrateResult);
-      navigateToOrg.mockReturnValue(navToOrgResult);
+      navigateToCommunity.mockReturnValue(navToCommunityResult);
     });
 
     async function testNotification(notification, userInteraction = true) {
@@ -694,8 +694,8 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToOrg).toHaveBeenCalledWith(
-          organization.id,
+        expect(navigateToCommunity).toHaveBeenCalledWith(
+          organization,
           GROUP_CHALLENGES,
         );
       });

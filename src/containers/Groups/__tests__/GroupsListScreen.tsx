@@ -30,7 +30,7 @@ const swipe = { groupScrollToId: null };
 const initialState = { auth, swipe };
 
 const navigatePushResponse = { type: 'navigate push' };
-const navigateToOrgResponse = { type: 'navigate to org' };
+const navigateToCommunityResponse = { type: 'navigate to community' };
 const trackActionResponse = { type: 'track action' };
 const openMainMenuResponse = { type: 'open main menu' };
 const keyExtractorResponse = { type: 'key extractor' };
@@ -38,7 +38,9 @@ const resetScrollGroupsResponse = { type: 'reset scroll groups' };
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
-  (navigateToOrg as jest.Mock).mockReturnValue(navigateToOrgResponse);
+  (navigateToCommunity as jest.Mock).mockReturnValue(
+    navigateToCommunityResponse,
+  );
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
@@ -59,7 +61,7 @@ describe('GroupsListScreen', () => {
     const { snapshot } = renderWithContext(<GroupsListScreen />, {
       initialState,
       mocks: {
-        CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+        CommunityConnection: () => ({ nodes: () => new MockList(10) }),
       },
     });
 
@@ -74,7 +76,7 @@ describe('GroupsListScreen', () => {
         {
           initialState,
           mocks: {
-            CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+            CommunityConnection: () => ({ nodes: () => new MockList(10) }),
           },
         },
       );
@@ -85,12 +87,12 @@ describe('GroupsListScreen', () => {
 
       fireEvent(groupCard, 'onPress', community);
 
-      expect(navigateToOrg).toHaveBeenCalledWith(community.id);
+      expect(navigateToCommunity).toHaveBeenCalledWith(community);
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.SELECT_COMMUNITY,
       );
       expect(store.getActions()).toEqual([
-        navigateToOrgResponse,
+        navigateToCommunityResponse,
         trackActionResponse,
       ]);
     });
@@ -116,7 +118,7 @@ describe('GroupsListScreen', () => {
       renderWithContext(<GroupsListScreen />, {
         initialState: { ...initialState, swipe: { groupScrollToId: '1' } },
         mocks: {
-          CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+          CommunityConnection: () => ({ nodes: () => new MockList(10) }),
         },
       });
 
@@ -137,7 +139,7 @@ describe('GroupsListScreen', () => {
           swipe: { groupScrollToId: null },
         },
         mocks: {
-          CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+          CommunityConnection: () => ({ nodes: () => new MockList(10) }),
         },
       });
 
@@ -154,7 +156,7 @@ describe('GroupsListScreen', () => {
           swipe: { groupScrollToId: 'ID' },
         },
         mocks: {
-          CommunityConnection: () => ({ nodes: () => new MockList(5) }),
+          CommunityConnection: () => ({ nodes: () => new MockList(10) }),
         },
       });
 
@@ -245,9 +247,7 @@ describe('GroupsListScreen', () => {
     it('paginates when close to bottom', async () => {
       query = () => ({
         communities: () => ({
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          nodes: (_: any, args: { [key: string]: any }) =>
-            args.after ? [{ id: '11' }, { id: '12' }] : new MockList(10),
+          nodes: () => new MockList(10),
           pageInfo: () => ({ hasNextPage: true }),
         }),
       });
