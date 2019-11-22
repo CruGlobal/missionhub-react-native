@@ -18,6 +18,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
+  nullContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.extraLightGrey,
+  },
   top: {
     width: theme.fullWidth,
     backgroundColor: theme.backgroundColor,
