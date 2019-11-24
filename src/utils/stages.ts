@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
 
 import { Stage } from '../reducers/stages';
 
@@ -7,7 +7,11 @@ import { isObject } from './common';
 export function getLocalizedStages(stages: Stage[]) {
   return (stages || []).map(s => {
     const localizedStage = (s.localized_pathway_stages || []).find(
-      ls => ls && isObject(ls) && ls.locale === i18n.language,
+      ls =>
+        ls &&
+        isObject(ls) &&
+        (ls.locale === i18next.language ||
+          ls.locale.split('-')[0] === i18next.language),
     );
 
     if (localizedStage) {

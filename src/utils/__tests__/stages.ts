@@ -3,7 +3,7 @@ import i18next from 'i18next';
 import { getLocalizedStages } from '../stages';
 import { Stage } from '../../reducers/stages';
 
-const locale = 'en_TEST';
+const locale = 'en-TEST';
 i18next.language = locale;
 
 const localizedStage1 = {
@@ -81,4 +81,40 @@ it('does not replace stage text data if localized stages are not the right local
   ] as unknown) as Stage[];
 
   expect(getLocalizedStages(stages)).toEqual(stages);
+});
+
+it('should replace stage text data if the base locale matches', () => {
+  const appLocale = 'en';
+  const stepLocale = 'en-US';
+  i18next.language = appLocale;
+
+  const stages = ([
+    {
+      ...stage1,
+      localized_pathway_stages: [{ ...localizedStage1, locale: stepLocale }],
+    },
+    {
+      ...stage2,
+      localized_pathway_stages: [{ ...localizedStage2, locale: stepLocale }],
+    },
+  ] as unknown) as Stage[];
+
+  expect(getLocalizedStages(stages)).toEqual([
+    {
+      id: stage1.id,
+      name: localizedStage1.name,
+      description: localizedStage1.description,
+      self_followup_description: localizedStage1.self_followup_description,
+      locale: stepLocale,
+      localized_pathway_stages: stages[0].localized_pathway_stages,
+    },
+    {
+      id: stage2.id,
+      name: localizedStage2.name,
+      description: localizedStage2.description,
+      self_followup_description: localizedStage2.self_followup_description,
+      locale: stepLocale,
+      localized_pathway_stages: stages[1].localized_pathway_stages,
+    },
+  ]);
 });
