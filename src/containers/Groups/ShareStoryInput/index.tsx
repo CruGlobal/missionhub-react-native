@@ -1,19 +1,19 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { Card, Input } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
+import { Organization } from '../../../reducers/organizations';
 
 import styles from './styles';
 
 interface ShareStoryInputProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: any;
+  dispatch: ThunkDispatch<any, null, never>;
   refreshItems: () => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  organization: any;
+  organization: Organization;
 }
 
 const ShareStoryInput = ({
