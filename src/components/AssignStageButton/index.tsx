@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import i18next from 'i18next';
 
 import { Button } from '../common';
 import {
@@ -56,7 +57,7 @@ const AssignStageButton = ({
       type="transparent"
       onPress={assignStage}
       text={(pathwayStage
-        ? localizedStageSelector(pathwayStage).name
+        ? localizedStageSelector(pathwayStage, i18next.language).name
         : t('selectStage')
       ).toUpperCase()}
       style={[

@@ -1,7 +1,7 @@
 import { REQUESTS } from '../api/routes';
 import { LOGOUT, LogoutAction } from '../constants';
 
-interface LocalizedPathwayStage {
+export interface LocalizedPathwayStage {
   locale: string;
   name: string;
   description: string;

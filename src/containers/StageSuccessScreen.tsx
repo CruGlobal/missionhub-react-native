@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -37,7 +38,7 @@ const StageSuccessScreen = ({
 
   // Build out message
   let message =
-    localizedStageSelector(stage).self_followup_description ||
+    localizedStageSelector(stage, i18next.language).self_followup_description ||
     t('backupMessage');
   message = message.replace('<<user>>', firstName ? firstName : t('friend'));
   return (

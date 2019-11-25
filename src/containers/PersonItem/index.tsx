@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
@@ -131,7 +132,7 @@ const PersonItem = ({
         <View style={styles.textRow}>
           {stage ? (
             <Text style={styles.stage}>
-              {localizedStageSelector(stage).name}
+              {localizedStageSelector(stage, i18next.language).name}
             </Text>
           ) : (
             <Touchable testID="stageText" onPress={handleChangeStage}>

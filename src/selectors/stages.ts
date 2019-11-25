@@ -1,8 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { Stage, StagesState } from '../reducers/stages';
-
-import i18next = require('i18next');
+import { Stage, StagesState, LocalizedPathwayStage } from '../reducers/stages';
 
 export const stageSelector = createSelector(
   ({ stages: { stages } }: { stages: StagesState }) => stages,
@@ -11,18 +9,25 @@ export const stageSelector = createSelector(
 );
 
 export const localizedStageSelector = createSelector(
-  (stage: Stage | undefined) => stage || { localized_pathway_stages: [] },
-  () => i18next.language,
-  (stage: Stage | { localized_pathway_stages: never[] }, appLanguage: string) =>
-    stage.localized_pathway_stages.find(
-      ({ locale }) => locale === appLanguage,
-    ) ||
-    stage.localized_pathway_stages.find(
+  (stage: Stage | undefined) => stage || {},
+  (stage: Stage | undefined) => (stage && stage.localized_pathway_stages) || [],
+  (_: Stage | undefined, language: string) => language,
+  (
+    {
+      name = '',
+      description = '',
+      self_followup_description = '',
+    }: Partial<Stage>,
+    localizedStages: LocalizedPathwayStage[],
+    appLanguage: string,
+  ) =>
+    localizedStages.find(({ locale }) => locale === appLanguage) ||
+    localizedStages.find(
       ({ locale }) => locale.split('-')[0] === appLanguage,
     ) || {
       locale: '',
-      name: '',
-      description: '',
-      self_followup_description: '',
+      name,
+      description,
+      self_followup_description,
     },
 );

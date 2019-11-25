@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import i18next from 'i18next';
 import PropTypes from 'prop-types';
 
 import { Text } from '../../components/common';
@@ -17,7 +18,7 @@ class PathwayStageDisplay extends Component {
 
     return pathwayStage ? (
       <Text style={styles.stage}>
-        {localizedStageSelector(pathwayStage).name}
+        {localizedStageSelector(pathwayStage, i18next.language).name}
       </Text>
     ) : null;
   }
