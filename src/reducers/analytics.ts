@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
 
 import {
   ANALYTICS_CONTEXT_CHANGED,
@@ -21,7 +21,7 @@ export const initialAnalyticsState = {
   ['cru.appname']: 'MissionHub App',
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
-  [ANALYTICS.CONTENT_LANGUAGE]: i18n.language,
+  [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
 };
 
 interface AnalyticsContextChangedAction {
