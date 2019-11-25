@@ -118,3 +118,32 @@ it('should replace stage text data if the base locale matches', () => {
     },
   ]);
 });
+
+it('should replace stage text data with most relevant locale', () => {
+  const appLocale = 'en-CA';
+  const locale1 = 'en-US';
+  const locale2 = 'en-UK';
+  i18next.language = appLocale;
+
+  const stages = ([
+    {
+      ...stage1,
+      localized_pathway_stages: [
+        { ...localizedStage1, locale: locale1 },
+        { ...localizedStage1, locale: appLocale },
+        { ...localizedStage1, locale: locale2 },
+      ],
+    },
+  ] as unknown) as Stage[];
+
+  expect(getLocalizedStages(stages)).toEqual([
+    {
+      id: stage1.id,
+      name: localizedStage1.name,
+      description: localizedStage1.description,
+      self_followup_description: localizedStage1.self_followup_description,
+      locale: appLocale,
+      localized_pathway_stages: stages[0].localized_pathway_stages,
+    },
+  ]);
+});
