@@ -240,6 +240,14 @@ describe('CelebrateItemContent', () => {
         { organization: { id: orgId, name: 'My Real Org' } },
       );
     });
+
+    it('renders story', () => {
+      testEvent({
+        ...messageBaseEvent,
+        celebrateable_type: CELEBRATEABLE_TYPES.story,
+        object_description: 'Once Upon a Time....',
+      });
+    });
   });
 });
 
