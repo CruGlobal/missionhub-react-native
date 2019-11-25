@@ -1,18 +1,26 @@
 import React from 'react';
-import { Card, Input } from '../../../components/common';
 import { View } from 'react-native';
-import styles from './styles';
 import { useTranslation } from 'react-i18next';
+
+import { Card, Input } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
 
+import styles from './styles';
+
 interface ShareStoryInputProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: any;
   refreshItems: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   organization: any;
 }
 
-const ShareStoryInput = ({ dispatch, refreshItems, organization }: any) => {
+const ShareStoryInput = ({
+  dispatch,
+  refreshItems,
+  organization,
+}: ShareStoryInputProps) => {
   const { t } = useTranslation('shareAStoryScreen');
   const { container, inputContainer, input } = styles;
 
@@ -30,7 +38,7 @@ const ShareStoryInput = ({ dispatch, refreshItems, organization }: any) => {
 
   return (
     <View style={container}>
-      <Card style={inputContainer} onPress={onPress}>
+      <Card style={inputContainer} onPress={onPress} testID="ShareStoryInput">
         <Input
           onTouchStart={onPress}
           editable={false}

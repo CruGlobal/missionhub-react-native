@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#B4B6BA",
+        "borderRadius": 20,
+        "borderWidth": 1,
+        "color": "#ECEEF2",
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 12,
+        "opacity": 1,
+        "shadowColor": "#ffffff",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      }
+    }
+    testID="ShareStoryInput"
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={false}
+      multiline={false}
+      onTouchStart={[Function]}
+      placeholder="Share a Story..."
+      placeholderTextColor="#505256"
+      rejectResponderTermination={true}
+      selectionColor="#005A7F"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "letterSpacing": 0.25,
+            "paddingVertical": 5,
+          },
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomWidth": 0,
+            "color": "#B4B6BA",
+            "fontSize": 14,
+            "marginHorizontal": 20,
+            "marginLeft": 12,
+            "marginVertical": 2,
+          },
+        ]
+      }
+      underlineColorAndroid="rgba(0,0,0,0)"
+    />
+  </View>
+</View>
+`;
