@@ -11,6 +11,7 @@ import { Organization } from '../../../reducers/organizations';
 import styles from './styles';
 
 interface ShareStoryInputProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   refreshItems: () => void;
   organization: Organization;
