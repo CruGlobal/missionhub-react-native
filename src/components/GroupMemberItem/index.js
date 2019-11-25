@@ -4,6 +4,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
+import { localizedStageSelector } from 'src/selectors/stages';
 
 import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, Dot, Card } from '../common';
@@ -63,7 +64,11 @@ class GroupMemberItem extends Component {
 
     return (
       <Fragment>
-        {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
+        {stage ? (
+          <Text style={styles.detailText}>
+            {localizedStageSelector(stage).name}
+          </Text>
+        ) : null}
         {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
           <Text style={styles.detailText}>{this.orgPermissionText()}</Text>

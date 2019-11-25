@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import { localizedStageSelector } from 'src/selectors/stages';
 
 import { Flex, Text, Icon, DateComponent } from '../common';
 import { INTERACTION_TYPES, ACCEPTED_STEP } from '../../constants';
@@ -34,14 +35,15 @@ export default class JourneyItem extends Component {
   }
 
   oldStage(item) {
-    return item.old_pathway_stage && item.old_pathway_stage.name;
+    return localizedStageSelector(item.old_pathway_stage).name;
   }
 
   translatableStage(item) {
+    debugger;
     return {
       personName: item.person.first_name,
       oldStage: this.oldStage(item),
-      newStage: item.new_pathway_stage.name,
+      newStage: localizedStageSelector(item.new_pathway_stage).name,
     };
   }
 
@@ -60,17 +62,18 @@ export default class JourneyItem extends Component {
     let title;
     if (_type === ACCEPTED_STEP) {
       const pathwayStage =
-        item.challenge_suggestion &&
-        item.challenge_suggestion.pathway_stage &&
-        item.challenge_suggestion.pathway_stage.name
-          ? ` ${item.challenge_suggestion.pathway_stage.name} `
-          : ' ';
+        (item.challenge_suggestion &&
+          item.challenge_suggestion.pathway_stage &&
+          ` ${
+            localizedStageSelector(item.challenge_suggestion.pathway_stage).name
+          } `) ||
+        ' ';
       title = t('stepTitle', { stageName: pathwayStage });
     } else if (_type === 'pathway_progression_audit') {
       if (this.oldStage(item)) {
         title = t('stageTitle', this.translatableStage(item));
       } else {
-        title = item.new_pathway_stage.name;
+        title = localizedStageSelector(item.new_pathway_stage).name;
       }
     } else if (_type === 'answer_sheet' && item.survey) {
       title = item.survey.title;

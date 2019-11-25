@@ -23,6 +23,7 @@ import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
+import { localizedStageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
@@ -129,7 +130,9 @@ const PersonItem = ({
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
           {stage ? (
-            <Text style={styles.stage}>{stage.name}</Text>
+            <Text style={styles.stage}>
+              {localizedStageSelector(stage).name}
+            </Text>
           ) : (
             <Touchable testID="stageText" onPress={handleChangeStage}>
               <Text style={[styles.stage, styles.addStage]}>

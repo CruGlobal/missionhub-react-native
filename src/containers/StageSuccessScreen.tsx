@@ -6,7 +6,7 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { navigateBack } from '../actions/navigation';
 import { AuthState } from '../reducers/auth';
 import { Stage, StagesState } from '../reducers/stages';
-import { stageSelector } from '../selectors/stages';
+import { stageSelector, localizedStageSelector } from '../selectors/stages';
 
 import IconMessageScreen from './IconMessageScreen/index';
 
@@ -37,9 +37,8 @@ const StageSuccessScreen = ({
 
   // Build out message
   let message =
-    stage && stage.self_followup_description
-      ? stage.self_followup_description
-      : t('backupMessage');
+    localizedStageSelector(stage).self_followup_description ||
+    t('backupMessage');
   message = message.replace('<<user>>', firstName ? firstName : t('friend'));
   return (
     <IconMessageScreen

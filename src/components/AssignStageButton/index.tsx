@@ -13,6 +13,7 @@ import { getStageIndex } from '../../utils/common';
 import { PeopleState } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
 import { StagesState, Stage } from '../../reducers/stages';
+import { localizedStageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
@@ -54,7 +55,10 @@ const AssignStageButton = ({
       testID="AssignStageButton"
       type="transparent"
       onPress={assignStage}
-      text={(pathwayStage ? pathwayStage.name : t('selectStage')).toUpperCase()}
+      text={(pathwayStage
+        ? localizedStageSelector(pathwayStage).name
+        : t('selectStage')
+      ).toUpperCase()}
       style={[
         styles.assignButton,
         pathwayStage ? styles.buttonWithStage : styles.buttonWithNoStage,

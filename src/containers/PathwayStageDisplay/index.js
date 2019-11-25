@@ -7,6 +7,7 @@ import {
   contactAssignmentSelector,
   personSelector,
 } from '../../selectors/people';
+import { localizedStageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
@@ -15,7 +16,9 @@ class PathwayStageDisplay extends Component {
     const { pathwayStage } = this.props;
 
     return pathwayStage ? (
-      <Text style={styles.stage}>{pathwayStage.name}</Text>
+      <Text style={styles.stage}>
+        {localizedStageSelector(pathwayStage).name}
+      </Text>
     ) : null;
   }
 }

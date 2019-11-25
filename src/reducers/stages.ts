@@ -1,6 +1,5 @@
 import { REQUESTS } from '../api/routes';
 import { LOGOUT, LogoutAction } from '../constants';
-import { getLocalizedStages } from '../utils/stages';
 
 interface LocalizedPathwayStage {
   locale: string;
@@ -19,7 +18,6 @@ export interface Stage {
   description_i18n: string;
   icon_url: string;
   localized_pathway_stages: LocalizedPathwayStage[];
-  locale: string; // Spread from current localized_pathway_stages. Could be updated to a selector instead.
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -48,7 +46,7 @@ function stagesReducer(
 ) {
   switch (action.type) {
     case REQUESTS.GET_STAGES.SUCCESS:
-      const stages = getLocalizedStages(action.results.response);
+      const stages = action.results.response as Stage[];
       const stagesObj = stages.reduce(
         (stagesObj, stage) => ({
           ...stagesObj,
