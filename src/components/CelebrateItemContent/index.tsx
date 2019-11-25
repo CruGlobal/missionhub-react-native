@@ -177,7 +177,7 @@ const CelebrateItemContent = ({
       case joinedCommunity:
         return buildJoinedCommunityMessage(name);
       case story:
-        return buildStory();
+        return object_description;
     }
   };
 
@@ -196,10 +196,6 @@ const CelebrateItemContent = ({
         </Button>
       </View>
     ) : null;
-  };
-
-  const buildStory = () => {
-    return object_description;
   };
 
   return (
