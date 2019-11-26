@@ -23,8 +23,28 @@ const item = {
   assigned_to: { id: '10', first_name: 'Iron Man' },
   assigned_by: { id: '11', first_name: 'Captain America' },
   person: { first_name: 'Item person' },
-  old_pathway_stage: { name: 'stage' },
-  new_pathway_stage: { name: 'stage' },
+  old_pathway_stage: {
+    id: '1',
+    name: 'stage',
+    description: 'Test Stage',
+    self_followup_description: 'My Test Stage',
+    position: 0,
+    name_i18n: '',
+    description_i18n: '',
+    icon_url: '',
+    localized_pathway_stages: [],
+  },
+  new_pathway_stage: {
+    id: '1',
+    name: 'stage',
+    description: 'Test Stage',
+    self_followup_description: 'My Test Stage',
+    position: 0,
+    name_i18n: '',
+    description_i18n: '',
+    icon_url: '',
+    localized_pathway_stages: [],
+  },
 };
 
 const person = {
