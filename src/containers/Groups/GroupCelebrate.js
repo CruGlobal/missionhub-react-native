@@ -18,7 +18,7 @@ import {
   shouldQueryReportedComments,
 } from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
-import { orgPermissionSelector } from 'src/selectors/people';
+import { orgPermissionSelector } from '../../selectors/people';
 
 @withTranslation('groupsCelebrate')
 class GroupCelebrate extends Component {
