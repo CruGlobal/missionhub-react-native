@@ -224,7 +224,7 @@ exports[`renders cru org contact correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#FF5532",
+          "backgroundColor": "#007398",
           "borderRadius": 10,
           "bottom": 16,
           "height": 20,
@@ -493,7 +493,7 @@ exports[`renders cru org contact without stage correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#FF5532",
+          "backgroundColor": "#007398",
           "borderRadius": 10,
           "bottom": 16,
           "height": 20,
@@ -698,7 +698,7 @@ exports[`renders cru org member correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#FF5532",
+          "backgroundColor": "#007398",
           "borderRadius": 10,
           "bottom": 16,
           "height": 20,
@@ -903,7 +903,7 @@ exports[`renders me correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#FF5532",
+          "backgroundColor": "#007398",
           "borderRadius": 10,
           "bottom": 16,
           "height": 20,
@@ -1108,7 +1108,7 @@ exports[`renders personal ministry contact correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#FF5532",
+          "backgroundColor": "#007398",
           "borderRadius": 10,
           "bottom": 16,
           "height": 20,
@@ -1582,7 +1582,7 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#FF5532",
+          "backgroundColor": "#007398",
           "borderRadius": 10,
           "bottom": 16,
           "height": 20,
