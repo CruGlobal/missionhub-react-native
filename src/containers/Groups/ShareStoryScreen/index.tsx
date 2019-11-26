@@ -3,12 +3,14 @@ import { View, Keyboard } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
+import { Organization } from '../../../reducers/organizations';
 
 import styles from './styles';
 
@@ -36,40 +38,21 @@ export const CREATE_A_STORY = gql`
   }
 `;
 
-interface ShareStoryScreenProps {
-  navigation: {
-    state: {
-      params: {
-        onComplete: () => void;
-        organization: {
-          id: string;
-        };
-      };
-    };
-  };
-}
-
-const ShareStoryScreen = ({ navigation }: ShareStoryScreenProps) => {
+const ShareStoryScreen = () => {
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const [story, changeStory] = useState('');
-  const {
-    state: {
-      params: {
-        onComplete,
-        organization: { id },
-      },
-    },
-  } = navigation;
-
+  const onComplete: () => Promise<void> = useNavigationParam('onComplete');
+  const organization: Organization = useNavigationParam('organization');
   const [createStory] = useMutation(CREATE_A_STORY);
+
   const saveStory = async () => {
     if (!story) {
       return null;
     }
     Keyboard.dismiss();
     await createStory({
-      variables: { input: { content: story, organizationId: id } },
+      variables: { input: { content: story, organizationId: organization.id } },
     });
     onComplete();
   };

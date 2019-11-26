@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { Card, Input } from '../../../components/common';
+import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
 import { Organization } from '../../../reducers/organizations';
@@ -23,7 +23,7 @@ const ShareStoryInput = ({
   organization,
 }: ShareStoryInputProps) => {
   const { t } = useTranslation('shareAStoryScreen');
-  const { container, inputContainer, input } = styles;
+  const { container, inputButton, inputText } = styles;
 
   const onPress = () => {
     return dispatch(
@@ -39,14 +39,9 @@ const ShareStoryInput = ({
 
   return (
     <View style={container}>
-      <Card style={inputContainer} onPress={onPress} testID="ShareStoryInput">
-        <Input
-          onTouchStart={onPress}
-          editable={false}
-          style={input}
-          placeholder={t('inputPlaceholder')}
-        ></Input>
-      </Card>
+      <Button style={inputButton} onPress={onPress} testID="ShareStoryInput">
+        <Text style={inputText}>{t('inputPlaceholder')}</Text>
+      </Button>
     </View>
   );
 };

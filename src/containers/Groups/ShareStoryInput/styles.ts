@@ -14,21 +14,18 @@ export default StyleSheet.create({
     elevation: 4,
     marginBottom: 5,
   },
-  inputContainer: {
-    color: theme.extraLightGrey,
+  inputButton: {
     borderColor: theme.lightGrey,
     borderWidth: 1,
     borderRadius: 20,
-    shadowColor: theme.white,
     marginVertical: 12,
-  },
-  input: {
-    alignSelf: 'stretch',
+    height: 32,
     marginHorizontal: 20,
-    marginVertical: 2,
-    marginLeft: 12,
-    color: theme.lightGrey,
-    borderBottomWidth: 0,
+    alignItems: 'flex-start',
+  },
+  inputText: {
     fontSize: 14,
+    height: 18,
+    color: theme.lightGrey,
   },
 });

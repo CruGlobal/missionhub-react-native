@@ -23,12 +23,12 @@ it('renders correctly', () => {
   renderWithContext(<ShareStoryInput {...props} />).snapshot();
 });
 
-xit('onPress switches to ShareStoryScreen', () => {
+it('onPress switches to ShareStoryScreen', () => {
   const { getByTestId } = renderWithContext(<ShareStoryInput {...props} />);
   fireEvent.press(getByTestId('ShareStoryInput'));
-  const onComplete = () => jest.fn();
   expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
     organization: mockOrganization,
-    onComplete,
+    // jest.fn() does not work here and I can't figure out why
+    onComplete: expect.any(Function),
   });
 });

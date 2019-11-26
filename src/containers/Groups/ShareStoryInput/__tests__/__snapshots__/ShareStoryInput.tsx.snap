@@ -32,64 +32,59 @@ exports[`renders correctly 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderColor": "#B4B6BA",
-        "borderRadius": 20,
-        "borderWidth": 1,
-        "color": "#ECEEF2",
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 12,
         "opacity": 1,
-        "shadowColor": "#ffffff",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
       }
     }
     testID="ShareStoryInput"
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={false}
-      autoFocus={false}
-      editable={false}
-      multiline={false}
-      onTouchStart={[Function]}
-      placeholder="Share a Story..."
-      placeholderTextColor="#505256"
-      rejectResponderTermination={true}
-      selectionColor="#005A7F"
+    <View
       style={
         Array [
           Object {
+            "alignItems": "center",
             "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           },
+          null,
           Object {
-            "alignSelf": "stretch",
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 14,
+            "alignItems": "flex-start",
+            "borderColor": "#B4B6BA",
+            "borderRadius": 20,
+            "borderWidth": 1,
+            "height": 32,
             "marginHorizontal": 20,
-            "marginLeft": 12,
-            "marginVertical": 2,
+            "marginVertical": 12,
           },
+          null,
         ]
       }
-      underlineColorAndroid="rgba(0,0,0,0)"
-    />
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 14,
+              "height": 18,
+            },
+          ]
+        }
+      >
+        Share a Story...
+      </Text>
+    </View>
   </View>
 </View>
 `;
