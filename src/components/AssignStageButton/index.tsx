@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import i18next from 'i18next';
 
 import { Button } from '../common';
 import {
@@ -13,6 +14,7 @@ import { getStageIndex } from '../../utils/common';
 import { PeopleState } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
 import { StagesState, Stage } from '../../reducers/stages';
+import { localizedStageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
@@ -54,7 +56,10 @@ const AssignStageButton = ({
       testID="AssignStageButton"
       type="transparent"
       onPress={assignStage}
-      text={(pathwayStage ? pathwayStage.name : t('selectStage')).toUpperCase()}
+      text={(pathwayStage
+        ? localizedStageSelector(pathwayStage, i18next.language).name
+        : t('selectStage')
+      ).toUpperCase()}
       style={[
         styles.assignButton,
         pathwayStage ? styles.buttonWithStage : styles.buttonWithNoStage,
