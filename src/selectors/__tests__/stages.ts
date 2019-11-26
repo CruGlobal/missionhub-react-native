@@ -80,6 +80,16 @@ describe('localizedStageSelector', () => {
       }
     `);
   });
+  it('should find a localized stage by matching current app base locale', () => {
+    expect(localizedStageSelector(stage, 'en')).toMatchInlineSnapshot(`
+      Object {
+        "description": "English Description",
+        "locale": "en-TEST",
+        "name": "English Test",
+        "self_followup_description": "My English Description",
+      }
+    `);
+  });
   it('should return the parent stage data if no locale matches', () => {
     expect(localizedStageSelector(stage, 'es-MX')).toMatchInlineSnapshot(`
       Object {
