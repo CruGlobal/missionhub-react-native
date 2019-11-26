@@ -41,7 +41,6 @@ export default class JourneyItem extends Component {
   }
 
   translatableStage(item) {
-    debugger;
     return {
       personName: item.person.first_name,
       oldStage: this.oldStage(item),

@@ -23,7 +23,7 @@ export const localizedStageSelector = createSelector(
   ) =>
     localizedStages.find(({ locale }) => locale === appLanguage) ||
     localizedStages.find(
-      ({ locale }) => locale.split('-')[0] === appLanguage,
+      ({ locale = '' }) => locale.split('-')[0] === appLanguage,
     ) || {
       locale: '',
       name,
