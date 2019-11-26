@@ -93,7 +93,7 @@ describe('SelectStageScreen next', () => {
 
     it('should navigate to CelebrationScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
-        contactId: myId,
+        personId: myId,
         orgId,
       });
     });
