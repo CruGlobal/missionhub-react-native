@@ -1,7 +1,9 @@
 import React from 'react';
-import ShareStoryScreen from '..';
-import { renderWithContext } from '../../../../../testUtils';
+
 import { navigatePush } from '../../../../actions/navigation';
+import { renderWithContext } from '../../../../../testUtils';
+
+import ShareStoryScreen from '..';
 
 const onComplete = jest.fn();
 jest.mock('../../../../actions/navigation');
