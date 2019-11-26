@@ -3,12 +3,14 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import i18next from 'i18next';
 import { withTranslation } from 'react-i18next';
 
 import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
+import { localizedStageSelector } from '../../selectors/stages';
 import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
 import ItemHeaderText from '../ItemHeaderText';
 
@@ -63,7 +65,11 @@ class GroupMemberItem extends Component {
 
     return (
       <Fragment>
-        {stage ? <Text style={styles.detailText}>{stage.name}</Text> : null}
+        {stage ? (
+          <Text style={styles.detailText}>
+            {localizedStageSelector(stage, i18next.language).name}
+          </Text>
+        ) : null}
         {stage && permissionText ? <Dot style={styles.detailText} /> : null}
         {permissionText ? (
           <Text style={styles.detailText}>{this.orgPermissionText()}</Text>

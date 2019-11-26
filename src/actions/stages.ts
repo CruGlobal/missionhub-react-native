@@ -1,4 +1,3 @@
-import i18n from 'i18next';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
@@ -15,10 +14,7 @@ export function getStagesIfNotExists() {
   ) => {
     const { stages } = getState().stages;
 
-    const localeNotChanged =
-      stages && stages[0] && i18n.language === stages[0].locale;
-
-    if (localeNotChanged) {
+    if (stages && stages[0]) {
       dispatch({
         type: UPDATE_STAGES,
         stages,
