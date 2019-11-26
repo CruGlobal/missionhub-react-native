@@ -24,7 +24,7 @@ import { REQUESTS } from '../api/routes';
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
-import { navigatePush, navigateNestedReset } from './navigation';
+import { navigateReset, navigateNestedReset } from './navigation';
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -651,7 +651,7 @@ export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
     const { user_created } = organizationSelector({ organizations }, { orgId });
 
     return dispatch(
-      navigatePush(getScreenForOrg(orgId, user_created), {
+      navigateReset(getScreenForOrg(orgId, user_created), {
         orgId,
         initialTab,
       }),

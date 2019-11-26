@@ -4,9 +4,7 @@ import { AnyAction } from 'redux';
 
 import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
-import { organizationSelector } from '../selectors/organizations';
 import { OnboardingState } from '../reducers/onboarding';
-import { OrganizationsState } from '../reducers/organizations';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
@@ -15,18 +13,14 @@ import {
 import { rollbar } from '../utils/rollbar.config';
 import { buildTrackingObj } from '../utils/common';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-} from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 import { getMe } from './person';
-import { navigatePush, navigateReset } from './navigation';
+import { navigatePush } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
-import { joinCommunity } from './organizations';
+import { joinCommunity, navigateToOrg } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';
@@ -177,26 +171,9 @@ export function joinStashedCommunity() {
 export function landOnStashedCommunityScreen() {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
-    getState: () => {
-      onboarding: OnboardingState;
-      organizations: OrganizationsState;
-    },
+    getState: () => { onboarding: OnboardingState },
   ) => {
-    const {
-      organizations,
-      onboarding: {
-        community: { id },
-      },
-    } = getState();
-    const community = organizationSelector({ organizations }, { orgId: id });
-    dispatch(
-      navigateReset(
-        community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
-        {
-          organization: community,
-        },
-      ),
-    );
+    dispatch(navigateToOrg(getState().onboarding.community.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }
