@@ -1,11 +1,23 @@
+import { AnyAction } from 'redux';
+
 import { LOGOUT } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { CelebrateComment } from './celebrateComments';
 
-const initialState = {
+interface ReportedCommentsState {
+  all: {
+    [key: string]: CelebrateComment[];
+  };
+}
+
+const initialState: ReportedCommentsState = {
   all: {},
 };
 
-export default function reportedCommentsReducer(state = initialState, action) {
+export default function reportedCommentsReducer(
+  state = initialState,
+  action: AnyAction,
+) {
   switch (action.type) {
     case REQUESTS.GET_REPORTED_COMMENTS.SUCCESS:
       const {

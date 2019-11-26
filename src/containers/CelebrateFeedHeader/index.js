@@ -6,7 +6,7 @@ import { getReportedComments } from '../../actions/reportComments';
 import { Flex } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
-import { isOwner, orgIsCru, isAdmin, orgIsGlobal } from '../../utils/common';
+import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
 import { navigatePush } from '../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import OnboardingCard, {
@@ -114,11 +114,7 @@ export const mapStateToProps = (
   const allReportedComments = reportedComments.all[selectorOrg.id] || [];
   const reportedCount = allReportedComments.length;
 
-  const isUserOwner = isOwner(myOrgPerm);
-  const isUserAdmin = isAdmin(myOrgPerm);
-  const isCruOrg = orgIsCru(selectorOrg);
-
-  const shouldQueryReport = isCruOrg ? isUserAdmin : isUserOwner;
+  const shouldQueryReport = shouldQueryReportedComments(selectorOrg, myOrgPerm);
   const newCommentsCount = selectorOrg.unread_comments_count;
 
   return {

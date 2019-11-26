@@ -149,7 +149,6 @@ function handleNotification(notification) {
         return dispatch(
           navigateToCelebrateComments(organization_id, celebration_item_id),
         );
-        return;
       case 'community_challenges':
         await refreshCommunity(organization_id);
         await reloadGroupChallengeFeed(organization_id);
