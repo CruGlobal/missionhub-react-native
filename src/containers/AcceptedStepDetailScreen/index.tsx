@@ -103,11 +103,10 @@ const mapStateToProps = (
       state: {
         params: { step },
       },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
+    } = { state: { params: { step: {} as Step } } },
+  }: { navigation?: { state: { params: { step: Step } } } },
 ) => ({
-  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
+  reminder: reminderSelector({ stepReminders }, { stepId: step && step.id }),
 });
 
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);

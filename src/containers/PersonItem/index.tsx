@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
@@ -23,10 +24,21 @@ import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
+import { localizedStageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
+
+interface StepsDataInterface {
+  full_name: string;
+  id: string;
+  steps: {
+    pageInfo: {
+      totalCount: number;
+    };
+  };
+}
 
 interface PersonItemProps {
   person: PersonAttributes;
@@ -35,6 +47,7 @@ interface PersonItemProps {
   stagesObj: StagesObj;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
+  stepsData: StepsDataInterface;
 }
 
 const PersonItem = ({
@@ -43,8 +56,10 @@ const PersonItem = ({
   me,
   stagesObj,
   dispatch,
+  stepsData,
 }: PersonItemProps) => {
   const { t } = useTranslation();
+  const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
   const orgId = organization && organization.id;
   const isMe = person.id === me.id;
   const isPersonal = orgId === 'personal';
@@ -116,7 +131,9 @@ const PersonItem = ({
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
           {stage ? (
-            <Text style={styles.stage}>{stage.name}</Text>
+            <Text style={styles.stage}>
+              {localizedStageSelector(stage, i18next.language).name}
+            </Text>
           ) : (
             <Touchable testID="stageText" onPress={handleChangeStage}>
               <Text style={[styles.stage, styles.addStage]}>
@@ -138,10 +155,7 @@ const PersonItem = ({
   };
 
   const renderStepIcon = () => {
-    //TODO: get count of steps for each contact
-    const stepsCount = 0;
-
-    return stepsCount > 0 ? (
+    return totalCount > 0 ? (
       <View style={styles.stepButtonWrapper}>
         <Icon
           type="MissionHub"
@@ -149,8 +163,8 @@ const PersonItem = ({
           size={30}
           style={styles.stepIcon}
         />
-        <View style={styles.badge}>
-          <Text style={styles.badgeText}>{stepsCount}</Text>
+        <View style={styles.badge} testID="stepsCount">
+          <Text style={styles.badgeText}>{totalCount}</Text>
         </View>
       </View>
     ) : (
