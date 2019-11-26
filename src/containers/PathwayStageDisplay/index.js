@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import i18next from 'i18next';
 import PropTypes from 'prop-types';
 
 import { Text } from '../../components/common';
@@ -7,6 +8,7 @@ import {
   contactAssignmentSelector,
   personSelector,
 } from '../../selectors/people';
+import { localizedStageSelector } from '../../selectors/stages';
 
 import styles from './styles';
 
@@ -15,7 +17,9 @@ class PathwayStageDisplay extends Component {
     const { pathwayStage } = this.props;
 
     return pathwayStage ? (
-      <Text style={styles.stage}>{pathwayStage.name}</Text>
+      <Text style={styles.stage}>
+        {localizedStageSelector(pathwayStage, i18next.language).name}
+      </Text>
     ) : null;
   }
 }
