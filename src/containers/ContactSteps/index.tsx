@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
-import { View, FlatList, ScrollView } from 'react-native';
+import { View, SectionList, SectionListData } from 'react-native';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
@@ -89,7 +89,15 @@ const ContactSteps = ({
 
   const toggleCompletedSteps = () => setHideCompleted(!hideCompleted);
 
-  const renderRow = ({ item }: { item: Step }) => (
+  const stepListSections = [
+    {
+      key: 'active',
+      data: steps,
+    },
+    ...(hideCompleted ? [] : [{ key: 'completed', data: completedSteps }]),
+  ];
+
+  const renderItem = ({ item }: { item: Step }) => (
     <AcceptedStepItem
       testID="stepItem"
       step={item}
@@ -97,12 +105,8 @@ const ContactSteps = ({
     />
   );
 
-  const renderCompletedStepsButton = () => {
-    if (completedSteps.length === 0) {
-      return null;
-    }
-
-    return (
+  const renderCompletedStepsButton = () =>
+    completedSteps.length === 0 ? null : (
       <Button
         testID="completedStepsButton"
         pill={true}
@@ -114,40 +118,22 @@ const ContactSteps = ({
         buttonTextStyle={styles.completedStepsButtonText}
       />
     );
-  };
 
-  const renderList = (data: Step[]) => {
-    if (data.length === 0) {
-      return null;
-    }
-    return (
-      <FlatList
-        testID="stepsList"
-        data={data}
-        keyExtractor={keyExtractorId}
-        renderItem={renderRow}
-        showsVerticalScrollIndicator={false}
-      />
-    );
-  };
-
-  const renderCompletedList = (data: Step[]) => (
-    <FlatList
-      data={data}
-      keyExtractor={keyExtractorId}
-      renderItem={renderRow}
-      showsVerticalScrollIndicator={false}
-    />
-  );
+  const renderSectionFooter = ({
+    section: { key },
+  }: {
+    section: SectionListData<{ key: string }>;
+  }) => (key === 'active' ? renderCompletedStepsButton() : null);
 
   const renderSteps = () => (
-    <ScrollView>
-      <View style={styles.list}>
-        {renderList(steps)}
-        {renderCompletedStepsButton()}
-        {hideCompleted ? null : renderCompletedList(completedSteps)}
-      </View>
-    </ScrollView>
+    <SectionList
+      contentContainerStyle={styles.list}
+      sections={stepListSections}
+      keyExtractor={keyExtractorId}
+      renderItem={renderItem}
+      renderSectionFooter={renderSectionFooter}
+      showsVerticalScrollIndicator={false}
+    />
   );
 
   const renderNull = () => (
