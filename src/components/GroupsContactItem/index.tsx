@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent, Card } from '../../components/common';
@@ -8,12 +9,12 @@ import {
   getIconName,
 } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
+import { localizedStageSelector } from '../../selectors/stages';
+import { Stage } from '../../reducers/stages';
 
 import styles from './styles';
 
 type Person = { first_name?: string; last_name?: string };
-
-type Stage = { name?: string };
 
 type GroupsContactItemType = {
   id: string;
@@ -101,13 +102,22 @@ const GroupsContactItem = ({ item, person, myId }: GroupsContactItemProps) => {
     if (item.old_pathway_stage) {
       title = t('stageChange', {
         personName: item.person.first_name,
-        oldStage: item.old_pathway_stage.name,
-        newStage: item.new_pathway_stage.name,
+        oldStage: localizedStageSelector(
+          item.old_pathway_stage,
+          i18next.language,
+        ).name,
+        newStage: localizedStageSelector(
+          item.new_pathway_stage,
+          i18next.language,
+        ).name,
       });
     } else {
       title = t('stageStart', {
         personName: item.person.first_name,
-        newStage: item.new_pathway_stage.name,
+        newStage: localizedStageSelector(
+          item.new_pathway_stage,
+          i18next.language,
+        ).name,
       });
     }
   } else if (item._type === 'interaction') {

@@ -52,20 +52,5 @@ const SuggestedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  _: any,
-  {
-    next,
-  }: {
-    next: (props: {
-      personId: string;
-      orgId: string | undefined;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    }) => ThunkAction<void, any, {}, never>;
-  },
-) => ({
-  next,
-});
-export default connect(mapStateToProps)(SuggestedStepDetailScreen);
+export default connect()(SuggestedStepDetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

@@ -2,25 +2,13 @@
 
 import { REQUESTS } from '../../api/routes';
 import { Person } from '../people';
-import steps, { Step } from '../steps';
+import steps, { Step, initialState } from '../steps';
 import {
   COMPLETED_STEP_COUNT,
   TOGGLE_STEP_FOCUS,
   RESET_STEP_COUNT,
   STEP_SUGGESTION,
 } from '../../constants';
-
-const initialState = {
-  mine: null,
-  suggestedForMe: {},
-  suggestedForOthers: {},
-  userStepCount: {},
-  pagination: {
-    hasNextPage: true,
-    page: 1,
-  },
-  contactSteps: {},
-};
 
 it('loads step suggestions for me', () => {
   const stageId = '5';

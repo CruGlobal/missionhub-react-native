@@ -450,8 +450,7 @@ describe('StepsScreen', () => {
     it('navigates to people screen', () => {
       screen
         .childAt(2)
-        .childAt(1)
-        .childAt(1)
+        .childAt(3)
         .props()
         .onPress();
 

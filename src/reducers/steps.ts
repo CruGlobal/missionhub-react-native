@@ -21,7 +21,7 @@ export type SuggestedStep = {
 
 export type Step = {
   id: string;
-  challenge_suggestion: SuggestedStep;
+  challenge_suggestion?: SuggestedStep;
   completed_at: Date;
   focus: boolean;
   organization: Organization | null;
@@ -32,19 +32,19 @@ export type Step = {
 
 export interface StepsState {
   mine: Step[] | null;
-  suggestedForMe: { [key in string]: Step[] };
-  suggestedForOthers: { [key in string]: Step[] };
-  userStepCount: { [key in string]: number };
+  suggestedForMe: { [key: string]: Step[] };
+  suggestedForOthers: { [key: string]: Step[] };
+  userStepCount: { [key: string]: number };
   pagination: { hasNextPage: boolean; page: number };
   contactSteps: {
-    [key in string]: {
+    [key: string]: {
       steps: Step[];
       completedSteps: Step[];
     };
   };
 }
 
-const initialState: StepsState = {
+export const initialState: StepsState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},

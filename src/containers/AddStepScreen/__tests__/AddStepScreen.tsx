@@ -40,7 +40,6 @@ const createStepParams = { ...baseParams, type: CREATE_STEP };
 const editJourneyStepParams = {
   ...baseParams,
   type: EDIT_JOURNEY_STEP,
-  isEdit: true,
   text,
 };
 const editJourneyItemParams = {

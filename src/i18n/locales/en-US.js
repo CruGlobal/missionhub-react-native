@@ -435,7 +435,6 @@ export default {
   },
   stepsTab: {
     nullHeader: 'STEPS OF FAITH',
-    nullWithReminders: 'Choose a person in People view and add some new steps.',
     nullNoReminders: {
       part1: "You don't have any Steps of Faith.",
       part2: 'Choose a person and add some new steps.',

@@ -7,7 +7,6 @@ import {
   UPDATE_TOKEN,
 } from '../constants';
 import { userIsJean } from '../utils/common';
-import { getLocalizedStages } from '../utils/stages';
 import { REQUESTS } from '../api/routes';
 
 import { Person } from './people';
@@ -107,9 +106,7 @@ function authReducer(state = initialAuthState, action: any) {
     case REQUESTS.GET_STAGES.SUCCESS:
     case UPDATE_STAGES:
       // Add the matching 'stage' object to the user object
-      const stages = getLocalizedStages(
-        results ? results.response : action.stages,
-      );
+      const stages = results ? results.response : action.stages;
 
       return {
         ...state,
