@@ -147,10 +147,19 @@ const mapStateToProps = (
       state: {
         params: { personId },
       },
-    },
+    } = { state: { params: { personId: '' } } },
     next,
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
+  }: {
+    navigation?: { state: { params: { personId: string } } };
+    next: (props: {
+      text: string | undefined;
+      id: string | undefined;
+      type: string;
+      personId: string;
+      orgId: string | undefined;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }) => ThunkAction<void, any, {}, never>;
+  },
 ) => ({
   next,
   isMe: auth.person.id === personId,

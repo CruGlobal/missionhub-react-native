@@ -180,27 +180,15 @@ exports[`renders cru org contact correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 6,
         "paddingRight": 16,
       }
     }
-    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -232,39 +220,42 @@ exports[`renders cru org contact correctly 1`] = `
     >
       
     </Text>
-    <Text
-      allowFontScaling={false}
+    <View
       style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007398",
+          "borderRadius": 10,
+          "bottom": 16,
+          "height": 20,
+          "justifyContent": "center",
+          "left": 20,
+          "position": "absolute",
+          "width": 20,
+        }
+      }
+      testID="stepsCount"
+    >
+      <Text
+        style={
           Array [
             Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
               "color": "#ffffff",
+              "fontSize": 13,
+              "fontWeight": "bold",
             },
-            Object {
-              "fontSize": 14,
-            },
-            Object {
-              "bottom": 16,
-              "color": "#52C5DC",
-              "left": 24,
-              "position": "absolute",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
+          ]
+        }
+      >
+        4
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -458,27 +449,15 @@ exports[`renders cru org contact without stage correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 6,
         "paddingRight": 16,
       }
     }
-    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -510,39 +489,42 @@ exports[`renders cru org contact without stage correctly 1`] = `
     >
       
     </Text>
-    <Text
-      allowFontScaling={false}
+    <View
       style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007398",
+          "borderRadius": 10,
+          "bottom": 16,
+          "height": 20,
+          "justifyContent": "center",
+          "left": 20,
+          "position": "absolute",
+          "width": 20,
+        }
+      }
+      testID="stepsCount"
+    >
+      <Text
+        style={
           Array [
             Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
               "color": "#ffffff",
+              "fontSize": 13,
+              "fontWeight": "bold",
             },
-            Object {
-              "fontSize": 14,
-            },
-            Object {
-              "bottom": 16,
-              "color": "#52C5DC",
-              "left": 24,
-              "position": "absolute",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
+          ]
+        }
+      >
+        4
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -672,27 +654,15 @@ exports[`renders cru org member correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 6,
         "paddingRight": 16,
       }
     }
-    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -724,39 +694,42 @@ exports[`renders cru org member correctly 1`] = `
     >
       
     </Text>
-    <Text
-      allowFontScaling={false}
+    <View
       style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007398",
+          "borderRadius": 10,
+          "bottom": 16,
+          "height": 20,
+          "justifyContent": "center",
+          "left": 20,
+          "position": "absolute",
+          "width": 20,
+        }
+      }
+      testID="stepsCount"
+    >
+      <Text
+        style={
           Array [
             Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
               "color": "#ffffff",
+              "fontSize": 13,
+              "fontWeight": "bold",
             },
-            Object {
-              "fontSize": 14,
-            },
-            Object {
-              "bottom": 16,
-              "color": "#52C5DC",
-              "left": 24,
-              "position": "absolute",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
+          ]
+        }
+      >
+        4
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -886,27 +859,15 @@ exports[`renders me correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 6,
         "paddingRight": 16,
       }
     }
-    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -938,39 +899,42 @@ exports[`renders me correctly 1`] = `
     >
       
     </Text>
-    <Text
-      allowFontScaling={false}
+    <View
       style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007398",
+          "borderRadius": 10,
+          "bottom": 16,
+          "height": 20,
+          "justifyContent": "center",
+          "left": 20,
+          "position": "absolute",
+          "width": 20,
+        }
+      }
+      testID="stepsCount"
+    >
+      <Text
+        style={
           Array [
             Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
               "color": "#ffffff",
+              "fontSize": 13,
+              "fontWeight": "bold",
             },
-            Object {
-              "fontSize": 14,
-            },
-            Object {
-              "bottom": 16,
-              "color": "#52C5DC",
-              "left": 24,
-              "position": "absolute",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
+          ]
+        }
+      >
+        4
+      </Text>
+    </View>
   </View>
 </View>
 `;
@@ -1069,6 +1033,211 @@ exports[`renders personal ministry contact correctly 1`] = `
       }
     >
       John Doe
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 12,
+              "lineHeight": 14,
+              "paddingTop": 6,
+            },
+          ]
+        }
+      >
+        Stage 1
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 6,
+        "paddingRight": 16,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 30,
+            },
+            Object {
+              "color": "#52C5DC",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007398",
+          "borderRadius": 10,
+          "bottom": 16,
+          "height": 20,
+          "justifyContent": "center",
+          "left": 20,
+          "position": "absolute",
+          "width": 20,
+        }
+      }
+      testID="stepsCount"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+      >
+        4
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders personal ministry with no steps correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 70,
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="personCard"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 70,
+        "justifyContent": "center",
+        "paddingLeft": 16,
+        "paddingRight": 6,
+        "width": 54,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/forgivenIcon.png",
+        }
+      }
+      style={
+        Object {
+          "height": 32,
+          "width": 32,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "paddingLeft": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      Graph Champion
     </Text>
     <View
       style={
@@ -1369,27 +1538,15 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
     </View>
   </View>
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "alignItems": "center",
         "height": 70,
         "justifyContent": "center",
-        "opacity": 1,
         "paddingLeft": 6,
         "paddingRight": 16,
       }
     }
-    testID="stepIcon"
   >
     <Text
       allowFontScaling={false}
@@ -1421,39 +1578,42 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
     >
       
     </Text>
-    <Text
-      allowFontScaling={false}
+    <View
       style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#007398",
+          "borderRadius": 10,
+          "bottom": 16,
+          "height": 20,
+          "justifyContent": "center",
+          "left": 20,
+          "position": "absolute",
+          "width": 20,
+        }
+      }
+      testID="stepsCount"
+    >
+      <Text
+        style={
           Array [
             Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
               "color": "#ffffff",
+              "fontSize": 13,
+              "fontWeight": "bold",
             },
-            Object {
-              "fontSize": 14,
-            },
-            Object {
-              "bottom": 16,
-              "color": "#52C5DC",
-              "left": 24,
-              "position": "absolute",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
+          ]
+        }
+      >
+        4
+      </Text>
+    </View>
   </View>
 </View>
 `;

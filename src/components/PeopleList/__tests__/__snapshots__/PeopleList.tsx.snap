@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -72,161 +72,10 @@
+@@ -72,203 +72,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -103,6 +103,20 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -                   \\"type\\": \\"person\\",
 -                 }
 -               }
+-               stepsData={
+-                 Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Hayden Zieme\\",
+-                   \\"id\\": \\"1\\",
+-                   \\"steps\\": Object {
+-                     \\"__typename\\": \\"StepConnection\\",
+-                     \\"pageInfo\\": Object {
+-                       \\"__typename\\": \\"BasePageInfo\\",
+-                       \\"totalCount\\": 11,
+-                     },
+-                   },
+-                 }
+-               }
 -             />
 -           </View>
 -           <View
@@ -137,6 +151,20 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -                   \\"type\\": \\"person\\",
 -                 }
 -               }
+-               stepsData={
+-                 Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Mina Watsica\\",
+-                   \\"id\\": \\"2\\",
+-                   \\"steps\\": Object {
+-                     \\"__typename\\": \\"StepConnection\\",
+-                     \\"pageInfo\\": Object {
+-                       \\"__typename\\": \\"BasePageInfo\\",
+-                       \\"totalCount\\": 12812,
+-                     },
+-                   },
+-                 }
+-               }
 -             />
 -           </View>
 -           <View
@@ -169,6 +197,20 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -                 Object {
 -                   \\"id\\": 3,
 -                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-               stepsData={
+-                 Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Elizabeth Zulauf\\",
+-                   \\"id\\": \\"3\\",
+-                   \\"steps\\": Object {
+-                     \\"__typename\\": \\"StepConnection\\",
+-                     \\"pageInfo\\": Object {
+-                       \\"__typename\\": \\"BasePageInfo\\",
+-                       \\"totalCount\\": 9233,
+-                     },
+-                   },
 -                 }
 -               }
 -             />
@@ -261,6 +303,20 @@ exports[`renders correctly as Casey 1`] = `
               "type": "person",
             }
           }
+          stepsData={
+            Object {
+              "__typename": "Person",
+              "fullName": "Hayden Zieme",
+              "id": "1",
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 11,
+                },
+              },
+            }
+          }
         />
       </View>
       <View
@@ -274,6 +330,20 @@ exports[`renders correctly as Casey 1`] = `
               "type": "person",
             }
           }
+          stepsData={
+            Object {
+              "__typename": "Person",
+              "fullName": "Mina Watsica",
+              "id": "2",
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 12812,
+                },
+              },
+            }
+          }
         />
       </View>
       <View
@@ -285,6 +355,20 @@ exports[`renders correctly as Casey 1`] = `
             Object {
               "id": "3",
               "type": "person",
+            }
+          }
+          stepsData={
+            Object {
+              "__typename": "Person",
+              "fullName": "Elizabeth Zulauf",
+              "id": "3",
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 9233,
+                },
+              },
             }
           }
         />
@@ -450,6 +534,20 @@ exports[`renders correctly as Jean 1`] = `
                   "type": "person",
                 }
               }
+              stepsData={
+                Object {
+                  "__typename": "Person",
+                  "fullName": "Hayden Zieme",
+                  "id": "1",
+                  "steps": Object {
+                    "__typename": "StepConnection",
+                    "pageInfo": Object {
+                      "__typename": "BasePageInfo",
+                      "totalCount": 11,
+                    },
+                  },
+                }
+              }
             />
           </View>
           <View
@@ -484,6 +582,20 @@ exports[`renders correctly as Jean 1`] = `
                   "type": "person",
                 }
               }
+              stepsData={
+                Object {
+                  "__typename": "Person",
+                  "fullName": "Mina Watsica",
+                  "id": "2",
+                  "steps": Object {
+                    "__typename": "StepConnection",
+                    "pageInfo": Object {
+                      "__typename": "BasePageInfo",
+                      "totalCount": 12812,
+                    },
+                  },
+                }
+              }
             />
           </View>
           <View
@@ -516,6 +628,20 @@ exports[`renders correctly as Jean 1`] = `
                 Object {
                   "id": 3,
                   "type": "person",
+                }
+              }
+              stepsData={
+                Object {
+                  "__typename": "Person",
+                  "fullName": "Elizabeth Zulauf",
+                  "id": "3",
+                  "steps": Object {
+                    "__typename": "StepConnection",
+                    "pageInfo": Object {
+                      "__typename": "BasePageInfo",
+                      "totalCount": 9233,
+                    },
+                  },
                 }
               }
             />

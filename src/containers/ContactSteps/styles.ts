@@ -8,9 +8,8 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   list: {
-    flex: 1,
-    marginTop: 16,
-    marginBottom: 96,
+    paddingTop: 16,
+    paddingBottom: 96,
   },
   completedStepsButton: {
     backgroundColor: theme.transparent,

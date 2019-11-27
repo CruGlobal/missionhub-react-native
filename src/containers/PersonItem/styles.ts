@@ -56,7 +56,7 @@ export default StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     left: 20,
-    backgroundColor: theme.red,
+    backgroundColor: theme.primaryColor,
     width: 20,
     height: 20,
     borderRadius: 10,

@@ -30,6 +30,12 @@ jest.mock('../../../actions/people', () => ({
   getMyPeople: jest.fn(),
 }));
 
+const person = {
+  first_name: 'Christian',
+  last_name: 'Huffman',
+  id: '4224323',
+};
+
 const orgs = [
   {
     id: 'personal',
@@ -93,6 +99,7 @@ const props = {
   hasNoContacts: false,
   items: orgs,
   dispatch: jest.fn(response => Promise.resolve(response)),
+  person: person,
 };
 
 jest.mock('react-native-device-info');
