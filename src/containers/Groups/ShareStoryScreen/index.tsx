@@ -28,11 +28,6 @@ export const CREATE_A_STORY = gql`
           id
         }
       }
-
-      errors {
-        message
-        path
-      }
     }
   }
 `;

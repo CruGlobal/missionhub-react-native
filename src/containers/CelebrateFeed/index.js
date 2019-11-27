@@ -98,23 +98,21 @@ class CelebrateFeed extends Component {
     const { items, refreshing, noHeader } = this.props;
 
     return (
-      <View>
-        <SectionList
-          sections={items}
-          ListHeaderComponent={noHeader ? undefined : this.renderHeader}
-          renderSectionHeader={this.renderSectionHeader}
-          renderItem={this.renderItem}
-          keyExtractor={keyExtractorId}
-          onEndReachedThreshold={0.2}
-          onEndReached={this.handleOnEndReached}
-          onScrollEndDrag={this.handleEndDrag}
-          onRefresh={this.handleRefreshing}
-          refreshing={refreshing || false}
-          extraData={this.state}
-          style={styles.list}
-          contentContainerStyle={styles.listContent}
-        />
-      </View>
+      <SectionList
+        sections={items}
+        ListHeaderComponent={noHeader ? undefined : this.renderHeader}
+        renderSectionHeader={this.renderSectionHeader}
+        renderItem={this.renderItem}
+        keyExtractor={keyExtractorId}
+        onEndReachedThreshold={0.2}
+        onEndReached={this.handleOnEndReached}
+        onScrollEndDrag={this.handleEndDrag}
+        onRefresh={this.handleRefreshing}
+        refreshing={refreshing || false}
+        extraData={this.state}
+        style={styles.list}
+        contentContainerStyle={styles.listContent}
+      />
     );
   }
 }
