@@ -19,7 +19,6 @@ export const CREATE_A_STORY = gql`
     createStory(input: $input) {
       story {
         content
-        createdAt
         id
         community {
           name
@@ -60,6 +59,7 @@ const ShareStoryScreen = () => {
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
       <Input
+        testID="StoryInput"
         onChangeText={e => changeStory(e)}
         placeholder={t('inputPlaceholder')}
         value={story}
@@ -72,7 +72,11 @@ const ShareStoryScreen = () => {
         placeholderTextColor={theme.lightGrey}
         style={textInput}
       />
-      <BottomButton text={t('shareStory')} onPress={saveStory} />
+      <BottomButton
+        text={t('shareStory')}
+        onPress={saveStory}
+        testID="SaveStoryButton"
+      />
     </View>
   );
 };
