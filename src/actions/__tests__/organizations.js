@@ -43,7 +43,11 @@ import {
   navigateToCelebrateComments,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
-import { navigatePush, navigateNestedReset } from '../navigation';
+import {
+  navigatePush,
+  navigateReset,
+  navigateNestedReset,
+} from '../navigation';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 import {
   GROUP_CHALLENGES,
@@ -1032,7 +1036,7 @@ describe('navigateToOrg', () => {
         all: [globalCommunity, cruOrg, userCreatedOrg],
       },
     });
-    navigatePush.mockReturnValue({ type: 'test' });
+    navigateReset.mockReturnValue({ type: 'test' });
   });
 
   describe('default', () => {
@@ -1041,7 +1045,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
         orgId: GLOBAL_COMMUNITY_ID,
         initialTab: undefined,
       });
@@ -1054,7 +1058,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(GROUP_SCREEN, {
         orgId: cruOrgId,
         initialTab: undefined,
       });
@@ -1067,7 +1071,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
         orgId: userCreatedOrgId,
         initialTab: undefined,
       });
@@ -1080,7 +1084,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
         orgId: GLOBAL_COMMUNITY_ID,
         initialTab: undefined,
       });
@@ -1093,7 +1097,7 @@ describe('navigateToOrg', () => {
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
-      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+      expect(navigateReset).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
         orgId: userCreatedOrgId,
         initialTab: GROUP_CHALLENGES,
       });

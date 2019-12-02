@@ -14,7 +14,7 @@ import {
   SKIP_ONBOARDING_ADD_PERSON,
 } from '../onboarding';
 import { showReminderOnLoad } from '../notifications';
-import { joinCommunity } from '../organizations';
+import { joinCommunity, navigateToOrg } from '../organizations';
 import { trackActionWithoutData } from '../analytics';
 import {
   ACTIONS,
@@ -243,6 +243,10 @@ describe('join stashed community', () => {
 });
 
 describe('land on stashed community screen', () => {
+  beforeEach(() => {
+    (navigateToOrg as jest.Mock).mockReturnValue({ type: 'navigate to org' });
+  });
+
   it('landOnStashedCommunityScreen navigates to GroupScreen', async () => {
     const community = {
       id: '1',
@@ -261,9 +265,7 @@ describe('land on stashed community screen', () => {
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(GROUP_SCREEN, {
-      organization: community,
-    });
+    expect(navigateToOrg).toHaveBeenCalledWith(community.id);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );
@@ -289,9 +291,7 @@ describe('land on stashed community screen', () => {
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      organization: community,
-    });
+    expect(navigateToOrg).toHaveBeenCalledWith(community.id);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );

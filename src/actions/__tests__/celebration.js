@@ -95,6 +95,8 @@ describe('getGroupCelebrateFeedUnread', () => {
       REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD,
       {
         orgId,
+      },
+      {
         filters: { has_unread_comments: true },
         include: GET_CELEBRATE_INCLUDE,
       },

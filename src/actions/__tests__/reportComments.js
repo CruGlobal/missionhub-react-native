@@ -37,8 +37,10 @@ beforeEach(() => {
 
 describe('report comments', () => {
   const item = { id: 'comment1' };
+
   it('should callApi for report', async () => {
     const response = await store.dispatch(reportComment(orgId, item));
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_REPORT_COMMENT,
       { orgId },
@@ -50,10 +52,13 @@ describe('report comments', () => {
     );
     expect(store.getActions()).toEqual([trackActionResult]);
   });
+
   it('should callApi for ignore', async () => {
     const fakeDate = '2018-09-06T14:13:21Z';
     common.formatApiDate = jest.fn(() => fakeDate);
+
     const response = await store.dispatch(ignoreReportComment(orgId, item.id));
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_REPORT_COMMENT,
       { orgId, reportCommentId: item.id },
@@ -61,13 +66,18 @@ describe('report comments', () => {
     );
     expect(response).toEqual(callApiResponse);
   });
+
   it('should callApi for get reported comments', async () => {
     const response = await store.dispatch(getReportedComments(orgId));
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {
-      orgId,
-      filters: { ignored: false },
-      include: 'comment,comment.person,person',
-    });
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.GET_REPORTED_COMMENTS,
+      { orgId },
+      {
+        filters: { ignored: false },
+        include: 'comment,comment.person,person',
+      },
+    );
     expect(response).toEqual(callApiResponse);
   });
 });
