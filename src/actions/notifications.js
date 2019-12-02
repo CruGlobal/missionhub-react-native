@@ -122,7 +122,7 @@ function handleNotification(notification) {
     const { screen, person_id, celebration_item_id } = notificationData;
     const organization_id =
       notificationData.organization_id && `${notificationData.organization_id}`;
-
+    console.log(`notificaiton: orgId = ${organization_id}`);
     switch (screen) {
       case 'home':
       case 'steps':
@@ -144,8 +144,10 @@ function handleNotification(notification) {
           }),
         );
       case 'celebrate':
+        console.log('celebrate');
         await refreshCommunity(organization_id);
         await reloadGroupCelebrateFeed(organization_id);
+        console.log('navigating');
         return dispatch(
           navigateToCelebrateComments(organization_id, celebration_item_id),
         );
