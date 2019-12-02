@@ -10,6 +10,9 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   fieldWrap: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center',
     paddingTop: 10,
   },
   skipBtnText: {

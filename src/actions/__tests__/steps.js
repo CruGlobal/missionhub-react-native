@@ -21,7 +21,6 @@ import { refreshImpact } from '../impact';
 import { trackStepAdded, trackAction } from '../analytics';
 import * as navigation from '../navigation';
 import * as common from '../../utils/common';
-import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
   COMPLETED_STEP_COUNT,
@@ -556,12 +555,6 @@ describe('complete challenge', () => {
           id: stepId,
           onSetComplete: expect.any(Function),
           orgId: stepOrgId,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
         },
       },
       trackActionResult,
@@ -608,12 +601,6 @@ describe('complete challenge', () => {
           id: stepId,
           onSetComplete: expect.any(Function),
           orgId: null,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
         },
       },
       trackActionResult,
