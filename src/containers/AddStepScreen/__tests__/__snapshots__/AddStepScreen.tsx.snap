@@ -191,6 +191,7 @@ exports[`renders create step correctly 1`] = `
       testID="stepInput"
       textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
@@ -463,6 +464,7 @@ exports[`renders edit journey item correctly 1`] = `
       testID="stepInput"
       textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
@@ -735,6 +737,7 @@ exports[`renders edit journey step correctly 1`] = `
       testID="stepInput"
       textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
@@ -1079,6 +1082,7 @@ exports[`renders step note correctly 1`] = `
       testID="stepInput"
       textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
@@ -1423,6 +1427,7 @@ exports[`renders step note correctly for me 1`] = `
       testID="stepInput"
       textAlignVertical="top"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
@@ -1510,12 +1515,13 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -257,10 +257,11 @@
+@@ -257,11 +257,11 @@
           ]
         }
         testID=\\"stepInput\\"
         textAlignVertical=\\"top\\"
         underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-       value=\\"\\"
 +       value=\\"Comment\\"
       />
     </View>
