@@ -63,9 +63,14 @@ exports[`GetStartedScreen renders without back button correctly 1`] = `
 `;
 
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
-<withI18nextTranslation(PersonSelectStepScreen)
+<PersonSelectStepScreen
+  contactName="Someone"
+  contactStage={
+    Object {
+      "id": "3",
+    }
+  }
   dispatch={[Function]}
-  enableSkipButton={false}
   navigation={
     Object {
       "state": Object {
@@ -80,11 +85,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={
-    Object {
-      "id": undefined,
-    }
-  }
+  organization={Object {}}
 />
 `;
 
