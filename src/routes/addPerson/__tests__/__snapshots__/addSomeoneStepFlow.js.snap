@@ -51,9 +51,8 @@ exports[`CelebrationScreen next renders correctly 1`] = `
 `;
 
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
-<withI18nextTranslation(PersonSelectStepScreen)
+<PersonSelectStepScreen
   dispatch={[Function]}
-  enableSkipButton={false}
   navigation={
     Object {
       "state": Object {
@@ -64,17 +63,8 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={
-    Object {
-      "id": undefined,
-    }
-  }
-  person={
-    Object {
-      "first_name": "Someone",
-      "id": "321",
-    }
-  }
+  organization={Object {}}
+  personId="321"
 />
 `;
 
