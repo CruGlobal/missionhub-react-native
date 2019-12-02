@@ -65,9 +65,7 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   };
 
   const navigateNext = async (text?: string) => {
-    console.log('hmmm');
     onSetComplete && (await onSetComplete());
-    console.log('ooooohhhh');
 
     dispatch(next({ text, id, type, personId, orgId }));
   };
