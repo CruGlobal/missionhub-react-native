@@ -12,7 +12,6 @@ import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import styles from './styles';
 
 const {
-  FOCUS_STEP,
   LOGIN,
   SET_REMINDER,
   JOIN_COMMUNITY,
@@ -45,12 +44,10 @@ class NotificationPrimerScreen extends Component {
     const { t, notificationType } = this.props;
 
     switch (notificationType) {
-      case FOCUS_STEP:
-        return t('focusStep');
       case LOGIN:
         return t('login');
       case SET_REMINDER:
-        return t('setReminder');
+        return t('stepsNotification');
       case JOIN_COMMUNITY:
         return t('joinCommunity');
       case JOIN_CHALLENGE:
@@ -60,41 +57,100 @@ class NotificationPrimerScreen extends Component {
     }
   };
 
-  render() {
-    const { t } = this.props;
-    return (
-      <Flex style={styles.container}>
-        <Flex value={0.3} />
-        <Flex value={1} align="center" justify="center">
+  renderNotification = () => {
+    const { t, notificationType } = this.props;
+    if (notificationType === SET_REMINDER) {
+      return (
+        <Flex style={styles.container}>
+          <Flex value={0.3} />
           <Flex value={1} align="center" justify="center">
-            <Image
-              source={require('../../../assets/images/notificationPrimer.png')}
-            />
+            <Flex
+              value={0.6}
+              align="center"
+              justify="center"
+              style={styles.stepsNotificationContainer}
+            >
+              <Text style={styles.stepsNotificationText}>
+                {t('stepsNotification.part1')}
+              </Text>
+              <Text style={styles.stepsNotificationText}>
+                {t('stepsNotification.part2')}
+              </Text>
+            </Flex>
+            <Flex
+              value={1}
+              align="center"
+              justify="center"
+              style={styles.stepsNotificationContainer}
+            >
+              <Image
+                source={require('../../../assets/images/notificationPrimerScreen.png')}
+              />
+              <Image
+                style={styles.stepsNotifcationImage}
+                source={require('../../../assets/images/notificationPrimerNotif.png')}
+              />
+            </Flex>
+            <Flex value={1} align="center" justify="center">
+              <Button
+                pill={true}
+                type="primary"
+                onPress={this.allow}
+                text={t('allow').toUpperCase()}
+                style={styles.allowButton}
+                buttonTextStyle={styles.buttonText}
+              />
+              <Button
+                pill={true}
+                onPress={this.notNow}
+                text={t('notNow').toUpperCase()}
+                style={styles.notNowButton}
+                buttonTextStyle={styles.buttonText}
+              />
+            </Flex>
           </Flex>
-          <Flex value={0.6} align="center" justify="center">
-            <Text style={styles.text}>{this.descriptionText()}</Text>
-          </Flex>
-          <Flex value={1} align="center" justify="center">
-            <Button
-              pill={true}
-              type="primary"
-              onPress={this.allow}
-              text={t('allow').toUpperCase()}
-              style={styles.allowButton}
-              buttonTextStyle={styles.buttonText}
-            />
-            <Button
-              pill={true}
-              onPress={this.notNow}
-              text={t('notNow').toUpperCase()}
-              style={styles.notNowButton}
-              buttonTextStyle={styles.buttonText}
-            />
-          </Flex>
+          <Flex value={0.3} />
         </Flex>
-        <Flex value={0.3} />
-      </Flex>
-    );
+      );
+    } else {
+      return (
+        <Flex style={styles.container}>
+          <Flex value={0.3} />
+          <Flex value={1} align="center" justify="center">
+            <Flex value={1} align="center" justify="center">
+              <Image
+                source={require('../../../assets/images/notificationPrimer.png')}
+              />
+            </Flex>
+            <Flex value={0.6} align="center" justify="center">
+              <Text style={styles.text}>{this.descriptionText()}</Text>
+            </Flex>
+            <Flex value={1} align="center" justify="center">
+              <Button
+                pill={true}
+                type="primary"
+                onPress={this.allow}
+                text={t('allow').toUpperCase()}
+                style={styles.allowButton}
+                buttonTextStyle={styles.buttonText}
+              />
+              <Button
+                pill={true}
+                onPress={this.notNow}
+                text={t('notNow').toUpperCase()}
+                style={styles.notNowButton}
+                buttonTextStyle={styles.buttonText}
+              />
+            </Flex>
+          </Flex>
+          <Flex value={0.3} />
+        </Flex>
+      );
+    }
+  };
+
+  render() {
+    return this.renderNotification();
   }
 }
 
