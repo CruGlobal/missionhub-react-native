@@ -70,23 +70,29 @@ const celebrateItems = [
     changed_attribute_name: 'created_at',
     changed_attribute_value: '2016-12-25 00:09:00 UTC',
   },
+  {
+    id: '12',
+    celebrateable_type: 'story',
+    changed_attribute_name: 'created_at',
+    changed_attribute_value: '2016-12-25 00:09:00 UTC',
+  },
 ];
 
 const invalidItems = [
   {
-    id: '11',
+    id: '13',
     celebrateable_type: 'interaction',
     adjective_attribute_value: 42,
     changed_attribute_value: '2018-01-01 00:00:00 UTC',
   },
   {
-    id: '12',
+    id: '14',
     celebrateable_type: 'interaction',
     adjective_attribute_value: 1,
     changed_attribute_value: '2017-01-01 00:00:00 UTC',
   },
   {
-    id: '13',
+    id: '15',
     celebrateable_type: 'roge',
     adjective_attribute_value: 11,
     changed_attribute_value: '2018-01-02 00:07:00 UTC',

@@ -101,6 +101,12 @@ Array [
         "id": "11",
       },
       Object {
+        "celebrateable_type": "story",
+        "changed_attribute_name": "created_at",
+        "changed_attribute_value": "2016-12-25 00:09:00 UTC",
+        "id": "12",
+      },
+      Object {
         "celebrateable_type": "organization",
         "changed_attribute_name": "created_at",
         "changed_attribute_value": "2016-12-25 00:02:00 UTC",
@@ -212,6 +218,12 @@ Array [
         "changed_attribute_name": "created_at",
         "changed_attribute_value": "2016-12-25 00:09:00 UTC",
         "id": "11",
+      },
+      Object {
+        "celebrateable_type": "story",
+        "changed_attribute_name": "created_at",
+        "changed_attribute_value": "2016-12-25 00:09:00 UTC",
+        "id": "12",
       },
       Object {
         "celebrateable_type": "organization",
