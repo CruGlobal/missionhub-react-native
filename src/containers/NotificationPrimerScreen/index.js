@@ -47,19 +47,19 @@ class NotificationPrimerScreen extends Component {
       case LOGIN:
         return t('login');
       case SET_REMINDER:
-        return t('stepsNotification');
+        return t('setReminder');
       case JOIN_COMMUNITY:
         return t('joinCommunity');
       case JOIN_CHALLENGE:
         return t('joinChallenge');
       default:
-        return t('onboarding');
+        return t('stepsNotification');
     }
   };
 
   renderNotification = () => {
     const { t, notificationType } = this.props;
-    if (notificationType === SET_REMINDER) {
+    if (notificationType === 'onboarding') {
       return (
         <Flex style={styles.container}>
           <Flex value={0.3} />

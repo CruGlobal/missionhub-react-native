@@ -48,7 +48,7 @@ exports[`notificationTypes renders for FOCUS_STEP 1`] = `
           }
         }
       >
-        MissionHub will send you reminders to help you take your steps.
+        key 'stepsNotification (en-TEST)' returned an object instead of string.
       </MyText>
     </Flex>
     <Flex
@@ -458,34 +458,70 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
     <Flex
       align="center"
       justify="center"
-      value={1}
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimer.png",
-          }
+      style={
+        Object {
+          "marginBottom": 88,
         }
-      />
-    </Flex>
-    <Flex
-      align="center"
-      justify="center"
+      }
       value={0.6}
     >
       <MyText
         style={
           Object {
             "color": "#ffffff",
-            "fontSize": 16,
-            "lineHeight": 24,
-            "paddingTop": 15,
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
             "textAlign": "center",
           }
         }
       >
-        MissionHub will send you reminders to help you take your steps.
+        Allow notifications for
       </MyText>
+      <MyText
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlign": "center",
+          }
+        }
+      >
+        reminders on steps of faith
+      </MyText>
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
+      style={
+        Object {
+          "marginBottom": 88,
+        }
+      }
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationPrimerScreen.png",
+          }
+        }
+      />
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationPrimerNotif.png",
+          }
+        }
+        style={
+          Object {
+            "position": "absolute",
+            "top": 120,
+          }
+        }
+      />
     </Flex>
     <Flex
       align="center"
@@ -567,70 +603,34 @@ exports[`notificationTypes renders for SET_REMINDER 1`] = `
     <Flex
       align="center"
       justify="center"
-      style={
-        Object {
-          "marginBottom": 88,
+      value={1}
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationPrimer.png",
+          }
         }
-      }
+      />
+    </Flex>
+    <Flex
+      align="center"
+      justify="center"
       value={0.6}
     >
       <MyText
         style={
           Object {
             "color": "#ffffff",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "lineHeight": 30,
+            "fontSize": 16,
+            "lineHeight": 24,
+            "paddingTop": 15,
             "textAlign": "center",
           }
         }
       >
-        Allow notifications for
+        We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.
       </MyText>
-      <MyText
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "lineHeight": 30,
-            "textAlign": "center",
-          }
-        }
-      >
-        reminders on steps of faith
-      </MyText>
-    </Flex>
-    <Flex
-      align="center"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 88,
-        }
-      }
-      value={1}
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimerScreen.png",
-          }
-        }
-      />
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimerNotif.png",
-          }
-        }
-        style={
-          Object {
-            "position": "absolute",
-            "top": 120,
-          }
-        }
-      />
     </Flex>
     <Flex
       align="center"
