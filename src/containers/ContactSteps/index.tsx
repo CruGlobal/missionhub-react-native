@@ -32,7 +32,7 @@ interface ContactStepsProps {
   steps: Step[];
   completedSteps: Step[];
   contactAssignment?: { pathway_stage_id: string };
-  isMe: boolean;
+  myId: string;
   person: Person;
   organization: Organization;
 }
@@ -43,12 +43,14 @@ const ContactSteps = ({
   steps,
   completedSteps,
   contactAssignment,
-  isMe,
+  myId,
   person,
   organization,
 }: ContactStepsProps) => {
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
+
+  const isMe = myId === person.id;
 
   const handleGetSteps = () =>
     dispatch(getContactSteps(person.id, organization.id));
@@ -159,20 +161,16 @@ const mapStateToProps = (
 ) => {
   const allSteps =
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
-  const myId = auth.person.id;
 
   return {
     showAssignPrompt: orgIsCru(organization),
-    myId,
     steps: allSteps.steps || [],
     completedSteps: allSteps.completedSteps || [],
     contactAssignment: contactAssignmentSelector(
       { auth },
       { person, orgId: organization.id },
     ),
-    isMe: person.id === myId,
-    person,
-    organization,
+    myId: auth.person.id,
   };
 };
 
