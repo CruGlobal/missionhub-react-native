@@ -18,15 +18,7 @@ export const CREATE_A_STORY = gql`
   mutation CreateAStory($input: CreateStoryInput!) {
     createStory(input: $input) {
       story {
-        content
         id
-        community {
-          name
-        }
-        author {
-          fullName
-          id
-        }
       }
     }
   }

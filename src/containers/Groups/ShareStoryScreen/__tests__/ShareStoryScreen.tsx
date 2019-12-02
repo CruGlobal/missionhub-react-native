@@ -98,9 +98,7 @@ describe('Creating a story', () => {
     expect(changeStory).toHaveBeenCalled();
     snapshot();
   });
-  xit('calls saveStory function when the user clicks the share story button', async () => {
-    const saveStory = jest.fn();
-    const createStory = jest.fn();
+  it('calls saveStory function when the user clicks the share story button', async () => {
     const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
       initialState: {
         navigation: { state: { params: { onComplete, organization } } },
@@ -113,7 +111,6 @@ describe('Creating a story', () => {
 
     await fireEvent(getByTestId('StoryInput'), 'onChangeText', MOCK_STORY);
     await fireEvent.press(getByTestId('SaveStoryButton'));
-    expect(saveStory).toHaveBeenCalled();
-    expect(createStory).toHaveBeenLastCalledWith(mockVariables);
+    expect(onComplete).toHaveBeenCalled();
   });
 });
