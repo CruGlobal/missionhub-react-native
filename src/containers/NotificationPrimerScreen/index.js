@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 import { Text, Button, Flex } from '../../components/common';
@@ -18,19 +18,20 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-@withTranslation('notificationPrimer')
-class NotificationPrimerScreen extends Component {
-  notNow = () => {
-    const { dispatch, onComplete } = this.props;
+const NotificationPrimerScreen = ({
+  dispatch,
+  onComplete,
+  notificationType,
+}) => {
+  const { t } = useTranslation('notificationPrimer');
 
+  const notNow = () => {
     onComplete(false);
     dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   };
 
-  allow = async () => {
-    const { dispatch, onComplete } = this.props;
+  const allow = async () => {
     let acceptedNotifications = false;
-
     try {
       const response = await dispatch(requestNativePermissions());
       acceptedNotifications = response.acceptedNotifications;
@@ -39,10 +40,7 @@ class NotificationPrimerScreen extends Component {
     }
     dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   };
-
-  descriptionText = () => {
-    const { t, notificationType } = this.props;
-
+  const descriptionText = () => {
     switch (notificationType) {
       case LOGIN:
         return t('login');
@@ -56,9 +54,7 @@ class NotificationPrimerScreen extends Component {
         return t('stepsNotification');
     }
   };
-
-  renderNotification = () => {
-    const { t, notificationType } = this.props;
+  const renderNotification = () => {
     if (notificationType === 'onboarding') {
       return (
         <Flex style={styles.container}>
@@ -95,14 +91,14 @@ class NotificationPrimerScreen extends Component {
               <Button
                 pill={true}
                 type="primary"
-                onPress={this.allow}
+                onPress={allow}
                 text={t('allow').toUpperCase()}
                 style={styles.allowButton}
                 buttonTextStyle={styles.buttonText}
               />
               <Button
                 pill={true}
-                onPress={this.notNow}
+                onPress={notNow}
                 text={t('notNow').toUpperCase()}
                 style={styles.notNowButton}
                 buttonTextStyle={styles.buttonText}
@@ -123,20 +119,20 @@ class NotificationPrimerScreen extends Component {
               />
             </Flex>
             <Flex value={0.6} align="center" justify="center">
-              <Text style={styles.text}>{this.descriptionText()}</Text>
+              <Text style={styles.text}>{descriptionText()}</Text>
             </Flex>
             <Flex value={1} align="center" justify="center">
               <Button
                 pill={true}
                 type="primary"
-                onPress={this.allow}
+                onPress={allow}
                 text={t('allow').toUpperCase()}
                 style={styles.allowButton}
                 buttonTextStyle={styles.buttonText}
               />
               <Button
                 pill={true}
-                onPress={this.notNow}
+                onPress={notNow}
                 text={t('notNow').toUpperCase()}
                 style={styles.notNowButton}
                 buttonTextStyle={styles.buttonText}
@@ -148,11 +144,8 @@ class NotificationPrimerScreen extends Component {
       );
     }
   };
-
-  render() {
-    return this.renderNotification();
-  }
-}
+  return renderNotification();
+};
 
 NotificationPrimerScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
