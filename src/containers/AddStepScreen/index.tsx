@@ -28,11 +28,11 @@ const characterLimit = 255;
 interface AddStepScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props: {
-    text: string | undefined;
-    id: string | undefined;
+    text?: string;
+    id?: string;
     type: string;
     personId: string;
-    orgId: string | undefined;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   isMe: boolean;
@@ -46,7 +46,7 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   const orgId: string | undefined = useNavigationParam('orgId');
   const id: string | undefined = useNavigationParam('id');
   const initialText: string | undefined = useNavigationParam('initialText');
-  const onSetComplete: () => void | undefined = useNavigationParam(
+  const onSetComplete: (() => void) | undefined = useNavigationParam(
     'onSetComplete',
   );
 
@@ -54,9 +54,7 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   const isCreateStep = type === CREATE_STEP;
   const isEdit = [EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type);
 
-  const [savedText, setSavedText] = useState(
-    (isEdit && initialText) || undefined,
-  );
+  const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 
   const onChangeText = (newText: string) => {
     setSavedText(newText);
@@ -67,14 +65,17 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   };
 
   const navigateNext = async (text?: string) => {
+    console.log('hmmm');
     onSetComplete && (await onSetComplete());
+    console.log('ooooohhhh');
+
     dispatch(next({ text, id, type, personId, orgId }));
   };
 
   const handleSaveStep = () => {
     Keyboard.dismiss();
 
-    const finalText = (savedText || '').trim();
+    const finalText = savedText.trim();
 
     if (!finalText) {
       return;
