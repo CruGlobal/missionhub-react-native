@@ -10,12 +10,7 @@ import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
-import {
-  buildTrackingObj,
-  getAnalyticsSubsection,
-  orgIsCru,
-  keyExtractorId,
-} from '../../utils/common';
+import { orgIsCru, keyExtractorId } from '../../utils/common';
 import { promptToAssign } from '../../utils/prompt';
 import { ADD_MY_STEP_FLOW, ADD_PERSON_STEP_FLOW } from '../../routes/constants';
 import {
@@ -68,36 +63,19 @@ class ContactSteps extends Component {
 
   handleNavToSteps() {
     const { dispatch, person, organization, isMe } = this.props;
-    const subsection = getAnalyticsSubsection(person.id, this.props.myId);
-    const trackingParams = {
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
-    };
 
     if (isMe) {
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
           organization,
         }),
       );
     } else {
       dispatch(
         navigatePush(ADD_PERSON_STEP_FLOW, {
-          ...trackingParams,
           contactName: person.first_name,
           personId: person.id,
           organization,
-          createStepTracking: buildTrackingObj(
-            `people : ${subsection} : steps : create`,
-            'people',
-            subsection,
-            'steps',
-          ),
         }),
       );
     }

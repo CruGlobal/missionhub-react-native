@@ -26,7 +26,6 @@ import SuggestedStepDetailScreen, {
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import { wrapNextAction } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
 
 export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
@@ -74,12 +73,6 @@ export const AddPersonFlowScreens = onFlowComplete => ({
             type: CREATE_STEP,
             personId,
             orgId,
-            trackingObj: buildTrackingObj(
-              'people : person : steps : create',
-              'people',
-              'person',
-              'steps',
-            ),
           }),
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(

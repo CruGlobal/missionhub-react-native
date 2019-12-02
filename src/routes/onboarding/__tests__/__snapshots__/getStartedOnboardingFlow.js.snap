@@ -16,7 +16,7 @@ exports[`AddSomeoneScreen next renders with back button correctly 1`] = `
 `;
 
 exports[`AddStepScreen next renders correctly 1`] = `
-<withI18nextTranslation(AddStepScreen)
+<AddStepScreen
   dispatch={[Function]}
   myId="123"
   navigation={
@@ -24,21 +24,12 @@ exports[`AddStepScreen next renders correctly 1`] = `
       "state": Object {
         "params": Object {
           "personId": "321",
-          "trackingObj": Object {
-            "level3": "steps",
-            "level4": undefined,
-            "name": "onboarding : person : steps : create",
-            "section": "onboarding",
-            "subsection": "person",
-          },
           "type": "createStep",
         },
       },
     }
   }
   next={[Function]}
-  personId="321"
-  type="createStep"
 />
 `;
 
