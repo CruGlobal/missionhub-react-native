@@ -28,17 +28,17 @@ const characterLimit = 255;
 interface AddStepScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props: {
-    text: string | undefined;
-    id: string | undefined;
+    text?: string;
+    id?: string;
     type: string;
     personId: string;
-    orgId: string | undefined;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
-  isMe: boolean;
+  myId: string;
 }
 
-const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
+const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
   const { t } = useTranslation('addStep');
   useAndroidBackButton();
   const type: string = useNavigationParam('type');
@@ -46,17 +46,16 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   const orgId: string | undefined = useNavigationParam('orgId');
   const id: string | undefined = useNavigationParam('id');
   const initialText: string | undefined = useNavigationParam('initialText');
-  const onSetComplete: () => void | undefined = useNavigationParam(
+  const onSetComplete: (() => void) | undefined = useNavigationParam(
     'onSetComplete',
   );
 
+  const isMe = myId === personId;
   const isStepNote = type === STEP_NOTE;
   const isCreateStep = type === CREATE_STEP;
   const isEdit = [EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type);
 
-  const [savedText, setSavedText] = useState(
-    (isEdit && initialText) || undefined,
-  );
+  const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 
   const onChangeText = (newText: string) => {
     setSavedText(newText);
@@ -68,13 +67,14 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
 
   const navigateNext = async (text?: string) => {
     onSetComplete && (await onSetComplete());
+
     dispatch(next({ text, id, type, personId, orgId }));
   };
 
   const handleSaveStep = () => {
     Keyboard.dismiss();
 
-    const finalText = (savedText || '').trim();
+    const finalText = savedText.trim();
 
     if (!finalText) {
       return;
@@ -140,29 +140,8 @@ const AddStepScreen = ({ dispatch, next, isMe }: AddStepScreenProps) => {
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  {
-    navigation: {
-      state: {
-        params: { personId },
-      },
-    } = { state: { params: { personId: '' } } },
-    next,
-  }: {
-    navigation?: { state: { params: { personId: string } } };
-    next: (props: {
-      text: string | undefined;
-      id: string | undefined;
-      type: string;
-      personId: string;
-      orgId: string | undefined;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    }) => ThunkAction<void, any, {}, never>;
-  },
-) => ({
-  next,
-  isMe: auth.person.id === personId,
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+  myId: auth.person.id,
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
