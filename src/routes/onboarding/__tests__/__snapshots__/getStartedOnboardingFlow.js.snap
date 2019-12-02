@@ -197,7 +197,7 @@ exports[`StageSuccessScreen renders correctly 1`] = `
 `;
 
 exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
-<withI18nextTranslation(SuggestedStepDetailScreen)
+<SuggestedStepDetailScreen
   dispatch={[Function]}
   navigation={
     Object {
@@ -212,11 +212,5 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  personId="123"
-  step={
-    Object {
-      "id": "111",
-    }
-  }
 />
 `;
