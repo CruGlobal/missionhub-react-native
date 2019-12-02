@@ -156,15 +156,12 @@ export function joinStashedCommunity() {
     },
   ) => {
     const {
-      onboarding: { community },
+      onboarding: {
+        community: { id, community_code, community_url },
+      },
     } = getState();
-    await dispatch(
-      joinCommunity(
-        community.id,
-        community.community_code,
-        community.community_url,
-      ),
-    );
+
+    id && (await dispatch(joinCommunity(id, community_code, community_url)));
   };
 }
 

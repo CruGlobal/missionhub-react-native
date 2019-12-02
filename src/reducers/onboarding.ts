@@ -11,7 +11,7 @@ import {
 const initialState = {
   personId: '',
   community: {
-    id: '',
+    id: undefined,
     community_code: '',
     community_url: '',
   },
