@@ -72,7 +72,7 @@ const WelcomeScreen = ({
           <BottomButton
             testID={'get-started'}
             onPress={navigateToNext}
-            text={t('getStarted')}
+            text={t('continue')}
           />
         )}
       </Flex>
