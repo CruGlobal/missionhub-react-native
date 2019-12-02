@@ -14,11 +14,6 @@ const organization = {
 };
 
 const MOCK_STORY = 'This is my cool story! 📘✏️';
-const mockVariables = {
-  variables: {
-    input: { content: MOCK_STORY, organizationId: organization.id },
-  },
-};
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
