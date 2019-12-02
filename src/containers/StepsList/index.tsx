@@ -10,12 +10,13 @@ import StepSuggestionItem from '../../components/StepSuggestionItem';
 import LoadMore from '../../components/LoadMore';
 import { keyExtractorId } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
+import { Step } from '../SelectStepScreen';
 import { Text, Icon } from '../../components/common';
 import { Card } from '../../components/common';
 
 import styles from './styles';
 
-interface Step {
+interface StepInterface {
   body: string;
 }
 
@@ -31,10 +32,7 @@ interface StepsListOwnProps {
   personId: string;
   contactStageId: string;
   contactName?: string;
-  onPressStep: (step: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any;
-  }) => void;
+  onPressStep: (step: Step) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onPressCreateStep: any;
 }
@@ -67,7 +65,7 @@ const StepsList = ({
     return isMe ? newSuggestions : insertName(newSuggestions, contactName);
   };
 
-  const renderItem = ({ item }: { item: Step }) => {
+  const renderItem = ({ item }: { item: StepInterface }) => {
     return <StepSuggestionItem step={item} onPress={onPressStep} />;
   };
 
@@ -105,7 +103,7 @@ const StepsList = ({
 };
 
 const mapStateToProps = (
-  { auth, steps }: { auth: AuthState; steps: { [key: string]: any } }, // eslint-disable-line @typescript-eslint/no-explicit-any
+  { auth, steps }: { auth: AuthState; steps: Step },
   { personId, contactStageId }: StepsListOwnProps,
 ) => {
   const myId = auth.person.id;
