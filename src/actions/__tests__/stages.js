@@ -53,18 +53,6 @@ describe('getStagesIfNotExists', () => {
     });
     expect(store.getActions()).toEqual([callApiResponse]);
   });
-
-  it('gets stages if locale has changed', () => {
-    i18next.language = 'trk';
-    store = mockStore({ stages });
-
-    store.dispatch(getStagesIfNotExists());
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_STAGES, {
-      include: 'localized_pathway_stages',
-    });
-    expect(store.getActions()).toEqual([callApiResponse]);
-  });
 });
 
 describe('getStages', () => {

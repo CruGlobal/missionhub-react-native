@@ -181,7 +181,7 @@ describe('get journey', () => {
     expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include:
-        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,all.survey,all.person,all.assigned_to,all.assigned_by',
+        'all.challenge_suggestion.pathway_stage.localized_pathway_stages,all.old_pathway_stage.localized_pathway_stages,all.new_pathway_stage.localized_pathway_stages,all.answers.question,all.survey,all.person,all.assigned_to,all.assigned_by',
       filters: {
         person_id: personId,
         organization_ids: expectedOrgId,

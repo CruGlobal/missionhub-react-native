@@ -1,5 +1,3 @@
-import i18n from 'i18next';
-
 import auth from '../auth';
 import { REQUESTS } from '../../api/routes';
 import {
@@ -150,36 +148,6 @@ it('updates a users stage', () => {
   );
 
   expect(state.person.stage.id).toBe('2');
-});
-
-describe('updates a users stage with localized stages', () => {
-  const locale = 'no';
-  const name = 'Norwegian Name';
-
-  it('should filter by language', () => {
-    i18n.language = locale;
-    const state = auth(
-      {
-        person: {
-          user: {
-            pathway_stage_id: '2',
-          },
-        },
-      },
-      {
-        type: UPDATE_STAGES,
-        stages: [
-          {
-            id: '2',
-            name: 'English Name',
-            localized_pathway_stages: [{ id: '3', locale, name }],
-          },
-        ],
-      },
-    );
-
-    expect(state.person.stage.name).toBe(name);
-  });
 });
 
 it('updates a user token', () => {

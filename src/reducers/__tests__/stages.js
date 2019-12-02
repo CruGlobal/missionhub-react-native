@@ -1,5 +1,3 @@
-import i18n from 'i18next';
-
 import { REQUESTS } from '../../api/routes';
 import stages from '../stages';
 
@@ -29,28 +27,5 @@ it('loads stages', () => {
   expect(state).toEqual({
     stages: newStages,
     stagesObj: { '2': stage },
-  });
-});
-
-it('loads stages with different locale', () => {
-  const locale = 'no';
-  i18n.language = locale;
-
-  const modifiedStage = {
-    ...stage,
-    locale,
-    name: localizedStage.name,
-    description: localizedStage.description,
-    self_followup_description: localizedStage.self_followup_description,
-  };
-
-  const state = stages(undefined, {
-    type: REQUESTS.GET_STAGES.SUCCESS,
-    results: { response: newStages },
-  });
-
-  expect(state).toEqual({
-    stages: [modifiedStage],
-    stagesObj: { '2': modifiedStage },
   });
 });
