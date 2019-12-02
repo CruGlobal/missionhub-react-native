@@ -1,4 +1,5 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
+import { AnyAction } from 'redux';
 
 import { REQUESTS } from '../api/routes';
 import {
@@ -9,7 +10,41 @@ import {
 } from '../constants';
 import { getPagination, shuffleArray } from '../utils/common';
 
-const initialState = {
+import { Person } from './people';
+import { Organization } from './organizations';
+
+export type SuggestedStep = {
+  id: string;
+  body: string;
+  description_markdown: string;
+};
+
+export type Step = {
+  id: string;
+  challenge_suggestion?: SuggestedStep;
+  completed_at: Date;
+  focus: boolean;
+  organization: Organization | null;
+  receiver: Person;
+  title: string;
+  type: string;
+};
+
+export interface StepsState {
+  mine: Step[] | null;
+  suggestedForMe: { [key: string]: Step[] };
+  suggestedForOthers: { [key: string]: Step[] };
+  userStepCount: { [key: string]: number };
+  pagination: { hasNextPage: boolean; page: number };
+  contactSteps: {
+    [key: string]: {
+      steps: Step[];
+      completedSteps: Step[];
+    };
+  };
+}
+
+export const initialState: StepsState = {
   mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
@@ -21,7 +56,7 @@ const initialState = {
   contactSteps: {},
 };
 
-export default function stepsReducer(state = initialState, action) {
+export default function stepsReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case REQUESTS.GET_CHALLENGE_SUGGESTIONS.SUCCESS:
       const contactStageId = action.query.filters.pathway_stage_id;
@@ -68,9 +103,9 @@ export default function stepsReducer(state = initialState, action) {
         contactSteps: {
           ...state.contactSteps,
           [`${personId}-${orgId}`]: {
-            steps: allStepsFilter.filter(s => !s.completed_at),
+            steps: allStepsFilter.filter((step: Step) => !step.completed_at),
             completedSteps: sortByCompleted(
-              allStepsFilter.filter(s => s.completed_at),
+              allStepsFilter.filter((step: Step) => step.completed_at),
             ),
           },
         },
@@ -105,7 +140,7 @@ export default function stepsReducer(state = initialState, action) {
     case REQUESTS.DELETE_CHALLENGE.SUCCESS:
       const { challenge_id: stepId } = action.query;
 
-      const removeStepById = (stepId, steps) =>
+      const removeStepById = (stepId: string, steps: Step[]) =>
         steps.filter(({ id }) => id !== stepId);
 
       return {
@@ -125,7 +160,7 @@ export default function stepsReducer(state = initialState, action) {
     case TOGGLE_STEP_FOCUS:
       return {
         ...state,
-        mine: toggleStepReminder(state.mine, action.step),
+        mine: toggleStepReminder(state.mine || [], action.step),
       };
     case COMPLETED_STEP_COUNT:
       const currentCount = state.userStepCount[action.userId] || 0;
@@ -151,13 +186,13 @@ export default function stepsReducer(state = initialState, action) {
   }
 }
 
-const toggleStepReminder = (steps, step) =>
-  steps.map(s => ({
+const toggleStepReminder = (steps: Step[], step: Step) =>
+  steps.map((s: Step) => ({
     ...s,
     focus: s && s.id === step.id ? !s.focus : s.focus,
   }));
 
-function sortByCompleted(arr) {
+function sortByCompleted(arr: Step[]) {
   // Sort by most recent date first
   arr.sort((a, b) => {
     const aDate = new Date(a.completed_at);
