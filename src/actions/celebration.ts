@@ -13,11 +13,16 @@ import callApi from './api';
 export function getGroupCelebrateFeedUnread(orgId: string) {
   return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(
-      callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD, {
-        orgId,
-        filters: { has_unread_comments: true },
-        include: GET_CELEBRATE_INCLUDE,
-      }),
+      callApi(
+        REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD,
+        {
+          orgId,
+        },
+        {
+          filters: { has_unread_comments: true },
+          include: GET_CELEBRATE_INCLUDE,
+        },
+      ),
     );
 }
 
