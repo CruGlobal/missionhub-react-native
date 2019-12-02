@@ -18,7 +18,7 @@ exports[`AddSomeoneScreen next renders with back button correctly 1`] = `
 exports[`AddStepScreen next renders correctly 1`] = `
 <AddStepScreen
   dispatch={[Function]}
-  isMe={false}
+  myId="123"
   navigation={
     Object {
       "state": Object {
