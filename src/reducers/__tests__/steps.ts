@@ -1,5 +1,8 @@
+/* eslint max-lines: 0 */
+
 import { REQUESTS } from '../../api/routes';
-import steps from '../steps';
+import { Person } from '../people';
+import steps, { Step, initialState } from '../steps';
 import {
   COMPLETED_STEP_COUNT,
   TOGGLE_STEP_FOCUS,
@@ -13,16 +16,16 @@ it('loads step suggestions for me', () => {
     { id: '1', type: STEP_SUGGESTION },
     { id: '2', type: STEP_SUGGESTION },
     { id: '3', type: STEP_SUGGESTION },
-  ];
+  ] as Step[];
   const newSuggestions = [
     { id: '4', type: STEP_SUGGESTION },
     { id: '5', type: STEP_SUGGESTION },
     { id: '6', type: STEP_SUGGESTION },
-  ];
-  newSuggestions.findAll = () => newSuggestions;
+  ] as Step[];
 
   const state = steps(
     {
+      ...initialState,
       suggestedForMe: {
         [stageId]: oldSuggestions,
       },
@@ -53,16 +56,16 @@ it('loads step suggestions for others', () => {
     { id: '1', type: STEP_SUGGESTION },
     { id: '2', type: STEP_SUGGESTION },
     { id: '3', type: STEP_SUGGESTION },
-  ];
+  ] as Step[];
   const newSuggestions = [
     { id: '4', type: STEP_SUGGESTION },
     { id: '5', type: STEP_SUGGESTION },
     { id: '6', type: STEP_SUGGESTION },
-  ];
-  newSuggestions.findAll = () => newSuggestions;
+  ] as Step[];
 
   const state = steps(
     {
+      ...initialState,
       suggestedForMe: {
         [stageId]: [],
       },
@@ -106,6 +109,7 @@ it('resets a user step count', () => {
 it('increments existing user step count', () => {
   const state = steps(
     {
+      ...initialState,
       userStepCount: { [1]: 1 },
     },
     {
@@ -119,8 +123,8 @@ it('increments existing user step count', () => {
 it('adds new items to existing mine array', () => {
   const state = steps(
     {
+      ...initialState,
       mine: Array(25).fill({ id: '1' }),
-      reminders: [],
     },
     {
       type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
@@ -140,8 +144,8 @@ it('receives reminders', () => {
 
   const state = steps(
     {
+      ...initialState,
       mine: [],
-      reminders: [],
     },
     {
       type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
@@ -158,8 +162,9 @@ it('receives reminders', () => {
 it('receives contact steps and sorts completed', () => {
   const state = steps(
     {
+      ...initialState,
       contactSteps: {
-        '123-456': { steps: [{ id: '6' }], completedSteps: [] },
+        '123-456': { steps: [{ id: '6' }] as Step[], completedSteps: [] },
         '987-personal': { steps: [], completedSteps: [] },
       },
     },
@@ -195,18 +200,20 @@ it('receives contact steps and sorts completed', () => {
 });
 describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
   it('adds personal org steps locally', () => {
-    const newStep = {
+    const existingStep = { id: '6' } as Step;
+    const newStep = ({
       id: '7',
       organization: null,
-      receiver: { id: '987' },
-    };
+      receiver: { id: '987' } as Person,
+    } as unknown) as Step;
 
     const state = steps(
       {
-        mine: [{ id: '6' }],
+        ...initialState,
+        mine: [existingStep],
         contactSteps: {
-          '123-456': { steps: [{ id: '6' }], completedSteps: [] },
-          '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
+          '123-456': { steps: [existingStep], completedSteps: [] },
+          '987-personal': { steps: [existingStep], completedSteps: [] },
         },
       },
       {
@@ -215,27 +222,27 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
       },
     );
 
-    expect(state).toEqual({
-      mine: [newStep, { id: '6' }],
-      contactSteps: {
-        '123-456': { steps: [{ id: '6' }], completedSteps: [] },
-        '987-personal': { steps: [newStep, { id: '6' }], completedSteps: [] },
-      },
+    expect(state.mine).toEqual([newStep, existingStep]);
+    expect(state.contactSteps).toEqual({
+      '123-456': { steps: [existingStep], completedSteps: [] },
+      '987-personal': { steps: [newStep, existingStep], completedSteps: [] },
     });
   });
   it('adds org steps locally', () => {
-    const newStep = {
+    const existingStep = { id: '6' } as Step;
+    const newStep = ({
       id: '7',
       organization: { id: '456' },
       receiver: { id: '123' },
-    };
+    } as unknown) as Step;
 
     const state = steps(
       {
-        mine: [{ id: '6' }],
+        ...initialState,
+        mine: [existingStep],
         contactSteps: {
-          '123-456': { steps: [{ id: '6' }], completedSteps: [] },
-          '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
+          '123-456': { steps: [existingStep], completedSteps: [] },
+          '987-personal': { steps: [existingStep], completedSteps: [] },
         },
       },
       {
@@ -244,40 +251,40 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
       },
     );
 
-    expect(state).toEqual({
-      mine: [newStep, { id: '6' }],
-      contactSteps: {
-        '123-456': { steps: [newStep, { id: '6' }], completedSteps: [] },
-        '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
-      },
+    expect(state.mine).toEqual([newStep, { id: '6' }]);
+    expect(state.contactSteps).toEqual({
+      '123-456': { steps: [newStep, { id: '6' }], completedSteps: [] },
+      '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
     });
   });
 });
 
 it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
+  const step1 = { id: '1' } as Step;
+  const step2 = { id: '2' } as Step;
+
   const state = steps(
     {
-      mine: [{ id: '6' }, { id: '3' }],
+      ...initialState,
+      mine: [step1, step2],
       contactSteps: {
-        '123-456': { steps: [{ id: '6' }, { id: '3' }], completedSteps: [] },
+        '123-456': { steps: [step1, step2], completedSteps: [] },
         '987-personal': {
-          steps: [{ id: '3' }, { id: '6' }],
+          steps: [step1, step2],
           completedSteps: [],
         },
       },
     },
     {
       type: REQUESTS.DELETE_CHALLENGE.SUCCESS,
-      query: { challenge_id: '3' },
+      query: { challenge_id: '1' },
     },
   );
 
-  expect(state).toEqual({
-    mine: [{ id: '6' }],
-    contactSteps: {
-      '123-456': { steps: [{ id: '6' }], completedSteps: [] },
-      '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
-    },
+  expect(state.mine).toEqual([{ id: '2' }]);
+  expect(state.contactSteps).toEqual({
+    '123-456': { steps: [{ id: '2' }], completedSteps: [] },
+    '987-personal': { steps: [{ id: '2' }], completedSteps: [] },
   });
 });
 
@@ -286,11 +293,12 @@ describe('it should toggle step focus', () => {
     { id: '1', focus: false },
     { id: '2', focus: true },
     { id: '3', focus: false },
-  ];
+  ] as Step[];
 
   it('should toggle from false to true', () => {
     const state = steps(
       {
+        ...initialState,
         mine: existingSteps,
       },
       {
@@ -309,6 +317,7 @@ describe('it should toggle step focus', () => {
   it('should toggle from true to false', () => {
     const state = steps(
       {
+        ...initialState,
         mine: existingSteps,
       },
       {

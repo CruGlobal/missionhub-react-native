@@ -453,6 +453,7 @@ export const CELEBRATEABLE_TYPES = {
   },
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
+  story: 'story',
 };
 
 export const DAYS_OF_THE_WEEK = [
