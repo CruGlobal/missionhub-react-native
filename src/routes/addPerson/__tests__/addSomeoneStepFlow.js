@@ -8,7 +8,6 @@ import {
   NOTIFICATION_PROMPT_TYPES,
 } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
-import { buildTrackingObj } from '../../../utils/common';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
@@ -201,12 +200,6 @@ describe('PersonSelectStepScreen next', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       personId,
-      trackingObj: buildTrackingObj(
-        'onboarding : person : steps : create',
-        'onboarding',
-        'person',
-        'steps',
-      ),
     });
   });
 });
@@ -261,12 +254,6 @@ describe('AddStepScreen next', () => {
             params: {
               type: CREATE_STEP,
               personId,
-              trackingObj: buildTrackingObj(
-                'onboarding : person : steps : create',
-                'onboarding',
-                'person',
-                'steps',
-              ),
             },
           },
         }}
