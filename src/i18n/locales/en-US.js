@@ -408,8 +408,10 @@ export default {
   notificationPrimer: {
     onboarding:
       'MissionHub will send you reminders to help you take your steps.',
-    focusStep:
-      "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
+    stepsNotification: {
+      part1: 'Allow notifications for',
+      part2: 'reminders on steps of faith',
+    },
     login:
       "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
     setReminder:
@@ -440,12 +442,6 @@ export default {
       part2: 'Choose a person and add some new steps.',
     },
     title: 'Steps of Faith',
-    reminderTitle: 'Focus your week',
-    reminderDescription:
-      'Star up to three steps and get weekly handcrafted reminders.',
-    holdDescription:
-      'Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.',
-    reminderAddedToast: '✔ Reminder Added',
   },
   contactSideMenu: {
     edit: 'Edit',
