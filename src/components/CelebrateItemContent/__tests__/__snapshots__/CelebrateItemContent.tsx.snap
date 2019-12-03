@@ -830,6 +830,41 @@ exports[`CelebrateItemContent message renders step of faith event without stage 
 </View>
 `;
 
+exports[`CelebrateItemContent message renders story 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+        "maxHeight": 70,
+      },
+      Object {},
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Once Upon a Time....
+  </Text>
+</View>
+`;
+
 exports[`CelebrateItemContent renders event for subject=me, liked=false, like count=0 1`] = `
 <View
   style={

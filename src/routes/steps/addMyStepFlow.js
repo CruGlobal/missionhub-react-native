@@ -4,7 +4,6 @@ import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { wrapNextScreen, wrapNextAction } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
 import SelectMyStepScreen, {
   SELECT_MY_STEP_SCREEN,
 } from '../../containers/SelectMyStepScreen';
@@ -29,12 +28,6 @@ export const AddMyStepFlowScreens = {
             type: CREATE_STEP,
             personId,
             orgId,
-            trackingObj: buildTrackingObj(
-              'people : self : steps : create',
-              'people',
-              'self',
-              'steps',
-            ),
           }),
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextScreen(
