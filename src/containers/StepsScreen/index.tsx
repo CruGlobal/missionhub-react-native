@@ -147,7 +147,10 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
       onRefresh={refresh}
       onScroll={handleScroll}
       scrollEventThrottle={16}
-      style={[styles.list, hasMoreSteps ? styles.listExtraPadding : null]}
+      contentContainerStyle={[
+        styles.list,
+        hasMoreSteps ? styles.listExtraPadding : {},
+      ]}
       data={steps}
       keyExtractor={keyExtractorId}
       renderItem={renderItem}

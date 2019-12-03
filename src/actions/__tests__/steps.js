@@ -45,7 +45,7 @@ jest.mock('../celebration');
 jest.mock('../analytics');
 
 const getMyChallengesIncludes =
-  'receiver.first_name,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder';
+  'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder';
 const getChallengesByFilterIncludes = 'receiver,challenge_suggestion,reminder';
 
 beforeEach(() => {
