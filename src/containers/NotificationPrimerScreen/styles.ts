@@ -30,6 +30,20 @@ export default StyleSheet.create({
     margin: 8,
     height: 48,
   },
+  stepsNotificationContainer: {
+    marginBottom: 88,
+  },
+  stepsNotificationText: {
+    fontSize: 24,
+    color: theme.white,
+    textAlign: 'center',
+    fontWeight: '300',
+    lineHeight: 30,
+  },
+  stepsNotifcationImage: {
+    position: 'absolute',
+    top: 120,
+  },
   buttonText: {
     color: theme.white,
     fontWeight: '500',
