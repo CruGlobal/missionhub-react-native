@@ -148,7 +148,7 @@ exports[`WelcomeScreen should render correctly 1`] = `
     <BottomButton
       onPress={[Function]}
       testID="get-started"
-      text="Let's Get Started"
+      text="Continue"
     />
   </Flex>
 </View>

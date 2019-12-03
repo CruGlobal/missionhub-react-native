@@ -8,7 +8,6 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   list: {
-    flex: 1,
     paddingTop: 16,
     paddingBottom: 96,
   },

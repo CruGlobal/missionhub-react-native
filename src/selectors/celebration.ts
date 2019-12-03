@@ -86,6 +86,7 @@ const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
     acceptedCommunityChallenge,
     createdCommunity,
     joinedCommunity,
+    story,
   } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {
@@ -98,6 +99,7 @@ const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
       case acceptedCommunityChallenge:
       case createdCommunity:
       case joinedCommunity:
+      case story:
         return true;
       default:
         return false;
