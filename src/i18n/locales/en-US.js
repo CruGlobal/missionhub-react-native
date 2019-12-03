@@ -408,8 +408,10 @@ export default {
   notificationPrimer: {
     onboarding:
       'MissionHub will send you reminders to help you take your steps.',
-    focusStep:
-      "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
+    stepsNotification: {
+      part1: 'Allow notifications for',
+      part2: 'reminders on steps of faith',
+    },
     login:
       "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
     setReminder:
