@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { useNavigationParam } from 'react-navigation-hooks';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
@@ -18,12 +19,21 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
+interface NotificationPrimerScreenProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+}
+
 const NotificationPrimerScreen = ({
   dispatch,
-  onComplete,
-  notificationType,
-}) => {
+}: NotificationPrimerScreenProps) => {
   const { t } = useTranslation('notificationPrimer');
+
+  const onComplete: (
+    acceptedNotifications: boolean,
+  ) => Promise<void> = useNavigationParam('onComplete');
+
+  const notificationType: string = useNavigationParam('notificationType');
 
   const notNow = () => {
     onComplete(false);
@@ -40,6 +50,7 @@ const NotificationPrimerScreen = ({
     }
     dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   };
+
   const descriptionText = () => {
     switch (notificationType) {
       case LOGIN:
@@ -123,6 +134,7 @@ const NotificationPrimerScreen = ({
             </Flex>
             <Flex value={1} align="center" justify="center">
               <Button
+                testID="AllowButton"
                 pill={true}
                 type="primary"
                 onPress={allow}
@@ -131,6 +143,7 @@ const NotificationPrimerScreen = ({
                 buttonTextStyle={styles.buttonText}
               />
               <Button
+                testID="NotNowButton"
                 pill={true}
                 onPress={notNow}
                 text={t('notNow').toUpperCase()}
@@ -147,14 +160,5 @@ const NotificationPrimerScreen = ({
   return renderNotification();
 };
 
-NotificationPrimerScreen.propTypes = {
-  onComplete: PropTypes.func.isRequired,
-  notificationType: PropTypes.string.isRequired,
-};
-
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
-});
-
-export default connect(mapStateToProps)(NotificationPrimerScreen);
+export default connect()(NotificationPrimerScreen);
 export const NOTIFICATION_PRIMER_SCREEN = 'nav/NOTIFICATION_PRIMER';
