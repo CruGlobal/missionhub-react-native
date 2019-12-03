@@ -44,6 +44,10 @@ describe('notificationTypes', () => {
           state: { params: { onComplete: jest.fn(), notificationType } },
         },
       },
+      navParams: {
+        onComplete,
+        notificationType,
+      },
     }).snapshot();
   };
 

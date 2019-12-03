@@ -355,7 +355,7 @@ exports[`notificationTypes renders for JOIN_CHALLENGE 1`] = `
           ]
         }
       >
-        key 'stepsNotification (en-TEST)' returned an object instead of string.
+        We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.
       </Text>
     </View>
     <View
@@ -623,7 +623,7 @@ exports[`notificationTypes renders for JOIN_COMMUNITY 1`] = `
           ]
         }
       >
-        key 'stepsNotification (en-TEST)' returned an object instead of string.
+        MissionHub would like to notify you about activity happening within your community.
       </Text>
     </View>
     <View
@@ -891,7 +891,7 @@ exports[`notificationTypes renders for LOGIN 1`] = `
           ]
         }
       >
-        key 'stepsNotification (en-TEST)' returned an object instead of string.
+        We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.
       </Text>
     </View>
     <View
@@ -1111,27 +1111,9 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
     <View
       style={
         Array [
-          Object {},
           Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
+            "marginBottom": 88,
           },
-        ]
-      }
-    >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimer.png",
-          }
-        }
-      />
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
           Object {
             "alignItems": "center",
             "flex": 0.6,
@@ -1151,16 +1133,72 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
             },
             Object {
               "color": "#ffffff",
-              "fontSize": 16,
-              "lineHeight": 24,
-              "paddingTop": 15,
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
               "textAlign": "center",
             },
           ]
         }
       >
-        key 'stepsNotification (en-TEST)' returned an object instead of string.
+        Allow notifications for
       </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        reminders on steps of faith
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "marginBottom": 88,
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationPrimerScreen.png",
+          }
+        }
+      />
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/notificationPrimerNotif.png",
+          }
+        }
+        style={
+          Object {
+            "position": "absolute",
+            "top": 120,
+          }
+        }
+      />
     </View>
     <View
       style={
@@ -1190,7 +1228,7 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
             "opacity": 1,
           }
         }
-        testID="AllowButton"
+        testID="Button"
       >
         <View
           style={
@@ -1262,7 +1300,7 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
             "opacity": 1,
           }
         }
-        testID="NotNowButton"
+        testID="Button"
       >
         <View
           style={
@@ -1427,7 +1465,7 @@ exports[`notificationTypes renders for SET_REMINDER 1`] = `
           ]
         }
       >
-        key 'stepsNotification (en-TEST)' returned an object instead of string.
+        We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.
       </Text>
     </View>
     <View
