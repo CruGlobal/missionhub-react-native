@@ -54,7 +54,7 @@ const GetStartedScreen = ({
             {t('tagline', { returnObjects: true })}
           </Text>
         </Flex>
-        <BottomButton onPress={navigateNext} text={t('getStarted')} />
+        <BottomButton onPress={navigateNext} text={t('continue')} />
       </Flex>
     </View>
   );

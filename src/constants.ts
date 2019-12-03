@@ -49,12 +49,10 @@ export const RESET_CELEBRATE_EDITING_COMMENT =
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
-export const JOURNEY = 'journey';
 export const EDIT_JOURNEY_STEP = 'editJourneyStep';
 export const EDIT_JOURNEY_ITEM = 'editJourneyItem';
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
-export const INTERACTION = 'interaction';
 
 export const STEP_SUGGESTION = 'challenge_suggestion';
 export const ACCEPTED_STEP = 'accepted_challenge';
@@ -453,6 +451,7 @@ export const CELEBRATEABLE_TYPES = {
   },
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
+  story: 'story',
 };
 
 export const DAYS_OF_THE_WEEK = [
