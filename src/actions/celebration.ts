@@ -37,7 +37,7 @@ export function reloadGroupCelebrateFeed(orgId: string) {
     dispatch(reloadFeed(CELEBRATE, orgId));
 }
 
-export function toggleLike(orgId: string, eventId: string, liked: boolean) {
+export function toggleLike(eventId: string, liked: boolean, orgId?: string) {
   const request = orgId
     ? liked
       ? REQUESTS.UNLIKE_CELEBRATE_ITEM
