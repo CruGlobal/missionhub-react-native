@@ -39,11 +39,6 @@ describe('notificationTypes', () => {
 
   const test = () => {
     renderWithContext(<NotificationPrimerScreen />, {
-      initialState: {
-        navigation: {
-          state: { params: { onComplete: jest.fn(), notificationType } },
-        },
-      },
       navParams: {
         onComplete,
         notificationType,
@@ -88,11 +83,6 @@ describe('notification primer methods', () => {
   describe('not now button', () => {
     it('calls onComplete and tracks an action', () => {
       const { getByTestId } = renderWithContext(<NotificationPrimerScreen />, {
-        initialState: {
-          navigation: {
-            state: { params: { onComplete: jest.fn(), notificationType } },
-          },
-        },
         navParams: {
           onComplete,
           notificationType,
@@ -122,11 +112,6 @@ describe('notification primer methods', () => {
       });
 
       const { getByTestId } = renderWithContext(<NotificationPrimerScreen />, {
-        initialState: {
-          navigation: {
-            state: { params: { onComplete: jest.fn(), notificationType } },
-          },
-        },
         navParams: {
           onComplete,
           notificationType,
@@ -153,11 +138,6 @@ describe('notification primer methods', () => {
         const { getByTestId } = renderWithContext(
           <NotificationPrimerScreen />,
           {
-            initialState: {
-              navigation: {
-                state: { params: { onComplete: jest.fn(), notificationType } },
-              },
-            },
             navParams: {
               onComplete,
               notificationType,
