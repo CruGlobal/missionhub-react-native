@@ -3,7 +3,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
 import { renderWithContext } from '../../../../../testUtils';
-import { navigatePush } from '../../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../../actions/navigation';
 
 import ShareStoryInput from '..';
 
@@ -23,11 +23,14 @@ it('renders correctly', () => {
   renderWithContext(<ShareStoryInput {...props} />).snapshot();
 });
 
-it('onPress switches to ShareStoryScreen', () => {
+it('onPress switches to ShareStoryScreen', async () => {
   const { getByTestId } = renderWithContext(<ShareStoryInput {...props} />);
   fireEvent.press(getByTestId('ShareStoryInput'));
   expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
     organization: mockOrganization,
     onComplete: expect.any(Function),
   });
+  await (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
+  expect(props.refreshItems).toHaveBeenCalled();
+  expect(navigateBack).toHaveBeenCalled();
 });
