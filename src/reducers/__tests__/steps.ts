@@ -5,7 +5,6 @@ import { Person } from '../people';
 import steps, { Step, initialState } from '../steps';
 import {
   COMPLETED_STEP_COUNT,
-  TOGGLE_STEP_FOCUS,
   RESET_STEP_COUNT,
   STEP_SUGGESTION,
 } from '../../constants';
@@ -285,51 +284,5 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   expect(state.contactSteps).toEqual({
     '123-456': { steps: [{ id: '2' }], completedSteps: [] },
     '987-personal': { steps: [{ id: '2' }], completedSteps: [] },
-  });
-});
-
-describe('it should toggle step focus', () => {
-  const existingSteps = [
-    { id: '1', focus: false },
-    { id: '2', focus: true },
-    { id: '3', focus: false },
-  ] as Step[];
-
-  it('should toggle from false to true', () => {
-    const state = steps(
-      {
-        ...initialState,
-        mine: existingSteps,
-      },
-      {
-        type: TOGGLE_STEP_FOCUS,
-        step: existingSteps[2],
-      },
-    );
-
-    expect(state.mine).toEqual([
-      { id: '1', focus: false },
-      { id: '2', focus: true },
-      { id: '3', focus: true },
-    ]);
-  });
-
-  it('should toggle from true to false', () => {
-    const state = steps(
-      {
-        ...initialState,
-        mine: existingSteps,
-      },
-      {
-        type: TOGGLE_STEP_FOCUS,
-        step: existingSteps[1],
-      },
-    );
-
-    expect(state.mine).toEqual([
-      { id: '1', focus: false },
-      { id: '2', focus: false },
-      { id: '3', focus: false },
-    ]);
   });
 });
