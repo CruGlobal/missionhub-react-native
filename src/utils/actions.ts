@@ -51,7 +51,7 @@ function buildQuery(
       limit: DEFAULT_PAGE_LIMIT,
       offset: DEFAULT_PAGE_LIMIT * page,
     },
-    ...(type === CELEBRATE ? { include: GET_CELEBRATE_INCLUDE } : {}),
+    ...(type === CELEBRATE ? { orgId, include: GET_CELEBRATE_INCLUDE } : {}),
     ...(type === CELEBRATE && personId
       ? { filters: { subject_person_ids: personId } }
       : {}),
@@ -95,9 +95,10 @@ export function getFeed(
       // Does not have more data
       return Promise.resolve();
     }
+
     const query = buildQuery(type, orgId, page, personId);
 
-    return dispatch(callApi(getFeedType(type, orgId), { orgId }, query));
+    return dispatch(callApi(getFeedType(type, orgId), query));
   };
 }
 

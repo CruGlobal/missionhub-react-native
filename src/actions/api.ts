@@ -23,7 +23,7 @@ const METHODS_WITH_DATA = ['put', 'post', 'delete'];
 
 export default function callApi(
   action: ApiRouteConfigEntry,
-  query: { [key: string]: string } = {},
+  query: { [key: string]: any } = {},
   data: { [key: string]: any } = {},
 ): ThunkAction<
   void,

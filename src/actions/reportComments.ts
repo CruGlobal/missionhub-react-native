@@ -65,15 +65,10 @@ export function getReportedComments(orgId: string) {
     dispatch: ThunkDispatch<{}, {}, any>,
   ) =>
     dispatch(
-      callApi(
-        REQUESTS.GET_REPORTED_COMMENTS,
-        {
-          orgId,
-        },
-        {
-          filters: { ignored: false },
-          include: 'comment,comment.person,person',
-        },
-      ),
+      callApi(REQUESTS.GET_REPORTED_COMMENTS, {
+        orgId,
+        filters: { ignored: false },
+        include: 'comment,comment.person,person',
+      }),
     );
 }

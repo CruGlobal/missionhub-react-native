@@ -77,14 +77,11 @@ describe('report comments', () => {
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const response = await store.dispatch<any>(getReportedComments(orgId));
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_REPORTED_COMMENTS,
-      { orgId },
-      {
-        filters: { ignored: false },
-        include: 'comment,comment.person,person',
-      },
-    );
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {
+      orgId,
+      filters: { ignored: false },
+      include: 'comment,comment.person,person',
+    });
     expect(response).toEqual(callApiResponse);
   });
 });
