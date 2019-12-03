@@ -5,7 +5,7 @@ import { ThunkAction } from 'redux-thunk';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
-import { PeopleState } from '../reducers/people';
+import { PeopleState, Person } from '../reducers/people';
 import { OrganizationsState } from '../reducers/organizations';
 
 import { Step } from './SelectStepScreen';
@@ -19,6 +19,7 @@ interface PersonSelectStepScreenProps {
   contactAssignment: {
     pathway_stage_id: string;
   };
+  person: Person;
   personId: string;
   organization: OrganizationsState;
   next: (nextProps: {
@@ -35,13 +36,14 @@ const PersonSelectStepScreen = ({
   contactName,
   contactStage,
   contactAssignment,
+  person,
   personId,
   organization,
   next,
   enableSkipButton,
 }: PersonSelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  const name = contactName;
+  const name = contactName ? contactName : person.first_name;
   const stageId = contactAssignment
     ? contactAssignment.pathway_stage_id
     : contactStage.id;
@@ -90,6 +92,7 @@ const mapStateToProps = (
 
   return {
     contactName,
+    person,
     personId,
     contactStage,
     organization,

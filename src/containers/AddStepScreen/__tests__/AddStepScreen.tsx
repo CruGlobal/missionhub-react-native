@@ -5,12 +5,10 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import {
-  JOURNEY,
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   CREATE_STEP,
   STEP_NOTE,
-  INTERACTION,
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 
@@ -39,17 +37,14 @@ beforeEach(() => {
 
 const baseParams = { id, personId, orgId };
 const createStepParams = { ...baseParams, type: CREATE_STEP };
-const journeyParams = { ...baseParams, type: JOURNEY };
 const editJourneyStepParams = {
   ...baseParams,
   type: EDIT_JOURNEY_STEP,
-  isEdit: true,
   text,
 };
 const editJourneyItemParams = {
   ...baseParams,
   type: EDIT_JOURNEY_ITEM,
-  isEdit: true,
   text,
 };
 const stepNoteParams = { ...baseParams, type: STEP_NOTE };
@@ -58,32 +53,11 @@ const myStepNoteParams = {
   type: STEP_NOTE,
   personId: auth.person.id,
 };
-const stepNoteEditParams = {
-  ...baseParams,
-  type: STEP_NOTE,
-  isEdit: true,
-  text,
-};
-const myStepNoteEditParams = {
-  type: STEP_NOTE,
-  isEdit: true,
-  text,
-  personId: auth.person.id,
-};
-const interactionParams = { type: INTERACTION, hideSkip: 'true' };
-const interactionWithSkipParams = { type: INTERACTION, hideSkip: false };
 
 it('renders create step correctly', () => {
   renderWithContext(<AddStepScreen next={next} />, {
     initialState: { auth },
     navParams: createStepParams,
-  }).snapshot();
-});
-
-it('renders journey correctly', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
-    initialState: { auth },
-    navParams: journeyParams,
   }).snapshot();
 });
 
@@ -112,34 +86,6 @@ it('renders step note correctly for me', () => {
   renderWithContext(<AddStepScreen next={next} />, {
     initialState: { auth },
     navParams: myStepNoteParams,
-  }).snapshot();
-});
-
-it('renders step note edit correctly', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
-    initialState: { auth },
-    navParams: stepNoteEditParams,
-  }).snapshot();
-});
-
-it('renders step note edit correctly for me', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
-    initialState: { auth },
-    navParams: myStepNoteEditParams,
-  }).snapshot();
-});
-
-it('renders interaction without skip correctly', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
-    initialState: { auth },
-    navParams: interactionParams,
-  }).snapshot();
-});
-
-it('renders interaction with skip correctly', () => {
-  renderWithContext(<AddStepScreen next={next} />, {
-    initialState: { auth },
-    navParams: interactionWithSkipParams,
   }).snapshot();
 });
 
