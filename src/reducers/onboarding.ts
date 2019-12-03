@@ -8,7 +8,17 @@ import {
   SkipOnboardingAddPersonAction,
 } from '../actions/onboarding';
 
-const initialState = {
+export interface OnboardingState {
+  personId: string;
+  community: {
+    id?: string;
+    community_code: string;
+    community_url: string;
+  };
+  skippedAddingPerson: boolean;
+}
+
+const initialState: OnboardingState = {
   personId: '',
   community: {
     id: undefined,
@@ -17,8 +27,6 @@ const initialState = {
   },
   skippedAddingPerson: false,
 };
-
-export type OnboardingState = typeof initialState;
 
 type OnboardingActionTypes =
   | SetOnboardingPersonIdAction

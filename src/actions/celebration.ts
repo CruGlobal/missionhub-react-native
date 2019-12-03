@@ -11,6 +11,7 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 
 export function getGroupCelebrateFeedUnread(orgId: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(
       callApi(
@@ -30,11 +31,13 @@ export function getGroupCelebrateFeed(
   orgId: string,
   personId: string | null = null,
 ) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(getFeed(CELEBRATE, orgId, personId));
 }
 
 export function reloadGroupCelebrateFeed(orgId: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(reloadFeed(CELEBRATE, orgId));
 }
@@ -48,6 +51,7 @@ export function toggleLike(orgId: string, eventId: string, liked: boolean) {
     ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
     : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(callApi(request, { orgId, eventId }));
 }

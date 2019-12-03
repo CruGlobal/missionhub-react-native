@@ -3,11 +3,11 @@ import { ThunkDispatch } from 'redux-thunk';
 import { ACTIONS } from '../constants';
 import { formatApiDate } from '../utils/common';
 import { REQUESTS } from '../api/routes';
-
-import callApi from './api';
-import { trackActionWithoutData } from './analytics';
 import { CelebrateComment } from '../reducers/celebrateComments';
 import { AuthState } from '../reducers/auth';
+
+import { trackActionWithoutData } from './analytics';
+import callApi from './api';
 
 export function reportComment(orgId: string, item: CelebrateComment) {
   return async (

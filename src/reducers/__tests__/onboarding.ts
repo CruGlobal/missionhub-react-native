@@ -17,7 +17,7 @@ it('should set person id', () => {
       "community": Object {
         "community_code": "",
         "community_url": "",
-        "id": "",
+        "id": undefined,
       },
       "personId": "1",
       "skippedAddingPerson": false,
@@ -58,7 +58,7 @@ it('should set skippedAddingPerson', () => {
       "community": Object {
         "community_code": "",
         "community_url": "",
-        "id": "",
+        "id": undefined,
       },
       "personId": "",
       "skippedAddingPerson": true,
@@ -87,7 +87,7 @@ it('should handle logout', () => {
       "community": Object {
         "community_code": "",
         "community_url": "",
-        "id": "",
+        "id": undefined,
       },
       "personId": "",
       "skippedAddingPerson": false,

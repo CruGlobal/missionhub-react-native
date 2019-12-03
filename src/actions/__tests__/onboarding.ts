@@ -23,11 +23,6 @@ import {
 } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { navigateReset } from '../navigation';
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-} from '../../containers/Groups/GroupScreen';
 import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
 

@@ -43,11 +43,7 @@ import {
   navigateToCelebrateComments,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
-import {
-  navigatePush,
-  navigateReset,
-  navigateNestedReset,
-} from '../navigation';
+import { navigateReset, navigateNestedReset } from '../navigation';
 import { removeHiddenOrgs } from '../../selectors/selectorUtils';
 import {
   GROUP_CHALLENGES,

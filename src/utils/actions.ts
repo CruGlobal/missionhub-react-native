@@ -51,7 +51,7 @@ function buildQuery(
       limit: DEFAULT_PAGE_LIMIT,
       offset: DEFAULT_PAGE_LIMIT * page,
     },
-    ...(type === CELEBRATE ? { orgId, include: GET_CELEBRATE_INCLUDE } : {}),
+    ...(type === CELEBRATE ? { include: GET_CELEBRATE_INCLUDE } : {}),
     ...(type === CELEBRATE && personId
       ? { filters: { subject_person_ids: personId } }
       : {}),
@@ -81,6 +81,7 @@ export function getFeed(
   personId: string | null = null,
 ) {
   return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch: ThunkDispatch<{}, {}, any>,
     getState: () => { organizations: OrganizationsState },
   ) => {
@@ -96,13 +97,14 @@ export function getFeed(
     }
     const query = buildQuery(type, orgId, page, personId);
 
-    return dispatch(callApi(getFeedType(type, orgId), query));
+    return dispatch(callApi(getFeedType(type, orgId), { orgId }, query));
   };
 }
 
 // Use this for reloading the challenge and celebrate feeds
 export function reloadFeed(type: string, orgId: string) {
   return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch: ThunkDispatch<{}, {}, any>,
     getState: () => { organizations: OrganizationsState },
   ) => {

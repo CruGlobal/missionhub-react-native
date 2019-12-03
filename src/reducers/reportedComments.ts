@@ -2,6 +2,7 @@ import { AnyAction } from 'redux';
 
 import { LOGOUT } from '../constants';
 import { REQUESTS } from '../api/routes';
+
 import { CelebrateComment } from './celebrateComments';
 
 interface ReportedCommentsState {
