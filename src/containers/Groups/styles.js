@@ -40,6 +40,15 @@ export default StyleSheet.create({
     marginVertical: 0,
     marginBottom: 5,
   },
+  onboardCardNoShadow: {
+    position: 'relative',
+    backgroundColor: theme.white,
+    borderRadius: 0,
+    marginHorizontal: 0,
+    marginVertical: 0,
+    borderBottomColor: theme.extraLightGrey,
+    borderBottomWidth: 1,
+  },
   onboardingContainer: {
     paddingTop: 35,
     padding: 25,

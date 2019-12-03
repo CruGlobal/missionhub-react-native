@@ -1,14 +1,10 @@
 import 'react-native';
 import React from 'react';
-import thunk from 'redux-thunk';
-import configureStore from 'redux-mock-store';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  createMockNavState,
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { requestNativePermissions } from '../../../actions/notifications';
+import { navigatePush } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 
@@ -23,35 +19,31 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-const mockStore = configureStore([thunk]);
-let store;
-
+jest.mock('../../../actions/navigation');
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 
+const navigatePushResult = { type: 'navigated push' };
 const registerResult = { type: 'request permissions' };
 const trackActionResult = { type: 'tracked action' };
+const onComplete = jest.fn();
 
 beforeEach(() => {
-  trackActionWithoutData.mockReturnValue(trackActionResult);
-
-  store = mockStore();
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
 });
 
 describe('notificationTypes', () => {
   let notificationType = '';
 
   const test = () => {
-    testSnapshotShallow(
-      <NotificationPrimerScreen
-        navigation={createMockNavState({
-          onComplete: jest.fn(),
-          notificationType,
-        })}
-      />,
-      store,
-    );
+    renderWithContext(<NotificationPrimerScreen />, {
+      navParams: {
+        onComplete,
+        notificationType,
+      },
+    }).snapshot();
   };
 
   it('renders for ONBOARDING', () => {
@@ -86,38 +78,19 @@ describe('notificationTypes', () => {
 });
 
 describe('notification primer methods', () => {
-  let screen;
-  let mockComplete;
-
-  beforeEach(() => {
-    mockComplete = jest.fn();
-
-    screen = renderShallow(
-      <NotificationPrimerScreen
-        navigation={{
-          state: {
-            params: {
-              onComplete: mockComplete,
-            },
-          },
-        }}
-      />,
-      store,
-    );
-  });
+  const notificationType = '';
 
   describe('not now button', () => {
     it('calls onComplete and tracks an action', () => {
-      screen
-        .childAt(1)
-        .childAt(2)
-        .childAt(1)
-        .props()
-        .onPress();
-
-      expect(mockComplete).toHaveBeenCalledWith(false);
+      const { getByTestId } = renderWithContext(<NotificationPrimerScreen />, {
+        navParams: {
+          onComplete,
+          notificationType,
+        },
+      });
+      fireEvent.press(getByTestId('NotNowButton'));
+      expect(onComplete).toHaveBeenCalledWith(false);
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
-      expect(store.getActions()).toEqual([trackActionResult]);
     });
   });
 
@@ -133,47 +106,49 @@ describe('notification primer methods', () => {
 
     describe('user allows permissions', () => {
       beforeEach(() => {
-        requestNativePermissions.mockReturnValue(requestPermissionsAccepted);
+        (requestNativePermissions as jest.Mock).mockReturnValue(
+          requestPermissionsAccepted,
+        );
+      });
+
+      const { getByTestId } = renderWithContext(<NotificationPrimerScreen />, {
+        navParams: {
+          onComplete,
+          notificationType,
+        },
       });
 
       it('runs allow', async () => {
-        await screen
-          .childAt(1)
-          .childAt(2)
-          .childAt(0)
-          .props()
-          .onPress();
+        await fireEvent.press(getByTestId('AllowButton'));
 
         expect(requestNativePermissions).toHaveBeenCalled();
-        expect(mockComplete).toHaveBeenCalledWith(true);
+        expect(onComplete).toHaveBeenCalledWith(true);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toEqual([
-          requestPermissionsAccepted,
-          trackActionResult,
-        ]);
       });
     });
 
     describe('user denies permissions', () => {
       beforeEach(() => {
-        requestNativePermissions.mockReturnValue(requestPermissionsDenied);
+        (requestNativePermissions as jest.Mock).mockReturnValue(
+          requestPermissionsDenied,
+        );
       });
 
       it('runs allow', async () => {
-        await screen
-          .childAt(1)
-          .childAt(2)
-          .childAt(0)
-          .props()
-          .onPress();
+        const { getByTestId } = renderWithContext(
+          <NotificationPrimerScreen />,
+          {
+            navParams: {
+              onComplete,
+              notificationType,
+            },
+          },
+        );
 
+        await fireEvent.press(getByTestId('AllowButton'));
         expect(requestNativePermissions).toHaveBeenCalled();
-        expect(mockComplete).toHaveBeenCalledWith(false);
+        expect(onComplete).toHaveBeenCalledWith(false);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toEqual([
-          requestPermissionsDenied,
-          trackActionResult,
-        ]);
       });
     });
   });

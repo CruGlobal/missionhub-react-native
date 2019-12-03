@@ -1,28 +1,31 @@
 import React from 'react';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderShallow, renderWithContext } from '../../../../testUtils';
 import { TRACK_TAB } from '../../../constants';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 
 import { TrackTabChange } from '..';
 
 jest.mock('../../../actions/unreadComments');
-
-let dispatch;
+let dispatch: jest.Mock;
 
 beforeEach(() => {
   dispatch = jest.fn(async () => {});
-  checkForUnreadComments.mockReturnValue({ type: 'check for unread comments' });
+  (checkForUnreadComments as jest.Mock).mockReturnValue({
+    type: 'check for unread comments',
+  });
 });
 
 describe('TrackTabChange', () => {
   it('renders component correctly', () => {
-    testSnapshotShallow(<TrackTabChange dispatch={dispatch} screen="test" />);
+    renderWithContext(
+      <TrackTabChange dispatch={dispatch} screen="test" />,
+    ).snapshot();
   });
 
   describe('ComponentDidMount', () => {
     beforeEach(() => {
-      renderShallow(<TrackTabChange dispatch={dispatch} screen="test" />);
+      renderWithContext(<TrackTabChange dispatch={dispatch} screen="test" />);
     });
 
     it('calls tab focused', () => {
@@ -38,7 +41,8 @@ describe('TrackTabChange', () => {
   });
 
   describe('onDidFocus', () => {
-    let component;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let component: any;
 
     beforeEach(() => {
       component = renderShallow(
