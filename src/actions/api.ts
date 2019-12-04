@@ -26,7 +26,7 @@ export default function callApi(
   query: { [key: string]: any } = {},
   data: { [key: string]: any } = {},
 ): ThunkAction<
-  void,
+  any,
   any,
   null,
   | {

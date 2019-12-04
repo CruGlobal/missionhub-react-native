@@ -1,4 +1,6 @@
-/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
+import { ImageURISource } from 'react-native';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
@@ -20,11 +22,42 @@ import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
+import { AuthState } from '../reducers/auth';
+import {
+  Organization,
+  OrganizationsState,
+  PaginationObject,
+} from '../reducers/organizations';
+import { Person } from '../reducers/people';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigateReset, navigateNestedReset } from './navigation';
+
+interface OrgContactReport {
+  organization_id: string;
+  contact_count: number;
+  unassigned_count: number;
+  uncontacted_count: number;
+  member_count: number;
+}
+interface PersonInteractionReport {
+  person_id: string;
+  contact_count: number;
+  unassigned_count: number;
+  uncontacted_count: number;
+  contacts_with_interaction_count: number;
+}
+interface ImageData {
+  fileSize: number;
+  fileName: string;
+  fileType: string;
+  width: number;
+  height: number;
+  isVertical: boolean;
+  uri: string;
+}
 
 const getOrganizationsQuery = {
   limit: 100,
@@ -36,7 +69,13 @@ const getOrganizationsQuery = {
 };
 
 export function getMyCommunities() {
-  return async dispatch => {
+  return async (
+    dispatch: ThunkDispatch<
+      { auth: AuthState; organizations: OrganizationsState },
+      {},
+      AnyAction
+    >,
+  ) => {
     await dispatch(getMyOrganizations());
     dispatch(getUsersReport());
     return dispatch(getOrganizationsContactReports());
@@ -44,10 +83,13 @@ export function getMyCommunities() {
 }
 
 export function getMyOrganizations() {
-  return async (dispatch, getState) => {
-    const { response: orgs } = await dispatch(
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { auth: AuthState },
+  ) => {
+    const orgs: Organization[] = await dispatch(
       callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery),
-    );
+    ).response;
     const orgOrder = getState().auth.person.user.organization_order;
 
     if (orgOrder) {
@@ -74,12 +116,16 @@ export function getMyOrganizations() {
   };
 }
 
-function getOrganization(orgId) {
-  return dispatch => dispatch(callApi(REQUESTS.GET_ORGANIZATION, { orgId }));
+function getOrganization(orgId: string) {
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
+    dispatch(callApi(REQUESTS.GET_ORGANIZATION, { orgId }));
 }
 
-export function refreshCommunity(orgId) {
-  return async (dispatch, getState) => {
+export function refreshCommunity(orgId: string) {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { organizations: OrganizationsState },
+  ) => {
     if (orgId === GLOBAL_COMMUNITY_ID) {
       return getState().organizations.all.find(
         o => o.id === GLOBAL_COMMUNITY_ID,
@@ -96,13 +142,19 @@ export function refreshCommunity(orgId) {
 }
 
 export function getOrganizationsContactReports() {
-  return async (dispatch, getState) => {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { auth: AuthState; organizations: OrganizationsState },
+  ) => {
     const {
       organizations,
       auth: { person },
     } = getState();
 
-    const visibleOrgs = removeHiddenOrgs(organizations.all, person);
+    const visibleOrgs: Organization[] = removeHiddenOrgs(
+      organizations.all,
+      person,
+    );
 
     if (visibleOrgs.length === 0) {
       return;
@@ -113,16 +165,16 @@ export function getOrganizationsContactReports() {
       .map(org => org.id)
       .join(',');
 
-    const { response } = await dispatch(
+    const reports: OrgContactReport[] = await dispatch(
       callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, {
         period: 'P1W',
         organization_ids,
       }),
-    );
+    ).response;
 
     dispatch({
       type: GET_ORGANIZATIONS_CONTACTS_REPORT,
-      reports: response.map(r => ({
+      reports: reports.map(r => ({
         id: `${r.organization_id}`,
         contactsCount: r.contact_count,
         unassignedCount: r.unassigned_count,
@@ -130,16 +182,22 @@ export function getOrganizationsContactReports() {
         memberCount: r.member_count,
       })),
     });
-    return response;
+    return reports;
   };
 }
 
 export function getUsersReport() {
-  return dispatch => dispatch(callApi(REQUESTS.GET_USERS_REPORT));
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
+    dispatch(callApi(REQUESTS.GET_USERS_REPORT));
 }
 
-export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
-  const query = {
+export function getOrganizationContacts(
+  orgId: string,
+  name: string,
+  pagination: PaginationObject,
+  filters: { [key: string]: any } = {},
+) {
+  const query: { [key: string]: any } = {
     filters: {
       organization_ids: orgId,
     },
@@ -204,7 +262,7 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
     offset,
   };
 
-  return async dispatch => {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const result = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
 
     dispatch({
@@ -218,20 +276,20 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
 
 //each question/answer filter must be in the URL in the form:
 //filters[answers][questionId][]=answerTexts
-function getAnswersFromFilters(filters) {
+function getAnswersFromFilters(filters: { [key: string]: any }) {
   const arrFilters = Object.keys(filters).map(k => filters[k]);
   const answers = arrFilters.filter(f => f && f.isAnswer);
   if (answers.length === 0) {
     return null;
   }
-  const answerFilters = {};
+  const answerFilters: { [key: string]: any } = {};
   answers.forEach(f => {
     answerFilters[f.id] = [f.text];
   });
   return answerFilters;
 }
 
-export function getOrganizationMembers(orgId, query = {}) {
+export function getOrganizationMembers(orgId: string, query = {}) {
   const newQuery = {
     ...query,
     filters: {
@@ -240,8 +298,11 @@ export function getOrganizationMembers(orgId, query = {}) {
     },
     include: 'organizational_permissions,reverse_contact_assignments',
   };
-  return async dispatch => {
-    const { response: members, meta } = await dispatch(
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
+    const {
+      response: members,
+      meta,
+    }: { response: Person[]; meta: any } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_LIST, newQuery),
     );
 
@@ -251,12 +312,12 @@ export function getOrganizationMembers(orgId, query = {}) {
       period: 'P1Y',
       organization_ids: orgId,
     };
-    const { response: reportResponse } = await dispatch(
+    const reports: PersonInteractionReport[] = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
-    );
+    ).response;
 
     // Get an object with { [key = person_id]: [value = { counts }] }
-    const reportsCountObj = reportResponse.reduce(
+    const reportsCountObj: { [key: string]: any } = reports.reduce(
       (p, n) => ({
         ...p,
         [`${n.person_id}`]: {
@@ -290,8 +351,11 @@ export function getOrganizationMembers(orgId, query = {}) {
   };
 }
 
-export function getOrganizationMembersNextPage(orgId) {
-  return (dispatch, getState) => {
+export function getOrganizationMembersNextPage(orgId: string) {
+  return (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { organizations: OrganizationsState },
+  ) => {
     const { page, hasNextPage } = getState().organizations.membersPagination;
     if (!hasNextPage) {
       // Does not have more data
@@ -307,8 +371,11 @@ export function getOrganizationMembersNextPage(orgId) {
   };
 }
 
-export function addNewPerson(data) {
-  return async (dispatch, getState) => {
+export function addNewPerson(data: { [key: string]: any }) {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { auth: AuthState },
+  ) => {
     const {
       person: { id: myId },
     } = getState().auth;
@@ -377,8 +444,8 @@ export function addNewPerson(data) {
   };
 }
 
-export function updateOrganization(orgId, data) {
-  return dispatch => {
+export function updateOrganization(orgId: string, data: { name: string }) {
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     if (!data) {
       return Promise.reject(
         'Invalid Data from updateOrganization: no data passed in',
@@ -397,8 +464,8 @@ export function updateOrganization(orgId, data) {
   };
 }
 
-export function updateOrganizationImage(orgId, imageData) {
-  return dispatch => {
+export function updateOrganizationImage(orgId: string, imageData: ImageData) {
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     if (!imageData) {
       return Promise.reject(
         'Invalid Data from updateOrganizationImage: no image data passed in',
@@ -407,19 +474,18 @@ export function updateOrganizationImage(orgId, imageData) {
 
     const data = new FormData();
 
-    data.append('data[attributes][community_photo]', {
-      uri: imageData.uri,
-      type: imageData.fileType,
-      name: imageData.fileName,
-    });
+    data.append('data[attributes][community_photo][uri]', imageData.uri);
+    data.append('data[attributes][community_photo][name]', imageData.fileName);
+    data.append('data[attributes][community_photo][type]', imageData.fileType);
+
     return dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
     );
   };
 }
 
-export function transferOrgOwnership(orgId, person_id) {
-  return async dispatch => {
+export function transferOrgOwnership(orgId: string, person_id: string) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const { response } = await dispatch(
       callApi(
         REQUESTS.TRANSFER_ORG_OWNERSHIP,
@@ -442,8 +508,10 @@ export function transferOrgOwnership(orgId, person_id) {
   };
 }
 
-export function addNewOrganization(name, imageData) {
-  return async dispatch => {
+export function addNewOrganization(name: string, imageData: ImageData) {
+  return async (
+    dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
+  ) => {
     if (!name) {
       return Promise.reject(
         'Invalid Data from addNewOrganization: no org name passed in',
@@ -478,8 +546,8 @@ export function addNewOrganization(name, imageData) {
   };
 }
 
-export function deleteOrganization(orgId) {
-  return async dispatch => {
+export function deleteOrganization(orgId: string) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const query = { orgId };
     const results = await dispatch(
       callApi(REQUESTS.DELETE_ORGANIZATION, query),
@@ -490,8 +558,11 @@ export function deleteOrganization(orgId) {
   };
 }
 
-export function lookupOrgCommunityCode(code) {
-  return async (dispatch, getState) => {
+export function lookupOrgCommunityCode(code: string) {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { auth: AuthState },
+  ) => {
     const query = { community_code: code };
     const { response: org = {} } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_CODE, query),
@@ -531,8 +602,11 @@ export function lookupOrgCommunityCode(code) {
   };
 }
 
-export function lookupOrgCommunityUrl(urlCode) {
-  return async (dispatch, getState) => {
+export function lookupOrgCommunityUrl(urlCode: string) {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { auth: AuthState },
+  ) => {
     const query = { community_url: urlCode };
     const { response: org = {} } = await dispatch(
       callApi(REQUESTS.LOOKUP_COMMUNITY_URL, query),
@@ -553,8 +627,8 @@ export function lookupOrgCommunityUrl(urlCode) {
   };
 }
 
-function getOwner(org) {
-  return async dispatch => {
+function getOwner(org: Organization) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     // get the owner information and append it to the org
     const ownerQuery = {
       filters: {
@@ -570,10 +644,13 @@ function getOwner(org) {
   };
 }
 
-export function joinCommunity(orgId, code, url) {
-  return async (dispatch, getState) => {
+export function joinCommunity(orgId: string, code?: string, url?: string) {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { auth: AuthState },
+  ) => {
     const myId = getState().auth.person.id;
-    const attributes = {
+    const attributes: { [key: string]: string } = {
       organization_id: orgId,
       permission_id: ORG_PERMISSIONS.USER,
     };
@@ -615,8 +692,8 @@ export function joinCommunity(orgId, code, url) {
   };
 }
 
-export function generateNewCode(orgId) {
-  return async dispatch => {
+export function generateNewCode(orgId: string) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const results = await dispatch(
       callApi(REQUESTS.ORGANIZATION_NEW_CODE, { orgId }),
     );
@@ -626,8 +703,8 @@ export function generateNewCode(orgId) {
   };
 }
 
-export function generateNewLink(orgId) {
-  return async dispatch => {
+export function generateNewLink(orgId: string) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const results = await dispatch(
       callApi(REQUESTS.ORGANIZATION_NEW_LINK, { orgId }),
     );
@@ -637,7 +714,7 @@ export function generateNewLink(orgId) {
   };
 }
 
-export function removeOrganizationMember(personId, orgId) {
+export function removeOrganizationMember(personId: string, orgId: string) {
   return {
     type: REMOVE_ORGANIZATION_MEMBER,
     personId,
@@ -645,8 +722,14 @@ export function removeOrganizationMember(personId, orgId) {
   };
 }
 
-export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
-  return (dispatch, getState) => {
+export function navigateToOrg(
+  orgId: string = GLOBAL_COMMUNITY_ID,
+  initialTab: string,
+) {
+  return (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { organizations: OrganizationsState },
+  ) => {
     const { organizations } = getState();
     const { user_created } = organizationSelector({ organizations }, { orgId });
 
@@ -659,8 +742,14 @@ export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
   };
 }
 
-export function navigateToCelebrateComments(orgId, celebrationItemId) {
-  return async (dispatch, getState) => {
+export function navigateToCelebrateComments(
+  orgId: string,
+  celebrationItemId: string,
+) {
+  return async (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { organizations: OrganizationsState },
+  ) => {
     const { organizations } = getState();
     const organization = organizationSelector({ organizations }, { orgId });
 

@@ -1,3 +1,4 @@
+import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
@@ -7,12 +8,12 @@ import {
   GET_CELEBRATE_INCLUDE,
 } from '../utils/actions';
 import { REQUESTS } from '../api/routes';
+import { OrganizationsState } from '../reducers/organizations';
 
 import callApi from './api';
 
 export function getGroupCelebrateFeedUnread(orgId: string) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (dispatch: ThunkDispatch<{}, {}, any>) =>
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
     dispatch(
       callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD, {
         orgId,
@@ -26,15 +27,23 @@ export function getGroupCelebrateFeed(
   orgId: string,
   personId: string | null = null,
 ) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (dispatch: ThunkDispatch<{}, {}, any>) =>
-    dispatch(getFeed(CELEBRATE, orgId, personId));
+  return (
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      null,
+      AnyAction
+    >,
+  ) => dispatch(getFeed(CELEBRATE, orgId, personId));
 }
 
 export function reloadGroupCelebrateFeed(orgId: string) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (dispatch: ThunkDispatch<{}, {}, any>) =>
-    dispatch(reloadFeed(CELEBRATE, orgId));
+  return (
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      null,
+      AnyAction
+    >,
+  ) => dispatch(reloadFeed(CELEBRATE, orgId));
 }
 
 export function toggleLike(eventId: string, liked: boolean, orgId?: string) {
@@ -46,7 +55,6 @@ export function toggleLike(eventId: string, liked: boolean, orgId?: string) {
     ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
     : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (dispatch: ThunkDispatch<{}, {}, any>) =>
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
     dispatch(callApi(request, { orgId, eventId }));
 }
