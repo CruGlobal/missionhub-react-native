@@ -13,24 +13,32 @@ import CelebrateItemContent from '../CelebrateItemContent';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
 import CelebrateItemName from '../../containers/CelebrateItemName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
+import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
+import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { CELEBRATEABLE_TYPES } from '../../constants';
 
 import styles from './styles';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Event = any;
+export interface Event {
+  id: string;
+  changed_attribute_value: string;
+  subject_person?: Person;
+  subject_person_name: string;
+  celebrateable_type: string;
+  organization?: Organization;
+  object_description: string;
+}
 
 export interface CelebrateItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   event: Event;
   organization?: object;
   namePressable?: boolean;
-  fixedHeight?: boolean;
   onClearNotification?: (event: Event) => void;
-  cardStyle?: StyleProp<ViewStyle>;
+  onRefresh?: () => void;
   me: Person;
 }
 
@@ -39,9 +47,8 @@ const CelebrateItem = ({
   event,
   organization,
   namePressable,
-  fixedHeight,
   onClearNotification,
-  cardStyle,
+  onRefresh,
   me,
 }: CelebrateItemProps) => {
   const {
@@ -60,7 +67,13 @@ const CelebrateItem = ({
   const clearNotification = () =>
     onClearNotification && onClearNotification(event);
 
-  const handleEdit = () => console.log('edit');
+  const handleEdit = () =>
+    dispatch(
+      navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
+        celebrationIten: event,
+        onRefresh,
+      }),
+    );
 
   const handleDelete = () => console.log('delete');
 

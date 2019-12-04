@@ -213,6 +213,9 @@ import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFl
 import ShareStoryScreen, {
   CELEBRATE_SHARE_STORY_SCREEN,
 } from './containers/Groups/ShareStoryScreen';
+import EditStoryScreen, {
+  CELEBRATE_EDIT_STORY_SCREEN,
+} from './containers/Groups/EditStoryScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -488,6 +491,14 @@ const screens = {
     ShareStoryScreen,
     buildTrackingObj(
       'communities : celebration : sharestory',
+      'communities',
+      'celebration',
+    ),
+  ),
+  [CELEBRATE_EDIT_STORY_SCREEN]: buildTrackedScreen(
+    EditStoryScreen,
+    buildTrackingObj(
+      'communities : celebration : editstory',
       'communities',
       'celebration',
     ),

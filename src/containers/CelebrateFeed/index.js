@@ -43,6 +43,7 @@ class CelebrateFeed extends Component {
         event={item}
         organization={organization}
         namePressable={itemNamePressable}
+        onRefresh={refreshCallback}
       />
     );
   };
