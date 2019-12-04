@@ -3,7 +3,6 @@
 import i18next from 'i18next';
 
 import {
-  TOGGLE_STEP_FOCUS,
   COMPLETED_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
@@ -42,14 +41,14 @@ export function getStepSuggestions(isMe, contactStageId) {
 export function getMySteps(query = {}) {
   return dispatch => {
     const queryObj = {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       ...query,
       filters: {
         ...(query.filters || {}),
         completed: false,
       },
       include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
+        'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
@@ -142,36 +141,6 @@ export function createCustomStep(stepText, personId, orgId) {
     const isMe = personId === myId;
 
     dispatch(addStep(buildCustomStep(stepText, isMe), personId, orgId));
-  };
-}
-
-export function setStepFocus(step, isFocus) {
-  return async dispatch => {
-    const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: ACCEPTED_STEP,
-        attributes: {
-          organization_id: step.organization ? step.organization.id : null,
-          focus: isFocus,
-        },
-        relationships: {
-          receiver: {
-            data: {
-              type: 'person',
-              id: step.receiver.id,
-            },
-          },
-        },
-      },
-    };
-
-    const { response } = await dispatch(
-      callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data),
-    );
-    if (step.focus !== response.focus) {
-      dispatch({ type: TOGGLE_STEP_FOCUS, step });
-    }
   };
 }
 

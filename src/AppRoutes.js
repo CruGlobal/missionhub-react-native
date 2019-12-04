@@ -210,6 +210,9 @@ import GroupUnreadFeed, {
   GROUP_UNREAD_FEED_SCREEN,
 } from './containers/Groups/GroupUnreadFeed';
 import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFlow';
+import ShareStoryScreen, {
+  CELEBRATE_SHARE_STORY_SCREEN,
+} from './containers/Groups/ShareStoryScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -481,6 +484,14 @@ const screens = {
     ),
     { gesturesEnabled: true },
   ),
+  [CELEBRATE_SHARE_STORY_SCREEN]: buildTrackedScreen(
+    ShareStoryScreen,
+    buildTrackingObj(
+      'communities : celebration : sharestory',
+      'communities',
+      'celebration',
+    ),
+  ),
   [COMPLETE_STEP_FLOW_NAVIGATE_BACK]: CompleteStepFlowAndNavigateBackNavigator,
   [ADD_MY_STEP_FLOW]: AddMyStepFlowNavigator,
   [ADD_PERSON_STEP_FLOW]: AddPersonStepFlowNavigator,
@@ -511,7 +522,11 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
+const MODAL_SCREENS = [
+  CELEBRATE_DETAIL_SCREEN,
+  GROUPS_REPORT_SCREEN,
+  CELEBRATE_SHARE_STORY_SCREEN,
+];
 
 export const MainStackRoutes = createStackNavigator(
   {

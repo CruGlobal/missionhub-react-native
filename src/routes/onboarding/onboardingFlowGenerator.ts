@@ -214,11 +214,11 @@ export const onboardingFlowGenerator = ({
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       SuggestedStepDetailScreen,
-      ({ contactId }: { contactId: string }) => (
+      ({ personId }: { personId: string }) => (
         dispatch: ThunkDispatch<any, null, any>,
         getState: () => any,
       ) => {
-        const isMe = contactId === getState().auth.person.id;
+        const isMe = personId === getState().auth.person.id;
 
         if (isMe) {
           return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
