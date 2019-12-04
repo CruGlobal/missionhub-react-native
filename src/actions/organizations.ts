@@ -1,3 +1,5 @@
+/* eslint max-lines: 0, max-params: 0, complexity: 0 */
+
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
@@ -63,10 +65,7 @@ const getOrganizationsQuery = {
 
 export function getMyCommunities() {
   return (dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>) => {
-    apolloClient.query({
-      query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
-    });
+    apolloClient.query({ query: GET_COMMUNITIES_QUERY });
     dispatch(getMyOrganizations());
   };
 }
@@ -134,9 +133,11 @@ export function getOrganizationContacts(
   orgId: string,
   name: string,
   pagination: PaginationObject,
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   filters: { [key: string]: any } = {},
 ) {
   const query: {
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     filters: { [key: string]: any };
     include: string;
     page: { limit: number; offset: number };
@@ -217,12 +218,14 @@ export function getOrganizationContacts(
 
 //each question/answer filter must be in the URL in the form:
 //filters[answers][questionId][]=answerTexts
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 function getAnswersFromFilters(filters: { [key: string]: any }) {
   const arrFilters = Object.keys(filters).map(k => filters[k]);
   const answers = arrFilters.filter(f => f && f.isAnswer);
   if (answers.length === 0) {
     return null;
   }
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const answerFilters: { [key: string]: any } = {};
   answers.forEach(f => {
     answerFilters[f.id] = [f.text];
@@ -243,7 +246,7 @@ export function getOrganizationMembers(orgId: string, query = {}) {
     const {
       response: members,
       meta,
-    }: { response: Person[]; meta: any } = await dispatch(
+    }: { response: Person[]; meta: { total: number } } = await dispatch(
       callApi(REQUESTS.GET_PEOPLE_LIST, newQuery),
     );
 
@@ -258,6 +261,7 @@ export function getOrganizationMembers(orgId: string, query = {}) {
     ).response;
 
     // Get an object with { [key = person_id]: [value = { counts }] }
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const reportsCountObj: { [key: string]: any } = reports.reduce(
       (p, n) => ({
         ...p,
@@ -312,6 +316,7 @@ export function getOrganizationMembersNextPage(orgId: string) {
   };
 }
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export function addNewPerson(data: { [key: string]: any }) {
   return async (
     dispatch: ThunkDispatch<{}, null, AnyAction>,

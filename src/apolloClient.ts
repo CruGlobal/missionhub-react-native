@@ -67,4 +67,9 @@ persistCache({
 export const apolloClient = new ApolloClient({
   link,
   cache,
+  defaultOptions: {
+    query: {
+      fetchPolicy: 'network-only',
+    },
+  },
 });
