@@ -87,7 +87,8 @@ export const userIsJean = orgPermissions =>
 
 export const orgIsPersonalMinistry = org =>
   org && (!org.id || org.id === 'personal');
-export const orgIsUserCreated = org => !!(org && org.user_created);
+export const orgIsUserCreated = org =>
+  !!(org && (org.user_created || org.userCreated));
 export const orgIsGlobal = org => org && org.id === GLOBAL_COMMUNITY_ID;
 export const orgIsCru = org =>
   org &&

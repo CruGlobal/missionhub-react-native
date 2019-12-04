@@ -35,7 +35,6 @@ jest.mock('../../../../actions/navigation', () => ({
 }));
 jest.mock('../../../../actions/organizations', () => ({
   addNewOrganization: jest.fn(() => mockAddNewOrg),
-  getMyCommunities: jest.fn(() => ({ type: 'get my communities' })),
 }));
 jest.mock('../../../../selectors/organizations');
 

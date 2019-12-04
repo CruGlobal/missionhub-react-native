@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 import MockDate from 'mockdate';
 
 import {
-  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   GET_ORGANIZATION_PEOPLE,
   LOAD_ORGANIZATIONS,
@@ -22,7 +21,6 @@ import { trackActionWithoutData } from '../analytics';
 import {
   getMyOrganizations,
   refreshCommunity,
-  getOrganizationsContactReports,
   getOrganizationContacts,
   getOrganizationMembers,
   getOrganizationMembersNextPage,
@@ -39,12 +37,15 @@ import {
   generateNewLink,
   joinCommunity,
   lookupOrgCommunityUrl,
-  navigateToOrg,
+  navigateToCommunity,
   navigateToCelebrateComments,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
-import { navigateReset, navigateNestedReset } from '../navigation';
-import { removeHiddenOrgs } from '../../selectors/selectorUtils';
+import {
+  navigateReset,
+  navigatePush,
+  navigateNestedReset,
+} from '../navigation';
 import {
   GROUP_CHALLENGES,
   GROUP_SCREEN,
@@ -53,6 +54,8 @@ import {
 } from '../../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
+import { apolloClient } from '../../apolloClient';
+import { GET_COMMUNITIES_QUERY } from '../../containers/Groups/GroupsListScreen';
 
 jest.mock('../analytics');
 jest.mock('../api');
@@ -62,6 +65,8 @@ jest.mock('../navigation');
 jest.mock('../../selectors/selectorUtils');
 
 global.FormData = require('react-native/Libraries/Network/FormData');
+
+apolloClient.query = jest.fn();
 
 const myId = '1';
 
@@ -73,20 +78,46 @@ const globalCommunity = {
 };
 const organizations = { all: [globalCommunity] };
 const auth = { person: { user: {}, id: myId }, token: 'something' };
+const query = {
+  limit: 100,
+  include: '',
+  filters: {
+    descendants: false,
+  },
+  sort: 'name',
+};
 
 beforeEach(() => {
   store = mockStore({ auth, organizations });
 });
 
+describe('getMyCommunities', () => {
+  it('should get my communities', async () => {
+    const org1 = { id: '1' };
+    const callApiResponse = {
+      type: 'call Api',
+      response: [org1],
+    };
+    callApi.mockReturnValue(callApiResponse);
+
+    await store.dispatch(getMyCommunities());
+
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      callApiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [org1],
+      },
+    ]);
+  });
+});
+
 describe('getMyOrganizations', () => {
-  const query = {
-    limit: 100,
-    include: '',
-    filters: {
-      descendants: false,
-    },
-    sort: 'name',
-  };
   const org1 = { id: '1' };
   const org2 = { id: '2' };
   const org3 = { id: '3' };
@@ -97,7 +128,9 @@ describe('getMyOrganizations', () => {
   const org8 = { id: '8' };
   const orgs = [org1, org2, org3, org4, org5, org6, org7, org8];
 
-  callApi.mockReturnValue(() => Promise.resolve({ response: orgs }));
+  beforeEach(() => {
+    callApi.mockReturnValue(() => Promise.resolve({ response: orgs }));
+  });
 
   it('should get my organizations', async () => {
     await store.dispatch(getMyOrganizations());
@@ -166,67 +199,6 @@ describe('refreshCommunity', () => {
     expect(getMe).not.toHaveBeenCalled();
     expect(response).toEqual(globalCommunity);
     expect(store.getActions()).toEqual([]);
-  });
-});
-
-describe('getOrganizationsContactReports', () => {
-  const orgs = [
-    { id: GLOBAL_COMMUNITY_ID, community: true },
-    { id: '123', community: true },
-    { id: 'non community', community: false },
-    { id: '456', community: true },
-  ];
-  const contactReportsResponse = {
-    type: 'successful',
-    response: [
-      {
-        organization_id: '123',
-        contact_count: 23,
-        unassigned_count: 45,
-        uncontacted_count: 67,
-      },
-      {
-        organization_id: '456',
-        contact_count: 89,
-        unassigned_count: 10,
-        uncontacted_count: 23,
-      },
-    ],
-  };
-  const contactReportsAction = {
-    type: GET_ORGANIZATIONS_CONTACTS_REPORT,
-    reports: [
-      {
-        id: contactReportsResponse.response[0].organization_id,
-        contactsCount: contactReportsResponse.response[0].contact_count,
-        unassignedCount: contactReportsResponse.response[0].unassigned_count,
-        uncontactedCount: contactReportsResponse.response[0].uncontacted_count,
-      },
-      {
-        id: contactReportsResponse.response[1].organization_id,
-        contactsCount: contactReportsResponse.response[1].contact_count,
-        unassignedCount: contactReportsResponse.response[1].unassigned_count,
-        uncontactedCount: contactReportsResponse.response[1].uncontacted_count,
-      },
-    ],
-  };
-
-  it('should get contact reports and dispatch to API', async () => {
-    store = mockStore({ auth, organizations: { all: orgs } });
-    callApi.mockReturnValue(contactReportsResponse);
-    removeHiddenOrgs.mockReturnValue(orgs);
-
-    await store.dispatch(getOrganizationsContactReports());
-
-    expect(removeHiddenOrgs).toHaveBeenCalledWith(orgs, auth.person);
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
-      { period: 'P1W', organization_ids: `${orgs[1].id},${orgs[3].id}` },
-    );
-    expect(store.getActions()).toEqual([
-      contactReportsResponse,
-      contactReportsAction,
-    ]);
   });
 });
 
@@ -541,26 +513,6 @@ describe('addNewPerson', () => {
   });
 });
 
-describe('getMyCommunities', () => {
-  it('should get my communities', async () => {
-    const response = {
-      type: 'successful',
-      response: [{}],
-    };
-    callApi.mockReturnValue(response);
-    await store.dispatch(getMyCommunities());
-    const actions = store.getActions();
-
-    // Api call, then LOAD_ORGANIZATIONS
-    expect(actions[0]).toEqual(response);
-    expect(actions[1].type).toEqual(LOAD_ORGANIZATIONS);
-    // Another api call, then GET_ORGANIZATIONS_CONTACTS_REPORT
-    expect(actions[2]).toEqual(response);
-    expect(actions[3]).toEqual(response);
-    expect(actions[4].type).toEqual(GET_ORGANIZATIONS_CONTACTS_REPORT);
-  });
-});
-
 describe('transferOrgOwnership', () => {
   const apiResponse = { type: 'api response' };
   const trackActionResponse = { type: 'track action' };
@@ -605,7 +557,7 @@ describe('transferOrgOwnership', () => {
 });
 
 describe('addNewOrganization', () => {
-  const orgId = '123';
+  const org = { id: '123' };
   const name = 'Fred';
   const bodyData = {
     data: {
@@ -623,9 +575,6 @@ describe('addNewOrganization', () => {
       descendants: false,
     },
     sort: 'name',
-  };
-  const org = {
-    id: orgId,
   };
   const orgs = [org];
 
@@ -669,16 +618,19 @@ describe('addNewOrganization', () => {
       ACTIONS.CREATE_COMMUNITY,
     );
     expect(getMe).toHaveBeenCalledWith();
-
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
       trackActionResponse,
       getOrgsApiResponse,
+      getMeResponse,
       {
         type: LOAD_ORGANIZATIONS,
-        orgs,
+        orgs: [org],
       },
-      getMeResponse,
     ]);
   });
 
@@ -704,7 +656,7 @@ describe('addNewOrganization', () => {
     );
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ORGANIZATION_IMAGE,
-      { orgId },
+      { orgId: org.id },
       imageBodyData,
     );
     expect(callApi).toHaveBeenCalledWith(
@@ -718,17 +670,20 @@ describe('addNewOrganization', () => {
       ACTIONS.ADD_COMMUNITY_PHOTO,
     );
     expect(getMe).toHaveBeenCalledWith();
-
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
       trackActionResponse,
       updateOrgApiResponse,
-      trackActionResponse,
       getOrgsApiResponse,
       {
         type: LOAD_ORGANIZATIONS,
         orgs,
       },
+      trackActionResponse,
       getMeResponse,
     ]);
   });
@@ -745,20 +700,33 @@ describe('updateOrganization', () => {
       },
     },
   };
-  const apiResponse = { type: 'api response' };
+  const apiResponse = { type: 'api response', response: [] };
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
   });
 
-  it('update organization with name', () => {
-    store.dispatch(updateOrganization(orgId, { name }));
+  it('update organization with name', async () => {
+    await store.dispatch(updateOrganization(orgId, { name }));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ORGANIZATION,
       { orgId },
       nameBodyData,
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      apiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [],
+      },
+    ]);
   });
 });
 
@@ -775,26 +743,39 @@ describe('updateOrganizationImage', () => {
     type: testImageData.fileType,
     name: testImageData.fileName,
   });
-  const apiResponse = { type: 'api response' };
+  const apiResponse = { type: 'api response', response: [] };
 
   beforeEach(() => {
     callApi.mockReturnValue(apiResponse);
   });
 
-  it('update organization image', () => {
-    store.dispatch(updateOrganizationImage(orgId, testImageData));
+  it('update organization image', async () => {
+    await store.dispatch(updateOrganizationImage(orgId, testImageData));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ORGANIZATION_IMAGE,
       { orgId },
       imageBodyData,
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      apiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [],
+      },
+    ]);
   });
 });
 
 describe('deleteOrganization', () => {
   const orgId = '123';
-  const apiResponse = { type: 'api response' };
+  const apiResponse = { type: 'api response', response: [] };
   const trackActionResponse = { type: 'track action' };
 
   beforeEach(() => {
@@ -811,6 +792,20 @@ describe('deleteOrganization', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.COMMUNITY_DELETE,
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      apiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [],
+      },
+    ]);
   });
 });
 
@@ -900,7 +895,7 @@ describe('joinCommunity', () => {
   const orgId = '123';
   const code = 'code';
   const url = 'url';
-  const apiResponse = { type: 'api response' };
+  const apiResponse = { type: 'api response', response: [] };
   const trackActionResponse = { type: 'track action' };
   const attr = {
     organization_id: orgId,
@@ -928,6 +923,20 @@ describe('joinCommunity', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.JOIN_COMMUNITY_WITH_CODE,
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      apiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [],
+      },
+    ]);
   });
 
   it('join community with url', async () => {
@@ -942,19 +951,49 @@ describe('joinCommunity', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.JOIN_COMMUNITY_WITH_CODE,
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      apiResponse,
+      trackActionResponse,
+      apiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [],
+      },
+    ]);
   });
 
   it('should swallow API error if the user is already member', async () => {
-    callApi.mockReturnValue(() =>
-      Promise.reject({
-        apiError: { errors: [{ detail: ERROR_PERSON_PART_OF_ORG }] },
-      }),
+    callApi.mockImplementation(type =>
+      type === REQUESTS.JOIN_COMMUNITY
+        ? () =>
+            Promise.reject({
+              apiError: { errors: [{ detail: ERROR_PERSON_PART_OF_ORG }] },
+            })
+        : apiResponse,
     );
     await store.dispatch(joinCommunity(orgId, code));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.JOIN_COMMUNITY_WITH_CODE,
     );
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
+    expect(store.getActions()).toEqual([
+      trackActionResponse,
+      apiResponse,
+      {
+        type: LOAD_ORGANIZATIONS,
+        orgs: [],
+      },
+    ]);
   });
 
   it('should pass on API error if the error is unrelated to preexisting membership ', () => {
@@ -1020,24 +1059,16 @@ describe('removeOrganizationMember', () => {
   });
 });
 
-describe('navigateToOrg', () => {
-  const cruOrgId = '123456';
-  const cruOrg = { id: cruOrgId, user_created: false };
-  const userCreatedOrgId = '654321';
-  const userCreatedOrg = { id: userCreatedOrgId, user_created: true };
+describe('navigateToCommunity', () => {
+  const orgId = '123456';
 
   beforeEach(() => {
-    store = mockStore({
-      organizations: {
-        all: [globalCommunity, cruOrg, userCreatedOrg],
-      },
-    });
-    navigateReset.mockReturnValue({ type: 'test' });
+    navigatePush.mockReturnValue({ type: 'test' });
   });
 
   describe('default', () => {
     beforeEach(() => {
-      store.dispatch(navigateToOrg());
+      store.dispatch(navigateToCommunity());
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
@@ -1049,38 +1080,50 @@ describe('navigateToOrg', () => {
   });
 
   describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch(navigateToOrg(cruOrgId));
+    it('navigates to GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: orgId, userCreated: false }));
+
+      expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
+        orgId,
+        initialTab: undefined,
+      });
     });
 
     it('navigates to GROUPS_SCREEN', () => {
-      expect(navigateReset).toBeCalledWith(GROUP_SCREEN, {
-        orgId: cruOrgId,
+      store.dispatch(navigateToCommunity({ id: orgId, user_created: false }));
+
+      expect(navigatePush).toBeCalledWith(GROUP_SCREEN, {
+        orgId,
         initialTab: undefined,
       });
     });
   });
 
   describe('user-created org', () => {
-    beforeEach(() => {
-      store.dispatch(navigateToOrg(userCreatedOrgId));
+    it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
+      store.dispatch(navigateToCommunity({ id: orgId, userCreated: true }));
+
+      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+        orgId,
+        initialTab: undefined,
+      });
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
-      expect(navigateReset).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
-        orgId: userCreatedOrgId,
+      store.dispatch(navigateToCommunity({ id: orgId, user_created: true }));
+
+      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+        orgId,
         initialTab: undefined,
       });
     });
   });
 
   describe('global org', () => {
-    beforeEach(() => {
-      store.dispatch(navigateToOrg(GLOBAL_COMMUNITY_ID));
-    });
-
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(navigateReset).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
+      store.dispatch(navigateToCommunity({ id: GLOBAL_COMMUNITY_ID }));
+
+      expect(navigatePush).toBeCalledWith(GLOBAL_GROUP_SCREEN, {
         orgId: GLOBAL_COMMUNITY_ID,
         initialTab: undefined,
       });
@@ -1088,13 +1131,13 @@ describe('navigateToOrg', () => {
   });
 
   describe('intial tab', () => {
-    beforeEach(async () => {
-      await store.dispatch(navigateToOrg(userCreatedOrgId, GROUP_CHALLENGES));
-    });
-
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
-      expect(navigateReset).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
-        orgId: userCreatedOrgId,
+      store.dispatch(
+        navigateToCommunity({ id: orgId, userCreated: true }, GROUP_CHALLENGES),
+      );
+
+      expect(navigatePush).toBeCalledWith(USER_CREATED_GROUP_SCREEN, {
+        orgId,
         initialTab: GROUP_CHALLENGES,
       });
     });

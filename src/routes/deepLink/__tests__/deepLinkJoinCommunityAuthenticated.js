@@ -6,14 +6,14 @@ import { DeepLinkJoinCommunityAuthenticatedScreens } from '../deepLinkJoinCommun
 import { renderShallow } from '../../../../testUtils';
 import callApi from '../../../actions/api';
 import { loadHome } from '../../../actions/auth/userData';
-import { joinCommunity, navigateToOrg } from '../../../actions/organizations';
-import { setScrollGroups } from '../../../actions/swipe';
+import { joinCommunity } from '../../../actions/organizations';
+import { GROUP_TAB_SCROLL_ON_MOUNT } from '../../../constants';
+import { GROUP_SCREEN } from '../../../containers/Groups/GroupScreen';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/organizations');
-jest.mock('../../../actions/swipe');
 
 const community = { id: '1', community_url: '1234567890123456' };
 
@@ -26,16 +26,12 @@ const store = configureStore([thunk])({
 
 const loadHomeResponse = { type: 'load home' };
 const joinCommunityResponse = { type: 'join community' };
-const navigateToOrgResponse = { type: 'navigate to org' };
-const setScrollGroupsResponse = { type: 'set scroll groups' };
 
 beforeEach(() => {
   store.clearActions();
   callApi.mockReturnValue(() => Promise.resolve());
   loadHome.mockReturnValue(loadHomeResponse);
   joinCommunity.mockReturnValue(joinCommunityResponse);
-  navigateToOrg.mockReturnValue(navigateToOrgResponse);
-  setScrollGroups.mockReturnValue(setScrollGroupsResponse);
 });
 
 describe('JoinGroupScreen next', () => {

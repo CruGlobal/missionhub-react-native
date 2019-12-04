@@ -202,13 +202,23 @@ exports[`no header rendering renders correctly for no header 1`] = `
 `;
 
 exports[`renderHeader match snapshot 1`] = `
-<Connect(CelebrateFeedHeader)
-  organization={
-    Object {
-      "id": "456",
+<React.Fragment>
+  <Connect(CelebrateFeedHeader)
+    organization={
+      Object {
+        "id": "456",
+      }
     }
-  }
-/>
+  />
+  <ShareStoryInput
+    dispatch={[Function]}
+    organization={
+      Object {
+        "id": "456",
+      }
+    }
+  />
+</React.Fragment>
 `;
 
 exports[`renders section header 1`] = `
