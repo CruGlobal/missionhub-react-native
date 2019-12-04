@@ -2,6 +2,8 @@ import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
+export const CardVerticalMargin = 8;
+
 export default StyleSheet.create({
   card: {
     shadowColor: theme.black,
@@ -11,7 +13,7 @@ export default StyleSheet.create({
     elevation: 4,
     borderRadius: 8,
     marginHorizontal: 16,
-    marginVertical: 8,
+    marginVertical: CardVerticalMargin,
     flexDirection: 'row',
     backgroundColor: theme.white,
     alignItems: 'center',

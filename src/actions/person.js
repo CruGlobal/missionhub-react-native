@@ -29,6 +29,7 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
+import { getMyCommunities } from './organizations';
 import { getMySteps } from './steps';
 
 export function getMe(extraInclude) {
@@ -318,6 +319,7 @@ export function archiveOrgPermission(personId, orgPermissionId) {
           : ACTIONS.MANAGE_REMOVE_MEMBER,
       ),
     );
+    dispatch(getMyCommunities());
 
     return results;
   };

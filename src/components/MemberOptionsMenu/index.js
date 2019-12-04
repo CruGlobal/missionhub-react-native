@@ -6,7 +6,10 @@ import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
-import { transferOrgOwnership } from '../../actions/organizations';
+import {
+  transferOrgOwnership,
+  removeOrganizationMember,
+} from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
 import {
   makeAdmin,
@@ -14,10 +17,6 @@ import {
   archiveOrgPermission,
 } from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
-import {
-  getMyCommunities,
-  removeOrganizationMember,
-} from '../../actions/organizations';
 
 import styles from './styles';
 
@@ -31,7 +30,6 @@ class MemberOptionsMenu extends Component {
       const { dispatch, person, personOrgPermission } = this.props;
 
       await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
-      dispatch(getMyCommunities());
     }
   }
 
