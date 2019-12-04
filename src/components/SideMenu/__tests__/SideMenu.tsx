@@ -3,7 +3,6 @@ import React from 'react';
 import { renderWithContext } from '../../../../testUtils';
 
 import SideMenu from '..';
-import { fireEvent } from 'react-native-testing-library';
 
 const action = jest.fn();
 const mockMenuItems = [
