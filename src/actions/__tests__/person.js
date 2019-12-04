@@ -9,6 +9,7 @@ import {
   LOAD_PERSON_DETAILS,
   DELETE_PERSON,
   ORG_PERMISSIONS,
+  UPDATE_PERSON_ATTRIBUTES,
 } from '../../constants';
 import {
   getMe,
@@ -30,6 +31,7 @@ import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import * as analytics from '../analytics';
 import { navigatePush } from '../navigation';
+import { getMyCommunities } from '../organizations';
 import { getMySteps } from '../steps';
 import {
   CONTACT_PERSON_SCREEN,
@@ -50,6 +52,7 @@ import { organizationSelector } from '../../selectors/organizations';
 
 jest.mock('../api');
 jest.mock('../navigation');
+jest.mock('../organizations');
 jest.mock('../steps');
 jest.mock('../../selectors/people');
 jest.mock('../../selectors/organizations');
@@ -427,7 +430,18 @@ describe('archiveOrgPermission', () => {
   MockDate.set(date);
 
   it('sends a request with archive_date set', async () => {
-    analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
+    const person = {
+      id: personId,
+      organizational_permissions: [],
+    };
+
+    const callApiResponse = { type: 'call Api', response: person };
+    const trackActionResponse = { type: 'track action' };
+    const getCommunitiesResponse = { type: 'get my communities' };
+
+    callApi.mockReturnValue(callApiResponse);
+    analytics.trackActionWithoutData.mockReturnValue(trackActionResponse);
+    getMyCommunities.mockReturnValue(getCommunitiesResponse);
 
     await store.dispatch(archiveOrgPermission(personId, orgPermissionId));
 
@@ -455,6 +469,25 @@ describe('archiveOrgPermission', () => {
     expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.MANAGE_REMOVE_MEMBER,
     );
+    expect(getMyCommunities).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([
+      callApiResponse,
+      {
+        type: UPDATE_PERSON_ATTRIBUTES,
+        updatedPersonAttributes: {
+          email_addresses: undefined,
+          first_name: undefined,
+          full_name: undefined,
+          gender: undefined,
+          id: personId,
+          last_name: undefined,
+          organizational_permissions: [],
+          phone_numbers: undefined,
+        },
+      },
+      trackActionResponse,
+      getCommunitiesResponse,
+    ]);
   });
 });
 

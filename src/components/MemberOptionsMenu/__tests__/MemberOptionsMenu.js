@@ -9,7 +9,6 @@ import thunk from 'redux-thunk';
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import {
   transferOrgOwnership,
-  getMyCommunities,
   removeOrganizationMember,
 } from '../../../actions/organizations';
 import {
@@ -357,7 +356,6 @@ describe('confirm screen', () => {
 });
 
 describe('Leave Community', () => {
-  const getMyCommunitiesResult = { type: 'got communities' };
   const navigateBackResult = { type: 'navigated back' };
 
   beforeEach(() => {
@@ -388,13 +386,11 @@ describe('Leave Community', () => {
 
   it('sends api request to archive my permission on unmount if leaveCommunityOnUnmount flag set', async () => {
     archiveOrgPermission.mockReturnValue(() => Promise.resolve());
-    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
     screen.instance().leaveCommunityOnUnmount = true;
     await screen.instance().componentWillUnmount();
 
-    expect(store.getActions()).toEqual([getMyCommunitiesResult]);
     expect(archiveOrgPermission).toHaveBeenCalledWith(
       myId,
       personOrgPermission.id,
@@ -408,7 +404,6 @@ describe('Leave Community', () => {
 
     expect(store.getActions()).toEqual([]);
     expect(archiveOrgPermission).not.toHaveBeenCalled();
-    expect(getMyCommunities).not.toHaveBeenCalled();
   });
 });
 
