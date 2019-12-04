@@ -3,6 +3,7 @@ import React from 'react';
 import { renderWithContext } from '../../../../testUtils';
 
 import SideMenu from '..';
+import { fireEvent } from 'react-native-testing-library';
 
 const action = jest.fn();
 const mockMenuItems = [
@@ -20,7 +21,7 @@ jest.mock('../../IconButton', () => 'IconButton');
 
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(
-    <SideMenu menuItems={mockMenuItems} testID="Menu" />,
+    <SideMenu menuItems={mockMenuItems} />,
     {
       initialState: { drawer: { isOpen: false } },
     },
@@ -30,7 +31,7 @@ it('renders correctly', () => {
 
 it('finds the close button', () => {
   const { getByTestId } = renderWithContext(
-    <SideMenu menuItems={mockMenuItems} testID="Menu" />,
+    <SideMenu menuItems={mockMenuItems} />,
     {
       initialState: { drawer: { isOpen: false } },
     },

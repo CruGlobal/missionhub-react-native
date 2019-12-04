@@ -20,7 +20,7 @@ interface SideMenuProps {
   dispatch: ThunkDispatch<any, null, any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   menuItems: MenuItemsType[];
-  testID: string;
+  testID?: string;
 }
 
 const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
