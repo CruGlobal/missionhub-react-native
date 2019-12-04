@@ -47,6 +47,7 @@ const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
     <SafeAreaView style={styles.background}>
       <Flex style={styles.buttonContainer}>
         <IconButton
+          testID="CloseButton"
           style={styles.button}
           onPress={closeDrawer}
           name="close"
