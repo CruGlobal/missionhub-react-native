@@ -32,6 +32,7 @@ import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
+import { OrganizationsState } from '../../reducers/organizations';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -80,7 +81,11 @@ export const GET_COMMUNITIES_QUERY = gql`
 `;
 
 interface GroupsListScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<
+    { organizations: OrganizationsState },
+    null,
+    AnyAction
+  >;
   isAnonymousUser: boolean;
   scrollToId: string | null;
 }
@@ -206,8 +211,8 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const handlePress = (community: GetCommunities_communities_nodes) => {
-    dispatch(navigateToCommunity(community));
+  const handlePress = (communityId: string) => {
+    dispatch(navigateToCommunity(communityId));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 

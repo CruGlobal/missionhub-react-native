@@ -21,7 +21,11 @@ import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
-import { Organization, OrganizationsState } from '../reducers/organizations';
+import {
+  Organization,
+  OrganizationsState,
+  PaginationObject,
+} from '../reducers/organizations';
 import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
 import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
@@ -58,7 +62,7 @@ const getOrganizationsQuery = {
 };
 
 export function getMyCommunities() {
-  return dispatch => {
+  return (dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>) => {
     apolloClient.query({
       query: GET_COMMUNITIES_QUERY,
       fetchPolicy: 'cache-and-network',
@@ -126,14 +130,28 @@ export function refreshCommunity(orgId: string) {
   };
 }
 
-export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
-  const query = {
+export function getOrganizationContacts(
+  orgId: string,
+  name: string,
+  pagination: PaginationObject,
+  filters: { [key: string]: any } = {},
+) {
+  const query: {
+    filters: { [key: string]: any };
+    include: string;
+    page: { limit: number; offset: number };
+  } = {
     filters: {
       organization_ids: orgId,
     },
     include:
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
+    page: {
+      limit: DEFAULT_PAGE_LIMIT,
+      offset: DEFAULT_PAGE_LIMIT * pagination.page,
+    },
   };
+
   if (name) {
     query.filters.name = name;
   }
@@ -184,13 +202,6 @@ export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
   if (!filters.includeUsers) {
     query.filters.permissions = 'no_permission';
   }
-
-  const offset = DEFAULT_PAGE_LIMIT * pagination.page;
-
-  query.page = {
-    limit: DEFAULT_PAGE_LIMIT,
-    offset,
-  };
 
   return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const result = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
@@ -375,7 +386,7 @@ export function addNewPerson(data: { [key: string]: any }) {
 }
 
 export function updateOrganization(orgId: string, data: { name: string }) {
-  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     if (!data) {
       return Promise.reject(
         'Invalid Data from updateOrganization: no data passed in',
@@ -654,33 +665,21 @@ export function removeOrganizationMember(personId: string, orgId: string) {
   };
 }
 
-export function navigateToOrg(
+export function navigateToCommunity(
   orgId: string = GLOBAL_COMMUNITY_ID,
-  initialTab: string,
+  initialTab?: string,
 ) {
   return (
     dispatch: ThunkDispatch<{}, null, AnyAction>,
     getState: () => { organizations: OrganizationsState },
   ) => {
     const { organizations } = getState();
-    const { user_created } = organizationSelector({ organizations }, { orgId });
-
-    return dispatch(
-      navigateReset(getScreenForOrg(orgId, user_created), {
-        orgId,
-        initialTab,
-      }),
+    const userCreated = orgIsUserCreated(
+      organizationSelector({ organizations }, { orgId }),
     );
-  };
-}
-
-export function navigateToCommunity(community, initialTab) {
-  return dispatch => {
-    const orgId = (community && community.id) || GLOBAL_COMMUNITY_ID;
-    const userCreated = orgIsUserCreated(community);
 
     return dispatch(
-      navigatePush(getScreenForOrg(orgId, userCreated), {
+      navigateReset(getScreenForOrg(orgId, userCreated), {
         orgId,
         initialTab,
       }),

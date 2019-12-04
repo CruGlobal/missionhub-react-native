@@ -2,7 +2,10 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import { joinCommunity, navigateToOrg } from '../../actions/organizations';
+import {
+  joinCommunity,
+  navigateToCommunity,
+} from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth/userData';
 import DeepLinkConfirmJoinGroupScreen, {
@@ -17,7 +20,7 @@ export const DeepLinkJoinCommunityAuthenticatedScreens = {
         await dispatch(joinCommunity(id, null, community_url));
         await dispatch(loadHome());
         dispatch(setScrollGroups(id));
-        dispatch(navigateToOrg(id));
+        dispatch(navigateToCommunity(id));
       },
     ),
     buildTrackingObj('communities : join', 'communities', 'join'),

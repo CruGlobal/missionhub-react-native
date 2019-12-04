@@ -154,9 +154,11 @@ function handleNotification(notification) {
         return;
       case 'community_challenges':
         if (organization_id) {
-          const community = await refreshCommunity(organization_id);
+          await refreshCommunity(organization_id);
           await reloadGroupChallengeFeed(organization_id);
-          return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+          return dispatch(
+            navigateToCommunity(organization_id, GROUP_CHALLENGES),
+          );
         }
         return;
     }

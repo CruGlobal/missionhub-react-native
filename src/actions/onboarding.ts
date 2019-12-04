@@ -5,6 +5,7 @@ import { AnyAction } from 'redux';
 import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
 import { OnboardingState } from '../reducers/onboarding';
+import { OrganizationsState } from '../reducers/organizations';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
@@ -20,7 +21,7 @@ import { getMe } from './person';
 import { navigatePush } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
-import { joinCommunity, navigateToOrg } from './organizations';
+import { joinCommunity, navigateToCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';
@@ -150,7 +151,7 @@ export function skipOnboarding() {
 
 export function joinStashedCommunity() {
   return async (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
     },
@@ -167,10 +168,14 @@ export function joinStashedCommunity() {
 
 export function landOnStashedCommunityScreen() {
   return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      null,
+      AnyAction
+    >,
     getState: () => { onboarding: OnboardingState },
   ) => {
-    dispatch(navigateToOrg(getState().onboarding.community.id));
+    dispatch(navigateToCommunity(getState().onboarding.community.id));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }

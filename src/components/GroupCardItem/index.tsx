@@ -23,6 +23,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   const { t } = useTranslation('groupItem');
 
   const {
+    id: groupId,
     name,
     userCreated,
     communityPhotoUrl,
@@ -34,7 +35,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   } = group;
 
   const handlePress = () => {
-    onPress && onPress(group);
+    onPress && onPress(groupId);
   };
 
   const handleJoin = () => {
