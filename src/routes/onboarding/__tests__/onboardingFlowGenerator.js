@@ -407,7 +407,7 @@ describe('SuggestedStepDetailScreen next', () => {
         store,
       )
         .instance()
-        .props.next({ personId: personId }),
+        .props.next({ personId }),
     );
 
     expect(showReminderOnLoad).toHaveBeenCalledWith(
