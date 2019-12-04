@@ -16,6 +16,7 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { orgIsGlobal } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
+import { CELEBRATEABLE_TYPES } from '../../constants';
 
 import styles from './styles';
 
@@ -43,6 +44,14 @@ const CelebrateItem = ({
   cardStyle,
   me,
 }: CelebrateItemProps) => {
+  const {
+    changed_attribute_value,
+    subject_person,
+    subject_person_name,
+    celebrateable_type,
+  } = event;
+  const org = organization || event.organization;
+
   const { t } = useTranslation('celebrateFeeds');
 
   const handlePress = () =>
@@ -57,33 +66,29 @@ const CelebrateItem = ({
 
   const handleReport = () => console.log('report');
 
-  const menuActions = event.subject_person
-    ? me.id === event.subject_person.id
-      ? [
-          {
-            text: t('editPost'),
-            onPress: () => handleEdit(),
-          },
-          {
-            text: t('deletePost'),
-            onPress: () => handleDelete(),
-            destructive: true,
-          },
-        ]
-      : [
-          {
-            text: t('reportPost'),
-            onPress: () => handleReport(),
-          },
-        ]
-    : null;
-
-  const {
-    changed_attribute_value,
-    subject_person,
-    subject_person_name,
-  } = event;
-  const org = organization || event.organization;
+  const menuActions =
+    !orgIsGlobal(org) &&
+    celebrateable_type === CELEBRATEABLE_TYPES.story &&
+    subject_person
+      ? me.id === subject_person.id
+        ? [
+            {
+              text: t('editPost'),
+              onPress: () => handleEdit(),
+            },
+            {
+              text: t('deletePost'),
+              onPress: () => handleDelete(),
+              destructive: true,
+            },
+          ]
+        : [
+            {
+              text: t('reportPost'),
+              onPress: () => handleReport(),
+            },
+          ]
+      : null;
 
   const renderContent = () => (
     <View style={styles.cardContent}>
@@ -112,45 +117,61 @@ const CelebrateItem = ({
     </View>
   );
 
-  const renderClearNotificationButton = () =>
-    onClearNotification ? (
-      <View style={styles.clearNotificationWrap}>
-        <Touchable
-          testID="ClearNotificationButton"
-          onPress={clearNotification}
-          style={styles.clearNotificationTouchable}
-        >
-          <Icon
-            name="deleteIcon"
-            type="MissionHub"
-            size={10}
-            style={styles.clearNotificationIcon}
-          />
-        </Touchable>
-      </View>
-    ) : null;
+  const renderClearNotificationButton = () => (
+    <View style={styles.clearNotificationWrap}>
+      <Touchable
+        testID="ClearNotificationButton"
+        onPress={clearNotification}
+        style={styles.clearNotificationTouchable}
+      >
+        <Icon
+          name="deleteIcon"
+          type="MissionHub"
+          size={10}
+          style={styles.clearNotificationIcon}
+        />
+      </Touchable>
+    </View>
+  );
 
-  return (
+  const renderGlobalOrgCard = () => (
     <Card testID="CelebrateItemCard" style={cardStyle}>
-      {!orgIsGlobal(organization) && menuActions ? (
-        <PopupMenu
-          actions={menuActions}
-          buttonProps={{
-            onPress: handlePress,
-          }}
-          triggerOnLongPress={true}
-        >
-          {renderContent()}
-          {renderClearNotificationButton()}
-        </PopupMenu>
-      ) : (
-        <View>
-          {renderContent()}
-          {renderClearNotificationButton()}
-        </View>
-      )}
+      {renderContent()}
+      {onClearNotification ? renderClearNotificationButton() : null}
     </Card>
   );
+
+  const renderStoryCard = () => (
+    <Card testID="CelebrateItemCard" style={cardStyle}>
+      <PopupMenu
+        actions={menuActions}
+        buttonProps={{
+          onPress: handlePress,
+        }}
+        triggerOnLongPress={true}
+      >
+        {renderContent()}
+        {onClearNotification ? renderClearNotificationButton() : null}
+      </PopupMenu>
+    </Card>
+  );
+
+  const renderCelebrateCard = () => (
+    <Card
+      testID="CelebrateItemCard"
+      onPress={!orgIsGlobal(org) && !menuActions ? handlePress : undefined}
+      style={cardStyle}
+    >
+      {renderContent()}
+      {onClearNotification ? renderClearNotificationButton() : null}
+    </Card>
+  );
+
+  return orgIsGlobal(org)
+    ? renderGlobalOrgCard()
+    : menuActions
+    ? renderStoryCard()
+    : renderCelebrateCard();
 };
 
 const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
