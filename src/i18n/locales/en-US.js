@@ -543,6 +543,9 @@ export default {
       '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
+    editPost: 'Edit Post',
+    deletePost: 'Delete Post',
+    reportPost: 'Report to Owner',
   },
   challengeFeeds: {
     past: 'Past Challenges',

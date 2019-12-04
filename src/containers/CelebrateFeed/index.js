@@ -6,9 +6,6 @@ import { View } from 'react-native';
 
 import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
-import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
-import { navigatePush } from '../../actions/navigation';
-import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
@@ -37,16 +34,6 @@ class CelebrateFeed extends Component {
     );
   };
 
-  onPressItem = event => {
-    const { dispatch } = this.props;
-
-    dispatch(
-      navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        event,
-      }),
-    );
-  };
-
   renderItem = ({ item }) => {
     const { organization, itemNamePressable, onClearNotification } = this.props;
 
@@ -55,9 +42,6 @@ class CelebrateFeed extends Component {
         onClearNotification={onClearNotification}
         event={item}
         organization={organization}
-        onPressItem={
-          organization.id !== GLOBAL_COMMUNITY_ID && this.onPressItem
-        }
         namePressable={itemNamePressable}
       />
     );
