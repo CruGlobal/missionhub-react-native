@@ -74,5 +74,9 @@ export const apolloClient = new ApolloClient({
       fetchPolicy: 'cache-and-network',
       notifyOnNetworkStatusChange: true,
     },
+    query: {
+      errorPolicy: 'all',
+      fetchPolicy: 'network-only',
+    },
   },
 });

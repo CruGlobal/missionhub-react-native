@@ -40,7 +40,6 @@ export function getMyCommunities() {
   return dispatch => {
     apolloClient.query({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'network-only',
     });
     dispatch(getMyOrganizations());
   };

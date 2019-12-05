@@ -100,7 +100,6 @@ describe('getMyCommunities', () => {
 
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -616,7 +615,6 @@ describe('addNewOrganization', () => {
     expect(getMe).toHaveBeenCalledWith();
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
@@ -668,7 +666,6 @@ describe('addNewOrganization', () => {
     expect(getMe).toHaveBeenCalledWith();
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(store.getActions()).toEqual([
       addOrgApiResponse,
@@ -712,7 +709,6 @@ describe('updateOrganization', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -755,7 +751,6 @@ describe('updateOrganizationImage', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -790,7 +785,6 @@ describe('deleteOrganization', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -921,7 +915,6 @@ describe('joinCommunity', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -949,7 +942,6 @@ describe('joinCommunity', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
@@ -979,7 +971,6 @@ describe('joinCommunity', () => {
     );
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_COMMUNITIES_QUERY,
-      fetchPolicy: 'cache-and-network',
     });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
     expect(store.getActions()).toEqual([
