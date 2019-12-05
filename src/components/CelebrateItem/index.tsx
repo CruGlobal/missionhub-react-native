@@ -82,7 +82,7 @@ const CelebrateItem = ({
   const handleEdit = () =>
     dispatch(
       navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
-        celebrationIten: event,
+        celebrationItem: event,
         onRefresh,
       }),
     );

@@ -60,7 +60,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
         onChangeText={e => changeStory(e)}
         placeholder={t('inputPlaceholder')}
         value={story}
-        autoFocus={false}
+        autoFocus={true}
         autoCorrect={true}
         multiline={true}
         returnKeyType="done"
