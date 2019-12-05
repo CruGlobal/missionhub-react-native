@@ -3,6 +3,7 @@ import { SafeAreaView, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
 import { DrawerActions } from 'react-navigation-drawer';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { Flex, Button, IconButton } from '../common';
 
@@ -16,8 +17,7 @@ interface MenuItemsType {
 
 interface SideMenuProps {
   isOpen: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, any>;
+  dispatch: ThunkDispatch<{}, null, AnyAction>;
   menuItems: MenuItemsType[];
   testID?: string;
 }
@@ -70,7 +70,7 @@ const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
     </SafeAreaView>
   );
 };
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 const mapStateToProps = ({ drawer }: { drawer: { isOpen: boolean } }) => ({
   isOpen: drawer.isOpen,
 });
