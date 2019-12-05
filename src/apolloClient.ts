@@ -67,4 +67,12 @@ persistCache({
 export const apolloClient = new ApolloClient({
   link,
   cache,
+  assumeImmutableResults: true,
+  defaultOptions: {
+    watchQuery: {
+      errorPolicy: 'all',
+      fetchPolicy: 'cache-and-network',
+      notifyOnNetworkStatusChange: true,
+    },
+  },
 });

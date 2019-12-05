@@ -442,6 +442,7 @@ export default {
       part2: 'Choose a person and add some new steps.',
     },
     title: 'Steps of Faith',
+    errorLoadingSteps: 'There was an error loading your steps.',
   },
   contactSideMenu: {
     edit: 'Edit',
@@ -802,5 +803,8 @@ export default {
     reportedBy: 'Reported By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',
+  },
+  errorNotice: {
+    networkError: 'Please check your network connection.',
   },
 };

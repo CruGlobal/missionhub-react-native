@@ -3,27 +3,18 @@ import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
+import { StepItem as Step } from '../__generated__/StepItem';
 
-import StepItem from '..';
+import StepItem, { STEP_ITEM_FRAGMENT } from '..';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 
 jest.mock('../../ReminderButton', () => 'ReminderButton');
-const owner = { id: '456' };
-const receiver = { id: '457', full_name: 'Receiver Name' };
+
+const mockStep = mockFragment<Step>(STEP_ITEM_FRAGMENT);
+
 const mockDate = '2019-10-17 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 
-const mockStep = {
-  id: '1',
-  title: 'Test Step',
-  accepted_at: mockDate,
-  completed_at: mockDate,
-  created_at: mockDate,
-  updated_at: mockDate,
-  notified_at: mockDate,
-  note: 'Note',
-  owner,
-  receiver,
-};
 const stepId = '1';
 const reminderId = '11';
 const reminder = { id: reminderId };

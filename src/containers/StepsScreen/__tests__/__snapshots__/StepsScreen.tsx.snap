@@ -9,6 +9,9 @@ exports[`renders empty screen correctly 1`] = `
     }
   }
 >
+  <TrackTabChange
+    screen="StepsTab"
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -347,6 +350,9 @@ exports[`renders loading screen correctly 1`] = `
     }
   }
 >
+  <TrackTabChange
+    screen="StepsTab"
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -618,6 +624,9 @@ exports[`renders screen with steps correctly 1`] = `
     }
   }
 >
+  <TrackTabChange
+    screen="StepsTab"
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -988,52 +997,17 @@ exports[`renders screen with steps correctly 1`] = `
     <RCTScrollView
       ListFooterComponent={null}
       contentContainerStyle={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {
-            "paddingBottom": 40,
-          },
-        ]
+        Object {
+          "paddingVertical": 8,
+        }
       }
       data={
         Array [
           Object {
-            "id": 0,
-            "organization": Object {
-              "id": "000",
-            },
-            "receiver": Object {
-              "id": "00",
-            },
+            "__typename": "Step",
           },
           Object {
-            "id": 1,
-            "organization": Object {
-              "id": "111",
-            },
-            "receiver": Object {
-              "id": "11",
-            },
-          },
-          Object {
-            "id": 2,
-            "organization": Object {
-              "id": "222",
-            },
-            "receiver": Object {
-              "id": "22",
-            },
-          },
-          Object {
-            "id": 3,
-            "organization": Object {
-              "id": "333",
-            },
-            "receiver": Object {
-              "id": "33",
-            },
+            "__typename": "Step",
           },
         ]
       }
@@ -1046,7 +1020,8 @@ exports[`renders screen with steps correctly 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0.25}
       onLayout={[Function]}
       onMomentumScrollEnd={[Function]}
       onRefresh={[Function]}
@@ -1062,7 +1037,7 @@ exports[`renders screen with steps correctly 1`] = `
       refreshing={false}
       removeClippedSubviews={false}
       renderItem={[Function]}
-      scrollEventThrottle={16}
+      scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
       stickyHeaderIndices={Array []}
       testID="stepsList"
@@ -1081,16 +1056,10 @@ exports[`renders screen with steps correctly 1`] = `
             onSelect={[Function]}
             step={
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
-                },
-                "receiver": Object {
-                  "id": "00",
-                },
+                "__typename": "Step",
               }
             }
-            testID="stepItem0"
+            testID="stepItem"
           />
         </View>
         <View
@@ -1102,62 +1071,96 @@ exports[`renders screen with steps correctly 1`] = `
             onSelect={[Function]}
             step={
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
-                },
-                "receiver": Object {
-                  "id": "11",
-                },
+                "__typename": "Step",
               }
             }
-            testID="stepItem1"
-          />
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <StepItem
-            onPressName={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
-              }
-            }
-            testID="stepItem2"
-          />
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <StepItem
-            onPressName={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
-              }
-            }
-            testID="stepItem3"
+            testID="stepItem"
           />
         </View>
       </View>
     </RCTScrollView>
   </View>
 </View>
+`;
+
+exports[`stepsList onEndReached should paginate when the end of the scroll list is reached 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -389,10 +389,16 @@
+              \\"__typename\\": \\"Step\\",
+            },
+            Object {
+              \\"__typename\\": \\"Step\\",
+            },
++           Object {
++             \\"__typename\\": \\"Step\\",
++           },
++           Object {
++             \\"__typename\\": \\"Step\\",
++           },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function anonymous]}
+        getItemCount={[Function anonymous]}
+@@ -427,10 +433,25 @@
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <RCTRefreshControl />
+        <View>
++         <View
++           onLayout={[Function onLayout]}
++           style={null}
++         >
++           <StepItem
++             onPressName={[Function handleNavToPerson]}
++             onSelect={[Function handleRowSelect]}
++             step={
++               Object {
++                 \\"__typename\\": \\"Step\\",
++               }
++             }
++             testID=\\"stepItem\\"
++           />
++         </View>
+          <View
+            onLayout={[Function onLayout]}
+            style={null}
+          >
+            <StepItem
+@@ -457,9 +478,31 @@
+                }
+              }
+              testID=\\"stepItem\\"
+            />
+          </View>
++         <View
++           onLayout={[Function onLayout]}
++           style={null}
++         >
++           <StepItem
++             onPressName={[Function handleNavToPerson]}
++             onSelect={[Function handleRowSelect]}
++             step={
++               Object {
++                 \\"__typename\\": \\"Step\\",
++               }
++             }
++             testID=\\"stepItem\\"
++           />
++         </View>
++         <View
++           style={
++             Object {
++               \\"height\\": 0,
++             }
++           }
++         />
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>"
 `;

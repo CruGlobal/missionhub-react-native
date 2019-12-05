@@ -92,7 +92,7 @@ exports[`renders not me correctly 1`] = `
             ]
           }
         >
-          Receiver Name
+          Zola Corkery
         </Text>
       </View>
       <ReminderButton
@@ -181,7 +181,7 @@ exports[`renders not me correctly 1`] = `
         ]
       }
     >
-      Test Step
+      Repellat quisquam recusandae alias consequuntur corporis.
     </Text>
   </View>
 </View>
@@ -279,7 +279,7 @@ exports[`renders with pressable name correctly 1`] = `
             ]
           }
         >
-          Receiver Name
+          Zola Corkery
         </Text>
       </View>
       <ReminderButton
@@ -373,7 +373,7 @@ exports[`renders with pressable name correctly 1`] = `
         ]
       }
     >
-      Test Step
+      Repellat quisquam recusandae alias consequuntur corporis.
     </Text>
   </View>
 </View>

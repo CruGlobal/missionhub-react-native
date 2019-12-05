@@ -1,118 +1,74 @@
-import { NativeScrollEvent } from 'react-native';
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { myStepsSelector } from '../../../selectors/steps';
 import { PEOPLE_TAB } from '../../../constants';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
-import { getMySteps, getMyStepsNextPage } from '../../../actions/steps';
 import { navToPersonScreen } from '../../../actions/person';
 import { openMainMenu } from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
-import { Step, StepsState } from '../../../reducers/steps';
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 
 import StepsScreen from '..';
 
-jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
-jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
-jest.mock('../../TrackTabChange', () => () => null);
-jest.mock('../../../components/StepItem', () => 'StepItem');
+jest.mock('../../TrackTabChange', () => 'TrackTabChange');
+jest.mock('../../../components/StepItem', () => ({
+  __esModule: true,
+  default: 'StepItem',
+  STEP_ITEM_QUERY: 'fragment StepItem on Step { __typename }',
+}));
 
-const steps = ([
-  {
-    id: 0,
-    receiver: { id: '00' },
-    organization: { id: '000' },
-  },
-  {
-    id: 1,
-    receiver: { id: '11' },
-    organization: { id: '111' },
-  },
-  {
-    id: 2,
-    receiver: { id: '22' },
-    organization: { id: '222' },
-  },
-  {
-    id: 3,
-    receiver: { id: '33' },
-    organization: { id: '333' },
-  },
-] as unknown) as Step[];
-
-const initialState = ({
-  steps: {
-    mine: steps,
-    pagination: {
-      hasNextPage: true,
-      page: 1,
-    },
-  },
+const initialState = {
   swipe: {
     groupOnboarding: {
       [GROUP_ONBOARDING_TYPES.steps]: true,
     },
   },
-} as unknown) as { steps: StepsState };
+};
 
 const openMainMenuResult = { type: 'open main menu' };
 const checkForUnreadCommentsResult = { type: 'check for unread comments' };
-const getMyStepsResult = { type: 'get my steps' };
-const getMyStepsNextPageResult = { type: 'get my steps next page' };
 const navigatePushResult = { type: 'navigate push' };
 const navToPersonScreenResult = { type: 'navigate to person screen' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
 beforeEach(() => {
-  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
-  ((openMainMenu as unknown) as jest.Mock).mockReturnValue(openMainMenuResult);
-  ((checkForUnreadComments as unknown) as jest.Mock).mockReturnValue(
+  (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResult);
+  (checkForUnreadComments as jest.Mock).mockReturnValue(
     checkForUnreadCommentsResult,
   );
-  ((getMySteps as unknown) as jest.Mock).mockReturnValue(getMyStepsResult);
-  ((getMyStepsNextPage as unknown) as jest.Mock).mockReturnValue(
-    getMyStepsNextPageResult,
-  );
-  ((navigatePush as unknown) as jest.Mock).mockReturnValue(navigatePushResult);
-  ((navToPersonScreen as unknown) as jest.Mock).mockReturnValue(
-    navToPersonScreenResult,
-  );
-  ((navigateToMainTabs as unknown) as jest.Mock).mockReturnValue(
-    navigateToMainTabsResult,
-  );
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
+  (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
 });
 
 it('renders loading screen correctly', () => {
-  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(null);
-
-  renderWithContext(<StepsScreen />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(<StepsScreen />, { initialState }).snapshot();
 });
 
-it('renders empty screen correctly', () => {
-  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue([]);
-
-  renderWithContext(<StepsScreen />, {
+it('renders empty screen correctly', async () => {
+  const { snapshot } = renderWithContext(<StepsScreen />, {
+    mocks: { Query: () => ({ steps: () => ({ nodes: [] }) }) },
     initialState,
-  }).snapshot();
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
-it('renders screen with steps correctly', () => {
-  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
+it('renders screen with steps correctly', async () => {
+  const { snapshot } = renderWithContext(<StepsScreen />, { initialState });
 
-  renderWithContext(<StepsScreen />, {
-    initialState,
-  }).snapshot();
+  await flushMicrotasksQueue();
+
+  snapshot();
 });
 
 describe('handleOpenMainMenu', () => {
@@ -129,62 +85,66 @@ describe('handleOpenMainMenu', () => {
 });
 
 describe('handleRefresh', () => {
-  it('refetches steps and checks for unread comments', () => {
+  it('refetches steps and checks for unread comments', async () => {
     const { getByTestId, store } = renderWithContext(<StepsScreen />, {
       initialState,
     });
+
+    await flushMicrotasksQueue();
 
     fireEvent(getByTestId('stepsList'), 'onRefresh');
 
     expect(checkForUnreadComments).toHaveBeenCalledWith();
-    expect(getMySteps).toHaveBeenCalledWith();
-    expect(store.getActions()).toEqual([
-      checkForUnreadCommentsResult,
-      getMyStepsResult,
-    ]);
+    // TODO: no expectations that refetch got called
+    expect(store.getActions()).toEqual([checkForUnreadCommentsResult]);
   });
 });
 
 describe('handleRowSelect', () => {
-  it('should navigate to step detail screen', () => {
-    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+  it('should navigate to step detail screen', async () => {
+    const { getAllByTestId, store } = renderWithContext(<StepsScreen />, {
       initialState,
     });
-    const step = steps[0];
 
-    fireEvent(getByTestId('stepItem0'), 'onSelect', step);
+    await flushMicrotasksQueue();
+
+    fireEvent(getAllByTestId('stepItem')[0], 'onSelect', { id: '1' });
 
     expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
-      step,
+      stepId: '1',
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 });
 
 describe('handleNavToPerson', () => {
-  it('should navigate to person screen', () => {
-    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+  it('should navigate to person screen', async () => {
+    const { getAllByTestId, store } = renderWithContext(<StepsScreen />, {
       initialState,
     });
-    const step = steps[0];
 
-    fireEvent(getByTestId('stepItem0'), 'onPressName', step);
+    const step = { receiver: { id: '3' }, community: { id: '4' } };
+
+    await flushMicrotasksQueue();
+
+    fireEvent(getAllByTestId('stepItem')[0], 'onPressName', step);
 
     expect(navToPersonScreen).toHaveBeenCalledWith(
       step.receiver,
-      step.organization,
+      step.community,
     );
     expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 });
 
 describe('handleNavToPeopleTab', () => {
-  it('should navigate to person screen', () => {
-    ((myStepsSelector as unknown) as jest.Mock).mockReturnValue([]);
-
+  it('should navigate to person screen', async () => {
     const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+      mocks: { Query: () => ({ steps: () => ({ nodes: [] }) }) },
       initialState,
     });
+
+    await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('bottomButton'));
 
@@ -193,60 +153,27 @@ describe('handleNavToPeopleTab', () => {
   });
 });
 
-describe('handleScroll', () => {
-  const nativeEvent = {
-    layoutMeasurement: { height: 40, width: 40 },
-    contentOffset: { x: 0, y: 21 },
-    contentSize: { height: 80, width: 40 },
-  } as NativeScrollEvent;
-
-  it('paginates when close to bottom', async () => {
-    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
-      initialState,
-    });
-
-    fireEvent(getByTestId('stepsList'), 'onScroll', { nativeEvent });
-
-    await flushMicrotasksQueue();
-
-    expect(getMyStepsNextPage).toHaveBeenCalledWith();
-    expect(store.getActions()).toEqual([getMyStepsNextPageResult]);
-  });
-
-  it('does not paginate if no more steps', async () => {
-    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
-      initialState: {
-        ...initialState,
-        steps: {
-          ...initialState.steps,
-          pagination: { hasNextPage: false, page: 1 },
+describe('stepsList onEndReached', () => {
+  it('should paginate when the end of the scroll list is reached', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <StepsScreen />,
+      {
+        mocks: {
+          BasePageInfo: () => ({
+            endCursor: 'MQ',
+            hasNextPage: true,
+          }),
         },
+        initialState,
       },
-    });
-
-    fireEvent(getByTestId('stepsList'), 'onScroll', { nativeEvent });
+    );
 
     await flushMicrotasksQueue();
+    recordSnapshot();
 
-    expect(getMyStepsNextPage).not.toHaveBeenCalled();
-    expect(store.getActions()).toEqual([]);
-  });
-
-  it('does not paginate if not close to bottom', async () => {
-    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
-      initialState,
-    });
-
-    fireEvent(getByTestId('stepsList'), 'onScroll', {
-      nativeEvent: {
-        ...nativeEvent,
-        contentOffset: { x: 0, y: 19 },
-      },
-    });
+    fireEvent(getByTestId('stepsList'), 'onEndReached');
 
     await flushMicrotasksQueue();
-
-    expect(getMyStepsNextPage).not.toHaveBeenCalled();
-    expect(store.getActions()).toEqual([]);
+    diffSnapshot();
   });
 });

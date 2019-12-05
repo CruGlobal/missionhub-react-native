@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import gql from 'graphql-tag';
 
 import { Text, Icon, Card, Touchable } from '../common';
 import ItemHeaderText from '../ItemHeaderText';
@@ -12,26 +13,29 @@ import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
 import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
+import { StepItem as Step } from './__generated__/StepItem';
 
-type StepType = {
-  id: string;
-  title: string;
-  accepted_at?: string;
-  completed_at?: string;
-  created_at?: string;
-  updated_at?: string;
-  notified_at?: string;
-  note?: string;
-  owner: object;
-  receiver?: { id: string; full_name: string };
-};
+export const STEP_ITEM_FRAGMENT = gql`
+  fragment StepItem on Step {
+    id
+    title
+    receiver {
+      id
+      fullName
+    }
+    community {
+      id
+    }
+  }
+`;
 
 export interface StepItemProps {
-  step: StepType;
-  onSelect?: (step: StepType) => void;
-  onPressName?: (step: StepType) => void;
+  step: Step;
+  onSelect?: (step: Step) => void;
+  onPressName?: (step: Step) => void;
   myId?: string;
   reminder?: ReminderType;
+  testID?: string;
 }
 const StepItem = ({
   step,
@@ -53,7 +57,7 @@ const StepItem = ({
   const isMe = step.receiver && step.receiver.id === myId;
   const ownerName = isMe
     ? t('me')
-    : (step.receiver && step.receiver.full_name) || '';
+    : (step.receiver && step.receiver.fullName) || '';
   const { bellIcon, reminderButton } = styles;
   return (
     <Card testID="StepItemCard" onPress={handleSelect} style={styles.card}>
@@ -89,7 +93,7 @@ const mapStateToProps = (
     stepReminders,
   }: { auth: AuthState; stepReminders: StepReminderState },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { step }: any,
+  { step }: { step: Step },
 ) => ({
   myId: auth.person.id,
   reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
