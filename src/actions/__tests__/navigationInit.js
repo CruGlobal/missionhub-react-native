@@ -1,9 +1,20 @@
+import { navigateToMainTabs, navigateReset } from '../navigation';
 import { resetToInitialRoute } from '../navigationInit';
 import { createThunkStore } from '../../../testUtils';
+
+jest.mock('../navigation');
 
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
+
+const navigateToMainTabsResult = { type: 'nav to main tabs' };
+const navigateResetResult = { type: 'navigate refresh' };
+
+beforeEach(() => {
+  navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
+  navigateReset.mockReturnValue(navigateResetResult);
+});
 
 const test = store => {
   const mockStore = createThunkStore(store);

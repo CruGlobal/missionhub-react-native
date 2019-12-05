@@ -3,13 +3,15 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 const borderRadius = 4;
+export const GroupCardHeight =
+  (theme.fullWidth - 32) * theme.communityImageAspectRatio;
 
 export default StyleSheet.create({
   card: {
     borderRadius,
   },
   content: {
-    height: (theme.fullWidth - 32) * theme.communityImageAspectRatio,
+    height: GroupCardHeight,
     borderRadius,
   },
   userCreatedContent: {

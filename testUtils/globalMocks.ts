@@ -34,4 +34,7 @@ export const globalMocks: IMocks = {
       lastName,
     };
   },
+  Community: () => ({
+    name: faker.company.catchPhrase(),
+  }),
 };

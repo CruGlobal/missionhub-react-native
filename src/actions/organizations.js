@@ -1,7 +1,6 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
 
 import {
-  GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_MEMBERS,
   GET_ORGANIZATION_PEOPLE,
   DEFAULT_PAGE_LIMIT,
@@ -14,12 +13,14 @@ import {
   LOAD_PERSON_DETAILS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
-import { removeHiddenOrgs } from '../selectors/selectorUtils';
+import { orgIsUserCreated } from '../utils/common';
 import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
+import { apolloClient } from '../apolloClient';
+import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
@@ -36,10 +37,12 @@ const getOrganizationsQuery = {
 };
 
 export function getMyCommunities() {
-  return async dispatch => {
-    await dispatch(getMyOrganizations());
-    dispatch(getUsersReport());
-    return dispatch(getOrganizationsContactReports());
+  return dispatch => {
+    apolloClient.query({
+      query: GET_COMMUNITIES_QUERY,
+      fetchPolicy: 'cache-and-network',
+    });
+    dispatch(getMyOrganizations());
   };
 }
 
@@ -93,49 +96,6 @@ export function refreshCommunity(orgId) {
 
     return response;
   };
-}
-
-export function getOrganizationsContactReports() {
-  return async (dispatch, getState) => {
-    const {
-      organizations,
-      auth: { person },
-    } = getState();
-
-    const visibleOrgs = removeHiddenOrgs(organizations.all, person);
-
-    if (visibleOrgs.length === 0) {
-      return;
-    }
-
-    const organization_ids = visibleOrgs
-      .filter(org => org.community && org.id !== GLOBAL_COMMUNITY_ID)
-      .map(org => org.id)
-      .join(',');
-
-    const { response } = await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT, {
-        period: 'P1W',
-        organization_ids,
-      }),
-    );
-
-    dispatch({
-      type: GET_ORGANIZATIONS_CONTACTS_REPORT,
-      reports: response.map(r => ({
-        id: `${r.organization_id}`,
-        contactsCount: r.contact_count,
-        unassignedCount: r.unassigned_count,
-        uncontactedCount: r.uncontacted_count,
-        memberCount: r.member_count,
-      })),
-    });
-    return response;
-  };
-}
-
-export function getUsersReport() {
-  return dispatch => dispatch(callApi(REQUESTS.GET_USERS_REPORT));
 }
 
 export function getOrganizationContacts(orgId, name, pagination, filters = {}) {
@@ -378,7 +338,7 @@ export function addNewPerson(data) {
 }
 
 export function updateOrganization(orgId, data) {
-  return dispatch => {
+  return async dispatch => {
     if (!data) {
       return Promise.reject(
         'Invalid Data from updateOrganization: no data passed in',
@@ -393,12 +353,14 @@ export function updateOrganization(orgId, data) {
       },
     };
     const query = { orgId };
-    return dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
+
+    await dispatch(callApi(REQUESTS.UPDATE_ORGANIZATION, query, bodyData));
+    dispatch(getMyCommunities());
   };
 }
 
 export function updateOrganizationImage(orgId, imageData) {
-  return dispatch => {
+  return async dispatch => {
     if (!imageData) {
       return Promise.reject(
         'Invalid Data from updateOrganizationImage: no image data passed in',
@@ -412,9 +374,11 @@ export function updateOrganizationImage(orgId, imageData) {
       type: imageData.fileType,
       name: imageData.fileName,
     });
-    return dispatch(
+
+    await dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
     );
+    dispatch(getMyCommunities());
   };
 }
 
@@ -469,8 +433,9 @@ export function addNewOrganization(name, imageData) {
       const newOrgId = results.response.id;
       await dispatch(updateOrganizationImage(newOrgId, imageData));
       dispatch(trackActionWithoutData(ACTIONS.ADD_COMMUNITY_PHOTO));
+    } else {
+      dispatch(getMyCommunities());
     }
-    await dispatch(getMyOrganizations());
     // After the org is created, update auth person with new org permissions
     dispatch(getMe());
 
@@ -481,12 +446,9 @@ export function addNewOrganization(name, imageData) {
 export function deleteOrganization(orgId) {
   return async dispatch => {
     const query = { orgId };
-    const results = await dispatch(
-      callApi(REQUESTS.DELETE_ORGANIZATION, query),
-    );
+    await dispatch(callApi(REQUESTS.DELETE_ORGANIZATION, query));
     dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_DELETE));
-
-    return results;
+    dispatch(getMyCommunities());
   };
 }
 
@@ -612,6 +574,7 @@ export function joinCommunity(orgId, code, url) {
     }
 
     dispatch(trackActionWithoutData(ACTIONS.JOIN_COMMUNITY_WITH_CODE));
+    dispatch(getMyCommunities());
   };
 }
 
@@ -645,13 +608,13 @@ export function removeOrganizationMember(personId, orgId) {
   };
 }
 
-export function navigateToOrg(orgId = GLOBAL_COMMUNITY_ID, initialTab) {
-  return (dispatch, getState) => {
-    const { organizations } = getState();
-    const { user_created } = organizationSelector({ organizations }, { orgId });
+export function navigateToCommunity(community, initialTab) {
+  return dispatch => {
+    const orgId = (community && community.id) || GLOBAL_COMMUNITY_ID;
+    const userCreated = orgIsUserCreated(community);
 
     return dispatch(
-      navigatePush(getScreenForOrg(orgId, user_created), {
+      navigatePush(getScreenForOrg(orgId, userCreated), {
         orgId,
         initialTab,
       }),
