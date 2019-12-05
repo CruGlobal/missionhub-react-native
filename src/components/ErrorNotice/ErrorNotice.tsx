@@ -1,20 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ApolloError } from 'apollo-client';
 
-import theme from '../theme';
+import { Text, Touchable } from '../common';
 
-import { Text, Touchable } from './common';
-
-const styles = StyleSheet.create({
-  errorContainer: {
-    backgroundColor: theme.red,
-    alignItems: 'center',
-    padding: 5,
-  },
-  white: { color: theme.white },
-});
+import { styles } from './styles';
 
 interface ErrorNoticeProps {
   error?: ApolloError;

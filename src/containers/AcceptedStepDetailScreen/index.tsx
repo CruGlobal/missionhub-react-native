@@ -19,7 +19,7 @@ import ReminderButton, {
 import ReminderDateText, {
   REMINDER_DATE_TEXT_FRAGMENT,
 } from '../../components/ReminderDateText';
-import { ErrorNotice } from '../../components/ErrorNotice';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
 import {

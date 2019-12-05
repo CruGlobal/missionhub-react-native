@@ -24,7 +24,7 @@ import TrackTabChange from '../TrackTabChange';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
-import { ErrorNotice } from '../../components/ErrorNotice';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
 import {
