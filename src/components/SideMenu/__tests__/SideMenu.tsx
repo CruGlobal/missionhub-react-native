@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 
-// import { DrawerActions } from 'react-navigation-drawer';
 import SideMenu from '..';
 
 const action = jest.fn();
@@ -20,11 +19,6 @@ const mockMenuItems = [
 ];
 
 jest.mock('../../IconButton', () => 'IconButton');
-// jest.mock('react-navigation-drawer', () => ({
-//   DrawerActions: {
-//     closeDrawer: jest.fn(),
-//   },
-// }));
 
 (BackHandler.addEventListener as jest.Mock) = jest.fn((_, callback) => {
   callback();
@@ -54,16 +48,14 @@ it('finds the close button', () => {
   expect(BackHandler.addEventListener).toHaveBeenCalled();
 });
 
-it('should fire onBackPress', () => {
-  // const onBackPress = jest.fn();
+it('should fire onBackPress', async () => {
   const { getByTestId } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
     {
       initialState: { drawer: { isOpen: true } },
     },
   );
-  fireEvent.press(getByTestId('CloseButton'));
-  // expect(onBackPress).toHaveBeenCalled();
+  await fireEvent.press(getByTestId('CloseButton'));
 });
 
 it('unmounts', () => {
