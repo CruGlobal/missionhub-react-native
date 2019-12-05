@@ -18,7 +18,6 @@ interface SideMenuProps {
   isOpen: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   menuItems: MenuItemsType[];
   testID?: string;
 }
@@ -72,6 +71,8 @@ const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
   );
 };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const mapStateToProps = ({ drawer }: any) => ({ isOpen: drawer.isOpen });
+const mapStateToProps = ({ drawer }: { drawer: { isOpen: boolean } }) => ({
+  isOpen: drawer.isOpen,
+});
 
 export default connect(mapStateToProps)(SideMenu);
