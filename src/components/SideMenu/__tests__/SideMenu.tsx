@@ -26,7 +26,9 @@ jest.mock('../../IconButton', () => 'IconButton');
 //   },
 // }));
 
-BackHandler.addEventListener = jest.fn();
+(BackHandler.addEventListener as jest.Mock) = jest.fn((_, callback) => {
+  callback();
+});
 BackHandler.removeEventListener = jest.fn((_, callback) => {
   callback();
 });
