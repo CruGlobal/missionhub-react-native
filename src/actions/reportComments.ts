@@ -6,8 +6,8 @@ import { REQUESTS } from '../api/routes';
 import { CelebrateComment } from '../reducers/celebrateComments';
 import { AuthState } from '../reducers/auth';
 
-import { trackActionWithoutData } from './analytics';
 import callApi from './api';
+import { trackActionWithoutData } from './analytics';
 
 export function reportComment(orgId: string, item: CelebrateComment) {
   return async (
