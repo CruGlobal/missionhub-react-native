@@ -18,11 +18,10 @@ import { Event } from '../../../components/CelebrateItem';
 import styles from './styles';
 
 export const UPDATE_STORY = gql`
-  mutation UpdateStory($input: UpdateStoryInput!) {
+  mutation UpdateStory($input: StoryUpdateInput!) {
     updateStory(input: $input) {
       story {
         id
-        content
       }
     }
   }
@@ -33,7 +32,7 @@ interface EditStoryProps {
 }
 
 const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
-  const { t } = useTranslation('shareAStoryScreen');
+  const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
   const celebrationItem: Event = useNavigationParam('celebrationItem');
@@ -57,7 +56,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
       <Input
-        testID="StoryInput"
+        testID="EditInput"
         onChangeText={e => changeStory(e)}
         placeholder={t('inputPlaceholder')}
         value={story}
@@ -71,9 +70,9 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
         style={textInput}
       />
       <BottomButton
-        text={t('shareStory')}
+        text={t('saveStory')}
         onPress={saveStory}
-        testID="SaveStoryButton"
+        testID="saveStoryButton"
       />
     </View>
   );

@@ -1,9 +1,11 @@
 import React from 'react';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { View, StyleProp, ViewStyle } from 'react-native';
+import { View, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
@@ -21,6 +23,14 @@ import { Person } from '../../reducers/people';
 import { CELEBRATEABLE_TYPES } from '../../constants';
 
 import styles from './styles';
+
+export const DELETE_STORY = gql`
+  mutation DeleteStory($input: StoryDeleteInput!) {
+    deleteStory(input: $input) {
+      id
+    }
+  }
+`;
 
 export interface Event {
   id: string;
@@ -52,6 +62,7 @@ const CelebrateItem = ({
   me,
 }: CelebrateItemProps) => {
   const {
+    id,
     changed_attribute_value,
     subject_person,
     subject_person_name,
@@ -59,7 +70,8 @@ const CelebrateItem = ({
   } = event;
   const org = organization || event.organization;
 
-  const { t } = useTranslation('celebrateFeeds');
+  const { t } = useTranslation('celebrateItems');
+  const [deleteStory] = useMutation(DELETE_STORY);
 
   const handlePress = () =>
     dispatch(navigatePush(CELEBRATE_DETAIL_SCREEN, { event }));
@@ -75,9 +87,28 @@ const CelebrateItem = ({
       }),
     );
 
-  const handleDelete = () => console.log('delete');
+  const handleDelete = () => {
+    Alert.alert(t('delete.title'), t('delete.message'), [
+      { text: t('cancel') },
+      {
+        text: t('delete.buttonText'),
+        onPress: () =>
+          deleteStory({
+            variables: { input: { id } },
+          }),
+      },
+    ]);
+  };
 
-  const handleReport = () => console.log('report');
+  const handleReport = () => {
+    Alert.alert(t('report.title'), t('report.message'), [
+      { text: t('cancel') },
+      {
+        text: t('report.confirmButtonText'),
+        onPress: () => {},
+      },
+    ]);
+  };
 
   const menuActions =
     !orgIsGlobal(org) &&
@@ -86,18 +117,17 @@ const CelebrateItem = ({
       ? me.id === subject_person.id
         ? [
             {
-              text: t('editPost'),
+              text: t('edit.buttonText'),
               onPress: () => handleEdit(),
             },
             {
-              text: t('deletePost'),
+              text: t('delete.buttonText'),
               onPress: () => handleDelete(),
-              destructive: true,
             },
           ]
         : [
             {
-              text: t('reportPost'),
+              text: t('report.buttonText'),
               onPress: () => handleReport(),
             },
           ]
@@ -117,11 +147,7 @@ const CelebrateItem = ({
             <CardTime date={changed_attribute_value} />
           </View>
         </View>
-        <CelebrateItemContent
-          event={event}
-          organization={org}
-          fixedHeight={fixedHeight}
-        />
+        <CelebrateItemContent event={event} organization={org} />
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
@@ -148,18 +174,19 @@ const CelebrateItem = ({
   );
 
   const renderGlobalOrgCard = () => (
-    <Card testID="CelebrateItemCard" style={cardStyle}>
+    <Card testID="CelebrateItemCard">
       {renderContent()}
       {onClearNotification ? renderClearNotificationButton() : null}
     </Card>
   );
 
   const renderStoryCard = () => (
-    <Card testID="CelebrateItemCard" style={cardStyle}>
+    <Card testID="CelebrateItemCard">
       <PopupMenu
         actions={menuActions}
         buttonProps={{
           onPress: handlePress,
+          style: { flex: 1 },
         }}
         triggerOnLongPress={true}
       >
@@ -170,11 +197,7 @@ const CelebrateItem = ({
   );
 
   const renderCelebrateCard = () => (
-    <Card
-      testID="CelebrateItemCard"
-      onPress={!orgIsGlobal(org) && !menuActions ? handlePress : undefined}
-      style={cardStyle}
-    >
+    <Card testID="CelebrateItemCard" onPress={handlePress}>
       {renderContent()}
       {onClearNotification ? renderClearNotificationButton() : null}
     </Card>

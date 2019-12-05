@@ -35,7 +35,12 @@ class CelebrateFeed extends Component {
   };
 
   renderItem = ({ item }) => {
-    const { organization, itemNamePressable, onClearNotification } = this.props;
+    const {
+      organization,
+      itemNamePressable,
+      onClearNotification,
+      refreshCallback,
+    } = this.props;
 
     return (
       <CelebrateItem
@@ -106,6 +111,7 @@ CelebrateFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
   refreshing: PropTypes.bool,
+  refreshingCallback: PropTypes.func,
   itemNamePressable: PropTypes.bool,
   isMember: PropTypes.bool,
   noHeader: PropTypes.bool,
