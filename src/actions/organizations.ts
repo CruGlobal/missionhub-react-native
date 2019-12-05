@@ -44,7 +44,7 @@ interface PersonInteractionReport {
   uncontacted_count: number;
   contacts_with_interaction_count: number;
 }
-interface ImageData {
+export interface ImageData {
   fileSize: number;
   fileName: string;
   fileType: string;
@@ -426,10 +426,12 @@ export function updateOrganizationImage(orgId: string, imageData: ImageData) {
     data.append('data[attributes][community_photo][name]', imageData.fileName);
     data.append('data[attributes][community_photo][type]', imageData.fileType);
 
-    return dispatch(
+    const results = dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
     );
     dispatch(getMyCommunities());
+
+    return results;
   };
 }
 
@@ -457,7 +459,7 @@ export function transferOrgOwnership(orgId: string, person_id: string) {
   };
 }
 
-export function addNewOrganization(name: string, imageData: ImageData) {
+export function addNewOrganization(name: string, imageData?: ImageData) {
   return async (
     dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
   ) => {

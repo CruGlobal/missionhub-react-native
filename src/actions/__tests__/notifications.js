@@ -683,6 +683,18 @@ describe('askNotificationPermissions', () => {
           celebration_item_id,
         );
       });
+
+      it('should not navigate to org if no id passed', async () => {
+        await testNotification({
+          screen: 'celebrate',
+          organization_id: undefined,
+          celebration_item_id,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
+        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+      });
     });
 
     describe('community_challenges', () => {
@@ -695,9 +707,20 @@ describe('askNotificationPermissions', () => {
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCommunity).toHaveBeenCalledWith(
-          organization,
+          organization.id,
           GROUP_CHALLENGES,
         );
+      });
+
+      it('should not navigate to org if no id passed', async () => {
+        await testNotification({
+          screen: 'community_challenges',
+          organization_id: undefined,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
+        expect(navigateToCommunity).not.toHaveBeenCalled();
       });
     });
   });
