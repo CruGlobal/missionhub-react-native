@@ -236,6 +236,7 @@ export default {
   acceptedStepDetail: {
     removeStep: 'Remove Step',
     iDidIt: 'I Did It!',
+    stepDetailError: 'There was an error loading your step details.',
   },
   completedStepDetail: {
     completedStep: 'Completed Step',
