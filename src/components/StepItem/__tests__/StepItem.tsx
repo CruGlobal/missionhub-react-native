@@ -4,9 +4,9 @@ import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
 import { StepItem as Step } from '../__generated__/StepItem';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 
 import StepItem, { STEP_ITEM_FRAGMENT } from '..';
-import { mockFragment } from '../../../../testUtils/apolloMockClient';
 
 jest.mock('../../ReminderButton', () => 'ReminderButton');
 

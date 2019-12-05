@@ -2,18 +2,22 @@ import React from 'react';
 import i18n from 'i18next';
 import moment, * as MomentTypes from 'moment';
 import { StyleProp, TextStyle } from 'react-native';
+import gql from 'graphql-tag';
 
 import { Text } from '../common';
 import { momentUtc } from '../../utils/common';
-import { REMINDER_RECURRENCES } from '../../constants';
+import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
+import { ReminderDateText as Reminder } from './__generated__/ReminderDateText';
 import styles from './styles';
 
-export interface ReminderType {
-  id?: string;
-  next_occurrence_at: string;
-  reminder_type: string;
-}
+export const REMINDER_DATE_TEXT_FRAGMENT = gql`
+  fragment ReminderDateText on StepReminder {
+    id
+    nextOccurrenceAt
+    reminderType
+  }
+`;
 
 function isTomorrow(momentDate: MomentTypes.Moment) {
   return momentDate.isSame(moment().add(1, 'days'), 'day');
@@ -25,17 +29,17 @@ function inNextWeek(momentDate: MomentTypes.Moment) {
   return momentDate.isBetween(moment(), moment().add(7, 'days'), 'day', '[]');
 }
 
-function formatReminder({ reminder_type, next_occurrence_at }: ReminderType) {
+function formatReminder({ reminderType, nextOccurrenceAt }: Reminder) {
   const timeFormat = 'LT';
-  const momentDate = momentUtc(next_occurrence_at).local();
-  switch (reminder_type) {
-    case REMINDER_RECURRENCES.DAILY:
+  const momentDate = momentUtc(nextOccurrenceAt).local();
+  switch (reminderType) {
+    case ReminderTypeEnum.daily:
       return `${i18n.t('dates.everyDay')} @ ${momentDate.format(timeFormat)}`;
-    case REMINDER_RECURRENCES.WEEKLY:
+    case ReminderTypeEnum.weekly:
       return `${i18n.t('dates.every')} ${momentDate.format(
         `dddd @ ${timeFormat}`,
       )}`;
-    case REMINDER_RECURRENCES.MONTHLY:
+    case ReminderTypeEnum.monthly:
       return `${i18n.t('dates.onceAMonth')} ${momentDate.format(
         `Do @ ${timeFormat}`,
       )}`;
@@ -61,13 +65,13 @@ export default function ReminderDateText({
   style,
   placeholder,
 }: {
-  reminder?: ReminderType;
+  reminder: Reminder | null;
   style?: StyleProp<TextStyle>;
   placeholder?: string;
 }) {
   return (
     <Text style={[styles.reminderText, style]}>
-      {reminder && reminder.next_occurrence_at
+      {reminder && reminder.nextOccurrenceAt
         ? formatReminder(reminder)
         : placeholder || i18n.t('stepReminder:setReminder')}
     </Text>

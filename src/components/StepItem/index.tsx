@@ -7,10 +7,10 @@ import gql from 'graphql-tag';
 import { Text, Icon, Card, Touchable } from '../common';
 import ItemHeaderText from '../ItemHeaderText';
 import { AuthState } from '../../reducers/auth';
-import ReminderButton from '../ReminderButton';
-import ReminderDateText from '../ReminderDateText';
-import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
-import { reminderSelector } from '../../selectors/stepReminders';
+import ReminderButton, { REMINDER_BUTTON_FRAGMENT } from '../ReminderButton';
+import ReminderDateText, {
+  REMINDER_DATE_TEXT_FRAGMENT,
+} from '../ReminderDateText';
 
 import styles from './styles';
 import { StepItem as Step } from './__generated__/StepItem';
@@ -26,7 +26,13 @@ export const STEP_ITEM_FRAGMENT = gql`
     community {
       id
     }
+    reminder {
+      ...ReminderButton
+      ...ReminderDateText
+    }
   }
+  ${REMINDER_BUTTON_FRAGMENT}
+  ${REMINDER_DATE_TEXT_FRAGMENT}
 `;
 
 export interface StepItemProps {
@@ -34,16 +40,9 @@ export interface StepItemProps {
   onSelect?: (step: Step) => void;
   onPressName?: (step: Step) => void;
   myId?: string;
-  reminder?: ReminderType;
   testID?: string;
 }
-const StepItem = ({
-  step,
-  onSelect,
-  myId,
-  reminder,
-  onPressName,
-}: StepItemProps) => {
+const StepItem = ({ step, onSelect, myId, onPressName }: StepItemProps) => {
   const { t } = useTranslation();
 
   const handleSelect = () => {
@@ -73,11 +72,11 @@ const StepItem = ({
           <ReminderButton
             testID="StepReminderButton"
             stepId={step.id}
-            reminder={reminder}
+            reminder={step.reminder}
           >
             <View style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <ReminderDateText reminder={reminder} />
+              <ReminderDateText reminder={step.reminder} />
             </View>
           </ReminderButton>
         </View>
@@ -87,15 +86,7 @@ const StepItem = ({
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    stepReminders,
-  }: { auth: AuthState; stepReminders: StepReminderState },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { step }: { step: Step },
-) => ({
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myId: auth.person.id,
-  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 export default connect(mapStateToProps)(StepItem);

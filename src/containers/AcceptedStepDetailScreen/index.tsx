@@ -13,8 +13,12 @@ import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
-import ReminderButton from '../../components/ReminderButton';
-import ReminderDateText from '../../components/ReminderDateText';
+import ReminderButton, {
+  REMINDER_BUTTON_FRAGMENT,
+} from '../../components/ReminderButton';
+import ReminderDateText, {
+  REMINDER_DATE_TEXT_FRAGMENT,
+} from '../../components/ReminderDateText';
 import { ErrorNotice } from '../../components/ErrorNotice';
 
 import styles from './styles';
@@ -39,10 +43,13 @@ const ACCEPTED_STEP_DETAIL_QUERY = gql`
         id
       }
       reminder {
-        id
+        ...ReminderButton
+        ...ReminderDateText
       }
     }
   }
+  ${REMINDER_BUTTON_FRAGMENT}
+  ${REMINDER_DATE_TEXT_FRAGMENT}
 `;
 
 interface AcceptedStepDetailScreenProps {
@@ -53,17 +60,12 @@ const AcceptedStepDetailScreen = ({
   dispatch,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
-  const {
-    data: { step } = { step: undefined },
-    loading,
-    error,
-    refetch,
-  } = useQuery<AcceptedStepDetail, AcceptedStepDetailVariables>(
-    ACCEPTED_STEP_DETAIL_QUERY,
-    {
-      variables: { id: useNavigationParam('stepId') },
-    },
-  );
+  const { data: { step } = { step: undefined }, error, refetch } = useQuery<
+    AcceptedStepDetail,
+    AcceptedStepDetailVariables
+  >(ACCEPTED_STEP_DETAIL_QUERY, {
+    variables: { id: useNavigationParam('stepId') },
+  });
 
   const handleCompleteStep = () =>
     step &&
