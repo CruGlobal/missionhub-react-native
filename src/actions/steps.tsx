@@ -1,6 +1,7 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 
 import i18next from 'i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   COMPLETED_STEP_COUNT,
@@ -16,6 +17,8 @@ import {
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from '../routes/constants';
 import { REQUESTS } from '../api/routes';
+import { StepsState } from '../reducers/steps';
+import { AuthState } from '../reducers/auth';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
@@ -23,8 +26,8 @@ import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
 import { reloadGroupCelebrateFeed } from './celebration';
 
-export function getStepSuggestions(isMe, contactStageId) {
-  return dispatch => {
+export function getStepSuggestions(isMe: boolean, contactStageId: string) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const language = i18next.language;
     const query = {
       filters: {
@@ -38,8 +41,9 @@ export function getStepSuggestions(isMe, contactStageId) {
   };
 }
 
-export function getMySteps(query = {}) {
-  return dispatch => {
+//eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getMySteps(query: any = {}) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const queryObj = {
       order: '-accepted_at',
       ...query,
@@ -55,7 +59,10 @@ export function getMySteps(query = {}) {
 }
 
 export function getMyStepsNextPage() {
-  return (dispatch, getState) => {
+  return (
+    dispatch: ThunkDispatch<never, never, never>,
+    getState: () => { steps: StepsState },
+  ) => {
     const { page, hasNextPage } = getState().steps.pagination;
     if (!hasNextPage) {
       // Does not have more data
@@ -72,8 +79,8 @@ export function getMyStepsNextPage() {
   };
 }
 
-export function getContactSteps(personId, orgId) {
-  return dispatch => {
+export function getContactSteps(personId: string, orgId?: string) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const query = {
       filters: {
         receiver_ids: personId,
@@ -86,8 +93,12 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-export function addStep(stepSuggestion, personId, orgId) {
-  return async dispatch => {
+export function addStep(
+  stepSuggestion: { id?: string; body: string; challenge_type?: string },
+  personId: string,
+  orgId?: string,
+) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
     const payload = {
       data: {
         type: ACCEPTED_STEP,
@@ -131,8 +142,15 @@ export function addStep(stepSuggestion, personId, orgId) {
   };
 }
 
-export function createCustomStep(stepText, personId, orgId) {
-  return (dispatch, getState) => {
+export function createCustomStep(
+  stepText: string,
+  personId: string,
+  orgId: string,
+) {
+  return (
+    dispatch: ThunkDispatch<never, never, never>,
+    getState: () => { auth: AuthState },
+  ) => {
     const {
       auth: {
         person: { id: myId },
@@ -144,8 +162,8 @@ export function createCustomStep(stepText, personId, orgId) {
   };
 }
 
-export function updateChallengeNote(stepId, note) {
-  return dispatch => {
+export function updateChallengeNote(stepId: string, note: string) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const query = { challenge_id: stepId };
     const data = buildChallengeData({ note });
 
@@ -153,7 +171,7 @@ export function updateChallengeNote(stepId, note) {
   };
 }
 
-function buildChallengeData(attributes) {
+function buildChallengeData(attributes: object) {
   return {
     data: {
       type: ACCEPTED_STEP,
@@ -162,11 +180,16 @@ function buildChallengeData(attributes) {
   };
 }
 
-function completeChallengeAPI(step) {
-  return async dispatch => {
+function completeChallengeAPI(step: {
+  id: string;
+  receiver: { id: string };
+  organization?: { id: string };
+}) {
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return async (dispatch: ThunkDispatch<never, never, any>) => {
     const { id: stepId, receiver, organization } = step;
-    const receiverId = (receiver && receiver.id) || null;
-    const orgId = (organization && organization.id) || null;
+    const receiverId = receiver && receiver.id;
+    const orgId = organization && organization.id;
 
     const query = { challenge_id: stepId };
     const data = buildChallengeData({ completed_at: formatApiDate() });
@@ -184,8 +207,16 @@ function completeChallengeAPI(step) {
   };
 }
 
-export function completeStep(step, screen, extraBack = false) {
-  return dispatch => {
+export function completeStep(
+  step: {
+    id: string;
+    receiver: { id: string };
+    organization?: { id: string };
+  },
+  screen: string,
+  extraBack = false,
+) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
@@ -211,8 +242,8 @@ export function completeStep(step, screen, extraBack = false) {
   };
 }
 
-export function deleteStepWithTracking(step, screen) {
-  return async dispatch => {
+export function deleteStepWithTracking(step: { id: string }, screen: string) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
     await dispatch(deleteStep(step));
     dispatch(
       trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
@@ -222,8 +253,8 @@ export function deleteStepWithTracking(step, screen) {
   };
 }
 
-function deleteStep(step) {
-  return dispatch => {
+function deleteStep(step: { id: string }) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
   };
