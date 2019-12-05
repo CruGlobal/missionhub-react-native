@@ -42,11 +42,7 @@ import {
   ImageData,
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
-import {
-  navigateReset,
-  navigatePush,
-  navigateNestedReset,
-} from '../navigation';
+import { navigateReset, navigateNestedReset } from '../navigation';
 import {
   GROUP_CHALLENGES,
   GROUP_SCREEN,
@@ -67,7 +63,7 @@ jest.mock('../navigation');
 jest.mock('../../selectors/selectorUtils');
 jest.mock('../../selectors/organizations');
 
-global.FormData = require('react-native/Libraries/Network/FormData');
+FormData = require('react-native/Libraries/Network/FormData');
 
 apolloClient.query = jest.fn();
 
@@ -451,6 +447,7 @@ describe('addNewPerson', () => {
   const firstName = 'Fred';
   // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   let data: { [key: string]: any } = { firstName };
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   let bodyData: { [key: string]: any } = {
     data: {
       type: 'person',
