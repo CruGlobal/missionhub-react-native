@@ -5,7 +5,7 @@ import { renderWithContext } from '../../../../testUtils';
 import StepDetailScreen from '../index';
 
 const receiver = {
-  first_name: 'Christian',
+  firstName: 'Christian',
 };
 
 function snapshot(props = {}) {

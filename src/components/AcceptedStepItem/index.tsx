@@ -25,6 +25,9 @@ type AcceptedStepItemProps = {
     title: string;
     body?: string;
     completed_at?: string;
+    receiver: {
+      id: string;
+    };
   };
   reminder?: ReminderType;
   onComplete?: () => void;

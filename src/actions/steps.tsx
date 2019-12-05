@@ -145,7 +145,7 @@ export function addStep(
 export function createCustomStep(
   stepText: string,
   personId: string,
-  orgId: string,
+  orgId?: string,
 ) {
   return (
     dispatch: ThunkDispatch<never, never, never>,

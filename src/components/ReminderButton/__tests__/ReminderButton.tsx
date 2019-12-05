@@ -3,10 +3,7 @@ import MockDate from 'mockdate';
 import { View } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 
-import {
-  NOTIFICATION_PROMPT_TYPES,
-  REMINDER_RECURRENCES_ENUM,
-} from '../../../constants';
+import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import {
   requestNativePermissions,
@@ -15,8 +12,11 @@ import {
 import { navigatePush } from '../../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../../containers/StepReminderScreen';
 import { createStepReminder } from '../../../actions/stepReminders';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { ReminderButton as Reminder } from '../__generated__/ReminderButton';
+import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 
-import ReminderButton from '..';
+import ReminderButton, { REMINDER_BUTTON_FRAGMENT } from '..';
 
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
@@ -24,7 +24,10 @@ jest.mock('../../../actions/stepReminders');
 
 const stepId = '1';
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
-const reminder = { id: '11', next_occurrence_at: mockDate };
+const reminder: Reminder = {
+  ...mockFragment<Reminder>(REMINDER_BUTTON_FRAGMENT),
+  nextOccurrenceAt: mockDate,
+};
 
 MockDate.set(mockDate);
 
@@ -56,7 +59,7 @@ describe('reminder passed in', () => {
 describe('reminder not passed in', () => {
   it('renders correctly', () => {
     renderWithContext(
-      <ReminderButton {...props}>
+      <ReminderButton {...props} reminder={null}>
         <View />
       </ReminderButton>,
       { initialState: {} },
@@ -106,7 +109,7 @@ describe('handlePressIOS', () => {
 describe('onDateChange', () => {
   const reminder2 = {
     ...reminder,
-    reminder_type: REMINDER_RECURRENCES_ENUM.WEEKLY,
+    reminder_type: ReminderTypeEnum.weekly,
   };
   it('creates step reminder', () => {
     const { getByTestId } = renderWithContext(
