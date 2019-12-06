@@ -3,18 +3,31 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { GetCommunities_communities_nodes } from '../../../containers/Groups/__generated__/GetCommunities';
 
 import GroupCardItem, { GroupCardItemProps } from '..';
 
-const contactsCount = 768;
+const contactCount = 768;
 const unassignedCount = 13;
 const memberCount = 5;
 
-const group: GroupCardItemProps['group'] = {
+const group: GetCommunities_communities_nodes = {
+  __typename: 'Community',
+  id: '1',
+  communityPhotoUrl: null,
   name: 'Group Name',
-  contactReport: {},
-  user_created: false,
-  unread_comments_count: 0,
+  owner: {
+    __typename: 'PersonConnection',
+    nodes: [],
+  },
+  report: {
+    __typename: 'CommunitiesReport',
+    contactCount: 0,
+    unassignedCount: 0,
+    memberCount: 0,
+  },
+  userCreated: false,
+  unreadCommentsCount: 0,
 };
 
 let props: GroupCardItemProps = {
@@ -40,7 +53,7 @@ describe('GroupCardItem', () => {
       group: {
         ...group,
         id: GLOBAL_COMMUNITY_ID,
-        user_created: true,
+        userCreated: true,
       },
     };
 
@@ -52,11 +65,12 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
-          contactsCount,
+        report: {
+          ...group.report,
+          contactCount,
           unassignedCount,
         },
-        user_created: true,
+        userCreated: true,
       },
     };
 
@@ -68,11 +82,12 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
-          contactsCount,
+        report: {
+          ...group.report,
+          contactCount,
           unassignedCount,
         },
-        user_created: false,
+        userCreated: false,
       },
     };
 
@@ -84,10 +99,11 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
+        report: {
+          ...group.report,
           unassignedCount,
         },
-        user_created: false,
+        userCreated: false,
       },
     };
 
@@ -99,10 +115,11 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
-          contactsCount,
+        report: {
+          ...group.report,
+          contactCount,
         },
-        user_created: false,
+        userCreated: false,
       },
     };
 
@@ -114,7 +131,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        user_created: true,
+        userCreated: true,
       },
     };
 
@@ -126,10 +143,11 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
+        report: {
+          ...group.report,
           memberCount,
         },
-        user_created: true,
+        userCreated: true,
       },
     };
 
@@ -141,10 +159,11 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
+        report: {
+          ...group.report,
           memberCount: 1,
         },
-        user_created: true,
+        userCreated: true,
       },
     };
 
@@ -156,7 +175,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        community_photo_url:
+        communityPhotoUrl:
           'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
       },
     };
@@ -169,7 +188,7 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        unread_comments_count: 11,
+        unreadCommentsCount: 11,
       },
     };
 
@@ -181,10 +200,37 @@ describe('GroupCardItem', () => {
       ...props,
       group: {
         ...group,
-        contactReport: {
+        report: {
+          ...group.report,
           memberCount,
         },
-        owner: { first_name: 'Roge' },
+        owner: {
+          ...group.owner,
+          nodes: [
+            {
+              __typename: 'Person',
+              firstName: 'Roge',
+              lastName: 'Egor',
+            },
+          ],
+        },
+      },
+      onJoin: jest.fn(),
+    };
+
+    test();
+  });
+
+  it('renders for join screen userCreated no owner', () => {
+    props = {
+      ...props,
+      group: {
+        ...group,
+        report: {
+          ...group.report,
+          memberCount,
+        },
+        userCreated: true,
       },
       onJoin: jest.fn(),
     };

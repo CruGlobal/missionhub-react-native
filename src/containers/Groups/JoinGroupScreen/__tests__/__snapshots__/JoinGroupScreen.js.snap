@@ -747,15 +747,24 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
       <GroupCardItem
         group={
           Object {
-            "community_code": "123456",
-            "contactReport": Object {
-              "memberCount": 2,
-            },
+            "communityPhotoUrl": "www.missionhub.com",
             "id": "123",
             "name": "Org Name",
             "owner": Object {
-              "first_name": "Owner",
+              "nodes": Array [
+                Object {
+                  "firstName": "Owner",
+                  "lastName": "Ofthisgroup",
+                },
+              ],
             },
+            "report": Object {
+              "contactCount": 0,
+              "memberCount": 2,
+              "unassignedCount": 0,
+            },
+            "unreadCommentsCount": 0,
+            "userCreated": false,
           }
         }
         onJoin={[Function]}

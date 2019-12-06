@@ -11,7 +11,6 @@ import {
   getStepSuggestions,
   getMyStepsNextPage,
   getContactSteps,
-  setStepFocus,
   addStep,
   createCustomStep,
   deleteStepWithTracking,
@@ -21,13 +20,11 @@ import { refreshImpact } from '../impact';
 import { trackStepAdded, trackAction } from '../analytics';
 import * as navigation from '../navigation';
 import * as common from '../../utils/common';
-import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
   COMPLETED_STEP_COUNT,
   NAVIGATE_FORWARD,
   STEP_NOTE,
-  TOGGLE_STEP_FOCUS,
   CUSTOM_STEP_TYPE,
   ACCEPTED_STEP,
 } from '../../constants';
@@ -48,7 +45,7 @@ jest.mock('../celebration');
 jest.mock('../analytics');
 
 const getMyChallengesIncludes =
-  'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder';
+  'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder';
 const getChallengesByFilterIncludes = 'receiver,challenge_suggestion,reminder';
 
 beforeEach(() => {
@@ -76,7 +73,7 @@ describe('get step suggestions', () => {
 
 describe('get steps page', () => {
   const stepsPageQuery = {
-    order: '-focused_at,-accepted_at',
+    order: '-accepted_at',
     page: { limit: 25, offset: 25 },
     filters: { completed: false },
     include: getMyChallengesIncludes,
@@ -179,7 +176,7 @@ describe('addStep', () => {
       },
     );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       filters: { completed: false },
       include: getMyChallengesIncludes,
     });
@@ -232,7 +229,7 @@ describe('addStep', () => {
       },
     );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       filters: { completed: false },
       include: getMyChallengesIncludes,
     });
@@ -279,7 +276,7 @@ describe('addStep', () => {
       },
     );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       filters: { completed: false },
       include: getMyChallengesIncludes,
     });
@@ -341,7 +338,7 @@ describe('create custom step', () => {
       },
     );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       filters: { completed: false },
       include: getMyChallengesIncludes,
     });
@@ -388,7 +385,7 @@ describe('create custom step', () => {
       },
     );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       filters: { completed: false },
       include: getMyChallengesIncludes,
     });
@@ -441,7 +438,7 @@ describe('create custom step', () => {
       },
     );
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       filters: { completed: false },
       include: getMyChallengesIncludes,
     });
@@ -470,7 +467,7 @@ describe('complete challenge', () => {
 
   const challengeCompleteQuery = { challenge_id: stepId };
   const stepsQuery = {
-    order: '-focused_at,-accepted_at',
+    order: '-accepted_at',
     filters: { completed: false },
     include: getMyChallengesIncludes,
   };
@@ -556,12 +553,6 @@ describe('complete challenge', () => {
           id: stepId,
           onSetComplete: expect.any(Function),
           orgId: stepOrgId,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
         },
       },
       trackActionResult,
@@ -608,109 +599,11 @@ describe('complete challenge', () => {
           id: stepId,
           onSetComplete: expect.any(Function),
           orgId: null,
-          trackingObj: buildTrackingObj(
-            'people : person : steps : complete comment',
-            'people',
-            'person',
-            'steps',
-          ),
         },
       },
       trackActionResult,
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
-    ]);
-  });
-});
-
-describe('Set Focus', () => {
-  const stepId = 102;
-  const unfocusedStep = {
-    id: stepId,
-    receiver: { id: receiverId },
-    focus: false,
-  };
-  const focusedStep = {
-    ...unfocusedStep,
-    focus: true,
-  };
-
-  const query = { challenge_id: stepId };
-
-  const focusData = {
-    data: {
-      type: ACCEPTED_STEP,
-      attributes: {
-        organization_id: null,
-        focus: true,
-      },
-      relationships: {
-        receiver: {
-          data: {
-            type: 'person',
-            id: receiverId,
-          },
-        },
-      },
-    },
-  };
-
-  const unfocusData = {
-    data: {
-      type: ACCEPTED_STEP,
-      attributes: {
-        organization_id: null,
-        focus: false,
-      },
-      relationships: {
-        receiver: {
-          data: {
-            type: 'person',
-            id: receiverId,
-          },
-        },
-      },
-    },
-  };
-
-  beforeEach(() => {
-    store = mockStore({
-      auth: {
-        person: {
-          id: personId,
-        },
-      },
-      steps: { userStepCount: { [receiverId]: 2 } },
-    });
-  });
-
-  it('Focus set to true', async () => {
-    callApi.mockReturnValue(() => ({ response: { focus: true } }));
-
-    await store.dispatch(setStepFocus(unfocusedStep, true));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_SET_FOCUS,
-      query,
-      focusData,
-    );
-    expect(store.getActions()).toEqual([
-      { type: TOGGLE_STEP_FOCUS, step: unfocusedStep },
-    ]);
-  });
-
-  it('Focus set to false', async () => {
-    callApi.mockReturnValue(() => ({ response: { focus: false } }));
-
-    await store.dispatch(setStepFocus(focusedStep, false));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.CHALLENGE_SET_FOCUS,
-      query,
-      unfocusData,
-    );
-    expect(store.getActions()).toEqual([
-      { type: TOGGLE_STEP_FOCUS, step: focusedStep },
     ]);
   });
 });

@@ -3,19 +3,13 @@
 import i18next from 'i18next';
 
 import {
-  TOGGLE_STEP_FOCUS,
   COMPLETED_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
 } from '../constants';
-import {
-  buildTrackingObj,
-  formatApiDate,
-  getAnalyticsSubsection,
-  isCustomStep,
-} from '../utils/common';
+import { formatApiDate, isCustomStep } from '../utils/common';
 import { buildCustomStep } from '../utils/steps';
 import {
   COMPLETE_STEP_FLOW,
@@ -47,14 +41,14 @@ export function getStepSuggestions(isMe, contactStageId) {
 export function getMySteps(query = {}) {
   return dispatch => {
     const queryObj = {
-      order: '-focused_at,-accepted_at',
+      order: '-accepted_at',
       ...query,
       filters: {
         ...(query.filters || {}),
         completed: false,
       },
       include:
-        'receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
+        'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
     };
     return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
   };
@@ -150,36 +144,6 @@ export function createCustomStep(stepText, personId, orgId) {
   };
 }
 
-export function setStepFocus(step, isFocus) {
-  return async dispatch => {
-    const query = { challenge_id: step.id };
-    const data = {
-      data: {
-        type: ACCEPTED_STEP,
-        attributes: {
-          organization_id: step.organization ? step.organization.id : null,
-          focus: isFocus,
-        },
-        relationships: {
-          receiver: {
-            data: {
-              type: 'person',
-              id: step.receiver.id,
-            },
-          },
-        },
-      },
-    };
-
-    const { response } = await dispatch(
-      callApi(REQUESTS.CHALLENGE_SET_FOCUS, query, data),
-    );
-    if (step.focus !== response.focus) {
-      dispatch({ type: TOGGLE_STEP_FOCUS, step });
-    }
-  };
-}
-
 export function updateChallengeNote(stepId, note) {
   return dispatch => {
     const query = { challenge_id: stepId };
@@ -221,17 +185,10 @@ function completeChallengeAPI(step) {
 }
 
 export function completeStep(step, screen, extraBack = false) {
-  return (dispatch, getState) => {
-    const {
-      auth: {
-        person: { id: myId },
-      },
-    } = getState();
+  return dispatch => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
-
-    const subsection = getAnalyticsSubsection(receiverId, myId);
 
     dispatch(
       navigatePush(
@@ -242,12 +199,6 @@ export function completeStep(step, screen, extraBack = false) {
           orgId,
           onSetComplete: () => dispatch(completeChallengeAPI(step)),
           type: STEP_NOTE,
-          trackingObj: buildTrackingObj(
-            `people : ${subsection} : steps : complete comment`,
-            'people',
-            subsection,
-            'steps',
-          ),
         },
       ),
     );

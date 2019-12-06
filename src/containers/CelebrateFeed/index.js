@@ -12,6 +12,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
+import ShareStoryInput from '../Groups/ShareStoryInput';
 
 import styles from './styles';
 
@@ -80,9 +81,16 @@ class CelebrateFeed extends Component {
   };
 
   renderHeader = () => {
-    const { isMember, organization } = this.props;
+    const { isMember, organization, dispatch, refreshCallback } = this.props;
     return (
-      <CelebrateFeedHeader isMember={isMember} organization={organization} />
+      <>
+        <CelebrateFeedHeader isMember={isMember} organization={organization} />
+        <ShareStoryInput
+          dispatch={dispatch}
+          refreshItems={refreshCallback}
+          organization={organization}
+        />
+      </>
     );
   };
 

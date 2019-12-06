@@ -235,12 +235,6 @@ describe('SelectMyStepScreen next', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       personId: myId,
-      trackingObj: buildTrackingObj(
-        'onboarding : self : steps : create',
-        'onboarding',
-        'self',
-        'steps',
-      ),
     });
   });
 });
@@ -366,12 +360,6 @@ describe('PersonSelectStepScreen next', () => {
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       personId,
-      trackingObj: buildTrackingObj(
-        'onboarding : person : steps : create',
-        'onboarding',
-        'person',
-        'steps',
-      ),
     });
   });
 });
@@ -395,7 +383,7 @@ describe('SuggestedStepDetailScreen next', () => {
         store,
       )
         .instance()
-        .props.next({ contactId: myId }),
+        .props.next({ personId: myId }),
     );
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_SOMEONE_SCREEN);
@@ -419,7 +407,7 @@ describe('SuggestedStepDetailScreen next', () => {
         store,
       )
         .instance()
-        .props.next({ contactId: personId }),
+        .props.next({ personId }),
     );
 
     expect(showReminderOnLoad).toHaveBeenCalledWith(

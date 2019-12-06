@@ -1,0 +1,1908 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -362,11 +362,11 @@
+              \\"nodes\\": Array [],
+            },
+            \\"report\\": Object {
+              \\"__typename\\": \\"CommunitiesReport\\",
+              \\"contactCount\\": 0,
+-             \\"memberCount\\": 41702,
++             \\"memberCount\\": 78695,
+              \\"unassignedCount\\": 0,
+            },
+            \\"unreadCommentsCount\\": 0,
+            \\"userCreated\\": true,
+          },
+@@ -656,12 +656,302 @@
+              \\"contactCount\\": 62169,
+              \\"memberCount\\": 7379,
+              \\"unassignedCount\\": 11474,
+            },
+            \\"unreadCommentsCount\\": 35653,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"doloremque molestias dolore\\",
++           \\"id\\": \\"11\\",
++           \\"name\\": \\"User-centric actuating hierarchy\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Bartholome\\",
++                 \\"lastName\\": \\"Stokes\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Edwina\\",
++                 \\"lastName\\": \\"Lind\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 23175,
++             \\"memberCount\\": 55282,
++             \\"unassignedCount\\": 96766,
++           },
++           \\"unreadCommentsCount\\": 2621,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"quia ut minima\\",
++           \\"id\\": \\"12\\",
++           \\"name\\": \\"Grass-roots logistical task-force\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Audra\\",
++                 \\"lastName\\": \\"McDermott\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Kevon\\",
++                 \\"lastName\\": \\"Wisozk\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 41792,
++             \\"memberCount\\": 56103,
++             \\"unassignedCount\\": 36784,
++           },
++           \\"unreadCommentsCount\\": 84203,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"et nostrum ut\\",
++           \\"id\\": \\"13\\",
++           \\"name\\": \\"Intuitive exuding core\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Mike\\",
++                 \\"lastName\\": \\"Schoen\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Lesley\\",
++                 \\"lastName\\": \\"Howe\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 42690,
++             \\"memberCount\\": 86354,
++             \\"unassignedCount\\": 75187,
++           },
++           \\"unreadCommentsCount\\": 1864,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"iste molestiae dolores\\",
++           \\"id\\": \\"14\\",
++           \\"name\\": \\"Right-sized transitional product\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Francesco\\",
++                 \\"lastName\\": \\"Beier\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Candida\\",
++                 \\"lastName\\": \\"Cartwright\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 93719,
++             \\"memberCount\\": 4455,
++             \\"unassignedCount\\": 91640,
++           },
++           \\"unreadCommentsCount\\": 74712,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"tempora et quo\\",
++           \\"id\\": \\"15\\",
++           \\"name\\": \\"Organized disintermediate ability\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Alfred\\",
++                 \\"lastName\\": \\"Macejkovic\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Madeline\\",
++                 \\"lastName\\": \\"Anderson\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 12976,
++             \\"memberCount\\": 7197,
++             \\"unassignedCount\\": 29435,
++           },
++           \\"unreadCommentsCount\\": 10749,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"similique ad sed\\",
++           \\"id\\": \\"16\\",
++           \\"name\\": \\"Robust mobile capability\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"April\\",
++                 \\"lastName\\": \\"Fritsch\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Camylle\\",
++                 \\"lastName\\": \\"Roberts\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 16161,
++             \\"memberCount\\": 19542,
++             \\"unassignedCount\\": 93871,
++           },
++           \\"unreadCommentsCount\\": 96727,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"ut ab nulla\\",
++           \\"id\\": \\"17\\",
++           \\"name\\": \\"Function-based logistical interface\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Nannie\\",
++                 \\"lastName\\": \\"Ferry\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Eliezer\\",
++                 \\"lastName\\": \\"Kunde\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 20435,
++             \\"memberCount\\": 61995,
++             \\"unassignedCount\\": 98175,
++           },
++           \\"unreadCommentsCount\\": 58135,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"nesciunt omnis sit\\",
++           \\"id\\": \\"18\\",
++           \\"name\\": \\"Adaptive tangible orchestration\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Mac\\",
++                 \\"lastName\\": \\"Bernier\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Aliya\\",
++                 \\"lastName\\": \\"Kuhic\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 81387,
++             \\"memberCount\\": 60632,
++             \\"unassignedCount\\": 76257,
++           },
++           \\"unreadCommentsCount\\": 82898,
+            \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"voluptatem provident doloribus\\",
++           \\"id\\": \\"19\\",
++           \\"name\\": \\"Grass-roots holistic support\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Berneice\\",
++                 \\"lastName\\": \\"Mayert\\",
+                },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Cade\\",
++                 \\"lastName\\": \\"Hoeger\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 50878,
++             \\"memberCount\\": 55094,
++             \\"unassignedCount\\": 21565,
++           },
++           \\"unreadCommentsCount\\": 56885,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"libero laudantium voluptatem\\",
++           \\"id\\": \\"20\\",
++           \\"name\\": \\"Right-sized mobile implementation\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Brenna\\",
++                 \\"lastName\\": \\"Bergstrom\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Norris\\",
++                 \\"lastName\\": \\"Hills\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 21273,
++             \\"memberCount\\": 62971,
++             \\"unassignedCount\\": 7425,
++           },
++           \\"unreadCommentsCount\\": 74533,
++           \\"userCreated\\": true,
++         },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+      getItemCount={[Function anonymous]}
+@@ -719,11 +1009,11 @@
+                  \\"nodes\\": Array [],
+                },
+                \\"report\\": Object {
+                  \\"__typename\\": \\"CommunitiesReport\\",
+                  \\"contactCount\\": 0,
+-                 \\"memberCount\\": 41702,
++                 \\"memberCount\\": 78695,
+                  \\"unassignedCount\\": 0,
+                },
+                \\"unreadCommentsCount\\": 0,
+                \\"userCreated\\": true,
+              }
+@@ -1084,11 +1374,11 @@
+          />
+        </View>
+        <View
+          style={
+            Object {
+-             \\"height\\": 4198.75,
++             \\"height\\": 8397.5,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>"
+`;
+
+exports[`GroupsListScreen handleScroll should not load more when no next page 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`GroupsListScreen handleScroll should not load more when not scrolling close to bottom 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`GroupsListScreen renders with communities 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          COMMUNITIES
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="joinCommunity"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#005A7F",
+                  "flexBasis": 40,
+                  "justifyContent": "center",
+                  "paddingVertical": 13,
+                },
+                Object {
+                  "borderRightColor": "#007398",
+                  "borderRightWidth": 1,
+                },
+              ],
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            JOIN A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="createCommunity"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#005A7F",
+                "flexBasis": 40,
+                "justifyContent": "center",
+                "paddingVertical": 13,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            CREATE A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": null,
+          "id": "_global_community_id",
+          "name": "MissionHub Community",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 0,
+            "memberCount": 41702,
+            "unassignedCount": 0,
+          },
+          "unreadCommentsCount": 0,
+          "userCreated": true,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "tempore a velit",
+          "id": "1",
+          "name": "Vision-oriented non-volatile system engine",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Kaci",
+                "lastName": "Donnelly",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Mathew",
+                "lastName": "Green",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 31551,
+            "memberCount": 14212,
+            "unassignedCount": 68650,
+          },
+          "unreadCommentsCount": 59306,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "velit sit aperiam",
+          "id": "2",
+          "name": "Adaptive bandwidth-monitored encryption",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Nelson",
+                "lastName": "Mueller",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Yasmin",
+                "lastName": "Olson",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 74816,
+            "memberCount": 29849,
+            "unassignedCount": 28044,
+          },
+          "unreadCommentsCount": 78331,
+          "userCreated": true,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "modi aut architecto",
+          "id": "3",
+          "name": "Vision-oriented bifurcated core",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Isai",
+                "lastName": "Koss",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Sylvan",
+                "lastName": "Boyer",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 29361,
+            "memberCount": 90337,
+            "unassignedCount": 28777,
+          },
+          "unreadCommentsCount": 44613,
+          "userCreated": true,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "cupiditate sit vitae",
+          "id": "4",
+          "name": "Compatible foreground collaboration",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Mariela",
+                "lastName": "Von",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Coty",
+                "lastName": "Vandervort",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 26554,
+            "memberCount": 29893,
+            "unassignedCount": 49157,
+          },
+          "unreadCommentsCount": 11949,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "error sunt laborum",
+          "id": "5",
+          "name": "Innovative encompassing moratorium",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Caesar",
+                "lastName": "Will",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Laisha",
+                "lastName": "Gerlach",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 69975,
+            "memberCount": 23101,
+            "unassignedCount": 10233,
+          },
+          "unreadCommentsCount": 58438,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "hic eligendi quos",
+          "id": "6",
+          "name": "Integrated user-facing intranet",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Harrison",
+                "lastName": "Lindgren",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Amaya",
+                "lastName": "Runolfsdottir",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 53589,
+            "memberCount": 4534,
+            "unassignedCount": 66379,
+          },
+          "unreadCommentsCount": 53344,
+          "userCreated": false,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "autem rerum doloremque",
+          "id": "7",
+          "name": "Switchable full-range extranet",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Kyleigh",
+                "lastName": "Tillman",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Stewart",
+                "lastName": "Lindgren",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 13747,
+            "memberCount": 44798,
+            "unassignedCount": 13927,
+          },
+          "unreadCommentsCount": 13996,
+          "userCreated": true,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "vel in ut",
+          "id": "8",
+          "name": "Public-key incremental concept",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Cassandra",
+                "lastName": "O'Hara",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Timmy",
+                "lastName": "Hessel",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 34776,
+            "memberCount": 57100,
+            "unassignedCount": 75081,
+          },
+          "unreadCommentsCount": 89213,
+          "userCreated": true,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "consequuntur aut est",
+          "id": "9",
+          "name": "Monitored system-worthy contingency",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Linda",
+                "lastName": "O'Connell",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Nettie",
+                "lastName": "Herman",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 34889,
+            "memberCount": 76323,
+            "unassignedCount": 26992,
+          },
+          "unreadCommentsCount": 63783,
+          "userCreated": true,
+        },
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": "facere molestiae aut",
+          "id": "10",
+          "name": "Ameliorated intangible moratorium",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [
+              Object {
+                "__typename": "Person",
+                "firstName": "Violette",
+                "lastName": "Anderson",
+              },
+              Object {
+                "__typename": "Person",
+                "firstName": "Makenzie",
+                "lastName": "Kuphal",
+              },
+            ],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 62169,
+            "memberCount": 7379,
+            "unassignedCount": 11474,
+          },
+          "unreadCommentsCount": 35653,
+          "userCreated": true,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+        "paddingVertical": 8,
+      }
+    }
+    testID="flatList"
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": null,
+              "id": "_global_community_id",
+              "name": "MissionHub Community",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 0,
+                "memberCount": 41702,
+                "unassignedCount": 0,
+              },
+              "unreadCommentsCount": 0,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "tempore a velit",
+              "id": "1",
+              "name": "Vision-oriented non-volatile system engine",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Kaci",
+                    "lastName": "Donnelly",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Mathew",
+                    "lastName": "Green",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 31551,
+                "memberCount": 14212,
+                "unassignedCount": 68650,
+              },
+              "unreadCommentsCount": 59306,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "velit sit aperiam",
+              "id": "2",
+              "name": "Adaptive bandwidth-monitored encryption",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Nelson",
+                    "lastName": "Mueller",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Yasmin",
+                    "lastName": "Olson",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 74816,
+                "memberCount": 29849,
+                "unassignedCount": 28044,
+              },
+              "unreadCommentsCount": 78331,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "modi aut architecto",
+              "id": "3",
+              "name": "Vision-oriented bifurcated core",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Isai",
+                    "lastName": "Koss",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Sylvan",
+                    "lastName": "Boyer",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 29361,
+                "memberCount": 90337,
+                "unassignedCount": 28777,
+              },
+              "unreadCommentsCount": 44613,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "cupiditate sit vitae",
+              "id": "4",
+              "name": "Compatible foreground collaboration",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Mariela",
+                    "lastName": "Von",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Coty",
+                    "lastName": "Vandervort",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 26554,
+                "memberCount": 29893,
+                "unassignedCount": 49157,
+              },
+              "unreadCommentsCount": 11949,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "error sunt laborum",
+              "id": "5",
+              "name": "Innovative encompassing moratorium",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Caesar",
+                    "lastName": "Will",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Laisha",
+                    "lastName": "Gerlach",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 69975,
+                "memberCount": 23101,
+                "unassignedCount": 10233,
+              },
+              "unreadCommentsCount": 58438,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "hic eligendi quos",
+              "id": "6",
+              "name": "Integrated user-facing intranet",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Harrison",
+                    "lastName": "Lindgren",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Amaya",
+                    "lastName": "Runolfsdottir",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 53589,
+                "memberCount": 4534,
+                "unassignedCount": 66379,
+              },
+              "unreadCommentsCount": 53344,
+              "userCreated": false,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "autem rerum doloremque",
+              "id": "7",
+              "name": "Switchable full-range extranet",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Kyleigh",
+                    "lastName": "Tillman",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Stewart",
+                    "lastName": "Lindgren",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 13747,
+                "memberCount": 44798,
+                "unassignedCount": 13927,
+              },
+              "unreadCommentsCount": 13996,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "vel in ut",
+              "id": "8",
+              "name": "Public-key incremental concept",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Cassandra",
+                    "lastName": "O'Hara",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Timmy",
+                    "lastName": "Hessel",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 34776,
+                "memberCount": 57100,
+                "unassignedCount": 75081,
+              },
+              "unreadCommentsCount": 89213,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "consequuntur aut est",
+              "id": "9",
+              "name": "Monitored system-worthy contingency",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Linda",
+                    "lastName": "O'Connell",
+                  },
+                  Object {
+                    "__typename": "Person",
+                    "firstName": "Nettie",
+                    "lastName": "Herman",
+                  },
+                ],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 34889,
+                "memberCount": 76323,
+                "unassignedCount": 26992,
+              },
+              "unreadCommentsCount": 63783,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 4198.75,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`GroupsListScreen renders with only global community 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          COMMUNITIES
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="joinCommunity"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#005A7F",
+                  "flexBasis": 40,
+                  "justifyContent": "center",
+                  "paddingVertical": 13,
+                },
+                Object {
+                  "borderRightColor": "#007398",
+                  "borderRightWidth": 1,
+                },
+              ],
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            JOIN A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="createCommunity"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#005A7F",
+                "flexBasis": 40,
+                "justifyContent": "center",
+                "paddingVertical": 13,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                  },
+                ],
+              ]
+            }
+          >
+            CREATE A COMMUNITY
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "__typename": "Community",
+          "communityPhotoUrl": null,
+          "id": "_global_community_id",
+          "name": "MissionHub Community",
+          "owner": Object {
+            "__typename": "PersonConnection",
+            "nodes": Array [],
+          },
+          "report": Object {
+            "__typename": "CommunitiesReport",
+            "contactCount": 0,
+            "memberCount": 0,
+            "unassignedCount": 0,
+          },
+          "unreadCommentsCount": 0,
+          "userCreated": true,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+        "paddingVertical": 8,
+      }
+    }
+    testID="flatList"
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        style={null}
+      >
+        <GroupCardItem
+          group={
+            Object {
+              "__typename": "Community",
+              "communityPhotoUrl": null,
+              "id": "_global_community_id",
+              "name": "MissionHub Community",
+              "owner": Object {
+                "__typename": "PersonConnection",
+                "nodes": Array [],
+              },
+              "report": Object {
+                "__typename": "CommunitiesReport",
+                "contactCount": 0,
+                "memberCount": 0,
+                "unassignedCount": 0,
+              },
+              "unreadCommentsCount": 0,
+              "userCreated": true,
+            }
+          }
+          onPress={[Function]}
+          testID="GroupCard"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

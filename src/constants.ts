@@ -10,7 +10,6 @@ export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
 export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
 export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
-export const TOGGLE_STEP_FOCUS = 'app/TOGGLE_STEP_FOCUS';
 export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
@@ -49,12 +48,10 @@ export const RESET_CELEBRATE_EDITING_COMMENT =
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
-export const JOURNEY = 'journey';
 export const EDIT_JOURNEY_STEP = 'editJourneyStep';
 export const EDIT_JOURNEY_ITEM = 'editJourneyItem';
 export const STEP_NOTE = 'stepNote';
 export const CREATE_STEP = 'createStep';
-export const INTERACTION = 'interaction';
 
 export const STEP_SUGGESTION = 'challenge_suggestion';
 export const ACCEPTED_STEP = 'accepted_challenge';
@@ -453,6 +450,7 @@ export const CELEBRATEABLE_TYPES = {
   },
   createdCommunity: 'organization',
   joinedCommunity: 'organizational_permission',
+  story: 'story',
 };
 
 export const DAYS_OF_THE_WEEK = [
