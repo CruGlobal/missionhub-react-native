@@ -22,7 +22,8 @@ import { PEOPLE_TAB } from '../../constants';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { AuthState } from '../../reducers/auth';
-import { Person } from '../../reducers/people';
+import { Person, PeopleState } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
@@ -47,8 +48,7 @@ export const PeopleScreen = ({
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleAddContact = (org: any) => {
+  const handleAddContact = (org: Organization) => {
     dispatch(
       navigatePush(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
         organization: org && org.id ? org : undefined,
@@ -122,8 +122,7 @@ export const mapStateToProps = ({
   people,
 }: {
   auth: AuthState;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  people: any;
+  people: PeopleState;
 }) => {
   const { isJean, person } = auth;
   const items = isJean
