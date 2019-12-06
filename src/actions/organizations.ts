@@ -75,9 +75,9 @@ export function getMyOrganizations() {
     dispatch: ThunkDispatch<{}, null, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
-    const orgs: Organization[] = await dispatch(
+    const orgs: Organization[] = (await dispatch(
       callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery),
-    ).response;
+    )).response;
     const orgOrder = getState().auth.person.user.organization_order;
 
     if (orgOrder) {
@@ -256,9 +256,9 @@ export function getOrganizationMembers(orgId: string, query = {}) {
       period: 'P1Y',
       organization_ids: orgId,
     };
-    const reports: PersonInteractionReport[] = await dispatch(
+    const reports: PersonInteractionReport[] = (await dispatch(
       callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
-    ).response;
+    )).response;
 
     // Get an object with { [key = person_id]: [value = { counts }] }
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
@@ -673,17 +673,12 @@ export function removeOrganizationMember(personId: string, orgId: string) {
 }
 
 export function navigateToCommunity(
-  orgId: string = GLOBAL_COMMUNITY_ID,
+  community: Organization = { id: GLOBAL_COMMUNITY_ID },
   initialTab?: string,
 ) {
-  return (
-    dispatch: ThunkDispatch<{}, null, AnyAction>,
-    getState: () => { organizations: OrganizationsState },
-  ) => {
-    const { organizations } = getState();
-    const userCreated = orgIsUserCreated(
-      organizationSelector({ organizations }, { orgId }),
-    );
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
+    const orgId = community.id;
+    const userCreated = orgIsUserCreated(community);
 
     return dispatch(
       navigateReset(getScreenForOrg(orgId, userCreated), {
@@ -695,25 +690,25 @@ export function navigateToCommunity(
 }
 
 export function navigateToCelebrateComments(
-  orgId: string,
+  community: Organization,
   celebrationItemId: string,
 ) {
-  return async (
-    dispatch: ThunkDispatch<{}, null, AnyAction>,
-    getState: () => { organizations: OrganizationsState },
-  ) => {
-    const { organizations } = getState();
-    const organization = organizationSelector({ organizations }, { orgId });
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
+    const orgId = community.id;
+    const userCreated = orgIsUserCreated(community);
 
-    const event = { id: celebrationItemId, organization };
+    const event = { id: celebrationItemId, organization: community };
 
     await dispatch(
       navigateNestedReset([
         {
-          routeName: getScreenForOrg(orgId, organization.user_created),
+          routeName: getScreenForOrg(orgId, userCreated),
           params: { orgId },
         },
-        { routeName: GROUP_UNREAD_FEED_SCREEN, params: { organization } },
+        {
+          routeName: GROUP_UNREAD_FEED_SCREEN,
+          params: { organization: community },
+        },
         { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
       ]),
     );

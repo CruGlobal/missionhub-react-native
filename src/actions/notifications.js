@@ -145,20 +145,22 @@ function handleNotification(notification) {
         );
       case 'celebrate':
         if (organization_id) {
-          await refreshCommunity(organization_id);
+          const { response: community } = await refreshCommunity(
+            organization_id,
+          );
           await reloadGroupCelebrateFeed(organization_id);
           return dispatch(
-            navigateToCelebrateComments(organization_id, celebration_item_id),
+            navigateToCelebrateComments(community, celebration_item_id),
           );
         }
         return;
       case 'community_challenges':
         if (organization_id) {
-          await refreshCommunity(organization_id);
-          await reloadGroupChallengeFeed(organization_id);
-          return dispatch(
-            navigateToCommunity(organization_id, GROUP_CHALLENGES),
+          const { response: community } = await refreshCommunity(
+            organization_id,
           );
+          await reloadGroupChallengeFeed(organization_id);
+          return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
         }
         return;
     }

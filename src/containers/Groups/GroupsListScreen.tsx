@@ -32,7 +32,7 @@ import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
+import { OrganizationsState, Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -211,8 +211,8 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const handlePress = (communityId: string) => {
-    dispatch(navigateToCommunity(communityId));
+  const handlePress = (community: Organization) => {
+    dispatch(navigateToCommunity(community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 

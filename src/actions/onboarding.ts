@@ -175,7 +175,7 @@ export function landOnStashedCommunityScreen() {
     >,
     getState: () => { onboarding: OnboardingState },
   ) => {
-    dispatch(navigateToCommunity(getState().onboarding.community.id));
+    dispatch(navigateToCommunity(getState().onboarding.community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }

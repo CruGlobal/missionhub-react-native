@@ -16,11 +16,12 @@ export const DeepLinkJoinCommunityAuthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       DeepLinkConfirmJoinGroupScreen,
-      ({ community: { id, community_url } }) => async dispatch => {
+      ({ community }) => async dispatch => {
+        const { id, community_url } = community;
         await dispatch(joinCommunity(id, null, community_url));
         await dispatch(loadHome());
         dispatch(setScrollGroups(id));
-        dispatch(navigateToCommunity(id));
+        dispatch(navigateToCommunity(community));
       },
     ),
     buildTrackingObj('communities : join', 'communities', 'join'),

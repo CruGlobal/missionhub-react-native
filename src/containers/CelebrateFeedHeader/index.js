@@ -122,7 +122,8 @@ export const mapStateToProps = (
     shouldQueryReport,
     isReportVisible: shouldQueryReport && reportedCount !== 0,
     reportedCount,
-    isCommentCardVisible: !orgIsGlobal(selectorOrg) && newCommentsCount !== 0,
+    isCommentCardVisible:
+      !orgIsGlobal(selectorOrg) && newCommentsCount && newCommentsCount !== 0,
     newCommentsCount,
   };
 };
