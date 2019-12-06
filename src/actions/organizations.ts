@@ -426,10 +426,6 @@ export function updateOrganizationImage(orgId: string, imageData: ImageData) {
       type: imageData.fileType,
       name: imageData.fileName,
     } as unknown) as Blob);
-    console.log(data);
-    //data.append('data[attributes][community_photo][uri]', imageData.uri);
-    //data.append('data[attributes][community_photo][name]', imageData.fileName);
-    //data.append('data[attributes][community_photo][type]', imageData.fileType);
 
     const results = dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),

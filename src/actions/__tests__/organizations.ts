@@ -53,7 +53,6 @@ import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFee
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { apolloClient } from '../../apolloClient';
 import { GET_COMMUNITIES_QUERY } from '../../containers/Groups/GroupsListScreen';
-import { organizationSelector } from '../../selectors/organizations';
 
 jest.mock('../analytics');
 jest.mock('../api');
@@ -668,18 +667,11 @@ describe('addNewOrganization', () => {
       fileType: 'image/jpeg',
       fileName: 'filename',
     };
-    imageBodyData.append(
-      'data[attributes][community_photo][uri]',
-      testImageData.uri,
-    );
-    imageBodyData.append(
-      'data[attributes][community_photo][name]',
-      testImageData.fileName,
-    );
-    imageBodyData.append(
-      'data[attributes][community_photo][type]',
-      testImageData.fileType,
-    );
+    imageBodyData.append('data[attributes][community_photo]', ({
+      uri: testImageData.uri,
+      name: testImageData.fileName,
+      type: testImageData.fileType,
+    } as unknown) as Blob);
 
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(addNewOrganization(name, testImageData));
@@ -777,18 +769,11 @@ describe('updateOrganizationImage', () => {
     fileName: 'filename',
   };
 
-  imageBodyData.append(
-    'data[attributes][community_photo][uri]',
-    testImageData.uri,
-  );
-  imageBodyData.append(
-    'data[attributes][community_photo][name]',
-    testImageData.fileName,
-  );
-  imageBodyData.append(
-    'data[attributes][community_photo][type]',
-    testImageData.fileType,
-  );
+  imageBodyData.append('data[attributes][community_photo]', ({
+    uri: testImageData.uri,
+    name: testImageData.fileName,
+    type: testImageData.fileType,
+  } as unknown) as Blob);
 
   const apiResponse = { type: 'api response', response: [] };
 
@@ -1122,12 +1107,13 @@ describe('navigateToCommunity', () => {
 
   describe('default', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-        id: GLOBAL_COMMUNITY_ID,
-        user_created: false,
-      });
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      store.dispatch<any>(navigateToCommunity());
+      store.dispatch<any>(
+        navigateToCommunity({
+          id: GLOBAL_COMMUNITY_ID,
+          user_created: false,
+        }),
+      );
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
@@ -1140,12 +1126,13 @@ describe('navigateToCommunity', () => {
 
   describe('Cru org', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-        id: orgId,
-        user_created: false,
-      });
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      store.dispatch<any>(navigateToCommunity(orgId));
+      store.dispatch<any>(
+        navigateToCommunity({
+          id: orgId,
+          user_created: false,
+        }),
+      );
     });
 
     it('navigates to GROUPS_SCREEN', () => {
@@ -1158,12 +1145,13 @@ describe('navigateToCommunity', () => {
 
   describe('user-created org', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-        id: orgId,
-        userCreated: true,
-      });
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      store.dispatch<any>(navigateToCommunity(orgId));
+      store.dispatch<any>(
+        navigateToCommunity({
+          id: orgId,
+          userCreated: true,
+        }),
+      );
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
@@ -1176,12 +1164,13 @@ describe('navigateToCommunity', () => {
 
   describe('global org', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-        id: GLOBAL_COMMUNITY_ID,
-        userCreated: false,
-      });
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      store.dispatch<any>(navigateToCommunity(GLOBAL_COMMUNITY_ID));
+      store.dispatch<any>(
+        navigateToCommunity({
+          id: GLOBAL_COMMUNITY_ID,
+          userCreated: false,
+        }),
+      );
     });
 
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
@@ -1194,12 +1183,16 @@ describe('navigateToCommunity', () => {
 
   describe('intial tab', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-        id: orgId,
-        userCreated: true,
-      });
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      store.dispatch<any>(navigateToCommunity(orgId, GROUP_CHALLENGES));
+      store.dispatch<any>(
+        navigateToCommunity(
+          {
+            id: orgId,
+            userCreated: true,
+          },
+          GROUP_CHALLENGES,
+        ),
+      );
     });
 
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
@@ -1229,11 +1222,8 @@ describe('navigateToCelebrateComments', () => {
 
   describe('Cru org', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue(cruOrg);
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-      store.dispatch<any>(
-        navigateToCelebrateComments(cruOrgId, celebrateItemId),
-      );
+      store.dispatch<any>(navigateToCelebrateComments(cruOrg, celebrateItemId));
     });
 
     it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
@@ -1258,12 +1248,9 @@ describe('navigateToCelebrateComments', () => {
 
   describe('user-created org', () => {
     beforeEach(() => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
-        userCreatedOrg,
-      );
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       store.dispatch<any>(
-        navigateToCelebrateComments(userCreatedOrgId, celebrateItemId),
+        navigateToCelebrateComments(userCreatedOrg, celebrateItemId),
       );
     });
 

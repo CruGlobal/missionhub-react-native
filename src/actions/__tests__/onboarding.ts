@@ -262,7 +262,7 @@ describe('land on stashed community screen', () => {
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateToCommunity).toHaveBeenCalledWith(community.id);
+    expect(navigateToCommunity).toHaveBeenCalledWith(community);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );
@@ -288,7 +288,7 @@ describe('land on stashed community screen', () => {
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateToCommunity).toHaveBeenCalledWith(community.id);
+    expect(navigateToCommunity).toHaveBeenCalledWith(community);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );

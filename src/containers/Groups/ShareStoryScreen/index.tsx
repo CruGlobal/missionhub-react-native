@@ -15,7 +15,7 @@ import { Organization } from '../../../reducers/organizations';
 import styles from './styles';
 
 export const CREATE_A_STORY = gql`
-  mutation CreateAStory($input: StoryCreateInput!) {
+  mutation CreateAStory($input: CreateStoryInput!) {
     createStory(input: $input) {
       story {
         id
