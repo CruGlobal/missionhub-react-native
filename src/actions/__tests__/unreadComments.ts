@@ -25,7 +25,7 @@ const unreadCommentsQuery = {
   'fields[organizational_permissions]': 'organization',
   'fields[organization]': 'unread_comments_count',
 };
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let store: any;
 
 beforeEach(() => {

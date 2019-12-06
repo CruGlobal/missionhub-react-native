@@ -1,8 +1,9 @@
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
 export function markCommentsRead(orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
