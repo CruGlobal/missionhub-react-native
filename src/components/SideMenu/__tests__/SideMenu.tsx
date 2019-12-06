@@ -1,12 +1,14 @@
 import React from 'react';
 import { BackHandler } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
+import { DrawerActions } from 'react-navigation-drawer';
 
 import { renderWithContext } from '../../../../testUtils';
 
 import SideMenu from '..';
 
 const action = jest.fn();
+const closedDrawerValue = [{ type: 'drawer closed' }];
 const mockMenuItems = [
   { label: 'About', action, selected: false },
   { label: 'Help', action },
@@ -17,14 +19,22 @@ const mockMenuItems = [
   { label: 'Sign In', action },
   { label: 'Sign Up', action },
 ];
-
 jest.mock('../../IconButton', () => 'IconButton');
+jest.mock('react-navigation-drawer', () => ({
+  DrawerActions: {
+    closeDrawer: jest.fn(),
+  },
+}));
 
 (BackHandler.addEventListener as jest.Mock) = jest.fn((_, callback) => {
   callback();
 });
 BackHandler.removeEventListener = jest.fn((_, callback) => {
   callback();
+});
+
+(DrawerActions.closeDrawer as jest.Mock).mockReturnValue({
+  type: 'drawer closed',
 });
 
 it('renders correctly', () => {
@@ -48,14 +58,15 @@ it('finds the close button', () => {
   expect(BackHandler.addEventListener).toHaveBeenCalled();
 });
 
-it('should fire onBackPress', async () => {
-  const { getByTestId } = renderWithContext(
+it('should fire closedDrawer', async () => {
+  const { getByTestId, store } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
     {
-      initialState: { drawer: { isOpen: true } },
+      initialState: { drawer: { isOpen: false } },
     },
   );
   await fireEvent.press(getByTestId('CloseButton'));
+  expect(store.getActions()).toEqual(closedDrawerValue);
 });
 
 it('unmounts', () => {
