@@ -1,9 +1,12 @@
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 
-export function markCommentsRead(orgId) {
-  return async dispatch => {
+export function markCommentsRead(orgId: string) {
+  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
     await dispatch(
       callApi(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
         organization_id: orgId,
@@ -13,8 +16,8 @@ export function markCommentsRead(orgId) {
   };
 }
 
-export function markCommentRead(eventId) {
-  return async dispatch => {
+export function markCommentRead(eventId: string) {
+  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
     await dispatch(
       callApi(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
         organization_celebration_item_id: eventId,
@@ -25,7 +28,7 @@ export function markCommentRead(eventId) {
 }
 
 export function checkForUnreadComments() {
-  return dispatch => {
+  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
     const query = {
       include:
         'organizational_permissions,organizational_permissions.organization',
