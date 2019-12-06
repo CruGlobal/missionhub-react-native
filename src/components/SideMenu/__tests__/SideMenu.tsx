@@ -1,7 +1,6 @@
 import React from 'react';
 import { BackHandler } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
-import { DrawerActions } from 'react-navigation-drawer';
 
 import { renderWithContext } from '../../../../testUtils';
 
@@ -26,13 +25,6 @@ jest.mock('react-navigation-drawer', () => ({
   },
 }));
 
-(BackHandler.addEventListener as jest.Mock) = jest.fn((_, callback) => {
-  callback();
-});
-BackHandler.removeEventListener = jest.fn((_, callback) => {
-  callback();
-});
-
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
@@ -44,6 +36,9 @@ it('renders correctly', () => {
 });
 
 it('finds the close button', () => {
+  (BackHandler.addEventListener as jest.Mock) = jest.fn((_, callback) => {
+    callback();
+  });
   const { getByTestId } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
     {
@@ -67,6 +62,9 @@ it('should fire closedDrawer', async () => {
 });
 
 it('unmounts', () => {
+  BackHandler.removeEventListener = jest.fn((_, callback) => {
+    callback();
+  });
   const { unmount } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
     {
