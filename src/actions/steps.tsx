@@ -18,7 +18,7 @@ import {
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import { apolloClient } from '../apolloClient';
-import { STEPS_QUERY } from '../containers/StepsScreen';
+import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { StepsList } from '../containers/StepsScreen/__generated__/StepsList';
 
 import { refreshImpact } from './impact';

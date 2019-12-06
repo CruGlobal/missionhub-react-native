@@ -3,7 +3,8 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 
 import { renderWithContext } from '../../../../testUtils';
-import ReminderDateText, { REMINDER_DATE_TEXT_FRAGMENT } from '../';
+import ReminderDateText from '../';
+import { REMINDER_DATE_TEXT_FRAGMENT } from '../queries';
 import * as common from '../../../utils/common';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { ReminderDateText as Reminder } from '../__generated__/ReminderDateText';

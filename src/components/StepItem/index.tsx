@@ -2,38 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import gql from 'graphql-tag';
 
 import { Text, Icon, Card, Touchable } from '../common';
 import ItemHeaderText from '../ItemHeaderText';
 import { AuthState } from '../../reducers/auth';
-import ReminderButton, { REMINDER_BUTTON_FRAGMENT } from '../ReminderButton';
-import ReminderDateText, {
-  REMINDER_DATE_TEXT_FRAGMENT,
-} from '../ReminderDateText';
+import ReminderButton from '../ReminderButton';
+import ReminderDateText from '../ReminderDateText';
 
 import styles from './styles';
 import { StepItem as Step } from './__generated__/StepItem';
-
-export const STEP_ITEM_FRAGMENT = gql`
-  fragment StepItem on Step {
-    id
-    title
-    receiver {
-      id
-      fullName
-    }
-    community {
-      id
-    }
-    reminder {
-      ...ReminderButton
-      ...ReminderDateText
-    }
-  }
-  ${REMINDER_BUTTON_FRAGMENT}
-  ${REMINDER_DATE_TEXT_FRAGMENT}
-`;
 
 export interface StepItemProps {
   step: Step;

@@ -2,7 +2,6 @@ import React from 'react';
 import i18n from 'i18next';
 import moment, * as MomentTypes from 'moment';
 import { StyleProp, TextStyle } from 'react-native';
-import gql from 'graphql-tag';
 
 import { Text } from '../common';
 import { momentUtc } from '../../utils/common';
@@ -10,14 +9,6 @@ import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 import { ReminderDateText as Reminder } from './__generated__/ReminderDateText';
 import styles from './styles';
-
-export const REMINDER_DATE_TEXT_FRAGMENT = gql`
-  fragment ReminderDateText on StepReminder {
-    id
-    nextOccurrenceAt
-    reminderType
-  }
-`;
 
 function isTomorrow(momentDate: MomentTypes.Moment) {
   return momentDate.isSame(moment().add(1, 'days'), 'day');

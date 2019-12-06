@@ -13,12 +13,10 @@ import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
-import ReminderButton, {
-  REMINDER_BUTTON_FRAGMENT,
-} from '../../components/ReminderButton';
-import ReminderDateText, {
-  REMINDER_DATE_TEXT_FRAGMENT,
-} from '../../components/ReminderDateText';
+import ReminderButton from '../../components/ReminderButton';
+import { REMINDER_BUTTON_FRAGMENT } from '../../components/ReminderButton/queries';
+import ReminderDateText from '../../components/ReminderDateText';
+import { REMINDER_DATE_TEXT_FRAGMENT } from '../../components/ReminderDateText/queries';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';

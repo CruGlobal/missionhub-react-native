@@ -5,13 +5,12 @@ import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
-import StepItem, { STEP_ITEM_FRAGMENT } from '../../components/StepItem';
+import StepItem from '../../components/StepItem';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -31,21 +30,7 @@ import {
   StepsList,
   StepsList_steps_nodes as Step,
 } from './__generated__/StepsList';
-
-export const STEPS_QUERY = gql`
-  query StepsList($after: String) {
-    steps(after: $after, completed: false, sortBy: acceptedAt_DESC) {
-      nodes {
-        ...StepItem
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-  ${STEP_ITEM_FRAGMENT}
-`;
+import { STEPS_QUERY } from './queries';
 
 interface StepsScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;

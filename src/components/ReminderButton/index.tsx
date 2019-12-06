@@ -1,7 +1,6 @@
 import React, { useState, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
-import gql from 'graphql-tag';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
@@ -16,14 +15,6 @@ import { createStepReminder } from '../../actions/stepReminders';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 import { ReminderButton as Reminder } from './__generated__/ReminderButton';
-
-export const REMINDER_BUTTON_FRAGMENT = gql`
-  fragment ReminderButton on StepReminder {
-    id
-    nextOccurrenceAt
-    reminderType
-  }
-`;
 
 export interface ReminderButtonProps {
   stepId: string;

@@ -26,7 +26,7 @@ import {
 import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
-import { STEPS_QUERY } from '../containers/StepsScreen';
+import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
