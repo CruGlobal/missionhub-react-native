@@ -1,26 +1,52 @@
 import { ThunkDispatch } from 'redux-thunk';
+import gql from 'graphql-tag';
 
 import { DAYS_OF_THE_WEEK } from '../constants';
 import { REQUESTS } from '../api/routes';
 import { ReminderTypeEnum } from '../../__generated__/globalTypes';
+import { apolloClient } from '../apolloClient';
 
 import callApi from './api';
+import {
+  refreshStepReminder,
+  refreshStepReminderVariables,
+} from './__generated__/refreshStepReminder';
 
-export function removeStepReminder(challenge_id: string) {
-  return (dispatch: ThunkDispatch<never, never, never>) =>
-    dispatch(callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id }));
+const REFRESH_STEP_REMINDER_QUERY = gql`
+  query refreshStepReminder($stepId: ID!) {
+    step(id: $stepId) {
+      id
+      reminder {
+        id
+        reminderType
+        nextOccurrenceAt
+      }
+    }
+  }
+`;
+
+export function removeStepReminder(stepId: string) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
+    await dispatch(
+      callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id: stepId }),
+    );
+    apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
+      query: REFRESH_STEP_REMINDER_QUERY,
+      variables: { stepId },
+    });
+  };
 }
 
 export function createStepReminder(
-  challenge_id: string,
+  stepId: string,
   reminder_at: Date,
   reminder_type = ReminderTypeEnum.once,
 ) {
-  return (dispatch: ThunkDispatch<never, never, never>) =>
-    dispatch(
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
+    await dispatch(
       callApi(
         REQUESTS.CREATE_CHALLENGE_REMINDER,
-        { challenge_id },
+        { challenge_id: stepId },
         {
           data: {
             attributes: {
@@ -32,6 +58,11 @@ export function createStepReminder(
         },
       ),
     );
+    apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
+      query: REFRESH_STEP_REMINDER_QUERY,
+      variables: { stepId },
+    });
+  };
 }
 
 function createAt(reminder_at: Date, reminder_type: string) {

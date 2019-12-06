@@ -25,12 +25,13 @@ import {
 } from '../selectors/people';
 import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
+import { apolloClient } from '../apolloClient';
+import { STEPS_QUERY } from '../containers/StepsScreen';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
-import { getMySteps } from './steps';
 
 export function getMe(extraInclude) {
   const personInclude =
@@ -404,7 +405,7 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
       ),
     );
 
-    dispatch(getMySteps());
+    apolloClient.query({ query: STEPS_QUERY });
     return dispatch({
       type: DELETE_PERSON,
       personId,
