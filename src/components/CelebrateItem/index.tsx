@@ -32,6 +32,16 @@ export const DELETE_STORY = gql`
   }
 `;
 
+export const REPORT_STORY = gql`
+  mutation ReportStory($subjectId: ID!) {
+    createContentComplaint(subjectId: $subjectId, subjectType: story) {
+      contentComplaint {
+        id
+      }
+    }
+  }
+`;
+
 export interface Event {
   id: string;
   changed_attribute_value: string;
@@ -73,6 +83,7 @@ const CelebrateItem = ({
 
   const { t } = useTranslation('celebrateItems');
   const [deleteStory] = useMutation(DELETE_STORY);
+  const [reportStory] = useMutation(REPORT_STORY);
 
   const handlePress = () =>
     dispatch(navigatePush(CELEBRATE_DETAIL_SCREEN, { event }));
@@ -108,7 +119,13 @@ const CelebrateItem = ({
       { text: t('cancel') },
       {
         text: t('report.confirmButtonText'),
-        onPress: () => {},
+        onPress: () => {
+          reportStory({
+            variables: {
+              subjectId: celebrateable_id,
+            },
+          });
+        },
       },
     ]);
   };
