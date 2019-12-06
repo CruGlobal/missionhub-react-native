@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
+import { connect } from 'react-redux';
 
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
@@ -35,9 +36,11 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
-  const celebrationItem: Event = useNavigationParam('celebrationItem');
+  const { object_description, celebrateable_id }: Event = useNavigationParam(
+    'celebrationItem',
+  );
   const [updateStory] = useMutation(UPDATE_STORY);
-  const [story, changeStory] = useState(celebrationItem.object_description);
+  const [story, changeStory] = useState(object_description);
 
   const saveStory = async () => {
     if (!story) {
@@ -45,7 +48,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
     }
     Keyboard.dismiss();
     await updateStory({
-      variables: { input: { id: celebrationItem.id, content: story } },
+      variables: { input: { id: celebrateable_id, content: story } },
     });
 
     onRefresh();
@@ -78,5 +81,5 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   );
 };
 
-export default EditStoryScreen;
+export default connect()(EditStoryScreen);
 export const CELEBRATE_EDIT_STORY_SCREEN = 'nav/CELEBRATE_EDIT_STORY_SCREEN';

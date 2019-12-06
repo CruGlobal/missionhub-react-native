@@ -37,6 +37,7 @@ export interface Event {
   changed_attribute_value: string;
   subject_person?: Person;
   subject_person_name: string;
+  celebrateable_id: string;
   celebrateable_type: string;
   organization?: Organization;
   object_description: string;
@@ -48,7 +49,7 @@ export interface CelebrateItemProps {
   organization?: object;
   namePressable?: boolean;
   onClearNotification?: (event: Event) => void;
-  onRefresh?: () => void;
+  onRefresh: () => void;
   me: Person;
 }
 
@@ -62,7 +63,7 @@ const CelebrateItem = ({
   me,
 }: CelebrateItemProps) => {
   const {
-    id,
+    celebrateable_id,
     changed_attribute_value,
     subject_person,
     subject_person_name,
@@ -92,10 +93,12 @@ const CelebrateItem = ({
       { text: t('cancel') },
       {
         text: t('delete.buttonText'),
-        onPress: () =>
-          deleteStory({
-            variables: { input: { id } },
-          }),
+        onPress: async () => {
+          await deleteStory({
+            variables: { input: { id: celebrateable_id } },
+          });
+          onRefresh();
+        },
       },
     ]);
   };
