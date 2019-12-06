@@ -1,6 +1,8 @@
 import faker from 'faker/locale/en';
 import { IMocks } from 'graphql-tools';
 
+import { ReminderTypeEnum } from '../__generated__/globalTypes';
+
 let currentId = 1;
 const nextId = () => currentId++;
 export const resetGlobalMockSeeds = () => {
@@ -15,6 +17,7 @@ export const globalMocks: IMocks = {
   Float: () => faker.random.number({ precision: 0.01 }),
   Boolean: () => faker.random.boolean(),
   ID: () => nextId(),
+  ISO8601DateTime: () => faker.date.past(10, '2019-01-01'),
 
   BasePageInfo: () => ({
     endCursor: null,
@@ -22,6 +25,8 @@ export const globalMocks: IMocks = {
     hasPreviousPage: false,
     startCursor: null,
   }),
+  ReminderTypeEnum: () => ReminderTypeEnum.once,
+
   Step: () => ({
     title: faker.lorem.sentence(),
   }),

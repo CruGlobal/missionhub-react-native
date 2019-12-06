@@ -8,28 +8,23 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 
 import StepItem, { STEP_ITEM_FRAGMENT } from '..';
 
-jest.mock('../../ReminderButton', () => 'ReminderButton');
+jest.mock('../../ReminderButton', () => ({
+  __esModule: true,
+  ...jest.requireActual('../../../components/ReminderButton'),
+  default: 'ReminderButton',
+}));
 
 const mockStep = mockFragment<Step>(STEP_ITEM_FRAGMENT);
 
 const mockDate = '2019-10-17 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 
-const stepId = '1';
-const reminderId = '11';
-const reminder = { id: reminderId };
-const stepReminders = {
-  allByStep: {
-    [stepId]: reminder,
-  },
-};
 const initialState = {
   auth: {
     person: {
       id: '1',
     },
   },
-  stepReminders: stepReminders,
 };
 
 it('renders me correctly', () => {

@@ -96,6 +96,13 @@ exports[`renders not me correctly 1`] = `
         </Text>
       </View>
       <ReminderButton
+        reminder={
+          Object {
+            "id": "4",
+            "nextOccurrenceAt": 2017-02-20T03:36:18.957Z,
+            "reminderType": "once",
+          }
+        }
         stepId="2"
         testID="StepReminderButton"
       >
@@ -161,7 +168,7 @@ exports[`renders not me correctly 1`] = `
               ]
             }
           >
-            Set a Reminder
+            Sunday, Feb 19 @ 7:36 PM
           </Text>
         </View>
       </ReminderButton>
@@ -285,7 +292,9 @@ exports[`renders with pressable name correctly 1`] = `
       <ReminderButton
         reminder={
           Object {
-            "id": "11",
+            "id": "4",
+            "nextOccurrenceAt": 2017-02-20T03:36:18.957Z,
+            "reminderType": "once",
           }
         }
         stepId="1"
@@ -353,7 +362,7 @@ exports[`renders with pressable name correctly 1`] = `
               ]
             }
           >
-            Set a Reminder
+            Sunday, Feb 19 @ 7:36 PM
           </Text>
         </View>
       </ReminderButton>

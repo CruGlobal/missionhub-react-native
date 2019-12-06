@@ -2,6 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { View } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
+import faker from 'faker/locale/en';
 
 import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
@@ -23,13 +24,9 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 
 const stepId = '1';
-const mockDate = '2018-09-12 12:00:00 PM GMT+0';
-const reminder: Reminder = {
-  ...mockFragment<Reminder>(REMINDER_BUTTON_FRAGMENT),
-  nextOccurrenceAt: mockDate,
-};
+const reminder = mockFragment<Reminder>(REMINDER_BUTTON_FRAGMENT);
 
-MockDate.set(mockDate);
+MockDate.set(faker.date.past(1, '2019-01-01'));
 
 const requestNotificationsResult = { type: 'requested notifications' };
 const navigatePushResult = { type: 'navigated push' };
@@ -107,9 +104,9 @@ describe('handlePressIOS', () => {
 });
 
 describe('onDateChange', () => {
-  const reminder2 = {
+  const reminder2: Reminder = {
     ...reminder,
-    reminder_type: ReminderTypeEnum.weekly,
+    reminderType: ReminderTypeEnum.weekly,
   };
   it('creates step reminder', () => {
     const { getByTestId } = renderWithContext(
@@ -123,7 +120,7 @@ describe('onDateChange', () => {
     expect(createStepReminder).toHaveBeenCalledWith(
       stepId,
       date,
-      reminder2.reminder_type,
+      reminder2.reminderType,
     );
   });
 });

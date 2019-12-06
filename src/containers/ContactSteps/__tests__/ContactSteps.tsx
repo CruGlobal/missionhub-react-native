@@ -18,7 +18,11 @@ jest.mock('../../../actions/steps');
 jest.mock('../../../actions/misc');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/prompt');
-jest.mock('../../../components/AcceptedStepItem', () => 'AcceptedStepItem');
+jest.mock('../../../components/AcceptedStepItem', () => ({
+  __esModule: true,
+  ...jest.requireActual('../../../components/AcceptedStepItem'),
+  default: 'AcceptedStepItem',
+}));
 
 const steps = [{ id: '1', title: 'Test Step' }];
 const completedSteps = [{ id: '1', title: 'Test Step', completed_at: 'time' }];

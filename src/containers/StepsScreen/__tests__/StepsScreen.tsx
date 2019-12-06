@@ -20,8 +20,8 @@ jest.mock('../../../utils/common');
 jest.mock('../../TrackTabChange', () => 'TrackTabChange');
 jest.mock('../../../components/StepItem', () => ({
   __esModule: true,
+  ...jest.requireActual('../../../components/StepItem'),
   default: 'StepItem',
-  STEP_ITEM_QUERY: 'fragment StepItem on Step { __typename }',
 }));
 
 const initialState = {

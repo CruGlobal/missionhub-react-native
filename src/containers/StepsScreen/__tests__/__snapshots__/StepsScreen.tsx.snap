@@ -1005,9 +1005,43 @@ exports[`renders screen with steps correctly 1`] = `
         Array [
           Object {
             "__typename": "Step",
+            "community": Object {
+              "__typename": "Community",
+              "id": "3",
+            },
+            "id": "1",
+            "receiver": Object {
+              "__typename": "Person",
+              "fullName": "Kali Stamm",
+              "id": "2",
+            },
+            "reminder": Object {
+              "__typename": "StepReminder",
+              "id": "4",
+              "nextOccurrenceAt": 2013-10-04T09:34:50.933Z,
+              "reminderType": "once",
+            },
+            "title": "Repellat quisquam recusandae alias consequuntur corporis.",
           },
           Object {
             "__typename": "Step",
+            "community": Object {
+              "__typename": "Community",
+              "id": "7",
+            },
+            "id": "5",
+            "receiver": Object {
+              "__typename": "Person",
+              "fullName": "Connor Kihn",
+              "id": "6",
+            },
+            "reminder": Object {
+              "__typename": "StepReminder",
+              "id": "8",
+              "nextOccurrenceAt": 2013-08-29T09:20:29.756Z,
+              "reminderType": "once",
+            },
+            "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
           },
         ]
       }
@@ -1057,6 +1091,23 @@ exports[`renders screen with steps correctly 1`] = `
             step={
               Object {
                 "__typename": "Step",
+                "community": Object {
+                  "__typename": "Community",
+                  "id": "3",
+                },
+                "id": "1",
+                "receiver": Object {
+                  "__typename": "Person",
+                  "fullName": "Kali Stamm",
+                  "id": "2",
+                },
+                "reminder": Object {
+                  "__typename": "StepReminder",
+                  "id": "4",
+                  "nextOccurrenceAt": 2013-10-04T09:34:50.933Z,
+                  "reminderType": "once",
+                },
+                "title": "Repellat quisquam recusandae alias consequuntur corporis.",
               }
             }
             testID="stepItem"
@@ -1072,6 +1123,23 @@ exports[`renders screen with steps correctly 1`] = `
             step={
               Object {
                 "__typename": "Step",
+                "community": Object {
+                  "__typename": "Community",
+                  "id": "7",
+                },
+                "id": "5",
+                "receiver": Object {
+                  "__typename": "Person",
+                  "fullName": "Connor Kihn",
+                  "id": "6",
+                },
+                "reminder": Object {
+                  "__typename": "StepReminder",
+                  "id": "8",
+                  "nextOccurrenceAt": 2013-08-29T09:20:29.756Z,
+                  "reminderType": "once",
+                },
+                "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
               }
             }
             testID="stepItem"
@@ -1088,50 +1156,58 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -389,10 +389,16 @@
-              \\"__typename\\": \\"Step\\",
-            },
-            Object {
-              \\"__typename\\": \\"Step\\",
+@@ -423,10 +423,50 @@
+                \\"nextOccurrenceAt\\": 2013-08-29T09:20:29.756Z,
+                \\"reminderType\\": \\"once\\",
+              },
+              \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
             },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
++             \\"community\\": Object {
++               \\"__typename\\": \\"Community\\",
++               \\"id\\": \\"11\\",
++             },
++             \\"id\\": \\"9\\",
++             \\"receiver\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"fullName\\": \\"Samantha Tremblay\\",
++               \\"id\\": \\"10\\",
++             },
++             \\"reminder\\": Object {
++               \\"__typename\\": \\"StepReminder\\",
++               \\"id\\": \\"12\\",
++               \\"nextOccurrenceAt\\": 2018-08-11T10:48:02.286Z,
++               \\"reminderType\\": \\"once\\",
++             },
++             \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
++             \\"community\\": Object {
++               \\"__typename\\": \\"Community\\",
++               \\"id\\": \\"15\\",
++             },
++             \\"id\\": \\"13\\",
++             \\"receiver\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"fullName\\": \\"Dorcas Dach\\",
++               \\"id\\": \\"14\\",
++             },
++             \\"reminder\\": Object {
++               \\"__typename\\": \\"StepReminder\\",
++               \\"id\\": \\"16\\",
++               \\"nextOccurrenceAt\\": 2018-01-07T00:49:00.772Z,
++               \\"reminderType\\": \\"once\\",
++             },
++             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -427,10 +433,25 @@
-        viewabilityConfigCallbackPairs={Array []}
-        windowSize={21}
-      >
-        <RCTRefreshControl />
-        <View>
-+         <View
-+           onLayout={[Function onLayout]}
-+           style={null}
-+         >
-+           <StepItem
-+             onPressName={[Function handleNavToPerson]}
-+             onSelect={[Function handleRowSelect]}
-+             step={
-+               Object {
-+                 \\"__typename\\": \\"Step\\",
-+               }
-+             }
-+             testID=\\"stepItem\\"
-+           />
-+         </View>
-          <View
-            onLayout={[Function onLayout]}
-            style={null}
-          >
-            <StepItem
-@@ -457,9 +478,31 @@
+@@ -525,9 +565,80 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1147,6 +1223,55 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             step={
 +               Object {
 +                 \\"__typename\\": \\"Step\\",
++                 \\"community\\": Object {
++                   \\"__typename\\": \\"Community\\",
++                   \\"id\\": \\"11\\",
++                 },
++                 \\"id\\": \\"9\\",
++                 \\"receiver\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Samantha Tremblay\\",
++                   \\"id\\": \\"10\\",
++                 },
++                 \\"reminder\\": Object {
++                   \\"__typename\\": \\"StepReminder\\",
++                   \\"id\\": \\"12\\",
++                   \\"nextOccurrenceAt\\": 2018-08-11T10:48:02.286Z,
++                   \\"reminderType\\": \\"once\\",
++                 },
++                 \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
++               }
++             }
++             testID=\\"stepItem\\"
++           />
++         </View>
++         <View
++           onLayout={[Function onLayout]}
++           style={null}
++         >
++           <StepItem
++             onPressName={[Function handleNavToPerson]}
++             onSelect={[Function handleRowSelect]}
++             step={
++               Object {
++                 \\"__typename\\": \\"Step\\",
++                 \\"community\\": Object {
++                   \\"__typename\\": \\"Community\\",
++                   \\"id\\": \\"15\\",
++                 },
++                 \\"id\\": \\"13\\",
++                 \\"receiver\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Dorcas Dach\\",
++                   \\"id\\": \\"14\\",
++                 },
++                 \\"reminder\\": Object {
++                   \\"__typename\\": \\"StepReminder\\",
++                   \\"id\\": \\"16\\",
++                   \\"nextOccurrenceAt\\": 2018-01-07T00:49:00.772Z,
++                   \\"reminderType\\": \\"once\\",
++                 },
++                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
