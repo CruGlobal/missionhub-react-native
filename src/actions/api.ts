@@ -55,7 +55,7 @@ export default function callApi(
       ...query,
     };
 
-    const authState = await getState().auth;
+    const authState = getState().auth;
     if (!action.anonymous) {
       const { token } = authState;
       // If the request has not already passed in an access token, set it
