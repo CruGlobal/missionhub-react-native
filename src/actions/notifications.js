@@ -145,9 +145,7 @@ function handleNotification(notification) {
         );
       case 'celebrate':
         if (organization_id) {
-          const { response: community } = await refreshCommunity(
-            organization_id,
-          );
+          const community = await refreshCommunity(organization_id);
           await reloadGroupCelebrateFeed(organization_id);
           return dispatch(
             navigateToCelebrateComments(community, celebration_item_id),
@@ -156,9 +154,7 @@ function handleNotification(notification) {
         return;
       case 'community_challenges':
         if (organization_id) {
-          const { response: community } = await refreshCommunity(
-            organization_id,
-          );
+          const community = await refreshCommunity(organization_id);
           await reloadGroupChallengeFeed(organization_id);
           return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
         }

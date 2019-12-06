@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-params: 0, complexity: 0 */
+/* eslint complexity: 0, max-lines: 0, max-params: 0  */
 
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -17,7 +17,6 @@ import {
 } from '../constants';
 import { timeFilter } from '../utils/filters';
 import { orgIsUserCreated } from '../utils/common';
-import { organizationSelector } from '../selectors/organizations';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
@@ -422,9 +421,15 @@ export function updateOrganizationImage(orgId: string, imageData: ImageData) {
 
     const data = new FormData();
 
-    data.append('data[attributes][community_photo][uri]', imageData.uri);
-    data.append('data[attributes][community_photo][name]', imageData.fileName);
-    data.append('data[attributes][community_photo][type]', imageData.fileType);
+    data.append('data[attributes][community_photo]', ({
+      uri: imageData.uri,
+      type: imageData.fileType,
+      name: imageData.fileName,
+    } as unknown) as Blob);
+    console.log(data);
+    //data.append('data[attributes][community_photo][uri]', imageData.uri);
+    //data.append('data[attributes][community_photo][name]', imageData.fileName);
+    //data.append('data[attributes][community_photo][type]', imageData.fileType);
 
     const results = dispatch(
       callApi(REQUESTS.UPDATE_ORGANIZATION_IMAGE, { orgId }, data),
