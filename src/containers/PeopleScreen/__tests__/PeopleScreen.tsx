@@ -150,11 +150,12 @@ describe('handleAddContact', () => {
 
         fireEvent.press(getByTestId('header').props.right);
 
-        expect(
-          navigatePush,
-        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
-          organization: undefined,
-        });
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          {
+            organization: undefined,
+          },
+        );
       });
     });
 
@@ -166,11 +167,12 @@ describe('handleAddContact', () => {
 
         fireEvent.press(getByTestId('bottomButton'));
 
-        expect(
-          navigatePush,
-        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
-          organization: undefined,
-        });
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          {
+            organization: undefined,
+          },
+        );
       });
     });
   });
@@ -194,11 +196,12 @@ describe('handleAddContact', () => {
         );
         fireEvent(getByTestId('peopleList'), 'addContact', organization);
 
-        expect(
-          navigatePush,
-        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
-          organization,
-        });
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          {
+            organization,
+          },
+        );
       });
     });
 
@@ -210,11 +213,12 @@ describe('handleAddContact', () => {
 
         fireEvent.press(getByTestId('bottomButton'));
 
-        expect(
-          navigatePush,
-        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
-          organization: undefined,
-        });
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
+          {
+            organization: undefined,
+          },
+        );
       });
     });
   });

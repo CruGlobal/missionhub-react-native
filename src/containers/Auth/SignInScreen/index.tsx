@@ -56,7 +56,10 @@ const SignInScreen = ({
   const [isLoading, setIsLoading] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
 
-  useKeyboardListeners(() => setShowLogo(false), () => setShowLogo(true));
+  useKeyboardListeners(
+    () => setShowLogo(false),
+    () => setShowLogo(true),
+  );
 
   const handleForgotPassword = async () => {
     const { code, codeVerifier, redirectUri } = await dispatch(

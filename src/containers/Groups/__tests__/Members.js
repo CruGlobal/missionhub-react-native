@@ -297,7 +297,9 @@ describe('Members', () => {
 
         expect(navigatePush).toHaveBeenCalledWith(
           ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
-          { organization: nonUserCreatedOrg },
+          {
+            organization: nonUserCreatedOrg,
+          },
         );
       });
     });

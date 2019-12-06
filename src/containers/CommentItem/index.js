@@ -106,9 +106,6 @@ const mapStateToProps = (
   isEditing: editingCommentId === item.id,
 });
 
-export default connect(
-  mapStateToProps,
-  undefined,
-  undefined,
-  { withRef: true },
-)(CommentItem);
+export default connect(mapStateToProps, undefined, undefined, {
+  withRef: true,
+})(CommentItem);

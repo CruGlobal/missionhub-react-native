@@ -16,9 +16,9 @@ const celebrateComments = {
 };
 
 it('should return comments for matching event id', () => {
-  expect(celebrateCommentsSelector({ celebrateComments }, { eventId })).toEqual(
-    { comments },
-  );
+  expect(
+    celebrateCommentsSelector({ celebrateComments }, { eventId }),
+  ).toEqual({ comments });
 });
 
 it('should return comments for matching event id', () => {

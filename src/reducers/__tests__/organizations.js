@@ -18,7 +18,10 @@ import {
 const org1Id = '123';
 const org2Id = '234';
 const initialState = {
-  all: [{ id: org1Id, name: 'test org 1' }, { id: org2Id, name: 'test org 2' }],
+  all: [
+    { id: org1Id, name: 'test org 1' },
+    { id: org2Id, name: 'test org 2' },
+  ],
 };
 
 const reports = [
