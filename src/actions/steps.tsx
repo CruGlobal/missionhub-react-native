@@ -7,7 +7,6 @@ import {
   COMPLETED_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
-  DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
 } from '../constants';
 import { formatApiDate, isCustomStep } from '../utils/common';
@@ -17,7 +16,6 @@ import {
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from '../routes/constants';
 import { REQUESTS } from '../api/routes';
-import { StepsState } from '../reducers/steps';
 import { AuthState } from '../reducers/auth';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen';
@@ -41,44 +39,6 @@ export function getStepSuggestions(isMe: boolean, contactStageId: string) {
     };
 
     return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
-  };
-}
-
-//eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function getMySteps(query: any = {}) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
-    const queryObj = {
-      order: '-accepted_at',
-      ...query,
-      filters: {
-        ...(query.filters || {}),
-        completed: false,
-      },
-      include:
-        'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
-    };
-    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
-  };
-}
-
-export function getMyStepsNextPage() {
-  return (
-    dispatch: ThunkDispatch<never, never, never>,
-    getState: () => { steps: StepsState },
-  ) => {
-    const { page, hasNextPage } = getState().steps.pagination;
-    if (!hasNextPage) {
-      // Does not have more data
-      return Promise.resolve();
-    }
-    const query = {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * page,
-      },
-      include: '',
-    };
-    return dispatch(getMySteps(query));
   };
 }
 

@@ -9,7 +9,6 @@ import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { showReminderOnLoad } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
-import { getMySteps } from '../steps';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getMyCommunities } from '../organizations';
@@ -61,7 +60,7 @@ export function authSuccess() {
 }
 
 export function loadHome() {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     // Don't try to run all these things if there is no token
     if (!getState().auth.token) {
       return Promise.resolve();
@@ -72,7 +71,6 @@ export function loadHome() {
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    await dispatch(getMySteps());
     dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }
