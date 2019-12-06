@@ -8,7 +8,7 @@ import { renderWithContext } from '../../../../testUtils';
 import SideMenu from '..';
 
 const action = jest.fn();
-const closedDrawerValue = [{ type: 'drawer closed' }];
+
 const mockMenuItems = [
   { label: 'About', action, selected: false },
   { label: 'Help', action },
@@ -22,7 +22,7 @@ const mockMenuItems = [
 jest.mock('../../IconButton', () => 'IconButton');
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
-    closeDrawer: jest.fn(),
+    closeDrawer: jest.fn(() => ({ type: 'drawer closed' })),
   },
 }));
 
@@ -31,10 +31,6 @@ jest.mock('react-navigation-drawer', () => ({
 });
 BackHandler.removeEventListener = jest.fn((_, callback) => {
   callback();
-});
-
-(DrawerActions.closeDrawer as jest.Mock).mockReturnValue({
-  type: 'drawer closed',
 });
 
 it('renders correctly', () => {
@@ -59,6 +55,7 @@ it('finds the close button', () => {
 });
 
 it('should fire closedDrawer', async () => {
+  const closedDrawerValue = [{ type: 'drawer closed' }];
   const { getByTestId, store } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
     {
