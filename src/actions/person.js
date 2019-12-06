@@ -8,7 +8,7 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
-} from '../containers/Groups/AssignedPersonScreen/';
+} from '../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,

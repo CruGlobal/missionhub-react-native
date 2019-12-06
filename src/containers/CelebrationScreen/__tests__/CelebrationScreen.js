@@ -9,7 +9,7 @@ import {
   createThunkStore,
 } from '../../../../testUtils';
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
-import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen/constants';
 
 import CelebrationScreen from '..';
 

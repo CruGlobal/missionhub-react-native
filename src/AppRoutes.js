@@ -66,21 +66,23 @@ import NotificationOffScreen, {
 } from './containers/NotificationOffScreen';
 import {
   ALL_PERSON_TAB_ROUTES,
-  CONTACT_PERSON_SCREEN,
   ContactPersonScreen,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
   IsGroupsMeCommunityPersonScreen,
   IsGroupsMemberPersonScreen,
   IsUserCreatedMemberPersonScreen,
-  ME_COMMUNITY_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
   MeCommunityPersonScreen,
-  MEMBER_PERSON_SCREEN,
   MemberPersonScreen,
   MePersonalPersonScreen,
 } from './containers/Groups/AssignedPersonScreen';
+import {
+  CONTACT_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+} from './containers/Groups/AssignedPersonScreen/constants';
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
 import theme from './theme';
