@@ -150,10 +150,11 @@ describe('handleAddContact', () => {
 
         fireEvent.press(getByTestId('header').props.right);
 
-        expect(navigatePush).toHaveBeenCalledWith(
-          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization: undefined },
-        );
+        expect(
+          navigatePush,
+        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
+          organization: undefined,
+        });
       });
     });
 
@@ -165,10 +166,11 @@ describe('handleAddContact', () => {
 
         fireEvent.press(getByTestId('bottomButton'));
 
-        expect(navigatePush).toHaveBeenCalledWith(
-          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization: undefined },
-        );
+        expect(
+          navigatePush,
+        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
+          organization: undefined,
+        });
       });
     });
   });
@@ -192,10 +194,11 @@ describe('handleAddContact', () => {
         );
         fireEvent(getByTestId('peopleList'), 'addContact', organization);
 
-        expect(navigatePush).toHaveBeenCalledWith(
-          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization },
-        );
+        expect(
+          navigatePush,
+        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
+          organization,
+        });
       });
     });
 
@@ -207,10 +210,11 @@ describe('handleAddContact', () => {
 
         fireEvent.press(getByTestId('bottomButton'));
 
-        expect(navigatePush).toHaveBeenCalledWith(
-          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization: undefined },
-        );
+        expect(
+          navigatePush,
+        ).toHaveBeenCalledWith(ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW, {
+          organization: undefined,
+        });
       });
     });
   });
@@ -218,10 +222,10 @@ describe('handleAddContact', () => {
 
 describe('handleRefresh', () => {
   beforeEach(() => {
-    ((getMyPeople as unknown) as jest.Mock).mockReturnValue({
+    (getMyPeople as jest.Mock).mockReturnValue({
       type: 'get people',
     });
-    ((checkForUnreadComments as unknown) as jest.Mock).mockReturnValue({
+    (checkForUnreadComments as jest.Mock).mockReturnValue({
       type: 'check for unread comments',
     });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
