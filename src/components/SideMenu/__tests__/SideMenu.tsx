@@ -61,11 +61,23 @@ it('should fire closedDrawer', async () => {
   expect(store.getActions()).toEqual(closedDrawerValue);
 });
 
-it('unmounts', () => {
-  BackHandler.removeEventListener = jest.fn((_, callback) => {
-    callback();
-  });
-  const { unmount } = renderWithContext(
+it('unmounts and expect closeDrawer to fire if drawer is open', () => {
+  const closedDrawerValue = [{ type: 'drawer closed' }];
+  BackHandler.removeEventListener = jest.fn();
+  const { unmount, store } = renderWithContext(
+    <SideMenu menuItems={mockMenuItems} />,
+    {
+      initialState: { drawer: { isOpen: true } },
+    },
+  );
+  unmount();
+  expect(BackHandler.removeEventListener).toHaveBeenCalled();
+  expect(store.getActions()).toEqual(closedDrawerValue);
+});
+
+it('unmounts and expect closeDrawer to not fire if drawer is not open', () => {
+  BackHandler.removeEventListener = jest.fn();
+  const { unmount, store } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
     {
       initialState: { drawer: { isOpen: false } },
@@ -73,4 +85,5 @@ it('unmounts', () => {
   );
   unmount();
   expect(BackHandler.removeEventListener).toHaveBeenCalled();
+  expect(store.getActions()).toEqual([]);
 });
