@@ -185,7 +185,6 @@ describe('navigateReplace', () => {
         type: 'Navigation/REPLACE',
         routeName,
         params,
-        immediate: true,
       },
     ]);
   });

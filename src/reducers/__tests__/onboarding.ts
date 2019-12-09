@@ -14,11 +14,7 @@ it('should set person id', () => {
     }),
   ).toMatchInlineSnapshot(`
     Object {
-      "community": Object {
-        "community_code": "",
-        "community_url": "",
-        "id": undefined,
-      },
+      "community": null,
       "personId": "1",
       "skippedAddingPerson": false,
     }
@@ -55,11 +51,7 @@ it('should set skippedAddingPerson', () => {
     }),
   ).toMatchInlineSnapshot(`
     Object {
-      "community": Object {
-        "community_code": "",
-        "community_url": "",
-        "id": undefined,
-      },
+      "community": null,
       "personId": "",
       "skippedAddingPerson": true,
     }
@@ -84,11 +76,7 @@ it('should handle logout', () => {
     ),
   ).toMatchInlineSnapshot(`
     Object {
-      "community": Object {
-        "community_code": "",
-        "community_url": "",
-        "id": undefined,
-      },
+      "community": null,
       "personId": "",
       "skippedAddingPerson": false,
     }

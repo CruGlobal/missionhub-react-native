@@ -11,20 +11,16 @@ import {
 export interface OnboardingState {
   personId: string;
   community: {
-    id?: string;
+    id: string;
     community_code: string;
     community_url: string;
-  };
+  } | null;
   skippedAddingPerson: boolean;
 }
 
 const initialState: OnboardingState = {
   personId: '',
-  community: {
-    id: undefined,
-    community_code: '',
-    community_url: '',
-  },
+  community: null,
   skippedAddingPerson: false,
 };
 
