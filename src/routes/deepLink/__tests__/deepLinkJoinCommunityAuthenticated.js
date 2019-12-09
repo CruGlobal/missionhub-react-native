@@ -6,15 +6,14 @@ import { DeepLinkJoinCommunityAuthenticatedScreens } from '../deepLinkJoinCommun
 import { renderShallow } from '../../../../testUtils';
 import callApi from '../../../actions/api';
 import { loadHome } from '../../../actions/auth/userData';
-import {
-  joinCommunity,
-  navigateToCommunity,
-} from '../../../actions/organizations';
+import { navigateToCommunity } from '../../../actions/navigation';
+import { joinCommunity } from '../../../actions/organizations';
 import { setScrollGroups } from '../../../actions/swipe';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/swipe');
 

@@ -2,10 +2,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import {
-  joinCommunity,
-  navigateToCommunity,
-} from '../../actions/organizations';
+import { navigateToCommunity } from '../../actions/navigation';
+import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth/userData';
 import DeepLinkConfirmJoinGroupScreen, {

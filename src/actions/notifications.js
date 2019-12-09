@@ -18,15 +18,17 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
-import {
-  refreshCommunity,
-  navigateToCommunity,
-  navigateToCelebrateComments,
-} from './organizations';
+import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
 import { reloadGroupCelebrateFeed } from './celebration';
-import { navigatePush, navigateBack, navigateToMainTabs } from './navigation';
+import {
+  navigatePush,
+  navigateBack,
+  navigateToMainTabs,
+  navigateToCommunity,
+  navigateToCelebrateComments,
+} from './navigation';
 import callApi from './api';
 
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {

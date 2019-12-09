@@ -1,4 +1,5 @@
-/* eslint complexity: 0, max-lines: 0, max-params: 0  */
+/* eslint complexity: 0, max-lines: 0, max-params: 0 */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -16,10 +17,6 @@ import {
   LOAD_PERSON_DETAILS,
 } from '../constants';
 import { timeFilter } from '../utils/filters';
-import { orgIsUserCreated } from '../utils/common';
-import { getScreenForOrg } from '../containers/Groups/GroupScreen';
-import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
-import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import {
@@ -34,7 +31,6 @@ import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
-import { navigateReset, navigateNestedReset } from './navigation';
 
 interface PersonInteractionReport {
   person_id: string;
@@ -132,11 +128,9 @@ export function getOrganizationContacts(
   orgId: string,
   name: string,
   pagination: PaginationObject,
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   filters: { [key: string]: any } = {},
 ) {
   const query: {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     filters: { [key: string]: any };
     include: string;
     page: { limit: number; offset: number };
@@ -217,14 +211,12 @@ export function getOrganizationContacts(
 
 //each question/answer filter must be in the URL in the form:
 //filters[answers][questionId][]=answerTexts
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 function getAnswersFromFilters(filters: { [key: string]: any }) {
   const arrFilters = Object.keys(filters).map(k => filters[k]);
   const answers = arrFilters.filter(f => f && f.isAnswer);
   if (answers.length === 0) {
     return null;
   }
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   const answerFilters: { [key: string]: any } = {};
   answers.forEach(f => {
     answerFilters[f.id] = [f.text];
@@ -260,7 +252,6 @@ export function getOrganizationMembers(orgId: string, query = {}) {
     )).response;
 
     // Get an object with { [key = person_id]: [value = { counts }] }
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const reportsCountObj: { [key: string]: any } = reports.reduce(
       (p, n) => ({
         ...p,
@@ -315,7 +306,6 @@ export function getOrganizationMembersNextPage(orgId: string) {
   };
 }
 
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export function addNewPerson(data: { [key: string]: any }) {
   return async (
     dispatch: ThunkDispatch<{}, null, AnyAction>,
@@ -670,48 +660,5 @@ export function removeOrganizationMember(personId: string, orgId: string) {
     type: REMOVE_ORGANIZATION_MEMBER,
     personId,
     orgId,
-  };
-}
-
-export function navigateToCommunity(
-  community: Organization = { id: GLOBAL_COMMUNITY_ID },
-  initialTab?: string,
-) {
-  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const orgId = community.id;
-    const userCreated = orgIsUserCreated(community);
-
-    return dispatch(
-      navigateReset(getScreenForOrg(orgId, userCreated), {
-        orgId,
-        initialTab,
-      }),
-    );
-  };
-}
-
-export function navigateToCelebrateComments(
-  community: Organization,
-  celebrationItemId: string,
-) {
-  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const orgId = community.id;
-    const userCreated = orgIsUserCreated(community);
-
-    const event = { id: celebrationItemId, organization: community };
-
-    await dispatch(
-      navigateNestedReset([
-        {
-          routeName: getScreenForOrg(orgId, userCreated),
-          params: { orgId },
-        },
-        {
-          routeName: GROUP_UNREAD_FEED_SCREEN,
-          params: { organization: community },
-        },
-        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
-      ]),
-    );
   };
 }

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -14,7 +16,8 @@ import {
   SKIP_ONBOARDING_ADD_PERSON,
 } from '../onboarding';
 import { showReminderOnLoad } from '../notifications';
-import { joinCommunity, navigateToCommunity } from '../organizations';
+import { navigatePush, navigateBack, navigateToCommunity } from '../navigation';
+import { joinCommunity } from '../organizations';
 import { trackActionWithoutData } from '../analytics';
 import {
   ACTIONS,
@@ -27,16 +30,13 @@ import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
 
 jest.mock('../api');
-jest.mock('../navigation', () => ({
-  navigatePush: jest.fn(() => ({ type: 'push' })),
-  navigateReset: jest.fn(() => ({ type: 'reset' })),
-}));
 jest.mock('../notifications');
 jest.mock('../analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
 jest.mock('../person');
 jest.mock('../organizations');
+jest.mock('../navigation');
 
 const myId = '1';
 
@@ -44,10 +44,18 @@ let store = configureStore([thunk])({
   auth: { person: { id: myId } },
 });
 
+const navigatePushResponse = { type: 'navigate push' };
+const navigateBackResponse = { type: 'navigate back' };
+const navigateToCommunityResponse = { type: 'navigate to community' };
 const showReminderResponse = { type: 'show notification prompt' };
 
 beforeEach(() => {
   store.clearActions();
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
+  (navigateToCommunity as jest.Mock).mockReturnValue(
+    navigateToCommunityResponse,
+  );
   (showReminderOnLoad as jest.Mock).mockReturnValue(showReminderResponse);
 });
 
@@ -108,7 +116,6 @@ describe('createMyPerson', () => {
       type: 'person',
     }));
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(createMyPerson('Roger', 'Goers'));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -150,7 +157,6 @@ describe('createPerson', () => {
       response: person,
     }));
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(createPerson(first_name, last_name));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -185,19 +191,17 @@ describe('createPerson', () => {
 
 describe('skip onboarding complete', () => {
   it('skipOnboardingComplete', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(skipOnboardingComplete());
     expect(store.getActions()).toEqual([
       { type: 'track' },
       { type: SKIP_ONBOARDING_ADD_PERSON },
-      { type: 'push' },
+      navigatePushResponse,
     ]);
   });
 });
 
 describe('skip onboarding', () => {
   it('skipOnboarding', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(skipOnboarding());
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
@@ -207,7 +211,7 @@ describe('skip onboarding', () => {
       showReminderResponse,
       { type: 'track' },
       { type: SKIP_ONBOARDING_ADD_PERSON },
-      { type: 'push' },
+      navigatePushResponse,
     ]);
   });
 });
@@ -226,7 +230,6 @@ describe('join stashed community', () => {
       onboarding: { community },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(joinStashedCommunity());
 
     expect(joinCommunity).toHaveBeenCalledWith(
@@ -259,7 +262,6 @@ describe('land on stashed community screen', () => {
       organizations: { all: [community] },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
     expect(navigateToCommunity).toHaveBeenCalledWith(community);
@@ -285,7 +287,6 @@ describe('land on stashed community screen', () => {
       },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
     expect(navigateToCommunity).toHaveBeenCalledWith(community);

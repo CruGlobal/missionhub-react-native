@@ -31,12 +31,10 @@ import {
   navigateBack,
   navigateReset,
   navigateToMainTabs,
-} from '../navigation';
-import {
-  refreshCommunity,
   navigateToCommunity,
   navigateToCelebrateComments,
-} from '../organizations';
+} from '../navigation';
+import { refreshCommunity } from '../organizations';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';

@@ -18,10 +18,10 @@ import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 import { getMe } from './person';
-import { navigatePush } from './navigation';
+import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
-import { joinCommunity, navigateToCommunity } from './organizations';
+import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';

@@ -18,10 +18,9 @@ import GroupCardItem from '../../components/GroupCardItem';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
 import { IconButton, Button } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToCommunity } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
-import { navigateToCommunity } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
