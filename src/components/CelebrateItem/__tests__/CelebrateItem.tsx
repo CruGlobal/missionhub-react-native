@@ -4,46 +4,57 @@ import MockDate from 'mockdate';
 
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { renderWithContext } from '../../../../testUtils';
+import { CELEBRATEABLE_TYPES } from '../../../constants';
 
-import CelebrateItem, { CelebrateItemProps } from '..';
+import CelebrateItem, { CelebrateItemProps, Event } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 
 const myId = '123';
+const subjectPerson = {
+  id: '234',
+  first_name: 'John',
+  last_name: 'Smith',
+  full_name: 'John Smith',
+};
 
 const date = '2019-08-21T12:00:00.000';
 MockDate.set('2019-08-21 12:00:00', 300);
 
+let onRefresh = jest.fn();
+
 const trackActionResult = { type: 'tracked plain action' };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Event = any;
-
-const baseEvent = {
-  subject_person_name: 'John Smith',
+const baseEvent: Event = {
+  id: '222',
   changed_attribute_value: date,
+  subject_person: subjectPerson,
+  subject_person_name: subjectPerson.full_name,
+  celebrateable_id: '2',
+  celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+  organization: { id: '3' },
+  object_description: 'Celebration',
 };
 
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
+  onRefresh = jest.fn();
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
+});
+
+describe('global community', () => {
+  it('renders for global community', () => {});
 });
 
 describe('CelebrateItem', () => {
   const testEvent = (e: Event, otherProps: Partial<CelebrateItemProps>) => {
     renderWithContext(
-      <CelebrateItem event={e} onPressItem={jest.fn()} {...otherProps} />,
+      <CelebrateItem event={e} onRefresh={onRefresh} {...otherProps} />,
       { initialState },
     ).snapshot();
   };
-
-  it('renders event with fixed height', () =>
-    testEvent(baseEvent, { fixedHeight: true }));
-
-  it('renders event with card style', () =>
-    testEvent(baseEvent, { cardStyle: { padding: 20 } }));
 
   it('renders event with name pressable', () =>
     testEvent(baseEvent, { namePressable: true }));

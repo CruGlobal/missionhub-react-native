@@ -34,9 +34,16 @@ export const DELETE_STORY = gql`
 
 export const REPORT_STORY = gql`
   mutation ReportStory($subjectId: ID!) {
-    createContentComplaint(subjectId: $subjectId, subjectType: story) {
+    createContentComplaint(
+      input: { subjectId: $subjectId, subjectType: Story }
+    ) {
       contentComplaint {
+        createdAt
         id
+      }
+      errors {
+        message
+        path
       }
     }
   }
@@ -106,7 +113,7 @@ const CelebrateItem = ({
         text: t('delete.buttonText'),
         onPress: async () => {
           await deleteStory({
-            variables: { input: { id: celebrateable_id } },
+            variables: { input: { subjectId: celebrateable_id } },
           });
           onRefresh();
         },
@@ -119,12 +126,13 @@ const CelebrateItem = ({
       { text: t('cancel') },
       {
         text: t('report.confirmButtonText'),
-        onPress: () => {
-          reportStory({
+        onPress: async () => {
+          const response = await reportStory({
             variables: {
               subjectId: celebrateable_id,
             },
           });
+          console.log(response);
         },
       },
     ]);

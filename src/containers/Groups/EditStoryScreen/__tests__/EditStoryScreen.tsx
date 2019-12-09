@@ -4,58 +4,54 @@ import { fireEvent } from 'react-native-testing-library';
 import { navigatePush } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
 
-import ShareStoryScreen from '..';
+import EditStoryScreen from '..';
 
 jest.mock('../../../../actions/navigation');
-const onComplete = jest.fn();
-const navigatePushResult = { type: 'navigated push' };
+
 const organization = {
   id: '1234',
 };
+const celebrationItem = {
+  celebrateable_id: '111',
+  object_description: 'It was the best of times...',
+};
 
-const MOCK_STORY = 'This is my cool story! 📘✏️';
+const onRefresh = jest.fn();
+const navigatePushResult = { type: 'navigated push' };
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 });
 
 it('renders correctly', () => {
-  renderWithContext(<ShareStoryScreen />, {
-    initialState: {
-      navigation: { state: { params: { onComplete, organization } } },
-    },
+  renderWithContext(<EditStoryScreen />, {
     navParams: {
-      onComplete,
-      organization,
+      celebrationItem,
+      onRefresh,
     },
   }).snapshot();
 });
 
-it('should find the saveStoryButton', () => {
-  const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
-    initialState: {
-      navigation: { state: { params: { onComplete, organization } } },
-    },
+it('renders empty text correctly', () => {
+  renderWithContext(<EditStoryScreen />, {
     navParams: {
-      onComplete,
-      organization,
+      celebrationItem: { ...celebrationItem, object_description: '' },
+      onRefresh,
     },
-  });
-  expect(getByTestId('SaveStoryButton')).toBeTruthy();
+  }).snapshot();
 });
 
-describe('Creating a story', () => {
+describe('saveStory', () => {
   it('should not call onComplete if the user has not typed anything', () => {
-    const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
-      initialState: {
-        navigation: { state: { params: { onComplete, organization } } },
-      },
+    const { getByTestId } = renderWithContext(<EditStoryScreen />, {
       navParams: {
-        onComplete,
-        organization,
+        celebrationItem,
+        onRefresh,
       },
     });
+
     fireEvent.press(getByTestId('SaveStoryButton'));
+
     expect(onComplete).not.toBeCalled();
   });
 
