@@ -1,4 +1,5 @@
 /* eslint max-lines: 0 */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -88,7 +89,6 @@ describe('getMyCommunities', () => {
     };
     (callApi as jest.Mock).mockReturnValue(callApiResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(getMyCommunities());
 
     expect(apolloClient.query).toHaveBeenCalledWith({
@@ -126,7 +126,6 @@ describe('getMyOrganizations', () => {
   });
 
   it('should get my organizations', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(getMyOrganizations());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
@@ -148,7 +147,6 @@ describe('getMyOrganizations', () => {
       },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(getMyOrganizations());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATIONS, query);
@@ -176,7 +174,6 @@ describe('refreshCommunity', () => {
   });
 
   it('should get organization data and user data', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const response = await store.dispatch<any>(refreshCommunity(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ORGANIZATION, { orgId });
@@ -189,7 +186,6 @@ describe('refreshCommunity', () => {
   });
 
   it('should not get organization data and user data if global community', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const response = await store.dispatch<any>(
       refreshCommunity(GLOBAL_COMMUNITY_ID),
     );
@@ -274,7 +270,6 @@ describe('getOrganizationContacts', () => {
   it('searches for org contacts by default filters', async () => {
     (callApi as jest.Mock).mockReturnValue(apiResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(getOrganizationContacts(orgId, name, pagination));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -287,7 +282,6 @@ describe('getOrganizationContacts', () => {
   it('searches for org contacts by filters', async () => {
     (callApi as jest.Mock).mockReturnValue(apiResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(
       getOrganizationContacts(orgId, name, pagination, filters),
     );
@@ -382,7 +376,6 @@ describe('getOrganizationMembers', () => {
       return undefined;
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(getOrganizationMembers(orgId));
 
     expect(store.getActions()).toEqual([
@@ -399,7 +392,6 @@ describe('getOrganizationMembers', () => {
     });
     const page = { limit: 25, offset: 25 };
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(getOrganizationMembersNextPage(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, {
@@ -423,7 +415,6 @@ describe('getOrganizationMembers', () => {
       organizations: { membersPagination: { hasNextPage: false, page: 1 } },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const result = await store.dispatch<any>(
       getOrganizationMembersNextPage(orgId),
     );
@@ -433,9 +424,7 @@ describe('getOrganizationMembers', () => {
 
 describe('addNewPerson', () => {
   const firstName = 'Fred';
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   let data: { [key: string]: any } = { firstName };
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   let bodyData: { [key: string]: any } = {
     data: {
       type: 'person',
@@ -454,7 +443,6 @@ describe('addNewPerson', () => {
   });
 
   it('adds person with only first name', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(addNewPerson(data));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, bodyData);
@@ -516,7 +504,6 @@ describe('addNewPerson', () => {
       ],
     };
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(addNewPerson(data));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ADD_NEW_PERSON, {}, bodyData);
@@ -614,7 +601,6 @@ describe('addNewOrganization', () => {
   });
 
   it('adds organization with name', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(addNewOrganization(name));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -662,7 +648,6 @@ describe('addNewOrganization', () => {
       type: testImageData.fileType,
     } as unknown) as Blob);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(addNewOrganization(name, testImageData));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -722,7 +707,6 @@ describe('updateOrganization', () => {
   });
 
   it('update organization with name', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(updateOrganization(orgId, { name }));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -771,7 +755,6 @@ describe('updateOrganizationImage', () => {
   });
 
   it('update organization image', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(updateOrganizationImage(orgId, testImageData));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -805,7 +788,6 @@ describe('deleteOrganization', () => {
   });
 
   it('delete organization', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(deleteOrganization(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.DELETE_ORGANIZATION, {
@@ -849,7 +831,6 @@ describe('lookupOrgCommunityCode', () => {
     (callApi as jest.Mock).mockReturnValue(apiResponse);
     (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(lookupOrgCommunityCode(code));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_CODE, query);
@@ -863,7 +844,6 @@ describe('lookupOrgCommunityCode', () => {
     (callApi as jest.Mock).mockReturnValue({ type: 'error' });
     (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const result = await store.dispatch<any>(lookupOrgCommunityCode(code));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
@@ -892,7 +872,6 @@ describe('lookupOrgCommunityUrl', () => {
     (callApi as jest.Mock).mockReturnValue(apiResponse);
     (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(lookupOrgCommunityUrl(urlCode));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LOOKUP_COMMUNITY_URL, query);
@@ -906,7 +885,6 @@ describe('lookupOrgCommunityUrl', () => {
     (callApi as jest.Mock).mockReturnValue({ type: 'error' });
     (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const result = await store.dispatch<any>(lookupOrgCommunityUrl(urlCode));
 
     // expect(trackActionWithoutData).toHaveBeenCalledWith(
@@ -938,7 +916,6 @@ describe('joinCommunity', () => {
 
   it('join community with code', async () => {
     const attributes = { ...attr, community_code: code };
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(joinCommunity(orgId, code));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -966,7 +943,6 @@ describe('joinCommunity', () => {
 
   it('join community with url', async () => {
     const attributes = { ...attr, community_url: url };
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(joinCommunity(orgId, undefined, url));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -1001,7 +977,6 @@ describe('joinCommunity', () => {
             })
         : apiResponse,
     );
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(joinCommunity(orgId, code));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
@@ -1027,7 +1002,6 @@ describe('joinCommunity', () => {
         apiError: { errors: [{ detail: 'some error' }] },
       }),
     );
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     expect(store.dispatch<any>(joinCommunity(orgId, code))).rejects.toThrow();
   });
 });
@@ -1043,7 +1017,6 @@ describe('generateNewCode', () => {
   });
 
   it('get new code for organization', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(generateNewCode(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_CODE, {
@@ -1064,7 +1037,6 @@ describe('generateNewLink', () => {
   });
 
   it('get new url for organization', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(generateNewLink(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.ORGANIZATION_NEW_LINK, {

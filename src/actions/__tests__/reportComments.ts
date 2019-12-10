@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -41,7 +43,6 @@ describe('report comments', () => {
   const item = { id: 'comment1' };
 
   it('should callApi for report', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const response = await store.dispatch<any>(reportComment(orgId, item));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -60,7 +61,6 @@ describe('report comments', () => {
     const fakeDate = '2018-09-06T14:13:21Z';
     (formatApiDate as jest.Mock).mockImplementation(() => fakeDate);
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const response = await store.dispatch<any>(
       ignoreReportComment(orgId, item.id),
     );
@@ -74,7 +74,6 @@ describe('report comments', () => {
   });
 
   it('should callApi for get reported comments', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const response = await store.dispatch<any>(getReportedComments(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {

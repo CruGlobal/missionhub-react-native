@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ThunkDispatch } from 'redux-thunk';
 
 import { ACTIONS } from '../constants';
@@ -11,7 +13,6 @@ import { trackActionWithoutData } from './analytics';
 
 export function reportComment(orgId: string, item: CelebrateComment) {
   return async (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch: ThunkDispatch<{}, {}, any>,
     getState: () => { auth: AuthState },
   ) => {
@@ -39,10 +40,7 @@ export function reportComment(orgId: string, item: CelebrateComment) {
 }
 
 export function ignoreReportComment(orgId: string, reportCommentId: string) {
-  return (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch: ThunkDispatch<{}, {}, any>,
-  ) =>
+  return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(
       callApi(
         REQUESTS.UPDATE_REPORT_COMMENT,
@@ -60,10 +58,7 @@ export function ignoreReportComment(orgId: string, reportCommentId: string) {
 }
 
 export function getReportedComments(orgId: string) {
-  return (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch: ThunkDispatch<{}, {}, any>,
-  ) =>
+  return (dispatch: ThunkDispatch<{}, {}, any>) =>
     dispatch(
       callApi(REQUESTS.GET_REPORTED_COMMENTS, {
         orgId,
