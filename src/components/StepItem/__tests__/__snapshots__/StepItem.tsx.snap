@@ -168,7 +168,7 @@ exports[`renders not me correctly 1`] = `
               ]
             }
           >
-            Sunday, Feb 19 @ 7:36 PM
+            Monday, Feb 20 @ 3:36 AM
           </Text>
         </View>
       </ReminderButton>
@@ -362,7 +362,7 @@ exports[`renders with pressable name correctly 1`] = `
               ]
             }
           >
-            Sunday, Feb 19 @ 7:36 PM
+            Monday, Feb 20 @ 3:36 AM
           </Text>
         </View>
       </ReminderButton>

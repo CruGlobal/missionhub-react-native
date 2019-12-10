@@ -176,6 +176,7 @@
       "<rootDir>/__mock__/hideWarnings.ts",
       "<rootDir>/__mock__/resetGlobalMockSeeds.ts"
     ],
+    "globalSetup": "<rootDir>/__mock__/globalSetup.ts",
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],

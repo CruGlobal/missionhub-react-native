@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import MockDate from 'mockdate';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
@@ -10,9 +11,7 @@ import { ACCEPTED_STEP } from '../../constants';
 jest.mock('../api');
 jest.mock('../../utils/common');
 
-Date = jest.fn(() => ({
-  toISOString: () => '2018-04-17T00:00:00Z',
-}));
+MockDate.set('2018-04-17');
 
 const mockStore = configureStore([thunk]);
 
@@ -186,7 +185,7 @@ describe('get journey', () => {
         person_id: personId,
         organization_ids: expectedOrgId,
         starting_at: '2011-01-01T00:00:00Z',
-        ending_at: '2018-04-17T00:00:00Z',
+        ending_at: '2018-04-17T00:00:00.000Z',
       },
     });
   }
@@ -230,7 +229,7 @@ describe('get group journey', () => {
         person_id: personId,
         organization_ids: orgId,
         starting_at: '2011-01-01T00:00:00Z',
-        ending_at: '2018-04-17T00:00:00Z',
+        ending_at: '2018-04-17T00:00:00.000Z',
         scope_to_current_user: !isAdmin,
       },
     });
