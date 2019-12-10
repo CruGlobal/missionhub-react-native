@@ -18,15 +18,17 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
-import {
-  refreshCommunity,
-  navigateToCommunity,
-  navigateToCelebrateComments,
-} from './organizations';
+import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
 import { reloadGroupCelebrateFeed } from './celebration';
-import { navigatePush, navigateBack, navigateToMainTabs } from './navigation';
+import {
+  navigatePush,
+  navigateBack,
+  navigateToMainTabs,
+  navigateToCommunity,
+  navigateToCelebrateComments,
+} from './navigation';
 import callApi from './api';
 
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
@@ -144,16 +146,21 @@ function handleNotification(notification) {
           }),
         );
       case 'celebrate':
-        await refreshCommunity(organization_id);
-        await reloadGroupCelebrateFeed(organization_id);
-        return dispatch(
-          navigateToCelebrateComments(organization_id, celebration_item_id),
-        );
+        if (organization_id) {
+          const community = await refreshCommunity(organization_id);
+          await reloadGroupCelebrateFeed(organization_id);
+          return dispatch(
+            navigateToCelebrateComments(community, celebration_item_id),
+          );
+        }
         return;
       case 'community_challenges':
-        const community = await refreshCommunity(organization_id);
-        await reloadGroupChallengeFeed(organization_id);
-        return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+        if (organization_id) {
+          const community = await refreshCommunity(organization_id);
+          await reloadGroupChallengeFeed(organization_id);
+          return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+        }
+        return;
     }
   };
 }

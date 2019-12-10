@@ -1,4 +1,5 @@
 /* eslint max-params: 0 */
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   DEFAULT_PAGE_LIMIT,
@@ -9,6 +10,7 @@ import {
 import callApi from '../actions/api';
 import { REQUESTS } from '../api/routes';
 import { organizationSelector } from '../selectors/organizations';
+import { OrganizationsState } from '../reducers/organizations';
 
 // Challenge and Celebrate action helpers
 
@@ -18,24 +20,32 @@ export const GET_CELEBRATE_INCLUDE =
 export const CHALLENGE = 'challenge';
 export const CELEBRATE = 'celebrate';
 
-const getOrg = (orgId, getState) =>
+const getOrg = (
+  orgId: string,
+  getState: () => { organizations: OrganizationsState },
+) =>
   organizationSelector(
     { organizations: getState().organizations },
     { orgId: orgId },
   );
 
-const getFeedType = (type, orgId) =>
+const getFeedType = (type: string, orgId: string) =>
   type === CHALLENGE
     ? REQUESTS.GET_GROUP_CHALLENGE_FEED
     : orgId === GLOBAL_COMMUNITY_ID
     ? REQUESTS.GET_GLOBAL_CELEBRATE_FEED
     : REQUESTS.GET_GROUP_CELEBRATE_FEED;
 
-const getPaginationType = type =>
+const getPaginationType = (type: string) =>
   type === CHALLENGE ? 'challengePagination' : 'celebratePagination';
 
 // Query for the celebrate and challenge feeds
-function buildQuery(type, orgId, page, personId) {
+function buildQuery(
+  type: string,
+  orgId: string,
+  page: number,
+  personId: string | null,
+) {
   return {
     page: {
       limit: DEFAULT_PAGE_LIMIT,
@@ -56,7 +66,7 @@ function buildQuery(type, orgId, page, personId) {
   };
 }
 
-const resetPaginationAction = (type, orgId) => ({
+const resetPaginationAction = (type: string, orgId: string) => ({
   type:
     type === CHALLENGE
       ? RESET_CHALLENGE_PAGINATION
@@ -65,8 +75,16 @@ const resetPaginationAction = (type, orgId) => ({
 });
 
 // Use this for the challenge and celebrate feeds
-export function getFeed(type, orgId, personId = null) {
-  return (dispatch, getState) => {
+export function getFeed(
+  type: string,
+  orgId: string,
+  personId: string | null = null,
+) {
+  return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dispatch: ThunkDispatch<{}, {}, any>,
+    getState: () => { organizations: OrganizationsState },
+  ) => {
     const org = getOrg(orgId, getState);
     const pagingType = getPaginationType(type);
     const { page, hasNextPage } = org[pagingType]
@@ -77,6 +95,7 @@ export function getFeed(type, orgId, personId = null) {
       // Does not have more data
       return Promise.resolve();
     }
+
     const query = buildQuery(type, orgId, page, personId);
 
     return dispatch(callApi(getFeedType(type, orgId), query));
@@ -84,8 +103,12 @@ export function getFeed(type, orgId, personId = null) {
 }
 
 // Use this for reloading the challenge and celebrate feeds
-export function reloadFeed(type, orgId) {
-  return (dispatch, getState) => {
+export function reloadFeed(type: string, orgId: string) {
+  return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dispatch: ThunkDispatch<{}, {}, any>,
+    getState: () => { organizations: OrganizationsState },
+  ) => {
     const org = getOrg(orgId, getState);
     const pagingType = getPaginationType(type);
 
