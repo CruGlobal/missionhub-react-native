@@ -1,4 +1,4 @@
-import configureStore from 'redux-mock-store';
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { updateUserStage, selectPersonStage } from '../selectStage';
@@ -12,7 +12,7 @@ jest.mock('../impact');
 jest.mock('../person');
 
 const mockStore = configureStore([thunk]);
-let store;
+let store: MockStore;
 
 const myId = '123';
 const personId = '456';
@@ -71,16 +71,17 @@ const apiResponse = {
 const impactResponse = { type: 'test impact' };
 const getPersonResponse = { type: 'test get person' };
 
-callApi.mockReturnValue(() => Promise.resolve(apiResponse));
-refreshImpact.mockReturnValue(impactResponse);
-getPersonDetails.mockReturnValue(getPersonResponse);
+(callApi as jest.Mock).mockReturnValue(() => Promise.resolve(apiResponse));
+(refreshImpact as jest.Mock).mockReturnValue(impactResponse);
+(getPersonDetails as jest.Mock).mockReturnValue(getPersonResponse);
 
 beforeEach(() => {
   store = mockStore();
 });
 
 it('updateUserStage', async () => {
-  await store.dispatch(updateUserStage(contactAssignmentId, stageId));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  await store.dispatch<any>(updateUserStage(contactAssignmentId, stageId));
 
   expect(callApi).toHaveBeenCalledWith(
     REQUESTS.UPDATE_CONTACT_ASSIGNMENT,
@@ -91,7 +92,8 @@ it('updateUserStage', async () => {
 });
 
 it('selectPersonStage', async () => {
-  await store.dispatch(selectPersonStage(personId, myId, stageId, orgId));
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  await store.dispatch<any>(selectPersonStage(personId, myId, stageId, orgId));
 
   expect(callApi).toHaveBeenCalledWith(
     REQUESTS.CREATE_CONTACT_ASSIGNMENT,
