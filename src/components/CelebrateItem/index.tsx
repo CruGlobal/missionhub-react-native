@@ -38,12 +38,7 @@ export const REPORT_STORY = gql`
       input: { subjectId: $subjectId, subjectType: Story }
     ) {
       contentComplaint {
-        createdAt
         id
-      }
-      errors {
-        message
-        path
       }
     }
   }
@@ -126,14 +121,12 @@ const CelebrateItem = ({
       { text: t('cancel') },
       {
         text: t('report.confirmButtonText'),
-        onPress: async () => {
-          const response = await reportStory({
+        onPress: () =>
+          reportStory({
             variables: {
               subjectId: celebrateable_id,
             },
-          });
-          console.log(response);
-        },
+          }),
       },
     ]);
   };

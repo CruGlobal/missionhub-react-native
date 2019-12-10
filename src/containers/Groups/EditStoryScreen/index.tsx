@@ -19,7 +19,7 @@ import { Event } from '../../../components/CelebrateItem';
 import styles from './styles';
 
 export const UPDATE_STORY = gql`
-  mutation UpdateStory($input: StoryUpdateInput!) {
+  mutation UpdateStory($input: UpdateStoryInput!) {
     updateStory(input: $input) {
       story {
         id
