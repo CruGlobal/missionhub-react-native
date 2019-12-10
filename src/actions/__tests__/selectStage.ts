@@ -92,6 +92,7 @@ beforeEach(() => {
 });
 
 it('selectMyStage', async () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   await store.dispatch<any>(selectMyStage(stageId));
 
   expect(callApi).toHaveBeenCalledWith(
