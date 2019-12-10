@@ -1,4 +1,6 @@
-import configureStore from 'redux-mock-store';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
@@ -11,11 +13,12 @@ import { REQUESTS } from '../../api/routes';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
-import * as common from '../../utils/common';
+import { formatApiDate } from '../../utils/common';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
+jest.mock('../../utils/common');
 
 const orgId = '645654';
 const comment = { pagination: { page: 2, hasNextPage: true } };
@@ -25,20 +28,23 @@ const me = { id: 'myId' };
 const trackActionResult = { type: 'tracked action' };
 
 const mockStore = configureStore([thunk]);
-let store;
-
-callApi.mockReturnValue(() => callApiResponse);
-celebrateCommentsSelector.mockReturnValue(comment);
-trackActionWithoutData.mockReturnValue(trackActionResult);
+let store: MockStore;
 
 beforeEach(() => {
   store = mockStore({ auth: { person: me }, celebrateComments });
+  (callApi as jest.Mock).mockReturnValue(() => callApiResponse);
+  ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+    comment,
+  );
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
 });
 
 describe('report comments', () => {
   const item = { id: 'comment1' };
+
   it('should callApi for report', async () => {
-    const response = await store.dispatch(reportComment(orgId, item));
+    const response = await store.dispatch<any>(reportComment(orgId, item));
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CREATE_REPORT_COMMENT,
       { orgId },
@@ -50,10 +56,15 @@ describe('report comments', () => {
     );
     expect(store.getActions()).toEqual([trackActionResult]);
   });
+
   it('should callApi for ignore', async () => {
     const fakeDate = '2018-09-06T14:13:21Z';
-    common.formatApiDate = jest.fn(() => fakeDate);
-    const response = await store.dispatch(ignoreReportComment(orgId, item.id));
+    (formatApiDate as jest.Mock).mockImplementation(() => fakeDate);
+
+    const response = await store.dispatch<any>(
+      ignoreReportComment(orgId, item.id),
+    );
+
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.UPDATE_REPORT_COMMENT,
       { orgId, reportCommentId: item.id },
@@ -61,8 +72,10 @@ describe('report comments', () => {
     );
     expect(response).toEqual(callApiResponse);
   });
+
   it('should callApi for get reported comments', async () => {
-    const response = await store.dispatch(getReportedComments(orgId));
+    const response = await store.dispatch<any>(getReportedComments(orgId));
+
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_REPORTED_COMMENTS, {
       orgId,
       filters: { ignored: false },
