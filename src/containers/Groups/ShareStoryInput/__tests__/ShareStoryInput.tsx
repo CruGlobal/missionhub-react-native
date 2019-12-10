@@ -4,9 +4,9 @@ import { fireEvent } from 'react-native-testing-library';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
 import { renderWithContext } from '../../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
+import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 
 import ShareStoryInput from '..';
-import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 
 jest.mock('../../../../actions/navigation');
 

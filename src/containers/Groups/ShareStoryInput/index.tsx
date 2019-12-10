@@ -7,9 +7,9 @@ import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
 import { Organization } from '../../../reducers/organizations';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import styles from './styles';
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 interface ShareStoryInputProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
