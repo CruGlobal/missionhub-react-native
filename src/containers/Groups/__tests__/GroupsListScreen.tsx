@@ -5,8 +5,7 @@ import { MockList } from 'graphql-tools';
 
 import GroupsListScreen from '../GroupsListScreen';
 import { renderWithContext } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-import { navigateToCommunity } from '../../../actions/organizations';
+import { navigatePush, navigateToCommunity } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../../utils/common';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
