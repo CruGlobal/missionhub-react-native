@@ -1,7 +1,11 @@
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { updateUserStage, selectPersonStage } from '../selectStage';
+import {
+  updateUserStage,
+  selectPersonStage,
+  selectMyStage,
+} from '../selectStage';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { refreshImpact } from '../impact';
@@ -23,6 +27,14 @@ const contactAssignmentId = '333';
 const updateData = {
   data: {
     type: 'contact_assignment',
+    attributes: {
+      pathway_stage_id: stageId,
+    },
+  },
+};
+
+const myUpdateData = {
+  data: {
     attributes: {
       pathway_stage_id: stageId,
     },
@@ -77,6 +89,19 @@ const getPersonResponse = { type: 'test get person' };
 
 beforeEach(() => {
   store = mockStore();
+});
+
+it('selectMyStage', async () => {
+  await store.dispatch<any>(selectMyStage(stageId));
+
+  expect(callApi).toHaveBeenCalledWith(
+    REQUESTS.UPDATE_ME_USER,
+    {},
+    myUpdateData,
+  );
+  expect(refreshImpact).not.toHaveBeenCalled();
+  expect(getPersonDetails).not.toHaveBeenCalled();
+  expect(store.getActions()).not.toEqual([impactResponse, getPersonResponse]);
 });
 
 it('updateUserStage', async () => {
