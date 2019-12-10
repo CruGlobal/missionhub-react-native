@@ -1,3 +1,5 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -47,7 +49,6 @@ describe('getGroupCelebrateFeed', () => {
       },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(getGroupCelebrateFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CELEBRATE_FEED, {
@@ -77,7 +78,6 @@ describe('getGroupCelebrateFeed', () => {
       },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(getGroupCelebrateFeed(orgId));
 
     expect(callApi).not.toHaveBeenCalled();
@@ -104,7 +104,6 @@ describe('reloadGroupCelebrateFeed', () => {
   });
 
   it('reloads feed', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(reloadGroupCelebrateFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CELEBRATE_FEED, {
@@ -129,7 +128,6 @@ describe('getGroupCelebrateFeedUnread', () => {
   });
 
   it('calls feed of unread items', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(getGroupCelebrateFeedUnread(orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -163,7 +161,6 @@ describe('toggleLike', () => {
   });
 
   it('toggles from unlike to like', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(toggleLike(eventId, false, orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_CELEBRATE_ITEM, {
@@ -174,7 +171,6 @@ describe('toggleLike', () => {
   });
 
   it('toggles from like to unlike', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(toggleLike(eventId, true, orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.UNLIKE_CELEBRATE_ITEM, {
@@ -185,7 +181,6 @@ describe('toggleLike', () => {
   });
 
   it('toggles from unlike to like in global community', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(toggleLike(eventId, false, undefined));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM, {
@@ -196,7 +191,6 @@ describe('toggleLike', () => {
   });
 
   it('toggles from like to unlike in global community', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     store.dispatch<any>(toggleLike(eventId, true, undefined));
 
     expect(callApi).toHaveBeenCalledWith(
