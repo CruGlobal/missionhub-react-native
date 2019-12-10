@@ -24,7 +24,7 @@ class CommentLikeComponent extends Component {
 
     try {
       this.setState({ isLikeDisabled: true });
-      await dispatch(toggleLike(organization && organization.id, id, liked));
+      await dispatch(toggleLike(id, liked, organization && organization.id));
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       this.setState({ isLikeDisabled: false });

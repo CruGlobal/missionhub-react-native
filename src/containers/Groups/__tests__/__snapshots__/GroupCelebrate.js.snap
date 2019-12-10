@@ -61,6 +61,7 @@ exports[`should render correctly 1`] = `
         "page": 1,
       },
       "id": "1",
+      "user_created": false,
     }
   }
   refreshCallback={[Function]}
@@ -81,6 +82,7 @@ exports[`should render empty correctly 1`] = `
         "page": 1,
       },
       "id": "1",
+      "user_created": false,
     }
   }
   refreshCallback={[Function]}

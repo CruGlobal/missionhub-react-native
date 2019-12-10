@@ -4,7 +4,6 @@ import { AnyAction } from 'redux';
 
 import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
-import { organizationSelector } from '../selectors/organizations';
 import { OnboardingState } from '../reducers/onboarding';
 import { OrganizationsState } from '../reducers/organizations';
 import {
@@ -15,15 +14,11 @@ import {
 import { rollbar } from '../utils/rollbar.config';
 import { buildTrackingObj } from '../utils/common';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-} from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 import { getMe } from './person';
-import { navigatePush, navigateReset } from './navigation';
+import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
@@ -156,7 +151,7 @@ export function skipOnboarding() {
 
 export function joinStashedCommunity() {
   return async (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
     },
@@ -164,39 +159,28 @@ export function joinStashedCommunity() {
     const {
       onboarding: { community },
     } = getState();
-    await dispatch(
-      joinCommunity(
-        community.id,
-        community.community_code,
-        community.community_url,
-      ),
-    );
+
+    community &&
+      (await dispatch(
+        joinCommunity(
+          community.id,
+          community.community_code,
+          community.community_url,
+        ),
+      ));
   };
 }
 
 export function landOnStashedCommunityScreen() {
   return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
-    getState: () => {
-      onboarding: OnboardingState;
-      organizations: OrganizationsState;
-    },
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      null,
+      AnyAction
+    >,
+    getState: () => { onboarding: OnboardingState },
   ) => {
-    const {
-      organizations,
-      onboarding: {
-        community: { id },
-      },
-    } = getState();
-    const community = organizationSelector({ organizations }, { orgId: id });
-    dispatch(
-      navigateReset(
-        community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
-        {
-          organization: community,
-        },
-      ),
-    );
+    dispatch(navigateToCommunity(getState().onboarding.community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }
