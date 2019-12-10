@@ -300,6 +300,7 @@ describe('setStage', () => {
         isMe: true,
         personId: myId,
         stage: stage,
+        orgId,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -332,6 +333,7 @@ describe('setStage', () => {
         isMe: true,
         personId: myId,
         stage: stage,
+        orgId,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -368,6 +370,7 @@ describe('setStage', () => {
         isMe: false,
         personId: assignedPersonId,
         stage: stage,
+        orgId,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -403,6 +406,7 @@ describe('setStage', () => {
         isMe: false,
         personId: assignedPersonId,
         stage: stage,
+        orgId,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -439,6 +443,7 @@ describe('setStage', () => {
         isMe: false,
         personId: unassignedPersonId,
         stage: stage,
+        orgId,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(
@@ -476,6 +481,7 @@ describe('setStage', () => {
         isMe: false,
         personId: unassignedPersonId,
         stage: stage,
+        orgId,
       };
 
       const { store, snapTracking } = await buildAndTestSelect(

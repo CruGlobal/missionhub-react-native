@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
+import { organizationSelector } from '../selectors/organizations';
 import { AuthState } from '../reducers/auth';
 import { PeopleState, Person } from '../reducers/people';
-import { OrganizationsState } from '../reducers/organizations';
+import { OrganizationsState, Organization } from '../reducers/organizations';
 
-import { Step } from './SelectStepScreen';
-import SelectStepScreen from './SelectStepScreen';
+import SelectStepScreen, { Step } from './SelectStepScreen';
 
 interface PersonSelectStepScreenProps {
   contactName: string;
@@ -21,7 +21,7 @@ interface PersonSelectStepScreenProps {
   };
   person: Person;
   personId: string;
-  organization: OrganizationsState;
+  organization: Organization;
   next: (nextProps: {
     personId: string;
     step?: Step;
@@ -65,9 +65,11 @@ const mapStateToProps = (
   {
     auth,
     people,
+    organizations,
   }: {
     auth: AuthState;
     people: PeopleState;
+    organizations: OrganizationsState;
   },
   {
     navigation: {
@@ -76,7 +78,7 @@ const mapStateToProps = (
           contactName,
           personId,
           contactStage,
-          organization = {},
+          orgId,
           enableSkipButton,
         },
       },
@@ -85,10 +87,8 @@ const mapStateToProps = (
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
-  const person = personSelector(
-    { people },
-    { personId, orgId: organization.id },
-  );
+  const person = personSelector({ people }, { personId, orgId });
+  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     contactName,
@@ -104,7 +104,7 @@ const mapStateToProps = (
         { auth },
         {
           person,
-          orgId: organization.id,
+          orgId,
         },
       ),
   };
