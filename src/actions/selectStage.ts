@@ -1,4 +1,6 @@
 /* eslint max-params: 0 */
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { REQUESTS } from '../api/routes';
 
@@ -6,7 +8,7 @@ import callApi from './api';
 import { refreshImpact } from './impact';
 import { getPersonDetails } from './person';
 
-export function selectMyStage(id) {
+export function selectMyStage(id: string) {
   const data = {
     data: {
       attributes: {
@@ -15,12 +17,12 @@ export function selectMyStage(id) {
     },
   };
 
-  return dispatch => {
+  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
     return dispatch(callApi(REQUESTS.UPDATE_ME_USER, {}, data));
   };
 }
 
-export function updateUserStage(contactAssignmentId, stageId) {
+export function updateUserStage(contactAssignmentId: string, stageId: string) {
   const data = {
     data: {
       type: 'contact_assignment',
@@ -33,8 +35,9 @@ export function updateUserStage(contactAssignmentId, stageId) {
     contactAssignmentId,
   };
 
-  return async dispatch => {
-    const { response } = await dispatch(
+  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { response }: any = await dispatch(
       callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data),
     );
     const { person, organization } = response;
@@ -48,10 +51,10 @@ export function updateUserStage(contactAssignmentId, stageId) {
 }
 
 export function selectPersonStage(
-  personId,
-  assignedToId,
-  pathwayStageId,
-  orgId,
+  personId: string,
+  assignedToId: string,
+  pathwayStageId: string,
+  orgId?: string,
 ) {
   const data = {
     data: {
@@ -85,8 +88,9 @@ export function selectPersonStage(
     },
   };
 
-  return async dispatch => {
-    const { response } = await dispatch(
+  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { response }: any = await dispatch(
       callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data),
     );
 
