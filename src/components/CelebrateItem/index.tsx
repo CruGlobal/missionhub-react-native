@@ -58,7 +58,7 @@ export interface Event {
 export interface CelebrateItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   event: Event;
-  organization?: object;
+  organization: object;
   namePressable?: boolean;
   onClearNotification?: (event: Event) => void;
   onRefresh: () => void;
@@ -81,7 +81,6 @@ const CelebrateItem = ({
     subject_person_name,
     celebrateable_type,
   } = event;
-  const org = organization || event.organization;
 
   const { t } = useTranslation('celebrateItems');
   const [deleteStory] = useMutation(DELETE_STORY);
@@ -101,7 +100,7 @@ const CelebrateItem = ({
       }),
     );
 
-  const handleDelete = () => {
+  const handleDelete = () =>
     Alert.alert(t('delete.title'), t('delete.message'), [
       { text: t('cancel') },
       {
@@ -114,9 +113,8 @@ const CelebrateItem = ({
         },
       },
     ]);
-  };
 
-  const handleReport = () => {
+  const handleReport = () =>
     Alert.alert(t('report.title'), t('report.message'), [
       { text: t('cancel') },
       {
@@ -129,10 +127,9 @@ const CelebrateItem = ({
           }),
       },
     ]);
-  };
 
   const menuActions =
-    !orgIsGlobal(org) &&
+    !orgIsGlobal(organization) &&
     celebrateable_type === CELEBRATEABLE_TYPES.story &&
     subject_person
       ? me.id === subject_person.id
@@ -162,13 +159,13 @@ const CelebrateItem = ({
             <CelebrateItemName
               name={subject_person_name}
               person={subject_person}
-              organization={org}
+              organization={organization}
               pressable={namePressable}
             />
             <CardTime date={changed_attribute_value} />
           </View>
         </View>
-        <CelebrateItemContent event={event} organization={org} />
+        <CelebrateItemContent event={event} organization={organization} />
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
@@ -195,15 +192,16 @@ const CelebrateItem = ({
   );
 
   const renderGlobalOrgCard = () => (
-    <Card testID="CelebrateItemCard">
+    <Card testID="CelebrateItemPressable">
       {renderContent()}
       {onClearNotification ? renderClearNotificationButton() : null}
     </Card>
   );
 
   const renderStoryCard = () => (
-    <Card testID="CelebrateItemCard">
+    <Card>
       <PopupMenu
+        testID="CelebrateItemPressable"
         actions={menuActions}
         buttonProps={{
           onPress: handlePress,
@@ -218,13 +216,13 @@ const CelebrateItem = ({
   );
 
   const renderCelebrateCard = () => (
-    <Card testID="CelebrateItemCard" onPress={handlePress}>
+    <Card testID="CelebrateItemPressable" onPress={handlePress}>
       {renderContent()}
       {onClearNotification ? renderClearNotificationButton() : null}
     </Card>
   );
 
-  return orgIsGlobal(org)
+  return orgIsGlobal(organization)
     ? renderGlobalOrgCard()
     : menuActions
     ? renderStoryCard()

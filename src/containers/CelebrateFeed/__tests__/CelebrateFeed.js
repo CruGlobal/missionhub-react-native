@@ -123,22 +123,6 @@ describe('item', () => {
       .renderItem({ item: celebrationItems[0] });
     expect(renderedItem).toMatchSnapshot();
   });
-
-  it('navigates to CELEBRATE_DETAIL_SCREEN on press', () => {
-    const item = celebrationItems[0];
-
-    component
-      .instance()
-      .renderItem({ item })
-      .props.onPressItem({ ...item });
-
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
-      event: item,
-    });
-    expect(store.getActions()).toEqual(
-      expect.arrayContaining([navigatePushResult]),
-    );
-  });
 });
 
 it('renderHeader match snapshot', () => {

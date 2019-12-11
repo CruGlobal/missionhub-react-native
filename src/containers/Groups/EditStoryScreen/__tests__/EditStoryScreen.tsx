@@ -1,26 +1,25 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { navigatePush } from '../../../../actions/navigation';
+import { navigateBack } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
 
 import EditStoryScreen from '..';
 
 jest.mock('../../../../actions/navigation');
 
-const organization = {
-  id: '1234',
-};
 const celebrationItem = {
   celebrateable_id: '111',
   object_description: 'It was the best of times...',
 };
 
+const newText = 'It was the worst of times...';
+
 const onRefresh = jest.fn();
-const navigatePushResult = { type: 'navigated push' };
+const navigateBackResult = { type: 'navigated back' };
 
 beforeEach(() => {
-  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
 });
 
 it('renders correctly', () => {
@@ -50,58 +49,40 @@ describe('saveStory', () => {
       },
     });
 
-    fireEvent.press(getByTestId('SaveStoryButton'));
+    fireEvent.changeText(getByTestId('EditInput'), '');
+    fireEvent.press(getByTestId('saveStoryButton'));
 
-    expect(onComplete).not.toBeCalled();
+    expect(onRefresh).not.toHaveBeenCalled();
+    expect(navigateBack).not.toHaveBeenCalled();
   });
 
-  it('user types a story', () => {
+  it('user edits story', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-      <ShareStoryScreen />,
+      <EditStoryScreen />,
       {
-        initialState: {
-          navigation: { state: { params: { onComplete, organization } } },
-        },
         navParams: {
-          onComplete,
-          organization,
+          celebrationItem,
+          onRefresh,
         },
       },
     );
     recordSnapshot();
-    fireEvent.changeText(getByTestId('StoryInput'), MOCK_STORY);
+    fireEvent.changeText(getByTestId('EditInput'), newText);
     diffSnapshot();
   });
-  it('calls changeStory function when the user types a story and input value changes', async () => {
-    const changeStory = jest.spyOn(React, 'useState');
-    const { getByTestId, snapshot } = renderWithContext(<ShareStoryScreen />, {
-      initialState: {
-        navigation: { state: { params: { onComplete, organization } } },
-      },
-      navParams: {
-        onComplete,
-        organization,
-      },
-    });
 
-    await fireEvent(getByTestId('StoryInput'), 'onChangeText', MOCK_STORY);
-
-    expect(changeStory).toHaveBeenCalled();
-    snapshot();
-  });
   it('calls saveStory function when the user clicks the share story button', async () => {
-    const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
-      initialState: {
-        navigation: { state: { params: { onComplete, organization } } },
-      },
+    const { getByTestId } = renderWithContext(<EditStoryScreen />, {
       navParams: {
-        onComplete,
-        organization,
+        celebrationItem,
+        onRefresh,
       },
     });
 
-    await fireEvent(getByTestId('StoryInput'), 'onChangeText', MOCK_STORY);
-    await fireEvent.press(getByTestId('SaveStoryButton'));
-    expect(onComplete).toHaveBeenCalled();
+    await fireEvent(getByTestId('EditInput'), 'onChangeText', newText);
+    await fireEvent.press(getByTestId('saveStoryButton'));
+
+    expect(onRefresh).toHaveBeenCalledWith();
+    expect(navigateBack).toHaveBeenCalledWith();
   });
 });
