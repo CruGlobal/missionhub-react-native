@@ -13,12 +13,19 @@ import {
 } from '../../../actions/celebration';
 import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
+import { orgPermissionSelector } from '../../../selectors/people';
 import * as common from '../../../utils/common';
-import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../../constants';
+import {
+  INTERACTION_TYPES,
+  CELEBRATEABLE_TYPES,
+  ORG_PERMISSIONS,
+  GLOBAL_COMMUNITY_ID,
+} from '../../../constants';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/reportComments');
+jest.mock('../../../selectors/people');
 
 MockDate.set('2017-06-18');
 const celebrate1 = {
@@ -44,19 +51,28 @@ const celebratePagination = {
   page: 1,
 };
 
+const myId = '123';
 const orgId = '1';
 const org = {
   id: orgId,
+  user_created: false,
   celebrateItems: [celebrate1, celebrate2, celebrate3],
   celebratePagination: celebratePagination,
 };
 
-const store = { organizations: { all: [org] } };
+const store = { organizations: { all: [org] }, auth: { person: { id: myId } } };
 
-getReportedComments.mockReturnValue(() => ({ type: 'got repoerted comments' }));
-reloadGroupCelebrateFeed.mockReturnValue(() => Promise.resolve());
-getGroupCelebrateFeed.mockReturnValue({ type: 'got group celebrate feed' });
-refreshCommunity.mockReturnValue({ type: 'refreshed community' });
+beforeEach(() => {
+  getReportedComments.mockReturnValue(() => ({
+    type: 'got repoerted comments',
+  }));
+  reloadGroupCelebrateFeed.mockReturnValue(() => Promise.resolve());
+  getGroupCelebrateFeed.mockReturnValue({ type: 'got group celebrate feed' });
+  refreshCommunity.mockReturnValue({ type: 'refreshed community' });
+  orgPermissionSelector.mockReturnValue({
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+});
 
 it('should render correctly', () => {
   testSnapshotShallow(
@@ -76,17 +92,144 @@ it('should render empty correctly', () => {
   );
 });
 
-it('should refresh correctly', async () => {
-  const component = renderShallow(
-    <GroupCelebrate orgId={orgId} store={createThunkStore(store)} />,
-    store,
-  );
+describe('refresh items', () => {
+  let testOrg;
 
-  await component.props().refreshCallback();
+  const testRefresh = () =>
+    renderShallow(
+      <GroupCelebrate
+        orgId={testOrg.id}
+        store={createThunkStore({
+          ...store,
+          organizations: { all: [testOrg] },
+        })}
+      />,
+    )
+      .props()
+      .refreshCallback();
 
-  expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-  expect(getReportedComments).toHaveBeenCalledWith(org.id);
-  expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+  describe('owner', () => {
+    beforeEach(() => {
+      orgPermissionSelector.mockReturnValue({
+        permission_id: ORG_PERMISSIONS.OWNER,
+      });
+    });
+
+    describe('user created community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = { ...org, user_created: true };
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+        expect(getReportedComments).toHaveBeenCalledWith(org.id);
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+      });
+    });
+    describe('cru community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = org;
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+        expect(getReportedComments).toHaveBeenCalledWith(org.id);
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+      });
+    });
+    describe('global community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = { ...org, id: GLOBAL_COMMUNITY_ID };
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+        expect(getReportedComments).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(
+          GLOBAL_COMMUNITY_ID,
+        );
+      });
+    });
+  });
+
+  describe('admin', () => {
+    beforeEach(() => {
+      orgPermissionSelector.mockReturnValue({
+        permission_id: ORG_PERMISSIONS.ADMIN,
+      });
+    });
+
+    describe('user created community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = { ...org, user_created: true };
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+        expect(getReportedComments).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+      });
+    });
+    describe('cru community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = org;
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+        expect(getReportedComments).toHaveBeenCalledWith(org.id);
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+      });
+    });
+    describe('global community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = { ...org, id: GLOBAL_COMMUNITY_ID };
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+        expect(getReportedComments).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(
+          GLOBAL_COMMUNITY_ID,
+        );
+      });
+    });
+  });
+
+  describe('member', () => {
+    beforeEach(() => {
+      orgPermissionSelector.mockReturnValue({
+        permission_id: ORG_PERMISSIONS.USER,
+      });
+    });
+
+    describe('user created community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = { ...org, user_created: true };
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+        expect(getReportedComments).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+      });
+    });
+    describe('cru community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = org;
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
+        expect(getReportedComments).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(org.id);
+      });
+    });
+    describe('global community', () => {
+      it('should refresh correctly', async () => {
+        testOrg = { ...org, id: GLOBAL_COMMUNITY_ID };
+        await testRefresh();
+
+        expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+        expect(getReportedComments).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(
+          GLOBAL_COMMUNITY_ID,
+        );
+      });
+    });
+  });
 });
 
 it('should refresh items properly', () => {

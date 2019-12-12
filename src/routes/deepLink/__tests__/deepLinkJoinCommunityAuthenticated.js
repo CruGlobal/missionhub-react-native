@@ -6,14 +6,16 @@ import { DeepLinkJoinCommunityAuthenticatedScreens } from '../deepLinkJoinCommun
 import { renderShallow } from '../../../../testUtils';
 import callApi from '../../../actions/api';
 import { loadHome } from '../../../actions/auth/userData';
+import { navigateToCommunity } from '../../../actions/navigation';
 import { joinCommunity } from '../../../actions/organizations';
-import { GROUP_TAB_SCROLL_ON_MOUNT } from '../../../constants';
-import { GROUP_SCREEN } from '../../../containers/Groups/GroupScreen';
+import { setScrollGroups } from '../../../actions/swipe';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/swipe');
 
 const community = { id: '1', community_url: '1234567890123456' };
 
@@ -26,12 +28,16 @@ const store = configureStore([thunk])({
 
 const loadHomeResponse = { type: 'load home' };
 const joinCommunityResponse = { type: 'join community' };
+const setScrollGroupsResponse = { type: 'set scroll groups' };
+const navigateToCommunityResponse = { type: 'navigate to community' };
 
 beforeEach(() => {
   store.clearActions();
   callApi.mockReturnValue(() => Promise.resolve());
   loadHome.mockReturnValue(loadHomeResponse);
   joinCommunity.mockReturnValue(joinCommunityResponse);
+  setScrollGroups.mockReturnValue(setScrollGroupsResponse);
+  navigateToCommunity.mockReturnValue(navigateToCommunityResponse);
 });
 
 describe('JoinGroupScreen next', () => {
@@ -59,24 +65,8 @@ describe('JoinGroupScreen next', () => {
     expect(store.getActions()).toEqual([
       joinCommunityResponse,
       loadHomeResponse,
-      {
-        type: GROUP_TAB_SCROLL_ON_MOUNT,
-        value: '1',
-      },
-      {
-        actions: [
-          {
-            params: {
-              organization: { community_url: '1234567890123456', id: '1' },
-            },
-            routeName: GROUP_SCREEN,
-            type: 'Navigation/NAVIGATE',
-          },
-        ],
-        index: 0,
-        key: null,
-        type: 'Navigation/RESET',
-      },
+      setScrollGroupsResponse,
+      navigateToCommunityResponse,
     ]);
   });
 });

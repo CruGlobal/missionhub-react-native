@@ -89,9 +89,12 @@ export const orgIsPersonalMinistry = org =>
   org && (!org.id || org.id === 'personal');
 export const orgIsUserCreated = org =>
   !!(org && (org.user_created || org.userCreated));
-export const orgIsCru = org =>
-  org && !orgIsPersonalMinistry(org) && !orgIsUserCreated(org);
 export const orgIsGlobal = org => org && org.id === GLOBAL_COMMUNITY_ID;
+export const orgIsCru = org =>
+  org &&
+  !orgIsPersonalMinistry(org) &&
+  !orgIsUserCreated(org) &&
+  !orgIsGlobal(org);
 
 const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,
@@ -110,6 +113,10 @@ export const isOwner = orgPermission =>
   !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER;
 export const isAdmin = orgPermission =>
   !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN;
+
+export const shouldQueryReportedComments = (org, orgPermission) =>
+  (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||
+  (orgIsUserCreated(org) && isOwner(orgPermission));
 
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 

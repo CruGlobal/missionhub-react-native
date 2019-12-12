@@ -14,7 +14,6 @@ Components to convert to TS+Hooks
 - RowSwipeable
 - SearchList
 - SearchPeopleItem
-- SideMenu
 - SwipeTabMenu
 - common.js
 
@@ -47,6 +46,7 @@ Components to convert to TS+Hooks
 - ReportCommentHeaderCard
 - ReportCommentLabel
 - ShareSurveyMenu
+- SideMenu
 - StepDetailScreen
 - Separator
 - SettingsMenu
