@@ -22,7 +22,7 @@ export interface Step {
 interface SelectStepScreenProps {
   personId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  organization?: { [key: string]: any };
+  orgId?: string;
   contactName?: string;
   contactStageId: string;
   headerText: [string, string];
@@ -33,14 +33,14 @@ interface SelectStepScreenProps {
     personId: string;
     step?: Step;
     skip: boolean;
-    orgId: string;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }
 
 const SelectStepScreen = ({
   personId,
-  organization,
+  orgId,
   contactName,
   contactStageId,
   headerText,
@@ -54,7 +54,7 @@ const SelectStepScreen = ({
         personId,
         step,
         skip,
-        orgId: organization && organization.id,
+        orgId,
       }),
     );
   };
