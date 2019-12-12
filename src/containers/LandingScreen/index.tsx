@@ -8,7 +8,6 @@ import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { Button, Text } from '../../components/common';
 import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
-
 import {
   FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,

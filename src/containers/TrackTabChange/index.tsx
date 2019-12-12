@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { TRACK_TAB, STEPS_TAB, PEOPLE_TAB, GROUPS_TAB } from '../../constants';
+import { STEPS_TAB, PEOPLE_TAB, GROUPS_TAB } from '../../constants';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { trackScreenChange } from '../../actions/analytics';
 
@@ -32,8 +32,7 @@ export const TrackTabChange = ({ dispatch, screen }: TrackTabChangeProps) => {
     }
   };
 
-  const tabFocused = (payload: Payload): void => {
-    dispatch({ type: TRACK_TAB, routeName: payload.action.routeName });
+  const tabFocused = () => {
     dispatch(checkForUnreadComments());
     dispatch(trackScreenChange([getAnalyticsScreenName()]));
   };
