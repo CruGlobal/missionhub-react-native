@@ -86,11 +86,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={
-    Object {
-      "id": "123",
-    }
-  }
+  orgId="123"
 />
 `;
 

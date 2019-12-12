@@ -4,10 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
-import { organizationSelector } from '../selectors/organizations';
 import { AuthState } from '../reducers/auth';
 import { PeopleState, Person } from '../reducers/people';
-import { OrganizationsState, Organization } from '../reducers/organizations';
 
 import SelectStepScreen, { Step } from './SelectStepScreen';
 
@@ -21,12 +19,12 @@ interface PersonSelectStepScreenProps {
   };
   person: Person;
   personId: string;
-  organization: Organization;
+  orgId: string;
   next: (nextProps: {
     personId: string;
     step?: Step;
     skip: boolean;
-    orgId: string;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, any, never>;
   enableSkipButton: boolean;
@@ -38,7 +36,7 @@ const PersonSelectStepScreen = ({
   contactAssignment,
   person,
   personId,
-  organization,
+  orgId,
   next,
   enableSkipButton,
 }: PersonSelectStepScreenProps) => {
@@ -54,7 +52,7 @@ const PersonSelectStepScreen = ({
       personId={personId}
       contactName={name}
       headerText={[t('personHeader.part1'), t('personHeader.part2', { name })]}
-      organization={organization}
+      orgId={orgId}
       enableSkipButton={enableSkipButton}
       next={next}
     />
@@ -65,11 +63,9 @@ const mapStateToProps = (
   {
     auth,
     people,
-    organizations,
   }: {
     auth: AuthState;
     people: PeopleState;
-    organizations: OrganizationsState;
   },
   {
     navigation: {
@@ -88,14 +84,13 @@ const mapStateToProps = (
   any,
 ) => {
   const person = personSelector({ people }, { personId, orgId });
-  const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     contactName,
     person,
     personId,
     contactStage,
-    organization,
+    orgId,
     enableSkipButton,
     next,
     contactAssignment:

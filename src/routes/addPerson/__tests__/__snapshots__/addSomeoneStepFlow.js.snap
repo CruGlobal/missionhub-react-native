@@ -55,11 +55,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   }
   next={[Function]}
-  organization={
-    Object {
-      "id": "personal",
-    }
-  }
+  orgId="personal"
   person={
     Object {
       "first_name": "Someone",
