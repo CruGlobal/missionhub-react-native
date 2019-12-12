@@ -16,6 +16,7 @@ exports[`AddStepScreen next renders correctly 1`] = `
     Object {
       "state": Object {
         "params": Object {
+          "orgId": "personal",
           "personId": "321",
           "type": "createStep",
         },
@@ -58,12 +59,13 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
           "contactStage": Object {
             "id": "3",
           },
+          "orgId": "123",
         },
       },
     }
   }
   next={[Function]}
-  organization={Object {}}
+  orgId="123"
 />
 `;
 
@@ -104,6 +106,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     Object {
       "state": Object {
         "params": Object {
+          "orgId": "personal",
           "personId": "123",
           "step": Object {
             "id": "111",

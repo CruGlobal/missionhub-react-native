@@ -57,6 +57,7 @@ interface SelectStageScreenProps {
     personId: string;
     stage: Stage;
     isAlreadySelected: boolean;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   myId: string;
@@ -143,6 +144,7 @@ const SelectStageScreen = ({
         personId,
         stage,
         isAlreadySelected,
+        orgId,
       }),
     );
 
