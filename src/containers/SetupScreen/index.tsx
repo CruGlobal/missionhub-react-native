@@ -15,6 +15,7 @@ import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { personSelector } from '../../selectors/people';
@@ -46,6 +47,7 @@ const SetupScreen = ({
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
+  useTrackScreenChange(['onboarding', `${isMe ? 'self' : 'contact'} name`]);
   const { t } = useTranslation('onboardingCreatePerson');
   const [firstName, setFirstName] = useState(loadedFirstName);
   const [lastName, setLastName] = useState(loadedLastName);

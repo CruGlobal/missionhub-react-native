@@ -9,6 +9,7 @@ import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -27,6 +28,7 @@ interface NotificationPrimerScreenProps {
 const NotificationPrimerScreen = ({
   dispatch,
 }: NotificationPrimerScreenProps) => {
+  useTrackScreenChange(['allow notifications']);
   const { t } = useTranslation('notificationPrimer');
 
   const onComplete: (

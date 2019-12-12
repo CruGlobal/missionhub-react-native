@@ -8,6 +8,7 @@ import { navigateBack } from '../actions/navigation';
 import { AuthState } from '../reducers/auth';
 import { Stage, StagesState } from '../reducers/stages';
 import { stageSelector, localizedStageSelector } from '../selectors/stages';
+import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
 import IconMessageScreen from './IconMessageScreen/index';
 
@@ -31,6 +32,7 @@ const StageSuccessScreen = ({
   firstName,
   stage,
 }: StageSuccessScreenProps) => {
+  useTrackScreenChange(['onboarding', 'stage confirmation']);
   const { t } = useTranslation('stageSuccess');
 
   const handleNavigateToStep = () => dispatch(next());

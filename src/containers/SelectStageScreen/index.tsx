@@ -22,7 +22,11 @@ import {
   selectPersonStage,
   updateUserStage,
 } from '../../actions/selectStage';
-import { trackAction, trackState } from '../../actions/analytics';
+import {
+  trackAction,
+  trackState,
+  trackScreenChange,
+} from '../../actions/analytics';
 import { buildTrackingObj } from '../../utils/common';
 import {
   ACTIONS,
@@ -30,6 +34,7 @@ import {
   PERSON_VIEWED_STAGE_CHANGED,
 } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
@@ -114,7 +119,7 @@ const SelectStageScreen = ({
         type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
         newActiveTab: trackingObj,
       });
-      dispatch(trackState(trackingObj));
+      dispatch(trackScreenChange(['stage', stages[index].name.toLowerCase()]));
     }
   };
 

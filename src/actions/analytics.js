@@ -35,24 +35,32 @@ import { isCustomStep } from '../utils/common';
 );*/
 
 export function trackScreenChange(screenNameFragments, extraContext = {}) {
-  return (_, getState) => {
+  return (dispatch, getState) => {
     const {
       analytics: { [ANALYTICS.MCID]: MCID },
     } = getState();
-
-    if (!MCID) {
-      //get Marketing Cloud Id
-    }
 
     const screenName = screenNameFragments.reduce(
       (name, current) => `${name} : ${current}`,
       'mh',
     );
 
-    console.log(screenName);
-    RNOmniture.trackState(screenName, extraContext);
-    //sendStateToSnowplow(context);
+    if (MCID) {
+      sendScreenChange(screenName, { ...extraContext, [ANALYTICS.MCID]: MCID });
+    } else {
+      RNOmniture.loadMarketingCloudId(result => {
+        const updatedContext = { ...extraContext, [ANALYTICS.MCID]: result };
+
+        sendScreenChange(screenName, extraContext);
+        dispatch(updateAnalyticsContext(updatedContext));
+      });
+    }
   };
+}
+
+function sendScreenChange(screenName, context) {
+  RNOmniture.trackState(screenName, context);
+  //sendStateToSnowplow(context);
 }
 
 export function updateAnalyticsContext(analyticsContext) {
