@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
@@ -77,12 +77,14 @@ const NotificationPrimerScreen = ({
               justify="center"
               style={styles.stepsNotificationContainer}
             >
-              <Text style={styles.stepsNotificationText}>
-                {t('stepsNotification.part1')}
-              </Text>
-              <Text style={styles.stepsNotificationText}>
-                {t('stepsNotification.part2')}
-              </Text>
+              <View>
+                <Text style={styles.stepsNotificationText}>
+                  {t('stepsNotification.part1')}
+                </Text>
+                <Text style={styles.stepsNotificationText}>
+                  {t('stepsNotification.part2')}
+                </Text>
+              </View>
             </Flex>
             <Flex
               value={1}
@@ -90,15 +92,22 @@ const NotificationPrimerScreen = ({
               justify="center"
               style={styles.stepsNotificationContainer}
             >
-              <Image
-                source={require('../../../assets/images/notificationPrimerScreen.png')}
-              />
-              <Image
-                style={styles.stepsNotifcationImage}
-                source={require('../../../assets/images/notificationPrimerNotif.png')}
-              />
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require('../../../assets/images/notificationPrimerScreen.png')}
+                />
+                <Image
+                  style={styles.stepsNotifcationImage}
+                  source={require('../../../assets/images/notificationPrimerNotif.png')}
+                />
+              </View>
             </Flex>
-            <Flex value={1} align="center" justify="center">
+            <Flex
+              value={1}
+              align="center"
+              justify="center"
+              style={styles.buttonContainer}
+            >
               <Button
                 pill={true}
                 type="primary"

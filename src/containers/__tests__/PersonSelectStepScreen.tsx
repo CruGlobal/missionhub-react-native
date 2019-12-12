@@ -10,7 +10,7 @@ jest.mock('../../selectors/people');
 const myId = '14312';
 const personId = '123';
 const stageId = '2';
-const organization = { id: '889' };
+const orgId = '889';
 const contactAssignment = { id: '444', pathway_stage_id: stageId };
 
 const initialState = {
@@ -20,6 +20,7 @@ const initialState = {
       id: myId,
     },
   },
+  organizations: {},
   steps: {
     suggestedForOthers: {},
   },
@@ -30,7 +31,7 @@ const navParams = {
   personId: personId,
   contactStage: { id: stageId },
   contact: { id: personId },
-  organization,
+  orgId,
   enableBackButton: true,
   enableSkipButton: false,
 };
@@ -51,6 +52,6 @@ it('allows for undefined organization', () => {
   );
   renderWithContext(<PersonSelectStepScreen next={jest.fn()} />, {
     initialState,
-    navParams: { ...navParams, organization: undefined },
+    navParams: { ...navParams, orgId: undefined },
   }).snapshot();
 });

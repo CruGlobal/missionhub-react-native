@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`admin renders admin of cru org with 1 reported comment 1`] = `
+exports[`admin cru community renders without reported comments 1`] = `
 <Fragment>
   <Flex
     style={
@@ -31,7 +31,7 @@ exports[`admin renders admin of cru org with 1 reported comment 1`] = `
 </Fragment>
 `;
 
-exports[`admin renders admin of global org 1`] = `
+exports[`admin global community renders without reported comments 1`] = `
 <Fragment>
   <Connect(withI18nextTranslation(OnboardingCard))
     type="celebrate"
@@ -39,7 +39,7 @@ exports[`admin renders admin of global org 1`] = `
 </Fragment>
 `;
 
-exports[`admin renders admin of not cru org 1`] = `
+exports[`admin renders with 0 reported comments 1`] = `
 <Fragment>
   <Flex
     style={
@@ -59,7 +59,7 @@ exports[`admin renders admin of not cru org 1`] = `
 </Fragment>
 `;
 
-exports[`cru community org renders owner 1`] = `
+exports[`admin user created community renders with 1 reported comment 1`] = `
 <Fragment>
   <Flex
     style={
@@ -79,7 +79,7 @@ exports[`cru community org renders owner 1`] = `
 </Fragment>
 `;
 
-exports[`cru community org renders user 1`] = `
+exports[`members cru community renders without reported comments 1`] = `
 <Fragment>
   <Flex
     style={
@@ -99,7 +99,7 @@ exports[`cru community org renders user 1`] = `
 </Fragment>
 `;
 
-exports[`global community org renders user 1`] = `
+exports[`members global community renders without reported comments 1`] = `
 <Fragment>
   <Connect(withI18nextTranslation(OnboardingCard))
     type="celebrate"
@@ -107,7 +107,7 @@ exports[`global community org renders user 1`] = `
 </Fragment>
 `;
 
-exports[`not owner renders admin 1`] = `
+exports[`members user created community renders without reported comments 1`] = `
 <Fragment>
   <Flex
     style={
@@ -127,7 +127,46 @@ exports[`not owner renders admin 1`] = `
 </Fragment>
 `;
 
-exports[`not owner renders user 1`] = `
+exports[`owner cru community renders with 1 reported comment 1`] = `
+<Fragment>
+  <Flex
+    style={
+      Object {
+        "borderBottomColor": "#505256",
+        "borderBottomWidth": 1,
+        "padding": 20,
+      }
+    }
+  >
+    <UnreadCommentsCard
+      count={12}
+      onClose={[Function]}
+      onPress={[Function]}
+    />
+    <Flex
+      style={
+        Object {
+          "padding": 4,
+        }
+      }
+    />
+    <ReportCommentHeaderCard
+      count={1}
+      onPress={[Function]}
+    />
+  </Flex>
+</Fragment>
+`;
+
+exports[`owner global community renders without reported comments 1`] = `
+<Fragment>
+  <Connect(withI18nextTranslation(OnboardingCard))
+    type="celebrate"
+  />
+</Fragment>
+`;
+
+exports[`owner renders with 0 reported comments 1`] = `
 <Fragment>
   <Flex
     style={
@@ -147,27 +186,7 @@ exports[`not owner renders user 1`] = `
 </Fragment>
 `;
 
-exports[`owner renders owner with 0 reported comment 1`] = `
-<Fragment>
-  <Flex
-    style={
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      }
-    }
-  >
-    <UnreadCommentsCard
-      count={12}
-      onClose={[Function]}
-      onPress={[Function]}
-    />
-  </Flex>
-</Fragment>
-`;
-
-exports[`owner renders owner with 1 reported comment 1`] = `
+exports[`owner user created community renders with 1 reported comment 1`] = `
 <Fragment>
   <Flex
     style={

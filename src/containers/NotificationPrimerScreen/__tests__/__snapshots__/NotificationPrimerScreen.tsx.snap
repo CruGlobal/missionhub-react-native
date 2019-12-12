@@ -1122,48 +1122,50 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        Allow notifications for
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        reminders on steps of faith
-      </Text>
+      <View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Allow notifications for
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          reminders on steps of faith
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -1179,31 +1181,44 @@ exports[`notificationTypes renders for ONBOARDING 1`] = `
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimerScreen.png",
-          }
-        }
-      />
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/notificationPrimerNotif.png",
-          }
-        }
+      <View
         style={
           Object {
-            "position": "absolute",
-            "top": 120,
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "center",
           }
         }
-      />
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/notificationPrimerScreen.png",
+            }
+          }
+        />
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/notificationPrimerNotif.png",
+            }
+          }
+          style={
+            Object {
+              "position": "absolute",
+              "top": "50%",
+            }
+          }
+        />
+      </View>
     </View>
     <View
       style={
         Array [
-          Object {},
+          Object {
+            "marginBottom": -50,
+            "paddingTop": 20,
+          },
           Object {
             "alignItems": "center",
             "flex": 1,
