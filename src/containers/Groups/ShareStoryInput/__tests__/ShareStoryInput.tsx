@@ -4,6 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
 import { renderWithContext } from '../../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
+import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 
 import ShareStoryInput from '..';
 
@@ -19,8 +20,19 @@ const props = {
   organization: mockOrganization,
 };
 
+const globalCommunityProps = {
+  ...props,
+  organization: {
+    id: GLOBAL_COMMUNITY_ID,
+  },
+};
+
 it('renders correctly', () => {
   renderWithContext(<ShareStoryInput {...props} />).snapshot();
+});
+
+it('does not render for Global Community', () => {
+  renderWithContext(<ShareStoryInput {...globalCommunityProps} />).snapshot();
 });
 
 it('onPress switches to ShareStoryScreen', async () => {
