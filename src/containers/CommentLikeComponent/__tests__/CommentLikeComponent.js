@@ -103,9 +103,9 @@ describe('with subject person', () => {
 
     it('toggles like', () => {
       expect(toggleLike).toHaveBeenCalledWith(
-        event.organization.id,
         event.id,
         event.liked,
+        event.organization.id,
       );
       expect(store.getActions()).toEqual(
         expect.arrayContaining([toggleLikeResponse]),

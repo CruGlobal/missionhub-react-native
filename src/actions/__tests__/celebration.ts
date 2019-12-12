@@ -1,14 +1,20 @@
-import configureStore from 'redux-mock-store';
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
   getGroupCelebrateFeed,
   toggleLike,
   getGroupCelebrateFeedUnread,
+  reloadGroupCelebrateFeed,
 } from '../celebration';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { DEFAULT_PAGE_LIMIT } from '../../constants';
+import {
+  DEFAULT_PAGE_LIMIT,
+  RESET_CELEBRATION_PAGINATION,
+} from '../../constants';
 import { GET_CELEBRATE_INCLUDE } from '../../utils/actions';
 
 jest.mock('../api');
@@ -18,13 +24,14 @@ const orgId = '123';
 const apiResult = { type: 'done' };
 
 const createStore = configureStore([thunk]);
-let store;
+let store: MockStore;
 
 const currentPage = 0;
 
 describe('getGroupCelebrateFeed', () => {
   beforeEach(() => {
     store = createStore();
+    (callApi as jest.Mock).mockReturnValue(apiResult);
   });
 
   it('gets a page of celebrate feed', () => {
@@ -42,9 +49,7 @@ describe('getGroupCelebrateFeed', () => {
       },
     });
 
-    callApi.mockReturnValue(apiResult);
-
-    store.dispatch(getGroupCelebrateFeed(orgId));
+    store.dispatch<any>(getGroupCelebrateFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CELEBRATE_FEED, {
       page: {
@@ -73,12 +78,47 @@ describe('getGroupCelebrateFeed', () => {
       },
     });
 
-    callApi.mockReturnValue(apiResult);
-
-    store.dispatch(getGroupCelebrateFeed(orgId));
+    store.dispatch<any>(getGroupCelebrateFeed(orgId));
 
     expect(callApi).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
+  });
+});
+
+describe('reloadGroupCelebrateFeed', () => {
+  beforeEach(() => {
+    store = createStore({
+      organizations: {
+        all: [
+          {
+            id: orgId,
+            celebratePagination: {
+              hasNextPage: true,
+              page: currentPage,
+            },
+          },
+        ],
+      },
+    });
+    (callApi as jest.Mock).mockReturnValue(apiResult);
+  });
+
+  it('reloads feed', () => {
+    store.dispatch<any>(reloadGroupCelebrateFeed(orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CELEBRATE_FEED, {
+      page: {
+        limit: DEFAULT_PAGE_LIMIT,
+        offset: DEFAULT_PAGE_LIMIT * currentPage,
+      },
+      orgId,
+      include:
+        'subject_person.organizational_permissions,subject_person.contact_assignments',
+    });
+    expect(store.getActions()).toEqual([
+      { type: RESET_CELEBRATION_PAGINATION, orgId },
+      apiResult,
+    ]);
   });
 });
 
@@ -88,8 +128,7 @@ describe('getGroupCelebrateFeedUnread', () => {
   });
 
   it('calls feed of unread items', () => {
-    callApi.mockReturnValue(apiResult);
-    store.dispatch(getGroupCelebrateFeedUnread(orgId));
+    store.dispatch<any>(getGroupCelebrateFeedUnread(orgId));
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD,
@@ -105,9 +144,7 @@ describe('getGroupCelebrateFeedUnread', () => {
 
 describe('toggleLike', () => {
   const eventId = '456';
-  const liked = false;
-
-  it('toggles from unlike to like', () => {
+  beforeEach(() => {
     store = createStore({
       organizations: {
         all: [
@@ -121,15 +158,48 @@ describe('toggleLike', () => {
         ],
       },
     });
+  });
 
-    callApi.mockReturnValue(apiResult);
-
-    store.dispatch(toggleLike(orgId, eventId, liked));
+  it('toggles from unlike to like', () => {
+    store.dispatch<any>(toggleLike(eventId, false, orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_CELEBRATE_ITEM, {
       orgId,
       eventId,
     });
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from like to unlike', () => {
+    store.dispatch<any>(toggleLike(eventId, true, orgId));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.UNLIKE_CELEBRATE_ITEM, {
+      orgId,
+      eventId,
+    });
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from unlike to like in global community', () => {
+    store.dispatch<any>(toggleLike(eventId, false, undefined));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM, {
+      orgId: undefined,
+      eventId,
+    });
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from like to unlike in global community', () => {
+    store.dispatch<any>(toggleLike(eventId, true, undefined));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM,
+      {
+        orgId: undefined,
+        eventId,
+      },
+    );
     expect(store.getActions()).toEqual([apiResult]);
   });
 });

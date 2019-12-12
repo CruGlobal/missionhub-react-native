@@ -312,6 +312,7 @@ describe('PersonSelectStepScreen next', () => {
               contactStage: stage,
               contactName: personFirstName,
               contactId: personId,
+              orgId: '123',
             },
           },
         }}

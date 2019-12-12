@@ -218,10 +218,10 @@ describe('handleAddContact', () => {
 
 describe('handleRefresh', () => {
   beforeEach(() => {
-    ((getMyPeople as unknown) as jest.Mock).mockReturnValue({
+    (getMyPeople as jest.Mock).mockReturnValue({
       type: 'get people',
     });
-    ((checkForUnreadComments as unknown) as jest.Mock).mockReturnValue({
+    (checkForUnreadComments as jest.Mock).mockReturnValue({
       type: 'check for unread comments',
     });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

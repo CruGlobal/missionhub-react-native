@@ -31,12 +31,10 @@ import {
   navigateBack,
   navigateReset,
   navigateToMainTabs,
-} from '../navigation';
-import {
-  refreshCommunity,
   navigateToCommunity,
   navigateToCelebrateComments,
-} from '../organizations';
+} from '../navigation';
+import { refreshCommunity } from '../organizations';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
@@ -679,9 +677,21 @@ describe('askNotificationPermissions', () => {
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCelebrateComments).toHaveBeenCalledWith(
-          organization.id,
+          organization,
           celebration_item_id,
         );
+      });
+
+      it('should not navigate to org if no id passed', async () => {
+        await testNotification({
+          screen: 'celebrate',
+          organization_id: undefined,
+          celebration_item_id,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
+        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });
 
@@ -698,6 +708,17 @@ describe('askNotificationPermissions', () => {
           organization,
           GROUP_CHALLENGES,
         );
+      });
+
+      it('should not navigate to org if no id passed', async () => {
+        await testNotification({
+          screen: 'community_challenges',
+          organization_id: undefined,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
+        expect(navigateToCommunity).not.toHaveBeenCalled();
       });
     });
   });
