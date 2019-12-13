@@ -104,7 +104,7 @@ function getOrganization(orgId: string) {
     dispatch(callApi(REQUESTS.GET_ORGANIZATION, { orgId }));
 }
 
-export function refreshCommunity(orgId: string) {
+export function refreshCommunity(orgId: string = GLOBAL_COMMUNITY_ID) {
   return async (
     dispatch: ThunkDispatch<{}, null, AnyAction>,
     getState: () => { organizations: OrganizationsState },
