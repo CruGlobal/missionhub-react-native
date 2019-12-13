@@ -2,7 +2,6 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { CELEBRATE_DETAIL_SCREEN } from '../../CelebrateDetailScreen';
 import { navigatePush } from '../../../actions/navigation';
 import { renderShallow } from '../../../../testUtils';
 import { ACCEPTED_STEP } from '../../../constants';
@@ -122,22 +121,6 @@ describe('item', () => {
       .instance()
       .renderItem({ item: celebrationItems[0] });
     expect(renderedItem).toMatchSnapshot();
-  });
-
-  it('navigates to CELEBRATE_DETAIL_SCREEN on press', () => {
-    const item = celebrationItems[0];
-
-    component
-      .instance()
-      .renderItem({ item })
-      .props.onPressItem({ ...item });
-
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
-      event: item,
-    });
-    expect(store.getActions()).toEqual(
-      expect.arrayContaining([navigatePushResult]),
-    );
   });
 });
 
