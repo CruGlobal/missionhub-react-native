@@ -10,6 +10,7 @@ import {
   REQUEST_NOTIFICATIONS,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
@@ -159,8 +160,16 @@ function handleNotification(notification) {
           const community = await refreshCommunity(organization_id);
           await reloadGroupChallengeFeed(organization_id);
           return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+        } else {
+          const community = {
+            id: GLOBAL_COMMUNITY_ID,
+            name: 'MissionHub Community',
+            community: true,
+            user_created: true,
+          };
+          await reloadGroupChallengeFeed(GLOBAL_COMMUNITY_ID);
+          return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
         }
-        return;
     }
   };
 }
