@@ -7,6 +7,7 @@ import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
 import { PeopleState, Person } from '../reducers/people';
 import { OrganizationsState } from '../reducers/organizations';
+import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
 import { Step } from './SelectStepScreen';
 import SelectStepScreen from './SelectStepScreen';
@@ -42,6 +43,7 @@ const PersonSelectStepScreen = ({
   next,
   enableSkipButton,
 }: PersonSelectStepScreenProps) => {
+  useTrackScreenChange(['add step']);
   const { t } = useTranslation('selectStep');
   const name = contactName ? contactName : person.first_name;
   const stageId = contactAssignment
