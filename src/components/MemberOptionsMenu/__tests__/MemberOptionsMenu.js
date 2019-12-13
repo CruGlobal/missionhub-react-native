@@ -22,9 +22,9 @@ import MemberOptionsMenu, {
   API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
 } from '..';
 
-jest.mock('../../../actions/organizations.js');
-jest.mock('../../../actions/person.js');
-jest.mock('../../../actions/navigation.js');
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/person');
+jest.mock('../../../actions/navigation');
 
 const myId = '1';
 const otherId = '2';

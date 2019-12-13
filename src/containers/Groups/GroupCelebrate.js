@@ -11,8 +11,14 @@ import {
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
-import { momentUtc, refresh, orgIsGlobal } from '../../utils/common';
+import {
+  momentUtc,
+  refresh,
+  orgIsGlobal,
+  shouldQueryReportedComments,
+} from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
+import { orgPermissionSelector } from '../../selectors/people';
 
 @withTranslation('groupsCelebrate')
 class GroupCelebrate extends Component {
@@ -41,9 +47,9 @@ class GroupCelebrate extends Component {
   };
 
   reloadItems = () => {
-    const { dispatch, organization } = this.props;
+    const { dispatch, organization, shouldQueryReport } = this.props;
     dispatch(refreshCommunity(organization.id));
-    dispatch(getReportedComments(organization.id));
+    shouldQueryReport && dispatch(getReportedComments(organization.id));
     return dispatch(reloadGroupCelebrateFeed(organization.id));
   };
 
@@ -68,11 +74,19 @@ class GroupCelebrate extends Component {
   }
 }
 
-const mapStateToProps = ({ organizations }, { orgId }) => {
+const mapStateToProps = ({ auth, organizations }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
+  const myOrgPermission = orgPermissionSelector(
+    {},
+    { person: auth.person, organization },
+  );
 
   return {
     organization,
+    shouldQueryReport: shouldQueryReportedComments(
+      organization,
+      myOrgPermission,
+    ),
     celebrateItems: celebrationSelector({
       celebrateItems: organization.celebrateItems || [],
     }),

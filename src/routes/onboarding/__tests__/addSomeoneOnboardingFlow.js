@@ -174,6 +174,7 @@ describe('PersonSelectStepScreen next', () => {
               contactStage: stage,
               contactName: personFirstName,
               contactId: personId,
+              orgId: '123',
             },
           },
         }}
@@ -218,6 +219,7 @@ describe('SuggestedStepDetailScreen next', () => {
             params: {
               step,
               personId: myId,
+              orgId: 'personal',
             },
           },
         }}
@@ -256,6 +258,7 @@ describe('AddStepScreen next', () => {
             params: {
               type: CREATE_STEP,
               personId,
+              orgId: 'personal',
             },
           },
         }}

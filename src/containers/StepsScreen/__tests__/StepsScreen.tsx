@@ -74,21 +74,17 @@ const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
 beforeEach(() => {
   ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
-  ((openMainMenu as unknown) as jest.Mock).mockReturnValue(openMainMenuResult);
-  ((checkForUnreadComments as unknown) as jest.Mock).mockReturnValue(
+  (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResult);
+  (checkForUnreadComments as jest.Mock).mockReturnValue(
     checkForUnreadCommentsResult,
   );
-  ((getMySteps as unknown) as jest.Mock).mockReturnValue(getMyStepsResult);
+  (getMySteps as jest.Mock).mockReturnValue(getMyStepsResult);
   ((getMyStepsNextPage as unknown) as jest.Mock).mockReturnValue(
     getMyStepsNextPageResult,
   );
-  ((navigatePush as unknown) as jest.Mock).mockReturnValue(navigatePushResult);
-  ((navToPersonScreen as unknown) as jest.Mock).mockReturnValue(
-    navToPersonScreenResult,
-  );
-  ((navigateToMainTabs as unknown) as jest.Mock).mockReturnValue(
-    navigateToMainTabsResult,
-  );
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
+  (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
 });
 
 it('renders loading screen correctly', () => {

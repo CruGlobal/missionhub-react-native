@@ -63,16 +63,148 @@ function buildScreen() {
 }
 
 describe('owner', () => {
-  it('renders owner with 1 reported comment', () => {
+  describe('user created community', () => {
+    it('renders with 1 reported comment', () => {
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+    });
+  });
+
+  describe('cru community', () => {
+    it('renders with 1 reported comment', () => {
+      organizationSelector.mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+    });
+  });
+
+  describe('global community', () => {
+    it('renders without reported comments', () => {
+      organizationSelector.mockReturnValue({
+        ...organization,
+        id: GLOBAL_COMMUNITY_ID,
+        user_created: false,
+      });
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).not.toHaveBeenCalled();
+    });
+  });
+
+  it('renders with 0 reported comments', () => {
+    store = mockStore({ ...mockStoreObj, reportedComments: { all: {} } });
     const screen = buildScreen();
+
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
   });
-  it('renders owner with 0 reported comment', () => {
+});
+
+describe('admin', () => {
+  beforeEach(() => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+  });
+
+  describe('user created community', () => {
+    it('renders with 1 reported comment', () => {
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('cru community', () => {
+    it('renders without reported comments', () => {
+      organizationSelector.mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+    });
+  });
+
+  describe('global community', () => {
+    it('renders without reported comments', () => {
+      organizationSelector.mockReturnValue({
+        ...organization,
+        id: GLOBAL_COMMUNITY_ID,
+        user_created: false,
+      });
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).not.toHaveBeenCalled();
+    });
+  });
+
+  it('renders with 0 reported comments', () => {
+    organizationSelector.mockReturnValue({
+      ...organization,
+      user_created: false,
+    });
     store = mockStore({ ...mockStoreObj, reportedComments: { all: {} } });
     const screen = buildScreen();
+
     expect(screen).toMatchSnapshot();
     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
+  });
+});
+
+describe('members', () => {
+  beforeEach(() => {
+    orgPermissionSelector.mockReturnValue({
+      permission_id: ORG_PERMISSIONS.USER,
+    });
+  });
+
+  describe('user created community', () => {
+    it('renders without reported comments', () => {
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('cru community', () => {
+    it('renders without reported comments', () => {
+      organizationSelector.mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('global community', () => {
+    it('renders without reported comments', () => {
+      organizationSelector.mockReturnValue({
+        ...organization,
+        id: GLOBAL_COMMUNITY_ID,
+        user_created: false,
+      });
+      const screen = buildScreen();
+
+      expect(screen).toMatchSnapshot();
+      expect(getReportedComments).not.toHaveBeenCalled();
+    });
   });
 });
 
@@ -96,99 +228,6 @@ describe('unread comments card', () => {
     });
     const screen = buildScreen();
     expect(screen).toMatchSnapshot();
-  });
-});
-
-describe('admin', () => {
-  beforeEach(() => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
-    });
-  });
-  it('renders admin of cru org with 1 reported comment', () => {
-    organizationSelector.mockReturnValue({
-      ...organization,
-      user_created: false,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).toHaveBeenCalledWith(organization.id);
-  });
-  it('renders admin of not cru org', () => {
-    organizationSelector.mockReturnValue(organization);
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-  it('renders admin of global org', () => {
-    organizationSelector.mockReturnValue({
-      ...organization,
-      id: GLOBAL_COMMUNITY_ID,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-});
-
-describe('cru community org', () => {
-  beforeEach(() => {
-    organizationSelector.mockReturnValue({
-      ...organization,
-      user_created: false,
-    });
-  });
-  it('renders user', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-  it('renders owner', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.OWNER,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-});
-
-describe('global community org', () => {
-  beforeEach(() => {
-    organizationSelector.mockReturnValue({
-      ...organization,
-      id: GLOBAL_COMMUNITY_ID,
-    });
-  });
-  it('renders user', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-});
-
-describe('not owner', () => {
-  it('renders admin', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
-  });
-  it('renders user', () => {
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
-    });
-    const screen = buildScreen();
-    expect(screen).toMatchSnapshot();
-    expect(getReportedComments).not.toHaveBeenCalled();
   });
 });
 

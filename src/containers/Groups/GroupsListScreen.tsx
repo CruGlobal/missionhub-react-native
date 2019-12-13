@@ -18,10 +18,9 @@ import GroupCardItem from '../../components/GroupCardItem';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
 import { IconButton, Button } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToCommunity } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
-import { navigateToCommunity } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
@@ -32,6 +31,7 @@ import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
+import { OrganizationsState, Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -80,7 +80,11 @@ export const GET_COMMUNITIES_QUERY = gql`
 `;
 
 interface GroupsListScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<
+    { organizations: OrganizationsState },
+    null,
+    AnyAction
+  >;
   isAnonymousUser: boolean;
   scrollToId: string | null;
 }
@@ -206,7 +210,7 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const handlePress = (community: GetCommunities_communities_nodes) => {
+  const handlePress = (community: Organization) => {
     dispatch(navigateToCommunity(community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };

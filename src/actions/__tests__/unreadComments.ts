@@ -12,10 +12,10 @@ import { getMe } from '../person';
 
 jest.mock('../api');
 jest.mock('../person');
-callApi.mockReturnValue(() => {
+(callApi as jest.Mock).mockReturnValue(() => {
   result: 'marked as unread';
 });
-getMe.mockReturnValue(() => {
+(getMe as jest.Mock).mockReturnValue(() => {
   type: 'reloaded person';
 });
 
@@ -25,15 +25,15 @@ const unreadCommentsQuery = {
   'fields[organizational_permissions]': 'organization',
   'fields[organization]': 'unread_comments_count',
 };
-
-let store;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let store: any;
 
 beforeEach(() => {
   store = configureStore([thunk])();
 });
 
 describe('markCommentsRead', () => {
-  const orgId = 4;
+  const orgId = '4';
 
   beforeEach(async () => {
     await store.dispatch(markCommentsRead(orgId));
@@ -54,7 +54,7 @@ describe('markCommentsRead', () => {
 });
 
 describe('markCommentRead', () => {
-  const eventId = 4;
+  const eventId = '4';
 
   beforeEach(async () => {
     await store.dispatch(markCommentRead(eventId));
