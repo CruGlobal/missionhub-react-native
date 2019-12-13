@@ -6,11 +6,9 @@ import { ThunkAction } from 'redux-thunk';
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
 import { PeopleState, Person } from '../reducers/people';
-import { OrganizationsState } from '../reducers/organizations';
 import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
-import { Step } from './SelectStepScreen';
-import SelectStepScreen from './SelectStepScreen';
+import SelectStepScreen, { Step } from './SelectStepScreen';
 
 interface PersonSelectStepScreenProps {
   contactName: string;
@@ -22,12 +20,12 @@ interface PersonSelectStepScreenProps {
   };
   person: Person;
   personId: string;
-  organization: OrganizationsState;
+  orgId: string;
   next: (nextProps: {
     personId: string;
     step?: Step;
     skip: boolean;
-    orgId: string;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, any, never>;
   enableSkipButton: boolean;
@@ -39,7 +37,7 @@ const PersonSelectStepScreen = ({
   contactAssignment,
   person,
   personId,
-  organization,
+  orgId,
   next,
   enableSkipButton,
 }: PersonSelectStepScreenProps) => {
@@ -56,7 +54,7 @@ const PersonSelectStepScreen = ({
       personId={personId}
       contactName={name}
       headerText={[t('personHeader.part1'), t('personHeader.part2', { name })]}
-      organization={organization}
+      orgId={orgId}
       enableSkipButton={enableSkipButton}
       next={next}
     />
@@ -78,7 +76,7 @@ const mapStateToProps = (
           contactName,
           personId,
           contactStage,
-          organization = {},
+          orgId,
           enableSkipButton,
         },
       },
@@ -87,17 +85,14 @@ const mapStateToProps = (
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
-  const person = personSelector(
-    { people },
-    { personId, orgId: organization.id },
-  );
+  const person = personSelector({ people }, { personId, orgId });
 
   return {
     contactName,
     person,
     personId,
     contactStage,
-    organization,
+    orgId,
     enableSkipButton,
     next,
     contactAssignment:
@@ -106,7 +101,7 @@ const mapStateToProps = (
         { auth },
         {
           person,
-          orgId: organization.id,
+          orgId,
         },
       ),
   };

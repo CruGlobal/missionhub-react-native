@@ -80,12 +80,13 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
           "contactStage": Object {
             "id": "3",
           },
+          "orgId": "123",
         },
       },
     }
   }
   next={[Function]}
-  organization={Object {}}
+  orgId="123"
 />
 `;
 

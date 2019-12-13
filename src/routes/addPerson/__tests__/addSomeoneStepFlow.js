@@ -172,6 +172,7 @@ describe('PersonSelectStepScreen next', () => {
           state: {
             params: {
               personId,
+              orgId: 'personal',
             },
           },
         }}

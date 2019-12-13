@@ -7,6 +7,7 @@ import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
 import { Organization } from '../../../reducers/organizations';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import styles from './styles';
 
@@ -24,6 +25,7 @@ const ShareStoryInput = ({
 }: ShareStoryInputProps) => {
   const { t } = useTranslation('shareAStoryScreen');
   const { container, inputButton, inputText } = styles;
+  const { id } = organization;
 
   const onPress = () => {
     return dispatch(
@@ -37,13 +39,13 @@ const ShareStoryInput = ({
     );
   };
 
-  return (
+  return id !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
       <Button style={inputButton} onPress={onPress} testID="ShareStoryInput">
         <Text style={inputText}>{t('inputPlaceholder')}</Text>
       </Button>
     </View>
-  );
+  ) : null;
 };
 
 export default ShareStoryInput;
