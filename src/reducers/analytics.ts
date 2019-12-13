@@ -1,5 +1,3 @@
-import i18next from 'i18next';
-
 import {
   ANALYTICS_CONTEXT_CHANGED,
   ANALYTICS,
@@ -8,20 +6,22 @@ import {
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 
-export const initialAnalyticsState = {
-  [ANALYTICS.MCID]: '',
-  [ANALYTICS.SCREENNAME]: '',
-  [ANALYTICS.SITE_SECTION]: '',
-  [ANALYTICS.SITE_SUBSECTION]: '',
-  [ANALYTICS.SITE_SUB_SECTION_3]: '',
-  [ANALYTICS.CONTENT_AUDIENCE_TARGET]: '',
-  [ANALYTICS.CONTENT_TOPIC]: '',
-  [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-  [ANALYTICS.SSO_GUID]: '',
+export interface AnalyticsState {
+  ['cru.mcid']: string;
+  ['cru.ssoguid']: string;
+  ['cru.appname']: string;
+  ['cru.grmasterpersonid']: string;
+  ['cru.facebookid']: string;
+  ['cru.loggedinstatus']: string;
+}
+
+export const initialAnalyticsState: AnalyticsState = {
+  ['cru.mcid']: '',
+  ['cru.ssoguid']: '',
   ['cru.appname']: 'MissionHub App',
-  [ANALYTICS.GR_MASTER_PERSON_ID]: '',
-  [ANALYTICS.FACEBOOK_ID]: '',
-  [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
+  ['cru.grmasterpersonid']: '',
+  ['cru.facebookid']: '',
+  ['cru.loggedinstatus']: 'not logged in',
 };
 
 interface AnalyticsContextChangedAction {

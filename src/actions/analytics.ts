@@ -1,21 +1,30 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 import * as RNOmniture from 'react-native-omniture';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
-import Config from 'react-native-config';
+//import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
+//import Config from 'react-native-config';
 
 import {
   ACTIONS,
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,
   LOGGED_IN,
-  ID_SCHEMA,
+  //ID_SCHEMA,
 } from '../constants';
+import { AnalyticsState } from '../reducers/analytics';
+import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
 
-export function trackScreenChange(screenNameFragments, extraContext = {}) {
-  return (dispatch, getState) => {
+export function trackScreenChange(
+  screenNameFragments: string[],
+  extraContext: { [key: string]: string } = {},
+) {
+  return (
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    getState: () => { analytics: AnalyticsState },
+  ) => {
     const {
-      analytics: { [ANALYTICS.MCID]: MCID },
+      analytics: { ['cru.mcid']: MCID },
     } = getState();
 
     const screenName = screenNameFragments.reduce(
@@ -36,20 +45,25 @@ export function trackScreenChange(screenNameFragments, extraContext = {}) {
   };
 }
 
-function sendScreenChange(screenName, context) {
+function sendScreenChange(
+  screenName: string,
+  context: { [key: string]: string },
+) {
   RNOmniture.trackState(screenName, context);
   //sendStateToSnowplow(context);
 }
 
-export function updateAnalyticsContext(analyticsContext) {
+export function updateAnalyticsContext(analyticsContext: {
+  [key: string]: string;
+}) {
   return {
     type: ANALYTICS_CONTEXT_CHANGED,
     analyticsContext: analyticsContext,
   };
 }
 
-export function trackStepAdded(step) {
-  return dispatch => {
+export function trackStepAdded(step: SuggestedStep) {
+  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     let trackedStep = `${step.challenge_type} | ${
       step.self_step ? 'Y' : 'N'
     } | ${step.locale}`;
@@ -74,8 +88,8 @@ export function trackStepAdded(step) {
   };
 }
 
-export function trackSearchFilter(label) {
-  return dispatch => {
+export function trackSearchFilter(label: string) {
+  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     dispatch(
       trackAction(ACTIONS.FILTER_ENGAGED.name, {
         [ACTIONS.SEARCH_FILTER.key]: label,
@@ -85,11 +99,12 @@ export function trackSearchFilter(label) {
   };
 }
 
-export function trackActionWithoutData(action) {
+export function trackActionWithoutData(action: { name: string; key: string }) {
   return trackAction(action.name, { [action.key]: null });
 }
 
-export function trackAction(action, data) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function trackAction(action: string, data: { [key: string]: any }) {
   const newData = Object.keys(data).reduce(
     (acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }),
     {},
@@ -98,34 +113,36 @@ export function trackAction(action, data) {
   return () => RNOmniture.trackAction(action, newData);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function sendStateToSnowplow(context) {
-  const idData = {
-    gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
-    sso_guid: context[ANALYTICS.SSO_GUID],
-    mcid: context[ANALYTICS.MCID],
-  };
-
-  const tracker = new Tracker(
-    [
-      /*em*/
-    ],
-    null,
-    Config.SNOWPLOW_APP_ID,
-    true,
-  );
-  tracker.core.addPayloadPair('url', context[ANALYTICS.SCREENNAME]);
-
-  tracker.trackScreenView(context[ANALYTICS.SCREENNAME], null, [
-    {
-      schema: ID_SCHEMA,
-      data: idData,
-    },
-  ]);
-}
+//function sendStateToSnowplow(context: { [key: string]: string }) {
+//  const idData = {
+//    gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
+//    sso_guid: context[ANALYTICS.SSO_GUID],
+//    mcid: context[ANALYTICS.MCID],
+//  };
+//
+//  const tracker = new Tracker(
+//    [
+//      /*em*/
+//    ],
+//    null,
+//    Config.SNOWPLOW_APP_ID,
+//    true,
+//  );
+//  tracker.core.addPayloadPair('url', context[ANALYTICS.SCREENNAME]);
+//
+//  tracker.trackScreenView(context[ANALYTICS.SCREENNAME], null, [
+//   {
+//     schema: ID_SCHEMA,
+//      data: idData,
+//    },
+//  ]);
+//}
 
 export function logInAnalytics() {
-  return (dispatch, getState) => {
+  return (
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    getState: () => { analytics: AnalyticsState },
+  ) => {
     const context = getState().analytics;
     const updatedContext = {
       ...context,

@@ -8,7 +8,8 @@ import { trackScreenChange } from '../../actions/analytics';
 
 export const useTrackScreenChange = (
   screenNameFragments: string[],
-  extraContext: any = {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  extraContext: { [key: string]: any } = {},
 ) => {
   const navigation = useNavigation();
 
