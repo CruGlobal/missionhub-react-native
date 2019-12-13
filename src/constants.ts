@@ -117,13 +117,12 @@ export const PERSON_VIEWED_STAGE_CHANGED =
 export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
-  SCREENNAME: 'cru.screenname',
+  SCREEN_NAME: 'cru.screenname',
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
-  SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
-  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
-  CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
-  CONTENT_TOPIC: 'cru.contenttopic',
+  SITE_SUBSECTION_3: 'cru.subsectionlevel3',
+  PREVIOUS_SCREEN_NAME: 'cru.previousscreenname',
+  APP_NAME: 'cru.appname',
   LOGGED_IN_STATUS: 'cru.loggedinstatus',
   SSO_GUID: 'cru.ssoguid',
   GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',

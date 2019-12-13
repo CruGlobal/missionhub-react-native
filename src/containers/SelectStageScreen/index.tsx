@@ -33,6 +33,7 @@ import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
+import { AnalyticsState } from '../../reducers/analytics';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -51,7 +52,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface SelectStageScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>;
   next: (props: {
     isMe: boolean;
     personId: string;

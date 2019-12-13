@@ -6,27 +6,22 @@ import {
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 
-export interface AnalyticsState {
-  ['cru.mcid']: string;
-  ['cru.ssoguid']: string;
-  ['cru.appname']: string;
-  ['cru.grmasterpersonid']: string;
-  ['cru.facebookid']: string;
-  ['cru.loggedinstatus']: string;
-}
-
-export const initialAnalyticsState: AnalyticsState = {
-  ['cru.mcid']: '',
-  ['cru.ssoguid']: '',
-  ['cru.appname']: 'MissionHub App',
-  ['cru.grmasterpersonid']: '',
-  ['cru.facebookid']: '',
-  ['cru.loggedinstatus']: 'not logged in',
+export const initialAnalyticsState = {
+  [ANALYTICS.MCID]: '',
+  [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
+  [ANALYTICS.APP_NAME]: 'MissionHub App',
+  [ANALYTICS.LOGGED_IN_STATUS]: 'not logged in',
+  [ANALYTICS.SSO_GUID]: '',
+  [ANALYTICS.GR_MASTER_PERSON_ID]: '',
+  [ANALYTICS.FACEBOOK_ID]: '',
+  [ANALYTICS.CONTENT_LANGUAGE]: '',
 };
+
+export type AnalyticsState = typeof initialAnalyticsState;
 
 interface AnalyticsContextChangedAction {
   type: typeof ANALYTICS_CONTEXT_CHANGED;
-  analyticsContext: Partial<typeof initialAnalyticsState>;
+  analyticsContext: Partial<AnalyticsAction>;
 }
 
 interface KeyLoginSuccessAction {
@@ -47,20 +42,20 @@ function analyticsReducer(
     case ANALYTICS_CONTEXT_CHANGED:
       return {
         ...state,
-        ...(action.analyticsContext as typeof initialAnalyticsState),
+        ...(action.analyticsContext as AnalyticsState),
       };
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,
-        [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
+        SSO_GUID: action.results.thekey_guid,
       };
     case LOGOUT:
       return {
         ...state,
-        [ANALYTICS.SSO_GUID]: '',
-        [ANALYTICS.GR_MASTER_PERSON_ID]: '',
-        [ANALYTICS.FACEBOOK_ID]: '',
-        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
+        SSO_GUID: '',
+        GR_MASTER_PERSON_ID: '',
+        FACEBOOK_ID: '',
+        LOGGED_IN_STATUS: NOT_LOGGED_IN,
       };
     default:
       return state;

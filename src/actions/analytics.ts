@@ -15,42 +15,46 @@ import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
 
-export function trackScreenChange(
-  screenNameFragments: string[],
-  extraContext: { [key: string]: string } = {},
-) {
+export function trackScreenChange(screenNameFragments: string[]) {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => { analytics: AnalyticsState },
   ) => {
-    const {
-      analytics: { ['cru.mcid']: MCID },
-    } = getState();
-
+    const { analytics } = getState();
+    const { [ANALYTICS.MCID]: mcid } = analytics;
     const screenName = screenNameFragments.reduce(
       (name, current) => `${name} : ${current}`,
       'mh',
     );
 
-    if (MCID) {
-      sendScreenChange(screenName, { ...extraContext, [ANALYTICS.MCID]: MCID });
+    const sendScreenChange = (MCID: string) => {
+      const context = {
+        ...analytics,
+        [ANALYTICS.MCID]: MCID,
+        [ANALYTICS.SCREEN_NAME]: screenName,
+        [ANALYTICS.SITE_SECTION]: screenNameFragments[0],
+        [ANALYTICS.SITE_SUBSECTION]: screenNameFragments[1],
+        [ANALYTICS.SITE_SUBSECTION_3]: screenNameFragments[2],
+      };
+
+      console.log(screenName);
+      RNOmniture.trackState(screenName, context);
+      //sendStateToSnowplow(context);
+      dispatch(
+        updateAnalyticsContext({
+          [ANALYTICS.PREVIOUS_SCREEN_NAME]: screenName,
+        }),
+      );
+    };
+
+    if (mcid) {
+      sendScreenChange(mcid);
     } else {
       RNOmniture.loadMarketingCloudId(result => {
-        const updatedContext = { ...extraContext, [ANALYTICS.MCID]: result };
-
-        sendScreenChange(screenName, extraContext);
-        dispatch(updateAnalyticsContext(updatedContext));
+        sendScreenChange(result);
       });
     }
   };
-}
-
-function sendScreenChange(
-  screenName: string,
-  context: { [key: string]: string },
-) {
-  RNOmniture.trackState(screenName, context);
-  //sendStateToSnowplow(context);
 }
 
 export function updateAnalyticsContext(analyticsContext: {
@@ -58,7 +62,7 @@ export function updateAnalyticsContext(analyticsContext: {
 }) {
   return {
     type: ANALYTICS_CONTEXT_CHANGED,
-    analyticsContext: analyticsContext,
+    analyticsContext,
   };
 }
 

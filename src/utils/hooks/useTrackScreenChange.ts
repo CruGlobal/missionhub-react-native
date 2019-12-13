@@ -6,11 +6,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import { store } from '../../store';
 import { trackScreenChange } from '../../actions/analytics';
 
-export const useTrackScreenChange = (
-  screenNameFragments: string[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  extraContext: { [key: string]: any } = {},
-) => {
+export const useTrackScreenChange = (screenNameFragments: string[]) => {
   const navigation = useNavigation();
 
   let willFocus: NavigationEventSubscription;
@@ -18,7 +14,7 @@ export const useTrackScreenChange = (
   useEffect(() => {
     const addListeners = () => {
       willFocus = navigation.addListener('willFocus', () =>
-        store.dispatch(trackScreenChange(screenNameFragments, extraContext)),
+        store.dispatch(trackScreenChange(screenNameFragments)),
       );
     };
     const removeListeners = () => {

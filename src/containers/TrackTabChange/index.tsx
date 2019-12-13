@@ -29,6 +29,8 @@ export const TrackTabChange = ({ dispatch, screen }: TrackTabChangeProps) => {
         return 'people';
       case GROUPS_TAB:
         return 'communities';
+      default:
+        return '';
     }
   };
 
