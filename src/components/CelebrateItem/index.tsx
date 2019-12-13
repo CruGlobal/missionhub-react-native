@@ -25,7 +25,7 @@ import { CELEBRATEABLE_TYPES } from '../../constants';
 import styles from './styles';
 
 export const DELETE_STORY = gql`
-  mutation DeleteStory($input: StoryDeleteInput!) {
+  mutation DeleteStory($input: DeleteStoryInput!) {
     deleteStory(input: $input) {
       id
     }
@@ -47,7 +47,7 @@ export const REPORT_STORY = gql`
 export interface Event {
   id: string;
   changed_attribute_value: string;
-  subject_person?: Person;
+  subject_person: Person;
   subject_person_name: string;
   celebrateable_id: string;
   celebrateable_type: string;
@@ -130,8 +130,7 @@ const CelebrateItem = ({
 
   const menuActions =
     !orgIsGlobal(organization) &&
-    celebrateable_type === CELEBRATEABLE_TYPES.story &&
-    subject_person
+    celebrateable_type === CELEBRATEABLE_TYPES.story
       ? me.id === subject_person.id
         ? [
             {

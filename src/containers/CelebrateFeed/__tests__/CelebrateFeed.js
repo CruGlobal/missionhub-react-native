@@ -2,7 +2,6 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { CELEBRATE_DETAIL_SCREEN } from '../../CelebrateDetailScreen';
 import { navigatePush } from '../../../actions/navigation';
 import { renderShallow } from '../../../../testUtils';
 import { ACCEPTED_STEP } from '../../../constants';

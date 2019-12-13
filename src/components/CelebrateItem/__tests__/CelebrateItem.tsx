@@ -1,8 +1,11 @@
 import React from 'react';
 import * as ReactHooks from '@apollo/react-hooks';
+import { MutationResult } from '@apollo/react-common';
 import { Alert, ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
+import i18next from 'i18next';
+import { DocumentNode } from 'graphql';
 
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -12,8 +15,6 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScre
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../../containers/Groups/EditStoryScreen';
 
 import CelebrateItem, { Event, DELETE_STORY, REPORT_STORY } from '..';
-import i18next from 'i18next';
-import { DocumentNode } from 'graphql';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
@@ -70,7 +71,9 @@ beforeEach(() => {
         ? deleteStory
         : input === REPORT_STORY
         ? reportStory
-        : () => Promise.resolve(),
+        : jest.fn(),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      { loading: false } as MutationResult<any>,
     ]);
 });
 
@@ -200,7 +203,7 @@ describe('long-press card', () => {
     };
 
     it('navigates to edit story screen', () => {
-      ActionSheetIOS.showActionSheetWithOptions = jest.fn((__, b) => b(0));
+      ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
@@ -213,6 +216,9 @@ describe('long-press card', () => {
       );
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+        0,
+      );
 
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_EDIT_STORY_SCREEN, {
         celebrationItem: myStoryEvent,
@@ -222,13 +228,8 @@ describe('long-press card', () => {
     });
 
     it('deletes story', async () => {
-      ActionSheetIOS.showActionSheetWithOptions = jest.fn(
-        async (__, b) => await b(1),
-      );
-      Alert.alert = jest.fn(
-        async (_, __, buttons) =>
-          buttons && buttons[1].onPress && (await buttons[1].onPress()),
-      );
+      ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+      Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
         <CelebrateItem
@@ -239,7 +240,11 @@ describe('long-press card', () => {
         { initialState },
       );
 
-      await fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+        1,
+      );
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
       expect(navigatePush).not.toHaveBeenCalled();
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -260,13 +265,8 @@ describe('long-press card', () => {
 
   describe('story written by other', () => {
     it('reports story', async () => {
-      ActionSheetIOS.showActionSheetWithOptions = jest.fn(
-        async (__, b) => await b(0),
-      );
-      Alert.alert = jest.fn(
-        async (_, __, buttons) =>
-          buttons && buttons[1].onPress && (await buttons[1].onPress()),
-      );
+      ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+      Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
         <CelebrateItem
@@ -277,7 +277,11 @@ describe('long-press card', () => {
         { initialState },
       );
 
-      await fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
+      (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+        0,
+      );
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
 
       expect(navigatePush).not.toHaveBeenCalled();
       expect(Alert.alert).toHaveBeenCalledWith(
