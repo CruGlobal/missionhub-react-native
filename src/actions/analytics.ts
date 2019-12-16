@@ -9,7 +9,7 @@ import {
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,
   LOGGED_IN,
-  //ID_SCHEMA,
+  ID_SCHEMA,
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
@@ -37,7 +37,6 @@ export function trackScreenChange(screenNameFragments: string[]) {
         [ANALYTICS.SITE_SUBSECTION_3]: screenNameFragments[2],
       };
 
-      console.log(screenName);
       RNOmniture.trackState(screenName, context);
       //sendStateToSnowplow(context);
       dispatch(
@@ -47,7 +46,7 @@ export function trackScreenChange(screenNameFragments: string[]) {
       );
     };
 
-    if (mcid) {
+    if (mcid !== '') {
       sendScreenChange(mcid);
     } else {
       RNOmniture.loadMarketingCloudId(result => {
@@ -57,9 +56,9 @@ export function trackScreenChange(screenNameFragments: string[]) {
   };
 }
 
-export function updateAnalyticsContext(analyticsContext: {
-  [key: string]: string;
-}) {
+export function updateAnalyticsContext(
+  analyticsContext: Partial<AnalyticsState>,
+) {
   return {
     type: ANALYTICS_CONTEXT_CHANGED,
     analyticsContext,
@@ -117,30 +116,32 @@ export function trackAction(action: string, data: { [key: string]: any }) {
   return () => RNOmniture.trackAction(action, newData);
 }
 
-//function sendStateToSnowplow(context: { [key: string]: string }) {
-//  const idData = {
-//    gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
-//    sso_guid: context[ANALYTICS.SSO_GUID],
-//    mcid: context[ANALYTICS.MCID],
-//  };
-//
-//  const tracker = new Tracker(
-//    [
-//      /*em*/
-//    ],
-//    null,
-//    Config.SNOWPLOW_APP_ID,
-//    true,
-//  );
-//  tracker.core.addPayloadPair('url', context[ANALYTICS.SCREENNAME]);
-//
-//  tracker.trackScreenView(context[ANALYTICS.SCREENNAME], null, [
-//   {
-//     schema: ID_SCHEMA,
-//      data: idData,
-//    },
-//  ]);
-//}
+/*
+function sendStateToSnowplow(context: { [key: string]: string }) {
+  const idData = {
+    gr_master_person_id: context[ANALYTICS.GR_MASTER_PERSON_ID],
+    sso_guid: context[ANALYTICS.SSO_GUID],
+    mcid: context[ANALYTICS.MCID],
+  };
+
+  const tracker = new Tracker(
+    [
+      //em
+    ],
+    null,
+    Config.SNOWPLOW_APP_ID,
+    true,
+  );
+  tracker.core.addPayloadPair('url', context[ANALYTICS.SCREEN_NAME]);
+
+  tracker.trackScreenView(context[ANALYTICS.SCREEN_NAME], null, [
+    {
+      schema: ID_SCHEMA,
+      data: idData,
+    },
+  ]);
+}
+*/
 
 export function logInAnalytics() {
   return (

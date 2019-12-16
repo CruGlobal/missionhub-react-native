@@ -1,6 +1,5 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 import { AnyAction } from 'redux';
-import { Locale } from 'react-native-localize';
 
 import { REQUESTS } from '../api/routes';
 import { LOGOUT, COMPLETED_STEP_COUNT, RESET_STEP_COUNT } from '../constants';
@@ -13,10 +12,10 @@ import { Stage } from './stages';
 export type SuggestedStep = {
   id: string;
   body: string;
-  description_markdown: string;
+  description_markdown?: string;
   challenge_type: string;
   self_step: boolean;
-  locale: Locale;
+  locale: string;
   pathway_stage: Stage;
 };
 

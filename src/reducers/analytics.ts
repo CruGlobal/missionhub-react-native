@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 import {
   ANALYTICS_CONTEXT_CHANGED,
   ANALYTICS,
@@ -14,7 +16,7 @@ export const initialAnalyticsState = {
   [ANALYTICS.SSO_GUID]: '',
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
-  [ANALYTICS.CONTENT_LANGUAGE]: '',
+  [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
 };
 
 export type AnalyticsState = typeof initialAnalyticsState;
@@ -52,10 +54,10 @@ function analyticsReducer(
     case LOGOUT:
       return {
         ...state,
-        SSO_GUID: '',
-        GR_MASTER_PERSON_ID: '',
-        FACEBOOK_ID: '',
-        LOGGED_IN_STATUS: NOT_LOGGED_IN,
+        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
+        [ANALYTICS.SSO_GUID]: '',
+        [ANALYTICS.GR_MASTER_PERSON_ID]: '',
+        [ANALYTICS.FACEBOOK_ID]: '',
       };
     default:
       return state;
