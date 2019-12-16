@@ -5,10 +5,12 @@ import { fireEvent } from 'react-native-testing-library';
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 import { skipOnboarding } from '../../actions/onboarding';
 
 jest.mock('../../actions/onboarding');
 jest.mock('../../utils/hooks/useLogoutOnBack');
+jest.mock('../../utils/hooks/useTrackScreenChange');
 
 const next = jest.fn();
 const back = jest.fn();
@@ -19,6 +21,7 @@ beforeEach(() => {
   (next as jest.Mock).mockReturnValue(nextResult);
   (skipOnboarding as jest.Mock).mockReturnValue(skipOnboardingResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
+  (useTrackScreenChange as jest.Mock).mockClear();
 });
 
 it('renders correctly', () => {
@@ -37,6 +40,15 @@ it('renders without back button correctly', () => {
   renderWithContext(
     <AddSomeoneScreen next={next} enableBackButton={false} />,
   ).snapshot();
+});
+
+it('tracks screen change on mount', () => {
+  renderWithContext(<AddSomeoneScreen next={next} />);
+
+  expect(useTrackScreenChange).toHaveBeenCalledWith([
+    'onboarding',
+    'add someone',
+  ]);
 });
 
 describe('onComplete', () => {

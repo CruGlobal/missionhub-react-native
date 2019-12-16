@@ -7,6 +7,7 @@ import { requestNativePermissions } from '../../../actions/notifications';
 import { navigatePush } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
 
 import NotificationPrimerScreen from '..';
 
@@ -23,6 +24,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useTrackScreenChange');
 
 const navigatePushResult = { type: 'navigated push' };
 const registerResult = { type: 'request permissions' };
@@ -32,6 +34,7 @@ const onComplete = jest.fn();
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
+  (useTrackScreenChange as jest.Mock).mockClear();
 });
 
 describe('notificationTypes', () => {
@@ -75,6 +78,17 @@ describe('notificationTypes', () => {
     notificationType = JOIN_CHALLENGE;
     test();
   });
+});
+
+it('tracks screen change on mount', () => {
+  renderWithContext(<NotificationPrimerScreen />, {
+    navParams: {
+      onComplete,
+      notificationType: ONBOARDING,
+    },
+  });
+
+  expect(useTrackScreenChange).toHaveBeenCalledWith(['allow notifications']);
 });
 
 describe('notification primer methods', () => {

@@ -23,12 +23,7 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction, trackScreenChange } from '../../actions/analytics';
-import { buildTrackingObj } from '../../utils/common';
-import {
-  ACTIONS,
-  SELF_VIEWED_STAGE_CHANGED,
-  PERSON_VIEWED_STAGE_CHANGED,
-} from '../../constants';
+import { ACTIONS } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
@@ -105,17 +100,6 @@ const SelectStageScreen = ({
 
   const handleSnapToItem = (index: number) => {
     if (stages[index]) {
-      const trackingObj = buildTrackingObj(
-        `${section} : ${subsection} : stage : ${stages[index].id}`,
-        section,
-        subsection,
-        'stage',
-      );
-
-      dispatch({
-        type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
-        newActiveTab: trackingObj,
-      });
       dispatch(trackScreenChange(['stage', stages[index].name.toLowerCase()]));
     }
   };

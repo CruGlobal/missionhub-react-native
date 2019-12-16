@@ -2,12 +2,14 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
+import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
 import { renderWithContext } from '../../../../testUtils';
 
 import SelectStepScreen from '..';
 
 jest.mock('../../StepsList', () => 'StepsList');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../utils/hooks/useTrackScreenChange');
 
 const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
@@ -46,6 +48,8 @@ describe('without enableSkipButton', () => {
 
   it('renders correctly', () => {
     screen.snapshot();
+
+    expect(useTrackScreenChange).toHaveBeenCalledWith(['add step']);
   });
 });
 
@@ -56,6 +60,8 @@ describe('with enableSkipButton', () => {
 
   it('renders correctly', () => {
     screen.snapshot();
+
+    expect(useTrackScreenChange).toHaveBeenCalledWith(['add step']);
   });
 });
 

@@ -5,7 +5,6 @@ import { ThunkAction } from 'redux-thunk';
 
 import { Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
-import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
 import SelectStepScreen, { Step } from './SelectStepScreen';
 
@@ -20,7 +19,6 @@ interface SelectMyStepScreenProps {
 }
 
 const SelectMyStepScreen = ({ me, stageId, next }: SelectMyStepScreenProps) => {
-  useTrackScreenChange(['add step']);
   const { t } = useTranslation('selectStep');
 
   return (

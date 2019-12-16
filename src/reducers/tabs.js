@@ -14,8 +14,6 @@ const initialTabsState = {
   activeLoginTab: '',
   activeMainTab: stepsTab,
   activeContactTab: '',
-  activePersonStageTab: '',
-  activeSelfStageTab: '',
 };
 
 export default function tabsReducer(state = initialTabsState, action) {
@@ -29,16 +27,6 @@ export default function tabsReducer(state = initialTabsState, action) {
       return {
         ...state,
         activeGroupTab: action.newActiveTab,
-      };
-    case PERSON_VIEWED_STAGE_CHANGED:
-      return {
-        ...state,
-        activePersonStageTab: action.newActiveTab,
-      };
-    case SELF_VIEWED_STAGE_CHANGED:
-      return {
-        ...state,
-        activeSelfStageTab: action.newActiveTab,
       };
     default:
       return state;

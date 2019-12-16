@@ -9,6 +9,7 @@ import {
 } from '../../../testUtils';
 
 jest.mock('react-native-device-info');
+jest.mock('../../utils/hooks/useTrackScreenChange');
 
 const myId = '1234';
 

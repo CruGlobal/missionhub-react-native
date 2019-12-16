@@ -6,7 +6,6 @@ import { ThunkAction } from 'redux-thunk';
 import { contactAssignmentSelector, personSelector } from '../selectors/people';
 import { AuthState } from '../reducers/auth';
 import { PeopleState, Person } from '../reducers/people';
-import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
 import SelectStepScreen, { Step } from './SelectStepScreen';
 
@@ -41,7 +40,6 @@ const PersonSelectStepScreen = ({
   next,
   enableSkipButton,
 }: PersonSelectStepScreenProps) => {
-  useTrackScreenChange(['add step']);
   const { t } = useTranslation('selectStep');
   const name = contactName ? contactName : person.first_name;
   const stageId = contactAssignment
