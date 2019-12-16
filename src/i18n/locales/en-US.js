@@ -520,6 +520,10 @@ export default {
     shareStory: 'Share Story',
     inputPlaceholder: 'Share a Story...',
   },
+  editStoryScreen: {
+    saveStory: 'Save Changes',
+    inputPlaceholder: 'Share a Story...',
+  },
   celebrateFeeds: {
     title: '',
     emptyFeedTitle: 'Celebrate!',
@@ -543,6 +547,24 @@ export default {
       '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
+  },
+  celebrateItems: {
+    edit: {
+      buttonText: 'Edit Post',
+    },
+    delete: {
+      buttonText: 'Delete Post',
+      title: 'Delete Post?',
+      message:
+        "This post will be deleted and you won't be able to find it anymore.",
+    },
+    report: {
+      buttonText: 'Report to Owner',
+      title: 'Report to Owner?',
+      message:
+        'Are you sure you want to report this comment to the community owner?',
+      confirmButtonText: 'Report Post',
+    },
   },
   challengeFeeds: {
     past: 'Past Challenges',

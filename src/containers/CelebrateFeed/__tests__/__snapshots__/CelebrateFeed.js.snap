@@ -109,7 +109,6 @@ exports[`item renders correctly 1`] = `
       "date": "2018-03-01 12:00:00",
     }
   }
-  onPressItem={[Function]}
   organization={
     Object {
       "id": "456",
