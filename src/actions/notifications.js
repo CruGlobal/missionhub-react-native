@@ -168,6 +168,11 @@ function handleNotification(notification) {
 
 function parseNotificationData(notification) {
   const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
+  notification.screen_extra_data =
+    notification.screen_extra_data &&
+    JSON.parse(notification.screen_extra_data);
+  iosData.screen_extra_data =
+    iosData.screen_extra_data && JSON.parse(iosData.screen_extra_data);
   const data = {
     ...notification,
     ...notification.screen_extra_data,
