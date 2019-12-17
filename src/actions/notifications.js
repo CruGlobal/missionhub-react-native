@@ -10,7 +10,6 @@ import {
   REQUEST_NOTIFICATIONS,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
-  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';

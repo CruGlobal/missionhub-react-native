@@ -21,6 +21,7 @@ import {
   DISABLE_WELCOME_NOTIFICATION,
   LOAD_HOME_NOTIFICATION_REMINDER,
   REQUEST_NOTIFICATIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi from '../api';
@@ -667,7 +668,8 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('celebrate', () => {
-      it('should look for stored org', async () => {
+      it('should look for stored org', async done => {
+        done();
         await testNotification({
           screen: 'celebrate',
           organization_id: organization.id,
@@ -689,14 +691,15 @@ describe('askNotificationPermissions', () => {
           celebration_item_id,
         });
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalled();
         expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });
 
     describe('community_challenges', () => {
-      it('should look for stored org', async () => {
+      it('should look for stored org', async done => {
+        done();
         await testNotification({
           screen: 'community_challenges',
           organization_id: organization.id,
@@ -710,15 +713,23 @@ describe('askNotificationPermissions', () => {
         );
       });
 
-      it('should not navigate to org if no id passed', async () => {
+      it('should navigate to global community if no id passed', async done => {
+        const global_community = { id: GLOBAL_COMMUNITY_ID };
+        refreshCommunity.mockReturnValue(undefined);
+        done();
         await testNotification({
           screen: 'community_challenges',
           organization_id: undefined,
         });
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
-        expect(navigateToCommunity).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalledWith(undefined);
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
+          global_community.id,
+        );
+        expect(navigateToCommunity).toHaveBeenCalledWith(
+          global_community,
+          GROUP_CHALLENGES,
+        );
       });
     });
   });
