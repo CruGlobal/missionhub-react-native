@@ -1,11 +1,9 @@
 import React from 'react';
-import * as ReactHooks from '@apollo/react-hooks';
-import { MutationResult } from '@apollo/react-common';
 import { Alert, ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
-import { DocumentNode } from 'graphql';
+import { useMutation } from '@apollo/react-hooks';
 
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -34,8 +32,6 @@ MockDate.set('2019-08-21 12:00:00', 300);
 
 let onRefresh = jest.fn();
 let onClearNotification = jest.fn();
-let deleteStory = jest.fn();
-let reportStory = jest.fn();
 
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
@@ -60,21 +56,8 @@ const initialState = { auth: { person: { id: myId } } };
 beforeEach(() => {
   onRefresh = jest.fn();
   onClearNotification = jest.fn();
-  deleteStory = jest.fn();
-  reportStory = jest.fn();
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
-  jest
-    .spyOn(ReactHooks, 'useMutation')
-    .mockImplementation((input: DocumentNode) => [
-      input === DELETE_STORY
-        ? deleteStory
-        : input === REPORT_STORY
-        ? reportStory
-        : jest.fn(),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      { loading: false } as MutationResult<any>,
-    ]);
 });
 
 describe('global community', () => {
@@ -258,7 +241,9 @@ describe('long-press card', () => {
           },
         ],
       );
-      expect(deleteStory).toHaveBeenCalled();
+      expect(useMutation).toHaveBeenMutatedWith(DELETE_STORY, {
+        variables: { input: { id: event.celebrateable_id } },
+      });
       expect(onRefresh).toHaveBeenCalled();
     });
   });
@@ -295,7 +280,9 @@ describe('long-press card', () => {
           },
         ],
       );
-      expect(reportStory).toHaveBeenCalled();
+      expect(useMutation).toHaveBeenMutatedWith(REPORT_STORY, {
+        variables: { subjectId: event.celebrateable_id },
+      });
     });
   });
 });

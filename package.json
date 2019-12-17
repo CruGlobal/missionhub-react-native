@@ -174,7 +174,8 @@
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/__mock__/hideWarnings.ts",
-      "<rootDir>/__mock__/resetGlobalMockSeeds.ts"
+      "<rootDir>/__mock__/resetGlobalMockSeeds.ts",
+      "<rootDir>/__mock__/apolloHooks.ts"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
