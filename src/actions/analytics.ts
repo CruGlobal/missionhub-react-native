@@ -40,7 +40,7 @@ export function trackScreenChange(screenName: string | string[]) {
         [ANALYTICS.SITE_SUBSECTION]: screenFragments[1],
         [ANALYTICS.SITE_SUBSECTION_3]: screenFragments[2],
       };
-      console.log(screen);
+
       RNOmniture.trackState(screen, context);
       //sendStateToSnowplow(context);
       dispatch(
