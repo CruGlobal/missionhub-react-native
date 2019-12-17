@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from 'react';
 
-import { renderShallow, renderWithContext } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { STEPS_TAB, PEOPLE_TAB, GROUPS_TAB } from '../../../constants';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { trackScreenChange } from '../../../actions/analytics';
