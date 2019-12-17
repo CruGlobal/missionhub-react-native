@@ -1,5 +1,5 @@
 /* eslint max-lines: 0 */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';

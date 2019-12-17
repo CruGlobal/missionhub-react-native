@@ -9,7 +9,7 @@ import {
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,
   LOGGED_IN,
-  ID_SCHEMA,
+  //ID_SCHEMA,
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';

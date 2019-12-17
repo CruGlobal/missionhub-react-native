@@ -1,9 +1,4 @@
-import {
-  MAIN_TAB_CHANGED,
-  PERSON_VIEWED_STAGE_CHANGED,
-  SELF_VIEWED_STAGE_CHANGED,
-  GROUP_TAB_CHANGED,
-} from '../constants';
+import { MAIN_TAB_CHANGED, GROUP_TAB_CHANGED } from '../constants';
 import { stepsTab } from '../AppRoutes';
 
 /*

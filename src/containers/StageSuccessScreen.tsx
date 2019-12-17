@@ -10,7 +10,7 @@ import { Stage, StagesState } from '../reducers/stages';
 import { stageSelector, localizedStageSelector } from '../selectors/stages';
 import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
-import IconMessageScreen from './IconMessageScreen/index';
+import IconMessageScreen from './IconMessageScreen';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type DispatchType = ThunkDispatch<any, null, never>;

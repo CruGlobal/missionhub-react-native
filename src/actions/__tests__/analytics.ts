@@ -26,13 +26,6 @@ import {
   AnalyticsState,
 } from '../../reducers/analytics';
 
-const mockTracker = {
-  trackScreenView: jest.fn(),
-  core: {
-    addPayloadPair: jest.fn(),
-  },
-};
-
 jest.mock('react-native-omniture', () => ({
   trackState: jest.fn(),
   trackAction: jest.fn(),

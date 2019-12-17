@@ -49,7 +49,7 @@ function analyticsReducer(
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,
-        SSO_GUID: action.results.thekey_guid,
+        [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
       };
     case LOGOUT:
       return {

@@ -2,9 +2,9 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
+import { navigateBack } from '../../actions/navigation';
 import StageSuccessScreen from '../StageSuccessScreen';
 import { renderWithContext } from '../../../testUtils';
-import { navigatePush } from '../../actions/navigation';
 import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 jest.mock('react-native-device-info');
@@ -27,8 +27,10 @@ const mockState = {
 
 const next = jest.fn();
 
+const navigateBackResult = { type: 'navigate back' };
+
 beforeEach(() => {
-  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   next.mockReturnValue({ type: 'next' });
   (useTrackScreenChange as jest.Mock).mockClear();
 });
@@ -59,4 +61,15 @@ it('calls next with selected stage', () => {
   );
   fireEvent(getByTestId('IconMessageScreen'), 'onComplete');
   expect(next).toHaveBeenCalledWith();
+});
+
+it('calls navigate back', () => {
+  const { getByTestId } = renderWithContext(
+    <StageSuccessScreen next={next} />,
+    {
+      initialState: mockState,
+    },
+  );
+  fireEvent(getByTestId('IconMessageScreen'), 'onBack');
+  expect(navigateBack).toHaveBeenCalledWith();
 });

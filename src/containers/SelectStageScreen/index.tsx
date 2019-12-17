@@ -88,8 +88,6 @@ const SelectStageScreen = ({
     enableBackButton = true,
     personId,
     orgId,
-    section,
-    subsection,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
   useAndroidBackButton(enableBackButton);

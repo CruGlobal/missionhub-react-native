@@ -4,6 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
 import { ACTIONS } from '../../../constants';
 
 import WelcomeScreen from '..';
@@ -18,9 +19,13 @@ jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
 }));
+jest.mock('../../../utils/hooks/useTrackScreenChange');
 
-(trackActionWithoutData as jest.Mock).mockReturnValue({
-  type: 'tracked action without data',
+beforeEach(() => {
+  (trackActionWithoutData as jest.Mock).mockReturnValue({
+    type: 'tracked action without data',
+  });
+  (useTrackScreenChange as jest.Mock).mockClear();
 });
 
 describe('WelcomeScreen', () => {
@@ -37,6 +42,15 @@ describe('WelcomeScreen', () => {
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
     ).snapshot();
+  });
+
+  it('should track screen change on mount', () => {
+    renderWithContext(<WelcomeScreen next={next} />);
+
+    expect(useTrackScreenChange).toHaveBeenCalledWith([
+      'onboarding',
+      'welcome',
+    ]);
   });
 
   it('getStarted btn should call next', () => {
