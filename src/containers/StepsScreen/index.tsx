@@ -26,7 +26,7 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { STEPS_TAB, PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
-import TrackTabChange from '../TrackTabChange';
+import TrackOnFocus from '../TrackOnFocus';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
@@ -54,7 +54,6 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
-  useTrackScreenChange(['steps']);
   const { t } = useTranslation('stepsTab');
 
   const [paging, setPaging] = useState(false);
@@ -164,6 +163,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
+      <TrackOnFocus screenNameFragments={['steps']} />
       <Header
         testID="header"
         left={

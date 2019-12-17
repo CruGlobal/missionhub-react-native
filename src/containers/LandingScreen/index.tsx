@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { Button, Text } from '../../components/common';
+import TrackOnFocus from '../TrackOnFocus';
 import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 import {
   FULL_ONBOARDING_FLOW,
@@ -34,7 +35,6 @@ const LandingScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, any>;
 }) => {
-  useTrackScreenChange(['landing']);
   const { t } = useTranslation('landing');
 
   const tryItNow = () => {
@@ -51,6 +51,7 @@ const LandingScreen = ({
 
   return (
     <View style={container}>
+      <TrackOnFocus screenNameFragments={['landing']} />
       <View style={imageWrap}>
         <Image source={LOGO} />
       </View>
