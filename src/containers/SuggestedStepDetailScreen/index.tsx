@@ -9,7 +9,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -26,7 +26,6 @@ const SuggestedStepDetailScreen = ({
   dispatch,
   next,
 }: SuggestedStepDetailScreenProps) => {
-  useTrackScreenChange(['step detail', 'add step']);
   const { t } = useTranslation('suggestedStepDetail');
   const step: SuggestedStep = useNavigationParam('step');
   const personId: string = useNavigationParam('personId');
@@ -40,17 +39,20 @@ const SuggestedStepDetailScreen = ({
   };
 
   return (
-    <StepDetailScreen
-      CenterHeader={null}
-      RightHeader={null}
-      CenterContent={<View style={styles.centerContent} />}
-      text={body}
-      markdown={description_markdown}
-      bottomButtonProps={{
-        onPress: handleAddStep,
-        text: t('addStep'),
-      }}
-    />
+    <>
+      <TrackOnFocus screenNameFragments={['step detail', 'add step']} />
+      <StepDetailScreen
+        CenterHeader={null}
+        RightHeader={null}
+        CenterContent={<View style={styles.centerContent} />}
+        text={body}
+        markdown={description_markdown}
+        bottomButtonProps={{
+          onPress: handleAddStep,
+          text: t('addStep'),
+        }}
+      />
+    </>
   );
 };
 

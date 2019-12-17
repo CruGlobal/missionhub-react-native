@@ -9,7 +9,7 @@ import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -28,7 +28,6 @@ interface NotificationPrimerScreenProps {
 const NotificationPrimerScreen = ({
   dispatch,
 }: NotificationPrimerScreenProps) => {
-  useTrackScreenChange(['allow notifications']);
   const { t } = useTranslation('notificationPrimer');
 
   const onComplete: (
@@ -71,6 +70,7 @@ const NotificationPrimerScreen = ({
     if (notificationType === 'onboarding') {
       return (
         <Flex style={styles.container}>
+          <TrackOnFocus screenNameFragments={['allow notifications']} />
           <Flex value={0.3} />
           <Flex value={1} align="center" justify="center">
             <Flex

@@ -8,7 +8,6 @@ import { navigateBack } from '../actions/navigation';
 import { AuthState } from '../reducers/auth';
 import { Stage, StagesState } from '../reducers/stages';
 import { stageSelector, localizedStageSelector } from '../selectors/stages';
-import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
 
 import IconMessageScreen from './IconMessageScreen';
 
@@ -32,7 +31,6 @@ const StageSuccessScreen = ({
   firstName,
   stage,
 }: StageSuccessScreenProps) => {
-  useTrackScreenChange(['onboarding', 'stage confirmation']);
   const { t } = useTranslation('stageSuccess');
 
   const handleNavigateToStep = () => dispatch(next());
@@ -43,11 +41,13 @@ const StageSuccessScreen = ({
     localizedStageSelector(stage, i18next.language).self_followup_description ||
     t('backupMessage');
   message = message.replace('<<user>>', firstName ? firstName : t('friend'));
+
   return (
     <IconMessageScreen
       testID="IconMessageScreen"
       mainText={message}
       buttonText={t('chooseSteps')}
+      screenNameFragments={['onboarding', 'stage confirmation']}
       onComplete={handleNavigateToStep}
       iconPath={require('../../assets/images/pathFinder.png')}
       onBack={back}

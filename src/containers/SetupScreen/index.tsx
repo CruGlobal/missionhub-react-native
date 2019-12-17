@@ -15,12 +15,12 @@ import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import Skip from '../../components/Skip';
+import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -47,7 +47,6 @@ const SetupScreen = ({
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
-  useTrackScreenChange(['onboarding', `${isMe ? 'self' : 'contact'} name`]);
   const { t } = useTranslation('onboardingCreatePerson');
   const [firstName, setFirstName] = useState(loadedFirstName);
   const [lastName, setLastName] = useState(loadedLastName);
@@ -100,6 +99,12 @@ const SetupScreen = ({
 
   return (
     <View style={styles.container}>
+      <TrackOnFocus
+        screenNameFragments={[
+          'onboarding',
+          `${isMe ? 'self' : 'contact'} name`,
+        ]}
+      />
       <Header
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}

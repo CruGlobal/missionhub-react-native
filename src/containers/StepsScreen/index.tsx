@@ -23,7 +23,7 @@ import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { STEPS_TAB, PEOPLE_TAB } from '../../constants';
+import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import TrackOnFocus from '../TrackOnFocus';
@@ -31,7 +31,6 @@ import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 

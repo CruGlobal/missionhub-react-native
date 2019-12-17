@@ -11,7 +11,7 @@ import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -49,8 +49,6 @@ const SelectStepScreen = ({
   dispatch,
   next,
 }: SelectStepScreenProps) => {
-  useTrackScreenChange(['add step']);
-
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
       next({
@@ -97,6 +95,7 @@ const SelectStepScreen = ({
 
   return (
     <View style={styles.container}>
+      <TrackOnFocus screenNameFragments={['add step']} />
       <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
       <ParallaxScrollView
         backgroundColor={theme.primaryColor}

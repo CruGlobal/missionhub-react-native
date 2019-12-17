@@ -31,7 +31,7 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -129,7 +129,6 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useTrackScreenChange(['groups']);
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -256,6 +255,7 @@ const GroupsListScreen = ({
 
   return (
     <View style={styles.container}>
+      <TrackOnFocus screenNameFragments={['communities']} />
       <Header
         left={
           <IconButton

@@ -6,6 +6,7 @@ import BottomButton from '../../components/BottomButton';
 import Skip from '../../components/Skip';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
+import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -13,6 +14,7 @@ interface IconMessageScreenProps {
   mainText: string;
   buttonText: string;
   iconPath: ImageSourcePropType;
+  screenNameFragments: string[];
   onComplete: () => void;
   onSkip?: () => void;
   onBack?: () => void;
@@ -23,11 +25,13 @@ const IconMessageScreen = ({
   mainText,
   buttonText,
   iconPath,
+  screenNameFragments,
   onComplete,
   onSkip,
   onBack,
 }: IconMessageScreenProps) => (
   <View style={styles.container}>
+    <TrackOnFocus screenNameFragments={screenNameFragments} />
     <Header
       left={onBack ? <BackButton customNavigate={onBack} /> : null}
       right={onSkip ? <Skip onSkip={onSkip} /> : null}
