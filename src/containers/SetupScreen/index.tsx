@@ -111,9 +111,8 @@ const SetupScreen = ({
           <>
             <View style={{ flex: 1 }} />
             <View style={styles.imageWrap}>
-              <Image
-                source={require('../../../assets/images/add_someone.png')}
-              />
+              <Text style={styles.addPersonText}>{t('addPerson.part1')}</Text>
+              <Text style={styles.addPersonText}>{t('addPerson.part2')}</Text>
             </View>
           </>
         )}

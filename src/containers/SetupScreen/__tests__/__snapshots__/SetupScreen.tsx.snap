@@ -783,17 +783,52 @@ exports[`renders other person version correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "flex": 2,
+          "flex": 1,
         }
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/add_someone.png",
-          }
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            },
+          ]
         }
-      />
+      >
+        Who do you want to take
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+         a step of faith with?
+      </Text>
     </View>
   </View>
   <View
@@ -982,7 +1017,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -297,11 +297,11 @@
+@@ -332,11 +332,11 @@
               Object {},
             ]
           }
@@ -1002,7 +1037,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -337,11 +337,11 @@
+@@ -372,11 +372,11 @@
               Object {},
             ]
           }
