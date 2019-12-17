@@ -527,7 +527,7 @@ describe('askNotificationPermissions', () => {
       store.clearActions();
       getPersonDetails.mockReturnValue(getPersonResult);
       navToPersonScreen.mockReturnValue(navToPersonScreenResult);
-      refreshCommunity.mockReturnValue(refreshCommunityResult);
+      refreshCommunity.mockReturnValue(() => refreshCommunityResult);
       reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
       reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
       navigateToCelebrateComments.mockReturnValue(navToCelebrateResult);
@@ -668,8 +668,7 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('celebrate', () => {
-      it('should look for stored org', async done => {
-        done();
+      it('should look for stored org', async () => {
         await testNotification({
           screen: 'celebrate',
           organization_id: organization.id,
@@ -691,15 +690,14 @@ describe('askNotificationPermissions', () => {
           celebration_item_id,
         });
 
-        expect(refreshCommunity).toHaveBeenCalled();
+        expect(refreshCommunity).not.toHaveBeenCalled();
         expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });
 
     describe('community_challenges', () => {
-      it('should look for stored org', async done => {
-        done();
+      it('should look for stored org', async () => {
         await testNotification({
           screen: 'community_challenges',
           organization_id: organization.id,
@@ -713,10 +711,9 @@ describe('askNotificationPermissions', () => {
         );
       });
 
-      it('should navigate to global community if no id passed', async done => {
+      it('should navigate to global community if no id passed', async () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
-        refreshCommunity.mockReturnValue(undefined);
-        done();
+        refreshCommunity.mockReturnValue(() => undefined);
         await testNotification({
           screen: 'community_challenges',
           organization_id: undefined,
