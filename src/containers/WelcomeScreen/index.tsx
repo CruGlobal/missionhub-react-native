@@ -8,7 +8,7 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ACTIONS } from '../../constants';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
@@ -24,7 +24,7 @@ const WelcomeScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
 }) => {
-  useTrackScreenChange(['onboarding', 'welcome']);
+  useAnalytics(['onboarding', 'welcome']);
 
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));

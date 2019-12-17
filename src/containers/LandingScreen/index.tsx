@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { Button, Text } from '../../components/common';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
@@ -34,7 +34,7 @@ const LandingScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, any>;
 }) => {
-  useTrackScreenChange(['landing']);
+  useAnalytics('landing');
   const { t } = useTranslation('landing');
 
   const tryItNow = () => {

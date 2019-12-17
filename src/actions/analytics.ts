@@ -14,7 +14,6 @@ import {
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
-import { isArray } from 'util';
 
 export function trackScreenChange(screenName: string | string[]) {
   return (
@@ -24,7 +23,9 @@ export function trackScreenChange(screenName: string | string[]) {
     const { analytics } = getState();
     const { [ANALYTICS.MCID]: mcid } = analytics;
 
-    const screenFragments = isArray(screenName) ? screenName : [screenName];
+    const screenFragments = Array.isArray(screenName)
+      ? screenName
+      : [screenName];
     const screen = screenFragments.reduce(
       (name, current) => `${name} : ${current}`,
       'mh',
@@ -39,7 +40,7 @@ export function trackScreenChange(screenName: string | string[]) {
         [ANALYTICS.SITE_SUBSECTION]: screenFragments[1],
         [ANALYTICS.SITE_SUBSECTION_3]: screenFragments[2],
       };
-
+      console.log(screen);
       RNOmniture.trackState(screen, context);
       //sendStateToSnowplow(context);
       dispatch(

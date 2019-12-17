@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
-import { useTrackScreenChange } from '../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../utils/hooks/useAnalytics';
 
 import IconMessageScreen from './IconMessageScreen';
 
@@ -25,7 +25,7 @@ const AddSomeoneScreen = ({
   enableBackButton = true,
   logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
-  useTrackScreenChange(['onboarding', 'add someone']);
+  useAnalytics(['onboarding', 'add someone']);
   const { t } = useTranslation('addContact');
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);

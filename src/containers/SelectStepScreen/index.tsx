@@ -11,7 +11,7 @@ import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -49,7 +49,7 @@ const SelectStepScreen = ({
   dispatch,
   next,
 }: SelectStepScreenProps) => {
-  useTrackScreenChange(['add step']);
+  useAnalytics('add step');
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
