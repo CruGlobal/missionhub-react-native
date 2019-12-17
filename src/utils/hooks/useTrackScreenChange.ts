@@ -12,10 +12,11 @@ export const useTrackScreenChange = (screenNameFragments: string[]) => {
   let willFocus: NavigationEventSubscription;
 
   useEffect(() => {
+    const trackScreen = () =>
+      store.dispatch(trackScreenChange(screenNameFragments));
+
     const addListeners = () => {
-      willFocus = navigation.addListener('willFocus', () =>
-        store.dispatch(trackScreenChange(screenNameFragments)),
-      );
+      willFocus = navigation.addListener('willFocus', trackScreen);
     };
     const removeListeners = () => {
       willFocus && willFocus.remove();
@@ -23,5 +24,5 @@ export const useTrackScreenChange = (screenNameFragments: string[]) => {
 
     addListeners();
     return removeListeners;
-  });
+  }, []);
 };

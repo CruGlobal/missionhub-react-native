@@ -31,6 +31,7 @@ import {
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
 import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
+import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -47,6 +48,7 @@ const SignInScreen = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }) => {
+  useTrackScreenChange(['*menu', '*sign in']);
   const { t } = useTranslation('keyLogin');
   const forcedLogout = useNavigationParam('forcedLogout');
 

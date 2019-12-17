@@ -27,6 +27,7 @@ import {
 } from '../../../actions/auth/facebook';
 import TosPrivacy from '../../../components/TosPrivacy';
 import Header from '../../../components/Header';
+import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -64,6 +65,7 @@ const SignUpScreen = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }) => {
+  useTrackScreenChange(['menu', 'sign up']);
   const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation('loginOptions');

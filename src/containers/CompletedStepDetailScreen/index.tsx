@@ -8,10 +8,12 @@ import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { Step } from '../../reducers/steps';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
 const CompletedStepDetailScreen = () => {
+  useTrackScreenChange(['step detail', 'completed step']);
   const { t } = useTranslation('completedStepDetail');
   const step: Step = useNavigationParam('step');
 

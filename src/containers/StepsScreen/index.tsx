@@ -31,6 +31,7 @@ import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -53,6 +54,7 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
+  useTrackScreenChange(['steps']);
   const { t } = useTranslation('stepsTab');
 
   const [paging, setPaging] = useState(false);
@@ -162,7 +164,6 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
-      <TrackTabChange screen={STEPS_TAB} />
       <Header
         testID="header"
         left={

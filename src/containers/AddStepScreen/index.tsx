@@ -20,6 +20,7 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -55,6 +56,16 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
   const isCreateStep = type === CREATE_STEP;
   const isEdit = [EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type);
 
+  useTrackScreenChange([
+    isCreateStep
+      ? 'custom step'
+      : isStepNote
+      ? 'step note'
+      : isEdit
+      ? '*journey step'
+      : '',
+    isEdit ? '*edit' : 'add',
+  ]);
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 
   const onChangeText = (newText: string) => {

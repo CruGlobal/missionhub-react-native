@@ -16,6 +16,7 @@ import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
 import { ReminderType, StepReminderState } from '../../reducers/stepReminders';
 import { Step } from '../../reducers/steps';
+import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -29,6 +30,7 @@ const AcceptedStepDetailScreen = ({
   reminder,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
+  useTrackScreenChange(['step detail', 'active step']);
   const step: Step = useNavigationParam('step');
 
   const { id: stepId, challenge_suggestion, title, receiver } = step;

@@ -11,6 +11,7 @@ import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { Organization } from '../../../reducers/organizations';
+import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
 
 import styles from './styles';
 
@@ -25,6 +26,7 @@ export const CREATE_A_STORY = gql`
 `;
 
 const ShareStoryScreen = () => {
+  useTrackScreenChange(['story', 'share']);
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const [story, changeStory] = useState('');
