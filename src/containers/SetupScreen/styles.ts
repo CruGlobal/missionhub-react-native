@@ -9,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
-  imageWrap: { flex: 1, alignItems: 'center' },
+  textWrap: { alignItems: 'center', marginBottom: 30 },
   inputWrap: { flex: 3, padding: 30 },
   label: {
     color: theme.secondaryColor,

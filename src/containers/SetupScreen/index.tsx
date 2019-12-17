@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
-import { View, Keyboard, TextInput, Image } from 'react-native';
+import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -109,8 +109,7 @@ const SetupScreen = ({
           </Text>
         ) : (
           <>
-            <View style={{ flex: 1 }} />
-            <View style={styles.imageWrap}>
+            <View style={styles.textWrap}>
               <Text style={styles.addPersonText}>{t('addPerson.part1')}</Text>
               <Text style={styles.addPersonText}>{t('addPerson.part2')}</Text>
             </View>

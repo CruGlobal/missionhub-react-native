@@ -775,15 +775,8 @@ exports[`renders other person version correctly 1`] = `
     <View
       style={
         Object {
-          "flex": 1,
-        }
-      }
-    />
-    <View
-      style={
-        Object {
           "alignItems": "center",
-          "flex": 1,
+          "marginBottom": 30,
         }
       }
     >
@@ -1017,7 +1010,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -332,11 +332,11 @@
+@@ -325,11 +325,11 @@
               Object {},
             ]
           }
@@ -1037,7 +1030,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -372,11 +372,11 @@
+@@ -365,11 +365,11 @@
               Object {},
             ]
           }
