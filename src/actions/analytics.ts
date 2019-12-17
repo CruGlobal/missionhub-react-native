@@ -14,15 +14,18 @@ import {
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
+import { isArray } from 'util';
 
-export function trackScreenChange(screenNameFragments: string[]) {
+export function trackScreenChange(screenName: string | string[]) {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => { analytics: AnalyticsState },
   ) => {
     const { analytics } = getState();
     const { [ANALYTICS.MCID]: mcid } = analytics;
-    const screenName = screenNameFragments.reduce(
+
+    const screenFragments = isArray(screenName) ? screenName : [screenName];
+    const screen = screenFragments.reduce(
       (name, current) => `${name} : ${current}`,
       'mh',
     );
@@ -31,17 +34,17 @@ export function trackScreenChange(screenNameFragments: string[]) {
       const context = {
         ...analytics,
         [ANALYTICS.MCID]: MCID,
-        [ANALYTICS.SCREEN_NAME]: screenName,
-        [ANALYTICS.SITE_SECTION]: screenNameFragments[0],
-        [ANALYTICS.SITE_SUBSECTION]: screenNameFragments[1],
-        [ANALYTICS.SITE_SUBSECTION_3]: screenNameFragments[2],
+        [ANALYTICS.SCREEN_NAME]: screen,
+        [ANALYTICS.SITE_SECTION]: screenFragments[0],
+        [ANALYTICS.SITE_SUBSECTION]: screenFragments[1],
+        [ANALYTICS.SITE_SUBSECTION_3]: screenFragments[2],
       };
 
-      RNOmniture.trackState(screenName, context);
+      RNOmniture.trackState(screen, context);
       //sendStateToSnowplow(context);
       dispatch(
         updateAnalyticsContext({
-          [ANALYTICS.PREVIOUS_SCREEN_NAME]: screenName,
+          [ANALYTICS.PREVIOUS_SCREEN_NAME]: screen,
         }),
       );
     };
