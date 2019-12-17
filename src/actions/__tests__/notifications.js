@@ -713,16 +713,13 @@ describe('askNotificationPermissions', () => {
 
       it('should navigate to global community if no id passed', async () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
-        refreshCommunity.mockReturnValue(() => undefined);
+        refreshCommunity.mockReturnValue(() => global_community);
         await testNotification({
           screen: 'community_challenges',
           organization_id: undefined,
         });
-
         expect(refreshCommunity).toHaveBeenCalledWith(undefined);
-        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
-          global_community.id,
-        );
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
         expect(navigateToCommunity).toHaveBeenCalledWith(
           global_community,
           GROUP_CHALLENGES,
