@@ -48,13 +48,14 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     Object {
       "state": Object {
         "params": Object {
+          "orgId": "personal",
           "personId": "321",
         },
       },
     }
   }
   next={[Function]}
-  organization={Object {}}
+  orgId="personal"
   person={
     Object {
       "first_name": "Someone",
