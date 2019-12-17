@@ -12,8 +12,8 @@ export default StyleSheet.create({
     lineHeight: 30,
     fontWeight: '300',
     color: theme.white,
-    paddingHorizontal: 30,
+    paddingHorizontal: 60,
     textAlign: 'center',
-    letterSpacing: 1,
+    letterSpacing: 2,
   },
 });
