@@ -2,8 +2,9 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
+import { useQuery } from '@apollo/react-hooks';
 
-import GroupsListScreen from '../GroupsListScreen';
+import GroupsListScreen, { GET_COMMUNITIES_QUERY } from '../GroupsListScreen';
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush, navigateToCommunity } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -66,6 +67,7 @@ describe('GroupsListScreen', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
   });
 
   describe('card item press', () => {
