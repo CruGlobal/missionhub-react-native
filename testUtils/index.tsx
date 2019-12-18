@@ -101,7 +101,7 @@ export const renderShallow = (
   store = createThunkStore(),
 ) => {
   let renderedComponent = enzymeShallow(
-    <Provider store={store}>{component}</Provider>,
+    <ProviderLegacy store={store}>{component}</ProviderLegacy>,
   ).dive();
 
   // If component has translation wrappers, dive deeper
