@@ -4,7 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ACTIONS } from '../../../constants';
 
 import WelcomeScreen from '..';
@@ -19,13 +19,13 @@ jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
 }));
-jest.mock('../../../utils/hooks/useTrackScreenChange');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue({
     type: 'tracked action without data',
   });
-  (useTrackScreenChange as jest.Mock).mockClear();
+  (useAnalytics as jest.Mock).mockClear();
 });
 
 describe('WelcomeScreen', () => {
@@ -47,10 +47,7 @@ describe('WelcomeScreen', () => {
   it('should track screen change on mount', () => {
     renderWithContext(<WelcomeScreen next={next} />);
 
-    expect(useTrackScreenChange).toHaveBeenCalledWith([
-      'onboarding',
-      'welcome',
-    ]);
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('getStarted btn should call next', () => {

@@ -1,14 +1,16 @@
 import { useNavigationEvents } from 'react-navigation-hooks';
+import { useDispatch } from 'react-redux';
 
-import { store } from '../../store';
 import { trackScreenChange } from '../../actions/analytics';
 
 export const useAnalytics = (
   screenName: string | string[],
   onFocus?: () => void,
 ) => {
+  const dispatch = useDispatch();
+
   const handleFocus = () => {
-    store.dispatch(trackScreenChange(screenName));
+    dispatch(trackScreenChange(screenName));
     onFocus && onFocus();
   };
 

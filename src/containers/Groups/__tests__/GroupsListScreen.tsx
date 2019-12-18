@@ -80,7 +80,10 @@ describe('GroupsListScreen', () => {
       },
     });
 
-    expect(useAnalytics).toHaveBeenCalledWith('communities');
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      expect.any(Function),
+    );
   });
 
   describe('card item press', () => {

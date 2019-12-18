@@ -1,16 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks';
+import { useDispatch } from 'react-redux';
 import { useNavigationEvents } from 'react-navigation-hooks';
 
 import { trackScreenChange } from '../../../actions/analytics';
 import { useAnalytics } from '../useAnalytics';
 
-jest.mock('react-navigation-hooks', () => ({
-  useNavigationEvents: jest.fn(),
-}));
-jest.mock('../../../store', () => ({
-  store: {
-    dispatch: jest.fn(),
-  },
+jest.mock('react-navigation-hooks');
+jest.mock('react-redux', () => ({
+  useDispatch: jest.fn(),
 }));
 jest.mock('../../../actions/analytics');
 
@@ -22,6 +19,7 @@ const screenFragments = ['screen name', 'subsection'];
 
 beforeEach(() => {
   (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResult);
+  (useDispatch as jest.Mock).mockReturnValue(jest.fn());
   (useNavigationEvents as jest.Mock).mockImplementation(
     (callback: (event: { type: string }) => void) => {
       navigationEvent = callback;

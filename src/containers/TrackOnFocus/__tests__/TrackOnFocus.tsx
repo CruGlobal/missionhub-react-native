@@ -2,6 +2,7 @@ import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+
 import { TrackOnFocus } from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

@@ -64,7 +64,7 @@ interface SelectStageScreenProps {
   testID?: string;
 }
 
-interface SelectStageNavParams {
+export interface SelectStageNavParams {
   selectedStageId?: number;
   enableBackButton: boolean;
   personId: string;

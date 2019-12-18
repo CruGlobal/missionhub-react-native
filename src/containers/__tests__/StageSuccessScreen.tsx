@@ -5,11 +5,11 @@ import { fireEvent } from 'react-native-testing-library';
 import { navigateBack } from '../../actions/navigation';
 import StageSuccessScreen from '../StageSuccessScreen';
 import { renderWithContext } from '../../../testUtils';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 jest.mock('react-native-device-info');
 jest.mock('../../actions/navigation');
-jest.mock('../../utils/hooks/useTrackScreenChange');
+jest.mock('../../utils/hooks/useAnalytics');
 
 const mockState = {
   auth: {
@@ -32,7 +32,7 @@ const navigateBackResult = { type: 'navigate back' };
 beforeEach(() => {
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   next.mockReturnValue({ type: 'next' });
-  (useTrackScreenChange as jest.Mock).mockClear();
+  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders correctly', () => {
@@ -46,7 +46,7 @@ it('tracks screen change on mount', () => {
     initialState: mockState,
   });
 
-  expect(useTrackScreenChange).toHaveBeenCalledWith([
+  expect(useAnalytics).toHaveBeenCalledWith([
     'onboarding',
     'stage confirmation',
   ]);

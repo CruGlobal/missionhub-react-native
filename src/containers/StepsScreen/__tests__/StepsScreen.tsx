@@ -13,6 +13,7 @@ import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { Step, StepsState } from '../../../reducers/steps';
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import StepsScreen from '..';
 
@@ -23,8 +24,8 @@ jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
-jest.mock('../../TrackTabChange', () => () => null);
 jest.mock('../../../components/StepItem', () => 'StepItem');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const steps = ([
   {
@@ -85,6 +86,7 @@ beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
+  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders loading screen correctly', () => {
@@ -109,6 +111,16 @@ it('renders screen with steps correctly', () => {
   renderWithContext(<StepsScreen />, {
     initialState,
   }).snapshot();
+});
+
+it('tracks screen change on mount', () => {
+  ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
+
+  renderWithContext(<StepsScreen />, {
+    initialState,
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith('steps', expect.any(Function));
 });
 
 describe('handleOpenMainMenu', () => {

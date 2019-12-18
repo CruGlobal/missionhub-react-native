@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 interface TrackOnFocusProps {
