@@ -68,6 +68,7 @@ const navigatePushResult = { type: 'nagivate push' };
 const navigateBackResult = { type: 'navigate back' };
 const navigateResetResult = { type: 'navigate reset' };
 const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
+const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
 
 beforeEach(() => {
   common.isAndroid = false;
@@ -669,7 +670,6 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('parseNotificationData', () => {
-      const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
       const notification = {
         screen: 'celebrate',
         organization_id: organization.id,
@@ -692,7 +692,7 @@ describe('askNotificationPermissions', () => {
         await testNotification({
           screen: 'celebrate',
           organization_id: organization.id,
-          celebration_item_id,
+          screen_extra_data,
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
@@ -707,7 +707,7 @@ describe('askNotificationPermissions', () => {
         await testNotification({
           screen: 'celebrate',
           organization_id: undefined,
-          celebration_item_id,
+          screen_extra_data,
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
