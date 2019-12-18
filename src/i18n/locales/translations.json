@@ -1,32 +1,3291 @@
 {
+  "no": {
+    "translation": {
+      "common": {
+        "profileLabels": {
+          "firstName": "Fornavn",
+          "firstNameRequired": "$t(profileLabels.firstName) (Påkrevd)",
+          "firstNameNickname": "$t(profileLabels.firstName) eller kallenavn",
+          "lastName": "Etternavn",
+          "lastNameOptional": "$t(profileLabels.lastName) (frivillig)",
+          "email": "E-post",
+          "emailRequired": "$t(profileLabels.email) (Påkrevd)",
+          "phone": "Mobil",
+          "call": "Anrop",
+          "message": "Melding",
+          "stage": "Nivå",
+          "status": "Status",
+          "gender": "Kjønn",
+          "permissions": "Tillatelser",
+          "contact": "Kontakt",
+          "member": "Medlem",
+          "user": "Bruker",
+          "admin": "Admin",
+          "owner": "Eier"
+        },
+        "gender": { "male": "Mann", "female": "Kvinne" },
+        "swipe": {
+          "remove": "Fjerne",
+          "complete": "Fullføre",
+          "edit": "Endre"
+        },
+        "followupStatus": {
+          "uncontacted": "Ikke kontaktet",
+          "contacted": "Kontaktet",
+          "attempted_contact": "Forsøkt kontakt",
+          "do_not_contact": "Ikke kontakt",
+          "completed": "Fullført"
+        },
+        "stages": {
+          "uninterested": {
+            "label": "Uintererssert",
+            "description": "Troende men ikke interessert i Jesus.",
+            "followup": "Vi er glad du forstatt er her, {{name}}. Vi håper de følgende trinnene vil hjelpe deg på din åndelige reise."
+          },
+          "curious": {
+            "label": "Nysgjerrig",
+            "description": "Åpen for åndelige samtaler eller søker etter å finne ut hvem Jesus er.",
+            "followup": "{{name}}, Vi er glad for å bli en del av reisen din. Vi håper de følgende trinnene hjelper deg med å lære mer om Jesus."
+          },
+          "forgiven": {
+            "label": "Tilgitt",
+            "description": "Tror på Jesus som frelser, men vokser ikke åndelig.",
+            "followup": "Vi er glad for at du er her, {{name}}. Vi vil gjerne anbefale noen steg for å hjelpe deg å vokse åndelig."
+          },
+          "growing": {
+            "label": "Vokser",
+            "description": "Lærer å følge Jesus som en livsstil.",
+            "followup": "Vi er så glade for at du følger Jesus, {{name}}! Vi vil gjerne tilby noen steg som hjelper deg å vokse nærmere Gud og hjelpe andre å oppleve Ham."
+          },
+          "guiding": {
+            "label": "Veiledning",
+            "description": "Overgitt til å hjelpe andre til å kjenne og følge Jesus.",
+            "followup": "Rått! Vi håper MissionHub hjelper deg med å tjene de Gud har plassert i livet ditt."
+          }
+        },
+        "dates": {
+          "today": "I dag",
+          "yesterday": "I går",
+          "tomorrow": "I morgen",
+          "everyDay": "Hver dag",
+          "every": "Hver",
+          "onceAMonth": "En gang i måneden på"
+        },
+        "yes": "Ja",
+        "no": "Nei",
+        "copy": "Kopiere",
+        "edit": "Endre",
+        "done": "Ferdig",
+        "next": "Neste",
+        "skip": "Hopp over",
+        "ok": "Ok",
+        "logout": "Logg ut",
+        "me": "Meg",
+        "loading": "Laster inn",
+        "save": "Lagre",
+        "delete": "Slette",
+        "ignore": "Ignorere",
+        "report": "Rapportere",
+        "cancel": "Avbryt",
+        "continue": "Fortsett",
+        "your": "Din",
+        "view": "Se",
+        "contactAssignment": "{{assignedContactName}} ble tildelt til {{assignedToName}}{{assignedByName}}",
+        "contactUnassignment": "{{assignedContactName}} var ikke tildelt {{assignedToName}}",
+        "assignToMe": "tildel meg",
+        "copyMessage": "Kopiert",
+        "terms": "Ved å opprette din MissionHub-konto godtar du vår",
+        "termsTrial": "Ved å opprette din MissionHub prøvekonto godtar du vår",
+        "tos": "Vilkår for bruk",
+        "privacy": "Personvernregler",
+        "and": "og",
+        "signIn": "Log inn",
+        "profileLabelFirstName": "Fornavn (påkrevd)",
+        "profileLabelLastName": "Etternavn",
+        "profileLabelEmail": "E-post",
+        "profileLabelPhone": "Mobil"
+      },
+      "mainTabs": { "takeAStepWithSomeone": "Ta et steg med noen" },
+      "error": {
+        "error": "Feil",
+        "unexpectedErrorMessage": "Det har oppstått en uventet feil.",
+        "baseErrorMessage": "Vennligst kontakt support@missionhub.com hvis problemet fortsetter.",
+        "ADD_NEW_PERSON": "Det oppstod en feil når du la til en ny person."
+      },
+      "offline": {
+        "youreOffline": "Du er for tiden offline",
+        "connectToInternet": "Koble deg til internett for å fortsette å bruke MissionHub."
+      },
+      "forcedLogout": {
+        "message": [
+          "Det har gått en stund siden du sist logget på. ",
+          "Vennligst logg inn slik at vi vet det er deg."
+        ]
+      },
+      "settingsMenu": {
+        "about": "Om",
+        "help": "Hjelp",
+        "review": "Skriv en anmeldelse",
+        "shareStory": "Del en historie med oss",
+        "terms": "Vilkår for bruk",
+        "privacy": "Personvernregler",
+        "signOut": "Logg ut",
+        "cannotOpenUrl": "Kan ikke åpne nettadressen",
+        "pleaseVisit": "Beklager, vi kunne ikke åpne denne nettadressen. Besøk gjerne {{url}}",
+        "signUp": "Lag bruker"
+      },
+      "login": {
+        "tagline1": "Vokse nærmere Gud.",
+        "tagline2": "Hjelp andre å oppleve Ham.",
+        "facebookSignup": "Lag bruker med Facebook",
+        "tryNow": "Prøv det nå",
+        "signIn": "Logg inn",
+        "getStarted": "Sett i gang",
+        "member": "Allerede medlem?"
+      },
+      "loginOptions": {
+        "facebookSignup": "Lag bruker med Facebook",
+        "haveCode": "Jeg har en felleskode",
+        "signUpLater": "Lag bruker senere",
+        "tryNow": "Prøv det nå",
+        "emailSignUp": "Lag bruker med E-post",
+        "signIn": "Logg inn",
+        "terms": "Ved å opprette din MissionHub-konto godtar du vår",
+        "member": "Allerede medlem?",
+        "createCommunityTitle": "Lag et samfunn",
+        "createCommunityDescription": "Lag en bruker for å skape et MissionHub samfunn.",
+        "tos": "Vilkår for bruk",
+        "privacy": "Personvernregler",
+        "and": "og"
+      },
+      "keyLogin": {
+        "invalidCredentialsMessage": "Passord eller E-post er feil",
+        "verifyEmailMessage": "Bekreft kontoen din via E-post",
+        "emailLabel": "E-post",
+        "passwordLabel": "Passord",
+        "forgotPassword": "Glemt passord?",
+        "login": "LOGG INN",
+        "errorDefault": "Det oppstod et problem med påloggingen.",
+        "errorIncorrect": "Passordet eller E-posten er feil",
+        "errorVerify": "Bekreft kontoen din via E-post",
+        "facebookLogin": "Logg inn med Facebook"
+      },
+      "mfaLogin": {
+        "mfaHeader": "to-trinns bekreftelse",
+        "mfaDescription": "Skriv inn bekreftelseskode fra autentiseringsappen din.",
+        "mfaLabel": "Bekreftelseskode",
+        "mfaIncorrect": "Feil bekreftelseskode"
+      },
+      "welcome": {
+        "getStarted": "La oss sette i gang",
+        "tryItNow": "Prøv det nå",
+        "welcome": "Velkommen!",
+        "welcomeDescription": "Å vokse med Gud innebærer blandt annet å hjelpe andre å oppleve Ham. MissionHub vil bli med deg på denne reisen og foreslå nye steg i troen, sammen med andre."
+      },
+      "setup": {
+        "firstThing": "-først av alt-",
+        "namePrompt": "Hva heter du?"
+      },
+      "interactions": { "title": "Hei!", "profileTab": "Gå til profilen" },
+      "addContact": {
+        "addSomeone": "LEGG TIL NOEN",
+        "editPerson": "Endre person",
+        "addToOrg": "LEGG NOEN TIL i {{orgName}}",
+        "message": [
+          "Å vokse med Gud innebærer blandt annet å hjelpe andre å oppleve Ham.",
+          "",
+          "Bruk litt tid i bønn. Hvem ønsker du å ta steg i troen sammen med?"
+        ],
+        "alertBlankEmail": "E-post er tom",
+        "alertPermissionsMustHaveEmail": "Kontakt med bruker eller administratorrettigheter må ha E-postadresse og fornavn",
+        "alertSorry": "Unnskyld",
+        "alertCannotEditFirstName": "Du har ikke tilgang til å endre fornavn på andre MissionHub brukere",
+        "done": "Ferdig"
+      },
+      "addStep": {
+        "header": "Lag ditt eget steg",
+        "createStep": "Opprett steg",
+        "skip": "HOPP OVER",
+        "journeyHeader": "Hva så du Gud gjøre?",
+        "editJourneyHeader": "Endre kommentaren din",
+        "addJourneyPerson": "Legg til i Vår reise",
+        "addJourneyMe": "Legg til i min reise",
+        "addJourney": "Legg til i Vår reise",
+        "editJourneyButton": "Lagre",
+        "makeShorter": "Takk for at du lagde et steg! Men vi trenger at du korter det ned litt slik at det passer.",
+        "tooLong": "Takk for at du lagde et steg! Men vi trenger at du korter det ned litt slik at det passer."
+      },
+      "stepReminder": {
+        "setReminder": "Sett en påminning",
+        "endDate": "Sluttdato",
+        "endDatePlaceholder": "Sluttdato (påkrevd)",
+        "daily": "Daglig",
+        "weekly": "Ukentlig",
+        "monthly": "Månedlig"
+      },
+      "selectStep": {
+        "meHeader": "Hvordan ønsker du at din åndelige reise skal utvikle seg fremover?",
+        "personHeader": "Hva vil du gjøre for å hjelpe {{name}} til å oppleve Gud?",
+        "addStep": "LEGG TIL I MINE STEG",
+        "createStep": "LAG DITT EGET STEG",
+        "loadMoreSteps": "VIS FLERE STEG",
+        "stepsOfFaith": "Legg til Steg i troen"
+      },
+      "suggestedStepDetail": { "addStep": "Legg til i Mine steg" },
+      "acceptedStepDetail": {
+        "removeStep": "Fjern steg",
+        "iDidIt": "Jeg klarte det!"
+      },
+      "completedStepDetail": {
+        "completedStep": "Fullfør steg",
+        "completedOn": "Fullført {{date}}"
+      },
+      "selectStage": {
+        "meQuestion": "{{name}}, hvilket nivå beskriver best hvor du er på din reise?",
+        "personQuestion": "Hvilket nivå beskriver best hvor {{name}} er på reisen sin?",
+        "completed3Steps": "Du har fullført 3 steg med {{name}}. Noen åndelige forandringer foreløpig?",
+        "completed1Step": "Du har fullført et steg med {{name}}. Noen åndelige forandringer foreløpig?",
+        "completed3StepsMe": "Du har fullført 3 av dine steg. Noen åndelige forandringer foreløpig?",
+        "iAmHere": "JEG ER HER",
+        "stillHere": "FORTSATT HER",
+        "here": "HER"
+      },
+      "stageSuccess": {
+        "backupMessage": "Vi er glade for å ha deg her, <<user>>!",
+        "friend": "Venn",
+        "chooseSteps": "VELG MINE STEG"
+      },
+      "contactHeader": {
+        "mySteps": "Mine steg",
+        "ourJourney": "Vår reise",
+        "myNotes": "Mine notater",
+        "myJourney": "Min reise",
+        "myActions": "Mine handlinger",
+        "impact": "Innflytelse",
+        "selectStage": "VELG NIVÅ"
+      },
+      "contactSteps": {
+        "header": "STEG I TROEN",
+        "stepNull": "Dine steg i troen med {{name}} vises her.",
+        "showCompletedSteps": "VIS FULLFØRTE STEG",
+        "hideCompletedSteps": "SKJUL FULLFØRTE STEG",
+        "addStep": "Legg til et steg i troen"
+      },
+      "contactJourney": {
+        "loading": "Laster inn reiseposter",
+        "somethingCool": "Noe kult skjedde",
+        "addComment": "Legg til en kommentar",
+        "addJourney": "Legg til i Vår reise",
+        "ourJourney": "Vår reise",
+        "journeyNull": "Dette er hvor MissionHub lagrer alle dine fullførte steg og alle notatene du har lagt til under reisen."
+      },
+      "journeyItem": {
+        "stepTitle": "Fullførte{{stageName}}Steg i Troen",
+        "stageTitle": "{{oldStage}} til {{newStage}}",
+        "stageText": "{{personName}} endret fra {{oldStage}} til {{newStage}}",
+        "stageTextSelf": "Du endret fra {{oldStage}} til {{newStage}}",
+        "stageStart": "Du la til {{personName}} i MissionHub som {{newStage}}",
+        "stageStartSelf": "Du la til deg selv i MissionHub som {{newStage}}",
+        "interactionNote": "Kommentar",
+        "interactionSomethingCoolHappened": "$t(contactJourney:somethingCool)",
+        "interactionSpiritualConversation": "Åndelige samtaler",
+        "interactionGospel": "Presentasjoner av evangeliet",
+        "interactionDecision": "Personlige avgjørelser",
+        "interactionSpirit": "Presentasjoner av Den Hellige Ånd",
+        "interactionDiscipleshipConversation": "Disippelgjøringssamtaler",
+        "interactionAssignedContacts": "Tildelte kontakter",
+        "interactionUncontacted": "Ikke kontaktet"
+      },
+      "getStarted": {
+        "hi": "Hei {{name}}!",
+        "tagline": [
+          "Selv om alles åndelige reise er unik, går mange mennesker gjennom en fem-nivås reise mot Gud.",
+          "",
+          "La oss finne ut hvor du er på reisen din."
+        ],
+        "getStarted": "La oss sette i gang"
+      },
+      "history": { "header": "Historie" },
+      "impact": {
+        "header": "Innflytelse",
+        "stepsSentence": "{{beginningScope}}{{numInitiators}}{{initiator}} {{initiatorSuffix}} tatt $t(steps, {'count': {{stepsCount}} }) i troen med $t(people, {'count': {{receiversCount}} }){{endingScope}}.",
+        "stepsSentence_empty": "Her vil du se alle stegene {{initiator}} {{initiatorSuffix}} som er tatt.",
+        "stepsSentence_emptyContact": "Her vil du se alle stegene {{initiator}} har tatt.",
+        "stepsSentence_emptyGlobal": "Her vil du se stegene andre brukere nylig har tatt.",
+        "stageSentence": "$t(people, {'count': {{pathwayMovedCount}} }) Nådde et nytt nivå på deres reise med Gud.",
+        "stageSentence_empty": "Se hva Gud har gjort gjennom {{initiator}} nedenfor.",
+        "stageSentence_emptyContact": "Se hva Gud gjør gjennom {{initiator}} nedenfor.",
+        "stageSentence_emptyGlobal": "Du vil se hvordan andre har hatt fremskritt på deres åndelige reise nylig.",
+        "steps": "{{count}} steg",
+        "steps_plural": "{{count}} steg",
+        "people": "{{count}} person",
+        "people_plural": "{{count}} folk",
+        "impactSentence": [
+          "I {{year}}, {{numInitiators}} {{initiator}} tok {{stepsCount}} steg i troen {{receiversCount}} folk.",
+          "",
+          "{{pathwayMovedCount}} folk har nådd et nytt steg på deres åndelige reise."
+        ],
+        "you": "deg",
+        "we": "vi",
+        "togetherWe": "sammen vi",
+        "users": "brukere",
+        "allOfUs": "alle oss",
+        "haveSuffix": "har",
+        "hasSuffix": "har",
+        "inYear": "i {{year}}",
+        "inTheirLife": "i sitt liv",
+        "atOrgName": " på {{orgName}}",
+        "interactionSpiritualConversation": "Åndelige samtaler",
+        "interactionGospel": "Presentasjoner av evangeliet",
+        "interactionDecision": "Personlige avgjørelser",
+        "interactionSpirit": "Presentasjoner av Den Hellige Ånd",
+        "interactionDiscipleshipConversation": "Disippelgjøringssamtaler",
+        "interactionAssignedContacts": "Tildelte kontakter",
+        "interactionUncontacted": "Ikke kontaktet"
+      },
+      "actions": {
+        "interactionSpiritualConversation": "Åndelig samtale",
+        "interactionGospel": "Presentasjon av evangeliet",
+        "interactionDecision": "Personlig avgjørelse",
+        "interactionSpirit": "Presentasjon av Den Hellige Ånd",
+        "interactionDiscipleshipConversation": "Disippelgjøringssamtale",
+        "interactionNote": "Kommentar",
+        "commentBoxPlaceholder": "Del noe som skal huskes..."
+      },
+      "celebrateCommentBox": { "placeholder": "Skriv en kommentar..." },
+      "notes": {
+        "header": "MINE NOTATER",
+        "add": "LEGG TIL PRIVATE NOTATER",
+        "edit": "ENDRE PRIVATE NOTATER",
+        "prompt": "Husk viktige detaljer om {{personFirstName}}, som favoritt mat, hobbier de elsker eller noe interessant de sier.",
+        "promptMe": "Husk viktige detaljer om livet ditt eller din åndelige reise, som  for eksempel viktige hendelser, folk som har vært viktige for deg, eller ting du lærer om Gud."
+      },
+      "search": {
+        "inputPlaceholder": "Søk",
+        "loading": "Laster inn",
+        "noResults": "Ingen resultater.",
+        "nullHeader": "Søk",
+        "nullDescription": "Søke resultater vil vises her."
+      },
+      "searchFilter": {
+        "title": "Filter",
+        "titleSurvey": "Filterundersøkelse",
+        "titleQuestions": "Spørsmål",
+        "titleAnswers": "Svar",
+        "ministry": "Tjeneste",
+        "label": "Merkelapp",
+        "labels": "Merkelapper",
+        "groups": "Grupper",
+        "surveys": "Undersøkelse",
+        "gender": "Kjønn",
+        "male": "Mann",
+        "female": "Kvinne",
+        "other": "Andre",
+        "time": "Tidsperiode",
+        "time7": "Siste 7 dager",
+        "time30": "Siste 30 dager",
+        "time60": "Siste 60 dager",
+        "time90": "Siste 90 dager",
+        "time180": "Siste 6 måneder",
+        "time270": "Siste 9 måneder",
+        "time365": "Siste 12 måneder",
+        "surveyQuestions": "Spørsmål/Svar",
+        "uncontacted": "Ikke kontaktet",
+        "unassigned": "Ikke tildelt",
+        "archived": "Inkluder arkiverte kontakter",
+        "multiple": "Flere"
+      },
+      "searchFilterRefine": { "title": "Forbedre", "any": "Noen" },
+      "notificationPrimer": {
+        "onboardingDescription": "MissionHub vil sende deg påmindelser for å hjelpe deg å ta stegene dine.",
+        "focusDescription": "Vi er glade for at du fokuserer på et steg! Vi vil gjerne sende deg håndlagde påminnelser så det ikke blir glemt.",
+        "loginDescription": "Vi legger merke til at du har godtatt noen steg. Vi vil gjerne sende deg håndlagde påminnelser så det ikke blir glemt.",
+        "setReminderDescription": "Vi ønsker å hjelpe deg med å ta dette trossteget. For å sette en påmindelse må vi kunne sende deg varsler.",
+        "joinChallengeDescription": "Vi er glade for at du deltar i en utfordring! MissionHub vil gjerne sende deg oppdateringer om denne utfordringen.",
+        "description": "MissionHub vil sende deg påminnelser for å hjelpe deg å ta stegene dine.",
+        "allow": "Tillat varslinger",
+        "notNow": "Ikke nå"
+      },
+      "notificationOff": {
+        "title": "Varsler er av",
+        "description": "For å motta påminnelser i å ta steg i troen, vennligst skru på varsler.",
+        "allow": "Tillat varslinger",
+        "settings": "Gå til innstillinger",
+        "noReminders": "Jeg ønsker ikke påminnelser"
+      },
+      "stepsTab": {
+        "nullHeader": "STEG I TROEN",
+        "nullWithReminders": "Velg en person i Kontaktlisten og legg til noen nye trinn.",
+        "nullNoReminders": [
+          "Du har ingen steg i troen.",
+          "Velg en person i Kontaktlisten og legg til noen nye steg."
+        ],
+        "title": "Steg i troen",
+        "reminderTitle": "Fokuser uken din",
+        "reminderDescription": "\"Star\" opp til tre steg og få ukentlig håndlagde påminnelser.",
+        "dragTitle": "Fokuser uken din",
+        "dragDescription": "Dra og slipp opp til tre trinn her og få håndlagde påminnelser.",
+        "holdDescription": "Trykk lenge (hold nede) på et steg for å legge til opptil 3 av dem her og få håndlagde påminnelser.",
+        "reminderAddedToast": "✔ Påminnelse lagt til"
+      },
+      "contactSideMenu": {
+        "edit": "Endre",
+        "delete": "Slett person",
+        "unassignButton": "Fjern person",
+        "deleteQuestion": "Slette {{name}}?",
+        "deleteSentence": "Er du sikker på at du vil slette denne personen?",
+        "unassignQuestion": "Fjerne {{name}}?",
+        "unassignSentence": "Er du sikker på at du vil fjerne denne personen?",
+        "attemptedContact": "Forsøkt kontakt",
+        "completed": "Fullført",
+        "contacted": "Kontaktet",
+        "doNotContact": "Ikke kontakt",
+        "uncontacted": "Ikke kontaktet",
+        "assign": "Tildel",
+        "unassign": "Fjern tildeling"
+      },
+      "assignAlert": {
+        "question": "Ønsker du å tildele denne personen til deg selv?",
+        "sentence": "Ved å velge et nivå vil du også tildele denne personen til deg."
+      },
+      "peopleScreen": {
+        "header": "FOLK",
+        "personalMinistry": "Personlig tjeneste",
+        "personal": "personlig"
+      },
+      "profileScreen": {
+        "goToMain": "Gå til hovedfanen",
+        "goBack": "Gå tilbake 1 fane",
+        "profileID": "Profil {{id}}"
+      },
+      "appRoutes": {
+        "steps": "Steg",
+        "people": "Folk",
+        "impact": "Innvirkning",
+        "group": "Samfunn",
+        "groups": "Samfunn"
+      },
+      "groupTabs": {
+        "celebrate": "Feire",
+        "challenges": "Utfordringer",
+        "members": "Medlemmer",
+        "impact": "Innflytelse",
+        "contacts": "Kontakter",
+        "surveys": "Undersøkelser"
+      },
+      "personTabs": {
+        "celebrate": "Feire",
+        "steps": "Mine steg",
+        "notes": "Mine notater",
+        "ourJourney": "Vår reise",
+        "myJourney": "Min reise",
+        "journey": "Vår reise",
+        "impact": "Innflytelse",
+        "myImpact": "Min innflytelse",
+        "assignedContacts": "Kontakter"
+      },
+      "onboarding": {
+        "screen1": {
+          "name": "Fokuser på menneskene i ditt liv",
+          "description": "Velg dine egne steg i tro, og MissionHub hjelper deg å holde fokus på de menneskene du bryr deg om."
+        },
+        "screen2": {
+          "name": "Ta steg for å hjelpe dem å oppleve Gud",
+          "description": "MissionHub hjelper deg å vokse nærmere Gud ved å hjelpe andre å oppleve Ham."
+        },
+        "screen3": {
+          "name": "Se Gud jobbe og vite at du er en del av det",
+          "description": "MissionHub husker hvert trossteg du har tatt, slik at du kan se hva Gud gjør."
+        }
+      },
+      "welcomeNotification": {
+        "title": "Godt jobba ved å fokusere på et steg!",
+        "message": "Vi sender deg varsler som dette på onsdager og søndager for å hjelpe deg med å holde fokus på disse viktige stegene."
+      },
+      "groupsList": {
+        "header": "Samfunn",
+        "groupsNull": "Dine samfunn vil vises her.",
+        "joinCommunity": "Bli med i et Samfunn",
+        "createCommunity": "Lag et Samfunn"
+      },
+      "celebrateFeeds": {
+        "title": "(an empty phrase)",
+        "placeholder": "Del noe å feire...",
+        "emptyFeedTitle": "Feire!",
+        "emptyFeedDescription": "Du kan feire {{firstName}} steg i troen her.",
+        "emptyFeedGroupNameValue": "hverandre",
+        "stepOfFaith": "{{initiator}} fullføte et steg i troen med en {{receiverStage}} person.",
+        "stepOfFaithUnknownStage": "{{initiator}} fullførte et steg i troen med noen.",
+        "stepOfFaithNotSureStage": "{{initiator}} fullførte et trossteg.",
+        "interaction": "{{initiator}} hadde et {{interactionName}}.",
+        "interactionDecision": "{{initiator}} så noen ta en personlig avgjørelse.",
+        "addedContact": "{{initiator}} la til en {{receiverStage}} person.",
+        "somethingCoolHappened": "{{initiator}} opplevde noe kult skje med noen.",
+        "challengeAccepted": "{{initiator}} godtok en utfording:",
+        "challengeCompleted": "{{initiator}} fullførte en utfordring:",
+        "communityCreated": "{{initiator}} lagde {{communityName}}!",
+        "joinedCommunity": "{{initiator}} ble med {{communityName}}! Nå kan du se og feire stegene de tar i troen.",
+        "missionHubUser": "MissionHub bruker",
+        "aMissionHubUser": "En MissionHub bruker"
+      },
+      "challengeFeeds": {
+        "past": "Tidligere utfordringer",
+        "emptyFeedTitle": "Utfordringer",
+        "emptyFeedDescription": "Du kan se, godta, og fullføre utfordringer her.",
+        "edit": "Endre",
+        "join": "Bli med",
+        "complete": "Fullføre",
+        "joined": "Ble med",
+        "totalDays": "{{count}} Daglig utfordring",
+        "daysRemaining": "{{count}} Dag igjen",
+        "daysRemaining_plural": "{{count}} Dager igjen",
+        "accepted": "{{count}} Godtatt",
+        "completed": "Fullført",
+        "iDidIt": "Jeg klarte det",
+        "endDate": "Sluttdato"
+      },
+      "challengeStats": {
+        "days": "Dager",
+        "daysLeft": "Dager igjen",
+        "joined": "Ble med",
+        "completed": "Fullført"
+      },
+      "addChallenge": {
+        "editHeader": "Endre utfordring",
+        "addHeader": "Ny utfordring",
+        "add": "Lag utfordring",
+        "save": "Lagre endringer",
+        "titlePlaceholder": "Beskriv utfordringen din",
+        "titleLabel": "Utfordring",
+        "datePlaceholder": "Sluttdato (Påkrevd)",
+        "dateLabel": "Sluttdato"
+      },
+      "groupsChallenge": { "create": "Lag utfordring" },
+      "groupOnboardingCard": {
+        "celebrateHeader": "Feire hverandre",
+        "celebrateDescription": "Se og feire hverandre's steg i troen.",
+        "challengesHeader": "Våre utfordringer",
+        "challengesDescription": "Bli med hverandre i en utfordring som er opprettet av samfunnet ditt.",
+        "membersHeader": "Reise sammen",
+        "membersDescription": "Ta et steg i troen med noen i ditt Samfunn.",
+        "impactHeader": "Se Gud jobbe",
+        "impactDescription": "Se hva Gud gjør når dere tar steg i troen sammen. ",
+        "contactsHeader": "Reise sammen",
+        "contactsDescription": "Hold kontakten med kontakter i samfunnet ditt.",
+        "surveysHeader": "Vokse sammen",
+        "surveysDescription": "Lær mer om hverandre gjennom svar på undersøkelser."
+      },
+      "groupsMembers": {
+        "invite": "Send invitasjon",
+        "sendInviteMessage": "Kom å bli med på MissionHub. Vår felleskode er {{code}}. Klikk her for å bli med: {{url}}",
+        "invited": "Alle du har invitert til {{orgName}} vil dukke opp her når de blir med."
+      },
+      "groupMemberOptions": {
+        "ownerLeaveCommunityErrorMessage": "Du må tildele en ny eier til {{orgName}} før du går",
+        "leaveCommunity": {
+          "optionTitle": "Forlate Samfunnet",
+          "modalTitle": "Er du sikker på at du ønsker å forltate {{communityName}}?",
+          "confirmButtonText": "OK"
+        },
+        "makeAdmin": {
+          "optionTitle": "Utnevn til admin",
+          "modalTitle": "Ønsker du å gjøre {{personName}} til admin?",
+          "modalDescription": "Administratorer kan fjerne medlemmer, forfremme medlemmer til admin, og lage utfordringer.",
+          "confirmButtonText": "Ja"
+        },
+        "removeAdmin": {
+          "optionTitle": "Fjern som admin",
+          "modalTitle": "Fjerne {{personName}} som admin?",
+          "confirmButtonText": "Fjerne"
+        },
+        "makeOwner": {
+          "optionTitle": "Gjør til eier",
+          "modalTitle": "Gjør {{personName}} til eier?",
+          "modalDescription": "Du vil miste eierskapet til dette samfunnet, men vil fortsatt ha administratorrettigheter",
+          "confirmButtonText": "Ja"
+        },
+        "removeMember": {
+          "optionTitle": "Fjern medlem",
+          "modalTitle": "Fjern {{personName}} fra {{communityName}}?",
+          "confirmButtonText": "Fjern"
+        },
+        "tryItNowAdminOwnerErrorMessage": "Dette medlemmet har ikke opprettet en konto enda. Når de registrerer seg, kan du prøve på nytt."
+      },
+      "groupsCelebrate": { "placeholder": "Del noe å feire..." },
+      "groupsContacts": { "searchPlaceholder": "Søk i kontakter" },
+      "groupsContact": { "placeholder": "Del noe å feire..." },
+      "memberContacts": {
+        "nullDescription": "Alle som er tildelt {{memberName}} vil vises her."
+      },
+      "groupsSurveyContacts": { "searchPlaceholder": "Søk i kontakter" },
+      "contactItem": { "unassigned": "Ikke tildelt" },
+      "datePicker": { "date": "Dato" },
+      "groupsContactItem": {
+        "status": "Status: {{status}}",
+        "assigned": "{{assigner}} har tildelt {{assignedContact}} til {{assignedTo}}",
+        "unassigned": "{{unassignedContact}} har blitt fjernet av {{unassignedBy}}",
+        "stageChange": "{{personName}} forandret fra {{oldStage}} til {{newStage}}",
+        "stageStart": "{{personName}} har vært i MissionHub som {{newStage}}",
+        "spiritualConversation": "{{initiator}} hadde en åndelig samtale med {{receiver}}",
+        "gospelPresentation": "{{initiator}} delte evangeliet med {{receiver}}",
+        "personalDecision": "{{receiver}} tok en personlig avgjørelse med {{initiator}}",
+        "holySpiritConversation": "{{initiator}} hadde en samtale om Den Hellige Ånd med {{receiver}}",
+        "discipleshipConversation": "{{initiator}} hadde en samtale om disippelgjøring med {{receiver}}",
+        "somethingCoolHappened": "{{initiator}} så noe kult skje med {{receiver}}",
+        "note": "{{initiator}} la til et notat om {{receiver}}"
+      },
+      "groupItem": {
+        "numContacts": "{{count}} kontakt",
+        "numContacts_plural": "{{count}} kontakter",
+        "numAssigned": "{{count}} tildelt",
+        "numUnassigned": "{{count}} ikke tildelt",
+        "unassigned": "Ikke tildelt",
+        "numUncontacted": "{{count}} ikke kontaktet",
+        "numMembers": "{{count}} medlem",
+        "numMembers_plural": "{{count}} medlemmer",
+        "owner": "{{name}} (Eier)",
+        "join": "Bli med",
+        "selectStage": "Velg nivå",
+        "privateGroup": "Privat gruppe"
+      },
+      "groupsCreateGroup": {
+        "createCommunity": "Opprett samfunn",
+        "name": "Navn på samfunnet"
+      },
+      "groupsJoinGroup": {
+        "joinCommunity": "Bli med i et samfunn",
+        "enterCode": "Skriv inn felleskoden for samfunnet ditt",
+        "search": "Søk",
+        "communityNotFound": [
+          "Beklager, vi kunne ikke finne samfunnet ditt.",
+          "Dobbelsjekk koden din."
+        ],
+        "communityNotFoundLink": [
+          "Beklager, vi kunne ikke finne samfunnet ditt.",
+          "Dobbelsjekk linken din."
+        ],
+        "findingCommunity": "Finder det nye samfunnet ditt..."
+      },
+      "shareSurveyMenu": {
+        "shareMessage": "{{name}} {{url}}",
+        "shareSurvey": "Del undersøkelse",
+        "takeSurvey": "Ta undersøkelse"
+      },
+      "groupsContactList": {
+        "assign": "Tildel til meg",
+        "nullHeader": "Aktiviteter",
+        "nullDescription": "Ingen aktivitet å vise."
+      },
+      "groupMemberItem": {
+        "assigned": "{{number}} tildelt",
+        "uncontacted": "{{number}} ikke kontaktet"
+      },
+      "groupSurveyItem": {
+        "contacts": "{{number}} kontakter",
+        "unassigned": "{{number}} ikke tildelt",
+        "uncontacted": "{{number}} ikke kontaktet"
+      },
+      "loadMore": { "load": "Last inn mer" },
+      "commentBox": { "placeholder": "Kommentar" },
+      "statusSelect": {
+        "header": "Status",
+        "cancel": "Avbryt",
+        "done": "Ferdig",
+        "uncontacted": "Ikke kontaktet",
+        "attempted_contact": "Forsøkt kontaktet",
+        "contacted": "Kontaktet",
+        "completed": "Fullført",
+        "do_not_contact": "Ikke kontakt"
+      },
+      "statusComplete": {
+        "done": "Ferdig",
+        "continue": [
+          "Bra jobba {{userName}}!",
+          "Vil du fortsette på reisen med {{statusName}}?"
+        ],
+        "totally": "Totalt",
+        "nope": "Nei takk"
+      },
+      "statusReason": {
+        "done": "Ferdig",
+        "placeholder": "Admin notat",
+        "important": "Noe viktig administratoren på {{organization}} burde vite om?"
+      },
+      "imagePicker": {
+        "selectImage": "Velg bilde",
+        "cancel": "Avbryt",
+        "takePhoto": "Ta bilde",
+        "chooseFromLibrary": "Velg fra biblioteket...",
+        "deniedTitle": "Tillatelse avslått",
+        "deniedText": "For å kunne ta bilder med kameraet og velge bilder fra biblioteket ditt.",
+        "reTryTitle": "Prøv på nytt",
+        "okTitle": "Jeg er sikker",
+        "errorHeader": "Feil",
+        "errorBody": "Det oppstod en feil under behandlingen av forespørselen din. Prøv igjen senere."
+      },
+      "groupProfile": {
+        "created": "Opprettet",
+        "members": "Medlemmer",
+        "code": "Felleskode til samfunnet",
+        "link": "Link til samfunnet",
+        "newCode": "Ny kode",
+        "newLink": "Ny link",
+        "info": "Alle som har denne koden eller lenken, vil kunne delta i gruppen din.",
+        "deleteCommunity": "Slette samfunn?",
+        "createNewCode": "Er du sikker på at du vil opprette en ny felleskode til samfunnet?",
+        "createNewLink": "Er du sikker på at du vil opprette en ny link til samfunnet?",
+        "cannotBeUndone": "Dette kan ikke angres",
+        "codeCopyText": "Ta steg i troen med meg i MissionHub-appen. Bruk denne felleskoden til å bli med: {{code}}"
+      },
+      "landing": {
+        "tryItNow": "Prøv det nå",
+        "haveCode": "Jeg har en felleskode til samfunnet",
+        "member": "Allerede medlem?"
+      },
+      "commentsList": {
+        "editPost": "Endre kommentar",
+        "deletePost": "Slett kommentar",
+        "reportPost": "Rapporter kommentar",
+        "reportToOwner": "Rapport til eier",
+        "reportToOwnerHeader": "Rapporter til eier?",
+        "reportAreYouSure": "Er du sikker på at du vil rapportere denne kommentaren til eieren av samfunnet?",
+        "deletePostHeader": "Slette innlegg?",
+        "deleteAreYouSure": "Dette innlegget vil bli slettet og du vil ikke kunne finne det igjen"
+      },
+      "celebrateFeedHeader": {
+        "reports": "{{count}} ny rapportert kommentar",
+        "reports_plural": "{{count}} nye rapporterte kommentarer",
+        "newComments": "Ny kommentar",
+        "newComments_plural": "Nye kommentarer"
+      },
+      "groupUnread": {
+        "title": "{{count}} Ny kommentar",
+        "title_plural": "{{count}} Nye kommentarer",
+        "header": "Ingen uleste kommentarer",
+        "reportNull": "Ingen uleste kommentarer.",
+        "clearAll": "Fjern alt"
+      },
+      "groupsReport": {
+        "reports": "{{count}} ny rapportert kommentar",
+        "reports_plural": "{{count}} nye rapporterte kommentarer",
+        "title": "Rapportert kommentar",
+        "header": "Ingen rapporterte kommentarer",
+        "reportNull": "Ingen kommentarer er blitt rapportert."
+      },
+      "reportComment": {
+        "reportedBy": "Rapportert av",
+        "commentBy": "Kommentar av",
+        "deleteTitle": "Å slette denne kommentaren fjerner den fullstendig og den vil ikke lenger bli funnet."
+      }
+    }
+  },
+  "es-419": {
+    "translation": {
+      "common": {
+        "profileLabels": {
+          "firstName": "Nombre",
+          "firstNameRequired": "$t(profileLabels.firstName) (Requerido)",
+          "firstNameNickname": "$t(profileLabels.firstName) or Apodo",
+          "lastName": "Apellido",
+          "lastNameOptional": "$t(profileLabels.lastName) (if you want)",
+          "email": "Correo electrónico",
+          "emailRequired": "$t(profileLabels.email) (Requirido)",
+          "phone": "Teléfono",
+          "call": "Llamar",
+          "message": "Mensaje",
+          "stage": "Etapa",
+          "status": "Estado",
+          "gender": "Género",
+          "permissions": "Permisos",
+          "contact": "Contactos",
+          "member": "Miembro",
+          "user": "Usuario",
+          "admin": "Administrador",
+          "owner": "Propietario"
+        },
+        "gender": { "male": "Masculino", "female": "Femenino" },
+        "swipe": {
+          "remove": "Remove",
+          "complete": "Complete",
+          "edit": "Editar"
+        },
+        "followupStatus": {
+          "uncontacted": "Sin contactar",
+          "contacted": "Contactado",
+          "attempted_contact": "Contacto Intentado",
+          "do_not_contact": "No contactar",
+          "completed": "Completo"
+        },
+        "stages": {
+          "uninterested": {
+            "label": "Desinteresado",
+            "description": "Contento con creencias pero no interesado en Jesús.",
+            "followup": "Estamos contentos de que estes aquí, {{name}}. Esperamos que los siguientes pasos te ayuden en tu viaje espiritual."
+          },
+          "curious": {
+            "label": "Curioso",
+            "description": "Abierto a conversaciones espirituales o buscando conocer quien es Jesús.",
+            "followup": "{{name}}, estamos contentos de ser parte de tu viaje. Esperamos que los siguientes pasos te ayuden a saber más acerca de Jesús."
+          },
+          "forgiven": {
+            "label": "Perdonado",
+            "description": "Cree en Jesús como salvador, pero no esta creciendo espiritualmente.",
+            "followup": "Estamos muy contentos que estes aquí, {{name}}. Nos gustaría ofrecer algunos pasos para ayudarte a crecer espiritualmente."
+          },
+          "growing": {
+            "label": "Creciendo",
+            "description": "Aprendiendo a seguir a Jesús como un estilo de vida.",
+            "followup": "Estamos muy emocionados que estás siguiendo a Jesus, {{name}}! Nos encantaría ofrecer algunos pasos para ayudarte a estar mas cerca de Dios y ayudar a otros a experimentarlo."
+          },
+          "guiding": {
+            "label": "Guiando",
+            "description": "Comprometido ayudando a otros a conocer y seguir a Jesús.",
+            "followup": "¡Increíble! Esperamos que MissionHub te ayude a servir a aquellos que Dios ha puesto en tu vida."
+          }
+        },
+        "dates": {
+          "today": "Hoy",
+          "yesterday": "Ayer",
+          "tomorrow": "Mañana",
+          "everyDay": "Cada día",
+          "every": "Cada",
+          "onceAMonth": "Una vez al mes en el"
+        },
+        "yes": "Sí",
+        "no": "No",
+        "copy": "Copiar",
+        "edit": "Editar",
+        "done": "Hecho",
+        "next": "Siguiente",
+        "skip": "Saltar",
+        "ok": "Ok",
+        "logout": "Cerrar sesión",
+        "me": "Yo",
+        "loading": "Cargando",
+        "save": "Guardar",
+        "delete": "Borrar",
+        "ignore": "Ignorar",
+        "report": "Reporte",
+        "cancel": "Cancelar",
+        "continue": "Continuar",
+        "your": "su",
+        "view": "Ver",
+        "contactAssignment": "{{assignedContactName}} fue asignado a {{assignedToName}}{{assignedByName}}",
+        "contactUnassignment": "{{assignedContactName}} fue desasignado de  {{assignedToName}}",
+        "assignToMe": "Asignarme",
+        "copyMessage": "Copiado",
+        "terms": "Al crear su cuenta de MissionHub, aceptas nuestra",
+        "termsTrial": "Al crear su cuenta de prueba de MissionHub, aceptas nuestra",
+        "tos": "Términos de Servicio",
+        "privacy": "Políticas de Privacidad",
+        "and": "y",
+        "signIn": "Iniciar sesión",
+        "profileLabelFirstName": "Nombre (Requerido)",
+        "profileLabelLastName": "Apellido",
+        "profileLabelEmail": "Correo electrónico",
+        "profileLabelPhone": "Teléfono"
+      },
+      "mainTabs": { "takeAStepWithSomeone": "Da un paso de fe con alguien" },
+      "error": {
+        "error": "Error",
+        "unexpectedErrorMessage": "Hubo un error inesperado.",
+        "baseErrorMessage": "Por favor envía un email a support@missionhub.com si el problema continua.",
+        "ADD_NEW_PERSON": "Hubo un error al agregar a una persona."
+      },
+      "offline": {
+        "youreOffline": "Estás desconectado.",
+        "connectToInternet": "Conéctate a Internet y puedes seguir utilizando MissionHub."
+      },
+      "forcedLogout": {
+        "message": [
+          "Ha pasado un tiempo desde que iniciaste sesión.",
+          "Por favor, inicia sesión para que sepamos que eres tú."
+        ]
+      },
+      "goBackAlert": {
+        "title": "¿Volver?",
+        "description": "Perderás toda información que hayas ingresado y cerrarás sesión",
+        "action": "Volver"
+      },
+      "settingsMenu": {
+        "about": "Sobre",
+        "help": "Ayuda",
+        "review": "Escribe una reseña",
+        "shareStory": "Comparte una historia con nosotros",
+        "terms": "Términos de Servicio",
+        "privacy": "Política de privacidad",
+        "signOut": "Cerrar Sesión",
+        "cannotOpenUrl": "No se puede abrir el URL",
+        "pleaseVisit": "Perdón, no se pudo abrir la URL. Por favor visita {{url}} ",
+        "signUp": "Registrarse"
+      },
+      "login": {
+        "tagline1": "Crece más cerca de Dios.",
+        "tagline2": "Ayuda a otros a experimentar a Dios.",
+        "facebookSignup": "Registrate con Facebook",
+        "tryNow": "Pruébalo ahora.",
+        "signIn": "Iniciar sesión",
+        "getStarted": "Comenzar",
+        "member": "¿Ya eres un miembro?"
+      },
+      "loginOptions": {
+        "facebookSignup": "Regístrate con Facebook",
+        "haveCode": "Tengo un código de comunidad",
+        "signUpLater": "Registrarme luego",
+        "tryNow": "Pruébalo ahora mismo.",
+        "emailSignUp": "Ingresar con email",
+        "signIn": "Iniciar sesión",
+        "terms": "Al crear tu cuenta de MissionHub, aceptas nuestra",
+        "member": "¿Ya eres un miembro?",
+        "createCommunityTitle": "Crear una comunidad",
+        "createCommunityDescription": "Registrate para crear una comunidad MissionHub",
+        "tos": "Términos de Servicio",
+        "privacy": "Política de privacidad",
+        "and": "y"
+      },
+      "keyLogin": {
+        "invalidCredentialsMessage": "Tu email o la contraseña son incorrectos.",
+        "verifyEmailMessage": "Verifica tu cuenta via email",
+        "emailLabel": "Correo electrónico",
+        "passwordLabel": "Contraseña",
+        "forgotPassword": "¿Olvido su contraseña?",
+        "login": "Iniciar sesión",
+        "errorDefault": "Hubo un problema iniciando su sesión.",
+        "errorIncorrect": "Tu email o la contraseña son incorrectos.",
+        "errorVerify": "Verifica tu cuenta via email",
+        "facebookLogin": "Iniciar sesión usando Facebook"
+      },
+      "mfaLogin": {
+        "mfaHeader": "Verificación de dos pasos",
+        "mfaDescription": "Ingresa el código de tu app authenticator",
+        "mfaLabel": "Código de verificación",
+        "mfaIncorrect": "Código de verificación incorrecto"
+      },
+      "welcome": {
+        "getStarted": "Empecemos",
+        "getStartedButton": "Empezar",
+        "tryItNow": "Pruébalo Ahora",
+        "welcome": "¡Bienvenido!",
+        "welcomeDescription": "Crecer más cerca de Dios implica ayudar a otros a experimentarlo. MissionHub se une a ti en ese viaje sugiriéndole pasos de fe a tomar con otras personas"
+      },
+      "onboardingCreatePerson": {
+        "firstThing": "-primero lo primero-",
+        "namePrompt": "¿Cuál es tu nombre?"
+      },
+      "setup": {
+        "firstThing": "-primero lo primero-",
+        "namePrompt": "¿Cuál es tu nombre?",
+        "goBackAlert": {
+          "title": "¿Regresar?",
+          "description": "Perderás toda información que hayas ingresado y cerrarás sesión",
+          "action": "Regresar"
+        }
+      },
+      "interactions": { "title": "¡Hola!", "profileTab": "Ir a perfil" },
+      "addContact": {
+        "addSomeone": "Agregar a alguien",
+        "editPerson": "Editar persona",
+        "addToOrg": "Agregar a alguien a {{orgName}}",
+        "message": "Crecer más cerca de Dios implica ayudar a otros a experimentarlo. ¿Con quién quieres dar pasos de fe?",
+        "alertBlankEmail": "Email está en blanco",
+        "alertPermissionsMustHaveEmail": "El contacto con permisos de usuarios y administradores debe tener dirección de email y nombre.",
+        "alertSorry": "Lo lamento",
+        "alertCannotEditFirstName": "No tienes permitido editar nombres de usuarios de MissionHub",
+        "done": "Listo"
+      },
+      "addStep": {
+        "header": "Crear tu propio paso",
+        "createStep": "Crear paso",
+        "skip": "Saltar",
+        "journeyHeader": "¿Qué has visto a Dios hacer?",
+        "editJourneyHeader": "Edita tu comentario",
+        "addJourneyPerson": "Agregar a Nuestro viaje",
+        "addJourneyMe": "Agregar a mi viaje",
+        "addJourney": "Agregar a nuestro viaje",
+        "editJourneyButton": "Guardar",
+        "makeShorter": "¡Gracias por crear un paso! Pero necesitamos que lo hagas más corto para que pueda caber.",
+        "tooLong": "¡Gracias por crear un paso! Pero necesitamos lo hagas más corto para que pueda caber."
+      },
+      "stepReminder": {
+        "setReminder": "Agregar recordatorio",
+        "endDate": "Fecha de finalización",
+        "endDatePlaceholder": "Fecha de finalización (Requerido)",
+        "daily": "Diariamente",
+        "weekly": "Semanalmente",
+        "monthly": "Mensualmente"
+      },
+      "selectStep": {
+        "meHeader": {
+          "part1": "¿Cómo quieres avanzar",
+          "part2": "en tu viaje espiritual?",
+          "": "¿Cómo deseas avanzar en tu viaje espiritual?"
+        },
+        "personHeader": {
+          "part1": "Escoge un paso de fe",
+          "part2": "a tomar con {{name}} esta semana...",
+          "": "¿Qué te ayudaría {{name}} a experimentar a Dios?"
+        },
+        "addStep": "Agregar a mis pasos",
+        "createStep": "Crear un paso personalizado",
+        "loadMoreSteps": "Mostrar más pasos",
+        "stepsOfFaith": "Agregar a pasos de Fe"
+      },
+      "suggestedStepDetail": { "addStep": "Agregar a mis pasos" },
+      "acceptedStepDetail": {
+        "removeStep": "Remover paso",
+        "iDidIt": "Lo logré"
+      },
+      "completedStepDetail": {
+        "completedStep": "Completar paso",
+        "completedOn": "Completo {{date}}"
+      },
+      "selectStage": {
+        "meQuestion": "{{name}}, ¿Qué etapa mejor describe donde te encuentras en tu viaje?",
+        "personQuestion": "¿Qué etapa describe mejor dónde estás {{name}} en su viaje?",
+        "completed3Steps": "Has completado 3 pasos con {{name}}. ¿Algún cambio espiritual?",
+        "completed1Step": "Has completado un paso con {{name}}. ¿Algún cambio espiritual?",
+        "completed3StepsMe": "Has completado 3 de tus pasos. ¿Algún cambio espiritual?",
+        "iAmHere": "ESTOY AQUÍ",
+        "stillHere": "TODAVÍA AQUÍ",
+        "here": "AQUÍ"
+      },
+      "stageSuccess": {
+        "backupMessage": "Estamos contentos que estés aquí, ¡{{user}}!",
+        "friend": "Amigo",
+        "chooseSteps": "ELIGE MIS PASOS"
+      },
+      "contactHeader": {
+        "mySteps": "Mis Pasos",
+        "ourJourney": "Nuestro Viaje",
+        "myNotes": "Mis Notas",
+        "myJourney": "Mi Viaje",
+        "myActions": "Mis Acciones",
+        "impact": "Impacto",
+        "selectStage": "SELECCIONA ETAPA"
+      },
+      "contactSteps": {
+        "header": "PASOS DE FE",
+        "stepNull": "Tus Pasos de Fe con {{name}} aparecen aquí.",
+        "showCompletedSteps": "MOSTRAR PASOS COMPLETADOS",
+        "hideCompletedSteps": "OCULTAR PASOS COMPLETADOS",
+        "addStep": "Agrega un paso de fe"
+      },
+      "contactJourney": {
+        "loading": "Cargando elementos de viaje",
+        "somethingCool": "Algo grandioso ha sucedido",
+        "addComment": "Agrega un comentario",
+        "addJourney": "Agregar a nuestro viaje",
+        "ourJourney": "Nuestro viaje",
+        "journeyNull": "Aquí es donde MissionHub guarda todos sus pasos completados y las notas que agregó en el camino."
+      },
+      "journeyItem": {
+        "stepTitle": "Paso de fe {{stageName}}, completado",
+        "stageTitle": "{{oldStage}} a {{newStage}}",
+        "stageText": "{{personName}} cambió de {{oldStage}} a {{newStage}}",
+        "stageTextSelf": "Cambiaste de {{oldStage}} a {{newStage}}",
+        "stageStart": "Agregaste a {{personName}} a MissionHub como {{newStage}}",
+        "stageStartSelf": "Te añadiste a MissionHub como {{newStage}}",
+        "interactionNote": "Comentario",
+        "interactionSomethingCoolHappened": "$t(contactJourney:somethingCool)",
+        "interactionSpiritualConversation": "Conversaciones espirituales",
+        "interactionGospel": "Presentaciones del evangelio",
+        "interactionDecision": "Decisiones personales",
+        "interactionSpirit": "Presentaciones del Espíritu Santo",
+        "interactionDiscipleshipConversation": "Conversaciones sobre discipulado",
+        "interactionAssignedContacts": "Contactos asignados",
+        "interactionUncontacted": "Sin contactar"
+      },
+      "getStarted": {
+        "hi": "¡Hola {{name}}!",
+        "tagline": [
+          "Si bien el viaje espiritual de todos es único, muchas personas progresan a través de un viaje de cinco etapas hacia Dios.",
+          "",
+          "Vamos a descubrir dónde estás en tu viaje."
+        ],
+        "getStarted": "Comencemos"
+      },
+      "history": { "header": "Historia" },
+      "impact": {
+        "header": "Impacto",
+        "stepsSentence": "{{beginningScope}}{{numInitiators}}{{initiator}} {{initiatorSuffix}} tomado $t(steps, {'count': {{stepsCount}} }) de fe con $t(people, {'count': {{receiversCount}} }){{endingScope}}.",
+        "stepsSentence_empty": "Aquí verás todos los pasos {{initiator}} {{initiatorSuffix}} tomados.",
+        "stepsSentence_emptyContact": "Aquí verás todos los pasos que {{initiator}} has tomado.",
+        "stepsSentence_emptyGlobal": "Verás los pasos que otros usuarios han tomado aquí en breve.",
+        "stageSentence": "$t(people, {'count': {{pathwayMovedCount}} }) alcanzaron una nueva etapa en su viaje espiritual.",
+        "stageSentence_empty": "Mira lo que Dios ha hecho a continuación abajo {{initiator}}.",
+        "stageSentence_emptyContact": "Mira lo que Dios está haciendo a través de {{initiator}} a continuación",
+        "stageSentence_emptyGlobal": "Verás cómo otros han avanzado en su viaje espiritual aquí en breve.",
+        "steps": "{{count}} paso",
+        "steps_plural": "{{count}} pasos",
+        "people": "{{count}} persona",
+        "people_plural": "{{count}} personas",
+        "impactSentence": [
+          "En {{year}}, {{numInitiators}} {{initiator}} tomaron {{stepsCount}} pasos de fe con  {{receiversCount}} personas.",
+          "",
+          "{{pathwayMovedCount}} personas alcanzaron una nueva etapa en su viaje espiritual."
+        ],
+        "you": "has",
+        "we": "nosotros",
+        "togetherWe": "Juntos han",
+        "users": "usuarios",
+        "allOfUs": "todos nosotros",
+        "haveSuffix": "tener",
+        "hasSuffix": "tiene",
+        "inYear": "en {{year}}",
+        "inTheirLife": "en sus vidas",
+        "atOrgName": " en {{orgName}}",
+        "interactionSpiritualConversation": "Conversaciones Espirituales",
+        "interactionGospel": "Presentaciones del Evangelio",
+        "interactionDecision": "Decisiones Personales",
+        "interactionSpirit": "Presentaciones del Espíritu Santo",
+        "interactionDiscipleshipConversation": "Conversaciones sobre discipulado",
+        "interactionAssignedContacts": "Contactos Asignados",
+        "interactionUncontacted": "Sin contactar"
+      },
+      "actions": {
+        "interactionSpiritualConversation": "Conversación Espiritual",
+        "interactionGospel": "Presentación del Evangelio",
+        "interactionDecision": "Decisión Personal",
+        "interactionSpirit": "Presentación del Espíritu Santo",
+        "interactionDiscipleshipConversation": "Conversación sobre Discipulado",
+        "interactionNote": "Comentario",
+        "commentBoxPlaceholder": "Comparte algo para ser recordado..."
+      },
+      "celebrateCommentBox": { "placeholder": "Escribe un comentario..." },
+      "notes": {
+        "header": "MIS NOTAS",
+        "add": "AGREGAR NOTAS PRIVADAS",
+        "edit": "EDITAR NOTAS PRIVADAS",
+        "prompt": "Recuerda detalles importante sobre {{personFirstName}}, como comida favoritas, hobbies que aman o algo interesante dijeron.",
+        "promptMe": "Recuerda detalles importantes sobre tu vida o viaje espiritual, como hitos importantes, personas influyentes o cosas que aprendiste sobre Dios."
+      },
+      "search": {
+        "inputPlaceholder": "Buscar",
+        "loading": "Cargando",
+        "noResults": "Sin resultados.",
+        "nullHeader": "Buscar",
+        "nullDescription": "Los resultados de búsqueda aparecerán aquí."
+      },
+      "searchFilter": {
+        "title": "Filtro",
+        "titleSurvey": "Filtrar Encuesta",
+        "titleQuestions": "Preguntas",
+        "titleAnswers": "Respuestas",
+        "ministry": "Ministerio",
+        "label": "Etiqueta",
+        "labels": "Etiquetas",
+        "groups": "Grupos",
+        "surveys": "Encuesta",
+        "gender": "Género",
+        "male": "Masculino",
+        "female": "Femenino",
+        "other": "Otro",
+        "time": "Periodo de tiempo",
+        "time7": "Últimos 7 días",
+        "time30": "Últimos 30 días",
+        "time60": "Últimos 60 días",
+        "time90": "Últimos 90 días",
+        "time180": "Últimos 6 meses",
+        "time270": "Últimos 9 meses",
+        "time365": "Últimos 12 meses",
+        "surveyQuestions": "Preguntas / Respuestas",
+        "uncontacted": "No contactado",
+        "unassigned": "Sin asignar",
+        "archived": "Incluir contactos archivados",
+        "multiple": "Varios",
+        "includeUsers": "Incluye usuarios y administradores"
+      },
+      "searchFilterRefine": { "title": "Refinar", "any": "Cualquier" },
+      "notificationPrimer": {
+        "onboarding": "MissionHub te enviará recordatorios para ayudarte a tomar pasos.",
+        "stepsNotification": {
+          "part1": "Permitir notificaciones para",
+          "part2": "recordatorios sobre los pasos de fe"
+        },
+        "focusStep": "¡Que emoción te hayas enfocado en un paso! Nos gustaría enviarte recordatorios hechos a mano para que no se olviden.",
+        "login": "Notamos que aceptaste algunos pasos. Nos gustaría enviarte recordatorios hechos a mano para que no se olviden.",
+        "setReminder": "¡Queremos ayudarte a tomar este paso de fe! Para colocar un recordatorio, necesitamos poder enviarte notificaciones.",
+        "joinCommunity": "MissionHub le gustaría notificarte sobre lo que sucede en tu comunidad.",
+        "joinChallenge": "¡Que emoción que estés participando en un reto! MissionHub le gustaría enviarte actualizaciones sobre este reto.",
+        "onboardingDescription": "MissionHub te enviará recordatorios para ayudarte a tomar pasos.",
+        "focusDescription": "¡Que emoción te hayas enfocado en un paso! Nos gustaría enviarte recordatorios hechos a mano para que no se olviden.",
+        "loginDescription": "Hemos notado que has aceptado algunos pasos. Nos gustaría enviarte recordatorios hechos a mano para que no se olviden.",
+        "setReminderDescription": "¡Queremos ayudarte a tomar este paso de fe! Para colocar un recordatorio, necesitamos poder enviarte notificaciones.",
+        "joinCommunityDescription": "MissionHub le gustaría notificarte de lo que sucede en tu comunidad.",
+        "joinChallengeDescription": "¡Que emoción estes participando en un reto! MissionHub le gustaría enviarte actualizaciones sobre este reto.",
+        "description": "MissionHub te enviará recordatorios para ayudarte a seguir tus pasos.",
+        "allow": "Permitir notificaciones",
+        "notNow": "Ahora no"
+      },
+      "notificationOff": {
+        "title": "Las notificaciones están desactivadas",
+        "defaultDescription": "Para recibir recordatorios para tomar pasos de fe, por favor activa las notificaciones.",
+        "joinCommunity": "Para recibir actualizaciones desde tu comunidad MissionHub, por favor activa las notificaciones.",
+        "joinChallenge": "Para recibir actualizaciones sobre los retos de comunidad, por favor activa las notificaciones.",
+        "description": "Para recibir recordatorios para dar pasos de fe, por favor activa las notificaciones.",
+        "allow": "Permitir notificaciones",
+        "settings": "Ir a configuraciones",
+        "notNow": "No ahora",
+        "noReminders": "No quiero recordatorios"
+      },
+      "stepsTab": {
+        "nullHeader": "PASOS DE FE",
+        "nullWithReminders": "Elija una persona en la vista Personas y agregue algunos pasos nuevos.",
+        "nullNoReminders": {
+          "part1": "No tienes ningún paso de fe.",
+          "part2": "Elige una persona y agrega algunos pasos nuevos.",
+          "": [
+            "No tienes ningún paso de fe.",
+            "",
+            "Elige una persona y agrega algunos pasos nuevos."
+          ]
+        },
+        "title": "Pasos de Fe",
+        "reminderTitle": "Enfoque de tu semana",
+        "reminderDescription": "Disfruta de hasta tres pasos y obtén recordatorios semanales hechos a mano.",
+        "dragTitle": "Enfoque de tu semana",
+        "dragDescription": "Arrastra y suelta hasta 3 pasos aquí y consigue recordatorios hechos a mano.",
+        "holdDescription": "Mantén presionado (presionar) en un paso para agregar hasta 3 de ellos aquí y obtener recordatorios hechos a mano.",
+        "reminderAddedToast": "✔ Recordatorio agregado"
+      },
+      "contactSideMenu": {
+        "edit": "Editar",
+        "delete": "Eliminar persona",
+        "unassignButton": "Personas sin asignar",
+        "deleteQuestion": "¿Eliminar {{name}}?",
+        "deleteSentence": "¿Estás seguro de que desea eliminar esta persona?",
+        "unassignQuestion": "Sin asignar {{name}}?",
+        "unassignSentence": "¿Estás seguro de que quieres desasignar a esta persona?",
+        "attemptedContact": "Contacto Intentado",
+        "completed": "Completo",
+        "contacted": "Contactado",
+        "doNotContact": "No contactar",
+        "uncontacted": "Sin contactar",
+        "assign": "Asignar",
+        "unassign": "Sin asignar"
+      },
+      "assignAlert": {
+        "question": "¿Te gustaría asignarte esta persona a ti mismo?",
+        "sentence": "Al seleccionar una etapa también te asignará esta persona."
+      },
+      "peopleScreen": {
+        "header": "PERSONAS",
+        "personalMinistry": "Ministerio Personal",
+        "personal": "personal",
+        "addStage": "Agregar Etapa"
+      },
+      "profileScreen": {
+        "goToMain": "Ir a la sección principal",
+        "goBack": "Regresar una sección",
+        "profileID": "Perfil {{id}}"
+      },
+      "appRoutes": {
+        "steps": "Pasos",
+        "people": "Personas",
+        "impact": "Impacto",
+        "group": "Comunidades",
+        "groups": "Comunidades"
+      },
+      "groupTabs": {
+        "celebrate": "Celebrar",
+        "challenges": "Desafíos",
+        "members": "Miembros",
+        "impact": "Impacto",
+        "contacts": "Contactos",
+        "surveys": "Encuestas"
+      },
+      "personTabs": {
+        "celebrate": "Celebrar",
+        "steps": "Mis pasos",
+        "notes": "Mis notas",
+        "ourJourney": "Nuestro viaje",
+        "myJourney": "Mi viaje",
+        "journey": "Nuestro viaje",
+        "impact": "Impacto",
+        "myImpact": "Mi impacto",
+        "assignedContacts": "Contactos"
+      },
+      "onboarding": {
+        "screen1": {
+          "name": "Enfócate en las personas en tu vida",
+          "description": "Elite tus propios pasos de fe y MissionHub te ayudará a mantenerte enfocado en las personas que te importan."
+        },
+        "screen2": {
+          "name": "Toma medidas para ayudarlos a experimentar a Dios",
+          "description": "MissionHub te ayuda a acercarte más a Dios ayudando a otros a experimentarlo."
+        },
+        "screen3": {
+          "name": "Ver a Dios trabajar y sabe que eres parte de eso",
+          "description": "MissionHub recuerda cada paso de fe que has tomado para que puedas ver lo que Dios está haciendo."
+        }
+      },
+      "welcomeNotification": {
+        "title": "¡Buen trabajo enfocándote en un paso!",
+        "message": "Te enviaremos notificaciones como esta los miércoles y los domingos para ayudarte a estar enfocado en estos importantes pasos."
+      },
+      "groupsList": {
+        "header": "Comunidades",
+        "groupsNull": "Tus comunidades se mostrarán aquí.",
+        "joinCommunity": "Unete a una comunidad",
+        "createCommunity": "Crear una comunidad",
+        "globalCommunity": "Comunidad MissionHub"
+      },
+      "shareAStoryScreen": {
+        "shareStory": "Comparte una historia",
+        "inputPlaceholder": "Comparte una historia..."
+      },
+      "editStoryScreen": {
+        "saveStory": "Guardar Cambios",
+        "inputPlaceholder": "Comparte una historia..."
+      },
+      "celebrateFeeds": {
+        "placeholder": "Comparte algo para ser celebrado...",
+        "emptyFeedTitle": "¡Celebra!",
+        "emptyFeedDescription": "Puedes celebrar los pasos de fe de {{firstName}} aquí.",
+        "emptyFeedGroupNameValue": "el uno al otro",
+        "stepOfFaith": "{{initiator}} completó un paso de fe con una persona {{receiverStage}}.",
+        "stepOfFaithUnknownStage": "{{initiator}} completó un paso de fe con alguien.",
+        "stepOfFaithNotSureStage": "{{initiator}} completó un paso de fe.",
+        "interaction": "{{initiator}} tiene un {{interactionName}}.",
+        "interactionDecision": "{{initiator}} vió a alguien hacer una decisión personal.",
+        "addedContact": "{{initiator}} agregó una persona {{receiverStage}}.",
+        "somethingCoolHappened": "{{initiator}} vió algo genial pasar con alguien.",
+        "challengeAccepted": "{{initiator}} aceptó un desafío:",
+        "challengeCompleted": "{{initiator}} completó un desafío:",
+        "communityCreated": "¡{{initiator}} creó {{communityName}}!",
+        "joinedCommunity": "¡{{initiator}} se unió a {{communityName}}! Ahora puedes ver y celebrar los pasos de fe que ellos están tomando.",
+        "missionHubUser": "Usuario MissionHub",
+        "aMissionHubUser": "Un usuario de MissionHub"
+      },
+      "celebrateItems": {
+        "edit": { "buttonText": "Editar Publicación" },
+        "delete": {
+          "buttonText": "Borrar Publicación",
+          "title": "¿Borrar la Publicación?",
+          "message": "Esta publicación será borrada y no podrás encontrarla otra vez."
+        },
+        "report": {
+          "buttonText": "Reportar al propietario",
+          "title": "¿Reportar al propietario?",
+          "message": "¿Estás seguro que deseas reportar este comentario al propietario de la comunidad?",
+          "confirmButtonText": "Reportar Publicación"
+        }
+      },
+      "challengeFeeds": {
+        "past": "Desafíos pasados",
+        "emptyFeedTitle": "Desafíos",
+        "emptyFeedDescription": "Puedes ver, aceptar y completar retos aquí.",
+        "edit": "Editar",
+        "join": "Unirte",
+        "complete": "Completo",
+        "joined": "Unido",
+        "totalDays": "Desafío del día {{count}}",
+        "daysRemaining": "Falta {{count}} día",
+        "daysRemaining_plural": "Falta {{count}} días",
+        "accepted": "{{count}} Acceptado",
+        "completed": "Completado",
+        "iDidIt": "Hecho",
+        "endDate": "Fecha de finalización"
+      },
+      "challengeStats": {
+        "days": "Días",
+        "daysLeft": "Días que faltan",
+        "joined": "Unido",
+        "completed": "Completado"
+      },
+      "addChallenge": {
+        "titlePlaceholderEdit": "Editar desafío",
+        "titlePlaceholderAdd": "Nuevo desafío",
+        "editHeader": "Editar desafío",
+        "addHeader": "Nuevo desafío",
+        "add": "Crear desafío",
+        "save": "Guardar cambios",
+        "titlePlaceholder": "Describe tu desafío",
+        "titleLabel": "Desafío",
+        "datePlaceholder": "Fecha de finalización (Requerido)",
+        "dateLabel": "Fecha de finalización"
+      },
+      "groupsChallenge": { "create": "Crear Desafío" },
+      "groupOnboardingCard": {
+        "celebrateHeader": "Celebrar unos con otros",
+        "celebrateDescription": "Vea y celebre los pasos de fe del otro.",
+        "challengesHeader": "Nuestros desafíos",
+        "challengesDescription": "Unete a los demás en un desafío creado por tu comunidad.",
+        "membersHeader": "Viaje juntos",
+        "membersDescription": "Toma un paso de fe con alguien en tu comunidad.",
+        "impactHeader": "Mira a Dios trabajar",
+        "impactDescription": "Vea lo que Dios está haciendo al tomar pasos de fe juntos.",
+        "contactsHeader": "Viaje Juntos",
+        "contactsDescription": "Mantente involucrado con los contactos en tu comunidad.",
+        "surveysHeader": "Crecer juntos",
+        "surveysDescription": "Aprende de otros a través responder encuestas.",
+        "stepsHeader": "Pasos de Fe",
+        "stepsDescription": "Escoge una persona en vista Personas para añadir un nuevo paso"
+      },
+      "groupsMembers": {
+        "invite": "Enviar invitación",
+        "sendInviteMessage": "Unirme a MissionHub. Nuestro código de comunidad es {{code}}. Clic para unirse: {{url}}",
+        "invited": "Cualquier persona a la que hayas invitado a {{orgName}} aparecerá aquí cuando se unan."
+      },
+      "groupMemberOptions": {
+        "ownerLeaveCommunityErrorMessage": "Debes asignar un nuevo propietario a {{orgName}} antes de irte",
+        "leaveCommunity": {
+          "optionTitle": "Salir de comunidad",
+          "modalTitle": "¿Seguro que deseas salir de {{communityName}}?",
+          "confirmButtonText": "OK"
+        },
+        "makeAdmin": {
+          "optionTitle": "Hacer administrador",
+          "modalTitle": "¿Deseas hacer a {{personName}} un administrador?",
+          "modalDescription": "Administradores pueden remover miembros, promover miembros a administradores y crear desafíos.",
+          "confirmButtonText": "Sí"
+        },
+        "removeAdmin": {
+          "optionTitle": "Remover como administrador",
+          "modalTitle": "¿Remover {{personName}} como administrador?",
+          "confirmButtonText": "Remover"
+        },
+        "makeOwner": {
+          "optionTitle": "Hacer propietario",
+          "modalTitle": "¿Hacer a {{personName}} el propietario?",
+          "modalDescription": "Perderás la propiedad de esta comunidad pero todavía tendrás privilegios de administrador",
+          "confirmButtonText": "Sí"
+        },
+        "removeMember": {
+          "optionTitle": "Remover miembro",
+          "modalTitle": "¿Remover {{personName}} de {{communityName}}?",
+          "confirmButtonText": "Remover"
+        },
+        "tryItNowAdminOwnerErrorMessage": "Este miembro no ha creado una cuenta todavía. Una vez se registren, puedes intentarlo otra vez."
+      },
+      "groupsCelebrate": {
+        "placeholder": "Comparte algo para ser celebrado..."
+      },
+      "groupsContacts": { "searchPlaceholder": "Buscar contactos" },
+      "groupsContact": { "placeholder": "Comparte algo para ser celebrado..." },
+      "memberContacts": {
+        "nullDescription": "Alguien asignado a {{memberName}} aparecerá aquí."
+      },
+      "groupsSurveyContacts": { "searchPlaceholder": "Buscar contactos" },
+      "contactItem": { "unassigned": "No asignado" },
+      "datePicker": { "date": "Fecha" },
+      "groupsContactItem": {
+        "status": "Estado: {{status}}",
+        "assigned": "{{assigner}} asignó a {{assignedContact}} a {{assignedTo}}",
+        "unassigned": "{{unassignedContact}} ha sido desasignado por {{unassignedBy}}",
+        "stageChange": "{{personName}} cambió de {{oldStage}} a {{newStage}}",
+        "stageStart": "{{personName}} ha estado en MissionHub como {{newStage}}",
+        "spiritualConversation": "{{initiator}} tuvo una conversación espiritual con {{receiver}}",
+        "gospelPresentation": "{{initiator}} compartió el evangelio con {{receiver}}",
+        "personalDecision": "{{receiver}} tomó una decisión personal con {{initiator}}",
+        "holySpiritConversation": "{{initiator}} tuvo una conversación sobre el Espíritu Santo con {{receiver}}",
+        "discipleshipConversation": "{{initiator}} tuvo una conversación sobre discipulado con {{receiver}}",
+        "somethingCoolHappened": "{{initiator}} vió algo genial pasar con {{receiver}}",
+        "note": "{{initiator}} añadió una nota sobre {{receiver}}"
+      },
+      "groupItem": {
+        "numContacts": "{{count}} Contacto",
+        "numContacts_plural": "{{count}} Contactos",
+        "numAssigned": "{{count}} Asignado",
+        "numUnassigned": "{{count}} Sin asignar",
+        "unassigned": "Sin asignar",
+        "numUncontacted": "{{count}} Sin contactar",
+        "numMembers": "{{count}} Miembro",
+        "numMembers_plural": "{{count}} Miembros",
+        "owner": "{{name}} (Propietario)",
+        "join": "Unirse",
+        "selectStage": "Seleccionar Etapa",
+        "privateGroup": "Grupo privado"
+      },
+      "groupsCreateGroup": {
+        "createCommunity": "Crear comunidad",
+        "name": "Nombre de Comunidad"
+      },
+      "groupsJoinGroup": {
+        "joinCommunity": "Unirse a una comunidad",
+        "enterCode": "Ingresar el código de comunidad",
+        "search": "Buscar",
+        "communityNotFound": [
+          "Lo lamento, no podemos encontrar su comunidad. ",
+          "Revisa tu código."
+        ],
+        "communityNotFoundLink": [
+          "Lo lamento, no podemos encontrar su comunidad.",
+          "Revisa tu enlace."
+        ],
+        "findingCommunity": "Encontrando tu nueva comunidad..."
+      },
+      "shareSurveyMenu": {
+        "shareMessage": "{{name}}{{url}}",
+        "shareSurvey": "Comparte una encuesta",
+        "takeSurvey": "Hacer encuesta"
+      },
+      "groupsContactList": {
+        "assign": "Asignar a mi",
+        "nullHeader": "Alimentar actividad",
+        "nullDescription": "No hay actividad para mostrar."
+      },
+      "groupMemberItem": {
+        "assigned": "{{number}} Asignado",
+        "uncontacted": "{{number}} Sin contactar"
+      },
+      "groupSurveyItem": {
+        "contacts": "{{number}} Contactos",
+        "unassigned": "{{number}} Sin asignar",
+        "uncontacted": "{{number}} Sin contactar"
+      },
+      "loadMore": { "load": "Cargar más" },
+      "commentBox": { "placeholder": "Comentar" },
+      "statusSelect": {
+        "header": "Estado",
+        "cancel": "Cancelar",
+        "done": "Listo",
+        "uncontacted": "Sin contactar",
+        "attempted_contact": "Contacto intentado",
+        "contacted": "Contactado",
+        "completed": "Completado",
+        "do_not_contact": "No contactar"
+      },
+      "statusComplete": {
+        "done": "Listo",
+        "continue": [
+          "¡Buen trabajo {{userName}}!",
+          "¿Te gustaría continuar tu viaje con {{statusName}}?"
+        ],
+        "totally": "Totalmente",
+        "nope": "No gracias"
+      },
+      "statusReason": {
+        "done": "Listo",
+        "placeholder": "Notas de administrador",
+        "important": "¿Algo importante que el administrador de {{organization}} deba saber?"
+      },
+      "imagePicker": {
+        "selectImage": "Seleccionar imagen",
+        "cancel": "Cancelar",
+        "takePhoto": "Tomar foto",
+        "chooseFromLibrary": "Elegir de biblioteca...",
+        "deniedTitle": "Permisos negados",
+        "deniedText": "Para poder tomar fotos con tu cámara y escoger imágenes desde tu librería.",
+        "reTryTitle": "Reintentar",
+        "okTitle": "Estoy seguro",
+        "errorHeader": "Error",
+        "errorBody": "Hubo un error procesando tu pedido. Por favor intenta más tarde."
+      },
+      "groupProfile": {
+        "created": "Creado",
+        "members": "Miembros",
+        "code": "Código de comunidad",
+        "link": "Enlace de comunidad",
+        "newCode": "Nuevo código",
+        "newLink": "Nuevo enlace",
+        "info": "Alguien que tenga este código o enlace puede unirse a tu grupo.",
+        "deleteCommunity": "¿Borrar comunidad?",
+        "createNewCode": "¿Estás seguro que deseas crear un nuevo código de comunidad?",
+        "createNewLink": "¿Estás seguro que deseas crear un nuevo enlace de comunidad?",
+        "cannotBeUndone": "Esto no se puede deshacer",
+        "codeCopyText": "Toma pasos de fe conmigo en la app MissionHub. Usa el código de comunidad para unirte: {{code}}"
+      },
+      "landing": {
+        "getStarted": "Comenzar",
+        "tryItNow": "Pruébalo ahora",
+        "haveCode": "Tengo un código de comunidad",
+        "member": "¿Ya eres un miembro?"
+      },
+      "commentsList": {
+        "editPost": "Editar comentario",
+        "deletePost": "Borrar comentario",
+        "reportPost": "Reportar comentario",
+        "reportToOwner": "Reportar propietario",
+        "reportToOwnerHeader": "¿Reportar propietario?",
+        "reportAreYouSure": "¿Estás seguro que deseas reportar este comentario al propietario de la comunidad?",
+        "deletePostHeader": "¿Borrar publicación?",
+        "deleteAreYouSure": "Este publicación será borrado y no podrás encontrarlo nunca más."
+      },
+      "celebrateFeedHeader": {
+        "reports": "{{count}} nuevo comentario reportado",
+        "reports_plural": "{{count}} nuevos comentarios reportados",
+        "newComments": "Nuevo comentario",
+        "newComments_plural": "Nuevos comentarios"
+      },
+      "groupUnread": {
+        "title": "{{count}} Nuevo comentario",
+        "title_plural": "{{count}} Nuevos comentarios",
+        "header": "No hay comentarios no leídos",
+        "reportNull": "No hay comentarios no leídos",
+        "clearAll": "Borrar todo"
+      },
+      "groupsReport": {
+        "reports": "{{count}} nuevo comentario reportado",
+        "reports_plural": "{{count}} nuevos comentarios reportados",
+        "title": "Comentarios reportado",
+        "header": "No hay comentarios reportados",
+        "reportNull": "No hay comentarios reportados."
+      },
+      "reportComment": {
+        "reportedBy": "Reportado por",
+        "commentBy": "Comentado por",
+        "deleteTitle": "Borrando este comentario, lo remueves completamente y no podrá ser encontrado."
+      }
+    }
+  },
+  "tr": {
+    "translation": {
+      "common": {
+        "profileLabels": {
+          "firstName": "Ad",
+          "firstNameRequired": "$t(profileLabels.firstName) (Gerekli)",
+          "firstNameNickname": "$t(profileLabels.firstName) veya Lakap",
+          "lastName": "Soyad",
+          "lastNameOptional": "$t(profileLabels.lastName) (istersen)",
+          "email": "E-posta",
+          "emailRequired": "$t(profileLabels.email) (Gerekli)",
+          "phone": "Telefon",
+          "call": "Ara",
+          "message": "Bir Mesaj Gönder",
+          "stage": "Aşama",
+          "status": "Durum",
+          "gender": "Cinsiyet",
+          "permissions": "İzinler",
+          "contact": "Kontak",
+          "member": "Üye",
+          "user": "Kullanıcı",
+          "admin": "Yönetici",
+          "owner": "Sahip"
+        },
+        "gender": { "male": "Erkek", "female": "Kadın" },
+        "swipe": {
+          "remove": "Kaldır",
+          "complete": "Tamamla",
+          "edit": "Düzenle"
+        },
+        "followupStatus": {
+          "uncontacted": "İletişim Kurulmamış",
+          "contacted": "İletişim Kurulmuş",
+          "attempted_contact": "İletişim Kurulmaya Çalışılmış",
+          "do_not_contact": "İletişim Kurma",
+          "completed": "Tamamlandı"
+        },
+        "stages": {
+          "uninterested": {
+            "label": "İlgilenmiyor",
+            "description": "Kendi inanışlarından memnun ve İsa Mesih'le ilgilenmiyor.",
+            "followup": "Bizimle hala burada olduğundan dolayı memnunuz, {{name}}. Umarız ki şu adımlar ruhsal yolculuğunda faydalı olur."
+          },
+          "curious": {
+            "label": "Merak ediyor.",
+            "description": "Ruhsal sohbetlere açık veya İsa Mesih'in kim olduğunu öğrenmek istiyor.",
+            "followup": "{{name}}, ruhsal yolculuğunda senin yanında olmaktan memnunuz. Umarız ki şu adımlar İsa Mesih'i daha iyi tanımakta yararlı olur."
+          },
+          "forgiven": {
+            "label": "Bağışlanmış",
+            "description": "İsa Mesih'in kurtarıcı olduğuna inanıyor, ama ruhsal açıdan olgunlaşmıyor.",
+            "followup": "Burada bizimle olduğundan dolayı memnunuz, {{name}}. Ruhsal gelişmen için atabileceğin birkaç adım önermek isteriz."
+          },
+          "growing": {
+            "label": "Gelişiyor",
+            "description": "Günlük hayatında İsa Mesih'i izlemeyi öğreniyor.",
+            "followup": "İsa Mesih'i takip ettiğinden dolayı seviniyoruz, {{name}}! Tanrı'yı daha yakından tanıman için ve diğerlerinin onu yaşamaları için atabileceğin birkaç adım önermek isteriz."
+          },
+          "guiding": {
+            "label": "Rehberlik yapıyor",
+            "description": "Diğerlerinin İsa Mesih'i tanıyıp takip etmelerine adanmış.",
+            "followup": "Süper! Umarız ki MissionHub Tanrı'nın hayatına koyduğu kişilere hizmet etmekte yararlı olur."
+          }
+        },
+        "dates": {
+          "today": "Bugün",
+          "yesterday": "Dün",
+          "tomorrow": "Yarın",
+          "everyDay": "Her gün",
+          "every": "Her",
+          "onceAMonth": "Her ayın bir gününde, ve bu gün"
+        },
+        "yes": "Evet",
+        "no": "Hayır",
+        "copy": "Kopyala",
+        "edit": "Düzenle",
+        "done": "Tamamlanmış",
+        "next": "Ertesi",
+        "skip": "Atla",
+        "ok": "Tamam",
+        "logout": "Oturumu kapat",
+        "me": "Ben",
+        "loading": "Yükleniyor",
+        "save": "Kaydet",
+        "delete": "Sil",
+        "ignore": "Görmezden gel",
+        "report": "Bildir",
+        "cancel": "İptal Et",
+        "continue": "Devam Et",
+        "your": "senin",
+        "view": "Görüntüle",
+        "contactAssignment": "{{assignedContactName}}  {{assignedToName}}{{assignedByName}} verildi",
+        "contactUnassignment": "{{assignedContactName}}  {{assignedToName}}'den geri alındı",
+        "assignToMe": "Bana ata",
+        "copyMessage": "Kopyalanmış",
+        "terms": "MissionHub hesabını açtığına göre şartlarımızı kabul ediyorsunuz, bizim",
+        "termsTrial": "MissionHub deneme hesabını yaptığına göre şartlarımızı kabul ediyorsunuz, bizim",
+        "tos": "Kullanım Şartlarımız",
+        "privacy": "Gizlilik Politikası",
+        "and": "ve",
+        "signIn": "Oturum Aç",
+        "profileLabelFirstName": "Ad (Gerekli)",
+        "profileLabelLastName": "Soyad",
+        "profileLabelEmail": "E-posta",
+        "profileLabelPhone": "Telefon"
+      },
+      "mainTabs": { "takeAStepWithSomeone": "Başka Birisiyle Adım At" },
+      "error": {
+        "error": "Hata",
+        "unexpectedErrorMessage": "Beklenmedik bir hata oluştu.",
+        "baseErrorMessage": "Bu sorun devam ederse lütfen support@missionhub.com'a bir email gönder.",
+        "ADD_NEW_PERSON": "Kişi eklenme sırasında bir hata oluştu."
+      },
+      "offline": {
+        "youreOffline": "Çevrimdışısın",
+        "connectToInternet": "İnternete bağlanırsan MissionHub'u kullanmaya devam edebilirsin."
+      },
+      "forcedLogout": {
+        "message": [
+          "Oturumu en son açtığından beri bir süre geçti.",
+          "Lütfen yine oturum aç ki kim olduğunu bilelim diye."
+        ]
+      },
+      "settingsMenu": {
+        "about": "Hakkımızda",
+        "help": "Yardım",
+        "review": "Bir Değerlendirme Yaz",
+        "shareStory": "Bizimle bir Hikaye Paylaş",
+        "terms": "Kullanım Şartları",
+        "privacy": "Gizlilik Politikası",
+        "signOut": "Oturumu kapat",
+        "cannotOpenUrl": "URL'i açamıyoruz",
+        "pleaseVisit": "Üzgünüz, bu URL'i açamadık. Lütfen şu linki takip et: {{url}}",
+        "signUp": "Kayıt Ol"
+      },
+      "login": {
+        "tagline1": "Tanrı'ya yakınlaş.",
+        "tagline2": "Başkalarının O'nu yaşamalarına yardımcı ol.",
+        "facebookSignup": "Facebook Aracılığıyla Kayıt ol",
+        "tryNow": "Şimdi onu dene.",
+        "signIn": "Oturum Aç",
+        "getStarted": "Başla",
+        "member": "Üye Misin?"
+      },
+      "loginOptions": {
+        "facebookSignup": "Facebook Aracılığıyla Kayıt Ol",
+        "haveCode": "Topluluk Kodum Var",
+        "signUpLater": "Sonra Kayıt Ol",
+        "tryNow": "Şimdi Bunu Dene",
+        "emailSignUp": "E-posta Aracılığıyla Kayıt Ol",
+        "signIn": "Oturum Aç",
+        "terms": "MissionHub hesabını açtığına göre şartlarımızı kabul ediyorsunuz, bizim",
+        "member": "Üye Misin?",
+        "createCommunityTitle": "Bir Topluluk Oluştur",
+        "createCommunityDescription": "Bir MissionHub topluluğu oluşturmak için kayıt ol.",
+        "tos": "Kullanım Şartları",
+        "privacy": "Gizlilik Politikası",
+        "and": "ve"
+      },
+      "keyLogin": {
+        "invalidCredentialsMessage": "E-postan ya da Şifren Yanlış",
+        "verifyEmailMessage": "Hesabını E-posta aracılığıyla doğrula",
+        "emailLabel": "E-posta",
+        "passwordLabel": "Şifre",
+        "forgotPassword": "Sifreni Unuttun Mu?",
+        "login": "OTURUM AÇ",
+        "errorDefault": "Oturum açma sırasında bir sorun oluştu.",
+        "errorIncorrect": "E-postan ya da Şifren Yanlış",
+        "errorVerify": "Hesabını E-posta aracılığıyla doğrula",
+        "facebookLogin": "Facebook Aracılığıyla Oturum Aç"
+      },
+      "mfaLogin": {
+        "mfaHeader": "iki adımlı doğrulama",
+        "mfaDescription": "Kimlik belirleyici uygulamanın oluşturduğu doğrulama kodunu gir.",
+        "mfaLabel": "Doğrulama Kodu",
+        "mfaIncorrect": "Doğrulama kodu yanlış"
+      },
+      "welcome": {
+        "getStarted": "Başlayalım",
+        "getStartedButton": "Başla",
+        "tryItNow": "Şimdi Bunu Dene",
+        "welcome": "hoşgeldin!",
+        "welcomeDescription": "Başkalarının Tanrı'yı yaşamalarına yardımcı olmak, O'na yakınlaşmanın bir parçasıdır. Bu yolda MissionHub senin yanında ve iman yoluyla adım atmakta faydalı olur."
+      },
+      "setup": { "firstThing": "-ilk önce-", "namePrompt": "adın ne?" },
+      "interactions": { "title": "Merhaba!", "profileTab": "Profile Gir" },
+      "addContact": {
+        "addSomeone": "BİR KİŞİ EKLE",
+        "editPerson": "Kişiyi Düzenle",
+        "addToOrg": "BİR KİŞİ EKLE, {{orgName}}",
+        "message": [
+          "Başkalarının Tanrı'yı yaşamalarına yardımcı olmak, O'na yakınlaşmanın bir parçasıdır.",
+          "",
+          "Şimdi bir dua et. Kiminle iman yoluyla adımlar atmak istersin?"
+        ],
+        "alertBlankEmail": "E-posta boş",
+        "alertPermissionsMustHaveEmail": "Kullanıcı veya Yönetici izinleri için e-posta ve ad gerekli",
+        "alertSorry": "Üzgünüz",
+        "alertCannotEditFirstName": "Diğer MissionHub kullanıcılarının adlarını değiştiremezsin",
+        "done": "Bitti"
+      },
+      "addStep": {
+        "header": "Kendi adımını oluştur",
+        "createStep": "Bir adım oluştur",
+        "skip": "ATLA",
+        "journeyHeader": "Tanrı'nın ne yaptığını gördün?",
+        "editJourneyHeader": "Yorumunu düzenle",
+        "addJourneyPerson": "Yolculuğumuza Ekle",
+        "addJourneyMe": "Yolculuğuma Ekle",
+        "addJourney": "Yolculuğumuza Ekle",
+        "editJourneyButton": "Kaydet",
+        "makeShorter": "Bu güzel adım için teşekkürler! Bu boşluğa uyması için bunun daha kısa bir versiyonunu yazmalısın.",
+        "tooLong": "Bu güzel adım için teşekkürler! Bu boşluğa uyması için bunun daha kısa bir versiyonunu yazmalısın."
+      },
+      "stepReminder": {
+        "setReminder": "Anımsatıcı Ayarla",
+        "endDate": "Bitiş Tarihi",
+        "endDatePlaceholder": "Bitiş Tarihi (Gerekli)",
+        "daily": "Günlük",
+        "weekly": "Haftalık",
+        "monthly": "Aylık"
+      },
+      "selectStep": {
+        "meHeader": "Ruhsal yolculuğunda nasıl ilerlemek istersin?",
+        "personHeader": "Arkadaşının, {{name}}, Tanrı'yı yaşamasına yardımcı olmak amacıyla ne yapacaksın?",
+        "addStep": "ADIMLARIMA EKLE",
+        "createStep": "KENDİ ADIMINI OLUŞTUR",
+        "loadMoreSteps": "DAHA ÇOK ADIM GÖSTER",
+        "stepsOfFaith": "İman yoluyla adımlar ekle"
+      },
+      "suggestedStepDetail": { "addStep": "Adımlarıma ekle" },
+      "acceptedStepDetail": {
+        "removeStep": "Adım Kaldır",
+        "iDidIt": "Başardım!"
+      },
+      "completedStepDetail": {
+        "completedStep": "Tamamlanmış Adım",
+        "completedOn": "Tamamlanmış {{date}}"
+      },
+      "selectStage": {
+        "meQuestion": "{{name}}, senin yolculuğunda hangi aşama senin nerede olduğunu tarif eder?",
+        "personQuestion": "{{name}} adlı kişinin yolculuğunda hangi aşama onun nerede olduğunu tarif eder?",
+        "completed3Steps": "Arkadaşınla, {{name}}, 3 adım attın. Ruhsal gelişmeler var mı?",
+        "completed1Step": "Arkadaşınla, {{name}}, bir adım attın. Ruhsal gelişmeler var mı?",
+        "completed3StepsMe": "3 adım attın. Ruhsal gelişmeler var mı?",
+        "iAmHere": "BEN BURADAYIM",
+        "stillHere": "HALA BURADAYIM",
+        "here": "BURADA"
+      },
+      "stageSuccess": {
+        "backupMessage": "Burada olduğuna seviniyoruz, <<user>>!",
+        "friend": "Arkadaş",
+        "chooseSteps": "BENİM İÇİN ADIMLAR SEÇ"
+      },
+      "contactHeader": {
+        "mySteps": "Adımlarım",
+        "ourJourney": "Yolculuğumuz",
+        "myNotes": "Notlarım",
+        "myJourney": "Yolculuğum",
+        "myActions": "Eylemlerim",
+        "impact": "Etki",
+        "selectStage": "AŞAMAYI SEÇ"
+      },
+      "contactSteps": {
+        "header": "İMAN YOLUYLA ADIMLAR",
+        "stepNull": "{{name}} ile İman Yoluyla Adımların burada gözükür.",
+        "showCompletedSteps": "TAMAMLANMIŞ ADIMLARI GÖSTER",
+        "hideCompletedSteps": "TAMAMLANMIŞ ADIMLARI GİZLE",
+        "addStep": "İman yoluyla adım ekle"
+      },
+      "contactJourney": {
+        "loading": "Yolculuk Öğeleri Yükleniyor",
+        "somethingCool": "Güzel Bir Şey Oldu",
+        "addComment": "Bir yorum yap",
+        "addJourney": "Yolculuğumuza Ekle",
+        "ourJourney": "Yolculuğumuz",
+        "journeyNull": "MissionHub tamamlanmış adımlarını ve yolculukta aldığın notları burada kaydediyor."
+      },
+      "journeyItem": {
+        "stepTitle": "{{stageName}} aşamasında iman yoluyla adımı tamamlandı",
+        "stageTitle": "{{oldStage}} den {{newStage}} e",
+        "stageText": "{{personName}} ismini değiştirdi, {{oldStage}} den {{newStage}} e",
+        "stageTextSelf": "Sen {{oldStage}} den {{newStage}} e değiştin",
+        "stageStart": "MissionHub'a {{personName}} adlı kişiyi ekledin, ve aşaması {{newStage}}",
+        "stageStartSelf": "MissionHub'a kendini ekledin, ve aşaman {{newStage}}",
+        "interactionNote": "Yorum",
+        "interactionSomethingCoolHappened": "$t(contactJourney:somethingCool)",
+        "interactionSpiritualConversation": "Ruhsal Sohbetler",
+        "interactionGospel": "Müjde Sunumları",
+        "interactionDecision": "Kişisel Kararlar",
+        "interactionSpirit": "Kutsal Ruh Kitapçığı Sunumları",
+        "interactionDiscipleshipConversation": "Havarilik Hakkında Sohbetler",
+        "interactionAssignedContacts": "Atanmış Kontaklar",
+        "interactionUncontacted": "İletişim Kurulmamış"
+      },
+      "getStarted": {
+        "hi": "merhaba {{name}}!",
+        "tagline": [
+          "Herkesin ruhsal yolculuğu farklı olduğu halde birçok kişi Tanrı'ya yaklaşırken beş aşamadan geçer.",
+          "",
+          "Senin hangi aşamada olduğunu belirleyelim."
+        ],
+        "getStarted": "Başlayalım"
+      },
+      "history": { "header": "Geçmiş" },
+      "impact": {
+        "header": "Etki",
+        "stepsSentence": "{{beginningScope}}{{numInitiators}}{{initiator}} {{initiatorSuffix}} atıldı $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }){{endingScope}}.",
+        "stepsSentence_empty": "{{initiator}} {{initiatorSuffix}} adlı kişinin attığı adımları burada görebilirsin.",
+        "stepsSentence_emptyContact": "{{initiator}} adlı kişinin attığı adımları burada göreceksin.",
+        "stepsSentence_emptyGlobal": "Birazdan diğer kullanıcıların attıkları adımları burada göreceksin.",
+        "stageSentence": "$t(people, {'count': {{pathwayMovedCount}} }) ruhsal yolculuğunda yeni bir aşamaya geçti.",
+        "stageSentence_empty": "Aşağıda Tanrı'nın {{initiator}} aracılığıyla ne yapmış olduğunu gör.",
+        "stageSentence_emptyContact": "Aşağıda Tanrı'nın {{initiator}} aracılığıyla ne yapıyor olduğunu gör.",
+        "stageSentence_emptyGlobal": "Birazdan burada başkalarının yolculuklarında nasıl ilerlediklerini göreceksin.",
+        "steps": "{{count}} adım",
+        "steps_plural": "{{count}} adım",
+        "people": "{{count}} kişi",
+        "people_plural": "{{count}} kişi",
+        "impactSentence": [
+          "{{year}} yılında, {{numInitiators}}{{initiator}} {{stepsCount}} iman yoluyla adımlar attı, {{receiversCount}} kişiyle.",
+          "",
+          "{{pathwayMovedCount}} kişi yeni bir aşamaya geçti."
+        ],
+        "you": "sen",
+        "we": "biz",
+        "togetherWe": "biz birlikte",
+        "users": "kullanıcılar",
+        "allOfUs": "hepimiz",
+        "haveSuffix": "sahip olduk",
+        "hasSuffix": "sahip oldu",
+        "inYear": "{{year}} yılında",
+        "inTheirLife": " onların hayatında",
+        "atOrgName": " {{orgName}} adlı organizasiyonda",
+        "interactionSpiritualConversation": "Ruhsal Sohbetler",
+        "interactionGospel": "Müjde Sunumları",
+        "interactionDecision": "Kişisel Kararlar",
+        "interactionSpirit": "Kutsal Ruh Kitapçığı Sunumları",
+        "interactionDiscipleshipConversation": "Havarilik Hakkında Sohbetler",
+        "interactionAssignedContacts": "Atanmış Kontaklar",
+        "interactionUncontacted": "İletişim Kurulmamış"
+      },
+      "actions": {
+        "interactionSpiritualConversation": "Ruhsal Sohbetler",
+        "interactionGospel": "Müjde Sunumları",
+        "interactionDecision": "Kişisel Karar",
+        "interactionSpirit": "Kutsal Ruh Kitapçılığı Sunumları",
+        "interactionDiscipleshipConversation": "Havarilik Hakkında Sohbet",
+        "interactionNote": "Yorum",
+        "commentBoxPlaceholder": "Hatırlanacak bir şey paylaş..."
+      },
+      "celebrateCommentBox": { "placeholder": "Yorum yap..." },
+      "notes": {
+        "header": "NOTLARIM",
+        "add": "ÖZEL NOTLAR EKLE",
+        "edit": "ÖZEL NOTLARI DÜZENLE",
+        "prompt": "{{personFirstName}} hakkında önemli detaylar hatırlayıp yaz. Mesela, en sevdiği yemek, hobiler, söylediği ilginç bir şey, vs.",
+        "promptMe": "Kendi hayatın hakkında önemli detaylar hatırlayıp yaz. Mesela, ruhsal açıdan aştığın aşamalar, etkileyen kişiler, Tanrı'dan öğrendiklerin, vs."
+      },
+      "search": {
+        "inputPlaceholder": "Arama",
+        "loading": "Yükleniyor",
+        "noResults": "Sonuç yok",
+        "nullHeader": "Arama",
+        "nullDescription": "Arama sonuçları burada gözükecek."
+      },
+      "searchFilter": {
+        "title": "Filtre",
+        "titleSurvey": "Filtre anketi",
+        "titleQuestions": "Sorular",
+        "titleAnswers": "Cevaplar",
+        "ministry": "Hizmet",
+        "label": "Etiket",
+        "labels": "Etiketler",
+        "groups": "Gruplar",
+        "surveys": "Anket",
+        "gender": "Cinsiyet",
+        "male": "Erkek",
+        "female": "Kadın",
+        "other": "Diğer",
+        "time": "Süre",
+        "time7": "Son 7 gün",
+        "time30": "Son 30 gün",
+        "time60": "Son 60 gün",
+        "time90": "Son 90 gün",
+        "time180": "Son 6 Ay",
+        "time270": "Son 9 Ay",
+        "time365": "Son 12 Ay",
+        "surveyQuestions": "Sorular/Cevaplar",
+        "uncontacted": "İletişim Kurulmamış",
+        "unassigned": "Atanmamış",
+        "archived": "Arşivdeki Kontakları İçer",
+        "multiple": "Birden fazla",
+        "includeUsers": "Kullanıcıları ve Adminleri İçer"
+      },
+      "searchFilterRefine": {
+        "title": "Daha spesifik hale getir",
+        "any": "Herhangi"
+      },
+      "notificationPrimer": {
+        "onboarding": "MissionHub adımlarını atmana yardım etmek için sana anımsatıcılar gönderecek.",
+        "focusStep": "Bir atacak adım oluşturduğuna sevindik! Bu adım unutulmasın diye sana bir anımsatıcı ayarlamak isteriz.",
+        "login": "Birkaç adım kabul ettiğini fark ettik. Bu adımlar unutulmasın diye sana bir anımsatıcı ayarlamak isteriz.",
+        "setReminder": "İman yoluyla bu adımı atmana yardımcı olmak isteriz! Anımsatıcı ayarlayabilmemiz için sana bildirim gönderme iznimiz gerekiyor.",
+        "joinCommunity": "MissionHub sana topluluğundaki faaliyetlerle ilgili haber vermek istiyor.",
+        "joinChallenge": "Bir meydan okuma kabul ettiğine sevindik! MissionHub sana bu meydan okuma ile ilgili haber güncelleştirmeleri göndermek istiyor.",
+        "onboardingDescription": "MissionHub adımlarını atmana yardım etmek için sana anımsatıcılar gönderecek.",
+        "focusDescription": "Bir atacak adım oluşturduğuna sevindik! Bu adım unutulmasın diye sana bir anımsatıcı ayarlamak isteriz.",
+        "loginDescription": "Birkaç adım kabul ettiğini fark ettik. Bu adımlar unutulmasın diye sana bir anımsatıcı ayarlamak isteriz.",
+        "setReminderDescription": "İman yoluyla bu adımı atmana yardımcı olmak isteriz! Anımsatıcı ayarlayabilmemiz ve sana bildirim gönderebilmemiz için iznin gerekiyor.",
+        "joinCommunityDescription": "MissionHub sana topluluğundaki faaliyetlerle ilgili haber vermek istiyor.",
+        "joinChallengeDescription": "Meydan okumayı kabul ettiğine sevindik! MissionHub sana bu meydan okuma ile ilgili haber güncelleştirmeleri göndermek istiyor.",
+        "description": "MissionHub adımlarını atmana yardım etmek için sana anımsatıcılar gönderecek.",
+        "allow": "Bildirimlere İzin Ver",
+        "notNow": "Şimdi Değil"
+      },
+      "notificationOff": {
+        "title": "Bildirimler kapatıldı",
+        "defaultDescription": "İman yoluyla adımlarını atmana anımsatıcılar almak için, lütfen bildirimleri aç.",
+        "joinCommunity": "MissionHub topluluğundan haber güncelleştirmeler almak için, lütfen bildirimleri aç.",
+        "joinChallenge": "Topluluğunun meydan okumalarıyla ilgili haber güncelleştirmeler almak için lütfen bildirimleri aç.",
+        "description": "İman yoluyla adımlarını atmana anımsatıcılar almak için lütfen bildirimleri aç.",
+        "allow": "Bildirimlere İzin Ver",
+        "settings": "Ayarlara Git",
+        "notNow": "Şimdi Değil",
+        "noReminders": "Anımsatıcılar İstemiyorum"
+      },
+      "stepsTab": {
+        "nullHeader": "İMAN YOLUYLA ADIMLAR",
+        "nullWithReminders": "Kişiler Bölümünde bir kişi seçip yeni adımlar oluştur.",
+        "nullNoReminders": [
+          "İman yoluyla adımların yok.",
+          "Kişiler Bölümünde bir kişi seçip yeni adımlar oluştur."
+        ],
+        "title": "İman Yoluyla Adımlar",
+        "reminderTitle": "Haftanı düzenle",
+        "reminderDescription": "En çok üç adımı işaretle ve her hafta anımsatıcılar alacaksın.",
+        "dragTitle": "Haftanı düzenle",
+        "dragDescription": "Anımsatıcılar alabilmen için en favori 3 adımı buraya sürükle ve bırak.",
+        "holdDescription": "En favori 3 adımı buraya eklemek ve anımsatıcılar almak için adımların üzerine uzun süreyle bas.",
+        "reminderAddedToast": "✔ Anımsatıcı Oluşturuldu"
+      },
+      "contactSideMenu": {
+        "edit": "Düzenle",
+        "delete": "Kişiyi Sil",
+        "unassignButton": "Kişiyi Atamayı İptal Et",
+        "deleteQuestion": "{{name}} adlı kişiyi silelim mi?",
+        "deleteSentence": "Bu kişiyi silmek istediğine emin misin?",
+        "unassignQuestion": "{{name}} adlı kişiyi atamayı iptal edelim mi?",
+        "unassignSentence": "Bu kişiyi atamayı iptal etmek istediğine emin misin?",
+        "attemptedContact": "İletişim Kurulmaya Çalışılmış",
+        "completed": "Tamamlandı",
+        "contacted": "İletişim Kurulmuş",
+        "doNotContact": "İletişim Kurma",
+        "uncontacted": "İletişim Kurulmamış",
+        "assign": "Ata",
+        "unassign": "Atamayı İptal Et"
+      },
+      "assignAlert": {
+        "question": "Bu kişiyi kendine atamak ister misin?",
+        "sentence": "Bir aşamayı seçersen, bu kişi sana atanacak."
+      },
+      "peopleScreen": {
+        "header": "KİŞİLER",
+        "personalMinistry": "Kişisel Hizmet",
+        "personal": "kişisel"
+      },
+      "profileScreen": {
+        "goToMain": "Ana Taba Git",
+        "goBack": "Bir Önceki Taba Git",
+        "profileID": "Profil {{id}}"
+      },
+      "appRoutes": {
+        "steps": "Adımlar",
+        "people": "Kişiler",
+        "impact": "Etki",
+        "group": "Topluluklar",
+        "groups": "Topluluklar"
+      },
+      "groupTabs": {
+        "celebrate": "Kutla",
+        "challenges": "Meydan Okumalar",
+        "members": "Üyeler",
+        "impact": "Etki",
+        "contacts": "Kontaklar",
+        "surveys": "Anketler"
+      },
+      "personTabs": {
+        "celebrate": "Kutla",
+        "steps": "Adımlarım",
+        "notes": "Notlarım",
+        "ourJourney": "Yolculuğumuz",
+        "myJourney": "Yolculuğum",
+        "journey": "Yolculuğumuz",
+        "impact": "Etki",
+        "myImpact": "Etkim",
+        "assignedContacts": "Kontaklar"
+      },
+      "onboarding": {
+        "screen1": {
+          "name": "Hayatındaki kişilere odaklan",
+          "description": "İman yoluyla adımları seç ve MissionHub ilgilendiğin kişilere odaklanmana yardımcı olacak."
+        },
+        "screen2": {
+          "name": "Onarın Tanrı'yı yaşamalarına yardımcı olmak için iman yoluyla adımlar at.",
+          "description": "MissionHub, başkalarının Tanrı'yı yaşamalarına yardımcı olarak O'na senin yakınlaşman yardımcı oluyor."
+        },
+        "screen3": {
+          "name": "Tanrı'nın çalıştığını gör ve işinin bir parçası olduğunu bil.",
+          "description": "MissionHub senin attığın tüm adımları hatırlar ki Tanrı'nın ne yaptığını görebilirsin."
+        }
+      },
+      "welcomeNotification": {
+        "title": "Bir adım odakladın, aferin!",
+        "message": "Bu önemli adımlara odaklanmana yardımcı olmak için Çarşamba günleri ve Pazar günleri sana anımsatıcılar göndereceğiz."
+      },
+      "groupsList": {
+        "header": "Topluluklar",
+        "groupsNull": "Toplulukların burada gözükecek.",
+        "joinCommunity": "Bir Topluluğa Katıl",
+        "createCommunity": "Bir Topluluk Oluştur",
+        "globalCommunity": "MissionHub Topluluğu"
+      },
+      "celebrateFeeds": {
+        "title": " ",
+        "placeholder": "Kutlayacak bir şey paylaş...",
+        "emptyFeedTitle": "Kutla!",
+        "emptyFeedDescription": "{{firstName}}, İman Yoluyla Adımlarını burada kutlayabilirsin.",
+        "emptyFeedGroupNameValue": "birbirini",
+        "stepOfFaith": "{{initiator}} {{receiverStage}} adlı bir kişiyle iman yoluyla bir adım attı.",
+        "stepOfFaithUnknownStage": "{{initiator}} iman yoluyla birisiyle bir adım attı.",
+        "stepOfFaithNotSureStage": "{{initiator}} iman yoluyla bir adım attı.",
+        "interaction": "{{initiator}} {{interactionName}} yaptı.",
+        "interactionDecision": "{{initiator}} birisinin Kişisel bir Karar verdiğini gördü.",
+        "addedContact": "{{initiator}} {{receiverStage}} aşaması olan bir kişi ekledi.",
+        "somethingCoolHappened": "{{initiator}} birisiyle güzel bir şey gördü.",
+        "challengeAccepted": "{{initiator}} bir Meydan Okuma kabul etti.",
+        "challengeCompleted": "{{initiator}} bir Meydan Okuma tamamladı:",
+        "communityCreated": "{{initiator}} {{communityName}} adlı bir topluluk oluşturdu!",
+        "joinedCommunity": "{{initiator}} {{communityName}} adlı topuluğa katıldı! Artık onun adımlarını hem görebilir hem de kutlayabilirsin.",
+        "missionHubUser": "MissionHub kullanıcısı",
+        "aMissionHubUser": "Bir MissionHub kullanıcısı"
+      },
+      "challengeFeeds": {
+        "past": "Geçmiş Meydan Okumalar",
+        "emptyFeedTitle": "Meydan Okumalar",
+        "emptyFeedDescription": "Meydan okumaları burada görebilir, kabul edebilir, ve tamamlayabilirsin.",
+        "edit": "Düzenle",
+        "join": "Katıl",
+        "complete": "Tamamla",
+        "joined": "Katıldı",
+        "totalDays": "{{count}} Günlük Meydan Okuma",
+        "daysRemaining": "{{count}} Gün Kaldı",
+        "daysRemaining_plural": "{{count}} Gün Kaldı",
+        "accepted": "{{count}} Kabul Edildi",
+        "completed": "Tamamlandı",
+        "iDidIt": "Onu Yaptım",
+        "endDate": "Bitiş Tarihi"
+      },
+      "challengeStats": {
+        "days": "Günler",
+        "daysLeft": "Gün Kaldı",
+        "joined": "Katıldı",
+        "completed": "Tamamlandı"
+      },
+      "addChallenge": {
+        "titlePlaceholderEdit": "Meydan Okumayı Düzenle",
+        "titlePlaceholderAdd": "Yeni Meydan Okuma",
+        "editHeader": "Meydan Okumayı Düzenle",
+        "addHeader": "Yeni Meydan Okuma",
+        "add": "Meydan Okuma Oluştur",
+        "save": "Değişiklikleri Kaydet",
+        "titlePlaceholder": "Meydan Okumanı Tarif Et",
+        "titleLabel": "Meydan Okuma",
+        "datePlaceholder": "Bitiş Tarih (Gerekli)",
+        "dateLabel": "Bitiş Tarih"
+      },
+      "groupsChallenge": { "create": "Meydan Okuma Oluştur" },
+      "groupOnboardingCard": {
+        "celebrateHeader": "Birbirinizi Kutlayın",
+        "celebrateDescription": "Birbirinizin İman Yoluyla Adımlarınızı gör ve kutla",
+        "challengesHeader": "Bizim Meyda Okumalarımız",
+        "challengesDescription": "Topluluğunuzun oluşturduğu meydan okumayı birlikte yap.",
+        "membersHeader": "Birlikte Yolculuk Et",
+        "membersDescription": "Topluluğunuzdan birisiyle İman Yoluyla Adım at",
+        "impactHeader": "Tanrı'nın Çalıştığını Gör",
+        "impactDescription": "Birlikte İman Yoluyla Adım atarken Tanrı'nın ne yaptığını gör.",
+        "contactsHeader": "Birlikte Yolculuk Et",
+        "contactsDescription": "Topluluğundan kişilerle yakından ilgilenmeye devam et.",
+        "surveysHeader": "Birlikte Geliş",
+        "surveysDescription": "Birbiriniz hakkında anket cevapları aracılığıyla öğren."
+      },
+      "groupsMembers": {
+        "invite": "Davet Et",
+        "sendInviteMessage": "Bana MissionHub'da katıl. Topluluğumuzun kodu {{code}}. Katılmak için bunu tıkla {{url}}",
+        "invited": "{{orgName}} davet ettiğin kişiler katılınca burada gözükecek.",
+        "title": " "
+      },
+      "groupMemberOptions": {
+        "ownerLeaveCommunityErrorMessage": "Çıkmadan önce {{orgName}} adlı organizasyona yeni bir sahip belirlemen gerekiyor.",
+        "leaveCommunity": {
+          "optionTitle": "Topluluktan Ayrıl",
+          "modalTitle": "{{communityName}} adlı topluluktan ayrılmak istediğine emin misin?",
+          "confirmButtonText": "Tamam"
+        },
+        "makeAdmin": {
+          "optionTitle": "Yönetici Yap",
+          "modalTitle": "{{personName}} adlı kişiyi yönetici yapmak ister misin?",
+          "modalDescription": "Yöneticiler üyelerini kaldırabilir, üyelerini yönetici yapabilir, ve meydan okumalar oluşturabilir.",
+          "confirmButtonText": "Evet"
+        },
+        "removeAdmin": {
+          "optionTitle": "Yönetici Olarak Kaldır",
+          "modalTitle": "{{personName}} adlı kişiyi yönetici olarak kaldırmak istiyor musun?",
+          "confirmButtonText": "Kaldır"
+        },
+        "makeOwner": {
+          "optionTitle": "Sahipi Yap",
+          "modalTitle": "{{personName}} adlı kişiyi sahibi yapmak istiyor musun?",
+          "modalDescription": "Bu topluluğa sahip olma yetkinliğin elinden alınacak ama yönetici ayrıcalıkların devam edecek",
+          "confirmButtonText": "Evet"
+        },
+        "removeMember": {
+          "optionTitle": "Üye Kaldır",
+          "modalTitle": "{{personName}} adlı kişiyi {{communityName}} adlı topluluktan kaldırmak istiyor musun?",
+          "confirmButtonText": "Kaldır"
+        },
+        "tryItNowAdminOwnerErrorMessage": "Bu üye hesabını henüz açmadı. O kayıt olduktan sonra, sen bunu tekrar yapmaya çalışabilirsin."
+      },
+      "groupsCelebrate": {
+        "title": " ",
+        "placeholder": "Kutlayacak bir şey paylaş..."
+      },
+      "groupsImpact": { "title": " " },
+      "groupsContacts": {
+        "title": " ",
+        "searchPlaceholder": "Kontaklara Gözat"
+      },
+      "groupsContact": { "placeholder": "Kutlayacak bir şey paylaş..." },
+      "memberContacts": {
+        "nullDescription": "{{memberName}} adlı kişiye atanmış kişiler burada gözükecek."
+      },
+      "groupsSurveys": { "title": " " },
+      "groupsSurveyContacts": { "searchPlaceholder": "Kontaklara Gözat" },
+      "contactItem": { "unassigned": "Atanmamış" },
+      "datePicker": { "date": "Tarih" },
+      "groupsContactItem": {
+        "status": "Durum: {{status}}",
+        "assigned": "{{assigner}} {{assignedContact}} adlı kişiyi {{assignedTo}} adlı kişiye atadı",
+        "unassigned": "{{unassignedContact}} adlı kişinin {{unassignedBy}} tarafından atanması iptal edildi",
+        "stageChange": "{{personName}} {{oldStage}} aşamasından {{newStage}} aşamasına geçti",
+        "stageStart": "{{personName}} {{newStage}} aşamasında MissionHub'a eklendi",
+        "spiritualConversation": "{{initiator}} {{receiver}} ile ruhsal bir sohbet etti",
+        "gospelPresentation": "{{initiator}} {{receiver}} ile müjdeyi paylaştı",
+        "personalDecision": "{{receiver}} {{initiator}} ile görüşürken kişisel bir karar verdi",
+        "holySpiritConversation": "{{initiator}} {{receiver}} ile görüşürken Kutsal Ruh kitapçığını paylaştı",
+        "discipleshipConversation": "{{initiator}} {{receiver}} ile görüşürken havarilik üzerinde konuştu",
+        "somethingCoolHappened": "{{initiator}} {{receiver}} adlı kişinin hayatında güzel bir şey olduğunu gördü",
+        "note": "{{initiator}} {{receiver}} ile ilgili bir not aldı"
+      },
+      "groupItem": {
+        "numContacts": "{{count}} Kontak",
+        "numContacts_plural": "{{count}} Kontak",
+        "numAssigned": "{{count}} Atanmış",
+        "numUnassigned": "{{count}} Atanmamış",
+        "unassigned": "Atanmamış",
+        "numUncontacted": "{{count}} İletişim Kurulmamış",
+        "numMembers": "{{count}} Üye",
+        "numMembers_plural": "{{count}} Üye",
+        "owner": "{{name}} (Sahip)",
+        "join": "Katıl",
+        "selectStage": "Aşamayı Seç",
+        "privateGroup": "Özel Grup"
+      },
+      "groupsCreateGroup": {
+        "createCommunity": "Bir Topluluk Oluştur",
+        "name": "Topluluğun Adı"
+      },
+      "groupsJoinGroup": {
+        "joinCommunity": "Bir Topluluğa Katıl",
+        "enterCode": "Topluluk Kodunu Gir",
+        "search": "Ara",
+        "communityNotFound": [
+          "Üzgünüz, topluluğunu bulamadık.",
+          "Kodunu kontrol et."
+        ],
+        "communityNotFoundLink": [
+          "Üzgünüz, topluluğunu bulamadık.",
+          "Kodunu kontrol et."
+        ],
+        "findingCommunity": "Yeni topluluğunu arıyoruz..."
+      },
+      "shareSurveyMenu": {
+        "shareMessage": "{{name}} {{url}}",
+        "shareSurvey": "Anketi Paylaş",
+        "takeSurvey": "Anketi Doldur"
+      },
+      "groupsContactList": {
+        "assign": "Bana Ata",
+        "nullHeader": "Faaliyet raporu",
+        "nullDescription": "Gösterilecek Faaliyet Yok."
+      },
+      "groupMemberItem": {
+        "assigned": "{{number}} Atanmış",
+        "uncontacted": "{{number}} İletişim Kurulmamış"
+      },
+      "groupSurveyItem": {
+        "contacts": "{{number}} Kontak",
+        "unassigned": "{{number}} Atanmamış",
+        "uncontacted": "{{number}} Atanmamış"
+      },
+      "loadMore": { "load": "Daha Fazla Yükle" },
+      "commentBox": { "placeholder": "Yorum" },
+      "statusSelect": {
+        "header": "Durum",
+        "cancel": "İptal Et",
+        "done": "Bitti",
+        "uncontacted": "İletişim Kurulmamış",
+        "attempted_contact": "İletişim Kurulmaya Çalışılmış",
+        "contacted": "İletişim Kurulmuş",
+        "completed": "Tamamlandı",
+        "do_not_contact": "İletişim Kurma"
+      },
+      "statusComplete": {
+        "done": "Bitti",
+        "continue": [
+          "Harika, {{userName}}!",
+          "{{statusName}} ile yolculuk etmeye devam etmek ister misin?"
+        ],
+        "totally": "Tamamen",
+        "nope": "Hayır, Teşekkür Ederim"
+      },
+      "statusReason": {
+        "done": "Bitti",
+        "placeholder": "Yönetici hakkında not",
+        "important": "{{organization}} adlı organizasyonun yöneticilerine önemli bir şey iletmek ister misin?"
+      },
+      "imagePicker": {
+        "selectImage": "Resim Seç",
+        "cancel": "İptal Et",
+        "takePhoto": "Fotoğraf Çek",
+        "chooseFromLibrary": "Albümlerinden bir fotoğraf seç...",
+        "deniedTitle": "İzin Verilmedi",
+        "deniedText": "Kameran ile fotoğraflar çekebilmen ve albümlerinden fotoğraflar seçebilmen için",
+        "reTryTitle": "Tekrar Dene",
+        "okTitle": "Eminim",
+        "errorHeader": "Hata",
+        "errorBody": "Talebin yerine getirilirken bir hata oluştu. Lütfen daha sonra tekrar dene."
+      },
+      "groupProfile": {
+        "created": "Oluşturuldu",
+        "members": "Üyeler",
+        "code": "Topluluk Kodu",
+        "link": "Topluluk Linki",
+        "newCode": "Yeni Kod",
+        "newLink": "Yeni Link",
+        "info": "Bu kodu veya linki bilenler bu gruba katılabilir.",
+        "deleteCommunity": "Topluluğu Silelim Mi?",
+        "createNewCode": "Yeni bir Topluluk Kodu oluşturmak istediğine emin misin?",
+        "createNewLink": "Yeni bir Topluluk Linki oluşturmak istediğine emin misin?",
+        "cannotBeUndone": "Bu eylem geri alınamaz",
+        "codeCopyText": "MissionHub uygulamasında benimle İman Yoluyla Adımlar at. Katılmak için şu topluluk kodunu kullan: {{code}}"
+      },
+      "landing": {
+        "getStarted": "Başla",
+        "tryItNow": "Onu şimdi dene.",
+        "haveCode": "Topluluk Kodum Var",
+        "member": "Üye Misin?"
+      },
+      "commentsList": {
+        "editPost": "Yorumu Düzenle",
+        "deletePost": "Yorumu Sil",
+        "reportPost": "Yorumu Bildir",
+        "reportToOwner": "Sahibe Bildir",
+        "reportToOwnerHeader": "Admine Bildirelim Mi?",
+        "reportAreYouSure": "Bu yorumu topluluğun admine bildirmek istediğine emin misin?",
+        "deletePostHeader": "Gönderini Silelim mi?",
+        "deleteAreYouSure": "Bu gönderi silinecek ve artık onu bulamayacaksın."
+      },
+      "celebrateFeedHeader": {
+        "reports": "{{count}} yeni bildirilmiş yorum",
+        "reports_plural": "{{count}} yeni bildirilmiş yorum",
+        "newComments": "Yeni Yorum",
+        "newComments_plural": "Yeni Yorumlar"
+      },
+      "groupUnread": {
+        "title": "{{count}} Yeni Yorum",
+        "title_plural": "{{count}} Yeni Yorum",
+        "header": "Okunmamış Yorum Yok",
+        "reportNull": "Okunmamış yorum yok.",
+        "clearAll": "Hepsini Sil"
+      },
+      "groupsReport": {
+        "reports": "{{count}} yeni bildirilmiş yorum",
+        "reports_plural": "{{count}} yeni bildirilmiş yorum",
+        "title": "Bildirilmiş Yorum",
+        "header": "Bildirilmiş Yorum Yok",
+        "reportNull": "Bildirilmiş Yorum Yok"
+      },
+      "reportComment": {
+        "reportedBy": "Şu Kişi Bildirdi:",
+        "commentBy": "Şu Kişi Yorum Yaptı:",
+        "deleteTitle": "Bu yorum silinirse daha sonra bulunamayacak."
+      }
+    }
+  },
   "en-US": {
     "translation": {
       "common": {
         "profileLabels": {
           "firstName": "First Name",
           "firstNameRequired": "$t(profileLabels.firstName) (Required)",
+          "firstNameNickname": "$t(profileLabels.firstName) or Nickname",
           "lastName": "Last Name",
+          "lastNameOptional": "$t(profileLabels.lastName) (if you want)",
           "email": "Email",
-          "phone": "Phone"
+          "emailRequired": "$t(profileLabels.email) (Required)",
+          "phone": "Phone",
+          "call": "Call",
+          "message": "Message",
+          "stage": "Stage",
+          "status": "Status",
+          "gender": "Gender",
+          "permissions": "Permissions",
+          "contact": "Contact",
+          "member": "Member",
+          "user": "User",
+          "admin": "Admin",
+          "owner": "Owner"
         },
+        "gender": { "male": "Male", "female": "Female" },
+        "swipe": { "remove": "Remove", "complete": "Complete", "edit": "Edit" },
+        "followupStatus": {
+          "uncontacted": "Uncontacted",
+          "contacted": "Contacted",
+          "attempted_contact": "Attempted Contact",
+          "do_not_contact": "Do Not Contact",
+          "completed": "Completed"
+        },
+        "stages": {
+          "uninterested": {
+            "label": "Uninterested",
+            "description": "Content with beliefs and not interested in Jesus.",
+            "followup": "We're glad you're still here, {{name}}. We hope the following steps will help you on your spiritual journey."
+          },
+          "curious": {
+            "label": "Curious",
+            "description": "Open to spiritual conversations or seeking to know who Jesus is.",
+            "followup": "{{name}}, we're glad to be part of your journey. We hope the following steps will help you know more about Jesus."
+          },
+          "forgiven": {
+            "label": "Forgiven",
+            "description": "Believes in Jesus as Savior, but not growing spiritually.",
+            "followup": "We're so glad you're here, {{name}}. We'd like to offer some steps to help you grow spiritually."
+          },
+          "growing": {
+            "label": "Growing",
+            "description": "Learning to follow Jesus as a way of life.",
+            "followup": "We're so excited you're following Jesus, {{name}}! We'd like to offer some steps to help you grow closer to God and help others experience Him."
+          },
+          "guiding": {
+            "label": "Guiding",
+            "description": "Committed to helping others know and follow Jesus.",
+            "followup": "Awesome! We hope MissionHub helps you serve those God has placed in your life."
+          }
+        },
+        "dates": {
+          "today": "Today",
+          "yesterday": "Yesterday",
+          "tomorrow": "Tomorrow",
+          "everyDay": "Every day",
+          "every": "Every",
+          "onceAMonth": "Once a month on the"
+        },
+        "yes": "Yes",
+        "no": "No",
+        "copy": "Copy",
+        "edit": "Edit",
+        "done": "Done",
+        "next": "Next",
+        "skip": "Skip",
+        "ok": "Ok",
+        "logout": "Logout",
+        "me": "Me",
+        "loading": "Loading",
+        "save": "Save",
+        "delete": "Delete",
+        "ignore": "Ignore",
+        "report": "Report",
+        "cancel": "Cancel",
+        "continue": "Continue",
+        "your": "your",
+        "view": "View",
+        "contactAssignment": "{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}",
+        "contactUnassignment": "{{assignedContactName}} was unassigned from {{assignedToName}}",
+        "assignToMe": "Assign to me",
+        "copyMessage": "Copied",
+        "terms": "By creating your MissionHub account you agree to our",
+        "termsTrial": "By creating your MissionHub trial account you agree to our",
+        "tos": "Terms of Service",
+        "privacy": "Privacy Policy",
+        "and": "and",
+        "signIn": "Sign In",
         "profileLabelFirstName": "First Name (Required)",
         "profileLabelLastName": "Last Name",
         "profileLabelEmail": "Email",
         "profileLabelPhone": "Phone"
       },
-      "welcome": {
-        "welcome": "welcome!",
-        "welcomeDescription": "Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others."
+      "mainTabs": { "takeAStepWithSomeone": "Take a Step With Someone" },
+      "error": {
+        "error": "Error",
+        "unexpectedErrorMessage": "There was an unexpected error.",
+        "baseErrorMessage": "Please email support@missionhub.com if the issue persists.",
+        "ADD_NEW_PERSON": "There was an error adding a new person."
       },
-      "interactions": {
-        "title": "Hi!"
+      "offline": {
+        "youreOffline": "You're currently offline",
+        "connectToInternet": "Connect to the internet and you can continue to use MissionHub."
+      },
+      "forcedLogout": {
+        "message": [
+          "It's been a while since you've signed in.",
+          "Please sign in so we know it's you."
+        ]
+      },
+      "goBackAlert": {
+        "title": "Go back?",
+        "description": "You will lose any info you have entered and be logged out",
+        "action": "Go Back"
+      },
+      "settingsMenu": {
+        "about": "About",
+        "help": "Help",
+        "review": "Write a Review",
+        "shareStory": "Share a Story With Us",
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy",
+        "signOut": "Sign out",
+        "cannotOpenUrl": "Cannot open URL",
+        "pleaseVisit": "Sorry, we could not open that URL. Please visit {{url}}",
+        "signUp": "Sign Up"
       },
       "login": {
         "tagline1": "Grow closer to God.",
         "tagline2": "Help others experience Him.",
         "facebookSignup": "Sign up with Facebook",
         "tryNow": "Try it now",
-        "signIn": "Sign In"
+        "signIn": "Sign In",
+        "getStarted": "Get Started",
+        "member": "Already a Member?"
+      },
+      "loginOptions": {
+        "facebookSignup": "Sign up with Facebook",
+        "haveCode": "I Have a Community Code",
+        "signUpLater": "Sign up Later",
+        "tryNow": "Try it now",
+        "emailSignUp": "Sign up with Email",
+        "signIn": "Sign In",
+        "terms": "By creating your MissionHub account you agree to our",
+        "member": "Already a Member?",
+        "createCommunityTitle": "Create a Community",
+        "createCommunityDescription": "Sign Up to create a MissionHub community.",
+        "tos": "Terms of Service",
+        "privacy": "Privacy Policy",
+        "and": "and"
+      },
+      "keyLogin": {
+        "invalidCredentialsMessage": "Your Email or Password is Incorrect",
+        "verifyEmailMessage": "Verify your account via Email",
+        "emailLabel": "Email",
+        "passwordLabel": "Password",
+        "forgotPassword": "Forgot Password?",
+        "login": "LOGIN",
+        "errorDefault": "There was a problem signing in.",
+        "errorIncorrect": "Your Email or Password is Incorrect",
+        "errorVerify": "Verify your account via Email",
+        "facebookLogin": "Sign In With Facebook"
+      },
+      "mfaLogin": {
+        "mfaHeader": "two-step verification",
+        "mfaDescription": "Enter verification code from your authenticator app.",
+        "mfaLabel": "Verification Code",
+        "mfaIncorrect": "Incorrect verification code"
+      },
+      "welcome": {
+        "getStarted": "Let's Get Started",
+        "getStartedButton": "Get Started",
+        "tryItNow": "Try It Now",
+        "welcome": "welcome!",
+        "welcomeDescription": "Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others."
+      },
+      "onboardingCreatePerson": {
+        "firstThing": "-first things first-",
+        "namePrompt": "what is your name?"
+      },
+      "setup": {
+        "firstThing": "-first things first-",
+        "namePrompt": "what is your name?",
+        "goBackAlert": {
+          "title": "Go back?",
+          "description": "You will lose any info you have entered and be logged out",
+          "action": "Go Back"
+        }
+      },
+      "interactions": { "title": "Hi!", "profileTab": "Go To Profile" },
+      "addContact": {
+        "addSomeone": "ADD SOMEONE",
+        "editPerson": "Edit Person",
+        "addToOrg": "ADD SOMEONE to {{orgName}}",
+        "message": [
+          "Growing closer to God involves helping others experience Him.",
+          "",
+          "Take a moment and pray. Who do you want to take steps of faith with?"
+        ],
+        "alertBlankEmail": "Email is blank",
+        "alertPermissionsMustHaveEmail": "Contact with User or Admin permissions must have email address and first name",
+        "alertSorry": "Sorry",
+        "alertCannotEditFirstName": "You are not allowed to edit first names of other MissionHub users",
+        "done": "Done"
+      },
+      "addStep": {
+        "header": "Create your own step",
+        "createStep": "Create Step",
+        "skip": "SKIP",
+        "journeyHeader": "What did you see God do?",
+        "editJourneyHeader": "Edit your comment",
+        "addJourneyPerson": "Add to Our Journey",
+        "addJourneyMe": "Add to my Journey",
+        "addJourney": "Add to Our Journey",
+        "editJourneyButton": "Save",
+        "makeShorter": "Thanks for creating a step! But we need you to make it a little shorter so it can fit.",
+        "tooLong": "Thanks for creating a step! But we need you to make it a little shorter so it can fit."
+      },
+      "stepReminder": {
+        "setReminder": "Set a Reminder",
+        "endDate": "End Date",
+        "endDatePlaceholder": "End Date (Required)",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "selectStep": {
+        "meHeader": {
+          "part1": "How do you want to move",
+          "part2": "forward on your spiritual journey?",
+          "": "How do you want to move forward on your spiritual journey?"
+        },
+        "personHeader": {
+          "part1": "Choose a step of faith",
+          "part2": " to take with {{name}} this week...",
+          "": "What will you do to help {{name}} experience God?"
+        },
+        "addStep": "ADD TO MY STEPS",
+        "createStep": "Create a Custom Step",
+        "loadMoreSteps": "SHOW MORE STEPS",
+        "stepsOfFaith": "Add Steps of Faith"
+      },
+      "suggestedStepDetail": { "addStep": "Add to My Steps" },
+      "acceptedStepDetail": {
+        "removeStep": "Remove Step",
+        "iDidIt": "I Did It!"
+      },
+      "completedStepDetail": {
+        "completedStep": "Completed Step",
+        "completedOn": "Completed {{date}}"
+      },
+      "selectStage": {
+        "meQuestion": "{{name}}, which stage best describes where you are on your journey?",
+        "personQuestion": "Which stage best describes where {{name}} is on their journey?",
+        "completed3Steps": "You completed 3 steps with {{name}}. Any changes spiritually?",
+        "completed1Step": "You completed a step with {{name}}. Any changes spiritually?",
+        "completed3StepsMe": "You completed 3 of your steps. Any changes spiritually?",
+        "iAmHere": "I AM HERE",
+        "stillHere": "STILL HERE",
+        "here": "HERE"
+      },
+      "stageSuccess": {
+        "backupMessage": "We are glad you are here, <<user>>!",
+        "friend": "Friend",
+        "chooseSteps": "CHOOSE MY STEPS"
+      },
+      "contactHeader": {
+        "mySteps": "My Steps",
+        "ourJourney": "Our Journey",
+        "myNotes": "My Notes",
+        "myJourney": "My Journey",
+        "myActions": "My Actions",
+        "impact": "Impact",
+        "selectStage": "SELECT STAGE"
+      },
+      "contactSteps": {
+        "header": "STEPS OF FAITH",
+        "stepNull": "Your Steps of Faith with {{name}} appear here.",
+        "showCompletedSteps": "SHOW COMPLETED STEPS",
+        "hideCompletedSteps": "HIDE COMPLETED STEPS",
+        "addStep": "Add a step of faith"
+      },
+      "contactJourney": {
+        "loading": "Loading Journey Items",
+        "somethingCool": "Something Cool Happened",
+        "addComment": "Add a Comment",
+        "addJourney": "Add to Our Journey",
+        "ourJourney": "Our Journey",
+        "journeyNull": "This is where MissionHub saves all of your completed steps and any notes you added along the way."
+      },
+      "journeyItem": {
+        "stepTitle": "Completed{{stageName}}Step of Faith",
+        "stageTitle": "{{oldStage}} to {{newStage}}",
+        "stageText": "{{personName}} changed from {{oldStage}} to {{newStage}}",
+        "stageTextSelf": "You changed from {{oldStage}} to {{newStage}}",
+        "stageStart": "You added {{personName}} to MissionHub as {{newStage}}",
+        "stageStartSelf": "You added yourself to MissionHub as {{newStage}}",
+        "interactionNote": "Comment",
+        "interactionSomethingCoolHappened": "$t(contactJourney:somethingCool)",
+        "interactionSpiritualConversation": "Spiritual Conversations",
+        "interactionGospel": "Gospel Presentations",
+        "interactionDecision": "Personal Decisions",
+        "interactionSpirit": "Holy Spirit Presentations",
+        "interactionDiscipleshipConversation": "Discipleship Conversations",
+        "interactionAssignedContacts": "Assigned Contacts",
+        "interactionUncontacted": "Uncontacted"
+      },
+      "getStarted": {
+        "hi": "hi {{name}}!",
+        "tagline": [
+          "While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.",
+          "",
+          "Let's figure out where you are on your journey."
+        ],
+        "getStarted": "Let's get started"
+      },
+      "history": { "header": "History" },
+      "impact": {
+        "header": "Impact",
+        "stepsSentence": "{{beginningScope}}{{numInitiators}}{{initiator}} {{initiatorSuffix}} taken $t(steps, {'count': {{stepsCount}} }) of faith with $t(people, {'count': {{receiversCount}} }){{endingScope}}.",
+        "stepsSentence_empty": "Here you will see all the steps {{initiator}} {{initiatorSuffix}} taken.",
+        "stepsSentence_emptyContact": "Here you will see all the steps {{initiator}} has taken.",
+        "stepsSentence_emptyGlobal": "You will see the steps other users have taken here shortly.",
+        "stageSentence": "$t(people, {'count': {{pathwayMovedCount}} }) reached a new stage on their spiritual journey.",
+        "stageSentence_empty": "See what God has done through {{initiator}} below.",
+        "stageSentence_emptyContact": "See what God is doing through {{initiator}} below.",
+        "stageSentence_emptyGlobal": "You will see how others have moved on their spiritual journey here shortly.",
+        "steps": "{{count}} step",
+        "steps_plural": "{{count}} steps",
+        "people": "{{count}} person",
+        "people_plural": "{{count}} people",
+        "impactSentence": [
+          "In {{year}}, {{numInitiators}} {{initiator}} took {{stepsCount}} steps of faith with {{receiversCount}} people.",
+          "",
+          "{{pathwayMovedCount}} people reached a new stage on their spiritual journey."
+        ],
+        "you": "you",
+        "we": "we",
+        "togetherWe": "together we",
+        "users": "users",
+        "allOfUs": "all of us",
+        "haveSuffix": "have",
+        "hasSuffix": "has",
+        "inYear": "in {{year}}",
+        "inTheirLife": " in their life",
+        "atOrgName": " at {{orgName}}",
+        "interactionSpiritualConversation": "Spiritual Conversations",
+        "interactionGospel": "Gospel Presentations",
+        "interactionDecision": "Personal Decisions",
+        "interactionSpirit": "Holy Spirit Presentations",
+        "interactionDiscipleshipConversation": "Discipleship Conversations",
+        "interactionAssignedContacts": "Assigned Contacts",
+        "interactionUncontacted": "Uncontacted"
+      },
+      "actions": {
+        "interactionSpiritualConversation": "Spiritual Conversation",
+        "interactionGospel": "Gospel Presentation",
+        "interactionDecision": "Personal Decision",
+        "interactionSpirit": "Holy Spirit Presentation",
+        "interactionDiscipleshipConversation": "Discipleship Conversation",
+        "interactionNote": "Comment",
+        "commentBoxPlaceholder": "Share something to be remembered..."
+      },
+      "celebrateCommentBox": { "placeholder": "Write a comment..." },
+      "notes": {
+        "header": "MY NOTES",
+        "add": "ADD PRIVATE NOTES",
+        "edit": "EDIT PRIVATE NOTES",
+        "prompt": "Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.",
+        "promptMe": "Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God."
+      },
+      "search": {
+        "inputPlaceholder": "Search",
+        "loading": "Loading",
+        "noResults": "No Results.",
+        "nullHeader": "Search",
+        "nullDescription": "Search results will appear here."
+      },
+      "searchFilter": {
+        "title": "Filter",
+        "titleSurvey": "Filter Survey",
+        "titleQuestions": "Questions",
+        "titleAnswers": "Answers",
+        "ministry": "Ministry",
+        "label": "Label",
+        "labels": "Labels",
+        "groups": "Groups",
+        "surveys": "Survey",
+        "gender": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "other": "Other",
+        "time": "Time Period",
+        "time7": "Last 7 days",
+        "time30": "Last 30 days",
+        "time60": "Last 60 days",
+        "time90": "Last 90 days",
+        "time180": "Last 6 Months",
+        "time270": "Last 9 Months",
+        "time365": "Last 12 Months",
+        "surveyQuestions": "Questions/Answers",
+        "uncontacted": "Uncontacted",
+        "unassigned": "Unassigned",
+        "archived": "Include Archived Contacts",
+        "multiple": "Multiple",
+        "includeUsers": "Include Users and Admins"
+      },
+      "searchFilterRefine": { "title": "Refine", "any": "Any" },
+      "notificationPrimer": {
+        "onboarding": "MissionHub will send you reminders to help you take your steps.",
+        "stepsNotification": {
+          "part1": "Allow notifications for",
+          "part2": "reminders on steps of faith"
+        },
+        "focusStep": "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
+        "login": "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
+        "setReminder": "We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.",
+        "joinCommunity": "MissionHub would like to notify you about activity happening within your community.",
+        "joinChallenge": "We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.",
+        "onboardingDescription": "MissionHub will send you reminders to help you take your steps.",
+        "focusDescription": "We're excited you've focused a step! We'd like to send you handcrafted reminders so it doesn't get forgotten.",
+        "loginDescription": "We noticed you have accepted some steps. We'd like to send you handcrafted reminders so they don't get forgotten.",
+        "setReminderDescription": "We want to help you take this Step of Faith! In order to set a reminder we need to be able to send you notifications.",
+        "joinCommunityDescription": "MissionHub would like to notify you about activity happening within your community.",
+        "joinChallengeDescription": "We are excited that you are participating in a challenge! MissionHub would like to send you updates about this challenge.",
+        "description": "MissionHub will send you reminders to help you take your steps.",
+        "allow": "Allow Notifications",
+        "notNow": "Not Now"
+      },
+      "notificationOff": {
+        "title": "Notifications are off",
+        "defaultDescription": "To receive reminders to take steps of faith, please turn notifications on.",
+        "joinCommunity": "To receive updates from your MissionHub community, please turn notifications on.",
+        "joinChallenge": "To receive updates about community challenges, please turn notifications on.",
+        "description": "To receive reminders to take steps of faith, please turn notifications on.",
+        "allow": "Allow Notifications",
+        "settings": "Go To Settings",
+        "notNow": "Not Now",
+        "noReminders": "I Don't Want Reminders"
+      },
+      "stepsTab": {
+        "nullHeader": "STEPS OF FAITH",
+        "nullWithReminders": "Choose a person in People view and add some new steps.",
+        "nullNoReminders": {
+          "part1": "You don't have any Steps of Faith.",
+          "part2": "Choose a person and add some new steps.",
+          "": [
+            "You don't have any Steps of Faith.",
+            "Choose a person and add some new steps."
+          ]
+        },
+        "title": "Steps of Faith",
+        "reminderTitle": "Focus your week",
+        "reminderDescription": "Star up to three steps and get weekly handcrafted reminders.",
+        "dragTitle": "Focus your week",
+        "dragDescription": "Drag and drop up to 3 steps here and get handcrafted reminders.",
+        "holdDescription": "Do a long press (hold down) on a step to add up to 3 of them here and get handcrafted reminders.",
+        "reminderAddedToast": "✔ Reminder Added"
+      },
+      "contactSideMenu": {
+        "edit": "Edit",
+        "delete": "Delete Person",
+        "unassignButton": "Unassign Person",
+        "deleteQuestion": "Delete {{name}}?",
+        "deleteSentence": "Are you sure you want to delete this person?",
+        "unassignQuestion": "Unassign {{name}}?",
+        "unassignSentence": "Are you sure you want to unassign this person?",
+        "attemptedContact": "Attempted Contact",
+        "completed": "Completed",
+        "contacted": "Contacted",
+        "doNotContact": "Do Not Contact",
+        "uncontacted": "Uncontacted",
+        "assign": "Assign",
+        "unassign": "Unassign"
+      },
+      "assignAlert": {
+        "question": "Would you like to assign this person to yourself?",
+        "sentence": "Selecting a stage will also assign this person to you."
+      },
+      "peopleScreen": {
+        "header": "PEOPLE",
+        "personalMinistry": "Personal Ministry",
+        "personal": "personal",
+        "addStage": "Add Stage"
+      },
+      "profileScreen": {
+        "goToMain": "Go To Main Tab",
+        "goBack": "Go Back 1 Tab",
+        "profileID": "Profile {{id}}"
+      },
+      "appRoutes": {
+        "steps": "Steps",
+        "people": "People",
+        "impact": "Impact",
+        "group": "Communities",
+        "groups": "Communities"
+      },
+      "groupTabs": {
+        "celebrate": "Celebrate",
+        "challenges": "Challenges",
+        "members": "Members",
+        "impact": "Impact",
+        "contacts": "Contacts",
+        "surveys": "Surveys"
+      },
+      "personTabs": {
+        "celebrate": "Celebrate",
+        "steps": "My Steps",
+        "notes": "My Notes",
+        "ourJourney": "Our Journey",
+        "myJourney": "My Journey",
+        "journey": "Our Journey",
+        "impact": "Impact",
+        "myImpact": "My Impact",
+        "assignedContacts": "Contacts"
+      },
+      "onboarding": {
+        "screen1": {
+          "name": "Focus on the people in your life",
+          "description": "Choose your own steps of faith and MissionHub helps you stay focused on the people you care about."
+        },
+        "screen2": {
+          "name": "Take steps to help them experience God",
+          "description": "MissionHub helps you grow closer to God by helping others experience Him."
+        },
+        "screen3": {
+          "name": "See God work and know you're part of it",
+          "description": "MissionHub remembers every step of faith you've taken so you can see what God is doing."
+        }
+      },
+      "welcomeNotification": {
+        "title": "Great job focusing a step!",
+        "message": "We'll send you notifications like this on Wednesdays and Sundays to help you keep these important steps in focus."
+      },
+      "groupsList": {
+        "header": "Communities",
+        "groupsNull": "Your communities will show up here.",
+        "joinCommunity": "Join a Community",
+        "createCommunity": "Create a Community",
+        "globalCommunity": "MissionHub Community"
+      },
+      "shareAStoryScreen": {
+        "shareStory": "Share Story",
+        "inputPlaceholder": "Share a Story..."
+      },
+      "editStoryScreen": {
+        "saveStory": "Save Changes",
+        "inputPlaceholder": "Share a Story..."
+      },
+      "celebrateFeeds": {
+        "title": "",
+        "placeholder": "Share something to be celebrated...",
+        "emptyFeedTitle": "Celebrate!",
+        "emptyFeedDescription": "You can celebrate {{firstName}} Steps of Faith here.",
+        "emptyFeedGroupNameValue": "each other",
+        "stepOfFaith": "{{initiator}} completed a Step of Faith with a {{receiverStage}} person.",
+        "stepOfFaithUnknownStage": "{{initiator}} completed a Step of Faith with someone.",
+        "stepOfFaithNotSureStage": "{{initiator}} completed a Step of Faith.",
+        "interaction": "{{initiator}} had a {{interactionName}}.",
+        "interactionDecision": "{{initiator}} saw someone make a Personal Decision.",
+        "addedContact": "{{initiator}} added a {{receiverStage}} person.",
+        "somethingCoolHappened": "{{initiator}} saw something cool happen with someone.",
+        "challengeAccepted": "{{initiator}} accepted a Challenge:",
+        "challengeCompleted": "{{initiator}} completed a Challenge:",
+        "communityCreated": "{{initiator}} created {{communityName}}!",
+        "joinedCommunity": "{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.",
+        "missionHubUser": "MissionHub user",
+        "aMissionHubUser": "A MissionHub user"
+      },
+      "celebrateItems": {
+        "edit": { "buttonText": "Edit Post" },
+        "delete": {
+          "buttonText": "Delete Post",
+          "title": "Delete Post?",
+          "message": "This post will be deleted and you won't be able to find it anymore."
+        },
+        "report": {
+          "buttonText": "Report to Owner",
+          "title": "Report to Owner?",
+          "message": "Are you sure you want to report this comment to the community owner?",
+          "confirmButtonText": "Report Post"
+        }
+      },
+      "challengeFeeds": {
+        "past": "Past Challenges",
+        "emptyFeedTitle": "Challenges",
+        "emptyFeedDescription": "You can view, accept, and complete challenges here.",
+        "edit": "Edit",
+        "join": "Join",
+        "complete": "Complete",
+        "joined": "Joined",
+        "totalDays": "{{count}} Day Challenge",
+        "daysRemaining": "{{count}} Day Left",
+        "daysRemaining_plural": "{{count}} Days Left",
+        "accepted": "{{count}} Accepted",
+        "completed": "Completed",
+        "iDidIt": "I Did It",
+        "endDate": "End Date"
+      },
+      "challengeStats": {
+        "days": "Days",
+        "daysLeft": "Days Left",
+        "joined": "Joined",
+        "completed": "Completed"
+      },
+      "addChallenge": {
+        "titlePlaceholderEdit": "Edit Challenge",
+        "titlePlaceholderAdd": "New Challenge",
+        "editHeader": "Edit Challenge",
+        "addHeader": "New Challenge",
+        "add": "Create Challenge",
+        "save": "Save Changes",
+        "titlePlaceholder": "Describe Your Challenge",
+        "titleLabel": "Challenge",
+        "datePlaceholder": "End Date (Required)",
+        "dateLabel": "End Date"
+      },
+      "groupsChallenge": { "create": "Create Challenge" },
+      "groupOnboardingCard": {
+        "celebrateHeader": "Celebrate One Another",
+        "celebrateDescription": "See and celebrate one another's Steps of Faith.",
+        "challengesHeader": "Our Challenges",
+        "challengesDescription": "Join each other in a challenge created by your community.",
+        "membersHeader": "Journey Together",
+        "membersDescription": "Take a Step of Faith with someone in your community.",
+        "impactHeader": "See God at Work",
+        "impactDescription": "See what God is doing as you take Steps of Faith together. ",
+        "contactsHeader": "Journey Together",
+        "contactsDescription": "Stay engaged with contacts in your community.",
+        "surveysHeader": "Grow Together",
+        "surveysDescription": "Learn about one another through survey responses.",
+        "stepsHeader": "Steps of Faith",
+        "stepsDescription": "Choose a person in People view to add a new step"
+      },
+      "groupsMembers": {
+        "invite": "Send Invite",
+        "sendInviteMessage": "Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}",
+        "invited": "Anyone you've invited to {{orgName}} will show up here when they join.",
+        "title": ""
+      },
+      "groupMemberOptions": {
+        "ownerLeaveCommunityErrorMessage": "You must assign a new owner to {{orgName}} before you go",
+        "leaveCommunity": {
+          "optionTitle": "Leave Community",
+          "modalTitle": "Are you sure you want to leave {{communityName}}?",
+          "confirmButtonText": "OK"
+        },
+        "makeAdmin": {
+          "optionTitle": "Make Admin",
+          "modalTitle": "Want to make {{personName}} an admin?",
+          "modalDescription": "Admins can remove members, promote members to admins, and create challenges.",
+          "confirmButtonText": "Yes"
+        },
+        "removeAdmin": {
+          "optionTitle": "Remove as Admin",
+          "modalTitle": "Remove {{personName}} as admin?",
+          "confirmButtonText": "Remove"
+        },
+        "makeOwner": {
+          "optionTitle": "Make Owner",
+          "modalTitle": "Make {{personName}} the owner?",
+          "modalDescription": "You will lose ownership of this community but would still have admin privileges",
+          "confirmButtonText": "Yes"
+        },
+        "removeMember": {
+          "optionTitle": "Remove Member",
+          "modalTitle": "Remove {{personName}} from {{communityName}}?",
+          "confirmButtonText": "Remove"
+        },
+        "tryItNowAdminOwnerErrorMessage": "This Member has not yet created an account. Once they sign up, you can try this again."
+      },
+      "groupsCelebrate": {
+        "title": "",
+        "placeholder": "Share something to be celebrated..."
+      },
+      "groupsImpact": { "title": "" },
+      "groupsContacts": { "title": "", "searchPlaceholder": "Search Contacts" },
+      "groupsContact": { "placeholder": "Share something to be celebrated..." },
+      "memberContacts": {
+        "nullDescription": "Anyone assigned to {{memberName}} will appear here."
+      },
+      "groupsSurveys": { "title": "" },
+      "groupsSurveyContacts": { "searchPlaceholder": "Search Contacts" },
+      "contactItem": { "unassigned": "Unassigned" },
+      "datePicker": { "date": "Date" },
+      "groupsContactItem": {
+        "status": "Status: {{status}}",
+        "assigned": "{{assigner}} has assigned {{assignedContact}} to {{assignedTo}}",
+        "unassigned": "{{unassignedContact}} has been Unassigned by {{unassignedBy}}",
+        "stageChange": "{{personName}} changed from {{oldStage}} to {{newStage}}",
+        "stageStart": "{{personName}} has been to MissionHub as {{newStage}}",
+        "spiritualConversation": "{{initiator}} had a spiritual conversation with {{receiver}}",
+        "gospelPresentation": "{{initiator}} shared the gospel with {{receiver}}",
+        "personalDecision": "{{receiver}} made a personal decision with {{initiator}}",
+        "holySpiritConversation": "{{initiator}} had a Holy Spirit conversation with {{receiver}}",
+        "discipleshipConversation": "{{initiator}} had a discipleship conversation with {{receiver}}",
+        "somethingCoolHappened": "{{initiator}} saw something cool happen with {{receiver}}",
+        "note": "{{initiator}} added a note about {{receiver}}"
+      },
+      "groupItem": {
+        "numContacts": "{{count}} Contact",
+        "numContacts_plural": "{{count}} Contacts",
+        "numAssigned": "{{count}} Assigned",
+        "numUnassigned": "{{count}} Unassigned",
+        "unassigned": "Unassigned",
+        "numUncontacted": "{{count}} Uncontacted",
+        "numMembers": "{{count}} Member",
+        "numMembers_plural": "{{count}} Members",
+        "owner": "{{name}} (Owner)",
+        "join": "Join",
+        "selectStage": "Select Stage",
+        "privateGroup": "Private Group"
+      },
+      "groupsCreateGroup": {
+        "createCommunity": "Create Community",
+        "name": "Community Name"
+      },
+      "groupsJoinGroup": {
+        "joinCommunity": "Join a Community",
+        "enterCode": "Enter your Community Code",
+        "search": "Search",
+        "communityNotFound": [
+          "Sorry, we couldn't find your community.",
+          "Double check your code."
+        ],
+        "communityNotFoundLink": [
+          "Sorry, we couldn't find your community.",
+          "Double check your link."
+        ],
+        "findingCommunity": "Finding your new community..."
+      },
+      "shareSurveyMenu": {
+        "shareMessage": "{{name}} {{url}}",
+        "shareSurvey": "Share Survey",
+        "takeSurvey": "Take Survey"
+      },
+      "groupsContactList": {
+        "assign": "Assign to me",
+        "nullHeader": "Activity Feed",
+        "nullDescription": "No activity to display."
+      },
+      "groupMemberItem": {
+        "assigned": "{{number}} Assigned",
+        "uncontacted": "{{number}} Uncontacted"
+      },
+      "groupSurveyItem": {
+        "contacts": "{{number}} Contacts",
+        "unassigned": "{{number}} Unassigned",
+        "uncontacted": "{{number}} Uncontacted"
+      },
+      "loadMore": { "load": "Load More" },
+      "commentBox": { "placeholder": "Comment" },
+      "statusSelect": {
+        "header": "Status",
+        "cancel": "Cancel",
+        "done": "Done",
+        "uncontacted": "Uncontacted",
+        "attempted_contact": "Attempted Contact",
+        "contacted": "Contacted",
+        "completed": "Completed",
+        "do_not_contact": "Do Not Contact"
+      },
+      "statusComplete": {
+        "done": "Done",
+        "continue": [
+          "Great job {{userName}}!",
+          "Would you like to continue journeying with {{statusName}}?"
+        ],
+        "totally": "Totally",
+        "nope": "No Thanks"
+      },
+      "statusReason": {
+        "done": "Done",
+        "placeholder": "Admin note",
+        "important": "Anything important the admins at {{organization}} should know?"
+      },
+      "imagePicker": {
+        "selectImage": "Select Image",
+        "cancel": "Cancel",
+        "takePhoto": "Take Photo",
+        "chooseFromLibrary": "Choose from Library...",
+        "deniedTitle": "Permission Denied",
+        "deniedText": "To be able to take pictures with your camera and choose images from your library.",
+        "reTryTitle": "Re-Try",
+        "okTitle": "I'm sure",
+        "errorHeader": "Error",
+        "errorBody": "There was an error processing your request. Please try again later."
+      },
+      "groupProfile": {
+        "created": "Created",
+        "members": "Members",
+        "code": "Community Code",
+        "link": "Community Link",
+        "newCode": "New Code",
+        "newLink": "New Link",
+        "info": "Anyone who has this code or link will be able to join your group.",
+        "deleteCommunity": "Delete Community?",
+        "createNewCode": "Are you sure you want to create a new Community Code?",
+        "createNewLink": "Are you sure you want to create a new Community Link?",
+        "cannotBeUndone": "This cannot be undone",
+        "codeCopyText": "Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}"
+      },
+      "landing": {
+        "getStarted": "Get Started",
+        "tryItNow": "Try It Now",
+        "haveCode": "I have a Community Code",
+        "member": "Already a Member?"
+      },
+      "commentsList": {
+        "editPost": "Edit Comment",
+        "deletePost": "Delete Comment",
+        "reportPost": "Report Comment",
+        "reportToOwner": "Report to Owner",
+        "reportToOwnerHeader": "Report to Owner?",
+        "reportAreYouSure": "Are you sure you want to report this comment to the community owner?",
+        "deletePostHeader": "Delete Post?",
+        "deleteAreYouSure": "This post will be deleted and you won’t be able to find it anymore."
+      },
+      "celebrateFeedHeader": {
+        "reports": "{{count}} new reported comment",
+        "reports_plural": "{{count}} new reported comments",
+        "newComments": "New Comment",
+        "newComments_plural": "New Comments"
+      },
+      "groupUnread": {
+        "title": "{{count}} New Comment",
+        "title_plural": "{{count}} New Comments",
+        "header": "No Unread Comments",
+        "reportNull": "No Unread comments.",
+        "clearAll": "Clear All"
+      },
+      "groupsReport": {
+        "reports": "{{count}} new reported comment",
+        "reports_plural": "{{count}} new reported comments",
+        "title": "Reported Comments",
+        "header": "No Reported Comments",
+        "reportNull": "No comments have been reported."
+      },
+      "reportComment": {
+        "reportedBy": "Reported By",
+        "commentBy": "Comment By",
+        "deleteTitle": "Deleting this comment removes it completely and it will no longer be found."
       }
     }
   }

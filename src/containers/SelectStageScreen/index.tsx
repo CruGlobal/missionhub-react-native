@@ -3,6 +3,7 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import { View, Image } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
@@ -37,6 +38,7 @@ import {
   personSelector,
   contactAssignmentSelector,
 } from '../../selectors/people';
+import { localizedStageSelector } from '../../selectors/stages';
 import Header from '../../components/Header';
 
 import styles, {
@@ -167,15 +169,16 @@ const SelectStageScreen = ({
 
   const renderStage = ({ item, index }: { item: Stage; index: number }) => {
     const isActive = selectedStageId === index;
-
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={stageIcons[index]} />
           <Text header={true} style={styles.cardHeader}>
-            {item.name.toLowerCase()}
+            {localizedStageSelector(item, i18next.language).name.toLowerCase()}
           </Text>
-          <Text style={styles.cardText}>{item.description}</Text>
+          <Text style={styles.cardText}>
+            {localizedStageSelector(item, i18next.language).description}
+          </Text>
         </View>
         <Button
           testID={'stageSelectButton'}
