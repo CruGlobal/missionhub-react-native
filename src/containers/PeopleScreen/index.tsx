@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { getMyPeople } from '../../actions/people';
 import { checkForUnreadComments } from '../../actions/unreadComments';
@@ -43,7 +44,8 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
-  useAnalytics('people', () => dispatch(checkForUnreadComments()));
+  useAnalytics('people');
+  useFocusEffect(() => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());

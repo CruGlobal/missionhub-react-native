@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 import { useQuery } from '@apollo/react-hooks';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import GroupsListScreen, { GET_COMMUNITIES_QUERY } from '../GroupsListScreen';
 import { renderWithContext } from '../../../../testUtils';
@@ -18,6 +19,7 @@ import {
 } from '../../../routes/constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
+jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/organizations');
@@ -79,10 +81,8 @@ describe('GroupsListScreen', () => {
       },
     });
 
-    expect(useAnalytics).toHaveBeenCalledWith(
-      'communities',
-      expect.any(Function),
-    );
+    expect(useAnalytics).toHaveBeenCalledWith('communities');
+    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   describe('card item press', () => {

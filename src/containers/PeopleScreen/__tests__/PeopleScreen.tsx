@@ -1,6 +1,7 @@
 import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -14,6 +15,7 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { PeopleScreen } from '..';
 
 jest.mock('react-native-device-info');
+jest.mock('react-navigation-hooks');
 jest.mock('../../../components/common', () => ({
   IconButton: 'IconButton',
   Button: 'Button',
@@ -131,7 +133,8 @@ it('renders correctly as Jean', () => {
 it('tracks screen change on mount', () => {
   renderWithContext(<PeopleScreen {...props} isJean={true} items={orgs} />);
 
-  expect(useAnalytics).toHaveBeenCalledWith('people', expect.any(Function));
+  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('should open main menu', () => {

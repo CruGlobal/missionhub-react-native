@@ -43,26 +43,4 @@ describe('useAnalytics', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
   });
-
-  it('tracks screen change and fires additional function on focus', () => {
-    const onFocus = jest.fn();
-
-    renderHook(() => useAnalytics(screenFragments, onFocus));
-
-    fireEvent({ type: 'willFocus' });
-
-    expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
-    expect(onFocus).toHaveBeenCalledWith();
-  });
-
-  it('tracks screen change and fires additional function with callback', () => {
-    const onFocus = jest.fn();
-
-    const { result } = renderHook(() => useAnalytics(screenFragments, onFocus));
-
-    result.current();
-
-    expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
-    expect(onFocus).toHaveBeenCalledWith();
-  });
 });
