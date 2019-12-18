@@ -12,9 +12,10 @@ import {
   selectPersonStage,
   updateUserStage,
 } from '../../../actions/selectStage';
+import { Stage } from '../../../reducers/stages';
 import { ACTIONS } from '../../../constants';
 
-import SelectStageScreen from '..';
+import SelectStageScreen, { SelectStageNavParams } from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/stages');
@@ -27,10 +28,37 @@ jest.mock('../../../components/common', () => ({
 jest.mock('../../BackButton', () => 'BackButton');
 jest.mock('../../../components/Header', () => 'Header');
 
-const stages = [
-  { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
-  { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
-  { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
+const baseStage: Stage = {
+  id: '1',
+  name: 'stage',
+  description: 'description',
+  self_followup_description: 'description',
+  position: 1,
+  name_i18n: 'en-US',
+  description_i18n: 'description',
+  icon_url: 'https://misisonhub.com',
+  localized_pathway_stages: [],
+};
+
+const stages: Stage[] = [
+  {
+    ...baseStage,
+    id: '1',
+    name: 'Stage 1',
+    description: 'Stage 1 description',
+  },
+  {
+    ...baseStage,
+    id: '2',
+    name: 'Stage 2',
+    description: 'Stage 2 description',
+  },
+  {
+    ...baseStage,
+    id: '3',
+    name: 'Stage 3',
+    description: 'Stage 3 description',
+  },
 ];
 
 const section = 'section';
@@ -94,6 +122,7 @@ const baseParams = {
   subsection,
   personId: assignedPersonId,
   orgId,
+  enableBackButton: true,
 };
 
 const next = jest.fn();
@@ -190,7 +219,7 @@ describe('renders for other', () => {
   });
 });
 
-const buildAndTestMount = async (navParams: any) => {
+const buildAndTestMount = async (navParams: SelectStageNavParams) => {
   const { store, getAllByTestId } = renderWithContext(
     <SelectStageScreen next={next} />,
     {
@@ -208,7 +237,7 @@ const buildAndTestMount = async (navParams: any) => {
 };
 
 describe('actions on mount', () => {
-  const stageId = 1;
+  const stageId = 0;
 
   describe('for me', () => {
     it('gets stages and snaps to first item on mount', async () => {
@@ -242,7 +271,7 @@ describe('actions on mount', () => {
 });
 
 describe('setStage', () => {
-  const selectedStageId = 1;
+  const selectedStageId = 0;
   const stage = stages[selectedStageId];
 
   let selectAction: any;

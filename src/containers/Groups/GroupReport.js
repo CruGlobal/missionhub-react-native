@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
 import { refresh, keyExtractorId } from '../../utils/common';

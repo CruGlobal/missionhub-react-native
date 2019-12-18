@@ -1,13 +1,12 @@
 import React from 'react';
-import { ThunkDispatch } from 'redux-thunk';
 import { SafeAreaView, Image, View } from 'react-native';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { Button, Text } from '../../components/common';
-import TrackOnFocus from '../TrackOnFocus';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
@@ -28,13 +27,10 @@ const {
   signInBtnText,
 } = styles;
 
-const LandingScreen = ({
-  dispatch,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, any>;
-}) => {
+const LandingScreen = () => {
+  useAnalytics('landing');
   const { t } = useTranslation('landing');
+  const dispatch = useDispatch();
 
   const tryItNow = () => {
     dispatch(navigatePush(FULL_ONBOARDING_FLOW));
@@ -50,7 +46,6 @@ const LandingScreen = ({
 
   return (
     <View style={container}>
-      <TrackOnFocus screenNameFragments={['landing']} />
       <View style={imageWrap}>
         <Image source={LOGO} />
       </View>
@@ -88,5 +83,5 @@ const LandingScreen = ({
   );
 };
 
-export default connect()(LandingScreen);
+export default LandingScreen;
 export const LANDING_SCREEN = 'nav/LANDING';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -82,7 +82,7 @@ class CelebrationScreen extends Component {
 
     return (
       <Flex style={styles.container} value={1} justify="center">
-        <TrackOnFocus screenNameFragments={['gif']} />
+        <TrackOnFocus screenName="gif" />
         <Image
           source={
             CelebrationScreen.getGif(gifId) || CelebrationScreen.shuffleGif()

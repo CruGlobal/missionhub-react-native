@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 
 import CommentBox from '../CommentBox';
 import { addNewInteraction } from '../../actions/interactions';

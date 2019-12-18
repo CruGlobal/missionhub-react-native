@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 
@@ -22,7 +22,7 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { AuthState } from '../../reducers/auth';
 import { Person, PeopleState } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
-import TrackOnFocus from '../TrackOnFocus';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -43,6 +43,7 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
+  useAnalytics('people', () => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
@@ -68,7 +69,6 @@ export const PeopleScreen = ({
 
   return (
     <View style={styles.pageContainer}>
-      <TrackOnFocus screenNameFragments={['people']} />
       <Header
         testID="header"
         left={

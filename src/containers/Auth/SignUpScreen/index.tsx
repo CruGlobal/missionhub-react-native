@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, Image, ImageSourcePropType } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18Next from 'i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 import {

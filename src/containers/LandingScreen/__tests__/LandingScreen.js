@@ -9,7 +9,7 @@ import {
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../../routes/constants';
-import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import LandingScreen from '..';
 
@@ -17,10 +17,10 @@ jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigate push' }),
 }));
-jest.mock('../../../utils/hooks/useTrackScreenChange');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 beforeEach(() => {
-  useTrackScreenChange.mockClear();
+  useAnalytics.mockClear();
 });
 
 it('renders correctly', () => {
@@ -30,10 +30,7 @@ it('renders correctly', () => {
 it('tracks screen change on mount', () => {
   renderWithContext(<LandingScreen />);
 
-  expect(useTrackScreenChange).toHaveBeenCalledWith([
-    'onboarding',
-    'personal greeting',
-  ]);
+  expect(useAnalytics).toHaveBeenCalledWith('landing');
 });
 
 describe('a button is clicked', () => {

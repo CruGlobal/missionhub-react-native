@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { createReduxContainer } from 'react-navigation-redux-helpers';
 import React from 'react';
 import { BackHandler } from 'react-native';

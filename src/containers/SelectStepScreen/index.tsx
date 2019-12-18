@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
@@ -11,7 +11,7 @@ import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
-import TrackOnFocus from '../TrackOnFocus';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -49,6 +49,8 @@ const SelectStepScreen = ({
   dispatch,
   next,
 }: SelectStepScreenProps) => {
+  useAnalytics('add step');
+
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
       next({
@@ -95,7 +97,6 @@ const SelectStepScreen = ({
 
   return (
     <View style={styles.container}>
-      <TrackOnFocus screenNameFragments={['add step']} />
       <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
       <ParallaxScrollView
         backgroundColor={theme.primaryColor}

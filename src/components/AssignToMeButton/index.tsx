@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { Button } from '../common';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnyAction } from 'redux';
 import { View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -16,7 +16,7 @@ import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
 import { ReminderType, StepReminderState } from '../../reducers/stepReminders';
 import { Step } from '../../reducers/steps';
-import { useTrackScreenChange } from '../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -30,7 +30,7 @@ const AcceptedStepDetailScreen = ({
   reminder,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
-  useTrackScreenChange(['step detail', 'active step']);
+  useAnalytics(['step detail', 'active step']);
   const step: Step = useNavigationParam('step');
 
   const { id: stepId, challenge_suggestion, title, receiver } = step;

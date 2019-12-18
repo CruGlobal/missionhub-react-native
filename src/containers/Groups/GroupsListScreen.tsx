@@ -5,7 +5,7 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -31,7 +31,8 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
-import TrackOnFocus from '../TrackOnFocus';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -129,6 +130,7 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
+  useAnalytics('communities', () => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -255,7 +257,6 @@ const GroupsListScreen = ({
 
   return (
     <View style={styles.container}>
-      <TrackOnFocus screenNameFragments={['communities']} />
       <Header
         left={
           <IconButton

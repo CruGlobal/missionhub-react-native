@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 
 import { getReportedComments } from '../../actions/reportComments';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Linking, Image, View } from 'react-native';
 import PushNotification from 'react-native-push-notification';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
