@@ -121,9 +121,12 @@ function handleNotification(notification) {
     const { person: me } = getState().auth;
 
     const notificationData = parseNotificationData(notification);
-    const { screen, person_id, celebration_item_id } = notificationData;
-    const organization_id =
-      notificationData.organization_id && `${notificationData.organization_id}`;
+    const {
+      screen,
+      person_id,
+      celebration_item_id,
+      organization_id,
+    } = notificationData;
 
     switch (screen) {
       case 'home':
@@ -147,31 +150,29 @@ function handleNotification(notification) {
         );
       case 'celebrate':
         if (organization_id) {
-          const community = await refreshCommunity(organization_id);
-          await reloadGroupCelebrateFeed(organization_id);
+          const community = await dispatch(refreshCommunity(organization_id));
+          await dispatch(reloadGroupCelebrateFeed(organization_id));
           return dispatch(
             navigateToCelebrateComments(community, celebration_item_id),
           );
         }
         return;
       case 'community_challenges':
-        if (organization_id) {
-          const community = await refreshCommunity(organization_id);
-          await reloadGroupChallengeFeed(organization_id);
-          return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
-        }
-        return;
+        const community = await dispatch(refreshCommunity(organization_id));
+        await dispatch(reloadGroupChallengeFeed(organization_id));
+        return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
     }
   };
 }
 
-function parseNotificationData(notification) {
+export function parseNotificationData(notification) {
   const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
   const data = {
     ...notification,
-    ...notification.screen_extra_data,
+    ...(notification.screen_extra_data &&
+      JSON.parse(notification.screen_extra_data)),
     ...iosData,
-    ...iosData.screen_extra_data,
+    ...(iosData.screen_extra_data && JSON.parse(iosData.screen_extra_data)),
   };
 
   return {

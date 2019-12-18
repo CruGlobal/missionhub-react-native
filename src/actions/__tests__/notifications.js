@@ -14,6 +14,7 @@ import {
   configureNotificationHandler,
   requestNativePermissions,
   showReminderOnLoad,
+  parseNotificationData,
 } from '../notifications';
 import {
   GCM_SENDER_ID,
@@ -21,6 +22,7 @@ import {
   DISABLE_WELCOME_NOTIFICATION,
   LOAD_HOME_NOTIFICATION_REMINDER,
   REQUEST_NOTIFICATIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import * as common from '../../utils/common';
 import callApi from '../api';
@@ -66,6 +68,7 @@ const navigatePushResult = { type: 'nagivate push' };
 const navigateBackResult = { type: 'navigate back' };
 const navigateResetResult = { type: 'navigate reset' };
 const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
+const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
 
 beforeEach(() => {
   common.isAndroid = false;
@@ -526,7 +529,7 @@ describe('askNotificationPermissions', () => {
       store.clearActions();
       getPersonDetails.mockReturnValue(getPersonResult);
       navToPersonScreen.mockReturnValue(navToPersonScreenResult);
-      refreshCommunity.mockReturnValue(refreshCommunityResult);
+      refreshCommunity.mockReturnValue(() => refreshCommunityResult);
       reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
       reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
       navigateToCelebrateComments.mockReturnValue(navToCelebrateResult);
@@ -666,12 +669,30 @@ describe('askNotificationPermissions', () => {
       ]);
     });
 
+    describe('parseNotificationData', () => {
+      const notification = {
+        screen: 'celebrate',
+        organization_id: organization.id,
+        screen_extra_data,
+      };
+
+      it('should parse the notification data', () => {
+        const parsedData = parseNotificationData(notification);
+        expect(parsedData).toEqual({
+          screen: 'celebrate',
+          person_id: undefined,
+          organization_id: '234234',
+          celebration_item_id: '111',
+        });
+      });
+    });
+
     describe('celebrate', () => {
       it('should look for stored org', async () => {
         await testNotification({
           screen: 'celebrate',
           organization_id: organization.id,
-          celebration_item_id,
+          screen_extra_data,
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
@@ -686,7 +707,7 @@ describe('askNotificationPermissions', () => {
         await testNotification({
           screen: 'celebrate',
           organization_id: undefined,
-          celebration_item_id,
+          screen_extra_data,
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
@@ -710,15 +731,19 @@ describe('askNotificationPermissions', () => {
         );
       });
 
-      it('should not navigate to org if no id passed', async () => {
+      it('should navigate to global community if no id passed', async () => {
+        const global_community = { id: GLOBAL_COMMUNITY_ID };
+        refreshCommunity.mockReturnValue(() => global_community);
         await testNotification({
           screen: 'community_challenges',
           organization_id: undefined,
         });
-
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(reloadGroupChallengeFeed).not.toHaveBeenCalled();
-        expect(navigateToCommunity).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalledWith(undefined);
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
+        expect(navigateToCommunity).toHaveBeenCalledWith(
+          global_community,
+          GROUP_CHALLENGES,
+        );
       });
     });
   });
