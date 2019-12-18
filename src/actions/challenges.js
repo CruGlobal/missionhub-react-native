@@ -5,6 +5,7 @@ import {
   UPDATE_CHALLENGE,
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 
@@ -20,7 +21,7 @@ export function getGroupChallengeFeed(orgId) {
   };
 }
 
-export function reloadGroupChallengeFeed(orgId) {
+export function reloadGroupChallengeFeed(orgId = GLOBAL_COMMUNITY_ID) {
   return dispatch => {
     return dispatch(reloadFeed(CHALLENGE, orgId));
   };

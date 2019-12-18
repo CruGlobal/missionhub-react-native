@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 
 import { Text, Button } from '../../components/common';
 import { trackActionWithoutData } from '../../actions/analytics';

@@ -1,6 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import 'react-native';
 import { Provider } from 'react-redux';
+import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import thunk from 'redux-thunk';
 import configureStore, { MockStore } from 'redux-mock-store';
 // eslint-disable-next-line import/named
@@ -50,9 +51,13 @@ export function renderWithContext(
     // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
     const wrapper = ({ children }: { children: ReactNode }) => (
       <NavigationProvider value={navigation}>
-        <Provider store={store}>
-          <ApolloProvider client={mockApolloClient}>{children}</ApolloProvider>
-        </Provider>
+        <ProviderLegacy store={store}>
+          <Provider store={store}>
+            <ApolloProvider client={mockApolloClient}>
+              {children}
+            </ApolloProvider>
+          </Provider>
+        </ProviderLegacy>
       </NavigationProvider>
     );
 
@@ -96,7 +101,7 @@ export const renderShallow = (
   store = createThunkStore(),
 ) => {
   let renderedComponent = enzymeShallow(
-    <Provider store={store}>{component}</Provider>,
+    <ProviderLegacy store={store}>{component}</ProviderLegacy>,
   ).dive();
 
   // If component has translation wrappers, dive deeper

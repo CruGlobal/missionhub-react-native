@@ -13,6 +13,10 @@ import theme from '../../../theme';
 import { Organization } from '../../../reducers/organizations';
 
 import styles from './styles';
+import {
+  CreateAStory,
+  CreateAStoryVariables,
+} from './__generated__/CreateAStory';
 
 export const CREATE_A_STORY = gql`
   mutation CreateAStory($input: CreateStoryInput!) {
@@ -30,7 +34,9 @@ const ShareStoryScreen = () => {
   const [story, changeStory] = useState('');
   const onComplete: () => Promise<void> = useNavigationParam('onComplete');
   const organization: Organization = useNavigationParam('organization');
-  const [createStory] = useMutation(CREATE_A_STORY);
+  const [createStory] = useMutation<CreateAStory, CreateAStoryVariables>(
+    CREATE_A_STORY,
+  );
 
   const saveStory = async () => {
     if (!story) {

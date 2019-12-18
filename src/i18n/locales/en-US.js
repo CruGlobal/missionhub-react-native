@@ -184,6 +184,10 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
+    addPerson: {
+      part1: 'Who do you want to take',
+      part2: ' a step of faith with?',
+    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',

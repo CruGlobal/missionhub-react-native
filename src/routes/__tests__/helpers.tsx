@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 // eslint-disable-next-line import/named

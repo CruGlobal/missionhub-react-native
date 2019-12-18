@@ -9,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
-  imageWrap: { flex: 2, alignItems: 'center' },
+  textWrap: { alignItems: 'center', marginBottom: 30 },
   inputWrap: { flex: 3, padding: 30 },
   label: {
     color: theme.secondaryColor,
@@ -19,6 +19,13 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
     fontSize: 36,
     marginBottom: 10,
+  },
+  addPersonText: {
+    color: theme.white,
+    fontSize: 24,
+    fontWeight: '300',
+    lineHeight: 30,
+    textAlign: 'center',
   },
   termsWrap: {
     marginTop: 10,
