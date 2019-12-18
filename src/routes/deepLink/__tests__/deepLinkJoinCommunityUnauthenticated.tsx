@@ -27,9 +27,6 @@ jest.mock('../../../actions/notifications');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));
-jest.mock('../../../utils/hooks/useAnalytics', () => ({
-  useAnalytics: jest.fn(),
-}));
 
 ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
 

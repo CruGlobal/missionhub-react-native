@@ -25,7 +25,6 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue({
     type: 'tracked action without data',
   });
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 describe('WelcomeScreen', () => {

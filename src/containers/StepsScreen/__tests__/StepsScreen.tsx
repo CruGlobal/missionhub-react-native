@@ -86,7 +86,6 @@ beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders loading screen correctly', () => {

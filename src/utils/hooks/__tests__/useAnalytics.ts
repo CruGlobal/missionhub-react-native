@@ -6,9 +6,7 @@ import { trackScreenChange } from '../../../actions/analytics';
 import { useAnalytics } from '../useAnalytics';
 
 jest.mock('react-navigation-hooks');
-jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(),
-}));
+jest.mock('react-redux');
 jest.mock('../../../actions/analytics');
 
 let navigationEvent: (event: { type: string }) => void;

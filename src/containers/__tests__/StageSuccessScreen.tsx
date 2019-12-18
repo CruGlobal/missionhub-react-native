@@ -32,7 +32,6 @@ const navigateBackResult = { type: 'navigate back' };
 beforeEach(() => {
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   next.mockReturnValue({ type: 'next' });
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders correctly', () => {

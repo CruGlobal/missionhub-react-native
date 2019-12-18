@@ -41,7 +41,6 @@ beforeEach(() => {
   });
   (updatePerson as jest.Mock).mockReturnValue({ type: 'updatePerson' });
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders isMe version correctly', () => {

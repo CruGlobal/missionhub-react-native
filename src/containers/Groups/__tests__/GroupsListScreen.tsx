@@ -46,7 +46,6 @@ beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
   (resetScrollGroups as jest.Mock).mockReturnValue(resetScrollGroupsResponse);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 describe('GroupsListScreen', () => {

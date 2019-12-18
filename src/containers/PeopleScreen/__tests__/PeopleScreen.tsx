@@ -102,10 +102,6 @@ const props = {
   person: person,
 };
 
-beforeEach(() => {
-  (useAnalytics as jest.Mock).mockClear();
-});
-
 it('renders empty correctly', () => {
   renderWithContext(
     <PeopleScreen
