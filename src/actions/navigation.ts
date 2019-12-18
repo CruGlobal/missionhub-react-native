@@ -104,7 +104,7 @@ export function navigateToCommunity(
     const userCreated = orgIsUserCreated(community);
 
     return dispatch(
-      navigateReset(getScreenForOrg(orgId, userCreated), {
+      navigatePush(getScreenForOrg(orgId, userCreated), {
         orgId,
         initialTab,
       }),
