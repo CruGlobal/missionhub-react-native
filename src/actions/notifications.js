@@ -165,7 +165,7 @@ function handleNotification(notification) {
   };
 }
 
-function parseNotificationData(notification) {
+export function parseNotificationData(notification) {
   const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
   const data = {
     ...notification,

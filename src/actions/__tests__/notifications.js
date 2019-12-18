@@ -14,6 +14,7 @@ import {
   configureNotificationHandler,
   requestNativePermissions,
   showReminderOnLoad,
+  parseNotificationData,
 } from '../notifications';
 import {
   GCM_SENDER_ID,
@@ -665,6 +666,25 @@ describe('askNotificationPermissions', () => {
         { type: REQUEST_NOTIFICATIONS },
         navigatePushResult,
       ]);
+    });
+
+    describe('parseNotificationData', () => {
+      const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
+      const notification = {
+        screen: 'celebrate',
+        organization_id: organization.id,
+        screen_extra_data,
+      };
+
+      it('should parse the notification data', () => {
+        const parsedData = parseNotificationData(notification);
+        expect(parsedData).toEqual({
+          screen: 'celebrate',
+          person_id: undefined,
+          organization_id: '234234',
+          celebration_item_id: '111',
+        });
+      });
     });
 
     describe('celebrate', () => {
