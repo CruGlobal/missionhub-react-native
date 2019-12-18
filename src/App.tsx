@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { AppState, StatusBar } from 'react-native';
-import { Provider } from 'react-redux-legacy';
+import { Provider } from 'react-redux';
+import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import i18n from 'i18next';
@@ -193,18 +194,20 @@ export default class App extends Component {
       <Fragment>
         <StatusBar {...theme.statusBar.lightContent} />
         <ApolloProvider client={apolloClient}>
-          <Provider store={store}>
-            <PersistGate
-              loading={<LoadingScreen />}
-              onBeforeLift={this.onBeforeLift}
-              persistor={persistor}
-            >
-              {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-              <PlatformKeyboardAvoidingView>
-                <AppWithNavigationState />
-              </PlatformKeyboardAvoidingView>
-            </PersistGate>
-          </Provider>
+          <ProviderLegacy store={store}>
+            <Provider store={store}>
+              <PersistGate
+                loading={<LoadingScreen />}
+                onBeforeLift={this.onBeforeLift}
+                persistor={persistor}
+              >
+                {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+                <PlatformKeyboardAvoidingView>
+                  <AppWithNavigationState />
+                </PlatformKeyboardAvoidingView>
+              </PersistGate>
+            </Provider>
+          </ProviderLegacy>
         </ApolloProvider>
       </Fragment>
     );
