@@ -1,7 +1,7 @@
 /* eslint complexity: 0 */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';

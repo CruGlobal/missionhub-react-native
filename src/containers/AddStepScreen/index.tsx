@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { StatusBar, Keyboard, Alert, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';

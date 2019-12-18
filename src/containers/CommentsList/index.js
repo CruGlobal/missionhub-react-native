@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { Alert, FlatList } from 'react-native';
 import { withTranslation } from 'react-i18next';

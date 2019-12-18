@@ -1,7 +1,7 @@
 import React from 'react';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { navigateBack } from '../actions/navigation';

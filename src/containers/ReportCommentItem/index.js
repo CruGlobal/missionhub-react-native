@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';

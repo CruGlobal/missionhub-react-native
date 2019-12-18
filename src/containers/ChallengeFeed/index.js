@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SectionList, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 
 import { Text } from '../../components/common';

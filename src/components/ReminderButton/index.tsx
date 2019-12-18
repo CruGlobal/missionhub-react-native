@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
