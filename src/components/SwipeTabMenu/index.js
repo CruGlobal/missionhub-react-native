@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 // eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';

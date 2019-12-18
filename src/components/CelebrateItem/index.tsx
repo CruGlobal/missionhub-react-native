@@ -2,7 +2,7 @@ import React from 'react';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { View, Alert } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';

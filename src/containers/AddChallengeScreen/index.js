@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { View, Keyboard, StatusBar } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';

@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';

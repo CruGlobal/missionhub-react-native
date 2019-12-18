@@ -1,7 +1,7 @@
 /* eslint complexity: 0 */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 
 import { ORG_PERMISSIONS } from '../../constants';
