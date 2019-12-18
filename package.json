@@ -31,7 +31,6 @@
     "codepush-android-staging": "appcenter codepush release-react -a Cru/MissionHub-Android",
     "onesky:upload": "babel-node ./bin/oneskyUpload.js",
     "onesky:download": "babel-node ./bin/oneskyDownload.js",
-    "precommit": "pretty-quick --staged",
     "postinstall": "jetify"
   },
   "dependencies": {
@@ -140,13 +139,13 @@
     "faker": "^4.1.0",
     "fraql": "^1.2.1",
     "graphql-tools": "^4.0.6",
-    "husky": "^3.0.9",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
     "mockdate": "^2.0.5",
     "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
+    "pretty-quick": "^2.0.1",
     "react-dom": "^16.10.2",
     "react-native-testing-library": "^1.11.1",
     "react-test-renderer": "^16.10.2",
@@ -174,7 +173,8 @@
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/__mock__/hideWarnings.ts",
-      "<rootDir>/__mock__/resetGlobalMockSeeds.ts"
+      "<rootDir>/__mock__/resetGlobalMockSeeds.ts",
+      "<rootDir>/__mock__/apolloHooks.ts"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -192,5 +192,10 @@
     "assets": [
       "./assets/fonts"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

@@ -17,6 +17,7 @@ import theme from '../../../theme';
 import { Event } from '../../../components/CelebrateItem';
 
 import styles from './styles';
+import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
 
 export const UPDATE_STORY = gql`
   mutation UpdateStory($input: UpdateStoryInput!) {
@@ -39,7 +40,9 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   const { object_description, celebrateable_id }: Event = useNavigationParam(
     'celebrationItem',
   );
-  const [updateStory] = useMutation(UPDATE_STORY);
+  const [updateStory] = useMutation<UpdateStory, UpdateStoryVariables>(
+    UPDATE_STORY,
+  );
   const [story, changeStory] = useState(object_description);
 
   const saveStory = async () => {
