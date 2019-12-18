@@ -14,7 +14,7 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <TrackOnFocus
+  <Analytics
     screenName="gif"
   />
   <Image

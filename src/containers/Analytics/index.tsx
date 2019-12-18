@@ -4,12 +4,11 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 interface TrackOnFocusProps {
   screenName: string | string[];
-  onFocus?: () => void;
 }
 
-export const TrackOnFocus = ({ screenName, onFocus }: TrackOnFocusProps) => {
-  useAnalytics(screenName, onFocus);
+export const Analytics = ({ screenName }: TrackOnFocusProps) => {
+  useAnalytics(screenName);
 
   return null;
 };
-export default connect()(TrackOnFocus);
+export default connect()(Analytics);
