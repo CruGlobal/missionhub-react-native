@@ -229,19 +229,12 @@ describe('navigateToCommunity', () => {
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
       expect(store.getActions()).toEqual([
         {
-          type: 'Navigation/RESET',
-          index: 0,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GLOBAL_GROUP_SCREEN,
-              params: {
-                orgId: GLOBAL_COMMUNITY_ID,
-                initialTab: undefined,
-              },
-            },
-          ],
+          type: 'Navigation/PUSH',
+          routeName: GLOBAL_GROUP_SCREEN,
+          params: {
+            orgId: GLOBAL_COMMUNITY_ID,
+            initialTab: undefined,
+          },
         },
       ]);
     });
@@ -260,19 +253,12 @@ describe('navigateToCommunity', () => {
     it('navigates to GROUPS_SCREEN', () => {
       expect(store.getActions()).toEqual([
         {
-          type: 'Navigation/RESET',
-          index: 0,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_SCREEN,
-              params: {
-                orgId,
-                initialTab: undefined,
-              },
-            },
-          ],
+          type: 'Navigation/PUSH',
+          routeName: GROUP_SCREEN,
+          params: {
+            orgId,
+            initialTab: undefined,
+          },
         },
       ]);
     });
@@ -291,19 +277,12 @@ describe('navigateToCommunity', () => {
     it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
       expect(store.getActions()).toEqual([
         {
-          type: 'Navigation/RESET',
-          index: 0,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: USER_CREATED_GROUP_SCREEN,
-              params: {
-                orgId,
-                initialTab: undefined,
-              },
-            },
-          ],
+          type: 'Navigation/PUSH',
+          routeName: USER_CREATED_GROUP_SCREEN,
+          params: {
+            orgId,
+            initialTab: undefined,
+          },
         },
       ]);
     });
@@ -322,19 +301,12 @@ describe('navigateToCommunity', () => {
     it('navigates to GLOBAL_GROUPS_SCREEN', () => {
       expect(store.getActions()).toEqual([
         {
-          type: 'Navigation/RESET',
-          index: 0,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GLOBAL_GROUP_SCREEN,
-              params: {
-                orgId: GLOBAL_COMMUNITY_ID,
-                initialTab: undefined,
-              },
-            },
-          ],
+          type: 'Navigation/PUSH',
+          routeName: GLOBAL_GROUP_SCREEN,
+          params: {
+            orgId: GLOBAL_COMMUNITY_ID,
+            initialTab: undefined,
+          },
         },
       ]);
     });
@@ -356,19 +328,12 @@ describe('navigateToCommunity', () => {
     it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
       expect(store.getActions()).toEqual([
         {
-          type: 'Navigation/RESET',
-          index: 0,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: USER_CREATED_GROUP_SCREEN,
-              params: {
-                orgId,
-                initialTab: GROUP_CHALLENGES,
-              },
-            },
-          ],
+          type: 'Navigation/PUSH',
+          routeName: USER_CREATED_GROUP_SCREEN,
+          params: {
+            orgId,
+            initialTab: GROUP_CHALLENGES,
+          },
         },
       ]);
     });
