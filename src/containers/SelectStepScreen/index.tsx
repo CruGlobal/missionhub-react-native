@@ -101,7 +101,7 @@ const SelectStepScreen = ({
       <ParallaxScrollView
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
-        parallaxHeaderHeight={150}
+        parallaxHeaderHeight={180}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
         renderStickyHeader={renderHeader}
