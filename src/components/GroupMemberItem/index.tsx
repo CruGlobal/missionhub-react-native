@@ -24,7 +24,7 @@ interface PersonOrgPermissionInterface {
   id: string;
   organization: Organization;
   organization_id: string;
-  permission_id: string;
+  permission_id: number;
 }
 
 interface GroupMemberItemProps {
@@ -65,7 +65,7 @@ const GroupMemberItem = ({
       return '';
     }
 
-    switch (personOrgPermission.permission_id) {
+    switch (`${personOrgPermission.permission_id}`) {
       case ORG_PERMISSIONS.ADMIN:
         return t('profileLabels.admin');
       case ORG_PERMISSIONS.OWNER:
