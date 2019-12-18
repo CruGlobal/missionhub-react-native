@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';

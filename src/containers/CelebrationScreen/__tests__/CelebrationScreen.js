@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux-legacy';
 
 import {
   createMockNavState,

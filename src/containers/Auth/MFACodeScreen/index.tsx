@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Keyboard, Alert } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 

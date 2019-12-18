@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 import 'react-native';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux-legacy';
 import thunk from 'redux-thunk';
 import configureStore, { MockStore } from 'redux-mock-store';
 // eslint-disable-next-line import/named

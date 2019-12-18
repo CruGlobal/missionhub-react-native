@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { View, Alert, Image, ScrollView } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 

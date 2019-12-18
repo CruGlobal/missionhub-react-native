@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { useState, useRef } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { SafeAreaView, Keyboard, View, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';

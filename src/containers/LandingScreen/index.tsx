@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThunkDispatch } from 'redux-thunk';
 import { SafeAreaView, Image, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
