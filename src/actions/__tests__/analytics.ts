@@ -65,7 +65,7 @@ describe('trackScreenChange', () => {
   const screenNameArray = ['section', 'subsection', 'subsection 3'];
   const screenName = `mh : ${screenNameArray[0]} : ${screenNameArray[1]} : ${screenNameArray[2]}`;
 
-  it('tracks screen change', () => {
+  it('tracks screen change with array', () => {
     store.dispatch<any>(trackScreenChange(screenNameArray));
 
     expect(RNOmniture.trackState).toHaveBeenCalledWith(screenName, {
@@ -79,6 +79,27 @@ describe('trackScreenChange', () => {
       {
         type: ANALYTICS_CONTEXT_CHANGED,
         analyticsContext: { [ANALYTICS.PREVIOUS_SCREEN_NAME]: screenName },
+      },
+    ]);
+  });
+
+  it('tracks screen change with string', () => {
+    const singleScreenString = 'section';
+    const shortScreenName = `mh : ${singleScreenString}`;
+
+    store.dispatch<any>(trackScreenChange(singleScreenString));
+
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(shortScreenName, {
+      ...context,
+      [ANALYTICS.SCREEN_NAME]: shortScreenName,
+      [ANALYTICS.SITE_SECTION]: singleScreenString,
+      [ANALYTICS.SITE_SUBSECTION]: undefined,
+      [ANALYTICS.SITE_SUBSECTION_3]: undefined,
+    });
+    expect(store.getActions()).toEqual([
+      {
+        type: ANALYTICS_CONTEXT_CHANGED,
+        analyticsContext: { [ANALYTICS.PREVIOUS_SCREEN_NAME]: shortScreenName },
       },
     ]);
   });
