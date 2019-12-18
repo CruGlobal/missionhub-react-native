@@ -26,8 +26,6 @@ beforeEach(() => {
 });
 
 describe('useAnalytics', () => {
-  beforeEach(() => {});
-
   it('tracks screen change on focus', () => {
     renderHook(() => useAnalytics(screenFragments));
 
