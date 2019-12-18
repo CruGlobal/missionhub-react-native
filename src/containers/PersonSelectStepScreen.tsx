@@ -50,7 +50,6 @@ const PersonSelectStepScreen = ({
     <SelectStepScreen
       contactStageId={stageId}
       personId={personId}
-      contactName={name}
       headerText={[t('personHeader.part1'), t('personHeader.part2', { name })]}
       orgId={orgId}
       enableSkipButton={enableSkipButton}

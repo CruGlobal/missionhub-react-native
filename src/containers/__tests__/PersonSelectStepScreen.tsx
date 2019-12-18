@@ -14,7 +14,6 @@ const orgId = '889';
 const contactAssignment = { id: '444', pathway_stage_id: stageId };
 
 const initialState = {
-  personProfile: {},
   auth: {
     person: {
       id: myId,

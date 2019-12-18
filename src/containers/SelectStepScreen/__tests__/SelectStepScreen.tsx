@@ -15,9 +15,14 @@ const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
 const contactStageId = '3';
 const personId = '252342354234';
-const contactName = 'roger';
+const me = { id: '89123', first_name: 'roger' };
 const state = {
-  auth: { person: { id: '89123' } },
+  auth: { person: me },
+  people: {
+    allByOrg: {
+      personal: { id: 'personal', people: { [me.id]: me } },
+    },
+  },
   steps: { suggestedForOthers: {} },
 };
 
@@ -32,7 +37,6 @@ beforeEach(() => {
       personId={personId}
       enableSkipButton={enableSkipButton}
       headerText={['Header Text 1', 'Header Text 2']}
-      contactName={contactName}
       next={next}
     />,
     {

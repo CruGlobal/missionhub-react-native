@@ -377,7 +377,6 @@ exports[`with enableSkipButton renders correctly 1`] = `
             }
           />
           <StepsList
-            contactName="roger"
             contactStageId="3"
             onPressCreateStep={[Function]}
             onPressStep={[Function]}
@@ -950,7 +949,6 @@ exports[`without enableSkipButton renders correctly 1`] = `
             }
           />
           <StepsList
-            contactName="roger"
             contactStageId="3"
             onPressCreateStep={[Function]}
             onPressStep={[Function]}

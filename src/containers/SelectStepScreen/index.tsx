@@ -12,6 +12,8 @@ import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { personSelector } from '../../selectors/people';
+import { PeopleState, Person } from '../../reducers/people';
 
 import styles from './styles';
 
@@ -22,9 +24,9 @@ export interface Step {
 
 interface SelectStepScreenProps {
   personId: string;
+  person: Person;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orgId?: string;
-  contactName?: string;
   contactStageId: string;
   headerText: [string, string];
   enableSkipButton?: boolean;
@@ -41,8 +43,8 @@ interface SelectStepScreenProps {
 
 const SelectStepScreen = ({
   personId,
+  person,
   orgId,
-  contactName,
   contactStageId,
   headerText,
   enableSkipButton = false,
@@ -108,7 +110,7 @@ const SelectStepScreen = ({
       >
         <StepsList
           onPressCreateStep={navToCreateStep}
-          contactName={contactName}
+          contactName={person && person.first_name}
           personId={personId}
           contactStageId={contactStageId}
           onPressStep={navToSuggestedStep}
@@ -118,4 +120,19 @@ const SelectStepScreen = ({
   );
 };
 
-export default connect()(SelectStepScreen);
+const mapStateToProps = (
+  {
+    people,
+  }: {
+    people: PeopleState;
+  },
+  { personId, orgId }: { personId: string; orgId?: string },
+) => {
+  const person = personSelector({ people }, { personId, orgId });
+
+  return {
+    person,
+  };
+};
+
+export default connect(mapStateToProps)(SelectStepScreen);
