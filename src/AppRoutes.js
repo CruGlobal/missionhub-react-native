@@ -46,9 +46,8 @@ import AddSomeoneScreen, {
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from './containers/AddContactScreen';
-import NotificationPrimerScreen, {
-  NOTIFICATION_PRIMER_SCREEN,
-} from './containers/NotificationPrimerScreen';
+import NotificationPrimerScreen from './containers/NotificationPrimerScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from './containers/NotificationPrimerScreen/constants';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from './containers/CelebrationScreen';
