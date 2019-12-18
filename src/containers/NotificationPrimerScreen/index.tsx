@@ -172,3 +172,4 @@ const NotificationPrimerScreen = ({
 };
 
 export default connect()(NotificationPrimerScreen);
+export const NOTIFICATION_PRIMER_SCREEN = 'nav/NOTIFICATION_PRIMER';
