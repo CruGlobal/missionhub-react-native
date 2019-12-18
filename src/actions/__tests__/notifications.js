@@ -38,7 +38,7 @@ import { refreshCommunity } from '../organizations';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
-import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen/constants';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 
