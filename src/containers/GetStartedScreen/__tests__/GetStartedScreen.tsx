@@ -5,14 +5,14 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { disableBack } from '../../../utils/common';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
-import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import GetStartedScreen from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../utils/common');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
-jest.mock('../../../utils/hooks/useTrackScreenChange');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const initialState = {
   auth: { person: { first_name: 'Roger' } },
@@ -26,7 +26,7 @@ beforeEach(() => {
   disableBack.remove = jest.fn();
   next.mockReturnValue(nextResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
-  (useTrackScreenChange as jest.Mock).mockClear();
+  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders correctly', () => {
@@ -48,7 +48,7 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useTrackScreenChange).toHaveBeenCalledWith([
+  expect(useAnalytics).toHaveBeenCalledWith([
     'onboarding',
     'personal greeting',
   ]);

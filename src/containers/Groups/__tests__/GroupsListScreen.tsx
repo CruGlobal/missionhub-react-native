@@ -16,6 +16,7 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
@@ -23,7 +24,7 @@ jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/common');
-jest.mock('../../TrackTabChange', () => () => null);
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const auth = { upgradeToken: null };
 const swipe = { groupScrollToId: null };
@@ -45,6 +46,7 @@ beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
   (resetScrollGroups as jest.Mock).mockReturnValue(resetScrollGroupsResponse);
+  (useAnalytics as jest.Mock).mockClear();
 });
 
 describe('GroupsListScreen', () => {
@@ -68,6 +70,17 @@ describe('GroupsListScreen', () => {
     await flushMicrotasksQueue();
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
+  });
+
+  it('tracks screen change on mount', () => {
+    renderWithContext(<GroupsListScreen />, {
+      initialState,
+      mocks: {
+        CommunityConnection: () => ({ nodes: () => [] }),
+      },
+    });
+
+    expect(useAnalytics).toHaveBeenCalledWith('communities');
   });
 
   describe('card item press', () => {
