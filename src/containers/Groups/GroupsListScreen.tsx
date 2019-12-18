@@ -22,16 +22,17 @@ import { navigatePush, navigateToCommunity } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../routes/constants';
-import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -129,6 +130,7 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
+  useAnalytics('communities', () => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -255,7 +257,6 @@ const GroupsListScreen = ({
 
   return (
     <View style={styles.container}>
-      <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
           <IconButton

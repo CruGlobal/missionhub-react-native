@@ -23,14 +23,14 @@ import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { STEPS_TAB, PEOPLE_TAB } from '../../constants';
+import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
-import TrackTabChange from '../TrackTabChange';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -53,6 +53,7 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
+  useAnalytics('steps', () => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('stepsTab');
 
   const [paging, setPaging] = useState(false);
@@ -162,7 +163,6 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
-      <TrackTabChange screen={STEPS_TAB} />
       <Header
         testID="header"
         left={
