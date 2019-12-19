@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react';
 import { KeyboardAvoidingView } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 

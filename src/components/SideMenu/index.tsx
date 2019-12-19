@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView, BackHandler } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';

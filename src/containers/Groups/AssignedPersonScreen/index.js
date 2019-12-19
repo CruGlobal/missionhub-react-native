@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { StatusBar, View } from 'react-native';
 import i18next from 'i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
 import PropTypes from 'prop-types';
 

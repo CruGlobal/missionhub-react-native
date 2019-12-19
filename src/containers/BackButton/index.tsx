@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Keyboard, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { navigateBack } from '../../actions/navigation';

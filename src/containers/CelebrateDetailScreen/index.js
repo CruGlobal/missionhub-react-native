@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, View, SafeAreaView, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 
 import CommentLikeComponent from '../CommentLikeComponent';

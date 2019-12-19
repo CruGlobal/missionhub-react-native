@@ -1,6 +1,6 @@
 import 'react-native';
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux-legacy';
 
 import {
   createMockNavState,
@@ -17,6 +17,7 @@ let store;
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
+jest.mock('../../Analytics', () => 'Analytics');
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
