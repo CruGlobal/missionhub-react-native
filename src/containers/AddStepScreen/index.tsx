@@ -20,7 +20,7 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import TrackOnFocus from '../TrackOnFocus';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -104,20 +104,20 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
       : 'selectStep:addStep',
   );
 
-  const screenNameFragments = [
-    isCreateStep
-      ? 'custom step'
-      : isStepNote
-      ? 'step note'
-      : isEdit
-      ? '*journey step'
-      : '',
-    isEdit ? '*edit' : 'add',
-  ];
+  const screenSection = isCreateStep
+    ? 'custom step'
+    : isStepNote
+    ? 'step note'
+    : isEdit
+    ? isMe
+      ? 'my journey'
+      : 'our journey'
+    : '';
+  const screenSubsection = isEdit ? 'edit' : 'add';
 
   return (
     <View style={styles.container}>
-      <TrackOnFocus screenNameFragments={screenNameFragments} />
+      <Analytics screenName={[screenSection, screenSubsection]} />
       <Header
         left={<BackButton iconStyle={styles.backButtonStyle} />}
         right={
