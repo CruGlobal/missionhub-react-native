@@ -8,6 +8,7 @@ import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
 
@@ -30,6 +31,7 @@ const GetStartedScreen = ({
   enableBackButton = true,
   logoutOnBack = false,
 }: GetStartedScreenProps) => {
+  useAnalytics(['onboarding', 'personal greeting']);
   const { t } = useTranslation('getStarted');
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);

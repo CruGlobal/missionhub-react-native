@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { Button, Text } from '../../components/common';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
@@ -27,6 +28,7 @@ const {
 } = styles;
 
 const LandingScreen = () => {
+  useAnalytics('landing');
   const { t } = useTranslation('landing');
   const dispatch = useDispatch();
 

@@ -5,6 +5,7 @@ import { fireEvent, GetByAPI } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { updatePerson } from '../../../actions/person';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
 
 import SetupScreen from '..';
@@ -26,6 +27,7 @@ jest.mock('../../../actions/api');
 jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
+jest.mock('../../../utils/hooks/useAnalytics');
 Keyboard.dismiss = jest.fn();
 
 beforeEach(() => {
@@ -45,12 +47,16 @@ it('renders isMe version correctly', () => {
   renderWithContext(<SetupScreen next={next} isMe={true} />, {
     initialState: mockState,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name']);
 });
 
 it('renders other person version correctly', () => {
   renderWithContext(<SetupScreen next={next} isMe={false} />, {
     initialState: mockState,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name']);
 });
 
 describe('setup screen methods', () => {

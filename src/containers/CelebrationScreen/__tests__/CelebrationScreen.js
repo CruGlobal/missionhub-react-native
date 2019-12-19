@@ -17,6 +17,7 @@ let store;
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
+jest.mock('../../Analytics', () => 'Analytics');
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;

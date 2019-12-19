@@ -9,9 +9,6 @@ exports[`renders correctly as Casey 1`] = `
     }
   }
 >
-  <TrackTabChange
-    screen="PeopleTab"
-  />
   <Header
     left={
       <IconButton
@@ -68,9 +65,6 @@ exports[`renders correctly as Jean 1`] = `
     }
   }
 >
-  <TrackTabChange
-    screen="PeopleTab"
-  />
   <Header
     left={
       <IconButton
@@ -154,9 +148,6 @@ exports[`renders empty correctly 1`] = `
     }
   }
 >
-  <TrackTabChange
-    screen="PeopleTab"
-  />
   <Header
     left={
       <IconButton

@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 
 import { getPersonNote, savePersonNote } from '../../../actions/person';
 import BottomButton from '../../../components/BottomButton';
-import { trackState } from '../../../actions/analytics';
 
 import { ContactNotes } from '..';
 
@@ -23,11 +22,9 @@ const note = { id: '988998', content: 'Roge rules' };
 
 getPersonNote.mockReturnValue(() => Promise.resolve(note));
 savePersonNote.mockReturnValue(() => {});
-trackState.mockReturnValue(() => {});
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/person');
-jest.mock('../../../actions/analytics');
 
 beforeEach(
   () =>

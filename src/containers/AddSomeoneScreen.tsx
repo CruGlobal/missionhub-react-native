@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
+import { useAnalytics } from '../utils/hooks/useAnalytics';
 
 import IconMessageScreen from './IconMessageScreen';
 
@@ -24,6 +25,7 @@ const AddSomeoneScreen = ({
   enableBackButton = true,
   logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
+  useAnalytics(['onboarding', 'add someone']);
   const { t } = useTranslation('addContact');
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);

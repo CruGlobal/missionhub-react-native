@@ -1,6 +1,7 @@
 import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -9,26 +10,27 @@ import { getMyPeople } from '../../../actions/people';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
 import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import { PeopleScreen } from '..';
 
+jest.mock('react-native-device-info');
+jest.mock('react-navigation-hooks');
 jest.mock('../../../components/common', () => ({
   IconButton: 'IconButton',
   Button: 'Button',
 }));
 jest.mock('../../../components/PeopleList', () => 'PeopleList');
 jest.mock('../../../components/Header', () => 'Header');
-jest.mock('../../TrackTabChange', () => 'TrackTabChange');
-
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/people');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../selectors/people');
-
 jest.mock('../../../actions/people', () => ({
   getMyPeople: jest.fn(),
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const person = {
   first_name: 'Christian',
@@ -102,8 +104,6 @@ const props = {
   person: person,
 };
 
-jest.mock('react-native-device-info');
-
 it('renders empty correctly', () => {
   renderWithContext(
     <PeopleScreen
@@ -128,6 +128,13 @@ it('renders correctly as Jean', () => {
   renderWithContext(
     <PeopleScreen {...props} isJean={true} items={orgs} />,
   ).snapshot();
+});
+
+it('tracks screen change on mount', () => {
+  renderWithContext(<PeopleScreen {...props} isJean={true} items={orgs} />);
+
+  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('should open main menu', () => {
