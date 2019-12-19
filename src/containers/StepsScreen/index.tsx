@@ -10,6 +10,7 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { getMySteps, getMyStepsNextPage } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
@@ -53,7 +54,8 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
-  useAnalytics('steps', () => dispatch(checkForUnreadComments()));
+  useAnalytics('steps');
+  useFocusEffect(() => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('stepsTab');
 
   const [paging, setPaging] = useState(false);

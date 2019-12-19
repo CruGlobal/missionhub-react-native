@@ -21,7 +21,6 @@ beforeEach(() => {
   (next as jest.Mock).mockReturnValue(nextResult);
   (skipOnboarding as jest.Mock).mockReturnValue(skipOnboardingResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders correctly', () => {

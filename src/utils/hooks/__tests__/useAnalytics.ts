@@ -6,9 +6,7 @@ import { trackScreenChange } from '../../../actions/analytics';
 import { useAnalytics } from '../useAnalytics';
 
 jest.mock('react-navigation-hooks');
-jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(),
-}));
+jest.mock('react-redux');
 jest.mock('../../../actions/analytics');
 
 let navigationEvent: (event: { type: string }) => void;
@@ -28,8 +26,6 @@ beforeEach(() => {
 });
 
 describe('useAnalytics', () => {
-  beforeEach(() => {});
-
   it('tracks screen change on focus', () => {
     renderHook(() => useAnalytics(screenFragments));
 
@@ -44,27 +40,5 @@ describe('useAnalytics', () => {
     result.current();
 
     expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
-  });
-
-  it('tracks screen change and fires additional function on focus', () => {
-    const onFocus = jest.fn();
-
-    renderHook(() => useAnalytics(screenFragments, onFocus));
-
-    fireEvent({ type: 'willFocus' });
-
-    expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
-    expect(onFocus).toHaveBeenCalledWith();
-  });
-
-  it('tracks screen change and fires additional function with callback', () => {
-    const onFocus = jest.fn();
-
-    const { result } = renderHook(() => useAnalytics(screenFragments, onFocus));
-
-    result.current();
-
-    expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
-    expect(onFocus).toHaveBeenCalledWith();
   });
 });

@@ -1,6 +1,7 @@
 import { NativeScrollEvent } from 'react-native';
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { myStepsSelector } from '../../../selectors/steps';
@@ -17,6 +18,7 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import StepsScreen from '..';
 
+jest.mock('react-navigation-hooks');
 jest.mock('../../../selectors/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
@@ -86,7 +88,6 @@ beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders loading screen correctly', () => {
@@ -120,7 +121,8 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith('steps', expect.any(Function));
+  expect(useAnalytics).toHaveBeenCalledWith('steps');
+  expect(useFocusEffect).toHaveBeenLastCalledWith(expect.any(Function));
 });
 
 describe('handleOpenMainMenu', () => {

@@ -33,7 +33,7 @@ exports[`allows for undefined organization 1`] = `
       style={
         Object {
           "backgroundColor": "#007398",
-          "height": 150,
+          "height": 180,
           "opacity": 1,
           "overflow": "hidden",
           "position": "absolute",
@@ -77,7 +77,7 @@ exports[`allows for undefined organization 1`] = `
             style={
               Object {
                 "backgroundColor": "transparent",
-                "height": 150,
+                "height": 180,
                 "opacity": 1,
                 "overflow": "hidden",
               }
@@ -86,7 +86,7 @@ exports[`allows for undefined organization 1`] = `
             <View
               style={
                 Object {
-                  "height": 150,
+                  "height": 180,
                 }
               }
             >
@@ -248,9 +248,9 @@ exports[`allows for undefined organization 1`] = `
                           "color": "#ffffff",
                           "fontSize": 24,
                           "fontWeight": "300",
-                          "letterSpacing": 1,
+                          "letterSpacing": 2,
                           "lineHeight": 30,
-                          "paddingHorizontal": 30,
+                          "paddingHorizontal": 60,
                           "textAlign": "center",
                         },
                       ]
@@ -271,9 +271,9 @@ exports[`allows for undefined organization 1`] = `
                           "color": "#ffffff",
                           "fontSize": 24,
                           "fontWeight": "300",
-                          "letterSpacing": 1,
+                          "letterSpacing": 2,
                           "lineHeight": 30,
-                          "paddingHorizontal": 30,
+                          "paddingHorizontal": 60,
                           "textAlign": "center",
                         },
                       ]
@@ -653,7 +653,7 @@ exports[`renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#007398",
-          "height": 150,
+          "height": 180,
           "opacity": 1,
           "overflow": "hidden",
           "position": "absolute",
@@ -697,7 +697,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "backgroundColor": "transparent",
-                "height": 150,
+                "height": 180,
                 "opacity": 1,
                 "overflow": "hidden",
               }
@@ -706,7 +706,7 @@ exports[`renders correctly 1`] = `
             <View
               style={
                 Object {
-                  "height": 150,
+                  "height": 180,
                 }
               }
             >
@@ -868,9 +868,9 @@ exports[`renders correctly 1`] = `
                           "color": "#ffffff",
                           "fontSize": 24,
                           "fontWeight": "300",
-                          "letterSpacing": 1,
+                          "letterSpacing": 2,
                           "lineHeight": 30,
-                          "paddingHorizontal": 30,
+                          "paddingHorizontal": 60,
                           "textAlign": "center",
                         },
                       ]
@@ -891,9 +891,9 @@ exports[`renders correctly 1`] = `
                           "color": "#ffffff",
                           "fontSize": 24,
                           "fontWeight": "300",
-                          "letterSpacing": 1,
+                          "letterSpacing": 2,
                           "lineHeight": 30,
-                          "paddingHorizontal": 30,
+                          "paddingHorizontal": 60,
                           "textAlign": "center",
                         },
                       ]

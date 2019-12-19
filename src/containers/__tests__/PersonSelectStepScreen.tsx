@@ -6,7 +6,6 @@ import { contactAssignmentSelector } from '../../selectors/people';
 import { renderWithContext } from '../../../testUtils';
 
 jest.mock('../../selectors/people');
-jest.mock('../../utils/hooks/useAnalytics');
 
 const myId = '14312';
 const personId = '123';

@@ -12,6 +12,7 @@ import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { TFunction } from 'i18next';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
@@ -130,7 +131,8 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics('communities', () => dispatch(checkForUnreadComments()));
+  useAnalytics('communities');
+  useFocusEffect(() => dispatch(checkForUnreadComments()));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);

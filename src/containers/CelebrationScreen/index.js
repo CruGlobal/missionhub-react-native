@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Flex } from '../../components/common';
 import { navigateReset, navigateToMainTabs } from '../../actions/navigation';
 import { isAndroid, disableBack } from '../../utils/common';
-import TrackOnFocus from '../TrackOnFocus';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -82,7 +82,7 @@ class CelebrationScreen extends Component {
 
     return (
       <Flex style={styles.container} value={1} justify="center">
-        <TrackOnFocus screenName="gif" />
+        <Analytics screenName="gif" />
         <Image
           source={
             CelebrationScreen.getGif(gifId) || CelebrationScreen.shuffleGif()

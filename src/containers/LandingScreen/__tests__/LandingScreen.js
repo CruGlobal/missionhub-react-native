@@ -19,10 +19,6 @@ jest.mock('../../../actions/navigation', () => ({
 }));
 jest.mock('../../../utils/hooks/useAnalytics');
 
-beforeEach(() => {
-  useAnalytics.mockClear();
-});
-
 it('renders correctly', () => {
   renderWithContext(<LandingScreen />).snapshot();
 });

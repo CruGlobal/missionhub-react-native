@@ -26,7 +26,6 @@ beforeEach(() => {
   disableBack.remove = jest.fn();
   next.mockReturnValue(nextResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 it('renders correctly', () => {

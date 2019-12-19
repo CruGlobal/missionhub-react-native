@@ -23,9 +23,6 @@ jest.mock('../../../actions/notifications');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));
-jest.mock('../../../utils/hooks/useAnalytics', () => ({
-  useAnalytics: jest.fn(),
-}));
 
 const community = { id: '1', community_code: '123456' };
 

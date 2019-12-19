@@ -34,7 +34,6 @@ const onComplete = jest.fn();
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
-  (useAnalytics as jest.Mock).mockClear();
 });
 
 describe('notificationTypes', () => {
