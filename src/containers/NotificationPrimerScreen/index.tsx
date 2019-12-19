@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -9,6 +9,7 @@ import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -27,6 +28,7 @@ interface NotificationPrimerScreenProps {
 const NotificationPrimerScreen = ({
   dispatch,
 }: NotificationPrimerScreenProps) => {
+  useAnalytics('allow notifications');
   const { t } = useTranslation('notificationPrimer');
 
   const onComplete: (

@@ -2,11 +2,14 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
+import { navigateBack } from '../../actions/navigation';
 import StageSuccessScreen from '../StageSuccessScreen';
 import { renderWithContext } from '../../../testUtils';
-import { navigatePush } from '../../actions/navigation';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
+jest.mock('react-native-device-info');
 jest.mock('../../actions/navigation');
+jest.mock('../../utils/hooks/useAnalytics');
 
 const mockState = {
   auth: {
@@ -22,11 +25,12 @@ const mockState = {
   },
 };
 
-jest.mock('react-native-device-info');
-const next = jest.fn().mockReturnValue({ type: 'next ' });
+const next = jest.fn();
+
+const navigateBackResult = { type: 'navigate back' };
 
 beforeEach(() => {
-  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   next.mockReturnValue({ type: 'next' });
 });
 
@@ -36,10 +40,15 @@ it('renders correctly', () => {
   }).snapshot();
 });
 
-it('renders correctly with default state', () => {
+it('tracks screen change on mount', () => {
   renderWithContext(<StageSuccessScreen next={next} />, {
     initialState: mockState,
-  }).snapshot();
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'stage confirmation',
+  ]);
 });
 
 it('calls next with selected stage', () => {
@@ -51,4 +60,15 @@ it('calls next with selected stage', () => {
   );
   fireEvent(getByTestId('IconMessageScreen'), 'onComplete');
   expect(next).toHaveBeenCalledWith();
+});
+
+it('calls navigate back', () => {
+  const { getByTestId } = renderWithContext(
+    <StageSuccessScreen next={next} />,
+    {
+      initialState: mockState,
+    },
+  );
+  fireEvent(getByTestId('IconMessageScreen'), 'onBack');
+  expect(navigateBack).toHaveBeenCalledWith();
 });

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import { View, SectionList, SectionListData } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 

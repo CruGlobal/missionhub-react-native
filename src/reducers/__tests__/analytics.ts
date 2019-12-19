@@ -40,14 +40,14 @@ describe('analytics context changed', () => {
     const screen = 'testScreen';
     const action = {
       analyticsContext: {
-        [ANALYTICS.SCREENNAME]: screen,
+        [ANALYTICS.SCREEN_NAME]: screen,
       },
       type: ANALYTICS_CONTEXT_CHANGED as typeof ANALYTICS_CONTEXT_CHANGED,
     };
 
     const result = analyticsReducer(undefined, action);
 
-    expect(result[ANALYTICS.SCREENNAME]).toBe(screen);
+    expect(result[ANALYTICS.SCREEN_NAME]).toBe(screen);
   });
 });
 
@@ -55,7 +55,7 @@ describe('logout', () => {
   it('should wipe IDs and update logged in status', () => {
     const action = {
       analyticsContext: {
-        [ANALYTICS.SCREENNAME]: 'hello world',
+        [ANALYTICS.SCREEN_NAME]: 'hello world',
       },
       type: ANALYTICS_CONTEXT_CHANGED as typeof ANALYTICS_CONTEXT_CHANGED,
     };

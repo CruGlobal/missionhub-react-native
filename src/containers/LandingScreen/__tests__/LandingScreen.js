@@ -9,6 +9,7 @@ import {
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../../routes/constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import LandingScreen from '..';
 
@@ -16,9 +17,16 @@ jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn().mockReturnValue({ type: 'navigate push' }),
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 it('renders correctly', () => {
   renderWithContext(<LandingScreen />).snapshot();
+});
+
+it('tracks screen change on mount', () => {
+  renderWithContext(<LandingScreen />);
+
+  expect(useAnalytics).toHaveBeenCalledWith('landing');
 });
 
 describe('a button is clicked', () => {

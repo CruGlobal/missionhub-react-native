@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Flex } from '../../components/common';
 import { navigateReset, navigateToMainTabs } from '../../actions/navigation';
 import { isAndroid, disableBack } from '../../utils/common';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -81,6 +82,7 @@ class CelebrationScreen extends Component {
 
     return (
       <Flex style={styles.container} value={1} justify="center">
+        <Analytics screenName="gif" />
         <Image
           source={
             CelebrationScreen.getGif(gifId) || CelebrationScreen.shuffleGif()

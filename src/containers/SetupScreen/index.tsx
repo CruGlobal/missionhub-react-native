@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -15,6 +15,7 @@ import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { personSelector } from '../../selectors/people';
@@ -46,6 +47,7 @@ const SetupScreen = ({
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
+  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`]);
   const { t } = useTranslation('onboardingCreatePerson');
   const [firstName, setFirstName] = useState(loadedFirstName);
   const [lastName, setLastName] = useState(loadedLastName);

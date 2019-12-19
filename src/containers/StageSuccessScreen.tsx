@@ -1,15 +1,16 @@
 import React from 'react';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { navigateBack } from '../actions/navigation';
 import { AuthState } from '../reducers/auth';
 import { Stage, StagesState } from '../reducers/stages';
 import { stageSelector, localizedStageSelector } from '../selectors/stages';
+import { useAnalytics } from '../utils/hooks/useAnalytics';
 
-import IconMessageScreen from './IconMessageScreen/index';
+import IconMessageScreen from './IconMessageScreen';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type DispatchType = ThunkDispatch<any, null, never>;
@@ -31,6 +32,7 @@ const StageSuccessScreen = ({
   firstName,
   stage,
 }: StageSuccessScreenProps) => {
+  useAnalytics(['onboarding', 'stage confirmation']);
   const { t } = useTranslation('stageSuccess');
 
   const handleNavigateToStep = () => dispatch(next());

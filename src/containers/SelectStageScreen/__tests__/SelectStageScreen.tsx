@@ -1,23 +1,21 @@
 /* eslint max-lines: 0 */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { getStages } from '../../../actions/stages';
-import { trackAction, trackState } from '../../../actions/analytics';
+import { trackAction, trackScreenChange } from '../../../actions/analytics';
 import {
   selectMyStage,
   selectPersonStage,
   updateUserStage,
 } from '../../../actions/selectStage';
-import { buildTrackingObj } from '../../../utils/common';
-import {
-  ACTIONS,
-  SELF_VIEWED_STAGE_CHANGED,
-  PERSON_VIEWED_STAGE_CHANGED,
-} from '../../../constants';
+import { Stage } from '../../../reducers/stages';
+import { ACTIONS } from '../../../constants';
 
-import SelectStageScreen from '..';
+import SelectStageScreen, { SelectStageNavParams } from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/stages');
@@ -30,10 +28,37 @@ jest.mock('../../../components/common', () => ({
 jest.mock('../../BackButton', () => 'BackButton');
 jest.mock('../../../components/Header', () => 'Header');
 
-const stages = [
-  { id: 1, name: 'Stage 1', description: 'Stage 1 description' },
-  { id: 2, name: 'Stage 2', description: 'Stage 2 description' },
-  { id: 3, name: 'Stage 3', description: 'Stage 3 description' },
+const baseStage: Stage = {
+  id: '1',
+  name: 'stage',
+  description: 'description',
+  self_followup_description: 'description',
+  position: 1,
+  name_i18n: 'en-US',
+  description_i18n: 'description',
+  icon_url: 'https://misisonhub.com',
+  localized_pathway_stages: [],
+};
+
+const stages: Stage[] = [
+  {
+    ...baseStage,
+    id: '1',
+    name: 'Stage 1',
+    description: 'Stage 1 description',
+  },
+  {
+    ...baseStage,
+    id: '2',
+    name: 'Stage 2',
+    description: 'Stage 2 description',
+  },
+  {
+    ...baseStage,
+    id: '3',
+    name: 'Stage 3',
+    description: 'Stage 3 description',
+  },
 ];
 
 const section = 'section';
@@ -97,12 +122,13 @@ const baseParams = {
   subsection,
   personId: assignedPersonId,
   orgId,
+  enableBackButton: true,
 };
 
 const next = jest.fn();
 
 const trackActionResult = { type: 'track action' };
-const trackStateResult = { type: 'track state' };
+const trackScreenChangeResult = { type: 'track screen change' };
 const getStagesResult = { type: 'get stages' };
 const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
@@ -111,7 +137,7 @@ const nextResult = { type: 'next' };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResult);
-  (trackState as jest.Mock).mockReturnValue(trackStateResult);
+  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResult);
   (getStages as jest.Mock).mockReturnValue(getStagesResult);
   (selectMyStage as jest.Mock).mockReturnValue(selectMyStageResult);
   (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResult);
@@ -193,16 +219,7 @@ describe('renders for other', () => {
   });
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const buildAndTestMount = async (navParams: any) => {
-  const startIndex = navParams.selectedStageId || 0;
-  const snapTracking = buildTrackingObj(
-    `${section} : ${subsection} : stage : ${stages[startIndex].id}`,
-    section,
-    subsection,
-    'stage',
-  );
-
+const buildAndTestMount = async (navParams: SelectStageNavParams) => {
   const { store, getAllByTestId } = renderWithContext(
     <SelectStageScreen next={next} />,
     {
@@ -214,17 +231,17 @@ const buildAndTestMount = async (navParams: any) => {
   await flushMicrotasksQueue();
 
   expect(getStages).toHaveBeenCalledWith();
-  expect(trackState).toHaveBeenCalledWith(snapTracking);
+  expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
 
-  return { store, getAllByTestId, snapTracking };
+  return { store, getAllByTestId };
 };
 
 describe('actions on mount', () => {
-  const stageId = 1;
+  const stageId = 0;
 
   describe('for me', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      const { store, snapTracking } = await buildAndTestMount({
+      const { store } = await buildAndTestMount({
         ...baseParams,
         personId: myId,
         selectedStageId: stageId,
@@ -232,18 +249,14 @@ describe('actions on mount', () => {
 
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: SELF_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
       ]);
     });
   });
 
   describe('for other', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      const { store, snapTracking } = await buildAndTestMount({
+      const { store } = await buildAndTestMount({
         ...baseParams,
         personId: assignedPersonId,
         selectedStageId: stageId,
@@ -251,28 +264,20 @@ describe('actions on mount', () => {
 
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: PERSON_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
       ]);
     });
   });
 });
 
 describe('setStage', () => {
-  const selectedStageId = 1;
+  const selectedStageId = 0;
   const stage = stages[selectedStageId];
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let selectAction: any;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const buildAndTestSelect = async (navParams: any, nextProps: any) => {
-    const { store, getAllByTestId, snapTracking } = await buildAndTestMount(
-      navParams,
-    );
+    const { store, getAllByTestId } = await buildAndTestMount(navParams);
 
     await fireEvent.press(getAllByTestId('stageSelectButton')[selectedStageId]);
 
@@ -282,7 +287,7 @@ describe('setStage', () => {
       [ACTIONS.STAGE_SELECTED.key]: null,
     });
 
-    return { store, snapTracking };
+    return { store };
   };
 
   describe('for me', () => {
@@ -303,19 +308,12 @@ describe('setStage', () => {
         orgId,
       };
 
-      const { store, snapTracking } = await buildAndTestSelect(
-        navParams,
-        nextProps,
-      );
+      const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectMyStage).toHaveBeenCalledWith(stage.id);
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: SELF_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
         selectMyStageResult,
         nextResult,
         trackActionResult,
@@ -336,19 +334,12 @@ describe('setStage', () => {
         orgId,
       };
 
-      const { store, snapTracking } = await buildAndTestSelect(
-        navParams,
-        nextProps,
-      );
+      const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectMyStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: SELF_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
         nextResult,
         trackActionResult,
       ]);
@@ -373,10 +364,7 @@ describe('setStage', () => {
         orgId,
       };
 
-      const { store, snapTracking } = await buildAndTestSelect(
-        navParams,
-        nextProps,
-      );
+      const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(updateUserStage).toHaveBeenCalledWith(
         contactAssignmentId,
@@ -384,11 +372,7 @@ describe('setStage', () => {
       );
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: PERSON_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
         updateUserStageResult,
         nextResult,
         trackActionResult,
@@ -409,19 +393,12 @@ describe('setStage', () => {
         orgId,
       };
 
-      const { store, snapTracking } = await buildAndTestSelect(
-        navParams,
-        nextProps,
-      );
+      const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(updateUserStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: PERSON_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
         nextResult,
         trackActionResult,
       ]);
@@ -446,10 +423,7 @@ describe('setStage', () => {
         orgId,
       };
 
-      const { store, snapTracking } = await buildAndTestSelect(
-        navParams,
-        nextProps,
-      );
+      const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectPersonStage).toHaveBeenCalledWith(
         unassignedPersonId,
@@ -459,11 +433,7 @@ describe('setStage', () => {
       );
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: PERSON_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
         selectPersonStageResult,
         nextResult,
         trackActionResult,
@@ -484,19 +454,12 @@ describe('setStage', () => {
         orgId,
       };
 
-      const { store, snapTracking } = await buildAndTestSelect(
-        navParams,
-        nextProps,
-      );
+      const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         getStagesResult,
-        {
-          type: PERSON_VIEWED_STAGE_CHANGED,
-          newActiveTab: snapTracking,
-        },
-        trackStateResult,
+        trackScreenChangeResult,
         nextResult,
         trackActionResult,
       ]);
