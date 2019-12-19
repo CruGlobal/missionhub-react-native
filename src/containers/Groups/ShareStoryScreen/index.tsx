@@ -11,7 +11,7 @@ import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { Organization } from '../../../reducers/organizations';
-import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 import {
@@ -30,7 +30,7 @@ export const CREATE_A_STORY = gql`
 `;
 
 const ShareStoryScreen = () => {
-  useTrackScreenChange(['story', 'share']);
+  useAnalytics(['story', 'share']);
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const [story, changeStory] = useState('');

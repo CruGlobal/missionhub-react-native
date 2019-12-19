@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { keyLogin } from '../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../constants';
 import { MFACodeComponent } from '../../../components/MFACodeComponent';
-import { useTrackScreenChange } from '../../../utils/hooks/useTrackScreenChange';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 const MFACodeScreen = ({
   dispatch,
@@ -19,7 +19,7 @@ const MFACodeScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: () => ThunkAction<void, any, null, never>;
 }) => {
-  useTrackScreenChange(['*sign in', 'mfa login']);
+  useAnalytics(['sign in', 'verification']);
   const { t } = useTranslation('mfaLogin');
   const email: string = useNavigationParam('email');
   const password: string = useNavigationParam('password');

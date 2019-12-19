@@ -19,6 +19,7 @@ import {
 } from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
+import Analytics from '../Analytics';
 
 @withTranslation('groupsCelebrate')
 class GroupCelebrate extends Component {
@@ -62,14 +63,17 @@ class GroupCelebrate extends Component {
     const { celebrateItems, organization } = this.props;
 
     return (
-      <CelebrateFeed
-        organization={organization}
-        items={celebrateItems}
-        loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        refreshing={refreshing}
-        itemNamePressable={!orgIsGlobal(organization)}
-      />
+      <>
+        <Analytics screenName={['community', 'celebrate']} />
+        <CelebrateFeed
+          organization={organization}
+          items={celebrateItems}
+          loadMoreItemsCallback={this.loadItems}
+          refreshCallback={this.refreshItems}
+          refreshing={refreshing}
+          itemNamePressable={!orgIsGlobal(organization)}
+        />
+      </>
     );
   }
 }

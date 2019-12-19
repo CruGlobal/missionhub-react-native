@@ -21,7 +21,6 @@ import { ACTIONS } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import Skip from '../../components/Skip';
-import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -101,12 +100,6 @@ const SetupScreen = ({
 
   return (
     <View style={styles.container}>
-      <TrackOnFocus
-        screenNameFragments={[
-          'onboarding',
-          `${isMe ? 'self' : 'contact'} name`,
-        ]}
-      />
       <Header
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}

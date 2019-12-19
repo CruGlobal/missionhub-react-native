@@ -19,7 +19,7 @@ import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
-import TrackOnFocus from '../TrackOnFocus';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -64,8 +64,8 @@ class CelebrateDetailScreen extends Component {
     const { event, organization } = this.props;
     return (
       <SafeAreaView>
+        <Analytics screenName={['celebrate item', 'comments']} />
         <StatusBar {...theme.statusBar.darkContent} />
-        <TrackOnFocus screenNameFragments={['celebrate item', 'comments']} />
         <View style={styles.header}>
           <View flexDirection="row">
             <View flex={1}>

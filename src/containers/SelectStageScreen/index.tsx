@@ -42,7 +42,6 @@ import styles, {
   overScrollMargin,
   getLandscapeWidth,
 } from './styles';
-import { TrackOnFocus } from '../TrackOnFocus';
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 

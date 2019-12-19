@@ -11,6 +11,7 @@ import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -111,6 +112,7 @@ class AddChallengeScreen extends Component {
 
     return (
       <View style={container}>
+        <Analytics screenName={['challenge', isEdit ? 'edit' : 'create']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header left={<BackButton iconStyle={backButton} />} />
         <View style={{ flex: 1 }}>

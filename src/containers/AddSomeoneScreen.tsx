@@ -42,7 +42,6 @@ const AddSomeoneScreen = ({
       onComplete={handleNavigate}
       buttonText={t('addSomeone')}
       iconPath={require('../../assets/images/add_someone.png')}
-      screenNameFragments={['onboarding', 'add someone']}
       onSkip={hideSkipBtn ? undefined : skip}
       onBack={handleBack}
     />

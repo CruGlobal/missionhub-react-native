@@ -23,6 +23,7 @@ import { AuthState } from '../../reducers/auth';
 import { Step, StepsState } from '../../reducers/steps';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -47,6 +48,7 @@ const ContactSteps = ({
   person,
   organization,
 }: ContactStepsProps) => {
+  useAnalytics(['person', 'my steps']);
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
 

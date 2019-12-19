@@ -49,7 +49,6 @@ const StageSuccessScreen = ({
       testID="IconMessageScreen"
       mainText={message}
       buttonText={t('chooseSteps')}
-      screenNameFragments={['onboarding', 'stage confirmation']}
       onComplete={handleNavigateToStep}
       iconPath={require('../../assets/images/pathFinder.png')}
       onBack={back}

@@ -11,7 +11,6 @@ import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
-import TrackOnFocus from '../TrackOnFocus';
 
 import styles from './styles';
 
@@ -43,7 +42,6 @@ const GetStartedScreen = ({
 
   return (
     <View style={styles.container}>
-      <TrackOnFocus screenNameFragments={['onboarding', 'personal greeting']} />
       <Header
         left={
           enableBackButton ? <BackButton customNavigate={handleBack} /> : null
