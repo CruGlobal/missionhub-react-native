@@ -286,51 +286,113 @@ exports[`Community renders story item correctly 1`] = `
   }
 >
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flex": 1,
-        "opacity": 1,
       }
     }
-    testID="popupMenuButton"
   >
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "flex": 1,
+          "opacity": 1,
         }
       }
+      testID="popupMenuButton"
     >
       <View
         style={
           Object {
-            "padding": 14,
+            "flex": 1,
           }
         }
       >
         <View
           style={
             Object {
-              "flexDirection": "row",
-              "justifyContent": "space-between",
+              "padding": 14,
             }
           }
         >
           <View
             style={
               Object {
-                "justifyContent": "flex-start",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
               }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "justifyContent": "flex-start",
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                        "lineHeight": 20,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                John Smith
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B2B0B2",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                12:00 PM
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "marginTop": 14,
+                  "maxHeight": 70,
+                },
+                Object {},
+                undefined,
+              ]
             }
           >
             <Text
@@ -342,37 +404,15 @@ exports[`Community renders story item correctly 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Array [
-                    Object {
-                      "color": "#007398",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                    undefined,
-                  ],
-                ]
-              }
-            >
-              John Smith
-            </Text>
-            <Text
-              style={
-                Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
+                    "fontSize": 14,
+                    "justifyContent": "flex-start",
+                    "lineHeight": 18,
                   },
                 ]
               }
-              testID="Text"
             >
-              12:00 PM
+              Celebration
             </Text>
           </View>
         </View>
@@ -380,150 +420,118 @@ exports[`Community renders story item correctly 1`] = `
           style={
             Array [
               Object {
-                "marginTop": 14,
-                "maxHeight": 70,
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
               },
-              Object {},
               undefined,
             ]
           }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
-          >
-            Celebration
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "padding": 14,
-            },
-            Object {
-              "justifyContent": "flex-end",
-            },
-          ]
-        }
-      >
+        />
         <View
-          alignItems="center"
-          flexDirection="row"
-          justifyContent="flex-end"
+          style={
+            Array [
+              Object {
+                "padding": 14,
+              },
+              Object {
+                "justifyContent": "flex-end",
+              },
+            ]
+          }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                  "paddingRight": 6,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
-            }
-          />
-          <Image
-            source={
-              Object {
-                "testUri": "../../../assets/images/comments.png",
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                  "paddingRight": 6,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
-            }
-          />
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="Button"
+            alignItems="center"
+            flexDirection="row"
+            justifyContent="flex-end"
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "color": "#505256",
                   },
-                  null,
                   Object {
-                    "height": 24,
-                    "width": 24,
+                    "fontFamily": "SourceSansPro-Regular",
                   },
-                  null,
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                    "paddingRight": 6,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
                 ]
               }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/heart-grey.png",
-                  }
+            />
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/comments.png",
                 }
-              />
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                    "paddingRight": 6,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="Button"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {
+                      "height": 24,
+                      "width": 24,
+                    },
+                    null,
+                  ]
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../assets/images/heart-grey.png",
+                    }
+                  }
+                />
+              </View>
             </View>
           </View>
         </View>
