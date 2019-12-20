@@ -131,7 +131,7 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics('communities');
+  const trackScreenChange = useAnalytics('communities');
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -220,6 +220,7 @@ const GroupsListScreen = ({
   };
 
   const handleOpenMainMenu = () => {
+    trackScreenChange('menu');
     dispatch(openMainMenu());
   };
 

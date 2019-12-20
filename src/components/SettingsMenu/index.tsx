@@ -11,7 +11,6 @@ import { logout } from '../../actions/auth/auth';
 import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
 import { navigatePush } from '../../actions/navigation';
 import { AuthState } from '../../reducers/auth';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 interface SettingsMenuProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -20,7 +19,6 @@ interface SettingsMenuProps {
 }
 
 const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
-  useAnalytics('menu');
   const { t } = useTranslation('settingsMenu');
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);

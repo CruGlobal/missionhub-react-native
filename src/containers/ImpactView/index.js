@@ -225,6 +225,7 @@ export class ImpactView extends Component {
 
   render() {
     const {
+      isMe,
       globalImpact,
       impact,
       isPersonalMinistryMe,
@@ -243,7 +244,7 @@ export class ImpactView extends Component {
     const screenSection = isOrgImpact ? 'community' : 'person';
     const screenSubsection = isOrgImpact
       ? 'impact'
-      : isPersonalMinistryMe
+      : isMe && !isPersonalMinistryMe
       ? 'my impact'
       : 'impact';
 

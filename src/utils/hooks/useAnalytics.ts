@@ -6,15 +6,15 @@ import { trackScreenChange } from '../../actions/analytics';
 export const useAnalytics = (screenName: string | string[]) => {
   const dispatch = useDispatch();
 
-  const handleFocus = () => {
-    dispatch(trackScreenChange(screenName));
+  const handleScreenChange = (name: string | string[]) => {
+    dispatch(trackScreenChange(name));
   };
 
   useNavigationEvents(event => {
     if (event.type === 'willFocus') {
-      handleFocus();
+      handleScreenChange(screenName);
     }
   });
 
-  return handleFocus;
+  return handleScreenChange;
 };

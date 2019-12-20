@@ -135,11 +135,12 @@ class GroupProfile extends Component {
   };
 
   handleEdit = () => {
-    const { dispatch, editing, organization } = this.props;
+    const { dispatch, organization } = this.props;
 
-    if (editing) {
+    if (this.state.editing) {
       this.save();
       this.setState({ editing: false });
+      dispatch(trackScreenChange(['community', 'detail']));
     } else {
       this.setState({ editing: true, name: organization.name });
       dispatch(trackScreenChange(['community', 'detail', 'edit']));
