@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import Menu, { MenuItem } from 'react-native-material-menu';
 
 import { IconButton, Touchable } from '../common';
@@ -65,9 +66,11 @@ class PopupMenu extends Component {
     const { actions } = this.props;
 
     return (
-      <Menu ref={this.ref} button={this.renderMenuTrigger()}>
-        {actions.map(this.renderItem)}
-      </Menu>
+      <View style={{ flex: 1 }}>
+        <Menu ref={this.ref} button={this.renderMenuTrigger()}>
+          {actions.map(this.renderItem)}
+        </Menu>
+      </View>
     );
   }
 }
