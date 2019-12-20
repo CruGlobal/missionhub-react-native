@@ -205,18 +205,20 @@ const CelebrateItem = ({
 
   const renderStoryCard = () => (
     <Card>
-      <PopupMenu
-        testID="CelebrateItemPressable"
-        actions={menuActions}
-        buttonProps={{
-          onPress: handlePress,
-          style: { flex: 1 },
-        }}
-        triggerOnLongPress={true}
-      >
-        {renderContent()}
-        {onClearNotification ? renderClearNotificationButton() : null}
-      </PopupMenu>
+      <View style={{ flex: 1 }}>
+        <PopupMenu
+          testID="CelebrateItemPressable"
+          actions={menuActions}
+          buttonProps={{
+            onPress: handlePress,
+            style: { flex: 1 },
+          }}
+          triggerOnLongPress={true}
+        >
+          {renderContent()}
+          {onClearNotification ? renderClearNotificationButton() : null}
+        </PopupMenu>
+      </View>
     </Card>
   );
 

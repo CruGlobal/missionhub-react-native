@@ -66,11 +66,9 @@ class PopupMenu extends Component {
     const { actions } = this.props;
 
     return (
-      <View style={{ flex: 1 }}>
-        <Menu ref={this.ref} button={this.renderMenuTrigger()}>
-          {actions.map(this.renderItem)}
-        </Menu>
-      </View>
+      <Menu ref={this.ref} button={this.renderMenuTrigger()}>
+        {actions.map(this.renderItem)}
+      </Menu>
     );
   }
 }
