@@ -9,6 +9,14 @@ exports[`renders correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "people",
+        "add",
+      ]
+    }
+  />
   <Header
     right={
       <IconButton

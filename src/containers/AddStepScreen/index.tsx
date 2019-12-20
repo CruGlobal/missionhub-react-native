@@ -20,7 +20,7 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import Analytics from '../Analytics';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -55,6 +55,18 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
   const isStepNote = type === STEP_NOTE;
   const isCreateStep = type === CREATE_STEP;
   const isEdit = [EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type);
+
+  const screenSection = isCreateStep
+    ? 'custom step'
+    : isStepNote
+    ? 'step note'
+    : isEdit
+    ? isMe
+      ? 'my journey'
+      : 'our journey'
+    : '';
+  const screenSubsection = isEdit ? 'edit' : 'add';
+  useAnalytics([screenSection, screenSubsection]);
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 
@@ -104,20 +116,8 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
       : 'selectStep:addStep',
   );
 
-  const screenSection = isCreateStep
-    ? 'custom step'
-    : isStepNote
-    ? 'step note'
-    : isEdit
-    ? isMe
-      ? 'my journey'
-      : 'our journey'
-    : '';
-  const screenSubsection = isEdit ? 'edit' : 'add';
-
   return (
     <View style={styles.container}>
-      <Analytics screenName={[screenSection, screenSubsection]} />
       <Header
         left={<BackButton iconStyle={styles.backButtonStyle} />}
         right={

@@ -64,7 +64,6 @@ class CelebrateDetailScreen extends Component {
     const { event, organization } = this.props;
     return (
       <SafeAreaView>
-        <Analytics screenName={['celebrate item', 'comments']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <View style={styles.header}>
           <View flexDirection="row">
@@ -130,6 +129,7 @@ class CelebrateDetailScreen extends Component {
   render() {
     return (
       <View style={styles.pageContainer}>
+        <Analytics screenName={['celebrate item', 'comments']} />
         {this.renderHeader()}
         {this.renderCommentsList()}
         {this.renderCommentBox()}

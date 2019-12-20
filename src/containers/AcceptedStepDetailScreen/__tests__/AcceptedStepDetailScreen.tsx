@@ -6,6 +6,7 @@ import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { reminderSelector } from '../../../selectors/stepReminders';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import AcceptedStepDetailScreen from '..';
 
@@ -15,6 +16,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/stepReminders');
 jest.mock('../../../components/ReminderButton', () => 'ReminderButton');
 jest.mock('../../../components/ReminderDateText', () => 'ReminderDateText');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const stepId = '234242';
 const reminderId = '1';
@@ -61,6 +63,7 @@ describe('without description, without reminder', () => {
       { stepReminders },
       { stepId },
     );
+    expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
   });
 });
 

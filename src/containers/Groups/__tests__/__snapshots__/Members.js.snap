@@ -58,6 +58,14 @@ exports[`Members should render correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "community",
+        "members",
+      ]
+    }
+  />
   <FlatList
     ListFooterComponent={
       <LoadMore

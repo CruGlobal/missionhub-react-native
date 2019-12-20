@@ -11,6 +11,7 @@ import {
 } from '../../../actions/misc';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { promptToAssign } from '../../../utils/prompt';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import ContactSteps from '..';
 
@@ -19,6 +20,7 @@ jest.mock('../../../actions/misc');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/prompt');
 jest.mock('../../../components/AcceptedStepItem', () => 'AcceptedStepItem');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const steps = [{ id: '1', title: 'Test Step' }];
 const completedSteps = [{ id: '1', title: 'Test Step', completed_at: 'time' }];

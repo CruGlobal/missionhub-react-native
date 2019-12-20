@@ -4,6 +4,14 @@ exports[`should render correctly 1`] = `
 <View
   flex={1}
 >
+  <_default
+    screenName={
+      Array [
+        "community",
+        "challenges",
+      ]
+    }
+  />
   <View
     style={
       Object {
@@ -93,6 +101,14 @@ exports[`should render correctly for basic member 1`] = `
 <View
   flex={1}
 >
+  <_default
+    screenName={
+      Array [
+        "community",
+        "challenges",
+      ]
+    }
+  />
   <View
     style={
       Object {
@@ -178,6 +194,14 @@ exports[`should render empty correctly 1`] = `
 <View
   flex={1}
 >
+  <_default
+    screenName={
+      Array [
+        "community",
+        "challenges",
+      ]
+    }
+  />
   <View
     style={
       Object {

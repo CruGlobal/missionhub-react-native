@@ -95,7 +95,7 @@ describe('DeepLinkConfirmJoinGroupScreen', () => {
     component.update();
 
     await component
-      .childAt(1)
+      .childAt(2)
       .childAt(0)
       .props()
       .onJoin();
@@ -105,7 +105,7 @@ describe('DeepLinkConfirmJoinGroupScreen', () => {
 
   it('should call navigate back', () => {
     const component = buildScreen();
-    const backButton = component.childAt(0).props().left;
+    const backButton = component.childAt(1).props().left;
     backButton.props.onPress();
 
     expect(navigateBack).toHaveBeenCalled();

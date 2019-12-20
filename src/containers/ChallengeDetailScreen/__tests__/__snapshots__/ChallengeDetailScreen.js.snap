@@ -8,6 +8,14 @@ exports[`should render completed challenge correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "challenge",
+        "detail",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -62,6 +70,14 @@ exports[`should render joined challenge correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "challenge",
+        "detail",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -149,6 +165,14 @@ exports[`should render unjoined challenge correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "challenge",
+        "detail",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -221,6 +245,14 @@ exports[`should render without edit correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "challenge",
+        "detail",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"

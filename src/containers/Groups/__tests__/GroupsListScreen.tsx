@@ -39,6 +39,8 @@ const openMainMenuResponse = { type: 'open main menu' };
 const keyExtractorResponse = { type: 'key extractor' };
 const resetScrollGroupsResponse = { type: 'reset scroll groups' };
 
+const trackScreen = jest.fn();
+
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
   (navigateToCommunity as jest.Mock).mockReturnValue(
@@ -48,6 +50,7 @@ beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
   (resetScrollGroups as jest.Mock).mockReturnValue(resetScrollGroupsResponse);
+  (useAnalytics as jest.Mock).mockReturnValue(trackScreen);
 });
 
 describe('GroupsListScreen', () => {
@@ -58,6 +61,9 @@ describe('GroupsListScreen', () => {
         CommunityConnection: () => ({ nodes: () => [] }),
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('communities');
+    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('renders with communities', async () => {
@@ -71,15 +77,6 @@ describe('GroupsListScreen', () => {
     await flushMicrotasksQueue();
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
-  });
-
-  it('tracks screen change on mount', () => {
-    renderWithContext(<GroupsListScreen />, {
-      initialState,
-      mocks: {
-        CommunityConnection: () => ({ nodes: () => [] }),
-      },
-    });
 
     expect(useAnalytics).toHaveBeenCalledWith('communities');
     expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
@@ -124,6 +121,7 @@ describe('GroupsListScreen', () => {
       });
 
       fireEvent.press(getByTestId('IconButton'));
+      expect(trackScreen).toHaveBeenCalledWith('menu');
       expect(openMainMenu).toHaveBeenCalled();
       expect(store.getActions()).toEqual([openMainMenuResponse]);
     });

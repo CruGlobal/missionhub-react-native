@@ -127,7 +127,7 @@ it('should refresh items properly', () => {
   const instance = component.instance();
   common.refresh = jest.fn();
   component
-    .childAt(0)
+    .childAt(1)
     .childAt(0)
     .props()
     .refreshCallback();
@@ -146,7 +146,7 @@ it('should call create', () => {
   navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
 
   component
-    .childAt(1)
+    .childAt(2)
     .props()
     .onPress();
 

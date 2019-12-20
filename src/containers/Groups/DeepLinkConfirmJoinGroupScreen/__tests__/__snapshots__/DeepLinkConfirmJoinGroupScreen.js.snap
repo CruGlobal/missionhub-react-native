@@ -9,6 +9,14 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "deep link",
+        "community",
+      ]
+    }
+  />
   <Header
     left={
       <IconButton
@@ -61,6 +69,14 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "deep link",
+        "community",
+      ]
+    }
+  />
   <Header
     left={
       <IconButton
@@ -113,6 +129,14 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "deep link",
+        "community",
+      ]
+    }
+  />
   <Header
     left={
       <IconButton

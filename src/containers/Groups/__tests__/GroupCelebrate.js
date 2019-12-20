@@ -105,6 +105,7 @@ describe('refresh items', () => {
         })}
       />,
     )
+      .childAt(1)
       .props()
       .refreshCallback();
 

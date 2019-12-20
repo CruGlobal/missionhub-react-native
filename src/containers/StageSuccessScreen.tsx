@@ -43,7 +43,6 @@ const StageSuccessScreen = ({
     localizedStageSelector(stage, i18next.language).self_followup_description ||
     t('backupMessage');
   message = message.replace('<<user>>', firstName ? firstName : t('friend'));
-
   return (
     <IconMessageScreen
       testID="IconMessageScreen"

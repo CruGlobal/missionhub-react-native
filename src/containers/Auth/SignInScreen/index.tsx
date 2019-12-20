@@ -48,7 +48,7 @@ const SignInScreen = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }) => {
-  useAnalytics(['sign in']);
+  useAnalytics('sign in');
   const { t } = useTranslation('keyLogin');
   const forcedLogout = useNavigationParam('forcedLogout');
 

@@ -11,6 +11,14 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "communities",
+        "create",
+      ]
+    }
+  />
   <Header
     left={
       <IconButton
@@ -124,6 +132,14 @@ exports[`CreateGroupScreen should disable the button when creating a community 1
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "communities",
+        "create",
+      ]
+    }
+  />
   <Header
     left={
       <IconButton
@@ -237,6 +253,14 @@ exports[`CreateGroupScreen should update the image 1`] = `
     }
   }
 >
+  <_default
+    screenName={
+      Array [
+        "communities",
+        "create",
+      ]
+    }
+  />
   <Header
     left={
       <IconButton

@@ -4,9 +4,9 @@ import { Provider } from 'react-redux-legacy';
 
 import {
   createMockNavState,
-  testSnapshot,
   renderShallow,
   createThunkStore,
+  testSnapshotShallow,
 } from '../../../../testUtils';
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
@@ -17,7 +17,6 @@ let store;
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
-jest.mock('../../Analytics', () => 'Analytics');
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
@@ -31,10 +30,9 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  testSnapshot(
-    <Provider store={store}>
-      <CelebrationScreen navigation={createMockNavState()} />
-    </Provider>,
+  testSnapshotShallow(
+    <CelebrationScreen navigation={createMockNavState()} />,
+    store,
   );
 });
 

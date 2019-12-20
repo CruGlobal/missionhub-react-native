@@ -75,6 +75,8 @@ const navigatePushResult = { type: 'navigate push' };
 const navToPersonScreenResult = { type: 'navigate to person screen' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
+const trackScreen = jest.fn();
+
 beforeEach(() => {
   ((myStepsSelector as unknown) as jest.Mock).mockReturnValue(steps);
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResult);
@@ -88,6 +90,7 @@ beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
+  (useAnalytics as jest.Mock).mockReturnValue(trackScreen);
 });
 
 it('renders loading screen correctly', () => {
@@ -133,6 +136,7 @@ describe('handleOpenMainMenu', () => {
 
     fireEvent.press(getByTestId('menuIcon'));
 
+    expect(trackScreen).toHaveBeenCalledWith('menu');
     expect(openMainMenu).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([openMainMenuResult]);
   });

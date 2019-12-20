@@ -1,20 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<Flex
+  justify="center"
   style={
-    Array [
-      Object {
-        "backgroundColor": "#52C5DC",
-      },
-      Object {
-        "flex": 1,
-        "justifyContent": "center",
-      },
-    ]
+    Object {
+      "backgroundColor": "#52C5DC",
+    }
   }
+  value={1}
 >
-  <Analytics
+  <_default
     screenName="gif"
   />
   <Image
@@ -33,5 +29,5 @@ exports[`renders correctly 1`] = `
       }
     }
   />
-</View>
+</Flex>
 `;
