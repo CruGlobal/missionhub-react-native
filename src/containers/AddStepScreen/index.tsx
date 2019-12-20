@@ -1,3 +1,5 @@
+/* eslint complexity: 0 */
+
 import React, { useState } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';

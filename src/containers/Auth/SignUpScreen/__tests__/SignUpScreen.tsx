@@ -15,7 +15,6 @@ import { navigatePush } from '../../../../actions/navigation';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import SignUpScreen, { SIGNUP_TYPES } from '..';
-import { from } from 'zen-observable';
 
 const next = jest.fn(() => () => {});
 

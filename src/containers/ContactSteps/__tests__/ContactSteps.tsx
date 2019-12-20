@@ -101,6 +101,7 @@ it('renders correctly with no steps', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -112,6 +113,7 @@ it('renders correctly with steps', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -127,6 +129,7 @@ it('renders correctly with completed steps', () => {
 
   snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -138,6 +141,7 @@ it('renders correctly with org', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
 });
 
