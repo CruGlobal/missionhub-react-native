@@ -615,7 +615,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "communities",
@@ -726,7 +726,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "communities",
@@ -837,7 +837,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "communities",

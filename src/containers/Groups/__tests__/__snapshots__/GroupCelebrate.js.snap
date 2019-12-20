@@ -2,7 +2,7 @@
 
 exports[`should render correctly 1`] = `
 <Fragment>
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -81,7 +81,7 @@ exports[`should render correctly 1`] = `
 
 exports[`should render empty correctly 1`] = `
 <Fragment>
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",

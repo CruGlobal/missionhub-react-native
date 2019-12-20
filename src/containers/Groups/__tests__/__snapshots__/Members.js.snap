@@ -58,7 +58,7 @@ exports[`Members should render correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",

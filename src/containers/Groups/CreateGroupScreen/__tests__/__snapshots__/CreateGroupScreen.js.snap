@@ -11,7 +11,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "communities",
@@ -132,7 +132,7 @@ exports[`CreateGroupScreen should disable the button when creating a community 1
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "communities",
@@ -253,7 +253,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "communities",

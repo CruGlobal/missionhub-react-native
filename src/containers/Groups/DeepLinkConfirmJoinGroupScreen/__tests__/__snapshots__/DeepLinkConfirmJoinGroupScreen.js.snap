@@ -9,7 +9,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders error correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "deep link",
@@ -69,7 +69,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "deep link",
@@ -129,7 +129,7 @@ exports[`DeepLinkConfirmJoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "deep link",

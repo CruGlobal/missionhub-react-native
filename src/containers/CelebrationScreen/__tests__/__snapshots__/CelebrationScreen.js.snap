@@ -10,7 +10,7 @@ exports[`renders correctly 1`] = `
   }
   value={1}
 >
-  <_default
+  <Analytics
     screenName="gif"
   />
   <Image

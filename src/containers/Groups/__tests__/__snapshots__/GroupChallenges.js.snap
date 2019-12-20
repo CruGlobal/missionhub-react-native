@@ -4,7 +4,7 @@ exports[`should render correctly 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -101,7 +101,7 @@ exports[`should render correctly for basic member 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -194,7 +194,7 @@ exports[`should render empty correctly 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",

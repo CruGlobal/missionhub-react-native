@@ -9,7 +9,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "celebrate item",

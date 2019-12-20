@@ -2,7 +2,7 @@
 
 exports[`MemberCelebrate renders correctly 1`] = `
 <Fragment>
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",
@@ -60,7 +60,7 @@ exports[`MemberCelebrate renders correctly 1`] = `
 
 exports[`MemberCelebrate renders empty feed correctly 1`] = `
 <Fragment>
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",

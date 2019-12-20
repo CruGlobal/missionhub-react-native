@@ -9,7 +9,7 @@ exports[`should render empty correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "celebrate",
@@ -96,7 +96,7 @@ exports[`should render items correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "celebrate",

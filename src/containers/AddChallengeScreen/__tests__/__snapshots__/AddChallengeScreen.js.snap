@@ -10,7 +10,7 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "challenge",
@@ -130,7 +130,7 @@ exports[`renders edit challenge correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "challenge",

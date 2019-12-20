@@ -8,7 +8,7 @@ exports[`should render completed challenge correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "challenge",
@@ -70,7 +70,7 @@ exports[`should render joined challenge correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "challenge",
@@ -165,7 +165,7 @@ exports[`should render unjoined challenge correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "challenge",
@@ -245,7 +245,7 @@ exports[`should render without edit correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "challenge",

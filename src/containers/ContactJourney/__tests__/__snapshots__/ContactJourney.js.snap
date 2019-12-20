@@ -9,7 +9,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",
@@ -60,7 +60,7 @@ exports[`ContactJourney renders null screen correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",
@@ -119,7 +119,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",
@@ -207,7 +207,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",
@@ -375,7 +375,7 @@ exports[`renders with an organization correctly 1`] = `
     }
   }
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "person",

@@ -4,7 +4,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -433,7 +433,7 @@ exports[`GroupProfile edit screen stops editing 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -798,7 +798,7 @@ exports[`GroupProfile renders correctly 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -1163,7 +1163,7 @@ exports[`GroupProfile renders with image 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
@@ -1528,7 +1528,7 @@ exports[`GroupProfile renders without edit button 1`] = `
 <View
   flex={1}
 >
-  <_default
+  <Analytics
     screenName={
       Array [
         "community",
