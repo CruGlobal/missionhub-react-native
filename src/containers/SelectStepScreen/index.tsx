@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { useSelector, useDispatch } from 'react-redux';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
@@ -24,14 +24,12 @@ export interface Step {
 
 interface SelectStepScreenProps {
   personId: string;
-  person: Person;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   orgId?: string;
   contactStageId: string;
   headerText: [string, string];
   enableSkipButton?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
   next: (nextProps: {
     personId: string;
     step?: Step;
@@ -43,15 +41,18 @@ interface SelectStepScreenProps {
 
 const SelectStepScreen = ({
   personId,
-  person,
   orgId,
   contactStageId,
   headerText,
   enableSkipButton = false,
-  dispatch,
   next,
 }: SelectStepScreenProps) => {
   useAnalytics('add step');
+  const dispatch = useDispatch();
+
+  const person = useSelector<{ people: PeopleState }, Person>(({ people }) =>
+    personSelector({ people }, { personId, orgId }),
+  );
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
@@ -120,19 +121,4 @@ const SelectStepScreen = ({
   );
 };
 
-const mapStateToProps = (
-  {
-    people,
-  }: {
-    people: PeopleState;
-  },
-  { personId, orgId }: { personId: string; orgId?: string },
-) => {
-  const person = personSelector({ people }, { personId, orgId });
-
-  return {
-    person,
-  };
-};
-
-export default connect(mapStateToProps)(SelectStepScreen);
+export default SelectStepScreen;
