@@ -11,7 +11,7 @@ export const useAnalytics = (screenName: string | string[]) => {
   };
 
   useNavigationEvents(event => {
-    if (event.type === 'willFocus') {
+    if (event.type === 'didFocus') {
       handleScreenChange(screenName);
     }
   });
