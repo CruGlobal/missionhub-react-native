@@ -54,7 +54,7 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
-  const trackScreenChange = useAnalytics('steps');
+  useAnalytics('steps');
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('stepsTab');
 
@@ -64,11 +64,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   const firstTimeLoading = !steps;
   const hasSteps = steps && steps.length > 0;
 
-  const handleOpenMainMenu = () => {
-    trackScreenChange('menu');
-    dispatch(openMainMenu());
-  };
-
+  const handleOpenMainMenu = () => dispatch(openMainMenu());
   const getSteps = () => dispatch(getMySteps());
 
   const handleRefresh = () => {
