@@ -2,14 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
-import { Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 
 import SelectStepScreen, { Step } from './SelectStepScreen';
 
 interface SelectMyStepScreenProps {
-  me: Person;
   stageId: string;
   next: (nextProps: {
     personId: string;
@@ -18,13 +17,14 @@ interface SelectMyStepScreenProps {
   ThunkAction<void, any, null, never>;
 }
 
-const SelectMyStepScreen = ({ me, stageId, next }: SelectMyStepScreenProps) => {
+const SelectMyStepScreen = ({ stageId, next }: SelectMyStepScreenProps) => {
   const { t } = useTranslation('selectStep');
+  const personId: string = useNavigationParam('personId');
 
   return (
     <SelectStepScreen
       contactStageId={stageId}
-      personId={me.id}
+      personId={personId}
       headerText={[t('meHeader.part1'), t('meHeader.part2')]}
       next={next}
     />
@@ -32,7 +32,6 @@ const SelectMyStepScreen = ({ me, stageId, next }: SelectMyStepScreenProps) => {
 };
 
 const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  me: auth.person,
   stageId: (auth.person.user || {}).pathway_stage_id,
 });
 

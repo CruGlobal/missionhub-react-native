@@ -106,7 +106,18 @@ export const onboardingFlowGenerator = ({
           buildTrackingObj('onboarding : get started', 'onboarding'),
         ),
         [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-          wrapNextScreen(StageSuccessScreen, SELECT_MY_STEP_SCREEN),
+          wrapNextAction(
+            StageSuccessScreen,
+            () => (
+              dispatch: ThunkDispatch<{}, {}, AnyAction>,
+              getState: () => { auth: AuthState },
+            ) =>
+              dispatch(
+                navigatePush(SELECT_MY_STEP_SCREEN, {
+                  personId: getState().auth.person.id,
+                }),
+              ),
+          ),
           buildTrackingObj(
             'onboarding : self : choose my steps',
             'onboarding',
