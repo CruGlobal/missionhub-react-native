@@ -104,12 +104,6 @@ const props = {
   person: person,
 };
 
-const trackScreen = jest.fn();
-
-beforeEach(() => {
-  (useAnalytics as jest.Mock).mockReturnValue(trackScreen);
-});
-
 it('renders empty correctly', () => {
   renderWithContext(
     <PeopleScreen
@@ -150,7 +144,6 @@ it('should open main menu', () => {
 
   const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
   fireEvent.press(getByTestId('header').props.left);
-  expect(trackScreen).toHaveBeenCalledWith('menu');
   expect(common.openMainMenu).toHaveBeenCalled();
 });
 

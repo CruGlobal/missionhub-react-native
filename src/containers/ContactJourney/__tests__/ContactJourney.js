@@ -13,7 +13,7 @@ import {
 import {
   createMockNavState,
   renderShallow,
-  testSnapshotShallow,
+  renderWithContext,
 } from '../../../../testUtils';
 
 import ContactJourney from '..';
@@ -252,12 +252,27 @@ describe('journey methods', () => {
 });
 
 it('renders with an organization correctly', () => {
-  testSnapshotShallow(
+  renderWithContext(
     <ContactJourney
       person={mockPerson}
       organization={{ id: 1 }}
       navigation={createMockNavState()}
     />,
-    createMockStore(personId, { [personId]: mockJourneyList }),
+    {
+      initialState: {
+        auth: {
+          person: {
+            id: personId,
+          },
+          isJean: false,
+        },
+        swipe: {
+          journey: false,
+        },
+        journey: {
+          personal: mockJourneyList,
+        },
+      },
+    },
   );
 });

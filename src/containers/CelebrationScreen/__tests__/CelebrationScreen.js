@@ -5,7 +5,7 @@ import {
   createMockNavState,
   renderShallow,
   createThunkStore,
-  testSnapshotShallow,
+  renderWithContext,
 } from '../../../../testUtils';
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
@@ -29,10 +29,7 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  testSnapshotShallow(
-    <CelebrationScreen navigation={createMockNavState()} />,
-    store,
-  );
+  renderWithContext(<CelebrationScreen navigation={createMockNavState()} />);
 });
 
 describe('celebration screen methods', () => {

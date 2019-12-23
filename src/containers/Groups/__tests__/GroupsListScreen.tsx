@@ -39,8 +39,6 @@ const openMainMenuResponse = { type: 'open main menu' };
 const keyExtractorResponse = { type: 'key extractor' };
 const resetScrollGroupsResponse = { type: 'reset scroll groups' };
 
-const trackScreen = jest.fn();
-
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
   (navigateToCommunity as jest.Mock).mockReturnValue(
@@ -50,7 +48,6 @@ beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
   (resetScrollGroups as jest.Mock).mockReturnValue(resetScrollGroupsResponse);
-  (useAnalytics as jest.Mock).mockReturnValue(trackScreen);
 });
 
 describe('GroupsListScreen', () => {
@@ -121,7 +118,6 @@ describe('GroupsListScreen', () => {
       });
 
       fireEvent.press(getByTestId('IconButton'));
-      expect(trackScreen).toHaveBeenCalledWith('menu');
       expect(openMainMenu).toHaveBeenCalled();
       expect(store.getActions()).toEqual([openMainMenuResponse]);
     });
