@@ -5,7 +5,7 @@ import SelectMyStepScreen from '../SelectMyStepScreen';
 import {
   createMockNavState,
   createThunkStore,
-  testSnapshotShallow,
+  renderWithContext,
 } from '../../../testUtils';
 
 jest.mock('react-native-device-info');
@@ -37,24 +37,15 @@ const navProps = {
 let enableBackButton;
 let isOnboarding;
 
-let store;
-
-beforeEach(() => {
-  store = createThunkStore(state);
-});
-
 const test = () => {
-  testSnapshotShallow(
-    <SelectMyStepScreen
-      navigation={createMockNavState({
-        ...navProps,
-        enableBackButton,
-        onboarding: isOnboarding,
-      })}
-      next={jest.fn()}
-    />,
-    store,
-  );
+  renderWithContext(<SelectMyStepScreen next={jest.fn()} />, {
+    navParams: {
+      ...navProps,
+      enableBackButton,
+      onboarding: isOnboarding,
+    },
+    initialState: { auth: { person: {} } },
+  }).snapshot();
 };
 
 it('renders correctly with back button', () => {

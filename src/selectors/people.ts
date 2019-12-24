@@ -154,8 +154,10 @@ export const contactAssignmentSelector = createSelector(
     } = person;
 
     return reverse_contact_assignments.find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (assignment: any) =>
+      (assignment: {
+        assigned_to?: { id: string };
+        organization?: { id: string };
+      }) =>
         assignment.assigned_to &&
         assignment.assigned_to.id === authUserId &&
         (!orgId || orgId === 'personal'
@@ -163,9 +165,9 @@ export const contactAssignmentSelector = createSelector(
           : assignment.organization &&
             orgId === assignment.organization.id &&
             organizational_permissions.some(
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (org_permission: any) =>
-                org_permission.organization_id === assignment.organization.id,
+              (org_permission: { organization_id: string }) =>
+                org_permission.organization_id ===
+                (assignment.organization && assignment.organization.id),
             )),
     );
   },

@@ -1,7 +1,9 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
+import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
@@ -12,8 +14,13 @@ import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { personSelector } from '../../selectors/people';
+import {
+  personSelector,
+  contactAssignmentSelector,
+} from '../../selectors/people';
+import { AuthState } from '../../reducers/auth';
 import { PeopleState, Person } from '../../reducers/people';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
 
@@ -23,12 +30,6 @@ export interface Step {
 }
 
 interface SelectStepScreenProps {
-  personId: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  orgId?: string;
-  contactStageId: string;
-  headerText: [string, string];
-  enableSkipButton?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (nextProps: {
     personId: string;
@@ -39,19 +40,33 @@ interface SelectStepScreenProps {
   }) => ThunkAction<void, any, null, never>;
 }
 
-const SelectStepScreen = ({
-  personId,
-  orgId,
-  contactStageId,
-  headerText,
-  enableSkipButton = false,
-  next,
-}: SelectStepScreenProps) => {
+const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
+  const { t } = useTranslation('selectStep');
   useAnalytics('add step');
   const dispatch = useDispatch();
 
+  const personId: string = useNavigationParam('personId');
+  const orgId: string | undefined = useNavigationParam('orgId');
+  const enableSkipButton: boolean =
+    useNavigationParam('enableSkipButton') || false;
+
   const person = useSelector<{ people: PeopleState }, Person>(({ people }) =>
     personSelector({ people }, { personId, orgId }),
+  );
+  const isMe = useIsMe(personId);
+
+  const stageId = useSelector<{ auth: AuthState }, string>(
+    ({ auth }) =>
+      (isMe
+        ? auth.person.user
+        : contactAssignmentSelector(
+            { auth },
+            {
+              person,
+              orgId,
+            },
+          ) || {}
+      ).pathway_stage_id,
   );
 
   const navigateNext = (step?: Step, skip = false) => {
@@ -82,8 +97,14 @@ const SelectStepScreen = ({
       <View style={{ flex: 1 }}>
         {renderHeader()}
         <View style={{ flex: 1, alignItems: 'center' }}>
-          <Text style={styles.headerText}>{headerText[0]}</Text>
-          <Text style={styles.headerText}>{headerText[1]}</Text>
+          <Text style={styles.headerText}>
+            {isMe ? t('meHeader.part1') : t('personHeader.part1')}
+          </Text>
+          <Text style={styles.headerText}>
+            {isMe
+              ? t('meHeader.part2')
+              : t('personHeader.part2', { name: person.first_name })}
+          </Text>
         </View>
       </View>
     );
@@ -113,7 +134,7 @@ const SelectStepScreen = ({
           onPressCreateStep={navToCreateStep}
           contactName={person && person.first_name}
           personId={personId}
-          contactStageId={contactStageId}
+          contactStageId={stageId}
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
@@ -122,3 +143,4 @@ const SelectStepScreen = ({
 };
 
 export default SelectStepScreen;
+export const SELECT_STEP_SCREEN = 'nav/SELECT_STEP';

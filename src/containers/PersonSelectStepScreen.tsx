@@ -1,25 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux-legacy';
-import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkAction } from 'redux-thunk';
-
-import { contactAssignmentSelector, personSelector } from '../selectors/people';
-import { AuthState } from '../reducers/auth';
-import { PeopleState, Person } from '../reducers/people';
 
 import SelectStepScreen, { Step } from './SelectStepScreen';
 
 interface PersonSelectStepScreenProps {
-  contactName: string;
-  contactStage: {
-    id: string;
-  };
-  contactAssignment: {
-    pathway_stage_id: string;
-  };
-  person: Person;
-  personId: string;
-  orgId: string;
   next: (nextProps: {
     personId: string;
     step?: Step;
@@ -27,30 +12,17 @@ interface PersonSelectStepScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, any, never>;
-  enableSkipButton: boolean;
 }
 
-const PersonSelectStepScreen = ({
-  contactName,
-  contactStage,
-  contactAssignment,
-  person,
-  personId,
-  orgId,
-  next,
-  enableSkipButton,
-}: PersonSelectStepScreenProps) => {
-  const { t } = useTranslation('selectStep');
-  const name = contactName ? contactName : person.first_name;
-  const stageId = contactAssignment
-    ? contactAssignment.pathway_stage_id
-    : contactStage.id;
+const PersonSelectStepScreen = ({ next }: PersonSelectStepScreenProps) => {
+  const personId: string = useNavigationParam('personId');
+  const orgId: string | undefined = useNavigationParam('orgId');
+  const enableSkipButton: boolean =
+    useNavigationParam('enableSkipButton') || false;
 
   return (
     <SelectStepScreen
-      contactStageId={stageId}
       personId={personId}
-      headerText={[t('personHeader.part1'), t('personHeader.part2', { name })]}
       orgId={orgId}
       enableSkipButton={enableSkipButton}
       next={next}
@@ -58,51 +30,5 @@ const PersonSelectStepScreen = ({
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    people,
-  }: {
-    auth: AuthState;
-    people: PeopleState;
-  },
-  {
-    navigation: {
-      state: {
-        params: {
-          contactName,
-          personId,
-          contactStage,
-          orgId,
-          enableSkipButton,
-        },
-      },
-    },
-    next,
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => {
-  const person = personSelector({ people }, { personId, orgId });
-
-  return {
-    contactName,
-    person,
-    personId,
-    contactStage,
-    orgId,
-    enableSkipButton,
-    next,
-    contactAssignment:
-      person &&
-      contactAssignmentSelector(
-        { auth },
-        {
-          person,
-          orgId,
-        },
-      ),
-  };
-};
-
-export default connect(mapStateToProps)(PersonSelectStepScreen);
+export default PersonSelectStepScreen;
 export const PERSON_SELECT_STEP_SCREEN = 'nav/PERSON_SELECT_STEP';
