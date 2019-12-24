@@ -15,10 +15,9 @@ import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
-import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -180,7 +179,7 @@ describe('SelectStageScreen next', () => {
           }),
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
         personId,
       });
     });
@@ -202,15 +201,15 @@ describe('StageSuccessScreen next', () => {
         .props.next(),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, undefined);
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, undefined);
   });
 });
 
-describe('SelectMyStepScreen next', () => {
+describe('SelectStepScreen next', () => {
   let next;
 
   beforeEach(() => {
-    const Component = testFlow[SELECT_MY_STEP_SCREEN].screen;
+    const Component = testFlow[SELECT_STEP_SCREEN].screen;
 
     next = renderShallow(
       <Component
@@ -329,7 +328,7 @@ describe('PersonSelectStepScreen next', () => {
   let next;
 
   beforeEach(() => {
-    const Component = testFlow[PERSON_SELECT_STEP_SCREEN].screen;
+    const Component = testFlow[SELECT_STEP_SCREEN].screen;
 
     next = renderShallow(
       <Component

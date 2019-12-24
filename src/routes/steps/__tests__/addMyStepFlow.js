@@ -7,7 +7,7 @@ import { renderShallow } from '../../../../testUtils';
 import { AddMyStepFlowScreens } from '../addMyStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
-import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -54,11 +54,11 @@ beforeEach(() => {
   createCustomStep.mockReturnValue(createCustomStepResponse);
 });
 
-describe('SelectMyStep next', () => {
+describe('SelectStepScreen next', () => {
   describe('select a suggested step', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        SELECT_MY_STEP_SCREEN,
+        SELECT_STEP_SCREEN,
         {
           enableBackButton: true,
           contactStage: stage,
@@ -81,7 +81,7 @@ describe('SelectMyStep next', () => {
   describe('create a step', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        SELECT_MY_STEP_SCREEN,
+        SELECT_STEP_SCREEN,
         {
           enableBackButton: true,
           contactStage: stage,

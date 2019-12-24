@@ -8,7 +8,7 @@ import { personSelector } from '../../selectors/people';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../containers/PersonSelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../containers/SelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 
@@ -39,7 +39,7 @@ export const SelectPersonStageFlowScreens = {
       dispatch(
         isAlreadySelected
           ? navigatePush(CELEBRATION_SCREEN, { personId, orgId })
-          : navigatePush(PERSON_SELECT_STEP_SCREEN, {
+          : navigatePush(SELECT_STEP_SCREEN, {
               personId,
               orgId,
             }),

@@ -13,7 +13,6 @@ jest.mock('../../../utils/hooks/useAnalytics');
 
 const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
-const contactStageId = '3';
 const personId = '252342354234';
 const me = { id: '89123', first_name: 'roger' };
 const state = {
@@ -32,11 +31,9 @@ let enableSkipButton = false;
 beforeEach(() => {
   screen = renderWithContext(
     <SelectStepScreen
-      contactStageId={contactStageId}
       orgId={orgId}
       personId={personId}
       enableSkipButton={enableSkipButton}
-      headerText={['Header Text 1', 'Header Text 2']}
       next={next}
     />,
     {

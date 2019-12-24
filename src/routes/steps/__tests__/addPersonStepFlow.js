@@ -7,7 +7,7 @@ import { renderShallow } from '../../../../testUtils';
 import { AddPersonStepFlowScreens } from '../addPersonStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -63,7 +63,7 @@ describe('PersonSelectStepScreen next', () => {
   describe('select a suggested step', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        PERSON_SELECT_STEP_SCREEN,
+        SELECT_STEP_SCREEN,
         {
           contactStage: stage,
           personId: otherId,
@@ -87,7 +87,7 @@ describe('PersonSelectStepScreen next', () => {
   describe('create a step', () => {
     beforeEach(async () => {
       await buildAndCallNext(
-        PERSON_SELECT_STEP_SCREEN,
+        SELECT_STEP_SCREEN,
         {
           personId: otherId,
           orgId,

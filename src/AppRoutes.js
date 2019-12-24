@@ -11,13 +11,6 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
-  SELECT_MY_STEP_SCREEN,
-} from './containers/SelectMyStepScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
@@ -331,19 +324,6 @@ const screens = {
     StepReminderScreen,
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
-  ),
-  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    buildTrackingObj(
-      'onboarding : self : steps : add',
-      'onboarding',
-      'self',
-      'steps',
-    ),
-  ),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
     AddSomeoneScreen,
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
@@ -543,14 +523,6 @@ export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
-    [PERSON_SELECT_STEP_SCREEN]: {
-      screen: PersonSelectStepScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [SELECT_MY_STEP_SCREEN]: {
-      screen: SelectMyStepScreen,
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },

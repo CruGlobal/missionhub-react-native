@@ -90,33 +90,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
 />
 `;
 
-exports[`SelectMyStepScreen renders correctly 1`] = `
-<SelectMyStepScreen
-  dispatch={[Function]}
-  me={
-    Object {
-      "id": "123",
-      "user": Object {
-        "pathway_stage_id": "3",
-      },
-    }
-  }
-  navigation={
-    Object {
-      "state": Object {
-        "params": Object {
-          "contactStage": Object {
-            "id": "3",
-          },
-        },
-      },
-    }
-  }
-  next={[Function]}
-  stageId="3"
-/>
-`;
-
 exports[`SelectStageScreen person is me renders correctly 1`] = `
 <SelectStageScreen
   dispatch={[Function]}
@@ -157,6 +130,55 @@ exports[`SelectStageScreen person is other renders correctly 1`] = `
   }
   next={[Function]}
   stages={Array []}
+/>
+`;
+
+exports[`SelectStepScreen next renders correctly 1`] = `
+<SelectStageScreen
+  dispatch={[Function]}
+  firstName="Someone"
+  isMe={false}
+  myId="123"
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "personId": "321",
+          "section": "onboarding",
+          "subsection": "add person",
+        },
+      },
+    }
+  }
+  next={[Function]}
+  stages={Array []}
+/>
+`;
+
+exports[`SelectStepScreen renders correctly 1`] = `
+<SelectStepScreen
+  dispatch={[Function]}
+  me={
+    Object {
+      "id": "123",
+      "user": Object {
+        "pathway_stage_id": "3",
+      },
+    }
+  }
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "contactStage": Object {
+            "id": "3",
+          },
+        },
+      },
+    }
+  }
+  next={[Function]}
+  stageId="3"
 />
 `;
 

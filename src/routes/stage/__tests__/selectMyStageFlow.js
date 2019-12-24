@@ -8,7 +8,7 @@ import { updatePersonAttributes } from '../../../actions/person';
 import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
-import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/navigation');
@@ -134,8 +134,8 @@ describe('SelectStageScreen next', () => {
       expect(loadStepsAndJourney).toHaveBeenCalledWith(myId, orgId);
     });
 
-    it('should navigate to SelectMyStepScreen', () => {
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
+    it('should navigate to SelectStepScreen', () => {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
         contactStage: stage,
         organization: { id: orgId },
       });

@@ -11,7 +11,7 @@ import { renderShallow } from '../../../../testUtils';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -155,7 +155,7 @@ describe('SelectStageScreen', () => {
       }),
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
       personId,
     });
   });
@@ -164,7 +164,7 @@ describe('SelectStageScreen', () => {
 describe('PersonSelectStepScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+      AddSomeoneOnboardingFlowScreens[SELECT_STEP_SCREEN].screen;
 
     screen = renderShallow(
       <Component

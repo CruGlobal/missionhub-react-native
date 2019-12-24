@@ -32,15 +32,12 @@ import SelectStageScreen, {
 import StageSuccessScreen, {
   STAGE_SUCCESS_SCREEN,
 } from '../../containers/StageSuccessScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_SCREEN,
-} from '../../containers/SelectMyStepScreen';
+import SelectStepScreen, {
+  SELECT_STEP_SCREEN,
+} from '../../containers/SelectStepScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
 } from '../../containers/AddSomeoneScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from '../../containers/PersonSelectStepScreen';
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
@@ -113,7 +110,7 @@ export const onboardingFlowGenerator = ({
               getState: () => { auth: AuthState },
             ) =>
               dispatch(
-                navigatePush(SELECT_MY_STEP_SCREEN, {
+                navigatePush(SELECT_STEP_SCREEN, {
                   personId: getState().auth.person.id,
                 }),
               ),
@@ -124,9 +121,9 @@ export const onboardingFlowGenerator = ({
             'self',
           ),
         ),
-        [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
+        [SELECT_STEP_SCREEN]: buildTrackedScreen(
           wrapNextAction(
-            SelectMyStepScreen,
+            SelectStepScreen,
             ({ personId, step }: { personId: string; step: object }) =>
               step
                 ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
@@ -195,15 +192,15 @@ export const onboardingFlowGenerator = ({
         dispatch(
           isMe
             ? navigatePush(STAGE_SUCCESS_SCREEN)
-            : navigatePush(PERSON_SELECT_STEP_SCREEN, {
+            : navigatePush(SELECT_STEP_SCREEN, {
                 personId: getState().onboarding.personId,
               }),
         ),
     ),
   ),
-  [PERSON_SELECT_STEP_SCREEN]: buildTrackedScreen(
+  [SELECT_STEP_SCREEN]: buildTrackedScreen(
     wrapNextAction(
-      PersonSelectStepScreen,
+      SelectStepScreen,
       ({ personId, step }: { personId: string; step: object }) =>
         step
           ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {

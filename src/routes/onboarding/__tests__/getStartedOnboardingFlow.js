@@ -12,8 +12,7 @@ import { renderShallow } from '../../../../testUtils';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
-import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -122,16 +121,16 @@ describe('StageSuccessScreen', () => {
   it('should fire required next actions', async () => {
     await store.dispatch(next({ selectedStage: stage }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
       selectedStage: stage,
     });
   });
 });
 
-describe('SelectMyStepScreen', () => {
+describe('SelectStepScreen', () => {
   beforeEach(() => {
     const Component =
-      GetStartedOnboardingFlowScreens[SELECT_MY_STEP_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[SELECT_STEP_SCREEN].screen;
 
     screen = renderShallow(
       <Component navigation={{ state: { params: { contactStage: stage } } }} />,
@@ -292,17 +291,17 @@ describe('SelectStageScreen', () => {
         }),
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
         personId,
       });
     });
   });
 });
 
-describe('PersonSelectStepScreen next', () => {
+describe('SelectStepScreen next', () => {
   beforeEach(() => {
     const Component =
-      GetStartedOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[SELECT_STEP_SCREEN].screen;
 
     screen = renderShallow(
       <Component
