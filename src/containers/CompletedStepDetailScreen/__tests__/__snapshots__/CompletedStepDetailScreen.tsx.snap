@@ -169,97 +169,95 @@ exports[`with challenge suggestion renders correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    SCOTTY
-  </Text>
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "borderBottomWidth": 1,
-        "borderColor": "#ECEEF2",
-        "borderTopWidth": 1,
-        "flexDirection": "row",
-        "justifyContent": "space-between",
-        "paddingHorizontal": 16,
-        "paddingVertical": 10,
-      }
-    }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-          },
-        ]
-      }
-    >
-      Completed Wednesday, January 3 2018
-    </Text>
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/checkIcon-grey.png",
-        }
-      }
-      style={
-        Object {
-          "height": 24,
-          "margin": 10,
-          "width": 24,
-        }
-      }
-    />
-  </View>
-  <View
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <RCTScrollView
-      contentContainerStyle={
-        Object {
-          "paddingBottom": 32,
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
         }
-      }
-      style={
-        Object {
-          "paddingBottom": 14,
-          "paddingHorizontal": 32,
-          "paddingTop": 26,
+      >
+        SCOTTY
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 16,
+            "paddingVertical": 10,
+          }
         }
-      }
-    >
-      <View>
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Completed Wednesday, January 3 2018
+        </Text>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/checkIcon-grey.png",
+            }
+          }
+          style={
+            Object {
+              "height": 24,
+              "margin": 10,
+              "width": 24,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": 32,
+              "paddingHorizontal": 32,
+              "paddingTop": 26,
+            },
+            undefined,
+          ]
+        }
+      >
         <View
           style={Object {}}
         >
@@ -287,8 +285,8 @@ exports[`with challenge suggestion renders correctly 1`] = `
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -461,39 +459,10 @@ exports[`without challenge suggestion renders correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    SCOTTY
-  </Text>
   <View
     style={
       Object {
-        "alignItems": "center",
-        "borderBottomWidth": 1,
-        "borderColor": "#ECEEF2",
-        "borderTopWidth": 1,
-        "flexDirection": "row",
-        "justifyContent": "space-between",
-        "paddingHorizontal": 16,
-        "paddingVertical": 10,
+        "flex": 1,
       }
     }
   >
@@ -507,35 +476,77 @@ exports[`without challenge suggestion renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
-            "color": "#505256",
-            "fontSize": 16,
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
           },
         ]
       }
     >
-      Completed Wednesday, January 3 2018
+      SCOTTY
     </Text>
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/checkIcon-grey.png",
-        }
-      }
+    <View
       style={
         Object {
-          "height": 24,
-          "margin": 10,
-          "width": 24,
+          "alignItems": "center",
+          "borderBottomWidth": 1,
+          "borderColor": "#ECEEF2",
+          "borderTopWidth": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 16,
+          "paddingVertical": 10,
         }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+            },
+          ]
+        }
+      >
+        Completed Wednesday, January 3 2018
+      </Text>
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/checkIcon-grey.png",
+          }
+        }
+        style={
+          Object {
+            "height": 24,
+            "margin": 10,
+            "width": 24,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 32,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          },
+          undefined,
+        ]
       }
     />
   </View>
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  />
 </View>
 `;
