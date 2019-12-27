@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Linking } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 

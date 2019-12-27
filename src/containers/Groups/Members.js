@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Share, FlatList, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
@@ -27,6 +27,7 @@ import { removeGroupInviteInfo } from '../../actions/swipe';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { navigatePush } from '../../actions/navigation';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
@@ -107,6 +108,7 @@ class Members extends Component {
     const { t, members, pagination } = this.props;
     return (
       <View style={styles.cardList}>
+        <Analytics screenName={['community', 'members']} />
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, Image, ImageSourcePropType } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18Next from 'i18next';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 import {
@@ -27,6 +27,7 @@ import {
 } from '../../../actions/auth/facebook';
 import TosPrivacy from '../../../components/TosPrivacy';
 import Header from '../../../components/Header';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -64,6 +65,10 @@ const SignUpScreen = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }) => {
+  useAnalytics([
+    signUpType === SIGNUP_TYPES.CREATE_COMMUNITY ? 'communities' : 'menu',
+    'sign up',
+  ]);
   const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation('loginOptions');

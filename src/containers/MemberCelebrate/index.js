@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
@@ -11,6 +11,7 @@ import {
 import { organizationSelector } from '../../selectors/organizations';
 import { celebrationSelector } from '../../selectors/celebration';
 import { momentUtc } from '../../utils/common';
+import Analytics from '../Analytics';
 
 @withTranslation('celebrateFeeds')
 class MemberCelebrate extends Component {
@@ -45,14 +46,17 @@ class MemberCelebrate extends Component {
     const { organization, celebrateItems } = this.props;
 
     return (
-      <CelebrateFeed
-        organization={organization}
-        items={celebrateItems}
-        loadMoreItemsCallback={this.loadItems}
-        refreshCallback={this.refreshItems}
-        itemNamePressable={false}
-        isMember={true}
-      />
+      <>
+        <Analytics screenName={['person', 'celebrate']} />
+        <CelebrateFeed
+          organization={organization}
+          items={celebrateItems}
+          loadMoreItemsCallback={this.loadItems}
+          refreshCallback={this.refreshItems}
+          itemNamePressable={false}
+          isMember={true}
+        />
+      </>
     );
   }
 }

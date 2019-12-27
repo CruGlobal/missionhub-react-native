@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { getMyPeople } from '../../actions/people';
 import { checkForUnreadComments } from '../../actions/unreadComments';
@@ -17,13 +18,12 @@ import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import BottomButton from '../../components/BottomButton';
-import TrackTabChange from '../TrackTabChange';
-import { PEOPLE_TAB } from '../../constants';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { AuthState } from '../../reducers/auth';
 import { Person, PeopleState } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -44,6 +44,8 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
+  useAnalytics('people');
+  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
@@ -69,7 +71,6 @@ export const PeopleScreen = ({
 
   return (
     <View style={styles.pageContainer}>
-      <TrackTabChange screen={PEOPLE_TAB} />
       <Header
         testID="header"
         left={

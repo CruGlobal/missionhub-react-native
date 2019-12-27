@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -19,6 +19,7 @@ import {
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
 } from '../../constants';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -151,9 +152,15 @@ class ContactJourney extends Component {
 
   render() {
     const { isPersonalMinistry } = this.state;
-    const { person, organization, isUserCreatedOrg } = this.props;
+    const { myId, person, organization, isUserCreatedOrg } = this.props;
     return (
       <View style={styles.container}>
+        <Analytics
+          screenName={[
+            'person',
+            person.id === myId ? 'my journey' : 'our journey',
+          ]}
+        />
         {this.renderContent()}
         <Flex justify="end">
           <JourneyCommentBox

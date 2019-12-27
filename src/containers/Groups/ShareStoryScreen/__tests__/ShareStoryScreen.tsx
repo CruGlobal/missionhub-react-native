@@ -1,10 +1,12 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
-import ShareStoryScreen from '..';
+import ShareStoryScreen, { CREATE_A_STORY } from '..';
 
 jest.mock('../../../../actions/navigation');
 const onComplete = jest.fn();
@@ -12,6 +14,7 @@ const navigatePushResult = { type: 'navigated push' };
 const organization = {
   id: '1234',
 };
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const MOCK_STORY = 'This is my cool story! 📘✏️';
 
@@ -29,6 +32,8 @@ it('renders correctly', () => {
       organization,
     },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['story', 'share']);
 });
 
 it('should find the saveStoryButton', () => {
@@ -107,5 +112,14 @@ describe('Creating a story', () => {
     await fireEvent(getByTestId('StoryInput'), 'onChangeText', MOCK_STORY);
     await fireEvent.press(getByTestId('SaveStoryButton'));
     expect(onComplete).toHaveBeenCalled();
+
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_A_STORY, {
+      variables: {
+        input: {
+          content: 'This is my cool story! 📘✏️',
+          organizationId: '1234',
+        },
+      },
+    });
   });
 });

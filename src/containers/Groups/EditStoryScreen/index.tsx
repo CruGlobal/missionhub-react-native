@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
@@ -15,8 +15,10 @@ import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { Event } from '../../../components/CelebrateItem';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import styles from './styles';
+import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
 
 export const UPDATE_STORY = gql`
   mutation UpdateStory($input: UpdateStoryInput!) {
@@ -33,13 +35,16 @@ interface EditStoryProps {
 }
 
 const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
+  useAnalytics(['story', 'edit']);
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
   const { object_description, celebrateable_id }: Event = useNavigationParam(
     'celebrationItem',
   );
-  const [updateStory] = useMutation(UPDATE_STORY);
+  const [updateStory] = useMutation<UpdateStory, UpdateStoryVariables>(
+    UPDATE_STORY,
+  );
   const [story, changeStory] = useState(object_description);
 
   const saveStory = async () => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { View, Keyboard, StatusBar } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -111,6 +112,7 @@ class AddChallengeScreen extends Component {
 
     return (
       <View style={container}>
+        <Analytics screenName={['challenge', isEdit ? 'edit' : 'create']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header left={<BackButton iconStyle={backButton} />} />
         <View style={{ flex: 1 }}>

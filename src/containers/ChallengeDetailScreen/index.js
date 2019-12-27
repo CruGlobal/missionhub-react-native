@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
@@ -22,6 +22,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { isAdminOrOwner } from '../../utils/common';
 import theme from '../../theme';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -124,6 +125,7 @@ export class ChallengeDetailScreen extends Component {
 
     return (
       <View style={styles.pageContainer}>
+        <Analytics screenName={['challenge', 'detail']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
           left={

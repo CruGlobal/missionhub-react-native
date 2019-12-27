@@ -6,7 +6,7 @@ import {
   KeyboardAvoidingView,
   View,
 } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
@@ -17,6 +17,7 @@ import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { lookupOrgCommunityCode } from '../../../actions/organizations';
 import BackButton from '../../../containers/BackButton';
+import Analytics from '../../Analytics';
 
 import styles from './styles';
 
@@ -155,6 +156,7 @@ class JoinGroupScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Analytics screenName={['communities', 'enter code']} />
         <Header
           left={<BackButton customIcon="deleteIcon" />}
           title={t('joinCommunity')}

@@ -184,6 +184,10 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
+    addPerson: {
+      part1: 'Who do you want to take',
+      part2: ' a step of faith with?',
+    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -218,8 +222,8 @@ export default {
   },
   selectStep: {
     meHeader: {
-      part1: 'How do you want to move',
-      part2: 'forward on your spiritual journey?',
+      part1: 'Choose a step of faith',
+      part2: 'to take on your journey this week...',
     },
     personHeader: {
       part1: 'Choose a step of faith',

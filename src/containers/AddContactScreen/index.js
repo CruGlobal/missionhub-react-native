@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -12,6 +12,7 @@ import { IconButton } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
+import Analytics from '../Analytics';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -158,6 +159,7 @@ class AddContactScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Analytics screenName={['people', 'add']} />
         <Header
           right={
             <IconButton

@@ -615,6 +615,14 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "communities",
+        "enter code",
+      ]
+    }
+  />
   <Header
     left={
       <Connect(BackButton)
@@ -718,6 +726,14 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "communities",
+        "enter code",
+      ]
+    }
+  />
   <Header
     left={
       <Connect(BackButton)
@@ -821,6 +837,14 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "communities",
+        "enter code",
+      ]
+    }
+  />
   <Header
     left={
       <Connect(BackButton)

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { View, Image } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useNavigationState } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
@@ -22,21 +23,18 @@ import {
   selectPersonStage,
   updateUserStage,
 } from '../../actions/selectStage';
-import { trackAction, trackState } from '../../actions/analytics';
-import { buildTrackingObj } from '../../utils/common';
-import {
-  ACTIONS,
-  SELF_VIEWED_STAGE_CHANGED,
-  PERSON_VIEWED_STAGE_CHANGED,
-} from '../../constants';
+import { trackAction, trackScreenChange } from '../../actions/analytics';
+import { ACTIONS } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
+import { AnalyticsState } from '../../reducers/analytics';
 import {
   personSelector,
   contactAssignmentSelector,
 } from '../../selectors/people';
+import { localizedStageSelector } from '../../selectors/stages';
 import Header from '../../components/Header';
 
 import styles, {
@@ -51,7 +49,7 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface SelectStageScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>;
   next: (props: {
     isMe: boolean;
     personId: string;
@@ -68,7 +66,7 @@ interface SelectStageScreenProps {
   testID?: string;
 }
 
-interface SelectStageNavParams {
+export interface SelectStageNavParams {
   selectedStageId?: number;
   enableBackButton: boolean;
   personId: string;
@@ -92,8 +90,6 @@ const SelectStageScreen = ({
     enableBackButton = true,
     personId,
     orgId,
-    section,
-    subsection,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
   useAndroidBackButton(enableBackButton);
@@ -104,18 +100,7 @@ const SelectStageScreen = ({
 
   const handleSnapToItem = (index: number) => {
     if (stages[index]) {
-      const trackingObj = buildTrackingObj(
-        `${section} : ${subsection} : stage : ${stages[index].id}`,
-        section,
-        subsection,
-        'stage',
-      );
-
-      dispatch({
-        type: isMe ? SELF_VIEWED_STAGE_CHANGED : PERSON_VIEWED_STAGE_CHANGED,
-        newActiveTab: trackingObj,
-      });
-      dispatch(trackState(trackingObj));
+      dispatch(trackScreenChange(['stage', stages[index].name.toLowerCase()]));
     }
   };
 
@@ -167,15 +152,16 @@ const SelectStageScreen = ({
 
   const renderStage = ({ item, index }: { item: Stage; index: number }) => {
     const isActive = selectedStageId === index;
-
     return (
       <View key={item.id} style={styles.cardWrapper}>
         <View style={styles.card}>
           <Image source={stageIcons[index]} />
           <Text header={true} style={styles.cardHeader}>
-            {item.name.toLowerCase()}
+            {localizedStageSelector(item, i18next.language).name.toLowerCase()}
           </Text>
-          <Text style={styles.cardText}>{item.description}</Text>
+          <Text style={styles.cardText}>
+            {localizedStageSelector(item, i18next.language).description}
+          </Text>
         </View>
         <Button
           testID={'stageSelectButton'}

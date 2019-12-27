@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Keyboard } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
 import { Text, Flex, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
-import { buildTrackingObj } from '../../utils/common';
-import { trackState } from '../../actions/analytics';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -80,17 +79,6 @@ export class ContactNotes extends Component {
       this.setState({ editing: true }, () => {
         this.notesInput.focus();
       });
-      this.props.dispatch(
-        trackState(
-          buildTrackingObj(
-            'people : person : notes : edit',
-            'people',
-            'person',
-            'notes',
-            'edit',
-          ),
-        ),
-      );
     }
   }
 
@@ -155,6 +143,7 @@ export class ContactNotes extends Component {
     const { text, editing } = this.state;
     return (
       <View style={styles.container}>
+        <Analytics screenName={['person', 'my notes']} />
         {text || editing ? this.renderNotes() : this.renderEmpty()}
         <BottomButton
           onPress={this.onButtonPress}

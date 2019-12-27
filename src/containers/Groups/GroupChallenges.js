@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
 import ChallengeFeed from '../ChallengeFeed';
@@ -17,6 +17,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -68,6 +69,7 @@ class GroupChallenges extends Component {
 
     return (
       <View flex={1}>
+        <Analytics screenName={['community', 'challenges']} />
         <View style={styles.cardList}>
           <ChallengeFeed
             organization={organization}

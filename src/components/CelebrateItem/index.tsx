@@ -2,7 +2,7 @@ import React from 'react';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { View, Alert } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -23,6 +23,8 @@ import { Person } from '../../reducers/people';
 import { CELEBRATEABLE_TYPES } from '../../constants';
 
 import styles from './styles';
+import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
+import { ReportStory, ReportStoryVariables } from './__generated__/ReportStory';
 
 export const DELETE_STORY = gql`
   mutation DeleteStory($input: DeleteStoryInput!) {
@@ -83,8 +85,12 @@ const CelebrateItem = ({
   } = event;
 
   const { t } = useTranslation('celebrateItems');
-  const [deleteStory] = useMutation(DELETE_STORY);
-  const [reportStory] = useMutation(REPORT_STORY);
+  const [deleteStory] = useMutation<DeleteStory, DeleteStoryVariables>(
+    DELETE_STORY,
+  );
+  const [reportStory] = useMutation<ReportStory, ReportStoryVariables>(
+    REPORT_STORY,
+  );
 
   const handlePress = () =>
     dispatch(navigatePush(CELEBRATE_DETAIL_SCREEN, { event }));
@@ -107,7 +113,7 @@ const CelebrateItem = ({
         text: t('delete.buttonText'),
         onPress: async () => {
           await deleteStory({
-            variables: { input: { subjectId: celebrateable_id } },
+            variables: { input: { id: celebrateable_id } },
           });
           onRefresh();
         },
@@ -199,18 +205,20 @@ const CelebrateItem = ({
 
   const renderStoryCard = () => (
     <Card>
-      <PopupMenu
-        testID="CelebrateItemPressable"
-        actions={menuActions}
-        buttonProps={{
-          onPress: handlePress,
-          style: { flex: 1 },
-        }}
-        triggerOnLongPress={true}
-      >
-        {renderContent()}
-        {onClearNotification ? renderClearNotificationButton() : null}
-      </PopupMenu>
+      <View style={{ flex: 1 }}>
+        <PopupMenu
+          testID="CelebrateItemPressable"
+          actions={menuActions}
+          buttonProps={{
+            onPress: handlePress,
+            style: { flex: 1 },
+          }}
+          triggerOnLongPress={true}
+        >
+          {renderContent()}
+          {onClearNotification ? renderClearNotificationButton() : null}
+        </PopupMenu>
+      </View>
     </Card>
   );
 

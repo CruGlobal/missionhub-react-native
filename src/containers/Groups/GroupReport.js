@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
 import { refresh, keyExtractorId } from '../../utils/common';
@@ -11,6 +11,7 @@ import { getReportedComments } from '../../actions/reportComments';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
 import ReportCommentItem from '../ReportCommentItem';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -66,6 +67,7 @@ export class GroupReport extends Component {
 
     return (
       <View style={styles.redPageContainer}>
+        <Analytics screenName={['celebrate', 'reported comments']} />
         <Header
           right={
             <IconButton

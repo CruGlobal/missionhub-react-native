@@ -11,6 +11,7 @@ import {
 } from '../../../actions/misc';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { promptToAssign } from '../../../utils/prompt';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import ContactSteps from '..';
 
@@ -19,6 +20,7 @@ jest.mock('../../../actions/misc');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/prompt');
 jest.mock('../../../components/AcceptedStepItem', () => 'AcceptedStepItem');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const steps = [{ id: '1', title: 'Test Step' }];
 const completedSteps = [{ id: '1', title: 'Test Step', completed_at: 'time' }];
@@ -99,6 +101,7 @@ it('renders correctly with no steps', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -110,6 +113,7 @@ it('renders correctly with steps', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -125,6 +129,7 @@ it('renders correctly with completed steps', () => {
 
   snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -136,6 +141,7 @@ it('renders correctly with org', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
 });
 

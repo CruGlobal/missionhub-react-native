@@ -6,7 +6,7 @@ import {
   Image,
   KeyboardAvoidingView,
 } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
 import { Flex, Text, Input, IconButton } from '../../../components/common';
@@ -25,6 +25,7 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
+import Analytics from '../../Analytics';
 
 import styles from './styles';
 
@@ -112,6 +113,7 @@ class CreateGroupScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Analytics screenName={['communities', 'create']} />
         <Header
           left={
             <IconButton

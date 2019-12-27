@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { ScrollView, Image } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -21,6 +21,7 @@ import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { orgIsPersonalMinistry } from '../../utils/common';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -224,6 +225,7 @@ export class ImpactView extends Component {
 
   render() {
     const {
+      isMe,
       globalImpact,
       impact,
       isPersonalMinistryMe,
@@ -239,8 +241,16 @@ export class ImpactView extends Component {
       isGlobalCommunity;
     const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
 
+    const screenSection = isOrgImpact ? 'community' : 'person';
+    const screenSubsection = isOrgImpact
+      ? 'impact'
+      : isMe && !isPersonalMinistryMe
+      ? 'my impact'
+      : 'impact';
+
     return (
       <ScrollView style={styles.container} bounces={false}>
+        <Analytics screenName={[screenSection, screenSubsection]} />
         {organization.id !== 'person' ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}

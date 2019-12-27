@@ -4,6 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ACTIONS } from '../../../constants';
 
 import WelcomeScreen from '..';
@@ -18,9 +19,12 @@ jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
-(trackActionWithoutData as jest.Mock).mockReturnValue({
-  type: 'tracked action without data',
+beforeEach(() => {
+  (trackActionWithoutData as jest.Mock).mockReturnValue({
+    type: 'tracked action without data',
+  });
 });
 
 describe('WelcomeScreen', () => {
@@ -30,6 +34,8 @@ describe('WelcomeScreen', () => {
 
   it('should render correctly', () => {
     renderWithContext(<WelcomeScreen next={next} />).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('should render correctly with sign in button', () => {
@@ -37,6 +43,8 @@ describe('WelcomeScreen', () => {
       <WelcomeScreen next={next} />,
       allowSignInVariantConfig,
     ).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('getStarted btn should call next', () => {

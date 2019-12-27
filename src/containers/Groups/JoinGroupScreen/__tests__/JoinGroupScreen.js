@@ -132,7 +132,7 @@ describe('JoinGroupScreen', () => {
     component.update();
 
     await component
-      .childAt(1)
+      .childAt(2)
       .childAt(0)
       .childAt(0)
       .props()

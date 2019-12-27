@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnyAction } from 'redux';
 import { View, SectionList, SectionListData } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
@@ -23,6 +23,7 @@ import { AuthState } from '../../reducers/auth';
 import { Step, StepsState } from '../../reducers/steps';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -47,6 +48,7 @@ const ContactSteps = ({
   person,
   organization,
 }: ContactStepsProps) => {
+  useAnalytics(['person', 'my steps']);
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
 

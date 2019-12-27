@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StatusBar, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
 import { refresh } from '../../utils/common';
@@ -17,6 +17,7 @@ import {
   markCommentsRead,
   markCommentRead,
 } from '../../actions/unreadComments';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -65,6 +66,7 @@ class GroupUnreadFeed extends Component {
 
     return (
       <View style={styles.pageContainer}>
+        <Analytics screenName={['celebrate', 'new comment items']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
           left={

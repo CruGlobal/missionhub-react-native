@@ -7,11 +7,16 @@ import { getPagination, shuffleArray } from '../utils/common';
 
 import { Person } from './people';
 import { Organization } from './organizations';
+import { Stage } from './stages';
 
 export type SuggestedStep = {
   id: string;
   body: string;
-  description_markdown: string;
+  description_markdown?: string;
+  challenge_type: string;
+  self_step: boolean;
+  locale: string;
+  pathway_stage: Stage;
 };
 
 export type Step = {
