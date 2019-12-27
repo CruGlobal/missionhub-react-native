@@ -157,38 +157,51 @@ exports[`markdown is empty string renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    Roge is well behaved
-  </Text>
-  <Text>
-    Center content
-  </Text>
   <View
     style={
       Object {
         "flex": 1,
       }
     }
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          },
+        ]
+      }
+    >
+      Roge is well behaved
+    </Text>
+    <Text>
+      Center content
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 32,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
 </View>
 `;
 
@@ -349,53 +362,51 @@ exports[`markdown is not null renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    Roge is well behaved
-  </Text>
-  <Text>
-    Center content
-  </Text>
-  <View
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <RCTScrollView
-      contentContainerStyle={
-        Object {
-          "paddingBottom": 32,
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
         }
-      }
-      style={
-        Object {
-          "paddingBottom": 14,
-          "paddingHorizontal": 32,
-          "paddingTop": 26,
+      >
+        Roge is well behaved
+      </Text>
+      <Text>
+        Center content
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": 32,
+              "paddingHorizontal": 32,
+              "paddingTop": 26,
+            },
+            undefined,
+          ]
         }
-      }
-    >
-      <View>
+      >
         <View
           style={Object {}}
         >
@@ -423,8 +434,8 @@ exports[`markdown is not null renders correctly 1`] = `
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -585,38 +596,53 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
       </View>
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    Roge is well behaved
-  </Text>
-  <Text>
-    Center content
-  </Text>
   <View
     style={
       Object {
         "flex": 1,
       }
     }
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          },
+        ]
+      }
+    >
+      Roge is well behaved
+    </Text>
+    <Text>
+      Center content
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 32,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          },
+          Object {
+            "paddingBottom": 86,
+          },
+        ]
+      }
+    />
+  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -854,38 +880,51 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    Roge is well behaved
-  </Text>
-  <Text>
-    Center content
-  </Text>
   <View
     style={
       Object {
         "flex": 1,
       }
     }
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          },
+        ]
+      }
+    >
+      Roge is well behaved
+    </Text>
+    <Text>
+      Center content
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 32,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
 </View>
 `;
 
@@ -1046,53 +1085,51 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    Roge is well behaved
-  </Text>
-  <Text>
-    Center content
-  </Text>
-  <View
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <RCTScrollView
-      contentContainerStyle={
-        Object {
-          "paddingBottom": 32,
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
         }
-      }
-      style={
-        Object {
-          "paddingBottom": 14,
-          "paddingHorizontal": 32,
-          "paddingTop": 26,
+      >
+        Roge is well behaved
+      </Text>
+      <Text>
+        Center content
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": 32,
+              "paddingHorizontal": 32,
+              "paddingTop": 26,
+            },
+            undefined,
+          ]
         }
-      }
-    >
-      <View>
+      >
         <View
           style={Object {}}
         >
@@ -1120,7 +1157,7 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
