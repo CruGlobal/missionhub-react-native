@@ -2,8 +2,6 @@
 
 import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import {
   buildTrackingObj,
@@ -40,6 +38,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../../constants';
 import { trackScreenChange } from '../../actions/analytics';
+import { createThunkStore } from '../../../testUtils';
 
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -285,7 +284,7 @@ describe('shouldQueryReportedComments', () => {
 
 describe('openMainMenu', () => {
   it('should open main drawer navigator', () => {
-    const store = configureStore([thunk])();
+    const store = createThunkStore();
 
     trackScreenChange.mockReturnValue({ type: 'track screen change' });
     DrawerActions.openDrawer.mockReturnValue({ type: 'open drawer' });

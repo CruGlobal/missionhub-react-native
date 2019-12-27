@@ -1,21 +1,16 @@
 import 'react-native';
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  createMockNavState,
-  renderShallow,
-  createThunkStore,
-  renderWithContext,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
 import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
 import CelebrationScreen from '..';
 
-let store;
-
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
+jest.useFakeTimers();
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
@@ -24,72 +19,54 @@ global.Math = mockMath;
 navigateReset.mockReturnValue({ type: 'navigated reset' });
 navigateToMainTabs.mockReturnValue({ type: 'navigateToMainTabs' });
 
-beforeEach(() => {
-  store = createThunkStore();
-});
-
 it('renders correctly', () => {
-  renderWithContext(<CelebrationScreen navigation={createMockNavState()} />);
+  renderWithContext(<CelebrationScreen />).snapshot();
 });
 
 describe('celebration screen methods', () => {
-  let component;
-  let screen;
   const mockComplete = jest.fn();
   const mockNext = jest.fn(() => ({ type: 'next' }));
 
   describe('navigateToNext', () => {
     it('runs onComplete', () => {
-      screen = renderShallow(
-        <CelebrationScreen
-          navigation={createMockNavState({
-            onComplete: mockComplete,
-          })}
-        />,
-        store,
-      );
-      component = screen.instance();
+      const { getByTestId } = renderWithContext(<CelebrationScreen />, {
+        navParams: { onComplete: mockComplete },
+      });
 
-      component.navigateToNext();
-      expect(mockComplete).toHaveBeenCalledTimes(1);
+      fireEvent(getByTestId('gif'), 'onLoad');
+      jest.runAllTimers();
+
+      expect(mockComplete).toHaveBeenCalledWith();
     });
 
     it('runs next', () => {
-      screen = renderShallow(
-        <CelebrationScreen
-          navigation={createMockNavState({
-            next: mockNext,
-          })}
-        />,
-        store,
-      );
-      component = screen.instance();
+      const { getByTestId } = renderWithContext(<CelebrationScreen />, {
+        navParams: { next: mockNext },
+      });
 
-      component.navigateToNext();
+      fireEvent(getByTestId('gif'), 'onLoad');
+      jest.runAllTimers();
+
       expect(mockNext).toHaveBeenCalledTimes(1);
     });
 
     it('runs navigateToMainTabs', () => {
-      screen = renderShallow(
-        <CelebrationScreen navigation={createMockNavState()} />,
-        store,
-      );
-      component = screen.instance();
+      const { getByTestId } = renderWithContext(<CelebrationScreen />);
 
-      component.navigateToNext();
+      fireEvent(getByTestId('gif'), 'onLoad');
+      jest.runAllTimers();
+
       expect(navigateToMainTabs).toHaveBeenCalled();
     });
 
     it('runs navigateReset with next screen', () => {
-      screen = renderShallow(
-        <CelebrationScreen
-          navigation={createMockNavState({ nextScreen: CONTACT_PERSON_SCREEN })}
-        />,
-        store,
-      );
-      component = screen.instance();
+      const { getByTestId } = renderWithContext(<CelebrationScreen />, {
+        navParams: { nextScreen: CONTACT_PERSON_SCREEN },
+      });
 
-      component.navigateToNext();
+      fireEvent(getByTestId('gif'), 'onLoad');
+      jest.runAllTimers();
+
       expect(navigateReset).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN);
     });
   });

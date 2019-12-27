@@ -10,11 +10,7 @@ import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
 } from '../../../constants';
-import {
-  createMockNavState,
-  renderShallow,
-  renderWithContext,
-} from '../../../../testUtils';
+import { renderShallow, renderWithContext } from '../../../../testUtils';
 
 import ContactJourney from '..';
 
@@ -253,11 +249,7 @@ describe('journey methods', () => {
 
 it('renders with an organization correctly', () => {
   renderWithContext(
-    <ContactJourney
-      person={mockPerson}
-      organization={{ id: 1 }}
-      navigation={createMockNavState()}
-    />,
+    <ContactJourney person={mockPerson} organization={{ id: 1 }} />,
     {
       initialState: {
         auth: {
@@ -274,5 +266,5 @@ it('renders with an organization correctly', () => {
         },
       },
     },
-  );
+  ).snapshot();
 });
