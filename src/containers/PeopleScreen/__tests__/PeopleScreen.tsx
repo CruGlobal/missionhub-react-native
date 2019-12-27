@@ -116,22 +116,24 @@ it('renders empty correctly', () => {
       initialState: { auth: { person: {} }, stages: {} },
     },
   ).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('renders correctly as Casey', () => {
   renderWithContext(
     <PeopleScreen {...props} isJean={false} items={people} />,
   ).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('renders correctly as Jean', () => {
   renderWithContext(
     <PeopleScreen {...props} isJean={true} items={orgs} />,
   ).snapshot();
-});
-
-it('tracks screen change on mount', () => {
-  renderWithContext(<PeopleScreen {...props} isJean={true} items={orgs} />);
 
   expect(useAnalytics).toHaveBeenCalledWith('people');
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));

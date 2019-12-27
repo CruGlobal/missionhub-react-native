@@ -3,10 +3,12 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { addStep } from '../../../actions/steps';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import SuggestedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const step = {
   body: 'do this step',
@@ -29,6 +31,8 @@ it('renders correctly', () => {
   renderWithContext(<SuggestedStepDetailScreen next={next} />, {
     navParams: { step, personId, orgId },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step']);
 });
 
 describe('bottomButtonProps', () => {

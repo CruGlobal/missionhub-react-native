@@ -9,6 +9,14 @@ exports[`contact notes and editing is set to true button message changes to DONE
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my notes",
+      ]
+    }
+  />
   <Flex
     value={1}
   >
@@ -48,6 +56,14 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my notes",
+      ]
+    }
+  />
   <NullStateComponent
     descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
     headerText="MY NOTES"
@@ -73,6 +89,14 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my notes",
+      ]
+    }
+  />
   <NullStateComponent
     descriptionText="Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God."
     headerText="MY NOTES"
@@ -98,6 +122,14 @@ exports[`contact notes notes are shown 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my notes",
+      ]
+    }
+  />
   <Flex
     value={1}
   >

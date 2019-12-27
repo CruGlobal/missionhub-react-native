@@ -139,7 +139,7 @@ describe('Members', () => {
     const member = members[0];
     const screen = renderShallow(component, store);
     const listItem = screen
-      .childAt(0)
+      .childAt(1)
       .props()
       .renderItem({ item: member });
 
@@ -203,7 +203,7 @@ describe('Members', () => {
         Share.share = jest.fn(() => ({ action: Share.sharedAction }));
         common.getCommunityUrl = jest.fn(() => url);
         await component
-          .childAt(1)
+          .childAt(2)
           .props()
           .onPress();
 
@@ -251,7 +251,7 @@ describe('Members', () => {
         Share.share = jest.fn(() => ({ action: Share.sharedAction }));
         common.getCommunityUrl = jest.fn(() => url);
         await component
-          .childAt(1)
+          .childAt(2)
           .props()
           .onPress();
 
@@ -291,7 +291,7 @@ describe('Members', () => {
         });
         const component = renderShallow(<Members orgId={orgId} />, store);
         await component
-          .childAt(1)
+          .childAt(2)
           .props()
           .onPress();
 

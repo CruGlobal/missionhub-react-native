@@ -1,3 +1,5 @@
+/* eslint complexity: 0 */
+
 import React, { useState } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
@@ -20,6 +22,7 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -54,6 +57,18 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
   const isStepNote = type === STEP_NOTE;
   const isCreateStep = type === CREATE_STEP;
   const isEdit = [EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type);
+
+  const screenSection = isCreateStep
+    ? 'custom step'
+    : isStepNote
+    ? 'step note'
+    : isEdit
+    ? isMe
+      ? 'my journey'
+      : 'our journey'
+    : '';
+  const screenSubsection = isEdit ? 'edit' : 'add';
+  useAnalytics([screenSection, screenSubsection]);
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 

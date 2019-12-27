@@ -87,7 +87,7 @@ describe('handleUpdateData', () => {
     buildScreen({ navigation: createMockNavState() });
 
     component
-      .childAt(1)
+      .childAt(2)
       .childAt(0)
       .props()
       .onUpdateData({ firstName: contactFName });
@@ -140,7 +140,7 @@ describe('savePerson', () => {
     });
 
     await component
-      .childAt(2)
+      .childAt(3)
       .props()
       .onPress();
   });

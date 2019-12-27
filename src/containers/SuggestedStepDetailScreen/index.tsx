@@ -9,6 +9,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -25,6 +26,7 @@ const SuggestedStepDetailScreen = ({
   dispatch,
   next,
 }: SuggestedStepDetailScreenProps) => {
+  useAnalytics(['step detail', 'add step']);
   const { t } = useTranslation('suggestedStepDetail');
   const step: SuggestedStep = useNavigationParam('step');
   const personId: string = useNavigationParam('personId');

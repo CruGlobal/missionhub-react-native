@@ -29,7 +29,7 @@ describe('useAnalytics', () => {
   it('tracks screen change on focus', () => {
     renderHook(() => useAnalytics(screenFragments));
 
-    fireEvent({ type: 'willFocus' });
+    fireEvent({ type: 'didFocus' });
 
     expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
   });
@@ -37,7 +37,7 @@ describe('useAnalytics', () => {
   it('tracks screen change with callback', () => {
     const { result } = renderHook(() => useAnalytics(screenFragments));
 
-    result.current();
+    result.current(screenFragments);
 
     expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
   });

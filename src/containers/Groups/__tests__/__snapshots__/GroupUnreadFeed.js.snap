@@ -9,6 +9,14 @@ exports[`should render empty correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "new comment items",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -88,6 +96,14 @@ exports[`should render items correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "new comment items",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"

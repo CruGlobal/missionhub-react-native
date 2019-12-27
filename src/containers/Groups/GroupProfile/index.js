@@ -33,12 +33,16 @@ import {
   generateNewCode,
   generateNewLink,
 } from '../../../actions/organizations';
-import { trackActionWithoutData } from '../../../actions/analytics';
+import {
+  trackActionWithoutData,
+  trackScreenChange,
+} from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
 import Header from '../../../components/Header';
+import Analytics from '../../Analytics';
 
 import styles from './styles';
 
@@ -131,12 +135,16 @@ class GroupProfile extends Component {
   };
 
   handleEdit = () => {
+    const { dispatch, organization } = this.props;
+
     if (this.state.editing) {
       this.save();
       this.setState({ editing: false });
+      dispatch(trackScreenChange(['community', 'detail']));
     } else {
-      this.setState({ editing: true, name: this.props.organization.name });
-      this.props.dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_EDIT));
+      this.setState({ editing: true, name: organization.name });
+      dispatch(trackScreenChange(['community', 'detail', 'edit']));
+      dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_EDIT));
     }
   };
 
@@ -178,6 +186,7 @@ class GroupProfile extends Component {
     const { editing, name } = this.state;
     return (
       <View flex={1}>
+        <Analytics screenName={['community', 'detail']} />
         <View style={styles.container} forceInset={{ bottom: 'never' }}>
           <Header
             left={

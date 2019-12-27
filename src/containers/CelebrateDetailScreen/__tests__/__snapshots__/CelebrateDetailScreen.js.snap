@@ -9,6 +9,14 @@ exports[`renders correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "celebrate item",
+        "comments",
+      ]
+    }
+  />
   <SafeAreaView>
     <StatusBar
       animated={true}

@@ -32,6 +32,11 @@ it('renders correctly', () => {
   renderWithContext(<GetStartedScreen next={next} />, {
     initialState,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'personal greeting',
+  ]);
 });
 
 it('renders without back button correctly', () => {
@@ -40,12 +45,6 @@ it('renders without back button correctly', () => {
   renderWithContext(<GetStartedScreen next={next} enableBackButton={false} />, {
     initialState,
   }).snapshot();
-});
-
-it('tracks screen change on mount', () => {
-  renderWithContext(<GetStartedScreen next={next} />, {
-    initialState,
-  });
 
   expect(useAnalytics).toHaveBeenCalledWith([
     'onboarding',

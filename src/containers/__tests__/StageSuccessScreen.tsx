@@ -38,12 +38,6 @@ it('renders correctly', () => {
   renderWithContext(<StageSuccessScreen next={next} />, {
     initialState: mockState,
   }).snapshot();
-});
-
-it('tracks screen change on mount', () => {
-  renderWithContext(<StageSuccessScreen next={next} />, {
-    initialState: mockState,
-  });
 
   expect(useAnalytics).toHaveBeenCalledWith([
     'onboarding',

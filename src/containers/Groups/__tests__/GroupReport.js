@@ -79,7 +79,7 @@ it('should call navigate back', () => {
     store,
   );
   component
-    .childAt(0)
+    .childAt(1)
     .props()
     .right.props.onPress();
   expect(navigateBack).toHaveBeenCalled();
@@ -92,7 +92,7 @@ it('should refresh correctly', async () => {
   );
 
   await component
-    .childAt(1)
+    .childAt(2)
     .props()
     .refreshControl.props.onRefresh();
 
@@ -120,7 +120,7 @@ describe('report item', () => {
 
   it('render row', () => {
     const item = component
-      .childAt(1)
+      .childAt(2)
       .props()
       .renderItem({ item: report1 });
     expect(item).toMatchSnapshot();

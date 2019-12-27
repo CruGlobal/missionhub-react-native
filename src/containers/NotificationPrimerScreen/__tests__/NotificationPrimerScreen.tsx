@@ -46,6 +46,8 @@ describe('notificationTypes', () => {
         notificationType,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
   };
 
   it('renders for ONBOARDING', () => {
@@ -77,17 +79,6 @@ describe('notificationTypes', () => {
     notificationType = JOIN_CHALLENGE;
     test();
   });
-});
-
-it('tracks screen change on mount', () => {
-  renderWithContext(<NotificationPrimerScreen />, {
-    navParams: {
-      onComplete,
-      notificationType: ONBOARDING,
-    },
-  });
-
-  expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
 });
 
 describe('notification primer methods', () => {

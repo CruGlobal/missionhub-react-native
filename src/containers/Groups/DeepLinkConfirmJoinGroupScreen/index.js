@@ -10,6 +10,7 @@ import Header from '../../../components/Header';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { navigateBack } from '../../../actions/navigation';
 import { lookupOrgCommunityUrl } from '../../../actions/organizations';
+import Analytics from '../../Analytics';
 
 import styles from './styles';
 
@@ -118,6 +119,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Analytics screenName={['deep link', 'community']} />
         <Header
           left={
             <IconButton

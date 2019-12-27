@@ -14,9 +14,6 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <Analytics
-    screenName="gif"
-  />
   <Image
     onLoad={[Function]}
     resizeMode="contain"
@@ -32,6 +29,7 @@ exports[`renders correctly 1`] = `
         "width": 750,
       }
     }
+    testID="gif"
   />
 </View>
 `;

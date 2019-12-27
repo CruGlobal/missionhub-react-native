@@ -11,6 +11,14 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "my impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -1323,6 +1331,14 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "my impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -2635,6 +2651,14 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "my impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -3947,6 +3971,14 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "my impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -4020,6 +4052,14 @@ exports[`ImpactView ME person impact view for user created org renders plural st
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "my impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -4095,6 +4135,14 @@ exports[`ImpactView ME person impact view for user created org renders singular 
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "my impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -4170,6 +4218,14 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -4268,6 +4324,14 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -4366,6 +4430,14 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -4464,6 +4536,14 @@ exports[`ImpactView contact impact renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -5776,6 +5856,14 @@ exports[`ImpactView contact impact renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -7088,6 +7176,14 @@ exports[`ImpactView contact impact renders singular state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -8400,6 +8496,14 @@ exports[`ImpactView cru community impact renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -9712,6 +9816,14 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -11024,6 +11136,14 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12336,6 +12456,14 @@ exports[`ImpactView global community impact renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12432,6 +12560,14 @@ exports[`ImpactView global community impact renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12530,6 +12666,14 @@ exports[`ImpactView global community impact renders singular state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12628,6 +12772,14 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12701,6 +12853,14 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12776,6 +12936,14 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "person",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12851,6 +13019,14 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -12947,6 +13123,14 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
@@ -13045,6 +13229,14 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
   }
 >
   <View>
+    <Analytics
+      screenName={
+        Array [
+          "community",
+          "impact",
+        ]
+      }
+    />
     <View
       style={
         Array [
