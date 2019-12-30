@@ -101,10 +101,23 @@ export default {
     continue: 'Continue',
     your: 'your',
     view: 'View',
-    contactAssignment:
-      '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
-    contactUnassignment:
-      '{{assignedContactName}} was unassigned from {{assignedToName}}',
+    contactAssignment: {
+      assignedToOther:
+        '{{assignedContactName}} was assigned to {{assignedToName}}',
+      assignedToOtherByYou:
+        '{{assignedContactName}} was assigned to {{assignedToName}} by You',
+      assignedToOtherByOther:
+        '{{assignedContactName}} was assigned to {{assignedToName}} by {{assignedByName}}',
+      assignedToYou: '{{assignedContactName}} was assigned to You',
+      assignedToYouByYou: '{{assignedContactName}} was assigned to You by You',
+      assignedToYouByOther:
+        '{{assignedContactName}} was assigned to You by {{assignedByName}}',
+    },
+    contactUnassignment: {
+      unassignedFromYou: '{{assignedContactName}} was unassigned from You',
+      unassignedFromOther:
+        '{{assignedContactName}} was unassigned from {{assignedToName}}',
+    },
     assignToMe: 'Assign to me',
     copyMessage: 'Copied',
     terms: 'By creating your MissionHub account you agree to our',

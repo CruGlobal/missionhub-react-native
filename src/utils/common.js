@@ -249,20 +249,41 @@ export function showDeleteButton(
   return !personIsCurrentUser && contactAssignment && !orgPermission;
 }
 
-export function getAssignedToName(myId, item) {
+export const getAssignmentText = (myId, assignedContactName, item) => {
   const assigned_to = item.assigned_to;
-
-  return myId === assigned_to.id ? 'You' : assigned_to.first_name;
-}
-
-export function getAssignedByName(myId, item) {
   const assigned_by = item.assigned_by;
 
-  return assigned_by
-    ? myId === assigned_by.id
-      ? ' by You'
-      : ` by ${assigned_by.first_name}`
-    : '';
+  const phrase =
+    myId === assigned_to.id
+      ? assigned_by
+        ? myId === assigned_by.id
+          ? 'contactAssignment.assignedToYouByYou'
+          : 'contactAssignment.assignedToYouByOther'
+        : 'contactAssignment.assignedToYou'
+      : assigned_by
+      ? myId === assigned_by.id
+        ? 'contactAssignment.assignedToOtherByYou'
+        : 'contactAssignment.assignedToOtherByOther'
+      : 'contactAssignment.assignedToOther';
+
+  return i18n.t(phrase, {
+    assignedContactName,
+    assignedToName: assigned_to.first_name,
+    assignedByName: (assigned_by && assigned_by.first_name) || '',
+  });
+};
+
+export function getUnassignmentText(myId, assignedContactName, item) {
+  const assigned_to = item.assigned_to;
+  const phrase =
+    myId === assigned_to.id
+      ? 'contactUnassignment.unassignedFromYou'
+      : 'contactUnassignment.unassignedFromOther';
+
+  return i18n.t(phrase, {
+    assignedContactName,
+    assignedToName: assigned_to.first_name,
+  });
 }
 
 export function getPersonPhoneNumber(person) {
