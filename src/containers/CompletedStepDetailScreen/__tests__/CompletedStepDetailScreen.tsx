@@ -1,8 +1,11 @@
 import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import CompletedStepDetailScreen from '..';
+
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const challenge_suggestion = { description_markdown: 'roge rules' };
 const step = {
@@ -19,6 +22,11 @@ describe('with challenge suggestion', () => {
     renderWithContext(<CompletedStepDetailScreen />, {
       navParams: { step },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });
 
@@ -27,5 +35,10 @@ describe('without challenge suggestion', () => {
     renderWithContext(<CompletedStepDetailScreen />, {
       navParams: { step: { ...step, challenge_suggestion: {} } },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });

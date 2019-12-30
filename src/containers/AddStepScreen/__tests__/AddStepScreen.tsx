@@ -11,6 +11,7 @@ import {
   STEP_NOTE,
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import AddStepScreen from '..';
 
@@ -21,6 +22,7 @@ MockDate.set(mockDate);
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const next = jest.fn();
 const nextResult = { type: 'next' };
@@ -42,10 +44,22 @@ const editJourneyStepParams = {
   type: EDIT_JOURNEY_STEP,
   text,
 };
+const editMyJourneyStepParams = {
+  ...baseParams,
+  type: EDIT_JOURNEY_STEP,
+  text,
+  personId: auth.person.id,
+};
 const editJourneyItemParams = {
   ...baseParams,
   type: EDIT_JOURNEY_ITEM,
   text,
+};
+const editMyJourneyItemParams = {
+  ...baseParams,
+  type: EDIT_JOURNEY_ITEM,
+  text,
+  personId: auth.person.id,
 };
 const stepNoteParams = { ...baseParams, type: STEP_NOTE };
 const myStepNoteParams = {
@@ -59,6 +73,8 @@ it('renders create step correctly', () => {
     initialState: { auth },
     navParams: createStepParams,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add']);
 });
 
 it('renders edit journey step correctly', () => {
@@ -66,6 +82,17 @@ it('renders edit journey step correctly', () => {
     initialState: { auth },
     navParams: editJourneyStepParams,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit']);
+});
+
+it('renders edit journey step for me correctly', () => {
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: editMyJourneyStepParams,
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit']);
 });
 
 it('renders edit journey item correctly', () => {
@@ -73,6 +100,17 @@ it('renders edit journey item correctly', () => {
     initialState: { auth },
     navParams: editJourneyItemParams,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit']);
+});
+
+it('renders edit journey item for me correctly', () => {
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth },
+    navParams: editMyJourneyItemParams,
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit']);
 });
 
 it('renders step note correctly', () => {
@@ -80,6 +118,8 @@ it('renders step note correctly', () => {
     initialState: { auth },
     navParams: stepNoteParams,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add']);
 });
 
 it('renders step note correctly for me', () => {
@@ -87,6 +127,8 @@ it('renders step note correctly for me', () => {
     initialState: { auth },
     navParams: myStepNoteParams,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add']);
 });
 
 it('updates text', () => {

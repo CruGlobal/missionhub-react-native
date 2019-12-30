@@ -3,10 +3,12 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { navigateBack } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import EditStoryScreen from '..';
 
 jest.mock('../../../../actions/navigation');
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const celebrationItem = {
   celebrateable_id: '111',
@@ -29,6 +31,8 @@ it('renders correctly', () => {
       onRefresh,
     },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit']);
 });
 
 it('renders empty text correctly', () => {
@@ -38,6 +42,8 @@ it('renders empty text correctly', () => {
       onRefresh,
     },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit']);
 });
 
 describe('saveStory', () => {

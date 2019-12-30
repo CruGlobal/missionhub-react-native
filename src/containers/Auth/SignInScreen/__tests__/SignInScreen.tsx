@@ -20,6 +20,7 @@ import {
   facebookLoginWithAccessToken,
   facebookPromptLogin,
 } from '../../../../actions/auth/facebook';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import SignInScreen from '..';
 
@@ -34,6 +35,7 @@ jest.mock('../../../../utils/hooks/useKeyboardListeners', () => ({
   useKeyboardListeners: (onShow: () => void, onHide: () => void) =>
     (keyboardListeners = { onShow, onHide }),
 }));
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 jest.mock('../../../../components/common', () => ({
   Button: 'Button',
@@ -77,12 +79,16 @@ const loginResult = { type: 'login result' };
 
 it('renders correctly', () => {
   renderWithContext(<SignInScreen next={next} />).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith('sign in');
 });
 
 it('renders correctly for forced logout', () => {
   renderWithContext(<SignInScreen next={next} />, {
     navParams: { forcedLogout: true },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith('sign in');
 });
 
 describe('keyboard listeners', () => {

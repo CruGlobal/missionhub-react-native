@@ -98,7 +98,7 @@ it('should call navigate back', () => {
   const component = buildScreen();
 
   component
-    .childAt(1)
+    .childAt(2)
     .props()
     .left.props.onPress();
   expect(navigateBack).toHaveBeenCalled();
@@ -108,7 +108,7 @@ it('should call mark comments read and go back', async () => {
   const component = buildScreen();
 
   await component
-    .childAt(1)
+    .childAt(2)
     .props()
     .right.props.onPress();
   expect(markCommentsRead).toHaveBeenCalledWith(org.id);
@@ -121,7 +121,7 @@ it('should call mark specific celebration item comments as read and go back', as
   const event = { id: '1' };
   component.instance().loadItems = jest.fn();
   await component
-    .childAt(2)
+    .childAt(3)
     .childAt(0)
     .props()
     .onClearNotification(event);
@@ -150,7 +150,7 @@ it('should refresh correctly', async () => {
   instance.loadItems = jest.fn(() => Promise.resolve());
 
   await component
-    .childAt(2)
+    .childAt(3)
     .childAt(0)
     .props()
     .refreshCallback();

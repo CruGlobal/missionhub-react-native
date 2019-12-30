@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
@@ -45,7 +45,7 @@ export const PeopleScreen = ({
   person,
 }: PeopleScreenProps) => {
   useAnalytics('people');
-  useFocusEffect(() => dispatch(checkForUnreadComments()));
+  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());

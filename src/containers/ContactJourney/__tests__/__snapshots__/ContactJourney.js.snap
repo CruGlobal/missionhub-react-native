@@ -9,6 +9,14 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "our journey",
+      ]
+    }
+  />
   <Flex
     align="center"
     justify="center"
@@ -52,6 +60,14 @@ exports[`ContactJourney renders null screen correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my journey",
+      ]
+    }
+  />
   <Flex
     align="center"
     justify="center"
@@ -103,6 +119,14 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my journey",
+      ]
+    }
+  />
   <Flex
     align="center"
     justify="center"
@@ -183,6 +207,14 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "my journey",
+      ]
+    }
+  />
   <Flex
     align="center"
     justify="center"
@@ -493,90 +525,6 @@ exports[`renders with an organization correctly 1`] = `
             ]
           }
         >
-          <View
-            style={
-              Array [
-                Array [
-                  Object {
-                    "backgroundColor": "#007398",
-                    "borderRadius": 25,
-                    "marginRight": 15,
-                  },
-                  null,
-                ],
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="IconButton"
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 13,
-                        },
-                        Array [
-                          Object {
-                            "margin": 10,
-                          },
-                          Object {},
-                        ],
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-            </View>
-          </View>
           <View
             style={
               Array [

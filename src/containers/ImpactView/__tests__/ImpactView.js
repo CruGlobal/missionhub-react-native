@@ -10,6 +10,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import ImpactView from '..';
 
+jest.mock('../../Analytics', () => 'Analytics');
 MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
 const cruOrgId = '34';

@@ -84,6 +84,7 @@ class CelebrationScreen extends Component {
       <Flex style={styles.container} value={1} justify="center">
         <Analytics screenName="gif" />
         <Image
+          testID="gif"
           source={
             CelebrationScreen.getGif(gifId) || CelebrationScreen.shuffleGif()
           }

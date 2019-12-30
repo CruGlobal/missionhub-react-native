@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   View,
   Image,
@@ -56,7 +56,7 @@ function isCloseToBottom({
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   useAnalytics('steps');
-  useFocusEffect(() => dispatch(checkForUnreadComments()));
+  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('stepsTab');
 
   const [paging, setPaging] = useState(false);
@@ -66,7 +66,6 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   const hasSteps = steps && steps.length > 0;
 
   const handleOpenMainMenu = () => dispatch(openMainMenu());
-
   const getSteps = () => dispatch(getMySteps());
 
   const handleRefresh = () => {

@@ -104,7 +104,7 @@ describe('CreateGroupScreen', () => {
 
   it('should call navigate back', () => {
     const component = buildScreen();
-    const backButton = component.childAt(0).props().left;
+    const backButton = component.childAt(1).props().left;
     backButton.props.onPress();
 
     expect(navigateBack).toHaveBeenCalled();
@@ -121,7 +121,7 @@ describe('CreateGroupScreen', () => {
     Keyboard.dismiss = jest.fn();
     const component = buildScreen();
     const result = await component
-      .childAt(2)
+      .childAt(3)
       .props()
       .onPress();
 
@@ -137,7 +137,7 @@ describe('CreateGroupScreen', () => {
     organizationSelector.mockReturnValue(undefined);
 
     await component
-      .childAt(2)
+      .childAt(3)
       .props()
       .onPress();
 
@@ -156,7 +156,7 @@ describe('CreateGroupScreen', () => {
     organizationSelector.mockReturnValue(org);
 
     await component
-      .childAt(2)
+      .childAt(3)
       .props()
       .onPress();
 
@@ -183,7 +183,7 @@ describe('CreateGroupScreen', () => {
     organizationSelector.mockReturnValue(org);
 
     await component
-      .childAt(2)
+      .childAt(3)
       .props()
       .onPress();
 
