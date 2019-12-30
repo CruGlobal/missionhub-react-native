@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 
 import { Button, Flex } from '../../components/common';
 import IconButton from '../IconButton';
-import { trackScreenChange } from '../../actions/analytics';
+import Analytics from '../../containers/Analytics';
 
 import styles from './styles';
 import {
@@ -85,7 +85,7 @@ const AnnouncementsModal = () => {
         variables: {
           input: {
             announcementId,
-            id,
+            announcementActionId: id,
           },
         },
       });
@@ -94,7 +94,9 @@ const AnnouncementsModal = () => {
           Linking.openURL(args);
           break;
         case 'track':
-          return trackScreenChange(args);
+          changeModalVisbility(false);
+          refetch();
+          return <Analytics screenName={args} />;
         default:
           break;
       }
