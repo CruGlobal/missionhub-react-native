@@ -42,17 +42,6 @@ interface JourneyItemProps {
   personFirstName: string;
 }
 
-const interactions = Object.keys(INTERACTION_TYPES).reduce(
-  (interactions, key) => {
-    const interaction = INTERACTION_TYPES[key];
-    return {
-      ...interactions,
-      [interaction.id]: interaction,
-    };
-  },
-  {},
-);
-
 const JourneyItem = ({ item, myId, personFirstName }: JourneyItemProps) => {
   const { t } = useTranslation('journeyItem');
 
@@ -101,6 +90,39 @@ const JourneyItem = ({ item, myId, personFirstName }: JourneyItemProps) => {
     iconType = 'journeyIcon';
   };
 
+  const buildInteractionContent = () => {
+    switch (interaction_type_id) {
+      case INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id:
+        cardTitle = t('interactionSpiritualConversation');
+        iconType = 'spiritualConversationIcon';
+        break;
+      case INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id:
+        cardTitle = t('interactionGospel');
+        iconType = 'gospelIcon';
+        break;
+      case INTERACTION_TYPES.MHInteractionTypePersonalDecision.id:
+        cardTitle = t('interactionDecision');
+        iconType = 'decisionIcon';
+        break;
+      case INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id:
+        cardTitle = t('interactionSpirit');
+        iconType = 'spiritIcon';
+        break;
+      case INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id:
+        cardTitle = t('interactionDiscipleshipConversation');
+        iconType = 'discipleshipConversationIcon';
+      case INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id:
+        cardTitle = t('interactionSomethingCoolHappened');
+        iconType = 'celebrateIcon';
+        break;
+      case INTERACTION_TYPES.MHInteractionTypeNote.id:
+        cardTitle = t('interactionNote');
+        iconType = 'commentIcon';
+        break;
+    }
+    cardBody = comment;
+  };
+
   switch (_type) {
     case ACCEPTED_STEP:
       const { pathway_stage } = challenge_suggestion || {};
@@ -121,10 +143,7 @@ const JourneyItem = ({ item, myId, personFirstName }: JourneyItemProps) => {
       iconType = 'surveyIcon';
       break;
     case 'interaction':
-      const interaction = interactions[interaction_type_id];
-      cardTitle = interaction && t(interaction.translationKey);
-      cardBody = comment;
-      iconType = interaction && interaction.iconName;
+      buildInteractionContent();
       break;
     case 'contact_assignment':
       cardTitle = getAssignmentText(myId, personFirstName, item);

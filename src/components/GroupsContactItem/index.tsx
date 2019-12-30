@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Flex, Text, Icon, DateComponent, Card } from '../../components/common';
 import {
-  getAssignedByName,
-  getAssignedToName,
+  getAssignmentText,
+  getUnassignmentText,
   getIconName,
 } from '../../utils/common';
 import { INTERACTION_TYPES } from '../../constants';
@@ -85,19 +85,9 @@ const GroupsContactItem = ({ item, person, myId }: GroupsContactItemProps) => {
   if (item.survey && item.survey.title) {
     title = item.survey.title;
   } else if (item._type === 'contact_assignment') {
-    const assignedToName = getAssignedToName(myId, item);
-    const assignedByName = getAssignedByName(myId, item);
-    title = t('contactAssignment', {
-      assignedByName,
-      assignedContactName: person.first_name,
-      assignedToName,
-    });
+    title = getAssignmentText(myId, person.first_name, item);
   } else if (item._type === 'contact_unassignment') {
-    const assignedToName = getAssignedToName(myId, item);
-    title = t('contactUnassignment', {
-      assignedContactName: person.first_name,
-      assignedToName,
-    });
+    title = getUnassignmentText(myId, person.first_name, item);
   } else if (item._type === 'pathway_progression_audit') {
     if (item.old_pathway_stage) {
       title = t('stageChange', {
