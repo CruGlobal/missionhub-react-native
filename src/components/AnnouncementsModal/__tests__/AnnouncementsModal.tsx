@@ -94,6 +94,37 @@ describe('User clicks the Modal Action Button', () => {
     expect(getByTestId('CompleteAnnouncementActionButton')).toBeTruthy();
   });
 
+  it('Should fire the HANDLE_ANNOUNCEMENT mutation with no action', async () => {
+    const { getByTestId, snapshot } = renderWithContext(
+      <AnnouncementsModal />,
+      {
+        initialState,
+        mocks: {
+          AnnouncementConnection: () => ({
+            nodes: () => [
+              {
+                body: 'This is  a test for the new modal',
+                id: '24',
+                title: 'Another Test 17',
+                actions: { nodes: [] },
+              },
+            ],
+          }),
+        },
+      },
+    );
+    await flushMicrotasksQueue();
+
+    expect(getByTestId('CompleteAnnouncementNoActionButton')).toBeTruthy();
+    snapshot();
+    await fireEvent.press(getByTestId('CompleteAnnouncementNoActionButton'));
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
+      variables: {
+        input: { announcementId: '24' },
+      },
+    });
+  });
+
   it('Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO action', async () => {
     const { getByTestId, snapshot } = renderWithContext(
       <AnnouncementsModal />,

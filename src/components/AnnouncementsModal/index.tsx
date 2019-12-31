@@ -99,8 +99,6 @@ const AnnouncementsModal = () => {
           changeModalVisbility(false);
           refetch();
           return trackAction(args, {});
-        default:
-          break;
       }
     } else {
       await handleAnnouncementAction({
@@ -171,6 +169,7 @@ const AnnouncementsModal = () => {
             )
           ) : (
             <Button
+              testID={'CompleteAnnouncementNoActionButton'}
               pill={true}
               style={modalButton}
               text={t('done')}
