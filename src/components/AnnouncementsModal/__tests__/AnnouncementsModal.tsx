@@ -8,7 +8,7 @@ import { renderWithContext } from '../../../../testUtils';
 import AnnouncementsModal, { GET_ANNOUNCEMENTS } from '..';
 
 const initialState = {};
-xit('renders correctly', async () => {
+it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<AnnouncementsModal />, {
     initialState,
     mocks: {
