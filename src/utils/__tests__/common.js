@@ -1,4 +1,5 @@
 /* eslint max-lines: 0 */
+/* eslint-disable quotes */
 
 import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
@@ -19,8 +20,8 @@ import {
   showAssignButton,
   showUnassignButton,
   showDeleteButton,
-  getAssignedByName,
-  getAssignedToName,
+  getAssignmentText,
+  getUnassignmentText,
   getPersonPhoneNumber,
   getPersonEmailAddress,
   getStageIndex,
@@ -46,9 +47,6 @@ jest.mock('react-navigation-drawer', () => ({
   },
 }));
 jest.mock('../../actions/analytics');
-
-const id = '123';
-const first_name = 'Roger';
 
 describe('buildTrackingObj', () => {
   const name = 'screen name';
@@ -486,31 +484,83 @@ describe('showDeleteButton', () => {
   });
 });
 
-describe('getAssignedToName', () => {
-  it('should return You if the user is the assigned_to', () => {
-    expect(getAssignedToName(id, { assigned_to: { id } })).toEqual('You');
+describe('getAssignmentText', () => {
+  const myId = '1';
+  const otherId = '2';
+  const mePerson = { id: myId };
+  const otherPerson = { id: otherId, first_name: 'Dan' };
+  const personFirstName = 'Daniel';
+
+  it('returns text for person assigned to You by You', () => {
+    const item = { assigned_to: mePerson, assigned_by: mePerson };
+
+    expect(
+      getAssignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was assigned to You by You"`);
   });
 
-  it('should return the name of assigned_to if it is not the user', () => {
+  it('returns text for person assigned to You by other', () => {
+    const item = { assigned_to: mePerson, assigned_by: otherPerson };
+
     expect(
-      getAssignedToName('200', { assigned_to: { id: 'anything', first_name } }),
-    ).toEqual(first_name);
+      getAssignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was assigned to You by Dan"`);
+  });
+
+  it('returns text for person assigned to You', () => {
+    const item = { assigned_to: mePerson, assigned_by: undefined };
+
+    expect(
+      getAssignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was assigned to You"`);
+  });
+
+  it('returns text for person assigned to other by You', () => {
+    const item = { assigned_to: otherPerson, assigned_by: mePerson };
+
+    expect(
+      getAssignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was assigned to Dan by You"`);
+  });
+
+  it('returns text for person assigned to other by other', () => {
+    const item = { assigned_to: otherPerson, assigned_by: otherPerson };
+
+    expect(
+      getAssignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was assigned to Dan by Dan"`);
+  });
+
+  it('returns text for person assigned to other', () => {
+    const item = { assigned_to: otherPerson, assigned_by: undefined };
+
+    expect(
+      getAssignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was assigned to Dan"`);
   });
 });
 
-describe('getAssignedByName', () => {
-  it('should return nothing if assigned_by is not set', () => {
-    expect(getAssignedByName('anything', {})).toEqual('');
-  });
+describe('getUnassignmentText', () => {
+  const myId = '1';
+  const otherId = '2';
+  const mePerson = { id: myId };
+  const otherPerson = { id: otherId, first_name: 'Dan' };
+  const personFirstName = 'Daniel';
 
-  it('should return You if the user is the assigned_by', () => {
-    expect(getAssignedByName(id, { assigned_by: { id } })).toEqual(' by You');
-  });
+  it('returns text for person unassigned from You', () => {
+    const item = { assigned_to: mePerson };
 
-  it('should return the name of assigned_by if it is not the user', () => {
     expect(
-      getAssignedByName('200', { assigned_by: { id: 'anything', first_name } }),
-    ).toEqual(` by ${first_name}`);
+      getUnassignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was unassigned from You"`);
+  });
+
+  it('returns text for person unassigned from other', () => {
+    const item = { assigned_to: otherPerson };
+
+    expect(
+      getUnassignmentText(myId, personFirstName, item),
+    ).toMatchInlineSnapshot(`"Daniel was unassigned from Dan"`);
   });
 });
 

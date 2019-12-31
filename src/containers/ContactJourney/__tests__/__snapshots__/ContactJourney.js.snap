@@ -282,7 +282,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
 `;
 
 exports[`journey methods renders a stage change row 1`] = `
-<withI18nextTranslation(JourneyItem)
+<JourneyItem
   item={
     Object {
       "_type": "pathway_progression_audit",
@@ -308,7 +308,7 @@ exports[`journey methods renders a step row 1`] = `
   }
   onEdit={[Function]}
 >
-  <withI18nextTranslation(JourneyItem)
+  <JourneyItem
     item={
       Object {
         "_type": "accepted_challenge",
@@ -323,7 +323,7 @@ exports[`journey methods renders a step row 1`] = `
 `;
 
 exports[`journey methods renders a survey row 1`] = `
-<withI18nextTranslation(JourneyItem)
+<JourneyItem
   item={
     Object {
       "_type": "answer_sheet",
@@ -350,7 +350,7 @@ exports[`journey methods renders an interaction row 1`] = `
   }
   onEdit={[Function]}
 >
-  <withI18nextTranslation(JourneyItem)
+  <JourneyItem
     item={
       Object {
         "_type": "interaction",

@@ -1,0 +1,2441 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`answer_sheet renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Test Survey
+    </Text>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        Question 1
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Answer 1
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        Question 2
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Answer 2
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+              "fontSize": 14,
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        Question 3
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        Answer 3
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`contact_assignment renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Test Person was assigned to You
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`contact_unassignment renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Test Person was unassigned from You
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Discipleship Conversation correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Discipleship Conversations
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Gospel Presentation correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Gospel Presentations
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Holy Spirit Conversation correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Holy Spirit Presentations
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Note correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {
+                "fontSize": 32,
+              },
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Comment
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Personal Decision correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Personal Decisions
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Something Cool Happened correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Something Cool Happened
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`interaction renders Spiritual Conversation correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Spiritual Conversations
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Interaction
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`stage is rendered correctly with old stage for a contact 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Uninterested to Curious
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Person changed from Uninterested to Curious
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`stage is rendered correctly with old stage for self 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Uninterested to Curious
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      You changed from Uninterested to Curious
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`stage is rendered correctly without old stage for a contact 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Curious
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      You added Test Person to MissionHub as Curious
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`stage is rendered correctly without old stage for self 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Curious
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      You added yourself to MissionHub as Curious
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`step is rendered correctly with comment 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Completed Step of Faith
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Step
+
+test comment on completed step
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`step is rendered correctly with pathway stage 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Completed Guiding Step of Faith
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Step
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`step is rendered correctly without comment 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "paddingRight": 24,
+        "paddingVertical": 19,
+        "width": 750,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+        },
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 32,
+            },
+            Array [
+              Object {
+                "alignSelf": "center",
+                "color": "#007398",
+                "fontSize": 40,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderLeftColor": "#ECEEF2",
+          "borderLeftWidth": 1,
+          "paddingBottom": 5,
+          "paddingLeft": 20,
+        },
+        Object {
+          "flex": 3.5,
+          "flexDirection": "column",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 10,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      December 6, 2017
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Completed Step of Faith
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Test Step
+    </Text>
+  </View>
+</View>
+`;
