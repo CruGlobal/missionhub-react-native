@@ -18,5 +18,18 @@ it('renders correctly', async () => {
   await flushMicrotasksQueue();
 
   snapshot();
+
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+});
+
+it('Should not render if there are no announcements', async () => {
+  const { snapshot } = renderWithContext(<AnnouncementsModal />, {
+    initialState,
+    mocks: {
+      AnnouncementConnection: () => ({ nodes: () => [] }),
+    },
+  });
+  await flushMicrotasksQueue();
+  snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
 });
