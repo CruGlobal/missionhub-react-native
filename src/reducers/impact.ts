@@ -1,16 +1,40 @@
 import { REQUESTS } from '../api/routes';
 import {
   LOGOUT,
-  UPDATE_PEOPLE_INTERACTION_REPORT,
   INTERACTION_TYPES,
+  UPDATE_PEOPLE_INTERACTION_REPORT,
 } from '../constants';
+import { Organization } from './organizations';
+import { Person } from './people';
 
-const initialState = {
+export interface Interaction {
+  id: string;
+  _type: 'interaction';
+  created_by_id: string;
+  interaction_type_name: string;
+  interaction_type_id: number;
+  updated_by_id: string;
+  comment: string;
+  privacy_setting: string;
+  timestamp: string;
+  created_at: string;
+  organization: Organization;
+  receiver: Person;
+  creator: Person;
+}
+
+export interface ImpactState {
+  summary: any;
+  interactions: { [key: string]: Interaction };
+}
+
+const initialState: ImpactState = {
   summary: {},
   interactions: {},
 };
 
-export default function impactReducer(state = initialState, action) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function impactReducer(state = initialState, action: any) {
   switch (action.type) {
     case REQUESTS.GET_IMPACT_SUMMARY.SUCCESS:
       const impact = action.results.response;
@@ -27,7 +51,7 @@ export default function impactReducer(state = initialState, action) {
       const report = action.personId
         ? action.report
         : action.report.filter(
-            type =>
+            (type: { id: string }) =>
               type.id !==
                 INTERACTION_TYPES.MHInteractionTypeAssignedContacts.id &&
               type.id !== INTERACTION_TYPES.MHInteractionTypeUncontacted.id,
@@ -50,4 +74,5 @@ export default function impactReducer(state = initialState, action) {
   }
 }
 
-const storageKey = (personId, orgId) => `${personId || ''}-${orgId || ''}`;
+const storageKey = (personId: string, orgId: string) =>
+  `${personId || ''}-${orgId || ''}`;

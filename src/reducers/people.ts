@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint complexity: 0 */
 
 import { REQUESTS } from '../api/routes';
@@ -11,9 +12,60 @@ import {
 } from '../constants';
 
 import { Organization } from './organizations';
+import { Step } from './steps';
+import { Interaction } from './impact';
+import { User } from './auth';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Person = any;
+export interface Person {
+  id: string;
+  _type: 'person';
+  created_at: string;
+  first_name: string;
+  full_name: string;
+  gender: string;
+  last_name?: string;
+  updated_at: string;
+  email_addresses: string[];
+  pathway_progression_audits: any[];
+  phone_numbers: string[];
+  user?: User;
+  answer_sheets: any[];
+  received_challenges: Step[];
+  person_notes: PersonNote[];
+  reverse_contact_assignments: ContactAssignment[];
+  interactions: Interaction[];
+  contact_assignments: ContactAssignment[];
+  organizational_permissions: OrgPermission[];
+}
+
+export interface PersonNote {
+  id: string;
+  _type: 'person_notes';
+  content: string;
+}
+
+export interface ContactAssignment {
+  id: string;
+  _type: 'contact_assignment';
+  person_id: string;
+  created_at: string;
+  pathway_stage_id: string;
+  assigned_to: Person;
+  assigned_by: Person;
+  organization: Organization;
+}
+
+export interface OrgPermission {
+  id: string;
+  _type: 'organizational_permission';
+  followup_status?: string;
+  organization_id: string;
+  person_id: string;
+  permission_id: number;
+  cru_status?: string;
+  archive_date?: string;
+  organization: Organization;
+}
 
 export interface PeopleState {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

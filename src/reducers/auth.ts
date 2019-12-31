@@ -11,6 +11,25 @@ import { REQUESTS } from '../api/routes';
 
 import { Person } from './people';
 
+export interface User {
+  id: string;
+  _type: 'user';
+  timezone: string;
+  hidden_organizations: string[];
+  organization_order: string[];
+  terms_acceptance_date: string;
+  language: string;
+  mobile_language: string;
+  notification_settings?: string;
+  pathway_stage_id: string;
+  onaboarding_status: string;
+  username: string;
+  created_at: string;
+  updated_at: string;
+  last_sign_in_at?: string;
+  groups_feature: boolean;
+}
+
 export interface AuthState {
   token: string;
   refreshToken: string;
