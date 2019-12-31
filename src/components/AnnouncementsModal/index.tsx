@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 
 import { Button, Flex } from '../../components/common';
 import IconButton from '../IconButton';
+import { trackAction } from '../../actions/analytics';
 
 import styles from './styles';
 import {
@@ -14,7 +15,6 @@ import {
   GetAnnouncements_announcements_nodes_actions_nodes,
 } from './__generated__/GetAnnouncements';
 import { handleAnnouncement } from './__generated__/handleAnnouncement';
-import { trackAction } from '../../actions/analytics';
 
 export const GET_ANNOUNCEMENTS = gql`
   query GetAnnouncements {
@@ -123,7 +123,7 @@ const AnnouncementsModal = () => {
         changeModalVisbility(true);
       }
     }
-  }, [announcements, announcement]);
+  }, [announcements, announcement, nodes]);
 
   if (loading || !announcement) {
     return null;
