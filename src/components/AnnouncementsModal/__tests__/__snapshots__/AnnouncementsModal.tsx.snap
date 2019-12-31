@@ -2,12 +2,31 @@
 
 exports[`Should not render if there are no announcements 1`] = `null`;
 
-exports[`renders correctly 1`] = `
+exports[`User clicks the Modal Action Button Should change modal visibility when they click the modal action button 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,10 +1,10 @@
+  <Modal
+    animationType=\\"slide\\"
+    hardwareAccelerated={false}
+    transparent={true}
+-   visible={true}
++   visible={false}
+  >
+    <View
+      style={
+        Object {
+          \\"alignItems\\": \\"center\\","
+`;
+
+exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO action 1`] = `
 <Modal
   animationType="slide"
   hardwareAccelerated={false}
   transparent={true}
-  visible={true}
+  visible={false}
 >
   <View
     style={
@@ -129,7 +148,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        recusandae alias consequuntur
+        Another Test 17
       </Text>
       <Text
         style={
@@ -141,7 +160,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        esse repellat quisquam
+        This is  a test for the new modal
       </Text>
       <View
         accessible={true}
@@ -159,7 +178,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="Button"
+        testID="CompleteAnnouncementActionButton"
       >
         <View
           style={
@@ -214,10 +233,156 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            CORPORIS REPELLAT RATIONE
+            GO TO GOOGLE
           </Text>
         </View>
       </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | Track action 1`] = `
+<Modal
+  animationType="slide"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={false}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 14,
+          "flex": 0.4,
+          "justifyContent": "space-around",
+          "padding": 14,
+          "paddingVertical": 40,
+          "width": "80%",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": -60,
+              "width": "100%",
+            },
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 32,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                        "justifyContent": "flex-end",
+                        "margin": 0,
+                      },
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#333333",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlign": "center",
+          }
+        }
+      >
+        Another Test 17
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "lineHeight": 22,
+            "textAlign": "center",
+          }
+        }
+      >
+        This is  a test for the new modal
+      </Text>
       <View
         accessible={true}
         focusable={true}
@@ -234,7 +399,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="Button"
+        testID="CompleteAnnouncementActionButton"
       >
         <View
           style={
@@ -289,7 +454,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            LIBERO QUI RECUSANDAE
+            TRACK THIS ACTION
           </Text>
         </View>
       </View>

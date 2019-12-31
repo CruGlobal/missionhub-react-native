@@ -6,7 +6,6 @@ import gql from 'graphql-tag';
 
 import { Button, Flex } from '../../components/common';
 import IconButton from '../IconButton';
-import Analytics from '../../containers/Analytics';
 
 import styles from './styles';
 import {
@@ -15,6 +14,7 @@ import {
   GetAnnouncements_announcements_nodes_actions_nodes,
 } from './__generated__/GetAnnouncements';
 import { handleAnnouncement } from './__generated__/handleAnnouncement';
+import { trackAction } from '../../actions/analytics';
 
 export const GET_ANNOUNCEMENTS = gql`
   query GetAnnouncements {
@@ -64,9 +64,11 @@ const AnnouncementsModal = () => {
     bodyText,
   } = styles;
   const { t } = useTranslation('common');
-  const { data, refetch, loading } = useQuery<GetAnnouncements>(
-    GET_ANNOUNCEMENTS,
-  );
+  const {
+    data: { announcements, announcements: { nodes = [] } = {} } = {},
+    refetch,
+    loading,
+  } = useQuery<GetAnnouncements>(GET_ANNOUNCEMENTS);
   const [handleAnnouncementAction] = useMutation<handleAnnouncement>(
     HANDLE_ANNOUNCEMENTS,
   );
@@ -96,7 +98,7 @@ const AnnouncementsModal = () => {
         case 'track':
           changeModalVisbility(false);
           refetch();
-          return <Analytics screenName={args} />;
+          return trackAction(args, {});
         default:
           break;
       }
@@ -115,13 +117,13 @@ const AnnouncementsModal = () => {
   };
 
   useEffect(() => {
-    if (data && data.announcements.nodes) {
-      setAnnouncements(data.announcements.nodes[0]);
+    if (announcements && announcements.nodes) {
+      setAnnouncements(announcements.nodes[0]);
       if (announcement) {
         changeModalVisbility(true);
       }
     }
-  }, [data]);
+  }, [announcements, announcement]);
 
   if (loading || !announcement) {
     return null;
@@ -155,6 +157,7 @@ const AnnouncementsModal = () => {
               (action: GetAnnouncements_announcements_nodes_actions_nodes) => {
                 return (
                   <Button
+                    testID={'CompleteAnnouncementActionButton'}
                     key={action.id}
                     pill={true}
                     style={modalButton}
