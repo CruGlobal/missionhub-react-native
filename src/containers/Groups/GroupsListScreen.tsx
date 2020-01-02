@@ -131,7 +131,8 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics('communities');
+  const trackingName = 'communities';
+  useAnalytics(trackingName);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -219,7 +220,7 @@ const GroupsListScreen = ({
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
-  const handleOpenMainMenu = () => dispatch(openMainMenu());
+  const handleOpenMainMenu = () => dispatch(openMainMenu(trackingName));
 
   const handleScroll = ({
     nativeEvent,

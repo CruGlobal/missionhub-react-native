@@ -21,7 +21,6 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
-import { trackScreenChange } from '../actions/analytics';
 
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
@@ -41,10 +40,14 @@ export const isAndroid = Platform.OS === 'android';
 
 export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
-export const openMainMenu = () => {
+export const openMainMenu = mainScreenTracking => {
   return dispatch => {
-    dispatch(trackScreenChange('menu'));
-    dispatch(DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER }));
+    dispatch(
+      DrawerActions.openDrawer({
+        drawer: MAIN_MENU_DRAWER,
+        mainScreenTracking,
+      }),
+    );
   };
 };
 export const buildTrackingObj = (

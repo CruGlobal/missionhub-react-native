@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Image,
@@ -39,6 +39,7 @@ interface StepsScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   steps: Step[] | null;
   hasMoreSteps: boolean;
+  isOpen: boolean;
 }
 
 function isCloseToBottom({
@@ -53,8 +54,14 @@ function isCloseToBottom({
   );
 }
 
-const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
-  useAnalytics('steps');
+const StepsScreen = ({
+  dispatch,
+  steps,
+  hasMoreSteps,
+  isOpen,
+}: StepsScreenProps) => {
+  const trackingName = 'steps';
+  useAnalytics(trackingName);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('stepsTab');
 
@@ -64,7 +71,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   const firstTimeLoading = !steps;
   const hasSteps = steps && steps.length > 0;
 
-  const handleOpenMainMenu = () => dispatch(openMainMenu());
+  const handleOpenMainMenu = () => dispatch(openMainMenu(trackingName));
   const getSteps = () => dispatch(getMySteps());
 
   const handleRefresh = () => {

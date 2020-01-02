@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Alert, Linking } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
@@ -8,18 +8,35 @@ import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
 import { logout } from '../../actions/auth/auth';
+import { trackScreenChange } from '../../actions/analytics';
 import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
 import { navigatePush } from '../../actions/navigation';
 import { AuthState } from '../../reducers/auth';
+import { DrawerState } from '../../reducers/drawer';
 
 interface SettingsMenuProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   isAnonymousUser: boolean;
+  isOpen: boolean;
+  mainScreenTracking: string | null;
 }
 
-const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
+const SettingsMenu = ({
+  dispatch,
+  isAnonymousUser,
+  isOpen,
+  mainScreenTracking,
+}: SettingsMenuProps) => {
   const { t } = useTranslation('settingsMenu');
+  useEffect(() => {
+    if (isOpen) {
+      dispatch(trackScreenChange('menu'));
+    } else if (mainScreenTracking) {
+      dispatch(trackScreenChange(mainScreenTracking));
+    }
+  }, [isOpen]);
+
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);
     if (!supported) {
@@ -75,7 +92,15 @@ const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
   return <SideMenu testID="Menu" menuItems={menuItems} />;
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+const mapStateToProps = ({
+  auth,
+  drawer,
+}: {
+  auth: AuthState;
+  drawer: DrawerState;
+}) => ({
   isAnonymousUser: !!auth.upgradeToken,
+  isOpen: drawer.isOpen,
+  mainScreenTracking: drawer.mainScreenTracking,
 });
 export default connect(mapStateToProps)(SettingsMenu);

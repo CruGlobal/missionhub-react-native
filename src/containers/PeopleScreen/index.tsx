@@ -44,11 +44,12 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
-  useAnalytics('people');
+  const trackingName = 'people';
+  useAnalytics(trackingName);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('peopleScreen');
 
-  const onOpenMainMenu = () => dispatch(openMainMenu());
+  const onOpenMainMenu = () => dispatch(openMainMenu(trackingName));
 
   const handleAddContact = (org: Organization) => {
     dispatch(
