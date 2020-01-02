@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { PeopleState, Person } from '../reducers/people';
+import { PeopleState, Person, ContactAssignment } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 import { Organization } from '../reducers/organizations';
 
@@ -8,7 +8,6 @@ import { removeHiddenOrgs } from './selectorUtils';
 
 interface Org {
   id: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   people: Person[];
   name: string;
 }
@@ -16,13 +15,15 @@ interface Org {
 export const peopleByOrgSelector = createSelector(
   ({ people }: { auth: AuthState; people: PeopleState }) => people.allByOrg,
   ({ auth }: { auth: AuthState; people: PeopleState }) => auth.person,
-  (orgs, authUser) =>
-    sortOrgs(removeHiddenOrgs(Object.values(orgs), authUser), authUser)
+  (orgs, authPerson) =>
+    sortOrgs(removeHiddenOrgs(Object.values(orgs), authPerson), authPerson)
       .map((org: Org) => ({
         ...org,
         people: Object.values(org.people)
-          .filter(person => isAssignedToMeInOrganization(person, org, authUser))
-          .sort((a, b) => sortPeople(a, b, authUser)),
+          .filter(person =>
+            isAssignedToMeInOrganization(person, org, authPerson),
+          )
+          .sort((a, b) => sortPeople(a, b, authPerson)),
       }))
       .filter(
         (o: Org) => o.people && (o.id === 'personal' || o.people.length > 0),
@@ -33,8 +34,7 @@ export const allAssignedPeopleSelector = createSelector(
   ({ people }: { auth: AuthState; people: PeopleState }) => people.allByOrg,
   ({ auth }: { auth: AuthState; people: PeopleState }) => auth.person,
   (orgs, authUser) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const allPeople: any = {};
+    const allPeople: { [key: string]: Person } = {};
     removeHiddenOrgs(Object.values(orgs), authUser).forEach((org: Org) => {
       Object.values(org.people)
         .filter((person: Person) =>
@@ -66,8 +66,7 @@ const isAssignedToMeInOrganization = (
 
   return (
     reverse_contact_assignments &&
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    reverse_contact_assignments.filter((a: any) => {
+    reverse_contact_assignments.filter((a: ContactAssignment) => {
       const { assigned_to, organization } = a;
 
       return (
@@ -79,26 +78,23 @@ const isAssignedToMeInOrganization = (
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const sortOrgs = (orgs: any, authUser: Person) => {
-  const orgOrder = authUser.user.organization_order;
+const sortOrgs = (orgs: Organization[], authPerson: Person) => {
+  const orgOrder = authPerson.user && authPerson.user.organization_order;
 
   return orgOrder
-    ? sortWithPersonalInFront(
-        orgs,
-        (a: Org, b: Org) => orgOrder.indexOf(a.id) > orgOrder.indexOf(b.id),
+    ? sortWithPersonalInFront(orgs, (a, b) =>
+        orgOrder.indexOf(a.id) > orgOrder.indexOf(b.id) ? 1 : -1,
       )
-    : sortWithPersonalInFront(orgs, (a: Org, b: Org) =>
+    : sortWithPersonalInFront(orgs, (a, b) =>
         a.name ? a.name.localeCompare(b.name) : 1,
       );
 };
 
 const sortWithPersonalInFront = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  orgs: any,
-  sortFn: (a: Org, b: Org) => boolean | number,
+  orgs: Organization[],
+  sortFn: (a: Organization, b: Organization) => number,
 ) =>
-  orgs.sort((a: Org, b: Org) => {
+  orgs.sort((a, b) => {
     // Sort orgs by name
     // Keep Personal Ministry org in front
     if (a.id === 'personal') {
@@ -154,17 +150,14 @@ export const contactAssignmentSelector = createSelector(
     } = person;
 
     return reverse_contact_assignments.find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (assignment: any) =>
-        assignment.assigned_to &&
+      assignment =>
         assignment.assigned_to.id === authUserId &&
         (!orgId || orgId === 'personal'
           ? !assignment.organization
           : assignment.organization &&
             orgId === assignment.organization.id &&
             organizational_permissions.some(
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (org_permission: any) =>
+              org_permission =>
                 org_permission.organization_id === assignment.organization.id,
             )),
     );
@@ -178,7 +171,6 @@ export const orgPermissionSelector = createSelector(
   (person, organization) =>
     organization &&
     (person.organizational_permissions || []).find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (orgPermission: any) => orgPermission.organization_id === organization.id,
+      orgPermission => orgPermission.organization_id === organization.id,
     ),
 );

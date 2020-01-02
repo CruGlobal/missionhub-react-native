@@ -23,7 +23,7 @@ export interface Person {
   first_name: string;
   full_name: string;
   gender: string;
-  last_name?: string;
+  last_name: string;
   updated_at: string;
   email_addresses: string[];
   pathway_progression_audits: any[];
@@ -51,8 +51,8 @@ export interface ContactAssignment {
   created_at: string;
   pathway_stage_id: string;
   assigned_to: Person;
-  assigned_by: Person;
-  organization: Organization;
+  assigned_by?: Person;
+  organization?: Organization;
 }
 
 export interface OrgPermission {

@@ -1,11 +1,6 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
-import {
-  CLEAR_UPGRADE_TOKEN,
-  LOGOUT,
-  UPDATE_STAGES,
-  UPDATE_TOKEN,
-} from '../constants';
+import { CLEAR_UPGRADE_TOKEN, LOGOUT, UPDATE_TOKEN } from '../constants';
 import { userIsJean } from '../utils/common';
 import { REQUESTS } from '../api/routes';
 
@@ -22,7 +17,7 @@ export interface User {
   mobile_language: string;
   notification_settings?: string;
   pathway_stage_id: string;
-  onaboarding_status: string;
+  onboarding_status: string;
   username: string;
   created_at: string;
   updated_at: string;
@@ -30,18 +25,59 @@ export interface User {
   groups_feature: boolean;
 }
 
+export interface AuthPerson extends Person {
+  user: User;
+}
+
 export interface AuthState {
   token: string;
   refreshToken: string;
-  person: Person;
+  person: AuthPerson;
   isJean: boolean;
   upgradeToken: string | null;
 }
 
+const initialPerson: AuthPerson = {
+  id: '',
+  _type: 'person',
+  created_at: '',
+  first_name: '',
+  full_name: '',
+  gender: 'None',
+  last_name: '',
+  updated_at: '',
+  email_addresses: [],
+  pathway_progression_audits: [],
+  phone_numbers: [],
+  user: {
+    id: '',
+    _type: 'user',
+    timezone: '',
+    hidden_organizations: [],
+    organization_order: [],
+    terms_acceptance_date: '',
+    language: '',
+    mobile_language: '',
+    pathway_stage_id: '',
+    onboarding_status: '',
+    username: '',
+    created_at: '',
+    updated_at: '',
+    groups_feature: false,
+  },
+  answer_sheets: [],
+  received_challenges: [],
+  person_notes: [],
+  reverse_contact_assignments: [],
+  interactions: [],
+  contact_assignments: [],
+  organizational_permissions: [],
+};
+
 const initialAuthState: AuthState = {
   token: '',
   refreshToken: '',
-  person: { user: {} },
+  person: initialPerson,
   isJean: false,
   upgradeToken: null,
 };
@@ -108,10 +144,7 @@ function authReducer(state = initialAuthState, action: any) {
 
       return {
         ...state,
-        person: {
-          ...person,
-          stage: state.person.id === person.id ? state.person.stage : null, // Add the stage if we're getting the same user again
-        },
+        person,
         isJean: userIsJean(person.organizational_permissions),
       };
     case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
@@ -120,21 +153,6 @@ function authReducer(state = initialAuthState, action: any) {
         person: {
           ...state.person,
           unread_comments_count: results.response.unread_comments_count,
-        },
-      };
-    case REQUESTS.GET_STAGES.SUCCESS:
-    case UPDATE_STAGES:
-      // Add the matching 'stage' object to the user object
-      const stages = results ? results.response : action.stages;
-
-      return {
-        ...state,
-        person: {
-          ...state.person,
-          stage: stages.find(
-            (s: { id: string }) =>
-              s && s.id === `${state.person.user.pathway_stage_id}`,
-          ),
         },
       };
     case UPDATE_TOKEN:

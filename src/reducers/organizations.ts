@@ -18,9 +18,16 @@ import {
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
+import { Person } from './people';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Organization = any; // TODO: use GraphQL type
+
+export interface MemberPerson extends Person {
+  contact_count: number;
+  uncontacted_count: number;
+  contacts_with_interactions_count: number;
+}
 
 export interface PaginationObject {
   hasNextPage: boolean;

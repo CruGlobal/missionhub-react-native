@@ -7,32 +7,26 @@ import { useTranslation } from 'react-i18next';
 import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, Dot, Card } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
-import { orgPermissionSelector } from '../../selectors/people';
+import {
+  orgPermissionSelector,
+  contactAssignmentSelector,
+} from '../../selectors/people';
+import { stageSelector } from '../../selectors/stages';
 import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
 import ItemHeaderText from '../ItemHeaderText';
 import { AuthState } from '../../reducers/auth';
-import { StagesState, StagesObj } from '../../reducers/stages';
-import { Person } from '../../reducers/people';
-import { Organization } from '../../reducers/organizations';
+import { StagesState, Stage } from '../../reducers/stages';
+import { Person, OrgPermission } from '../../reducers/people';
+import { Organization, MemberPerson } from '../../reducers/organizations';
 
 import styles from './styles';
 
-interface PersonOrgPermissionInterface {
-  archive_date: string | null;
-  cru_status: string;
-  followup_status: string | null;
-  id: string;
-  organization: Organization;
-  organization_id: string;
-  permission_id: number;
-}
-
 interface GroupMemberItemProps {
-  onSelect: (person: Person) => void;
-  person: Person;
-  personOrgPermission: PersonOrgPermissionInterface;
-  stagesObj?: StagesObj;
-  me: Person;
+  onSelect: (person: MemberPerson) => void;
+  person: MemberPerson;
+  personOrgPermission?: OrgPermission;
+  myId: string;
+  stage?: Stage;
   organization: Organization;
   iAmAdmin: boolean;
   iAmOwner: boolean;
@@ -45,8 +39,8 @@ const GroupMemberItem = ({
   onSelect,
   person,
   personOrgPermission,
-  stagesObj,
-  me,
+  myId,
+  stage,
   organization,
   iAmAdmin,
   iAmOwner,
@@ -76,25 +70,6 @@ const GroupMemberItem = ({
   };
 
   const renderUserCreatedDetails = (isMe: boolean) => {
-    let stage = null;
-
-    const contactAssignments = person.reverse_contact_assignments || [];
-    if (isMe) {
-      stage = me.stage;
-    } else if (stagesObj) {
-      const contactAssignment = contactAssignments.find(
-        (a: Person) => a.assigned_to.id === me.id,
-      );
-
-      if (
-        contactAssignment &&
-        contactAssignment.pathway_stage_id &&
-        stagesObj[contactAssignment.pathway_stage_id]
-      ) {
-        stage = stagesObj[contactAssignment.pathway_stage_id];
-      }
-    }
-
     const permissionText = orgPermissionText();
 
     return (
@@ -128,7 +103,7 @@ const GroupMemberItem = ({
     );
   };
 
-  const isMe = person.id === me.id;
+  const isMe = person.id === myId;
   const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
 
   return (
@@ -150,7 +125,7 @@ const GroupMemberItem = ({
         </Flex>
         {showOptionsMenu ? (
           <MemberOptionsMenu
-            myId={me.id}
+            myId={myId}
             person={person}
             organization={organization}
             personOrgPermission={personOrgPermission}
@@ -173,8 +148,7 @@ const mapStateToProps = (
   }: {
     person: Person;
     organization: Organization;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    myOrgPermission: any;
+    myOrgPermission: OrgPermission;
   },
 ) => {
   const personOrgPermission = orgPermissionSelector(
@@ -185,9 +159,22 @@ const mapStateToProps = (
     },
   );
 
+  const myId = auth.person.id;
+
+  const stageId =
+    person.id === myId
+      ? auth.person.user.pathway_stage_id
+      : (
+          contactAssignmentSelector(
+            { auth },
+            { person, orgId: organization.id },
+          ) || {}
+        ).pathway_stage_id;
+  const stage = stageId ? stageSelector({ stages }, { stageId }) : undefined;
+
   return {
-    me: auth.person,
-    stagesObj: stages.stagesObj,
+    myId,
+    stage,
     iAmAdmin: isAdminOrOwner(myOrgPermission),
     iAmOwner: isOwner(myOrgPermission),
     personIsAdmin: isAdminOrOwner(personOrgPermission),

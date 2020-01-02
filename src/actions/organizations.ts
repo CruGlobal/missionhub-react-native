@@ -27,6 +27,7 @@ import {
 import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
 import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
+import { MemberPerson } from '../reducers/organizations';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
@@ -264,7 +265,7 @@ export function getOrganizationMembers(orgId: string, query = {}) {
       {},
     );
     // Merge the counts into the members array
-    const membersWithCounts = members.map(m => ({
+    const membersWithCounts: MemberPerson[] = members.map(m => ({
       ...m,
       ...(reportsCountObj[m.id] || {}),
     }));
