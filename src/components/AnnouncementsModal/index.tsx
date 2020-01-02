@@ -75,7 +75,7 @@ const AnnouncementsModal = () => {
   const [announcement, setAnnouncements] = useState<
     GetAnnouncements_announcements_nodes
   >();
-  const [modalVisibility, changeModalVisbility] = useState(true);
+  const [modalVisibility, changeModalVisbility] = useState(false);
 
   const completeAnnouncementAction = async (
     announcementId: string,
@@ -155,7 +155,7 @@ const AnnouncementsModal = () => {
               (action: GetAnnouncements_announcements_nodes_actions_nodes) => {
                 return (
                   <Button
-                    testID={'CompleteAnnouncementActionButton'}
+                    testID={'AnnouncementActionButton'}
                     key={action.id}
                     pill={true}
                     style={modalButton}
@@ -169,7 +169,7 @@ const AnnouncementsModal = () => {
             )
           ) : (
             <Button
-              testID={'CompleteAnnouncementNoActionButton'}
+              testID={'AnnouncementNoActionButton'}
               pill={true}
               style={modalButton}
               text={t('done')}

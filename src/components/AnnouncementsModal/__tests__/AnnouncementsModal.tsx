@@ -45,7 +45,7 @@ describe('User clicks the close button', () => {
     });
     await flushMicrotasksQueue();
 
-    expect(getByTestId('IconButton')).toBeTruthy();
+    expect(getByTestId('CloseButton')).toBeTruthy();
   });
   it('Should fire the HANDLE_ANNOUNCEMENTS mutation when the user clicks the close button', async () => {
     const { getByTestId } = renderWithContext(<AnnouncementsModal />, {
@@ -56,7 +56,7 @@ describe('User clicks the close button', () => {
     });
     await flushMicrotasksQueue();
 
-    await fireEvent.press(getByTestId('IconButton'));
+    await fireEvent.press(getByTestId('CloseButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
       variables: { input: { announcementId: '1' } },
     });
@@ -91,7 +91,7 @@ describe('User clicks the Modal Action Button', () => {
     });
     await flushMicrotasksQueue();
 
-    expect(getByTestId('CompleteAnnouncementActionButton')).toBeTruthy();
+    expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
   });
 
   it('Should fire the HANDLE_ANNOUNCEMENT mutation with no action', async () => {
@@ -115,14 +115,17 @@ describe('User clicks the Modal Action Button', () => {
     );
     await flushMicrotasksQueue();
 
-    expect(getByTestId('CompleteAnnouncementNoActionButton')).toBeTruthy();
+    expect(getByTestId('AnnouncementNoActionButton')).toBeTruthy();
     snapshot();
-    await fireEvent.press(getByTestId('CompleteAnnouncementNoActionButton'));
+    await fireEvent.press(getByTestId('AnnouncementNoActionButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
       variables: {
         input: { announcementId: '24' },
       },
     });
+    expect(getByTestId('AnnouncementNoActionButton').props.text).toEqual(
+      'Done',
+    );
   });
 
   it('Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO action', async () => {
@@ -155,13 +158,16 @@ describe('User clicks the Modal Action Button', () => {
     );
     await flushMicrotasksQueue();
 
-    expect(getByTestId('CompleteAnnouncementActionButton')).toBeTruthy();
-    await fireEvent.press(getByTestId('CompleteAnnouncementActionButton'));
+    expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
+    await fireEvent.press(getByTestId('AnnouncementActionButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
       variables: {
         input: { announcementId: '24', announcementActionId: '18' },
       },
     });
+    expect(getByTestId('AnnouncementActionButton').props.text).toEqual(
+      'GO TO GOOGLE',
+    );
     snapshot();
   });
 
@@ -195,13 +201,16 @@ describe('User clicks the Modal Action Button', () => {
     );
     await flushMicrotasksQueue();
 
-    expect(getByTestId('CompleteAnnouncementActionButton')).toBeTruthy();
-    await fireEvent.press(getByTestId('CompleteAnnouncementActionButton'));
+    expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
+    await fireEvent.press(getByTestId('AnnouncementActionButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
       variables: {
         input: { announcementId: '24', announcementActionId: '18' },
       },
     });
+    expect(getByTestId('AnnouncementActionButton').props.text).toEqual(
+      'TRACK THIS ACTION',
+    );
     snapshot();
   });
   it('Should change modal visibility when they click the modal action button', async () => {
@@ -234,8 +243,8 @@ describe('User clicks the Modal Action Button', () => {
     );
     await flushMicrotasksQueue();
     recordSnapshot();
-    expect(getByTestId('CompleteAnnouncementActionButton')).toBeTruthy();
-    await fireEvent.press(getByTestId('CompleteAnnouncementActionButton'));
+    expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
+    await fireEvent.press(getByTestId('AnnouncementActionButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
       variables: {
         input: { announcementId: '24', announcementActionId: '18' },

@@ -178,7 +178,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "opacity": 1,
           }
         }
-        testID="CompleteAnnouncementActionButton"
+        testID="AnnouncementActionButton"
       >
         <View
           style={
@@ -399,7 +399,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
             "opacity": 1,
           }
         }
-        testID="CompleteAnnouncementActionButton"
+        testID="AnnouncementActionButton"
       >
         <View
           style={
@@ -620,7 +620,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
             "opacity": 1,
           }
         }
-        testID="CompleteAnnouncementNoActionButton"
+        testID="AnnouncementNoActionButton"
       >
         <View
           style={
