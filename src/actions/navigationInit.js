@@ -4,10 +4,12 @@ import {
   GET_STARTED_ONBOARDING_FLOW,
 } from '../routes/constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
+import { RELOAD_APP } from '../constants';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 
 export const resetToInitialRoute = () => (dispatch, getState) => {
+  dispatch({ type: RELOAD_APP });
   const { auth, onboarding, people } = getState();
   if (auth && isAuthenticated(auth)) {
     if (

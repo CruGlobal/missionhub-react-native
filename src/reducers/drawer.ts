@@ -5,6 +5,7 @@ import {
   LogoutAction,
   MAIN_MENU_DRAWER,
   PERSON_MENU_DRAWER,
+  RELOAD_APP,
 } from '../constants';
 
 export interface DrawerState {
@@ -35,7 +36,11 @@ const initialState: DrawerState = {
   mainScreenTracking: null,
 };
 
-type DrawerActionTypes = OpenDrawerAction | CloseDrawerAction | LogoutAction;
+type DrawerActionTypes =
+  | OpenDrawerAction
+  | CloseDrawerAction
+  | { type: typeof RELOAD_APP }
+  | LogoutAction;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function drawerReducer(state = initialState, action: DrawerActionTypes) {
@@ -83,6 +88,8 @@ function drawerReducer(state = initialState, action: DrawerActionTypes) {
         default:
           return state;
       }
+    case RELOAD_APP:
+      return initialState;
     case LOGOUT:
       return initialState;
     default:

@@ -5,6 +5,7 @@ import {
   ANALYTICS,
   NOT_LOGGED_IN,
   LOGOUT,
+  RELOAD_APP,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 
@@ -34,6 +35,7 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
+  | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
 function analyticsReducer(
@@ -50,6 +52,11 @@ function analyticsReducer(
       return {
         ...state,
         [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
+      };
+    case RELOAD_APP:
+      return {
+        ...state,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
       };
     case LOGOUT:
       return {
