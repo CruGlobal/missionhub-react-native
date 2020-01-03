@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import { View, ScrollView, Keyboard, TextInput } from 'react-native';
 import { connect } from 'react-redux-legacy';
-
 import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import { Text, Flex, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
@@ -10,8 +10,25 @@ import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
 import Analytics from '../Analytics';
+import { Person } from '../../reducers/people';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
+
+interface ContactNotesProps {
+  person: Person;
+  myUserId: string;
+  myPersonId: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<any, null, never>;
+  isActiveTab: boolean;
+}
+
+interface NotesInterface {
+  text: string | undefined;
+  editing: boolean;
+  noteId: string | null;
+}
 
 const ContactNotes = ({
   person,
@@ -19,25 +36,25 @@ const ContactNotes = ({
   myPersonId,
   dispatch,
   isActiveTab,
-}) => {
+}: ContactNotesProps) => {
   const { t } = useTranslation('notes');
 
-  const [note, setNote] = useState({
+  const [note, setNote] = useState<NotesInterface>({
     text: undefined,
     editing: false,
     noteId: null,
   });
 
-  const inputRef = useRef();
+  const inputRef = useRef<TextInput>(null);
 
   const getNote = async () => {
     const results = await dispatch(getPersonNote(person.id, myUserId));
     const text = results ? results.content : undefined;
     const noteId = results ? results.id : null;
-    setNote({ noteId, text });
+    setNote({ ...note, noteId, text });
   };
 
-  const onTextChanged = text => {
+  const onTextChanged = (text: string) => {
     setNote({ ...note, text });
   };
 
@@ -47,7 +64,7 @@ const ContactNotes = ({
     } else {
       setNote({ ...note, editing: true }),
         () => {
-          inputRef.focus();
+          inputRef.current && inputRef.current.focus();
         };
     }
   };
@@ -83,6 +100,7 @@ const ContactNotes = ({
       return (
         <Flex value={1}>
           <Input
+            testID={'NoteInput'}
             ref={inputRef}
             onChangeText={onTextChanged}
             editable={note.editing}
@@ -90,7 +108,6 @@ const ContactNotes = ({
             style={styles.notesText}
             multiline={true}
             blurOnSubmit={false}
-            autoGrow={false}
             autoCorrect={true}
           />
         </Flex>
@@ -124,12 +141,16 @@ const ContactNotes = ({
     <View style={styles.container}>
       <Analytics screenName={['person', 'my notes']} />
       {note.text || note.editing ? renderNotes() : renderEmpty()}
-      <BottomButton onPress={onButtonPress} text={getButtonText()} />
+      <BottomButton
+        testID={'EditNoteButton'}
+        onPress={onButtonPress}
+        text={getButtonText()}
+      />
     </View>
   );
 };
 
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myPersonId: auth.person.id,
   myUserId: auth.person.user.id,
 });
