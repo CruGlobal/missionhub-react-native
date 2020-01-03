@@ -105,6 +105,25 @@ describe('contact notes', () => {
     expect(getByTestId('EditNoteButton').props.text).toEqual('Done');
     snapshot();
   });
+  it('Should setNote if the user didnt edit the note', () => {
+    const { snapshot, getByTestId } = renderWithContext(
+      <ContactNotes {...props} />,
+      {
+        initialState: {
+          auth: {
+            person,
+          },
+        },
+      },
+    );
+    getByTestId('EditNoteButton').props.onPress();
+    expect(getByTestId('EditNoteButton').props.text).toEqual('Done');
+    getByTestId('EditNoteButton').props.onPress();
+    expect(getByTestId('EditNoteButton').props.text).toEqual(
+      'ADD PRIVATE NOTES',
+    );
+    snapshot();
+  });
   it('Should say Edit Private Notes after clicking Done button', () => {
     const { snapshot, getByTestId } = renderWithContext(
       <ContactNotes {...props} />,
