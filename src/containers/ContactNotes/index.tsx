@@ -62,10 +62,7 @@ const ContactNotes = ({
     if (note.editing) {
       saveNote();
     } else {
-      setNote({ ...note, editing: true }),
-        () => {
-          inputRef.current && inputRef.current.focus();
-        };
+      setNote({ ...note, editing: true });
     }
   };
 

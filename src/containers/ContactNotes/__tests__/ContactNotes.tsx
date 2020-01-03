@@ -17,12 +17,9 @@ const person = { id: '141234', first_name: 'Roger', user: { id: '1234' } };
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/person');
-beforeEach(() => {
-  (getPersonNote as jest.Mock).mockReturnValue(() =>
-    Promise.resolve(props.note),
-  );
-  (savePersonNote as jest.Mock).mockReturnValue(() => {});
-});
+
+(getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve(props.note));
+(savePersonNote as jest.Mock).mockReturnValue(() => {});
 
 describe('contact notes', () => {
   const noNotes = {
