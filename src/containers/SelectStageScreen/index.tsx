@@ -106,8 +106,15 @@ const SelectStageScreen = ({
 
   useEffect(() => {
     async function loadStagesAndScrollToId() {
-      await dispatch(getStages());
-      handleSnapToItem(startIndex);
+      const newStages = await dispatch(getStages());
+      if (newStages[startIndex]) {
+        dispatch(
+          trackScreenChange([
+            'stage',
+            newStages[startIndex].name.toLowerCase(),
+          ]),
+        );
+      }
     }
 
     loadStagesAndScrollToId();

@@ -3,7 +3,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../api/routes';
-import { StagesState } from '../reducers/stages';
+import { StagesState, Stage } from '../reducers/stages';
 
 import callApi from './api';
 
@@ -27,11 +27,13 @@ export function getStagesIfNotExists() {
 
 export function getStages() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (dispatch: ThunkDispatch<{}, {}, any>) => {
-    return dispatch(
+  return async (dispatch: ThunkDispatch<{}, {}, any>) => {
+    const { response } = ((await dispatch(
       callApi(REQUESTS.GET_STAGES, {
         include: 'localized_pathway_stages',
       }),
-    );
+    )) as unknown) as { response: Stage[] };
+
+    return response;
   };
 }
