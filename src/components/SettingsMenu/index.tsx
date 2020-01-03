@@ -9,6 +9,7 @@ import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
 import { logout } from '../../actions/auth/auth';
 import { trackScreenChange } from '../../actions/analytics';
+import { MAIN_MENU_DRAWER } from '../../constants';
 import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
 import { navigatePush } from '../../actions/navigation';
 import { AuthState } from '../../reducers/auth';
@@ -89,7 +90,9 @@ const SettingsMenu = ({
           },
         ]),
   ];
-  return <SideMenu testID="Menu" menuItems={menuItems} />;
+  return (
+    <SideMenu testID="Menu" menuItems={menuItems} menuName={MAIN_MENU_DRAWER} />
+  );
 };
 
 const mapStateToProps = ({
@@ -100,7 +103,7 @@ const mapStateToProps = ({
   drawer: DrawerState;
 }) => ({
   isAnonymousUser: !!auth.upgradeToken,
-  isOpen: drawer.isOpen,
+  isOpen: drawer.menuIsOpen.mainMenu,
   mainScreenTracking: drawer.mainScreenTracking,
 });
 export default connect(mapStateToProps)(SettingsMenu);
