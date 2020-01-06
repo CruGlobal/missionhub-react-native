@@ -1,15 +1,22 @@
-import { useCallback } from 'react';
-import { useFocusEffect } from 'react-navigation-hooks';
+import { useEffect } from 'react';
+import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { trackScreenChange } from '../../actions/analytics';
 import { DrawerState } from '../../reducers/drawer';
 
+export enum ANALYTICS_SCREEN_TYPES {
+  screen,
+  screenWithDrawer,
+  drawer,
+}
+
 export const useAnalytics = (
   screenName: string | string[],
-  isDrawer = false,
+  screenType = ANALYTICS_SCREEN_TYPES.screen,
 ) => {
   const dispatch = useDispatch();
+  const isFocused = useIsFocused();
   const isDrawerOpen = useSelector(
     ({ drawer }: { drawer: DrawerState }) => drawer.isOpen,
   );
@@ -18,15 +25,21 @@ export const useAnalytics = (
     dispatch(trackScreenChange(name));
   };
 
-  useFocusEffect(
-    useCallback(() => {
-      if (isDrawer && isDrawerOpen) {
-        handleScreenChange(screenName);
-      } else if (!isDrawer && !isDrawerOpen) {
-        handleScreenChange(screenName);
+  useEffect(() => {
+    if (isFocused) {
+      if (
+        screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
+        isDrawerOpen
+      ) {
+        return;
       }
-    }, [isDrawerOpen]),
-  );
+      if (screenType === ANALYTICS_SCREEN_TYPES.drawer && !isDrawerOpen) {
+        return;
+      }
+
+      handleScreenChange(screenName);
+    }
+  }, [isFocused, isDrawerOpen]);
 
   return handleScreenChange;
 };

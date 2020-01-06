@@ -32,7 +32,10 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 
 import styles from './styles';
@@ -131,8 +134,7 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  const trackingName = 'communities';
-  useAnalytics(trackingName);
+  useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -220,7 +222,7 @@ const GroupsListScreen = ({
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
-  const handleOpenMainMenu = () => dispatch(openMainMenu(trackingName));
+  const handleOpenMainMenu = () => dispatch(openMainMenu());
 
   const handleScroll = ({
     nativeEvent,

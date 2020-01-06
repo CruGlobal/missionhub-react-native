@@ -40,14 +40,9 @@ export const isAndroid = Platform.OS === 'android';
 
 export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
-export const openMainMenu = mainScreenTracking => {
+export const openMainMenu = () => {
   return dispatch => {
-    dispatch(
-      DrawerActions.openDrawer({
-        drawer: MAIN_MENU_DRAWER,
-        mainScreenTracking,
-      }),
-    );
+    dispatch(DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER }));
   };
 };
 export const buildTrackingObj = (

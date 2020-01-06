@@ -23,7 +23,10 @@ import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { AuthState } from '../../reducers/auth';
 import { Person, PeopleState } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -44,12 +47,11 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
-  const trackingName = 'people';
-  useAnalytics(trackingName);
+  useAnalytics('people', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('peopleScreen');
 
-  const onOpenMainMenu = () => dispatch(openMainMenu(trackingName));
+  const onOpenMainMenu = () => dispatch(openMainMenu());
 
   const handleAddContact = (org: Organization) => {
     dispatch(

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   View,
   Image,
@@ -31,7 +31,10 @@ import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -39,7 +42,6 @@ interface StepsScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   steps: Step[] | null;
   hasMoreSteps: boolean;
-  isOpen: boolean;
 }
 
 function isCloseToBottom({
@@ -54,14 +56,8 @@ function isCloseToBottom({
   );
 }
 
-const StepsScreen = ({
-  dispatch,
-  steps,
-  hasMoreSteps,
-  isOpen,
-}: StepsScreenProps) => {
-  const trackingName = 'steps';
-  useAnalytics(trackingName);
+const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
+  useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('stepsTab');
 
@@ -71,7 +67,7 @@ const StepsScreen = ({
   const firstTimeLoading = !steps;
   const hasSteps = steps && steps.length > 0;
 
-  const handleOpenMainMenu = () => dispatch(openMainMenu(trackingName));
+  const handleOpenMainMenu = () => dispatch(openMainMenu());
   const getSteps = () => dispatch(getMySteps());
 
   const handleRefresh = () => {

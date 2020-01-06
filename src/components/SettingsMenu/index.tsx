@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Alert, Linking } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
@@ -8,13 +8,13 @@ import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
 import { logout } from '../../actions/auth/auth';
-import { trackScreenChange } from '../../actions/analytics';
-import { MAIN_MENU_DRAWER } from '../../constants';
 import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
 import { navigatePush } from '../../actions/navigation';
 import { AuthState } from '../../reducers/auth';
-import { DrawerState } from '../../reducers/drawer';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
 
 interface SettingsMenuProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,14 +24,9 @@ interface SettingsMenuProps {
   mainScreenTracking: string | null;
 }
 
-const SettingsMenu = ({
-  dispatch,
-  isAnonymousUser,
-  isOpen,
-  mainScreenTracking,
-}: SettingsMenuProps) => {
+const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
   const { t } = useTranslation('settingsMenu');
-  useAnalytics('menu', true);
+  useAnalytics('menu', ANALYTICS_SCREEN_TYPES.drawer);
 
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);
@@ -85,20 +80,10 @@ const SettingsMenu = ({
           },
         ]),
   ];
-  return (
-    <SideMenu testID="Menu" menuItems={menuItems} menuName={MAIN_MENU_DRAWER} />
-  );
+  return <SideMenu testID="Menu" menuItems={menuItems} />;
 };
 
-const mapStateToProps = ({
-  auth,
-  drawer,
-}: {
-  auth: AuthState;
-  drawer: DrawerState;
-}) => ({
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   isAnonymousUser: !!auth.upgradeToken,
-  isOpen: drawer.menuIsOpen.mainMenu,
-  mainScreenTracking: drawer.mainScreenTracking,
 });
 export default connect(mapStateToProps)(SettingsMenu);

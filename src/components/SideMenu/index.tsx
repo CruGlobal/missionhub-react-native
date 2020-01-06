@@ -7,7 +7,6 @@ import { AnyAction } from 'redux';
 
 import { Flex, Button, IconButton } from '../common';
 import { DrawerState } from '../../reducers/drawer';
-import { MAIN_MENU_DRAWER, PERSON_MENU_DRAWER } from '../../constants';
 
 import styles from './styles';
 
@@ -21,11 +20,10 @@ interface SideMenuProps {
   isOpen: boolean;
   dispatch: ThunkDispatch<{}, null, AnyAction>;
   menuItems: MenuItemsType[];
-  menuName: string;
   testID?: string;
 }
 
-const SideMenu = ({ isOpen, dispatch, menuItems, menuName }: SideMenuProps) => {
+const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', onBackPress);
 
@@ -36,15 +34,14 @@ const SideMenu = ({ isOpen, dispatch, menuItems, menuName }: SideMenuProps) => {
 
   const onBackPress = () => {
     if (isOpen) {
-      dispatch(DrawerActions.closeDrawer({ drawer: menuName }));
+      dispatch(DrawerActions.closeDrawer());
       return true;
     }
 
     return false;
   };
 
-  const closeDrawer = () =>
-    dispatch(DrawerActions.closeDrawer({ drawer: menuName }));
+  const closeDrawer = () => dispatch(DrawerActions.closeDrawer());
 
   return (
     <SafeAreaView style={styles.background}>
@@ -75,22 +72,8 @@ const SideMenu = ({ isOpen, dispatch, menuItems, menuName }: SideMenuProps) => {
   );
 };
 
-const mapStateToProps = (
-  { drawer }: { drawer: DrawerState },
-  { menuName }: { menuName: string },
-) => {
-  const {
-    menuIsOpen: { mainMenu, personMenu },
-  } = drawer;
-
-  return {
-    isOpen:
-      menuName === MAIN_MENU_DRAWER
-        ? mainMenu
-        : menuName === PERSON_MENU_DRAWER
-        ? personMenu
-        : false,
-  };
-};
+const mapStateToProps = ({ drawer }: { drawer: DrawerState }) => ({
+  isOpen: drawer.isOpen,
+});
 
 export default connect(mapStateToProps)(SideMenu);

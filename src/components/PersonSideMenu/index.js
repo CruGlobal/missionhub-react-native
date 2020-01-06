@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
-import { PERSON_MENU_DRAWER } from '../../constants';
 import { EDIT_PERSON_FLOW } from '../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../containers/StatusReasonScreen';
 import { assignContactAndPickStage } from '../../actions/misc';
@@ -137,7 +136,7 @@ class PersonSideMenu extends Component {
         : null,
     ].filter(Boolean);
 
-    return <SideMenu menuItems={menuItems} menuName={PERSON_MENU_DRAWER} />;
+    return <SideMenu menuItems={menuItems} />;
   }
 }
 
