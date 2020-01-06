@@ -55,6 +55,7 @@ exports[`contact notes Should say Done when editing the note 1`] = `
       }
       testID="NoteInput"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
@@ -928,6 +929,7 @@ exports[`contact notes should render the input when the add private notes button
       }
       testID="NoteInput"
       underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
     />
   </View>
   <RCTSafeAreaView
