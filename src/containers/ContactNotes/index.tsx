@@ -24,12 +24,6 @@ interface ContactNotesProps {
   isActiveTab: boolean;
 }
 
-interface NotesInterface {
-  text: string | undefined;
-  editing: boolean;
-  noteId: string | null;
-}
-
 const ContactNotes = ({
   person,
   myUserId,
@@ -38,14 +32,14 @@ const ContactNotes = ({
   isActiveTab,
 }: ContactNotesProps) => {
   const { t } = useTranslation('notes');
-  const [text, setText] = useState<string | undefined>(undefined);
+  const [text, setText] = useState('');
   const [editing, setEditing] = useState(false);
   const [noteId, setNoteId] = useState(null);
   const inputRef = useRef<TextInput>(null);
 
   const getNote = async () => {
     const results = await dispatch(getPersonNote(person.id, myUserId));
-    const text = results ? results.content : undefined;
+    const text = results ? results.content : '';
     const noteId = results ? results.id : null;
     setNoteId(noteId);
     setText(text);
