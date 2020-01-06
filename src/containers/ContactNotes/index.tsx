@@ -38,47 +38,44 @@ const ContactNotes = ({
   isActiveTab,
 }: ContactNotesProps) => {
   const { t } = useTranslation('notes');
-
-  const [note, setNote] = useState<NotesInterface>({
-    text: undefined,
-    editing: false,
-    noteId: null,
-  });
-
+  const [text, setText] = useState<string | undefined>(undefined);
+  const [editing, setEditing] = useState(false);
+  const [noteId, setNoteId] = useState(null);
   const inputRef = useRef<TextInput>(null);
 
   const getNote = async () => {
     const results = await dispatch(getPersonNote(person.id, myUserId));
     const text = results ? results.content : undefined;
     const noteId = results ? results.id : null;
-    setNote({ ...note, noteId, text });
+    setNoteId(noteId);
+    setText(text);
   };
 
   const onTextChanged = (text: string) => {
-    setNote({ ...note, text });
+    setText(text);
   };
 
   const onButtonPress = () => {
-    if (note.editing) {
+    if (editing) {
       saveNote();
     } else {
-      setNote({ ...note, editing: true });
+      setEditing(true);
     }
   };
 
   const saveNote = () => {
     Keyboard.dismiss();
 
-    if (note.editing) {
-      dispatch(savePersonNote(person.id, note.text, note.noteId, myUserId));
+    if (editing) {
+      dispatch(savePersonNote(person.id, text, noteId, myUserId));
     }
-    setNote({ ...note, editing: false });
+    setEditing(false);
   };
 
   const getButtonText = () => {
-    if (note.editing) {
+    if (editing) {
       return t('done');
-    } else if (note.text) {
+    } else if (text) {
       return t('edit');
     } else {
       return t('add');
@@ -93,15 +90,15 @@ const ContactNotes = ({
   }, [isActiveTab]);
 
   const renderNotes = () => {
-    if (note.editing) {
+    if (editing) {
       return (
         <Flex value={1}>
           <Input
             testID={'NoteInput'}
             ref={inputRef}
             onChangeText={onTextChanged}
-            editable={note.editing}
-            value={note.text}
+            editable={editing}
+            value={text}
             style={styles.notesText}
             multiline={true}
             blurOnSubmit={false}
@@ -113,7 +110,7 @@ const ContactNotes = ({
     return (
       <Flex value={1}>
         <ScrollView>
-          <Text style={styles.notesText}>{note.text}</Text>
+          <Text style={styles.notesText}>{text}</Text>
         </ScrollView>
       </Flex>
     );
@@ -137,7 +134,7 @@ const ContactNotes = ({
   return (
     <View style={styles.container}>
       <Analytics screenName={['person', 'my notes']} />
-      {note.text || note.editing ? renderNotes() : renderEmpty()}
+      {text || editing ? renderNotes() : renderEmpty()}
       <BottomButton
         testID={'EditNoteButton'}
         onPress={onButtonPress}
