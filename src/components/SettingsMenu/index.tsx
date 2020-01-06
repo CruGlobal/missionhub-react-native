@@ -14,6 +14,7 @@ import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
 import { navigatePush } from '../../actions/navigation';
 import { AuthState } from '../../reducers/auth';
 import { DrawerState } from '../../reducers/drawer';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 interface SettingsMenuProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,13 +31,7 @@ const SettingsMenu = ({
   mainScreenTracking,
 }: SettingsMenuProps) => {
   const { t } = useTranslation('settingsMenu');
-  useEffect(() => {
-    if (isOpen) {
-      dispatch(trackScreenChange('menu'));
-    } else if (mainScreenTracking) {
-      dispatch(trackScreenChange(mainScreenTracking));
-    }
-  }, [isOpen]);
+  useAnalytics('menu', true);
 
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);
