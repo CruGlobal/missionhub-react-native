@@ -107,6 +107,7 @@ const SelectStageScreen = ({
   useEffect(() => {
     async function loadStagesAndScrollToId() {
       const newStages = await dispatch(getStages());
+      console.log(newStages);
       if (newStages[startIndex]) {
         dispatch(
           trackScreenChange([

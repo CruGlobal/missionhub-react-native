@@ -26,7 +26,7 @@ const emptyStages = {
   stagesObj: null,
 };
 
-const callApiResponse = { type: 'call API' };
+const callApiResponse = { type: 'call API', response: stages.stages };
 
 beforeEach(() => {
   (callApi as jest.Mock).mockReturnValue(callApiResponse);
@@ -43,27 +43,29 @@ describe('getStagesIfNotExists', () => {
     ]);
   });
 
-  it('gets stages if stages exist', () => {
+  it('gets stages if stages exist', async () => {
     store = mockStore({ stages: emptyStages });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    store.dispatch<any>(getStagesIfNotExists());
+    const result = await store.dispatch<any>(getStagesIfNotExists());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_STAGES, {
       include: 'localized_pathway_stages',
     });
     expect(store.getActions()).toEqual([callApiResponse]);
+    expect(result).toEqual(stages.stages);
   });
 });
 
 describe('getStages', () => {
-  it('gets stages', () => {
+  it('gets stages', async () => {
     store = mockStore({ stages });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    store.dispatch<any>(getStages());
+    const result = await store.dispatch<any>(getStages());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_STAGES, {
       include: 'localized_pathway_stages',
     });
     expect(store.getActions()).toEqual([callApiResponse]);
+    expect(result).toEqual(stages.stages);
   });
 });

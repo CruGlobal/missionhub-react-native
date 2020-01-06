@@ -21,11 +21,11 @@ type DrawerActionTypes =
   | LogoutAction;
 
 // Keep track of all the swipeable rows and whether or not to show a reminder
-const initialState: DrawerState = {
+export const initialDrawerState: DrawerState = {
   isOpen: false,
 };
 
-function drawerReducer(state = initialState, action: DrawerActionTypes) {
+function drawerReducer(state = initialDrawerState, action: DrawerActionTypes) {
   switch (action.type) {
     case DrawerActions.OPEN_DRAWER:
       return { ...state, isOpen: true };
@@ -33,7 +33,7 @@ function drawerReducer(state = initialState, action: DrawerActionTypes) {
       return { ...state, isOpen: false };
     case RELOAD_APP:
     case LOGOUT:
-      return initialState;
+      return initialDrawerState;
     default:
       return state;
   }

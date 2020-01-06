@@ -4,6 +4,7 @@ import {
   ANALYTICS_CONTEXT_CHANGED,
   LOGOUT,
   NOT_LOGGED_IN,
+  RELOAD_APP,
 } from '../../constants';
 import { REQUESTS } from '../../api/routes';
 
@@ -48,6 +49,20 @@ describe('analytics context changed', () => {
     const result = analyticsReducer(undefined, action);
 
     expect(result[ANALYTICS.SCREEN_NAME]).toBe(screen);
+  });
+});
+
+describe('reload app', () => {
+  it('should wipe previous screen name', () => {
+    const result = analyticsReducer(
+      {
+        ...initialAnalyticsState,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: 'some screen',
+      },
+      { type: RELOAD_APP },
+    );
+
+    expect(result).toEqual(initialAnalyticsState);
   });
 });
 

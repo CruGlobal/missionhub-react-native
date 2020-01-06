@@ -129,7 +129,7 @@ const next = jest.fn();
 
 const trackActionResult = { type: 'track action' };
 const trackScreenChangeResult = { type: 'track screen change' };
-const getStagesResult = { type: 'get stages' };
+const getStagesResult = stages;
 const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
 const updateUserStageResult = { type: 'update user stage' };
@@ -150,7 +150,7 @@ describe('renders', () => {
     renderWithContext(<SelectStageScreen next={next} />, {
       initialState: {
         ...state,
-        stages: {},
+        stages: { stages: [] },
       },
       navParams: baseParams,
     }).snapshot();
@@ -219,11 +219,14 @@ describe('renders for other', () => {
   });
 });
 
-const buildAndTestMount = async (navParams: SelectStageNavParams) => {
+const buildAndTestMount = async (
+  initialState: typeof state,
+  navParams: SelectStageNavParams,
+) => {
   const { store, getAllByTestId } = renderWithContext(
     <SelectStageScreen next={next} />,
     {
-      initialState: state,
+      initialState,
       navParams,
     },
   );
@@ -232,6 +235,10 @@ const buildAndTestMount = async (navParams: SelectStageNavParams) => {
 
   expect(getStages).toHaveBeenCalledWith();
   expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+  expect(store.getActions()).toEqual([
+    getStagesResult,
+    trackScreenChangeResult,
+  ]);
 
   return { store, getAllByTestId };
 };
@@ -241,31 +248,33 @@ describe('actions on mount', () => {
 
   describe('for me', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      const { store } = await buildAndTestMount({
-        ...baseParams,
-        personId: myId,
-        selectedStageId: stageId,
-      });
-
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        trackScreenChangeResult,
-      ]);
+      await buildAndTestMount(
+        {
+          ...state,
+          stages: { stages: [] },
+        },
+        {
+          ...baseParams,
+          personId: myId,
+          selectedStageId: stageId,
+        },
+      );
     });
   });
 
   describe('for other', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      const { store } = await buildAndTestMount({
-        ...baseParams,
-        personId: assignedPersonId,
-        selectedStageId: stageId,
-      });
-
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        trackScreenChangeResult,
-      ]);
+      await buildAndTestMount(
+        {
+          ...state,
+          stages: { stages: [] },
+        },
+        {
+          ...baseParams,
+          personId: assignedPersonId,
+          selectedStageId: stageId,
+        },
+      );
     });
   });
 });
@@ -277,7 +286,7 @@ describe('setStage', () => {
   let selectAction: any;
 
   const buildAndTestSelect = async (navParams: any, nextProps: any) => {
-    const { store, getAllByTestId } = await buildAndTestMount(navParams);
+    const { store, getAllByTestId } = await buildAndTestMount(state, navParams);
 
     await fireEvent.press(getAllByTestId('stageSelectButton')[selectedStageId]);
 

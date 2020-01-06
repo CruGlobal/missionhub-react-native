@@ -20,8 +20,6 @@ interface SettingsMenuProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
   isAnonymousUser: boolean;
-  isOpen: boolean;
-  mainScreenTracking: string | null;
 }
 
 const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {

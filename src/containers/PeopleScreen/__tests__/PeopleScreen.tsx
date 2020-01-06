@@ -10,7 +10,10 @@ import { getMyPeople } from '../../../actions/people';
 import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
 import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../../utils/hooks/useAnalytics';
 
 import { PeopleScreen } from '..';
 
@@ -117,7 +120,10 @@ it('renders empty correctly', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'people',
+    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  );
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
@@ -126,7 +132,10 @@ it('renders correctly as Casey', () => {
     <PeopleScreen {...props} isJean={false} items={people} />,
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'people',
+    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  );
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
@@ -135,7 +144,10 @@ it('renders correctly as Jean', () => {
     <PeopleScreen {...props} isJean={true} items={orgs} />,
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith('people');
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'people',
+    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  );
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
