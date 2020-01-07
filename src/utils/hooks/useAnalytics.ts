@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useIsFocused, useFocusEffect } from 'react-navigation-hooks';
+import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { trackScreenChange } from '../../actions/analytics';

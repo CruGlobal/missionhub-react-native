@@ -10,7 +10,6 @@ import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
 } from '../../../constants';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderShallow, renderWithContext } from '../../../../testUtils';
 
 import ContactJourney from '..';
