@@ -136,7 +136,7 @@ describe('SelectStageScreen next', () => {
 
     it('should navigate to SelectStepScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
-        contactStage: stage,
+        personId: myId,
         organization: { id: orgId },
       });
     });

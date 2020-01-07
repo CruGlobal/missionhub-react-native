@@ -13,7 +13,7 @@ import {
 import { loadStepsAndJourney } from '../../../actions/misc';
 import { navigatePush } from '../../../actions/navigation';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index';
 
 jest.mock('../../../selectors/people');
@@ -236,7 +236,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should navigate to PersonSelectStepScreen', () => {
-        expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+        expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
           personId: otherId,
           orgId,
         });
@@ -290,7 +290,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should navigate to PersonSelectStepScreen', () => {
-        expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+        expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
           personId: otherId,
           orgId,
         });

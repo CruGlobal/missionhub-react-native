@@ -13,13 +13,32 @@ jest.mock('../../../utils/hooks/useAnalytics');
 
 const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
-const personId = '252342354234';
 const me = { id: '89123', first_name: 'roger' };
+const personId = '252342354234';
+const person = {
+  id: personId,
+  first_name: 'Test',
+  reverse_contact_assignments: [
+    {
+      assigned_to: { id: me.id },
+      organization: { id: orgId },
+      pathway_stage_id: '3',
+    },
+  ],
+  organizational_permissions: [{ organization_id: orgId }],
+};
 const state = {
   auth: { person: me },
   people: {
     allByOrg: {
-      personal: { id: 'personal', people: { [me.id]: me } },
+      personal: {
+        id: 'personal',
+        people: { [me.id]: me },
+      },
+      [orgId]: {
+        id: orgId,
+        people: { [person.id]: person },
+      },
     },
   },
   steps: { suggestedForOthers: {} },
@@ -29,17 +48,10 @@ let screen: ReturnType<typeof renderWithContext>;
 let enableSkipButton = false;
 
 beforeEach(() => {
-  screen = renderWithContext(
-    <SelectStepScreen
-      orgId={orgId}
-      personId={personId}
-      enableSkipButton={enableSkipButton}
-      next={next}
-    />,
-    {
-      initialState: state,
-    },
-  );
+  screen = renderWithContext(<SelectStepScreen next={next} />, {
+    initialState: state,
+    navParams: { personId, orgId, enableSkipButton },
+  });
 });
 
 describe('without enableSkipButton', () => {

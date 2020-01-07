@@ -324,7 +324,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    Header Text 1
+                    Choose a step of faith
                   </Text>
                   <Text
                     style={
@@ -347,7 +347,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    Header Text 2
+                     to take with Test this week...
                   </Text>
                 </View>
               </View>
@@ -377,6 +377,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
             }
           />
           <StepsList
+            contactName="Test"
             contactStageId="3"
             onPressCreateStep={[Function]}
             onPressStep={[Function]}
@@ -896,7 +897,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    Header Text 1
+                    Choose a step of faith
                   </Text>
                   <Text
                     style={
@@ -919,7 +920,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       ]
                     }
                   >
-                    Header Text 2
+                     to take with Test this week...
                   </Text>
                 </View>
               </View>
@@ -949,6 +950,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
             }
           />
           <StepsList
+            contactName="Test"
             contactStageId="3"
             onPressCreateStep={[Function]}
             onPressStep={[Function]}

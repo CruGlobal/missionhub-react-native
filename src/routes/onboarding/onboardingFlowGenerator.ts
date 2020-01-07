@@ -137,7 +137,7 @@ export const onboardingFlowGenerator = ({
           ),
           buildTrackingObj(
             'onboarding : self : steps : add',
-            'onbaording',
+            'onboarding',
             'self',
             'steps',
           ),

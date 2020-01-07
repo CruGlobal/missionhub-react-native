@@ -1,9 +1,7 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import { CREATE_STEP } from '../../../constants';
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { AddPersonStepFlowScreens } from '../addPersonStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
@@ -14,67 +12,77 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
+jest.mock('../../../containers/StepsList');
 
 const myId = '111';
 const otherId = '222';
-const otherName = 'Other';
 const orgId = '123';
 const stepText = 'Step';
+const stageId = '3';
 
+const me = { id: myId, user: { pathway_stage_id: '0' } };
+const person = {
+  id: otherId,
+  first_name: 'Test Person',
+  reverse_contact_assignments: [
+    {
+      assigned_to: { id: me.id },
+      organization: { id: orgId },
+      pathway_stage_id: stageId,
+    },
+  ],
+  organizational_permissions: [{ organization_id: orgId }],
+};
 const stage = { id: '1' };
 const step = { id: '444', title: stepText };
 
-const store = configureStore([thunk])({
-  auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
+const initialState = {
+  auth: { person: me },
   onboarding: { personId: otherId },
-  people: { allByOrg: { [otherId]: { id: otherId } } },
+  people: {
+    allByOrg: {
+      [orgId]: {
+        id: orgId,
+        people: { [person.id]: person },
+      },
+    },
+  },
   organizations: { all: [] },
-});
+  steps: { suggestedForOthers: { [stageId]: [stage] } },
+};
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
   const Component = AddPersonStepFlowScreens[screen];
 
-  await store.dispatch(
-    renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: navParams,
-          },
-        }}
-      />,
-      store,
-    )
-      .instance()
-      .props.next(nextProps),
-  );
+  const { store, getByType } = renderWithContext(<Component />, {
+    initialState,
+    navParams,
+  });
+
+  await store.dispatch(getByType(Component).children[0].props.next(nextProps));
+  return { store };
 };
 
 const navigatePushResponse = { type: 'navigate push' };
 const createCustomStepResponse = { type: 'create cutsom step' };
 
 beforeEach(() => {
-  store.clearActions();
   navigatePush.mockReturnValue(navigatePushResponse);
   createCustomStep.mockReturnValue(createCustomStepResponse);
 });
 
-describe('PersonSelectStepScreen next', () => {
+describe('SelectStepScreen next', () => {
   describe('select a suggested step', () => {
-    beforeEach(async () => {
-      await buildAndCallNext(
+    it('should fire required next actions', async () => {
+      const { store } = await buildAndCallNext(
         SELECT_STEP_SCREEN,
         {
-          contactStage: stage,
           personId: otherId,
-          organization: { id: orgId },
-          contactName: otherName,
+          orgId,
         },
         { personId: otherId, step, orgId },
       );
-    });
 
-    it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
         personId: otherId,
         step,
@@ -85,8 +93,8 @@ describe('PersonSelectStepScreen next', () => {
   });
 
   describe('create a step', () => {
-    beforeEach(async () => {
-      await buildAndCallNext(
+    it('should fire required next actions', async () => {
+      const { store } = await buildAndCallNext(
         SELECT_STEP_SCREEN,
         {
           personId: otherId,
@@ -94,9 +102,7 @@ describe('PersonSelectStepScreen next', () => {
         },
         { personId: otherId, step: undefined, orgId },
       );
-    });
 
-    it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
         personId: otherId,
@@ -108,23 +114,21 @@ describe('PersonSelectStepScreen next', () => {
 });
 
 describe('SuggestedStepDetailScreen next', () => {
-  beforeEach(async () => {
-    await buildAndCallNext(
+  it('should fire required next actions', async () => {
+    const { store } = await buildAndCallNext(
       SUGGESTED_STEP_DETAIL_SCREEN,
       { personId: otherId, step, orgId },
       {},
     );
-  });
 
-  it('should fire required next actions', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {});
     expect(store.getActions()).toEqual([navigatePushResponse]);
   });
 });
 
 describe('AddStepScreen next', () => {
-  beforeEach(async () => {
-    await buildAndCallNext(
+  it('should fire required next actions', async () => {
+    const { store } = await buildAndCallNext(
       ADD_STEP_SCREEN,
       {
         type: CREATE_STEP,
@@ -133,9 +137,7 @@ describe('AddStepScreen next', () => {
       },
       { text: stepText, personId: otherId, orgId },
     );
-  });
 
-  it('should fire required next actions', () => {
     expect(createCustomStep).toHaveBeenCalledWith(stepText, otherId, orgId);
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([

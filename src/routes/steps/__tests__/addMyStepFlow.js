@@ -1,9 +1,7 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import { CREATE_STEP } from '../../../constants';
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { AddMyStepFlowScreens } from '../addMyStepFlow';
 import { navigatePush } from '../../../actions/navigation';
 import { createCustomStep } from '../../../actions/steps';
@@ -14,6 +12,7 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
+jest.mock('../../../containers/StepsList');
 
 const myId = '111';
 const orgId = '123';
@@ -22,53 +21,46 @@ const stepText = 'hello';
 const stage = { id: '1' };
 const step = { id: '444', title: stepText };
 
-const store = configureStore([thunk])({
+const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
-});
+  people: { allByOrg: { [orgId]: { id: orgId, people: { [myId]: {} } } } },
+  steps: { suggestedForMe: { [stage.id]: [stage] } },
+};
 
 const buildAndCallNext = async (screen, navParams, nextProps) => {
   const Component = AddMyStepFlowScreens[screen];
 
-  await store.dispatch(
-    renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: navParams,
-          },
-        }}
-      />,
-      store,
-    )
-      .instance()
-      .props.next(nextProps),
-  );
+  const { store, getByType } = renderWithContext(<Component />, {
+    initialState,
+    navParams,
+  });
+
+  await store.dispatch(getByType(Component).children[0].props.next(nextProps));
+  return { store };
 };
 
 const navigatePushResponse = { type: 'navigate push' };
 const createCustomStepResponse = { type: 'create custom step' };
 
 beforeEach(() => {
-  store.clearActions();
   navigatePush.mockReturnValue(navigatePushResponse);
   createCustomStep.mockReturnValue(createCustomStepResponse);
 });
 
 describe('SelectStepScreen next', () => {
   describe('select a suggested step', () => {
-    beforeEach(async () => {
-      await buildAndCallNext(
+    it('should fire required next actions', async () => {
+      const { store } = await buildAndCallNext(
         SELECT_STEP_SCREEN,
         {
           enableBackButton: true,
           contactStage: stage,
-          organization: { id: orgId },
+          personId: myId,
+          orgId,
         },
         { personId: myId, step, orgId },
       );
-    });
 
-    it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
         personId: myId,
         step,
@@ -79,19 +71,18 @@ describe('SelectStepScreen next', () => {
   });
 
   describe('create a step', () => {
-    beforeEach(async () => {
-      await buildAndCallNext(
+    it('should fire required next actions', async () => {
+      const { store } = await buildAndCallNext(
         SELECT_STEP_SCREEN,
         {
           enableBackButton: true,
           contactStage: stage,
-          organization: { id: orgId },
+          personId: myId,
+          orgId,
         },
         { personId: myId, step: undefined, orgId },
       );
-    });
 
-    it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
         type: CREATE_STEP,
         personId: myId,
@@ -103,23 +94,21 @@ describe('SelectStepScreen next', () => {
 });
 
 describe('SuggestedStepDetailScreen next', () => {
-  beforeEach(async () => {
-    await buildAndCallNext(
+  it('should fire required next actions', async () => {
+    const { store } = await buildAndCallNext(
       SUGGESTED_STEP_DETAIL_SCREEN,
       { personId: myId, step, orgId },
       {},
     );
-  });
 
-  it('should fire required next actions', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {});
     expect(store.getActions()).toEqual([navigatePushResponse]);
   });
 });
 
 describe('AddStepScreen next', () => {
-  beforeEach(async () => {
-    await buildAndCallNext(
+  it('should fire required next actions', async () => {
+    const { store } = await buildAndCallNext(
       ADD_STEP_SCREEN,
       {
         type: CREATE_STEP,
@@ -128,9 +117,6 @@ describe('AddStepScreen next', () => {
       },
       { text: stepText, personId: myId, orgId },
     );
-  });
-
-  it('should fire required next actions', () => {
     expect(createCustomStep).toHaveBeenCalledWith(stepText, myId, orgId);
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([
