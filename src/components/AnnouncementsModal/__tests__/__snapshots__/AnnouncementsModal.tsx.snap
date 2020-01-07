@@ -2,31 +2,12 @@
 
 exports[`Should not render if there are no announcements 1`] = `null`;
 
-exports[`User clicks the Modal Action Button Should change modal visibility when they click the modal action button 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -1,10 +1,10 @@
-  <Modal
-    animationType=\\"slide\\"
-    hardwareAccelerated={false}
-    transparent={true}
--   visible={true}
-+   visible={false}
-  >
-    <View
-      style={
-        Object {
-          \\"alignItems\\": \\"center\\","
-`;
-
 exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO action 1`] = `
 <Modal
   animationType="slide"
   hardwareAccelerated={false}
   transparent={true}
-  visible={false}
+  visible={true}
 >
   <View
     style={
@@ -247,7 +228,7 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
   animationType="slide"
   hardwareAccelerated={false}
   transparent={true}
-  visible={false}
+  visible={true}
 >
   <View
     style={

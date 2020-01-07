@@ -213,36 +213,32 @@ describe('User clicks the Modal Action Button', () => {
     );
     snapshot();
   });
-  it('Should change modal visibility when they click the modal action button', async () => {
-    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-      <AnnouncementsModal />,
-      {
-        initialState,
-        mocks: {
-          AnnouncementConnection: () => ({
-            nodes: () => [
-              {
-                body: 'This is  a test for the new modal',
-                id: '24',
-                title: 'Another Test 17',
-                actions: {
-                  nodes: [
-                    {
-                      label: 'Go To Google',
-                      id: '18',
-                      action: 'go',
-                      args: 'https://www.google.com/',
-                    },
-                  ],
-                },
+  it('Should call useQuery again to refetch more announcements after user clicks an action', async () => {
+    const { getByTestId } = renderWithContext(<AnnouncementsModal />, {
+      initialState,
+      mocks: {
+        AnnouncementConnection: () => ({
+          nodes: () => [
+            {
+              body: 'This is  a test for the new modal',
+              id: '24',
+              title: 'Another Test 17',
+              actions: {
+                nodes: [
+                  {
+                    label: 'Go To Google',
+                    id: '18',
+                    action: 'go',
+                    args: 'https://www.google.com/',
+                  },
+                ],
               },
-            ],
-          }),
-        },
+            },
+          ],
+        }),
       },
-    );
+    });
     await flushMicrotasksQueue();
-    recordSnapshot();
     expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
     await fireEvent.press(getByTestId('AnnouncementActionButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
@@ -250,6 +246,6 @@ describe('User clicks the Modal Action Button', () => {
         input: { announcementId: '24', announcementActionId: '18' },
       },
     });
-    diffSnapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
   });
 });

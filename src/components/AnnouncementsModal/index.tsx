@@ -11,14 +11,13 @@ import { trackAction } from '../../actions/analytics';
 import styles from './styles';
 import {
   GetAnnouncements,
-  GetAnnouncements_announcements_nodes,
   GetAnnouncements_announcements_nodes_actions_nodes,
 } from './__generated__/GetAnnouncements';
 import { handleAnnouncement } from './__generated__/handleAnnouncement';
 
 export const GET_ANNOUNCEMENTS = gql`
   query GetAnnouncements {
-    announcements(first: 5) {
+    announcements(first: 1) {
       nodes {
         body
         id
@@ -37,18 +36,12 @@ export const GET_ANNOUNCEMENTS = gql`
 `;
 
 export const HANDLE_ANNOUNCEMENTS = gql`
-  mutation handleAnnouncement($input: CreatePersonAnnouncementInput!) {
+  mutation HandleAnnouncement($input: CreatePersonAnnouncementInput!) {
     createPersonAnnouncement(input: $input) {
       personAnnouncement {
         announcement {
-          body
-          title
-          active
+          id
         }
-        person {
-          fullName
-        }
-        id
       }
     }
   }
@@ -65,17 +58,15 @@ const AnnouncementsModal = () => {
   } = styles;
   const { t } = useTranslation('common');
   const {
-    data: { announcements, announcements: { nodes = [] } = {} } = {},
-    refetch,
+    data: { announcements: { nodes: [announcement] = [] } = {} } = {},
     loading,
   } = useQuery<GetAnnouncements>(GET_ANNOUNCEMENTS);
   const [handleAnnouncementAction] = useMutation<handleAnnouncement>(
     HANDLE_ANNOUNCEMENTS,
+    {
+      refetchQueries: [{ query: GET_ANNOUNCEMENTS }],
+    },
   );
-  const [announcement, setAnnouncements] = useState<
-    GetAnnouncements_announcements_nodes
-  >();
-  const [modalVisibility, changeModalVisbility] = useState(false);
 
   const completeAnnouncementAction = async (
     announcementId: string,
@@ -96,8 +87,6 @@ const AnnouncementsModal = () => {
           Linking.openURL(args);
           break;
         case 'track':
-          changeModalVisbility(false);
-          refetch();
           return trackAction(args, {});
       }
     } else {
@@ -109,28 +98,24 @@ const AnnouncementsModal = () => {
         },
       });
     }
-
-    changeModalVisbility(false);
-    refetch();
   };
-
-  useEffect(() => {
-    if (announcements && announcements.nodes) {
-      setAnnouncements(announcements.nodes[0]);
-      if (announcement) {
-        changeModalVisbility(true);
-      }
-    }
-  }, [announcements, announcement, nodes]);
 
   if (loading || !announcement) {
     return null;
   }
 
+  const isModalVisible = () => {
+    if (!loading && announcement) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const { title, body, id, actions } = announcement;
 
   return (
-    <Modal transparent animationType={'slide'} visible={modalVisibility}>
+    <Modal transparent animationType={'slide'} visible={isModalVisible()}>
       <View style={modalStyle}>
         <View style={containerStyle}>
           <Flex
@@ -151,22 +136,20 @@ const AnnouncementsModal = () => {
           <Text style={bodyText}>{body}</Text>
 
           {actions.nodes.length >= 1 ? (
-            actions.nodes.map(
-              (action: GetAnnouncements_announcements_nodes_actions_nodes) => {
-                return (
-                  <Button
-                    testID={'AnnouncementActionButton'}
-                    key={action.id}
-                    pill={true}
-                    style={modalButton}
-                    text={
-                      action.label ? action.label.toUpperCase() : t('continue')
-                    }
-                    onPress={() => completeAnnouncementAction(id, action)}
-                  />
-                );
-              },
-            )
+            actions.nodes.map(action => {
+              return (
+                <Button
+                  testID={'AnnouncementActionButton'}
+                  key={action.id}
+                  pill={true}
+                  style={modalButton}
+                  text={
+                    action.label ? action.label.toUpperCase() : t('continue')
+                  }
+                  onPress={() => completeAnnouncementAction(id, action)}
+                />
+              );
+            })
           ) : (
             <Button
               testID={'AnnouncementNoActionButton'}
