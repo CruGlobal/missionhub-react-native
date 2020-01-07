@@ -18,10 +18,11 @@ const person = { id: '141234', first_name: 'Roger', user: { id: '1234' } };
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/person');
 
-(getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve(props.note));
-(savePersonNote as jest.Mock).mockReturnValue(() => {});
-
-describe('contact notes', () => {
+describe('no notes', () => {
+  beforeEach(() => {
+    (getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve());
+    (savePersonNote as jest.Mock).mockReturnValue(() => {});
+  });
   const noNotes = {
     dispatch: jest.fn(response => Promise.resolve(response)),
     person: { id: '141234', first_name: 'Roger', user: { id: '1234' } },
@@ -42,6 +43,7 @@ describe('contact notes', () => {
         },
       },
     });
+
     snapshot();
   });
   it('icon and prompt are shown if no notes as me', () => {
@@ -54,6 +56,15 @@ describe('contact notes', () => {
     });
 
     snapshot();
+  });
+});
+
+describe('contact notes', () => {
+  beforeEach(() => {
+    (getPersonNote as jest.Mock).mockReturnValue(() =>
+      Promise.resolve(props.note),
+    );
+    (savePersonNote as jest.Mock).mockReturnValue(() => {});
   });
   it('should render the input when the add private notes button is clicked', () => {
     const { snapshot, getByTestId } = renderWithContext(
