@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Modal, Text, Linking } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation } from '@apollo/react-hooks';
@@ -56,7 +56,7 @@ const AnnouncementsModal = () => {
     titleText,
     bodyText,
   } = styles;
-  const { t } = useTranslation('common');
+  const { t } = useTranslation();
   const {
     data: { announcements: { nodes: [announcement] = [] } = {} } = {},
     loading,
