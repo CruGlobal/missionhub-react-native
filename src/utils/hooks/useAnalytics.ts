@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useIsFocused } from 'react-navigation-hooks';
+import { useIsFocused, useFocusEffect } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { trackScreenChange } from '../../actions/analytics';
@@ -27,17 +27,22 @@ export const useAnalytics = (
 
   useEffect(() => {
     if (isFocused) {
-      if (
-        screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
-        isDrawerOpen
-      ) {
-        return;
+      if (screenType === ANALYTICS_SCREEN_TYPES.screen) {
+        handleScreenChange(screenName);
       }
-      if (screenType === ANALYTICS_SCREEN_TYPES.drawer && !isDrawerOpen) {
-        return;
-      }
+    }
+  }, [isFocused]);
 
-      handleScreenChange(screenName);
+  useEffect(() => {
+    if (isFocused) {
+      if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
+        handleScreenChange(screenName);
+      } else if (
+        screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
+        !isDrawerOpen
+      ) {
+        handleScreenChange(screenName);
+      }
     }
   }, [isFocused, isDrawerOpen]);
 

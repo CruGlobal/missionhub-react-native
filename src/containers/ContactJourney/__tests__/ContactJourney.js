@@ -10,6 +10,7 @@ import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
 } from '../../../constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderShallow, renderWithContext } from '../../../../testUtils';
 
 import ContactJourney from '..';
@@ -34,6 +35,7 @@ jest.mock('../../../actions/interactions', () => ({
   addNewInteraction: () => mockAddComment,
   editComment: () => mockEditComment,
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 let store;
 let component;
