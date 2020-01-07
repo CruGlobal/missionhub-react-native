@@ -13,7 +13,7 @@ import {
   GetAnnouncements,
   GetAnnouncements_announcements_nodes_actions_nodes,
 } from './__generated__/GetAnnouncements';
-import { handleAnnouncement } from './__generated__/handleAnnouncement';
+import { HandleAnnouncement } from './__generated__/handleAnnouncement';
 
 export const GET_ANNOUNCEMENTS = gql`
   query GetAnnouncements {
@@ -61,7 +61,7 @@ const AnnouncementsModal = () => {
     data: { announcements: { nodes: [announcement] = [] } = {} } = {},
     loading,
   } = useQuery<GetAnnouncements>(GET_ANNOUNCEMENTS);
-  const [handleAnnouncementAction] = useMutation<handleAnnouncement>(
+  const [handleAnnouncementAction] = useMutation<HandleAnnouncement>(
     HANDLE_ANNOUNCEMENTS,
     {
       refetchQueries: [{ query: GET_ANNOUNCEMENTS }],
