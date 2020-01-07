@@ -28,12 +28,10 @@ export function getStagesIfNotExists() {
 export function getStages() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return async (dispatch: ThunkDispatch<{}, {}, any>) => {
-    const { response } = ((await dispatch(
+    return ((await dispatch(
       callApi(REQUESTS.GET_STAGES, {
         include: 'localized_pathway_stages',
       }),
     )) as unknown) as { response: Stage[] };
-
-    return response;
   };
 }

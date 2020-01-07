@@ -52,7 +52,7 @@ describe('getStagesIfNotExists', () => {
       include: 'localized_pathway_stages',
     });
     expect(store.getActions()).toEqual([callApiResponse]);
-    expect(result).toEqual(stages.stages);
+    expect(result).toEqual(callApiResponse);
   });
 });
 
@@ -66,6 +66,6 @@ describe('getStages', () => {
       include: 'localized_pathway_stages',
     });
     expect(store.getActions()).toEqual([callApiResponse]);
-    expect(result).toEqual(stages.stages);
+    expect(result).toEqual(callApiResponse);
   });
 });

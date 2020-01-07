@@ -2,7 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React from 'react';
-import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import {
+  fireEvent,
+  flushMicrotasksQueue,
+  debug,
+} from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { getStages } from '../../../actions/stages';
@@ -129,7 +133,7 @@ const next = jest.fn();
 
 const trackActionResult = { type: 'track action' };
 const trackScreenChangeResult = { type: 'track screen change' };
-const getStagesResult = stages;
+const getStagesResult = { type: 'get stages', response: stages };
 const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
 const updateUserStageResult = { type: 'update user stage' };
