@@ -104,18 +104,10 @@ const AnnouncementsModal = () => {
     return null;
   }
 
-  const isModalVisible = () => {
-    if (!loading && announcement) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const { title, body, id, actions } = announcement;
 
   return (
-    <Modal transparent animationType={'slide'} visible={isModalVisible()}>
+    <Modal transparent animationType={'slide'} visible={true}>
       <View style={modalStyle}>
         <View style={containerStyle}>
           <Flex
