@@ -26,10 +26,8 @@ export const useAnalytics = (
   };
 
   useEffect(() => {
-    if (isFocused) {
-      if (screenType === ANALYTICS_SCREEN_TYPES.screen) {
-        handleScreenChange(screenName);
-      }
+    if (isFocused && screenType === ANALYTICS_SCREEN_TYPES.screen) {
+      handleScreenChange(screenName);
     }
   }, [isFocused]);
 

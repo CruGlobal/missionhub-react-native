@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { View, Image } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { useNavigationState } from 'react-navigation-hooks';
+import { useNavigationState, useFocusEffect } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
 
 import { Text, Button } from '../../components/common';
@@ -95,31 +95,22 @@ const SelectStageScreen = ({
   useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [stageIndex, setStageIndex] = useState(selectedStageId || 0);
 
-  const startIndex = selectedStageId || 0;
+  const handleSnapToItem = (index: number) => setStageIndex(index);
 
-  const handleSnapToItem = (index: number) => {
-    if (stages[index]) {
-      dispatch(trackScreenChange(['stage', stages[index].name.toLowerCase()]));
-    }
+  const trackPanelChange = async () => {
+    const stage =
+      stages[stageIndex] || (await dispatch(getStages())).response[stageIndex];
+
+    stage && dispatch(trackScreenChange(['stage', stage.name.toLowerCase()]));
   };
 
-  useEffect(() => {
-    async function loadStagesAndScrollToId() {
-      const { response: newStages } = await dispatch(getStages());
-
-      if (newStages[startIndex]) {
-        dispatch(
-          trackScreenChange([
-            'stage',
-            newStages[startIndex].name.toLowerCase(),
-          ]),
-        );
-      }
-    }
-
-    loadStagesAndScrollToId();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      trackPanelChange();
+    }, [stageIndex]),
+  );
 
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     !isAlreadySelected &&
@@ -207,7 +198,7 @@ const SelectStageScreen = ({
           <Text style={styles.title}>{headerText}</Text>
           {stages ? (
             <Carousel
-              firstItem={startIndex}
+              firstItem={stageIndex}
               data={stages}
               inactiveSlideOpacity={1}
               inactiveSlideScale={1}

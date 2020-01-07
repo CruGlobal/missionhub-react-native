@@ -233,13 +233,6 @@ const buildAndTestMount = async (
 
   await flushMicrotasksQueue();
 
-  expect(getStages).toHaveBeenCalledWith();
-  expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
-  expect(store.getActions()).toEqual([
-    getStagesResult,
-    trackScreenChangeResult,
-  ]);
-
   return { store, getAllByTestId };
 };
 
@@ -248,7 +241,7 @@ describe('actions on mount', () => {
 
   describe('for me', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      await buildAndTestMount(
+      const { store } = await buildAndTestMount(
         {
           ...state,
           stages: { stages: [] },
@@ -259,12 +252,19 @@ describe('actions on mount', () => {
           selectedStageId: stageId,
         },
       );
+
+      expect(getStages).toHaveBeenCalledWith();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([
+        getStagesResult,
+        trackScreenChangeResult,
+      ]);
     });
   });
 
   describe('for other', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      await buildAndTestMount(
+      const { store } = await buildAndTestMount(
         {
           ...state,
           stages: { stages: [] },
@@ -275,6 +275,27 @@ describe('actions on mount', () => {
           selectedStageId: stageId,
         },
       );
+
+      expect(getStages).toHaveBeenCalledWith();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([
+        getStagesResult,
+        trackScreenChangeResult,
+      ]);
+    });
+  });
+
+  describe('stages are in Redux', () => {
+    it('snaps to first item on mount without getting stages', async () => {
+      const { store } = await buildAndTestMount(state, {
+        ...baseParams,
+        personId: myId,
+        selectedStageId: stageId,
+      });
+
+      expect(getStages).not.toHaveBeenCalled();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([trackScreenChangeResult]);
     });
   });
 });
@@ -321,7 +342,6 @@ describe('setStage', () => {
 
       expect(selectMyStage).toHaveBeenCalledWith(stage.id);
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         selectMyStageResult,
         nextResult,
@@ -347,7 +367,6 @@ describe('setStage', () => {
 
       expect(selectMyStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         nextResult,
         trackActionResult,
@@ -380,7 +399,6 @@ describe('setStage', () => {
         stage.id,
       );
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         updateUserStageResult,
         nextResult,
@@ -406,7 +424,6 @@ describe('setStage', () => {
 
       expect(updateUserStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         nextResult,
         trackActionResult,
@@ -441,7 +458,6 @@ describe('setStage', () => {
         orgId,
       );
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         selectPersonStageResult,
         nextResult,
@@ -467,7 +483,6 @@ describe('setStage', () => {
 
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         nextResult,
         trackActionResult,
