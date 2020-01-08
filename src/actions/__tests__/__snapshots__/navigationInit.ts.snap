@@ -3,6 +3,12 @@
 exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage does not have self stage should go to GetStarted 1`] = `
 Array [
   Object {
+    "type": "start onboarding",
+  },
+  Object {
+    "type": "track action",
+  },
+  Object {
     "type": "navigate refresh",
   },
 ]
@@ -11,6 +17,12 @@ Array [
 exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage has self stage should go to AddSomeone 1`] = `
 Array [
   Object {
+    "type": "start onboarding",
+  },
+  Object {
+    "type": "track action",
+  },
+  Object {
     "type": "navigate refresh",
   },
 ]
@@ -18,6 +30,12 @@ Array [
 
 exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage should not check my reverse contact assignments 1`] = `
 Array [
+  Object {
+    "type": "start onboarding",
+  },
+  Object {
+    "type": "track action",
+  },
   Object {
     "type": "navigate refresh",
   },

@@ -1,10 +1,12 @@
-import configureStore from 'redux-mock-store';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
-import { LOGOUT } from '../../../constants';
+import { LOGOUT, ACTIONS } from '../../../constants';
 import {
   SIGN_IN_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
@@ -21,6 +23,8 @@ import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
 import { deletePushToken } from '../../notifications';
 import { navigateReset, navigateToMainTabs } from '../../navigation';
+import { startOnboarding } from '../../onboarding';
+import { trackActionWithoutData } from '../../analytics';
 
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },
@@ -29,29 +33,36 @@ jest.mock('react-native-push-notification');
 jest.mock('../../notifications');
 jest.mock('../../navigation');
 jest.mock('../../onboarding');
+jest.mock('../../analytics');
 jest.mock('../key');
 jest.mock('../anonymous');
 jest.mock('../facebook');
 
 const mockStore = configureStore([thunk]);
 
-let store;
+let store: MockStore;
 
 const deletePushTokenResult = { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS };
 const navigateResetResult = { type: 'navigate reset' };
+const startOnboardingResult = { type: 'start onboarding' };
+const trackActionWithoutDataResult = { type: 'track action' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
 beforeEach(() => {
   store = mockStore();
 
-  deletePushToken.mockReturnValue(deletePushTokenResult);
-  navigateReset.mockReturnValue(navigateResetResult);
-  navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
+  (deletePushToken as jest.Mock).mockReturnValue(deletePushTokenResult);
+  (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
+  (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResult);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(
+    trackActionWithoutDataResult,
+  );
+  (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
 });
 
 describe('logout', () => {
   it('should perform the needed actions for signing out', async () => {
-    await store.dispatch(logout());
+    await store.dispatch<any>(logout());
 
     expect(deletePushToken).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(LANDING_SCREEN);
@@ -64,7 +75,7 @@ describe('logout', () => {
   });
 
   it('should perform the needed actions for forced signing out', async () => {
-    await store.dispatch(logout(true));
+    await store.dispatch<any>(logout(true));
 
     expect(deletePushToken).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(SIGN_IN_FLOW, {
@@ -79,9 +90,11 @@ describe('logout', () => {
   });
 
   it('should perform the needed actions even after push token deletion failure', async () => {
-    deletePushToken.mockReturnValue(() => () => Promise.reject());
+    (deletePushToken as jest.Mock).mockReturnValue(() => () =>
+      Promise.reject(),
+    );
 
-    await store.dispatch(logout(true));
+    await store.dispatch<any>(logout(true));
 
     expect(deletePushToken).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(SIGN_IN_FLOW, {
@@ -102,10 +115,18 @@ describe('navigateToPostAuthScreen', () => {
       },
     });
 
-    store.dispatch(navigateToPostAuthScreen());
+    store.dispatch<any>(navigateToPostAuthScreen());
 
     expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
-    expect(store.getActions()).toEqual([navigateResetResult]);
+    expect(startOnboarding).toHaveBeenCalledWith();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_STARTED,
+    );
+    expect(store.getActions()).toEqual([
+      navigateResetResult,
+      startOnboardingResult,
+      trackActionWithoutDataResult,
+    ]);
   });
 
   it('should navigate to main tabs if user has pathway_stage_id and contact assignments', () => {
@@ -120,7 +141,7 @@ describe('navigateToPostAuthScreen', () => {
       },
     });
 
-    store.dispatch(navigateToPostAuthScreen());
+    store.dispatch<any>(navigateToPostAuthScreen());
 
     expect(navigateToMainTabs).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([navigateToMainTabsResult]);
@@ -138,10 +159,18 @@ describe('navigateToPostAuthScreen', () => {
       },
     });
 
-    store.dispatch(navigateToPostAuthScreen());
+    store.dispatch<any>(navigateToPostAuthScreen());
 
     expect(navigateReset).toHaveBeenCalledWith(ADD_SOMEONE_ONBOARDING_FLOW);
-    expect(store.getActions()).toEqual([navigateResetResult]);
+    expect(startOnboarding).toHaveBeenCalledWith();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_STARTED,
+    );
+    expect(store.getActions()).toEqual([
+      navigateResetResult,
+      startOnboardingResult,
+      trackActionWithoutDataResult,
+    ]);
   });
 });
 
@@ -153,9 +182,11 @@ describe('handleInvalidAccessToken', () => {
   };
 
   beforeEach(() => {
-    refreshAccessToken.mockReturnValue(refreshAccessTokenResult);
-    refreshAnonymousLogin.mockReturnValue(refreshAnonymousLoginResult);
-    refreshMissionHubFacebookAccess.mockReturnValue(
+    (refreshAccessToken as jest.Mock).mockReturnValue(refreshAccessTokenResult);
+    (refreshAnonymousLogin as jest.Mock).mockReturnValue(
+      refreshAnonymousLoginResult,
+    );
+    (refreshMissionHubFacebookAccess as jest.Mock).mockReturnValue(
       refreshFacebookAccessResult,
     );
   });
@@ -167,7 +198,7 @@ describe('handleInvalidAccessToken', () => {
       },
     });
 
-    await store.dispatch(handleInvalidAccessToken());
+    await store.dispatch<any>(handleInvalidAccessToken());
 
     expect(refreshAccessToken).toHaveBeenCalledWith();
   });
@@ -179,25 +210,27 @@ describe('handleInvalidAccessToken', () => {
       },
     });
 
-    await store.dispatch(handleInvalidAccessToken());
+    await store.dispatch<any>(handleInvalidAccessToken());
 
     expect(refreshAnonymousLogin).toHaveBeenCalledWith();
   });
 
   it('should refresh facebook login', async () => {
     store = mockStore({ auth: {} });
-    AccessToken.getCurrentAccessToken.mockReturnValue({ accessToken: '111' });
+    (AccessToken.getCurrentAccessToken as jest.Mock).mockReturnValue({
+      accessToken: '111',
+    });
 
-    await store.dispatch(handleInvalidAccessToken());
+    await store.dispatch<any>(handleInvalidAccessToken());
 
     expect(refreshMissionHubFacebookAccess).toHaveBeenCalledWith();
   });
 
   it('should logout user if none of the above conditions are met', async () => {
     store = mockStore({ auth: {} });
-    AccessToken.getCurrentAccessToken.mockReturnValue({});
+    (AccessToken.getCurrentAccessToken as jest.Mock).mockReturnValue({});
 
-    await store.dispatch(handleInvalidAccessToken());
+    await store.dispatch<any>(handleInvalidAccessToken());
 
     expect(deletePushToken).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(SIGN_IN_FLOW, {

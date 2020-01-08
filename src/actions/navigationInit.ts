@@ -1,14 +1,30 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+
 import { isAuthenticated } from '../utils/common';
 import {
   ADD_SOMEONE_ONBOARDING_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
 } from '../routes/constants';
+import { ACTIONS } from '../constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
+import { AuthState } from '../reducers/auth';
+import { OnboardingState } from '../reducers/onboarding';
+import { PeopleState, Person } from '../reducers/people';
+import { Organization } from '../reducers/organizations';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 import { startOnboarding } from './onboarding';
+import { trackActionWithoutData } from './analytics';
 
-export const resetToInitialRoute = () => (dispatch, getState) => {
+export const resetToInitialRoute = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => {
+    auth: AuthState;
+    onboarding: OnboardingState;
+    people: PeopleState;
+  },
+) => {
   const { auth, onboarding, people } = getState();
   if (auth && isAuthenticated(auth)) {
     if (
@@ -19,6 +35,7 @@ export const resetToInitialRoute = () => (dispatch, getState) => {
     }
 
     dispatch(startOnboarding());
+    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
     return dispatch(
       navigateReset(
         auth.person.user.pathway_stage_id
@@ -31,13 +48,14 @@ export const resetToInitialRoute = () => (dispatch, getState) => {
   dispatch(navigateReset(LANDING_SCREEN));
 };
 
-function hasContactWithPathwayStage(myId, people) {
-  return Object.values(people.allByOrg).some(org =>
+function hasContactWithPathwayStage(myId: string, people: PeopleState) {
+  return Object.values(people.allByOrg).some((org: Organization) =>
     Object.values(org.people).some(
-      person =>
+      (person: Person) =>
         person.id !== myId &&
         person.reverse_contact_assignments.some(
-          assignment =>
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (assignment: any) =>
             assignment.assigned_to.id === myId && assignment.pathway_stage_id,
         ),
     ),
