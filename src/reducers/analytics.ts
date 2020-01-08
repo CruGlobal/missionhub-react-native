@@ -17,6 +17,7 @@ export const initialAnalyticsState = {
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
   [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
+  [ANALYTICS.APP_CONTEXT]: '',
 };
 
 export type AnalyticsState = typeof initialAnalyticsState;
