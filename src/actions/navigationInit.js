@@ -6,6 +6,7 @@ import {
 import { LANDING_SCREEN } from '../containers/LandingScreen';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
+import { startOnboarding } from './onboarding';
 
 export const resetToInitialRoute = () => (dispatch, getState) => {
   const { auth, onboarding, people } = getState();
@@ -17,6 +18,7 @@ export const resetToInitialRoute = () => (dispatch, getState) => {
       return dispatch(navigateToMainTabs());
     }
 
+    dispatch(startOnboarding());
     return dispatch(
       navigateReset(
         auth.person.user.pathway_stage_id

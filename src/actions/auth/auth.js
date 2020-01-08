@@ -14,6 +14,7 @@ import {
 } from '../../routes/constants';
 import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
+import { startOnboarding } from '../onboarding';
 
 import { refreshAccessToken } from './key';
 import { refreshAnonymousLogin } from './anonymous';
@@ -64,11 +65,13 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
 
   if (!person.user.pathway_stage_id) {
     dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
+    dispatch(startOnboarding());
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
   } else {
     dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
+    dispatch(startOnboarding());
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }
 };

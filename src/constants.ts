@@ -100,6 +100,7 @@ export const LINKS = {
 };
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
+export const ANALYTICS_CONTEXT_ONBOARDING = 'onboarding';
 
 export const ORG_PERMISSIONS = {
   ADMIN: '1',

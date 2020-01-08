@@ -5,14 +5,17 @@ import {
   ANALYTICS,
   NOT_LOGGED_IN,
   LOGOUT,
+  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { RESET_APP_CONTEXT, ResetAppContextAction } from '../actions/analytics';
+import { START_ONBOARDING, StartOnboardingAction } from '../actions/onboarding';
 
 export const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
   [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
   [ANALYTICS.APP_NAME]: 'MissionHub App',
-  [ANALYTICS.LOGGED_IN_STATUS]: 'not logged in',
+  [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
   [ANALYTICS.SSO_GUID]: '',
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
@@ -35,6 +38,8 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
+  | StartOnboardingAction
+  | ResetAppContextAction
   | { type: typeof LOGOUT };
 
 function analyticsReducer(
@@ -52,6 +57,16 @@ function analyticsReducer(
         ...state,
         [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
       };
+    case START_ONBOARDING:
+      return {
+        ...state,
+        [ANALYTICS.APP_CONTEXT]: ANALYTICS_CONTEXT_ONBOARDING,
+      };
+    case RESET_APP_CONTEXT:
+      return {
+        ...state,
+        [ANALYTICS.APP_CONTEXT]: '',
+      };
     case LOGOUT:
       return {
         ...state,
@@ -59,6 +74,7 @@ function analyticsReducer(
         [ANALYTICS.SSO_GUID]: '',
         [ANALYTICS.GR_MASTER_PERSON_ID]: '',
         [ANALYTICS.FACEBOOK_ID]: '',
+        [ANALYTICS.APP_CONTEXT]: '',
       };
     default:
       return state;
