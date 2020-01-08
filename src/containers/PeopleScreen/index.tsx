@@ -14,6 +14,7 @@ import {
 import { navigatePush } from '../../actions/navigation';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
 import { SEARCH_SCREEN } from '../SearchPeopleScreen';
@@ -99,6 +100,7 @@ export const PeopleScreen = ({
         title={t('header').toUpperCase()}
         shadow={!isJean}
       />
+      <AnnouncementsModal />
       <PeopleList
         testID="peopleList"
         sections={isJean}

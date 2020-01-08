@@ -16,6 +16,7 @@ import { useFocusEffect } from 'react-navigation-hooks';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
 import { IconButton, Button } from '../../components/common';
@@ -290,6 +291,7 @@ const GroupsListScreen = ({
           />
         </View>
       </View>
+      <AnnouncementsModal />
       <FlatList
         testID="flatList"
         refreshing={isRefreshing}

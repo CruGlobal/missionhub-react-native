@@ -5,20 +5,20 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -362,11 +362,11 @@
+@@ -663,11 +663,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
               \\"__typename\\": \\"CommunitiesReport\\",
               \\"contactCount\\": 0,
 -             \\"memberCount\\": 41702,
-+             \\"memberCount\\": 78695,
++             \\"memberCount\\": 23036,
               \\"unassignedCount\\": 0,
             },
             \\"unreadCommentsCount\\": 0,
             \\"userCreated\\": true,
           },
-@@ -656,12 +656,302 @@
+@@ -957,12 +957,302 @@
               \\"contactCount\\": 62169,
               \\"memberCount\\": 7379,
               \\"unassignedCount\\": 11474,
@@ -28,125 +28,9 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         },
 +         Object {
 +           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"doloremque molestias dolore\\",
-+           \\"id\\": \\"11\\",
-+           \\"name\\": \\"User-centric actuating hierarchy\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Bartholome\\",
-+                 \\"lastName\\": \\"Stokes\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Edwina\\",
-+                 \\"lastName\\": \\"Lind\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 23175,
-+             \\"memberCount\\": 55282,
-+             \\"unassignedCount\\": 96766,
-+           },
-+           \\"unreadCommentsCount\\": 2621,
-+           \\"userCreated\\": false,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"quia ut minima\\",
-+           \\"id\\": \\"12\\",
-+           \\"name\\": \\"Grass-roots logistical task-force\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Audra\\",
-+                 \\"lastName\\": \\"McDermott\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Kevon\\",
-+                 \\"lastName\\": \\"Wisozk\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 41792,
-+             \\"memberCount\\": 56103,
-+             \\"unassignedCount\\": 36784,
-+           },
-+           \\"unreadCommentsCount\\": 84203,
-+           \\"userCreated\\": false,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"et nostrum ut\\",
-+           \\"id\\": \\"13\\",
-+           \\"name\\": \\"Intuitive exuding core\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Mike\\",
-+                 \\"lastName\\": \\"Schoen\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Lesley\\",
-+                 \\"lastName\\": \\"Howe\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 42690,
-+             \\"memberCount\\": 86354,
-+             \\"unassignedCount\\": 75187,
-+           },
-+           \\"unreadCommentsCount\\": 1864,
-+           \\"userCreated\\": true,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
-+           \\"communityPhotoUrl\\": \\"iste molestiae dolores\\",
-+           \\"id\\": \\"14\\",
-+           \\"name\\": \\"Right-sized transitional product\\",
-+           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
-+             \\"nodes\\": Array [
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Francesco\\",
-+                 \\"lastName\\": \\"Beier\\",
-+               },
-+               Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"firstName\\": \\"Candida\\",
-+                 \\"lastName\\": \\"Cartwright\\",
-+               },
-+             ],
-+           },
-+           \\"report\\": Object {
-+             \\"__typename\\": \\"CommunitiesReport\\",
-+             \\"contactCount\\": 93719,
-+             \\"memberCount\\": 4455,
-+             \\"unassignedCount\\": 91640,
-+           },
-+           \\"unreadCommentsCount\\": 74712,
-+           \\"userCreated\\": false,
-+         },
-+         Object {
-+           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"tempora et quo\\",
-+           \\"id\\": \\"15\\",
-+           \\"name\\": \\"Organized disintermediate ability\\",
++           \\"id\\": \\"17\\",
++           \\"name\\": \\"Reverse-engineered impactful pricing structure\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -174,8 +58,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"similique ad sed\\",
-+           \\"id\\": \\"16\\",
-+           \\"name\\": \\"Robust mobile capability\\",
++           \\"id\\": \\"18\\",
++           \\"name\\": \\"Diverse upward-trending analyzer\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -203,8 +87,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"ut ab nulla\\",
-+           \\"id\\": \\"17\\",
-+           \\"name\\": \\"Function-based logistical interface\\",
++           \\"id\\": \\"19\\",
++           \\"name\\": \\"Realigned incremental attitude\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -232,8 +116,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"nesciunt omnis sit\\",
-+           \\"id\\": \\"18\\",
-+           \\"name\\": \\"Adaptive tangible orchestration\\",
++           \\"id\\": \\"20\\",
++           \\"name\\": \\"Devolved 3rd generation Graphic Interface\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -256,13 +140,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +             \\"unassignedCount\\": 76257,
 +           },
 +           \\"unreadCommentsCount\\": 82898,
-            \\"userCreated\\": true,
++           \\"userCreated\\": true,
 +         },
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"voluptatem provident doloribus\\",
-+           \\"id\\": \\"19\\",
-+           \\"name\\": \\"Grass-roots holistic support\\",
++           \\"id\\": \\"21\\",
++           \\"name\\": \\"Ameliorated attitude-oriented adapter\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -270,7 +154,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Berneice\\",
 +                 \\"lastName\\": \\"Mayert\\",
-                },
++               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Cade\\",
@@ -290,8 +174,8 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"libero laudantium voluptatem\\",
-+           \\"id\\": \\"20\\",
-+           \\"name\\": \\"Right-sized mobile implementation\\",
++           \\"id\\": \\"22\\",
++           \\"name\\": \\"Object-based content-based artificial intelligence\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"PersonConnection\\",
 +             \\"nodes\\": Array [
@@ -314,27 +198,143 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +             \\"unassignedCount\\": 7425,
 +           },
 +           \\"unreadCommentsCount\\": 74533,
+            \\"userCreated\\": true,
+          },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"facere neque et\\",
++           \\"id\\": \\"23\\",
++           \\"name\\": \\"Synergistic discrete intranet\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Fleta\\",
++                 \\"lastName\\": \\"Gerlach\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Austen\\",
++                 \\"lastName\\": \\"Schneider\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 14326,
++             \\"memberCount\\": 19343,
++             \\"unassignedCount\\": 93101,
++           },
++           \\"unreadCommentsCount\\": 21017,
++           \\"userCreated\\": false,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"cupiditate voluptas molestiae\\",
++           \\"id\\": \\"24\\",
++           \\"name\\": \\"Enterprise-wide intermediate toolset\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Lincoln\\",
++                 \\"lastName\\": \\"Gibson\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Ephraim\\",
++                 \\"lastName\\": \\"Bergstrom\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 72801,
++             \\"memberCount\\": 73506,
++             \\"unassignedCount\\": 52273,
++           },
++           \\"unreadCommentsCount\\": 63946,
 +           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"voluptates dolorem recusandae\\",
++           \\"id\\": \\"25\\",
++           \\"name\\": \\"Switchable directional attitude\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Marquis\\",
++                 \\"lastName\\": \\"Ankunding\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Herta\\",
++                 \\"lastName\\": \\"Feest\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 72855,
++             \\"memberCount\\": 61677,
++             \\"unassignedCount\\": 75633,
++           },
++           \\"unreadCommentsCount\\": 77217,
++           \\"userCreated\\": true,
++         },
++         Object {
++           \\"__typename\\": \\"Community\\",
++           \\"communityPhotoUrl\\": \\"hic molestiae iste\\",
++           \\"id\\": \\"26\\",
++           \\"name\\": \\"Enterprise-wide directional archive\\",
++           \\"owner\\": Object {
++             \\"__typename\\": \\"PersonConnection\\",
++             \\"nodes\\": Array [
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Concepcion\\",
++                 \\"lastName\\": \\"Volkman\\",
++               },
++               Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"firstName\\": \\"Addie\\",
++                 \\"lastName\\": \\"Nitzsche\\",
++               },
++             ],
++           },
++           \\"report\\": Object {
++             \\"__typename\\": \\"CommunitiesReport\\",
++             \\"contactCount\\": 92635,
++             \\"memberCount\\": 39000,
++             \\"unassignedCount\\": 29451,
++           },
++           \\"unreadCommentsCount\\": 94901,
++           \\"userCreated\\": false,
 +         },
         ]
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -719,11 +1009,11 @@
+@@ -1020,11 +1310,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
                   \\"__typename\\": \\"CommunitiesReport\\",
                   \\"contactCount\\": 0,
 -                 \\"memberCount\\": 41702,
-+                 \\"memberCount\\": 78695,
++                 \\"memberCount\\": 23036,
                   \\"unassignedCount\\": 0,
                 },
                 \\"unreadCommentsCount\\": 0,
                 \\"userCreated\\": true,
               }
-@@ -1084,11 +1374,11 @@
+@@ -1385,11 +1675,11 @@
           />
         </View>
         <View
@@ -711,6 +711,307 @@ exports[`GroupsListScreen renders with communities 1`] = `
       </View>
     </View>
   </View>
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0,0,0,0.5)",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 14,
+            "flex": 0.4,
+            "justifyContent": "space-around",
+            "padding": 14,
+            "paddingVertical": 40,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "marginTop": -60,
+                "width": "100%",
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                          "justifyContent": "flex-end",
+                          "margin": 0,
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#333333",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          qui ex culpa
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 22,
+              "textAlign": "center",
+            }
+          }
+        >
+          repellendus hic veritatis
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="AnnouncementActionButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#007398",
+                  "fontSize": 14,
+                  "height": 48,
+                  "letterSpacing": 1.5,
+                  "lineHeight": 24,
+                  "width": 600,
+                },
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ],
+                ]
+              }
+            >
+              EARUM VOLUPTATE VEL
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="AnnouncementActionButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#007398",
+                  "fontSize": 14,
+                  "height": 48,
+                  "letterSpacing": 1.5,
+                  "lineHeight": 24,
+                  "width": 600,
+                },
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ],
+                ]
+              }
+            >
+              ALIAS EST ET
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
   <RCTScrollView
     data={
       Array [

@@ -20,7 +20,9 @@ it('renders correctly', async () => {
   });
   await flushMicrotasksQueue();
 
-  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS, {
+    pollInterval: 120000,
+  });
 });
 
 it('Should not render if there are no announcements', async () => {
@@ -32,7 +34,9 @@ it('Should not render if there are no announcements', async () => {
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS, {
+    pollInterval: 120000,
+  });
 });
 
 describe('User clicks the close button', () => {
@@ -246,6 +250,8 @@ describe('User clicks the Modal Action Button', () => {
         input: { announcementId: '24', announcementActionId: '18' },
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS, {
+      pollInterval: 120000,
+    });
   });
 });
