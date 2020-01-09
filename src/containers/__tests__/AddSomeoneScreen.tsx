@@ -6,20 +6,16 @@ import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { skipOnboarding } from '../../actions/onboarding';
 
-jest.mock('../../actions/onboarding');
 jest.mock('../../utils/hooks/useLogoutOnBack');
 jest.mock('../../utils/hooks/useAnalytics');
 
 const next = jest.fn();
 const back = jest.fn();
 const nextResult = { type: 'next' };
-const skipOnboardingResult = { type: 'skip onboarding' };
 
 beforeEach(() => {
   (next as jest.Mock).mockReturnValue(nextResult);
-  (skipOnboarding as jest.Mock).mockReturnValue(skipOnboardingResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
