@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   FlatList,
   View,
@@ -132,7 +132,7 @@ const GroupsListScreen = ({
   scrollToId,
 }: GroupsListScreenProps) => {
   useAnalytics('communities');
-  useFocusEffect(() => dispatch(checkForUnreadComments()));
+  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -219,9 +219,7 @@ const GroupsListScreen = ({
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
-  const handleOpenMainMenu = () => {
-    dispatch(openMainMenu());
-  };
+  const handleOpenMainMenu = () => dispatch(openMainMenu());
 
   const handleScroll = ({
     nativeEvent,

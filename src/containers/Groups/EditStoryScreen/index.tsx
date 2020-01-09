@@ -15,6 +15,7 @@ import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { Event } from '../../../components/CelebrateItem';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
@@ -34,6 +35,7 @@ interface EditStoryProps {
 }
 
 const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
+  useAnalytics(['story', 'edit']);
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');

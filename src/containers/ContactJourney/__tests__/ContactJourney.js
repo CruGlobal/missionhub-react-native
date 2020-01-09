@@ -2,7 +2,6 @@ import 'react-native';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Provider } from 'react-redux-legacy';
 
 import * as navigation from '../../../actions/navigation';
 import { JOURNEY_EDIT_FLOW } from '../../../routes/constants';
@@ -11,11 +10,7 @@ import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
 } from '../../../constants';
-import {
-  createMockNavState,
-  renderShallow,
-  testSnapshot,
-} from '../../../../testUtils';
+import { renderShallow, renderWithContext } from '../../../../testUtils';
 
 import ContactJourney from '..';
 
@@ -253,15 +248,23 @@ describe('journey methods', () => {
 });
 
 it('renders with an organization correctly', () => {
-  testSnapshot(
-    <Provider
-      store={createMockStore(personId, { [personId]: mockJourneyList })}
-    >
-      <ContactJourney
-        person={mockPerson}
-        organization={{ id: 1 }}
-        navigation={createMockNavState()}
-      />
-    </Provider>,
-  );
+  renderWithContext(
+    <ContactJourney person={mockPerson} organization={{ id: 1 }} />,
+    {
+      initialState: {
+        auth: {
+          person: {
+            id: personId,
+          },
+          isJean: false,
+        },
+        swipe: {
+          journey: false,
+        },
+        journey: {
+          personal: mockJourneyList,
+        },
+      },
+    },
+  ).snapshot();
 });

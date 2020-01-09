@@ -10,6 +10,14 @@ exports[`renders correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "challenge",
+        "create",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"
@@ -122,6 +130,14 @@ exports[`renders edit challenge correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "challenge",
+        "edit",
+      ]
+    }
+  />
   <StatusBar
     animated={true}
     backgroundColor="#006789"

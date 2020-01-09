@@ -4,8 +4,10 @@ interface TrackOnFocusProps {
   screenName: string | string[];
 }
 
-export default ({ screenName }: TrackOnFocusProps) => {
+const Analytics = ({ screenName }: TrackOnFocusProps) => {
   useAnalytics(screenName);
 
   return null;
 };
+
+export default Analytics;

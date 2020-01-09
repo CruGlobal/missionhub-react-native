@@ -33,7 +33,27 @@ const StepDetailScreen = ({
   bottomButtonProps,
   receiver,
 }: StepDetailScreenProps) => {
-  const { stepTitleText, backButton, pageContainer } = styles;
+  const {
+    stepTitleText,
+    body,
+    extraPadding,
+    backButton,
+    pageContainer,
+  } = styles;
+
+  const renderContent = () => (
+    <>
+      <Text style={stepTitleText}>{text}</Text>
+      {CenterContent}
+      <View style={[body, bottomButtonProps ? extraPadding : undefined]}>
+        {markdown ? (
+          <Markdown style={markdownStyles}>
+            {markdown.replace(/<<name>>/g, receiver ? receiver.first_name : '')}
+          </Markdown>
+        ) : null}
+      </View>
+    </>
+  );
 
   return (
     <View style={pageContainer}>
@@ -43,23 +63,11 @@ const StepDetailScreen = ({
         center={CenterHeader}
         right={RightHeader}
       />
-      <Text style={stepTitleText}>{text}</Text>
-      {CenterContent}
-      <View style={{ flex: 1 }}>
-        {markdown ? (
-          <ScrollView
-            style={styles.body}
-            contentContainerStyle={styles.bodyContainer}
-          >
-            <Markdown style={markdownStyles}>
-              {markdown.replace(
-                /<<name>>/g,
-                receiver ? receiver.first_name : '',
-              )}
-            </Markdown>
-          </ScrollView>
-        ) : null}
-      </View>
+      {markdown ? (
+        <ScrollView style={{ flex: 1 }}>{renderContent()}</ScrollView>
+      ) : (
+        <View style={{ flex: 1 }}>{renderContent()}</View>
+      )}
       {bottomButtonProps && <BottomButton {...bottomButtonProps} />}
     </View>
   );

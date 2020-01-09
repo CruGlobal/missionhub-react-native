@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import ShareStoryScreen, { CREATE_A_STORY } from '..';
 
@@ -13,6 +14,7 @@ const navigatePushResult = { type: 'navigated push' };
 const organization = {
   id: '1234',
 };
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const MOCK_STORY = 'This is my cool story! 📘✏️';
 
@@ -30,6 +32,8 @@ it('renders correctly', () => {
       organization,
     },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['story', 'share']);
 });
 
 it('should find the saveStoryButton', () => {

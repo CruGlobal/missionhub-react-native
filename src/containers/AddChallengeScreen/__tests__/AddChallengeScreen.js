@@ -100,7 +100,7 @@ describe('create methods', () => {
     };
     instance.setState({ title: challenge.title, date: challenge.date });
     component
-      .childAt(3)
+      .childAt(4)
       .props()
       .onPress();
     expect(mockComplete).toHaveBeenCalledWith(challenge);
@@ -109,7 +109,7 @@ describe('create methods', () => {
   it('calls onChangeTitle from input', () => {
     const title = 'New Title';
     component
-      .childAt(2)
+      .childAt(3)
       .childAt(0)
       .props()
       .onChangeText(title);
@@ -119,7 +119,7 @@ describe('create methods', () => {
   it('calls onChangeDate from input', () => {
     const date = new Date();
     component
-      .childAt(2)
+      .childAt(3)
       .childAt(1)
       .props()
       .onDateChange(date);
@@ -160,7 +160,7 @@ describe('edit methods', () => {
     });
 
     component
-      .childAt(3)
+      .childAt(4)
       .props()
       .onPress();
     expect(mockComplete).toHaveBeenCalledWith(challenge);

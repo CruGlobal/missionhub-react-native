@@ -19,6 +19,7 @@ import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -128,6 +129,7 @@ class CelebrateDetailScreen extends Component {
   render() {
     return (
       <View style={styles.pageContainer}>
+        <Analytics screenName={['celebrate item', 'comments']} />
         {this.renderHeader()}
         {this.renderCommentsList()}
         {this.renderCommentBox()}

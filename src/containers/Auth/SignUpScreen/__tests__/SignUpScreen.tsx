@@ -12,6 +12,7 @@ import {
   facebookLoginWithAccessToken,
 } from '../../../../actions/auth/facebook';
 import { navigatePush } from '../../../../actions/navigation';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import SignUpScreen, { SIGNUP_TYPES } from '..';
 
@@ -35,6 +36,7 @@ jest.mock('react-native-fbsdk', () => ({
   GraphRequest: jest.fn((param1, param2, cb) => cb(undefined, {})),
   GraphRequestManager: () => ({ addRequest: () => ({ start: jest.fn() }) }),
 }));
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 jest.mock('../../../../components/common', () => ({
   Text: 'Text',
@@ -47,6 +49,8 @@ jest.mock('../../../BackButton', () => 'BackButton');
 
 it('renders correctly with logo', () => {
   renderWithContext(<SignUpScreen next={next} />).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['menu', 'sign up']);
 });
 
 it('renders correctly for Create Community', () => {
@@ -58,6 +62,8 @@ it('renders correctly for Create Community', () => {
     <SignUpScreen signUpType={SIGNUP_TYPES.CREATE_COMMUNITY} next={next} />,
   );
   diffSnapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['communities', 'sign up']);
 });
 
 describe('a login button is clicked', () => {

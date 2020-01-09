@@ -6,6 +6,7 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../../testUtils';
 import { keyLogin } from '../../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../../constants';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import MFACodeScreen from '..';
 
@@ -13,6 +14,7 @@ jest.mock('../../../../actions/auth/key');
 jest.mock('../../../../components/MFACodeComponent', () => ({
   MFACodeComponent: 'MFACodeComponent',
 }));
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const email = 'roger@test.com';
 const password = 'my password';
@@ -29,6 +31,8 @@ const renderConfig = {
 
 it('renders correctly', () => {
   renderWithContext(<MFACodeScreen next={next} />, renderConfig).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['sign in', 'verification']);
 });
 
 it('changes text', () => {

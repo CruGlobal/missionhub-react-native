@@ -12,6 +12,7 @@ import { IconButton } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
+import Analytics from '../Analytics';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -158,6 +159,7 @@ class AddContactScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Analytics screenName={['people', 'add']} />
         <Header
           right={
             <IconButton

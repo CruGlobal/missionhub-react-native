@@ -34,6 +34,14 @@ exports[`should render correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "reported comments",
+      ]
+    }
+  />
   <Header
     right={
       <IconButton
@@ -98,6 +106,14 @@ exports[`should render empty correctly 1`] = `
     }
   }
 >
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "reported comments",
+      ]
+    }
+  />
   <Header
     right={
       <IconButton

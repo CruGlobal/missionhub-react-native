@@ -9,6 +9,7 @@ import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
+import Analytics from '../Analytics';
 
 import styles from './styles';
 
@@ -142,6 +143,7 @@ export class ContactNotes extends Component {
     const { text, editing } = this.state;
     return (
       <View style={styles.container}>
+        <Analytics screenName={['person', 'my notes']} />
         {text || editing ? this.renderNotes() : this.renderEmpty()}
         <BottomButton
           onPress={this.onButtonPress}

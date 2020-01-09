@@ -58,6 +58,9 @@ describe('GroupsListScreen', () => {
         CommunityConnection: () => ({ nodes: () => [] }),
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('communities');
+    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('renders with communities', async () => {
@@ -71,15 +74,6 @@ describe('GroupsListScreen', () => {
     await flushMicrotasksQueue();
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
-  });
-
-  it('tracks screen change on mount', () => {
-    renderWithContext(<GroupsListScreen />, {
-      initialState,
-      mocks: {
-        CommunityConnection: () => ({ nodes: () => [] }),
-      },
-    });
 
     expect(useAnalytics).toHaveBeenCalledWith('communities');
     expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
