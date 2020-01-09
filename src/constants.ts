@@ -45,6 +45,7 @@ export const SET_CELEBRATE_EDITING_COMMENT =
   'app/SET_CELEBRATE_EDITING_COMMENT';
 export const RESET_CELEBRATE_EDITING_COMMENT =
   'app/RESET_CELEBRATE_EDITING_COMMENT';
+export const RELOAD_APP = 'app/RELOAD_APP';
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
