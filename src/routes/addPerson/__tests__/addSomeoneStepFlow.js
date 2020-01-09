@@ -70,7 +70,7 @@ let next;
 
 describe('AddSomeoneScreen next', () => {
   beforeEach(() => {
-    const Component = AddSomeoneStepFlowScreens[ADD_SOMEONE_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[ADD_SOMEONE_SCREEN];
 
     screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
@@ -95,7 +95,7 @@ describe('AddSomeoneScreen next', () => {
 
 describe('SetupPersonScreen next', () => {
   beforeEach(() => {
-    const Component = AddSomeoneStepFlowScreens[SETUP_PERSON_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[SETUP_PERSON_SCREEN];
 
     screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
@@ -124,7 +124,7 @@ describe('SetupPersonScreen next', () => {
 
 describe('SelectStageScreen', () => {
   beforeEach(() => {
-    const Component = AddSomeoneStepFlowScreens[SELECT_STAGE_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[SELECT_STAGE_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -161,8 +161,7 @@ describe('SelectStageScreen', () => {
 
 describe('PersonSelectStepScreen next', () => {
   beforeEach(() => {
-    const Component =
-      AddSomeoneStepFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[PERSON_SELECT_STEP_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -205,8 +204,7 @@ describe('PersonSelectStepScreen next', () => {
 
 describe('SuggestedStepDetailScreen next', () => {
   beforeEach(() => {
-    const Component =
-      AddSomeoneStepFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -237,7 +235,7 @@ describe('SuggestedStepDetailScreen next', () => {
 
 describe('AddStepScreen next', () => {
   beforeEach(() => {
-    const Component = AddSomeoneStepFlowScreens[ADD_STEP_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[ADD_STEP_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -270,7 +268,7 @@ describe('AddStepScreen next', () => {
 
 describe('CelebrationScreen next', () => {
   beforeEach(() => {
-    const Component = AddSomeoneStepFlowScreens[CELEBRATION_SCREEN].screen;
+    const Component = AddSomeoneStepFlowScreens[CELEBRATION_SCREEN];
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,

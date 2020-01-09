@@ -6,9 +6,6 @@ Array [
     "type": "start onboarding",
   },
   Object {
-    "type": "track action",
-  },
-  Object {
     "type": "navigate refresh",
   },
 ]
@@ -20,9 +17,6 @@ Array [
     "type": "start onboarding",
   },
   Object {
-    "type": "track action",
-  },
-  Object {
     "type": "navigate refresh",
   },
 ]
@@ -32,9 +26,6 @@ exports[`initialRoute logged in user has not completed onboarding and does not h
 Array [
   Object {
     "type": "start onboarding",
-  },
-  Object {
-    "type": "track action",
   },
   Object {
     "type": "navigate refresh",

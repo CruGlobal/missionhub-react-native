@@ -5,11 +5,14 @@ import {
   ANALYTICS,
   NOT_LOGGED_IN,
   LOGOUT,
-  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
-import { RESET_APP_CONTEXT, ResetAppContextAction } from '../actions/analytics';
-import { START_ONBOARDING, StartOnboardingAction } from '../actions/onboarding';
+import {
+  RESET_APP_CONTEXT,
+  ResetAppContextAction,
+  SET_APP_CONTEXT,
+  SetAppContextAction,
+} from '../actions/analytics';
 
 export const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
@@ -38,7 +41,7 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
-  | StartOnboardingAction
+  | SetAppContextAction
   | ResetAppContextAction
   | { type: typeof LOGOUT };
 
@@ -57,10 +60,10 @@ function analyticsReducer(
         ...state,
         [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
       };
-    case START_ONBOARDING:
+    case SET_APP_CONTEXT:
       return {
         ...state,
-        [ANALYTICS.APP_CONTEXT]: ANALYTICS_CONTEXT_ONBOARDING,
+        [ANALYTICS.APP_CONTEXT]: action.context,
       };
     case RESET_APP_CONTEXT:
       return {

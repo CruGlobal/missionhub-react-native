@@ -6,7 +6,7 @@ import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
-import { LOGOUT, ACTIONS } from '../../../constants';
+import { LOGOUT } from '../../../constants';
 import {
   SIGN_IN_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
@@ -24,7 +24,6 @@ import { refreshMissionHubFacebookAccess } from '../facebook';
 import { deletePushToken } from '../../notifications';
 import { navigateReset, navigateToMainTabs } from '../../navigation';
 import { startOnboarding } from '../../onboarding';
-import { trackActionWithoutData } from '../../analytics';
 
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },
@@ -45,7 +44,6 @@ let store: MockStore;
 const deletePushTokenResult = { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS };
 const navigateResetResult = { type: 'navigate reset' };
 const startOnboardingResult = { type: 'start onboarding' };
-const trackActionWithoutDataResult = { type: 'track action' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
 beforeEach(() => {
@@ -54,9 +52,6 @@ beforeEach(() => {
   (deletePushToken as jest.Mock).mockReturnValue(deletePushTokenResult);
   (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResult);
-  (trackActionWithoutData as jest.Mock).mockReturnValue(
-    trackActionWithoutDataResult,
-  );
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
 });
 
@@ -117,15 +112,11 @@ describe('navigateToPostAuthScreen', () => {
 
     store.dispatch<any>(navigateToPostAuthScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
     expect(startOnboarding).toHaveBeenCalledWith();
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_STARTED,
-    );
+    expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
     expect(store.getActions()).toEqual([
-      navigateResetResult,
       startOnboardingResult,
-      trackActionWithoutDataResult,
+      navigateResetResult,
     ]);
   });
 
@@ -161,15 +152,11 @@ describe('navigateToPostAuthScreen', () => {
 
     store.dispatch<any>(navigateToPostAuthScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(ADD_SOMEONE_ONBOARDING_FLOW);
     expect(startOnboarding).toHaveBeenCalledWith();
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_STARTED,
-    );
+    expect(navigateReset).toHaveBeenCalledWith(ADD_SOMEONE_ONBOARDING_FLOW);
     expect(store.getActions()).toEqual([
-      navigateResetResult,
       startOnboardingResult,
-      trackActionWithoutDataResult,
+      navigateResetResult,
     ]);
   });
 });

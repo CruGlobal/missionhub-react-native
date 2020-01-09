@@ -74,8 +74,7 @@ let next;
 
 describe('GetStartedScreen', () => {
   beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[GET_STARTED_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[GET_STARTED_SCREEN];
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,
@@ -101,8 +100,7 @@ describe('GetStartedScreen', () => {
 
 describe('StageSuccessScreen', () => {
   beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[STAGE_SUCCESS_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[STAGE_SUCCESS_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -128,8 +126,7 @@ describe('StageSuccessScreen', () => {
 
 describe('SelectMyStepScreen', () => {
   beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[SELECT_MY_STEP_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[SELECT_MY_STEP_SCREEN];
 
     screen = renderShallow(
       <Component navigation={{ state: { params: { contactStage: stage } } }} />,
@@ -163,8 +160,7 @@ describe('SelectMyStepScreen', () => {
 
 describe('AddSomeoneScreen next', () => {
   beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[ADD_SOMEONE_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[ADD_SOMEONE_SCREEN];
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,
@@ -192,8 +188,7 @@ describe('AddSomeoneScreen next', () => {
 
 describe('SetupPersonScreen next', () => {
   beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[SETUP_PERSON_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[SETUP_PERSON_SCREEN];
 
     screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
@@ -223,8 +218,7 @@ describe('SetupPersonScreen next', () => {
 describe('SelectStageScreen', () => {
   describe('person is me', () => {
     beforeEach(() => {
-      const Component =
-        GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN].screen;
+      const Component = GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN];
 
       screen = renderShallow(
         <Component
@@ -256,8 +250,7 @@ describe('SelectStageScreen', () => {
 
   describe('person is other', () => {
     beforeEach(() => {
-      const Component =
-        GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN].screen;
+      const Component = GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN];
 
       screen = renderShallow(
         <Component
@@ -300,7 +293,7 @@ describe('SelectStageScreen', () => {
 describe('PersonSelectStepScreen next', () => {
   beforeEach(() => {
     const Component =
-      GetStartedOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -346,7 +339,7 @@ describe('PersonSelectStepScreen next', () => {
 describe('SuggestedStepDetailScreen next', () => {
   beforeEach(() => {
     const Component =
-      GetStartedOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN].screen;
+      GetStartedOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -377,7 +370,7 @@ describe('SuggestedStepDetailScreen next', () => {
 
 describe('AddStepScreen next', () => {
   beforeEach(() => {
-    const Component = GetStartedOnboardingFlowScreens[ADD_STEP_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[ADD_STEP_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -410,8 +403,7 @@ describe('AddStepScreen next', () => {
 
 describe('CelebrationScreen next', () => {
   beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[CELEBRATION_SCREEN].screen;
+    const Component = GetStartedOnboardingFlowScreens[CELEBRATION_SCREEN];
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,

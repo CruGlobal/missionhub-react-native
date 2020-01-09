@@ -70,8 +70,7 @@ let next;
 
 describe('AddSomeoneScreen next', () => {
   beforeEach(() => {
-    const Component =
-      AddSomeoneOnboardingFlowScreens[ADD_SOMEONE_SCREEN].screen;
+    const Component = AddSomeoneOnboardingFlowScreens[ADD_SOMEONE_SCREEN];
 
     screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
@@ -96,8 +95,7 @@ describe('AddSomeoneScreen next', () => {
 
 describe('SetupPersonScreen next', () => {
   beforeEach(() => {
-    const Component =
-      AddSomeoneOnboardingFlowScreens[SETUP_PERSON_SCREEN].screen;
+    const Component = AddSomeoneOnboardingFlowScreens[SETUP_PERSON_SCREEN];
 
     screen = renderShallow(<Component />, store);
     next = screen.instance().props.next;
@@ -126,8 +124,7 @@ describe('SetupPersonScreen next', () => {
 
 describe('SelectStageScreen', () => {
   beforeEach(() => {
-    const Component =
-      AddSomeoneOnboardingFlowScreens[SELECT_STAGE_SCREEN].screen;
+    const Component = AddSomeoneOnboardingFlowScreens[SELECT_STAGE_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -162,7 +159,7 @@ describe('SelectStageScreen', () => {
 describe('PersonSelectStepScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN].screen;
+      AddSomeoneOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -208,7 +205,7 @@ describe('PersonSelectStepScreen next', () => {
 describe('SuggestedStepDetailScreen next', () => {
   beforeEach(() => {
     const Component =
-      AddSomeoneOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN].screen;
+      AddSomeoneOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -240,7 +237,7 @@ describe('SuggestedStepDetailScreen next', () => {
 
 describe('AddStepScreen next', () => {
   beforeEach(() => {
-    const Component = AddSomeoneOnboardingFlowScreens[ADD_STEP_SCREEN].screen;
+    const Component = AddSomeoneOnboardingFlowScreens[ADD_STEP_SCREEN];
 
     screen = renderShallow(
       <Component
@@ -274,8 +271,7 @@ describe('AddStepScreen next', () => {
 
 describe('CelebrationScreen next', () => {
   beforeEach(() => {
-    const Component =
-      AddSomeoneOnboardingFlowScreens[CELEBRATION_SCREEN].screen;
+    const Component = AddSomeoneOnboardingFlowScreens[CELEBRATION_SCREEN];
 
     screen = renderShallow(
       <Component navigation={{ state: { params: {} } }} />,

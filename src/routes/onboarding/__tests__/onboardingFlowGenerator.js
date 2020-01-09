@@ -76,7 +76,7 @@ beforeEach(() => {
 
 describe('WelcomeScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[WELCOME_SCREEN].screen;
+    const Component = testFlow[WELCOME_SCREEN];
 
     await store.dispatch(
       renderShallow(<Component />, store)
@@ -90,7 +90,7 @@ describe('WelcomeScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[SETUP_SCREEN].screen;
+    const Component = testFlow[SETUP_SCREEN];
 
     await store.dispatch(
       renderShallow(<Component />, store)
@@ -104,7 +104,7 @@ describe('SetupScreen next', () => {
 
 describe('GetStartedScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[GET_STARTED_SCREEN].screen;
+    const Component = testFlow[GET_STARTED_SCREEN];
 
     await store.dispatch(
       renderShallow(
@@ -132,7 +132,7 @@ describe('GetStartedScreen next', () => {
 describe('SelectStageScreen next', () => {
   describe('person is me', () => {
     it('should fire required next actions', async () => {
-      const Component = testFlow[SELECT_STAGE_SCREEN].screen;
+      const Component = testFlow[SELECT_STAGE_SCREEN];
 
       await store.dispatch(
         renderShallow(
@@ -159,7 +159,7 @@ describe('SelectStageScreen next', () => {
 
   describe('person is other', () => {
     it('should fire required next actions', async () => {
-      const Component = testFlow[SELECT_STAGE_SCREEN].screen;
+      const Component = testFlow[SELECT_STAGE_SCREEN];
 
       await store.dispatch(
         renderShallow(
@@ -187,7 +187,7 @@ describe('SelectStageScreen next', () => {
 
 describe('StageSuccessScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[STAGE_SUCCESS_SCREEN].screen;
+    const Component = testFlow[STAGE_SUCCESS_SCREEN];
 
     await store.dispatch(
       renderShallow(
@@ -208,7 +208,7 @@ describe('SelectMyStepScreen next', () => {
   let next;
 
   beforeEach(() => {
-    const Component = testFlow[SELECT_MY_STEP_SCREEN].screen;
+    const Component = testFlow[SELECT_MY_STEP_SCREEN];
 
     next = renderShallow(
       <Component
@@ -241,7 +241,7 @@ describe('AddSomeoneScreen next', () => {
   let next;
 
   beforeEach(() => {
-    const Component = testFlow[ADD_SOMEONE_SCREEN].screen;
+    const Component = testFlow[ADD_SOMEONE_SCREEN];
 
     next = renderShallow(<Component />, store).instance().props.next;
   });
@@ -268,7 +268,7 @@ describe('AddSomeoneScreen with extra props', () => {
   });
 
   beforeEach(() => {
-    const Component = testExtraPropsFlow[ADD_SOMEONE_SCREEN].screen;
+    const Component = testExtraPropsFlow[ADD_SOMEONE_SCREEN];
 
     component = renderShallow(<Component />, store);
     next = component.instance().props.next;
@@ -279,7 +279,7 @@ describe('AddSomeoneScreen with extra props', () => {
   });
 
   it('setup person screen should have hideSkipBtn prop set to true', () => {
-    const Component = testExtraPropsFlow[SETUP_PERSON_SCREEN].screen;
+    const Component = testExtraPropsFlow[SETUP_PERSON_SCREEN];
     const setupPersonComponent = renderShallow(<Component />, store);
     expect(setupPersonComponent.instance().props.hideSkipBtn).toEqual(true);
   });
@@ -301,7 +301,7 @@ describe('SetupPersonScreen next', () => {
   let next;
 
   beforeEach(() => {
-    const Component = testFlow[SETUP_PERSON_SCREEN].screen;
+    const Component = testFlow[SETUP_PERSON_SCREEN];
 
     next = renderShallow(<Component />, store).instance().props.next;
   });
@@ -327,7 +327,7 @@ describe('PersonSelectStepScreen next', () => {
   let next;
 
   beforeEach(() => {
-    const Component = testFlow[PERSON_SELECT_STEP_SCREEN].screen;
+    const Component = testFlow[PERSON_SELECT_STEP_SCREEN];
 
     next = renderShallow(
       <Component
@@ -364,7 +364,7 @@ describe('PersonSelectStepScreen next', () => {
 
 describe('SuggestedStepDetailScreen next', () => {
   it('should fire required next actions for me', async () => {
-    const Component = testFlow[SUGGESTED_STEP_DETAIL_SCREEN].screen;
+    const Component = testFlow[SUGGESTED_STEP_DETAIL_SCREEN];
 
     await store.dispatch(
       renderShallow(
@@ -388,7 +388,7 @@ describe('SuggestedStepDetailScreen next', () => {
   });
 
   it('should fire required next actions for other person', async () => {
-    const Component = testFlow[SUGGESTED_STEP_DETAIL_SCREEN].screen;
+    const Component = testFlow[SUGGESTED_STEP_DETAIL_SCREEN];
 
     await store.dispatch(
       renderShallow(
@@ -414,7 +414,7 @@ describe('SuggestedStepDetailScreen next', () => {
 
 describe('AddStepScreen next', () => {
   it('should fire required next actions for me', async () => {
-    const Component = testFlow[ADD_STEP_SCREEN].screen;
+    const Component = testFlow[ADD_STEP_SCREEN];
 
     await store.dispatch(
       renderShallow(
@@ -446,7 +446,7 @@ describe('AddStepScreen next', () => {
   });
 
   it('should fire required next actions for other person', async () => {
-    const Component = testFlow[ADD_STEP_SCREEN].screen;
+    const Component = testFlow[ADD_STEP_SCREEN];
 
     await store.dispatch(
       renderShallow(
@@ -480,7 +480,7 @@ describe('AddStepScreen next', () => {
 
 describe('CelebrationScreen next', () => {
   it('should fire required next actions', async () => {
-    const Component = testFlow[CELEBRATION_SCREEN].screen;
+    const Component = testFlow[CELEBRATION_SCREEN];
 
     await store.dispatch(
       renderShallow(<Component navigation={{ state: { params: {} } }} />, store)

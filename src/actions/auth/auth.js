@@ -1,12 +1,11 @@
 import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 
-import { ACTIONS, CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
+import { CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { rollbar } from '../../utils/rollbar.config';
 import { navigateReset } from '../navigation';
 import { deletePushToken } from '../notifications';
-import { trackActionWithoutData } from '../analytics';
 import {
   SIGN_IN_FLOW,
   ADD_SOMEONE_ONBOARDING_FLOW,
@@ -64,15 +63,13 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
-    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
     dispatch(startOnboarding());
-    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
   } else {
-    dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
     dispatch(startOnboarding());
-    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+    dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
   }
 };
 

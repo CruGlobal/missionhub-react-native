@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import configureStore from 'redux-mock-store';
@@ -20,11 +21,16 @@ import {
 import { showReminderOnLoad } from '../notifications';
 import { navigatePush, navigateBack, navigateToCommunity } from '../navigation';
 import { joinCommunity } from '../organizations';
-import { trackActionWithoutData, resetAppContext } from '../analytics';
+import {
+  trackActionWithoutData,
+  setAppContext,
+  resetAppContext,
+} from '../analytics';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
+  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
@@ -50,6 +56,7 @@ const navigateBackResponse = { type: 'navigate back' };
 const navigateToCommunityResponse = { type: 'navigate to community' };
 const showReminderResponse = { type: 'show notification prompt' };
 const trackActionWithoutDataResult = { type: 'track action' };
+const setAppContextResult = { type: 'set app context' };
 const resetAppContextResult = { type: 'reset app context' };
 
 beforeEach(() => {
@@ -63,17 +70,8 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(
     trackActionWithoutDataResult,
   );
+  (setAppContext as jest.Mock).mockReturnValue(setAppContextResult);
   (resetAppContext as jest.Mock).mockReturnValue(resetAppContextResult);
-});
-
-describe('startOnboarding', () => {
-  it('sends start onboarding action', () => {
-    expect(startOnboarding()).toMatchInlineSnapshot(`
-      Object {
-        "type": "START_ONBOARDING",
-      }
-    `);
-  });
 });
 
 describe('setOnboardingPersonId', () => {
@@ -115,6 +113,21 @@ describe('skipOnboardingAddPerson', () => {
         "type": "SKIP_ONBOARDING_ADD_PERSON",
       }
     `);
+  });
+});
+
+describe('startOnboarding', () => {
+  it('sends start onboarding action', () => {
+    store.dispatch<any>(startOnboarding());
+
+    expect(setAppContext).toHaveBeenCalledWith(ANALYTICS_CONTEXT_ONBOARDING);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_STARTED,
+    );
+    expect(store.getActions()).toEqual([
+      setAppContextResult,
+      trackActionWithoutDataResult,
+    ]);
   });
 });
 

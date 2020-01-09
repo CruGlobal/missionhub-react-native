@@ -6,7 +6,6 @@ import {
   ADD_SOMEONE_ONBOARDING_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
 } from '../routes/constants';
-import { ACTIONS } from '../constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
@@ -15,7 +14,6 @@ import { Organization } from '../reducers/organizations';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 import { startOnboarding } from './onboarding';
-import { trackActionWithoutData } from './analytics';
 
 export const resetToInitialRoute = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
@@ -35,7 +33,6 @@ export const resetToInitialRoute = () => (
     }
 
     dispatch(startOnboarding());
-    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
     return dispatch(
       navigateReset(
         auth.person.user.pathway_stage_id

@@ -7,8 +7,7 @@ import {
   ANALYTICS_CONTEXT_ONBOARDING,
 } from '../../constants';
 import { REQUESTS } from '../../api/routes';
-import { START_ONBOARDING } from '../../actions/onboarding';
-import { RESET_APP_CONTEXT } from '../../actions/analytics';
+import { RESET_APP_CONTEXT, SET_APP_CONTEXT } from '../../actions/analytics';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';
 
@@ -54,9 +53,14 @@ describe('analytics context changed', () => {
   });
 });
 
-describe('START_ONBOARDING', () => {
+describe('SET_APP_CONTEXT', () => {
   it('should set app context to onboarding', () => {
-    expect(analyticsReducer(undefined, { type: START_ONBOARDING })).toEqual({
+    expect(
+      analyticsReducer(undefined, {
+        type: SET_APP_CONTEXT,
+        context: ANALYTICS_CONTEXT_ONBOARDING,
+      }),
+    ).toEqual({
       ...initialAnalyticsState,
       [ANALYTICS.APP_CONTEXT]: ANALYTICS_CONTEXT_ONBOARDING,
     });

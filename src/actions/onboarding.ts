@@ -10,6 +10,7 @@ import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
+  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../constants';
 import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -19,17 +20,16 @@ import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
-import { trackActionWithoutData, resetAppContext } from './analytics';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+  setAppContext,
+} from './analytics';
 import { joinCommunity } from './organizations';
 
-export const START_ONBOARDING = 'START_ONBOARDING';
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';
 export const SKIP_ONBOARDING_ADD_PERSON = 'SKIP_ONBOARDING_ADD_PERSON';
-
-export interface StartOnboardingAction {
-  type: typeof START_ONBOARDING;
-}
 
 export interface SetOnboardingPersonIdAction {
   type: typeof SET_ONBOARDING_PERSON_ID;
@@ -48,10 +48,6 @@ export interface SetOnboardingCommunityAction {
 export interface SkipOnboardingAddPersonAction {
   type: typeof SKIP_ONBOARDING_ADD_PERSON;
 }
-
-export const startOnboarding = (): StartOnboardingAction => ({
-  type: START_ONBOARDING,
-});
 
 export const setOnboardingPersonId = (
   personId: string,
@@ -72,6 +68,13 @@ export const setOnboardingCommunity = (community: {
 export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
   type: SKIP_ONBOARDING_ADD_PERSON,
 });
+
+export const startOnboarding = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+) => {
+  dispatch(setAppContext(ANALYTICS_CONTEXT_ONBOARDING));
+  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+};
 
 export function createMyPerson(firstName: string, lastName: string) {
   const data = {
