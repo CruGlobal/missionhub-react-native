@@ -25,12 +25,14 @@ export const useAnalytics = (
     dispatch(trackScreenChange(name));
   };
 
+  //normally screens should only respond to focus events
   useEffect(() => {
     if (isFocused && screenType === ANALYTICS_SCREEN_TYPES.screen) {
       handleScreenChange(screenName);
     }
   }, [isFocused]);
 
+  //if it is a drawer, or screen with a drawer, it should respond to drawer events in addition to focus events
   useEffect(() => {
     if (isFocused) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
