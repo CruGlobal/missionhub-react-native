@@ -17,7 +17,10 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../../utils/hooks/useAnalytics';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
@@ -59,7 +62,10 @@ describe('GroupsListScreen', () => {
       },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('communities');
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+    );
     expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
@@ -75,7 +81,10 @@ describe('GroupsListScreen', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
 
-    expect(useAnalytics).toHaveBeenCalledWith('communities');
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+    );
     expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 

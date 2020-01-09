@@ -30,6 +30,7 @@ jest.mock('../../../../actions/organizations', () => ({
 jest.mock('../../../../actions/analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 global.setTimeout = jest.fn();
 

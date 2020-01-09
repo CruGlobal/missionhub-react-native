@@ -141,58 +141,58 @@ exports[`renders correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    do this step
-  </Text>
-  <View
-    style={
-      Object {
-        "borderBottomWidth": 1,
-        "borderColor": "#ECEEF2",
-      }
-    }
-  />
-  <View
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <RCTScrollView
-      contentContainerStyle={
-        Object {
-          "paddingBottom": 32,
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
         }
-      }
-      style={
-        Object {
-          "paddingBottom": 14,
-          "paddingHorizontal": 32,
-          "paddingTop": 26,
+      >
+        do this step
+      </Text>
+      <View
+        style={
+          Object {
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+          }
         }
-      }
-    >
-      <View>
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "paddingBottom": 32,
+              "paddingHorizontal": 32,
+              "paddingTop": 26,
+            },
+            Object {
+              "paddingBottom": 86,
+            },
+          ]
+        }
+      >
         <View
           style={Object {}}
         >
@@ -220,8 +220,8 @@ exports[`renders correctly 1`] = `
           </View>
         </View>
       </View>
-    </RCTScrollView>
-  </View>
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={

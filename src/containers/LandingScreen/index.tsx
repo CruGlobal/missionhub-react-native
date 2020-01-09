@@ -12,6 +12,7 @@ import {
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../routes/constants';
+import { startOnboarding } from '../../actions/onboarding';
 
 import styles from './styles';
 
@@ -33,10 +34,12 @@ const LandingScreen = () => {
   const dispatch = useDispatch();
 
   const tryItNow = () => {
+    dispatch(startOnboarding());
     dispatch(navigatePush(FULL_ONBOARDING_FLOW));
   };
 
   const communityCode = () => {
+    dispatch(startOnboarding());
     dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
   };
 
