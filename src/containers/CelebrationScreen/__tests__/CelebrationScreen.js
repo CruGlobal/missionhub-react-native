@@ -10,6 +10,7 @@ import CelebrationScreen from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.useFakeTimers();
 
 const mockMath = Object.create(global.Math);

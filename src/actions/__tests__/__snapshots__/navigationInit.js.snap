@@ -3,6 +3,9 @@
 exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage does not have self stage should go to GetStarted 1`] = `
 Array [
   Object {
+    "type": "app/RELOAD_APP",
+  },
+  Object {
     "type": "navigate refresh",
   },
 ]
@@ -10,6 +13,9 @@ Array [
 
 exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage has self stage should go to AddSomeone 1`] = `
 Array [
+  Object {
+    "type": "app/RELOAD_APP",
+  },
   Object {
     "type": "navigate refresh",
   },
@@ -19,6 +25,9 @@ Array [
 exports[`initialRoute logged in user has not completed onboarding and does not have a contact with pathway stage should not check my reverse contact assignments 1`] = `
 Array [
   Object {
+    "type": "app/RELOAD_APP",
+  },
+  Object {
     "type": "navigate refresh",
   },
 ]
@@ -26,6 +35,9 @@ Array [
 
 exports[`initialRoute logged in user has not completed onboarding but has a contact with pathway stage should go to MainTabs 1`] = `
 Array [
+  Object {
+    "type": "app/RELOAD_APP",
+  },
   Object {
     "type": "nav to main tabs",
   },
@@ -35,6 +47,9 @@ Array [
 exports[`initialRoute logged in user has skipped adding person but does not have contact with pathway stage should go to MainTabs 1`] = `
 Array [
   Object {
+    "type": "app/RELOAD_APP",
+  },
+  Object {
     "type": "nav to main tabs",
   },
 ]
@@ -42,6 +57,9 @@ Array [
 
 exports[`initialRoute not logged in user should go to Login screen 1`] = `
 Array [
+  Object {
+    "type": "app/RELOAD_APP",
+  },
   Object {
     "type": "navigate refresh",
   },

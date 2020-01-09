@@ -4,8 +4,14 @@ import i18n from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../../utils/hooks/useAnalytics';
 
 import SettingsMenu from '..';
+
+jest.mock('../../../utils/hooks/useAnalytics');
 
 function getState(isAnonymousUser: boolean) {
   return {
@@ -18,12 +24,22 @@ it('renders correctly for authenticated user', () => {
   renderWithContext(<SettingsMenu />, {
     initialState: getState(false),
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'menu',
+    ANALYTICS_SCREEN_TYPES.drawer,
+  );
 });
 
 it('renders correctly for try it now user', () => {
   renderWithContext(<SettingsMenu />, {
     initialState: getState(true),
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'menu',
+    ANALYTICS_SCREEN_TYPES.drawer,
+  );
 });
 
 describe('menu items and links', () => {
