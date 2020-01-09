@@ -53,157 +53,138 @@ export const onboardingFlowGenerator = ({
 } = {}) => ({
   ...(startScreen === WELCOME_SCREEN
     ? {
-        [WELCOME_SCREEN]: {
-          screen: wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-        },
-        [SETUP_SCREEN]: {
-          screen: wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
-            isMe: true,
-          }),
-        },
+        [WELCOME_SCREEN]: wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
+        [SETUP_SCREEN]: wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
+          isMe: true,
+        }),
       }
     : {}),
   ...(startScreen === WELCOME_SCREEN || startScreen === GET_STARTED_SCREEN
     ? {
-        [GET_STARTED_SCREEN]: {
-          screen: wrapNextAction(
-            GetStartedScreen,
-            () => (
-              dispatch: ThunkDispatch<{}, {}, AnyAction>,
-              getState: () => { auth: AuthState },
-            ) =>
-              dispatch(
-                navigatePush(SELECT_STAGE_SCREEN, {
-                  section: 'onboarding',
-                  subsection: 'self',
-                  personId: getState().auth.person.id,
+        [GET_STARTED_SCREEN]: wrapNextAction(
+          GetStartedScreen,
+          () => (
+            dispatch: ThunkDispatch<{}, {}, AnyAction>,
+            getState: () => { auth: AuthState },
+          ) =>
+            dispatch(
+              navigatePush(SELECT_STAGE_SCREEN, {
+                section: 'onboarding',
+                subsection: 'self',
+                personId: getState().auth.person.id,
+              }),
+            ),
+          {
+            logoutOnBack: startScreen === GET_STARTED_SCREEN,
+          },
+        ),
+        [STAGE_SUCCESS_SCREEN]: wrapNextScreen(
+          StageSuccessScreen,
+          SELECT_MY_STEP_SCREEN,
+        ),
+        [SELECT_MY_STEP_SCREEN]: wrapNextAction(
+          SelectMyStepScreen,
+          ({ personId, step }: { personId: string; step: object }) =>
+            step
+              ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+                  step,
+                  personId,
+                })
+              : navigatePush(ADD_STEP_SCREEN, {
+                  type: CREATE_STEP,
+                  personId,
                 }),
-              ),
-            {
-              logoutOnBack: startScreen === GET_STARTED_SCREEN,
-            },
-          ),
-        },
-        [STAGE_SUCCESS_SCREEN]: {
-          screen: wrapNextScreen(StageSuccessScreen, SELECT_MY_STEP_SCREEN),
-        },
-        [SELECT_MY_STEP_SCREEN]: {
-          screen: wrapNextAction(
-            SelectMyStepScreen,
-            ({ personId, step }: { personId: string; step: object }) =>
-              step
-                ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-                    step,
-                    personId,
-                  })
-                : navigatePush(ADD_STEP_SCREEN, {
-                    type: CREATE_STEP,
-                    personId,
-                  }),
-          ),
-        },
+        ),
       }
     : {}),
-  [ADD_SOMEONE_SCREEN]: {
-    screen: wrapNextAction(
-      AddSomeoneScreen,
-      ({ skip }: { skip: boolean }) =>
+  [ADD_SOMEONE_SCREEN]: wrapNextAction(
+    AddSomeoneScreen,
+    ({ skip }: { skip: boolean }) =>
+      skip
+        ? skipAddPersonAndCompleteOnboarding()
+        : navigatePush(SETUP_PERSON_SCREEN),
+    {
+      hideSkipBtn,
+      logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
+    },
+  ),
+  [SETUP_PERSON_SCREEN]: wrapNextAction(
+    SetupScreen,
+    ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
+      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      getState: () => { onboarding: OnboardingState },
+    ) => {
+      personId && dispatch(setOnboardingPersonId(personId));
+      dispatch(
         skip
           ? skipAddPersonAndCompleteOnboarding()
-          : navigatePush(SETUP_PERSON_SCREEN),
-      {
-        hideSkipBtn,
-        logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
-      },
-    ),
-  },
-  [SETUP_PERSON_SCREEN]: {
-    screen: wrapNextAction(
-      SetupScreen,
-      ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
-        dispatch: ThunkDispatch<{}, {}, AnyAction>,
-        getState: () => { onboarding: OnboardingState },
-      ) => {
-        personId && dispatch(setOnboardingPersonId(personId));
-        dispatch(
-          skip
-            ? skipAddPersonAndCompleteOnboarding()
-            : navigatePush(SELECT_STAGE_SCREEN, {
-                section: 'onboarding',
-                subsection: 'add person',
-                personId: getState().onboarding.personId,
-              }),
-        );
-      },
-      { isMe: false, hideSkipBtn },
-    ),
-  },
-  [SELECT_STAGE_SCREEN]: {
-    screen: wrapNextAction(
-      SelectStageScreen,
-      ({ isMe }: { isMe: boolean }) => (
-        dispatch: ThunkDispatch<{}, {}, AnyAction>,
-        getState: () => { onboarding: OnboardingState },
-      ) =>
-        dispatch(
-          isMe
-            ? navigatePush(STAGE_SUCCESS_SCREEN)
-            : navigatePush(PERSON_SELECT_STEP_SCREEN, {
-                personId: getState().onboarding.personId,
-              }),
-        ),
-    ),
-  },
-  [PERSON_SELECT_STEP_SCREEN]: {
-    screen: wrapNextAction(
-      PersonSelectStepScreen,
-      ({ personId, step }: { personId: string; step: object }) =>
-        step
-          ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-              step,
-              personId,
-            })
-          : navigatePush(ADD_STEP_SCREEN, {
-              type: CREATE_STEP,
-              personId,
+          : navigatePush(SELECT_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+              personId: getState().onboarding.personId,
             }),
-    ),
-  },
-  [SUGGESTED_STEP_DETAIL_SCREEN]: {
-    screen: wrapNextAction(
-      SuggestedStepDetailScreen,
-      ({ personId }: { personId: string }) => (
-        dispatch: ThunkDispatch<any, null, any>,
-        getState: () => any,
-      ) => {
-        const isMe = personId === getState().auth.person.id;
+      );
+    },
+    { isMe: false, hideSkipBtn },
+  ),
+  [SELECT_STAGE_SCREEN]: wrapNextAction(
+    SelectStageScreen,
+    ({ isMe }: { isMe: boolean }) => (
+      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      getState: () => { onboarding: OnboardingState },
+    ) =>
+      dispatch(
+        isMe
+          ? navigatePush(STAGE_SUCCESS_SCREEN)
+          : navigatePush(PERSON_SELECT_STEP_SCREEN, {
+              personId: getState().onboarding.personId,
+            }),
+      ),
+  ),
+  [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
+    PersonSelectStepScreen,
+    ({ personId, step }: { personId: string; step: object }) =>
+      step
+        ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+            step,
+            personId,
+          })
+        : navigatePush(ADD_STEP_SCREEN, {
+            type: CREATE_STEP,
+            personId,
+          }),
+  ),
+  [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
+    SuggestedStepDetailScreen,
+    ({ personId }: { personId: string }) => (
+      dispatch: ThunkDispatch<any, null, any>,
+      getState: () => any,
+    ) => {
+      const isMe = personId === getState().auth.person.id;
 
-        if (isMe) {
-          return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-        }
-        dispatch(resetPersonAndCompleteOnboarding());
-      },
-    ),
-  },
-  [ADD_STEP_SCREEN]: {
-    screen: wrapNextAction(
-      AddStepScreen,
-      ({ text, personId }: { text: string; personId: string }) => (
-        dispatch: ThunkDispatch<any, null, any>,
-        getState: () => any,
-      ) => {
-        const isMe = personId === getState().auth.person.id;
+      if (isMe) {
+        return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+      }
+      dispatch(resetPersonAndCompleteOnboarding());
+    },
+  ),
+  [ADD_STEP_SCREEN]: wrapNextAction(
+    AddStepScreen,
+    ({ text, personId }: { text: string; personId: string }) => (
+      dispatch: ThunkDispatch<any, null, any>,
+      getState: () => any,
+    ) => {
+      const isMe = personId === getState().auth.person.id;
 
-        dispatch(createCustomStep(text, personId));
+      dispatch(createCustomStep(text, personId));
 
-        if (isMe) {
-          return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-        }
-        dispatch(resetPersonAndCompleteOnboarding());
-      },
-    ),
-  },
-  [CELEBRATION_SCREEN]: {
-    screen: wrapNextAction(CelebrationScreen, () => navigateToMainTabs()),
-  },
+      if (isMe) {
+        return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+      }
+      dispatch(resetPersonAndCompleteOnboarding());
+    },
+  ),
+  [CELEBRATION_SCREEN]: wrapNextAction(CelebrationScreen, () =>
+    navigateToMainTabs(),
+  ),
 });
