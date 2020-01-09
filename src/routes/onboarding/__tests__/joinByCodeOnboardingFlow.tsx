@@ -20,6 +20,7 @@ jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));

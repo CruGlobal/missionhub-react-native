@@ -5,6 +5,7 @@ import {
   ANALYTICS,
   NOT_LOGGED_IN,
   LOGOUT,
+  RELOAD_APP,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
 import {
@@ -43,6 +44,7 @@ type AnalyticsAction =
   | KeyLoginSuccessAction
   | SetAppContextAction
   | ResetAppContextAction
+  | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
 function analyticsReducer(
@@ -69,6 +71,11 @@ function analyticsReducer(
       return {
         ...state,
         [ANALYTICS.APP_CONTEXT]: '',
+      };
+    case RELOAD_APP:
+      return {
+        ...state,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
       };
     case LOGOUT:
       return {

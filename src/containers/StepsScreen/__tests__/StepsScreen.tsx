@@ -14,7 +14,10 @@ import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { Step, StepsState } from '../../../reducers/steps';
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../../utils/hooks/useAnalytics';
 
 import StepsScreen from '..';
 
@@ -121,7 +124,10 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith('steps');
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'steps',
+    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  );
   expect(useFocusEffect).toHaveBeenLastCalledWith(expect.any(Function));
 });
 

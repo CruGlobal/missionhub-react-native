@@ -11,6 +11,7 @@ import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PeopleState, Person } from '../reducers/people';
 import { Organization } from '../reducers/organizations';
+import { RELOAD_APP } from '../constants';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 import { startOnboarding } from './onboarding';
@@ -23,6 +24,8 @@ export const resetToInitialRoute = () => (
     people: PeopleState;
   },
 ) => {
+  dispatch({ type: RELOAD_APP });
+
   const { auth, onboarding, people } = getState();
   if (auth && isAuthenticated(auth)) {
     if (

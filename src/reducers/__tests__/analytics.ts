@@ -5,6 +5,7 @@ import {
   LOGOUT,
   NOT_LOGGED_IN,
   ANALYTICS_CONTEXT_ONBOARDING,
+  RELOAD_APP,
 } from '../../constants';
 import { REQUESTS } from '../../api/routes';
 import { RESET_APP_CONTEXT, SET_APP_CONTEXT } from '../../actions/analytics';
@@ -78,6 +79,20 @@ describe('RESET_APP_CONTEXT', () => {
         { type: RESET_APP_CONTEXT },
       ),
     ).toEqual(initialAnalyticsState);
+  });
+});
+
+describe('reload app', () => {
+  it('should wipe previous screen name', () => {
+    const result = analyticsReducer(
+      {
+        ...initialAnalyticsState,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: 'some screen',
+      },
+      { type: RELOAD_APP },
+    );
+
+    expect(result).toEqual(initialAnalyticsState);
   });
 });
 
