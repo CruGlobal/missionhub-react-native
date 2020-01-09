@@ -32,7 +32,6 @@ import OnboardingCard, {
 } from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import AnnouncementsModal from '../../components/AnnouncementsModal';
 
 import styles from './styles';
 
@@ -177,7 +176,6 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
         }
         title={t('title').toUpperCase()}
       />
-      <AnnouncementsModal />
       <View style={styles.contentContainer}>
         {hasSteps ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />

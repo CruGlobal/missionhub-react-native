@@ -60,7 +60,7 @@ const AnnouncementsModal = () => {
   const {
     data: { announcements: { nodes: [announcement] = [] } = {} } = {},
     loading,
-  } = useQuery<GetAnnouncements>(GET_ANNOUNCEMENTS, { pollInterval: 120000 });
+  } = useQuery<GetAnnouncements>(GET_ANNOUNCEMENTS);
   const [handleAnnouncementAction] = useMutation<handleAnnouncement>(
     HANDLE_ANNOUNCEMENTS,
     {
