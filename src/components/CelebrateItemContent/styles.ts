@@ -8,7 +8,6 @@ export default StyleSheet.create({
   },
   description: {
     marginTop: 14,
-    maxHeight: 70,
   },
   fixedHeightDescription: {
     height: 70,
