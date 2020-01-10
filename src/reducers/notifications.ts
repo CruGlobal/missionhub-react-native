@@ -19,17 +19,13 @@ interface PushDevice {
 
 export interface NotificationsState {
   pushDevice: PushDevice | null;
-  requestedNativePermissions: boolean;
-  showReminderOnLoad: boolean;
-  hasShownWelcomeNotification: boolean;
+  appHasShownPrompt: boolean;
   userHasAcceptedNotifications: boolean;
 }
 
 const initialState: NotificationsState = {
   pushDevice: null,
-  requestedNativePermissions: false,
-  showReminderOnLoad: true,
-  hasShownWelcomeNotification: false,
+  appHasShownPrompt: false,
   userHasAcceptedNotifications: false,
 };
 
@@ -39,6 +35,7 @@ function notificationReducer(state = initialState, action: any) {
       return {
         ...state,
         pushDevice: action.results.response,
+        userHasAcceptedNotifications: true,
       };
     case REQUESTS.DELETE_PUSH_TOKEN.SUCCESS:
       return {

@@ -16,7 +16,7 @@ import {
   GCM_SENDER_ID,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
-import { isAndroid } from '../utils/common';
+import { isAndroid, isAuthenticated } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
@@ -105,15 +105,53 @@ export interface MHPushNotification extends PushNotification {
   };
 }*/
 
-export const requestNativePermissions = async (
+export const checkNotifications = () => (
+  dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
+  getState: () => { auth: AuthState; notifications: NotificationsState },
+) => {
+  const {
+    auth: { token },
+    notifications: { appHasShownPrompt, userHasAcceptedNotifications },
+  } = getState();
+
+  //ONLY register if logged in
+  if (token) {
+    //Android does not need permission from user; re-register push device token
+    if (isAndroid) {
+      return dispatch(requestNativePermissions());
+    }
+
+    //IF iOS user has previously given permission, check that native permissions are still active
+    if (userHasAcceptedNotifications) {
+      return RNPushNotification.checkPermissions(permission => {
+        //IF native iOS permissions are active, re-register push device token
+        if (permission && permission.alert) {
+          return dispatch(requestNativePermissions());
+        }
+
+        //IF native iOS permissions are not active, alert user, then update API and local state
+        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
+        return dispatch(deletePushToken());
+      });
+    }
+
+    //IF app has not already asked permissions from iOS user, ask them now
+    if (!appHasShownPrompt) {
+      return dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN));
+    }
+
+    //IF app has already asked for permissions, and iOS user has declined, do nothing
+  }
+};
+
+export const requestNativePermissions = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch({ type: REQUEST_NOTIFICATIONS });
-  const permission = await RNPushNotification.requestPermissions();
-  return { acceptedNotifications: !!(permission && permission.alert) };
+  return RNPushNotification.requestPermissions();
 };
 
-export const configureNotificationHandler = (
+export const configureNotificationHandler = () => (
   dispatch: ThunkDispatch<
     { auth: AuthState; organizations: OrganizationsState },
     {},
@@ -201,7 +239,7 @@ const handleNotification = (notification: MHPushNotification) => async (
   }
 };
 
-export function parseNotificationData(notification: MHPushNotification) {
+export const parseNotificationData = (notification: MHPushNotification) => {
   const {
     data: { link: { data: iosData = undefined } = {} },
   } = notification;
@@ -227,7 +265,7 @@ export function parseNotificationData(notification: MHPushNotification) {
     organization_id?: string;
     celebration_item_id?: string;
   };
-}
+};
 
 const setPushDevice = (token: string) => (
   dispatch: ThunkDispatch<{}, never, AnyAction>,
@@ -245,7 +283,7 @@ const setPushDevice = (token: string) => (
   return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
 };
 
-export const deletePushToken = (
+export const deletePushToken = () => (
   dispatch: ThunkDispatch<{}, never, AnyAction>,
   getState: () => { notifications: NotificationsState },
 ) => {

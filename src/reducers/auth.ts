@@ -17,7 +17,7 @@ export interface User {
 }
 
 export interface AuthState {
-  token: string;
+  token?: string;
   refreshToken: string;
   person: Person;
   isJean: boolean;
@@ -25,7 +25,7 @@ export interface AuthState {
 }
 
 const initialAuthState: AuthState = {
-  token: '',
+  token: undefined,
   refreshToken: '',
   person: { user: {} },
   isJean: false,
