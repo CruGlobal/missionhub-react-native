@@ -381,7 +381,7 @@ exports[`renders correctly with no steps 1`] = `
         ]
       }
     >
-      Your Steps of Faith with ben appear here.
+      Your Steps of Faith with appear here.
     </Text>
   </View>
   <RCTSafeAreaView
