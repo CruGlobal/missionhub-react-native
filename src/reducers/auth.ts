@@ -11,6 +11,11 @@ import { REQUESTS } from '../api/routes';
 
 import { Person } from './people';
 
+export interface User {
+  id: string;
+  __type: 'user';
+}
+
 export interface AuthState {
   token: string;
   refreshToken: string;
