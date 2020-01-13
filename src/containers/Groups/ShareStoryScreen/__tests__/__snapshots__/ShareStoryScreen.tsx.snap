@@ -183,7 +183,6 @@ exports[`Creating a story calls changeStory function when the user types a story
             "fontSize": 32,
             "fontWeight": "300",
             "lineHeight": 38,
-            "marginTop": 64,
             "paddingBottom": 70,
             "paddingHorizontal": 32,
           },
@@ -279,7 +278,7 @@ exports[`Creating a story user types a story 1`] = `
 - First value
 + Second value
 
-@@ -186,11 +186,11 @@
+@@ -185,11 +185,11 @@
             },
           ]
         }
@@ -477,7 +476,6 @@ exports[`renders correctly 1`] = `
             "fontSize": 32,
             "fontWeight": "300",
             "lineHeight": 38,
-            "marginTop": 64,
             "paddingBottom": 70,
             "paddingHorizontal": 32,
           },
