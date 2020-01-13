@@ -98,7 +98,19 @@ beforeEach(() => {
   });
 });
 
-it('renders correctly with no steps', () => {
+it('renders correctly when no steps', () => {
+  renderWithContext(
+    <ContactSteps person={person} organization={{ id: undefined }} />,
+    {
+      initialState: initialStateNoSteps,
+    },
+  ).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
+});
+
+it('renders correctly when me and no steps', () => {
   const { getByText, snapshot } = renderWithContext(
     <ContactSteps person={mePerson} organization={{ id: undefined }} />,
     {
@@ -109,7 +121,7 @@ it('renders correctly with no steps', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(mePerson.id, undefined);
-  expect(getByText('Your Steps of Faith with appear here.')).toBeTruthy();
+  expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
 
 it('renders correctly with steps', () => {

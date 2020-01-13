@@ -276,7 +276,7 @@ export default {
   },
   contactSteps: {
     header: 'STEPS OF FAITH',
-    stepSelfNull: 'Your Steps of Faith with appear here.',
+    stepSelfNull: 'Your Steps of Faith will appear here.',
     stepNull: 'Your Steps of Faith with {{name}} appear here.',
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
