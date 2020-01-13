@@ -11,9 +11,9 @@ import i18next from 'i18next';
 
 import {
   LOAD_HOME_NOTIFICATION_REMINDER,
-  REQUEST_NOTIFICATIONS,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
+  NOTIFICATION_PROMPT_TYPES,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid, isAuthenticated } from '../utils/common';
@@ -57,6 +57,31 @@ export interface MHPushNotification extends PushNotification {
   celebration_item_id?: string;
   screen_extra_data?: string;
 }
+
+export const HAS_SHOWN_NOTIFICATION_PROMPT =
+  'app/HAS_SHOWN_NOTIFICATION_PROMPT';
+export const UPDATE_ACCEPTED_NOTIFICATIONS =
+  'app/UPDATE_ACCEPTED_NOTIFICATIONS';
+
+export interface HasShownPromptAction {
+  type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
+}
+
+export interface UpdateAcceptedNotificationsAction {
+  type: typeof UPDATE_ACCEPTED_NOTIFICATIONS;
+  acceptedNotifications: boolean;
+}
+
+export const setHasShownPrompt = (): HasShownPromptAction => ({
+  type: HAS_SHOWN_NOTIFICATION_PROMPT,
+});
+
+export const updateAcceptedNotifications = (
+  acceptedNotifications: boolean,
+): UpdateAcceptedNotificationsAction => ({
+  type: UPDATE_ACCEPTED_NOTIFICATIONS,
+  acceptedNotifications,
+});
 
 /*export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   return (dispatch, getState) => {
@@ -105,7 +130,10 @@ export interface MHPushNotification extends PushNotification {
   };
 }*/
 
-export const checkNotifications = () => (
+export const checkNotifications = (
+  notificationType: NOTIFICATION_PROMPT_TYPES,
+  disableBack: boolean,
+) => (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
@@ -121,34 +149,55 @@ export const checkNotifications = () => (
       return dispatch(requestNativePermissions());
     }
 
-    //IF iOS user has previously given permission, check that native permissions are still active
-    if (userHasAcceptedNotifications) {
-      return RNPushNotification.checkPermissions(permission => {
-        //IF native iOS permissions are active, re-register push device token
-        if (permission && permission.alert) {
-          return dispatch(requestNativePermissions());
-        }
+    return new Promise(resolve => {
+      const onComplete = (acceptedNotifications: boolean) => {
+        !disableBack && dispatch(navigateBack());
+        resolve({ acceptedNotifications });
+      };
 
-        //IF native iOS permissions are not active, alert user, then update API and local state
-        dispatch(navigatePush(NOTIFICATION_OFF_SCREEN));
-        return dispatch(deletePushToken());
-      });
-    }
+      //IF iOS user has previously given permission, check that native permissions are still active
+      if (userHasAcceptedNotifications) {
+        RNPushNotification.checkPermissions(permission => {
+          //IF native iOS permissions are active, re-register push device token
+          if (permission && permission.alert) {
+            return resolve(dispatch(requestNativePermissions()));
+          }
 
-    //IF app has not already asked permissions from iOS user, ask them now
-    if (!appHasShownPrompt) {
-      return dispatch(navigatePush(NOTIFICATION_PRIMER_SCREEN));
-    }
+          //IF native iOS permissions are not active, alert user, then update API and local state
+          dispatch(deletePushToken());
+          return dispatch(
+            navigatePush(NOTIFICATION_OFF_SCREEN, {
+              onComplete,
+              notificationType,
+            }),
+          );
+        });
+      }
+
+      //IF app has not already asked permissions from iOS user, ask them now
+      if (!appHasShownPrompt) {
+        return dispatch(
+          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+            onComplete,
+            notificationType,
+          }),
+        );
+      }
+    });
 
     //IF app has already asked for permissions, and iOS user has declined, do nothing
   }
 };
 
-export const requestNativePermissions = () => (
+export const requestNativePermissions = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch({ type: REQUEST_NOTIFICATIONS });
-  return RNPushNotification.requestPermissions();
+  dispatch(setHasShownPrompt());
+  const permission = await RNPushNotification.requestPermissions();
+
+  const acceptedNotifications = !!(permission && permission.alert);
+  dispatch(updateAcceptedNotifications(acceptedNotifications));
+  return { acceptedNotifications };
 };
 
 export const configureNotificationHandler = () => (
@@ -298,21 +347,3 @@ export const deletePushToken = () => (
 
   return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
 };
-
-/*export showWelcomeNotification() {
-  return (dispatch, getState) => {
-    if (getState().notifications.hasShownWelcomeNotification) {
-      return;
-    }
-
-    PushNotification.localNotificationSchedule({
-      title: i18next.t('welcomeNotification:title'),
-      message: i18next.t('welcomeNotification:message'),
-      date: new Date(Date.now() + 1000 * 3), // in 3 secs
-    });
-
-    dispatch({
-      type: DISABLE_WELCOME_NOTIFICATION,
-    });
-  };
-}*/

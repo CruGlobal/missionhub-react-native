@@ -35,7 +35,9 @@ const NotificationPrimerScreen = ({
     acceptedNotifications: boolean,
   ) => Promise<void> = useNavigationParam('onComplete');
 
-  const notificationType: string = useNavigationParam('notificationType');
+  const notificationType: NOTIFICATION_PROMPT_TYPES = useNavigationParam(
+    'notificationType',
+  );
 
   const notNow = () => {
     onComplete(false);
@@ -68,7 +70,7 @@ const NotificationPrimerScreen = ({
     }
   };
   const renderNotification = () => {
-    if (notificationType === 'onboarding') {
+    if (notificationType === NOTIFICATION_PROMPT_TYPES.ONBOARDING) {
       return (
         <Flex style={styles.container}>
           <Flex value={0.3} />

@@ -1,6 +1,7 @@
 import React, { useState, ReactNode } from 'react';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   NOTIFICATION_PROMPT_TYPES,
@@ -11,10 +12,12 @@ import { navigatePush } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
 import {
-  showNotificationPrompt,
   requestNativePermissions,
+  checkNotifications,
 } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
+import { AuthState } from '../../reducers/auth';
+import { NotificationsState } from '../../reducers/notifications';
 
 export interface ReminderButtonProps {
   stepId: string;
@@ -25,7 +28,11 @@ export interface ReminderButtonProps {
   };
   children: ReactNode;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<
+    { auth: AuthState; notifications: NotificationsState },
+    {},
+    AnyAction
+  >;
   testID?: string;
 }
 const ReminderButton = ({
@@ -47,7 +54,7 @@ const ReminderButton = ({
   // for iOS, ask for notifications, navigate to step reminder screen
   const handlePressIOS = async ({ showPicker }: { showPicker: Function }) => {
     const { acceptedNotifications } = await dispatch(
-      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.SET_REMINDER),
+      checkNotifications(NOTIFICATION_PROMPT_TYPES.SET_REMINDER, false),
     );
     acceptedNotifications && showPicker();
   };

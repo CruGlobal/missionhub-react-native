@@ -6,6 +6,7 @@ import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
 import { OnboardingState } from '../reducers/onboarding';
 import { OrganizationsState } from '../reducers/organizations';
+import { NotificationsState } from '../reducers/notifications';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
@@ -19,7 +20,7 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
-import { showReminderOnLoad } from './notifications';
+import { checkNotifications } from './notifications';
 import {
   trackActionWithoutData,
   resetAppContext,
@@ -139,10 +140,14 @@ export const createPerson = (firstName: string, lastName: string) => async (
 };
 
 const finalOnboardingActions = () => async (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
+  dispatch: ThunkDispatch<
+    { auth: AuthState; notifications: NotificationsState },
+    null,
+    AnyAction
+  >,
 ) => {
   await dispatch(
-    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
   );
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   dispatch(resetAppContext());

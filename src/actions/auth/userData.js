@@ -7,7 +7,7 @@ import {
 } from '../../constants';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
-import { showReminderOnLoad } from '../notifications';
+import { checkNotifications } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
 import { getMySteps } from '../steps';
 import callApi from '../api';
@@ -73,6 +73,6 @@ export function loadHome() {
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     await dispatch(getMySteps());
-    dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
+    dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }

@@ -11,7 +11,7 @@ import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 import { reloadGroupCelebrateFeed } from './celebration';
-import { showNotificationPrompt } from './notifications';
+import { checkNotifications } from './notifications';
 import { navigatePush, navigateBack } from './navigation';
 import { trackActionWithoutData } from './analytics';
 
@@ -68,7 +68,7 @@ export function joinChallenge(item, orgId) {
   return async dispatch => {
     await dispatch(callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData));
     await dispatch(
-      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE),
+      checkNotifications(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE),
     );
     dispatch(
       navigatePush(CELEBRATION_SCREEN, {

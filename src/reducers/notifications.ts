@@ -9,6 +9,8 @@ import {
 } from '../constants';
 
 import { User } from './auth';
+import { HAS_SHOWN_NOTIFICATION_PROMPT } from 'src/actions/notifications';
+import { UPDATE_ACCEPTED_NOTIFICATIONS } from 'src/actions/notifications';
 
 interface PushDevice {
   id: string;
@@ -42,26 +44,23 @@ function notificationReducer(state = initialState, action: any) {
         ...state,
         pushDevice: null,
       };
-    case REQUEST_NOTIFICATIONS:
+    case HAS_SHOWN_NOTIFICATION_PROMPT:
       return {
         ...state,
-        requestedNativePermissions: true,
+        appHasShownPrompt: true,
       };
-    case LOAD_HOME_NOTIFICATION_REMINDER:
+    case UPDATE_ACCEPTED_NOTIFICATIONS:
       return {
         ...state,
-        showReminderOnLoad: false,
-      };
-    case DISABLE_WELCOME_NOTIFICATION:
-      return {
-        ...state,
-        hasShownWelcomeNotification: true,
+        userHasAcceptedNotifications: action.acceptedNotifications,
       };
     case LOGOUT:
-      //persist requestedNativePermissions on logout because notifications will remain enabled/disabled on device
+      //persist appHasShownPrompt and userHasAcceptedNotifications on logout
+      //because notifications will remain enabled/disabled on device
       return {
         ...initialState,
-        requestedNativePermissions: state.requestedNativePermissions,
+        appHasShownPrompt: state.appHasShownPrompt,
+        userHasAcceptedNotifications: state.userHasAcceptedNotifications,
       };
     default:
       return state;
