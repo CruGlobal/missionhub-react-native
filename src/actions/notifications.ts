@@ -66,7 +66,7 @@ export interface UpdateAcceptedNotificationsAction {
   acceptedNotifications: boolean;
 }
 
-export const setHasShownPrompt = (): HasShownPromptAction => ({
+export const hasShownPrompt = (): HasShownPromptAction => ({
   type: HAS_SHOWN_NOTIFICATION_PROMPT,
 });
 
@@ -127,7 +127,7 @@ export const updateAcceptedNotifications = (
 export const checkNotifications = (
   notificationType: NOTIFICATION_PROMPT_TYPES,
   disableBack: boolean,
-) => async (
+) => (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
@@ -143,42 +143,47 @@ export const checkNotifications = (
       return dispatch(requestNativePermissions());
     }
 
-    //IF iOS user has previously given permission, check that native permissions are still active
-    if (userHasAcceptedNotifications) {
-      return RNPushNotification.checkPermissions(permission => {
-        //IF native iOS permissions are active, re-register push device token
-        if (permission && permission.alert) {
-          return dispatch(requestNativePermissions());
-        }
+    return new Promise<{ acceptedNotifications: boolean }>(resolve => {
+      const onComplete = (acceptedNotifications: boolean) => {
+        !disableBack && dispatch(navigateBack());
+        resolve({ acceptedNotifications });
+      };
 
-        //IF native iOS permissions are not active, alert user, then update API and local state
-        dispatch(deletePushToken());
+      //IF iOS user has previously given permission, check that native permissions are still active
+      if (userHasAcceptedNotifications) {
+        return RNPushNotification.checkPermissions(permission => {
+          //IF native iOS permissions are active, re-register push device token
+          if (permission && permission.alert) {
+            return resolve(dispatch(requestNativePermissions()));
+          }
+
+          //IF native iOS permissions are not active, alert user, then update API and local state
+          dispatch(deletePushToken());
+          dispatch(
+            navigatePush(NOTIFICATION_OFF_SCREEN, {
+              notificationType,
+              onComplete,
+            }),
+          );
+        });
+      }
+
+      //IF app has not already asked permissions from iOS user, ask them now
+      if (!appHasShownPrompt) {
         return dispatch(
-          showPromptAndAwaitReponse(
-            NOTIFICATION_OFF_SCREEN,
+          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
             notificationType,
-            disableBack,
-          ),
+            onComplete,
+          }),
         );
-      });
-    }
-
-    //IF app has not already asked permissions from iOS user, ask them now
-    if (!appHasShownPrompt) {
-      await dispatch(
-        showPromptAndAwaitReponse(
-          NOTIFICATION_PRIMER_SCREEN,
-          notificationType,
-          disableBack,
-        ),
-      );
-    }
+      }
+    });
 
     //IF app has already asked for permissions, and iOS user has declined, do nothing
   }
 };
 
-const showPromptAndAwaitReponse = (
+/*const showPromptAndAwaitReponse = (
   screen: typeof NOTIFICATION_PRIMER_SCREEN | typeof NOTIFICATION_OFF_SCREEN,
   notificationType: NOTIFICATION_PROMPT_TYPES,
   disableBack: boolean,
@@ -190,12 +195,12 @@ const showPromptAndAwaitReponse = (
     };
 
     dispatch(navigatePush(screen, { notificationType, onComplete }));
-  });
+  });*/
 
 export const requestNativePermissions = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch(setHasShownPrompt());
+  dispatch(hasShownPrompt());
   const permission = await RNPushNotification.requestPermissions();
 
   const acceptedNotifications = !!(permission && permission.alert);
@@ -223,7 +228,7 @@ export const configureNotificationHandler = () => (
       dispatch(setPushDevice(t.token));
     },
     async onNotification(notification: MHPushNotification) {
-      notification && (await dispatch(handleNotification(notification)));
+      await dispatch(handleNotification(notification));
 
       notification.finish(PushNotificationIOS.FetchResult.NoData);
     },
@@ -238,18 +243,19 @@ const handleNotification = (notification: MHPushNotification) => async (
   dispatch: ThunkDispatch<{ organizations: OrganizationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState },
 ) => {
-  if (isAndroid && notification.userInteraction) {
+  if (isAndroid && !notification.userInteraction) {
     return;
   }
 
   const { person: me } = getState().auth;
 
+  const notificationData = parseNotificationData(notification);
   const {
     screen,
     person_id,
     celebration_item_id,
     organization_id,
-  } = parseNotificationData(notification);
+  } = notificationData;
 
   switch (screen) {
     case 'home':
@@ -257,7 +263,7 @@ const handleNotification = (notification: MHPushNotification) => async (
       return dispatch(navigateToMainTabs());
     case 'person_steps':
       if (person_id) {
-        const { person }: { person: Person } = await dispatch(
+        const { person } = await dispatch(
           getPersonDetails(person_id, organization_id),
         );
         return dispatch(navToPersonScreen(person, { id: organization_id }));
@@ -272,10 +278,8 @@ const handleNotification = (notification: MHPushNotification) => async (
         }),
       );
     case 'celebrate':
-      if (organization_id && celebration_item_id) {
-        const community: Organization = await dispatch(
-          refreshCommunity(organization_id),
-        );
+      if (organization_id) {
+        const community = await dispatch(refreshCommunity(organization_id));
         await dispatch(reloadGroupCelebrateFeed(organization_id));
         return dispatch(
           navigateToCelebrateComments(community, celebration_item_id),
@@ -283,27 +287,20 @@ const handleNotification = (notification: MHPushNotification) => async (
       }
       return;
     case 'community_challenges':
-      const community: Organization = await dispatch(
-        refreshCommunity(organization_id),
-      );
+      const community = await dispatch(refreshCommunity(organization_id));
       await dispatch(reloadGroupChallengeFeed(organization_id));
       return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
   }
 };
 
-export const parseNotificationData = (notification: MHPushNotification) => {
-  const {
-    data: { link: { data: iosData = undefined } = {} },
-  } = notification;
-
+export function parseNotificationData(notification: MHPushNotification) {
+  const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
   const data = {
     ...notification,
     ...(notification.screen_extra_data &&
       JSON.parse(notification.screen_extra_data)),
     ...iosData,
-    ...(iosData &&
-      iosData.screen_extra_data &&
-      JSON.parse(iosData.screen_extra_data)),
+    ...(iosData.screen_extra_data && JSON.parse(iosData.screen_extra_data)),
   };
 
   return {
@@ -311,13 +308,8 @@ export const parseNotificationData = (notification: MHPushNotification) => {
     person_id: data.person_id,
     organization_id: data.organization_id,
     celebration_item_id: data.celebration_item_id,
-  } as {
-    screen?: string;
-    person_id?: string;
-    organization_id?: string;
-    celebration_item_id?: string;
   };
-};
+}
 
 const setPushDevice = (token: string) => (
   dispatch: ThunkDispatch<{}, never, AnyAction>,

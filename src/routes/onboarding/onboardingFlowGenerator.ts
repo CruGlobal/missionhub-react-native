@@ -9,7 +9,6 @@ import {
   skipAddPersonAndCompleteOnboarding,
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
-  finishOnboarding,
 } from '../../actions/onboarding';
 import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { CREATE_STEP } from '../../constants';
@@ -40,9 +39,6 @@ import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
-import NotificationPrimerScreen, {
-  NOTIFICATION_PRIMER_SCREEN,
-} from '../../containers/NotificationPrimerScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -187,9 +183,6 @@ export const onboardingFlowGenerator = ({
       }
       dispatch(resetPersonAndCompleteOnboarding());
     },
-  ),
-  [NOTIFICATION_PRIMER_SCREEN]: wrapNextAction(NotificationPrimerScreen, () =>
-    finishOnboarding(),
   ),
   [CELEBRATION_SCREEN]: wrapNextAction(CelebrationScreen, () =>
     navigateToMainTabs(),
