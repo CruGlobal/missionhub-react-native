@@ -1,16 +1,13 @@
 import Config from 'react-native-config';
 
 import { REQUESTS } from '../api/routes';
+import { LOGOUT } from '../constants';
 import {
-  LOGOUT,
-  DISABLE_WELCOME_NOTIFICATION,
-  REQUEST_NOTIFICATIONS,
-  LOAD_HOME_NOTIFICATION_REMINDER,
-} from '../constants';
+  HAS_SHOWN_NOTIFICATION_PROMPT,
+  UPDATE_ACCEPTED_NOTIFICATIONS,
+} from '../actions/notifications';
 
 import { User } from './auth';
-import { HAS_SHOWN_NOTIFICATION_PROMPT } from 'src/actions/notifications';
-import { UPDATE_ACCEPTED_NOTIFICATIONS } from 'src/actions/notifications';
 
 interface PushDevice {
   id: string;
