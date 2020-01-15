@@ -67,21 +67,21 @@ export function joinChallenge(item, orgId) {
   };
   return async dispatch => {
     await dispatch(callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData));
-    await dispatch(
-      checkNotifications(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE),
-    );
-    dispatch(
-      navigatePush(CELEBRATION_SCREEN, {
-        onComplete: () => {
-          dispatch(navigateBack());
-        },
-        gifId: 0,
-      }),
-    );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
     // After joining a challenge, reload the group celebrate feed with this new item
     dispatch(reloadGroupCelebrateFeed(orgId));
+
+    dispatch(
+      checkNotifications(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE, () =>
+        navigatePush(CELEBRATION_SCREEN, {
+          onComplete: () => {
+            dispatch(navigateBack());
+          },
+          gifId: 0,
+        }),
+      ),
+    );
   };
 }
 

@@ -17,8 +17,7 @@ import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 import { NotificationsState } from '../reducers/notifications';
 import { AuthState } from '../reducers/auth';
-import { Person } from '../reducers/people';
-import { Organization, OrganizationsState } from '../reducers/organizations';
+import { OrganizationsState } from '../reducers/organizations';
 
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
@@ -26,7 +25,6 @@ import { reloadGroupChallengeFeed } from './challenges';
 import { reloadGroupCelebrateFeed } from './celebration';
 import {
   navigatePush,
-  navigateBack,
   navigateToMainTabs,
   navigateToCommunity,
   navigateToCelebrateComments,
@@ -77,57 +75,10 @@ export const updateAcceptedNotifications = (
   acceptedNotifications,
 });
 
-/*export function showNotificationPrompt(notificationType, doNotNavigateBack) {
-  return (dispatch, getState) => {
-    if (isAndroid) {
-      return dispatch(requestNativePermissions());
-    }
-
-    return new Promise(resolve =>
-      RNPushNotification.checkPermissions(permission => {
-        // Android does not need to ask user for notification permissions
-        if (permission && permission.alert) {
-          return resolve(dispatch(requestNativePermissions()));
-        }
-
-        const { requestedNativePermissions } = getState().notifications;
-
-        const onComplete = acceptedNotifications => {
-          !doNotNavigateBack && dispatch(navigateBack());
-          resolve({ acceptedNotifications });
-        };
-
-        dispatch(
-          navigatePush(
-            requestedNativePermissions
-              ? NOTIFICATION_OFF_SCREEN
-              : NOTIFICATION_PRIMER_SCREEN,
-            {
-              onComplete,
-              notificationType,
-            },
-          ),
-        );
-      }),
-    );
-  };
-}*/
-
-/*export function showReminderOnLoad(notificationType, doNotNavigateBack) {
-  return async (dispatch, getState) => {
-    if (getState().notifications.showReminderOnLoad) {
-      dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      await dispatch(
-        showNotificationPrompt(notificationType, doNotNavigateBack),
-      );
-    }
-  };
-}*/
-
 export const checkNotifications = (
   notificationType: NOTIFICATION_PROMPT_TYPES,
-  disableBack: boolean,
-) => (
+  onComplete?: (acceptedNotifications: boolean) => void,
+) => async (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
@@ -140,62 +91,48 @@ export const checkNotifications = (
   if (token) {
     //Android does not need permission from user; re-register push device token
     if (isAndroid) {
-      return dispatch(requestNativePermissions());
+      const { acceptedNotifications } = await dispatch(
+        requestNativePermissions(),
+      );
+      return onComplete && onComplete(acceptedNotifications);
     }
 
-    return new Promise<{ acceptedNotifications: boolean }>(resolve => {
-      const onComplete = (acceptedNotifications: boolean) => {
-        !disableBack && dispatch(navigateBack());
-        resolve({ acceptedNotifications });
-      };
+    //IF app has not already asked permissions from iOS user, ask them now
+    if (!appHasShownPrompt) {
+      return dispatch(
+        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          notificationType,
+          onComplete,
+        }),
+      );
+    }
 
-      //IF iOS user has previously given permission, check that native permissions are still active
-      if (userHasAcceptedNotifications) {
-        return RNPushNotification.checkPermissions(permission => {
-          //IF native iOS permissions are active, re-register push device token
-          if (permission && permission.alert) {
-            return resolve(dispatch(requestNativePermissions()));
-          }
+    //IF iOS user has previously given permission, check that native permissions are still active
+    if (userHasAcceptedNotifications) {
+      const { acceptedNotifications } = await dispatch(
+        requestNativePermissions(),
+      );
 
-          //IF native iOS permissions are not active, alert user, then update API and local state
-          dispatch(deletePushToken());
-          dispatch(
-            navigatePush(NOTIFICATION_OFF_SCREEN, {
-              notificationType,
-              onComplete,
-            }),
-          );
-        });
+      //IF native iOS permissions are active, re-register push device token
+      if (acceptedNotifications) {
+        return onComplete && onComplete(acceptedNotifications);
       }
 
-      //IF app has not already asked permissions from iOS user, ask them now
-      if (!appHasShownPrompt) {
-        return dispatch(
-          navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-            notificationType,
-            onComplete,
-          }),
-        );
-      }
-    });
-
-    //IF app has already asked for permissions, and iOS user has declined, do nothing
+      //IF native iOS permissions are not active, update API and local state
+      //also should show Notification Off Screen
+      dispatch(deletePushToken());
+      return dispatch(
+        navigatePush(NOTIFICATION_OFF_SCREEN, {
+          notificationType,
+          onComplete,
+        }),
+      );
+    }
   }
+
+  //IF app has already asked for permissions, and iOS user has declined, do nothing
+  onComplete && onComplete(false);
 };
-
-/*const showPromptAndAwaitReponse = (
-  screen: typeof NOTIFICATION_PRIMER_SCREEN | typeof NOTIFICATION_OFF_SCREEN,
-  notificationType: NOTIFICATION_PROMPT_TYPES,
-  disableBack: boolean,
-) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) =>
-  new Promise(resolve => {
-    const onComplete = (acceptedNotifications: boolean) => {
-      !disableBack && dispatch(navigateBack());
-      resolve({ acceptedNotifications });
-    };
-
-    dispatch(navigatePush(screen, { notificationType, onComplete }));
-  });*/
 
 export const requestNativePermissions = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,

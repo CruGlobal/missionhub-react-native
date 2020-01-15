@@ -28,6 +28,7 @@ const initialState: NotificationsState = {
   userHasAcceptedNotifications: false,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function notificationReducer(state = initialState, action: any) {
   switch (action.type) {
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:

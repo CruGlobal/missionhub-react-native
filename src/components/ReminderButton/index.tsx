@@ -52,11 +52,13 @@ const ReminderButton = ({
     dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
   };
   // for iOS, ask for notifications, navigate to step reminder screen
-  const handlePressIOS = async ({ showPicker }: { showPicker: Function }) => {
-    const { acceptedNotifications } = await dispatch(
-      checkNotifications(NOTIFICATION_PROMPT_TYPES.SET_REMINDER, false),
+  const handlePressIOS = ({ showPicker }: { showPicker: Function }) => {
+    dispatch(
+      checkNotifications(
+        NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+        acceptedNotifications => acceptedNotifications && showPicker(),
+      ),
     );
-    acceptedNotifications && showPicker();
   };
   const handleChangeDate = (date: Date) => {
     dispatch(createStepReminder(stepId, date, recurrence));

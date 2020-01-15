@@ -3,10 +3,11 @@ import { connect } from 'react-redux-legacy';
 import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
+import { navigateBack } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -21,26 +22,32 @@ const {
 } = NOTIFICATION_PROMPT_TYPES;
 
 interface NotificationPrimerScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<{}, null, never>;
+  next: () => ThunkAction<void, {}, null, never>;
 }
 
 const NotificationPrimerScreen = ({
   dispatch,
+  next,
 }: NotificationPrimerScreenProps) => {
   useAnalytics('allow notifications');
   const { t } = useTranslation('notificationPrimer');
-
-  const onComplete: (
-    acceptedNotifications: boolean,
-  ) => Promise<void> = useNavigationParam('onComplete');
-
+  const onComplete:
+    | ((acceptedNotifications: boolean) => void)
+    | undefined = useNavigationParam('onComplete');
   const notificationType: NOTIFICATION_PROMPT_TYPES = useNavigationParam(
     'notificationType',
   );
 
+  const close = (acceptedNotifications: boolean) =>
+    next
+      ? dispatch(next())
+      : onComplete
+      ? onComplete(acceptedNotifications)
+      : dispatch(navigateBack());
+
   const notNow = () => {
-    onComplete(false);
+    close(false);
     dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   };
 
@@ -50,9 +57,9 @@ const NotificationPrimerScreen = ({
       const response = await dispatch(requestNativePermissions());
       acceptedNotifications = response.acceptedNotifications;
     } finally {
-      onComplete(acceptedNotifications);
+      close(acceptedNotifications);
+      dispatch(trackActionWithoutData(ACTIONS.ALLOW));
     }
-    dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   };
 
   const descriptionText = () => {

@@ -10,8 +10,12 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../actions/onboarding';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+} from '../../actions/analytics';
 import { wrapNextAction, wrapNextScreen } from '../helpers';
-import { CREATE_STEP } from '../../constants';
+import { ACTIONS, CREATE_STEP } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, {
   SETUP_SCREEN,
@@ -39,6 +43,12 @@ import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
+import NotificationPrimerScreen, {
+  NOTIFICATION_PRIMER_SCREEN,
+} from '../../containers/NotificationPrimerScreen';
+import NotificationOffScreen, {
+  NOTIFICATION_OFF_SCREEN,
+} from '../../containers/NotificationOffScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -184,7 +194,20 @@ export const onboardingFlowGenerator = ({
       dispatch(resetPersonAndCompleteOnboarding());
     },
   ),
-  [CELEBRATION_SCREEN]: wrapNextAction(CelebrationScreen, () =>
-    navigateToMainTabs(),
+  [NOTIFICATION_PRIMER_SCREEN]: wrapNextScreen(
+    NotificationPrimerScreen,
+    CELEBRATION_SCREEN,
+  ),
+  [NOTIFICATION_OFF_SCREEN]: wrapNextScreen(
+    NotificationOffScreen,
+    CELEBRATION_SCREEN,
+  ),
+  [CELEBRATION_SCREEN]: wrapNextAction(
+    CelebrationScreen,
+    () => (dispatch: ThunkDispatch<any, null, any>) => {
+      dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
+      dispatch(resetAppContext());
+      navigateToMainTabs();
+    },
   ),
 });

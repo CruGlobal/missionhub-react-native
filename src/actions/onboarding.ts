@@ -21,11 +21,7 @@ import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
 import { checkNotifications } from './notifications';
-import {
-  trackActionWithoutData,
-  resetAppContext,
-  setAppContext,
-} from './analytics';
+import { trackActionWithoutData, setAppContext } from './analytics';
 import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
@@ -139,33 +135,34 @@ export const createPerson = (firstName: string, lastName: string) => async (
   return results;
 };
 
-const finalOnboardingActions = () => async (
+export const skipAddPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<
     { auth: AuthState; notifications: NotificationsState },
-    null,
+    {},
     AnyAction
   >,
 ) => {
-  await dispatch(
-    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-  );
-  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(resetAppContext());
-  dispatch(navigatePush(CELEBRATION_SCREEN));
-};
-
-export const skipAddPersonAndCompleteOnboarding = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-) => {
   dispatch(skipOnboardingAddPerson());
-  dispatch(finalOnboardingActions());
+  dispatch(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export const resetPersonAndCompleteOnboarding = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<
+    { auth: AuthState; notifications: NotificationsState },
+    {},
+    AnyAction
+  >,
 ) => {
   dispatch(setOnboardingPersonId(''));
-  dispatch(finalOnboardingActions());
+  dispatch(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export function joinStashedCommunity() {
