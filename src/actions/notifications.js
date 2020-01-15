@@ -2,7 +2,6 @@
 
 import { PushNotificationIOS } from 'react-native';
 import PushNotification from 'react-native-push-notification';
-import Config from 'react-native-config';
 import i18next from 'i18next';
 
 import {
@@ -195,7 +194,7 @@ function registerPushDevice(token) {
         type: 'push_notification_device_token',
         attributes: {
           token,
-          platform: isAndroid ? 'GCM' : Config.APNS_MODE,
+          platform: isAndroid ? 'GCM' : __DEV__ ? 'APNS_SANDBOX' : 'APNS',
         },
       },
     };
