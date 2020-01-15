@@ -53,7 +53,6 @@ jest.mock('../api');
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
   GCM_SENDER_ID: 'Test GCM Sender ID',
-  APNS_MODE: 'APNS',
 }));
 jest.mock('../../selectors/organizations');
 
