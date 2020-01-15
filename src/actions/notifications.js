@@ -169,10 +169,15 @@ export function parseNotificationData(notification) {
   const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
   const data = {
     ...notification,
-    ...(notification.screen_extra_data &&
-      JSON.parse(notification.screen_extra_data)),
+    ...(typeof notification.screen_extra_data === 'string' &&
+    notification.screen_extra_data !== ''
+      ? JSON.parse(notification.screen_extra_data)
+      : notification.screen_extra_data),
     ...iosData,
-    ...(iosData.screen_extra_data && JSON.parse(iosData.screen_extra_data)),
+    ...(typeof iosData.screen_extra_data === 'string' &&
+    iosData.screen_extra_data !== ''
+      ? JSON.parse(iosData.screen_extra_data)
+      : iosData.screen_extra_data),
   };
 
   return {
