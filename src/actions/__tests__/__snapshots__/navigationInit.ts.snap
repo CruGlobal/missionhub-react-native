@@ -6,6 +6,9 @@ Array [
     "type": "app/RELOAD_APP",
   },
   Object {
+    "type": "start onboarding",
+  },
+  Object {
     "type": "navigate refresh",
   },
 ]
@@ -17,6 +20,9 @@ Array [
     "type": "app/RELOAD_APP",
   },
   Object {
+    "type": "start onboarding",
+  },
+  Object {
     "type": "navigate refresh",
   },
 ]
@@ -26,6 +32,9 @@ exports[`initialRoute logged in user has not completed onboarding and does not h
 Array [
   Object {
     "type": "app/RELOAD_APP",
+  },
+  Object {
+    "type": "start onboarding",
   },
   Object {
     "type": "navigate refresh",

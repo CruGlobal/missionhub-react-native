@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import configureStore from 'redux-mock-store';
@@ -9,31 +10,37 @@ import {
   skipOnboardingAddPerson,
   createMyPerson,
   createPerson,
-  skipOnboarding,
-  skipOnboardingComplete,
+  skipAddPersonAndCompleteOnboarding,
+  resetPersonAndCompleteOnboarding,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
   SKIP_ONBOARDING_ADD_PERSON,
+  startOnboarding,
+  SET_ONBOARDING_PERSON_ID,
 } from '../onboarding';
 import { showReminderOnLoad } from '../notifications';
 import { navigatePush, navigateBack, navigateToCommunity } from '../navigation';
 import { joinCommunity } from '../organizations';
-import { trackActionWithoutData } from '../analytics';
+import {
+  trackActionWithoutData,
+  setAppContext,
+  resetAppContext,
+} from '../analytics';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
+  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
+import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 
 jest.mock('../api');
 jest.mock('../notifications');
-jest.mock('../analytics', () => ({
-  trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
-}));
+jest.mock('../analytics');
 jest.mock('../person');
 jest.mock('../organizations');
 jest.mock('../navigation');
@@ -48,6 +55,9 @@ const navigatePushResponse = { type: 'navigate push' };
 const navigateBackResponse = { type: 'navigate back' };
 const navigateToCommunityResponse = { type: 'navigate to community' };
 const showReminderResponse = { type: 'show notification prompt' };
+const trackActionWithoutDataResult = { type: 'track action' };
+const setAppContextResult = { type: 'set app context' };
+const resetAppContextResult = { type: 'reset app context' };
 
 beforeEach(() => {
   store.clearActions();
@@ -57,6 +67,11 @@ beforeEach(() => {
     navigateToCommunityResponse,
   );
   (showReminderOnLoad as jest.Mock).mockReturnValue(showReminderResponse);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(
+    trackActionWithoutDataResult,
+  );
+  (setAppContext as jest.Mock).mockReturnValue(setAppContextResult);
+  (resetAppContext as jest.Mock).mockReturnValue(resetAppContextResult);
 });
 
 describe('setOnboardingPersonId', () => {
@@ -98,6 +113,21 @@ describe('skipOnboardingAddPerson', () => {
         "type": "SKIP_ONBOARDING_ADD_PERSON",
       }
     `);
+  });
+});
+
+describe('startOnboarding', () => {
+  it('sends start onboarding action', () => {
+    store.dispatch<any>(startOnboarding());
+
+    expect(setAppContext).toHaveBeenCalledWith(ANALYTICS_CONTEXT_ONBOARDING);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_STARTED,
+    );
+    expect(store.getActions()).toEqual([
+      setAppContextResult,
+      trackActionWithoutDataResult,
+    ]);
   });
 });
 
@@ -189,28 +219,47 @@ describe('createPerson', () => {
   });
 });
 
-describe('skip onboarding complete', () => {
-  it('skipOnboardingComplete', () => {
-    store.dispatch<any>(skipOnboardingComplete());
+describe('skipAddPersonAndCompleteOnboarding', () => {
+  it('skips add person and completes onboarding', async () => {
+    await store.dispatch<any>(skipAddPersonAndCompleteOnboarding());
+
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
+      true,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([
-      { type: 'track' },
       { type: SKIP_ONBOARDING_ADD_PERSON },
+      showReminderResponse,
+      trackActionWithoutDataResult,
+      resetAppContextResult,
       navigatePushResponse,
     ]);
   });
 });
 
-describe('skip onboarding', () => {
-  it('skipOnboarding', async () => {
-    await store.dispatch<any>(skipOnboarding());
+describe('resetPersonAndCompleteOnboarding', () => {
+  it('resets onboarding person and completed onboarding', async () => {
+    await store.dispatch<any>(resetPersonAndCompleteOnboarding());
+
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
       true,
     );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([
+      { personId: '', type: SET_ONBOARDING_PERSON_ID },
       showReminderResponse,
-      { type: 'track' },
-      { type: SKIP_ONBOARDING_ADD_PERSON },
+      trackActionWithoutDataResult,
+      resetAppContextResult,
       navigatePushResponse,
     ]);
   });

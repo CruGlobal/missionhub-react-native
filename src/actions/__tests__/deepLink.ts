@@ -5,14 +5,23 @@ import configureStore from 'redux-mock-store';
 // eslint-disable-next-line import/named
 import { NavigationActions, StackActions } from 'react-navigation';
 
+import { startOnboarding } from '../onboarding';
 import { setupFirebaseDynamicLinks } from '../deepLink';
 import {
   DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
 } from '../../routes/constants';
 
+jest.mock('../onboarding');
+
 const mockStore = (auth: boolean) =>
   configureStore([thunk])({ auth: { token: !!auth } });
+
+const startOnboardingResponse = { type: 'start onboarding' };
+
+beforeEach(() => {
+  (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResponse);
+});
 
 const test = async ({
   auth = false,
@@ -48,6 +57,7 @@ describe('setupFirebaseDynamicLinks', () => {
         auth: false,
         initialLink: true,
         expectedActions: [
+          startOnboardingResponse,
           StackActions.reset({
             index: 0,
             key: null,
@@ -67,6 +77,7 @@ describe('setupFirebaseDynamicLinks', () => {
         auth: false,
         initialLink: false,
         expectedActions: [
+          startOnboardingResponse,
           StackActions.reset({
             index: 0,
             key: null,

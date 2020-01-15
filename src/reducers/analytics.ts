@@ -8,16 +8,23 @@ import {
   RELOAD_APP,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
+import {
+  RESET_APP_CONTEXT,
+  ResetAppContextAction,
+  SET_APP_CONTEXT,
+  SetAppContextAction,
+} from '../actions/analytics';
 
 export const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
   [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
   [ANALYTICS.APP_NAME]: 'MissionHub App',
-  [ANALYTICS.LOGGED_IN_STATUS]: 'not logged in',
+  [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
   [ANALYTICS.SSO_GUID]: '',
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
   [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
+  [ANALYTICS.APP_CONTEXT]: '',
 };
 
 export type AnalyticsState = typeof initialAnalyticsState;
@@ -35,6 +42,8 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
+  | SetAppContextAction
+  | ResetAppContextAction
   | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
@@ -53,6 +62,16 @@ function analyticsReducer(
         ...state,
         [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
       };
+    case SET_APP_CONTEXT:
+      return {
+        ...state,
+        [ANALYTICS.APP_CONTEXT]: action.context,
+      };
+    case RESET_APP_CONTEXT:
+      return {
+        ...state,
+        [ANALYTICS.APP_CONTEXT]: '',
+      };
     case RELOAD_APP:
       return {
         ...state,
@@ -65,6 +84,7 @@ function analyticsReducer(
         [ANALYTICS.SSO_GUID]: '',
         [ANALYTICS.GR_MASTER_PERSON_ID]: '',
         [ANALYTICS.FACEBOOK_ID]: '',
+        [ANALYTICS.APP_CONTEXT]: '',
       };
     default:
       return state;

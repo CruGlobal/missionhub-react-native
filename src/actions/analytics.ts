@@ -15,6 +15,27 @@ import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
 
+export const SET_APP_CONTEXT = 'SET_APP_CONTEXT';
+export const RESET_APP_CONTEXT = 'RESET_APP_CONTEXT';
+
+export interface SetAppContextAction {
+  type: typeof SET_APP_CONTEXT;
+  context: string;
+}
+
+export interface ResetAppContextAction {
+  type: typeof RESET_APP_CONTEXT;
+}
+
+export const setAppContext = (context: string): SetAppContextAction => ({
+  type: SET_APP_CONTEXT,
+  context,
+});
+
+export const resetAppContext = (): ResetAppContextAction => ({
+  type: RESET_APP_CONTEXT,
+});
+
 export function trackScreenChange(screenName: string | string[]) {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
