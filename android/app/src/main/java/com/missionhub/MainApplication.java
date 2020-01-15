@@ -10,6 +10,7 @@ import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
+import com.facebook.react.ReactInstanceManager;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 
@@ -59,7 +60,7 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
 
     SoLoader.init(this, /* native exopackage */ false);
-    initializeFlipper(this); // Remove this line if you don't want Flipper enabled
+    initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
 
     // TODO: figure out how to distinguish between the beta and production release tracks
     RollbarReactNative.init(this, BuildConfig.ROLLBAR_ACCESS_TOKEN, BuildConfig.DEBUG ? "development" : "production");
@@ -70,7 +71,7 @@ public class MainApplication extends Application implements ReactApplication {
    *
    * @param context
    */
-  private static void initializeFlipper(Context context) {
+  private static void initializeFlipper(Context context, ReactInstanceManager reactInstanceManager) {
     if (BuildConfig.DEBUG) {
       try {
         /*
@@ -78,7 +79,7 @@ public class MainApplication extends Application implements ReactApplication {
         since Flipper library is not available in release mode
         */
         Class<?> aClass = Class.forName("com.facebook.flipper.ReactNativeFlipper");
-        aClass.getMethod("initializeFlipper", Context.class).invoke(null, context);
+        aClass.getMethod("initializeFlipper", Context.class, ReactInstanceManager.class).invoke(null, context, reactInstanceManager);
       } catch (ClassNotFoundException e) {
         e.printStackTrace();
       } catch (NoSuchMethodException e) {

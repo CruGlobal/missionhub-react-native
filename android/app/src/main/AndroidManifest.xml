@@ -2,6 +2,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
 
     <!-- Permissions for react-native-push-notification -->
     <permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature" />
@@ -77,6 +79,8 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+
+        <activity android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity" android:exported="true"/>
 
     </application>
 
