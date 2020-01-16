@@ -32,7 +32,8 @@ Array [
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
   Object {
-    "type": "app/REQUEST_NOTIFICATIONS",
+    "acceptedNotifications": true,
+    "type": "app/UPDATE_ACCEPTED_NOTIFICATIONS",
   },
 ]
 `;
@@ -69,7 +70,8 @@ Array [
     "type": "SET_PUSH_TOKEN_SUCCESS",
   },
   Object {
-    "type": "app/REQUEST_NOTIFICATIONS",
+    "acceptedNotifications": true,
+    "type": "app/UPDATE_ACCEPTED_NOTIFICATIONS",
   },
 ]
 `;

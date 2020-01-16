@@ -74,12 +74,14 @@ export function joinChallenge(item, orgId) {
 
     dispatch(
       checkNotifications(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE, () =>
-        navigatePush(CELEBRATION_SCREEN, {
-          onComplete: () => {
-            dispatch(navigateBack());
-          },
-          gifId: 0,
-        }),
+        dispatch(
+          navigatePush(CELEBRATION_SCREEN, {
+            onComplete: () => {
+              dispatch(navigateBack());
+            },
+            gifId: 0,
+          }),
+        ),
       ),
     );
   };

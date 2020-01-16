@@ -102,6 +102,7 @@ const NotificationOffScreen = ({
       <Text style={text}>{descriptionText}</Text>
       <View style={buttonWrap}>
         <Button
+          testID="allowButton"
           pill={true}
           type="primary"
           onPress={goToSettings}
@@ -110,6 +111,7 @@ const NotificationOffScreen = ({
           buttonTextStyle={buttonText}
         />
         <Button
+          testID="notNowButton"
           pill={true}
           onPress={notNow}
           text={notNowButtonText.toUpperCase()}

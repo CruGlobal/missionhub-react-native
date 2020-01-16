@@ -27,7 +27,7 @@ const {
 
 interface NotificationPrimerScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  next: () => ThunkAction<void, {}, {}, never>;
+  next?: () => ThunkAction<void, {}, {}, never>;
 }
 
 const NotificationPrimerScreen = ({

@@ -1,10 +1,5 @@
 import notifications from '../notifications';
-import {
-  LOGOUT,
-  DISABLE_WELCOME_NOTIFICATION,
-  REQUEST_NOTIFICATIONS,
-  LOAD_HOME_NOTIFICATION_REMINDER,
-} from '../../constants';
+import { LOGOUT } from '../../constants';
 import { REQUESTS } from '../../api/routes';
 
 it('should update push device', () => {
@@ -19,36 +14,6 @@ it('should update push device', () => {
     },
   );
   expect(state.pushDevice).toEqual(pushDevice);
-});
-
-it('should disable welcome notification', () => {
-  const state = notifications(
-    {},
-    {
-      type: DISABLE_WELCOME_NOTIFICATION,
-    },
-  );
-  expect(state.hasShownWelcomeNotification).toEqual(true);
-});
-
-it('should set requestedNativePermissions to true', () => {
-  const state = notifications(
-    {},
-    {
-      type: REQUEST_NOTIFICATIONS,
-    },
-  );
-  expect(state.requestedNativePermissions).toEqual(true);
-});
-
-it('should set showReminderOnLoad to false', () => {
-  const state = notifications(
-    {},
-    {
-      type: LOAD_HOME_NOTIFICATION_REMINDER,
-    },
-  );
-  expect(state.showReminderOnLoad).toEqual(false);
 });
 
 it('resets state on logout', () => {

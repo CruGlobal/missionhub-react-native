@@ -3,8 +3,11 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { requestNativePermissions } from '../../../actions/notifications';
-import { navigatePush } from '../../../actions/navigation';
+import {
+  requestNativePermissions,
+  hasShownPrompt,
+} from '../../../actions/notifications';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -14,7 +17,6 @@ import NotificationPrimerScreen from '..';
 const {
   ONBOARDING,
   LOGIN,
-  FOCUS_STEP,
   SET_REMINDER,
   JOIN_COMMUNITY,
   JOIN_CHALLENGE,
@@ -27,74 +29,138 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const navigatePushResult = { type: 'navigated push' };
+const navigateBackResult = { type: 'navigated back' };
 const registerResult = { type: 'request permissions' };
 const trackActionResult = { type: 'tracked action' };
+const hasShownPromptResult = { type: 'has shown prompt' };
 const onComplete = jest.fn();
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
+  (hasShownPrompt as jest.Mock).mockReturnValue(hasShownPromptResult);
 });
 
 describe('notificationTypes', () => {
-  let notificationType = '';
-
-  const test = () => {
+  it('renders for ONBOARDING', () => {
     renderWithContext(<NotificationPrimerScreen />, {
       navParams: {
         onComplete,
-        notificationType,
+        notificationType: ONBOARDING,
       },
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
-  };
-
-  it('renders for ONBOARDING', () => {
-    notificationType = ONBOARDING;
-    test();
   });
 
   it('renders for LOGIN', () => {
-    notificationType = LOGIN;
-    test();
-  });
+    renderWithContext(<NotificationPrimerScreen />, {
+      navParams: {
+        onComplete,
+        notificationType: LOGIN,
+      },
+    }).snapshot();
 
-  it('renders for FOCUS_STEP', () => {
-    notificationType = FOCUS_STEP;
-    test();
+    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
   });
 
   it('renders for SET_REMINDER', () => {
-    notificationType = SET_REMINDER;
-    test();
+    renderWithContext(<NotificationPrimerScreen />, {
+      navParams: {
+        onComplete,
+        notificationType: SET_REMINDER,
+      },
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
   });
 
   it('renders for JOIN_COMMUNITY', () => {
-    notificationType = JOIN_COMMUNITY;
-    test();
+    renderWithContext(<NotificationPrimerScreen />, {
+      navParams: {
+        onComplete,
+        notificationType: JOIN_COMMUNITY,
+      },
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
   });
 
   it('renders for JOIN_CHALLENGE', () => {
-    notificationType = JOIN_CHALLENGE;
-    test();
+    renderWithContext(<NotificationPrimerScreen />, {
+      navParams: {
+        onComplete,
+        notificationType: JOIN_CHALLENGE,
+      },
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
   });
 });
 
 describe('notification primer methods', () => {
-  const notificationType = '';
+  const next = jest.fn();
+  const nextResult = { type: 'next' };
+
+  beforeEach(() => {
+    (next as jest.Mock).mockReturnValue(nextResult);
+  });
 
   describe('not now button', () => {
-    it('calls onComplete and tracks an action', () => {
-      const { getByTestId } = renderWithContext(<NotificationPrimerScreen />, {
-        navParams: {
-          onComplete,
-          notificationType,
+    it('calls next and tracks an action', () => {
+      const { store, getByTestId } = renderWithContext(
+        <NotificationPrimerScreen next={next} />,
+        {
+          navParams: {
+            notificationType: ONBOARDING,
+          },
         },
-      });
+      );
+
       fireEvent.press(getByTestId('NotNowButton'));
+
+      expect(next).toHaveBeenCalledWith();
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
+      expect(store.getActions()).toEqual([nextResult, trackActionResult]);
+    });
+
+    it('calls onComplete and tracks an action', () => {
+      const { store, getByTestId } = renderWithContext(
+        <NotificationPrimerScreen />,
+        {
+          navParams: {
+            onComplete,
+            notificationType: ONBOARDING,
+          },
+        },
+      );
+
+      fireEvent.press(getByTestId('NotNowButton'));
+
       expect(onComplete).toHaveBeenCalledWith(false);
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
+      expect(store.getActions()).toEqual([trackActionResult]);
+    });
+
+    it('navigates back and tracks an action', () => {
+      const { store, getByTestId } = renderWithContext(
+        <NotificationPrimerScreen />,
+        {
+          navParams: {
+            notificationType: ONBOARDING,
+          },
+        },
+      );
+
+      fireEvent.press(getByTestId('NotNowButton'));
+
+      expect(navigateBack).toHaveBeenCalledWith();
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
+      expect(store.getActions()).toEqual([
+        navigateBackResult,
+        trackActionResult,
+      ]);
     });
   });
 
@@ -115,19 +181,76 @@ describe('notification primer methods', () => {
         );
       });
 
-      const { getByTestId } = renderWithContext(<NotificationPrimerScreen />, {
-        navParams: {
-          onComplete,
-          notificationType,
-        },
-      });
+      it('allows permissions and calls next', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationPrimerScreen next={next} />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
 
-      it('runs allow', async () => {
         await fireEvent.press(getByTestId('AllowButton'));
 
+        expect(hasShownPrompt).toHaveBeenCalledWith();
+        expect(requestNativePermissions).toHaveBeenCalled();
+        expect(next).toHaveBeenCalledWith();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+        expect(store.getActions()).toHaveBeenCalledWith([
+          hasShownPromptResult,
+          requestPermissionsAccepted,
+          nextResult,
+          trackActionResult,
+        ]);
+      });
+
+      it('allows permissions and calls onComplete', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationPrimerScreen />,
+          {
+            navParams: {
+              onComplete,
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('AllowButton'));
+
+        expect(hasShownPrompt).toHaveBeenCalledWith();
         expect(requestNativePermissions).toHaveBeenCalled();
         expect(onComplete).toHaveBeenCalledWith(true);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+        expect(store.getActions()).toHaveBeenCalledWith([
+          hasShownPromptResult,
+          requestPermissionsAccepted,
+          trackActionResult,
+        ]);
+      });
+
+      it('allows permissions and navigates back', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationPrimerScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('AllowButton'));
+
+        expect(hasShownPrompt).toHaveBeenCalledWith();
+        expect(requestNativePermissions).toHaveBeenCalled();
+        expect(navigateBack).toHaveBeenCalledWith();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+        expect(store.getActions()).toHaveBeenCalledWith([
+          hasShownPromptResult,
+          requestPermissionsAccepted,
+          navigateBackResult,
+          trackActionResult,
+        ]);
       });
     });
 
@@ -138,21 +261,76 @@ describe('notification primer methods', () => {
         );
       });
 
-      it('runs allow', async () => {
-        const { getByTestId } = renderWithContext(
-          <NotificationPrimerScreen />,
+      it('allows permissions and calls next', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationPrimerScreen next={next} />,
           {
             navParams: {
-              onComplete,
-              notificationType,
+              notificationType: ONBOARDING,
             },
           },
         );
 
         await fireEvent.press(getByTestId('AllowButton'));
+
+        expect(hasShownPrompt).toHaveBeenCalledWith();
         expect(requestNativePermissions).toHaveBeenCalled();
-        expect(onComplete).toHaveBeenCalledWith(false);
+        expect(next).toHaveBeenCalledWith();
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+        expect(store.getActions()).toHaveBeenCalledWith([
+          hasShownPromptResult,
+          requestPermissionsDenied,
+          nextResult,
+          trackActionResult,
+        ]);
+      });
+
+      it('allows permissions and calls onComplete', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationPrimerScreen />,
+          {
+            navParams: {
+              onComplete,
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('AllowButton'));
+
+        expect(hasShownPrompt).toHaveBeenCalledWith();
+        expect(requestNativePermissions).toHaveBeenCalled();
+        expect(onComplete).toHaveBeenCalledWith(true);
+        expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+        expect(store.getActions()).toHaveBeenCalledWith([
+          hasShownPromptResult,
+          requestPermissionsDenied,
+          trackActionResult,
+        ]);
+      });
+
+      it('allows permissions and navigates back', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationPrimerScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('AllowButton'));
+
+        expect(hasShownPrompt).toHaveBeenCalledWith();
+        expect(requestNativePermissions).toHaveBeenCalled();
+        expect(navigateBack).toHaveBeenCalledWith();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
+        expect(store.getActions()).toHaveBeenCalledWith([
+          hasShownPromptResult,
+          requestPermissionsDenied,
+          navigateBackResult,
+          trackActionResult,
+        ]);
       });
     });
   });

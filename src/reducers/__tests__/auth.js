@@ -188,7 +188,7 @@ it('should reset state on logout', () => {
   );
 
   expect(state).toEqual({
-    token: '',
+    token: undefined,
     refreshToken: '',
     person: { user: {} },
     isJean: false,

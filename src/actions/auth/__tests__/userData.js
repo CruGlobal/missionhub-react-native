@@ -8,7 +8,7 @@ import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
 import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
 import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
-import { showReminderOnLoad } from '../../notifications';
+import { checkNotifications } from '../../notifications';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
@@ -16,7 +16,7 @@ import { getStagesIfNotExists } from '../../stages';
 import { getMySteps } from '../../steps';
 import { rollbar } from '../../../utils/rollbar.config';
 
-const notificationsResult = { type: 'show notification reminder' };
+const notificationsResult = { type: 'check notifications' };
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
 const getPeopleResult = { type: 'get my people' };
@@ -138,7 +138,7 @@ describe('loadHome', () => {
     getMySteps.mockReturnValue(getStepsResult);
     getMyCommunities.mockReturnValue(getMyCommunitiesResult);
     getStagesIfNotExists.mockReturnValue(getStagesResult);
-    showReminderOnLoad.mockReturnValue(notificationsResult);
+    checkNotifications.mockReturnValue(notificationsResult);
     callApi.default.mockReturnValue(updateUserResult);
 
     await store.dispatch(loadHome());
@@ -148,7 +148,7 @@ describe('loadHome', () => {
       {},
       userSettings,
     );
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
+    expect(checkNotifications).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.LOGIN,
     );
 

@@ -10,7 +10,7 @@ import {
 import { renderWithContext } from '../../../../testUtils';
 import {
   requestNativePermissions,
-  showNotificationPrompt,
+  checkNotifications,
 } from '../../../actions/notifications';
 import { navigatePush } from '../../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../../containers/StepReminderScreen';
@@ -81,23 +81,55 @@ describe('handlePressAndroid', () => {
 
 describe('handlePressIOS', () => {
   const showPicker = jest.fn();
-  beforeEach(() => {
-    (showNotificationPrompt as jest.Mock).mockReturnValue({
-      type: 'show notifcation prompt',
-    });
-  });
-  it('requests notifications and navigates to step reminder screen', async () => {
+
+  it('requests notifications and shows picker', () => {
+    (checkNotifications as jest.Mock).mockImplementation(
+      (_, callback: (acceptedNotifications: boolean) => void) => {
+        callback(true);
+        return { type: 'check notifications' };
+      },
+    );
+
     const { getByTestId } = renderWithContext(
       <ReminderButton {...props} reminder={reminder}>
         <View />
       </ReminderButton>,
       { initialState: {} },
     );
-    await fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
       showPicker,
     });
-    expect(showNotificationPrompt).toHaveBeenCalledWith(
+
+    expect(checkNotifications).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+      expect.any(Function),
+    );
+    expect(showPicker).toHaveBeenCalledWith();
+  });
+
+  it('declines notifications and does not show picker', () => {
+    (checkNotifications as jest.Mock).mockImplementation(
+      (_, callback: (acceptedNotifications: boolean) => void) => {
+        callback(false);
+        return { type: 'check notifications' };
+      },
+    );
+
+    const { getByTestId } = renderWithContext(
+      <ReminderButton {...props} reminder={reminder}>
+        <View />
+      </ReminderButton>,
+      { initialState: {} },
+    );
+
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+      showPicker,
+    });
+
+    expect(checkNotifications).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+      expect.any(Function),
     );
     expect(showPicker).not.toHaveBeenCalled();
   });
