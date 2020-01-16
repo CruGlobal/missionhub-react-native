@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +7,10 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Text, Button, Flex } from '../../components/common';
-import { requestNativePermissions } from '../../actions/notifications';
+import {
+  hasShownPrompt,
+  requestNativePermissions,
+} from '../../actions/notifications';
 import { navigateBack } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
@@ -22,8 +26,8 @@ const {
 } = NOTIFICATION_PROMPT_TYPES;
 
 interface NotificationPrimerScreenProps {
-  dispatch: ThunkDispatch<{}, null, never>;
-  next: () => ThunkAction<void, {}, null, never>;
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  next: () => ThunkAction<void, {}, {}, never>;
 }
 
 const NotificationPrimerScreen = ({
@@ -54,6 +58,7 @@ const NotificationPrimerScreen = ({
   const allow = async () => {
     let acceptedNotifications = false;
     try {
+      dispatch(hasShownPrompt());
       const response = await dispatch(requestNativePermissions());
       acceptedNotifications = response.acceptedNotifications;
     } finally {

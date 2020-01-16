@@ -97,16 +97,6 @@ export const checkNotifications = (
       return onComplete && onComplete(acceptedNotifications);
     }
 
-    //IF app has not already asked permissions from iOS user, ask them now
-    if (!appHasShownPrompt) {
-      return dispatch(
-        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          notificationType,
-          onComplete,
-        }),
-      );
-    }
-
     //IF iOS user has previously given permission, check that native permissions are still active
     if (userHasAcceptedNotifications) {
       const { acceptedNotifications } = await dispatch(
@@ -128,6 +118,16 @@ export const checkNotifications = (
         }),
       );
     }
+
+    //IF app has not already asked permissions from iOS user, ask them now
+    if (!appHasShownPrompt) {
+      return dispatch(
+        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          notificationType,
+          onComplete,
+        }),
+      );
+    }
   }
 
   //IF app has already asked for permissions, and iOS user has declined, do nothing
@@ -137,7 +137,6 @@ export const checkNotifications = (
 export const requestNativePermissions = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch(hasShownPrompt());
   const permission = await RNPushNotification.requestPermissions();
 
   const acceptedNotifications = !!(permission && permission.alert);
