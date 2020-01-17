@@ -93,9 +93,11 @@ export class SurveyContactsFilter extends Component {
       ? this.handleSelectQuestionFilters
       : this.handleSelectFilter;
     const filters = isQuestion
-      ? // @ts-ignore
+      ? // prettier-ignore
+        // @ts-ignore
         this.state.filters.questions || {}
-      : // @ts-ignore
+      : // prettier-ignore
+        // @ts-ignore
         this.state.filters;
 
     // @ts-ignore
