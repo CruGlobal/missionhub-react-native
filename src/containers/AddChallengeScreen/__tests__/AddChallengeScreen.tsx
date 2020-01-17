@@ -51,7 +51,9 @@ it('renders edit challenge correctly', () => {
 });
 
 describe('create methods', () => {
+  // @ts-ignore
   let component;
+  // @ts-ignore
   let instance;
   const mockComplete = jest.fn();
   beforeEach(() => {
@@ -68,26 +70,35 @@ describe('create methods', () => {
 
   it('changes title', () => {
     const title = 'New Title';
+    // @ts-ignore
     instance.onChangeTitle(title);
+    // @ts-ignore
     expect(instance.state.title).toEqual(title);
   });
 
   it('changes date', () => {
     const date = new Date();
+    // @ts-ignore
     instance.onChangeDate(date);
+    // @ts-ignore
     expect(instance.state.date).toEqual(date);
   });
 
   it('clears date', () => {
+    // @ts-ignore
     instance.onChangeDate();
+    // @ts-ignore
     expect(instance.state.date).toEqual('');
   });
 
   it('sets disable false', () => {
     const title = 'New Title';
     const date = new Date();
+    // @ts-ignore
     instance.onChangeTitle(title);
+    // @ts-ignore
     instance.onChangeDate(date);
+    // @ts-ignore
     expect(instance.state.disableBtn).toEqual(false);
   });
 
@@ -98,7 +109,9 @@ describe('create methods', () => {
         .endOf('day')
         .format(),
     };
+    // @ts-ignore
     instance.setState({ title: challenge.title, date: challenge.date });
+    // @ts-ignore
     component
       .childAt(4)
       .props()
@@ -108,27 +121,33 @@ describe('create methods', () => {
 
   it('calls onChangeTitle from input', () => {
     const title = 'New Title';
+    // @ts-ignore
     component
       .childAt(3)
       .childAt(0)
       .props()
       .onChangeText(title);
+    // @ts-ignore
     expect(instance.state.title).toEqual(title);
   });
 
   it('calls onChangeDate from input', () => {
     const date = new Date();
+    // @ts-ignore
     component
       .childAt(3)
       .childAt(1)
       .props()
       .onDateChange(date);
+    // @ts-ignore
     expect(instance.state.date).toEqual(date);
   });
 });
 
 describe('edit methods', () => {
+  // @ts-ignore
   let component;
+  // @ts-ignore
   let instance;
   const mockComplete = jest.fn();
   beforeEach(() => {
@@ -153,12 +172,14 @@ describe('edit methods', () => {
         .format(),
       id: editChallenge.id,
     };
+    // @ts-ignore
     instance.setState({
       title: challenge.title,
       date: challenge.date,
       disableBtn: false,
     });
 
+    // @ts-ignore
     component
       .childAt(4)
       .props()

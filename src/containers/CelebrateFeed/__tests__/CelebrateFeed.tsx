@@ -62,12 +62,15 @@ const celebrationItems = [
 
 const navigatePushResult = { type: 'navigated' };
 
+// @ts-ignore
 let component;
 
+// @ts-ignore
 navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
 
 beforeEach(() => {
   component = renderShallow(
+    // @ts-ignore
     <CelebrateFeed items={celebrationItems} organization={organization} />,
     store,
   );
@@ -75,6 +78,7 @@ beforeEach(() => {
 
 describe('Member Feed rendering', () => {
   it('renders correctly for member feed', () => {
+    // @ts-ignore
     expect(component).toMatchSnapshot();
   });
 });
@@ -83,6 +87,7 @@ describe('no header rendering', () => {
   it('renders correctly for no header', () => {
     component = renderShallow(
       <CelebrateFeed
+        // @ts-ignore
         noHeader={true}
         items={celebrationItems}
         organization={organization}
@@ -97,6 +102,7 @@ describe('renders with clear notification set', () => {
   it('renders correctly with clear notification set', () => {
     component = renderShallow(
       <CelebrateFeed
+        // @ts-ignore
         onClearNotification={jest.fn()}
         noHeader={true}
         items={celebrationItems}
@@ -109,6 +115,7 @@ describe('renders with clear notification set', () => {
 });
 
 it('renders section header', () => {
+  // @ts-ignore
   const renderedItem = component
     .instance()
     .renderSectionHeader({ section: { date: '2018-08-13T12:00:00.000Z' } });
@@ -117,6 +124,7 @@ it('renders section header', () => {
 
 describe('item', () => {
   it('renders correctly', () => {
+    // @ts-ignore
     const renderedItem = component
       .instance()
       .renderItem({ item: celebrationItems[0] });
@@ -125,6 +133,7 @@ describe('item', () => {
 });
 
 it('renderHeader match snapshot', () => {
+  // @ts-ignore
   const header = component.instance().renderHeader();
   expect(header).toMatchSnapshot();
 });

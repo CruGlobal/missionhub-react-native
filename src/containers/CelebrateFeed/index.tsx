@@ -14,12 +14,14 @@ import ShareStoryInput from '../Groups/ShareStoryInput';
 import styles from './styles';
 
 class CelebrateFeed extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
     this.state = { ...this.state, isListScrolled: false };
   }
 
+  // @ts-ignore
   renderSectionHeader = ({ section: { date } }) => {
     const { title, header } = styles;
 
@@ -34,11 +36,16 @@ class CelebrateFeed extends Component {
     );
   };
 
+  // @ts-ignore
   renderItem = ({ item }) => {
     const {
+      // @ts-ignore
       organization,
+      // @ts-ignore
       itemNamePressable,
+      // @ts-ignore
       onClearNotification,
+      // @ts-ignore
       refreshCallback,
     } = this.props;
 
@@ -54,26 +61,32 @@ class CelebrateFeed extends Component {
   };
 
   handleOnEndReached = () => {
+    // @ts-ignore
     if (this.state.isListScrolled) {
+      // @ts-ignore
       this.props.loadMoreItemsCallback();
       this.setState({ isListScrolled: false });
     }
   };
 
   handleEndDrag = () => {
+    // @ts-ignore
     if (!this.state.isListScrolled) {
       this.setState({ isListScrolled: true });
     }
   };
 
   handleRefreshing = () => {
+    // @ts-ignore
     this.props.refreshCallback();
   };
 
   renderHeader = () => {
+    // @ts-ignore
     const { isMember, organization, dispatch, refreshCallback } = this.props;
     return (
       <>
+        // @ts-ignore
         <CelebrateFeedHeader isMember={isMember} organization={organization} />
         <ShareStoryInput
           dispatch={dispatch}
@@ -85,12 +98,14 @@ class CelebrateFeed extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { items, refreshing, noHeader } = this.props;
 
     return (
       <SectionList
         sections={items}
         ListHeaderComponent={noHeader ? undefined : this.renderHeader}
+        // @ts-ignore
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={keyExtractorId}
@@ -107,6 +122,7 @@ class CelebrateFeed extends Component {
   }
 }
 
+// @ts-ignore
 CelebrateFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,

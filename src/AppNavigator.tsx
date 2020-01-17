@@ -8,6 +8,7 @@ import { navigateBack } from './actions/navigation';
 
 const app = createReduxContainer(MainRoutes, 'root');
 
+// @ts-ignore
 const mapStateToProps = ({ nav }) => ({
   state: nav,
 });
@@ -16,6 +17,7 @@ const appWithNavState = connect(mapStateToProps)(app);
 
 export default connect(mapStateToProps)(backHandlerWrapper(appWithNavState));
 
+// @ts-ignore
 function backHandlerWrapper(WrappedComponent) {
   return class extends React.Component {
     componentDidMount() {
@@ -25,6 +27,7 @@ function backHandlerWrapper(WrappedComponent) {
       BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
     }
     onBackPress = () => {
+      // @ts-ignore
       const { dispatch, state } = this.props;
       if (state.index === 0) {
         return false;

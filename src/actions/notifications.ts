@@ -30,7 +30,9 @@ import {
 } from './navigation';
 import callApi from './api';
 
+// @ts-ignore
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
+  // @ts-ignore
   return (dispatch, getState) => {
     if (isAndroid) {
       return dispatch(requestNativePermissions());
@@ -45,6 +47,7 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
 
         const { requestedNativePermissions } = getState().notifications;
 
+        // @ts-ignore
         const onComplete = acceptedNotifications => {
           !doNotNavigateBack && dispatch(navigateBack());
           resolve({ acceptedNotifications });
@@ -66,7 +69,9 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   };
 }
 
+// @ts-ignore
 export function showReminderOnLoad(notificationType, doNotNavigateBack) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
       dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
@@ -78,6 +83,7 @@ export function showReminderOnLoad(notificationType, doNotNavigateBack) {
 }
 
 export function requestNativePermissions() {
+  // @ts-ignore
   return async dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
     const permission = await PushNotification.requestPermissions();
@@ -86,6 +92,7 @@ export function requestNativePermissions() {
 }
 
 export function configureNotificationHandler() {
+  // @ts-ignore
   return (dispatch, getState) => {
     PushNotification.configure({
       onRegister(t) {
@@ -97,6 +104,7 @@ export function configureNotificationHandler() {
         //make api call to register token with user
         dispatch(registerPushDevice(t.token));
       },
+      // @ts-ignore
       async onNotification(notification = {}) {
         await dispatch(handleNotification(notification));
 
@@ -111,7 +119,9 @@ export function configureNotificationHandler() {
   };
 }
 
+// @ts-ignore
 function handleNotification(notification) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     if (isAndroid && !notification.userInteraction) {
       return;
@@ -140,6 +150,7 @@ function handleNotification(notification) {
         }
         return;
       case 'my_steps':
+        // @ts-ignore
         return dispatch(navToPersonScreen(me));
       case 'add_a_person':
         return dispatch(
@@ -164,6 +175,7 @@ function handleNotification(notification) {
   };
 }
 
+// @ts-ignore
 export function parseNotificationData(notification) {
   const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
   const data = {
@@ -187,7 +199,9 @@ export function parseNotificationData(notification) {
   };
 }
 
+// @ts-ignore
 function registerPushDevice(token) {
+  // @ts-ignore
   return dispatch => {
     const data = {
       data: {
@@ -204,6 +218,7 @@ function registerPushDevice(token) {
 }
 
 export function deletePushToken() {
+  // @ts-ignore
   return (dispatch, getState) => {
     const { pushDevice } = getState().notifications;
     if (!pushDevice.id) {
@@ -219,6 +234,7 @@ export function deletePushToken() {
 }
 
 export function showWelcomeNotification() {
+  // @ts-ignore
   return (dispatch, getState) => {
     if (getState().notifications.hasShownWelcomeNotification) {
       return;

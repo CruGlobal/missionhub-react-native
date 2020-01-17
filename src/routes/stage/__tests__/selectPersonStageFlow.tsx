@@ -42,7 +42,9 @@ const store = configureStore([thunk])({
   stages: { stages: [stage] },
 });
 
+// @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
+  // @ts-ignore
   const Component = SelectPersonStageFlowScreens[screen];
 
   await store.dispatch(
@@ -57,6 +59,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
       store,
     )
       .instance()
+      // @ts-ignore
       .props.next(nextProps),
   );
 };
@@ -68,10 +71,15 @@ const navigatePushResponse = { type: 'navigate push' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   personSelector.mockReturnValue(person);
+  // @ts-ignore
   updatePersonAttributes.mockReturnValue(updatePersonResponse);
+  // @ts-ignore
   getPersonDetails.mockReturnValue(getPersonDetailsResponse);
+  // @ts-ignore
   loadStepsAndJourney.mockReturnValue(loadStepsJourneyResponse);
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
 });
 

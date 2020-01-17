@@ -84,8 +84,11 @@ export default StyleSheet.create({
   strong: strongStyle,
   em: emphasisStyle,
   paragraph: paragraph,
+  // @ts-ignore
   listUnorderedItemIcon: listItemUnorderedIconStyle,
+  // @ts-ignore
   listOrderedItemIcon: listItemOrderedIconStyle,
+  // @ts-ignore
   link: linkStyle,
   blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,

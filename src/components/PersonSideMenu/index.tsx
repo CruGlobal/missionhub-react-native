@@ -25,12 +25,15 @@ import {
   orgIsUserCreated,
 } from '../../utils/common';
 
+// @ts-ignore
 @withTranslation('contactSideMenu')
 class PersonSideMenu extends Component {
+  // @ts-ignore
   onSubmitReason = () => this.props.dispatch(navigateBack(2));
 
   deleteContact() {
     return () => {
+      // @ts-ignore
       const { t, dispatch, person } = this.props;
       Alert.alert(
         t('deleteQuestion', {
@@ -46,6 +49,7 @@ class PersonSideMenu extends Component {
             text: t('delete'),
             style: 'destructive',
             onPress: () => {
+              // @ts-ignore
               this.deleteOnUnmount = true;
               dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
             },
@@ -56,7 +60,9 @@ class PersonSideMenu extends Component {
   }
 
   async componentWillUnmount() {
+    // @ts-ignore
     if (this.deleteOnUnmount) {
+      // @ts-ignore
       const { dispatch, person, contactAssignment, organization } = this.props;
       await dispatch(
         deleteContactAssignment(
@@ -70,15 +76,25 @@ class PersonSideMenu extends Component {
 
   render() {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       isCruOrg,
+      // @ts-ignore
       isUserCreated,
+      // @ts-ignore
       personIsCurrentUser,
+      // @ts-ignore
       myId,
+      // @ts-ignore
       person,
+      // @ts-ignore
       orgPermission,
+      // @ts-ignore
       contactAssignment,
+      // @ts-ignore
       organization,
     } = this.props;
 
@@ -117,6 +133,7 @@ class PersonSideMenu extends Component {
         ? {
             label: t('assign'),
             action: () =>
+              // @ts-ignore
               dispatch(assignContactAndPickStage(person, organization, myId)),
           }
         : null,
@@ -136,10 +153,12 @@ class PersonSideMenu extends Component {
         : null,
     ].filter(Boolean);
 
+    // @ts-ignore
     return <SideMenu menuItems={menuItems} />;
   }
 }
 
+// @ts-ignore
 PersonSideMenu.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
@@ -147,6 +166,7 @@ PersonSideMenu.propTypes = {
   isUserCreated: PropTypes.bool.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;
@@ -155,6 +175,7 @@ const mapStateToProps = ({ auth, people }, { navigation }) => {
   const myId = auth.person.id;
 
   const person = personSelector({ people }, { personId, orgId }) || navPerson;
+  // @ts-ignore
   const orgPermission = orgPermissionSelector(null, {
     person,
     organization: { id: orgId },

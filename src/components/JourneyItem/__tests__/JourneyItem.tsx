@@ -18,7 +18,9 @@ const person = {
 const date = '2017-12-06T14:24:52Z';
 
 beforeEach(() => {
+  // @ts-ignore
   getAssignedToName.mockReturnValue('Roger');
+  // @ts-ignore
   getAssignedByName.mockReturnValue('Billy');
 });
 
@@ -38,6 +40,7 @@ describe('step', () => {
   it('is rendered correctly without comment', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={mockStep}
         myId={myId}
         personFirstName={person.first_name}
@@ -48,6 +51,7 @@ describe('step', () => {
   it('is rendered correctly with comment', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={{ ...mockStep, note: 'test comment on completed step' }}
         myId={myId}
         personFirstName={person.first_name}
@@ -58,6 +62,7 @@ describe('step', () => {
   it('is rendered correctly with pathway stage', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={{ ...mockStep, challenge_suggestion }}
         myId={myId}
         personFirstName={person.first_name}
@@ -84,6 +89,7 @@ describe('stage', () => {
   it('is rendered correctly with old stage for a contact', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={mockStageProgression}
         myId={myId}
         personFirstName={person.first_name}
@@ -94,6 +100,7 @@ describe('stage', () => {
   it('is rendered correctly with old stage for self', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={mockStageProgression}
         myId={person.id}
         personFirstName={person.first_name}
@@ -104,6 +111,7 @@ describe('stage', () => {
   it('is rendered correctly without old stage for a contact', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={{
           ...mockStageProgression,
           old_pathway_stage: {},
@@ -117,6 +125,7 @@ describe('stage', () => {
   it('is rendered correctly without old stage for self', () => {
     testSnapshotShallow(
       <JourneyItem
+        // @ts-ignore
         item={{
           ...mockStageProgression,
           old_pathway_stage: {},
@@ -131,6 +140,7 @@ describe('stage', () => {
 it('renders survey correctly', () => {
   testSnapshotShallow(
     <JourneyItem
+      // @ts-ignore
       item={{
         id: '5',
         _type: 'answer_sheet',
@@ -151,6 +161,7 @@ it('renders survey correctly', () => {
 it('renders interaction correctly', () => {
   testSnapshotShallow(
     <JourneyItem
+      // @ts-ignore
       item={{
         id: '4',
         _type: 'interaction',
@@ -174,6 +185,7 @@ it('renders contact_assignment correctly', () => {
   };
 
   testSnapshotShallow(
+    // @ts-ignore
     <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
   );
 
@@ -189,6 +201,7 @@ it('renders contact_unassignment correctly', () => {
   };
 
   testSnapshotShallow(
+    // @ts-ignore
     <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
   );
 
@@ -203,9 +216,12 @@ it('should call ref', () => {
   };
 
   const instance = renderShallow(
+    // @ts-ignore
     <JourneyItem item={item} myId={myId} personFirstName={person.first_name} />,
   ).instance();
   const ref = 'test';
+  // @ts-ignore
   instance.ref(ref);
+  // @ts-ignore
   expect(instance._view).toEqual(ref);
 });

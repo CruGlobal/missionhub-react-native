@@ -17,9 +17,11 @@ import theme from '../../theme';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupOnboardingCard')
 class OnboardingCard extends Component {
   getImage() {
+    // @ts-ignore
     switch (this.props.type) {
       case GROUP_ONBOARDING_TYPES.celebrate:
         return HEARTS;
@@ -41,11 +43,13 @@ class OnboardingCard extends Component {
   }
 
   handlePress = () => {
+    // @ts-ignore
     const { type, dispatch } = this.props;
     dispatch(removeGroupOnboardingCard(type));
   };
 
   render() {
+    // @ts-ignore
     const { t, type, groupOnboarding } = this.props;
     if (!groupOnboarding[type]) {
       return null;
@@ -100,10 +104,12 @@ export const GROUP_ONBOARDING_TYPES = {
   steps: 'steps',
 };
 
+// @ts-ignore
 OnboardingCard.propTypes = {
   type: PropTypes.oneOf(Object.keys(GROUP_ONBOARDING_TYPES)).isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ swipe }) => ({
   groupOnboarding: swipe.groupOnboarding || {},
 });

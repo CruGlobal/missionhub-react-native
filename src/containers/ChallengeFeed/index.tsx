@@ -18,24 +18,29 @@ import { keyExtractorId } from '../../utils/common';
 import styles from './styles';
 
 class ChallengeFeed extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
     this.state = { ...this.state, isListScrolled: false };
   }
 
+  // @ts-ignore
   getAcceptedChallenge({ accepted_community_challenges }) {
     return accepted_community_challenges.find(
+      // @ts-ignore
       c => c.person && c.person.id === this.props.myId,
     );
   }
 
+  // @ts-ignore
   renderSectionHeader = ({ section: { title } }) => (
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>
     </View>
   );
 
+  // @ts-ignore
   renderItem = ({ item }) => (
     <ChallengeItem
       item={item}
@@ -47,23 +52,29 @@ class ChallengeFeed extends Component {
   );
 
   handleOnEndReached = () => {
+    // @ts-ignore
     if (this.state.isListScrolled && !this.props.refreshing) {
+      // @ts-ignore
       this.props.loadMoreItemsCallback();
       this.setState({ isListScrolled: false });
     }
   };
 
   handleEndDrag = () => {
+    // @ts-ignore
     if (!this.state.isListScrolled) {
       this.setState({ isListScrolled: true });
     }
   };
 
   handleRefreshing = () => {
+    // @ts-ignore
     this.props.refreshCallback();
   };
 
+  // @ts-ignore
   handleComplete = challenge => {
+    // @ts-ignore
     const { organization, dispatch } = this.props;
     const accepted_challenge = this.getAcceptedChallenge(challenge);
     if (!accepted_challenge) {
@@ -72,12 +83,16 @@ class ChallengeFeed extends Component {
     dispatch(completeChallenge(accepted_challenge, organization.id));
   };
 
+  // @ts-ignore
   handleJoin = challenge => {
+    // @ts-ignore
     const { organization, dispatch } = this.props;
     dispatch(joinChallenge(challenge, organization.id));
   };
 
+  // @ts-ignore
   handleSelectRow = challenge => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
 
     if (organization.id !== GLOBAL_COMMUNITY_ID) {
@@ -92,16 +107,19 @@ class ChallengeFeed extends Component {
   };
 
   renderHeader = () => (
+    // @ts-ignore
     <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />
   );
 
   render() {
+    // @ts-ignore
     const { items, refreshing, extraPadding } = this.props;
 
     return (
       <SectionList
         sections={items}
         ListHeaderComponent={this.renderHeader}
+        // @ts-ignore
         renderSectionHeader={this.renderSectionHeader}
         renderItem={this.renderItem}
         keyExtractor={keyExtractorId}
@@ -120,6 +138,7 @@ class ChallengeFeed extends Component {
   }
 }
 
+// @ts-ignore
 ChallengeFeed.propTypes = {
   items: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
@@ -127,6 +146,7 @@ ChallengeFeed.propTypes = {
   extraPadding: PropTypes.bool,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }) => ({
   myId: auth.person.id,
 });

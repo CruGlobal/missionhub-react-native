@@ -9,15 +9,20 @@ import { isFunction } from '../../utils/common';
 import styles from './styles';
 
 // iOS only component
+// @ts-ignore
 @withTranslation()
 class PopupMenu extends Component {
   showMenu = () => {
+    // @ts-ignore
     const { actions, t, title } = this.props;
 
+    // @ts-ignore
     const options = actions.map(a => a.text).concat(t('cancel'));
+    // @ts-ignore
     const select = i =>
       actions[i] && isFunction(actions[i].onPress) && actions[i].onPress();
 
+    // @ts-ignore
     let destructiveButtonIndex = actions.findIndex(o => o.destructive);
     if (destructiveButtonIndex < 0) {
       destructiveButtonIndex = undefined;
@@ -38,9 +43,13 @@ class PopupMenu extends Component {
   render() {
     const {
       children,
+      // @ts-ignore
       disabled,
+      // @ts-ignore
       triggerOnLongPress,
+      // @ts-ignore
       buttonProps = {},
+      // @ts-ignore
       iconProps = {},
     } = this.props;
 
@@ -74,6 +83,7 @@ class PopupMenu extends Component {
   }
 }
 
+// @ts-ignore
 PopupMenu.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({

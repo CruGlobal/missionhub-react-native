@@ -12,16 +12,20 @@ import { keyExtractorId } from '../../utils/common';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('memberContacts')
 class MemberContacts extends Component {
   state = { refreshing: false };
 
+  // @ts-ignore
   renderItem = ({ item }) => {
+    // @ts-ignore
     const { organization } = this.props;
     return <PersonListItem person={item.person} organization={organization} />;
   };
 
   renderList() {
+    // @ts-ignore
     const { contactAssignments } = this.props;
 
     return (
@@ -35,6 +39,7 @@ class MemberContacts extends Component {
   }
 
   renderEmpty() {
+    // @ts-ignore
     const { t, person } = this.props;
 
     return (
@@ -49,6 +54,7 @@ class MemberContacts extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { contactAssignments } = this.props;
 
     return contactAssignments.length > 0
@@ -57,6 +63,7 @@ class MemberContacts extends Component {
   }
 }
 
+// @ts-ignore
 MemberContacts.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
@@ -65,6 +72,7 @@ MemberContacts.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ people }, { person, organization }) => {
   const currentPerson = personSelector(
     { people },
@@ -75,6 +83,7 @@ const mapStateToProps = ({ people }, { person, organization }) => {
     ? {
         contactAssignments: currentPerson.contact_assignments
           ? currentPerson.contact_assignments.filter(
+              // @ts-ignore
               c =>
                 c &&
                 c.person &&

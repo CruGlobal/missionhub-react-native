@@ -26,7 +26,9 @@ const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
 });
 
+// @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
+  // @ts-ignore
   const Component = AddMyStepFlowScreens[screen];
 
   await store.dispatch(
@@ -41,6 +43,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
       store,
     )
       .instance()
+      // @ts-ignore
       .props.next(nextProps),
   );
 };
@@ -50,7 +53,9 @@ const createCustomStepResponse = { type: 'create custom step' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
+  // @ts-ignore
   createCustomStep.mockReturnValue(createCustomStepResponse);
 });
 

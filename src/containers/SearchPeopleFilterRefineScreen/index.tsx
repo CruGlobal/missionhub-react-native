@@ -13,22 +13,29 @@ import BackButton from '../BackButton';
 
 import styles from './styles';
 
+// @ts-ignore
 function setSelected(items = [], id) {
   return items.map(i => ({
+    // @ts-ignore
     ...i,
     selected: i.id === id,
     preview: undefined,
   }));
 }
 
+// @ts-ignore
 @withTranslation('searchFilterRefine')
 export class SearchPeopleFilterRefineScreen extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     const t = props.t;
     const options = [].concat(props.options);
+    // @ts-ignore
     const hasSelected = !!options.find(o => o && o.selected);
+    // @ts-ignore
     if (!options[0] || options[0].id !== 'any') {
+      // @ts-ignore
       options.unshift({ id: 'any', text: t('any'), selected: !hasSelected });
     }
 
@@ -41,13 +48,16 @@ export class SearchPeopleFilterRefineScreen extends Component {
     this.handleFilterSelect = this.handleFilterSelect.bind(this);
   }
 
+  // @ts-ignore
   handleSelect(item) {
     if (item.drilldown) {
       this.setState({ selectedDrillDownId: item.id });
+      // @ts-ignore
       this.props.dispatch(
         navigatePush(SEARCH_REFINE_SCREEN, {
           onFilter: this.handleFilterSelect,
           options: item.drilldown,
+          // @ts-ignore
           trackingObj: buildTrackingObj(
             `search : refine : ${item.id}`,
             'search',
@@ -57,27 +67,36 @@ export class SearchPeopleFilterRefineScreen extends Component {
         }),
       );
 
+      // @ts-ignore
       this.props.dispatch(trackSearchFilter(item.id));
     } else {
+      // @ts-ignore
       const newOptions = setSelected(this.state.options, item.id);
       this.setState({ options: newOptions });
+      // @ts-ignore
       this.props.onFilter(item);
     }
   }
 
+  // @ts-ignore
   handleFilterSelect(item) {
+    // @ts-ignore
     const option = this.state.options.find(
+      // @ts-ignore
       o => o.id === this.state.selectedDrillDownId,
     );
+    // @ts-ignore
     const newOptions = this.state.options.map(o => ({
       ...o,
       selected: o.id === option.id,
       preview: item.text,
     }));
     this.setState({ options: newOptions });
+    // @ts-ignore
     this.props.onFilter(item);
   }
 
+  // @ts-ignore
   renderItem = ({ item }) => (
     <FilterItem
       item={item}
@@ -88,12 +107,14 @@ export class SearchPeopleFilterRefineScreen extends Component {
   );
 
   render() {
+    // @ts-ignore
     const { t, title } = this.props;
     return (
       <View style={styles.pageContainer}>
         <Header left={<BackButton />} title={title || t('title')} />
         <FlatList
           style={styles.list}
+          // @ts-ignore
           data={this.state.options}
           keyExtractor={keyExtractorId}
           initialNumToRender={15}
@@ -104,6 +125,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
   }
 }
 
+// @ts-ignore
 SearchPeopleFilterRefineScreen.propTypes = {
   onFilter: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
@@ -116,6 +138,7 @@ SearchPeopleFilterRefineScreen.propTypes = {
   title: PropTypes.string,
 };
 
+// @ts-ignore
 const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

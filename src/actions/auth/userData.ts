@@ -21,6 +21,7 @@ function getTimezoneString() {
 }
 
 export function updateLocaleAndTimezone() {
+  // @ts-ignore
   return (dispatch, getState) => {
     const {
       person: { user },
@@ -42,6 +43,7 @@ export function updateLocaleAndTimezone() {
 }
 
 export function authSuccess() {
+  // @ts-ignore
   return async (dispatch, getState) => {
     dispatch(logInAnalytics());
 
@@ -61,18 +63,21 @@ export function authSuccess() {
 }
 
 export function loadHome() {
+  // @ts-ignore
   return async (dispatch, getState) => {
     // Don't try to run all these things if there is no token
     if (!getState().auth.token) {
       return Promise.resolve();
     }
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
+    // @ts-ignore
     dispatch(getMe());
     dispatch(getMyPeople());
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
     await dispatch(getMySteps());
+    // @ts-ignore
     dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }

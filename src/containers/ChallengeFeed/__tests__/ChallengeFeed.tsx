@@ -92,6 +92,7 @@ const challengeItems = [
   },
 ];
 
+// @ts-ignore
 let component;
 
 const props = {
@@ -103,6 +104,7 @@ beforeEach(() => {
   component = renderShallow(
     <ChallengeFeed
       {...props}
+      // @ts-ignore
       items={challengeItems}
       organization={organization}
     />,
@@ -112,17 +114,21 @@ beforeEach(() => {
 
 describe('Challenge Feed rendering', () => {
   it('renders correctly for challenge feed', () => {
+    // @ts-ignore
     expect(component).toMatchSnapshot();
   });
 });
 
 describe('item action methods', () => {
+  // @ts-ignore
   let item;
   const challenge = { id: '1', accepted_community_challenges };
   beforeEach(() => {
+    // @ts-ignore
     item = component.props().renderItem({ item: challenge });
   });
   it('calls handleComplete', () => {
+    // @ts-ignore
     item.props.onComplete(challenge);
     expect(challenges.completeChallenge).toHaveBeenCalledWith(
       accepted_community_challenges[0],
@@ -130,6 +136,7 @@ describe('item action methods', () => {
     );
   });
   it('calls handleJoin', () => {
+    // @ts-ignore
     item.props.onJoin(challenge);
     expect(challenges.joinChallenge).toHaveBeenCalledWith(
       challenge,
@@ -139,11 +146,13 @@ describe('item action methods', () => {
 });
 
 it('renders onboarding card as header', () => {
+  // @ts-ignore
   const renderedItem = component.instance().renderHeader();
   expect(renderedItem).toMatchSnapshot();
 });
 
 it('renders section header', () => {
+  // @ts-ignore
   const renderedItem = component
     .props()
     .renderSectionHeader({ section: { title: 'Test Title' } });
@@ -151,6 +160,7 @@ it('renders section header', () => {
 });
 
 it('renders item', () => {
+  // @ts-ignore
   const renderedItem = component
     .props()
     .renderItem({ item: challengeItems[0].data[0] });
@@ -158,28 +168,35 @@ it('renders item', () => {
 });
 
 it('calls handleOnEndReached', () => {
+  // @ts-ignore
   const instance = component.instance();
   instance.setState({ isListScrolled: true });
+  // @ts-ignore
   component.props().onEndReached();
   expect(props.loadMoreItemsCallback).toHaveBeenCalled();
   expect(instance.state.isListScrolled).toBe(false);
 });
 
 it('calls handleEndDrag', () => {
+  // @ts-ignore
   const instance = component.instance();
   instance.setState({ isListScrolled: false });
+  // @ts-ignore
   component.props().onScrollEndDrag();
   expect(instance.state.isListScrolled).toBe(true);
 });
 
 it('calls handleRefreshing', () => {
+  // @ts-ignore
   component.props().onRefresh();
   expect(props.refreshCallback).toHaveBeenCalled();
 });
 
 it('calls handleSelectRow', () => {
+  // @ts-ignore
   trackActionWithoutData.mockReturnValue({ type: 'track action' });
 
+  // @ts-ignore
   const instance = component.instance();
   const challenge = { id: '1', accepted_community_challenges };
   instance.handleSelectRow(challenge);

@@ -8,12 +8,14 @@ import {
 export function removeSwipeJourney() {
   return { type: SWIPE_REMINDER_JOURNEY };
 }
+// @ts-ignore
 export function removeGroupOnboardingCard(target) {
   return { type: GROUP_ONBOARDING_CARD, target, value: false };
 }
 export function removeGroupInviteInfo() {
   return { type: GROUP_INVITE_INFO };
 }
+// @ts-ignore
 export function setScrollGroups(orgId) {
   return { type: GROUP_TAB_SCROLL_ON_MOUNT, value: orgId };
 }

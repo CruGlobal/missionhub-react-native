@@ -31,7 +31,9 @@ const store = configureStore([thunk])({
   organizations: { all: [] },
 });
 
+// @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
+  // @ts-ignore
   const Component = AddPersonStepFlowScreens[screen];
 
   await store.dispatch(
@@ -46,6 +48,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
       store,
     )
       .instance()
+      // @ts-ignore
       .props.next(nextProps),
   );
 };
@@ -55,7 +58,9 @@ const createCustomStepResponse = { type: 'create cutsom step' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
+  // @ts-ignore
   createCustomStep.mockReturnValue(createCustomStepResponse);
 });
 

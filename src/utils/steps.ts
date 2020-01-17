@@ -2,6 +2,7 @@ import i18next from 'i18next';
 
 import { CUSTOM_STEP_TYPE } from '../constants';
 
+// @ts-ignore
 export function buildCustomStep(text, self_step) {
   return {
     body: text,
@@ -11,7 +12,9 @@ export function buildCustomStep(text, self_step) {
   };
 }
 
+// @ts-ignore
 export function insertName(steps, name) {
+  // @ts-ignore
   return steps.map(step => {
     return {
       ...step,

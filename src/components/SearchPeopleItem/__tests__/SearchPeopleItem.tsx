@@ -15,12 +15,14 @@ const mockPerson = {
 const onSelect = jest.fn();
 
 it('renders single person correctly', () => {
+  // @ts-ignore
   testSnapshot(<SearchPeopleItem person={mockPerson} onSelect={onSelect} />);
 });
 
 it('renders last name correctly', () => {
   testSnapshot(
     <SearchPeopleItem
+      // @ts-ignore
       person={{ ...mockPerson, last_name: 'Test Last' }}
       onSelect={onSelect}
     />,
@@ -30,6 +32,7 @@ it('renders last name correctly', () => {
 it('renders no org correctly', () => {
   testSnapshot(
     <SearchPeopleItem
+      // @ts-ignore
       person={{ ...mockPerson, organizational_permissions: [] }}
       onSelect={onSelect}
     />,
@@ -39,11 +42,13 @@ it('renders no org correctly', () => {
 it('renders unassign correctly', () => {
   const component = testSnapshotShallow(
     <SearchPeopleItem
+      // @ts-ignore
       person={{ ...mockPerson, last_name: 'Test Last' }}
       onSelect={onSelect}
     />,
   );
 
+  // @ts-ignore
   testItemClick(component);
 });
 
@@ -52,11 +57,13 @@ function testItemClick() {
 }
 
 describe('test handleSelect', () => {
+  // @ts-ignore
   let component;
   beforeEach(() => {
     Enzyme.configure({ adapter: new Adapter() });
     const screen = shallow(
       <SearchPeopleItem
+        // @ts-ignore
         person={{ ...mockPerson, last_name: 'Test Last' }}
         onSelect={onSelect}
       />,
@@ -66,6 +73,7 @@ describe('test handleSelect', () => {
   });
 
   it('runs onSelect', () => {
+    // @ts-ignore
     component.handleSelect();
     expect(onSelect).toHaveBeenCalledTimes(1);
   });

@@ -26,6 +26,7 @@ class GroupScreen extends Component {
   componentDidMount() {
     disableBack.add();
 
+    // @ts-ignore
     const { dispatch, orgId } = this.props;
     dispatch(refreshCommunity(orgId));
   }
@@ -35,6 +36,7 @@ class GroupScreen extends Component {
   }
 
   handleAddContact = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
 
     dispatch(
@@ -45,16 +47,19 @@ class GroupScreen extends Component {
   };
 
   handleProfile = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
 
     dispatch(navigatePush(GROUP_PROFILE, { organization }));
   };
 
   back = () => {
+    // @ts-ignore
     this.props.dispatch(navigateToMainTabs(GROUPS_TAB));
   };
 
   renderAddContactIcon() {
+    // @ts-ignore
     const { organization } = this.props;
 
     if (organization.id === GLOBAL_COMMUNITY_ID) {
@@ -78,6 +83,7 @@ class GroupScreen extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { organization } = this.props;
 
     return (
@@ -100,10 +106,12 @@ class GroupScreen extends Component {
 }
 
 const mapStateToProps = (
+  // @ts-ignore
   { organizations },
   {
     navigation: {
       state: {
+        // @ts-ignore
         params: { orgId, initialTab },
       },
     },
@@ -130,6 +138,7 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { orgId },
         },
       },
@@ -141,6 +150,7 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { orgId },
         },
       },
@@ -152,6 +162,7 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { orgId },
         },
       },
@@ -163,6 +174,7 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { orgId },
         },
       },
@@ -174,6 +186,7 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { orgId },
         },
       },
@@ -185,6 +198,7 @@ export const CRU_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { orgId },
         },
       },
@@ -194,14 +208,17 @@ export const CRU_TABS = [
 export const USER_CREATED_TABS = CRU_TABS.slice(0, 4);
 export const GLOBAL_TABS = [CRU_TABS[0], CRU_TABS[1], CRU_TABS[3]];
 
+// @ts-ignore
 export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
   CRU_TABS,
   ConnectedGroupScreen,
 );
+// @ts-ignore
 export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
   USER_CREATED_TABS,
   ConnectedGroupScreen,
 );
+// @ts-ignore
 export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
   GLOBAL_TABS,
   ConnectedGroupScreen,
@@ -211,6 +228,7 @@ export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 export const GLOBAL_GROUP_SCREEN = 'nav/GLOBAL_GROUP_SCREEN';
 
+// @ts-ignore
 export function getScreenForOrg(orgId, isUserCreated) {
   return orgId === GLOBAL_COMMUNITY_ID
     ? GLOBAL_GROUP_SCREEN
@@ -221,6 +239,7 @@ export function getScreenForOrg(orgId, isUserCreated) {
 
 export const GROUP_TABS = {
   [GROUP_CELEBRATE]: {
+    // @ts-ignore
     tracking: buildTrackingObj(
       'communities : celebration',
       'communities',
@@ -228,6 +247,7 @@ export const GROUP_TABS = {
     ),
   },
   [GROUP_CHALLENGES]: {
+    // @ts-ignore
     tracking: buildTrackingObj(
       'communities : challenges',
       'communities',
@@ -235,6 +255,7 @@ export const GROUP_TABS = {
     ),
   },
   [GROUP_MEMBERS]: {
+    // @ts-ignore
     tracking: buildTrackingObj(
       'communities : members',
       'communities',
@@ -242,6 +263,7 @@ export const GROUP_TABS = {
     ),
   },
   [GROUP_IMPACT]: {
+    // @ts-ignore
     tracking: buildTrackingObj(
       'communities : our impact',
       'communities',
@@ -249,6 +271,7 @@ export const GROUP_TABS = {
     ),
   },
   [GROUP_CONTACTS]: {
+    // @ts-ignore
     tracking: buildTrackingObj(
       'communities : contacts',
       'communities',
@@ -256,6 +279,7 @@ export const GROUP_TABS = {
     ),
   },
   [GROUP_SURVEYS]: {
+    // @ts-ignore
     tracking: buildTrackingObj(
       'communities : surveys',
       'communities',

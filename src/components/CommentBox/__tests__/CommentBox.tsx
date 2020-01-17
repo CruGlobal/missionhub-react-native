@@ -15,6 +15,7 @@ MockDate.set('2017-06-18');
 Keyboard.dismiss = jest.fn();
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
 const props = {
@@ -40,6 +41,7 @@ const initialState = {
 
 beforeEach(() => {
   store = mockStore();
+  // @ts-ignore
   addNewInteraction.mockReturnValue(addNewInteractionResult);
 });
 
@@ -48,11 +50,13 @@ it('renders with actions', () => {
 });
 
 it('renders without actions', () => {
+  // @ts-ignore
   testSnapshotShallow(<CommentBox {...props} hideActions={true} />);
 });
 
 it('renders with custom style', () => {
   testSnapshotShallow(
+    // @ts-ignore
     <CommentBox {...props} containerStyle={{ backgroundColor: 'green' }} />,
   );
 });
@@ -75,20 +79,25 @@ it('renders with disabled submit button', () => {
 it('handles text changes', () => {
   const text = 'test';
   const instance = renderShallow(<CommentBox {...props} />).instance();
+  // @ts-ignore
   instance.handleTextChange(text);
 
+  // @ts-ignore
   expect(instance.state.text).toEqual(text);
 });
 
 it('handles action press', () => {
   const instance = renderShallow(<CommentBox {...props} />).instance();
+  // @ts-ignore
   instance.handleActionPress();
 
+  // @ts-ignore
   expect(instance.state.showActions).toEqual(true);
 });
 
 it('handles cancel', () => {
   const instance = renderShallow(<CommentBox {...props} />).instance();
+  // @ts-ignore
   instance.cancel();
 
   expect(instance.state).toEqual(initialState);
@@ -100,20 +109,27 @@ it('handles start edit', () => {
   const instance = renderShallow(<CommentBox {...props} />).instance();
   const comment = { content: 'test' };
   const focus = jest.fn();
+  // @ts-ignore
   instance.commentInput = { focus };
+  // @ts-ignore
   instance.startEdit(comment);
 
+  // @ts-ignore
   expect(instance.state.text).toEqual(comment.content);
   expect(focus).toHaveBeenCalled();
 });
 
 it('handles select and clear action', () => {
   const instance = renderShallow(<CommentBox {...props} />).instance();
+  // @ts-ignore
   instance.selectAction(action);
 
+  // @ts-ignore
   expect(instance.state.action).toEqual(action);
 
+  // @ts-ignore
   instance.clearAction();
+  // @ts-ignore
   expect(instance.state.action).toEqual(null);
 });
 
@@ -149,25 +165,35 @@ it('renders without actions and selected action', () => {
 
 it('componentDidUpdate', () => {
   const shallowScreen = renderShallow(<CommentBox {...props} />);
+  // @ts-ignore
   jest.spyOn(shallowScreen.instance(), 'startEdit');
+  // @ts-ignore
   shallowScreen.instance().commentInput = { focus: jest.fn() };
 
   const comment = { id: 'editing' };
+  // @ts-ignore
   shallowScreen.setProps({ editingComment: comment });
+  // @ts-ignore
   shallowScreen.instance().componentDidUpdate({ editingComment: null });
 
+  // @ts-ignore
   expect(shallowScreen.instance().startEdit).toHaveBeenCalledWith(comment);
 });
 
 it('componentDidMount', () => {
   const comment = { id: 'editing' };
   const shallowScreen = renderShallow(<CommentBox {...props} />);
+  // @ts-ignore
   jest.spyOn(shallowScreen.instance(), 'startEdit');
+  // @ts-ignore
   shallowScreen.instance().commentInput = { focus: jest.fn() };
+  // @ts-ignore
   shallowScreen.setProps({ editingComment: comment });
 
+  // @ts-ignore
   shallowScreen.instance().componentDidMount();
 
+  // @ts-ignore
   expect(shallowScreen.instance().startEdit).toHaveBeenCalledWith(comment);
 });
 
@@ -175,9 +201,12 @@ describe('click submit button', () => {
   const person = { id: '1' };
   const organization = { id: '100' };
   const text = 'roge rules';
+  // @ts-ignore
   let component;
 
+  // @ts-ignore
   const setText = text => {
+    // @ts-ignore
     component
       .childAt(0)
       .childAt(0)
@@ -186,10 +215,12 @@ describe('click submit button', () => {
       .childAt(0)
       .props()
       .onChangeText(text);
+    // @ts-ignore
     component.update();
   };
 
   const clickSubmit = () =>
+    // @ts-ignore
     component
       .childAt(0)
       .childAt(0)
@@ -204,10 +235,12 @@ describe('click submit button', () => {
     component = renderShallow(
       <CommentBox
         {...props}
+        // @ts-ignore
         person={person}
         organization={organization}
         onSubmit={onSubmit}
       />,
+      // @ts-ignore
       store,
     );
     setText(text);
@@ -224,10 +257,12 @@ describe('click submit button', () => {
     component = renderShallow(
       <CommentBox
         {...props}
+        // @ts-ignore
         person={person}
         organization={organization}
         onSubmit={onSubmit}
       />,
+      // @ts-ignore
       store,
     );
     setText(text);

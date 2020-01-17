@@ -8,10 +8,13 @@ import { SIGNUP_TYPES } from '../../containers/Auth/SignUpScreen';
 
 export const CreateCommunityUnauthenticatedFlowScreens = authFlowGenerator({
   completeAction: navigateNestedReset([
+    // @ts-ignore
     { routeName: MAIN_TABS },
+    // @ts-ignore
     { routeName: CREATE_GROUP_SCREEN },
   ]),
   includeSignUp: true,
+  // @ts-ignore
   signUpType: SIGNUP_TYPES.CREATE_COMMUNITY,
 });
 

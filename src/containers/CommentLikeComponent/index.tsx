@@ -18,7 +18,9 @@ class CommentLikeComponent extends Component {
 
   onPressLikeIcon = async () => {
     const {
+      // @ts-ignore
       event: { organization, id, liked },
+      // @ts-ignore
       dispatch,
     } = this.props;
 
@@ -33,6 +35,7 @@ class CommentLikeComponent extends Component {
 
   renderCommentIcon() {
     const {
+      // @ts-ignore
       event: { comments_count },
     } = this.props;
     const displayCommentCount = comments_count > 0;
@@ -48,6 +51,7 @@ class CommentLikeComponent extends Component {
   }
 
   renderLikeIcon() {
+    // @ts-ignore
     const { myId, event } = this.props;
     const { subject_person, likes_count, liked } = event;
     const { isLikeDisabled } = this.state;
@@ -73,10 +77,12 @@ class CommentLikeComponent extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { event } = this.props;
     const { subject_person } = event;
 
     return (
+      // @ts-ignore
       <View flexDirection={'row'} alignItems="center" justifyContent="flex-end">
         {subject_person && this.renderCommentIcon()}
         {this.renderLikeIcon()}
@@ -85,11 +91,13 @@ class CommentLikeComponent extends Component {
   }
 }
 
+// @ts-ignore
 CommentLikeComponent.propTypes = {
   event: PropTypes.object.isRequired,
   myId: PropTypes.string.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }) => ({
   myId: auth.person.id,
 });

@@ -16,6 +16,7 @@ const store = createThunkStore();
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/person');
 
+// @ts-ignore
 const mockDispatch = r => Promise.resolve(r);
 
 const people = [
@@ -63,10 +64,12 @@ it('renders with results state', () => {
 });
 
 describe('renders filtered with organization people', () => {
+  // @ts-ignore
   let screen;
 
   beforeEach(() => {
     screen = renderShallow(
+      // @ts-ignore
       <SearchPeopleScreen dispatch={mockDispatch} />,
       store,
     );
@@ -79,6 +82,7 @@ describe('renders filtered with organization people', () => {
       id: 1,
       organizational_permissions: [mockOrg1, mockOrg2],
     };
+    // @ts-ignore
     const instance = screen.instance();
 
     const results = instance.getPeopleByOrg({
@@ -100,10 +104,12 @@ describe('renders filtered with organization people', () => {
 });
 
 describe('calls methods', () => {
+  // @ts-ignore
   let instance;
 
   beforeEach(() => {
     instance = renderShallow(
+      // @ts-ignore
       <SearchPeopleScreen dispatch={mockDispatch} />,
       store,
     ).instance();
@@ -111,11 +117,13 @@ describe('calls methods', () => {
 
   it('calls list key extractor', () => {
     const item = { id: '1' };
+    // @ts-ignore
     const result = instance.listKeyExtractor(item);
     expect(result).toEqual(item.id);
   });
 
   it('calls render item', () => {
+    // @ts-ignore
     const renderedItem = instance.renderItem({
       item: {
         id: '1',
@@ -130,6 +138,7 @@ describe('calls methods', () => {
     const person = people[0];
     const org = person.organization;
     const screen = renderShallow(
+      // @ts-ignore
       <SearchPeopleScreen dispatch={mockDispatch} />,
       store,
     );

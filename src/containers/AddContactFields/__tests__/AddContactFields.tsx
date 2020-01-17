@@ -19,6 +19,7 @@ const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
 const state = { auth: { person: {} } };
 
+// @ts-ignore
 function buildScreen(props, builtStore) {
   return renderShallow(
     <AddContactFields onUpdateData={jest.fn()} {...props} />,
@@ -27,12 +28,14 @@ function buildScreen(props, builtStore) {
 }
 
 beforeEach(() => {
+  // @ts-ignore
   orgPermissionSelector.mockReturnValue(orgPermission);
 });
 
 it('renders casey view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
+      // @ts-ignore
       onUpdateData={jest.fn()}
       person={{
         email_addresses: [],
@@ -47,6 +50,7 @@ it('renders casey view correctly', () => {
 it('renders jean without organization view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
+      // @ts-ignore
       onUpdateData={jest.fn()}
       isJean={true}
       person={{
@@ -62,6 +66,7 @@ it('renders jean without organization view correctly', () => {
 it('renders jean with organization view correctly', () => {
   testSnapshotShallow(
     <AddContactFields
+      // @ts-ignore
       onUpdateData={jest.fn()}
       isJean={true}
       person={{
@@ -77,6 +82,7 @@ it('renders jean with organization view correctly', () => {
 it('renders jean with organization and user radio buttons', () => {
   testSnapshotShallow(
     <AddContactFields
+      // @ts-ignore
       onUpdateData={jest.fn()}
       isJean={true}
       person={{
@@ -103,6 +109,7 @@ it('renders jean with organization and user radio buttons', () => {
 it('renders jean with organization and user and admin radio buttons', () => {
   testSnapshotShallow(
     <AddContactFields
+      // @ts-ignore
       onUpdateData={jest.fn()}
       isJean={true}
       person={{
@@ -129,6 +136,7 @@ it('renders jean with organization and user and admin radio buttons', () => {
 it('renders jean invite with organization and user and admin radio buttons', () => {
   testSnapshotShallow(
     <AddContactFields
+      // @ts-ignore
       onUpdateData={jest.fn()}
       isJean={true}
       isGroupInvite={true}
@@ -154,19 +162,24 @@ it('renders jean invite with organization and user and admin radio buttons', () 
 });
 
 it('mounts and calls update field', () => {
+  // @ts-ignore
   const component = buildScreen({
     isJean: true,
     organization: { id: '1' },
   });
   const componentInstance = component.instance();
+  // @ts-ignore
   componentInstance.updateField = jest.fn();
+  // @ts-ignore
   componentInstance.componentDidMount();
+  // @ts-ignore
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.CONTACT,
   });
 });
 
 it('mounts invite from admin and calls update field', () => {
+  // @ts-ignore
   orgPermissionSelector.mockReturnValue({
     permission_id: ORG_PERMISSIONS.ADMIN,
   });
@@ -190,35 +203,47 @@ it('mounts invite from admin and calls update field', () => {
     }),
   );
   const componentInstance = component.instance();
+  // @ts-ignore
   componentInstance.updateField = jest.fn();
+  // @ts-ignore
   componentInstance.componentDidMount();
+  // @ts-ignore
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.USER,
   });
 });
 
 it('updates org permission', () => {
+  // @ts-ignore
   const component = buildScreen({
     isJean: true,
     organization: { id: '1' },
   });
   const componentInstance = component.instance();
+  // @ts-ignore
   componentInstance.updateField = jest.fn();
+  // @ts-ignore
   componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT);
+  // @ts-ignore
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.CONTACT,
   });
+  // @ts-ignore
   componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER);
+  // @ts-ignore
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.USER,
   });
+  // @ts-ignore
   componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN);
+  // @ts-ignore
   expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
     permission_id: ORG_PERMISSIONS.ADMIN,
   });
 });
 
 describe('calls methods', () => {
+  // @ts-ignore
   const instance = buildScreen({
     isJean: true,
     organization: { id: '1' },

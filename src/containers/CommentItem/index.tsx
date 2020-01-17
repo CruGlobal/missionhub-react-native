@@ -14,8 +14,11 @@ import styles from './styles';
 class CommentItem extends Component {
   renderContent = () => {
     const {
+      // @ts-ignore
       item: { content, person },
+      // @ts-ignore
       me,
+      // @ts-ignore
       isReported,
     } = this.props;
     const { itemStyle, myStyle, text, myText } = styles;
@@ -32,11 +35,17 @@ class CommentItem extends Component {
 
   render() {
     const {
+      // @ts-ignore
       item: { created_at, person },
+      // @ts-ignore
       organization,
+      // @ts-ignore
       me,
+      // @ts-ignore
       isEditing,
+      // @ts-ignore
       isReported,
+      // @ts-ignore
       menuActions,
     } = this.props;
     const { content: contentStyle, editingStyle, name: nameStyle } = styles;
@@ -49,6 +58,7 @@ class CommentItem extends Component {
       // Android needs the collapsable property to use '.measure' properly within the <CelebrateDetailScreen>
       // https://github.com/facebook/react-native/issues/3282#issuecomment-201934117
       <View
+        // @ts-ignore
         ref={this.ref}
         collapsable={false}
         style={[contentStyle, isEditing ? editingStyle : null]}
@@ -58,6 +68,7 @@ class CommentItem extends Component {
             <Flex value={1} />
           ) : (
             <CelebrateItemName
+              // @ts-ignore
               name={name}
               person={person}
               organization={organization}
@@ -71,6 +82,7 @@ class CommentItem extends Component {
           {isMineNotReported ? <Flex value={1} /> : null}
           {menuActions ? (
             <PopupMenu
+              // @ts-ignore
               actions={menuActions}
               triggerOnLongPress={true}
               disabled={isReported}
@@ -87,6 +99,7 @@ class CommentItem extends Component {
   }
 }
 
+// @ts-ignore
 CommentItem.propTypes = {
   item: PropTypes.object.isRequired,
   organization: PropTypes.object,
@@ -99,7 +112,9 @@ CommentItem.propTypes = {
   ),
 };
 const mapStateToProps = (
+  // @ts-ignore
   { auth, celebrateComments: { editingCommentId } },
+  // @ts-ignore
   { item },
 ) => ({
   me: auth.person,

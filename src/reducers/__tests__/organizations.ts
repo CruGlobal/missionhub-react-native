@@ -49,6 +49,7 @@ describe('LOAD_ORGANIZATIONS', () => {
   it('should update existing orgs', () => {
     expect(
       organizations(
+        // @ts-ignore
         {
           all: [
             { id: org1Id, challengePagination: { page: 0 } },
@@ -86,6 +87,7 @@ it('should update single org', () => {
   };
   expect(
     organizations(
+      // @ts-ignore
       { all: [startOrg] },
       {
         type: REQUESTS.GET_ORGANIZATION.SUCCESS,
@@ -113,6 +115,7 @@ it('should load single org', () => {
   };
   expect(
     organizations(
+      // @ts-ignore
       { all: [startOrg] },
       {
         type: REQUESTS.GET_ORGANIZATION.SUCCESS,
@@ -128,6 +131,7 @@ it('should load single org', () => {
 });
 
 it('should load contact reports for all organizations', () => {
+  // @ts-ignore
   const state = organizations(initialState, {
     type: GET_ORGANIZATIONS_CONTACTS_REPORT,
     reports,
@@ -173,6 +177,7 @@ it('loads surveys for org with paging', () => {
   const oldOrg = { id: orgId, surveys: oldSurveys };
 
   const state = organizations(
+    // @ts-ignore
     {
       all: [oldOrg],
       surveysPagination: {
@@ -198,6 +203,7 @@ it('loads surveys for org with paging', () => {
   );
 
   expect(state.surveysPagination).toEqual({ hasNextPage: false, page: 2 });
+  // @ts-ignore
   expect(state.all.find(o => o.id === orgId)).toEqual({
     ...oldOrg,
     surveys: [...oldSurveys, ...newSurveys],
@@ -242,6 +248,7 @@ describe('REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS', () => {
     ];
 
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -281,6 +288,7 @@ describe('REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS', () => {
 
   it('should do nothing if query page is less than current page', () => {
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -331,6 +339,7 @@ it('updates celebrate item from unliked to liked', () => {
   ];
 
   const state = organizations(
+    // @ts-ignore
     {
       all: [
         {
@@ -372,6 +381,7 @@ it('updates celebrate item from liked to unliked', () => {
   ];
 
   const state = organizations(
+    // @ts-ignore
     {
       all: [
         {
@@ -416,6 +426,7 @@ describe('updates celebrate item comment', () => {
   });
 
   it('increments comment count', () => {
+    // @ts-ignore
     const state = organizations(reduxState(), {
       type: REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS,
       query: { orgId, eventId },
@@ -424,6 +435,7 @@ describe('updates celebrate item comment', () => {
     expect(state).toEqual(reduxState(comments + 1));
   });
   it('decrements comment count', () => {
+    // @ts-ignore
     const state = organizations(reduxState(), {
       type: REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS,
       query: { orgId, eventId },
@@ -609,6 +621,7 @@ it('loads members for org with paging', () => {
   ];
 
   const state = organizations(
+    // @ts-ignore
     {
       all: [
         {
@@ -683,6 +696,7 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     ];
 
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -723,6 +737,7 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
     const newItems = [{ id: 'roge' }, { id: 'roger' }];
 
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -753,6 +768,7 @@ describe('REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS', () => {
 
   it('should do nothing if query page is less than current page', () => {
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -798,6 +814,7 @@ describe('update organization in line', () => {
   it('updates the organization name', () => {
     const name = 'new name';
     const state = organizations(
+      // @ts-ignore
       { all: [org] },
       {
         type: REQUESTS.UPDATE_ORGANIZATION.SUCCESS,
@@ -812,6 +829,7 @@ describe('update organization in line', () => {
   it('updates the organization photo url', () => {
     const community_photo_url = 'new photo url';
     const state = organizations(
+      // @ts-ignore
       { all: [org] },
       {
         type: REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS,
@@ -826,6 +844,7 @@ describe('update organization in line', () => {
   it('updates the organization code', () => {
     const community_code = 'new code';
     const state = organizations(
+      // @ts-ignore
       { all: [org] },
       {
         type: REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS,
@@ -840,6 +859,7 @@ describe('update organization in line', () => {
   it('updates the organization url', () => {
     const community_url = 'new url';
     const state = organizations(
+      // @ts-ignore
       { all: [org] },
       {
         type: REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS,
@@ -874,6 +894,7 @@ describe('UPDATE_PERSON_ATTRIBUTES', () => {
     };
 
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -929,6 +950,7 @@ describe('LOAD_PERSON_DETAILS', () => {
     };
 
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -984,6 +1006,7 @@ describe('REQUESTS.GET_ME', () => {
     };
 
     const state = organizations(
+      // @ts-ignore
       {
         all: [
           {
@@ -1054,6 +1077,7 @@ describe('GET_UNREAD_COMMENTS_NOTIFICATION', () => {
       ],
     };
 
+    // @ts-ignore
     expect(organizations(initialState, action)).toEqual(resultState);
   });
 });
@@ -1076,6 +1100,7 @@ describe('REMOVE_ORGANIZATION_MEMBER', () => {
       ],
     };
 
+    // @ts-ignore
     const result = organizations(initialState, {
       type: REMOVE_ORGANIZATION_MEMBER,
       personId,
@@ -1123,6 +1148,7 @@ describe('UPDATE_CHALLENGE', () => {
   };
 
   const state = organizations(
+    // @ts-ignore
     {
       all: [
         {
@@ -1144,6 +1170,7 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
   it('adds users count to global org', () => {
     expect(
       organizations(
+        // @ts-ignore
         {
           all: [
             {
@@ -1175,6 +1202,7 @@ describe('REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS', () => {
   it('should reset unread count', () => {
     expect(
       organizations(
+        // @ts-ignore
         { all: [{ id: org1Id, unread_comments_count: 5 }] },
         {
           type: REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS,
@@ -1194,6 +1222,7 @@ describe('REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS', () => {
   it('should not update anything if there is no org id', () => {
     const initUnreadState = { all: [{ id: org1Id, unread_comments_count: 5 }] };
     expect(
+      // @ts-ignore
       organizations(initUnreadState, {
         type: REQUESTS.MARK_ORG_COMMENTS_AS_READ.SUCCESS,
         query: { organization_celebration_item_id: 'testEventId' },
@@ -1218,6 +1247,7 @@ describe('global like/unlike', () => {
   describe('REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS', () => {
     it('should mark item as liked', () => {
       expect(
+        // @ts-ignore
         organizations(state, {
           type: REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS,
           query: { eventId: itemOne.id },
@@ -1240,6 +1270,7 @@ describe('global like/unlike', () => {
   describe('REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS', () => {
     it('should mark item as unliked', () => {
       expect(
+        // @ts-ignore
         organizations(state, {
           type: REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS,
           query: { eventId: itemTwo.id },

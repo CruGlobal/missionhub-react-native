@@ -21,12 +21,14 @@ class UnassignedPersonScreen extends Component {
   }
 
   loadFeed = async () => {
+    // @ts-ignore
     const { dispatch, person, organization } = this.props;
     const results = await dispatch(getGroupJourney(person.id, organization.id));
     this.setState({ activity: results });
   };
 
   render() {
+    // @ts-ignore
     const { organization, person, me, onAssign } = this.props;
     const { activity } = this.state;
 
@@ -41,6 +43,7 @@ class UnassignedPersonScreen extends Component {
           onAssign={onAssign}
         />
         <JourneyCommentBox
+          // @ts-ignore
           onSubmit={this.loadFeed}
           person={person}
           organization={organization}
@@ -50,12 +53,14 @@ class UnassignedPersonScreen extends Component {
   }
 }
 
+// @ts-ignore
 UnassignedPersonScreen.propTypes = {
   organization: PropTypes.object.isRequired,
   person: PropTypes.object.isRequired,
   onAssign: PropTypes.func,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;

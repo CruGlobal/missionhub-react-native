@@ -38,23 +38,34 @@ const expiredTokenError = { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] };
 const invalidTokenError = { errors: [{ detail: INVALID_ACCESS_TOKEN }] };
 const invalidGrantError = { error: INVALID_GRANT };
 
+// @ts-ignore
 global.APILOG = jest.fn();
 
 async function test(
+  // @ts-ignore
   state,
+  // @ts-ignore
   request,
+  // @ts-ignore
   error,
+  // @ts-ignore
   method,
+  // @ts-ignore
   methodParams,
+  // @ts-ignore
   apiResult,
+  // @ts-ignore
   query,
+  // @ts-ignore
   data,
 ) {
   store = mockStore({ auth: { ...mockAuthState, ...state } });
+  // @ts-ignore
   API_CALLS[request.name].mockReturnValue(Promise.reject({ apiError: error }));
   method.mockReturnValue(apiResult);
 
   try {
+    // @ts-ignore
     await store.dispatch(callApi(request, query, data));
   } catch (e) {
     expect(API_CALLS[request.name]).toHaveBeenCalledWith(query, data);
@@ -113,10 +124,12 @@ it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', () => {
 it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", async () => {
   store = mockStore({ auth: { ...mockAuthState } });
 
+  // @ts-ignore
   API_CALLS[getMeRequest.name].mockReturnValue(
     Promise.reject({ apiError: invalidGrantError }),
   );
 
+  // @ts-ignore
   await expect(store.dispatch(callApi(getMeRequest, {}, {}))).rejects.toEqual({
     apiError: {
       error: 'invalid_grant',
@@ -135,10 +148,12 @@ it('should update token if present in response', async () => {
   const newToken =
     'pfiqwfioqwioefiqowfejiqwfipoioqwefpiowqniopnifiooiwfemiopqwoimefimwqefponioqwfenoiwefinonoiwqefnoip';
 
+  // @ts-ignore
   API_CALLS[getMeRequest.name].mockReturnValue(
     Promise.resolve({ sessionHeader: newToken }),
   );
 
+  // @ts-ignore
   await store.dispatch(callApi(getMeRequest, {}, {}));
 
   expect(API_CALLS[getMeRequest.name]).toHaveBeenCalledWith(

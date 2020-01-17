@@ -34,10 +34,13 @@ const personOrgPermission = { id: '25234234' };
 const person = { full_name: 'Roge' };
 const mockStore = configureStore([thunk]);
 
+// @ts-ignore
 let props;
+// @ts-ignore
 let store;
 
 const test = () => {
+  // @ts-ignore
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
 };
 
@@ -62,8 +65,10 @@ describe('MemberOptionsMenu', () => {
 
     it('shows an alert message if I attempt to leave', () => {
       Alert.alert = jest.fn();
+      // @ts-ignore
       const screen = renderShallow(<MemberOptionsMenu {...props} />);
 
+      // @ts-ignore
       screen.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -125,9 +130,12 @@ describe('MemberOptionsMenu', () => {
     it('renders correctly', () => test());
 
     it('transfers ownership', () => {
+      // @ts-ignore
       transferOrgOwnership.mockReturnValue({ type: 'transferred ownership' });
+      // @ts-ignore
       const screen = renderShallow(<MemberOptionsMenu {...props} />);
 
+      // @ts-ignore
       screen.instance().makeOwner();
 
       expect(transferOrgOwnership).toHaveBeenCalledWith(
@@ -137,6 +145,7 @@ describe('MemberOptionsMenu', () => {
     });
 
     it('shows error message for Try It Now users', async () => {
+      // @ts-ignore
       transferOrgOwnership.mockReturnValue(() =>
         Promise.reject({
           apiError: {
@@ -149,8 +158,10 @@ describe('MemberOptionsMenu', () => {
         }),
       );
 
+      // @ts-ignore
       await renderShallow(<MemberOptionsMenu {...props} />)
         .instance()
+        // @ts-ignore
         .makeOwner();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -169,11 +180,14 @@ describe('MemberOptionsMenu', () => {
           ],
         },
       };
+      // @ts-ignore
       transferOrgOwnership.mockReturnValue(() => Promise.reject(error));
 
       try {
+        // @ts-ignore
         await renderShallow(<MemberOptionsMenu {...props} />)
           .instance()
+          // @ts-ignore
           .makeOwner();
       } catch (e) {
         expect(e).toEqual(error);
@@ -200,6 +214,7 @@ describe('MemberOptionsMenu', () => {
 describe('confirm screen', () => {
   Alert.alert = jest.fn();
 
+  // @ts-ignore
   let screen;
 
   describe('Make Admin', () => {
@@ -224,8 +239,10 @@ describe('confirm screen', () => {
     });
 
     it('displays confirm screen', () => {
+      // @ts-ignore
       makeAdmin.mockReturnValue(makeAdminResponse);
 
+      // @ts-ignore
       screen.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -248,15 +265,19 @@ describe('confirm screen', () => {
     });
 
     it('calls makeAdmin action', async () => {
+      // @ts-ignore
       makeAdmin.mockReturnValue(makeAdminResponse);
 
+      // @ts-ignore
       await screen.instance().makeAdmin();
 
+      // @ts-ignore
       expect(store.getActions()).toEqual([makeAdminResponse]);
       expect(makeAdmin).toHaveBeenCalledWith(otherId, personOrgPermission.id);
     });
 
     it('shows error message for Try It Now users', async () => {
+      // @ts-ignore
       makeAdmin.mockReturnValue(() =>
         Promise.reject({
           apiError: {
@@ -271,6 +292,7 @@ describe('confirm screen', () => {
         }),
       );
 
+      // @ts-ignore
       await screen.instance().makeAdmin();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -289,9 +311,11 @@ describe('confirm screen', () => {
           ],
         },
       };
+      // @ts-ignore
       makeAdmin.mockReturnValue(() => Promise.reject(error));
 
       try {
+        // @ts-ignore
         await screen.instance().makeAdmin();
       } catch (e) {
         expect(e).toEqual(error);
@@ -301,6 +325,7 @@ describe('confirm screen', () => {
 
   describe('Remove As Admin', () => {
     const removeAdminResponse = { type: 'remove admin' };
+    // @ts-ignore
     removeAsAdmin.mockReturnValue(removeAdminResponse);
 
     beforeEach(() => {
@@ -322,6 +347,7 @@ describe('confirm screen', () => {
     });
 
     it('displays confirm screen', () => {
+      // @ts-ignore
       screen.props().actions[0].onPress();
 
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -344,8 +370,10 @@ describe('confirm screen', () => {
     });
 
     it('calls removeAdmin action', async () => {
+      // @ts-ignore
       await screen.instance().removeAsAdmin();
 
+      // @ts-ignore
       expect(store.getActions()).toEqual([removeAdminResponse]);
       expect(removeAsAdmin).toHaveBeenCalledWith(
         otherId,
@@ -376,19 +404,27 @@ describe('Leave Community', () => {
   });
 
   it('sets flag to archive my permission on unmount', async () => {
+    // @ts-ignore
     navigateBack.mockReturnValue(navigateBackResult);
+    // @ts-ignore
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
+    // @ts-ignore
     await screen.instance().leaveCommunity();
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigateBackResult]);
   });
 
   it('sends api request to archive my permission on unmount if leaveCommunityOnUnmount flag set', async () => {
+    // @ts-ignore
     archiveOrgPermission.mockReturnValue(() => Promise.resolve());
+    // @ts-ignore
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
+    // @ts-ignore
     screen.instance().leaveCommunityOnUnmount = true;
+    // @ts-ignore
     await screen.instance().componentWillUnmount();
 
     expect(archiveOrgPermission).toHaveBeenCalledWith(
@@ -398,10 +434,13 @@ describe('Leave Community', () => {
   });
 
   it('does nothing on unmount if leaveCommunityOnUnmount flag unset', async () => {
+    // @ts-ignore
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
+    // @ts-ignore
     await screen.instance().componentWillUnmount();
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([]);
     expect(archiveOrgPermission).not.toHaveBeenCalled();
   });
@@ -429,12 +468,17 @@ describe('Remove from Community', () => {
   });
 
   it("sends api request to archive person's permission", async () => {
+    // @ts-ignore
     archiveOrgPermission.mockReturnValue(archiveOrgPermissionResult);
+    // @ts-ignore
     removeOrganizationMember.mockReturnValue(removePersonResult);
+    // @ts-ignore
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
+    // @ts-ignore
     await screen.instance().removeFromCommunity();
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       archiveOrgPermissionResult,
       removePersonResult,

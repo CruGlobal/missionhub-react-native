@@ -83,7 +83,9 @@ describe('for person', () => {
   };
 
   it('renders stage', () => {
+    // @ts-ignore
     personSelector.mockReturnValue(person);
+    // @ts-ignore
     contactAssignmentSelector.mockReturnValue({
       pathway_stage_id: stages.stages[1].id,
     });
@@ -99,7 +101,9 @@ describe('for person', () => {
   });
 
   it('renders null if stage is not found', () => {
+    // @ts-ignore
     personSelector.mockReturnValue(person);
+    // @ts-ignore
     contactAssignmentSelector.mockReturnValue({
       pathway_stage_id: null,
     });
@@ -115,7 +119,9 @@ describe('for person', () => {
   });
 
   it('renders null if contact assignment is not found', () => {
+    // @ts-ignore
     personSelector.mockReturnValue(person);
+    // @ts-ignore
     contactAssignmentSelector.mockReturnValue(null);
 
     testSnapshotShallow(

@@ -27,6 +27,7 @@ jest.mock('../../../actions/person');
 jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+// @ts-ignore
 common.refresh = jest.fn();
 Alert.alert = jest.fn();
 
@@ -59,17 +60,24 @@ const state = {
   swipe: { groupInviteInfo: true },
 };
 
+// @ts-ignore
 let store;
 
+// @ts-ignore
 trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
+// @ts-ignore
 removeGroupInviteInfo.mockReturnValue({ type: 'removed group invite info' });
+// @ts-ignore
 navToPersonScreen.mockReturnValue({ type: 'navigated to person screen' });
+// @ts-ignore
 getOrganizationMembersNextPage.mockReturnValue({
   type: 'got org members next page',
 });
+// @ts-ignore
 getOrganizationMembers.mockReturnValue({
   type: 'got org members',
 });
+// @ts-ignore
 refreshCommunity.mockReturnValue({ type: 'refreshed community' });
 
 describe('Members', () => {
@@ -80,6 +88,7 @@ describe('Members', () => {
   });
 
   it('should render correctly', () => {
+    // @ts-ignore
     testSnapshotShallow(component, store);
   });
 
@@ -104,6 +113,7 @@ describe('Members', () => {
     });
 
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.componentDidMount();
     expect(refreshCommunity).toHaveBeenCalledWith(orgId);
     expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
@@ -130,6 +140,7 @@ describe('Members', () => {
     });
 
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.componentDidMount();
     expect(refreshCommunity).not.toHaveBeenCalled();
     expect(getOrganizationMembers).not.toHaveBeenCalled();
@@ -137,6 +148,7 @@ describe('Members', () => {
 
   it('should handleSelect correctly', () => {
     const member = members[0];
+    // @ts-ignore
     const screen = renderShallow(component, store);
     const listItem = screen
       .childAt(1)
@@ -152,19 +164,25 @@ describe('Members', () => {
   });
 
   it('should handleLoadMore correctly', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleLoadMore();
     expect(getOrganizationMembersNextPage).toHaveBeenCalled();
   });
 
   it('should handleRefresh correctly', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleRefresh();
     expect(common.refresh).toHaveBeenCalled();
   });
 
   it('calls render item', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     const renderedItem = instance.renderItem({ item: members[0] });
     expect(renderedItem).toMatchSnapshot();
   });
@@ -200,7 +218,9 @@ describe('Members', () => {
           },
         });
         const component = renderShallow(<Members orgId={orgId} />, store);
+        // @ts-ignore
         Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+        // @ts-ignore
         common.getCommunityUrl = jest.fn(() => url);
         await component
           .childAt(2)
@@ -248,7 +268,9 @@ describe('Members', () => {
           swipe: { groupInviteInfo: false },
         });
         const component = renderShallow(<Members orgId={orgId} />, store);
+        // @ts-ignore
         Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+        // @ts-ignore
         common.getCommunityUrl = jest.fn(() => url);
         await component
           .childAt(2)
@@ -267,6 +289,7 @@ describe('Members', () => {
     });
     describe('non user_created', () => {
       it('should navigate to ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW', async () => {
+        // @ts-ignore
         navigatePush.mockReturnValue({ type: 'navigatePush' });
         const nonUserCreatedOrg = {
           ...organization,
@@ -304,7 +327,9 @@ describe('Members', () => {
   });
 
   it('renderHeader match snapshot', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     const header = instance.renderHeader();
     expect(header).toMatchSnapshot();
   });

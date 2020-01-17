@@ -20,8 +20,10 @@ import { LOG } from '../../utils/logging';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('search')
 export class SearchPeopleScreen extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
 
@@ -40,33 +42,43 @@ export class SearchPeopleScreen extends Component {
     this.clearSearch = this.clearSearch.bind(this);
   }
 
+  // @ts-ignore
   handleSelectPerson(person, organization) {
+    // @ts-ignore
     this.props.dispatch(navToPersonScreen(person, organization));
   }
 
   handleFilter() {
+    // @ts-ignore
     this.props.dispatch(
       navigatePush(SEARCH_FILTER_SCREEN, {
         onFilter: this.handleChangeFilter,
+        // @ts-ignore
         filters: this.state.filters,
       }),
     );
   }
 
+  // @ts-ignore
   handleChangeFilter(filters) {
     this.setState({ filters });
   }
 
+  // @ts-ignore
   handleTextChange(t) {
     this.setState({ text: t, isSearching: true });
     this.handleSearch(t);
   }
 
+  // @ts-ignore
   getPeopleByOrg(results) {
     const people = findAllNonPlaceHolders(results, 'person');
+    // @ts-ignore
     const orgPeople = [];
+    // @ts-ignore
     people.forEach(p => {
       if (p && p.organizational_permissions) {
+        // @ts-ignore
         p.organizational_permissions.forEach(o => {
           if (!o) {
             return;
@@ -85,23 +97,29 @@ export class SearchPeopleScreen extends Component {
         orgPeople.push(p);
       }
     });
+    // @ts-ignore
     return orgPeople;
   }
 
+  // @ts-ignore
   handleSearch(text) {
     if (!text) {
       return this.clearSearch();
     }
+    // @ts-ignore
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }
 
     this.props
+      // @ts-ignore
       .dispatch(searchPeople(text, this.state.filters))
+      // @ts-ignore
       .then(results => {
         const people = this.getPeopleByOrg(results);
         this.setState({ isSearching: false, results: people });
       })
+      // @ts-ignore
       .catch(err => {
         this.setState({ isSearching: false });
         LOG('error getting search results', err);
@@ -112,19 +130,26 @@ export class SearchPeopleScreen extends Component {
     this.setState({ text: '', results: [], isSearching: false });
   }
 
+  // @ts-ignore
   removeFilter = key => {
+    // @ts-ignore
     const filters = { ...this.state.filters };
     delete filters[key];
     this.setState({ filters });
+    // @ts-ignore
     this.handleSearch(this.state.text);
   };
 
+  // @ts-ignore
   centerRef = c => (this.searchInput = c);
 
   renderCenter() {
+    // @ts-ignore
     const { t } = this.props;
+    // @ts-ignore
     const { text } = this.state;
     return (
+      // @ts-ignore
       <View flexDirection="row" alignItems="center" style={styles.searchWrap}>
         <Input
           ref={this.centerRef}
@@ -138,6 +163,7 @@ export class SearchPeopleScreen extends Component {
           placeholder={t('inputPlaceholder')}
           placeholderTextColor={theme.white}
         />
+        // @ts-ignore
         {this.state.text ? (
           <IconButton
             name="cancelIcon"
@@ -151,6 +177,7 @@ export class SearchPeopleScreen extends Component {
   }
 
   renderFilters() {
+    // @ts-ignore
     const { filters } = this.state;
     const keys = Object.keys(filters).filter(k => filters[k]);
     if (keys.length === 0) {
@@ -158,10 +185,12 @@ export class SearchPeopleScreen extends Component {
     }
 
     return (
+      // @ts-ignore
       <View flexDirection="column" style={styles.activeFilterWrap}>
         {keys.map(k => (
           <View
             key={filters[k].id}
+            // @ts-ignore
             flexDirection="row"
             alignItems="center"
             style={styles.activeFilterRow}
@@ -180,17 +209,23 @@ export class SearchPeopleScreen extends Component {
     );
   }
 
+  // @ts-ignore
   listKeyExtractor = i => i.unique_key || i.id;
 
+  // @ts-ignore
   renderItem = ({ item }) => (
+    // @ts-ignore
     <SearchPeopleItem onSelect={this.handleSelectPerson} person={item} />
   );
 
   renderContent() {
+    // @ts-ignore
     const { t } = this.props;
+    // @ts-ignore
     const { results, text, isSearching } = this.state;
     if (isSearching && results.length === 0) {
       return (
+        // @ts-ignore
         <View flex={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('loading')}</Text>
         </View>
@@ -198,6 +233,7 @@ export class SearchPeopleScreen extends Component {
     }
     if (text && results.length === 0) {
       return (
+        // @ts-ignore
         <View flex={1} style={styles.emptyWrap}>
           <Text style={styles.nullText}>{t('noResults')}</Text>
         </View>

@@ -19,25 +19,31 @@ const FORMATS = {
   time: 'LT',
 };
 
+// @ts-ignore
 @withTranslation('datePicker')
 class MyDatePickerAndroid extends Component {
   state = {
+    // @ts-ignore
     date: getDate(this.props.date),
   };
 
+  // @ts-ignore
   UNSAFE_componentWillReceiveProps({ date }) {
+    // @ts-ignore
     if (date !== this.props.date) {
       this.setState({ date: getDate(date) });
     }
   }
 
   onPressCancel = () => {
+    // @ts-ignore
     const { onCloseModal } = this.props;
 
     isFunction(onCloseModal) && onCloseModal();
   };
 
   datePicked() {
+    // @ts-ignore
     const { onDateChange } = this.props;
     const { date } = this.state;
 
@@ -45,6 +51,7 @@ class MyDatePickerAndroid extends Component {
   }
 
   async showPicker() {
+    // @ts-ignore
     const { mode } = this.props;
 
     const today = moment();
@@ -66,10 +73,15 @@ class MyDatePickerAndroid extends Component {
 
     const {
       action,
+      // @ts-ignore
       year = today.year(),
+      // @ts-ignore
       month = today.month(),
+      // @ts-ignore
       day = today.date(),
+      // @ts-ignore
       hour = today.hour(),
+      // @ts-ignore
       minute = today.minutes(),
     } = dateTimeSelections;
 
@@ -84,6 +96,7 @@ class MyDatePickerAndroid extends Component {
   }
 
   launchDatePicker() {
+    // @ts-ignore
     const { androidDateMode, minDate, maxDate } = this.props;
 
     return DatePickerAndroid.open({
@@ -96,9 +109,13 @@ class MyDatePickerAndroid extends Component {
 
   launchTimePicker() {
     const {
+      // @ts-ignore
       androidTimeMode,
+      // @ts-ignore
       mode,
+      // @ts-ignore
       format = FORMATS[mode],
+      // @ts-ignore
       is24Hour = modeIs24Hour(format),
     } = this.props;
 
@@ -115,8 +132,11 @@ class MyDatePickerAndroid extends Component {
   async launchDateThenTimePicker() {
     const {
       action: dateAction,
+      // @ts-ignore
       year,
+      // @ts-ignore
       month,
+      // @ts-ignore
       day,
     } = await this.launchDatePicker();
 
@@ -124,12 +144,14 @@ class MyDatePickerAndroid extends Component {
       return { action: dateAction };
     }
 
+    // @ts-ignore
     const { action: timeAction, hour, minute } = await this.launchTimePicker();
 
     return { action: timeAction, year, month, day, hour, minute };
   }
 
   onPressDate = () => {
+    // @ts-ignore
     const { disabled, onPressAndroid, date } = this.props;
 
     if (disabled) {
@@ -158,6 +180,7 @@ class MyDatePickerAndroid extends Component {
   }
 }
 
+// @ts-ignore
 MyDatePickerAndroid.defaultProps = {
   mode: 'date',
   androidDateMode: 'default',
@@ -166,6 +189,7 @@ MyDatePickerAndroid.defaultProps = {
   disabled: false,
 };
 
+// @ts-ignore
 MyDatePickerAndroid.propTypes = {
   mode: PropTypes.oneOf(['date', 'datetime', 'time']),
   androidDateMode: PropTypes.oneOf(['calendar', 'spinner', 'default']),

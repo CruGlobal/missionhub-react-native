@@ -23,8 +23,10 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('contactJourney')
 class ContactJourney extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
 
@@ -45,16 +47,20 @@ class ContactJourney extends Component {
   }
 
   completeBump = () => {
+    // @ts-ignore
     this.props.dispatch(removeSwipeJourney());
   };
 
   getInteractions() {
+    // @ts-ignore
     const { dispatch, person, organization } = this.props;
 
     dispatch(getJourney(person.id, organization && organization.id));
   }
 
+  // @ts-ignore
   handleEditInteraction = interaction => {
+    // @ts-ignore
     const { dispatch, person, organization } = this.props;
 
     const isStep = interaction._type === ACCEPTED_STEP;
@@ -70,10 +76,13 @@ class ContactJourney extends Component {
     );
   };
 
+  // @ts-ignore
   renderRow = ({ item }) => {
+    // @ts-ignore
     const { showReminder, myId, person } = this.props;
     const content = (
       <JourneyItem
+        // @ts-ignore
         item={item}
         myId={myId}
         personFirstName={person.first_name}
@@ -87,6 +96,7 @@ class ContactJourney extends Component {
       return (
         <RowSwipeable
           key={item.id}
+          // @ts-ignore
           editPressProps={[item]}
           onEdit={this.handleEditInteraction}
           bump={showReminder && item.isFirstInteraction}
@@ -103,11 +113,15 @@ class ContactJourney extends Component {
     return content;
   };
 
+  // @ts-ignore
   listRef = c => (this.list = c);
+  // @ts-ignore
   keyExtractor = i => `${i.id}-${i._type}`;
+  // @ts-ignore
   itemSeparator = (sectionID, rowID) => <Separator key={rowID} />;
 
   renderList() {
+    // @ts-ignore
     const { journeyItems } = this.props;
 
     return (
@@ -126,6 +140,7 @@ class ContactJourney extends Component {
   }
 
   renderNull() {
+    // @ts-ignore
     const { t } = this.props;
 
     return (
@@ -138,6 +153,7 @@ class ContactJourney extends Component {
   }
 
   renderContent() {
+    // @ts-ignore
     const { journeyItems } = this.props;
     const isLoading = !journeyItems;
     const hasItems = journeyItems && journeyItems.length > 0;
@@ -151,7 +167,9 @@ class ContactJourney extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { isPersonalMinistry } = this.state;
+    // @ts-ignore
     const { myId, person, organization, isUserCreatedOrg } = this.props;
     return (
       <View style={styles.container}>
@@ -164,6 +182,7 @@ class ContactJourney extends Component {
         {this.renderContent()}
         <Flex justify="end">
           <JourneyCommentBox
+            // @ts-ignore
             person={person}
             organization={organization}
             hideActions={isPersonalMinistry || isUserCreatedOrg}
@@ -174,16 +193,20 @@ class ContactJourney extends Component {
   }
 }
 
+// @ts-ignore
 ContactJourney.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object,
 };
 
 const mapStateToProps = (
+  // @ts-ignore
   { auth, swipe, journey },
   { person = {}, organization = {} },
 ) => {
+  // @ts-ignore
   const orgId = organization.id || 'personal';
+  // @ts-ignore
   const personId = person.id;
   const journeyOrg = journey[orgId];
   const journeyItems = (journeyOrg && journeyOrg[personId]) || undefined;
@@ -193,6 +216,7 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
+    // @ts-ignore
     isUserCreatedOrg: organization && organization.user_created,
   };
 };

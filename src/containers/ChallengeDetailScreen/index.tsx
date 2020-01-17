@@ -36,6 +36,7 @@ export const CHALLENGE_DETAIL_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { challengeId, orgId },
         },
       },
@@ -53,6 +54,7 @@ export const CHALLENGE_DETAIL_TABS = [
     component: ({
       navigation: {
         state: {
+          // @ts-ignore
           params: { challengeId, orgId },
         },
       },
@@ -66,34 +68,44 @@ export const CHALLENGE_DETAIL_TABS = [
   },
 ];
 
+// @ts-ignore
 @withTranslation('challengeFeeds')
 export class ChallengeDetailScreen extends Component {
   componentDidMount() {
+    // @ts-ignore
     const { dispatch, challenge } = this.props;
     dispatch(getChallenge(challenge.id));
   }
 
+  // @ts-ignore
   getAcceptedChallenge({ accepted_community_challenges }) {
     return (accepted_community_challenges || []).find(
+      // @ts-ignore
       c => c.person && c.person.id === this.props.myId,
     );
   }
 
   handleCancel = () => {
+    // @ts-ignore
     this.props.dispatch(navigateBack());
   };
 
+  // @ts-ignore
   editChallenge = challenge => {
+    // @ts-ignore
     const { orgId, dispatch } = this.props;
+    // @ts-ignore
     dispatch(updateChallenge(challenge, orgId));
   };
 
   handleEdit = () => {
+    // @ts-ignore
     const { dispatch, challenge } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge,
+        // @ts-ignore
         onComplete: updatedChallenge => {
           this.editChallenge(updatedChallenge);
           dispatch(navigateBack());
@@ -103,11 +115,13 @@ export class ChallengeDetailScreen extends Component {
   };
 
   handleJoin = () => {
+    // @ts-ignore
     const { orgId, dispatch, challenge } = this.props;
     dispatch(joinChallenge(challenge, orgId));
   };
 
   handleComplete = () => {
+    // @ts-ignore
     const { orgId, dispatch, challenge } = this.props;
     const accepted_challenge = this.getAcceptedChallenge(challenge);
     if (!accepted_challenge) {
@@ -117,6 +131,7 @@ export class ChallengeDetailScreen extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { t, challenge, acceptedChallenge, canEditChallenges } = this.props;
 
     const { isPast } = challenge;
@@ -158,12 +173,14 @@ export class ChallengeDetailScreen extends Component {
   }
 }
 
+// @ts-ignore
 ChallengeDetailScreen.propTypes = {
   challenge: PropTypes.object.isRequired,
   canEditChallenges: PropTypes.bool.isRequired,
   acceptedChallenge: PropTypes.object,
 };
 
+// @ts-ignore
 export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const navParams = navigation.state.params || {};
   const { challengeId, orgId } = navParams;
@@ -177,9 +194,11 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const acceptedChallenge =
     challenge.accepted_community_challenges &&
     challenge.accepted_community_challenges.find(
+      // @ts-ignore
       c => c.person && c.person.id === myId,
     );
 
+  // @ts-ignore
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
     organization: { id: orgId },

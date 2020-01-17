@@ -57,6 +57,7 @@ it('renders empty', () => {
   testSnapshotShallow(
     <MemberContacts
       {...props}
+      // @ts-ignore
       store={store}
       person={{ ...personNoContactAssignments, id: '2' }}
     />,
@@ -67,6 +68,7 @@ it('renders a list', () => {
   testSnapshotShallow(
     <MemberContacts
       {...props}
+      // @ts-ignore
       store={store}
       person={personWithContactAssignments}
     />,
@@ -77,6 +79,7 @@ it('renders an item', () => {
   const screen = renderShallow(
     <MemberContacts
       {...props}
+      // @ts-ignore
       store={store}
       person={personWithContactAssignments}
       organization={organization}
@@ -84,6 +87,7 @@ it('renders an item', () => {
   );
 
   expect(
+    // @ts-ignore
     screen.props().renderItem({ item: contactAssignment }),
   ).toMatchSnapshot();
 });

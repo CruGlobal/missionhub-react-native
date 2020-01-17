@@ -23,6 +23,7 @@ import { getOrganizationContacts } from '../../actions/organizations';
 import styles from './styles';
 import { SEARCH_SURVEY_CONTACTS_FILTER_SCREEN } from './SurveyContactsFilter';
 
+// @ts-ignore
 @withTranslation('groupsSurveyContacts')
 class SurveyContacts extends Component {
   state = {
@@ -32,7 +33,9 @@ class SurveyContacts extends Component {
     },
     //Default filters
     filters: {
+      // @ts-ignore
       unassigned: unassignedFilter(this.props.t, true),
+      // @ts-ignore
       time: thirtyDaysFilter(this.props.t),
     },
     defaultResults: [],
@@ -48,11 +51,14 @@ class SurveyContacts extends Component {
     this.setState({ defaultResults: contacts });
   };
 
+  // @ts-ignore
   handleRemoveFilter = key => {
+    // @ts-ignore
     return searchRemoveFilter(this, key, ['unassigned', 'time']);
   };
 
   handleFilterPress = () => {
+    // @ts-ignore
     const { dispatch, survey } = this.props;
     const { filters } = this.state;
     dispatch(
@@ -64,20 +70,25 @@ class SurveyContacts extends Component {
     );
   };
 
+  // @ts-ignore
   handleChangeFilter = filters => {
     this.setState({ filters });
     this.handleRefreshSearchList();
   };
 
+  // @ts-ignore
   handleSearch = async text => {
     await this.setState({ pagination: { page: 0, hasMore: true } });
     return this.handleLoadMore(text);
   };
 
   handleRefreshSearchList = () =>
+    // @ts-ignore
     this.searchListSearch && this.searchListSearch();
 
+  // @ts-ignore
   handleSelect = person => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(
       navToPersonScreen(person, organization, {
@@ -93,7 +104,9 @@ class SurveyContacts extends Component {
     );
   };
 
+  // @ts-ignore
   handleLoadMore = async text => {
+    // @ts-ignore
     const { dispatch, organization, survey } = this.props;
     const { filters, pagination } = this.state;
     const searchFilters = {
@@ -102,6 +115,7 @@ class SurveyContacts extends Component {
     };
 
     const results = await dispatch(
+      // @ts-ignore
       getOrganizationContacts(organization.id, text, pagination, searchFilters),
     );
 
@@ -113,9 +127,12 @@ class SurveyContacts extends Component {
     return response;
   };
 
+  // @ts-ignore
   setSearch = search => (this.searchListSearch = search);
 
+  // @ts-ignore
   renderItem = ({ item }) => {
+    // @ts-ignore
     const { organization } = this.props;
 
     return (
@@ -128,6 +145,7 @@ class SurveyContacts extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { t, organization, survey } = this.props;
     const { filters, defaultResults } = this.state;
     const orgName = organization ? organization.name : undefined;
@@ -139,6 +157,7 @@ class SurveyContacts extends Component {
           right={<ShareSurveyMenu survey={survey} header={true} />}
         />
         <SearchList
+          // @ts-ignore
           setSearch={this.setSearch}
           defaultData={defaultResults}
           onFilterPress={this.handleFilterPress}
@@ -156,11 +175,13 @@ class SurveyContacts extends Component {
   }
 }
 
+// @ts-ignore
 SurveyContacts.propTypes = {
   organization: PropTypes.object.isRequired,
   survey: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

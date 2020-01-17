@@ -31,12 +31,14 @@ import {
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
 const personId = '2123';
 const receiverId = '983547';
 const orgId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
+// @ts-ignore
 common.formatApiDate = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../api');
@@ -59,14 +61,17 @@ describe('get step suggestions', () => {
 
   it('should filter by language', () => {
     i18next.language = locale;
+    // @ts-ignore
     callApi.mockReturnValue(apiResult);
 
+    // @ts-ignore
     store.dispatch(getStepSuggestions());
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_CHALLENGE_SUGGESTIONS,
       stepSuggestionsQuery,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([apiResult]);
   });
 });
@@ -84,8 +89,10 @@ describe('get steps page', () => {
     store = mockStore({
       steps: { pagination: { page: 1, hasNextPage: true } },
     });
+    // @ts-ignore
     callApi.mockReturnValue(apiResult);
 
+    // @ts-ignore
     store.dispatch(getMyStepsNextPage());
 
     expect(callApi).toHaveBeenCalledWith(
@@ -99,8 +106,10 @@ describe('get steps page', () => {
     store = mockStore({
       steps: { pagination: { page: 1, hasNextPage: false } },
     });
+    // @ts-ignore
     callApi.mockReturnValue(apiResult);
 
+    // @ts-ignore
     const result = await store.dispatch(getMyStepsNextPage());
 
     expect(result).toEqual(undefined);
@@ -111,8 +120,10 @@ describe('getContactSteps', () => {
   it('should get filtered steps for a person', () => {
     const apiResult = { type: 'done' };
 
+    // @ts-ignore
     callApi.mockReturnValue(apiResult);
 
+    // @ts-ignore
     store.dispatch(getContactSteps(personId, orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
@@ -123,6 +134,7 @@ describe('getContactSteps', () => {
       page: { limit: 1000 },
       include: getChallengesByFilterIncludes,
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([apiResult]);
   });
 });
@@ -142,11 +154,14 @@ describe('addStep', () => {
   const stepAddedResult = { type: 'added steps tracked' };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(callApiResult);
+    // @ts-ignore
     trackStepAdded.mockReturnValue(stepAddedResult);
   });
 
   it('creates step without org', async () => {
+    // @ts-ignore
     await store.dispatch(addStep(stepSuggestion, receiverId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -185,6 +200,7 @@ describe('addStep', () => {
       include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
@@ -194,6 +210,7 @@ describe('addStep', () => {
   });
 
   it('creates step with org', async () => {
+    // @ts-ignore
     await store.dispatch(addStep(stepSuggestion, receiverId, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -238,6 +255,7 @@ describe('addStep', () => {
       include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
@@ -247,6 +265,7 @@ describe('addStep', () => {
   });
 
   it('creates step with custom step suggestion', async () => {
+    // @ts-ignore
     await store.dispatch(addStep(customStepSuggestion, receiverId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -285,6 +304,7 @@ describe('addStep', () => {
       include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
@@ -304,11 +324,14 @@ describe('create custom step', () => {
   beforeEach(() => {
     store = mockStore({ auth: { person: { id: myId } } });
 
+    // @ts-ignore
     callApi.mockReturnValue(callApiResult);
+    // @ts-ignore
     trackStepAdded.mockReturnValue(stepAddedResult);
   });
 
   it('creates custom step for other person', async () => {
+    // @ts-ignore
     await store.dispatch(createCustomStep(stepText, receiverId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -347,6 +370,7 @@ describe('create custom step', () => {
       include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
@@ -356,6 +380,7 @@ describe('create custom step', () => {
   });
 
   it('creates custom step for me', async () => {
+    // @ts-ignore
     await store.dispatch(createCustomStep(stepText, myId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -394,6 +419,7 @@ describe('create custom step', () => {
       include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
@@ -403,6 +429,7 @@ describe('create custom step', () => {
   });
 
   it('creates custom step for other person in org', async () => {
+    // @ts-ignore
     await store.dispatch(createCustomStep(stepText, receiverId, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -447,6 +474,7 @@ describe('create custom step', () => {
       include: getChallengesByFilterIncludes,
       page: { limit: 1000 },
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
@@ -506,11 +534,16 @@ describe('complete challenge', () => {
       steps: { userStepCount: { [receiverId]: 2 } },
     });
 
+    // @ts-ignore
     trackAction.mockReturnValue(trackActionResult);
+    // @ts-ignore
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
+    // @ts-ignore
     refreshImpact.mockReturnValue(impactResponse);
+    // @ts-ignore
     reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
     // Call `onSetComplete` within the navigate push
+    // @ts-ignore
     navigation.navigatePush = jest.fn((a, b) => {
       b.onSetComplete();
       return { type: NAVIGATE_FORWARD, routeName: a, params: b };
@@ -518,6 +551,7 @@ describe('complete challenge', () => {
   });
 
   it('completes step', async () => {
+    // @ts-ignore
     await store.dispatch(completeStep(step, screen));
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CHALLENGE_COMPLETE,
@@ -543,6 +577,7 @@ describe('complete challenge', () => {
     );
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(stepOrgId);
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       {
         type: NAVIGATE_FORWARD,
@@ -564,6 +599,7 @@ describe('complete challenge', () => {
 
   it('completes step for personal ministry', async () => {
     const noOrgStep = { ...step, organization: undefined };
+    // @ts-ignore
     await store.dispatch(completeStep(noOrgStep, screen));
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_MY_CHALLENGES,
@@ -589,6 +625,7 @@ describe('complete challenge', () => {
       data,
     );
     expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       {
         type: NAVIGATE_FORWARD,
@@ -614,9 +651,12 @@ describe('deleteStepWithTracking', () => {
   const trackActionResult = { type: 'hello world' };
 
   it('should delete a step', async () => {
+    // @ts-ignore
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
+    // @ts-ignore
     trackAction.mockReturnValue(trackActionResult);
 
+    // @ts-ignore
     await store.dispatch(deleteStepWithTracking(step, screen));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -624,6 +664,7 @@ describe('deleteStepWithTracking', () => {
       { challenge_id: step.id },
       {},
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([trackActionResult]);
     expect(trackAction).toHaveBeenCalledWith(
       `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,

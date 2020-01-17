@@ -8,6 +8,7 @@ import { REQUESTS } from '../../api/routes';
 jest.mock('../api');
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
 const myId = 23;
@@ -38,6 +39,7 @@ describe('getMyPeople', () => {
     ];
 
     it('should return one org with people', async () => {
+      // @ts-ignore
       callApi.mockReturnValue({
         type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
         response: peopleList,
@@ -49,6 +51,7 @@ describe('getMyPeople', () => {
         },
       });
 
+      // @ts-ignore
       await store.dispatch(getMyPeople());
 
       expect(callApi).toHaveBeenCalledWith(
@@ -114,11 +117,13 @@ describe('getMyPeople', () => {
           person: mockUser,
         },
       });
+      // @ts-ignore
       callApi.mockReturnValue({
         type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
         response: [personOne, personTwo, personThree, personFour, personFive],
       });
 
+      // @ts-ignore
       await store.dispatch(getMyPeople());
       expect(callApi).toHaveBeenCalledWith(
         REQUESTS.GET_PEOPLE_LIST,
@@ -165,13 +170,16 @@ describe('search', () => {
 
   beforeEach(() => {
     store = mockStore();
+    // @ts-ignore
     callApi.mockReturnValue(action);
   });
 
   it('should search', () => {
+    // @ts-ignore
     store.dispatch(searchPeople(text, filters));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.SEARCH, expectedQuery);
+    // @ts-ignore
     expect(store.getActions()).toEqual([action]);
   });
 });

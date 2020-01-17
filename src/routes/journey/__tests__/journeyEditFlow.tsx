@@ -25,12 +25,17 @@ const updateChallengeNoteResult = { type: 'update challenge note' };
 const editCommentResult = { type: 'edit comment' };
 const getJourneyResult = { type: 'get journey' };
 
+// @ts-ignore
 let store;
 
 beforeEach(() => {
+  // @ts-ignore
   navigateBack.mockReturnValue(navigateBackResult);
+  // @ts-ignore
   updateChallengeNote.mockReturnValue(updateChallengeNoteResult);
+  // @ts-ignore
   editComment.mockReturnValue(editCommentResult);
+  // @ts-ignore
   getJourney.mockReturnValue(getJourneyResult);
   store = createThunkStore({ auth: { person: { id: personId } } });
 });
@@ -48,6 +53,7 @@ describe('AddStepScreen next', () => {
 
     const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
 
+    // @ts-ignore
     await store.dispatch(
       renderShallow(
         <Component
@@ -57,9 +63,11 @@ describe('AddStepScreen next', () => {
             },
           }}
         />,
+        // @ts-ignore
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(stepParams),
     );
 
@@ -80,6 +88,7 @@ describe('AddStepScreen next', () => {
 
     const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
 
+    // @ts-ignore
     await store.dispatch(
       renderShallow(
         <Component
@@ -89,9 +98,11 @@ describe('AddStepScreen next', () => {
             },
           }}
         />,
+        // @ts-ignore
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(interactionParams),
     );
 

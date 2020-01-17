@@ -32,6 +32,7 @@ import Analytics from '../Analytics';
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
+// @ts-ignore
 @withTranslation('groupsMembers')
 class Members extends Component {
   state = {
@@ -39,12 +40,14 @@ class Members extends Component {
   };
 
   componentDidMount() {
+    // @ts-ignore
     if (this.props.members.length === 0) {
       this.load();
     }
   }
 
   load = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(refreshCommunity(organization.id));
     return dispatch(getOrganizationMembers(organization.id));
@@ -54,17 +57,21 @@ class Members extends Component {
     refresh(this, this.load);
   };
 
+  // @ts-ignore
   handleSelect = person => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(navToPersonScreen(person, organization));
   };
 
   handleLoadMore = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(getOrganizationMembersNextPage(organization.id));
   };
 
   handleInvite = async () => {
+    // @ts-ignore
     const { t, organization, groupInviteInfo, dispatch } = this.props;
 
     if (orgIsUserCreated(organization)) {
@@ -90,7 +97,9 @@ class Members extends Component {
     }
   };
 
+  // @ts-ignore
   renderItem = ({ item }) => {
+    // @ts-ignore
     const { organization, myOrgPermission } = this.props;
     return (
       <GroupMemberItem
@@ -102,9 +111,11 @@ class Members extends Component {
     );
   };
 
+  // @ts-ignore
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
 
   render() {
+    // @ts-ignore
     const { t, members, pagination } = this.props;
     return (
       <View style={styles.cardList}>
@@ -135,10 +146,12 @@ class Members extends Component {
   }
 }
 
+// @ts-ignore
 Members.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth, organizations, swipe }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
 
@@ -146,6 +159,7 @@ const mapStateToProps = ({ auth, organizations, swipe }, { orgId }) => {
     groupInviteInfo: swipe.groupInviteInfo,
     members: organization.members || [],
     pagination: organizations.membersPagination,
+    // @ts-ignore
     myOrgPermission: orgPermissionSelector(null, {
       person: auth.person,
       organization,

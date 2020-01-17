@@ -38,6 +38,7 @@ const tabs = [
 it('should render correctly', () => {
   const component = testSnapshotShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
     />,
@@ -46,6 +47,7 @@ it('should render correctly', () => {
   // Render update from manual onLayout callback with new rendered element size
   component
     .instance()
+    // @ts-ignore
     .onLayoutMenuItem({ nativeEvent: { layout: { width: 80 } } });
   component.update();
 
@@ -55,6 +57,7 @@ it('should render correctly', () => {
 it('should render light version correctly', () => {
   const component = testSnapshotShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
       isLight={true}
@@ -64,6 +67,7 @@ it('should render light version correctly', () => {
   // Render update from manual onLayout callback with new rendered element size
   component
     .instance()
+    // @ts-ignore
     .onLayoutMenuItem({ nativeEvent: { layout: { width: 80 } } });
   component.update();
 
@@ -74,6 +78,7 @@ it('should render second tab based off of previousIndex', () => {
   // Navigation state may have just been changed to 0 but we should render with an offset since we will be transitioning from tab 1
   const component = renderShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
     />,
@@ -85,14 +90,17 @@ it('should render second tab based off of previousIndex', () => {
 });
 
 it('should navigate on press', () => {
+  // @ts-ignore
   common.isAndroid = true;
   const component = renderShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
     />,
   );
 
+  // @ts-ignore
   component
     .find(Touchable)
     .last()
@@ -106,9 +114,11 @@ it('should navigate on press', () => {
 });
 
 it('should navigate on end of swipe scroll', () => {
+  // @ts-ignore
   common.isAndroid = true;
   const component = renderShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
     />,
@@ -130,9 +140,11 @@ it('should navigate on end of swipe scroll', () => {
 });
 
 it('should not navigate when tab not found on end of swipe scroll', () => {
+  // @ts-ignore
   common.isAndroid = true;
   const component = renderShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 0, params: {} } }}
     />,
@@ -151,9 +163,11 @@ it('should not navigate when tab not found on end of swipe scroll', () => {
 });
 
 it('should scroll on navigation state update', () => {
+  // @ts-ignore
   common.isAndroid = true;
   const component = renderShallow(
     <SwipeTabMenu
+      // @ts-ignore
       tabs={tabs}
       navigation={{ state: { index: 1, params: {} } }}
     />,
@@ -161,6 +175,7 @@ it('should scroll on navigation state update', () => {
 
   const scrollToMock = jest.fn();
 
+  // @ts-ignore
   component.instance().scrollView = {
     scrollTo: scrollToMock,
   };
@@ -175,6 +190,7 @@ describe('componentDidMount', () => {
   it('should do nothing if initialTab is undefined', () => {
     renderShallow(
       <SwipeTabMenu
+        // @ts-ignore
         tabs={tabs}
         navigation={{ state: { index: 0, params: { initialTab: undefined } } }}
       />,
@@ -186,6 +202,7 @@ describe('componentDidMount', () => {
   it('should do nothing if specified initialTab is not found', () => {
     renderShallow(
       <SwipeTabMenu
+        // @ts-ignore
         tabs={tabs}
         navigation={{ state: { index: 0, params: { initialTab: 'some tab' } } }}
       />,
@@ -199,6 +216,7 @@ describe('componentDidMount', () => {
 
     renderShallow(
       <SwipeTabMenu
+        // @ts-ignore
         tabs={tabs}
         navigation={{
           state: { index: 0, params: { initialTab } },
@@ -215,6 +233,7 @@ describe('componentDidMount', () => {
 
 describe('generateSwipeTabMenuNavigator', () => {
   it('should create a new navigator', () => {
+    // @ts-ignore
     generateSwipeTabMenuNavigator(tabs, <Text>Header Component</Text>);
     expect(createMaterialTopTabNavigator).toHaveBeenCalledWith(
       {
@@ -230,6 +249,7 @@ describe('generateSwipeTabMenuNavigator', () => {
     );
 
     const TabBarComponent =
+      // @ts-ignore
       createMaterialTopTabNavigator.mock.calls[0][1].tabBarComponent;
 
     testSnapshotShallow(

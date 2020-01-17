@@ -14,6 +14,7 @@ import Analytics from '../../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupsJoinGroup')
 class DeepLinkConfirmJoinGroupScreen extends Component {
   state = {
@@ -22,6 +23,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
   };
 
   async componentDidMount() {
+    // @ts-ignore
     const { dispatch, t, communityUrlCode } = this.props;
 
     const errorState = {
@@ -43,6 +45,7 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
   }
 
   navigateNext = () => {
+    // @ts-ignore
     const { dispatch, next } = this.props;
     const { community } = this.state;
 
@@ -54,15 +57,18 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
   };
 
   renderStart() {
+    // @ts-ignore
     const { t } = this.props;
     return (
       <Flex align="center" justify="center">
+        // @ts-ignore
         <Image resizeMode="contain" source={GROUP_ICON} style={styles.image} />
         <Text style={styles.text}>{t('findingCommunity')}</Text>
       </Flex>
     );
   }
 
+  // @ts-ignore
   navigateBack = () => this.props.dispatch(navigateBack());
 
   renderError() {
@@ -78,12 +84,19 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
     const { community } = this.state;
 
     const {
+      // @ts-ignore
       id,
+      // @ts-ignore
       name,
+      // @ts-ignore
       owner,
+      // @ts-ignore
       contactReport = {},
+      // @ts-ignore
       user_created,
+      // @ts-ignore
       community_photo_url,
+      // @ts-ignore
       unread_comments_count,
     } = community;
 
@@ -110,10 +123,12 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
       unreadCommentsCount: unread_comments_count,
     };
 
+    // @ts-ignore
     return <GroupCardItem group={group} onJoin={this.navigateNext} />;
   }
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
     const { errorMessage, community } = this.state;
 
@@ -147,11 +162,13 @@ class DeepLinkConfirmJoinGroupScreen extends Component {
   }
 }
 
+// @ts-ignore
 DeepLinkConfirmJoinGroupScreen.propTypes = {
   next: PropTypes.func.isRequired,
   communityUrlCode: PropTypes.string.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = (_, { navigation }) => {
   const { communityUrlCode } = navigation.state.params || {};
 

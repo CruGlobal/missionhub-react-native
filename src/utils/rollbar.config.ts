@@ -7,6 +7,7 @@ const codeVersion = `${Config.TRAVIS_COMMIT || 'development'}.${Platform.OS}`;
 
 const config = new Configuration(Config.ROLLBAR_ACCESS_TOKEN, {
   enabled: !__DEV__,
+  // @ts-ignore
   captureDeviceInfo: !__DEV__, // New feature in rollbar-react-native 0.7.0 that breaks Chrome debugging https://github.com/rollbar/rollbar-react-native/issues/101. Disabling in dev.
   payload: {
     appVersion: DeviceInfo.getBuildNumber(),

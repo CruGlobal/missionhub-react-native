@@ -4,6 +4,7 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 
 export function getMySurveys() {
+  // @ts-ignore
   return dispatch => {
     const query = {
       limit: 100,
@@ -13,6 +14,7 @@ export function getMySurveys() {
   };
 }
 
+// @ts-ignore
 export function getOrgSurveys(orgId, query = {}) {
   const newQuery = {
     ...query,
@@ -20,6 +22,7 @@ export function getOrgSurveys(orgId, query = {}) {
       organization_ids: orgId,
     },
   };
+  // @ts-ignore
   return async dispatch => {
     const { response, meta } = await dispatch(
       callApi(REQUESTS.GET_GROUP_SURVEYS, newQuery),
@@ -34,7 +37,9 @@ export function getOrgSurveys(orgId, query = {}) {
   };
 }
 
+// @ts-ignore
 export function getOrgSurveysNextPage(orgId) {
+  // @ts-ignore
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().organizations.surveysPagination;
     if (!hasNextPage) {
@@ -51,7 +56,9 @@ export function getOrgSurveysNextPage(orgId) {
   };
 }
 
+// @ts-ignore
 export function getSurveyQuestions(surveyId) {
+  // @ts-ignore
   return async dispatch => {
     const { response } = await dispatch(
       callApi(REQUESTS.GET_SURVEY_QUESTIONS, { surveyId }),
@@ -60,7 +67,9 @@ export function getSurveyQuestions(surveyId) {
   };
 }
 
+// @ts-ignore
 export function getSurveyFilterStats(survey_id) {
+  // @ts-ignore
   return async dispatch => {
     const query = {
       survey_id,

@@ -18,8 +18,10 @@ import { reloadJourney } from './journey';
 import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 
+// @ts-ignore
 export function openCommunicationLink(url, action) {
   //if someone has a better name for this feel free to suggest.
+  // @ts-ignore
   return dispatch =>
     Linking.canOpenURL(url)
       .then(supported => {
@@ -44,14 +46,18 @@ export function openCommunicationLink(url, action) {
       .catch(err => WARN('An unexpected error happened', err));
 }
 
+// @ts-ignore
 export function loadStepsAndJourney(personId, organizationId) {
+  // @ts-ignore
   return dispatch => {
     dispatch(getContactSteps(personId, organizationId));
     dispatch(reloadJourney(personId, organizationId));
   };
 }
 
+// @ts-ignore
 export function assignContactAndPickStage(person, organization) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     const auth = getState().auth;
     const authPerson = auth.person;
@@ -95,12 +101,17 @@ export function assignContactAndPickStage(person, organization) {
 }
 
 export function navigateToStageScreen(
+  // @ts-ignore
   personIsCurrentUser,
+  // @ts-ignore
   person,
+  // @ts-ignore
   contactAssignment,
   organization = {},
+  // @ts-ignore
   firstItemIndex, //todo find a way to not pass this
 ) {
+  // @ts-ignore
   return dispatch => {
     if (personIsCurrentUser) {
       dispatch(
@@ -116,6 +127,7 @@ export function navigateToStageScreen(
         navigatePush(SELECT_PERSON_STAGE_FLOW, {
           selectedStageId: firstItemIndex,
           personId: person.id,
+          // @ts-ignore
           orgId: organization.id,
           section: 'people',
           subsection: 'person',
@@ -126,12 +138,17 @@ export function navigateToStageScreen(
 }
 
 export function navigateToAddStepFlow(
+  // @ts-ignore
   personIsCurrentUser,
+  // @ts-ignore
   person,
+  // @ts-ignore
   organization,
 ) {
+  // @ts-ignore
   return dispatch => {
     const trackingParams = {
+      // @ts-ignore
       trackingObj: buildTrackingObj(
         'people : person : steps : add',
         'people',
@@ -154,6 +171,7 @@ export function navigateToAddStepFlow(
           contactName: person.first_name,
           personId: person.id,
           organization,
+          // @ts-ignore
           createStepTracking: buildTrackingObj(
             'people : person : steps : create',
             'people',

@@ -21,7 +21,9 @@ const store = configureStore([thunk])({
   },
 });
 
+// @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
+  // @ts-ignore
   const Component = GifCompleteFlowScreens[screen];
 
   await store.dispatch(
@@ -36,6 +38,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
       store,
     )
       .instance()
+      // @ts-ignore
       .props.next(nextProps),
   );
 };
@@ -47,11 +50,13 @@ const popResponse = { type: 'pop once' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
   reactNavigation.StackActions.popToTop = jest
     .fn()
     .mockReturnValue(popToTopResponse);
   reactNavigation.StackActions.pop = jest.fn().mockReturnValue(popResponse);
+  // @ts-ignore
   reloadJourney.mockReturnValue(reloadJourneyResponse);
 });
 

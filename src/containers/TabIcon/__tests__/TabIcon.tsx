@@ -8,9 +8,11 @@ import { renderShallow } from '../../../../testUtils';
 import TabIcon from '..';
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
 const buildScreen = (props = {}) => {
+  // @ts-ignore
   return renderShallow(<TabIcon {...props} />, store);
 };
 

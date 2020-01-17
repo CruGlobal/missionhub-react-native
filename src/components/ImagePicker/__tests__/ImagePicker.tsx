@@ -19,11 +19,13 @@ MockDate.set('2018-11-08');
 const onSelectImage = jest.fn();
 
 beforeEach(() => {
+  // @ts-ignore
   onSelectImage.mockReturnValue();
 });
 
 it('renders image picker', () => {
   testSnapshotShallow(
+    // @ts-ignore
     <ImagePicker onSelectImage={onSelectImage}>
       <View />
     </ImagePicker>,
@@ -35,16 +37,21 @@ describe('press image picker', () => {
   let mockFinalData = {};
   let component;
 
+  // @ts-ignore
   const buildAndPressPicker = actionIndex => {
+    // @ts-ignore
     ImageCropPicker.openCamera.mockReturnValue(mockResponse);
+    // @ts-ignore
     ImageCropPicker.openPicker.mockReturnValue(mockResponse);
 
     component = renderShallow(
+      // @ts-ignore
       <ImagePicker onSelectImage={onSelectImage}>
         <View />
       </ImagePicker>,
     );
 
+    // @ts-ignore
     component.props().actions[actionIndex].onPress();
   };
 

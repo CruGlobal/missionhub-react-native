@@ -10,6 +10,7 @@ const initialState = {
   interactions: {},
 };
 
+// @ts-ignore
 export default function impactReducer(state = initialState, action) {
   switch (action.type) {
     case REQUESTS.GET_IMPACT_SUMMARY.SUCCESS:
@@ -27,6 +28,7 @@ export default function impactReducer(state = initialState, action) {
       const report = action.personId
         ? action.report
         : action.report.filter(
+            // @ts-ignore
             type =>
               type.id !==
                 INTERACTION_TYPES.MHInteractionTypeAssignedContacts.id &&
@@ -38,6 +40,7 @@ export default function impactReducer(state = initialState, action) {
         interactions: {
           ...state.interactions,
           [key]: {
+            // @ts-ignore
             ...state.interactions[key],
             [action.period]: report,
           },
@@ -50,4 +53,5 @@ export default function impactReducer(state = initialState, action) {
   }
 }
 
+// @ts-ignore
 const storageKey = (personId, orgId) => `${personId || ''}-${orgId || ''}`;

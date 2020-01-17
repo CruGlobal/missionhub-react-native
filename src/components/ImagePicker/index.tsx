@@ -5,6 +5,7 @@ import { withTranslation } from 'react-i18next';
 import ImageCropPicker from 'react-native-image-crop-picker';
 
 import PopupMenu from '../../components/PopupMenu';
+// @ts-ignore
 import theme from '../../theme.ts';
 import { LOG } from '../../utils/logging';
 
@@ -17,6 +18,7 @@ const DEFAULT_OPTIONS = {
   cropping: true,
 };
 
+// @ts-ignore
 function getType(response) {
   if (response.path.toLowerCase().includes('.png')) {
     return 'image/png';
@@ -24,6 +26,7 @@ function getType(response) {
   return 'image/jpeg';
 }
 
+// @ts-ignore
 @withTranslation('imagePicker')
 class ImagePicker extends Component {
   takePhoto = () => {
@@ -34,7 +37,9 @@ class ImagePicker extends Component {
     this.selectImage(false);
   };
 
+  // @ts-ignore
   async selectImage(takePhoto) {
+    // @ts-ignore
     const { t, onSelectImage } = this.props;
 
     try {
@@ -42,7 +47,9 @@ class ImagePicker extends Component {
         ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
         : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
 
+      // @ts-ignore
       let fileName = response.filename || '';
+      // @ts-ignore
       const { path: uri, size: fileSize, mime, width, height } = response;
 
       // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
@@ -77,10 +84,12 @@ class ImagePicker extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
 
     return (
       <PopupMenu
+        // @ts-ignore
         actions={[
           { text: t('takePhoto'), onPress: this.takePhoto },
           { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
@@ -94,6 +103,7 @@ class ImagePicker extends Component {
   }
 }
 
+// @ts-ignore
 ImagePicker.propTypes = {
   onSelectImage: PropTypes.func.isRequired, // func with args: (data, callback)
   children: PropTypes.element.isRequired,

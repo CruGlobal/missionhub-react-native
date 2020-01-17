@@ -13,6 +13,7 @@ const apiResponse = { type: 'successful' };
 
 jest.mock('../api');
 
+// @ts-ignore
 let store;
 
 beforeEach(() => {
@@ -26,11 +27,14 @@ describe('getMySurveys', () => {
   };
 
   it('should get my surveys', () => {
+    // @ts-ignore
     callApi.mockReturnValue(apiResponse);
 
+    // @ts-ignore
     store.dispatch(getMySurveys());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_SURVEYS, query);
+    // @ts-ignore
     expect(store.getActions()).toEqual([apiResponse]);
   });
 });
@@ -66,11 +70,14 @@ describe('getOrgSurveys', () => {
   };
 
   it('should get surveys in organization', async () => {
+    // @ts-ignore
     callApi.mockReturnValue(surveysResponse);
 
+    // @ts-ignore
     await store.dispatch(getOrgSurveys(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_SURVEYS, query);
+    // @ts-ignore
     expect(store.getActions()).toEqual([surveysResponse, getSurveysAction]);
   });
 });
@@ -119,8 +126,10 @@ describe('getOrgSurveysNextPage', () => {
     store = createThunkStore({
       organizations: { surveysPagination: { hasNextPage: true, page: 1 } },
     });
+    // @ts-ignore
     callApi.mockReturnValue(surveysResponse);
 
+    // @ts-ignore
     await store.dispatch(getOrgSurveysNextPage(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_SURVEYS, query);
@@ -131,8 +140,10 @@ describe('getOrgSurveysNextPage', () => {
     store = createThunkStore({
       organizations: { surveysPagination: { hasNextPage: false, page: 1 } },
     });
+    // @ts-ignore
     callApi.mockReturnValue(surveysResponse);
 
+    // @ts-ignore
     const result = await store.dispatch(getOrgSurveysNextPage(orgId));
 
     expect(result).toEqual(undefined);
@@ -149,8 +160,10 @@ describe('getSurveyFilterStats', () => {
 
     store = createThunkStore();
 
+    // @ts-ignore
     callApi.mockReturnValue(filterStatsResponse);
 
+    // @ts-ignore
     const result = await store.dispatch(getSurveyFilterStats(survey_id));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_SURVEY_FILTER_STATS, {

@@ -22,6 +22,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
 
+// @ts-ignore
 export const shuffleArray = arr => {
   let i, temporaryValue, randomIndex;
 
@@ -38,18 +39,25 @@ export const shuffleArray = arr => {
 
 export const isAndroid = Platform.OS === 'android';
 
+// @ts-ignore
 export const getAnalyticsSubsection = (personId, myId) =>
   personId === myId ? 'self' : 'person';
 export const openMainMenu = () => {
+  // @ts-ignore
   return dispatch => {
     dispatch(DrawerActions.openDrawer({ drawer: MAIN_MENU_DRAWER }));
   };
 };
 export const buildTrackingObj = (
+  // @ts-ignore
   name,
+  // @ts-ignore
   section,
+  // @ts-ignore
   subsection,
+  // @ts-ignore
   level3,
+  // @ts-ignore
   level4,
 ) => ({
   name,
@@ -59,18 +67,26 @@ export const buildTrackingObj = (
   level4,
 });
 
+// @ts-ignore
 export const isFunction = fn => typeof fn === 'function';
+// @ts-ignore
 export const isArray = arr => Array.isArray(arr);
+// @ts-ignore
 export const isObject = obj => typeof obj === 'object' && !isArray(obj);
+// @ts-ignore
 export const isString = str => typeof str === 'string';
 
+// @ts-ignore
 export const exists = v => typeof v !== 'undefined';
+// @ts-ignore
 export const clone = obj => JSON.parse(JSON.stringify(obj));
+// @ts-ignore
 export const delay = ms =>
   new Promise(resolve => {
     setTimeout(resolve, ms);
   });
 
+// @ts-ignore
 export const refresh = (obj, method) => {
   obj.setState({ refreshing: true });
   method()
@@ -82,17 +98,24 @@ export const refresh = (obj, method) => {
     });
 };
 
+// @ts-ignore
 export const isAuthenticated = authState => authState.token;
 
 //If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
+// @ts-ignore
 export const userIsJean = orgPermissions =>
+  // @ts-ignore
   orgPermissions.some(p => !p.organization.user_created);
 
+// @ts-ignore
 export const orgIsPersonalMinistry = org =>
   org && (!org.id || org.id === 'personal');
+// @ts-ignore
 export const orgIsUserCreated = org =>
   !!(org && (org.user_created || org.userCreated));
+// @ts-ignore
 export const orgIsGlobal = org => org && org.id === GLOBAL_COMMUNITY_ID;
+// @ts-ignore
 export const orgIsCru = org =>
   org &&
   !orgIsPersonalMinistry(org) &&
@@ -104,42 +127,55 @@ const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.ADMIN,
   ORG_PERMISSIONS.USER,
 ];
+// @ts-ignore
 export const hasOrgPermissions = orgPermission =>
   !!orgPermission &&
   MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`);
+// @ts-ignore
 export const isAdminOrOwner = orgPermission =>
   !!orgPermission &&
   [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
     `${orgPermission.permission_id}`,
   );
+// @ts-ignore
 export const isOwner = orgPermission =>
   !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER;
+// @ts-ignore
 export const isAdmin = orgPermission =>
   !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN;
 
+// @ts-ignore
 export const shouldQueryReportedComments = (org, orgPermission) =>
   (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||
   (orgIsUserCreated(org) && isOwner(orgPermission));
 
+// @ts-ignore
 export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
+// @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
+  // @ts-ignore
   jsonApiResponse.findAll(type).filter(element => !element._placeHolder);
 
 // Pull dates out of UTC format into a moment object
+// @ts-ignore
 export const momentUtc = time => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
+// @ts-ignore
 export const formatApiDate = date =>
   moment(date)
     .utc()
     .format();
 
+// @ts-ignore
 export const getInitials = initials =>
   (initials || '')
     .trim()
     .substr(0, 2)
     .trim();
+// @ts-ignore
 export const getFirstNameAndLastInitial = (f, l) =>
   `${f || ''} ${(l || '').charAt(0)}`.trim();
+// @ts-ignore
 export const intToStringLocale = num => parseInt(num).toLocaleString();
 
 // Disable the android back button
@@ -151,6 +187,7 @@ export const disableBack = {
     BackHandler.removeEventListener('hardwareBackPress', disableBackPress),
 };
 
+// @ts-ignore
 export const useFirstExists = (...args) => {
   for (let i = 0; i < args.length; i++) {
     if (exists(args[i])) {
@@ -161,6 +198,7 @@ export const useFirstExists = (...args) => {
 };
 
 // Return true if the object's props are all the same
+// @ts-ignore
 export const isEquivalentObject = (a, b) => {
   // Create arrays of property names
   const aProps = Object.getOwnPropertyNames(a);
@@ -188,9 +226,11 @@ export const isEquivalentObject = (a, b) => {
 };
 
 const interactionsArr = Object.keys(INTERACTION_TYPES).map(
+  // @ts-ignore
   key => INTERACTION_TYPES[key],
 );
 // For journey items, feed items, etc.
+// @ts-ignore
 export const getIconName = (type, interaction_type_id) => {
   if (type === ACCEPTED_STEP) {
     return 'stepsIcon';
@@ -213,6 +253,7 @@ export const getIconName = (type, interaction_type_id) => {
   return null;
 };
 
+// @ts-ignore
 export function getPagination(action, currentLength) {
   const offset =
     action.query && action.query.page && action.query.page.offset
@@ -230,29 +271,38 @@ export function getPagination(action, currentLength) {
 
 //showing assign/unassign buttons on side menu
 export function showAssignButton(
+  // @ts-ignore
   isCruOrg,
+  // @ts-ignore
   personIsCurrentUser,
+  // @ts-ignore
   contactAssignment,
 ) {
   return isCruOrg && !personIsCurrentUser && !contactAssignment;
 }
+// @ts-ignore
 export function showUnassignButton(isCruOrg, contactAssignment) {
   return isCruOrg && contactAssignment;
 }
 export function showDeleteButton(
+  // @ts-ignore
   personIsCurrentUser,
+  // @ts-ignore
   contactAssignment,
+  // @ts-ignore
   orgPermission,
 ) {
   return !personIsCurrentUser && contactAssignment && !orgPermission;
 }
 
+// @ts-ignore
 export function getAssignedToName(myId, item) {
   const assigned_to = item.assigned_to;
 
   return myId === assigned_to.id ? 'You' : assigned_to.first_name;
 }
 
+// @ts-ignore
 export function getAssignedByName(myId, item) {
   const assigned_by = item.assigned_by;
 
@@ -263,23 +313,31 @@ export function getAssignedByName(myId, item) {
     : '';
 }
 
+// @ts-ignore
 export function getPersonPhoneNumber(person) {
   return person.phone_numbers
     ? person.phone_numbers.find(
+        // @ts-ignore
         phone_number => phone_number.primary && !phone_number._placeHolder,
+        // @ts-ignore
       ) || person.phone_numbers.find(phone_number => !phone_number._placeHolder)
     : null;
 }
 
+// @ts-ignore
 export function getPersonEmailAddress(person) {
   return person.email_addresses
     ? person.email_addresses.find(
+        // @ts-ignore
         email => email.primary && !email._placeHolder,
+        // @ts-ignore
       ) || person.email_addresses.find(email => !email._placeHolder)
     : null;
 }
 
+// @ts-ignore
 export function getStageIndex(stages, stageId) {
+  // @ts-ignore
   const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;
@@ -287,6 +345,7 @@ export function getStageIndex(stages, stageId) {
 
 // iOS and Android handle the keyboard show event differently
 // https://facebook.github.io/react-native/docs/keyboard#addlistener
+// @ts-ignore
 export function keyboardShow(handler, type) {
   if (isAndroid || type === 'did') {
     return Keyboard.addListener('keyboardDidShow', handler);
@@ -294,6 +353,7 @@ export function keyboardShow(handler, type) {
   return Keyboard.addListener('keyboardWillShow', handler);
 }
 
+// @ts-ignore
 export function keyboardHide(handler, type) {
   if (isAndroid || type === 'did') {
     return Keyboard.addListener('keyboardDidHide', handler);
@@ -301,14 +361,17 @@ export function keyboardHide(handler, type) {
   return Keyboard.addListener('keyboardWillHide', handler);
 }
 
+// @ts-ignore
 export function getSurveyUrl(surveyId) {
   return `${Config.SURVEY_URL}${surveyId}`;
 }
 
+// @ts-ignore
 export function getCommunityUrl(link) {
   return link ? `${Config.COMMUNITY_URL}${link}` : '';
 }
 
+// @ts-ignore
 export function toast(text, duration) {
   if (isAndroid) {
     const toastDuration =
@@ -317,9 +380,12 @@ export function toast(text, duration) {
   }
 }
 
+// @ts-ignore
 export function copyText(string) {
   Clipboard.setString(string);
+  // @ts-ignore
   toast(i18n.t('copyMessage'));
 }
 
+// @ts-ignore
 export const keyExtractorId = item => item.id;

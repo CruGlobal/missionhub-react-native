@@ -50,6 +50,7 @@ const mockCommunity = {
 
 const mockNext = jest.fn(() => ({ type: 'nextTest' }));
 
+// @ts-ignore
 function buildScreen(props) {
   const component = renderShallow(
     <JoinGroupScreen
@@ -59,10 +60,12 @@ function buildScreen(props) {
     />,
     store,
   );
+  // @ts-ignore
   component.instance().codeInput = { focus: jest.fn() };
   return component;
 }
 
+// @ts-ignore
 function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
@@ -74,12 +77,14 @@ beforeEach(() => {
 describe('JoinGroupScreen', () => {
   it('renders start correctly', () => {
     testSnapshotShallow(
+      // @ts-ignore
       <JoinGroupScreen navigation={createMockNavState()} />,
       store,
     );
   });
 
   it('renders group card correctly', () => {
+    // @ts-ignore
     const component = buildScreen();
     component.setState({ community: mockCommunity });
     component.update();
@@ -88,6 +93,7 @@ describe('JoinGroupScreen', () => {
   });
 
   it('renders error correctly', () => {
+    // @ts-ignore
     const component = buildScreen();
     component.setState({ error: 'error message' });
     component.update();
@@ -96,7 +102,9 @@ describe('JoinGroupScreen', () => {
   });
 
   it('mounts and then focuses', () => {
+    // @ts-ignore
     const instance = buildScreenInstance();
+    // @ts-ignore
     instance.componentDidMount();
 
     expect(global.setTimeout).toHaveBeenCalledWith(expect.any(Function), 350);
@@ -108,6 +116,7 @@ describe('JoinGroupScreen', () => {
     //otherwise, error added to state
     it('should set input without calling serach has < 6 digits', () => {
       const { getByTestId, snapshot } = renderWithContext(
+        // @ts-ignore
         <JoinGroupScreen next={mockNext} />,
         { store },
       );
@@ -117,6 +126,7 @@ describe('JoinGroupScreen', () => {
 
     it('should set community after entering 6th digit', () => {
       const { getByTestId, snapshot } = renderWithContext(
+        // @ts-ignore
         <JoinGroupScreen next={mockNext} />,
         { store },
       );
@@ -127,6 +137,7 @@ describe('JoinGroupScreen', () => {
   });
 
   it('should join community', async () => {
+    // @ts-ignore
     const component = buildScreen();
 
     component.setState({ community: mockCommunity });
@@ -143,9 +154,12 @@ describe('JoinGroupScreen', () => {
   });
 
   it('should call ref', () => {
+    // @ts-ignore
     const instance = buildScreenInstance();
     const ref = 'test';
+    // @ts-ignore
     instance.ref(ref);
+    // @ts-ignore
     expect(instance.codeInput).toEqual(ref);
   });
 });

@@ -27,25 +27,32 @@ class CelebrateDetailScreen extends Component {
   state = { refreshing: false };
 
   componentDidMount() {
+    // @ts-ignore
     this.keyboardShowListener = keyboardShow(this.keyboardShow, 'did');
   }
 
   componentWillUnmount() {
+    // @ts-ignore
     this.keyboardShowListener.remove();
   }
 
   keyboardShow = () => this.scrollToFocusedRef();
 
+  // @ts-ignore
   scrollToEnd = () => this.listRef && this.listRef.scrollToEnd();
 
   scrollToFocusedRef = () => {
     const {
+      // @ts-ignore
       celebrateComments: { comments },
+      // @ts-ignore
       editingCommentId,
     } = this.props;
     if (editingCommentId) {
+      // @ts-ignore
       const index = comments.findIndex(c => c.id === editingCommentId);
       if (index >= 0) {
+        // @ts-ignore
         this.listRef && this.listRef.scrollToIndex({ index, viewPosition: 1 });
         return;
       }
@@ -54,6 +61,7 @@ class CelebrateDetailScreen extends Component {
   };
 
   refreshComments = () => {
+    // @ts-ignore
     const { dispatch, event } = this.props;
     return dispatch(reloadCelebrateComments(event));
   };
@@ -61,14 +69,18 @@ class CelebrateDetailScreen extends Component {
   handleRefresh = () => refresh(this, this.refreshComments);
 
   renderHeader = () => {
+    // @ts-ignore
     const { event, organization } = this.props;
     return (
       <SafeAreaView>
         <StatusBar {...theme.statusBar.darkContent} />
         <View style={styles.header}>
+          // @ts-ignore
           <View flexDirection="row">
+            // @ts-ignore
             <View flex={1}>
               <CelebrateItemName
+                // @ts-ignore
                 name={event.subject_person_name}
                 person={event.subject_person}
                 organization={organization}
@@ -76,6 +88,7 @@ class CelebrateDetailScreen extends Component {
               />
               <CardTime date={event.changed_attribute_value} />
             </View>
+            // @ts-ignore
             <CommentLikeComponent event={event} />
             <BackButton
               style={styles.backButtonStyle}
@@ -89,6 +102,7 @@ class CelebrateDetailScreen extends Component {
   };
 
   renderCommentsList = () => {
+    // @ts-ignore
     const { event, organization } = this.props;
     const { refreshing } = this.state;
     return (
@@ -97,7 +111,9 @@ class CelebrateDetailScreen extends Component {
         <Image source={TRAILS2} style={styles.trailsBottom} />
         <CommentsList
           event={event}
+          // @ts-ignore
           listProps={{
+            // @ts-ignore
             ref: c => (this.listRef = c),
             refreshControl: (
               <RefreshControl
@@ -120,6 +136,7 @@ class CelebrateDetailScreen extends Component {
   };
 
   renderCommentBox = () => {
+    // @ts-ignore
     const { event } = this.props;
     return (
       <CelebrateCommentBox event={event} onAddComplete={this.scrollToEnd} />
@@ -138,15 +155,18 @@ class CelebrateDetailScreen extends Component {
   }
 }
 
+// @ts-ignore
 CelebrateDetailScreen.propTypes = {
   event: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (
+  // @ts-ignore
   { organizations, celebrateComments },
   {
     navigation: {
       state: {
+        // @ts-ignore
         params: { event },
       },
     },

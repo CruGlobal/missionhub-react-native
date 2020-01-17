@@ -36,9 +36,11 @@ jest.mock('../../../actions/interactions', () => ({
 }));
 jest.mock('../../../utils/hooks/useAnalytics');
 
+// @ts-ignore
 let store;
 let component;
 
+// @ts-ignore
 const createMockStore = (id, personalJourney, isJean = true) => {
   const mockState = {
     auth: {
@@ -62,9 +64,11 @@ const org = { id: orgId };
 const personalOrg = { id: 'personal' };
 const userCreatedOrg = { ...org, user_created: true };
 
+// @ts-ignore
 const createComponent = props => {
   return renderShallow(
     <ContactJourney person={mockPerson} {...props} />,
+    // @ts-ignore
     store,
   );
 };
@@ -72,6 +76,7 @@ const createComponent = props => {
 describe('ContactJourney', () => {
   it('renders loading screen correctly', () => {
     store = createMockStore(null, {});
+    // @ts-ignore
     component = createComponent();
 
     expect(component).toMatchSnapshot();
@@ -79,6 +84,7 @@ describe('ContactJourney', () => {
 
   it('renders null screen correctly', () => {
     store = createMockStore(personId, { [personId]: [] });
+    // @ts-ignore
     component = createComponent();
 
     expect(component).toMatchSnapshot();
@@ -86,6 +92,7 @@ describe('ContactJourney', () => {
 
   it('renders screen with steps correctly', () => {
     store = createMockStore(personId, { [personId]: mockJourneyList });
+    // @ts-ignore
     component = createComponent();
 
     expect(component).toMatchSnapshot();
@@ -102,6 +109,7 @@ describe('ContactJourney', () => {
     store = createMockStore(personId, { [personId]: mockJourneyList }, false);
     const instance = createComponent({ organization: personalOrg }).instance();
 
+    // @ts-ignore
     expect(instance.state.isPersonalMinistry).toEqual(true);
   });
 
@@ -111,6 +119,7 @@ describe('ContactJourney', () => {
       organization: userCreatedOrg,
     }).instance();
 
+    // @ts-ignore
     expect(instance.state.isPersonalMinistry).toEqual(true);
   });
 
@@ -118,6 +127,7 @@ describe('ContactJourney', () => {
     store = createMockStore(personId, { [personId]: mockJourneyList }, true);
     const instance = createComponent({ organization: personalOrg }).instance();
 
+    // @ts-ignore
     expect(instance.state.isPersonalMinistry).toEqual(true);
   });
 
@@ -125,6 +135,7 @@ describe('ContactJourney', () => {
     store = createMockStore(personId, { [personId]: mockJourneyList }, true);
     const instance = createComponent({ organization: org }).instance();
 
+    // @ts-ignore
     expect(instance.state.isPersonalMinistry).toEqual(false);
   });
 
@@ -134,11 +145,13 @@ describe('ContactJourney', () => {
       organization: userCreatedOrg,
     }).instance();
 
+    // @ts-ignore
     expect(instance.state.isPersonalMinistry).toEqual(false);
   });
 });
 
 describe('journey methods', () => {
+  // @ts-ignore
   let component;
   beforeEach(() => {
     store = createMockStore(personId, { [personId]: mockJourneyList });
@@ -146,6 +159,7 @@ describe('journey methods', () => {
   });
 
   it('renders a step row', () => {
+    // @ts-ignore
     const snap = component.renderRow({
       item: {
         id: '123',
@@ -157,6 +171,7 @@ describe('journey methods', () => {
   });
 
   it('renders an interaction row', () => {
+    // @ts-ignore
     const snap = component.renderRow({
       item: {
         id: '123',
@@ -168,6 +183,7 @@ describe('journey methods', () => {
   });
 
   it('renders a survey row', () => {
+    // @ts-ignore
     const snap = component.renderRow({
       item: {
         id: '124',
@@ -179,6 +195,7 @@ describe('journey methods', () => {
   });
 
   it('renders a stage change row', () => {
+    // @ts-ignore
     const snap = component.renderRow({
       item: {
         id: '124',
@@ -192,7 +209,9 @@ describe('journey methods', () => {
     const interactionId = '1';
     const interactionNote = 'note';
 
+    // @ts-ignore
     navigation.navigatePush = jest.fn(screen => ({ type: screen }));
+    // @ts-ignore
     component.handleEditInteraction({
       id: interactionId,
       note: interactionNote,
@@ -212,7 +231,9 @@ describe('journey methods', () => {
     const interactionId = '1';
     const interactionComment = 'comment';
 
+    // @ts-ignore
     navigation.navigatePush = jest.fn(screen => ({ type: screen }));
+    // @ts-ignore
     component.handleEditInteraction({
       id: interactionId,
       comment: interactionComment,
@@ -230,18 +251,22 @@ describe('journey methods', () => {
 
   it('should call list ref', () => {
     const ref = 'test';
+    // @ts-ignore
     component.listRef(ref);
 
+    // @ts-ignore
     expect(component.list).toEqual(ref);
   });
 
   it('should call key extractor', () => {
     const item = { id: '1', _type: 'test' };
+    // @ts-ignore
     const result = component.keyExtractor(item);
 
     expect(result).toEqual(`${item.id}-${item._type}`);
   });
   it('should render item separator', () => {
+    // @ts-ignore
     const renderedItem = component.itemSeparator(1, 1);
 
     expect(renderedItem).toMatchSnapshot();

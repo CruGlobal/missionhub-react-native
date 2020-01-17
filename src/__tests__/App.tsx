@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactNative from 'react-native';
+// @ts-ignore
 import Adapter from 'enzyme-adapter-react-16/build/index';
+// @ts-ignore
 import { shallow } from 'enzyme/build/index';
+// @ts-ignore
 import Enzyme from 'enzyme/build/index';
 
 jest.mock('react-native-vector-icons/MaterialIcons', () => ({
@@ -26,9 +29,11 @@ jest.mock('../AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
 }));
+// @ts-ignore
 global.window = {};
 
 const logoutResponse = { type: 'logged out' };
+// @ts-ignore
 auth.logout = jest.fn().mockReturnValue(logoutResponse);
 
 jest.mock('react-navigation-redux-helpers', () => ({
@@ -54,6 +59,7 @@ beforeEach(
       .mockImplementation((_, __, buttons) => buttons[0].onPress())),
 );
 
+// @ts-ignore
 const test = async response => {
   const shallowScreen = shallow(<App />);
 
@@ -107,13 +113,16 @@ it('should not show alert if no error message', () => {
 });
 
 describe('__DEV__ === false', () => {
+  // @ts-ignore
   let dev;
   beforeAll(() => {
     dev = __DEV__;
+    // @ts-ignore
     __DEV__ = false;
   });
 
   afterAll(() => {
+    // @ts-ignore
     __DEV__ = dev;
   });
 

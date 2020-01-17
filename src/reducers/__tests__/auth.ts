@@ -14,7 +14,9 @@ const initialState = {
   person: {},
 };
 
+// @ts-ignore
 const callAuth = (type, results) => {
+  // @ts-ignore
   return auth(initialState, {
     type: type,
     results: results,
@@ -54,6 +56,7 @@ it('returns token and person id after logging in with ticket', () => {
 });
 
 it('returns token, person id, and logged in status after creating person', () => {
+  // @ts-ignore
   global.LOG = jest.fn();
 
   const state = callAuth(REQUESTS.CREATE_MY_PERSON.SUCCESS, {
@@ -75,6 +78,7 @@ it('sets new token after refreshing anonymous login', () => {
 
 it('sets isJean after loading me', () => {
   const isJeanResponse = 'isJean';
+  // @ts-ignore
   common.userIsJean = jest.fn().mockReturnValue(isJeanResponse);
 
   const organizational_permissions = [
@@ -134,6 +138,7 @@ it('logs in with facebook', () => {
 
 it('updates a users stage', () => {
   const state = auth(
+    // @ts-ignore
     {
       person: {
         user: {
@@ -152,6 +157,7 @@ it('updates a users stage', () => {
 
 it('updates a user token', () => {
   const state = auth(
+    // @ts-ignore
     {},
     {
       token,
@@ -164,6 +170,7 @@ it('updates a user token', () => {
 
 it("should clear the user's upgradeToken", () => {
   const state = auth(
+    // @ts-ignore
     { upgradeToken: 'something' },
     {
       type: CLEAR_UPGRADE_TOKEN,

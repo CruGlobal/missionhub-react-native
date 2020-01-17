@@ -14,6 +14,7 @@ jest.mock('../api');
 const store = configureStore([thunk])();
 
 const apiResponse = { type: 'test' };
+// @ts-ignore
 callApi.mockReturnValue(apiResponse);
 
 beforeEach(() => {
@@ -22,6 +23,7 @@ beforeEach(() => {
 
 describe('refreshImpact', () => {
   it('should get my impact and global impact', async () => {
+    // @ts-ignore
     await store.dispatch(refreshImpact());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
@@ -37,6 +39,7 @@ describe('refreshImpact', () => {
 
   it('should get my impact and global impact with org', async () => {
     const orgId = '123';
+    // @ts-ignore
     await store.dispatch(refreshImpact(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
@@ -57,6 +60,7 @@ describe('refreshImpact', () => {
 
 describe('getImpactSummary', () => {
   it('should make api request', async () => {
+    // @ts-ignore
     await store.dispatch(getImpactSummary('2'));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
@@ -65,6 +69,7 @@ describe('getImpactSummary', () => {
     });
   });
   it('should make api request with org id', async () => {
+    // @ts-ignore
     await store.dispatch(getImpactSummary('2', '4'));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
@@ -73,6 +78,7 @@ describe('getImpactSummary', () => {
     });
   });
   it('should make api request without person org id to load global impact', async () => {
+    // @ts-ignore
     await store.dispatch(getImpactSummary());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_IMPACT_SUMMARY, {
@@ -84,6 +90,7 @@ describe('getImpactSummary', () => {
 
 describe('getPeopleInteractionsReport', () => {
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue({
       type: REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT.SUCCESS,
       response: [
@@ -116,6 +123,7 @@ describe('getPeopleInteractionsReport', () => {
   });
 
   it('should make api request for person report', async () => {
+    // @ts-ignore
     await store.dispatch(getPeopleInteractionsReport('2', '3', 'P1W'));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -130,6 +138,7 @@ describe('getPeopleInteractionsReport', () => {
   });
 
   it('should make api request for group report', async () => {
+    // @ts-ignore
     await store.dispatch(getPeopleInteractionsReport(undefined, '3', 'P1W'));
 
     expect(callApi).toHaveBeenCalledWith(

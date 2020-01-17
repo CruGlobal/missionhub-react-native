@@ -230,26 +230,33 @@ import EditStoryScreen, {
 //   },
 // });
 
+// @ts-ignore
 export const navItem = name => ({ tintColor }) => (
   <TabIcon name={name} tintColor={tintColor} />
 );
 
+// @ts-ignore
 export const stepsTab = buildTrackingObj('steps', 'steps');
 const tabs = {
   [STEPS_TAB]: buildTrackedScreen(StepsScreen, stepsTab, {
+    // @ts-ignore
     tabBarLabel: navItem('steps'),
   }),
   [PEOPLE_TAB]: buildTrackedScreen(
     PeopleScreen,
+    // @ts-ignore
     buildTrackingObj('people', 'people'),
     {
+      // @ts-ignore
       tabBarLabel: navItem('people'),
     },
   ),
   [GROUPS_TAB]: buildTrackedScreen(
     GroupsListScreen,
+    // @ts-ignore
     buildTrackingObj('communities', 'communities'),
     {
+      // @ts-ignore
       tabBarLabel: navItem('group'),
     },
   ),
@@ -270,6 +277,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
     // Android
     scrollEnabled: false,
   },
+  // @ts-ignore
   swipeEnabled: false,
   animationEnabled: false,
   lazy: true,
@@ -290,6 +298,7 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
   },
 );
 
+// @ts-ignore
 const buildPersonScreenRoute = screen =>
   buildTrackedScreen(
     createDrawerNavigator(
@@ -302,6 +311,7 @@ const buildPersonScreenRoute = screen =>
         backBehavior: 'none', // We're handling it on our own
       },
     ),
+    // @ts-ignore
     buildTrackingObj('person', 'person'),
     { gesturesEnabled: !isAndroid },
   );
@@ -309,10 +319,12 @@ const buildPersonScreenRoute = screen =>
 const screens = {
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     SuggestedStepDetailScreen,
+    // @ts-ignore
     buildTrackingObj('mh : people : steps : add : detail', 'people', 'steps'),
   ),
   [ACCEPTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     AcceptedStepDetailScreen,
+    // @ts-ignore
     buildTrackingObj(
       'mh : people : steps : accepted : detail',
       'people',
@@ -321,6 +333,7 @@ const screens = {
   ),
   [COMPLETED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
     CompletedStepDetailScreen,
+    // @ts-ignore
     buildTrackingObj(
       'mh : people : steps : completed : detail',
       'people',
@@ -329,14 +342,17 @@ const screens = {
   ),
   [STEP_REMINDER_SCREEN]: buildTrackedScreen(
     StepReminderScreen,
+    // @ts-ignore
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
   [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
     SelectMyStepScreen,
+    // @ts-ignore
     buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
   ),
   [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
     SelectMyStepScreen,
+    // @ts-ignore
     buildTrackingObj(
       'onboarding : self : steps : add',
       'onboarding',
@@ -346,14 +362,17 @@ const screens = {
   ),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
     AddSomeoneScreen,
+    // @ts-ignore
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
     AddContactScreen,
+    // @ts-ignore
     buildTrackingObj('people : add person', 'people', 'add person'),
   ),
   [NOTIFICATION_PRIMER_SCREEN]: buildTrackedScreen(
     NotificationPrimerScreen,
+    // @ts-ignore
     buildTrackingObj(
       'menu : notifications : permissions',
       'menu',
@@ -362,28 +381,34 @@ const screens = {
   ),
   [NOTIFICATION_OFF_SCREEN]: buildTrackedScreen(
     NotificationOffScreen,
+    // @ts-ignore
     buildTrackingObj('menu : notifications : off', 'menu', 'notifications'),
   ),
   [SEARCH_SCREEN]: buildTrackedScreen(
     SearchPeopleScreen,
+    // @ts-ignore
     buildTrackingObj('search', 'search'),
     { gesturesEnabled: true },
   ),
   [SEARCH_FILTER_SCREEN]: buildTrackedScreen(
     SearchPeopleFilterScreen,
+    // @ts-ignore
     buildTrackingObj('search : refine', 'search', 'refine'),
     { gesturesEnabled: true },
   ),
   [GROUP_SCREEN]: buildTrackedScreen(
     groupScreenTabNavigator,
+    // @ts-ignore
     buildTrackingObj('communities : community', 'communities', 'community'),
   ),
   [USER_CREATED_GROUP_SCREEN]: buildTrackedScreen(
     userCreatedScreenTabNavigator,
+    // @ts-ignore
     buildTrackingObj('communities : community', 'communities', 'community'),
   ),
   [GLOBAL_GROUP_SCREEN]: buildTrackedScreen(
     globalScreenTabNavigator,
+    // @ts-ignore
     buildTrackingObj(
       'communities : global community',
       'communities',
@@ -392,6 +417,7 @@ const screens = {
   ),
   [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
     SurveyContacts,
+    // @ts-ignore
     buildTrackingObj(
       'communities : surveys : respondants',
       'communities',
@@ -402,11 +428,13 @@ const screens = {
   ),
   [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
     GroupReport,
+    // @ts-ignore
     buildTrackingObj('communities : report', 'communities', 'report'),
     { gesturesEnabled: true },
   ),
   [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
     GroupUnreadFeed,
+    // @ts-ignore
     buildTrackingObj(
       'communities : comments : unread',
       'communities',
@@ -417,6 +445,7 @@ const screens = {
   ),
   [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyContactsFilter,
+    // @ts-ignore
     buildTrackingObj(
       'communities : community : survey contacts filer',
       'communities',
@@ -426,6 +455,7 @@ const screens = {
   ),
   [SEARCH_QUESTIONS_FILTER_SCREEN]: buildTrackedScreen(
     SurveyQuestionsFilter,
+    // @ts-ignore
     buildTrackingObj(
       'communities : community : questions filter',
       'communities',
@@ -435,6 +465,7 @@ const screens = {
   ),
   [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
     ContactsFilter,
+    // @ts-ignore
     buildTrackingObj(
       'communities : community : contacts filter',
       'communities',
@@ -444,11 +475,13 @@ const screens = {
   ),
   [CREATE_GROUP_SCREEN]: buildTrackedScreen(
     CreateGroupScreen,
+    // @ts-ignore
     buildTrackingObj('communities : create', 'communities', 'create'),
     { gesturesEnabled: true },
   ),
   [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
     UnassignedPersonScreen,
+    // @ts-ignore
     buildTrackingObj('person : unassigned', 'person'),
     { gesturesEnabled: true },
   ),
@@ -480,6 +513,7 @@ const screens = {
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
   [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
     CelebrateDetailScreen,
+    // @ts-ignore
     buildTrackingObj(
       'communities : celebration : comment',
       'communities',
@@ -489,6 +523,7 @@ const screens = {
   ),
   [CELEBRATE_SHARE_STORY_SCREEN]: buildTrackedScreen(
     ShareStoryScreen,
+    // @ts-ignore
     buildTrackingObj(
       'communities : celebration : sharestory',
       'communities',
@@ -497,6 +532,7 @@ const screens = {
   ),
   [CELEBRATE_EDIT_STORY_SCREEN]: buildTrackedScreen(
     EditStoryScreen,
+    // @ts-ignore
     buildTrackingObj(
       'communities : celebration : editstory',
       'communities',
@@ -545,10 +581,12 @@ export const MainStackRoutes = createStackNavigator(
     [LANDING_SCREEN]: { screen: LandingScreen },
     [PERSON_SELECT_STEP_SCREEN]: {
       screen: PersonSelectStepScreen,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SELECT_MY_STEP_SCREEN]: {
       screen: SelectMyStepScreen,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
@@ -557,22 +595,27 @@ export const MainStackRoutes = createStackNavigator(
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [SELECT_STAGE_SCREEN]: {
       screen: SelectStageScreen,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [SEARCH_REFINE_SCREEN]: {
       screen: SearchPeopleFilterRefineScreen,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_SELECT_SCREEN]: {
       screen: StatusSelect,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_COMPLETE_SCREEN]: {
       screen: StatusComplete,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [STATUS_REASON_SCREEN]: {
       screen: StatusReason,
+      // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
     [GROUP_PROFILE]: { screen: GroupProfile },
@@ -583,6 +626,7 @@ export const MainStackRoutes = createStackNavigator(
       header: null,
       gesturesEnabled: false,
     },
+    // @ts-ignore
     transitionConfig: (transitionProps, prevTransitionProps) =>
       StackViewTransitionConfigs.defaultTransitionConfig(
         transitionProps,

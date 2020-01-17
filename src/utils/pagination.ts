@@ -1,5 +1,6 @@
 import { DEFAULT_PAGE_LIMIT } from '../constants';
 
+// @ts-ignore
 export const buildUpdatedPagination = (meta, previousPagination) => {
   const { total } = meta;
   const { page } = previousPagination;

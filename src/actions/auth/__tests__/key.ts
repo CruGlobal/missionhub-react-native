@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Linking } from 'react-native';
 import Config from 'react-native-config';
+// @ts-ignore
 import randomString from 'random-string';
 
 import * as callApi from '../../api';
@@ -24,6 +25,7 @@ jest.mock('random-string', () =>
   jest.fn().mockReturnValue('random-string-12345'),
 );
 jest.mock('../userData');
+// @ts-ignore
 authSuccess.mockReturnValue({ type: 'authSuccess' });
 
 const email = 'klas&jflk@lkjasdf.com';
@@ -38,8 +40,10 @@ const codeVerifier = 'cmFuZG9tLXN0cmluZy0xMjM0NQ';
 const redirectUri = 'https://missionhub.com/auth';
 const mockStore = configureStore([thunk]);
 
+// @ts-ignore
 let store;
 
+// @ts-ignore
 constants.THE_KEY_CLIENT_ID = mockClientId;
 
 beforeEach(() => {
@@ -57,6 +61,7 @@ describe('open key URL', () => {
     Linking.removeEventListener = jest.fn();
 
     await expect(
+      // @ts-ignore
       store.dispatch(openKeyURL('login?action=signup')),
     ).resolves.toEqual({
       code,
@@ -88,12 +93,14 @@ describe('open key URL', () => {
 
 describe('keyLogin', () => {
   it('without mfa or upgradeToken', async () => {
+    // @ts-ignore
     callApi.default = jest
       .fn()
       .mockReturnValueOnce({ type: 'keyLogin' })
       .mockReturnValueOnce({ type: 'keyGetTicket', ticket })
       .mockReturnValueOnce({ type: 'keyTicketLogin' });
 
+    // @ts-ignore
     await store.dispatch(keyLogin(email, password));
 
     expect(callApi.default).toHaveBeenNthCalledWith(
@@ -119,6 +126,7 @@ describe('keyLogin', () => {
       },
     );
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       { type: 'keyLogin' },
       { type: 'keyGetTicket', ticket },
@@ -128,12 +136,14 @@ describe('keyLogin', () => {
     ]);
   });
   it('with mfa', async () => {
+    // @ts-ignore
     callApi.default = jest
       .fn()
       .mockReturnValueOnce({ type: 'keyLogin' })
       .mockReturnValueOnce({ type: 'keyGetTicket', ticket })
       .mockReturnValueOnce({ type: 'keyTicketLogin' });
 
+    // @ts-ignore
     await store.dispatch(keyLogin(email, password, mfaCode));
 
     expect(callApi.default).toHaveBeenNthCalledWith(
@@ -159,6 +169,7 @@ describe('keyLogin', () => {
       },
     );
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       { type: 'keyLogin' },
       { type: 'keyGetTicket', ticket },
@@ -172,12 +183,14 @@ describe('keyLogin', () => {
       auth: { upgradeToken },
     });
 
+    // @ts-ignore
     callApi.default = jest
       .fn()
       .mockReturnValueOnce({ type: 'keyLogin' })
       .mockReturnValueOnce({ type: 'keyGetTicket', ticket })
       .mockReturnValueOnce({ type: 'keyTicketLogin' });
 
+    // @ts-ignore
     await store.dispatch(keyLogin(email, password));
 
     expect(callApi.default).toHaveBeenNthCalledWith(
@@ -217,6 +230,7 @@ describe('keyLogin', () => {
       auth: { upgradeToken },
     });
 
+    // @ts-ignore
     callApi.default = jest
       .fn()
       .mockReturnValueOnce({ type: 'keyLogin' })
@@ -232,6 +246,7 @@ describe('keyLogin', () => {
       })
       .mockReturnValueOnce({ type: 'keyTicketLogin' });
 
+    // @ts-ignore
     await store.dispatch(keyLogin(email, password));
 
     expect(callApi.default).toHaveBeenNthCalledWith(
@@ -277,12 +292,14 @@ describe('keyLogin', () => {
 
   describe('keyLoginWithAuthorizationCode', () => {
     it('should use code to login', async () => {
+      // @ts-ignore
       callApi.default = jest
         .fn()
         .mockReturnValueOnce({ type: 'keyLogin' })
         .mockReturnValueOnce({ type: 'keyGetTicket', ticket })
         .mockReturnValueOnce({ type: 'keyTicketLogin' });
 
+      // @ts-ignore
       await store.dispatch(
         keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri),
       );
@@ -308,6 +325,7 @@ describe('keyLogin', () => {
         },
       );
 
+      // @ts-ignore
       expect(store.getActions()).toEqual([
         { type: 'keyLogin' },
         { type: 'keyGetTicket', ticket },
@@ -323,12 +341,14 @@ describe('keyLogin', () => {
       store = mockStore({
         auth: { refreshToken },
       });
+      // @ts-ignore
       callApi.default = jest
         .fn()
         .mockReturnValueOnce({ type: 'keyLogin' })
         .mockReturnValueOnce({ type: 'keyGetTicket', ticket })
         .mockReturnValueOnce({ type: 'keyTicketLogin' });
 
+      // @ts-ignore
       await store.dispatch(refreshAccessToken());
 
       expect(callApi.default).toHaveBeenNthCalledWith(

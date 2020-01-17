@@ -12,6 +12,7 @@ it('loads my groups', () => {
     ...g,
   }));
 
+  // @ts-ignore
   newGroups.findAll = () => newGroups;
 
   const state = groups(

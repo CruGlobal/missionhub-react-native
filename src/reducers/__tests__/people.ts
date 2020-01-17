@@ -123,6 +123,7 @@ it('should delete a person from allByOrg ', () => {
 
 it('should save people allByOrg', () => {
   const state = people(
+    // @ts-ignore
     {},
     {
       type: PEOPLE_WITH_ORG_SECTIONS,

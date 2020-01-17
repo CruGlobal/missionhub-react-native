@@ -22,8 +22,11 @@ import styles from './styles';
 class CelebrateFeedHeader extends Component {
   componentDidMount() {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       organization: { id: orgId },
+      // @ts-ignore
       shouldQueryReport,
     } = this.props;
     if (shouldQueryReport) {
@@ -33,23 +36,28 @@ class CelebrateFeedHeader extends Component {
 
   closeCommentCard = () => {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       organization: { id: orgId },
     } = this.props;
     dispatch(markCommentsRead(orgId));
   };
 
   report = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(navigatePush(GROUPS_REPORT_SCREEN, { organization }));
   };
 
   commentCard = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
   };
 
   renderCommentCard() {
+    // @ts-ignore
     const { isCommentCardVisible, newCommentsCount } = this.props;
     if (!isCommentCardVisible) {
       return null;
@@ -64,6 +72,7 @@ class CelebrateFeedHeader extends Component {
   }
 
   renderReport() {
+    // @ts-ignore
     const { reportedCount, isReportVisible } = this.props;
     if (!isReportVisible) {
       return null;
@@ -74,10 +83,12 @@ class CelebrateFeedHeader extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { isMember, isReportVisible, isCommentCardVisible } = this.props;
     return (
       <Fragment>
         {isCommentCardVisible ? null : (
+          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
         )}
         {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
@@ -94,19 +105,23 @@ class CelebrateFeedHeader extends Component {
   }
 }
 
+// @ts-ignore
 CelebrateFeedHeader.propTypes = {
   organization: PropTypes.object.isRequired,
   isMember: PropTypes.bool,
 };
 
 export const mapStateToProps = (
+  // @ts-ignore
   { auth, organizations, reportedComments },
   { organization = {} },
 ) => {
   const selectorOrg =
+    // @ts-ignore
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;
 
+  // @ts-ignore
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
     organization: { id: selectorOrg.id },

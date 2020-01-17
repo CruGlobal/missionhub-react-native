@@ -1,5 +1,6 @@
 import React from 'react';
 import { DrawerActions } from 'react-navigation-drawer';
+// @ts-ignore
 import { shallow } from 'enzyme/build/index';
 
 import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
@@ -37,6 +38,7 @@ const nav = {
 };
 
 const dispatch = jest.fn(response => Promise.resolve(response));
+// @ts-ignore
 DrawerActions.openDrawer = jest.fn();
 
 const pathwayStage = { id: '3', name: 'stage 3' };
@@ -79,14 +81,18 @@ const props = {
 };
 
 beforeEach(() => {
+  // @ts-ignore
   contactAssignmentSelector.mockReturnValue(contactAssignment);
 });
 
 describe('Contact', () => {
   it('should provide necessary props', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue(undefined);
+    // @ts-ignore
     common.orgIsCru.mockReturnValue(true);
 
+    // @ts-ignore
     expect(mapStateToProps(store, nav)).toEqual({
       organization,
       person,
@@ -105,6 +111,7 @@ describe('Contact', () => {
 
   it('should render AssignedPersonScreen correctly with stage for cru community', () => {
     testSnapshotShallow(
+      // @ts-ignore
       <AssignedPersonScreen {...props} pathwayStage={{ name: 'stage 4' }} />,
     );
   });
@@ -113,6 +120,7 @@ describe('Contact', () => {
     testSnapshotShallow(
       <AssignedPersonScreen
         {...props}
+        // @ts-ignore
         pathwayStage={{ name: 'stage 4' }}
         isCruOrg={false}
       />,
@@ -133,11 +141,13 @@ describe('Contact', () => {
 
   it('opens side menu when menu button is pressed', () => {
     const component = renderShallow(
+      // @ts-ignore
       <AssignedPersonScreen {...props} dispatch={dispatch} />,
     );
     component
       .find('Header')
       .props()
+      // @ts-ignore
       .right.props.onPress();
 
     expect(DrawerActions.openDrawer).toHaveBeenCalledWith({
@@ -169,7 +179,9 @@ describe('Contact', () => {
   it('mounts and sets the keyboard listeners', () => {
     const mockShowListener = 'show';
     const mockHideListener = 'hide';
+    // @ts-ignore
     common.keyboardShow = jest.fn(() => mockShowListener);
+    // @ts-ignore
     common.keyboardHide = jest.fn(() => mockHideListener);
     const component = shallow(<AssignedPersonScreen {...props} />);
     const instance = component.instance();
@@ -180,7 +192,9 @@ describe('Contact', () => {
   it('unmounts and runs the keyboard listeners', () => {
     const mockShowListener = jest.fn();
     const mockHideListener = jest.fn();
+    // @ts-ignore
     common.keyboardShow = jest.fn(() => ({ remove: mockShowListener }));
+    // @ts-ignore
     common.keyboardHide = jest.fn(() => ({ remove: mockHideListener }));
     const component = shallow(<AssignedPersonScreen {...props} />);
     component.unmount();

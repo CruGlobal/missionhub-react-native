@@ -155,9 +155,12 @@ describe('peopleByOrgSelector', () => {
   );
 
   it('should exclude someone not assigned to me', () => {
+    // @ts-ignore
     const org = peopleByOrgSelector({ people, auth }).filter(
+      // @ts-ignore
       o => o.id === '100',
     );
+    // @ts-ignore
     expect(org[0].people.filter(p => p.id === '72347238x').length).toBe(0);
   });
 
@@ -165,6 +168,7 @@ describe('peopleByOrgSelector', () => {
     expect(
       peopleByOrgSelector({
         people,
+        // @ts-ignore
         auth: { ...auth, person: { ...auth.person } }, //reset cache of selector
       }),
     ).toMatchSnapshot();
@@ -174,6 +178,7 @@ describe('peopleByOrgSelector', () => {
     expect(
       peopleByOrgSelector({
         people,
+        // @ts-ignore
         auth: {
           person: {
             ...auth.person,
@@ -193,6 +198,7 @@ describe('peopleByOrgSelector', () => {
 
 describe('allAssignedPeopleSelector', () => {
   it('should take the allByOrg object and transform it into a single array', () => {
+    // @ts-ignore
     expect(allAssignedPeopleSelector({ people, auth })).toMatchSnapshot();
   });
 });
@@ -200,6 +206,7 @@ describe('allAssignedPeopleSelector', () => {
 describe('personSelector', () => {
   it('should get a person in the personal org', () => {
     expect(
+      // @ts-ignore
       personSelector({ people }, { orgId: null, personId: '22' }),
     ).toMatchSnapshot();
   });
@@ -218,6 +225,7 @@ describe('contactAssignmentSelector', () => {
     it("should get a contactAssignment for a person that is assigned to the current user's org ministry", () => {
       expect(
         contactAssignmentSelector(
+          // @ts-ignore
           { auth },
           {
             person: {
@@ -267,6 +275,7 @@ describe('contactAssignmentSelector', () => {
     it("should get a contactAssignment for a person that is assigned to the current user's personal ministry", () => {
       expect(
         contactAssignmentSelector(
+          // @ts-ignore
           { auth },
           {
             person: {
@@ -291,6 +300,7 @@ describe('contactAssignmentSelector', () => {
     it("should get a contactAssignment for a person that is assigned to the current user's personal ministry", () => {
       expect(
         contactAssignmentSelector(
+          // @ts-ignore
           { auth },
           {
             person: {

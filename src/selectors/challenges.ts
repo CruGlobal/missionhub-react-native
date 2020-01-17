@@ -8,6 +8,7 @@ export const challengesSelector = createSelector(
   ({ challengeItems }) => challengeItems,
   challengeItems => {
     const { currentItems, pastItems } = challengeItems.reduce(
+      // @ts-ignore
       ({ currentItems, pastItems }, item) => {
         const isPast = challengeIsPast(item);
         return {
@@ -42,11 +43,14 @@ export const challengesSelector = createSelector(
 );
 
 export const communityChallengeSelector = createSelector(
+  // @ts-ignore
   ({ organizations }, { orgId }) =>
     organizationSelector({ organizations }, { orgId }),
+  // @ts-ignore
   (_, { challengeId }) => challengeId,
   (org, challengeId) => {
     const challenge = (org.challengeItems || []).find(
+      // @ts-ignore
       c => c.id === challengeId,
     );
     return (
@@ -59,6 +63,7 @@ export const acceptedChallengesSelector = createSelector(
   ({ acceptedChallenges }) => acceptedChallenges,
   acceptedChallenges => {
     const sortedAcceptances = acceptedChallenges.reduce(
+      // @ts-ignore
       ({ joined, completed }, item) => {
         const isPlaceHolder = item.person._placeHolder;
         const isCompleted = item.completed_at;
@@ -78,6 +83,7 @@ export const acceptedChallengesSelector = createSelector(
   },
 );
 
+// @ts-ignore
 const challengeIsPast = challenge => {
   const today = moment().endOf('day');
   const endDate = moment(challenge.end_date).endOf('day');

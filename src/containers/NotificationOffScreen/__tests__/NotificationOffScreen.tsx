@@ -25,8 +25,11 @@ const {
 
 const mockStore = configureStore();
 const APP_SETTINGS_URL = 'app-settings:';
+// @ts-ignore
 let store;
+// @ts-ignore
 let screen;
+// @ts-ignore
 let onComplete;
 
 const navigateResult = { type: 'navigated back' };
@@ -41,9 +44,11 @@ describe('notification types', () => {
     testSnapshotShallow(
       <NotificationOffScreen
         navigation={{ state: {} }}
+        // @ts-ignore
         onComplete={onComplete}
         notificationType={notificationType}
       />,
+      // @ts-ignore
       store,
     );
   };
@@ -83,37 +88,45 @@ describe('button methods', () => {
   beforeEach(() => {
     store = mockStore();
     onComplete = jest.fn();
+    // @ts-ignore
     global.setTimeout = jest.fn(callback => callback());
 
     screen = renderShallow(
       <NotificationOffScreen
         navigation={{ state: {} }}
+        // @ts-ignore
         onComplete={onComplete}
         notificationType={ONBOARDING}
       />,
       store,
     );
 
+    // @ts-ignore
     trackActionWithoutData.mockReturnValue(trackActionResult);
+    // @ts-ignore
     navigateBack.mockReturnValue(navigateResult);
   });
 
   describe('not now button', () => {
     beforeEach(() => {
+      // @ts-ignore
       PushNotification.checkPermissions.mockImplementation(callback =>
         callback(disabledPermissions),
       );
     });
 
     it('calls onComplete and tracks an action', () => {
+      // @ts-ignore
       screen
         .childAt(3)
         .childAt(1)
         .props()
         .onPress();
 
+      // @ts-ignore
       expect(onComplete).toHaveBeenCalledWith(false);
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
+      // @ts-ignore
       expect(store.getActions()).toEqual([trackActionResult]);
     });
   });
@@ -125,12 +138,14 @@ describe('button methods', () => {
 
     describe('user enables permissions', () => {
       beforeEach(() => {
+        // @ts-ignore
         PushNotification.checkPermissions.mockImplementation(callback =>
           callback(enabledPermissions),
         );
       });
 
       it('opens settings menu, then calls onComplete when returning', async () => {
+        // @ts-ignore
         await screen
           .childAt(3)
           .childAt(0)
@@ -139,18 +154,21 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        // @ts-ignore
         expect(onComplete).toHaveBeenCalledWith(true);
       });
     });
 
     describe('user does not enable permissions', () => {
       beforeEach(() => {
+        // @ts-ignore
         PushNotification.checkPermissions.mockImplementation(callback =>
           callback(disabledPermissions),
         );
       });
 
       it('opens settings menu, then calls onComplete when returning', async () => {
+        // @ts-ignore
         await screen
           .childAt(3)
           .childAt(0)
@@ -159,6 +177,7 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        // @ts-ignore
         expect(onComplete).toHaveBeenCalledWith(false);
       });
     });

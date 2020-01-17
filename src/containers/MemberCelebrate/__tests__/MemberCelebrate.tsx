@@ -55,6 +55,7 @@ describe('MemberCelebrate', () => {
     const organization = { id: '123' };
     testSnapshotShallow(
       <MemberCelebrate
+        // @ts-ignore
         store={emptyStore}
         person={person}
         organization={organization}
@@ -67,6 +68,7 @@ describe('MemberCelebrate', () => {
     const organization = { id: '456' };
     testSnapshotShallow(
       <MemberCelebrate
+        // @ts-ignore
         store={store}
         person={person}
         organization={organization}

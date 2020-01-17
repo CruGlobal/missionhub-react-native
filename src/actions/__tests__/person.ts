@@ -61,9 +61,13 @@ jest.mock('../analytics');
 const myId = '1';
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
+// @ts-ignore
 let auth;
+// @ts-ignore
 let organizations;
+// @ts-ignore
 let people;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
@@ -86,26 +90,31 @@ describe('get me', () => {
   const action = { type: 'got me' };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(action);
   });
 
   it('should get me', () => {
+    // @ts-ignore
     store.dispatch(getMe());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, {
       include: expectedInclude,
     });
+    // @ts-ignore
     expect(store.getActions()[0]).toEqual(action);
   });
 
   it('should add extra include', () => {
     const extraInclude = 'contact_assignments';
 
+    // @ts-ignore
     store.dispatch(getMe(extraInclude));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, {
       include: `${expectedInclude},${extraInclude}`,
     });
+    // @ts-ignore
     expect(store.getActions()[0]).toEqual(action);
   });
 });
@@ -128,16 +137,19 @@ describe('getPersonDetails', () => {
   const apiResponse = { type: REQUESTS.GET_PERSON.SUCCESS, response: person };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(apiResponse);
   });
 
   it("should get a person's details", async () => {
+    // @ts-ignore
     await store.dispatch(getPersonDetails(person.id, orgId));
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON, {
       person_id: person.id,
       include: expectedIncludeWithContactAssignmentPerson,
     });
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResponse,
       {
@@ -151,9 +163,11 @@ describe('getPersonDetails', () => {
 
   it('should not get person details if no person id', async () => {
     try {
+      // @ts-ignore
       await store.dispatch(getPersonDetails(undefined, orgId));
     } catch {
       expect(callApi).not.toHaveBeenCalled();
+      // @ts-ignore
       expect(store.getActions()).toEqual([]);
     }
   });
@@ -163,6 +177,7 @@ describe('updatePerson', () => {
   const updateInclude = expectedIncludeWithContactAssignmentPerson;
 
   it('should update first name', () => {
+    // @ts-ignore
     store.dispatch(
       updatePerson({
         id: 1,
@@ -185,6 +200,7 @@ describe('updatePerson', () => {
   });
 
   it('should update last name', () => {
+    // @ts-ignore
     store.dispatch(
       updatePerson({
         id: 1,
@@ -209,6 +225,7 @@ describe('updatePerson', () => {
   });
 
   it('should update gender', () => {
+    // @ts-ignore
     store.dispatch(
       updatePerson({
         id: 1,
@@ -233,6 +250,7 @@ describe('updatePerson', () => {
   });
 
   it('should update email only', () => {
+    // @ts-ignore
     store.dispatch(
       updatePerson({
         id: 1,
@@ -260,6 +278,7 @@ describe('updatePerson', () => {
   });
 
   it('should update phone only', () => {
+    // @ts-ignore
     store.dispatch(
       updatePerson({
         id: 1,
@@ -287,10 +306,12 @@ describe('updatePerson', () => {
   });
 
   it('does not update person if no data', () => {
+    // @ts-ignore
     store.dispatch(updatePerson());
 
     expect(callApi).not.toHaveBeenCalled();
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       {
         type: 'UPDATE_PERSON_FAIL',
@@ -303,10 +324,12 @@ describe('updatePerson', () => {
   it('does not update person if no person id', () => {
     const data = { id: undefined };
 
+    // @ts-ignore
     store.dispatch(updatePerson(data));
 
     expect(callApi).not.toHaveBeenCalled();
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       {
         type: 'UPDATE_PERSON_FAIL',
@@ -322,8 +345,10 @@ describe('makeAdmin', () => {
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', async () => {
+    // @ts-ignore
     analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
 
+    // @ts-ignore
     await store.dispatch(makeAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -358,8 +383,10 @@ describe('removeAsAdmin', () => {
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', async () => {
+    // @ts-ignore
     analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
 
+    // @ts-ignore
     await store.dispatch(removeAsAdmin(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -395,6 +422,7 @@ describe('updateOrgPermission', () => {
   const permissionLevel = ORG_PERMISSIONS.USER;
 
   it('sends a request with org permission level set', () => {
+    // @ts-ignore
     store.dispatch(
       updateOrgPermission(personId, orgPermissionId, permissionLevel),
     );
@@ -439,10 +467,14 @@ describe('archiveOrgPermission', () => {
     const trackActionResponse = { type: 'track action' };
     const getCommunitiesResponse = { type: 'get my communities' };
 
+    // @ts-ignore
     callApi.mockReturnValue(callApiResponse);
+    // @ts-ignore
     analytics.trackActionWithoutData.mockReturnValue(trackActionResponse);
+    // @ts-ignore
     getMyCommunities.mockReturnValue(getCommunitiesResponse);
 
+    // @ts-ignore
     await store.dispatch(archiveOrgPermission(personId, orgPermissionId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -470,6 +502,7 @@ describe('archiveOrgPermission', () => {
       ACTIONS.MANAGE_REMOVE_MEMBER,
     );
     expect(getMyCommunities).toHaveBeenCalledWith();
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callApiResponse,
       {
@@ -522,6 +555,7 @@ describe('updateFollowupStatus', () => {
   });
 
   it('should track action', async () => {
+    // @ts-ignore
     analytics.trackActionWithoutData = jest.fn();
 
     await updateFollowupStatus(
@@ -538,6 +572,7 @@ describe('updateFollowupStatus', () => {
 
 describe('createContactAssignment', () => {
   it('should send the correct API request', async () => {
+    // @ts-ignore
     callApi.mockReturnValue({ type: REQUESTS.UPDATE_PERSON });
     await createContactAssignment(1, 2, 3)(dispatch);
     expect(callApi).toHaveBeenCalledWith(
@@ -592,6 +627,7 @@ describe('deleteContactAssignment', () => {
       data,
     );
     expect(getMySteps).toHaveBeenCalledWith();
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       callAPIResult,
       getMyStepsResult,
@@ -600,11 +636,14 @@ describe('deleteContactAssignment', () => {
   };
 
   beforeEach(() => {
+    // @ts-ignore
     getMySteps.mockReturnValue(getMyStepsResult);
+    // @ts-ignore
     callApi.mockReturnValue(callAPIResult);
   });
 
   it('should send the correct API request', async () => {
+    // @ts-ignore
     await store.dispatch(deleteContactAssignment(1, personId, personOrgId));
 
     testDelete();
@@ -614,6 +653,7 @@ describe('deleteContactAssignment', () => {
     const note = 'testNote';
     data.data.attributes.unassignment_reason = note;
 
+    // @ts-ignore
     await store.dispatch(
       deleteContactAssignment(1, personId, personOrgId, note),
     );
@@ -632,16 +672,20 @@ describe('getPersonJourneyDetails', () => {
   const action = { type: 'got user' };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(action);
   });
 
   it('should get me', () => {
+    // @ts-ignore
     store.dispatch(getPersonJourneyDetails(userId));
 
     expect(callApi).toHaveBeenCalledWith(
+      // @ts-ignore
       REQUESTS.GET_PERSON_JOURNEY,
       expectedQuery,
     );
+    // @ts-ignore
     expect(store.getActions()[0]).toEqual(action);
   });
 });
@@ -649,7 +693,9 @@ describe('getPersonJourneyDetails', () => {
 describe('saveNote', () => {
   const personId = 23;
   const note = 'test';
+  // @ts-ignore
   let noteId;
+  // @ts-ignore
   let action;
 
   const expectedData = {
@@ -680,10 +726,12 @@ describe('saveNote', () => {
       noteId = null;
       action = { type: 'added note' };
 
+      // @ts-ignore
       callApi.mockReturnValue(action);
     });
 
     it('should add note', () => {
+      // @ts-ignore
       store.dispatch(savePersonNote(personId, note, noteId, myId));
 
       expect(callApi).toHaveBeenCalledWith(
@@ -691,6 +739,7 @@ describe('saveNote', () => {
         {},
         expectedData,
       );
+      // @ts-ignore
       expect(store.getActions()[0]).toBe(action);
     });
   });
@@ -700,22 +749,27 @@ describe('saveNote', () => {
       noteId = 2;
       action = { type: 'updated note' };
 
+      // @ts-ignore
       callApi.mockReturnValue(action);
     });
 
     it('should update note', () => {
+      // @ts-ignore
       store.dispatch(savePersonNote(personId, note, noteId, myId));
 
       expect(callApi).toHaveBeenCalledWith(
         REQUESTS.UPDATE_PERSON_NOTE,
+        // @ts-ignore
         { noteId },
         expectedData,
       );
+      // @ts-ignore
       expect(store.getActions()[0]).toBe(action);
     });
 
     it('should reject note', async () => {
       try {
+        // @ts-ignore
         await store.dispatch(savePersonNote(undefined, note, noteId, myId));
       } catch (e) {
         expect(e).toBe(
@@ -732,10 +786,12 @@ describe('GetPersonNote', () => {
   const expectedQuery = { person_id: personId, include: 'person_notes' };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(() => Promise.resolve());
   });
 
   it('should get note', () => {
+    // @ts-ignore
     store.dispatch(getPersonNote(personId, myId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -753,28 +809,36 @@ describe('navToPersonScreen', () => {
   const contactAssignment = {};
 
   beforeEach(() => {
+    // @ts-ignore
     navigatePush.mockReturnValue(navigatePushResult);
+    // @ts-ignore
     callApi.mockReturnValue({});
   });
 
+  // @ts-ignore
   afterEach(() => expect(store.getActions()).toEqual([navigatePushResult]));
 
   describe('isMe', () => {
     describe('isMember', () => {
       beforeEach(() => {
+        // @ts-ignore
         orgPermissionSelector.mockReturnValue({
           permission_id: ORG_PERMISSIONS.ADMIN,
         });
+        // @ts-ignore
         organizationSelector.mockReturnValue(organization);
+        // @ts-ignore
         personSelector.mockReturnValue(me);
       });
 
       afterEach(() => {
         expect(organizationSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { organizations },
           { orgId: organization.id },
         );
         expect(personSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { people },
           { orgId: organization.id, personId: me.id },
         );
@@ -783,6 +847,7 @@ describe('navToPersonScreen', () => {
           organization,
         });
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { auth },
           { person: me, orgId: organization.id },
         );
@@ -790,6 +855,7 @@ describe('navToPersonScreen', () => {
 
       describe('isGroups', () => {
         it('navigates to groups community me screen', () => {
+          // @ts-ignore
           store.dispatch(navToPersonScreen(me, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(
@@ -807,10 +873,13 @@ describe('navToPersonScreen', () => {
           auth = { person: { id: myId, user: { groups_feature: false } } };
           store = mockStore({
             auth,
+            // @ts-ignore
             organizations,
+            // @ts-ignore
             people,
           });
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(me, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(
@@ -826,17 +895,23 @@ describe('navToPersonScreen', () => {
 
     describe('is not in org', () => {
       it('navigates to me screen', () => {
+        // @ts-ignore
         orgPermissionSelector.mockReturnValue(undefined);
+        // @ts-ignore
         organizationSelector.mockReturnValue(undefined);
+        // @ts-ignore
         personSelector.mockReturnValue(me);
 
+        // @ts-ignore
         store.dispatch(navToPersonScreen(me, undefined));
 
         expect(organizationSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { organizations },
           { orgId: undefined },
         );
         expect(personSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { people },
           { orgId: undefined, personId: me.id },
         );
@@ -845,6 +920,7 @@ describe('navToPersonScreen', () => {
           organization: {},
         });
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { auth },
           { person: me, orgId: undefined },
         );
@@ -859,20 +935,27 @@ describe('navToPersonScreen', () => {
   describe('is not me', () => {
     describe('isMember', () => {
       beforeEach(() => {
+        // @ts-ignore
         orgPermissionSelector.mockReturnValue({
           permission_id: ORG_PERMISSIONS.USER,
         });
+        // @ts-ignore
         contactAssignmentSelector.mockReturnValue(undefined);
+        // @ts-ignore
         organizationSelector.mockReturnValue(organization);
+        // @ts-ignore
         personSelector.mockReturnValue(person);
       });
 
+      // @ts-ignore
       const testResult = (route, testPerson, testOrg) => {
         expect(organizationSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { organizations },
           { orgId: testOrg.id },
         );
         expect(personSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { people },
           { orgId: testOrg.id, personId: testPerson.id },
         );
@@ -881,6 +964,7 @@ describe('navToPersonScreen', () => {
           organization: testOrg,
         });
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { auth },
           { person: testPerson, orgId: testOrg.id },
         );
@@ -893,8 +977,10 @@ describe('navToPersonScreen', () => {
       describe('isUserCreatedOrg', () => {
         it('navigates to user created member person screen', () => {
           const userCreatedOrg = { ...organization, user_created: true };
+          // @ts-ignore
           organizationSelector.mockReturnValue(userCreatedOrg);
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, userCreatedOrg));
 
           testResult(
@@ -907,6 +993,7 @@ describe('navToPersonScreen', () => {
 
       describe('isGroups', () => {
         it('navigates to groups member person screen', () => {
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, organization));
 
           testResult(IS_GROUPS_MEMBER_PERSON_SCREEN, person, organization);
@@ -918,10 +1005,13 @@ describe('navToPersonScreen', () => {
           auth = { person: { id: myId, user: { groups_feature: false } } };
           store = mockStore({
             auth,
+            // @ts-ignore
             organizations,
+            // @ts-ignore
             people,
           });
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, organization));
 
           testResult(MEMBER_PERSON_SCREEN, person, organization);
@@ -931,17 +1021,22 @@ describe('navToPersonScreen', () => {
 
     describe('is not in org', () => {
       beforeEach(() => {
+        // @ts-ignore
         orgPermissionSelector.mockReturnValue(undefined);
+        // @ts-ignore
         organizationSelector.mockReturnValue(undefined);
+        // @ts-ignore
         personSelector.mockReturnValue(person);
       });
 
       afterEach(() => {
         expect(organizationSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { organizations },
           { orgId: undefined },
         );
         expect(personSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { people },
           { orgId: undefined, personId: person.id },
         );
@@ -950,6 +1045,7 @@ describe('navToPersonScreen', () => {
           organization: {},
         });
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { auth },
           { person, orgId: undefined },
         );
@@ -957,8 +1053,10 @@ describe('navToPersonScreen', () => {
 
       describe('has ContactAssignment', () => {
         it('navigates to contact person screen', () => {
+          // @ts-ignore
           contactAssignmentSelector.mockReturnValue(contactAssignment);
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, undefined));
 
           expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
@@ -970,8 +1068,10 @@ describe('navToPersonScreen', () => {
 
       describe('does not have ContactAssignment', () => {
         it('navigates to unassigned person screen', () => {
+          // @ts-ignore
           contactAssignmentSelector.mockReturnValue(undefined);
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, undefined));
 
           expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
@@ -984,19 +1084,24 @@ describe('navToPersonScreen', () => {
 
     describe('is in org but not a Member', () => {
       beforeEach(() => {
+        // @ts-ignore
         orgPermissionSelector.mockReturnValue({
           permission_id: ORG_PERMISSIONS.CONTACT,
         });
+        // @ts-ignore
         organizationSelector.mockReturnValue(organization);
+        // @ts-ignore
         personSelector.mockReturnValue(person);
       });
 
       afterEach(() => {
         expect(organizationSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { organizations },
           { orgId: organization.id },
         );
         expect(personSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { people },
           { orgId: organization.id, personId: person.id },
         );
@@ -1005,6 +1110,7 @@ describe('navToPersonScreen', () => {
           organization,
         });
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
+          // @ts-ignore
           { auth },
           { person, orgId: organization.id },
         );
@@ -1012,8 +1118,10 @@ describe('navToPersonScreen', () => {
 
       describe('has ContactAssignment', () => {
         it('navigates to contact person screen', () => {
+          // @ts-ignore
           contactAssignmentSelector.mockReturnValue(contactAssignment);
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
@@ -1025,8 +1133,10 @@ describe('navToPersonScreen', () => {
 
       describe('does not have ContactAssignment', () => {
         it('navigates to unassigned person screen', () => {
+          // @ts-ignore
           contactAssignmentSelector.mockReturnValue(undefined);
 
+          // @ts-ignore
           store.dispatch(navToPersonScreen(person, organization));
 
           expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
@@ -1039,16 +1149,21 @@ describe('navToPersonScreen', () => {
   });
 
   describe('with extra props', () => {
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.CONTACT,
     });
+    // @ts-ignore
     contactAssignmentSelector.mockReturnValue(undefined);
+    // @ts-ignore
     organizationSelector.mockReturnValue(organization);
+    // @ts-ignore
     personSelector.mockReturnValue(person);
 
     const onAssign = jest.fn();
 
     it('includes props in navigation', () => {
+      // @ts-ignore
       store.dispatch(navToPersonScreen(person, organization, { onAssign }));
 
       expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {

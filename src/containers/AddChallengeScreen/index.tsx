@@ -15,20 +15,26 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('addChallenge')
 class AddChallengeScreen extends Component {
   state = {
+    // @ts-ignore
     title: this.props.isEdit ? this.props.challenge.title : '',
+    // @ts-ignore
     date: this.props.isEdit
-      ? moment(this.props.challenge.end_date).endOf('day')
+      ? // @ts-ignore
+        moment(this.props.challenge.end_date).endOf('day')
       : '',
     disableBtn: true,
   };
 
+  // @ts-ignore
   onChangeTitle = title => {
     this.setState({ title, disableBtn: !(title && this.state.date) });
   };
 
+  // @ts-ignore
   onChangeDate = date => {
     if (!date) {
       this.setState({ date: '', disableBtn: false });
@@ -39,6 +45,7 @@ class AddChallengeScreen extends Component {
 
   saveChallenge = () => {
     Keyboard.dismiss();
+    // @ts-ignore
     const { challenge, isEdit } = this.props;
     const { title, date } = this.state;
     const formattedTitle = (title || '').trim();
@@ -48,18 +55,22 @@ class AddChallengeScreen extends Component {
     const newChallenge = {
       title: formattedTitle,
       // Set the date to the end of the day (11:59 PM) so that the challenge ends at the end of the day
+      // @ts-ignore
       date: moment(new Date(date))
         .endOf('day')
         .format(),
     };
     if (isEdit) {
+      // @ts-ignore
       newChallenge.id = challenge.id;
     }
 
+    // @ts-ignore
     this.props.onComplete(newChallenge);
   };
 
   renderTitleInput() {
+    // @ts-ignore
     const { t, isEdit } = this.props;
     const { title } = this.state;
     const { textInput } = styles;
@@ -82,6 +93,7 @@ class AddChallengeScreen extends Component {
   }
 
   renderDateInput() {
+    // @ts-ignore
     const { t } = this.props;
     const { date } = this.state;
     const { dateWrap, dateLabel, dateInput } = styles;
@@ -90,6 +102,7 @@ class AddChallengeScreen extends Component {
 
     return (
       <DatePicker
+        // @ts-ignore
         date={date}
         mode="date"
         minDate={today}
@@ -106,6 +119,7 @@ class AddChallengeScreen extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { t, isEdit } = this.props;
     const { disableBtn } = this.state;
     const { container, backButton } = styles;
@@ -129,12 +143,14 @@ class AddChallengeScreen extends Component {
   }
 }
 
+// @ts-ignore
 AddChallengeScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   isEdit: PropTypes.bool,
   challenge: PropTypes.object,
 };
 
+// @ts-ignore
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

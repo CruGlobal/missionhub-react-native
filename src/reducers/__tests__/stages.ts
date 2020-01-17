@@ -19,6 +19,7 @@ const stage = {
 const newStages = [stage];
 
 it('loads stages', () => {
+  // @ts-ignore
   const state = stages(undefined, {
     type: REQUESTS.GET_STAGES.SUCCESS,
     results: { response: newStages },

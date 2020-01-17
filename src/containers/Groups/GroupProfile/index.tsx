@@ -46,11 +46,13 @@ import Analytics from '../../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupProfile')
 class GroupProfile extends Component {
   state = { editing: false, name: '', imageData: null };
 
   save = async () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     const { imageData, name } = this.state;
 
@@ -63,17 +65,20 @@ class GroupProfile extends Component {
       await dispatch(updateOrganization(organization.id, { name }));
     }
     if (imageData) {
+      // @ts-ignore
       await dispatch(updateOrganizationImage(organization.id, imageData));
     }
   };
 
   copyCode = () => {
+    // @ts-ignore
     const { dispatch, t, organization } = this.props;
     copyText(t('codeCopyText', { code: organization.community_code }));
     dispatch(trackActionWithoutData(ACTIONS.COPY_CODE));
   };
 
   copyUrl = () => {
+    // @ts-ignore
     const { dispatch, t, organization } = this.props;
 
     const url = getCommunityUrl(organization.community_url);
@@ -83,11 +88,14 @@ class GroupProfile extends Component {
     dispatch(trackActionWithoutData(ACTIONS.COPY_INVITE_URL));
   };
 
+  // @ts-ignore
   navigateBack = () => this.props.dispatch(navigateBack());
 
+  // @ts-ignore
   handleChangeName = t => this.setState({ name: t });
 
   handleNewCode = () => {
+    // @ts-ignore
     const { t, dispatch, organization } = this.props;
     Alert.alert(t('createNewCode'), t('cannotBeUndone'), [
       { text: t('cancel'), style: 'cancel' },
@@ -101,6 +109,7 @@ class GroupProfile extends Component {
   };
 
   handleNewLink = () => {
+    // @ts-ignore
     const { t, dispatch, organization } = this.props;
     Alert.alert(t('createNewLink'), t('cannotBeUndone'), [
       { text: t('cancel'), style: 'cancel' },
@@ -114,12 +123,14 @@ class GroupProfile extends Component {
   };
 
   deleteOrg = async () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     await dispatch(deleteOrganization(organization.id));
     dispatch(navigateToMainTabs(GROUPS_TAB));
   };
 
   checkDeleteOrg = () => {
+    // @ts-ignore
     const { t } = this.props;
     Alert.alert(t('deleteCommunity'), t('cannotBeUndone'), [
       {
@@ -135,6 +146,7 @@ class GroupProfile extends Component {
   };
 
   handleEdit = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
 
     if (this.state.editing) {
@@ -148,9 +160,11 @@ class GroupProfile extends Component {
     }
   };
 
+  // @ts-ignore
   handleImageChange = data => this.setState({ imageData: data });
 
   renderImage() {
+    // @ts-ignore
     const { organization } = this.props;
     const { editing, imageData } = this.state;
     const image = organization.community_photo_url;
@@ -160,6 +174,7 @@ class GroupProfile extends Component {
         {image || imageData ? (
           <Image
             resizeMode="cover"
+            // @ts-ignore
             source={{ uri: imageData ? imageData.uri : image }}
             style={styles.image}
           />
@@ -173,6 +188,7 @@ class GroupProfile extends Component {
     );
     if (editing) {
       return (
+        // @ts-ignore
         <ImagePicker onSelectImage={this.handleImageChange}>
           {content}
         </ImagePicker>
@@ -182,11 +198,14 @@ class GroupProfile extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { t, organization, membersLength, owner, canEdit } = this.props;
     const { editing, name } = this.state;
     return (
+      // @ts-ignore
       <View flex={1}>
         <Analytics screenName={['community', 'detail']} />
+        // @ts-ignore
         <View style={styles.container} forceInset={{ bottom: 'never' }}>
           <Header
             left={
@@ -227,6 +246,7 @@ class GroupProfile extends Component {
                   underlineColorAndroid={theme.transparent}
                 />
                 <PopupMenu
+                  // @ts-ignore
                   actions={[
                     {
                       text: t('delete'),
@@ -325,10 +345,12 @@ class GroupProfile extends Component {
   }
 }
 
+// @ts-ignore
 GroupProfile.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const { organization = {} } = navigation.state.params || {};
   const orgId = organization.id;
@@ -336,12 +358,15 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   const selectorOrg =
     organizationSelector({ organizations }, { orgId }) || organization;
   const { members = [], contactReport = {} } = selectorOrg;
+  // @ts-ignore
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(
+      // @ts-ignore
       orgPermission =>
         orgPermission.organization_id === orgId && isOwner(orgPermission),
     ),
   );
+  // @ts-ignore
   const myOrgPerm = orgPermissionSelector(null, {
     person: auth.person,
     organization: { id: orgId },

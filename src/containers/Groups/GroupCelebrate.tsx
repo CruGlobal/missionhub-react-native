@@ -21,6 +21,7 @@ import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
 import Analytics from '../Analytics';
 
+// @ts-ignore
 @withTranslation('groupsCelebrate')
 class GroupCelebrate extends Component {
   state = { refreshing: false };
@@ -32,6 +33,7 @@ class GroupCelebrate extends Component {
   }
 
   shouldLoadFeed = () => {
+    // @ts-ignore
     const { pagination, celebrateItems } = this.props;
 
     return (
@@ -43,11 +45,13 @@ class GroupCelebrate extends Component {
   };
 
   loadItems = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(getGroupCelebrateFeed(organization.id));
   };
 
   reloadItems = () => {
+    // @ts-ignore
     const { dispatch, organization, shouldQueryReport } = this.props;
     dispatch(refreshCommunity(organization.id));
     shouldQueryReport && dispatch(getReportedComments(organization.id));
@@ -60,12 +64,14 @@ class GroupCelebrate extends Component {
 
   render() {
     const { refreshing } = this.state;
+    // @ts-ignore
     const { celebrateItems, organization } = this.props;
 
     return (
       <>
         <Analytics screenName={['community', 'celebrate']} />
         <CelebrateFeed
+          // @ts-ignore
           organization={organization}
           items={celebrateItems}
           loadMoreItemsCallback={this.loadItems}
@@ -78,6 +84,7 @@ class GroupCelebrate extends Component {
   }
 }
 
+// @ts-ignore
 const mapStateToProps = ({ auth, organizations }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
   const myOrgPermission = orgPermissionSelector(

@@ -19,6 +19,7 @@ import { SelectMyStageFlowScreens } from '../stage/selectMyStageFlow';
 import { SelectPersonStageFlowScreens } from '../stage/selectPersonStageFlow';
 import { paramsForStageNavigation } from '../utils';
 
+// @ts-ignore
 export const CompleteStepFlowScreens = onFlowComplete => ({
   [COMPLETE_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
@@ -81,6 +82,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
 });
 
 export const CompleteStepFlowNavigator = createStackNavigator(
+  // @ts-ignore
   CompleteStepFlowScreens(),
   {
     defaultNavigationOptions: {

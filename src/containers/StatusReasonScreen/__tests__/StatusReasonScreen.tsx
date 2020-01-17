@@ -32,9 +32,12 @@ const person = {
 const organization = { id: '1', name: 'Test Org' };
 const contactAssignment = { id: '4' };
 
+// @ts-ignore
 let onSubmit = undefined;
 
+// @ts-ignore
 deleteContactAssignment.mockReturnValue({ type: 'deleted contact assignment' });
+// @ts-ignore
 navigateBack.mockReturnValue({ type: 'navigated back' });
 
 describe('StatusReasonScreen', () => {
@@ -45,6 +48,7 @@ describe('StatusReasonScreen', () => {
           person,
           organization,
           contactAssignment,
+          // @ts-ignore
           onSubmit,
         })}
       />,
@@ -59,7 +63,9 @@ describe('StatusReasonScreen', () => {
   it('should change text', () => {
     const instance = createComponent().instance();
     const text = 'test';
+    // @ts-ignore
     instance.handleChangeText(text);
+    // @ts-ignore
     expect(instance.state.text).toBe(text);
   });
 
@@ -67,6 +73,7 @@ describe('StatusReasonScreen', () => {
     const instance = createComponent().instance();
     const text = 'test';
     instance.setState({ text });
+    // @ts-ignore
     instance.submit();
     expect(deleteContactAssignment).toHaveBeenCalledWith(
       contactAssignment.id,
@@ -78,6 +85,7 @@ describe('StatusReasonScreen', () => {
 
   it('should submit with false', () => {
     const instance = createComponent().instance();
+    // @ts-ignore
     instance.submit();
     expect(deleteContactAssignment).toHaveBeenCalledWith(
       contactAssignment.id,
@@ -90,6 +98,7 @@ describe('StatusReasonScreen', () => {
   it('should call onSubmit if exists', () => {
     onSubmit = jest.fn();
     const instance = createComponent().instance();
+    // @ts-ignore
     instance.submit();
     expect(onSubmit).toHaveBeenCalled();
   });
@@ -97,6 +106,7 @@ describe('StatusReasonScreen', () => {
   it('should call navigateBack if onSubmit does not exist', () => {
     onSubmit = undefined;
     const instance = createComponent().instance();
+    // @ts-ignore
     instance.submit();
     expect(navigateBack).toHaveBeenCalled();
   });

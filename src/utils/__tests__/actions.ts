@@ -20,15 +20,19 @@ const orgId = '111';
 const organizations = { all: { id: orgId } };
 const callApiResponse = { type: 'call API' };
 
+// @ts-ignore
 let store;
+// @ts-ignore
 let type;
 
 beforeEach(() => {
   store = configureStore([thunk])({ organizations });
+  // @ts-ignore
   callApi.mockReturnValue(callApiResponse);
 });
 
 describe('getFeed', () => {
+  // @ts-ignore
   const test = () => store.dispatch(getFeed(type, orgId));
 
   describe('Celebration Feed', () => {
@@ -38,6 +42,7 @@ describe('getFeed', () => {
 
     describe('org without pagination', () => {
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
         test();
       });
@@ -66,6 +71,7 @@ describe('getFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([callApiResponse]);
       });
     });
@@ -74,6 +80,7 @@ describe('getFeed', () => {
       const celebratePagination = { page: 1, hasNextPage: true };
 
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({
           id: orgId,
           celebratePagination,
@@ -105,6 +112,7 @@ describe('getFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([callApiResponse]);
       });
     });
@@ -113,6 +121,7 @@ describe('getFeed', () => {
       const celebratePagination = { page: 1, hasNextPage: false };
 
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({
           id: orgId,
           celebratePagination,
@@ -133,6 +142,7 @@ describe('getFeed', () => {
       });
 
       it('does not dispatch actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([]);
       });
     });
@@ -145,6 +155,7 @@ describe('getFeed', () => {
 
     describe('org without pagination', () => {
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
         test();
       });
@@ -174,6 +185,7 @@ describe('getFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([callApiResponse]);
       });
     });
@@ -182,6 +194,7 @@ describe('getFeed', () => {
       const challengePagination = { page: 1, hasNextPage: true };
 
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({
           id: orgId,
           challengePagination,
@@ -214,6 +227,7 @@ describe('getFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([callApiResponse]);
       });
     });
@@ -222,6 +236,7 @@ describe('getFeed', () => {
       const challengePagination = { page: 1, hasNextPage: false };
 
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({
           id: orgId,
           challengePagination,
@@ -242,6 +257,7 @@ describe('getFeed', () => {
       });
 
       it('does not dispatch actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([]);
       });
     });
@@ -249,6 +265,7 @@ describe('getFeed', () => {
 });
 
 describe('reloadFeed', () => {
+  // @ts-ignore
   const test = () => store.dispatch(reloadFeed(type, orgId));
 
   describe('Celebration Feed', () => {
@@ -258,6 +275,7 @@ describe('reloadFeed', () => {
 
     describe('org not found', () => {
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue(undefined);
         test();
       });
@@ -275,12 +293,14 @@ describe('reloadFeed', () => {
       });
 
       it('does not dispatch additional actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([]);
       });
     });
 
     describe('org without pagination', () => {
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
         test();
       });
@@ -309,6 +329,7 @@ describe('reloadFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([callApiResponse]);
       });
     });
@@ -317,6 +338,7 @@ describe('reloadFeed', () => {
       const celebratePagination = { page: 1, hasNextPage: true };
 
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({
           id: orgId,
           celebratePagination,
@@ -348,6 +370,7 @@ describe('reloadFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           { type: RESET_CELEBRATION_PAGINATION, orgId },
           callApiResponse,
@@ -363,6 +386,7 @@ describe('reloadFeed', () => {
 
     describe('org not found', () => {
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue(undefined);
         test();
       });
@@ -380,12 +404,14 @@ describe('reloadFeed', () => {
       });
 
       it('does not dispatch additional actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([]);
       });
     });
 
     describe('org without pagination', () => {
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
         test();
       });
@@ -415,6 +441,7 @@ describe('reloadFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([callApiResponse]);
       });
     });
@@ -423,6 +450,7 @@ describe('reloadFeed', () => {
       const challengePagination = { page: 1, hasNextPage: true };
 
       beforeEach(() => {
+        // @ts-ignore
         organizationSelector.mockReturnValue({
           id: orgId,
           challengePagination,
@@ -455,6 +483,7 @@ describe('reloadFeed', () => {
       });
 
       it('dispatches actions', () => {
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           { type: RESET_CHALLENGE_PAGINATION, orgId },
           callApiResponse,

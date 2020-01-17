@@ -39,8 +39,11 @@ const person = {
 };
 const organization = { id: '1', name: 'Test Org' };
 
+// @ts-ignore
 contactAssignmentSelector.mockReturnValue(contactAssignment);
+// @ts-ignore
 orgPermissionSelector.mockReturnValue(orgPermission);
+// @ts-ignore
 personSelector.mockReturnValue(person);
 
 describe('mapStateToProps', () => {
@@ -91,12 +94,16 @@ describe('StatusSelectScreen', () => {
       })}
     />
   );
+  // @ts-ignore
   navigation.navigateBack = jest.fn(() => ({ type: 'navigated back' }));
+  // @ts-ignore
   navigation.navigatePush = jest.fn(() => ({ type: 'navigated push' }));
 
+  // @ts-ignore
   const testSubmit = async type => {
     instance = renderShallow(component, store).instance();
     instance.setState({ selected: type });
+    // @ts-ignore
     await instance.submit();
     expect(updateFollowupStatus).toHaveBeenCalledWith(
       person,
@@ -111,6 +118,7 @@ describe('StatusSelectScreen', () => {
 
   it('should navigate back', async () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     await instance.submit();
     expect(navigation.navigateBack).toHaveBeenCalled();
   });
@@ -148,7 +156,9 @@ describe('StatusSelectScreen', () => {
   it('set the state to contacted', () => {
     const instance = renderShallow(component, store).instance();
     const status = 'contacted';
+    // @ts-ignore
     instance.select(status);
+    // @ts-ignore
     expect(instance.state.selected).toEqual(status);
   });
 });

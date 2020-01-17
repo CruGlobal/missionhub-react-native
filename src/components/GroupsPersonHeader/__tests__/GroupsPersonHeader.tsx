@@ -39,6 +39,7 @@ const person = { id: '1002', first_name: 'Roge' };
 const organization = { id: '50' };
 const dispatch = store.dispatch;
 const myId = '1001';
+// @ts-ignore
 const stages = [];
 const myStageId = '4';
 const personStageId = '3';
@@ -54,6 +55,7 @@ const props = {
   organization,
   dispatch,
   myId,
+  // @ts-ignore
   stages,
   isCruOrg,
 };
@@ -69,14 +71,23 @@ const loadStepsJourneyResult = { type: 'load steps and journey' };
 const navigateToStageResult = { type: 'navigate to stage screen ' };
 
 beforeEach(() => {
+  // @ts-ignore
   uuidv4.mockReturnValue('some key');
+  // @ts-ignore
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResult);
+  // @ts-ignore
   getStageIndex.mockReturnValue(myStageId);
+  // @ts-ignore
   openCommunicationLink.mockReturnValue(openLinkResult);
+  // @ts-ignore
   updatePersonAttributes.mockReturnValue(updatePersonResult);
+  // @ts-ignore
   getPersonDetails.mockReturnValue(getPersonResult);
+  // @ts-ignore
   loadStepsAndJourney.mockReturnValue(loadStepsJourneyResult);
+  // @ts-ignore
   navigateToStageScreen.mockReturnValue(navigateToStageResult);
   store.clearActions();
 });
@@ -86,6 +97,7 @@ describe('is self', () => {
     testSnapshotShallow(
       <GroupsPersonHeader
         {...props}
+        // @ts-ignore
         myId={person.id}
         isMember={true}
         isCruOrg={true}
@@ -96,6 +108,7 @@ describe('is self', () => {
     testSnapshotShallow(
       <GroupsPersonHeader
         {...props}
+        // @ts-ignore
         myId={person.id}
         isMember={true}
         isCruOrg={false}
@@ -107,6 +120,7 @@ describe('is self', () => {
     const screen = renderShallow(
       <GroupsPersonHeader
         {...props}
+        // @ts-ignore
         myId={person.id}
         isMember={true}
         contactAssignment={contactAssignment}
@@ -128,6 +142,7 @@ describe('is self', () => {
       myStageId,
     );
     expect(store.getActions()).toEqual([navigateToStageResult]);
+    // @ts-ignore
     expect(getStageIndex).toHaveBeenCalledWith(stages, myStageId);
   });
 });
@@ -137,6 +152,7 @@ describe('isMember', () => {
     testSnapshotShallow(
       <GroupsPersonHeader
         {...props}
+        // @ts-ignore
         isMember={true}
         contactAssignment={undefined}
       />,
@@ -145,19 +161,23 @@ describe('isMember', () => {
 
   it('renders null because its not supposed to be visible', () => {
     testSnapshotShallow(
+      // @ts-ignore
       <GroupsPersonHeader {...props} isMember={true} isVisible={false} />,
     );
   });
 
   it('renders null with no contact assignment for User-Created Org', () => {
     testSnapshotShallow(
+      // @ts-ignore
       <GroupsPersonHeader {...props} isMember={true} isCruOrg={false} />,
     );
   });
 
   describe('has contact info and contact assignment', () => {
     beforeEach(() => {
+      // @ts-ignore
       getPersonEmailAddress.mockReturnValue(emailAddress);
+      // @ts-ignore
       getPersonPhoneNumber.mockReturnValue(phoneNumber);
     });
 
@@ -165,6 +185,7 @@ describe('isMember', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={true}
           contactAssignment={contactAssignment}
         />,
@@ -175,6 +196,7 @@ describe('isMember', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={true}
           isCruOrg={false}
           contactAssignment={contactAssignment}
@@ -186,6 +208,7 @@ describe('isMember', () => {
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={true}
           contactAssignment={contactAssignment}
         />,
@@ -208,6 +231,7 @@ describe('isMember', () => {
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={true}
           contactAssignment={contactAssignment}
         />,
@@ -230,6 +254,7 @@ describe('isMember', () => {
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={true}
           contactAssignment={contactAssignment}
         />,
@@ -256,6 +281,7 @@ describe('isContact', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={false}
           contactAssignment={undefined}
         />,
@@ -268,6 +294,7 @@ describe('isContact', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={false}
           contactAssignment={contactAssignment}
         />,
@@ -278,6 +305,7 @@ describe('isContact', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={false}
           contactAssignment={{
             id: '500',
@@ -291,6 +319,7 @@ describe('isContact', () => {
       testSnapshotShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={false}
           isCruOrg={false}
           contactAssignment={contactAssignment}
@@ -299,11 +328,13 @@ describe('isContact', () => {
     });
 
     it('should navigate to select person stage flow, contact assignment', () => {
+      // @ts-ignore
       getStageIndex.mockReturnValue(personStageId);
 
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={false}
           contactAssignment={contactAssignment}
           person={person}
@@ -324,6 +355,7 @@ describe('isContact', () => {
         personStageId,
       );
       expect(store.getActions()).toEqual([navigateToStageResult]);
+      // @ts-ignore
       expect(getStageIndex).toHaveBeenCalledWith(stages, personStageId);
     });
 
@@ -331,6 +363,7 @@ describe('isContact', () => {
       const screen = renderShallow(
         <GroupsPersonHeader
           {...props}
+          // @ts-ignore
           isMember={false}
           contactAssignment={contactAssignment}
         />,

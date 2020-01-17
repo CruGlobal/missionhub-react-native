@@ -17,8 +17,10 @@ import { STATUS_COMPLETE_SCREEN } from '../StatusCompleteScreen';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('statusSelect')
 class StatusSelectScreen extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     this.state = {
@@ -26,19 +28,27 @@ class StatusSelectScreen extends Component {
     };
   }
 
+  // @ts-ignore
   select = status => {
     this.setState({ selected: status });
   };
 
   submit = async () => {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       person,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       contactAssignment,
+      // @ts-ignore
       orgPermission,
+      // @ts-ignore
       status,
     } = this.props;
+    // @ts-ignore
     const { selected } = this.state;
     if (status === selected) {
       dispatch(navigateBack());
@@ -56,8 +66,11 @@ class StatusSelectScreen extends Component {
     }
   };
 
+  // @ts-ignore
   renderItem(type) {
+    // @ts-ignore
     const { t } = this.props;
+    // @ts-ignore
     const { selected } = this.state;
     return (
       <Touchable pressProps={[type]} onPress={this.select} style={styles.row}>
@@ -76,9 +89,11 @@ class StatusSelectScreen extends Component {
     );
   }
 
+  // @ts-ignore
   navigateBack = () => this.props.dispatch(navigateBack());
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
 
     return (
@@ -122,11 +137,13 @@ class StatusSelectScreen extends Component {
   }
 }
 
+// @ts-ignore
 StatusSelectScreen.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;
@@ -134,6 +151,7 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const person =
     personSelector({ people }, { personId: navPerson.id, orgId }) || navPerson;
   const organization = navOrg;
+  // @ts-ignore
   const orgPermission = orgPermissionSelector(null, {
     person,
     organization,

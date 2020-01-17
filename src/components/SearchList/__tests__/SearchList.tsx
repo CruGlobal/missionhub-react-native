@@ -8,8 +8,10 @@ import SearchList from '..';
 it('renders search list', () => {
   testSnapshotShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -23,8 +25,10 @@ it('renders search list', () => {
 it('renders filters', () => {
   testSnapshotShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -43,8 +47,10 @@ it('renders filters', () => {
 it('renders text in search box', () => {
   const component = renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -63,8 +69,10 @@ it('calls onSearch prop', () => {
 
   renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={onSearch}
@@ -74,6 +82,7 @@ it('calls onSearch prop', () => {
     />,
   )
     .instance()
+    // @ts-ignore
     .handleSearch('test');
 
   expect(onSearch).toHaveBeenCalled();
@@ -84,8 +93,10 @@ it('calls onFilterPress prop', () => {
 
   renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={onFilterPress}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -97,6 +108,7 @@ it('calls onFilterPress prop', () => {
     />,
   )
     .instance()
+    // @ts-ignore
     .handleFilter('test');
 
   expect(onFilterPress).toHaveBeenCalled();
@@ -105,8 +117,10 @@ it('calls onFilterPress prop', () => {
 it('calls clearSearch', () => {
   const component = renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -117,8 +131,10 @@ it('calls clearSearch', () => {
       placeholder={'placeholder'}
     />,
   ).instance();
+  // @ts-ignore
   component.clearSearch();
 
+  // @ts-ignore
   expect(component.state.text).toBe('');
 });
 
@@ -127,8 +143,10 @@ it('calls removeFilter', () => {
 
   const component = renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -139,6 +157,7 @@ it('calls removeFilter', () => {
       placeholder={'placeholder'}
     />,
   ).instance();
+  // @ts-ignore
   component.removeFilter('test');
 
   expect(onRemoveFilter).toHaveBeenCalled();
@@ -147,8 +166,10 @@ it('calls removeFilter', () => {
 it('calls handleTextChange', () => {
   const component = renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -159,17 +180,22 @@ it('calls handleTextChange', () => {
       placeholder={'placeholder'}
     />,
   ).instance();
+  // @ts-ignore
   component.handleSearchDebounced = jest.fn();
+  // @ts-ignore
   component.handleTextChange('test');
 
+  // @ts-ignore
   expect(component.handleSearchDebounced).toHaveBeenCalled();
 });
 
 it('should call ref', () => {
   const instance = renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -181,15 +207,19 @@ it('should call ref', () => {
     />,
   ).instance();
   const ref = 'test';
+  // @ts-ignore
   instance.ref(ref);
+  // @ts-ignore
   expect(instance.searchInput).toEqual(ref);
 });
 
 it('should call key extractor', () => {
   const instance = renderShallow(
     <SearchList
+      // @ts-ignore
       onFilterPress={jest.fn()}
       listProps={{
+        // @ts-ignore
         renderItem: ({ item }) => <Text>{item.text}</Text>,
       }}
       onSearch={jest.fn()}
@@ -201,6 +231,7 @@ it('should call key extractor', () => {
     />,
   ).instance();
   const item = { id: '1' };
+  // @ts-ignore
   const result = instance.keyExtractor(item);
   expect(result).toEqual(item.id);
 });

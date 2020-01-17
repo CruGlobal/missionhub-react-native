@@ -13,6 +13,7 @@ const initialState = {
   hasShownWelcomeNotification: false,
 };
 
+// @ts-ignore
 function notificationReducer(state = initialState, action) {
   switch (action.type) {
     case REQUESTS.SET_PUSH_TOKEN.SUCCESS:

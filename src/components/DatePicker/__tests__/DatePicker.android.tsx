@@ -14,11 +14,13 @@ MockDate.set(mockDate);
 const today = new Date();
 
 it('renders date picker touchable', () => {
+  // @ts-ignore
   testSnapshotShallow(<DatePicker date={today} />);
 });
 
 it('renders with child component', () => {
   testSnapshotShallow(
+    // @ts-ignore
     <DatePicker date={today}>
       <Text>Child Component</Text>
     </DatePicker>,
@@ -26,8 +28,11 @@ it('renders with child component', () => {
 });
 
 describe('DatePicker methods', () => {
+  // @ts-ignore
   let component;
+  // @ts-ignore
   let instance;
+  // @ts-ignore
   let action;
   const date = new Date();
   const minDate = new Date();
@@ -42,6 +47,7 @@ describe('DatePicker methods', () => {
     beforeEach(() => {
       component = renderShallow(
         <DatePicker
+          // @ts-ignore
           date={date}
           minDate={minDate}
           maxDate={maxDate}
@@ -63,8 +69,10 @@ describe('DatePicker methods', () => {
           month: '08',
           day: '13',
         };
+        // @ts-ignore
         DatePickerAndroid.open.mockReturnValue(action);
 
+        // @ts-ignore
         await component
           .childAt(0)
           .props()
@@ -78,10 +86,14 @@ describe('DatePicker methods', () => {
           maxDate,
           mode: androidDateMode,
         });
+        // @ts-ignore
         expect(instance.state.date).toEqual(
           new Date(
+            // @ts-ignore
             action.year,
+            // @ts-ignore
             action.month,
+            // @ts-ignore
             action.day,
             today.hour(),
             today.minutes(),
@@ -96,8 +108,10 @@ describe('DatePicker methods', () => {
         action = {
           action: DatePickerAndroid.dismissedAction,
         };
+        // @ts-ignore
         DatePickerAndroid.open.mockReturnValue(action);
 
+        // @ts-ignore
         await component
           .childAt(0)
           .props()
@@ -120,6 +134,7 @@ describe('DatePicker methods', () => {
     beforeEach(() => {
       component = renderShallow(
         <DatePicker
+          // @ts-ignore
           date={date}
           onDateChange={mockChange}
           onCloseModal={mockCloseModal}
@@ -138,8 +153,10 @@ describe('DatePicker methods', () => {
           hour: '1',
           minute: '30',
         };
+        // @ts-ignore
         TimePickerAndroid.open.mockReturnValue(action);
 
+        // @ts-ignore
         await component
           .childAt(0)
           .props()
@@ -153,12 +170,15 @@ describe('DatePicker methods', () => {
           is24Hour: false,
           mode: androidTimeMode,
         });
+        // @ts-ignore
         expect(instance.state.date).toEqual(
           new Date(
             today.year(),
             today.month(),
             today.date(),
+            // @ts-ignore
             action.hour,
+            // @ts-ignore
             action.minute,
           ),
         );
@@ -168,12 +188,15 @@ describe('DatePicker methods', () => {
   });
 
   describe('mode is datetime', () => {
+    // @ts-ignore
     let dateAction;
+    // @ts-ignore
     let timeAction;
 
     beforeEach(() => {
       component = renderShallow(
         <DatePicker
+          // @ts-ignore
           date={date}
           minDate={minDate}
           maxDate={maxDate}
@@ -196,14 +219,17 @@ describe('DatePicker methods', () => {
           month: '08',
           day: '13',
         };
+        // @ts-ignore
         DatePickerAndroid.open.mockReturnValue(dateAction);
         timeAction = {
           action: 'test',
           hour: '1',
           minute: '30',
         };
+        // @ts-ignore
         TimePickerAndroid.open.mockReturnValue(timeAction);
 
+        // @ts-ignore
         await component
           .childAt(0)
           .props()
@@ -223,12 +249,18 @@ describe('DatePicker methods', () => {
           is24Hour: false,
           mode: androidTimeMode,
         });
+        // @ts-ignore
         expect(instance.state.date).toEqual(
           new Date(
+            // @ts-ignore
             dateAction.year,
+            // @ts-ignore
             dateAction.month,
+            // @ts-ignore
             dateAction.day,
+            // @ts-ignore
             timeAction.hour,
+            // @ts-ignore
             timeAction.minute,
           ),
         );
@@ -243,6 +275,7 @@ describe('DatePicker methods', () => {
     beforeEach(async () => {
       component = renderShallow(
         <DatePicker
+          // @ts-ignore
           date={date}
           onPressAndroid={onPressAndroid}
           onDateChange={mockChange}
@@ -260,6 +293,7 @@ describe('DatePicker methods', () => {
 
     it('calls custom action and passes in showPicker', () => {
       expect(onPressAndroid).toHaveBeenCalledWith({
+        // @ts-ignore
         showPicker: instance.showPicker,
       });
     });

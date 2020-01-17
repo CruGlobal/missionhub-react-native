@@ -18,8 +18,11 @@ import ReportCommentItem from '..';
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');
 
+// @ts-ignore
 deleteCelebrateComment.mockReturnValue({ type: 'delete comment' });
+// @ts-ignore
 ignoreReportComment.mockReturnValue({ type: 'ignore comment' });
+// @ts-ignore
 getReportedComments.mockReturnValue({ type: 'get report comments' });
 
 beforeEach(() => {
@@ -27,6 +30,7 @@ beforeEach(() => {
 });
 
 const event = { id: 'eventId' };
+// @ts-ignore
 const org = { id: 'orgId', reportedComments: [item] };
 const comment = {
   id: 'commentId',
@@ -48,6 +52,7 @@ const props = {
   organization: org,
 };
 
+// @ts-ignore
 let store;
 const mockState = {
   organizations: {
@@ -60,16 +65,21 @@ it('renders correctly', () => {
 });
 
 describe('report item', () => {
+  // @ts-ignore
   let component;
   beforeEach(() => {
+    // @ts-ignore
     Alert.alert = jest.fn((a, b, c) => c[1].onPress());
     component = renderShallow(
+      // @ts-ignore
       <ReportCommentItem item={item} organization={org} />,
+      // @ts-ignore
       store,
     );
   });
 
   it('call handleDelete', async () => {
+    // @ts-ignore
     await component
       .childAt(2)
       .childAt(1)
@@ -94,6 +104,7 @@ describe('report item', () => {
   });
 
   it('call handleIgnore', async () => {
+    // @ts-ignore
     await component
       .childAt(2)
       .childAt(0)

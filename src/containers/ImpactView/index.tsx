@@ -53,6 +53,7 @@ const reportPeriods = [
   },
 ];
 
+// @ts-ignore
 @withTranslation('impact')
 export class ImpactView extends Component {
   state = {
@@ -61,12 +62,19 @@ export class ImpactView extends Component {
 
   componentDidMount() {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       person = {},
+      // @ts-ignore
       organization,
+      // @ts-ignore
       isPersonalMinistryMe,
+      // @ts-ignore
       isUserCreatedOrg,
+      // @ts-ignore
       myId,
+      // @ts-ignore
       isGlobalCommunity,
     } = this.props;
 
@@ -79,6 +87,7 @@ export class ImpactView extends Component {
       ),
     );
     if (isPersonalMinistryMe || isUserCreatedOrg) {
+      // @ts-ignore
       dispatch(getImpactSummary()); // Get global impact by calling without person or org
     } else {
       this.getInteractionReport();
@@ -86,6 +95,7 @@ export class ImpactView extends Component {
   }
 
   getInteractionReport() {
+    // @ts-ignore
     const { dispatch, person = {}, organization } = this.props;
 
     dispatch(
@@ -97,6 +107,7 @@ export class ImpactView extends Component {
     );
   }
 
+  // @ts-ignore
   handleChangePeriod = period => {
     this.setState({ period }, () => {
       this.getInteractionReport();
@@ -113,10 +124,15 @@ export class ImpactView extends Component {
     paramGlobal = false,
   ) {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       person = {},
+      // @ts-ignore
       isMe,
+      // @ts-ignore
       isUserCreatedOrg,
+      // @ts-ignore
       isGlobalCommunity,
     } = this.props;
     const initiator = paramGlobal
@@ -128,6 +144,7 @@ export class ImpactView extends Component {
       : steps_count === 0
       ? '$t(we)'
       : '$t(togetherWe)';
+    // @ts-ignore
     const context = c =>
       c === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
     const isSpecificContact =
@@ -166,10 +183,12 @@ export class ImpactView extends Component {
   }
 
   renderContactReport() {
+    // @ts-ignore
     const { t, interactions } = this.props;
 
     const interactionsReport =
       interactions[this.state.period] ||
+      // @ts-ignore
       Object.values(INTERACTION_TYPES).filter(type => !type.hideReport);
 
     return (
@@ -197,6 +216,7 @@ export class ImpactView extends Component {
             );
           })}
         </Flex>
+        // @ts-ignore
         {interactionsReport.map(i => {
           return (
             <Flex
@@ -225,13 +245,21 @@ export class ImpactView extends Component {
 
   render() {
     const {
+      // @ts-ignore
       isMe,
+      // @ts-ignore
       globalImpact,
+      // @ts-ignore
       impact,
+      // @ts-ignore
       isPersonalMinistryMe,
+      // @ts-ignore
       isUserCreatedOrg,
+      // @ts-ignore
       isOrgImpact,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       isGlobalCommunity,
     } = this.props;
 
@@ -252,6 +280,7 @@ export class ImpactView extends Component {
       <ScrollView style={styles.container} bounces={false}>
         <Analytics screenName={[screenSection, screenSubsection]} />
         {organization.id !== 'person' ? (
+          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
         <Flex style={styles.topSection}>
@@ -279,15 +308,18 @@ export class ImpactView extends Component {
   }
 }
 
+// @ts-ignore
 ImpactView.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
 };
 
 export const mapStateToProps = (
+  // @ts-ignore
   { impact, auth, organizations },
   { person = {}, orgId = 'personal' },
 ) => {
+  // @ts-ignore
   const personId = person.id;
   const myId = auth.person.id;
   const isMe = personId === myId;
@@ -303,6 +335,7 @@ export const mapStateToProps = (
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
+      // @ts-ignore
       {
         person: isGlobalCommunity ? { id: myId } : person,
         organization: personId || isGlobalCommunity ? undefined : organization,
@@ -310,6 +343,7 @@ export const mapStateToProps = (
     ),
     interactions: impactInteractionsSelector(
       { impact },
+      // @ts-ignore
       { person, organization },
     ),
     globalImpact: impactSummarySelector({ impact }),

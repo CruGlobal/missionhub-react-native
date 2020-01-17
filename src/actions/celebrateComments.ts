@@ -10,7 +10,9 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 
+// @ts-ignore
 export function setCelebrateEditingComment(commentId) {
+  // @ts-ignore
   return dispatch => {
     dispatch(resetCelebrateEditingComment());
     dispatch({ type: SET_CELEBRATE_EDITING_COMMENT, commentId });
@@ -21,7 +23,9 @@ export function resetCelebrateEditingComment() {
   return { type: RESET_CELEBRATE_EDITING_COMMENT };
 }
 
+// @ts-ignore
 export function getCelebrateCommentsNextPage(event) {
+  // @ts-ignore
   return (dispatch, getState) => {
     const { pagination } = celebrateCommentsSelector(
       { celebrateComments: getState().celebrateComments },
@@ -45,11 +49,15 @@ export function getCelebrateCommentsNextPage(event) {
   };
 }
 
+// @ts-ignore
 export function reloadCelebrateComments(event) {
+  // @ts-ignore
   return dispatch => dispatch(getCelebrateComments(event));
 }
 
+// @ts-ignore
 function getCelebrateComments(event, page) {
+  // @ts-ignore
   return dispatch =>
     dispatch(
       callApi(REQUESTS.GET_CELEBRATE_COMMENTS, {
@@ -61,7 +69,9 @@ function getCelebrateComments(event, page) {
     );
 }
 
+// @ts-ignore
 export function createCelebrateComment(event, content) {
+  // @ts-ignore
   return async dispatch => {
     const result = await dispatch(
       callApi(
@@ -83,7 +93,9 @@ export function createCelebrateComment(event, content) {
   };
 }
 
+// @ts-ignore
 export function updateCelebrateComment(item, content) {
+  // @ts-ignore
   return async dispatch => {
     const result = await dispatch(
       callApi(
@@ -102,7 +114,9 @@ export function updateCelebrateComment(item, content) {
   };
 }
 
+// @ts-ignore
 export function deleteCelebrateComment(orgId, event, item) {
+  // @ts-ignore
   return async dispatch => {
     const result = await dispatch(
       callApi(REQUESTS.DELETE_CELEBRATE_COMMENT, {

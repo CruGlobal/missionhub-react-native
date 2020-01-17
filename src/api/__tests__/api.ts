@@ -4,7 +4,9 @@ import { REQUESTS } from '../../api/routes';
 import API_CALLS from '..';
 
 beforeEach(() => {
+  // @ts-ignore
   global.APILOG = jest.fn();
+  // @ts-ignore
   global.LOG = jest.fn();
 
   expect.assertions(1);
@@ -16,6 +18,7 @@ const sessionHeader =
 
 it('should return apiError object for api errors', async () => {
   const response = { error: 'test' };
+  // @ts-ignore
   utils.default = () => Promise.reject(response);
 
   try {
@@ -32,6 +35,7 @@ it('should return apiError object for api errors', async () => {
 });
 
 it('should return session header with empty response', async () => {
+  // @ts-ignore
   utils.default = () => Promise.resolve({ jsonResponse: null, sessionHeader });
 
   const response = await API_CALLS[request.name]({}, {});
@@ -44,6 +48,7 @@ describe('response is not empty', () => {
       data: {},
       meta: 'some meta',
     };
+    // @ts-ignore
     utils.default = () => Promise.resolve({ jsonResponse, sessionHeader });
 
     const response = await API_CALLS[request.name]({}, {});

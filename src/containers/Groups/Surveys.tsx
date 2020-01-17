@@ -17,6 +17,7 @@ import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
 import OnboardingCard, { GROUP_ONBOARDING_TYPES } from './OnboardingCard';
 
+// @ts-ignore
 @withTranslation('groupsSurveys')
 class Surveys extends Component {
   state = {
@@ -24,12 +25,14 @@ class Surveys extends Component {
   };
 
   componentDidMount() {
+    // @ts-ignore
     if (this.props.surveys.length === 0) {
       this.load();
     }
   }
 
   load = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(refreshCommunity(organization.id));
     return dispatch(getOrgSurveys(organization.id));
@@ -39,7 +42,9 @@ class Surveys extends Component {
     refresh(this, this.load);
   };
 
+  // @ts-ignore
   handleSelect = survey => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(
       navigatePush(GROUPS_SURVEY_CONTACTS, {
@@ -50,17 +55,22 @@ class Surveys extends Component {
   };
 
   handleLoadMore = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(getOrgSurveysNextPage(organization.id));
   };
 
+  // @ts-ignore
   renderItem = ({ item }) => (
+    // @ts-ignore
     <GroupSurveyItem survey={item} onSelect={this.handleSelect} />
   );
 
+  // @ts-ignore
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />;
 
   render() {
+    // @ts-ignore
     const { surveys, pagination } = this.props;
     return (
       <View style={styles.pageContainer}>
@@ -89,15 +99,18 @@ class Surveys extends Component {
   }
 }
 
+// @ts-ignore
 Surveys.propTypes = {
   organization: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ organizations }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     // organizations may have _placeholder surveys until the mounting request is completed
+    // @ts-ignore
     surveys: (organization.surveys || []).filter(s => !s._placeHolder),
     pagination: organizations.surveysPagination,
     organization,

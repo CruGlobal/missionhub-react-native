@@ -59,13 +59,18 @@ const store = createThunkStore({
   },
 });
 
+// @ts-ignore
 personSelector.mockReturnValue(person);
+// @ts-ignore
 navigateBack.mockReturnValue({ type: 'navigated back' });
+// @ts-ignore
 navigatePush.mockReturnValue({ type: 'navigated push' });
+// @ts-ignore
 assignContactAndPickStage.mockReturnValue({
   type: 'assigned contact and picked stage',
 });
 
+// @ts-ignore
 let component;
 
 const createComponent = (extraProps = {}) => {
@@ -83,31 +88,40 @@ const createComponent = (extraProps = {}) => {
 
 describe('PersonSideMenu', () => {
   describe('person has org permission', () => {
+    // @ts-ignore
     beforeEach(() => orgPermissionSelector.mockReturnValue(orgPermission));
 
     describe('unassign', () => {
       it('renders correctly', () => {
+        // @ts-ignore
         contactAssignmentSelector.mockReturnValue(contactAssignment);
         createComponent();
 
+        // @ts-ignore
         expect(component).toMatchSnapshot();
       });
 
       it('edit button works', () => {
+        // @ts-ignore
         testEditClick(component);
       });
 
       it('unassign button works', () => {
+        // @ts-ignore
         testUnassignClick(component);
       });
     });
 
     it('renders assign correctly', () => {
+      // @ts-ignore
       contactAssignmentSelector.mockReturnValue(undefined);
       createComponent();
 
+      // @ts-ignore
       expect(component).toMatchSnapshot();
+      // @ts-ignore
       testEditClick(component);
+      // @ts-ignore
       testAssignClick(component);
     });
 
@@ -115,11 +129,13 @@ describe('PersonSideMenu', () => {
       const newOrg = { ...organization, user_created: true };
       createComponent({ organization: newOrg });
 
+      // @ts-ignore
       expect(component).toMatchSnapshot();
     });
 
     it('should navigate back 2 on submit reason', () => {
       createComponent();
+      // @ts-ignore
       const instance = component.instance();
       instance.onSubmitReason();
       expect(navigateBack).toHaveBeenCalledWith(2);
@@ -127,9 +143,11 @@ describe('PersonSideMenu', () => {
   });
 
   describe('person does not have org permission', () => {
+    // @ts-ignore
     beforeEach(() => orgPermissionSelector.mockReturnValue(null));
 
     it('renders delete correctly', () => {
+      // @ts-ignore
       contactAssignmentSelector.mockReturnValue(contactAssignment);
 
       component = testSnapshotShallow(
@@ -143,6 +161,7 @@ describe('PersonSideMenu', () => {
     });
 
     it('should set deleteOnUnmount when person confirms delete', () => {
+      // @ts-ignore
       contactAssignmentSelector.mockReturnValue(contactAssignment);
       component = renderShallow(
         <PersonSideMenu
@@ -155,17 +174,21 @@ describe('PersonSideMenu', () => {
       const props = component.props();
       Alert.alert = jest.fn();
 
+      // @ts-ignore
       props.menuItems.find(item => item.label === 'Delete Person').action();
 
       expect(Alert.alert).toHaveBeenCalledTimes(1);
       //Manually call onPress
+      // @ts-ignore
       Alert.alert.mock.calls[0][2][1].onPress();
+      // @ts-ignore
       expect(component.instance().deleteOnUnmount).toEqual(true);
       expect(navigateBack).toHaveBeenCalledWith(2);
     });
 
     describe('componentWillUnmount', () => {
       beforeEach(() =>
+        // @ts-ignore
         deleteContactAssignment.mockImplementation(response => () =>
           Promise.resolve(response),
         ),
@@ -173,6 +196,7 @@ describe('PersonSideMenu', () => {
 
       it('should delete person if deleteOnUnmount is set', async () => {
         createComponent();
+        // @ts-ignore
         const instance = component.instance();
         instance.deleteOnUnmount = true;
 
@@ -186,8 +210,10 @@ describe('PersonSideMenu', () => {
       });
 
       it('should do nothing if deleteOnUnmount is not set', async () => {
+        // @ts-ignore
         contactAssignmentSelector.mockReturnValue(contactAssignment);
         createComponent();
+        // @ts-ignore
         const instance = component.instance();
 
         await instance.componentWillUnmount();
@@ -198,8 +224,10 @@ describe('PersonSideMenu', () => {
   });
 });
 
+// @ts-ignore
 function testEditClick(component, org = organization) {
   const props = component.props();
+  // @ts-ignore
   props.menuItems.filter(item => item.label === 'Edit')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
@@ -208,8 +236,10 @@ function testEditClick(component, org = organization) {
   });
 }
 
+// @ts-ignore
 function testAssignClick(component) {
   const props = component.props();
+  // @ts-ignore
   props.menuItems.filter(item => item.label === 'Assign')[0].action();
   expect(assignContactAndPickStage).toHaveBeenCalledWith(
     person,
@@ -218,10 +248,12 @@ function testAssignClick(component) {
   );
 }
 
+// @ts-ignore
 function testUnassignClick(component) {
   const props = component.props();
   const onSubmit = component.instance().onSubmitReason;
 
+  // @ts-ignore
   props.menuItems.filter(item => item.label === 'Unassign')[0].action();
   expect(navigatePush).toHaveBeenCalledTimes(1);
   expect(navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {

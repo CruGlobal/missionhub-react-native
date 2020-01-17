@@ -21,6 +21,7 @@ export const JoinByCodeFlowScreens = {
       dispatch(setScrollGroups(community.id));
       dispatch(navigateToMainTabs(GROUPS_TAB));
     }),
+    // @ts-ignore
     buildTrackingObj('communities : join', 'communities', 'join'),
     { gesturesEnabled: true },
   ),

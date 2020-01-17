@@ -21,6 +21,7 @@ import Analytics from '../../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupsJoinGroup')
 class JoinGroupScreen extends Component {
   state = {
@@ -32,11 +33,13 @@ class JoinGroupScreen extends Component {
   componentDidMount() {
     // Pause before focus so that the other screen can disappear before the keyboard comes up
     setTimeout(
+      // @ts-ignore
       () => this.codeInput && this.codeInput.focus && this.codeInput.focus(),
       350,
     );
   }
 
+  // @ts-ignore
   onChangeCode = code => {
     this.setState({ code: code.toUpperCase() }, () => {
       if (code.length >= 6) {
@@ -47,8 +50,10 @@ class JoinGroupScreen extends Component {
 
   onSearch = async () => {
     const {
+      // @ts-ignore
       codeInput,
       state: { code },
+      // @ts-ignore
       props: { t, dispatch },
     } = this;
 
@@ -79,6 +84,7 @@ class JoinGroupScreen extends Component {
   };
 
   navigateNext = () => {
+    // @ts-ignore
     const { dispatch, next } = this.props;
     const { community } = this.state;
     Keyboard.dismiss();
@@ -90,12 +96,15 @@ class JoinGroupScreen extends Component {
     );
   };
 
+  // @ts-ignore
   ref = c => (this.codeInput = c);
 
   renderStart() {
+    // @ts-ignore
     const { t } = this.props;
     return (
       <Flex align="center" justify="center">
+        // @ts-ignore
         <Image resizeMode="contain" source={GROUP_ICON} style={styles.image} />
         <Text style={styles.text}>{t('enterCode')}</Text>
       </Flex>
@@ -115,12 +124,19 @@ class JoinGroupScreen extends Component {
     const { community } = this.state;
 
     const {
+      // @ts-ignore
       id,
+      // @ts-ignore
       name,
+      // @ts-ignore
       owner,
+      // @ts-ignore
       contactReport = {},
+      // @ts-ignore
       user_created,
+      // @ts-ignore
       community_photo_url,
+      // @ts-ignore
       unread_comments_count,
     } = community;
 
@@ -147,10 +163,12 @@ class JoinGroupScreen extends Component {
       unreadCommentsCount: unread_comments_count,
     };
 
+    // @ts-ignore
     return <GroupCardItem group={group} onJoin={this.navigateNext} />;
   }
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
     const { code, errorMessage, community } = this.state;
 
@@ -192,6 +210,7 @@ class JoinGroupScreen extends Component {
   }
 }
 
+// @ts-ignore
 JoinGroupScreen.propTypes = {
   next: PropTypes.func.isRequired,
 };

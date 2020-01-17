@@ -12,6 +12,7 @@ export const EditPersonFlowScreens = {
     wrapNextAction(AddContactScreen, () => dispatch => {
       dispatch(navigateBack());
     }),
+    // @ts-ignore
     buildTrackingObj(),
   ),
 };

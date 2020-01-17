@@ -32,12 +32,14 @@ jest.mock('../../person');
 jest.mock('../../people');
 jest.mock('../../stages');
 jest.mock('../../steps');
+// @ts-ignore
 callApi.default = jest.fn().mockReturnValue({ type: 'test-action' });
 
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
 const mockStore = configureStore([thunk]);
 
+// @ts-ignore
 let store;
 
 beforeEach(() => {
@@ -78,6 +80,7 @@ describe('updateLocaleAndTimezone', () => {
       },
     };
 
+    // @ts-ignore
     store.dispatch(updateLocaleAndTimezone());
     expect(callApi.default).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ME_USER,
@@ -100,6 +103,7 @@ describe('authSuccess', () => {
       },
     });
 
+    // @ts-ignore
     getMe.mockReturnValue(() =>
       Promise.resolve({
         global_registry_mdm_id,
@@ -108,12 +112,14 @@ describe('authSuccess', () => {
   });
 
   it('should set Rollbar user id', async () => {
+    // @ts-ignore
     await store.dispatch(authSuccess());
 
     expect(rollbar.setPerson).toHaveBeenCalledWith(`${personId}`);
   });
 
   it('should track global registry master person id', async () => {
+    // @ts-ignore
     await store.dispatch(authSuccess());
 
     expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(
@@ -133,14 +139,22 @@ describe('loadHome', () => {
   };
 
   it('loads me, organizations, stages, timezone, and notifications', async () => {
+    // @ts-ignore
     getMe.mockReturnValue(getMeResult);
+    // @ts-ignore
     getMyPeople.mockReturnValue(getPeopleResult);
+    // @ts-ignore
     getMySteps.mockReturnValue(getStepsResult);
+    // @ts-ignore
     getMyCommunities.mockReturnValue(getMyCommunitiesResult);
+    // @ts-ignore
     getStagesIfNotExists.mockReturnValue(getStagesResult);
+    // @ts-ignore
     showReminderOnLoad.mockReturnValue(notificationsResult);
+    // @ts-ignore
     callApi.default.mockReturnValue(updateUserResult);
 
+    // @ts-ignore
     await store.dispatch(loadHome());
 
     expect(callApi.default).toHaveBeenCalledWith(
@@ -152,6 +166,7 @@ describe('loadHome', () => {
       NOTIFICATION_PROMPT_TYPES.LOGIN,
     );
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       getMeResult,
       getPeopleResult,
@@ -174,6 +189,7 @@ describe('loadHome', () => {
         },
       },
     });
+    // @ts-ignore
     await store.dispatch(loadHome());
 
     expect(store.getActions()).toEqual([]);

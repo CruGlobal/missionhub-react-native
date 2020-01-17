@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+// @ts-ignore
 export function getDate(date) {
   if (!date) {
     return new Date();
@@ -12,6 +13,7 @@ export function getDate(date) {
   return moment(date).toDate();
 }
 
+// @ts-ignore
 export function modeIs24Hour(format) {
   return !!format.match(/H|k/);
 }

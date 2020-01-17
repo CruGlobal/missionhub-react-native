@@ -13,8 +13,10 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('notes')
 export class ContactNotes extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
 
@@ -33,6 +35,7 @@ export class ContactNotes extends Component {
     this.getNote();
   }
 
+  // @ts-ignore
   UNSAFE_componentWillReceiveProps(props) {
     if (!props.isActiveTab) {
       this.saveNote();
@@ -40,8 +43,10 @@ export class ContactNotes extends Component {
   }
 
   async getNote() {
+    // @ts-ignore
     const { person, myUserId } = this.props;
 
+    // @ts-ignore
     const results = await this.props.dispatch(
       getPersonNote(person.id, myUserId),
     );
@@ -51,6 +56,7 @@ export class ContactNotes extends Component {
     this.setState({ noteId, text });
   }
 
+  // @ts-ignore
   onTextChanged(text) {
     this.setState({ text });
   }
@@ -58,12 +64,18 @@ export class ContactNotes extends Component {
   saveNote() {
     Keyboard.dismiss();
 
+    // @ts-ignore
     if (this.state.editing) {
+      // @ts-ignore
       this.props.dispatch(
         savePersonNote(
+          // @ts-ignore
           this.props.person.id,
+          // @ts-ignore
           this.state.text,
+          // @ts-ignore
           this.state.noteId,
+          // @ts-ignore
           this.props.myUserId,
         ),
       );
@@ -73,20 +85,25 @@ export class ContactNotes extends Component {
   }
 
   onButtonPress() {
+    // @ts-ignore
     if (this.state.editing) {
       this.saveNote();
     } else {
       this.setState({ editing: true }, () => {
+        // @ts-ignore
         this.notesInput.focus();
       });
     }
   }
 
   getButtonText() {
+    // @ts-ignore
     const t = this.props.t;
 
+    // @ts-ignore
     if (this.state.editing) {
       return t('done');
+      // @ts-ignore
     } else if (this.state.text) {
       return t('edit');
     } else {
@@ -94,20 +111,25 @@ export class ContactNotes extends Component {
     }
   }
 
+  // @ts-ignore
   inputRef = c => (this.notesInput = c);
 
   renderNotes() {
+    // @ts-ignore
     if (this.state.editing) {
       return (
         <Flex value={1}>
           <Input
             ref={this.inputRef}
             onChangeText={this.onTextChanged}
+            // @ts-ignore
             editable={this.state.editing}
+            // @ts-ignore
             value={this.state.text}
             style={styles.notesText}
             multiline={true}
             blurOnSubmit={false}
+            // @ts-ignore
             autoGrow={false}
             autoCorrect={true}
           />
@@ -117,6 +139,7 @@ export class ContactNotes extends Component {
     return (
       <Flex value={1}>
         <ScrollView>
+          // @ts-ignore
           <Text style={styles.notesText}>{this.state.text}</Text>
         </ScrollView>
       </Flex>
@@ -124,6 +147,7 @@ export class ContactNotes extends Component {
   }
 
   renderEmpty() {
+    // @ts-ignore
     const { t, person, myPersonId } = this.props;
     const isMe = person.id === myPersonId;
     const text = t(isMe ? 'promptMe' : 'prompt', {
@@ -140,6 +164,7 @@ export class ContactNotes extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { text, editing } = this.state;
     return (
       <View style={styles.container}>
@@ -154,11 +179,13 @@ export class ContactNotes extends Component {
   }
 }
 
+// @ts-ignore
 ContactNotes.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }) => ({
   myPersonId: auth.person.id,
   myUserId: auth.person.user.id,

@@ -10,8 +10,10 @@ import theme from '../../theme';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('search')
 class SearchList extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
 
@@ -22,10 +24,12 @@ class SearchList extends Component {
       listHasScrolled: false,
     };
 
+    // @ts-ignore
     this.handleSearchDebounced = debounce(this.handleSearch, 300);
   }
 
   componentDidMount() {
+    // @ts-ignore
     const { setSearch } = this.props;
     // Share search instance with parent
     setSearch && setSearch(this.search);
@@ -33,24 +37,31 @@ class SearchList extends Component {
 
   // Kick off search from an outer component using refs
   search = () => {
+    // @ts-ignore
     this.handleSearch(this.state.text);
   };
 
   handleFilter = () => {
+    // @ts-ignore
     this.props.onFilterPress();
   };
 
+  // @ts-ignore
   handleTextChange = t => {
     this.setState({ text: t, isSearching: true });
+    // @ts-ignore
     this.handleSearchDebounced(t);
   };
 
+  // @ts-ignore
   handleSearch = async text => {
+    // @ts-ignore
     if (!this.state.isSearching) {
       this.setState({ isSearching: true });
     }
 
     try {
+      // @ts-ignore
       const results = await this.props.onSearch(text);
       this.setState({ isSearching: false, results: results || [] });
     } catch (err) {
@@ -59,6 +70,7 @@ class SearchList extends Component {
   };
 
   handleOnEndReached = async () => {
+    // @ts-ignore
     const { listHasScrolled, text, isSearching, results } = this.state;
     if (!listHasScrolled || isSearching) {
       return;
@@ -66,6 +78,7 @@ class SearchList extends Component {
 
     this.setState({ isSearching: true });
 
+    // @ts-ignore
     const newResults = await this.props.onLoadMore(text);
 
     this.setState({
@@ -76,6 +89,7 @@ class SearchList extends Component {
   };
 
   handleScrollEndDrag = () => {
+    // @ts-ignore
     if (!this.state.listHasScrolled) {
       this.setState({ listHasScrolled: true });
     }
@@ -83,22 +97,30 @@ class SearchList extends Component {
 
   clearSearch = () => {
     this.setState({ text: '', results: [], isSearching: false }, () =>
+      // @ts-ignore
       this.handleSearchDebounced(),
     );
   };
 
+  // @ts-ignore
   removeFilter = async key => {
+    // @ts-ignore
     await this.props.onRemoveFilter(key);
+    // @ts-ignore
     this.handleSearchDebounced(this.state.text);
   };
 
+  // @ts-ignore
   ref = c => (this.searchInput = c);
 
   renderCenter() {
+    // @ts-ignore
     const { t, placeholder } = this.props;
+    // @ts-ignore
     const { text } = this.state;
     return (
       <View
+        // @ts-ignore
         flex={1}
         flexDirection="row"
         alignItems="center"
@@ -130,6 +152,7 @@ class SearchList extends Component {
   }
 
   renderFilters() {
+    // @ts-ignore
     const { filters } = this.props;
     const keys = Object.keys(filters).filter(k => filters[k]);
     if (keys.length === 0) {
@@ -141,6 +164,7 @@ class SearchList extends Component {
         {keys.map(k => (
           <View
             key={filters[k].id}
+            // @ts-ignore
             flexDirection="row"
             alignItems="center"
             style={styles.activeFilterRow}
@@ -159,12 +183,14 @@ class SearchList extends Component {
     );
   }
 
+  // @ts-ignore
   keyExtractor = i => i.unique_key || i.id;
 
   renderHeader() {
     return (
       <View style={styles.searchWrap}>
         <View
+          // @ts-ignore
           flexDirection="row"
           alignItems="center"
           style={styles.searchFilterWrap}
@@ -183,15 +209,20 @@ class SearchList extends Component {
   }
 
   renderEmpty() {
+    // @ts-ignore
     return this.state.isSearching ? null : (
+      // @ts-ignore
       <View alignItems="center" flex={1} style={styles.emptyWrap}>
+        // @ts-ignore
         <Text style={styles.nullText}>{this.props.t('noResults')}</Text>
       </View>
     );
   }
 
   renderContent() {
+    // @ts-ignore
     const { listProps, defaultData = [] } = this.props;
+    // @ts-ignore
     const { results } = this.state;
     const resultsLength = results.length;
 
@@ -211,13 +242,16 @@ class SearchList extends Component {
   }
 
   renderListFooter() {
+    // @ts-ignore
     return this.state.isSearching ? (
       <LoadingWheel style={styles.loadingIndicator} />
     ) : null;
   }
 
   render() {
+    // @ts-ignore
     const { defaultData = [] } = this.props;
+    // @ts-ignore
     const { results, isSearching } = this.state;
     const resultsLength = results.length;
 
@@ -232,6 +266,7 @@ class SearchList extends Component {
   }
 }
 
+// @ts-ignore
 SearchList.propTypes = {
   onFilterPress: PropTypes.func.isRequired,
   listProps: PropTypes.object.isRequired,

@@ -32,6 +32,7 @@ import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 import { getMySteps } from './steps';
 
+// @ts-ignore
 export function getMe(extraInclude) {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
@@ -40,6 +41,7 @@ export function getMe(extraInclude) {
     ? `${personInclude},${extraInclude}`
     : personInclude;
 
+  // @ts-ignore
   return async dispatch => {
     const { response: person } = await dispatch(
       callApi(REQUESTS.GET_ME, { include }),
@@ -48,10 +50,12 @@ export function getMe(extraInclude) {
   };
 }
 
+// @ts-ignore
 export function getPersonDetails(id, orgId) {
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
+  // @ts-ignore
   return async dispatch => {
     if (!id) {
       return Promise.reject(
@@ -69,6 +73,7 @@ export function getPersonDetails(id, orgId) {
     const orgPermission =
       orgId &&
       (person.organizational_permissions || []).find(
+        // @ts-ignore
         o => o.organization_id === orgId,
       );
     return dispatch({
@@ -80,7 +85,9 @@ export function getPersonDetails(id, orgId) {
   };
 }
 
+// @ts-ignore
 export function savePersonNote(personId, notes, noteId, myId) {
+  // @ts-ignore
   return dispatch => {
     if (!personId) {
       return Promise.reject(
@@ -118,14 +125,18 @@ export function savePersonNote(personId, notes, noteId, myId) {
   };
 }
 
+// @ts-ignore
 export function getPersonNote(personId, myId) {
+  // @ts-ignore
   return dispatch => {
     const query = { person_id: personId, include: 'person_notes' };
 
+    // @ts-ignore
     return dispatch(callApi(REQUESTS.GET_PERSON_NOTE, query)).then(results => {
       const person = results.find('person', personId);
       if (person && person.person_notes) {
         const notes = person.person_notes;
+        // @ts-ignore
         return notes.find(element => {
           return element.user_id == myId;
         });
@@ -135,17 +146,21 @@ export function getPersonNote(personId, myId) {
   };
 }
 
+// @ts-ignore
 export function getPersonJourneyDetails(id) {
+  // @ts-ignore
   return dispatch => {
     const query = {
       person_id: id,
       include:
         'pathway_progression_audits.old_pathway_stage,pathway_progression_audits.new_pathway_stage,interactions.comment,answer_sheets.answers,answer_sheets.survey.active_survey_elements.question',
     };
+    // @ts-ignore
     return dispatch(callApi(REQUESTS.GET_PERSON_JOURNEY, query));
   };
 }
 
+// @ts-ignore
 export function updatePersonAttributes(personId, personAttributes) {
   return {
     type: UPDATE_PERSON_ATTRIBUTES,
@@ -156,10 +171,12 @@ export function updatePersonAttributes(personId, personAttributes) {
   };
 }
 
+// @ts-ignore
 export function updatePerson(data) {
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
+  // @ts-ignore
   return async dispatch => {
     if (!(data && data.id)) {
       return dispatch({
@@ -181,6 +198,7 @@ export function updatePerson(data) {
       attributes = { ...(attributes || {}), gender: data.gender };
     }
     if (attributes) {
+      // @ts-ignore
       updateData.attributes = attributes;
     }
     const bodyData = {
@@ -260,7 +278,9 @@ export function updatePerson(data) {
   };
 }
 
+// @ts-ignore
 export function makeAdmin(personId, orgPermissionId) {
+  // @ts-ignore
   return async dispatch => {
     const results = await dispatch(
       updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.ADMIN),
@@ -271,7 +291,9 @@ export function makeAdmin(personId, orgPermissionId) {
   };
 }
 
+// @ts-ignore
 export function removeAsAdmin(personId, orgPermissionId) {
+  // @ts-ignore
   return async dispatch => {
     const results = await dispatch(
       updateOrgPermission(personId, orgPermissionId, ORG_PERMISSIONS.USER),
@@ -283,10 +305,14 @@ export function removeAsAdmin(personId, orgPermissionId) {
 }
 
 export function updateOrgPermission(
+  // @ts-ignore
   personId,
+  // @ts-ignore
   orgPermissionId,
+  // @ts-ignore
   permissionLevel,
 ) {
+  // @ts-ignore
   return dispatch => {
     const data = {
       id: personId,
@@ -299,7 +325,9 @@ export function updateOrgPermission(
   };
 }
 
+// @ts-ignore
 export function archiveOrgPermission(personId, orgPermissionId) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     const results = await dispatch(
       updatePerson({
@@ -325,7 +353,9 @@ export function archiveOrgPermission(personId, orgPermissionId) {
   };
 }
 
+// @ts-ignore
 export function updateFollowupStatus(person, orgPermissionId, status) {
+  // @ts-ignore
   return async dispatch => {
     const data = {
       data: {
@@ -350,6 +380,7 @@ export function updateFollowupStatus(person, orgPermissionId, status) {
     return dispatch(
       updatePersonAttributes(person.id, {
         organizational_permissions: person.organizational_permissions.map(
+          // @ts-ignore
           orgPermission =>
             orgPermission.id === orgPermissionId
               ? { ...orgPermission, followup_status: status }
@@ -361,10 +392,14 @@ export function updateFollowupStatus(person, orgPermissionId, status) {
 }
 
 export function createContactAssignment(
+  // @ts-ignore
   organizationId,
+  // @ts-ignore
   personAssignedToId,
+  // @ts-ignore
   personReceiverId,
 ) {
+  // @ts-ignore
   return async dispatch => {
     const data = {
       included: [
@@ -385,7 +420,9 @@ export function createContactAssignment(
   };
 }
 
+// @ts-ignore
 export function deleteContactAssignment(id, personId, personOrgId, note = '') {
+  // @ts-ignore
   return async dispatch => {
     const data = {
       data: {
@@ -413,7 +450,9 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
+// @ts-ignore
 export function navToPersonScreen(person, org, props = {}) {
+  // @ts-ignore
   return (dispatch, getState) => {
     const organization = org ? org : {};
     const { auth, people, organizations } = getState();
@@ -452,14 +491,19 @@ export function navToPersonScreen(person, org, props = {}) {
 }
 
 export function getPersonScreenRoute(
+  // @ts-ignore
   mePerson,
+  // @ts-ignore
   person,
+  // @ts-ignore
   organization,
+  // @ts-ignore
   contactAssignment,
 ) {
   const isMe = person.id === mePerson.id;
 
   const isMember = hasOrgPermissions(
+    // @ts-ignore
     orgPermissionSelector(null, {
       person: person,
       organization,

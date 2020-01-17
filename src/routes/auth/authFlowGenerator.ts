@@ -10,6 +10,7 @@ import { MFA_CODE_SCREEN } from '../../containers/Auth/MFACodeScreen';
 import MFACodeScreen from '../../containers/Auth/MFACodeScreen';
 
 export const authFlowGenerator = ({
+  // @ts-ignore
   completeAction,
   includeSignUp = true,
   signUpType = null,
@@ -23,6 +24,7 @@ export const authFlowGenerator = ({
               signIn ? navigatePush(SIGN_IN_SCREEN) : completeAction,
             { signUpType },
           ),
+          // @ts-ignore
           buildTrackingObj('auth', 'auth'),
         ),
       }
@@ -33,11 +35,13 @@ export const authFlowGenerator = ({
         ? navigatePush(MFA_CODE_SCREEN, { email, password })
         : completeAction,
     ),
+    // @ts-ignore
     buildTrackingObj('auth : sign in', 'auth'),
     { gesturesEnabled: true },
   ),
   [MFA_CODE_SCREEN]: buildTrackedScreen(
     wrapNextAction(MFACodeScreen, () => completeAction),
+    // @ts-ignore
     buildTrackingObj('auth : verification', 'auth'),
   ),
 });

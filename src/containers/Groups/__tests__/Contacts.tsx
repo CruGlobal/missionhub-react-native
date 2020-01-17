@@ -28,10 +28,12 @@ const organization = { id: orgId, name: 'Test Org' };
 
 const store = createThunkStore({ organizations: { all: [organization] } });
 
+// @ts-ignore
 getOrganizationContacts.mockReturnValue({
   type: 'got org contacts',
   response: people,
 });
+// @ts-ignore
 buildUpdatedPagination.mockReturnValue({});
 
 describe('Contacts', () => {
@@ -43,13 +45,17 @@ describe('Contacts', () => {
 
   it('should load contacts with filter', async () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleSearch = jest.fn(() => Promise.resolve(people));
+    // @ts-ignore
     await instance.loadContactsWithFilters();
+    // @ts-ignore
     expect(instance.state.defaultResults).toEqual(people);
   });
 
   it('should handleFilterPress correctly', () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleFilterPress();
     expect(navigatePush).toHaveBeenCalled();
   });
@@ -59,12 +65,15 @@ describe('Contacts', () => {
     const newFilters = {
       filter1: { id: '1' },
     };
+    // @ts-ignore
     instance.handleChangeFilter(newFilters);
+    // @ts-ignore
     expect(instance.state.filters).toEqual(newFilters);
   });
 
   it('should handleSearch correctly', async () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     const result = await instance.handleSearch('test');
     expect(result).toEqual(people);
   });
@@ -77,9 +86,12 @@ describe('Contacts', () => {
         filter2: { id: '2', text: 'Last 7 days' },
       },
     });
+    // @ts-ignore
     await instance.handleRemoveFilter('filter1');
 
+    // @ts-ignore
     expect(Object.keys(instance.state.filters)).toHaveLength(1);
+    // @ts-ignore
     expect(instance.state.filters.filter2).toMatchObject({
       id: '2',
       text: 'Last 7 days',
@@ -97,17 +109,21 @@ describe('Contacts', () => {
     listItem.props.onSelect(person);
 
     expect(navToPersonScreen).toHaveBeenCalledWith(person, organization, {
+      // @ts-ignore
       onAssign: screen.instance().handleRefreshSearchList,
     });
   });
   it('should set searchListSearch when setSearch is called', () => {
     const instance = renderShallow(component, store).instance();
     const childSearch = () => {};
+    // @ts-ignore
     instance.setSearch(childSearch);
+    // @ts-ignore
     expect(instance.searchListSearch).toEqual(childSearch);
   });
   it('should render item', () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     const renderedItem = instance.renderItem({ item: people[0] });
     expect(renderedItem).toMatchSnapshot();
   });

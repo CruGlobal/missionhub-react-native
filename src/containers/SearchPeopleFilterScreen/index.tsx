@@ -21,8 +21,10 @@ import BackButton from '../BackButton';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('searchFilter')
 export class SearchPeopleFilterScreen extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     const { t, filters } = props;
@@ -93,16 +95,24 @@ export class SearchPeopleFilterScreen extends Component {
 
   componentDidMount() {
     // If we haven't requested any of this info, or none exists, go ahead and get it
+    // @ts-ignore
     if (!this.props.organizations.length) {
+      // @ts-ignore
       this.props.dispatch(getMyOrganizations());
     }
+    // @ts-ignore
     if (!this.props.groups.length) {
+      // @ts-ignore
       this.props.dispatch(getMyGroups());
     }
+    // @ts-ignore
     if (!this.props.surveys.length) {
+      // @ts-ignore
       this.props.dispatch(getMySurveys());
     }
+    // @ts-ignore
     if (!this.props.labels.length) {
+      // @ts-ignore
       this.props.dispatch(getMyLabels());
     }
     Keyboard.dismiss();
@@ -125,38 +135,49 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   loadOrgs() {
+    // @ts-ignore
     return this.props.dispatch(getMyOrganizations());
   }
 
   loadGroups() {
+    // @ts-ignore
     return this.props.dispatch(getMyGroups());
   }
 
   loadSurveys() {
+    // @ts-ignore
     return this.props.dispatch(getMySurveys());
   }
 
   loadLabels() {
+    // @ts-ignore
     return this.props.dispatch(getMyLabels());
   }
 
   setFilter(filters = {}) {
     this.setState({ filters });
+    // @ts-ignore
     this.props.onFilter(filters);
   }
 
+  // @ts-ignore
   handleDrillDown(item) {
     // Pull the options from the props that were not loaded when this was initialized
     const options =
+      // @ts-ignore
       isString(item.options) && this.props[item.options]
-        ? this.props[item.options]
+        ? // @ts-ignore
+          this.props[item.options]
         : item.options;
+    // @ts-ignore
     this.props.dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
         title: item.text,
         options,
+        // @ts-ignore
         filters: this.state.filters,
+        // @ts-ignore
         trackingObj: buildTrackingObj(
           `search : refine : ${item.id}`,
           'search',
@@ -167,17 +188,21 @@ export class SearchPeopleFilterScreen extends Component {
     );
     this.setState({ selectedFilterId: item.id });
 
+    // @ts-ignore
     this.props.dispatch(trackSearchFilter(item.id));
   }
 
+  // @ts-ignore
   handleToggle(item) {
     if (!item) {
       return;
     }
+    // @ts-ignore
     const newFilter = { ...this.state.filters };
     const field = item.id;
     const newValue = !item.selected;
     newFilter[field] = newValue ? item : undefined;
+    // @ts-ignore
     const toggleOptions = this.state.toggleOptions.map(o => ({
       ...o,
       selected: o.id === item.id ? newValue : o.selected,
@@ -186,16 +211,22 @@ export class SearchPeopleFilterScreen extends Component {
     this.setFilter(newFilter);
   }
 
+  // @ts-ignore
   handleSelectFilter(item) {
+    // @ts-ignore
     const newOptions = this.state.options.map(o => ({
       ...o,
+      // @ts-ignore
       preview: o.id === this.state.selectedFilterId ? item.text : o.preview,
     }));
     const filters = {
+      // @ts-ignore
       ...this.state.filters,
+      // @ts-ignore
       [this.state.selectedFilterId]: item,
     };
     if (item.id === 'any') {
+      // @ts-ignore
       delete filters[this.state.selectedFilterId];
     }
     this.setState({ options: newOptions });
@@ -203,6 +234,7 @@ export class SearchPeopleFilterScreen extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
     return (
       <View style={styles.pageContainer}>
@@ -211,11 +243,13 @@ export class SearchPeopleFilterScreen extends Component {
           style={styles.list}
           refreshControl={
             <RefreshControl
+              // @ts-ignore
               refreshing={this.state.refreshing}
               onRefresh={this.reloadAll}
             />
           }
         >
+          // @ts-ignore
           {this.state.options.map(o => (
             <FilterItem
               key={o.id}
@@ -224,6 +258,7 @@ export class SearchPeopleFilterScreen extends Component {
               type="drilldown"
             />
           ))}
+          // @ts-ignore
           {this.state.toggleOptions.map(o => (
             <FilterItem
               key={o.id}
@@ -239,13 +274,16 @@ export class SearchPeopleFilterScreen extends Component {
   }
 }
 
+// @ts-ignore
 SearchPeopleFilterScreen.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (
+  // @ts-ignore
   { organizations, groups, surveys, labels },
+  // @ts-ignore
   { navigation },
 ) => ({
   ...(navigation.state.params || {}),

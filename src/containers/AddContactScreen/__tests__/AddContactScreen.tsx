@@ -47,27 +47,36 @@ const nextResponse = { type: 'next' };
 
 const next = jest.fn();
 
+// @ts-ignore
 let store;
 const state = {
   auth: { person: me },
 };
 
+// @ts-ignore
 let component;
+// @ts-ignore
 let instance;
 
+// @ts-ignore
 function buildScreen(props) {
+  // @ts-ignore
   component = renderShallow(<AddContactScreen {...props} />, store);
   return component;
 }
 
+// @ts-ignore
 function buildScreenInstance(props) {
   instance = buildScreen(props).instance();
   return instance;
 }
 
 beforeEach(() => {
+  // @ts-ignore
   addNewPerson.mockReturnValue(addNewPersonResponse);
+  // @ts-ignore
   updatePerson.mockReturnValue(updatePersonResponse);
+  // @ts-ignore
   trackActionWithoutData.mockReturnValue(trackActionResponse);
   next.mockReturnValue(nextResponse);
   Alert.alert = jest.fn();
@@ -78,6 +87,7 @@ beforeEach(() => {
 it('renders correctly', () => {
   testSnapshotShallow(
     <AddContactScreen navigation={createMockNavState({ next })} />,
+    // @ts-ignore
     store,
   );
 });
@@ -86,12 +96,14 @@ describe('handleUpdateData', () => {
   it('should update the state', () => {
     buildScreen({ navigation: createMockNavState() });
 
+    // @ts-ignore
     component
       .childAt(2)
       .childAt(0)
       .props()
       .onUpdateData({ firstName: contactFName });
 
+    // @ts-ignore
     expect(component.instance().state).toEqual({
       person: { firstName: contactFName },
     });
@@ -104,6 +116,7 @@ describe('completeWithoutSave', () => {
       navigation: createMockNavState({ next, person, organization }),
     });
 
+    // @ts-ignore
     instance.completeWithoutSave();
   });
 
@@ -117,7 +130,9 @@ describe('completeWithoutSave', () => {
 });
 
 describe('savePerson', () => {
+  // @ts-ignore
   let navPerson = undefined;
+  // @ts-ignore
   let navOrg = undefined;
   let newData = {};
 
@@ -126,19 +141,24 @@ describe('savePerson', () => {
   beforeEach(async () => {
     buildScreen({
       navigation: createMockNavState({
+        // @ts-ignore
         person: navPerson,
+        // @ts-ignore
         organization: navOrg,
         next,
       }),
     });
 
+    // @ts-ignore
     component.instance().setState({
       person: {
+        // @ts-ignore
         ...component.instance().state.person,
         ...newData,
       },
     });
 
+    // @ts-ignore
     await component
       .childAt(3)
       .props()
@@ -169,6 +189,7 @@ describe('savePerson', () => {
           orgId: undefined,
           didSavePerson: true,
         });
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           addNewPersonResponse,
           trackActionResponse,
@@ -196,6 +217,7 @@ describe('savePerson', () => {
           orgId: organization.id,
           didSavePerson: true,
         });
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           addNewPersonResponse,
           trackActionResponse,
@@ -218,6 +240,7 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', () => {
         expect(updatePerson).toHaveBeenCalledWith({
+          // @ts-ignore
           ...navPerson,
           firstName: newName,
           assignToMe: true,
@@ -228,6 +251,7 @@ describe('savePerson', () => {
           orgId: undefined,
           didSavePerson: true,
         });
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           updatePersonResponse,
           nextResponse,
@@ -242,6 +266,7 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', () => {
         expect(updatePerson).toHaveBeenCalledWith({
+          // @ts-ignore
           ...navPerson,
           firstName: newName,
           orgId: organization.id,
@@ -253,6 +278,7 @@ describe('savePerson', () => {
           orgId: organization.id,
           didSavePerson: true,
         });
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           updatePersonResponse,
           nextResponse,
@@ -268,6 +294,7 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', () => {
         expect(updatePerson).toHaveBeenCalledWith({
+          // @ts-ignore
           ...navPerson,
           assignToMe: true,
         });
@@ -277,6 +304,7 @@ describe('savePerson', () => {
           orgId: undefined,
           didSavePerson: true,
         });
+        // @ts-ignore
         expect(store.getActions()).toEqual([
           updatePersonResponse,
           nextResponse,
@@ -352,6 +380,7 @@ describe('savePerson', () => {
 
     describe('update user fails', () => {
       beforeAll(() => {
+        // @ts-ignore
         addNewPersonResponse = () =>
           Promise.reject({
             apiError: {

@@ -116,9 +116,12 @@ const storeObj = {
 };
 const store = createThunkStore(storeObj);
 
+// @ts-ignore
 common.copyText = jest.fn();
+// @ts-ignore
 organizationSelector.mockReturnValue(organization);
 
+// @ts-ignore
 function buildScreen(props) {
   return renderShallow(
     <GroupProfile
@@ -129,6 +132,7 @@ function buildScreen(props) {
   );
 }
 
+// @ts-ignore
 function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
@@ -169,9 +173,11 @@ describe('GroupProfile', () => {
   });
 
   describe('edit screen', () => {
+    // @ts-ignore
     let component;
 
     beforeEach(() => {
+      // @ts-ignore
       component = buildScreen();
       // Press the "Edit" button
       component
@@ -191,27 +197,32 @@ describe('GroupProfile', () => {
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.COMMUNITY_EDIT,
       );
+      // @ts-ignore
       expect(component.instance().state).toEqual({
         editing: true,
         name: organization.name,
         imageData: null,
       });
+      // @ts-ignore
       expect(component).toMatchSnapshot();
     });
 
     it('handle image change', () => {
       const data = { uri: 'testuri' };
+      // @ts-ignore
       component
         .childAt(2)
         .childAt(0)
         .props()
         .onSelectImage(data);
 
+      // @ts-ignore
       expect(component.instance().state.imageData).toBe(data);
     });
 
     it('handle name change', () => {
       const text = 'new name';
+      // @ts-ignore
       component
         .childAt(2)
         .childAt(1)
@@ -220,10 +231,12 @@ describe('GroupProfile', () => {
         .props()
         .onChangeText(text);
 
+      // @ts-ignore
       expect(component.instance().state.name).toBe(text);
     });
 
     it('handle new code', () => {
+      // @ts-ignore
       component
         .childAt(2)
         .childAt(1)
@@ -234,12 +247,14 @@ describe('GroupProfile', () => {
 
       expect(Alert.alert).toHaveBeenCalled();
       //Manually call onPress
+      // @ts-ignore
       Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(generateNewCode).toHaveBeenCalledWith(orgId);
     });
 
     it('handle new link', () => {
+      // @ts-ignore
       component
         .childAt(2)
         .childAt(1)
@@ -250,12 +265,14 @@ describe('GroupProfile', () => {
 
       expect(Alert.alert).toHaveBeenCalled();
       //Manually call onPress
+      // @ts-ignore
       Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(generateNewLink).toHaveBeenCalledWith(orgId);
     });
 
     it('handles delete organization', async () => {
+      // @ts-ignore
       component
         .childAt(2)
         .childAt(1)
@@ -280,6 +297,7 @@ describe('GroupProfile', () => {
         ],
       );
 
+      // @ts-ignore
       await Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(deleteOrganization).toHaveBeenCalledWith(orgId);
@@ -287,19 +305,23 @@ describe('GroupProfile', () => {
     });
 
     it('stops editing', () => {
+      // @ts-ignore
       component
         .childAt(1)
         .childAt(0)
         .props()
         .right.props.onPress();
+      // @ts-ignore
       component.update();
 
       expect(trackScreenChange).toHaveBeenCalledWith(['community', 'detail']);
+      // @ts-ignore
       expect(component).toMatchSnapshot();
     });
   });
 
   it('handle copy code', () => {
+    // @ts-ignore
     const component = buildScreen();
     component
       .childAt(2)
@@ -318,6 +340,7 @@ describe('GroupProfile', () => {
   });
 
   it('handle copy link', () => {
+    // @ts-ignore
     const component = buildScreen();
     component
       .childAt(2)
@@ -339,64 +362,84 @@ describe('GroupProfile', () => {
   });
 
   it('handle navigate back', () => {
+    // @ts-ignore
     const instance = buildScreenInstance();
+    // @ts-ignore
     instance.navigateBack();
 
     expect(navigateBack).toHaveBeenCalled();
   });
 
   it('calls save', () => {
+    // @ts-ignore
     const component = buildScreen();
+    // @ts-ignore
     component.instance().save = jest.fn();
     // Press the "Edit" button
+    // @ts-ignore
     component.instance().handleEdit();
     component.update();
     // Press the "Done" button
+    // @ts-ignore
     component.instance().handleEdit();
 
+    // @ts-ignore
     expect(component.instance().save).toHaveBeenCalled();
   });
 
   it('handles save with name change', () => {
+    // @ts-ignore
     const component = buildScreen();
     // Press the "Edit" button
+    // @ts-ignore
     component.instance().handleEdit();
     component.update();
     const name = 'new name';
+    // @ts-ignore
     component.instance().handleChangeName(name);
     component.update();
     // Press the "Done" button
+    // @ts-ignore
     component.instance().handleEdit();
 
     expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });
   });
 
   it('handles save with image change', () => {
+    // @ts-ignore
     const component = buildScreen();
     // Press the "Edit" button
+    // @ts-ignore
     component.instance().handleEdit();
     component.update();
     const data = { uri: 'testuri' };
+    // @ts-ignore
     component.instance().handleImageChange(data);
     component.update();
     // Press the "Done" button
+    // @ts-ignore
     component.instance().handleEdit();
 
     expect(updateOrganizationImage).toHaveBeenCalledWith(orgId, data);
   });
 
   it('handles save with image and name change', () => {
+    // @ts-ignore
     const component = buildScreen();
     // Press the "Edit" button
+    // @ts-ignore
     component.instance().handleEdit();
     component.update();
     const data = { uri: 'testuri' };
+    // @ts-ignore
     component.instance().handleImageChange(data);
     component.update();
     const name = 'new name';
+    // @ts-ignore
     component.instance().handleChangeName(name);
     component.update();
     // Press the "Done" button
+    // @ts-ignore
     component.instance().handleEdit();
 
     expect(updateOrganization).toHaveBeenCalledWith(orgId, { name });

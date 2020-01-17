@@ -20,8 +20,10 @@ import BackButton from '../../BackButton';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('searchFilter')
 export class ContactsFilter extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     const { filters } = props;
@@ -43,6 +45,7 @@ export class ContactsFilter extends Component {
   }
 
   async loadLabels() {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     const filterStats = await dispatch(getOrgFilterStats(organization.id));
 
@@ -50,7 +53,9 @@ export class ContactsFilter extends Component {
     this.setState({ options, toggleOptions });
   }
 
+  // @ts-ignore
   createFilterOptions(filterStats) {
+    // @ts-ignore
     const { t, filters } = this.props;
     const filterOptions = getFilterOptions(t, filters, [], filterStats);
     const options = [
@@ -67,18 +72,24 @@ export class ContactsFilter extends Component {
     return { options, toggleOptions };
   }
 
+  // @ts-ignore
   handleDrillDown = item => {
     // Pull the options from the props that were not loaded when this was initialized
     const options =
+      // @ts-ignore
       isString(item.options) && this.props[item.options]
-        ? this.props[item.options]
+        ? // @ts-ignore
+          this.props[item.options]
         : item.options;
+    // @ts-ignore
     this.props.dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
         title: item.text,
         options,
+        // @ts-ignore
         filters: this.state.filters,
+        // @ts-ignore
         trackingObj: buildTrackingObj(
           `search : refine : ${item.id}`,
           'search',
@@ -89,24 +100,30 @@ export class ContactsFilter extends Component {
     );
     this.setState({ selectedFilterId: item.id });
 
+    // @ts-ignore
     this.props.dispatch(trackSearchFilter(item.id));
   };
 
+  // @ts-ignore
   handleToggle = item => {
     searchHandleToggle(this, item);
   };
 
+  // @ts-ignore
   handleSelectFilter = item => {
     searchSelectFilter(this, item);
   };
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
+    // @ts-ignore
     const { options, toggleOptions } = this.state;
     return (
       <View style={styles.pageContainer}>
         <Header left={<BackButton />} title={t('title')} />
         <ScrollView style={styles.list}>
+          // @ts-ignore
           {options.map(o => (
             <FilterItem
               key={o.id}
@@ -115,6 +132,7 @@ export class ContactsFilter extends Component {
               type="drilldown"
             />
           ))}
+          // @ts-ignore
           {toggleOptions.map(o => (
             <FilterItem
               key={o.id}
@@ -130,11 +148,13 @@ export class ContactsFilter extends Component {
   }
 }
 
+// @ts-ignore
 ContactsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   filters: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

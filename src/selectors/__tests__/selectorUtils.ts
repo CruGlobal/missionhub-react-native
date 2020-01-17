@@ -8,12 +8,14 @@ const org3 = { id: '3' };
 const orgs = [org1, org2, org3];
 
 it('does nothing if user does not have any hidden orgs', () => {
+  // @ts-ignore
   expect(removeHiddenOrgs(orgs, { user: {} })).toEqual([org1, org2, org3]);
 });
 
 it('removes hidden orgs', () => {
   expect(
     removeHiddenOrgs(orgs, {
+      // @ts-ignore
       user: { hidden_organizations: [org1.id, org3.id] },
     }),
   ).toEqual([org2]);

@@ -16,6 +16,7 @@ jest.mock('../../../../actions/navigation', () => ({
 }));
 jest.mock('../../../../actions/surveys');
 
+// @ts-ignore
 let store;
 const timeFilter30 = { id: 'time30', value: 30, text: 'Last 30 days' };
 const filters = {
@@ -47,30 +48,40 @@ describe('SurveyContactsFilter', () => {
   );
 
   it('should render correctly', () => {
+    // @ts-ignore
     testSnapshotShallow(component, store);
   });
 
   it('should handleDrillDown correctly', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
     const options = [{ id: 'o1' }, { id: 'o2' }];
+    // @ts-ignore
     instance.handleDrillDown({ id: '1', options });
 
     expect(navigatePush).toHaveBeenCalled();
+    // @ts-ignore
     expect(instance.state.selectedFilterId).toBe('1');
   });
 
   it('should handleToggle correctly', () => {
+    // @ts-ignore
     filterUtils.searchHandleToggle = jest.fn();
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
     const item = { id: 'test' };
+    // @ts-ignore
     instance.handleToggle(item);
     expect(filterUtils.searchHandleToggle).toHaveBeenCalledWith(instance, item);
   });
 
   it('should handleSelectFilter correctly', () => {
+    // @ts-ignore
     filterUtils.searchSelectFilter = jest.fn();
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
     const item = { id: 'test' };
+    // @ts-ignore
     instance.handleSelectFilter(item);
     expect(filterUtils.searchSelectFilter).toHaveBeenCalledWith(instance, item);
   });

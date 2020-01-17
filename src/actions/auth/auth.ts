@@ -20,6 +20,7 @@ import { refreshAnonymousLogin } from './anonymous';
 import { refreshMissionHubFacebookAccess } from './facebook';
 
 export function logout(forcedLogout = false) {
+  // @ts-ignore
   return async dispatch => {
     try {
       await dispatch(deletePushToken());
@@ -38,8 +39,11 @@ export function logout(forcedLogout = false) {
 }
 
 export const retryIfInvalidatedClientToken = (
+  // @ts-ignore
   firstAction,
+  // @ts-ignore
   secondAction,
+  // @ts-ignore
 ) => async dispatch => {
   // Historically we haven't cleared the client_token from redux after use,
   // so if the API throws a client_token invalidated error we retry this request
@@ -48,6 +52,7 @@ export const retryIfInvalidatedClientToken = (
     await dispatch(firstAction);
     dispatch({ type: CLEAR_UPGRADE_TOKEN });
   } catch (error) {
+    // @ts-ignore
     const { apiError: { errors: [{ status, detail } = {}] = [] } = {} } = error;
 
     if (status === '422' && detail === 'client_token already invalidated') {
@@ -59,6 +64,7 @@ export const retryIfInvalidatedClientToken = (
   }
 };
 
+// @ts-ignore
 export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   const { person } = getState().auth;
 
@@ -73,11 +79,14 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
   }
 };
 
+// @ts-ignore
 function hasPersonWithStageSelected(person) {
+  // @ts-ignore
   return person.contact_assignments.some(contact => contact.pathway_stage_id);
 }
 
 export const handleInvalidAccessToken = () => {
+  // @ts-ignore
   return async (dispatch, getState) => {
     const { auth } = getState();
 

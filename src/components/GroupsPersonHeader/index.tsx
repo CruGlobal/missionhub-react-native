@@ -24,9 +24,11 @@ import {
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation()
 export default class GroupsPersonHeader extends Component {
   computeButtons() {
+    // @ts-ignore
     const { person, myId, isMember, contactAssignment, isCruOrg } = this.props;
     const personStageButton = contactAssignment
       ? [this.getPersonStageButton()]
@@ -46,12 +48,14 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getSelfStageButton() {
+    // @ts-ignore
     const { myStageId } = this.props;
 
     return this.getStageButton(this.handleSelectStage, myStageId);
   }
 
   getPersonStageButton() {
+    // @ts-ignore
     const { contactAssignment } = this.props;
 
     return this.getStageButton(
@@ -60,7 +64,9 @@ export default class GroupsPersonHeader extends Component {
     );
   }
 
+  // @ts-ignore
   getStageButton(onClick, stageId) {
+    // @ts-ignore
     const { t } = this.props;
 
     let buttonStyle;
@@ -80,6 +86,7 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getMessageButton() {
+    // @ts-ignore
     const { person, dispatch, t } = this.props;
     let onClick;
 
@@ -95,10 +102,12 @@ export default class GroupsPersonHeader extends Component {
         );
     }
 
+    // @ts-ignore
     return this.button('textIcon', t('profileLabels.message'), onClick);
   }
 
   getCallButton() {
+    // @ts-ignore
     const { person, dispatch, t } = this.props;
     let onClick;
 
@@ -114,10 +123,12 @@ export default class GroupsPersonHeader extends Component {
         );
     }
 
+    // @ts-ignore
     return this.button('callIcon', t('profileLabels.call'), onClick);
   }
 
   getEmailButton() {
+    // @ts-ignore
     const { person, dispatch, t } = this.props;
     let onClick;
 
@@ -133,6 +144,7 @@ export default class GroupsPersonHeader extends Component {
         );
     }
 
+    // @ts-ignore
     return this.button(
       'emailIcon',
       t('profileLabels.email'),
@@ -142,7 +154,9 @@ export default class GroupsPersonHeader extends Component {
   }
 
   getStatusButton() {
+    // @ts-ignore
     const { dispatch, person, organization, t } = this.props;
+    // @ts-ignore
     return this.button('statusIcon', t('statusSelect:header'), () =>
       dispatch(navigatePush(STATUS_SELECT_SCREEN, { person, organization })),
     );
@@ -160,6 +174,7 @@ export default class GroupsPersonHeader extends Component {
     return this.getSelfStageButton();
   }
 
+  // @ts-ignore
   button(icon, text, onClick, buttonStyle, flexStyle) {
     return (
       <CenteredIconButtonWithText
@@ -175,12 +190,19 @@ export default class GroupsPersonHeader extends Component {
 
   handleSelectStage = () => {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       myId,
+      // @ts-ignore
       person,
+      // @ts-ignore
       contactAssignment = null,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       myStageId,
+      // @ts-ignore
       stages,
     } = this.props;
 
@@ -206,11 +228,17 @@ export default class GroupsPersonHeader extends Component {
   render() {
     const buttons = this.computeButtons();
     const {
+      // @ts-ignore
       contactAssignment,
+      // @ts-ignore
       myId,
+      // @ts-ignore
       person,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       isVisible,
+      // @ts-ignore
       isCruOrg,
     } = this.props;
     if (isVisible === false) {
@@ -236,6 +264,7 @@ export default class GroupsPersonHeader extends Component {
   }
 }
 
+// @ts-ignore
 GroupsPersonHeader.propTypes = {
   isMember: PropTypes.bool.isRequired,
   person: PropTypes.object.isRequired,

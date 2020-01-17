@@ -63,12 +63,17 @@ const org = {
 const store = { organizations: { all: [org] }, auth: { person: { id: myId } } };
 
 beforeEach(() => {
+  // @ts-ignore
   getReportedComments.mockReturnValue(() => ({
     type: 'got repoerted comments',
   }));
+  // @ts-ignore
   reloadGroupCelebrateFeed.mockReturnValue(() => Promise.resolve());
+  // @ts-ignore
   getGroupCelebrateFeed.mockReturnValue({ type: 'got group celebrate feed' });
+  // @ts-ignore
   refreshCommunity.mockReturnValue({ type: 'refreshed community' });
+  // @ts-ignore
   orgPermissionSelector.mockReturnValue({
     permission_id: ORG_PERMISSIONS.USER,
   });
@@ -76,6 +81,7 @@ beforeEach(() => {
 
 it('should render correctly', () => {
   testSnapshotShallow(
+    // @ts-ignore
     <GroupCelebrate orgId={orgId} store={createThunkStore(store)} />,
   );
 });
@@ -84,6 +90,7 @@ it('should render empty correctly', () => {
   testSnapshotShallow(
     <GroupCelebrate
       orgId={orgId}
+      // @ts-ignore
       store={createThunkStore({
         ...store,
         organizations: { all: [{ ...org, celebrateItems: [] }] },
@@ -93,14 +100,18 @@ it('should render empty correctly', () => {
 });
 
 describe('refresh items', () => {
+  // @ts-ignore
   let testOrg;
 
   const testRefresh = () =>
     renderShallow(
       <GroupCelebrate
+        // @ts-ignore
         orgId={testOrg.id}
+        // @ts-ignore
         store={createThunkStore({
           ...store,
+          // @ts-ignore
           organizations: { all: [testOrg] },
         })}
       />,
@@ -111,6 +122,7 @@ describe('refresh items', () => {
 
   describe('owner', () => {
     beforeEach(() => {
+      // @ts-ignore
       orgPermissionSelector.mockReturnValue({
         permission_id: ORG_PERMISSIONS.OWNER,
       });
@@ -152,6 +164,7 @@ describe('refresh items', () => {
 
   describe('admin', () => {
     beforeEach(() => {
+      // @ts-ignore
       orgPermissionSelector.mockReturnValue({
         permission_id: ORG_PERMISSIONS.ADMIN,
       });
@@ -193,6 +206,7 @@ describe('refresh items', () => {
 
   describe('member', () => {
     beforeEach(() => {
+      // @ts-ignore
       orgPermissionSelector.mockReturnValue({
         permission_id: ORG_PERMISSIONS.USER,
       });
@@ -235,10 +249,13 @@ describe('refresh items', () => {
 
 it('should refresh items properly', () => {
   const instance = renderShallow(
+    // @ts-ignore
     <GroupCelebrate orgId={orgId} store={createThunkStore(store)} />,
+    // @ts-ignore
     store,
   ).instance();
 
+  // @ts-ignore
   common.refresh = jest.fn();
   instance.refreshItems();
 

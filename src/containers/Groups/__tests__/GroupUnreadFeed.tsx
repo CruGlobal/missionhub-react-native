@@ -50,6 +50,7 @@ const items = [
 ];
 
 const mockStore = configureStore();
+// @ts-ignore
 let store;
 
 const storeData = {
@@ -58,17 +59,24 @@ const storeData = {
   },
 };
 
+// @ts-ignore
 getGroupCelebrateFeedUnread.mockReturnValue({
   type: 'getGroupCelebrateFeedUnread',
 });
+// @ts-ignore
 navigateBack.mockReturnValue({ type: 'navigateBack' });
+// @ts-ignore
 markCommentsRead.mockReturnValue({ type: 'markCommentsRead' });
+// @ts-ignore
 markCommentRead.mockReturnValue({ type: 'markCommentRead' });
+// @ts-ignore
 refreshCommunity.mockReturnValue({ type: 'refreshCommunity' });
 
 const buildScreen = () => {
   const component = renderShallow(
+    // @ts-ignore
     <GroupUnreadFeed navigation={createMockNavState({ organization: org })} />,
+    // @ts-ignore
     store,
   );
   component.setState({ items });
@@ -78,7 +86,9 @@ const buildScreen = () => {
 
 beforeEach(() => {
   store = mockStore(storeData);
+  // @ts-ignore
   organizationSelector.mockReturnValue(org);
+  // @ts-ignore
   celebrationSelector.mockReturnValue(items);
 });
 
@@ -119,6 +129,7 @@ it('should call mark specific celebration item comments as read and go back', as
   const component = buildScreen();
 
   const event = { id: '1' };
+  // @ts-ignore
   component.instance().loadItems = jest.fn();
   await component
     .childAt(3)
@@ -127,11 +138,13 @@ it('should call mark specific celebration item comments as read and go back', as
     .onClearNotification(event);
 
   expect(markCommentRead).toHaveBeenCalledWith(event.id);
+  // @ts-ignore
   expect(component.instance().loadItems).toHaveBeenCalled();
 });
 
 it('should mount', async () => {
   const component = buildScreen();
+  // @ts-ignore
   await component.instance().loadItems();
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
   expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
@@ -139,6 +152,7 @@ it('should mount', async () => {
 
 it('should mount', async () => {
   const component = buildScreen();
+  // @ts-ignore
   await component.instance().loadItems();
   expect(refreshCommunity).toHaveBeenCalledWith(org.id);
   expect(getGroupCelebrateFeedUnread).toHaveBeenCalledWith(org.id);
@@ -147,6 +161,7 @@ it('should mount', async () => {
 it('should refresh correctly', async () => {
   const component = buildScreen();
   const instance = component.instance();
+  // @ts-ignore
   instance.loadItems = jest.fn(() => Promise.resolve());
 
   await component
@@ -155,6 +170,7 @@ it('should refresh correctly', async () => {
     .props()
     .refreshCallback();
 
+  // @ts-ignore
   expect(instance.loadItems).toHaveBeenCalled();
 });
 
@@ -162,8 +178,11 @@ it('should refresh items properly', () => {
   const component = buildScreen();
   const instance = component.instance();
 
+  // @ts-ignore
   common.refresh = jest.fn();
+  // @ts-ignore
   instance.refreshItems();
 
+  // @ts-ignore
   expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadItems);
 });

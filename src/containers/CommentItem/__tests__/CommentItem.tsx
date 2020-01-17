@@ -21,8 +21,10 @@ const organization = { id: '7342342' };
 
 const menuActions = [{ text: 'text', onPress: jest.fn() }];
 
+// @ts-ignore
 let screen;
 const me = { id: 'me' };
+// @ts-ignore
 let store;
 
 beforeEach(() => {
@@ -33,6 +35,7 @@ beforeEach(() => {
   screen = renderShallow(
     <CommentItem
       item={item}
+      // @ts-ignore
       organization={organization}
       menuActions={menuActions}
     />,
@@ -41,12 +44,15 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
+  // @ts-ignore
   expect(screen).toMatchSnapshot();
 });
 
 it('renders without menu actions', () => {
   screen = renderShallow(
+    // @ts-ignore
     <CommentItem item={item} organization={organization} />,
+    // @ts-ignore
     store,
   );
 
@@ -57,10 +63,12 @@ it('renders reported comment', () => {
   screen = renderShallow(
     <CommentItem
       item={item}
+      // @ts-ignore
       isReported={true}
       organization={organization}
       menuActions={menuActions}
     />,
+    // @ts-ignore
     store,
   );
   expect(screen).toMatchSnapshot();
@@ -70,10 +78,12 @@ it('renders my reported comment', () => {
   screen = renderShallow(
     <CommentItem
       item={{ ...item, person: { ...item.person, id: me.id } }}
+      // @ts-ignore
       isReported={true}
       organization={organization}
       menuActions={menuActions}
     />,
+    // @ts-ignore
     store,
   );
   expect(screen).toMatchSnapshot();
@@ -82,11 +92,13 @@ it('renders my reported comment', () => {
 it('renders editing correctly', () => {
   store = configureStore([thunk])({
     auth: { person: me },
+    // @ts-ignore
     celebrateComments: { editingCommentId: item.id },
   });
   screen = renderShallow(
     <CommentItem
       item={item}
+      // @ts-ignore
       organization={organization}
       menuActions={menuActions}
     />,
@@ -100,10 +112,12 @@ it('renders correctly as mine', () => {
     renderShallow(
       <CommentItem
         item={{ ...item, person: { ...item.person, ...me } }}
+        // @ts-ignore
         organization={organization}
         menuActions={menuActions}
         isMine={true}
       />,
+      // @ts-ignore
       store,
     ),
   ).toMatchSnapshot();

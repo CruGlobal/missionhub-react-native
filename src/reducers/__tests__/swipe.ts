@@ -9,6 +9,7 @@ import { GROUP_ONBOARDING_TYPES } from '../../containers/Groups/OnboardingCard';
 
 it('updates swipe steps journey value', () => {
   const state = swipe(
+    // @ts-ignore
     {},
     {
       type: SWIPE_REMINDER_JOURNEY,
@@ -82,6 +83,7 @@ it('doesnt update group onboarding', () => {
 
 it('updates group invite info', () => {
   const state = swipe(
+    // @ts-ignore
     {},
     {
       type: GROUP_INVITE_INFO,
@@ -92,6 +94,7 @@ it('updates group invite info', () => {
 
 it('updates group tab scroll to be true', () => {
   const state = swipe(
+    // @ts-ignore
     {},
     {
       type: GROUP_TAB_SCROLL_ON_MOUNT,
@@ -103,6 +106,7 @@ it('updates group tab scroll to be true', () => {
 
 it('updates group tab scroll to be false', () => {
   const state = swipe(
+    // @ts-ignore
     {},
     {
       type: GROUP_TAB_SCROLL_ON_MOUNT,

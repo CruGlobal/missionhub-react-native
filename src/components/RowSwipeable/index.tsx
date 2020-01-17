@@ -11,8 +11,10 @@ const OPTION_WIDTH = 75;
 // Distance the gesture must travel before initiating the swipe action
 const OPEN_MOVE_THRESHOLD = 15;
 
+// @ts-ignore
 @withTranslation()
 class RowSwipeable extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
 
@@ -27,12 +29,18 @@ class RowSwipeable extends Component {
       numOptions++;
     }
 
+    // @ts-ignore
     this.numOptions = numOptions;
+    // @ts-ignore
     this.openDistance = numOptions * -1 * OPTION_WIDTH;
 
+    // @ts-ignore
     this.translateX = new Animated.Value(0);
+    // @ts-ignore
     this.isScrollingRight = false;
+    // @ts-ignore
     this.initialTranslateXValue = null;
+    // @ts-ignore
     this.isOpen = false;
 
     this.snapBack = this.snapBack.bind(this);
@@ -40,6 +48,7 @@ class RowSwipeable extends Component {
   }
 
   UNSAFE_componentWillMount() {
+    // @ts-ignore
     this.panResponder = PanResponder.create({
       onMoveShouldSetPanResponderCapture: (...args) =>
         this.checkShouldMove(...args),
@@ -50,11 +59,16 @@ class RowSwipeable extends Component {
       // onPanResponderMove: Animated.event([null, { dx: this.state.pan.x }]),
       onPanResponderMove: (e, gesture) => {
         const { dx } = gesture;
+        // @ts-ignore
         if (this.initialTranslateXValue === null) {
+          // @ts-ignore
           this.initialTranslateXValue = this.translateX._value;
         }
+        // @ts-ignore
         const change = dx + this.initialTranslateXValue;
+        // @ts-ignore
         this.translateX.setValue(change);
+        // @ts-ignore
         this.isScrollingRight = dx > 0;
       },
       onPanResponderTerminationRequest: () => false,
@@ -62,6 +76,7 @@ class RowSwipeable extends Component {
       onPanResponderRelease: (...args) => this.snapBack(...args),
     });
 
+    // @ts-ignore
     this.openListener = DeviceEventEmitter.addListener(
       'RowSwipeable_open',
       emitter => {
@@ -76,19 +91,25 @@ class RowSwipeable extends Component {
   }
 
   componentDidMount() {
+    // @ts-ignore
     if (this.props.bump) {
+      // @ts-ignore
       Animated.timing(this.translateX, {
         duration: 700,
         toValue:
+          // @ts-ignore
           ((this.numOptions - 1) * OPTION_WIDTH + OPTION_WIDTH * 0.5) * -1,
         delay: 1000,
       }).start(() => {
+        // @ts-ignore
         Animated.timing(this.translateX, {
           duration: 700,
           toValue: 0,
           delay: 1800,
         }).start(() => {
+          // @ts-ignore
           if (this.props.onBumpComplete) {
+            // @ts-ignore
             this.props.onBumpComplete();
           }
         });
@@ -97,19 +118,25 @@ class RowSwipeable extends Component {
   }
 
   componentWillUnmount() {
+    // @ts-ignore
     this.openListener.remove();
   }
 
+  // @ts-ignore
   checkShouldMove(e, { dx }) {
+    // @ts-ignore
     if (!this.isOpen) {
       return dx < -1 * OPEN_MOVE_THRESHOLD;
     }
     return Math.abs(dx) > OPEN_MOVE_THRESHOLD;
   }
 
+  // @ts-ignore
   snapBack(e, gesture) {
     if (
+      // @ts-ignore
       !this.isScrollingRight &&
+      // @ts-ignore
       (gesture.dx <= this.openDistance || (this.isOpen && gesture.dx < 0))
     ) {
       this.open();
@@ -119,22 +146,30 @@ class RowSwipeable extends Component {
   }
 
   open() {
+    // @ts-ignore
     this.initialTranslateXValue = null;
+    // @ts-ignore
     this.isOpen = true;
+    // @ts-ignore
     this.move(this.openDistance);
     DeviceEventEmitter.emit('RowSwipeable_open', this);
   }
 
   close() {
+    // @ts-ignore
     this.isOpen = false;
+    // @ts-ignore
     this.initialTranslateXValue = null;
     this.move(0);
   }
 
+  // @ts-ignore
   move(toValue) {
+    // @ts-ignore
     Animated.spring(this.translateX, { toValue, speed: 16 }).start();
   }
 
+  // @ts-ignore
   handleSelect(callback) {
     return () => {
       this.close();
@@ -143,6 +178,7 @@ class RowSwipeable extends Component {
   }
 
   handleDelete = () => {
+    // @ts-ignore
     const { deletePressProps, onDelete } = this.props;
     if (onDelete) {
       // Call the onDelete with all of the deletePressProps passed in or just undefined if they don't exist
@@ -151,6 +187,7 @@ class RowSwipeable extends Component {
   };
 
   handleComplete = () => {
+    // @ts-ignore
     const { completePressProps, onComplete } = this.props;
     if (onComplete) {
       // Call the onComplete with all of the completePressProps passed in or just undefined if they don't exist
@@ -159,6 +196,7 @@ class RowSwipeable extends Component {
   };
 
   handleEdit = () => {
+    // @ts-ignore
     const { editPressProps, onEdit } = this.props;
     if (onEdit) {
       // Call the onEdit with all of the editPressProps passed in or just undefined if they don't exist
@@ -167,11 +205,13 @@ class RowSwipeable extends Component {
   };
 
   renderOptions() {
+    // @ts-ignore
     const { t, onDelete, onComplete, onEdit } = this.props;
     return (
       <Flex
         direction="row"
         justify="end"
+        // @ts-ignore
         style={[styles.optionsWrap, { width: this.numOptions * OPTION_WIDTH }]}
       >
         {onDelete ? (
@@ -215,11 +255,13 @@ class RowSwipeable extends Component {
     const { children } = this.props;
 
     const panStyle = {
+      // @ts-ignore
       transform: [{ translateX: this.translateX }],
     };
     return (
       <View>
         {this.renderOptions()}
+        // @ts-ignore
         <Animated.View {...this.panResponder.panHandlers} style={panStyle}>
           {children}
         </Animated.View>
@@ -228,6 +270,7 @@ class RowSwipeable extends Component {
   }
 }
 
+// @ts-ignore
 RowSwipeable.propTypes = {
   children: PropTypes.element.isRequired,
   onComplete: PropTypes.func,

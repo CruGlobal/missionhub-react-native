@@ -124,11 +124,13 @@ const acceptedChallenges = [
 
 describe('challengesSelector', () => {
   it('sorts challenge items into sections by active or past', () => {
+    // @ts-ignore
     expect(challengesSelector({ challengeItems })).toMatchSnapshot();
   });
 
   it('hides past challenges section if no past challenges', () => {
     expect(
+      // @ts-ignore
       challengesSelector({ challengeItems: currentOnlyItems }),
     ).toMatchSnapshot();
   });
@@ -136,6 +138,7 @@ describe('challengesSelector', () => {
 
 describe('communityChallengesSelector', () => {
   it('selects single current community challenge', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue(organizations.all[0]);
 
     expect(
@@ -151,6 +154,7 @@ describe('communityChallengesSelector', () => {
   });
 
   it('selects single past community challenge', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue(organizations.all[0]);
 
     expect(
@@ -166,6 +170,7 @@ describe('communityChallengesSelector', () => {
   });
 
   it('no challenge items present', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue({ id: 'noChallenges' });
 
     expect(
@@ -180,6 +185,7 @@ describe('communityChallengesSelector', () => {
 describe('acceptedChallengesSelector', () => {
   it('sorts accepted challenge items into sections by joined or completed', () => {
     expect(
+      // @ts-ignore
       acceptedChallengesSelector({ acceptedChallenges }),
     ).toMatchSnapshot();
   });

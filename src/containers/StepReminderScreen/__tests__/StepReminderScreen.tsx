@@ -34,20 +34,26 @@ const stepReminders = {
   },
 };
 
+// @ts-ignore
 let component;
+// @ts-ignore
 let instance;
+// @ts-ignore
 let store;
 
 const navigateBackResult = { type: 'navigated back' };
 const createStepReminderResult = { type: 'created step reminder' };
 
+// @ts-ignore
 navigateBack.mockReturnValue(navigateBackResult);
+// @ts-ignore
 createStepReminder.mockReturnValue(createStepReminderResult);
 
 const createComponent = () => {
   store = mockStore({ stepReminders });
 
   component = renderShallow(
+    // @ts-ignore
     <SetReminderScreen navigation={createMockNavState({ stepId })} />,
     store,
   );
@@ -57,11 +63,13 @@ const createComponent = () => {
 describe('render', () => {
   describe('reminder in props', () => {
     beforeEach(() => {
+      // @ts-ignore
       reminderSelector.mockReturnValue(reminder);
       createComponent();
     });
 
     it('renders correctly', () => {
+      // @ts-ignore
       expect(component).toMatchSnapshot();
     });
 
@@ -75,11 +83,13 @@ describe('render', () => {
 
   describe('no reminder in props', () => {
     beforeEach(() => {
+      // @ts-ignore
       reminderSelector.mockReturnValue(null);
       createComponent();
     });
 
     it('renders correctly', () => {
+      // @ts-ignore
       expect(component).toMatchSnapshot();
     });
   });
@@ -87,12 +97,14 @@ describe('render', () => {
 
 describe('handleChangeDate', () => {
   beforeEach(() => {
+    // @ts-ignore
     reminderSelector.mockReturnValue(null);
     createComponent();
   });
 
   describe('date passed in', () => {
     beforeEach(() => {
+      // @ts-ignore
       component
         .childAt(1)
         .childAt(0)
@@ -100,10 +112,12 @@ describe('handleChangeDate', () => {
         .props()
         .onDateChange(mockDate);
 
+      // @ts-ignore
       component.update();
     });
 
     it('sets new state', () => {
+      // @ts-ignore
       expect(instance.state).toEqual({
         date: mockDate,
         disableBtn: false,
@@ -112,12 +126,14 @@ describe('handleChangeDate', () => {
     });
 
     it('renders correctly', () => {
+      // @ts-ignore
       expect(component).toMatchSnapshot();
     });
   });
 
   describe('date not passed in', () => {
     beforeEach(() => {
+      // @ts-ignore
       component
         .childAt(1)
         .childAt(0)
@@ -125,10 +141,12 @@ describe('handleChangeDate', () => {
         .props()
         .onDateChange(null);
 
+      // @ts-ignore
       component.update();
     });
 
     it('sets new state', () => {
+      // @ts-ignore
       expect(instance.state).toEqual({
         date: '',
         disableBtn: true,
@@ -140,19 +158,23 @@ describe('handleChangeDate', () => {
 
 describe('handleRecurrenceChange', () => {
   beforeEach(() => {
+    // @ts-ignore
     reminderSelector.mockReturnValue(null);
     createComponent();
 
+    // @ts-ignore
     component
       .childAt(1)
       .childAt(1)
       .props()
       .onRecurrenceChange(ONCE);
 
+    // @ts-ignore
     component.update();
   });
 
   it('sets new state', () => {
+    // @ts-ignore
     expect(instance.state).toEqual({
       date: '',
       disableBtn: true,
@@ -161,6 +183,7 @@ describe('handleRecurrenceChange', () => {
   });
 
   it('renders correctly', () => {
+    // @ts-ignore
     expect(component).toMatchSnapshot();
   });
 });
@@ -169,22 +192,26 @@ describe('handleSetReminder', () => {
   const recurrence = 'ROBERT';
 
   beforeEach(() => {
+    // @ts-ignore
     component
       .childAt(1)
       .childAt(0)
       .childAt(1)
       .props()
       .onDateChange(mockDate);
+    // @ts-ignore
     component
       .childAt(1)
       .childAt(1)
       .props()
       .onRecurrenceChange(recurrence);
+    // @ts-ignore
     component
       .childAt(2)
       .props()
       .onPress();
 
+    // @ts-ignore
     component.update();
   });
 
@@ -195,6 +222,7 @@ describe('handleSetReminder', () => {
       mockDate,
       recurrence,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       navigateBackResult,
       createStepReminderResult,

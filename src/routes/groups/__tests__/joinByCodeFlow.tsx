@@ -26,7 +26,9 @@ beforeEach(() => {
 
 describe('JoinGroupScreen next', () => {
   it('should fire required next actions', async () => {
+    // @ts-ignore
     joinCommunity.mockReturnValue(() => Promise.resolve());
+    // @ts-ignore
     showNotificationPrompt.mockReturnValue(() => Promise.resolve());
 
     const WrappedJoinGroupScreen =
@@ -35,6 +37,7 @@ describe('JoinGroupScreen next', () => {
     await store.dispatch(
       renderShallow(<WrappedJoinGroupScreen />, store)
         .instance()
+        // @ts-ignore
         .props.next({ community }),
     );
 

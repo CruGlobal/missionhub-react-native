@@ -15,15 +15,18 @@ import {
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('reportComment')
 class ReportCommentItem extends Component {
   handleIgnore = async () => {
+    // @ts-ignore
     const { item, dispatch, organization } = this.props;
     await dispatch(ignoreReportComment(organization.id, item.id));
     await dispatch(getReportedComments(organization.id));
   };
 
   handleDelete = () => {
+    // @ts-ignore
     const { t, item, dispatch, organization } = this.props;
     Alert.alert(t('deleteTitle'), '', [
       {
@@ -48,7 +51,9 @@ class ReportCommentItem extends Component {
 
   render() {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       item: { comment, person },
     } = this.props;
 
@@ -62,14 +67,17 @@ class ReportCommentItem extends Component {
           <ReportCommentLabel label={t('commentBy')} user={commentBy} />
         </Flex>
         <Flex style={styles.comment}>
+          // @ts-ignore
           <CommentItem item={comment} isReported={true} />
         </Flex>
+        // @ts-ignore
         <Flex direction="row" style={styles.buttons}>
           <Flex value={1}>
             <Button
               type="secondary"
               onPress={this.handleIgnore}
               text={t('ignore').toUpperCase()}
+              // @ts-ignore
               style={[styles.button, styles.buttonLeft]}
             />
           </Flex>
@@ -78,6 +86,7 @@ class ReportCommentItem extends Component {
               type="secondary"
               onPress={this.handleDelete}
               text={t('delete').toUpperCase()}
+              // @ts-ignore
               style={[styles.button, styles.buttonRight]}
             />
           </Flex>
@@ -87,6 +96,7 @@ class ReportCommentItem extends Component {
   }
 }
 
+// @ts-ignore
 ReportCommentItem.propTypes = {
   item: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,

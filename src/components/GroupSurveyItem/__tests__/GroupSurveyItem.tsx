@@ -14,12 +14,14 @@ const survey = {
 };
 
 it('render survey', () => {
+  // @ts-ignore
   testSnapshotShallow(<GroupSurveyItem onSelect={jest.fn()} survey={survey} />);
 });
 
 it('render 0 contacts', () => {
   testSnapshotShallow(
     <GroupSurveyItem
+      // @ts-ignore
       onSelect={jest.fn()}
       survey={{ ...survey, contacts_count: 0 }}
     />,
@@ -29,6 +31,7 @@ it('render 0 contacts', () => {
 it('render 0 uncontacted', () => {
   testSnapshotShallow(
     <GroupSurveyItem
+      // @ts-ignore
       onSelect={jest.fn()}
       survey={{ ...survey, uncontacted_contacts_count: 0 }}
     />,
@@ -38,6 +41,7 @@ it('render 0 uncontacted', () => {
 it('render 0 unassigned', () => {
   testSnapshotShallow(
     <GroupSurveyItem
+      // @ts-ignore
       onSelect={jest.fn()}
       survey={{ ...survey, unassigned_contacts_count: 0 }}
     />,
@@ -47,6 +51,7 @@ it('render 0 unassigned', () => {
 it('render 0 unassigned and 0 uncontacted', () => {
   testSnapshotShallow(
     <GroupSurveyItem
+      // @ts-ignore
       onSelect={jest.fn()}
       survey={{
         ...survey,
@@ -60,8 +65,10 @@ it('render 0 unassigned and 0 uncontacted', () => {
 it('calls onSelect prop', () => {
   const onSelect = jest.fn();
 
+  // @ts-ignore
   renderShallow(<GroupSurveyItem onSelect={onSelect} survey={survey} />)
     .instance()
+    // @ts-ignore
     .handleSelect();
 
   expect(onSelect).toHaveBeenCalled();

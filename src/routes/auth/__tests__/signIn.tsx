@@ -5,17 +5,20 @@ import thunk from 'redux-thunk';
 import { SignInFlowScreens } from '../signIn';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
+// @ts-ignore
 import { innerNavigateToPostAuthScreen } from '../../../actions/auth/auth'; //eslint-disable-line import/named
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
 import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 
 jest.mock('../../../actions/auth/auth', () => ({
   get navigateToPostAuthScreen() {
+    // @ts-ignore
     return () => this.innerNavigateToPostAuthScreen;
   },
   innerNavigateToPostAuthScreen: jest.fn(),
 }));
 jest.mock('../../../actions/navigation');
+// @ts-ignore
 navigatePush.mockReturnValue(() => {});
 
 const store = configureStore([thunk])();
@@ -37,6 +40,7 @@ describe('SignInScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 
@@ -55,6 +59,7 @@ describe('SignInScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next({
           requires2FA: true,
           email,
@@ -83,6 +88,7 @@ describe('MFACodeScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 

@@ -12,13 +12,16 @@ import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('statusComplete')
 class StatusCompleteScreen extends Component {
   onSubmitReason = () => {
+    // @ts-ignore
     this.props.dispatch(navigateBack(4));
   };
 
   cancel = () => {
+    // @ts-ignore
     const { dispatch, person, contactAssignment, organization } = this.props;
     dispatch(
       navigatePush(STATUS_REASON_SCREEN, {
@@ -31,11 +34,13 @@ class StatusCompleteScreen extends Component {
   };
 
   complete = () => {
+    // @ts-ignore
     const { dispatch } = this.props;
     dispatch(navigateBack(2));
   };
 
   render() {
+    // @ts-ignore
     const { t, me, person } = this.props;
 
     return (
@@ -68,11 +73,13 @@ class StatusCompleteScreen extends Component {
   }
 }
 
+// @ts-ignore
 StatusCompleteScreen.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   me: auth.person,

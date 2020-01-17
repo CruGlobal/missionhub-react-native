@@ -24,17 +24,22 @@ import {
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('addContact')
 class AddContactScreen extends Component {
   state = {
+    // @ts-ignore
     person: this.props.person || {},
   };
 
+  // @ts-ignore
   handleUpdateData = newData => {
     this.setState({ person: { ...this.state.person, ...newData } });
   };
 
+  // @ts-ignore
   complete = (didSavePerson, person) => {
+    // @ts-ignore
     const { dispatch, organization, next } = this.props;
 
     dispatch(
@@ -43,10 +48,12 @@ class AddContactScreen extends Component {
   };
 
   completeWithoutSave = () => {
+    // @ts-ignore
     this.complete(false);
   };
 
   removeUneditedFields() {
+    // @ts-ignore
     const { person, personOrgPermission, organization } = this.props;
     const saveData = { ...this.state.person };
 
@@ -95,6 +102,7 @@ class AddContactScreen extends Component {
   }
 
   checkEmailAndName() {
+    // @ts-ignore
     const { t } = this.props;
     const saveData = { ...this.state.person };
 
@@ -110,7 +118,9 @@ class AddContactScreen extends Component {
     return true;
   }
 
+  // @ts-ignore
   handleError(error) {
+    // @ts-ignore
     const { t } = this.props;
 
     if (error && error.apiError) {
@@ -128,6 +138,7 @@ class AddContactScreen extends Component {
   }
 
   savePerson = async () => {
+    // @ts-ignore
     const { dispatch, isEdit } = this.props;
 
     if (!this.checkEmailAndName()) {
@@ -154,6 +165,7 @@ class AddContactScreen extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { t, organization, person, isJean } = this.props;
     const orgName = organization ? organization.name : undefined;
 
@@ -180,6 +192,7 @@ class AddContactScreen extends Component {
           <AddContactFields
             person={person}
             organization={organization}
+            // @ts-ignore
             isJean={isJean}
             isGroupInvite={false}
             onUpdateData={this.handleUpdateData}
@@ -191,12 +204,14 @@ class AddContactScreen extends Component {
   }
 }
 
+// @ts-ignore
 AddContactScreen.propTypes = {
   person: PropTypes.object,
   organization: PropTypes.object,
   next: PropTypes.func.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }, { navigation }) => {
   const navProps = navigation.state.params || {};
   const { person, organization = {} } = navProps;
@@ -205,6 +220,7 @@ const mapStateToProps = ({ auth }, { navigation }) => {
     isJean: auth.isJean,
     personOrgPermission:
       organization.id &&
+      // @ts-ignore
       orgPermissionSelector(null, {
         person: person || {},
         organization: { id: organization.id },

@@ -33,10 +33,15 @@ const navigateToCommunityResponse = { type: 'navigate to community' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   callApi.mockReturnValue(() => Promise.resolve());
+  // @ts-ignore
   loadHome.mockReturnValue(loadHomeResponse);
+  // @ts-ignore
   joinCommunity.mockReturnValue(joinCommunityResponse);
+  // @ts-ignore
   setScrollGroups.mockReturnValue(setScrollGroupsResponse);
+  // @ts-ignore
   navigateToCommunity.mockReturnValue(navigateToCommunityResponse);
 });
 
@@ -57,6 +62,7 @@ describe('JoinGroupScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next({
           community,
         }),

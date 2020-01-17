@@ -36,6 +36,7 @@ const report1 = {
 };
 
 const org = { id: 'orgId' };
+// @ts-ignore
 let store;
 const mockState = {
   organizations: {
@@ -46,9 +47,13 @@ const mockState = {
   },
 };
 
+// @ts-ignore
 getReportedComments.mockReturnValue(() => Promise.resolve());
+// @ts-ignore
 deleteCelebrateComment.mockReturnValue({ type: 'delete comment' });
+// @ts-ignore
 ignoreReportComment.mockReturnValue({ type: 'ignore comment' });
+// @ts-ignore
 navigateBack.mockReturnValue({ type: 'navigate back' });
 
 beforeEach(() => {
@@ -57,7 +62,9 @@ beforeEach(() => {
 
 it('should render correctly', () => {
   const component = renderShallow(
+    // @ts-ignore
     <GroupReport navigation={createMockNavState({ organization: org })} />,
+    // @ts-ignore
     store,
   );
   expect(component).toMatchSnapshot();
@@ -66,6 +73,7 @@ it('should render correctly', () => {
 it('should render empty correctly', () => {
   store = createThunkStore({ ...mockState, reportedComments: { all: {} } });
   const component = renderShallow(
+    // @ts-ignore
     <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
@@ -75,6 +83,7 @@ it('should render empty correctly', () => {
 it('should call navigate back', () => {
   store = createThunkStore({ ...mockState, reportedComments: { all: {} } });
   const component = renderShallow(
+    // @ts-ignore
     <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );
@@ -87,7 +96,9 @@ it('should call navigate back', () => {
 
 it('should refresh correctly', async () => {
   const component = renderShallow(
+    // @ts-ignore
     <GroupReport navigation={createMockNavState({ organization: org })} />,
+    // @ts-ignore
     store,
   );
 
@@ -101,19 +112,25 @@ it('should refresh correctly', async () => {
 
 it('should refresh items properly', () => {
   const instance = renderShallow(
+    // @ts-ignore
     <GroupReport navigation={createMockNavState({ organization: org })} />,
+    // @ts-ignore
     store,
   ).instance();
 
+  // @ts-ignore
   common.refresh = jest.fn();
+  // @ts-ignore
   instance.refreshItems();
 
+  // @ts-ignore
   expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadItems);
 });
 
 describe('report item', () => {
   store = createThunkStore(mockState);
   const component = renderShallow(
+    // @ts-ignore
     <GroupReport navigation={createMockNavState({ organization: org })} />,
     store,
   );

@@ -16,12 +16,16 @@ import { keyExtractorId } from '../../utils/common';
 import styles from './styles';
 
 class ChallengeMembers extends Component {
+  // @ts-ignore
   handleSelect = person => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(navToPersonScreen(person, organization));
   };
 
+  // @ts-ignore
   renderItem = ({ item }) => {
+    // @ts-ignore
     const { organization } = this.props;
     return (
       <PersonListItem
@@ -36,6 +40,7 @@ class ChallengeMembers extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { members } = this.props;
     return (
       <Flex value={1}>
@@ -50,13 +55,16 @@ class ChallengeMembers extends Component {
   }
 }
 
+// @ts-ignore
 ChallengeMembers.propTypes = {
   members: PropTypes.array.isRequired,
   organization: PropTypes.object.isRequired,
 };
 
 export const mapStateToProps = (
+  // @ts-ignore
   { organizations },
+  // @ts-ignore
   { challengeId, orgId, completed },
 ) => {
   const selectorOrg = organizationSelector({ organizations }, { orgId });
@@ -67,6 +75,7 @@ export const mapStateToProps = (
   );
 
   const acceptedChallenges = selectorChallenge.accepted_community_challenges;
+  // @ts-ignore
   const selectorAcceptedChallenges = acceptedChallengesSelector({
     acceptedChallenges,
   });

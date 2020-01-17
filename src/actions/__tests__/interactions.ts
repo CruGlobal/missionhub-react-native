@@ -10,6 +10,7 @@ import { ACTIONS, INTERACTION_TYPES } from '../../constants';
 import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadJourney } from '../journey';
 
+// @ts-ignore
 let store;
 
 jest.mock('../celebration');
@@ -49,17 +50,21 @@ const refreshImpactResult = { type: 'refreshed impact' };
 const celebrationFeedResult = { type: 'refreshed celebration feeed' };
 const reloadJourneyResult = { type: 'reloaded journey' };
 
+// @ts-ignore
 reloadJourney.mockReturnValue(reloadJourneyResult);
 
 describe('add comment', () => {
   const addCommentResult = { type: 'added comment' };
+  // @ts-ignore
   const action = dispatch => {
     dispatch(addCommentResult);
     return Promise.resolve();
   };
 
   beforeEach(() => {
+    // @ts-ignore
     trackAction.mockReturnValue(trackActionResult);
+    // @ts-ignore
     reloadGroupCelebrateFeed.mockReturnValue(celebrationFeedResult);
   });
 
@@ -92,9 +97,12 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async () => {
+      // @ts-ignore
       refreshImpact.mockReturnValue(refreshImpactResult);
+      // @ts-ignore
       callApi.mockReturnValue(action);
 
+      // @ts-ignore
       await store.dispatch(addNewInteraction(personId, interaction, comment));
 
       expect(callApi).toHaveBeenCalledWith(
@@ -105,6 +113,7 @@ describe('add comment', () => {
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
         [interaction.tracking]: null,
       });
+      // @ts-ignore
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
@@ -150,9 +159,12 @@ describe('add comment', () => {
     };
 
     it('should add a new comment', async () => {
+      // @ts-ignore
       refreshImpact.mockReturnValue(refreshImpactResult);
+      // @ts-ignore
       callApi.mockReturnValue(action);
 
+      // @ts-ignore
       await store.dispatch(
         addNewInteraction(personId, interaction, comment, orgId),
       );
@@ -165,6 +177,7 @@ describe('add comment', () => {
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
         [interaction.tracking]: null,
       });
+      // @ts-ignore
       expect(store.getActions()).toEqual([
         addCommentResult,
         trackActionResult,
@@ -175,9 +188,11 @@ describe('add comment', () => {
     });
 
     it('should not add new comment, no personId', async () => {
+      // @ts-ignore
       callApi.mockReturnValue(action);
 
       try {
+        // @ts-ignore
         await store.dispatch(
           addNewInteraction(undefined, interaction, comment, orgId),
         );
@@ -192,6 +207,7 @@ describe('add comment', () => {
 
 describe('edit comment', () => {
   const editCommentResult = { type: 'edited comment' };
+  // @ts-ignore
   const action = dispatch => {
     dispatch(editCommentResult);
     return Promise.resolve();
@@ -211,11 +227,14 @@ describe('edit comment', () => {
   };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(action);
+    // @ts-ignore
     trackActionWithoutData.mockReturnValue(trackActionResult);
   });
 
   it('should edit a comment', async () => {
+    // @ts-ignore
     await store.dispatch(editComment(interaction.id, comment));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -224,11 +243,13 @@ describe('edit comment', () => {
       expectedBody,
     );
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.JOURNEY_EDITED);
+    // @ts-ignore
     expect(store.getActions()).toEqual([editCommentResult, trackActionResult]);
   });
 
   it('should not edit a comment, no interaction', async () => {
     try {
+      // @ts-ignore
       await store.dispatch(editComment(undefined, comment));
     } catch (e) {
       expect(e).toBe(
@@ -239,6 +260,7 @@ describe('edit comment', () => {
 
   it('should not edit a comment, no comment', async () => {
     try {
+      // @ts-ignore
       await store.dispatch(editComment(interaction.id));
     } catch (e) {
       expect(e).toBe(

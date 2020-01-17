@@ -19,6 +19,7 @@ import {
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation()
 class AddContactFields extends Component {
   state = {
@@ -33,11 +34,17 @@ class AddContactFields extends Component {
 
   componentDidMount() {
     const {
+      // @ts-ignore
       person,
+      // @ts-ignore
       orgPermission,
+      // @ts-ignore
       isJean,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       isGroupInvite,
+      // @ts-ignore
       myOrgPermissions,
     } = this.props;
     // If there is no person passed in, we are creating a new one
@@ -76,10 +83,12 @@ class AddContactFields extends Component {
           : {}),
       };
       this.setState(newState);
+      // @ts-ignore
       this.props.onUpdateData(newState);
     }
   }
 
+  // @ts-ignore
   updateOrgPermission = pId => {
     this.updateField('orgPermission', {
       ...this.state.orgPermission,
@@ -87,40 +96,59 @@ class AddContactFields extends Component {
     });
   };
 
+  // @ts-ignore
   updateField(field, data) {
     this.setState({ [field]: data }, () => {
+      // @ts-ignore
       this.props.onUpdateData(this.state);
     });
   }
 
+  // @ts-ignore
   firstNameRef = c => (this.firstName = c);
 
+  // @ts-ignore
   lastNameRef = c => (this.lastName = c);
 
+  // @ts-ignore
   emailRef = c => (this.email = c);
 
+  // @ts-ignore
   phoneRef = c => (this.phone = c);
 
+  // @ts-ignore
   lastNameFocus = () => this.lastName.focus();
 
+  // @ts-ignore
   emailFocus = () => this.email && this.email.focus();
 
+  // @ts-ignore
   phoneFocus = () => this.phone.focus();
 
+  // @ts-ignore
   updateFirstName = t => this.updateField('firstName', t);
+  // @ts-ignore
   updateLastName = t => this.updateField('lastName', t);
+  // @ts-ignore
   updateEmail = t => this.updateField('email', t);
+  // @ts-ignore
   updatePhone = t => this.updateField('phone', t);
   updateGenderMale = () => this.updateField('gender', 'Male');
   updateGenderFemale = () => this.updateField('gender', 'Female');
 
   render() {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       isJean,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       myOrgPermissions,
+      // @ts-ignore
       orgPermission: personOrgPermission,
+      // @ts-ignore
       isGroupInvite,
     } = this.props;
     const {
@@ -132,6 +160,7 @@ class AddContactFields extends Component {
       orgPermission,
     } = this.state;
 
+    // @ts-ignore
     const selectedOrgPermId = `${orgPermission.permission_id}`;
     // Email is required if the new person is going to be a user or admin for an organization
     const isEmailRequired = hasOrgPermissions(orgPermission);
@@ -277,16 +306,19 @@ class AddContactFields extends Component {
   }
 }
 
+// @ts-ignore
 AddContactFields.propTypes = {
   person: PropTypes.object,
   onUpdateData: PropTypes.func.isRequired,
   isGroupInvite: PropTypes.bool,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }, { person, organization }) => ({
   myOrgPermissions:
     organization &&
     organization.id &&
+    // @ts-ignore
     orgPermissionSelector(null, {
       person: auth.person,
       organization: { id: organization.id },
@@ -295,6 +327,7 @@ const mapStateToProps = ({ auth }, { person, organization }) => ({
     person &&
     organization &&
     organization.id &&
+    // @ts-ignore
     orgPermissionSelector(null, {
       person,
       organization: { id: organization.id },

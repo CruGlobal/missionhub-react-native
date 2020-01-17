@@ -61,6 +61,7 @@ const baseState = {
 const getState = jest.fn();
 
 beforeEach(() => {
+  // @ts-ignore
   personSelector.mockReturnValue(otherPerson);
   getState.mockReturnValue(baseState);
 });
@@ -157,6 +158,7 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
         allByOrg: [{ id: orgId, people: { [otherId]: otherPersonNotSure } }],
       },
     };
+    // @ts-ignore
     personSelector.mockReturnValue(otherPersonNotSure);
     getState.mockReturnValue(newState);
   });

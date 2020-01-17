@@ -14,6 +14,7 @@ import styles from './styles';
 
 class PathwayStageDisplay extends Component {
   render() {
+    // @ts-ignore
     const { pathwayStage } = this.props;
 
     return pathwayStage ? (
@@ -24,11 +25,13 @@ class PathwayStageDisplay extends Component {
   }
 }
 
+// @ts-ignore
 PathwayStageDisplay.propTypes = {
   person: PropTypes.object,
   orgId: PropTypes.string,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   const authPerson = auth.person;
   const stagesList = stages.stages || [];
@@ -36,6 +39,7 @@ const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   if (authPerson.id === person.id) {
     return {
       pathwayStage: stagesList.find(
+        // @ts-ignore
         s => s.id === `${authPerson.user.pathway_stage_id}`,
       ),
     };
@@ -51,6 +55,7 @@ const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   return {
     pathwayStage:
       contactAssignment &&
+      // @ts-ignore
       stagesList.find(s => s.id === `${contactAssignment.pathway_stage_id}`),
   };
 };

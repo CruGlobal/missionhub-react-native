@@ -11,22 +11,28 @@ import { isFunction } from '../../utils/common';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('datePicker')
 class MyDatePickerIOS extends Component {
   state = {
+    // @ts-ignore
     date: getDate(this.props.date),
     modalVisible: false,
     animatedHeight: new Animated.Value(0),
     allowPointerEvents: true,
   };
 
+  // @ts-ignore
   UNSAFE_componentWillReceiveProps({ date }) {
+    // @ts-ignore
     if (date !== this.props.date) {
       this.setState({ date: getDate(date) });
     }
   }
 
+  // @ts-ignore
   setModalVisible = visible => {
+    // @ts-ignore
     const { height, duration } = this.props;
 
     this.setState({ modalVisible: visible });
@@ -43,6 +49,7 @@ class MyDatePickerIOS extends Component {
   showPicker = () => this.setModalVisible(true);
 
   onPressCancel = () => {
+    // @ts-ignore
     const { onCloseModal } = this.props;
 
     this.closeModal();
@@ -50,6 +57,7 @@ class MyDatePickerIOS extends Component {
   };
 
   onPressConfirm = () => {
+    // @ts-ignore
     const { onCloseModal } = this.props;
 
     this.datePicked();
@@ -58,12 +66,14 @@ class MyDatePickerIOS extends Component {
   };
 
   datePicked() {
+    // @ts-ignore
     const { onDateChange } = this.props;
     const { date } = this.state;
 
     isFunction(onDateChange) && onDateChange(date);
   }
 
+  // @ts-ignore
   onDateChange = date => {
     this.setState({
       allowPointerEvents: false,
@@ -78,6 +88,7 @@ class MyDatePickerIOS extends Component {
   };
 
   onPressDate = () => {
+    // @ts-ignore
     const { disabled, onPressIOS, date } = this.props;
 
     if (disabled) {
@@ -97,17 +108,28 @@ class MyDatePickerIOS extends Component {
 
   render() {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       mode,
+      // @ts-ignore
       customStyles,
+      // @ts-ignore
       minDate,
+      // @ts-ignore
       maxDate,
+      // @ts-ignore
       minuteInterval,
+      // @ts-ignore
       timeZoneOffsetInMinutes,
+      // @ts-ignore
       cancelBtnText,
+      // @ts-ignore
       doneBtnText,
+      // @ts-ignore
       title,
       children,
+      // @ts-ignore
       iOSModalContent,
     } = this.props;
     const {
@@ -134,6 +156,7 @@ class MyDatePickerIOS extends Component {
           animationType="none"
           visible={modalVisible}
           onRequestClose={this.closeModal}
+          // @ts-ignore
           style={styles.datePickerContainer}
         >
           <Touchable
@@ -181,6 +204,7 @@ class MyDatePickerIOS extends Component {
   }
 }
 
+// @ts-ignore
 MyDatePickerIOS.defaultProps = {
   mode: 'date',
   date: '',
@@ -193,6 +217,7 @@ MyDatePickerIOS.defaultProps = {
   disabled: false,
 };
 
+// @ts-ignore
 MyDatePickerIOS.propTypes = {
   mode: PropTypes.oneOf(['date', 'datetime', 'time']),
   date: PropTypes.oneOfType([

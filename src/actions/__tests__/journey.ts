@@ -10,6 +10,7 @@ import { ACCEPTED_STEP } from '../../constants';
 jest.mock('../api');
 jest.mock('../../utils/common');
 
+// @ts-ignore
 Date = jest.fn(() => ({
   toISOString: () => '2018-04-17T00:00:00Z',
 }));
@@ -148,12 +149,14 @@ const feed = [
   },
 ];
 
+// @ts-ignore
 callApi.mockReturnValue(() => Promise.resolve({ response: { all: feed } }));
 
 describe('reload journey', () => {
   it('should not load if journey has not been fetched for org', async () => {
     store = mockStore({ journey: { personal: {} } });
 
+    // @ts-ignore
     await store.dispatch(reloadJourney(personId, orgId));
 
     expect(store.getActions()).toEqual([]);
@@ -162,6 +165,7 @@ describe('reload journey', () => {
   it('should not load if journey has not been fetched for person', async () => {
     store = mockStore({ journey: { personal: {}, [orgId]: {} } });
 
+    // @ts-ignore
     await store.dispatch(reloadJourney(personId, orgId));
 
     expect(store.getActions()).toEqual([]);
@@ -170,6 +174,7 @@ describe('reload journey', () => {
   it('should reload if journey has been fetched for person', async () => {
     store = mockStore({ journey: { personal: { [personId]: [] } } });
 
+    // @ts-ignore
     await store.dispatch(reloadJourney(personId));
 
     expect(store.getActions().length).toEqual(1);
@@ -177,7 +182,9 @@ describe('reload journey', () => {
 });
 
 describe('get journey', () => {
+  // @ts-ignore
   async function test(orgId, expectedOrgId) {
+    // @ts-ignore
     expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include:
@@ -201,6 +208,7 @@ describe('get journey', () => {
 });
 
 describe('get group journey', () => {
+  // @ts-ignore
   async function test(isAdmin) {
     const orgPermissions = {
       organization_id: orgId,
@@ -214,9 +222,11 @@ describe('get group journey', () => {
       },
     });
 
+    // @ts-ignore
     isAdminOrOwner.mockReturnValue(isAdmin);
 
     expect(
+      // @ts-ignore
       await store.dispatch(getGroupJourney(personId, orgId)),
     ).toMatchSnapshot();
     expect(isAdminOrOwner).toHaveBeenCalledWith(orgPermissions);

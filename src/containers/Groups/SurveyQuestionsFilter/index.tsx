@@ -9,8 +9,10 @@ import { buildTrackingObj, isString } from '../../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 
+// @ts-ignore
 @withTranslation('searchFilter')
 export class SurveyQuestionsFilter extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     const { filters, options } = props;
@@ -23,17 +25,22 @@ export class SurveyQuestionsFilter extends Component {
     };
   }
 
+  // @ts-ignore
   handleDrillDown = item => {
+    // @ts-ignore
     const { dispatch, t } = this.props;
     const { id, options } = item;
+    // @ts-ignore
     const { filters } = this.state;
     // Pull the options from the props that were not loaded when this was initialized
     dispatch(
       navigatePush(SEARCH_REFINE_SCREEN, {
         onFilter: this.handleSelectFilter,
         title: t('titleAnswers'),
+        // @ts-ignore
         options: (isString(options) && this.props[options]) || options,
         filters: (filters.answers && filters.answers[id]) || {},
+        // @ts-ignore
         trackingObj: buildTrackingObj(
           `search : refine : ${id}`,
           'search',
@@ -44,11 +51,15 @@ export class SurveyQuestionsFilter extends Component {
     );
     this.setState({ selectedFilterId: id });
 
+    // @ts-ignore
     this.props.dispatch(trackSearchFilter(id));
   };
 
+  // @ts-ignore
   handleSelectFilter = item => {
+    // @ts-ignore
     const { options, selectedFilterId, filters } = this.state;
+    // @ts-ignore
     const newOptions = options.map(o => ({
       ...o,
       preview: o.id === selectedFilterId ? item.text : o.preview,
@@ -65,13 +76,17 @@ export class SurveyQuestionsFilter extends Component {
       delete newFilters[selectedFilterId];
     }
     this.setState({ options: newOptions, filters: newFilters });
+    // @ts-ignore
     this.props.onFilter(newFilters);
   };
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
+    // @ts-ignore
     const { options } = this.state;
     return (
+      // @ts-ignore
       <FilterList
         onDrillDown={this.handleDrillDown}
         options={options}
@@ -81,12 +96,14 @@ export class SurveyQuestionsFilter extends Component {
   }
 }
 
+// @ts-ignore
 SurveyQuestionsFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
   filters: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

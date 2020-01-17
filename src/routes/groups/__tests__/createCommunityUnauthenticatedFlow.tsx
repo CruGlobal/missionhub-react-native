@@ -6,6 +6,7 @@ import { CreateCommunityUnauthenticatedFlowScreens } from '../createCommunityUna
 import { renderShallow } from '../../../../testUtils';
 import {
   navigatePush,
+  // @ts-ignore
   innerNavigateNestedReset, //eslint-disable-line import/named
 } from '../../../actions/navigation';
 import { SIGN_UP_SCREEN } from '../../../containers/Auth/SignUpScreen';
@@ -17,7 +18,9 @@ import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 jest.mock('../../../actions/auth/auth');
 jest.mock('../../../actions/navigation', () => ({
   get navigateNestedReset() {
+    // @ts-ignore
     return originalArgs =>
+      // @ts-ignore
       this.innerNavigateNestedReset.mockImplementation(dispatch =>
         dispatch({
           type: 'navigateNestedReset test action',
@@ -39,6 +42,7 @@ beforeEach(() => store.clearActions());
 describe('SignUpScreen next', () => {
   it('should navigate to create group screen', async () => {
     const Component =
+      // @ts-ignore
       CreateCommunityUnauthenticatedFlowScreens[SIGN_UP_SCREEN].screen;
 
     await store.dispatch(
@@ -51,6 +55,7 @@ describe('SignUpScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 
@@ -67,6 +72,7 @@ describe('SignUpScreen next', () => {
   });
   it('should navigate to sign in screen', async () => {
     const Component =
+      // @ts-ignore
       CreateCommunityUnauthenticatedFlowScreens[SIGN_UP_SCREEN].screen;
 
     await store.dispatch(
@@ -79,6 +85,7 @@ describe('SignUpScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next({
           signIn: true,
         }),
@@ -104,6 +111,7 @@ describe('SignInScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 
@@ -132,6 +140,7 @@ describe('SignInScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next({
           requires2FA: true,
           email,
@@ -162,6 +171,7 @@ describe('MFACodeScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 

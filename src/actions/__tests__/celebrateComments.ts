@@ -36,10 +36,14 @@ const include = 'organization_celebration_item,person';
 const trackActionResult = { type: 'tracked action' };
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
+// @ts-ignore
 callApi.mockReturnValue(() => callApiResponse);
+// @ts-ignore
 celebrateCommentsSelector.mockReturnValue(comment);
+// @ts-ignore
 trackActionWithoutData.mockReturnValue(trackActionResult);
 
 beforeEach(() => {
@@ -47,9 +51,11 @@ beforeEach(() => {
 });
 
 describe('getCelebrateCommentsNextPage', () => {
+  // @ts-ignore
   let response;
 
   beforeEach(
+    // @ts-ignore
     () => (response = store.dispatch(getCelebrateCommentsNextPage(event))),
   );
 
@@ -72,13 +78,16 @@ describe('getCelebrateCommentsNextPage', () => {
   });
 
   it('should return api response', () => {
+    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 });
 
 describe('reloadCelebrateComments', () => {
+  // @ts-ignore
   let response;
 
+  // @ts-ignore
   beforeEach(() => (response = store.dispatch(reloadCelebrateComments(event))));
 
   it('should callApi with no page', () => {
@@ -89,16 +98,19 @@ describe('reloadCelebrateComments', () => {
   });
 
   it('should return api response', () => {
+    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 });
 
 describe('createCelebrateComment', () => {
   const content = 'this is a comment';
+  // @ts-ignore
   let response;
 
   beforeEach(
     async () =>
+      // @ts-ignore
       (response = await store.dispatch(createCelebrateComment(event, content))),
   );
 
@@ -111,6 +123,7 @@ describe('createCelebrateComment', () => {
   });
 
   it('should return api response', () => {
+    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 
@@ -118,16 +131,19 @@ describe('createCelebrateComment', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CELEBRATE_COMMENT_ADDED,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([trackActionResult]);
   });
 });
 
 describe('deleteCelebrateComment', () => {
   const item = { id: 'comment1' };
+  // @ts-ignore
   let response;
 
   beforeEach(
     async () =>
+      // @ts-ignore
       (response = await store.dispatch(
         deleteCelebrateComment(event.organization.id, event, item),
       )),
@@ -141,6 +157,7 @@ describe('deleteCelebrateComment', () => {
   });
 
   it('should return api response', () => {
+    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 
@@ -148,6 +165,7 @@ describe('deleteCelebrateComment', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CELEBRATE_COMMENT_DELETED,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([trackActionResult]);
   });
 });
@@ -155,10 +173,12 @@ describe('deleteCelebrateComment', () => {
 describe('updateCelebrateComment', () => {
   const item = { id: 'comment1', organization_celebration_item: event };
   const text = 'text';
+  // @ts-ignore
   let response;
 
   beforeEach(
     async () =>
+      // @ts-ignore
       (response = await store.dispatch(updateCelebrateComment(item, text))),
   );
 
@@ -178,6 +198,7 @@ describe('updateCelebrateComment', () => {
   });
 
   it('should return api response', () => {
+    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 
@@ -185,6 +206,7 @@ describe('updateCelebrateComment', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CELEBRATE_COMMENT_EDITED,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([trackActionResult]);
   });
 });
@@ -197,7 +219,9 @@ it('resetCelebrateEditingComment', () => {
 
 it('setCelebrateEditingComment', () => {
   const comment = { id: 'test' };
+  // @ts-ignore
   store.dispatch(setCelebrateEditingComment(comment.id));
+  // @ts-ignore
   expect(store.getActions()).toEqual([
     {
       type: RESET_CELEBRATE_EDITING_COMMENT,

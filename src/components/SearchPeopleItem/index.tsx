@@ -7,15 +7,18 @@ import styles from './styles';
 
 export default class SearchPeopleItem extends Component {
   handleSelect = () => {
+    // @ts-ignore
     const { person } = this.props;
     let org;
     if (person && person.organization) {
       org = person.organization;
     }
+    // @ts-ignore
     this.props.onSelect(this.props.person, org);
   };
 
   render() {
+    // @ts-ignore
     const { person } = this.props;
 
     let orgName;
@@ -37,6 +40,7 @@ export default class SearchPeopleItem extends Component {
   }
 }
 
+// @ts-ignore
 SearchPeopleItem.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,

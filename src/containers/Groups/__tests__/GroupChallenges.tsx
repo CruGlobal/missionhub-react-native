@@ -70,10 +70,12 @@ const store = {
   },
 };
 
+// @ts-ignore
 getGroupChallengeFeed.mockReturnValue({ type: 'got group challenge feed' });
 
 it('should render correctly', () => {
   testSnapshotShallow(
+    // @ts-ignore
     <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
   );
 });
@@ -82,6 +84,7 @@ it('should render correctly for basic member', () => {
   testSnapshotShallow(
     <GroupChallenges
       orgId={orgId}
+      // @ts-ignore
       store={createThunkStore({
         ...store,
         auth: {
@@ -103,6 +106,7 @@ it('should render empty correctly', () => {
   testSnapshotShallow(
     <GroupChallenges
       orgId={orgId}
+      // @ts-ignore
       store={createThunkStore({
         ...store,
         organizations: {
@@ -120,11 +124,14 @@ it('should render empty correctly', () => {
 
 it('should refresh items properly', () => {
   const component = renderShallow(
+    // @ts-ignore
     <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    // @ts-ignore
     store,
   );
 
   const instance = component.instance();
+  // @ts-ignore
   common.refresh = jest.fn();
   component
     .childAt(1)
@@ -132,17 +139,22 @@ it('should refresh items properly', () => {
     .props()
     .refreshCallback();
 
+  // @ts-ignore
   expect(common.refresh).toHaveBeenCalledWith(instance, instance.reloadItems);
 });
 
 it('should call create', () => {
   const component = renderShallow(
+    // @ts-ignore
     <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    // @ts-ignore
     store,
   );
 
   const instance = component.instance();
+  // @ts-ignore
   instance.createChallenge = jest.fn();
+  // @ts-ignore
   navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
 
   component
@@ -157,9 +169,12 @@ it('should call create', () => {
 
 it('should call API to create', () => {
   const instance = renderShallow(
+    // @ts-ignore
     <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    // @ts-ignore
     store,
   ).instance();
+  // @ts-ignore
   createChallenge.mockReturnValue({ type: 'create' });
 
   const challenge = { id: '1', title: 'Test Challenge' };

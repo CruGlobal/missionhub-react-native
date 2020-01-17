@@ -3,6 +3,7 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 
 export function getMyLabels() {
+  // @ts-ignore
   return dispatch => {
     const query = {
       limit: 100,
@@ -11,7 +12,9 @@ export function getMyLabels() {
   };
 }
 
+// @ts-ignore
 export function getOrgFilterStats(organization_id) {
+  // @ts-ignore
   return async dispatch => {
     const query = {
       organization_id,

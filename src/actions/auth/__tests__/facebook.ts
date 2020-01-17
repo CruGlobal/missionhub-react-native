@@ -40,6 +40,7 @@ const upgradeToken = 'jllkjasdflk32l232';
 const facebookLoginActionResult = { type: 'fb login success' };
 const authSuccessResult = { type: 'authSuccess' };
 
+// @ts-ignore
 let store;
 
 beforeEach(() => {
@@ -47,7 +48,9 @@ beforeEach(() => {
     auth: {},
   });
 
+  // @ts-ignore
   callApi.mockReturnValue(dispatch => dispatch(facebookLoginActionResult));
+  // @ts-ignore
   authSuccess.mockReturnValue(authSuccessResult);
 });
 
@@ -55,10 +58,12 @@ describe('facebookPromptLogin', () => {
   const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
   it('should call the Facebook SDK to prompt user to sign in', async () => {
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: false,
     });
 
+    // @ts-ignore
     await store.dispatch(facebookPromptLogin());
 
     expect(LoginManager.logInWithPermissions).toHaveBeenCalledWith(
@@ -66,10 +71,12 @@ describe('facebookPromptLogin', () => {
     );
   });
   it('should throw an error if user cancels sign in', async () => {
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: true,
     });
 
+    // @ts-ignore
     await expect(store.dispatch(facebookPromptLogin())).rejects.toThrow(
       FACEBOOK_CANCELED_ERROR,
     );
@@ -83,6 +90,7 @@ describe('facebookPromptLogin', () => {
 describe('facebookLoginWithAccessToken', () => {
   describe('should log in to Facebook and then update analytics and person tracking', () => {
     beforeEach(() => {
+      // @ts-ignore
       AccessToken.getCurrentAccessToken.mockResolvedValue({
         accessToken: fbAccessToken,
         userID: facebookId,
@@ -90,7 +98,9 @@ describe('facebookLoginWithAccessToken', () => {
     });
 
     it('without upgradeToken', async () => {
+      // @ts-ignore
       await store.dispatch(
+        // @ts-ignore
         facebookLoginWithAccessToken(fbAccessToken, facebookId),
       );
 
@@ -104,6 +114,7 @@ describe('facebookLoginWithAccessToken', () => {
       );
       expect(LoginManager.logOut).not.toHaveBeenCalled();
 
+      // @ts-ignore
       expect(store.getActions()).toEqual([
         facebookLoginActionResult,
         { type: CLEAR_UPGRADE_TOKEN },
@@ -120,6 +131,7 @@ describe('facebookLoginWithAccessToken', () => {
       });
 
       await store.dispatch(
+        // @ts-ignore
         facebookLoginWithAccessToken(fbAccessToken, facebookId),
       );
 
@@ -150,6 +162,7 @@ describe('facebookLoginWithAccessToken', () => {
       });
 
       callApi
+        // @ts-ignore
         .mockReturnValueOnce(() => {
           throw {
             apiError: {
@@ -159,9 +172,11 @@ describe('facebookLoginWithAccessToken', () => {
             },
           };
         })
+        // @ts-ignore
         .mockReturnValueOnce(dispatch => dispatch(facebookLoginActionResult));
 
       await store.dispatch(
+        // @ts-ignore
         facebookLoginWithAccessToken(fbAccessToken, facebookId),
       );
 
@@ -197,9 +212,11 @@ describe('facebookLoginWithAccessToken', () => {
     });
   });
   it("should throw an error if the Facebook SDK doesn't return an access token", async () => {
+    // @ts-ignore
     AccessToken.getCurrentAccessToken.mockResolvedValue(null);
 
     await expect(
+      // @ts-ignore
       store.dispatch(facebookLoginWithAccessToken(fbAccessToken, facebookId)),
     ).rejects.toThrow("Facebook access token doesn't exist");
 
@@ -207,18 +224,22 @@ describe('facebookLoginWithAccessToken', () => {
     expect(callApi).not.toHaveBeenCalled();
     expect(LoginManager.logOut).toHaveBeenCalled();
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([]);
   });
 });
 
 describe('refreshMissionHubFacebookAccess', () => {
   it('should send current FB access token', async () => {
+    // @ts-ignore
     AccessToken.refreshCurrentAccessTokenAsync.mockResolvedValue();
+    // @ts-ignore
     AccessToken.getCurrentAccessToken.mockResolvedValue({
       accessToken: fbAccessToken,
       userID: facebookId,
     });
 
+    // @ts-ignore
     await store.dispatch(refreshMissionHubFacebookAccess());
 
     expect(AccessToken.refreshCurrentAccessTokenAsync).toHaveBeenCalledWith();
@@ -229,6 +250,7 @@ describe('refreshMissionHubFacebookAccess', () => {
       { fb_access_token: fbAccessToken },
     );
     expect(LoginManager.logInWithPermissions).not.toHaveBeenCalled();
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       facebookLoginActionResult,
       { type: CLEAR_UPGRADE_TOKEN },
@@ -241,17 +263,21 @@ describe('refreshMissionHubFacebookAccess', () => {
   });
 
   it('should prompt user to log in again if an error occurs', async () => {
+    // @ts-ignore
     AccessToken.refreshCurrentAccessTokenAsync.mockRejectedValue();
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: false,
     });
 
+    // @ts-ignore
     await store.dispatch(refreshMissionHubFacebookAccess());
 
     expect(AccessToken.refreshCurrentAccessTokenAsync).toHaveBeenCalledWith();
     expect(LoginManager.logInWithPermissions).toHaveBeenCalledWith(
       FACEBOOK_SCOPE,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       facebookLoginActionResult,
       { type: CLEAR_UPGRADE_TOKEN },
@@ -264,12 +290,16 @@ describe('refreshMissionHubFacebookAccess', () => {
   });
 
   it('should prompt log out if user cancels login prompt', async () => {
+    // @ts-ignore
     AccessToken.refreshCurrentAccessTokenAsync.mockRejectedValue();
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: true,
     });
+    // @ts-ignore
     LoginManager.logOut.mockResolvedValue();
 
+    // @ts-ignore
     await store.dispatch(refreshMissionHubFacebookAccess());
 
     expect(AccessToken.refreshCurrentAccessTokenAsync).toHaveBeenCalledWith();
@@ -277,6 +307,7 @@ describe('refreshMissionHubFacebookAccess', () => {
       FACEBOOK_SCOPE,
     );
     expect(LoginManager.logOut).toHaveBeenCalledWith();
+    // @ts-ignore
     expect(store.getActions()).toEqual([]);
   });
 });

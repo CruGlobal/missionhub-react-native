@@ -18,14 +18,17 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
+// @ts-ignore
 @withTranslation('notificationOff')
 class NotificationOffScreen extends Component {
   notNow = () => {
     this.close();
+    // @ts-ignore
     this.props.dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   };
 
   close() {
+    // @ts-ignore
     const { onComplete } = this.props;
 
     //check if permissions have been set since entering this screen
@@ -49,6 +52,7 @@ class NotificationOffScreen extends Component {
   };
 
   descriptionText = () => {
+    // @ts-ignore
     const { t, notificationType } = this.props;
 
     switch (notificationType) {
@@ -62,6 +66,7 @@ class NotificationOffScreen extends Component {
   };
 
   notNowButtonText = () => {
+    // @ts-ignore
     const { t, notificationType } = this.props;
 
     switch (notificationType) {
@@ -73,6 +78,7 @@ class NotificationOffScreen extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
     const {
       container,
@@ -88,6 +94,7 @@ class NotificationOffScreen extends Component {
 
     return (
       <View
+        // @ts-ignore
         value={1}
         alignItems="center"
         justifyContent="center"
@@ -122,11 +129,13 @@ class NotificationOffScreen extends Component {
   }
 }
 
+// @ts-ignore
 NotificationOffScreen.propTypes = {
   onComplete: PropTypes.func.isRequired,
   notificationType: PropTypes.string.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = (state, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

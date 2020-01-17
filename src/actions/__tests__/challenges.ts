@@ -35,6 +35,7 @@ jest.mock('../celebration');
 jest.mock('../analytics');
 
 const fakeDate = '2018-09-06T14:13:21Z';
+// @ts-ignore
 common.formatApiDate = jest.fn(() => fakeDate);
 
 const orgId = '123';
@@ -47,6 +48,7 @@ const trackActionResult = { type: 'track action' };
 const showNotificationResult = { type: 'show notification prompt' };
 
 const createStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
 const currentPage = 0;
@@ -67,15 +69,21 @@ const defaultStore = {
 
 beforeEach(() => {
   store = createStore(defaultStore);
+  // @ts-ignore
   callApi.mockReturnValue(apiResult);
+  // @ts-ignore
   navigatePush.mockReturnValue(navigateResult);
+  // @ts-ignore
   reloadGroupCelebrateFeed.mockReturnValue(celebrateResult);
+  // @ts-ignore
   trackActionWithoutData.mockReturnValue(trackActionResult);
+  // @ts-ignore
   showNotificationPrompt.mockReturnValue(showNotificationResult);
 });
 
 describe('getGroupChallengeFeed', () => {
   it('gets a page of challenge feed', () => {
+    // @ts-ignore
     store.dispatch(getGroupChallengeFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE_FEED, {
@@ -86,6 +94,7 @@ describe('getGroupChallengeFeed', () => {
       filters: { organization_ids: orgId },
       sort: '-active,-created_at',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([apiResult]);
   });
 
@@ -104,6 +113,7 @@ describe('getGroupChallengeFeed', () => {
       },
     });
 
+    // @ts-ignore
     store.dispatch(getGroupChallengeFeed(orgId));
 
     expect(callApi).not.toHaveBeenCalled();
@@ -113,6 +123,7 @@ describe('getGroupChallengeFeed', () => {
 
 describe('reloadGroupChallengeFeed', () => {
   it('reload a challenge feed', () => {
+    // @ts-ignore
     store.dispatch(reloadGroupChallengeFeed(orgId));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE_FEED, {
@@ -123,6 +134,7 @@ describe('reloadGroupChallengeFeed', () => {
       filters: { organization_ids: orgId },
       sort: '-active,-created_at',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([resetResult, apiResult]);
   });
 });
@@ -131,6 +143,7 @@ describe('completeChallenge', () => {
   const item = { id: '1' };
 
   it('completes a challenge', async () => {
+    // @ts-ignore
     await store.dispatch(completeChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -153,6 +166,7 @@ describe('completeChallenge', () => {
       ACTIONS.CHALLENGE_COMPLETED,
     );
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
       navigateResult,
@@ -168,6 +182,7 @@ describe('joinChallenge', () => {
   const item = { id: '1' };
 
   it('joins a challenge', async () => {
+    // @ts-ignore
     await store.dispatch(joinChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -192,6 +207,7 @@ describe('joinChallenge', () => {
       ACTIONS.CHALLENGE_JOINED,
     );
     expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
       showNotificationResult,
@@ -212,6 +228,7 @@ describe('createChallenge', () => {
   };
 
   it('creates a challenge', async () => {
+    // @ts-ignore
     await store.dispatch(createChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -230,6 +247,7 @@ describe('createChallenge', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_CREATED,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
       trackActionResult,
@@ -256,6 +274,7 @@ describe('updateChallenge', () => {
   };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(updateChallengeResult);
   });
 
@@ -274,6 +293,7 @@ describe('updateChallenge', () => {
       id: challenge_id,
       title: 'Challenge Title',
     };
+    // @ts-ignore
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -287,6 +307,7 @@ describe('updateChallenge', () => {
         },
       },
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
   it('updates a challenge with a new date', async () => {
@@ -294,6 +315,7 @@ describe('updateChallenge', () => {
       id: challenge_id,
       date: fakeDate,
     };
+    // @ts-ignore
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -307,6 +329,7 @@ describe('updateChallenge', () => {
         },
       },
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
   it('updates a challenge with a new title and date', async () => {
@@ -315,6 +338,7 @@ describe('updateChallenge', () => {
       title: 'Challenge Title',
       date: fakeDate,
     };
+    // @ts-ignore
     await store.dispatch(updateChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -329,6 +353,7 @@ describe('updateChallenge', () => {
         },
       },
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
 });
@@ -344,10 +369,12 @@ describe('getChallenge', () => {
   };
 
   beforeEach(() => {
+    // @ts-ignore
     callApi.mockReturnValue(getChallengeResult);
   });
 
   it('gets challenge by id', async () => {
+    // @ts-ignore
     await store.dispatch(getChallenge(challenge_id));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CHALLENGE, {
@@ -355,6 +382,7 @@ describe('getChallenge', () => {
       include:
         'accepted_community_challenges.person.first_name,accepted_community_challenges.person.last_name,accepted_community_challenges.person.organizational_permissions',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       getChallengeResult,
       {

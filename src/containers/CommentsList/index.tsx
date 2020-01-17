@@ -20,9 +20,11 @@ import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('commentsList')
 class CommentsList extends Component {
   componentDidMount() {
+    // @ts-ignore
     const { dispatch, event } = this.props;
 
     dispatch(reloadCelebrateComments(event));
@@ -30,16 +32,21 @@ class CommentsList extends Component {
   }
 
   handleLoadMore = () => {
+    // @ts-ignore
     const { dispatch, event } = this.props;
 
     dispatch(getCelebrateCommentsNextPage(event));
   };
 
+  // @ts-ignore
   handleEdit = item => {
+    // @ts-ignore
     this.props.dispatch(setCelebrateEditingComment(item.id));
   };
 
+  // @ts-ignore
   alert = ({ title, message, actionText, action }) => {
+    // @ts-ignore
     const { t } = this.props;
     Alert.alert(t(title), t(message), [
       {
@@ -53,7 +60,9 @@ class CommentsList extends Component {
     ]);
   };
 
+  // @ts-ignore
   handleDelete = item => {
+    // @ts-ignore
     const { dispatch, event } = this.props;
 
     this.alert({
@@ -66,7 +75,9 @@ class CommentsList extends Component {
     });
   };
 
+  // @ts-ignore
   handleReport = item => {
+    // @ts-ignore
     const { dispatch, event } = this.props;
     this.alert({
       title: 'reportToOwnerHeader',
@@ -78,10 +89,14 @@ class CommentsList extends Component {
     });
   };
 
+  // @ts-ignore
   menuActions = item => {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       event: { organization },
+      // @ts-ignore
       me,
     } = this.props;
 
@@ -100,6 +115,7 @@ class CommentsList extends Component {
       actions.push(deleteAction);
     } else {
       const orgPermission =
+        // @ts-ignore
         orgPermissionSelector(null, {
           person: me,
           organization,
@@ -117,17 +133,22 @@ class CommentsList extends Component {
     return actions;
   };
 
+  // @ts-ignore
   renderItem = ({ item }) => (
     <CommentItem
       item={item}
+      // @ts-ignore
       menuActions={this.menuActions(item)}
+      // @ts-ignore
       organization={this.props.event.organization}
     />
   );
 
   render() {
     const {
+      // @ts-ignore
       listProps,
+      // @ts-ignore
       celebrateComments: { comments, pagination } = {},
     } = this.props;
     const { list, listContent } = styles;
@@ -150,10 +171,12 @@ class CommentsList extends Component {
   }
 }
 
+// @ts-ignore
 CommentsList.propTypes = {
   event: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({
   me: auth.person,
   celebrateComments: celebrateCommentsSelector(

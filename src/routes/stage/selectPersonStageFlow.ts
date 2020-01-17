@@ -23,9 +23,11 @@ export const SelectPersonStageFlowScreens = {
       const person = personSelector({ people }, { personId, orgId });
 
       dispatch(
+        // @ts-ignore
         contactAssignmentId
           ? updatePersonAttributes(personId, {
               reverse_contact_assignments: person.reverse_contact_assignments.map(
+                // @ts-ignore
                 assignment =>
                   assignment.id === contactAssignmentId
                     ? { ...assignment, pathway_stage_id: stage.id }

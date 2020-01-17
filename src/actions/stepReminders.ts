@@ -5,16 +5,21 @@ import callApi from './api';
 
 const { ONCE, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
+// @ts-ignore
 export function removeStepReminder(challenge_id) {
+  // @ts-ignore
   return dispatch =>
     dispatch(callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id }));
 }
 
 export function createStepReminder(
+  // @ts-ignore
   challenge_id,
+  // @ts-ignore
   reminder_at,
   reminder_type = ONCE,
 ) {
+  // @ts-ignore
   return dispatch =>
     dispatch(
       callApi(
@@ -33,6 +38,7 @@ export function createStepReminder(
     );
 }
 
+// @ts-ignore
 function createAt(reminder_at, reminder_type) {
   switch (reminder_type) {
     case ONCE:
@@ -42,6 +48,7 @@ function createAt(reminder_at, reminder_type) {
   }
 }
 
+// @ts-ignore
 function createOn(reminder_at, reminder_type) {
   switch (reminder_type) {
     case WEEKLY:
@@ -53,6 +60,7 @@ function createOn(reminder_at, reminder_type) {
   }
 }
 
+// @ts-ignore
 function getDayOfMonth(day) {
   if (day > 28) {
     return day - 32;

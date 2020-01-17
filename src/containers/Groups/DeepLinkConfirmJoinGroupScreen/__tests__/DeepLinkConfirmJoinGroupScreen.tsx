@@ -47,6 +47,7 @@ const mockCommunity = {
 
 const mockNext = jest.fn(() => ({ type: 'nextTest' }));
 
+// @ts-ignore
 function buildScreen(props) {
   const component = renderShallow(
     <JoinGroupScreen
@@ -56,6 +57,7 @@ function buildScreen(props) {
     />,
     store,
   );
+  // @ts-ignore
   component.instance().codeInput = { focus: jest.fn() };
   return component;
 }
@@ -67,12 +69,14 @@ beforeEach(() => {
 describe('DeepLinkConfirmJoinGroupScreen', () => {
   it('renders start correctly', () => {
     testSnapshotShallow(
+      // @ts-ignore
       <JoinGroupScreen navigation={createMockNavState()} next={mockNext} />,
       store,
     );
   });
 
   it('renders group card correctly', () => {
+    // @ts-ignore
     const component = buildScreen();
     component.setState({ community: mockCommunity });
     component.update();
@@ -81,6 +85,7 @@ describe('DeepLinkConfirmJoinGroupScreen', () => {
   });
 
   it('renders error correctly', () => {
+    // @ts-ignore
     const component = buildScreen();
     component.setState({ error: 'error message' });
     component.update();
@@ -89,6 +94,7 @@ describe('DeepLinkConfirmJoinGroupScreen', () => {
   });
 
   it('should join community', async () => {
+    // @ts-ignore
     const component = buildScreen();
 
     component.setState({ community: mockCommunity, errorMessage: '' });
@@ -104,6 +110,7 @@ describe('DeepLinkConfirmJoinGroupScreen', () => {
   });
 
   it('should call navigate back', () => {
+    // @ts-ignore
     const component = buildScreen();
     const backButton = component.childAt(1).props().left;
     backButton.props.onPress();

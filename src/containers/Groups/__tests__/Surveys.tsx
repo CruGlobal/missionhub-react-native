@@ -47,11 +47,16 @@ const organization = {
   surveys,
 };
 
+// @ts-ignore
 let store;
 
+// @ts-ignore
 navigatePush.mockReturnValue({ type: 'navigated push' });
+// @ts-ignore
 getOrgSurveysNextPage.mockReturnValue({ type: 'got org surveys next page' });
+// @ts-ignore
 getOrgSurveys.mockReturnValue({ type: 'got org surveys' });
+// @ts-ignore
 refreshCommunity.mockReturnValue({ type: 'refreshed community' });
 
 beforeEach(() => {
@@ -67,6 +72,7 @@ describe('Surveys', () => {
   const component = <Surveys orgId={organization.id} />;
 
   it('should render correctly', () => {
+    // @ts-ignore
     testSnapshotShallow(component, store);
   });
 
@@ -84,6 +90,7 @@ describe('Surveys', () => {
     });
 
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.componentDidMount();
     expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
     expect(getOrgSurveys).toHaveBeenCalledWith(organization.id);
@@ -91,35 +98,47 @@ describe('Surveys', () => {
 
   it('should handleSelect correctly', () => {
     const buildTrackingResult = { name: 'screen name' };
+    // @ts-ignore
     common.buildTrackingObj = jest.fn(() => buildTrackingResult);
 
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleSelect({ id: '1' });
     expect(navigatePush).toHaveBeenCalled();
   });
 
   it('should handleLoadMore correctly', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleLoadMore();
     expect(getOrgSurveysNextPage).toHaveBeenCalled();
   });
 
   it('should handleRefresh correctly', () => {
     const refresh = jest.fn();
+    // @ts-ignore
     common.refresh = refresh;
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleRefresh();
     expect(refresh).toHaveBeenCalled();
   });
 
   it('renders item', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     const renderedItem = instance.renderItem({ item: surveys[0] });
     expect(renderedItem).toMatchSnapshot();
   });
 
   it('renderHeader match snapshot', () => {
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     const header = instance.renderHeader();
     expect(header).toMatchSnapshot();
   });

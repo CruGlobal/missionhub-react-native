@@ -21,6 +21,7 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupUnread')
 class GroupUnreadFeed extends Component {
   state = { refreshing: false, items: [] };
@@ -30,6 +31,7 @@ class GroupUnreadFeed extends Component {
   }
 
   loadItems = async () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(refreshCommunity(organization.id));
     const { response } = await dispatch(
@@ -47,20 +49,25 @@ class GroupUnreadFeed extends Component {
   };
 
   markRead = async () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     await dispatch(markCommentsRead(organization.id));
     this.back();
   };
 
+  // @ts-ignore
   clearNotification = async event => {
+    // @ts-ignore
     const { dispatch } = this.props;
     await dispatch(markCommentRead(event.id));
     this.loadItems();
   };
 
+  // @ts-ignore
   back = () => this.props.dispatch(navigateBack());
 
   render() {
+    // @ts-ignore
     const { t, organization, count } = this.props;
     const { refreshing, items } = this.state;
 
@@ -92,6 +99,7 @@ class GroupUnreadFeed extends Component {
         />
         <View style={styles.cardList}>
           <CelebrateFeed
+            // @ts-ignore
             organization={organization}
             items={items}
             refreshCallback={this.refreshItems}
@@ -107,10 +115,12 @@ class GroupUnreadFeed extends Component {
 }
 
 const mapStateToProps = (
+  // @ts-ignore
   { organizations },
   {
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization },
       },
     },

@@ -6,7 +6,9 @@ import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 
+// @ts-ignore
 export function reloadJourney(personId, orgId) {
+  // @ts-ignore
   return (dispatch, getState) => {
     const org = getState().journey[orgId ? orgId : 'personal'];
     const personFeed = org && org[personId];
@@ -15,12 +17,15 @@ export function reloadJourney(personId, orgId) {
   };
 }
 
+// @ts-ignore
 export function getGroupJourney(personId, orgId) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     try {
       // Find out if I am an admin for this organization
       const me = getState().auth.person;
       const orgPermission = (me.organizational_permissions || []).find(
+        // @ts-ignore
         o => o.organization_id === orgId,
       );
       const isAdmin = isAdminOrOwner(orgPermission);
@@ -47,11 +52,14 @@ export function getGroupJourney(personId, orgId) {
   };
 }
 
+// @ts-ignore
 export function getJourney(personId, orgId) {
+  // @ts-ignore
   return async dispatch => {
     try {
       const {
         response: { all: personFeed },
+        // @ts-ignore
       } = await dispatch(getPersonFeed(personId, orgId));
 
       // Add this so we know where to show the bump action on comments
@@ -72,7 +80,9 @@ export function getJourney(personId, orgId) {
   };
 }
 
+// @ts-ignore
 function getPersonFeed(personId, orgId, include, filters = {}) {
+  // @ts-ignore
   return dispatch => {
     const query = {
       include:
@@ -90,6 +100,7 @@ function getPersonFeed(personId, orgId, include, filters = {}) {
   };
 }
 
+// @ts-ignore
 export function updateJourney(personId, orgId, personFeed) {
   return {
     type: UPDATE_JOURNEY_ITEMS,

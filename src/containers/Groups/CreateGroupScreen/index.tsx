@@ -29,6 +29,7 @@ import Analytics from '../../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupsCreateGroup')
 class CreateGroupScreen extends Component {
   state = {
@@ -37,9 +38,11 @@ class CreateGroupScreen extends Component {
     imageData: null,
   };
 
+  // @ts-ignore
   onChangeText = text => this.setState({ name: text });
 
   createCommunity = async () => {
+    // @ts-ignore
     const { dispatch } = this.props;
     const { name, imageData } = this.state;
     try {
@@ -53,6 +56,7 @@ class CreateGroupScreen extends Component {
       }
 
       const { response: { id: newOrgId = undefined } = {} } = await dispatch(
+        // @ts-ignore
         addNewOrganization(text, imageData),
       );
 
@@ -63,7 +67,9 @@ class CreateGroupScreen extends Component {
     }
   };
 
+  // @ts-ignore
   getNewOrg = orgId => {
+    // @ts-ignore
     const { organizations, dispatch } = this.props;
 
     if (orgId) {
@@ -87,10 +93,13 @@ class CreateGroupScreen extends Component {
     dispatch(navigateToMainTabs(GROUPS_TAB));
   };
 
+  // @ts-ignore
   handleImageChange = data => this.setState({ imageData: data });
 
+  // @ts-ignore
   navigateBack = () => this.props.dispatch(navigateBack());
 
+  // @ts-ignore
   ref = c => (this.nameInput = c);
 
   renderImage() {
@@ -99,6 +108,7 @@ class CreateGroupScreen extends Component {
       return (
         <Image
           resizeMode="cover"
+          // @ts-ignore
           source={{ uri: imageData.uri }}
           style={styles.image}
         />
@@ -108,6 +118,7 @@ class CreateGroupScreen extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
     const { name, isCreatingCommunity } = this.state;
 
@@ -125,12 +136,12 @@ class CreateGroupScreen extends Component {
           title={t('createCommunity')}
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
+          // @ts-ignore
           <ImagePicker onSelectImage={this.handleImageChange}>
             <Flex align="center" justify="center" style={styles.imageWrap}>
               {this.renderImage()}
             </Flex>
           </ImagePicker>
-
           <KeyboardAvoidingView
             keyboardVerticalOffset={theme.buttonHeight}
             style={styles.flex}
@@ -164,8 +175,10 @@ class CreateGroupScreen extends Component {
   }
 }
 
+// @ts-ignore
 CreateGroupScreen.propTypes = {};
 
+// @ts-ignore
 const mapStateToProps = ({ organizations }, { navigation }) => ({
   ...(navigation.state.params || {}),
   organizations,

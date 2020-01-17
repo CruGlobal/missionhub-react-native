@@ -23,10 +23,13 @@ import styles from './styles';
 export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
   'You must log in for admin or owner permissions';
 
+// @ts-ignore
 @withTranslation('groupMemberOptions')
 class MemberOptionsMenu extends Component {
   async componentWillUnmount() {
+    // @ts-ignore
     if (this.leaveCommunityOnUnmount) {
+      // @ts-ignore
       const { dispatch, person, personOrgPermission } = this.props;
 
       await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
@@ -34,16 +37,21 @@ class MemberOptionsMenu extends Component {
   }
 
   leaveCommunity = () => {
+    // @ts-ignore
     const { dispatch } = this.props;
 
+    // @ts-ignore
     this.leaveCommunityOnUnmount = true;
     dispatch(navigateBack());
   };
 
   updatePermissionHandleTryItNowError = async (
+    // @ts-ignore
     action,
+    // @ts-ignore
     tryItNowErrorMessageFunction,
   ) => {
+    // @ts-ignore
     const { dispatch, t } = this.props;
 
     try {
@@ -68,30 +76,36 @@ class MemberOptionsMenu extends Component {
   };
 
   makeAdmin = () => {
+    // @ts-ignore
     const { person, personOrgPermission } = this.props;
 
     return this.updatePermissionHandleTryItNowError(
       makeAdmin(person.id, personOrgPermission.id),
+      // @ts-ignore
       errorDetail => errorDetail.permission_id && errorDetail.permission_id[0],
     );
   };
 
   removeAsAdmin = () => {
+    // @ts-ignore
     const { dispatch, person, personOrgPermission } = this.props;
 
     dispatch(removeAsAdmin(person.id, personOrgPermission.id));
   };
 
   makeOwner = () => {
+    // @ts-ignore
     const { organization, person } = this.props;
 
     return this.updatePermissionHandleTryItNowError(
       transferOrgOwnership(organization.id, person.id),
+      // @ts-ignore
       errorDetail => errorDetail,
     );
   };
 
   removeFromCommunity = async () => {
+    // @ts-ignore
     const { dispatch, person, personOrgPermission, organization } = this.props;
 
     await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
@@ -99,12 +113,14 @@ class MemberOptionsMenu extends Component {
   };
 
   canLeaveCommunity = () => {
+    // @ts-ignore
     const { t, iAmOwner, organization } = this.props;
 
     if (iAmOwner) {
       const onPress = () => {
         Alert.alert(
           t('ownerLeaveCommunityErrorMessage', { orgName: organization.name }),
+          // @ts-ignore
           null,
           { text: t('ok') },
         );
@@ -112,13 +128,18 @@ class MemberOptionsMenu extends Component {
       return [{ text: t('leaveCommunity.optionTitle'), onPress }];
     }
 
+    // @ts-ignore
     return this.createOption('leaveCommunity', this.leaveCommunity);
   };
 
+  // @ts-ignore
   createOption = (optionName, optionMethod, hasDescription) => {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       person: { full_name: personName },
+      // @ts-ignore
       organization: { name: communityName },
     } = this.props;
 
@@ -143,6 +164,7 @@ class MemberOptionsMenu extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { myId, person, iAmAdmin, iAmOwner, personIsAdmin } = this.props;
 
     const personIsMe = myId === person.id;
@@ -160,13 +182,15 @@ class MemberOptionsMenu extends Component {
           ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
         ...(showRemoveAsAdmin
-          ? this.createOption('removeAdmin', this.removeAsAdmin)
+          ? // @ts-ignore
+            this.createOption('removeAdmin', this.removeAsAdmin)
           : []),
         ...(showMakeOwner
           ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
         ...(showRemoveFromCommunity
-          ? this.createOption('removeMember', this.removeFromCommunity)
+          ? // @ts-ignore
+            this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],
       buttonProps: { style: styles.container },
@@ -176,6 +200,7 @@ class MemberOptionsMenu extends Component {
   }
 }
 
+// @ts-ignore
 MemberOptionsMenu.propTypes = {
   myId: PropTypes.string.isRequired,
   person: PropTypes.object.isRequired,

@@ -15,11 +15,13 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupsReport')
 export class GroupReport extends Component {
   state = { refreshing: false };
 
   loadItems = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     return dispatch(getReportedComments(organization.id));
   };
@@ -28,14 +30,18 @@ export class GroupReport extends Component {
     refresh(this, this.loadItems);
   };
 
+  // @ts-ignore
   renderItem = ({ item }) => (
+    // @ts-ignore
     <ReportCommentItem item={item} organization={this.props.organization} />
   );
 
+  // @ts-ignore
   navigateBack = () => this.props.dispatch(navigateBack());
 
   renderList = () => {
     const { refreshing } = this.state;
+    // @ts-ignore
     const { t, reportedComments } = this.props;
     if (reportedComments.length === 0) {
       return (
@@ -63,6 +69,7 @@ export class GroupReport extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
 
     return (
@@ -76,6 +83,7 @@ export class GroupReport extends Component {
               onPress={this.navigateBack}
             />
           }
+          // @ts-ignore
           style={styles.reportHeader}
           title={t('title')}
         />
@@ -86,10 +94,12 @@ export class GroupReport extends Component {
 }
 
 const mapStateToProps = (
+  // @ts-ignore
   { reportedComments },
   {
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization },
       },
     },

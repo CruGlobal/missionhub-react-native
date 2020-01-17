@@ -23,7 +23,9 @@ import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
 import { reloadGroupCelebrateFeed } from './celebration';
 
+// @ts-ignore
 export function getStepSuggestions(isMe, contactStageId) {
+  // @ts-ignore
   return dispatch => {
     const language = i18next.language;
     const query = {
@@ -39,11 +41,13 @@ export function getStepSuggestions(isMe, contactStageId) {
 }
 
 export function getMySteps(query = {}) {
+  // @ts-ignore
   return dispatch => {
     const queryObj = {
       order: '-accepted_at',
       ...query,
       filters: {
+        // @ts-ignore
         ...(query.filters || {}),
         completed: false,
       },
@@ -55,6 +59,7 @@ export function getMySteps(query = {}) {
 }
 
 export function getMyStepsNextPage() {
+  // @ts-ignore
   return (dispatch, getState) => {
     const { page, hasNextPage } = getState().steps.pagination;
     if (!hasNextPage) {
@@ -72,7 +77,9 @@ export function getMyStepsNextPage() {
   };
 }
 
+// @ts-ignore
 export function getContactSteps(personId, orgId) {
+  // @ts-ignore
   return dispatch => {
     const query = {
       filters: {
@@ -86,7 +93,9 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
+// @ts-ignore
 export function addStep(stepSuggestion, personId, orgId) {
+  // @ts-ignore
   return async dispatch => {
     const payload = {
       data: {
@@ -131,7 +140,9 @@ export function addStep(stepSuggestion, personId, orgId) {
   };
 }
 
+// @ts-ignore
 export function createCustomStep(stepText, personId, orgId) {
+  // @ts-ignore
   return (dispatch, getState) => {
     const {
       auth: {
@@ -144,7 +155,9 @@ export function createCustomStep(stepText, personId, orgId) {
   };
 }
 
+// @ts-ignore
 export function updateChallengeNote(stepId, note) {
+  // @ts-ignore
   return dispatch => {
     const query = { challenge_id: stepId };
     const data = buildChallengeData({ note });
@@ -153,6 +166,7 @@ export function updateChallengeNote(stepId, note) {
   };
 }
 
+// @ts-ignore
 function buildChallengeData(attributes) {
   return {
     data: {
@@ -162,13 +176,16 @@ function buildChallengeData(attributes) {
   };
 }
 
+// @ts-ignore
 function completeChallengeAPI(step) {
+  // @ts-ignore
   return async dispatch => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
 
     const query = { challenge_id: stepId };
+    // @ts-ignore
     const data = buildChallengeData({ completed_at: formatApiDate() });
 
     await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
@@ -184,7 +201,9 @@ function completeChallengeAPI(step) {
   };
 }
 
+// @ts-ignore
 export function completeStep(step, screen, extraBack = false) {
+  // @ts-ignore
   return dispatch => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
@@ -211,7 +230,9 @@ export function completeStep(step, screen, extraBack = false) {
   };
 }
 
+// @ts-ignore
 export function deleteStepWithTracking(step, screen) {
+  // @ts-ignore
   return async dispatch => {
     await dispatch(deleteStep(step));
     dispatch(
@@ -222,7 +243,9 @@ export function deleteStepWithTracking(step, screen) {
   };
 }
 
+// @ts-ignore
 function deleteStep(step) {
+  // @ts-ignore
   return dispatch => {
     const query = { challenge_id: step.id };
     return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));

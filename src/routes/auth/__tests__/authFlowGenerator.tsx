@@ -10,6 +10,7 @@ import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 import { authFlowGenerator } from '../authFlowGenerator';
 
 jest.mock('../../../actions/navigation');
+// @ts-ignore
 navigatePush.mockReturnValue(() => {});
 
 const store = configureStore([thunk])();
@@ -23,6 +24,7 @@ const testFlow = authFlowGenerator({
 
 describe('SignUpScreen next', () => {
   it('should finish auth', async () => {
+    // @ts-ignore
     const Component = testFlow[SIGN_UP_SCREEN].screen;
 
     await store.dispatch(
@@ -35,12 +37,14 @@ describe('SignUpScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 
     expect(completeAction).toHaveBeenCalled();
   });
   it('should navigate to sign in screen', async () => {
+    // @ts-ignore
     const Component = testFlow[SIGN_UP_SCREEN].screen;
 
     await store.dispatch(
@@ -53,6 +57,7 @@ describe('SignUpScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next({
           signIn: true,
         }),
@@ -80,6 +85,7 @@ describe('SignInScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 
@@ -98,6 +104,7 @@ describe('SignInScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next({
           requires2FA: true,
           email,
@@ -127,6 +134,7 @@ describe('MFACodeScreen next', () => {
         store,
       )
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 

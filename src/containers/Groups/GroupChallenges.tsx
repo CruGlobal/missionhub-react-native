@@ -21,6 +21,7 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupsChallenge')
 class GroupChallenges extends Component {
   state = { refreshing: false };
@@ -30,11 +31,13 @@ class GroupChallenges extends Component {
   }
 
   loadItems = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(getGroupChallengeFeed(organization.id));
   };
 
   reloadItems = () => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(refreshCommunity(organization.id));
     return dispatch(reloadGroupChallengeFeed(organization.id));
@@ -44,15 +47,19 @@ class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
+  // @ts-ignore
   createChallenge = challenge => {
+    // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(createChallenge(challenge, organization.id));
   };
 
   create = () => {
+    // @ts-ignore
     const { dispatch } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
+        // @ts-ignore
         onComplete: challenge => {
           this.createChallenge(challenge);
           dispatch(navigateBack());
@@ -63,15 +70,18 @@ class GroupChallenges extends Component {
 
   render() {
     const { refreshing } = this.state;
+    // @ts-ignore
     const { t, challengeItems, organization, myOrgPermissions } = this.props;
 
     const canCreate = isAdminOrOwner(myOrgPermissions);
 
     return (
+      // @ts-ignore
       <View flex={1}>
         <Analytics screenName={['community', 'challenges']} />
         <View style={styles.cardList}>
           <ChallengeFeed
+            // @ts-ignore
             organization={organization}
             items={challengeItems}
             loadMoreItemsCallback={this.loadItems}
@@ -88,15 +98,18 @@ class GroupChallenges extends Component {
   }
 }
 
+// @ts-ignore
 const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
   const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     organization,
+    // @ts-ignore
     challengeItems: challengesSelector({
       challengeItems: organization.challengeItems || [],
     }),
     pagination: organization.challengePagination || {},
+    // @ts-ignore
     myOrgPermissions: orgPermissionSelector(null, {
       person: auth.person,
       organization,

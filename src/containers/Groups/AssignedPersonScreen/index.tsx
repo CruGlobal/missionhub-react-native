@@ -44,21 +44,27 @@ const MEMBER_CELEBRATE = 'nav/MEMBER_CELEBRATE';
 const MEMBERS_ASSIGNED_CONTACTS = 'nav/MEMBER_ASSIGNED_CONTACTS';
 export const ALL_PERSON_TAB_ROUTES = {
   [PERSON_STEPS]: {
+    // @ts-ignore
     tracking: buildTrackingObj('person : steps', 'person'),
   },
   [PERSON_NOTES]: {
+    // @ts-ignore
     tracking: buildTrackingObj('person : notes', 'person'),
   },
   [PERSON_JOURNEY]: {
+    // @ts-ignore
     tracking: buildTrackingObj('person : journey', 'person'),
   },
   [MEMBER_IMPACT]: {
+    // @ts-ignore
     tracking: buildTrackingObj('person : impact', 'person'),
   },
   [MEMBER_CELEBRATE]: {
+    // @ts-ignore
     tracking: buildTrackingObj('person : celebrate', 'person'),
   },
   [MEMBERS_ASSIGNED_CONTACTS]: {
+    // @ts-ignore
     tracking: buildTrackingObj('person : assigned contacts', 'person'),
   },
 };
@@ -69,6 +75,7 @@ const personSteps = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -80,9 +87,11 @@ const personNotes = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
+    // @ts-ignore
   }) => <ContactNotes organization={organization} person={person} />,
 };
 const personJourney = {
@@ -91,6 +100,7 @@ const personJourney = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -102,6 +112,7 @@ const memberImpact = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -113,6 +124,7 @@ const memberCelebrate = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -124,6 +136,7 @@ const assignedContacts = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -135,6 +148,7 @@ const myJourney = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -146,6 +160,7 @@ const myImpact = {
   component: ({
     navigation: {
       state: {
+        // @ts-ignore
         params: { organization, person },
       },
     },
@@ -172,15 +187,21 @@ export class AssignedPersonScreen extends Component {
   state = { keyboardVisible: false };
 
   componentDidMount() {
+    // @ts-ignore
     const { person, organization = {} } = this.props;
+    // @ts-ignore
     this.props.dispatch(getPersonDetails(person.id, organization.id));
 
+    // @ts-ignore
     this.keyboardShowListener = keyboardShow(this.keyboardShow);
+    // @ts-ignore
     this.keyboardHideListener = keyboardHide(this.keyboardHide);
   }
 
   componentWillUnmount() {
+    // @ts-ignore
     this.keyboardShowListener.remove();
+    // @ts-ignore
     this.keyboardHideListener.remove();
   }
 
@@ -193,6 +214,7 @@ export class AssignedPersonScreen extends Component {
   };
 
   openDrawer = () => {
+    // @ts-ignore
     this.props.dispatch(
       DrawerActions.openDrawer({ drawer: PERSON_MENU_DRAWER }),
     );
@@ -201,14 +223,23 @@ export class AssignedPersonScreen extends Component {
   render() {
     const { keyboardVisible } = this.state;
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       person,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       isMember,
+      // @ts-ignore
       contactAssignment,
+      // @ts-ignore
       myId,
+      // @ts-ignore
       myStageId,
+      // @ts-ignore
       stages,
+      // @ts-ignore
       isCruOrg,
     } = this.props;
 
@@ -245,6 +276,7 @@ export class AssignedPersonScreen extends Component {
             <PathwayStageDisplay orgId={organization.id} person={person} />
           ) : null}
           <GroupsPersonHeader
+            // @ts-ignore
             isVisible={!keyboardVisible}
             isMember={isMember}
             contactAssignment={contactAssignment}
@@ -262,6 +294,7 @@ export class AssignedPersonScreen extends Component {
   }
 }
 
+// @ts-ignore
 AssignedPersonScreen.propTypes = {
   person: PropTypes.shape({
     id: PropTypes.string.isRequired,
@@ -274,7 +307,9 @@ AssignedPersonScreen.propTypes = {
 };
 
 export const mapStateToProps = (
+  // @ts-ignore
   { people, auth, stages, organizations },
+  // @ts-ignore
   { navigation },
 ) => {
   const navParams = navigation.state.params || {};
@@ -307,36 +342,43 @@ export const mapStateToProps = (
 const connectedPersonScreen = connect(mapStateToProps)(AssignedPersonScreen);
 
 //TODO find a way to not do this, even if it means switching to a different navigation library...
+// @ts-ignore
 export const ContactPersonScreen = generateSwipeTabMenuNavigator(
   CONTACT_PERSON_TABS,
   connectedPersonScreen,
   false,
 );
+// @ts-ignore
 export const IsUserCreatedMemberPersonScreen = generateSwipeTabMenuNavigator(
   IS_USER_CREATED_MEMBER_PERSON_TABS,
   connectedPersonScreen,
   true,
 );
+// @ts-ignore
 export const IsGroupsMemberPersonScreen = generateSwipeTabMenuNavigator(
   IS_GROUPS_MEMBER_PERSON_TABS,
   connectedPersonScreen,
   true,
 );
+// @ts-ignore
 export const MemberPersonScreen = generateSwipeTabMenuNavigator(
   MEMBER_PERSON_TABS,
   connectedPersonScreen,
   true,
 );
+// @ts-ignore
 export const MePersonalPersonScreen = generateSwipeTabMenuNavigator(
   ME_PERSONAL_TABS,
   connectedPersonScreen,
   false,
 );
+// @ts-ignore
 export const IsGroupsMeCommunityPersonScreen = generateSwipeTabMenuNavigator(
   IS_GROUPS_ME_COMMUNITY_TABS,
   connectedPersonScreen,
   true,
 );
+// @ts-ignore
 export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
   ME_COMMUNITY_TABS,
   connectedPersonScreen,

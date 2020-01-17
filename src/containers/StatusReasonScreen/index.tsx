@@ -13,20 +13,27 @@ import theme from '../../theme';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('statusReason')
 class StatusReasonScreen extends Component {
   state = { text: '' };
 
+  // @ts-ignore
   handleChangeText = t => {
     this.setState({ text: t });
   };
 
   submit = () => {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       contactAssignment,
+      // @ts-ignore
       person,
+      // @ts-ignore
       organization,
+      // @ts-ignore
       onSubmit,
     } = this.props;
     const { text } = this.state;
@@ -43,6 +50,7 @@ class StatusReasonScreen extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { t, organization } = this.props;
 
     return (
@@ -78,12 +86,14 @@ class StatusReasonScreen extends Component {
   }
 }
 
+// @ts-ignore
 StatusReasonScreen.propTypes = {
   person: PropTypes.object.isRequired,
   organization: PropTypes.object.isRequired,
   contactAssignment: PropTypes.object.isRequired,
 };
 
+// @ts-ignore
 const mapStateToProps = ({ auth }, { navigation }) => ({
   ...(navigation.state.params || {}),
   me: auth.person,

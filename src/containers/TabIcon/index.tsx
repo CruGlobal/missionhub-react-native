@@ -9,6 +9,7 @@ import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
+// @ts-ignore
 function TabIcon({ name, tintColor, showNotification }) {
   const icon = (
     <Icon
@@ -36,6 +37,7 @@ function TabIcon({ name, tintColor, showNotification }) {
   );
 }
 
+// @ts-ignore
 const mapStateToProps = ({ auth }, { name }) => ({
   showNotification: name === 'group' && auth.person.unread_comments_count,
 });

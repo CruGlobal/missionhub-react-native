@@ -10,6 +10,7 @@ import { REQUESTS } from '../../api/routes';
 it('should update push device', () => {
   const pushDevice = { id: '9', token: 'some token' };
   const state = notifications(
+    // @ts-ignore
     {},
     {
       type: REQUESTS.SET_PUSH_TOKEN.SUCCESS,
@@ -23,6 +24,7 @@ it('should update push device', () => {
 
 it('should disable welcome notification', () => {
   const state = notifications(
+    // @ts-ignore
     {},
     {
       type: DISABLE_WELCOME_NOTIFICATION,
@@ -33,6 +35,7 @@ it('should disable welcome notification', () => {
 
 it('should set requestedNativePermissions to true', () => {
   const state = notifications(
+    // @ts-ignore
     {},
     {
       type: REQUEST_NOTIFICATIONS,
@@ -43,6 +46,7 @@ it('should set requestedNativePermissions to true', () => {
 
 it('should set showReminderOnLoad to false', () => {
   const state = notifications(
+    // @ts-ignore
     {},
     {
       type: LOAD_HOME_NOTIFICATION_REMINDER,
@@ -59,6 +63,7 @@ it('resets state on logout', () => {
     hasShownWelcomeNotification: false,
   };
   const state = notifications(
+    // @ts-ignore
     {
       requestedNativePermissions: true,
     },
@@ -71,6 +76,7 @@ it('resets state on logout', () => {
 
 it('resets state on logout', () => {
   const state = notifications(
+    // @ts-ignore
     {},
     {
       type: null,

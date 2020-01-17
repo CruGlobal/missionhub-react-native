@@ -12,12 +12,15 @@ jest.mock('../../../actions/interactions');
 
 const mockStore = configureStore([thunk]);
 const person = { id: '4243242' };
+// @ts-ignore
 let organization;
 const onSubmit = jest.fn();
 
+// @ts-ignore
 let screen;
 let store;
 
+// @ts-ignore
 addNewInteraction.mockReturnValue(() => Promise.resolve());
 
 beforeEach(() => {
@@ -25,8 +28,10 @@ beforeEach(() => {
 
   screen = renderShallow(
     <JourneyCommentBox
+      // @ts-ignore
       hideActions={true}
       person={person}
+      // @ts-ignore
       organization={organization}
       onSubmit={onSubmit}
     />,
@@ -35,16 +40,19 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
+  // @ts-ignore
   expect(screen).toMatchSnapshot();
 });
 
 describe('onSubmit', () => {
   const text = 'matt watts loves the spurs';
+  // @ts-ignore
   let action;
 
   beforeAll(() => {
     organization = null;
   });
+  // @ts-ignore
   beforeEach(() => screen.props().onSubmit(action, text));
 
   describe('without organization', () => {

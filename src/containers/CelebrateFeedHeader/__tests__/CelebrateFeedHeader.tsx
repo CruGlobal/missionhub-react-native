@@ -20,8 +20,11 @@ jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
 
+// @ts-ignore
 getReportedComments.mockReturnValue(() => ({ type: 'getReportedComments' }));
+// @ts-ignore
 markCommentsRead.mockReturnValue(() => ({ type: 'markCommentsRead' }));
+// @ts-ignore
 navigatePush.mockReturnValue(() => ({ type: 'navigatePush' }));
 
 const mockStore = configureStore([thunk]);
@@ -45,10 +48,13 @@ const mockStoreObj = {
     },
   },
 };
+// @ts-ignore
 let store;
 
 beforeEach(() => {
+  // @ts-ignore
   organizationSelector.mockReturnValue(organization);
+  // @ts-ignore
   orgPermissionSelector.mockReturnValue({
     permission_id: ORG_PERMISSIONS.OWNER,
   });
@@ -58,6 +64,7 @@ beforeEach(() => {
 function buildScreen() {
   return renderShallow(
     <CelebrateFeedHeader organization={organization} />,
+    // @ts-ignore
     store,
   );
 }
@@ -74,6 +81,7 @@ describe('owner', () => {
 
   describe('cru community', () => {
     it('renders with 1 reported comment', () => {
+      // @ts-ignore
       organizationSelector.mockReturnValue({
         ...organization,
         user_created: false,
@@ -87,6 +95,7 @@ describe('owner', () => {
 
   describe('global community', () => {
     it('renders without reported comments', () => {
+      // @ts-ignore
       organizationSelector.mockReturnValue({
         ...organization,
         id: GLOBAL_COMMUNITY_ID,
@@ -110,6 +119,7 @@ describe('owner', () => {
 
 describe('admin', () => {
   beforeEach(() => {
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.ADMIN,
     });
@@ -126,6 +136,7 @@ describe('admin', () => {
 
   describe('cru community', () => {
     it('renders without reported comments', () => {
+      // @ts-ignore
       organizationSelector.mockReturnValue({
         ...organization,
         user_created: false,
@@ -139,6 +150,7 @@ describe('admin', () => {
 
   describe('global community', () => {
     it('renders without reported comments', () => {
+      // @ts-ignore
       organizationSelector.mockReturnValue({
         ...organization,
         id: GLOBAL_COMMUNITY_ID,
@@ -152,6 +164,7 @@ describe('admin', () => {
   });
 
   it('renders with 0 reported comments', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue({
       ...organization,
       user_created: false,
@@ -166,6 +179,7 @@ describe('admin', () => {
 
 describe('members', () => {
   beforeEach(() => {
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue({
       permission_id: ORG_PERMISSIONS.USER,
     });
@@ -182,6 +196,7 @@ describe('members', () => {
 
   describe('cru community', () => {
     it('renders without reported comments', () => {
+      // @ts-ignore
       organizationSelector.mockReturnValue({
         ...organization,
         user_created: false,
@@ -195,6 +210,7 @@ describe('members', () => {
 
   describe('global community', () => {
     it('renders without reported comments', () => {
+      // @ts-ignore
       organizationSelector.mockReturnValue({
         ...organization,
         id: GLOBAL_COMMUNITY_ID,
@@ -214,6 +230,7 @@ describe('unread comments card', () => {
     expect(screen).toMatchSnapshot();
   });
   it('renders no comment card when global org', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue({
       ...organization,
       id: GLOBAL_COMMUNITY_ID,
@@ -222,6 +239,7 @@ describe('unread comments card', () => {
     expect(screen).toMatchSnapshot();
   });
   it('renders no comment card when no new comments', () => {
+    // @ts-ignore
     organizationSelector.mockReturnValue({
       ...organization,
       unread_comments_count: 0,

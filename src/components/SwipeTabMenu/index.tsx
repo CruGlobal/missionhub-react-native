@@ -6,6 +6,7 @@ import { connect } from 'react-redux-legacy';
 // eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+// @ts-ignore
 import ViewOverflow from 'react-native-view-overflow';
 
 import { Flex, Touchable } from '../common';
@@ -13,6 +14,7 @@ import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
+// @ts-ignore
 @connect()
 export class SwipeTabMenu extends Component {
   state = {
@@ -24,7 +26,9 @@ export class SwipeTabMenu extends Component {
 
   componentDidMount() {
     const {
+      // @ts-ignore
       tabs,
+      // @ts-ignore
       navigation: {
         state: {
           params: { initialTab },
@@ -34,6 +38,7 @@ export class SwipeTabMenu extends Component {
 
     if (initialTab) {
       const initialIndex = tabs.findIndex(
+        // @ts-ignore
         tab => tab.navigationAction === initialTab,
       );
 
@@ -42,11 +47,13 @@ export class SwipeTabMenu extends Component {
   }
 
   componentDidUpdate() {
+    // @ts-ignore
     this.scrollToTab(this.props.navigation.state.index, false);
   }
 
   // Figure out width of largest text element in menu and make the rest the same size
   // TODO: figure out if there is a way to avoid flicker. Could hard code but that wouldn't work well with i18n
+  // @ts-ignore
   onLayoutMenuItem = event => {
     const { width } = event.nativeEvent.layout;
     const { maxMenuItemWidth } = this.state;
@@ -58,13 +65,16 @@ export class SwipeTabMenu extends Component {
     }
   };
 
+  // @ts-ignore
   onScrollFinishNavigate = event => {
     const { x } = event.nativeEvent.contentOffset;
     const index = this.offsetToIndex(x);
     this.navigateToTab(index);
   };
 
+  // @ts-ignore
   navigateToTab(index) {
+    // @ts-ignore
     const { tabs, dispatch, navigation } = this.props;
 
     if (index !== navigation.state.index && tabs[index]) {
@@ -81,8 +91,10 @@ export class SwipeTabMenu extends Component {
     });
   }
 
+  // @ts-ignore
   scrollToTab = (index, navigate = true) => {
     this.scrollView &&
+      // @ts-ignore
       this.scrollView.scrollTo({
         x: this.indexToOffset(index),
         y: 0,
@@ -93,6 +105,7 @@ export class SwipeTabMenu extends Component {
     navigate && isAndroid && this.navigateToTab(index);
   };
 
+  // @ts-ignore
   offsetToIndex(x) {
     // Doing the math on Android doesn't result in integers so we round
     // Android isn't using contentInset so we don't have to account for it
@@ -102,6 +115,7 @@ export class SwipeTabMenu extends Component {
     );
   }
 
+  // @ts-ignore
   indexToOffset(index) {
     return (
       index * this.state.maxMenuItemWidth -
@@ -115,9 +129,11 @@ export class SwipeTabMenu extends Component {
     return width / 2 - maxMenuItemWidth / 2;
   }
 
+  // @ts-ignore
   ref = ref => (this.scrollView = ref);
 
   render() {
+    // @ts-ignore
     const { tabs, navigation, isLight } = this.props;
     const { maxMenuItemWidth, previousIndex } = this.state;
     const insetDistance = this.getScrollInsetDistance();
@@ -146,6 +162,7 @@ export class SwipeTabMenu extends Component {
           decelerationRate={'fast'}
           onMomentumScrollEnd={this.onScrollFinishNavigate}
         >
+          // @ts-ignore
           {tabs.map((tab, index) => (
             <Touchable
               key={tab.navigationAction}
@@ -188,13 +205,18 @@ export class SwipeTabMenu extends Component {
 }
 
 export const generateSwipeTabMenuNavigator = (
+  // @ts-ignore
   tabs,
+  // @ts-ignore
   HeaderComponent,
+  // @ts-ignore
   isMember,
+  // @ts-ignore
   isLight,
 ) =>
   createMaterialTopTabNavigator(
     tabs.reduce(
+      // @ts-ignore
       (acc, tab) => ({
         ...acc,
         [tab.navigationAction]: tab.component,
@@ -209,6 +231,7 @@ export const generateSwipeTabMenuNavigator = (
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>
           <HeaderComponent navigation={navigation} isMember={isMember} />
+          // @ts-ignore
           <SwipeTabMenu navigation={navigation} tabs={tabs} isLight={isLight} />
         </ViewOverflow>
       ),

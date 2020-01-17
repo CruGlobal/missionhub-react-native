@@ -29,13 +29,16 @@ const globalOrg = {
   user_created: true,
 };
 
+// @ts-ignore
 navigatePush.mockReturnValue({ type: 'navigate push' });
+// @ts-ignore
 navigateToMainTabs.mockReturnValue({ type: 'navigateToMainTabs' });
 
 describe('GroupScreen', () => {
   it('should render header correctly for global community', () => {
     testSnapshotShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({ orgId: GLOBAL_COMMUNITY_ID })}
         store={createThunkStore({ organizations: { all: [globalOrg] } })}
       />,
@@ -45,6 +48,7 @@ describe('GroupScreen', () => {
   it('should render header correctly for cru community', () => {
     testSnapshotShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({ orgId })}
         store={createThunkStore({ organizations: { all: [organization] } })}
       />,
@@ -54,6 +58,7 @@ describe('GroupScreen', () => {
   it('should render header correctly for user_created community', () => {
     testSnapshotShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({ orgId })}
         store={createThunkStore({ organizations: { all: [userOrg] } })}
       />,
@@ -71,6 +76,7 @@ describe('GroupScreen', () => {
   it('should handle add contact button correctly', () => {
     const component = renderShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({
           orgId,
         })}
@@ -94,6 +100,7 @@ describe('GroupScreen', () => {
   it('should handle profile button correctly', () => {
     const component = renderShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({ orgId })}
         store={createThunkStore({ organizations: { all: [userOrg] } })}
       />,
@@ -112,6 +119,7 @@ describe('GroupScreen', () => {
   it('should handle go back correctly', () => {
     const component = renderShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({ orgId })}
         store={createThunkStore({ organizations: { all: [organization] } })}
       />,
@@ -128,6 +136,7 @@ describe('GroupScreen', () => {
   it('calls disable back add', () => {
     const instance = renderShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({
           orgId,
         })}
@@ -135,7 +144,9 @@ describe('GroupScreen', () => {
       />,
     ).instance();
 
+    // @ts-ignore
     common.disableBack = { add: jest.fn() };
+    // @ts-ignore
     instance.componentDidMount();
     expect(common.disableBack.add).toHaveBeenCalledTimes(1);
   });
@@ -143,6 +154,7 @@ describe('GroupScreen', () => {
   it('calls disable back remove', () => {
     const instance = renderShallow(
       <ConnectedGroupScreen
+        // @ts-ignore
         navigation={createMockNavState({
           organization,
         })}
@@ -150,7 +162,9 @@ describe('GroupScreen', () => {
       />,
     ).instance();
 
+    // @ts-ignore
     common.disableBack = { remove: jest.fn() };
+    // @ts-ignore
     instance.componentWillUnmount();
     expect(common.disableBack.remove).toHaveBeenCalledTimes(1);
   });

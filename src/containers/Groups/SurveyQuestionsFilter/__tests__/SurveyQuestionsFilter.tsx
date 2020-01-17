@@ -52,12 +52,14 @@ it('renders correctly', () => {
 
 describe('SurveyQuestionsFilter', () => {
   let component;
+  // @ts-ignore
   let instance;
 
   beforeEach(() => {
     component = renderShallow(
       <SurveyQuestionsFilter
         navigation={nav}
+        // @ts-ignore
         dispatch={jest.fn(() => jest.fn())}
       />,
     );
@@ -68,13 +70,18 @@ describe('SurveyQuestionsFilter', () => {
     it('handles drilldown to answer options', () => {
       const item = options[0];
 
+      // @ts-ignore
       instance.handleDrillDown(item);
 
       expect(navigatePush).toHaveBeenCalledWith(SEARCH_REFINE_SCREEN, {
+        // @ts-ignore
         onFilter: instance.handleSelectFilter,
+        // @ts-ignore
         title: instance.props.t('titleAnswers'),
         options: item.options,
+        // @ts-ignore
         filters: instance.state.filters,
+        // @ts-ignore
         trackingObj: buildTrackingObj(
           `search : refine : ${item.id}`,
           'search',
@@ -91,6 +98,7 @@ describe('SurveyQuestionsFilter', () => {
     const item = selected.options[0];
 
     it('selects new filter', () => {
+      // @ts-ignore
       instance.setState({ selectedFilterId: selected.id });
 
       const expectedNewOptions = [
@@ -109,8 +117,10 @@ describe('SurveyQuestionsFilter', () => {
         [selected.id]: { id: selected.id, text: item.text, isAnswer: true },
       };
 
+      // @ts-ignore
       instance.handleSelectFilter(item);
 
+      // @ts-ignore
       expect(instance.state).toEqual({
         filters: expectedNewFilter,
         options: expectedNewOptions,

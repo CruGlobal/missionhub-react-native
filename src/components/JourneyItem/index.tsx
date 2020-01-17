@@ -13,16 +13,21 @@ import { localizedStageSelector } from '../../selectors/stages';
 import styles from './styles';
 
 const interactionsArr = Object.keys(INTERACTION_TYPES).map(
+  // @ts-ignore
   key => INTERACTION_TYPES[key],
 );
 
+// @ts-ignore
 @withTranslation('journeyItem')
 export default class JourneyItem extends Component {
+  // @ts-ignore
   setNativeProps(nProps) {
+    // @ts-ignore
     this._view.setNativeProps(nProps);
   }
 
   renderDate() {
+    // @ts-ignore
     const { item } = this.props;
     return (
       <DateComponent
@@ -35,11 +40,13 @@ export default class JourneyItem extends Component {
     );
   }
 
+  // @ts-ignore
   oldStage(item) {
     return localizedStageSelector(item.old_pathway_stage, i18next.language)
       .name;
   }
 
+  // @ts-ignore
   translatableStage(item) {
     return {
       personName: item.person.first_name,
@@ -49,16 +56,23 @@ export default class JourneyItem extends Component {
     };
   }
 
+  // @ts-ignore
   isSelfPathwayProgressionAudit(item) {
+    // @ts-ignore
     return this.props.myId === item.person.id;
   }
 
   renderTitle() {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       item,
+      // @ts-ignore
       myId,
+      // @ts-ignore
       personFirstName,
+      // @ts-ignore
       item: { _type },
     } = this.props;
     let title;
@@ -117,8 +131,11 @@ export default class JourneyItem extends Component {
 
   renderText() {
     const {
+      // @ts-ignore
       t,
+      // @ts-ignore
       item,
+      // @ts-ignore
       item: { _type },
     } = this.props;
     let text;
@@ -154,7 +171,9 @@ export default class JourneyItem extends Component {
 
   renderIcon() {
     const {
+      // @ts-ignore
       item,
+      // @ts-ignore
       item: { _type },
     } = this.props;
     let iconType;
@@ -198,6 +217,7 @@ export default class JourneyItem extends Component {
   }
 
   renderContent() {
+    // @ts-ignore
     if (this.props.item._type === 'answer_sheet') {
       return this.renderSurvey();
     }
@@ -211,11 +231,13 @@ export default class JourneyItem extends Component {
   }
 
   renderSurvey() {
+    // @ts-ignore
     const { answers } = this.props.item;
     return (
       <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
         {this.renderTitle()}
+        // @ts-ignore
         {answers.map(a => (
           <Flex direction="column" key={a.id}>
             <Text style={styles.question}>{a.question.label}</Text>
@@ -226,6 +248,7 @@ export default class JourneyItem extends Component {
     );
   }
 
+  // @ts-ignore
   ref = c => (this._view = c);
 
   render() {
@@ -238,6 +261,7 @@ export default class JourneyItem extends Component {
   }
 }
 
+// @ts-ignore
 JourneyItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
@@ -251,6 +275,7 @@ JourneyItem.propTypes = {
     ]),
     text: PropTypes.string,
     title: PropTypes.string,
+    // @ts-ignore
     completed_at: PropTypes.date,
   }).isRequired,
   myId: PropTypes.string.isRequired,

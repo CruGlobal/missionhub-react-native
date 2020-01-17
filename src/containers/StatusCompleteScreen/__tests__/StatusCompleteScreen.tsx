@@ -47,8 +47,11 @@ describe('StatusCompleteScreen', () => {
 
   it('should unassign and navigate away', () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     navigation.navigatePush = jest.fn(() => ({ type: 'navigated push' }));
+    // @ts-ignore
     const onSubmit = instance.onSubmitReason;
+    // @ts-ignore
     instance.cancel();
     expect(navigation.navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
       person,
@@ -60,7 +63,9 @@ describe('StatusCompleteScreen', () => {
 
   it('should complete', () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     navigation.navigateBack = jest.fn(() => ({ type: 'navigated back' }));
+    // @ts-ignore
     instance.complete();
     expect(navigation.navigateBack).toHaveBeenCalledWith(2);
   });

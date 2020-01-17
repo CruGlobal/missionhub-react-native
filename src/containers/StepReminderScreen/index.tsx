@@ -17,16 +17,19 @@ import { REMINDER_RECURRENCES } from '../../constants';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('stepReminder')
 class StepReminderScreen extends Component {
   state = {
+    // @ts-ignore
     date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
-    disableBtn: !(
-      this.props.reminder && this.props.reminder.next_occurrence_at
-    ),
+    disableBtn: !// @ts-ignore
+    (this.props.reminder && this.props.reminder.next_occurrence_at),
+    // @ts-ignore
     recurrence: this.props.reminder && this.props.reminder.reminder_type,
   };
 
+  // @ts-ignore
   handleChangeDate = date => {
     if (!date) {
       this.setState({ date: '', disableBtn: true });
@@ -36,6 +39,7 @@ class StepReminderScreen extends Component {
   };
 
   handleSetReminder = () => {
+    // @ts-ignore
     const { dispatch, stepId } = this.props;
     const { date, recurrence } = this.state;
 
@@ -43,6 +47,7 @@ class StepReminderScreen extends Component {
     dispatch(createStepReminder(stepId, date, recurrence));
   };
 
+  // @ts-ignore
   handleRecurrenceChange = recurrence => {
     this.setState({ recurrence });
   };
@@ -53,12 +58,14 @@ class StepReminderScreen extends Component {
     return (
       <Header
         left={<BackButton iconStyle={backButton} />}
+        // @ts-ignore
         center={<Text style={headerText}>{this.props.t('setReminder')}</Text>}
       />
     );
   }
 
   renderDateInput() {
+    // @ts-ignore
     const { t } = this.props;
     const { date, recurrence } = this.state;
     const {
@@ -86,6 +93,7 @@ class StepReminderScreen extends Component {
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
         <DatePicker
+          // @ts-ignore
           date={date}
           mode="datetime"
           minDate={today}
@@ -94,6 +102,7 @@ class StepReminderScreen extends Component {
           <View>
             <ReminderDateText
               style={inputContentStyle}
+              // @ts-ignore
               reminder={sampleReminder}
               placeholder={t('endDatePlaceholder')}
             />
@@ -104,6 +113,7 @@ class StepReminderScreen extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { t } = this.props;
     const { recurrence } = this.state;
     const { container, inputContainer } = styles;
@@ -129,10 +139,12 @@ class StepReminderScreen extends Component {
 }
 
 const mapStateToProps = (
+  // @ts-ignore
   { stepReminders },
   {
     navigation: {
       state: {
+        // @ts-ignore
         params: { stepId },
       },
     },

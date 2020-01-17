@@ -70,9 +70,13 @@ const sortedAcceptedChallenges = {
 
 const navResponse = { type: 'nav to person screen ' };
 
+// @ts-ignore
 organizationSelector.mockReturnValue(organization);
+// @ts-ignore
 communityChallengeSelector.mockReturnValue(challenge);
+// @ts-ignore
 acceptedChallengesSelector.mockReturnValue(sortedAcceptedChallenges);
+// @ts-ignore
 navToPersonScreen.mockReturnValue(navResponse);
 
 let props = {
@@ -80,9 +84,11 @@ let props = {
   challengeId,
 };
 
+// @ts-ignore
 let component;
 
 const buildComponent = () => {
+  // @ts-ignore
   component = renderShallow(<ChallengeMembers {...props} />, store);
 
   expect(organizationSelector).toHaveBeenCalledWith(
@@ -99,24 +105,30 @@ const buildComponent = () => {
 };
 
 it('renders correctly for joined members', () => {
+  // @ts-ignore
   props = { ...props, completed: false };
   buildComponent();
 
+  // @ts-ignore
   expect(component).toMatchSnapshot();
 });
 
 it('renders correctly for completed members', () => {
+  // @ts-ignore
   props = { ...props, completed: true };
   buildComponent();
 
+  // @ts-ignore
   expect(component).toMatchSnapshot();
 });
 
 it('navigates to person screen on select row', () => {
+  // @ts-ignore
   props = { ...props, completed: true };
   buildComponent();
 
   const item = accepted_community_challenges[0];
+  // @ts-ignore
   const row = component
     .childAt(0)
     .props()

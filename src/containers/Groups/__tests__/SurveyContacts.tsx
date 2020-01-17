@@ -43,19 +43,25 @@ describe('SurveyContacts', () => {
 
   it('should load contacts with filter', async () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleLoadMore = jest.fn(() => Promise.resolve(people));
+    // @ts-ignore
     await instance.loadContactsWithFilters();
+    // @ts-ignore
     expect(instance.state.defaultResults).toEqual(people);
   });
 
   it('should handleFilterPress correctly', () => {
     const instance = renderShallow(component, store).instance();
+    // @ts-ignore
     instance.handleFilterPress();
     expect(navigatePush).toHaveBeenCalledWith(
       SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
       {
         survey,
+        // @ts-ignore
         onFilter: instance.handleChangeFilter,
+        // @ts-ignore
         filters: instance.state.filters,
       },
     );
@@ -66,7 +72,9 @@ describe('SurveyContacts', () => {
     const newFilters = {
       filter1: { id: '1' },
     };
+    // @ts-ignore
     instance.handleChangeFilter(newFilters);
+    // @ts-ignore
     expect(instance.state.filters).toEqual(newFilters);
   });
 
@@ -75,12 +83,14 @@ describe('SurveyContacts', () => {
       response: [people[0], people[1]],
       meta: { total: 42 },
     };
+    // @ts-ignore
     organizations.getOrganizationContacts.mockReturnValue(
       () => searchReturnValue,
     );
 
     const instance = renderShallow(component, store).instance();
 
+    // @ts-ignore
     const result = await instance.handleSearch('test');
     expect(result).toEqual(people);
   });
@@ -93,9 +103,12 @@ describe('SurveyContacts', () => {
         filter2: { id: '2', text: 'Last 7 days' },
       },
     });
+    // @ts-ignore
     await instance.handleRemoveFilter('filter1');
 
+    // @ts-ignore
     expect(Object.keys(instance.state.filters)).toHaveLength(1);
+    // @ts-ignore
     expect(instance.state.filters.filter2).toMatchObject({
       id: '2',
       text: 'Last 7 days',
@@ -104,6 +117,7 @@ describe('SurveyContacts', () => {
 
   it('should handleSelect correctly', () => {
     const buildTrackingResult = { name: 'screen name' };
+    // @ts-ignore
     buildTrackingObj.mockReturnValue(buildTrackingResult);
 
     const person = people[0];
@@ -116,6 +130,7 @@ describe('SurveyContacts', () => {
     listItem.props.onSelect(person);
 
     expect(navToPersonScreen).toHaveBeenCalledWith(person, organization, {
+      // @ts-ignore
       onAssign: screen.instance().handleRefreshSearchList,
       trackingObj: buildTrackingResult,
     });
@@ -125,6 +140,7 @@ describe('SurveyContacts', () => {
   it('should render item correctly', () => {
     const instance = renderShallow(component, store).instance();
 
+    // @ts-ignore
     const renderedItem = instance.renderItem({ item: people[0] });
     expect(renderedItem).toMatchSnapshot();
   });
@@ -132,7 +148,9 @@ describe('SurveyContacts', () => {
   it('should call ref', () => {
     const instance = renderShallow(component, store).instance();
     const childSearch = () => {};
+    // @ts-ignore
     instance.setSearch(childSearch);
+    // @ts-ignore
     expect(instance.searchListSearch).toEqual(childSearch);
   });
 });

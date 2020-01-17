@@ -35,9 +35,12 @@ const navProps = {
   contactStage: { id: 4 },
 };
 
+// @ts-ignore
 let enableBackButton;
+// @ts-ignore
 let isOnboarding;
 
+// @ts-ignore
 let store;
 
 beforeEach(() => {
@@ -47,13 +50,17 @@ beforeEach(() => {
 const test = () => {
   testSnapshotShallow(
     <SelectMyStepScreen
+      // @ts-ignore
       navigation={createMockNavState({
         ...navProps,
+        // @ts-ignore
         enableBackButton,
+        // @ts-ignore
         onboarding: isOnboarding,
       })}
       next={jest.fn()}
     />,
+    // @ts-ignore
     store,
   );
 };

@@ -20,6 +20,7 @@ const groupOnboarding = {
   [GROUP_ONBOARDING_TYPES.steps]: true,
 };
 
+// @ts-ignore
 removeGroupOnboardingCard.mockReturnValue({
   type: 'removed group onboarding card',
 });
@@ -30,6 +31,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
       store,
     );
@@ -45,6 +47,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
       store,
     );
@@ -55,6 +58,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />,
       store,
     );
@@ -70,6 +74,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />,
       store,
     );
@@ -80,6 +85,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
       store,
     );
@@ -95,6 +101,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
       store,
     );
@@ -105,6 +112,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />,
       store,
     );
@@ -120,6 +128,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />,
       store,
     );
@@ -130,6 +139,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
       store,
     );
@@ -145,6 +155,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
       store,
     );
@@ -155,6 +166,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
       store,
     );
@@ -170,6 +182,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
       store,
     );
@@ -180,6 +193,7 @@ describe('OnboardingCard', () => {
       swipe: { groupOnboarding },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />,
       store,
     );
@@ -194,6 +208,7 @@ describe('OnboardingCard', () => {
       },
     });
     testSnapshotShallow(
+      // @ts-ignore
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />,
       store,
     );
@@ -205,6 +220,7 @@ it('handles press event from the close button', () => {
     swipe: { groupOnboarding },
   });
   const component = renderShallow(
+    // @ts-ignore
     <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
     store,
   );

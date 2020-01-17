@@ -7,15 +7,18 @@ import { Button } from '../../components/common';
 import ItemHeaderText from '../../components/ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
 
+// @ts-ignore
 @withTranslation('celebrateFeeds')
 class CelebrateItemName extends Component {
   onPressNameLink = () => {
+    // @ts-ignore
     const { dispatch, person, organization } = this.props;
 
     dispatch(navToPersonScreen(person, organization));
   };
 
   render() {
+    // @ts-ignore
     const { name, t, customContent, pressable } = this.props;
     const content = customContent || (
       <ItemHeaderText text={name || t('missionHubUser')} />
@@ -33,6 +36,7 @@ class CelebrateItemName extends Component {
   }
 }
 
+// @ts-ignore
 CelebrateItemName.propTypes = {
   name: PropTypes.string,
   person: PropTypes.object,

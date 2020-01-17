@@ -10,11 +10,16 @@ import { reloadGroupCelebrateFeed } from './celebration';
 import { reloadJourney } from './journey';
 
 export function addNewInteraction(
+  // @ts-ignore
   personId,
+  // @ts-ignore
   interaction,
+  // @ts-ignore
   comment,
+  // @ts-ignore
   organizationId,
 ) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     const {
       person: { id: myId },
@@ -42,6 +47,7 @@ export function addNewInteraction(
       },
     };
     if (organizationId) {
+      // @ts-ignore
       relationships.organization = {
         data: {
           type: 'organization',
@@ -78,7 +84,9 @@ export function addNewInteraction(
   };
 }
 
+// @ts-ignore
 export function editComment(interactionId, comment) {
+  // @ts-ignore
   return dispatch => {
     if (!interactionId || !comment) {
       return Promise.reject(

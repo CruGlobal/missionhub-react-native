@@ -12,9 +12,11 @@ jest.mock('../userData');
 const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
 const mockStore = configureStore([thunk]);
 
+// @ts-ignore
 let store;
 
 beforeEach(() => {
+  // @ts-ignore
   authSuccess.mockReturnValue({ type: 'test' });
   store = mockStore({
     auth: {
@@ -25,8 +27,10 @@ beforeEach(() => {
 
 describe('codeLogin', () => {
   it('should login with code, and track person', async () => {
+    // @ts-ignore
     callApi.mockReturnValue({ type: 'test' });
 
+    // @ts-ignore
     await store.dispatch(codeLogin('123'));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -38,10 +42,12 @@ describe('codeLogin', () => {
   });
 
   it('should not track person on error', async () => {
+    // @ts-ignore
     callApi.mockReturnValue(() => {
       throw 'some error';
     });
 
+    // @ts-ignore
     await expect(store.dispatch(codeLogin('123'))).rejects.toEqual(
       'some error',
     );
@@ -59,8 +65,10 @@ describe('refreshAnonymousLogin', () => {
   const apiResult = { type: 'refreshed anonymous token' };
 
   it('should send the code', async () => {
+    // @ts-ignore
     callApi.mockReturnValue(dispatch => dispatch(apiResult));
 
+    // @ts-ignore
     await store.dispatch(refreshAnonymousLogin());
 
     expect(callApi).toHaveBeenCalledWith(
@@ -68,6 +76,7 @@ describe('refreshAnonymousLogin', () => {
       {},
       { code: upgradeToken },
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([apiResult]);
   });
 });

@@ -167,6 +167,7 @@ describe('hasOrgPermissions', () => {
     expect(hasOrgPermissions({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
+    // @ts-ignore
     expect(hasOrgPermissions()).toEqual(false);
   });
 });
@@ -185,6 +186,7 @@ describe('isAdminOrOwner', () => {
     expect(isAdminOrOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
+    // @ts-ignore
     expect(isAdminOrOwner()).toEqual(false);
   });
 });
@@ -203,6 +205,7 @@ describe('isOwner', () => {
     expect(isOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
+    // @ts-ignore
     expect(isOwner()).toEqual(false);
   });
 });
@@ -221,6 +224,7 @@ describe('isAdmin', () => {
     expect(isAdmin({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
+    // @ts-ignore
     expect(isAdmin()).toEqual(false);
   });
 });
@@ -284,8 +288,10 @@ describe('openMainMenu', () => {
   it('should open main drawer navigator', () => {
     const store = createThunkStore();
 
+    // @ts-ignore
     DrawerActions.openDrawer.mockReturnValue({ type: 'open drawer' });
 
+    // @ts-ignore
     store.dispatch(openMainMenu());
 
     expect(DrawerActions.openDrawer).toHaveBeenCalledWith({
@@ -297,16 +303,19 @@ describe('openMainMenu', () => {
 describe('getIconName', () => {
   it('should return steps icon', () => {
     const item = { type: ACCEPTED_STEP };
+    // @ts-ignore
     const result = getIconName(item.type);
     expect(result).toBe('stepsIcon');
   });
   it('should return journey icon', () => {
     const item = { type: 'pathway_progression_audit' };
+    // @ts-ignore
     const result = getIconName(item.type);
     expect(result).toBe('journeyIcon');
   });
   it('should return survey icon', () => {
     const item = { type: 'answer_sheet' };
+    // @ts-ignore
     const result = getIconName(item.type);
     expect(result).toBe('surveyIcon');
   });
@@ -317,6 +326,7 @@ describe('getIconName', () => {
   });
   it('should return null', () => {
     const item = { type: 'something_else' };
+    // @ts-ignore
     const result = getIconName(item.type);
     expect(result).toBe(null);
   });
@@ -384,11 +394,15 @@ describe('getPagination', () => {
 });
 
 describe('showAssignButton', () => {
+  // @ts-ignore
   let isCruOrg;
+  // @ts-ignore
   let personIsCurrentUser;
+  // @ts-ignore
   let contactAssignment;
 
   const test = () => {
+    // @ts-ignore
     return showAssignButton(isCruOrg, personIsCurrentUser, contactAssignment);
   };
 
@@ -419,10 +433,13 @@ describe('showAssignButton', () => {
 });
 
 describe('showUnassignButton', () => {
+  // @ts-ignore
   let isCruOrg;
+  // @ts-ignore
   let contactAssignment;
 
   const test = () => {
+    // @ts-ignore
     return showUnassignButton(isCruOrg, contactAssignment);
   };
 
@@ -444,14 +461,20 @@ describe('showUnassignButton', () => {
 });
 
 describe('showDeleteButton', () => {
+  // @ts-ignore
   let personIsCurrentUser;
+  // @ts-ignore
   let contactAssignment;
+  // @ts-ignore
   let orgPermission;
 
   const test = () => {
     return showDeleteButton(
+      // @ts-ignore
       personIsCurrentUser,
+      // @ts-ignore
       contactAssignment,
+      // @ts-ignore
       orgPermission,
     );
   };
@@ -588,8 +611,10 @@ describe('getFirstNameAndLastInitial', () => {
   it('get first and last name', () =>
     expect(getFirstNameAndLastInitial('First', 'Last')).toEqual('First L'));
   it('get first and last name without names', () =>
+    // @ts-ignore
     expect(getFirstNameAndLastInitial()).toEqual(''));
   it('get first and last name without last name', () =>
+    // @ts-ignore
     expect(getFirstNameAndLastInitial('First')).toEqual('First'));
 });
 

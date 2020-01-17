@@ -22,6 +22,7 @@ beforeEach(() => {
 
 describe('AddContactScreen next', () => {
   it('should fire required next actions', () => {
+    // @ts-ignore
     navigateBack.mockReturnValue(navigateBackResponse);
 
     const WrappedAddContactScreen =
@@ -30,6 +31,7 @@ describe('AddContactScreen next', () => {
     store.dispatch(
       renderShallow(<WrappedAddContactScreen navigation={navigation} />, store)
         .instance()
+        // @ts-ignore
         .props.next(),
     );
 

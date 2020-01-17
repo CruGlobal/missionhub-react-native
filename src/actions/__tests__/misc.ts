@@ -39,7 +39,9 @@ jest.mock('../person');
 jest.mock('../../selectors/people');
 jest.mock('../../utils/common');
 
+// @ts-ignore
 const mockStore = state => configureStore([thunk])(state);
+// @ts-ignore
 let store;
 
 const trackActionResult = { type: 'tracked' };
@@ -77,22 +79,34 @@ const state = {
 beforeEach(() => {
   store = mockStore(state);
 
+  // @ts-ignore
   trackActionWithoutData.mockReturnValue(trackActionResult);
+  // @ts-ignore
   getContactSteps.mockReturnValue(getStepsResult);
+  // @ts-ignore
   reloadJourney.mockReturnValue(reloadJourneyResult);
+  // @ts-ignore
   updatePersonAttributes.mockReturnValue(updatePersonAttributesResult);
   ReactNative.Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
+  // @ts-ignore
   contactAssignmentSelector.mockReturnValue(contactAssignment);
+  // @ts-ignore
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
+  // @ts-ignore
   getPersonScreenRoute.mockReturnValue(CONTACT_PERSON_SCREEN);
+  // @ts-ignore
   orgPermissionSelector.mockReturnValue(orgPermission);
+  // @ts-ignore
   hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
+  // @ts-ignore
   buildTrackingObj.mockReturnValue(buildTrackingObjResult);
 
+  // @ts-ignore
   navigatePush.mockImplementation((_, { onComplete }) => {
     onComplete && onComplete(stage);
     return navigatePushResult;
   });
+  // @ts-ignore
   navigateReplace.mockReturnValue(navigateReplaceResult);
 });
 
@@ -102,20 +116,24 @@ describe('openCommunicationLink', () => {
       .fn()
       .mockReturnValue(Promise.resolve(true));
 
+    // @ts-ignore
     await store.dispatch(openCommunicationLink(url, action));
 
     expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
     expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
     expect(trackActionWithoutData).toHaveBeenCalledWith(action);
+    // @ts-ignore
     expect(store.getActions()).toEqual([trackActionResult]);
   });
 
   it('should not open link if it is not supported', async () => {
+    // @ts-ignore
     global.WARN = jest.fn();
     ReactNative.Linking.canOpenURL = jest
       .fn()
       .mockReturnValue(Promise.resolve(false));
 
+    // @ts-ignore
     await store.dispatch(openCommunicationLink(url, action));
 
     expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
@@ -126,8 +144,10 @@ describe('openCommunicationLink', () => {
 
 describe('loadStepsAndJourney', () => {
   it('should load steps and reload journey', () => {
+    // @ts-ignore
     store.dispatch(loadStepsAndJourney(person.id, organization.id));
 
+    // @ts-ignore
     expect(store.getActions()).toEqual([getStepsResult, reloadJourneyResult]);
     expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
     expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
@@ -136,6 +156,7 @@ describe('loadStepsAndJourney', () => {
 
 describe('assignContactAndPickStage', () => {
   it('creates a new contact assignment and navigates to the stage screen', async () => {
+    // @ts-ignore
     await store.dispatch(assignContactAndPickStage(person, organization));
 
     expect(createContactAssignment).toHaveBeenCalledWith(orgId, myId, personId);
@@ -159,6 +180,7 @@ describe('assignContactAndPickStage', () => {
       section: 'people',
       subsection: 'person',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       navigateReplaceResult,
       navigatePushResult,
@@ -168,6 +190,7 @@ describe('assignContactAndPickStage', () => {
 
 describe('navigateToStageScreen', () => {
   it('should navigate to self stage screen if first param is true', async () => {
+    // @ts-ignore
     await store.dispatch(
       navigateToStageScreen(
         true,
@@ -175,6 +198,7 @@ describe('navigateToStageScreen', () => {
         null,
         organization,
         firstItemIndex,
+        // @ts-ignore
         true,
       ),
     );
@@ -185,10 +209,12 @@ describe('navigateToStageScreen', () => {
       section: 'people',
       subsection: 'self',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 
   it('should navigate to person stage screen if first param is false', async () => {
+    // @ts-ignore
     await store.dispatch(
       navigateToStageScreen(
         false,
@@ -199,6 +225,7 @@ describe('navigateToStageScreen', () => {
         contactAssignment,
         organization,
         firstItemIndex,
+        // @ts-ignore
         true,
       ),
     );
@@ -210,6 +237,7 @@ describe('navigateToStageScreen', () => {
       section: 'people',
       subsection: 'person',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 });
@@ -218,6 +246,7 @@ describe('navigateToAddStepFlow', () => {
   beforeEach(() => {});
 
   it('navigates to add my step flow', async () => {
+    // @ts-ignore
     await store.dispatch(navigateToAddStepFlow(true, mePerson, organization));
 
     expect(buildTrackingObj).toHaveBeenCalledWith(
@@ -230,10 +259,12 @@ describe('navigateToAddStepFlow', () => {
       trackingObj: buildTrackingObjResult,
       organization,
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 
   it('navigates to add person step flow', async () => {
+    // @ts-ignore
     await store.dispatch(navigateToAddStepFlow(false, person, organization));
 
     expect(buildTrackingObj).toHaveBeenCalledWith(
@@ -255,6 +286,7 @@ describe('navigateToAddStepFlow', () => {
       organization,
       createStepTracking: buildTrackingObjResult,
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 });

@@ -70,6 +70,7 @@ const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
 const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
 
 beforeEach(() => {
+  // @ts-ignore
   common.isAndroid = false;
   store.clearActions();
 });
@@ -89,15 +90,20 @@ describe('showNotificationPrompt', () => {
       },
     });
 
+    // @ts-ignore
     PushNotification.checkPermissions.mockImplementation(cb =>
       cb(existingDevicePermissions),
     );
+    // @ts-ignore
     PushNotification.requestPermissions.mockReturnValue(newPermissions);
+    // @ts-ignore
     navigatePush.mockImplementation((_, { onComplete }) => {
       onComplete && onComplete(acceptedNotifications);
       return navigatePushResult;
     });
+    // @ts-ignore
     navigateBack.mockReturnValue(navigateBackResult);
+    // @ts-ignore
     navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
   });
 
@@ -109,14 +115,17 @@ describe('showNotificationPrompt', () => {
 
     describe('isAndroid', () => {
       beforeEach(() => {
+        // @ts-ignore
         common.isAndroid = true;
       });
 
       it('should request permissions from device', async () => {
+        // @ts-ignore
         result = await store.dispatch(showNotificationPrompt());
 
         expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
         expect(PushNotification.requestPermissions).toHaveBeenCalled();
+        // @ts-ignore
         expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
         expect(result).toEqual({ acceptedNotifications });
       });
@@ -124,6 +133,7 @@ describe('showNotificationPrompt', () => {
 
     describe('not isAndroid', () => {
       beforeEach(() => {
+        // @ts-ignore
         common.isAndroid = false;
       });
 
@@ -133,10 +143,12 @@ describe('showNotificationPrompt', () => {
         });
 
         it('should check permissions from device then request permissions', async () => {
+          // @ts-ignore
           result = await store.dispatch(showNotificationPrompt());
 
           expect(PushNotification.checkPermissions).toHaveBeenCalled();
           expect(PushNotification.requestPermissions).toHaveBeenCalled();
+          // @ts-ignore
           expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
           expect(result).toEqual({ acceptedNotifications });
         });
@@ -158,7 +170,9 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Off screen', async () => {
+            // @ts-ignore
             result = await store.dispatch(
+              // @ts-ignore
               showNotificationPrompt(notificationType),
             );
 
@@ -168,6 +182,7 @@ describe('showNotificationPrompt', () => {
               notificationType,
             });
             expect(navigateBack).toHaveBeenCalledWith();
+            // @ts-ignore
             expect(store.getActions()).toEqual([
               navigateBackResult,
               navigatePushResult,
@@ -176,6 +191,7 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Off screen without navigate back', async () => {
+            // @ts-ignore
             result = await store.dispatch(
               showNotificationPrompt(notificationType, true),
             );
@@ -186,6 +202,7 @@ describe('showNotificationPrompt', () => {
               notificationType,
             });
             expect(navigateBack).not.toHaveBeenCalled();
+            // @ts-ignore
             expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
@@ -202,7 +219,9 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Primer screen', async () => {
+            // @ts-ignore
             result = await store.dispatch(
+              // @ts-ignore
               showNotificationPrompt(notificationType),
             );
 
@@ -215,6 +234,7 @@ describe('showNotificationPrompt', () => {
               },
             );
             expect(navigateBack).toHaveBeenCalledWith();
+            // @ts-ignore
             expect(store.getActions()).toEqual([
               navigateBackResult,
               navigatePushResult,
@@ -223,6 +243,7 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Primer screen without navigate back', async () => {
+            // @ts-ignore
             result = await store.dispatch(
               showNotificationPrompt(notificationType, true),
             );
@@ -236,6 +257,7 @@ describe('showNotificationPrompt', () => {
               },
             );
             expect(navigateBack).not.toHaveBeenCalled();
+            // @ts-ignore
             expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
@@ -252,13 +274,16 @@ describe('showNotificationPrompt', () => {
 
     describe('isAndroid', () => {
       beforeEach(() => {
+        // @ts-ignore
         common.isAndroid = true;
       });
 
       it('should request permissions from device', async () => {
+        // @ts-ignore
         result = await store.dispatch(showNotificationPrompt());
 
         expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
+        // @ts-ignore
         expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
         expect(result).toEqual({ acceptedNotifications });
       });
@@ -266,6 +291,7 @@ describe('showNotificationPrompt', () => {
 
     describe('not isAndroid', () => {
       beforeEach(() => {
+        // @ts-ignore
         common.isAndroid = false;
       });
 
@@ -275,9 +301,11 @@ describe('showNotificationPrompt', () => {
         });
 
         it('should check permissions from device then request permissions', async () => {
+          // @ts-ignore
           result = await store.dispatch(showNotificationPrompt());
 
           expect(PushNotification.checkPermissions).toHaveBeenCalled();
+          // @ts-ignore
           expect(store.getActions()).toEqual([{ type: REQUEST_NOTIFICATIONS }]);
           expect(result).toEqual({ acceptedNotifications });
         });
@@ -299,6 +327,7 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Off screen', async () => {
+            // @ts-ignore
             result = await store.dispatch(showNotificationPrompt());
 
             expect(PushNotification.checkPermissions).toHaveBeenCalled();
@@ -306,6 +335,7 @@ describe('showNotificationPrompt', () => {
               onComplete: expect.any(Function),
             });
             expect(navigateBack).toHaveBeenCalledWith();
+            // @ts-ignore
             expect(store.getActions()).toEqual([
               navigateBackResult,
               navigatePushResult,
@@ -314,6 +344,7 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Off screen without navigate back', async () => {
+            // @ts-ignore
             result = await store.dispatch(
               showNotificationPrompt(notificationType, true),
             );
@@ -324,6 +355,7 @@ describe('showNotificationPrompt', () => {
               notificationType,
             });
             expect(navigateBack).not.toHaveBeenCalled();
+            // @ts-ignore
             expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
@@ -340,7 +372,9 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Primer screen', async () => {
+            // @ts-ignore
             result = await store.dispatch(
+              // @ts-ignore
               showNotificationPrompt(notificationType),
             );
 
@@ -353,6 +387,7 @@ describe('showNotificationPrompt', () => {
               },
             );
             expect(navigateBack).toHaveBeenCalledWith();
+            // @ts-ignore
             expect(store.getActions()).toEqual([
               navigateBackResult,
               navigatePushResult,
@@ -361,6 +396,7 @@ describe('showNotificationPrompt', () => {
           });
 
           it('should show Notification Primer screen without navigate back', async () => {
+            // @ts-ignore
             result = await store.dispatch(
               showNotificationPrompt(notificationType, true),
             );
@@ -374,6 +410,7 @@ describe('showNotificationPrompt', () => {
               },
             );
             expect(navigateBack).not.toHaveBeenCalled();
+            // @ts-ignore
             expect(store.getActions()).toEqual([navigatePushResult]);
             expect(result).toEqual({ acceptedNotifications });
           });
@@ -387,15 +424,20 @@ describe('showReminderOnLoad', () => {
   const notificationType = 'type';
 
   beforeEach(() => {
+    // @ts-ignore
     store.dispatch(configureNotificationHandler());
+    // @ts-ignore
     PushNotification.checkPermissions.mockImplementation(cb =>
       cb({ alert: 0 }),
     );
+    // @ts-ignore
     PushNotification.requestPermissions.mockReturnValue({ alert: 0 });
+    // @ts-ignore
     navigatePush.mockImplementation((_, { onComplete }) => {
       onComplete && onComplete(true);
       return navigatePushResult;
     });
+    // @ts-ignore
     navigateBack.mockReturnValue(navigateBackResult);
   });
 
@@ -407,6 +449,7 @@ describe('showReminderOnLoad', () => {
       },
     });
 
+    // @ts-ignore
     await store.dispatch(showReminderOnLoad(notificationType));
 
     expect(PushNotification.checkPermissions).not.toHaveBeenCalled();
@@ -421,6 +464,7 @@ describe('showReminderOnLoad', () => {
       },
     });
 
+    // @ts-ignore
     await store.dispatch(showReminderOnLoad(notificationType));
 
     expect(PushNotification.checkPermissions).toHaveBeenCalled();
@@ -434,6 +478,7 @@ describe('showReminderOnLoad', () => {
 
 describe('configureNotificationHandler', () => {
   it('should configure notifications', () => {
+    // @ts-ignore
     store.dispatch(configureNotificationHandler());
 
     expect(PushNotification.configure).toHaveBeenCalledWith({
@@ -447,7 +492,9 @@ describe('configureNotificationHandler', () => {
 
 describe('askNotificationPermissions', () => {
   beforeEach(() => {
+    // @ts-ignore
     PushNotification.requestPermissions.mockReturnValue({ alert: 1 });
+    // @ts-ignore
     navigateReset.mockReturnValue(navigateResetResult);
   });
 
@@ -463,35 +510,47 @@ describe('askNotificationPermissions', () => {
     });
 
     beforeEach(() => {
+      // @ts-ignore
       PushNotification.configure.mockImplementation(config =>
         config.onRegister({ token: newToken }),
       );
+      // @ts-ignore
       callApi.mockReturnValue({ type: REQUESTS.SET_PUSH_TOKEN.SUCCESS });
       store.clearActions();
     });
 
     it('should update notification token for iOS devices', async () => {
+      // @ts-ignore
       store.dispatch(configureNotificationHandler());
+      // @ts-ignore
       await store.dispatch(requestNativePermissions());
 
+      // @ts-ignore
       expect(callApi.mock.calls).toMatchSnapshot();
       expect(store.getActions()).toMatchSnapshot();
     });
 
     it('should update notification token for android devices', async () => {
+      // @ts-ignore
       common.isAndroid = true;
+      // @ts-ignore
       store.dispatch(configureNotificationHandler());
+      // @ts-ignore
       await store.dispatch(requestNativePermissions());
 
+      // @ts-ignore
       expect(callApi.mock.calls).toMatchSnapshot();
       expect(store.getActions()).toMatchSnapshot();
     });
 
     it("should do nothing if the token hasn't changed", async () => {
+      // @ts-ignore
       PushNotification.configure.mockImplementation(config =>
         config.onRegister({ token: oldToken }),
       );
+      // @ts-ignore
       store.dispatch(configureNotificationHandler());
+      // @ts-ignore
       await store.dispatch(requestNativePermissions());
 
       expect(callApi).not.toHaveBeenCalled();
@@ -524,20 +583,31 @@ describe('askNotificationPermissions', () => {
     const navToCommunityResult = { type: 'navigated to community' };
 
     beforeEach(() => {
+      // @ts-ignore
       common.isAndroid = true;
       store.clearActions();
+      // @ts-ignore
       getPersonDetails.mockReturnValue(getPersonResult);
+      // @ts-ignore
       navToPersonScreen.mockReturnValue(navToPersonScreenResult);
+      // @ts-ignore
       refreshCommunity.mockReturnValue(() => refreshCommunityResult);
+      // @ts-ignore
       reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
+      // @ts-ignore
       reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
+      // @ts-ignore
       navigateToCelebrateComments.mockReturnValue(navToCelebrateResult);
+      // @ts-ignore
       navigateToCommunity.mockReturnValue(navToCommunityResult);
     });
 
+    // @ts-ignore
     async function testNotification(notification, userInteraction = true) {
       const deepLinkComplete = new Promise(resolve =>
+        // @ts-ignore
         PushNotification.configure.mockImplementation(async config => {
+          // @ts-ignore
           await store.dispatch(requestNativePermissions());
           await config.onNotification({
             ...notification,
@@ -547,12 +617,14 @@ describe('askNotificationPermissions', () => {
           resolve();
         }),
       );
+      // @ts-ignore
       store.dispatch(configureNotificationHandler());
       await deepLinkComplete;
     }
 
     describe('userInteraction = false', () => {
       it('on iOS, should call iOS finish', async () => {
+        // @ts-ignore
         common.isAndroid = false;
 
         await testNotification({ screen: 'home' }, false);
@@ -568,6 +640,7 @@ describe('askNotificationPermissions', () => {
       });
 
       it('on Android, should do nothing', async () => {
+        // @ts-ignore
         common.isAndroid = true;
 
         await testNotification({ screen: 'home' }, false);
@@ -613,8 +686,10 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to contact screen on iOS', async () => {
+      // @ts-ignore
       common.isAndroid = false;
 
+      // @ts-ignore
       getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({
         data: {
@@ -648,6 +723,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to add contact screen', async () => {
+      // @ts-ignore
       navigatePush.mockReturnValue(navigatePushResult);
 
       await testNotification({
@@ -753,6 +829,7 @@ describe('askNotificationPermissions', () => {
 
       it('should navigate to global community if no id passed', async () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
+        // @ts-ignore
         refreshCommunity.mockReturnValue(() => global_community);
         await testNotification({
           screen: 'community_challenges',
@@ -777,6 +854,7 @@ describe('deletePushToken', () => {
       },
     });
 
+    // @ts-ignore
     store.dispatch(deletePushToken());
 
     expect(callApi).not.toHaveBeenCalled();
@@ -790,8 +868,10 @@ describe('deletePushToken', () => {
         },
       },
     });
+    // @ts-ignore
     callApi.mockReturnValue({ type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS });
 
+    // @ts-ignore
     store.dispatch(deletePushToken());
 
     expect(callApi).toHaveBeenCalledWith(
@@ -812,6 +892,7 @@ describe('showWelcomeNotification', () => {
         hasShownWelcomeNotification: true,
       },
     });
+    // @ts-ignore
     store.dispatch(showWelcomeNotification());
     expect(PushNotification.localNotificationSchedule).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
@@ -826,6 +907,7 @@ describe('showWelcomeNotification', () => {
         hasShownWelcomeNotification: false,
       },
     });
+    // @ts-ignore
     store.dispatch(showWelcomeNotification());
     expect(PushNotification.localNotificationSchedule).toHaveBeenCalledWith({
       title: i18next.t('welcomeNotification:title'),

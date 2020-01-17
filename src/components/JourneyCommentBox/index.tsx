@@ -6,7 +6,9 @@ import { addNewInteraction } from '../../actions/interactions';
 import { INTERACTION_TYPES } from '../../constants';
 
 class JourneyCommentBox extends Component {
+  // @ts-ignore
   submitInteraction = async (action, text) => {
+    // @ts-ignore
     const { person, organization, dispatch, onSubmit } = this.props;
     const interaction = action || INTERACTION_TYPES.MHInteractionTypeNote;
 
@@ -23,10 +25,12 @@ class JourneyCommentBox extends Component {
   };
 
   render() {
+    // @ts-ignore
     const { hideActions } = this.props;
 
     return (
       <CommentBox
+        // @ts-ignore
         placeholderTextKey={'actions:commentBoxPlaceholder'}
         onSubmit={this.submitInteraction}
         hideActions={hideActions}

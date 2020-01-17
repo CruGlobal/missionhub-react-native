@@ -8,13 +8,16 @@ import ItemHeaderText from '../ItemHeaderText';
 
 import styles from './styles';
 
+// @ts-ignore
 @withTranslation('groupItem')
 class GroupSurveyItem extends Component {
   handleSelect = () => {
+    // @ts-ignore
     this.props.onSelect(this.props.survey);
   };
 
   render() {
+    // @ts-ignore
     const { survey, t } = this.props;
     return (
       <Touchable onPress={this.handleSelect} highlight={true}>
@@ -30,8 +33,10 @@ class GroupSurveyItem extends Component {
           <Flex value={3.5} direction="row" style={styles.content}>
             <Flex value={1}>
               <ItemHeaderText text={(survey.title || '').toUpperCase()} />
+              // @ts-ignore
               <Text direction="row" align="center">
                 {survey.contacts_count ? (
+                  // @ts-ignore
                   <Text style={[styles.text, styles.contacts]}>
                     {t('numContacts', { count: survey.contacts_count })}
                   </Text>
@@ -66,6 +71,7 @@ class GroupSurveyItem extends Component {
   }
 }
 
+// @ts-ignore
 GroupSurveyItem.propTypes = {
   survey: PropTypes.shape({
     id: PropTypes.string.isRequired,

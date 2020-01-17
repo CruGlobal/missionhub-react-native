@@ -94,11 +94,14 @@ const nav = {
 
 describe('mapStateToProps', () => {
   beforeEach(() => {
+    // @ts-ignore
     communityChallengeSelector.mockReturnValue(challenge);
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue(orgPermission);
   });
 
   it('should provide necessary props for Member', () => {
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue({
       ...orgPermission,
       permission_id: ORG_PERMISSIONS.USER,
@@ -124,6 +127,7 @@ describe('mapStateToProps', () => {
   });
 
   it('should provide necessary props for Owner', () => {
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue({
       ...orgPermission,
       permission_id: ORG_PERMISSIONS.OWNER,
@@ -162,11 +166,13 @@ it('should render without edit correctly', () => {
 it('should call joinChallenge from press', () => {
   const component = renderShallow(
     <ChallengeDetailScreen {...unjoinedProps} />,
+    // @ts-ignore
     store,
   );
   component
     .find('Header')
     .props()
+    // @ts-ignore
     .right.props.onPress();
 
   expect(joinChallenge).toHaveBeenCalledWith(challenge, orgId);
@@ -175,11 +181,13 @@ it('should call joinChallenge from press', () => {
 it('should call completeChallenge from press', () => {
   const component = renderShallow(
     <ChallengeDetailScreen {...joinedProps} />,
+    // @ts-ignore
     store,
   );
   component
     .find('Header')
     .props()
+    // @ts-ignore
     .right.props.onPress();
 
   expect(completeChallenge).toHaveBeenCalledWith(
@@ -192,13 +200,16 @@ it('should not call completeChallenge with no accepted challenge', () => {
   const component = renderShallow(
     <ChallengeDetailScreen
       {...joinedProps}
+      // @ts-ignore
       challenge={{ ...challenge, accepted_community_challenges: undefined }}
     />,
+    // @ts-ignore
     store,
   );
   component
     .find('Header')
     .props()
+    // @ts-ignore
     .right.props.onPress();
 
   expect(completeChallenge).not.toHaveBeenCalled();
@@ -207,8 +218,10 @@ it('should not call completeChallenge with no accepted challenge', () => {
 it('should navigate to edit screen from press', () => {
   const component = renderShallow(
     <ChallengeDetailScreen {...joinedProps} />,
+    // @ts-ignore
     store,
   );
+  // @ts-ignore
   component.instance().handleEdit();
 
   expect(navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
@@ -221,8 +234,10 @@ it('should navigate to edit screen from press', () => {
 it('should call updateChallenge', () => {
   const component = renderShallow(
     <ChallengeDetailScreen {...joinedProps} />,
+    // @ts-ignore
     store,
   );
+  // @ts-ignore
   component.instance().editChallenge(challenge);
 
   expect(updateChallenge).toHaveBeenCalledWith(challenge, orgId);
@@ -230,12 +245,15 @@ it('should call updateChallenge', () => {
 
 it('should call navigateBack from press', () => {
   const component = renderShallow(
+    // @ts-ignore
     <ChallengeDetailScreen {...joinedProps} dispatch={jest.fn()} />,
+    // @ts-ignore
     store,
   );
   component
     .find('Header')
     .props()
+    // @ts-ignore
     .left.props.onPress();
 
   expect(navigateBack).toHaveBeenCalled();

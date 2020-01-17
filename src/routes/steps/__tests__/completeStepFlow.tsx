@@ -29,11 +29,14 @@ const stepId = '11';
 const orgId = '123';
 const questionText = 'Text';
 
+// @ts-ignore
 let onFlowComplete = undefined;
 
 let store = configureStore([thunk])();
 
+// @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
+  // @ts-ignore
   const Component = CompleteStepFlowScreens(onFlowComplete)[screen];
 
   await store.dispatch(
@@ -48,6 +51,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
       store,
     )
       .instance()
+      // @ts-ignore
       .props.next(nextProps),
   );
 };
@@ -62,11 +66,15 @@ const trackActionResponse = { type: 'tracked action' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
   StackActions.popToTop = jest.fn().mockReturnValue(popToTopResponse);
   StackActions.pop = jest.fn().mockReturnValue(popResponse);
+  // @ts-ignore
   reloadJourney.mockReturnValue(reloadJourneyResponse);
+  // @ts-ignore
   updateChallengeNote.mockReturnValue(updateChallengeNoteResponse);
+  // @ts-ignore
   trackAction.mockReturnValue(trackActionResponse);
 });
 
@@ -79,6 +87,7 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: false,
@@ -110,6 +119,7 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: true,
@@ -149,6 +159,7 @@ describe('AddStepScreen next', () => {
 
   describe('isMe, has completed 3 steps', () => {
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: true,
         isNotSure: false,
@@ -180,6 +191,7 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, stage is not "Not Sure", has not completed 3 steps', () => {
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: false,
@@ -206,6 +218,7 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, stage is "Not Sure"', () => {
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: true,
@@ -240,6 +253,7 @@ describe('AddStepScreen next', () => {
 
   describe('not isMe, has completed 3 steps', () => {
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: true,
         isNotSure: false,
@@ -273,6 +287,7 @@ describe('AddStepScreen next', () => {
     const text = 'roge rules';
 
     beforeEach(() => {
+      // @ts-ignore
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: true,
         isNotSure: false,
@@ -380,6 +395,7 @@ describe('CelebrationScreen next', () => {
     });
 
     it('should call onFlowComplete', () => {
+      // @ts-ignore
       expect(onFlowComplete).toHaveBeenCalledTimes(1);
     });
 

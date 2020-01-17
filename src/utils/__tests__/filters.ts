@@ -91,6 +91,7 @@ describe('getFilterOptions', () => {
   it('parses question content and sets question filter', () => {
     const filters = { '1': { id: '1', text: '1.1', isAnswer: true } };
 
+    // @ts-ignore
     const results = getFilterOptions(t, filters, questions, filterStats);
 
     expect(results.questions).toMatchSnapshot();
@@ -102,6 +103,7 @@ describe('getFilterOptions', () => {
       '3': { id: '3', text: '3.1', isAnswer: true },
     };
 
+    // @ts-ignore
     const results = getFilterOptions(t, filters, questions, filterStats);
 
     expect(results.questions).toMatchSnapshot();
@@ -197,6 +199,7 @@ describe('searchSelectFilter', () => {
 
 describe('searchRemoveFilter', () => {
   const setState = jest.fn(function(a, b) {
+    // @ts-ignore
     this.state = a;
     b();
   });
@@ -217,6 +220,7 @@ describe('searchRemoveFilter', () => {
   });
 
   it('removes the filter and clears default results', async () => {
+    // @ts-ignore
     await searchRemoveFilter(scope, 'gender', ['gender']);
 
     expect(setState).toHaveBeenCalled();

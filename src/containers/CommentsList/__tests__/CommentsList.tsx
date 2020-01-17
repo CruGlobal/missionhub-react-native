@@ -29,6 +29,7 @@ jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/celebrateComments');
 
 const mockStore = configureStore([thunk]);
+// @ts-ignore
 let store;
 
 const organizationId = '24234234';
@@ -48,24 +49,32 @@ const setCelebrateEditingCommentResult = { type: 'set edit comment' };
 const reportCommentResult = { type: 'report comment' };
 const navigatePushResult = { type: 'navigate push' };
 
+// @ts-ignore
 let screen;
 
+// @ts-ignore
 reloadCelebrateComments.mockReturnValue(dispatch =>
   dispatch(reloadCelebrateCommentsResult),
 );
+// @ts-ignore
 getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
   dispatch(getCelebrateCommentsNextPageResult),
 );
+// @ts-ignore
 deleteCelebrateComment.mockReturnValue(dispatch =>
   dispatch(deleteCelebrateCommentResult),
 );
+// @ts-ignore
 resetCelebrateEditingComment.mockReturnValue(dispatch =>
   dispatch(resetCelebrateEditingCommentResult),
 );
+// @ts-ignore
 setCelebrateEditingComment.mockReturnValue(dispatch =>
   dispatch(setCelebrateEditingCommentResult),
 );
+// @ts-ignore
 navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
+// @ts-ignore
 reportComment.mockReturnValue(dispatch => dispatch(reportCommentResult));
 Alert.alert = jest.fn();
 
@@ -87,8 +96,10 @@ describe('mounts with custom props', () => {
     screen = renderShallow(
       <CommentsList
         event={event}
+        // @ts-ignore
         listProps={{ ListHeaderComponent: () => <Text>Test</Text> }}
       />,
+      // @ts-ignore
       store,
     );
     expect(screen).toMatchSnapshot();
@@ -98,6 +109,7 @@ describe('mounts with custom props', () => {
 describe('componentDidMount', () => {
   it('refreshes items', () => {
     expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
+    // @ts-ignore
     expect(store.getActions()).toEqual(
       expect.arrayContaining([reloadCelebrateCommentsResult]),
     );
@@ -105,9 +117,11 @@ describe('componentDidMount', () => {
 });
 
 describe('with no comments', () => {
+  // @ts-ignore
   beforeAll(() => celebrateCommentsSelector.mockReturnValue(undefined));
 
   it('renders correctly', () => {
+    // @ts-ignore
     expect(screen).toMatchSnapshot();
   });
 });
@@ -115,6 +129,7 @@ describe('with no comments', () => {
 describe('with comments', () => {
   describe('with next page', () => {
     beforeAll(() =>
+      // @ts-ignore
       celebrateCommentsSelector.mockReturnValue({
         ...celebrateComments,
         pagination: { hasNextPage: true },
@@ -122,11 +137,13 @@ describe('with comments', () => {
     );
 
     it('renders correctly', () => {
+      // @ts-ignore
       expect(screen).toMatchSnapshot();
     });
 
     it('renders item correctly', () => {
       expect(
+        // @ts-ignore
         screen.props().renderItem({
           item: {
             content: 'hello roge',
@@ -137,9 +154,11 @@ describe('with comments', () => {
     });
 
     it('loads more comments', () => {
+      // @ts-ignore
       screen.props().ListFooterComponent.props.onPress();
 
       expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(event);
+      // @ts-ignore
       expect(store.getActions()).toEqual(
         expect.arrayContaining([getCelebrateCommentsNextPageResult]),
       );
@@ -148,27 +167,34 @@ describe('with comments', () => {
 
   describe('without next page', () => {
     beforeAll(() =>
+      // @ts-ignore
       celebrateCommentsSelector.mockReturnValue(celebrateComments),
     );
 
     it('renders correctly', () => {
+      // @ts-ignore
       expect(screen).toMatchSnapshot();
     });
   });
 });
 
 describe('determine comment menu actions', () => {
+  // @ts-ignore
   let screen;
+  // @ts-ignore
   let comment;
+  // @ts-ignore
   let permission_id;
 
   const buildScreenWithComment = () => {
+    // @ts-ignore
     orgPermissionSelector.mockReturnValue({ permission_id });
 
     store = mockStore({
       auth: { person: me },
       organizations,
       celebrateComments: {
+        // @ts-ignore
         comments: [comment],
         pagination: {},
       },
@@ -177,16 +203,22 @@ describe('determine comment menu actions', () => {
     screen = renderShallow(<CommentsList event={event} />, store);
   };
 
+  // @ts-ignore
   const testActionArray = expectedActions => {
     expect(
+      // @ts-ignore
       screen.props().renderItem({ item: comment }).props.menuActions,
     ).toEqual(expectedActions);
   };
 
+  // @ts-ignore
   const testFireAction = actionIndex => {
+    // @ts-ignore
     screen
       .props()
+      // @ts-ignore
       .renderItem({ item: comment })
+      // @ts-ignore
       .props.menuActions[actionIndex].onPress(comment);
   };
 
@@ -213,10 +245,12 @@ describe('determine comment menu actions', () => {
 
     it('handleEdit', () => {
       testFireAction(0);
+      // @ts-ignore
       expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
     });
 
     it('handleDelete', () => {
+      // @ts-ignore
       Alert.alert = jest.fn((a, b, c) => c[1].onPress());
 
       testFireAction(1);
@@ -224,6 +258,7 @@ describe('determine comment menu actions', () => {
       expect(deleteCelebrateComment).toHaveBeenCalledWith(
         organizationId,
         event,
+        // @ts-ignore
         comment,
       );
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -261,6 +296,7 @@ describe('determine comment menu actions', () => {
     });
 
     it('handleDelete', () => {
+      // @ts-ignore
       Alert.alert = jest.fn((a, b, c) => c[1].onPress());
 
       testFireAction(0);
@@ -268,6 +304,7 @@ describe('determine comment menu actions', () => {
       expect(deleteCelebrateComment).toHaveBeenCalledWith(
         organizationId,
         event,
+        // @ts-ignore
         comment,
       );
       expect(Alert.alert).toHaveBeenCalledWith(
@@ -304,10 +341,12 @@ describe('determine comment menu actions', () => {
     });
 
     it('handleReport', () => {
+      // @ts-ignore
       Alert.alert = jest.fn((a, b, c) => c[1].onPress());
 
       testFireAction(0);
 
+      // @ts-ignore
       expect(reportComment).toHaveBeenCalledWith(organizationId, comment);
       expect(Alert.alert).toHaveBeenCalledWith(
         i18n.t('commentsList:reportToOwnerHeader'),

@@ -1,5 +1,6 @@
 export const migrations = {
   // Move people and global impact reports into summary key and index by personId-orgId
+  // @ts-ignore
   0: state => ({
     ...state,
     impact: {
@@ -18,6 +19,7 @@ export const migrations = {
       },
     },
   }),
+  // @ts-ignore
   1: state => ({
     ...state,
     swipe: {
@@ -33,13 +35,16 @@ export const migrations = {
     ...state,
     onboarding: {
       ...state.onboarding,
+      // @ts-ignore
       personId: personProfile.id,
       community: {
         id: '',
         community_code: '',
         community_url: '',
+        // @ts-ignore
         ...(profile.community || {}),
       },
+      // @ts-ignore
       skippedAddingPerson: personProfile.hasCompletedOnboarding,
     },
   }),

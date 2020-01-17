@@ -39,30 +39,36 @@ jest.mock('../../../../actions/organizations', () => ({
 jest.mock('../../../../selectors/organizations');
 
 beforeEach(() => {
+  // @ts-ignore
   organizations.addNewOrganization.mockImplementation(
     jest.fn(() => mockAddNewOrg),
   );
 });
 
+// @ts-ignore
 let store;
 
 const state = {
   organizations: { all: [] },
 };
 
+// @ts-ignore
 trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
 
 beforeEach(() => {
   store = createThunkStore(state);
 });
 
+// @ts-ignore
 function buildScreen(props) {
   return renderShallow(
     <CreateGroupScreen navigation={createMockNavState()} {...props} />,
+    // @ts-ignore
     store,
   );
 }
 
+// @ts-ignore
 function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
@@ -71,20 +77,25 @@ describe('CreateGroupScreen', () => {
   it('renders correctly', () => {
     testSnapshotShallow(
       <CreateGroupScreen navigation={createMockNavState()} />,
+      // @ts-ignore
       store,
     );
   });
 
   it('should update the state', () => {
+    // @ts-ignore
     const component = buildScreenInstance();
 
     const name = 'test';
+    // @ts-ignore
     component.onChangeText(name);
 
+    // @ts-ignore
     expect(component.state.name).toEqual(name);
   });
 
   it('should disable the button when creating a community', () => {
+    // @ts-ignore
     const component = buildScreen();
     component.setState({ name: 'Test', isCreatingCommunity: true });
 
@@ -92,17 +103,21 @@ describe('CreateGroupScreen', () => {
   });
 
   it('should update the image', () => {
+    // @ts-ignore
     const screen = buildScreen();
     const component = screen.instance();
 
     const data = { uri: 'testuri' };
+    // @ts-ignore
     component.handleImageChange(data);
 
+    // @ts-ignore
     expect(component.state.imageData).toEqual(data);
     expect(screen.update()).toMatchSnapshot();
   });
 
   it('should call navigate back', () => {
+    // @ts-ignore
     const component = buildScreen();
     const backButton = component.childAt(1).props().left;
     backButton.props.onPress();
@@ -111,14 +126,18 @@ describe('CreateGroupScreen', () => {
   });
 
   it('should call ref', () => {
+    // @ts-ignore
     const instance = buildScreenInstance();
     const ref = 'test';
+    // @ts-ignore
     instance.ref(ref);
+    // @ts-ignore
     expect(instance.nameInput).toEqual(ref);
   });
 
   it('should not call create community without name', async () => {
     Keyboard.dismiss = jest.fn();
+    // @ts-ignore
     const component = buildScreen();
     const result = await component
       .childAt(3)
@@ -131,9 +150,11 @@ describe('CreateGroupScreen', () => {
 
   it('should call create community without org added to redux', async () => {
     Keyboard.dismiss = jest.fn();
+    // @ts-ignore
     const component = buildScreen();
     const name = 'Tester';
     component.setState({ name });
+    // @ts-ignore
     organizationSelector.mockReturnValue(undefined);
 
     await component
@@ -148,11 +169,13 @@ describe('CreateGroupScreen', () => {
 
   it('should call create community with org added to redux', async () => {
     Keyboard.dismiss = jest.fn();
+    // @ts-ignore
     const component = buildScreen();
     const name = 'Tester';
     component.setState({ name });
 
     const org = { id: mockNewId };
+    // @ts-ignore
     organizationSelector.mockReturnValue(org);
 
     await component
@@ -173,13 +196,16 @@ describe('CreateGroupScreen', () => {
 
   it('should call create community with org added to redux and image passed in', async () => {
     Keyboard.dismiss = jest.fn();
+    // @ts-ignore
     const component = buildScreen();
     const name = 'Tester';
     component.setState({ name });
     const data = { uri: 'testuri' };
+    // @ts-ignore
     component.instance().handleImageChange(data);
 
     const org = { id: mockNewId };
+    // @ts-ignore
     organizationSelector.mockReturnValue(org);
 
     await component

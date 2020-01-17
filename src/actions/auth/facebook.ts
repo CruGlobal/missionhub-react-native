@@ -20,6 +20,7 @@ export function facebookPromptLogin() {
 }
 
 export function facebookLoginWithAccessToken() {
+  // @ts-ignore
   return async dispatch => {
     try {
       const { accessToken, userID } =
@@ -38,13 +39,16 @@ export function facebookLoginWithAccessToken() {
   };
 }
 
+// @ts-ignore
 function facebookLoginAction(accessToken, facebookId) {
+  // @ts-ignore
   return async (dispatch, getState) => {
     const { upgradeToken } = getState().auth;
 
     await dispatch(
       retryIfInvalidatedClientToken(
         loginWithFacebookAccessToken(accessToken, upgradeToken),
+        // @ts-ignore
         loginWithFacebookAccessToken(accessToken),
       ),
     );
@@ -52,6 +56,7 @@ function facebookLoginAction(accessToken, facebookId) {
   };
 }
 
+// @ts-ignore
 const loginWithFacebookAccessToken = (fb_access_token, client_token) =>
   callApi(
     REQUESTS.FACEBOOK_LOGIN,
@@ -63,6 +68,7 @@ const loginWithFacebookAccessToken = (fb_access_token, client_token) =>
   );
 
 export function refreshMissionHubFacebookAccess() {
+  // @ts-ignore
   return async dispatch => {
     try {
       try {

@@ -15,10 +15,14 @@ const mockStore = configureStore([thunk]);
 const challenge_id = '442324';
 const callApiResponse = { type: 'called api' };
 
+// @ts-ignore
 let reminder_at;
+// @ts-ignore
 let recurrence;
+// @ts-ignore
 let store;
 
+// @ts-ignore
 callApi.mockReturnValue(callApiResponse);
 
 beforeEach(() => {
@@ -27,6 +31,7 @@ beforeEach(() => {
 
 describe('removeStepReminder', () => {
   beforeEach(() => {
+    // @ts-ignore
     store.dispatch(removeStepReminder(challenge_id));
   });
 
@@ -37,6 +42,7 @@ describe('removeStepReminder', () => {
   });
 });
 
+// @ts-ignore
 const testApiCall = (reminder_type, reminder_at, reminder_on) =>
   expect(callApi).toHaveBeenCalledWith(
     REQUESTS.CREATE_CHALLENGE_REMINDER,
@@ -52,16 +58,19 @@ describe('createStepReminder', () => {
   beforeAll(() => (reminder_at = new Date('2019-3-21 15:45:32')));
 
   beforeEach(() =>
+    // @ts-ignore
     store.dispatch(createStepReminder(challenge_id, reminder_at, recurrence)),
   );
 
   it('dispatches result to store', () =>
+    // @ts-ignore
     expect(store.getActions()).toEqual([callApiResponse]));
 
   describe('with undefined recurrence', () => {
     beforeAll(() => (recurrence = undefined));
 
     it('calls api with correct payload', () =>
+      // @ts-ignore
       testApiCall(ONCE, reminder_at.toISOString(), null));
   });
 
@@ -69,6 +78,7 @@ describe('createStepReminder', () => {
     beforeAll(() => (recurrence = ONCE));
 
     it('calls api with correct payload', () =>
+      // @ts-ignore
       testApiCall(ONCE, reminder_at.toISOString(), null));
   });
 
@@ -78,6 +88,7 @@ describe('createStepReminder', () => {
     it('calls api with correct payload', () =>
       testApiCall(
         DAILY,
+        // @ts-ignore
         reminder_at.toLocaleTimeString(undefined, { hour12: false }),
         null,
       ));
@@ -89,6 +100,7 @@ describe('createStepReminder', () => {
     it('calls api with correct payload', () =>
       testApiCall(
         WEEKLY,
+        // @ts-ignore
         reminder_at.toLocaleTimeString(undefined, { hour12: false }),
         DAYS_OF_THE_WEEK[4],
       ));
@@ -101,7 +113,9 @@ describe('createStepReminder', () => {
       it('calls api with correct payload', () =>
         testApiCall(
           MONTHLY,
+          // @ts-ignore
           reminder_at.toLocaleTimeString(undefined, { hour12: false }),
+          // @ts-ignore
           reminder_at.getDate(),
         ));
     });
@@ -112,7 +126,9 @@ describe('createStepReminder', () => {
       it('calls api with correct payload', () =>
         testApiCall(
           MONTHLY,
+          // @ts-ignore
           reminder_at.toLocaleTimeString(undefined, { hour12: false }),
+          // @ts-ignore
           reminder_at.getDate() - 32,
         ));
     });

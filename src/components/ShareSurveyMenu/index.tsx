@@ -29,6 +29,7 @@ const ShareSurveyMenu = ({ survey, header }: ShareSurveyMenuProps) => {
     ],
     ...(header ? { iconProps: { style: styles.headerIcon } } : {}),
   };
+  // @ts-ignore
   return <PopupMenu testID="ShareSurveyMenu" {...props} />;
 };
 

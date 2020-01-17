@@ -22,7 +22,9 @@ jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/celebrateComments');
 jest.useFakeTimers();
 
+// @ts-ignore
 reloadCelebrateComments.mockReturnValue({ type: 'reloadCelebrateComments' });
+// @ts-ignore
 resetCelebrateEditingComment.mockReturnValue({
   type: 'resetCelebrateEditingComment',
 });
@@ -59,12 +61,16 @@ const event = {
 const organizations = [organization];
 const myId = 'myId';
 
+// @ts-ignore
 let screen;
 let instance;
 const listRef = { scrollToEnd: jest.fn(), scrollToIndex: jest.fn() };
 
+// @ts-ignore
 celebrationItemSelector.mockReturnValue(event);
+// @ts-ignore
 organizationSelector.mockReturnValue(organization);
+// @ts-ignore
 celebrateCommentsSelector.mockReturnValue(celebrateComments),
   beforeEach(() => {
     store = mockStore({
@@ -74,14 +80,17 @@ celebrateCommentsSelector.mockReturnValue(celebrateComments),
     });
 
     screen = renderShallow(
+      // @ts-ignore
       <CelebrateDetailScreen navigation={createMockNavState({ event })} />,
       store,
     );
     instance = screen.instance();
+    // @ts-ignore
     instance.listRef = listRef;
   });
 
 it('renders correctly', () => {
+  // @ts-ignore
   expect(screen).toMatchSnapshot();
 });
 
@@ -101,18 +110,23 @@ it('should call organizationSelector', () => {
 
 describe('refresh', () => {
   it('calls refreshComments', () => {
+    // @ts-ignore
     screen.instance().refreshComments();
     expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
   });
   it('calls handleRefresh', () => {
+    // @ts-ignore
     common.refresh = jest.fn();
+    // @ts-ignore
     screen
       .childAt(2)
       .childAt(2)
       .props()
       .listProps.refreshControl.props.onRefresh();
     expect(common.refresh).toHaveBeenCalledWith(
+      // @ts-ignore
       screen.instance(),
+      // @ts-ignore
       screen.instance().refreshComments,
     );
   });
@@ -120,6 +134,7 @@ describe('refresh', () => {
 
 describe('celebrate add complete', () => {
   it('scrolls to end on add complete', () => {
+    // @ts-ignore
     screen
       .childAt(3)
       .props()
@@ -129,6 +144,7 @@ describe('celebrate add complete', () => {
 });
 
 it('componentWillUnmount', () => {
+  // @ts-ignore
   const instance = screen.instance();
   const remove = jest.fn();
   instance.keyboardShowListener = { remove };
@@ -139,11 +155,14 @@ it('componentWillUnmount', () => {
 
 describe('keyboard show', () => {
   it('without editing comment', () => {
+    // @ts-ignore
     screen.instance().keyboardShow();
     expect(listRef.scrollToEnd).toHaveBeenCalled();
   });
   it('with editing comment', () => {
+    // @ts-ignore
     screen.setProps({ editingCommentId: celebrateComments.comments[0].id });
+    // @ts-ignore
     screen.instance().keyboardShow();
     expect(listRef.scrollToIndex).toHaveBeenCalledWith({
       index: 0,
@@ -151,7 +170,9 @@ describe('keyboard show', () => {
     });
   });
   it('with editing comment that doesnt exist', () => {
+    // @ts-ignore
     screen.setProps({ editingCommentId: 'doesnt exist' });
+    // @ts-ignore
     screen.instance().keyboardShow();
     expect(listRef.scrollToEnd).toHaveBeenCalled();
   });

@@ -11,8 +11,10 @@ import Analytics from '../Analytics';
 import styles from './styles';
 
 class CelebrationScreen extends Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
+    // @ts-ignore
     this.timeoutId = null;
 
     this.startTimer = this.startTimer.bind(this);
@@ -23,12 +25,15 @@ class CelebrationScreen extends Component {
   }
 
   componentWillUnmount() {
+    // @ts-ignore
     clearTimeout(this.timeoutId);
     disableBack.remove();
   }
 
   startTimer() {
+    // @ts-ignore
     clearTimeout(this.timeoutId);
+    // @ts-ignore
     this.timeoutId = setTimeout(
       () => this.navigateToNext(),
       isAndroid ? 2880 : 3350,
@@ -37,11 +42,17 @@ class CelebrationScreen extends Component {
 
   navigateToNext() {
     const {
+      // @ts-ignore
       dispatch,
+      // @ts-ignore
       onComplete,
+      // @ts-ignore
       next,
+      // @ts-ignore
       nextScreen,
+      // @ts-ignore
       personId,
+      // @ts-ignore
       orgId,
     } = this.props;
     disableBack.remove();
@@ -60,6 +71,7 @@ class CelebrationScreen extends Component {
     return CelebrationScreen.getGif(id);
   }
 
+  // @ts-ignore
   static getGif(id) {
     switch (id) {
       case 0:
@@ -78,6 +90,7 @@ class CelebrationScreen extends Component {
   }
 
   render() {
+    // @ts-ignore
     const { gifId } = this.props;
 
     return (
@@ -97,11 +110,13 @@ class CelebrationScreen extends Component {
   }
 }
 
+// @ts-ignore
 CelebrationScreen.propTypes = {
   onComplete: PropTypes.func,
   next: PropTypes.func,
 };
 
+// @ts-ignore
 const mapStateToProps = (reduxState, { navigation }) => ({
   ...(navigation.state.params || {}),
 });

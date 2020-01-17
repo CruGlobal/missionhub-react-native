@@ -53,7 +53,9 @@ const store = configureStore([thunk])({
   stages: { stages: [] },
 });
 
+// @ts-ignore
 const buildAndCallNext = async (screen, navParams, nextProps) => {
+  // @ts-ignore
   const Component = AddPersonFlowScreens(onFlowComplete)[screen];
 
   await store.dispatch(
@@ -68,6 +70,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
       store,
     )
       .instance()
+      // @ts-ignore
       .props.next(nextProps),
   );
 };
@@ -81,8 +84,11 @@ const createCustomStepResponse = { type: 'create custom step' };
 
 beforeEach(() => {
   store.clearActions();
+  // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
+  // @ts-ignore
   navigateBack.mockReturnValue(navigateBackResponse);
+  // @ts-ignore
   createCustomStep.mockReturnValue(createCustomStepResponse);
   reactNavigation.StackActions.popToTop = jest
     .fn()
@@ -91,12 +97,14 @@ beforeEach(() => {
 });
 
 describe('AddStepScreen next', () => {
+  // @ts-ignore
   let didSavePerson;
 
   beforeEach(async () => {
     await buildAndCallNext(
       ADD_CONTACT_SCREEN,
       {},
+      // @ts-ignore
       { person: contact, orgId, didSavePerson },
     );
   });

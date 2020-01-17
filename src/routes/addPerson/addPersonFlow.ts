@@ -27,6 +27,7 @@ import SuggestedStepDetailScreen, {
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import { wrapNextAction } from '../helpers';
 
+// @ts-ignore
 export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
     AddContactScreen,
@@ -107,9 +108,11 @@ export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
 );
 
 export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
+  // @ts-ignore
   AddPersonFlowScreens(({ orgId }) => dispatch => {
     dispatch(getOrganizationMembers(orgId));
     dispatch(StackActions.popToTop());
+    // @ts-ignore
     dispatch(StackActions.pop());
   }),
   {

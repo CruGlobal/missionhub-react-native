@@ -3,6 +3,7 @@
 const ENABLE_LOGS = true;
 const ENABLE_WARN = false;
 
+// @ts-ignore
 function getArgs(a, stringify = false) {
   const args = Array.from(a);
   if (stringify && args[0] && args[0] == '[object Object]') {
@@ -14,6 +15,7 @@ function getArgs(a, stringify = false) {
   return args;
 }
 
+// @ts-ignore
 export const LOG = (...originalArgs) => {
   if (__DEV__) {
     const args = getArgs(originalArgs);
@@ -21,7 +23,9 @@ export const LOG = (...originalArgs) => {
       console.log(...args);
     }
 
+    // @ts-ignore
     if (console.tron) {
+      // @ts-ignore
       console.tron.display({
         name: 'Console',
         value: args,
@@ -31,6 +35,7 @@ export const LOG = (...originalArgs) => {
   }
 };
 
+// @ts-ignore
 export const WARN = (...originalArgs) => {
   if (__DEV__) {
     const args = getArgs(originalArgs, true);
@@ -38,7 +43,9 @@ export const WARN = (...originalArgs) => {
       console.warn(...args);
     }
 
+    // @ts-ignore
     if (console.tron) {
+      // @ts-ignore
       console.tron.display({
         name: 'Console WARN',
         value: args,
@@ -48,11 +55,14 @@ export const WARN = (...originalArgs) => {
   }
 };
 
+// @ts-ignore
 export const APILOG = (...originalArgs) => {
   if (__DEV__) {
     const args = getArgs(originalArgs);
 
+    // @ts-ignore
     if (console.tron) {
+      // @ts-ignore
       console.tron.display({
         name: 'API Call',
         value: args,

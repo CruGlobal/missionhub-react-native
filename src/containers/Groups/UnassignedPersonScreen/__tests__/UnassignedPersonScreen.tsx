@@ -22,6 +22,7 @@ const me = { id: 'me' };
 const organization = { id: '1', name: 'Test Org' };
 const person = { id: '1', full_name: 'Test Person' };
 
+// @ts-ignore
 let store;
 
 const state = {
@@ -39,10 +40,12 @@ const state = {
 };
 
 const spiritualConversationAction = Object.values(INTERACTION_TYPES).find(
+  // @ts-ignore
   i => i.isOnAction && i.translationKey === 'interactionSpiritualConversation',
 );
 const groupJourneyResult = { id: '1' };
 
+// @ts-ignore
 getGroupJourney.mockReturnValue(() => Promise.resolve(groupJourneyResult));
 
 beforeEach(() => {
@@ -61,15 +64,19 @@ describe('Contact', () => {
   );
 
   it('should render correctly', () => {
+    // @ts-ignore
     testSnapshotShallow(component, store);
   });
 
   it('should load the feed', async () => {
     const data = { action: spiritualConversationAction, text: 'text' };
+    // @ts-ignore
     const instance = renderShallow(component, store).instance();
 
+    // @ts-ignore
     await instance.loadFeed(data);
     expect(getGroupJourney).toHaveBeenCalledWith(person.id, organization.id);
+    // @ts-ignore
     expect(instance.state.activity).toEqual(groupJourneyResult);
   });
 });
