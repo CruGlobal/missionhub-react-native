@@ -134,6 +134,7 @@ exports[`contact notes notes are shown 1`] = `
     value={1}
   >
     <ScrollViewMock>
+      // @ts-ignore
       <MyText
         style={
           Object {

@@ -283,6 +283,7 @@ exports[`renders survey correctly 1`] = `
     >
       Test Survey
     </MyText>
+    // @ts-ignore
     <Flex
       direction="column"
       key="1"

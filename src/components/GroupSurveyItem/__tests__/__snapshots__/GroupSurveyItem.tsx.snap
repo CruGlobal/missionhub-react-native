@@ -51,6 +51,7 @@ exports[`render 0 contacts 1`] = `
         <ItemHeaderText
           text="WINTER CONFERENCE 2018"
         />
+        // @ts-ignore
         <MyText
           align="center"
           direction="row"
@@ -171,6 +172,7 @@ exports[`render 0 unassigned 1`] = `
         <ItemHeaderText
           text="WINTER CONFERENCE 2018"
         />
+        // @ts-ignore
         <MyText
           align="center"
           direction="row"
@@ -280,6 +282,7 @@ exports[`render 0 unassigned and 0 uncontacted 1`] = `
         <ItemHeaderText
           text="WINTER CONFERENCE 2018"
         />
+        // @ts-ignore
         <MyText
           align="center"
           direction="row"
@@ -366,6 +369,7 @@ exports[`render 0 uncontacted 1`] = `
         <ItemHeaderText
           text="WINTER CONFERENCE 2018"
         />
+        // @ts-ignore
         <MyText
           align="center"
           direction="row"
@@ -475,6 +479,7 @@ exports[`render survey 1`] = `
         <ItemHeaderText
           text="WINTER CONFERENCE 2018"
         />
+        // @ts-ignore
         <MyText
           align="center"
           direction="row"

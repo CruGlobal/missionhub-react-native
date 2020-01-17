@@ -191,6 +191,7 @@ exports[`renders correctly 1`] = `
   >
     <RCTRefreshControl />
     <View>
+      // @ts-ignore
       <View
         accessible={true}
         focusable={true}
@@ -786,6 +787,7 @@ exports[`renders correctly 1`] = `
           </View>
         </View>
       </View>
+      // @ts-ignore
       <View
         style={
           Array [
