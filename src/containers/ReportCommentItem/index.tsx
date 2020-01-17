@@ -1,18 +1,25 @@
 import React from 'react';
 import { Alert } from 'react-native';
-
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
-import { deleteCelebrateComment } from '../../actions/celebrateComments';
 import { ignoreReportComment } from '../../actions/reportComments';
+import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
 
 import styles from './styles';
 
-const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
+const ReportCommentItem = ({
+  item,
+  orgId,
+  refetch,
+}: {
+  item: ReportedItem;
+  orgId: string;
+  refetch: () => void;
+}) => {
   const { t } = useTranslation('reportComment');
   const dispatch = useDispatch();
 
@@ -20,7 +27,8 @@ const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
     await dispatch(ignoreReportComment(orgId, item.id));
     refetch();
   };
-  const getContentCreator = content => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getContentCreator = (content: any) => {
     const { typeName, person, author } = content;
 
     switch (typeName) {
@@ -32,8 +40,8 @@ const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
         return person.fullName;
     }
   };
-
-  const getContentType = content => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getContentType = (content: any) => {
     const { typeName } = content;
 
     switch (typeName) {
@@ -55,14 +63,8 @@ const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
       {
         text: t('ok'),
         onPress: async () => {
-          await dispatch(
-            deleteCelebrateComment(
-              orgId,
-              item.comment.organization_celebration_item,
-              item.comment,
-            ),
-          );
-          refetch();
+          // Deleteing contnet will go here once mutation is avaiable
+          await refetch();
         },
       },
     ]);
@@ -71,15 +73,7 @@ const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
 
   const reportedBy = person.fullName;
   const commentBy = getContentCreator(subject);
-  const {
-    card,
-    users,
-    comment,
-    buttons,
-    button,
-    buttonLeft,
-    buttonRight,
-  } = styles;
+  const { card, users, comment, buttonLeft, buttonRight } = styles;
   return (
     <Card style={card}>
       <Flex direction="row" style={users}>
@@ -92,13 +86,13 @@ const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
       <Flex style={comment}>
         <CommentItem item={subject} isReported={true} />
       </Flex>
-      <Flex direction="row" style={buttons}>
+      <Flex direction="row">
         <Flex value={1}>
           <Button
             type="secondary"
             onPress={handleIgnore}
             text={t('ignore').toUpperCase()}
-            style={[button, buttonLeft]}
+            style={buttonLeft}
           />
         </Flex>
         <Flex value={1}>
@@ -106,7 +100,7 @@ const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
             type="secondary"
             onPress={handleDelete}
             text={t('delete').toUpperCase()}
-            style={[button, buttonRight]}
+            style={buttonRight}
           />
         </Flex>
       </Flex>

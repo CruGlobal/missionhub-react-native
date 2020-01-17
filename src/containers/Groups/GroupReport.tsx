@@ -84,7 +84,7 @@ const GroupReport = () => {
     return (
       <ReportCommentItem
         item={item}
-        organization={organization}
+        orgId={organization.id}
         refetch={refetch}
       />
     );
