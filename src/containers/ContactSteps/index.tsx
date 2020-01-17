@@ -144,7 +144,9 @@ const ContactSteps = ({
     <NullStateComponent
       imageSource={NULL}
       headerText={t('header').toUpperCase()}
-      descriptionText={t('stepNull', { name: person.first_name })}
+      descriptionText={
+        isMe ? t('stepSelfNull') : t('stepNull', { name: person.first_name })
+      }
       content={renderCompletedStepsButton()}
     />
   );

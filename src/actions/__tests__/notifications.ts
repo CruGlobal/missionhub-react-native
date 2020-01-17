@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint max-lines: 0 */
 
-import RNPushNotification from 'react-native-push-notification';
-import { PushNotificationIOS, PushNotificationPermissions } from 'react-native';
+import { MockStore } from 'redux-mock-store';
+import RNPushNotification, {
+  PushNotificationPermissions,
+} from 'react-native-push-notification';
+import { PushNotificationIOS } from 'react-native';
 
 import { createThunkStore } from '../../../testUtils';
 import {
@@ -63,9 +66,10 @@ const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
 const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
 
 beforeEach(() => {
-  common.isAndroid = false;
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (callApi as jest.Mock).mockReturnValue(callApiResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue(
     permission,
   );
@@ -94,7 +98,7 @@ describe('checkNotifications', () => {
     });
 
     it('immediately requests permissions if Android', async () => {
-      common.isAndroid = true;
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const store = createThunkStore({
         auth: { token: authToken },
         notifications: {
@@ -228,7 +232,7 @@ describe('checkNotifications', () => {
     });
 
     it('immediately requests permissions if Android', async () => {
-      common.isAndroid = true;
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const store = createThunkStore({
         auth: { token: authToken },
         notifications: {
@@ -356,10 +360,10 @@ describe('checkNotifications', () => {
 });
 
 describe('configureNotificationHandler', () => {
-  const store = createThunkStore({
-    notifications: {
-      pushDevice,
-    },
+  let store: MockStore;
+
+  beforeEach(() => {
+    store = createThunkStore({ notifications: { pushDevice } });
   });
 
   it('should configure notifications', () => {
@@ -379,7 +383,6 @@ describe('askNotificationPermissions', () => {
     (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({
       alert: 1,
     });
-    (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   });
 
   describe('onRegister', () => {
@@ -388,6 +391,7 @@ describe('askNotificationPermissions', () => {
     const store = createThunkStore({
       notifications: {
         pushDevice: {
+          ...pushDevice,
           token: oldToken,
         },
       },
@@ -412,7 +416,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should update notification token for android devices', async () => {
-      common.isAndroid = true;
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       store.dispatch<any>(configureNotificationHandler());
       await store.dispatch<any>(requestNativePermissions());
 
@@ -439,7 +443,32 @@ describe('askNotificationPermissions', () => {
     };
     const celebration_item_id = '111';
 
-    const baseNotification: MHPushNotification = {};
+    const baseNotification: MHPushNotification = {
+      data: {},
+      foreground: false,
+      userInteraction: false,
+      message: '',
+      badge: 1,
+      alert: {},
+      sound: '',
+      finish: () => {},
+      configure: () => {},
+      unregister: () => {},
+      localNotification: () => {},
+      localNotificationSchedule: () => {},
+      requestPermissions: () => Promise.resolve({ alert: false }),
+      presentLocalNotification: () => {},
+      scheduleLocalNotification: () => {},
+      cancelAllLocalNotifications: () => {},
+      cancelLocalNotifications: () => {},
+      setApplicationIconBadgeNumber: () => {},
+      getApplicationIconBadgeNumber: () => {},
+      popInitialNotification: () => {},
+      abandonPermissions: () => {},
+      checkPermissions: () => {},
+      registerNotificationActions: () => {},
+      clearAllNotifications: () => {},
+    };
 
     const store = createThunkStore({
       auth: {
@@ -459,7 +488,7 @@ describe('askNotificationPermissions', () => {
     const navToCommunityResult = { type: 'navigated to community' };
 
     beforeEach(() => {
-      common.isAndroid = true;
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
       store.clearActions();
       (getPersonDetails as jest.Mock).mockReturnValue(getPersonResult);
       (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
@@ -507,8 +536,6 @@ describe('askNotificationPermissions', () => {
 
     describe('userInteraction = false', () => {
       it('on iOS, should call iOS finish', async () => {
-        common.isAndroid = false;
-
         await testNotification({ ...baseNotification, screen: 'home' }, false);
 
         expect(navigateToMainTabs).toHaveBeenCalled();
@@ -522,7 +549,7 @@ describe('askNotificationPermissions', () => {
       });
 
       it('on Android, should do nothing', async () => {
-        common.isAndroid = true;
+        ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
         await testNotification({ ...baseNotification, screen: 'home' }, false);
 
@@ -570,8 +597,6 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to contact screen on iOS', async () => {
-      common.isAndroid = false;
-
       (getPersonDetails as jest.Mock).mockReturnValue({
         type: LOAD_PERSON_DETAILS,
         person,
@@ -631,16 +656,38 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('parseNotificationData', () => {
-      const notification = {
+      const notification: MHPushNotification = {
         ...baseNotification,
         screen: 'celebrate',
         organization_id: organization.id,
         screen_extra_data,
       };
 
+      const iosNotification: MHPushNotification = {
+        ...baseNotification,
+        data: {
+          link: {
+            data: {
+              screen: 'celebrate',
+              organization_id: organization.id,
+              screen_extra_data,
+            },
+          },
+        },
+      };
+
       it('should parse the notification data', () => {
         const parsedData = parseNotificationData(notification);
         expect(parsedData).toEqual({
+          screen: 'celebrate',
+          person_id: undefined,
+          organization_id: '234234',
+          celebration_item_id: '111',
+        });
+      });
+      it('Should parse iosNotification correctly', () => {
+        const iosParsedData = parseNotificationData(iosNotification);
+        expect(iosParsedData).toEqual({
           screen: 'celebrate',
           person_id: undefined,
           organization_id: '234234',

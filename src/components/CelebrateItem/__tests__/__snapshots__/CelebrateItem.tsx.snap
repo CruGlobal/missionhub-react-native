@@ -110,7 +110,6 @@ exports[`Community renders correctly 1`] = `
           Array [
             Object {
               "marginTop": 14,
-              "maxHeight": 70,
             },
             Object {},
             undefined,
@@ -388,7 +387,6 @@ exports[`Community renders story item correctly 1`] = `
               Array [
                 Object {
                   "marginTop": 14,
-                  "maxHeight": 70,
                 },
                 Object {},
                 undefined,
@@ -651,7 +649,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
           Array [
             Object {
               "marginTop": 14,
-              "maxHeight": 70,
             },
             Object {},
             undefined,
@@ -974,7 +971,6 @@ exports[`global community renders correctly 1`] = `
           Array [
             Object {
               "marginTop": 14,
-              "maxHeight": 70,
             },
             Object {},
             undefined,
@@ -1227,7 +1223,6 @@ exports[`global community renders story item correctly 1`] = `
           Array [
             Object {
               "marginTop": 14,
-              "maxHeight": 70,
             },
             Object {},
             undefined,
@@ -1480,7 +1475,6 @@ exports[`global community renders with clear notification button correctly 1`] =
           Array [
             Object {
               "marginTop": 14,
-              "maxHeight": 70,
             },
             Object {},
             undefined,
@@ -1843,7 +1837,6 @@ exports[`renders with name pressable correctly 1`] = `
           Array [
             Object {
               "marginTop": 14,
-              "maxHeight": 70,
             },
             Object {},
             undefined,

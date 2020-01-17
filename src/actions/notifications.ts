@@ -6,7 +6,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import RNPushNotification, {
   PushNotification,
 } from 'react-native-push-notification';
-import Config from 'react-native-config';
 
 import { GCM_SENDER_ID, NOTIFICATION_PROMPT_TYPES } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
@@ -36,9 +35,9 @@ export interface MHPushNotification extends PushNotification {
     link?: {
       data?: {
         screen: string;
-        person_id: string;
-        organization_id: string;
-        celebration_item_id: string;
+        person_id?: string;
+        organization_id?: string;
+        celebration_item_id?: string;
         screen_extra_data?: string;
       };
     };
@@ -145,11 +144,7 @@ export const requestNativePermissions = () => async (
 };
 
 export const configureNotificationHandler = () => (
-  dispatch: ThunkDispatch<
-    { auth: AuthState; organizations: OrganizationsState },
-    {},
-    AnyAction
-  >,
+  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
   getState: () => { notifications: NotificationsState },
 ) => {
   RNPushNotification.configure({
@@ -159,24 +154,28 @@ export const configureNotificationHandler = () => (
       if (pushDevice && pushDevice.token === t.token) {
         return;
       }
-
       //make api call to register token with user
       dispatch(setPushDevice(t.token));
     },
-    async onNotification(notification: MHPushNotification) {
+    async onNotification(notification) {
       await dispatch(handleNotification(notification));
 
       notification.finish(PushNotificationIOS.FetchResult.NoData);
     },
     // ANDROID ONLY: GCM Sender ID
     senderID: GCM_SENDER_ID,
+
     // we manually call this after to have access to a promise for the iOS prompt
     requestPermissions: false,
   });
 };
 
 const handleNotification = (notification: MHPushNotification) => async (
-  dispatch: ThunkDispatch<{ organizations: OrganizationsState }, {}, AnyAction>,
+  dispatch: ThunkDispatch<
+    { organizations: OrganizationsState },
+    null,
+    AnyAction
+  >,
   getState: () => { auth: AuthState },
 ) => {
   if (isAndroid && !notification.userInteraction) {
@@ -218,7 +217,9 @@ const handleNotification = (notification: MHPushNotification) => async (
         const community = await dispatch(refreshCommunity(organization_id));
         await dispatch(reloadGroupCelebrateFeed(organization_id));
         return dispatch(
-          navigateToCelebrateComments(community, celebration_item_id),
+          celebration_item_id
+            ? navigateToCelebrateComments(community, celebration_item_id)
+            : navigateToCommunity(community),
         );
       }
       return;
@@ -230,13 +231,26 @@ const handleNotification = (notification: MHPushNotification) => async (
 };
 
 export function parseNotificationData(notification: MHPushNotification) {
-  const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
+  const {
+    data: { link: { data: iosData = { screen_extra_data: '' } } = {} } = {},
+  } = notification;
+
   const data = {
     ...notification,
-    ...(notification.screen_extra_data &&
-      JSON.parse(notification.screen_extra_data)),
+    ...(typeof notification.screen_extra_data === 'string' &&
+    notification.screen_extra_data !== ''
+      ? JSON.parse(notification.screen_extra_data)
+      : notification.screen_extra_data),
     ...iosData,
-    ...(iosData.screen_extra_data && JSON.parse(iosData.screen_extra_data)),
+    ...(typeof iosData.screen_extra_data === 'string' &&
+    iosData.screen_extra_data !== ''
+      ? JSON.parse(iosData.screen_extra_data)
+      : iosData.screen_extra_data),
+  } as {
+    screen: string;
+    person_id?: string;
+    organization_id?: string;
+    celebration_item_id?: string;
   };
 
   return {
@@ -248,14 +262,14 @@ export function parseNotificationData(notification: MHPushNotification) {
 }
 
 const setPushDevice = (token: string) => (
-  dispatch: ThunkDispatch<{}, never, AnyAction>,
+  dispatch: ThunkDispatch<{}, null, AnyAction>,
 ) => {
   const data = {
     data: {
       type: 'push_notification_device_token',
       attributes: {
         token,
-        platform: isAndroid ? 'GCM' : Config.APNS_MODE,
+        platform: isAndroid ? 'GCM' : __DEV__ ? 'APNS_SANDBOX' : 'APNS',
       },
     },
   };
