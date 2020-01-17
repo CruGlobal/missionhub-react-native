@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import { refresh, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
@@ -15,28 +15,33 @@ import Analytics from '../Analytics';
 
 import styles from './styles';
 
-@withTranslation('groupsReport')
-export class GroupReport extends Component {
-  state = { refreshing: false };
+const GroupReport = ({ organization, dispatch, reportedComments }) => {
+  const { t } = useTranslation('groupsReport');
 
-  loadItems = () => {
-    const { dispatch, organization } = this.props;
-    return dispatch(getReportedComments(organization.id));
+  const [refreshing, setRefreshing] = useState(false);
+
+  const loadItems = async () => {
+    const reportedContent = await dispatch(
+      getReportedComments(organization.id),
+    );
+    setRefreshing(false);
+    return reportedContent;
   };
 
-  refreshItems = () => {
-    refresh(this, this.loadItems);
+  const refreshItems = () => {
+    setRefreshing(true);
+    loadItems();
   };
 
-  renderItem = ({ item }) => (
-    <ReportCommentItem item={item} organization={this.props.organization} />
-  );
+  const renderItem = ({ item }) => {
+    return <ReportCommentItem item={item} organization={organization} />;
+  };
 
-  navigateBack = () => this.props.dispatch(navigateBack());
+  const navigateOut = () => {
+    return dispatch(navigateBack());
+  };
 
-  renderList = () => {
-    const { refreshing } = this.state;
-    const { t, reportedComments } = this.props;
+  const renderList = () => {
     if (reportedComments.length === 0) {
       return (
         <NullStateComponent
@@ -51,39 +56,32 @@ export class GroupReport extends Component {
         contentContainerStyle={styles.reportList}
         data={reportedComments}
         keyExtractor={keyExtractorId}
-        renderItem={this.renderItem}
+        renderItem={renderItem}
         refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={this.refreshItems}
-          />
+          <RefreshControl refreshing={refreshing} onRefresh={refreshItems} />
         }
       />
     );
   };
 
-  render() {
-    const { t } = this.props;
-
-    return (
-      <View style={styles.redPageContainer}>
-        <Analytics screenName={['celebrate', 'reported comments']} />
-        <Header
-          right={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.navigateBack}
-            />
-          }
-          style={styles.reportHeader}
-          title={t('title')}
-        />
-        {this.renderList()}
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.redPageContainer}>
+      <Analytics screenName={['celebrate', 'reported comments']} />
+      <Header
+        right={
+          <IconButton
+            name="deleteIcon"
+            type="MissionHub"
+            onPress={navigateOut}
+          />
+        }
+        style={styles.reportHeader}
+        title={t('title')}
+      />
+      {renderList()}
+    </View>
+  );
+};
 
 const mapStateToProps = (
   { reportedComments },
