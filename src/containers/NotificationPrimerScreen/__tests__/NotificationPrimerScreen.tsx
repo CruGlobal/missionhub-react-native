@@ -28,18 +28,30 @@ jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/hooks/useAnalytics');
 
+let onComplete: jest.Mock;
+const next = jest.fn();
+
 const navigatePushResult = { type: 'navigated push' };
 const navigateBackResult = { type: 'navigated back' };
-const registerResult = { type: 'request permissions' };
 const trackActionResult = { type: 'tracked action' };
 const hasShownPromptResult = { type: 'has shown prompt' };
-const onComplete = jest.fn();
+const requestPermissionsAccepted = {
+  type: 'request permissions',
+  acceptedNotifications: true,
+};
+const requestPermissionsDenied = {
+  type: 'request permissions',
+  acceptedNotifications: false,
+};
+const nextResult = { type: 'next' };
 
 beforeEach(() => {
+  onComplete = jest.fn();
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (hasShownPrompt as jest.Mock).mockReturnValue(hasShownPromptResult);
+  (next as jest.Mock).mockReturnValue(nextResult);
 });
 
 describe('notificationTypes', () => {
@@ -100,13 +112,6 @@ describe('notificationTypes', () => {
 });
 
 describe('notification primer methods', () => {
-  const next = jest.fn();
-  const nextResult = { type: 'next' };
-
-  beforeEach(() => {
-    (next as jest.Mock).mockReturnValue(nextResult);
-  });
-
   describe('not now button', () => {
     it('calls next and tracks an action', () => {
       const { store, getByTestId } = renderWithContext(
@@ -165,15 +170,6 @@ describe('notification primer methods', () => {
   });
 
   describe('allow button', () => {
-    const requestPermissionsAccepted = {
-      ...registerResult,
-      acceptedNotifications: true,
-    };
-    const requestPermissionsDenied = {
-      ...registerResult,
-      acceptedNotifications: false,
-    };
-
     describe('user allows permissions', () => {
       beforeEach(() => {
         (requestNativePermissions as jest.Mock).mockReturnValue(
@@ -197,7 +193,7 @@ describe('notification primer methods', () => {
         expect(requestNativePermissions).toHaveBeenCalled();
         expect(next).toHaveBeenCalledWith();
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toHaveBeenCalledWith([
+        expect(store.getActions()).toEqual([
           hasShownPromptResult,
           requestPermissionsAccepted,
           nextResult,
@@ -222,7 +218,7 @@ describe('notification primer methods', () => {
         expect(requestNativePermissions).toHaveBeenCalled();
         expect(onComplete).toHaveBeenCalledWith(true);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toHaveBeenCalledWith([
+        expect(store.getActions()).toEqual([
           hasShownPromptResult,
           requestPermissionsAccepted,
           trackActionResult,
@@ -245,7 +241,7 @@ describe('notification primer methods', () => {
         expect(requestNativePermissions).toHaveBeenCalled();
         expect(navigateBack).toHaveBeenCalledWith();
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toHaveBeenCalledWith([
+        expect(store.getActions()).toEqual([
           hasShownPromptResult,
           requestPermissionsAccepted,
           navigateBackResult,
@@ -277,7 +273,7 @@ describe('notification primer methods', () => {
         expect(requestNativePermissions).toHaveBeenCalled();
         expect(next).toHaveBeenCalledWith();
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toHaveBeenCalledWith([
+        expect(store.getActions()).toEqual([
           hasShownPromptResult,
           requestPermissionsDenied,
           nextResult,
@@ -300,9 +296,9 @@ describe('notification primer methods', () => {
 
         expect(hasShownPrompt).toHaveBeenCalledWith();
         expect(requestNativePermissions).toHaveBeenCalled();
-        expect(onComplete).toHaveBeenCalledWith(true);
+        expect(onComplete).toHaveBeenCalledWith(false);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toHaveBeenCalledWith([
+        expect(store.getActions()).toEqual([
           hasShownPromptResult,
           requestPermissionsDenied,
           trackActionResult,
@@ -325,7 +321,7 @@ describe('notification primer methods', () => {
         expect(requestNativePermissions).toHaveBeenCalled();
         expect(navigateBack).toHaveBeenCalledWith();
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
-        expect(store.getActions()).toHaveBeenCalledWith([
+        expect(store.getActions()).toEqual([
           hasShownPromptResult,
           requestPermissionsDenied,
           navigateBackResult,

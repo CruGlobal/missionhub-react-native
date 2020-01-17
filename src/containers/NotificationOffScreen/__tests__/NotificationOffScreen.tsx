@@ -10,7 +10,6 @@ import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 
 import NotificationOffScreen from '..';
 
-jest.mock('react-native-push-notification');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
@@ -24,22 +23,29 @@ const {
 } = NOTIFICATION_PROMPT_TYPES;
 
 let onComplete: jest.Mock;
+const next = jest.fn();
 
 const APP_SETTINGS_URL = 'app-settings:';
 
 const navigateBackResult = { type: 'navigate back' };
 const trackActionResult = { type: 'tracked action' };
-const requestPermissionsResult = {
+const requestPermissionsAccepted = {
   type: 'request permissions',
   acceptedNotifications: true,
 };
+const requestPermissionsDenied = {
+  type: 'request permissions',
+  acceptedNotifications: false,
+};
+const nextResult = { type: 'next' };
 
 beforeEach(() => {
   onComplete = jest.fn();
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
-  (requestNativePermissions as jest.Mock).mockReturnValue(
-    requestPermissionsResult,
+  (next as jest.Mock).mockReturnValue(nextResult);
+  (global.setTimeout as jest.Mock) = jest.fn((callback: () => void) =>
+    callback(),
   );
 });
 
@@ -91,25 +97,10 @@ describe('notification types', () => {
 });
 
 describe('button methods', () => {
-  const declinedPermissionsResult = {
-    ...requestPermissionsResult,
-    acceptedNotifications: false,
-  };
-
-  const next = jest.fn();
-  const nextResult = { type: 'next' };
-
-  beforeEach(() => {
-    (next as jest.Mock).mockReturnValue(nextResult);
-    (global.setTimeout as jest.Mock) = jest.fn((callback: () => void) =>
-      callback(),
-    );
-  });
-
   describe('not now button', () => {
     beforeEach(() => {
       (requestNativePermissions as jest.Mock).mockReturnValue(
-        declinedPermissionsResult,
+        requestPermissionsDenied,
       );
     });
 
@@ -129,7 +120,7 @@ describe('button methods', () => {
       expect(next).toHaveBeenCalledWith();
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
       expect(store.getActions()).toEqual([
-        declinedPermissionsResult,
+        requestPermissionsDenied,
         trackActionResult,
         nextResult,
       ]);
@@ -152,7 +143,7 @@ describe('button methods', () => {
       expect(onComplete).toHaveBeenCalledWith(false);
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
       expect(store.getActions()).toEqual([
-        declinedPermissionsResult,
+        requestPermissionsDenied,
         trackActionResult,
       ]);
     });
@@ -173,7 +164,7 @@ describe('button methods', () => {
       expect(navigateBack).toHaveBeenCalledWith();
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
       expect(store.getActions()).toEqual([
-        declinedPermissionsResult,
+        requestPermissionsDenied,
         trackActionResult,
         navigateBackResult,
       ]);
@@ -183,7 +174,7 @@ describe('button methods', () => {
   describe('go to settings button', () => {
     beforeEach(() => {
       (requestNativePermissions as jest.Mock).mockReturnValue(
-        requestPermissionsResult,
+        requestPermissionsAccepted,
       );
     });
 
@@ -205,7 +196,7 @@ describe('button methods', () => {
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
-          requestPermissionsResult,
+          requestPermissionsAccepted,
           nextResult,
         ]);
       });
@@ -227,10 +218,10 @@ describe('button methods', () => {
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(onComplete).toHaveBeenCalledWith(true);
-        expect(store.getActions()).toEqual([requestPermissionsResult]);
+        expect(store.getActions()).toEqual([requestPermissionsAccepted]);
       });
 
-      it('opens settings menu, then navigates back', async () => {
+      it('opens settings menu, then navigates back when returning', async () => {
         const { store, getByTestId } = renderWithContext(
           <NotificationOffScreen />,
           {
@@ -247,7 +238,7 @@ describe('button methods', () => {
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(navigateBack).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
-          requestPermissionsResult,
+          requestPermissionsAccepted,
           navigateBackResult,
         ]);
       });
@@ -256,8 +247,30 @@ describe('button methods', () => {
     describe('user does not enable permissions', () => {
       beforeEach(() => {
         (requestNativePermissions as jest.Mock).mockReturnValue(
-          declinedPermissionsResult,
+          requestPermissionsDenied,
         );
+      });
+
+      it('opens settings menu, then calls next when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen next={next} />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
+
+        expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(next).toHaveBeenCalledWith();
+        expect(store.getActions()).toEqual([
+          requestPermissionsDenied,
+          nextResult,
+        ]);
       });
 
       it('opens settings menu, then calls onComplete when returning', async () => {
@@ -277,7 +290,29 @@ describe('button methods', () => {
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(onComplete).toHaveBeenCalledWith(false);
-        expect(store.getActions()).toEqual([requestPermissionsResult]);
+        expect(store.getActions()).toEqual([requestPermissionsDenied]);
+      });
+
+      it('opens settings menu, then navigates back when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
+
+        expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(navigateBack).toHaveBeenCalledWith();
+        expect(store.getActions()).toEqual([
+          requestPermissionsDenied,
+          navigateBackResult,
+        ]);
       });
     });
   });

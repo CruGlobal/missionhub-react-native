@@ -9,7 +9,7 @@ import {
 
 import { User } from './auth';
 
-interface PushDevice {
+export interface PushDevice {
   id: string;
   token: string;
   platform: 'GCM' | typeof Config.APNS_MODE;

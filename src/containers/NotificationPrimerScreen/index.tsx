@@ -125,6 +125,7 @@ const NotificationPrimerScreen = ({
               style={styles.buttonContainer}
             >
               <Button
+                testID="AllowButton"
                 pill={true}
                 type="primary"
                 onPress={allow}
@@ -133,6 +134,7 @@ const NotificationPrimerScreen = ({
                 buttonTextStyle={styles.buttonText}
               />
               <Button
+                testID="NotNowButton"
                 pill={true}
                 onPress={notNow}
                 text={t('notNow').toUpperCase()}

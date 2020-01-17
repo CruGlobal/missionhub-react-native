@@ -3,7 +3,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { CREATE_STEP } from '../../../constants';
+import { CREATE_STEP, ACTIONS } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
@@ -22,13 +22,14 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
-import { showReminderOnLoad } from '../../../actions/notifications';
-import { trackActionWithoutData } from '../../../actions/analytics';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+} from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
-jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/steps');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
@@ -63,8 +64,8 @@ beforeEach(() => {
   navigateToMainTabs.mockReturnValue(() => Promise.resolve());
   skipAddPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
   resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  showReminderOnLoad.mockReturnValue(() => Promise.resolve());
   trackActionWithoutData.mockReturnValue(() => Promise.resolve());
+  resetAppContext.mockReturnValue(() => Promise.resolve());
   createCustomStep.mockReturnValue(() => Promise.resolve());
   setOnboardingPersonId.mockReturnValue(() => Promise.resolve());
 });
@@ -419,6 +420,10 @@ describe('CelebrationScreen next', () => {
   it('should fire required next actions', async () => {
     await store.dispatch(next());
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigateToMainTabs).toHaveBeenCalledWith();
   });
 });
