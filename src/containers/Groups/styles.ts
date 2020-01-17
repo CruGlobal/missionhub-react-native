@@ -11,9 +11,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
+  reportHeader: {
+    backgroundColor: theme.red,
+  },
   redPageContainer: {
     flex: 1,
-    backgroundColor: theme.red,
+    backgroundColor: theme.extraLightGrey,
   },
   flatList: {
     flex: 1,

@@ -23,6 +23,32 @@ class ReportCommentItem extends Component {
     await dispatch(getReportedComments(organization.id));
   };
 
+  getContentCreator = content => {
+    const { typeName, person, author } = content;
+
+    switch (typeName) {
+      case 'Story':
+        return author.fullName;
+      case 'CommunityCelebrationItemComment':
+        return person.fullName;
+      default:
+        return person.fullName;
+    }
+  };
+
+  getContentType = content => {
+    const { typeName } = content;
+
+    switch (typeName) {
+      case 'Story':
+        return 'storyBy';
+      case 'CommunityCelebrationItemComment':
+        return 'commentBy';
+      default:
+        return 'commentBy';
+    }
+  };
+
   handleDelete = () => {
     const { t, item, dispatch, organization } = this.props;
     Alert.alert(t('deleteTitle'), '', [
@@ -49,20 +75,23 @@ class ReportCommentItem extends Component {
   render() {
     const {
       t,
-      item: { comment, person },
+      item: { subject, person },
     } = this.props;
 
-    const reportedBy = person.full_name;
-    const commentBy = comment.person.full_name;
+    const reportedBy = person.fullName;
+    const commentBy = this.getContentCreator(subject);
 
     return (
       <Card style={styles.card}>
         <Flex direction="row" style={styles.users}>
           <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
-          <ReportCommentLabel label={t('commentBy')} user={commentBy} />
+          <ReportCommentLabel
+            label={t(`${this.getContentType(subject)}`)}
+            user={commentBy}
+          />
         </Flex>
         <Flex style={styles.comment}>
-          <CommentItem item={comment} isReported={true} />
+          <CommentItem item={subject} isReported={true} />
         </Flex>
         <Flex direction="row" style={styles.buttons}>
           <Flex value={1}>

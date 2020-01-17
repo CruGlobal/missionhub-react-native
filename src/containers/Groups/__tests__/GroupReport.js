@@ -106,7 +106,6 @@ xit('should refresh items properly', () => {
   ).instance();
 
   common.refresh = jest.fn();
-  console.log(instance);
   instance.refreshItems();
 
   expect(common.refresh).toHaveBeenCalledWith(instance, instance.loadItems);

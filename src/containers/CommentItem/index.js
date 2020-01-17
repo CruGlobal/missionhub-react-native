@@ -14,13 +14,13 @@ import styles from './styles';
 class CommentItem extends Component {
   renderContent = () => {
     const {
-      item: { content, person },
+      item: { content, person, author },
       me,
       isReported,
     } = this.props;
     const { itemStyle, myStyle, text, myText } = styles;
 
-    const isMine = person.id === me.id;
+    const isMine = person ? person.id === me.id : author.id === me.id;
     const isMineNotReported = isMine && !isReported;
 
     return (
@@ -32,7 +32,7 @@ class CommentItem extends Component {
 
   render() {
     const {
-      item: { created_at, person },
+      item: { created_at, person, author },
       organization,
       me,
       isEditing,
@@ -41,8 +41,8 @@ class CommentItem extends Component {
     } = this.props;
     const { content: contentStyle, editingStyle, name: nameStyle } = styles;
 
-    const name = `${person.first_name} ${person.last_name}`;
-    const isMine = person.id === me.id;
+    const name = person ? person.fullName : author.fullName;
+    const isMine = person ? person.id === me.id : author.id === me.id;
     const isMineNotReported = isMine && !isReported;
 
     return (
@@ -59,7 +59,7 @@ class CommentItem extends Component {
           ) : (
             <CelebrateItemName
               name={name}
-              person={person}
+              person={person ? person : author}
               organization={organization}
               pressable={!isReported}
               customContent={<Text style={nameStyle}>{name}</Text>}

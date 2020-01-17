@@ -826,6 +826,7 @@ export default {
   reportComment: {
     reportedBy: 'Reported By',
     commentBy: 'Comment By',
+    storyBy: 'Story By',
     reportedBy: 'Reported By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',
