@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Alert } from 'react-native';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
-import { connect } from 'react-redux-legacy';
+
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
 import { deleteCelebrateComment } from '../../actions/celebrateComments';
-import {
-  ignoreReportComment,
-  getReportedComments,
-} from '../../actions/reportComments';
+import { ignoreReportComment } from '../../actions/reportComments';
 
 import styles from './styles';
 
-@withTranslation('reportComment')
-class ReportCommentItem extends Component {
-  handleIgnore = async () => {
-    const { item, dispatch, organization } = this.props;
-    await dispatch(ignoreReportComment(organization.id, item.id));
-    await dispatch(getReportedComments(organization.id));
-  };
+const ReportCommentItem = ({ item, organization: { id: orgId }, refetch }) => {
+  const { t } = useTranslation('reportComment');
+  const dispatch = useDispatch();
 
-  getContentCreator = content => {
+  const handleIgnore = async () => {
+    await dispatch(ignoreReportComment(orgId, item.id));
+    refetch();
+  };
+  const getContentCreator = content => {
     const { typeName, person, author } = content;
 
     switch (typeName) {
@@ -36,7 +33,7 @@ class ReportCommentItem extends Component {
     }
   };
 
-  getContentType = content => {
+  const getContentType = content => {
     const { typeName } = content;
 
     switch (typeName) {
@@ -49,8 +46,7 @@ class ReportCommentItem extends Component {
     }
   };
 
-  handleDelete = () => {
-    const { t, item, dispatch, organization } = this.props;
+  const handleDelete = () => {
     Alert.alert(t('deleteTitle'), '', [
       {
         text: t('cancel'),
@@ -61,64 +57,61 @@ class ReportCommentItem extends Component {
         onPress: async () => {
           await dispatch(
             deleteCelebrateComment(
-              organization.id,
+              orgId,
               item.comment.organization_celebration_item,
               item.comment,
             ),
           );
-          await dispatch(getReportedComments(organization.id));
+          refetch();
         },
       },
     ]);
   };
+  const { subject, person } = item;
 
-  render() {
-    const {
-      t,
-      item: { subject, person },
-    } = this.props;
-
-    const reportedBy = person.fullName;
-    const commentBy = this.getContentCreator(subject);
-
-    return (
-      <Card style={styles.card}>
-        <Flex direction="row" style={styles.users}>
-          <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
-          <ReportCommentLabel
-            label={t(`${this.getContentType(subject)}`)}
-            user={commentBy}
+  const reportedBy = person.fullName;
+  const commentBy = getContentCreator(subject);
+  const {
+    card,
+    users,
+    comment,
+    buttons,
+    button,
+    buttonLeft,
+    buttonRight,
+  } = styles;
+  return (
+    <Card style={card}>
+      <Flex direction="row" style={users}>
+        <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
+        <ReportCommentLabel
+          label={t(`${getContentType(subject)}`)}
+          user={commentBy}
+        />
+      </Flex>
+      <Flex style={comment}>
+        <CommentItem item={subject} isReported={true} />
+      </Flex>
+      <Flex direction="row" style={buttons}>
+        <Flex value={1}>
+          <Button
+            type="secondary"
+            onPress={handleIgnore}
+            text={t('ignore').toUpperCase()}
+            style={[button, buttonLeft]}
           />
         </Flex>
-        <Flex style={styles.comment}>
-          <CommentItem item={subject} isReported={true} />
+        <Flex value={1}>
+          <Button
+            type="secondary"
+            onPress={handleDelete}
+            text={t('delete').toUpperCase()}
+            style={[button, buttonRight]}
+          />
         </Flex>
-        <Flex direction="row" style={styles.buttons}>
-          <Flex value={1}>
-            <Button
-              type="secondary"
-              onPress={this.handleIgnore}
-              text={t('ignore').toUpperCase()}
-              style={[styles.button, styles.buttonLeft]}
-            />
-          </Flex>
-          <Flex value={1}>
-            <Button
-              type="secondary"
-              onPress={this.handleDelete}
-              text={t('delete').toUpperCase()}
-              style={[styles.button, styles.buttonRight]}
-            />
-          </Flex>
-        </Flex>
-      </Card>
-    );
-  }
-}
-
-ReportCommentItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
+      </Flex>
+    </Card>
+  );
 };
 
-export default connect()(ReportCommentItem);
+export default ReportCommentItem;

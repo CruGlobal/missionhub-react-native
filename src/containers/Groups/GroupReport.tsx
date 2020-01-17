@@ -81,7 +81,13 @@ const GroupReport = () => {
   });
 
   const renderItem = ({ item }: { item: ReportedItem }) => {
-    return <ReportCommentItem item={item} organization={organization} />;
+    return (
+      <ReportCommentItem
+        item={item}
+        organization={organization}
+        refetch={refetch}
+      />
+    );
   };
 
   const navigateOut = () => {
