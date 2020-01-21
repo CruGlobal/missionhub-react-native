@@ -27,24 +27,10 @@ const ReportCommentItem = ({
     await dispatch(ignoreReportComment(orgId, item.id));
     refetch();
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getContentCreator = (content: any) => {
-    const { typeName, person, author } = content;
 
-    switch (typeName) {
-      case 'Story':
-        return author.fullName;
-      case 'CommunityCelebrationItemComment':
-        return person.fullName;
-      default:
-        return person.fullName;
-    }
-  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const getContentType = (content: any) => {
-    const { typeName } = content;
-
-    switch (typeName) {
+  const getContentType = (type: string) => {
+    switch (type) {
       case 'Story':
         return 'storyBy';
       case 'CommunityCelebrationItemComment':
@@ -72,14 +58,17 @@ const ReportCommentItem = ({
   const { subject, person } = item;
 
   const reportedBy = person.fullName;
-  const commentBy = getContentCreator(subject);
+  const commentBy =
+    subject.__typename === 'Story'
+      ? subject.author.fullName
+      : subject.person.fullName;
   const { card, users, comment, buttonLeft, buttonRight } = styles;
   return (
     <Card style={card}>
       <Flex direction="row" style={users}>
         <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
         <ReportCommentLabel
-          label={t(`${getContentType(subject)}`)}
+          label={t(`${getContentType(subject.__typename)}`)}
           user={commentBy}
         />
       </Flex>
