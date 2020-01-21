@@ -1,13 +1,9 @@
 import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 
-import {
-  NOTIFICATION_PROMPT_TYPES,
-  LOAD_PERSON_DETAILS,
-} from '../../constants';
+import { LOAD_PERSON_DETAILS } from '../../constants';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
-import { checkNotifications } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
 import { getMySteps } from '../steps';
 import callApi from '../api';
@@ -61,7 +57,7 @@ export function authSuccess() {
 }
 
 export function loadHome() {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     // Don't try to run all these things if there is no token
     if (!getState().auth.token) {
       return Promise.resolve();
@@ -72,7 +68,6 @@ export function loadHome() {
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    await dispatch(getMySteps());
-    dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
+    dispatch(getMySteps());
   };
 }
