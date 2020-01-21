@@ -289,6 +289,7 @@ export default {
   },
   contactSteps: {
     header: 'STEPS OF FAITH',
+    stepSelfNull: 'Your Steps of Faith will appear here.',
     stepNull: 'Your Steps of Faith with {{name}} appear here.',
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
@@ -838,6 +839,7 @@ export default {
   reportComment: {
     reportedBy: 'Reported By',
     commentBy: 'Comment By',
+    // @ts-ignore
     reportedBy: 'Reported By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',

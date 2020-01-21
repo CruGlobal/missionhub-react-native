@@ -13,6 +13,7 @@ import {
 import { AuthState } from '../reducers/auth';
 
 import { navigateReset } from './navigation';
+import { startOnboarding } from './onboarding';
 
 export const setupFirebaseDynamicLinks = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
@@ -56,6 +57,7 @@ const handleJoinCommunityDeepLink = (
         }),
       );
     } else {
+      dispatch(startOnboarding());
       dispatch(
         navigateReset(DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW, {
           communityUrlCode,

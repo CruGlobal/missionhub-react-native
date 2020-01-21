@@ -31,7 +31,10 @@ import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { Step, StepsState } from '../../reducers/steps';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -54,7 +57,7 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
-  useAnalytics('steps');
+  useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('stepsTab');
 
@@ -178,6 +181,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
       />
       <View style={styles.contentContainer}>
         {hasSteps ? (
+          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
         {firstTimeLoading ? (

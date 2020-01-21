@@ -8,7 +8,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux-legacy';
 
-import { Input } from '../../../components/common';
+import { Input, Flex } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import { navigateBack } from '../../../actions/navigation';
@@ -63,20 +63,22 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
-      <Input
-        testID="EditInput"
-        onChangeText={e => changeStory(e)}
-        placeholder={t('inputPlaceholder')}
-        value={story}
-        autoFocus={true}
-        autoCorrect={true}
-        multiline={true}
-        returnKeyType="done"
-        blurOnSubmit={true}
-        selectionColor={theme.secondaryColor}
-        placeholderTextColor={theme.lightGrey}
-        style={textInput}
-      />
+      <Flex value={1}>
+        <Input
+          testID="EditInput"
+          onChangeText={e => changeStory(e)}
+          placeholder={t('inputPlaceholder')}
+          value={story}
+          autoFocus={true}
+          autoCorrect={true}
+          multiline={true}
+          returnKeyType="done"
+          blurOnSubmit={true}
+          selectionColor={theme.secondaryColor}
+          placeholderTextColor={theme.lightGrey}
+          style={textInput}
+        />
+      </Flex>
       <BottomButton
         text={t('saveStory')}
         onPress={saveStory}

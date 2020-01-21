@@ -40,6 +40,8 @@
     "@react-native-firebase/dynamic-links": "^6.0.3",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
     "@types/qs": "^6.5.3",
+    "@types/react-native-fbsdk": "^1.0.0",
+    "@types/react-native-push-notification": "^3.0.7",
     "@types/uuid": "^3.4.5",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-cache-persist": "^0.1.1",
@@ -121,8 +123,8 @@
     "@types/react-redux-legacy": "npm:@types/react-redux@^7.1.5",
     "@types/react-test-renderer": "^16.9.1",
     "@types/redux-mock-store": "^1.0.1",
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.6.1",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
     "apollo": "^2.21.1",
     "apollo-client": "^2.6.4",
     "apollo-link-schema": "^1.2.4",
@@ -153,7 +155,7 @@
     "react-test-renderer": "^16.10.2",
     "redux-mock-store": "^1.5.3",
     "snapshot-diff": "^0.5.2",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.5"
   },
   "resolutions": {
     "graphql": "^14.5.8"

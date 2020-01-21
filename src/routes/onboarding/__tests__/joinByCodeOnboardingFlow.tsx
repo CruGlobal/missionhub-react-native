@@ -20,6 +20,7 @@ jest.mock('../../../actions/auth/userData');
 jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));
@@ -74,7 +75,7 @@ describe('SetupScreen next', () => {
       Promise.resolve(),
     );
 
-    const Component = JoinByCodeOnboardingFlowScreens[SETUP_SCREEN].screen;
+    const Component = JoinByCodeOnboardingFlowScreens[SETUP_SCREEN];
 
     const { store, getByType } = renderWithContext(<Component />, {
       initialState,
@@ -104,8 +105,7 @@ describe('CelebrationScreen next', () => {
       Promise.resolve(),
     );
 
-    const Component =
-      JoinByCodeOnboardingFlowScreens[CELEBRATION_SCREEN].screen;
+    const Component = JoinByCodeOnboardingFlowScreens[CELEBRATION_SCREEN];
 
     const { store, getByType } = renderWithContext(<Component />, {
       initialState,

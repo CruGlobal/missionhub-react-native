@@ -1,0 +1,803 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
+<View
+  style={
+    Object {
+      "zIndex": 100,
+    }
+  }
+>
+  <[object Object]
+    navigation={
+      Object {
+        "state": Object {
+          "index": 0,
+          "params": Object {},
+        },
+      }
+    }
+  />
+  // @ts-ignore
+  <Connect(SwipeTabMenu)
+    navigation={
+      Object {
+        "state": Object {
+          "index": 0,
+          "params": Object {},
+        },
+      }
+    }
+    tabs={
+      Array [
+        Object {
+          "component": [Function],
+          "name": "Tab 1",
+          "navigationAction": "nav/TAB_1",
+        },
+        Object {
+          "component": [Function],
+          "name": "Tab 2",
+          "navigationAction": "nav/TAB_2",
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`should render correctly 1`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#005A7F",
+    }
+  }
+>
+  <ScrollViewMock
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 374.5,
+        "right": 374.5,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": -374.5,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={1}
+  >
+    // @ts-ignore
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </View>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#66D9F0",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </View>
+    </TouchableIOS>
+  </ScrollViewMock>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          undefined,
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render correctly 2`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#005A7F",
+    }
+  }
+>
+  <ScrollViewMock
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 335,
+        "right": 335,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": -335,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={80}
+  >
+    // @ts-ignore
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </View>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#66D9F0",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </View>
+    </TouchableIOS>
+  </ScrollViewMock>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          undefined,
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render light version correctly 1`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
+>
+  <ScrollViewMock
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 374.5,
+        "right": 374.5,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": -374.5,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={1}
+  >
+    // @ts-ignore
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </View>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#A0A2A6",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </View>
+    </TouchableIOS>
+  </ScrollViewMock>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          Object {
+            "borderBottomColor": "#ECEEF2",
+          },
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render light version correctly 2`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
+>
+  <ScrollViewMock
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 335,
+        "right": 335,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": -335,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={80}
+  >
+    // @ts-ignore
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#007398",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </View>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#A0A2A6",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </View>
+    </TouchableIOS>
+  </ScrollViewMock>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          Object {
+            "borderBottomColor": "#ECEEF2",
+          },
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;
+
+exports[`should render second tab based off of previousIndex 1`] = `
+<ViewWithoutOverflow
+  style={
+    Object {
+      "backgroundColor": "#005A7F",
+    }
+  }
+>
+  <ScrollViewMock
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "alignItems": "stretch",
+          "height": 48,
+        },
+        false,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+        "left": 335,
+        "right": 335,
+        "top": 0,
+      }
+    }
+    contentOffset={
+      Object {
+        "x": -255,
+        "y": 0,
+      }
+    }
+    decelerationRate="fast"
+    horizontal={true}
+    onMomentumScrollEnd={[Function]}
+    showsHorizontalScrollIndicator={false}
+    snapToAlignment="center"
+    snapToInterval={80}
+  >
+    // @ts-ignore
+    <TouchableIOS
+      key="nav/TAB_1"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          0,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+            }
+          }
+        >
+          Tab 1
+        </Text>
+      </View>
+    </TouchableIOS>
+    <TouchableIOS
+      key="nav/TAB_2"
+      onLayout={[Function]}
+      onPress={[Function]}
+      pressProps={
+        Array [
+          1,
+        ]
+      }
+      withoutFeedback={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "paddingHorizontal": 12,
+            },
+            Object {
+              "width": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#66D9F0",
+            }
+          }
+        >
+          Tab 2
+        </Text>
+      </View>
+    </TouchableIOS>
+  </ScrollViewMock>
+  <Flex
+    align="center"
+    style={
+      Object {
+        "position": "absolute",
+        "top": 48,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#005A7F",
+            "borderBottomWidth": 9,
+            "borderLeftColor": "transparent",
+            "borderLeftWidth": 7,
+            "borderRightColor": "transparent",
+            "borderRightWidth": 7,
+            "borderStyle": "solid",
+            "height": 0,
+            "transform": Array [
+              Object {
+                "rotate": "180deg",
+              },
+            ],
+            "width": 0,
+          },
+          undefined,
+        ]
+      }
+    />
+  </Flex>
+</ViewWithoutOverflow>
+`;

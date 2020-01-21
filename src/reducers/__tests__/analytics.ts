@@ -4,8 +4,11 @@ import {
   ANALYTICS_CONTEXT_CHANGED,
   LOGOUT,
   NOT_LOGGED_IN,
+  ANALYTICS_CONTEXT_ONBOARDING,
+  RELOAD_APP,
 } from '../../constants';
 import { REQUESTS } from '../../api/routes';
+import { RESET_APP_CONTEXT, SET_APP_CONTEXT } from '../../actions/analytics';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';
 
@@ -48,6 +51,48 @@ describe('analytics context changed', () => {
     const result = analyticsReducer(undefined, action);
 
     expect(result[ANALYTICS.SCREEN_NAME]).toBe(screen);
+  });
+});
+
+describe('SET_APP_CONTEXT', () => {
+  it('should set app context to onboarding', () => {
+    expect(
+      analyticsReducer(undefined, {
+        type: SET_APP_CONTEXT,
+        context: ANALYTICS_CONTEXT_ONBOARDING,
+      }),
+    ).toEqual({
+      ...initialAnalyticsState,
+      [ANALYTICS.APP_CONTEXT]: ANALYTICS_CONTEXT_ONBOARDING,
+    });
+  });
+});
+
+describe('RESET_APP_CONTEXT', () => {
+  it('should reset app context', () => {
+    expect(
+      analyticsReducer(
+        {
+          ...initialAnalyticsState,
+          [ANALYTICS.APP_CONTEXT]: 'something',
+        },
+        { type: RESET_APP_CONTEXT },
+      ),
+    ).toEqual(initialAnalyticsState);
+  });
+});
+
+describe('reload app', () => {
+  it('should wipe previous screen name', () => {
+    const result = analyticsReducer(
+      {
+        ...initialAnalyticsState,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: 'some screen',
+      },
+      { type: RELOAD_APP },
+    );
+
+    expect(result).toEqual(initialAnalyticsState);
   });
 });
 

@@ -129,7 +129,7 @@ const next = jest.fn();
 
 const trackActionResult = { type: 'track action' };
 const trackScreenChangeResult = { type: 'track screen change' };
-const getStagesResult = { type: 'get stages' };
+const getStagesResult = { type: 'get stages', response: stages };
 const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
 const updateUserStageResult = { type: 'update user stage' };
@@ -150,7 +150,7 @@ describe('renders', () => {
     renderWithContext(<SelectStageScreen next={next} />, {
       initialState: {
         ...state,
-        stages: {},
+        stages: { stages: [] },
       },
       navParams: baseParams,
     }).snapshot();
@@ -219,19 +219,19 @@ describe('renders for other', () => {
   });
 });
 
-const buildAndTestMount = async (navParams: SelectStageNavParams) => {
+const buildAndTestMount = async (
+  initialState: typeof state,
+  navParams: SelectStageNavParams,
+) => {
   const { store, getAllByTestId } = renderWithContext(
     <SelectStageScreen next={next} />,
     {
-      initialState: state,
+      initialState,
       navParams,
     },
   );
 
   await flushMicrotasksQueue();
-
-  expect(getStages).toHaveBeenCalledWith();
-  expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
 
   return { store, getAllByTestId };
 };
@@ -241,12 +241,20 @@ describe('actions on mount', () => {
 
   describe('for me', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      const { store } = await buildAndTestMount({
-        ...baseParams,
-        personId: myId,
-        selectedStageId: stageId,
-      });
+      const { store } = await buildAndTestMount(
+        {
+          ...state,
+          stages: { stages: [] },
+        },
+        {
+          ...baseParams,
+          personId: myId,
+          selectedStageId: stageId,
+        },
+      );
 
+      expect(getStages).toHaveBeenCalledWith();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
       expect(store.getActions()).toEqual([
         getStagesResult,
         trackScreenChangeResult,
@@ -256,16 +264,38 @@ describe('actions on mount', () => {
 
   describe('for other', () => {
     it('gets stages and snaps to first item on mount', async () => {
-      const { store } = await buildAndTestMount({
-        ...baseParams,
-        personId: assignedPersonId,
-        selectedStageId: stageId,
-      });
+      const { store } = await buildAndTestMount(
+        {
+          ...state,
+          stages: { stages: [] },
+        },
+        {
+          ...baseParams,
+          personId: assignedPersonId,
+          selectedStageId: stageId,
+        },
+      );
 
+      expect(getStages).toHaveBeenCalledWith();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
       expect(store.getActions()).toEqual([
         getStagesResult,
         trackScreenChangeResult,
       ]);
+    });
+  });
+
+  describe('stages are in Redux', () => {
+    it('snaps to first item on mount without getting stages', async () => {
+      const { store } = await buildAndTestMount(state, {
+        ...baseParams,
+        personId: myId,
+        selectedStageId: stageId,
+      });
+
+      expect(getStages).not.toHaveBeenCalled();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([trackScreenChangeResult]);
     });
   });
 });
@@ -277,7 +307,7 @@ describe('setStage', () => {
   let selectAction: any;
 
   const buildAndTestSelect = async (navParams: any, nextProps: any) => {
-    const { store, getAllByTestId } = await buildAndTestMount(navParams);
+    const { store, getAllByTestId } = await buildAndTestMount(state, navParams);
 
     await fireEvent.press(getAllByTestId('stageSelectButton')[selectedStageId]);
 
@@ -312,7 +342,6 @@ describe('setStage', () => {
 
       expect(selectMyStage).toHaveBeenCalledWith(stage.id);
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         selectMyStageResult,
         nextResult,
@@ -338,7 +367,6 @@ describe('setStage', () => {
 
       expect(selectMyStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         nextResult,
         trackActionResult,
@@ -371,7 +399,6 @@ describe('setStage', () => {
         stage.id,
       );
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         updateUserStageResult,
         nextResult,
@@ -397,7 +424,6 @@ describe('setStage', () => {
 
       expect(updateUserStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         nextResult,
         trackActionResult,
@@ -432,7 +458,6 @@ describe('setStage', () => {
         orgId,
       );
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         selectPersonStageResult,
         nextResult,
@@ -458,7 +483,6 @@ describe('setStage', () => {
 
       expect(selectPersonStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        getStagesResult,
         trackScreenChangeResult,
         nextResult,
         trackActionResult,

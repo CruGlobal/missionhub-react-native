@@ -1,0 +1,620 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls methods calls render item 1`] = `
+<SearchPeopleItem
+  onSelect={[Function]}
+  person={
+    Object {
+      "full_name": "Ron Swanson",
+      "id": "1",
+      "organization": Object {
+        "name": "Cru at Harvard",
+      },
+    }
+  }
+/>
+`;
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 5,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          alignItems="center"
+          flexDirection="row"
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={false}
+            autoFocus={true}
+            blurOnSubmit={true}
+            multiline={false}
+            onChangeText={[Function]}
+            placeholder="Search"
+            placeholderTextColor="#ffffff"
+            rejectResponderTermination={true}
+            returnKeyType="done"
+            selectionColor="white"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomColor": "#52C5DC",
+                  "borderBottomWidth": 1,
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "letterSpacing": 0.25,
+                  "paddingVertical": 5,
+                },
+                Object {
+                  "borderBottomWidth": 0,
+                  "color": "#ffffff",
+                  "flex": 1,
+                  "fontSize": 16,
+                  "paddingVertical": 5,
+                },
+              ]
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+            value=""
+          />
+          // @ts-ignore
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/searchNull.png",
+        }
+      }
+      style={
+        Object {
+          "flexShrink": 1,
+        }
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "paddingTop": 10,
+          },
+        ]
+      }
+    >
+      search
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Search results will appear here.
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders with no results state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    center={
+      <View
+        alignItems="center"
+        flexDirection="row"
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
+        }
+      >
+        <ForwardRef
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value="test"
+        />
+        // @ts-ignore
+        <IconButton
+          name="cancelIcon"
+          onPress={[Function]}
+          style={
+            Object {
+              "fontSize": 16,
+              "paddingHorizontal": 5,
+            }
+          }
+          type="MissionHub"
+        />
+      </View>
+    }
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="filterIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+  />
+  <View
+    flex={1}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "paddingTop": 15,
+      }
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      No Results.
+    </MyText>
+  </View>
+</View>
+`;
+
+exports[`renders with results state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    center={
+      <View
+        alignItems="center"
+        flexDirection="row"
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
+        }
+      >
+        <ForwardRef
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+        // @ts-ignore
+      </View>
+    }
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="filterIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+  />
+  <FlatList
+    data={
+      Array [
+        Object {
+          "full_name": "Ron Swanson",
+          "id": "1",
+          "organization": Object {
+            "name": "Cru at Harvard",
+          },
+        },
+        Object {
+          "full_name": "Leslie Knope",
+          "id": "2",
+          "organization": Object {
+            "name": "Cru at Harvard",
+          },
+        },
+        Object {
+          "full_name": "Ben Wyatt",
+          "id": "3",
+          "organization": Object {
+            "name": "Cru at Harvard",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    keyboardShouldPersistTaps="handled"
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#ECEEF2",
+        "borderTopWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+</View>
+`;
+
+exports[`renders with searching state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Header
+    center={
+      <View
+        alignItems="center"
+        flexDirection="row"
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+          }
+        }
+      >
+        <ForwardRef
+          autoFocus={true}
+          blurOnSubmit={true}
+          onChangeText={[Function]}
+          placeholder="Search"
+          placeholderTextColor="#ffffff"
+          returnKeyType="done"
+          selectionColor="white"
+          style={
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 16,
+              "paddingVertical": 5,
+            }
+          }
+          value=""
+        />
+        // @ts-ignore
+      </View>
+    }
+    left={<Connect(BackButton) />}
+    right={
+      <IconButton
+        name="filterIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+  />
+  <View
+    flex={1}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "paddingTop": 15,
+      }
+    }
+  >
+    <MyText
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Loading
+    </MyText>
+  </View>
+</View>
+`;

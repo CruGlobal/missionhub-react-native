@@ -150,6 +150,7 @@ const GroupMemberItem = ({
         </Flex>
         {showOptionsMenu ? (
           <MemberOptionsMenu
+            // @ts-ignore
             myId={me.id}
             person={person}
             organization={organization}
