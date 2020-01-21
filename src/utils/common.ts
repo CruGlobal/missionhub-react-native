@@ -21,6 +21,7 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
+import { Person } from 'src/reducers/people';
 
 // @ts-ignore
 export const shuffleArray = arr => {
@@ -295,7 +296,11 @@ export function showDeleteButton(
   return !personIsCurrentUser && contactAssignment && !orgPermission;
 }
 
-export const getAssignmentText = (myId, assignedContactName, item) => {
+export const getAssignmentText = (
+  myId: string,
+  assignedContactName: string,
+  item: { assigned_to: Person; assigned_by: Person },
+) => {
   const assigned_to = item.assigned_to;
   const assigned_by = item.assigned_by;
 
@@ -319,7 +324,11 @@ export const getAssignmentText = (myId, assignedContactName, item) => {
   });
 };
 
-export function getUnassignmentText(myId, assignedContactName, item) {
+export function getUnassignmentText(
+  myId: string,
+  assignedContactName: string,
+  item: { assigned_to: Person },
+) {
   const assigned_to = item.assigned_to;
   const phrase =
     myId === assigned_to.id
