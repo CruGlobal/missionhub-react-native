@@ -78,6 +78,7 @@ const SignUpScreen = ({
   };
 
   const emailSignUp = async () => {
+    // @ts-ignore
     const { code, codeVerifier, redirectUri } = await dispatch(
       openKeyURL('login?action=signup'),
     );

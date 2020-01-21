@@ -81,12 +81,22 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/type-annotation-spacing": "off",
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "react-hooks/rules-of-hooks": "error" // Checks rules of Hooks
   },
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".ts", ".tsx", ".ios.js", ".android.js"]
+        "extensions": [
+          ".js",
+          ".ios.js",
+          ".android.js",
+          ".ts",
+          ".tsx",
+          ".ios.tsx",
+          ".android.tsx"
+        ]
       }
     },
     "react": {

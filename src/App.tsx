@@ -56,8 +56,11 @@ export default class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
+    // @ts-ignore
     store.dispatch(resetToInitialRoute());
+    // @ts-ignore
     store.dispatch(configureNotificationHandler());
+    // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
@@ -71,9 +74,11 @@ export default class App extends Component {
       const value = await DefaultPreference.get(key);
       if (value) {
         try {
+          // @ts-ignore
           await store.dispatch(codeLogin(value));
           // If we successfully logged in with the user's guest code, clear it out now
           DefaultPreference.clear(key);
+          // @ts-ignore
           store.dispatch(navigateToPostAuthScreen());
         } catch (e) {
           // This happens when there is a problem with the code from the API call

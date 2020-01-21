@@ -47,6 +47,7 @@ const ReminderButton = ({
   // for iOS, ask for notifications, navigate to step reminder screen
   const handlePressIOS = async ({ showPicker }: { showPicker: Function }) => {
     const { acceptedNotifications } = await dispatch(
+      // @ts-ignore
       showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.SET_REMINDER),
     );
     acceptedNotifications && showPicker();
@@ -60,6 +61,7 @@ const ReminderButton = ({
   const today = new Date();
   return (
     <DatePicker
+      // @ts-ignore
       testID="ReminderDatePicker"
       date={next_occurrence_at}
       minDate={today}
