@@ -73,15 +73,17 @@ export function joinChallenge(item, orgId) {
     dispatch(reloadGroupCelebrateFeed(orgId));
 
     dispatch(
-      checkNotifications(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE, () =>
-        dispatch(
-          navigatePush(CELEBRATION_SCREEN, {
-            onComplete: () => {
-              dispatch(navigateBack());
-            },
-            gifId: 0,
-          }),
-        ),
+      checkNotifications(
+        NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE,
+        ({ showedPrompt }) =>
+          dispatch(
+            navigatePush(CELEBRATION_SCREEN, {
+              onComplete: () => {
+                dispatch(navigateBack(showedPrompt ? 2 : 1));
+              },
+              gifId: 0,
+            }),
+          ),
       ),
     );
   };

@@ -143,7 +143,10 @@ describe('notification primer methods', () => {
 
       fireEvent.press(getByTestId('NotNowButton'));
 
-      expect(onComplete).toHaveBeenCalledWith(false);
+      expect(onComplete).toHaveBeenCalledWith({
+        acceptedNotifications: false,
+        showedPrompt: true,
+      });
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NOT_NOW);
       expect(store.getActions()).toEqual([trackActionResult]);
     });
@@ -216,7 +219,10 @@ describe('notification primer methods', () => {
 
         expect(hasShownPrompt).toHaveBeenCalledWith();
         expect(requestNativePermissions).toHaveBeenCalled();
-        expect(onComplete).toHaveBeenCalledWith(true);
+        expect(onComplete).toHaveBeenCalledWith({
+          acceptedNotifications: true,
+          showedPrompt: true,
+        });
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
         expect(store.getActions()).toEqual([
           hasShownPromptResult,
@@ -296,7 +302,10 @@ describe('notification primer methods', () => {
 
         expect(hasShownPrompt).toHaveBeenCalledWith();
         expect(requestNativePermissions).toHaveBeenCalled();
-        expect(onComplete).toHaveBeenCalledWith(false);
+        expect(onComplete).toHaveBeenCalledWith({
+          acceptedNotifications: false,
+          showedPrompt: true,
+        });
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ALLOW);
         expect(store.getActions()).toEqual([
           hasShownPromptResult,

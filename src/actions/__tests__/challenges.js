@@ -26,7 +26,7 @@ import {
 } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import * as common from '../../utils/common';
-import { navigatePush } from '../navigation';
+import { navigatePush, navigateBack } from '../navigation';
 
 jest.mock('../api');
 jest.mock('../notifications');
@@ -41,6 +41,7 @@ const orgId = '123';
 
 const apiResult = { type: 'done' };
 const navigateResult = { type: 'has navigated' };
+const navigateBackResult = { type: 'navigated back' };
 const celebrateResult = { type: 'reloaded celebrate feed' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
 const trackActionResult = { type: 'track action' };
@@ -69,12 +70,9 @@ beforeEach(() => {
   store = createStore(defaultStore);
   callApi.mockReturnValue(apiResult);
   navigatePush.mockReturnValue(navigateResult);
+  navigateBack.mockReturnValue(navigateBackResult);
   reloadGroupCelebrateFeed.mockReturnValue(celebrateResult);
   trackActionWithoutData.mockReturnValue(trackActionResult);
-  checkNotifications.mockImplementation((_, callback) => {
-    callback();
-    return checkNotificationsResult;
-  });
 });
 
 describe('getGroupChallengeFeed', () => {
@@ -170,7 +168,19 @@ describe('completeChallenge', () => {
 describe('joinChallenge', () => {
   const item = { id: '1' };
 
-  it('joins a challenge', async () => {
+  beforeEach(() => {
+    navigatePush.mockImplementation((_, { onComplete }) => {
+      onComplete && onComplete();
+      return navigateResult;
+    });
+  });
+
+  it('joins a challenge, prompt was shown', async () => {
+    checkNotifications.mockImplementation((_, callback) => {
+      callback({ showedPrompt: true });
+      return checkNotificationsResult;
+    });
+
     await store.dispatch(joinChallenge(item, orgId));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -192,6 +202,7 @@ describe('joinChallenge', () => {
       onComplete: expect.any(Function),
       gifId: 0,
     });
+    expect(navigateBack).toHaveBeenCalledWith(2);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_JOINED,
     );
@@ -202,6 +213,51 @@ describe('joinChallenge', () => {
       resetResult,
       apiResult,
       celebrateResult,
+      navigateBackResult,
+      navigateResult,
+      checkNotificationsResult,
+    ]);
+  });
+
+  it('joins a challenge, prompt was not shown', async () => {
+    checkNotifications.mockImplementation((_, callback) => {
+      callback({ showedPrompt: false });
+      return checkNotificationsResult;
+    });
+
+    await store.dispatch(joinChallenge(item, orgId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.ACCEPT_GROUP_CHALLENGE,
+      { challengeId: item.id },
+      {
+        data: {
+          attributes: {
+            community_challenge_id: item.id,
+          },
+        },
+      },
+    );
+    expect(checkNotifications).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE,
+      expect.any(Function),
+    );
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: expect.any(Function),
+      gifId: 0,
+    });
+    expect(navigateBack).toHaveBeenCalledWith(1);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.CHALLENGE_JOINED,
+    );
+    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
+    expect(store.getActions()).toEqual([
+      apiResult,
+      trackActionResult,
+      resetResult,
+      apiResult,
+      celebrateResult,
+      navigateBackResult,
       navigateResult,
       checkNotificationsResult,
     ]);

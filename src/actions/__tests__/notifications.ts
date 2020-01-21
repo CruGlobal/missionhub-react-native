@@ -227,7 +227,10 @@ describe('checkNotifications', () => {
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
-      expect(onComplete).toHaveBeenCalledWith(false);
+      expect(onComplete).toHaveBeenCalledWith({
+        acceptedNotifications: false,
+        showedPrompt: false,
+      });
       expect(store.getActions()).toEqual([]);
     });
 
@@ -249,7 +252,10 @@ describe('checkNotifications', () => {
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(onComplete).toHaveBeenCalledWith(true);
+      expect(onComplete).toHaveBeenCalledWith({
+        acceptedNotifications: true,
+        showedPrompt: false,
+      });
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
       ]);
@@ -272,7 +278,10 @@ describe('checkNotifications', () => {
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(onComplete).toHaveBeenCalledWith(true);
+      expect(onComplete).toHaveBeenCalledWith({
+        acceptedNotifications: true,
+        showedPrompt: false,
+      });
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
       ]);
@@ -352,7 +361,10 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(onComplete).toHaveBeenCalledWith(false);
+      expect(onComplete).toHaveBeenCalledWith({
+        acceptedNotifications: false,
+        showedPrompt: false,
+      });
       expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([]);
     });

@@ -8,7 +8,7 @@ import {
   REMINDER_RECURRENCES_ENUM,
 } from '../../constants';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
 import {
@@ -56,7 +56,10 @@ const ReminderButton = ({
     dispatch(
       checkNotifications(
         NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
-        acceptedNotifications => acceptedNotifications && showPicker(),
+        ({ acceptedNotifications, showedPrompt }) => {
+          showedPrompt && dispatch(navigateBack());
+          acceptedNotifications && showPicker();
+        },
       ),
     );
   };

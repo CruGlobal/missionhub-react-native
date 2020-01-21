@@ -12,7 +12,7 @@ import {
   requestNativePermissions,
   checkNotifications,
 } from '../../../actions/notifications';
-import { navigatePush } from '../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../../containers/StepReminderScreen';
 import { createStepReminder } from '../../../actions/stepReminders';
 
@@ -30,6 +30,7 @@ MockDate.set(mockDate);
 
 const requestNotificationsResult = { type: 'requested notifications' };
 const navigatePushResult = { type: 'navigated push' };
+const navigateBackResult = { type: 'navigated back' };
 const createStepReminderResult = { type: 'create step reminder' };
 
 const props = { stepId, dispatch: jest.fn() };
@@ -39,6 +40,7 @@ beforeEach(() => {
     requestNotificationsResult,
   );
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (createStepReminder as jest.Mock).mockReturnValue(createStepReminderResult);
 });
 
@@ -84,8 +86,17 @@ describe('handlePressIOS', () => {
 
   it('requests notifications and shows picker', () => {
     (checkNotifications as jest.Mock).mockImplementation(
-      (_, callback: (acceptedNotifications: boolean) => void) => {
-        callback(true);
+      (
+        _,
+        callback: ({
+          acceptedNotifications,
+          showedPrompt,
+        }: {
+          acceptedNotifications: boolean;
+          showedPrompt: boolean;
+        }) => void,
+      ) => {
+        callback({ acceptedNotifications: true, showedPrompt: false });
         return { type: 'check notifications' };
       },
     );
@@ -105,13 +116,59 @@ describe('handlePressIOS', () => {
       NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
       expect.any(Function),
     );
+    expect(navigateBack).not.toHaveBeenCalled();
+    expect(showPicker).toHaveBeenCalledWith();
+  });
+
+  it('requests notifications, navigates back from prompt screen, and shows picker', () => {
+    (checkNotifications as jest.Mock).mockImplementation(
+      (
+        _,
+        callback: ({
+          acceptedNotifications,
+          showedPrompt,
+        }: {
+          acceptedNotifications: boolean;
+          showedPrompt: boolean;
+        }) => void,
+      ) => {
+        callback({ acceptedNotifications: true, showedPrompt: true });
+        return { type: 'check notifications' };
+      },
+    );
+
+    const { getByTestId } = renderWithContext(
+      <ReminderButton {...props} reminder={reminder}>
+        <View />
+      </ReminderButton>,
+      { initialState: {} },
+    );
+
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+      showPicker,
+    });
+
+    expect(checkNotifications).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+      expect.any(Function),
+    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(showPicker).toHaveBeenCalledWith();
   });
 
   it('declines notifications and does not show picker', () => {
     (checkNotifications as jest.Mock).mockImplementation(
-      (_, callback: (acceptedNotifications: boolean) => void) => {
-        callback(false);
+      (
+        _,
+        callback: ({
+          acceptedNotifications,
+          showedPrompt,
+        }: {
+          acceptedNotifications: boolean;
+          showedPrompt: boolean;
+        }) => void,
+      ) => {
+        callback({ acceptedNotifications: false, showedPrompt: false });
         return { type: 'check notifications' };
       },
     );
@@ -131,6 +188,43 @@ describe('handlePressIOS', () => {
       NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
       expect.any(Function),
     );
+    expect(navigateBack).not.toHaveBeenCalled();
+    expect(showPicker).not.toHaveBeenCalled();
+  });
+
+  it('declines notifications, navigates back from prompt screen, and does not show picker', () => {
+    (checkNotifications as jest.Mock).mockImplementation(
+      (
+        _,
+        callback: ({
+          acceptedNotifications,
+          showedPrompt,
+        }: {
+          acceptedNotifications: boolean;
+          showedPrompt: boolean;
+        }) => void,
+      ) => {
+        callback({ acceptedNotifications: false, showedPrompt: true });
+        return { type: 'check notifications' };
+      },
+    );
+
+    const { getByTestId } = renderWithContext(
+      <ReminderButton {...props} reminder={reminder}>
+        <View />
+      </ReminderButton>,
+      { initialState: {} },
+    );
+
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+      showPicker,
+    });
+
+    expect(checkNotifications).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+      expect.any(Function),
+    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(showPicker).not.toHaveBeenCalled();
   });
 });

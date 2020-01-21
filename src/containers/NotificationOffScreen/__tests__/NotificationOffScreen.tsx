@@ -140,7 +140,10 @@ describe('button methods', () => {
       await fireEvent.press(getByTestId('notNowButton'));
 
       expect(requestNativePermissions).toHaveBeenCalledWith();
-      expect(onComplete).toHaveBeenCalledWith(false);
+      expect(onComplete).toHaveBeenCalledWith({
+        acceptedNotifications: false,
+        showedPrompt: true,
+      });
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
       expect(store.getActions()).toEqual([
         requestPermissionsDenied,
@@ -217,7 +220,10 @@ describe('button methods', () => {
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(requestNativePermissions).toHaveBeenCalledWith();
-        expect(onComplete).toHaveBeenCalledWith(true);
+        expect(onComplete).toHaveBeenCalledWith({
+          acceptedNotifications: true,
+          showedPrompt: true,
+        });
         expect(store.getActions()).toEqual([requestPermissionsAccepted]);
       });
 
@@ -289,7 +295,10 @@ describe('button methods', () => {
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(requestNativePermissions).toHaveBeenCalledWith();
-        expect(onComplete).toHaveBeenCalledWith(false);
+        expect(onComplete).toHaveBeenCalledWith({
+          acceptedNotifications: false,
+          showedPrompt: true,
+        });
         expect(store.getActions()).toEqual([requestPermissionsDenied]);
       });
 
