@@ -207,7 +207,7 @@ export const onboardingFlowGenerator = ({
     () => (dispatch: ThunkDispatch<any, null, any>) => {
       dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
       dispatch(resetAppContext());
-      navigateToMainTabs();
+      dispatch(navigateToMainTabs());
     },
   ),
 });

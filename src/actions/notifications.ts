@@ -76,7 +76,13 @@ export const updateAcceptedNotifications = (
 
 export const checkNotifications = (
   notificationType: NOTIFICATION_PROMPT_TYPES,
-  onComplete?: (acceptedNotifications: boolean) => void,
+  onComplete?: ({
+    acceptedNotifications,
+    showedPrompt,
+  }: {
+    acceptedNotifications: boolean;
+    showedPrompt: boolean;
+  }) => void,
 ) => async (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
@@ -93,7 +99,9 @@ export const checkNotifications = (
       const { acceptedNotifications } = await dispatch(
         requestNativePermissions(),
       );
-      return onComplete && onComplete(acceptedNotifications);
+      return (
+        onComplete && onComplete({ acceptedNotifications, showedPrompt: false })
+      );
     }
 
     //IF iOS user has previously given permission, check that native permissions are still active
@@ -104,7 +112,10 @@ export const checkNotifications = (
 
       //IF native iOS permissions are active, re-register push device token
       if (acceptedNotifications) {
-        return onComplete && onComplete(acceptedNotifications);
+        return (
+          onComplete &&
+          onComplete({ acceptedNotifications, showedPrompt: false })
+        );
       }
 
       //IF native iOS permissions are not active, update API and local state
@@ -130,7 +141,8 @@ export const checkNotifications = (
   }
 
   //IF app has already asked for permissions, and iOS user has declined, do nothing
-  onComplete && onComplete(false);
+  onComplete &&
+    onComplete({ acceptedNotifications: false, showedPrompt: false });
 };
 
 export const requestNativePermissions = () => async (

@@ -31,7 +31,13 @@ const NotificationOffScreen = ({
 }: NotificationOffScreenProps) => {
   const { t } = useTranslation('notificationOff');
   const onComplete:
-    | ((acceptedNotifications: boolean) => void)
+    | (({
+        acceptedNotifications,
+        showedPrompt,
+      }: {
+        acceptedNotifications: boolean;
+        showedPrompt: boolean;
+      }) => void)
     | undefined = useNavigationParam('onComplete');
   const notificationType: NOTIFICATION_PROMPT_TYPES = useNavigationParam(
     'notificationType',
@@ -46,7 +52,7 @@ const NotificationOffScreen = ({
       next
         ? dispatch(next())
         : onComplete
-        ? onComplete(acceptedNotifications)
+        ? onComplete({ acceptedNotifications, showedPrompt: true })
         : dispatch(navigateBack());
     }
   };
