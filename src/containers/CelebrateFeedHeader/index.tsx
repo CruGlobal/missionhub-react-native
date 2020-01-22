@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { GET_REPORTED_CONTENT } from '../Groups/GroupReport';
 import { Flex } from '../../components/common';
@@ -13,17 +12,30 @@ import { navigatePush } from '../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
-} from '../../containers/Groups/OnboardingCard';
+} from '../Groups/OnboardingCard';
 import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
 import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
 import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
 
 import styles from './styles';
+import { Organization, OrganizationsState } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
 
-const CelebrateFeedHeader = ({ isMember, shouldQueryReport, organization }) => {
+interface CelebrateFeedHeaderProps {
+  isMember: boolean;
+  shouldQueryReport: boolean;
+  organization: Organization;
+}
+
+const CelebrateFeedHeader = ({
+  isMember,
+  shouldQueryReport,
+  organization,
+}: any) => {
   const dispatch = useDispatch();
   const { id: orgId } = organization;
+
   const {
     data: {
       community: {
@@ -55,6 +67,7 @@ const CelebrateFeedHeader = ({ isMember, shouldQueryReport, organization }) => {
   const commentCard = () => {
     dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
   };
+  console.log(ReportedContent);
 
   const renderCommentCard = () => {
     if (UnreadCommentCount === 0) {
@@ -96,23 +109,24 @@ const CelebrateFeedHeader = ({ isMember, shouldQueryReport, organization }) => {
   );
 };
 
-CelebrateFeedHeader.propTypes = {
-  organization: PropTypes.object.isRequired,
-  isMember: PropTypes.bool,
-};
-
 export const mapStateToProps = (
-  { auth, organizations },
-  { organization = {} },
+  {
+    auth,
+    organizations,
+  }: { auth: AuthState; organizations: OrganizationsState },
+  { organization = {} }: { organization: Organization },
 ) => {
   const selectorOrg =
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;
 
-  const myOrgPerm = orgPermissionSelector(null, {
-    person: auth.person,
-    organization: { id: selectorOrg.id },
-  });
+  const myOrgPerm = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization: { id: selectorOrg.id },
+    },
+  );
 
   const shouldQueryReport = shouldQueryReportedComments(selectorOrg, myOrgPerm);
 
