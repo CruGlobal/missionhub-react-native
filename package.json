@@ -180,6 +180,7 @@
       "<rootDir>/__mock__/resetGlobalMockSeeds.ts",
       "<rootDir>/__mock__/apolloHooks.ts"
     ],
+    "globalSetup": "<rootDir>/__mocks__/globalSetup.ts",
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
