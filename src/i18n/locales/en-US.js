@@ -806,8 +806,8 @@ export default {
       'This post will be deleted and you won’t be able to find it anymore.',
   },
   celebrateFeedHeader: {
-    reports: '{{count}} new reported content',
-    reports_plural: '{{count}} new reported content',
+    reports: '{{count}} new reported item',
+    reports_plural: '{{count}} new reported items',
     newComments: 'New Comment',
     newComments_plural: 'New Comments',
   },

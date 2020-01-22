@@ -1,8 +1,6 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
-import { renderShallow, renderWithContext } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { getReportedComments } from '../../../actions/reportComments';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -18,7 +16,7 @@ import { GROUP_UNREAD_FEED_SCREEN } from '../../Groups/GroupUnreadFeed';
 
 import CelebrateFeedHeader from '..';
 import { useQuery } from '@apollo/react-hooks';
-import { flushMicrotasksQueue } from 'react-native-testing-library';
+import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 
 jest.mock('../../../selectors/people');
@@ -41,8 +39,11 @@ const organization = {
   user_created: true,
   unread_comments_count: 12,
 };
+
 const globalCommunity = {
+  user_created: false,
   id: GLOBAL_COMMUNITY_ID,
+  unread_comments_count: 0,
 };
 const me = { id: 'myId' };
 
@@ -71,16 +72,12 @@ beforeEach(() => {
     permission_id: ORG_PERMISSIONS.OWNER,
   });
 });
-
+// Owner
 describe('owner', () => {
   describe('user created community', () => {
-    fit('renders with 1 reported comment', () => {
-      const { snapshot } = renderWithContext(
-        <CelebrateFeedHeader
-          organization={organization}
-          isMember={false}
-          shouldQueryReport={true}
-        />,
+    it('renders with 1 reported item', async () => {
+      const { snapshot, getByTestId, queryByText } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
         {
           initialState,
           mocks: {
@@ -92,26 +89,18 @@ describe('owner', () => {
           },
         },
       );
-
+      await flushMicrotasksQueue();
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
+      expect(getByTestId('ReportCommentHeaderCardButton')).toBeTruthy();
+      expect(queryByText('1 new reported item')).toBeTruthy();
     });
-  });
 
-  describe('cru community', () => {
-    it('renders with 1 reported comment', async () => {
-      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-        ...organization,
-        user_created: false,
-      });
-      const { snapshot } = renderWithContext(
-        <CelebrateFeedHeader
-          organization={organization}
-          isMember={false}
-          shouldQueryReport={true}
-        />,
+    it('renders with multiple reported items', async () => {
+      const { snapshot, getByTestId, queryByText } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
         {
           initialState,
         },
@@ -121,6 +110,179 @@ describe('owner', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
+      expect(getByTestId('ReportCommentHeaderCardButton')).toBeTruthy();
+      expect(queryByText('2 new reported items')).toBeTruthy();
+    });
+
+    it('renders with multiple reported items but no unreadComments', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        unread_comments_count: 0,
+      });
+      const { snapshot, getByTestId, queryByText } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+        },
+      );
+      await flushMicrotasksQueue();
+      snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
+      expect(getByTestId('ReportCommentHeaderCardButton')).toBeTruthy();
+      expect(queryByText('2 new reported items')).toBeTruthy();
+      expect(queryByText('New Comments')).toBeNull();
+    });
+  });
+
+  describe('cru community', () => {
+    it('renders with 1 reported item', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const { snapshot, getByTestId, queryByText } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => new MockList(1),
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
+      expect(getByTestId('ReportCommentHeaderCardButton')).toBeTruthy();
+      expect(queryByText('1 new reported item')).toBeTruthy();
+    });
+  });
+
+  describe('global community', () => {
+    it('renders without reported items', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        id: GLOBAL_COMMUNITY_ID,
+        user_created: false,
+      });
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={globalCommunity} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+    });
+  });
+
+  it('renders with 0 reported items', async () => {
+    const { snapshot, queryByTestId } = renderWithContext(
+      <CelebrateFeedHeader organization={organization} />,
+      {
+        initialState: { ...initialState, reportComments: { all: {} } },
+        mocks: {
+          Community: () => ({
+            contentComplaints: () => ({
+              nodes: () => [],
+            }),
+          }),
+        },
+      },
+    );
+    await flushMicrotasksQueue();
+    expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+      variables: { id: '1' },
+    });
+    snapshot();
+    expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+  });
+});
+// Admin
+describe('admin', () => {
+  beforeEach(() => {
+    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+      permission_id: ORG_PERMISSIONS.ADMIN,
+    });
+  });
+
+  describe('user created community', () => {
+    it('does not render reported item card even when there is 1 reported item', async () => {
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => new MockList(1),
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+    });
+  });
+
+  describe('cru community', () => {
+    it('renders without reported items', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+    });
+
+    it('renders with multiple reported items', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+        },
+      );
+      await flushMicrotasksQueue();
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeTruthy();
     });
   });
 
@@ -131,212 +293,274 @@ describe('owner', () => {
         id: GLOBAL_COMMUNITY_ID,
         user_created: false,
       });
-      const { snapshot } = renderWithContext(
-        <CelebrateFeedHeader
-          organization={globalCommunity}
-          isMember={false}
-          shouldQueryReport={false}
-        />,
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={globalCommunity} />,
         {
           initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
         },
       );
       await flushMicrotasksQueue();
       snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
     });
-  });
 
-  it('renders with 0 reported comments', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeedHeader
-        organization={organization}
-        isMember={false}
-        shouldQueryReport={false}
-      />,
-      {
-        initialState: { ...initialState, reportComments: { all: {} } },
-      },
-    );
-    await flushMicrotasksQueue();
-    expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
-      variables: { id: '1' },
+    it('renders with 0 reported comments', async () => {
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={globalCommunity} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
     });
-    snapshot();
   });
 });
 
-describe('admin', () => {
+// Members
+describe('members', () => {
   beforeEach(() => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
+      permission_id: ORG_PERMISSIONS.USER,
     });
   });
 
   describe('user created community', () => {
-    it('renders with 1 reported comment', async () => {
-      const { snapshot } = renderWithContext(
-        <CelebrateFeedHeader
-          organization={organization}
-          isMember={false}
-          shouldQueryReport={false}
-        />,
+    it('renders without reported items', async () => {
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+    });
+
+    it('does not render the reported items card even when reported items exist', async () => {
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
         {
           initialState,
         },
       );
       await flushMicrotasksQueue();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
       snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
     });
   });
 
   describe('cru community', () => {
-    it('renders without reported comments', async () => {
+    it('renders without reported items', async () => {
       ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
         ...organization,
         user_created: false,
       });
-      const { snapshot } = renderWithContext(
-        <CelebrateFeedHeader
-          organization={organization}
-          isMember={false}
-          shouldQueryReport={false}
-        />,
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
         {
-          initialState: { ...initialState, reportComments: { all: {} } },
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
         },
       );
       await flushMicrotasksQueue();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
       snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+    });
+    it('does not render reported item card even when reported items exist', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        user_created: false,
+      });
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+        },
+      );
+      await flushMicrotasksQueue();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: '1' },
+      });
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
     });
   });
 
-  //   describe('global community', () => {
-  //     it('renders without reported comments', () => {
-  //       organizationSelector.mockReturnValue({
-  //         ...organization,
-  //         id: GLOBAL_COMMUNITY_ID,
-  //         user_created: false,
-  //       });
-  //       const screen = buildScreen();
+  describe('global community', () => {
+    it('renders without reported comments', async () => {
+      ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+        ...organization,
+        id: GLOBAL_COMMUNITY_ID,
+        user_created: false,
+      });
+      const { snapshot, queryByTestId } = renderWithContext(
+        <CelebrateFeedHeader organization={organization} />,
+        {
+          initialState,
+          mocks: {
+            Community: () => ({
+              contentComplaints: () => ({
+                nodes: () => [],
+              }),
+            }),
+          },
+        },
+      );
+      await flushMicrotasksQueue();
+      expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+        variables: { id: GLOBAL_COMMUNITY_ID },
+      });
+      snapshot();
+      expect(queryByTestId('ReportCommentHeaderCardButton')).toBeNull();
+    });
+  });
+});
 
-  //       expect(screen).toMatchSnapshot();
-  //       expect(getReportedComments).not.toHaveBeenCalled();
-  //     });
-  //   });
+describe('unread comments card', () => {
+  it('renders comment card', async () => {
+    const { snapshot, queryByText } = renderWithContext(
+      <CelebrateFeedHeader organization={organization} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+      variables: { id: '1' },
+    });
+    expect(queryByText('New Comments')).toBeTruthy();
+  });
+  it('renders no comment card when global org', async () => {
+    ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+      ...organization,
+      id: GLOBAL_COMMUNITY_ID,
+    });
+    const { snapshot, queryByText } = renderWithContext(
+      <CelebrateFeedHeader organization={globalCommunity} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
 
-  //   it('renders with 0 reported comments', () => {
-  //     organizationSelector.mockReturnValue({
-  //       ...organization,
-  //       user_created: false,
-  //     });
-  //     store = mockStore({ ...mockStoreObj, reportedComments: { all: {} } });
-  //     const screen = buildScreen();
+    expect(queryByText('New Comments')).toBeFalsy();
+  });
+  it('renders no comment card when no new comments', async () => {
+    ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
+      ...organization,
+      unread_comments_count: 0,
+    });
+    const { snapshot, queryByText } = renderWithContext(
+      <CelebrateFeedHeader organization={organization} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+      variables: { id: '1' },
+    });
+    expect(queryByText('New Comments')).toBeFalsy();
+  });
+});
 
-  //     expect(screen).toMatchSnapshot();
-  //     expect(getReportedComments).toHaveBeenCalledWith(organization.id);
-  //   });
-  // });
+it('navigates to unread comments screen', async () => {
+  const { snapshot, getByTestId } = renderWithContext(
+    <CelebrateFeedHeader organization={organization} />,
+    {
+      initialState,
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+    variables: { id: '1' },
+  });
 
-  // describe('members', () => {
-  //   beforeEach(() => {
-  //     orgPermissionSelector.mockReturnValue({
-  //       permission_id: ORG_PERMISSIONS.USER,
-  //     });
-  //   });
+  await fireEvent.press(getByTestId('CardButton'));
+  expect(navigatePush).toHaveBeenCalledWith(GROUP_UNREAD_FEED_SCREEN, {
+    organization,
+  });
+});
 
-  //   describe('user created community', () => {
-  //     it('renders without reported comments', () => {
-  //       const screen = buildScreen();
+it('closes comment card', async () => {
+  const { snapshot, getByTestId } = renderWithContext(
+    <CelebrateFeedHeader organization={organization} />,
+    {
+      initialState,
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+    variables: { id: '1' },
+  });
 
-  //       expect(screen).toMatchSnapshot();
-  //       expect(getReportedComments).not.toHaveBeenCalled();
-  //     });
-  //   });
+  await fireEvent.press(getByTestId('IconButton'));
+  expect(markCommentsRead).toHaveBeenCalled();
+});
 
-  //   describe('cru community', () => {
-  //     it('renders without reported comments', () => {
-  //       organizationSelector.mockReturnValue({
-  //         ...organization,
-  //         user_created: false,
-  //       });
-  //       const screen = buildScreen();
+it('navigates to group report screen', async () => {
+  const { snapshot, getByTestId } = renderWithContext(
+    <CelebrateFeedHeader organization={organization} />,
+    {
+      initialState,
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+    variables: { id: '1' },
+  });
 
-  //       expect(screen).toMatchSnapshot();
-  //       expect(getReportedComments).not.toHaveBeenCalled();
-  //     });
-  //   });
+  await fireEvent.press(getByTestId('ReportCommentHeaderCardButton'));
 
-  //   describe('global community', () => {
-  //     it('renders without reported comments', () => {
-  //       organizationSelector.mockReturnValue({
-  //         ...organization,
-  //         id: GLOBAL_COMMUNITY_ID,
-  //         user_created: false,
-  //       });
-  //       const screen = buildScreen();
-
-  //       expect(screen).toMatchSnapshot();
-  //       expect(getReportedComments).not.toHaveBeenCalled();
-  //     });
-  //   });
-  // });
-
-  // describe('unread comments card', () => {
-  //   it('renders comment card', () => {
-  //     const screen = buildScreen();
-  //     expect(screen).toMatchSnapshot();
-  //   });
-  //   it('renders no comment card when global org', () => {
-  //     organizationSelector.mockReturnValue({
-  //       ...organization,
-  //       id: GLOBAL_COMMUNITY_ID,
-  //     });
-  //     const screen = buildScreen();
-  //     expect(screen).toMatchSnapshot();
-  //   });
-  //   it('renders no comment card when no new comments', () => {
-  //     organizationSelector.mockReturnValue({
-  //       ...organization,
-  //       unread_comments_count: 0,
-  //     });
-  //     const screen = buildScreen();
-  //     expect(screen).toMatchSnapshot();
-  //   });
-  // });
-
-  // it('navigates to unread comments screen', () => {
-  //   const screen = buildScreen();
-  //   screen
-  //     .childAt(0)
-  //     .childAt(0)
-  //     .props()
-  //     .onPress();
-
-  //   expect(navigatePush).toHaveBeenCalledWith(GROUP_UNREAD_FEED_SCREEN, {
-  //     organization,
-  //   });
-  // });
-
-  // it('closes comment card', () => {
-  //   const screen = buildScreen();
-  //   screen
-  //     .childAt(0)
-  //     .childAt(0)
-  //     .props()
-  //     .onClose();
-
-  //   expect(markCommentsRead).toHaveBeenCalled();
-  // });
-
-  // it('navigates to group report screen', () => {
-  //   const screen = buildScreen();
-  //   screen
-  //     .childAt(0)
-  //     .childAt(2)
-  //     .props()
-  //     .onPress();
-
-  //   expect(navigatePush).toHaveBeenCalledWith(GROUPS_REPORT_SCREEN, {
-  //     organization,
-  //   });
+  expect(navigatePush).toHaveBeenCalledWith(GROUPS_REPORT_SCREEN, {
+    organization,
+  });
 });

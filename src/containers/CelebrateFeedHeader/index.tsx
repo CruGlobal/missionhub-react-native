@@ -23,16 +23,14 @@ import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 
 interface CelebrateFeedHeaderProps {
-  isMember: boolean;
   shouldQueryReport: boolean;
   organization: Organization;
 }
 
 const CelebrateFeedHeader = ({
-  isMember,
   shouldQueryReport,
   organization,
-}: any) => {
+}: CelebrateFeedHeaderProps) => {
   const dispatch = useDispatch();
   const { id: orgId } = organization;
 
@@ -67,7 +65,6 @@ const CelebrateFeedHeader = ({
   const commentCard = () => {
     dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
   };
-  console.log(ReportedContent);
 
   const renderCommentCard = () => {
     if (UnreadCommentCount === 0) {
@@ -96,15 +93,13 @@ const CelebrateFeedHeader = ({
       {isCommentCardVisible ? null : (
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
-      {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
-        <Flex style={styles.itemWrap}>
-          {renderCommentCard()}
-          {isReportVisible && isCommentCardVisible ? (
-            <Flex style={styles.bothPadding} />
-          ) : null}
-          {renderReport()}
-        </Flex>
-      )}
+      <Flex style={styles.itemWrap}>
+        {!isCommentCardVisible ? null : renderCommentCard()}
+        {isReportVisible && isCommentCardVisible ? (
+          <Flex style={styles.bothPadding} />
+        ) : null}
+        {!isReportVisible ? null : renderReport()}
+      </Flex>
     </>
   );
 };
@@ -127,7 +122,6 @@ export const mapStateToProps = (
       organization: { id: selectorOrg.id },
     },
   );
-
   const shouldQueryReport = shouldQueryReportedComments(selectorOrg, myOrgPerm);
 
   return {
