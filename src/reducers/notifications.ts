@@ -35,7 +35,6 @@ function notificationReducer(state = initialState, action: any) {
       return {
         ...state,
         pushDevice: action.results.response,
-        userHasAcceptedNotifications: true,
       };
     case REQUESTS.DELETE_PUSH_TOKEN.SUCCESS:
       return {

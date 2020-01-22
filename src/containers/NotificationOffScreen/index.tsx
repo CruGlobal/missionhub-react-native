@@ -32,10 +32,10 @@ const NotificationOffScreen = ({
   const { t } = useTranslation('notificationOff');
   const onComplete:
     | (({
-        acceptedNotifications,
+        nativePermissionsEnabled,
         showedPrompt,
       }: {
-        acceptedNotifications: boolean;
+        nativePermissionsEnabled: boolean;
         showedPrompt: boolean;
       }) => void)
     | undefined = useNavigationParam('onComplete');
@@ -44,15 +44,18 @@ const NotificationOffScreen = ({
   );
 
   const close = async () => {
-    let acceptedNotifications = false;
+    let nativePermissionsEnabled = false;
     try {
       const response = await dispatch(requestNativePermissions());
-      acceptedNotifications = response.acceptedNotifications;
+      nativePermissionsEnabled = response.nativePermissionsEnabled;
     } finally {
+      console.log(
+        `COMPLETE: nativePermissions=${nativePermissionsEnabled} + showedPrompt=NOTIFICATION_OFF_SCREEN`,
+      );
       next
         ? dispatch(next())
         : onComplete
-        ? onComplete({ acceptedNotifications, showedPrompt: true })
+        ? onComplete({ nativePermissionsEnabled, showedPrompt: true })
         : dispatch(navigateBack());
     }
   };

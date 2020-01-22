@@ -77,16 +77,17 @@ export const updateAcceptedNotifications = (
 export const checkNotifications = (
   notificationType: NOTIFICATION_PROMPT_TYPES,
   onComplete?: ({
-    acceptedNotifications,
+    nativePermissionsEnabled,
     showedPrompt,
   }: {
-    acceptedNotifications: boolean;
+    nativePermissionsEnabled: boolean;
     showedPrompt: boolean;
   }) => void,
 ) => async (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
+  console.log('start');
   const {
     auth: { token },
     notifications: { appHasShownPrompt, userHasAcceptedNotifications },
@@ -94,33 +95,37 @@ export const checkNotifications = (
 
   //ONLY register if logged in
   if (token) {
-    //Android does not need permission from user; re-register push device token
-    if (isAndroid) {
-      const { acceptedNotifications } = await dispatch(
-        requestNativePermissions(),
+    //if iOS, and notification prompt has not yet been shown,
+    //navigate to NotificationPrimerScreen
+    if (!isAndroid && !appHasShownPrompt) {
+      console.log(
+        `Scenario: iOS=${!isAndroid} + hasShowedPrompt=${appHasShownPrompt}`,
       );
-      return (
-        onComplete && onComplete({ acceptedNotifications, showedPrompt: false })
+
+      return dispatch(
+        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          notificationType,
+          onComplete,
+        }),
       );
     }
 
-    //IF iOS user has previously given permission, check that native permissions are still active
-    if (userHasAcceptedNotifications) {
-      const { acceptedNotifications } = await dispatch(
-        requestNativePermissions(),
-      );
+    //check Native Permissions status
+    const { nativePermissionsEnabled } = await dispatch(
+      requestNativePermissions(),
+    );
 
-      //IF native iOS permissions are active, re-register push device token
-      if (acceptedNotifications) {
-        return (
-          onComplete &&
-          onComplete({ acceptedNotifications, showedPrompt: false })
-        );
-      }
+    console.log(
+      `Scenario: iOS=${!isAndroid} + hasShowedPrompt=${appHasShownPrompt} + userHasAccepted=${userHasAcceptedNotifications} + nativePermissions=${nativePermissionsEnabled}`,
+    );
 
-      //IF native iOS permissions are not active, update API and local state
-      //also should show Notification Off Screen
-      dispatch(deletePushToken());
+    //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
+    //navigate to NotificationOffScreen
+    if (
+      !isAndroid &&
+      userHasAcceptedNotifications &&
+      !nativePermissionsEnabled
+    ) {
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
           notificationType,
@@ -129,30 +134,36 @@ export const checkNotifications = (
       );
     }
 
-    //IF app has not already asked permissions from iOS user, ask them now
-    if (!appHasShownPrompt) {
-      return dispatch(
-        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
-          notificationType,
-          onComplete,
-        }),
-      );
-    }
+    //all other cases, return the result fo the Native Permissions check
+    //NOTE: Android does not need permissions from the user to enable notifications
+    console.log(
+      `COMPLETE: nativePermissions=${nativePermissionsEnabled} + showedPrompt=false`,
+    );
+    return (
+      onComplete &&
+      onComplete({ nativePermissionsEnabled, showedPrompt: false })
+    );
   }
-
-  //IF app has already asked for permissions, and iOS user has declined, do nothing
-  onComplete &&
-    onComplete({ acceptedNotifications: false, showedPrompt: false });
 };
 
+//RNPushNotification.requestPermissions() will do the following:
+// - display the modal asking the user to enable notifications (first time only)
+// - return current state of Native Notifications Permissions (we should update app state accordingly)
+// - refreshes Push Device Token (this gets handled by onRegister() callback)
 export const requestNativePermissions = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  const permission = await RNPushNotification.requestPermissions();
+  console.log('requestPermissions()');
+  const nativePermissions = await RNPushNotification.requestPermissions();
 
-  const acceptedNotifications = !!(permission && permission.alert);
-  dispatch(updateAcceptedNotifications(acceptedNotifications));
-  return { acceptedNotifications };
+  const nativePermissionsEnabled = !!(
+    nativePermissions && nativePermissions.alert
+  );
+  console.log(
+    `nativePermissions=${nativePermissionsEnabled}, updating API/Redux`,
+  );
+  dispatch(updateAcceptedNotifications(nativePermissionsEnabled));
+  return { nativePermissionsEnabled };
 };
 
 export const configureNotificationHandler = () => (
@@ -161,9 +172,11 @@ export const configureNotificationHandler = () => (
 ) => {
   RNPushNotification.configure({
     onRegister(t) {
+      console.log('new Push Device Token');
       const { pushDevice } = getState().notifications;
 
       if (pushDevice && pushDevice.token === t.token) {
+        console.log('same as before, skip');
         return;
       }
       //make api call to register token with user
@@ -276,6 +289,7 @@ export function parseNotificationData(notification: MHPushNotification) {
 const setPushDevice = (token: string) => (
   dispatch: ThunkDispatch<{}, null, AnyAction>,
 ) => {
+  console.log('Set Push Device Token');
   const data = {
     data: {
       type: 'push_notification_device_token',
@@ -293,6 +307,7 @@ export const deletePushToken = () => (
   dispatch: ThunkDispatch<{}, never, AnyAction>,
   getState: () => { notifications: NotificationsState },
 ) => {
+  console.log('Delete Push Device Token');
   const { pushDevice } = getState().notifications;
   if (!pushDevice) {
     return;

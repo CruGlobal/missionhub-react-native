@@ -39,7 +39,7 @@ export const resetToInitialRoute = () => (
       hasContactWithPathwayStage(auth.person.id, people)
     ) {
       dispatch(navigateToMainTabs());
-      dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
+      return dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
     }
 
     dispatch(startOnboarding());

@@ -38,10 +38,10 @@ const NotificationPrimerScreen = ({
   const { t } = useTranslation('notificationPrimer');
   const onComplete:
     | (({
-        acceptedNotifications,
+        nativePermissionsEnabled,
         showedPrompt,
       }: {
-        acceptedNotifications: boolean;
+        nativePermissionsEnabled: boolean;
         showedPrompt: boolean;
       }) => void)
     | undefined = useNavigationParam('onComplete');
@@ -49,12 +49,16 @@ const NotificationPrimerScreen = ({
     'notificationType',
   );
 
-  const close = (acceptedNotifications: boolean) =>
+  const close = (nativePermissionsEnabled: boolean) => {
+    console.log(
+      `COMPLETE: nativePermissions=${nativePermissionsEnabled} + showedPrompt=NOTIFICATION_PRIMER_SCREEN`,
+    );
     next
       ? dispatch(next())
       : onComplete
-      ? onComplete({ acceptedNotifications, showedPrompt: true })
+      ? onComplete({ nativePermissionsEnabled, showedPrompt: true })
       : dispatch(navigateBack());
+  };
 
   const notNow = () => {
     close(false);
@@ -62,13 +66,13 @@ const NotificationPrimerScreen = ({
   };
 
   const allow = async () => {
-    let acceptedNotifications = false;
+    let nativePermissionsEnabled = false;
     try {
       dispatch(hasShownPrompt());
       const response = await dispatch(requestNativePermissions());
-      acceptedNotifications = response.acceptedNotifications;
+      nativePermissionsEnabled = response.nativePermissionsEnabled;
     } finally {
-      close(acceptedNotifications);
+      close(nativePermissionsEnabled);
       dispatch(trackActionWithoutData(ACTIONS.ALLOW));
     }
   };

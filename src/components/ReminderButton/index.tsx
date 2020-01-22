@@ -56,9 +56,9 @@ const ReminderButton = ({
     dispatch(
       checkNotifications(
         NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
-        ({ acceptedNotifications, showedPrompt }) => {
+        ({ nativePermissionsEnabled, showedPrompt }) => {
           showedPrompt && dispatch(navigateBack());
-          acceptedNotifications && showPicker();
+          nativePermissionsEnabled && showPicker();
         },
       ),
     );
