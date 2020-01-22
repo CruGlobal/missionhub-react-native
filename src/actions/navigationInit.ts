@@ -38,8 +38,8 @@ export const resetToInitialRoute = () => (
       onboarding.skippedAddingPerson ||
       hasContactWithPathwayStage(auth.person.id, people)
     ) {
+      dispatch(navigateToMainTabs());
       dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
-      return dispatch(navigateToMainTabs());
     }
 
     dispatch(startOnboarding());

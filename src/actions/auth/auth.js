@@ -70,8 +70,8 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
     dispatch(startOnboarding());
     dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
   } else if (hasPersonWithStageSelected(person)) {
-    dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
     dispatch(navigateToMainTabs());
+    dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
   } else {
     dispatch(startOnboarding());
     dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
