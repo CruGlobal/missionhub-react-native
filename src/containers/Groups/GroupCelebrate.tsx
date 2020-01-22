@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux-legacy';
-import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import moment from 'moment';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
 import CelebrateFeed from '../CelebrateFeed';
 import {
@@ -12,10 +10,7 @@ import {
 } from '../../actions/celebration';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
-import {
-  celebrationSelector,
-  CelebrateItem,
-} from '../../selectors/celebration';
+import { celebrationSelector } from '../../selectors/celebration';
 import {
   momentUtc,
   refresh,
@@ -24,71 +19,73 @@ import {
 } from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
-import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
-import { Organization } from '../../reducers/organizations';
 import Analytics from '../Analytics';
 
-export interface GroupCelebrateProps {
-  dispatch: ThunkDispatch<{ organizations: OrganizationsState }, {}, AnyAction>;
-  organization: Organization;
-  shouldQueryReport: boolean;
-  celebrateItems: { id: number; date: string; data: CelebrateItem[] }[];
-  pagination: any;
-}
+// @ts-ignore
+@withTranslation('groupsCelebrate')
+class GroupCelebrate extends Component {
+  state = { refreshing: false };
 
-const GroupCelebrate = ({
-  dispatch,
-  organization,
-  shouldQueryReport,
-  celebrateItems,
-  pagination,
-}: GroupCelebrateProps) => {
-  const [refreshing, setRefreshing] = useState(false);
+  componentDidMount() {
+    if (this.shouldLoadFeed()) {
+      this.loadItems();
+    }
+  }
 
-  const shouldLoadFeed = () =>
-    !celebrateItems ||
-    celebrateItems.length === 0 ||
-    pagination.page === 0 ||
-    moment().diff(momentUtc(celebrateItems[0].date), 'days', true) > 1;
+  shouldLoadFeed = () => {
+    // @ts-ignore
+    const { pagination, celebrateItems } = this.props;
 
-  const loadItems = () => dispatch(getGroupCelebrateFeed(organization.id));
+    return (
+      !celebrateItems ||
+      celebrateItems.length === 0 ||
+      pagination.page === 0 ||
+      moment().diff(momentUtc(celebrateItems[0].date), 'days', true) > 1
+    );
+  };
 
-  useEffect(() => {
-    shouldLoadFeed() && loadItems();
-  }, []);
+  loadItems = () => {
+    // @ts-ignore
+    const { dispatch, organization } = this.props;
+    dispatch(getGroupCelebrateFeed(organization.id));
+  };
 
-  const reloadItems = () => {
+  reloadItems = () => {
+    // @ts-ignore
+    const { dispatch, organization, shouldQueryReport } = this.props;
     dispatch(refreshCommunity(organization.id));
     shouldQueryReport && dispatch(getReportedComments(organization.id));
     return dispatch(reloadGroupCelebrateFeed(organization.id));
   };
 
-  const refreshItems = () => refresh(_, reloadItems);
+  refreshItems = () => {
+    refresh(this, this.reloadItems);
+  };
 
-  return (
-    <>
-      <Analytics screenName={['community', 'celebrate']} />
-      <CelebrateFeed
-        // @ts-ignore
-        organization={organization}
-        items={celebrateItems}
-        loadMoreItemsCallback={loadItems}
-        refreshCallback={refreshItems}
-        refreshing={refreshing}
-        itemNamePressable={!orgIsGlobal(organization)}
-      />
-    </>
-  );
-};
+  render() {
+    const { refreshing } = this.state;
+    // @ts-ignore
+    const { celebrateItems, organization } = this.props;
 
-const mapStateToProps = (
-  {
-    auth,
-    organizations,
-  }: { auth: AuthState; organizations: OrganizationsState },
-  { orgId }: { orgId: string },
-) => {
+    return (
+      <>
+        <Analytics screenName={['community', 'celebrate']} />
+        <CelebrateFeed
+          // @ts-ignore
+          organization={organization}
+          items={celebrateItems}
+          loadMoreItemsCallback={this.loadItems}
+          refreshCallback={this.refreshItems}
+          refreshing={refreshing}
+          itemNamePressable={!orgIsGlobal(organization)}
+        />
+      </>
+    );
+  }
+}
+
+// @ts-ignore
+const mapStateToProps = ({ auth, organizations }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
   const myOrgPermission = orgPermissionSelector(
     {},

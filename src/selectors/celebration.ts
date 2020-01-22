@@ -5,7 +5,7 @@ import { CELEBRATEABLE_TYPES } from '../constants';
 import { OrganizationsState } from '../reducers/organizations';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CelebrateItem = any;
+type CelebrateItem = any;
 
 export const celebrationItemSelector = createSelector(
   ({ organizations }: { organizations: OrganizationsState }) =>
