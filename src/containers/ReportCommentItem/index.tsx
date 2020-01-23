@@ -16,7 +16,7 @@ const ReportCommentItem = ({
   orgId,
   refetch,
 }: {
-  item: ReportedItem;
+  item: ReportedItem | any;
   orgId: string;
   refetch: () => void;
 }) => {
@@ -59,7 +59,7 @@ const ReportCommentItem = ({
 
   const reportedBy = person.fullName;
   const commentBy =
-    subject.__typename === 'Story'
+    subject.typeName === 'Story'
       ? subject.author.fullName
       : subject.person.fullName;
   const { card, users, comment, buttonLeft, buttonRight } = styles;
@@ -68,7 +68,7 @@ const ReportCommentItem = ({
       <Flex direction="row" style={users}>
         <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
         <ReportCommentLabel
-          label={t(`${getContentType(subject.__typename)}`)}
+          label={t(`${getContentType(subject.typeName)}`)}
           user={commentBy}
         />
       </Flex>

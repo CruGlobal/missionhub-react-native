@@ -32,7 +32,7 @@ class CommentItem extends Component {
 
   render() {
     const {
-      item: { created_at, person, author },
+      item: { created_at, person, author, createdAt },
       organization,
       me,
       isEditing,
@@ -65,7 +65,10 @@ class CommentItem extends Component {
               customContent={<Text style={nameStyle}>{name}</Text>}
             />
           )}
-          <CardTime date={created_at} format={DateConstants.comment} />
+          <CardTime
+            date={created_at ? created_at : createdAt}
+            format={DateConstants.comment}
+          />
         </Flex>
         <Flex direction="row">
           {isMineNotReported ? <Flex value={1} /> : null}

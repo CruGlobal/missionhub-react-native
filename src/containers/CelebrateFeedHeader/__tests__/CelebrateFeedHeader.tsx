@@ -25,9 +25,6 @@ jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
 
-(getReportedComments as jest.Mock).mockReturnValue(() => ({
-  type: 'getReportedComments',
-}));
 (markCommentsRead as jest.Mock).mockReturnValue(() => ({
   type: 'markCommentsRead',
 }));
