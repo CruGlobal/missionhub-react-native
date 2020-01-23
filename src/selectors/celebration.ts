@@ -3,9 +3,13 @@ import { createSelector } from 'reselect';
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
 import { OrganizationsState } from '../reducers/organizations';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CelebrateItem = any;
+export interface CelebrateFeedSection {
+  id: number;
+  date: string;
+  data: GetCelebrateFeed_community_celebrationItems_nodes[];
+}
 
 export const celebrationItemSelector = createSelector(
   ({ organizations }: { organizations: OrganizationsState }) =>
@@ -29,20 +33,20 @@ export const celebrationItemSelector = createSelector(
 );
 
 export const celebrationSelector = createSelector(
-  ({ celebrateItems }: { celebrateItems: CelebrateItem[] }) => celebrateItems,
+  ({
+    celebrateItems,
+  }: {
+    celebrateItems: GetCelebrateFeed_community_celebrationItems_nodes[];
+  }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
     const sortByDate = filteredCelebrateItems;
     sortByDate.sort(compare);
 
-    const dateSections: {
-      id: number;
-      date: string;
-      data: CelebrateItem[];
-    }[] = [];
-    sortByDate.forEach((item: CelebrateItem) => {
+    const dateSections: CelebrateFeedSection[] = [];
+    sortByDate.forEach(item => {
       const length = dateSections.length;
-      const itemMoment = momentUtc(item.changed_attribute_value).local();
+      const itemMoment = momentUtc(item.changedAttributeValue).local();
 
       if (
         length > 0 &&
@@ -55,7 +59,7 @@ export const celebrationSelector = createSelector(
       } else {
         dateSections.push({
           id: dateSections.length,
-          date: item.changed_attribute_value,
+          date: item.changedAttributeValue,
           data: [item],
         });
       }
@@ -65,9 +69,12 @@ export const celebrationSelector = createSelector(
   },
 );
 
-const compare = (a: CelebrateItem, b: CelebrateItem) => {
-  const aValue = a.changed_attribute_value,
-    bValue = b.changed_attribute_value;
+const compare = (
+  a: GetCelebrateFeed_community_celebrationItems_nodes,
+  b: GetCelebrateFeed_community_celebrationItems_nodes,
+) => {
+  const aValue = a.changedAttributeValue,
+    bValue = b.changedAttributeValue;
 
   if (aValue < bValue) {
     return 1;
@@ -78,7 +85,9 @@ const compare = (a: CelebrateItem, b: CelebrateItem) => {
   return 0;
 };
 
-const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
+const filterCelebrationFeedItems = (
+  items: GetCelebrateFeed_community_celebrationItems_nodes[],
+) => {
   const {
     completedInteraction,
     completedStep,
@@ -90,10 +99,10 @@ const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
   } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {
-    switch (item.celebrateable_type) {
+    switch (item.celebrateableType) {
       case completedInteraction:
         return validInteractionTypes.includes(
-          `${item.adjective_attribute_value}`,
+          `${item.adjectiveAttributeValue}`,
         );
       case completedStep:
       case acceptedCommunityChallenge:

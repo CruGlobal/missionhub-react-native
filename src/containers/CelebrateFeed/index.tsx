@@ -3,6 +3,8 @@ import { SectionList, View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
 import { DateComponent } from '../../components/common';
 import CelebrateItemCard from '../../components/CelebrateItem';
@@ -10,18 +12,50 @@ import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import ShareStoryInput from '../Groups/ShareStoryInput';
-import { CelebrateItem } from '../../selectors/celebration';
+import {
+  celebrationSelector,
+  CelebrateFeedSection,
+} from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
+import { useRefreshing } from '../../utils/hooks/useRefreshing';
 
+import { GetCelebrateFeed } from './__generated__/GetCelebrateFeed';
 import styles from './styles';
 
-type CelebrateSection = { id: number; date: string; data: CelebrateItem[] };
+export const GET_CELEBRATE_FEED = gql`
+  query GetCelebrateFeed($communityId: [ID!], $celebrateCursor: String) {
+    community(id: $communityId) {
+      celebrationItems(
+        sortBy: createdAt_ASC
+        first: 25
+        after: $celebrateCursor
+      ) {
+        nodes {
+          id
+          adjectiveAttributeName
+          adjectiveAttributeValue
+          celebrateableId
+          celebrateableType
+          changedAttributeName
+          changedAttributeValue
+          commentsCount
+          liked
+          likesCount
+          objectDescription
+          subjectPersonName
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+`;
 
 export interface CelebrateFeedProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  items: CelebrateSection[];
   organization: Organization;
-  refreshing: boolean;
   refreshCallback: () => void;
   itemNamePressable: boolean;
   isMember?: boolean;
@@ -32,22 +66,81 @@ export interface CelebrateFeedProps {
 
 const CelebrateFeed = ({
   dispatch,
-  items,
   organization,
-  refreshing,
   refreshCallback,
   itemNamePressable,
   isMember,
   noHeader,
   onClearNotification,
-  loadMoreItemsCallback,
 }: CelebrateFeedProps) => {
   const [isListScrolled, setIsListScrolled] = useState(false);
+
+  const {
+    data: {
+      community: {
+        celebrationItems: {
+          nodes = [],
+          pageInfo: { endCursor = null, hasNextPage = true } = {},
+        } = {},
+      } = {},
+    } = {},
+    fetchMore,
+    refetch,
+  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
+    variables: {
+      communityId: [organization.id],
+    },
+    pollInterval: 30000,
+  });
+
+  const celebrationItems = celebrationSelector({ celebrateItems: nodes });
+
+  const { isRefreshing, refresh } = useRefreshing(refetch);
+
+  const handleRefreshing = () => refresh();
+
+  const handleOnEndReached = () => {
+    if (isListScrolled && hasNextPage) {
+      fetchMore({
+        variables: {
+          communityId: [organization.id],
+          celebrateCursor: endCursor,
+        },
+        updateQuery: (prev, { fetchMoreResult }) =>
+          fetchMoreResult
+            ? {
+                ...prev,
+                ...fetchMoreResult,
+                community: {
+                  ...prev.community,
+                  ...fetchMoreResult.community,
+                  celebrationItems: {
+                    ...prev.community.celebrationItems,
+                    ...fetchMoreResult.community.celebrationItems,
+                    nodes: [
+                      ...(prev.community.celebrationItems.nodes || []),
+                      ...(fetchMoreResult.community.celebrationItems.nodes ||
+                        []),
+                    ],
+                  },
+                },
+              }
+            : prev,
+      });
+      setIsListScrolled(false);
+    }
+  };
+
+  const handleEndDrag = () => {
+    if (!isListScrolled) {
+      setIsListScrolled(true);
+    }
+  };
 
   const renderSectionHeader = ({
     section: { date },
   }: {
-    section: CelebrateSection;
+    section: CelebrateFeedSection;
   }) => (
     <View style={styles.header}>
       <DateComponent
@@ -68,21 +161,6 @@ const CelebrateFeed = ({
     />
   );
 
-  const handleOnEndReached = () => {
-    if (isListScrolled) {
-      loadMoreItemsCallback();
-      setIsListScrolled(false);
-    }
-  };
-
-  const handleEndDrag = () => {
-    if (!isListScrolled) {
-      setIsListScrolled(true);
-    }
-  };
-
-  const handleRefreshing = () => refreshCallback();
-
   const renderHeader = () => (
     <>
       <CelebrateFeedHeader isMember={isMember} organization={organization} />
@@ -96,7 +174,7 @@ const CelebrateFeed = ({
 
   return (
     <SectionList
-      sections={items}
+      sections={celebrationItems}
       ListHeaderComponent={noHeader ? undefined : renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
@@ -105,7 +183,7 @@ const CelebrateFeed = ({
       onEndReached={handleOnEndReached}
       onScrollEndDrag={handleEndDrag}
       onRefresh={handleRefreshing}
-      refreshing={refreshing || false}
+      refreshing={isRefreshing}
       extraData={{ isListScrolled }}
       style={styles.list}
       contentContainerStyle={styles.listContent}

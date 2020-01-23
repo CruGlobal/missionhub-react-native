@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux-legacy';
-import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
