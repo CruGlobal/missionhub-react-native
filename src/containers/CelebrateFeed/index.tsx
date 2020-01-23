@@ -17,18 +17,28 @@ import {
   CelebrateFeedSection,
 } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
+import { Person } from '../../reducers/people';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 
-import { GetCelebrateFeed } from './__generated__/GetCelebrateFeed';
+import {
+  GetCelebrateFeed,
+  GetCelebrateFeed_community_celebrationItems_nodes,
+} from './__generated__/GetCelebrateFeed';
 import styles from './styles';
 
 export const GET_CELEBRATE_FEED = gql`
-  query GetCelebrateFeed($communityId: [ID!], $celebrateCursor: String) {
+  query GetCelebrateFeed(
+    $communityId: ID!
+    $personId: ID
+    $hasUnreadComments: Boolean = false
+    $celebrateCursor: String
+  ) {
     community(id: $communityId) {
       celebrationItems(
         sortBy: createdAt_ASC
         first: 25
         after: $celebrateCursor
+        subjectPersonIds: [$personId]
       ) {
         nodes {
           id
@@ -56,21 +66,22 @@ export const GET_CELEBRATE_FEED = gql`
 export interface CelebrateFeedProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
-  refreshCallback: () => void;
+  person?: Person;
   itemNamePressable: boolean;
-  isMember?: boolean;
   noHeader?: boolean;
+  onRefetch?: () => void;
+  onFetchMore?: () => void;
   onClearNotification?: () => void;
-  loadMoreItemsCallback: () => void;
 }
 
 const CelebrateFeed = ({
   dispatch,
   organization,
-  refreshCallback,
+  person,
   itemNamePressable,
-  isMember,
   noHeader,
+  onRefetch,
+  onFetchMore,
   onClearNotification,
 }: CelebrateFeedProps) => {
   const [isListScrolled, setIsListScrolled] = useState(false);
@@ -88,7 +99,8 @@ const CelebrateFeed = ({
     refetch,
   } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
     variables: {
-      communityId: [organization.id],
+      communityId: organization.id,
+      personId: person.id,
     },
     pollInterval: 30000,
   });
@@ -97,13 +109,17 @@ const CelebrateFeed = ({
 
   const { isRefreshing, refresh } = useRefreshing(refetch);
 
-  const handleRefreshing = () => refresh();
+  const handleRefreshing = () => {
+    refresh();
+    onRefetch && onRefetch();
+  };
 
   const handleOnEndReached = () => {
     if (isListScrolled && hasNextPage) {
       fetchMore({
         variables: {
-          communityId: [organization.id],
+          communityId: organization.id,
+          personId: person.id,
           celebrateCursor: endCursor,
         },
         updateQuery: (prev, { fetchMoreResult }) =>
@@ -127,6 +143,7 @@ const CelebrateFeed = ({
               }
             : prev,
       });
+      onFetchMore && onFetchMore();
       setIsListScrolled(false);
     }
   };
@@ -151,22 +168,26 @@ const CelebrateFeed = ({
     </View>
   );
 
-  const renderItem = ({ item }: { item: CelebrateItem }) => (
+  const renderItem = ({
+    item,
+  }: {
+    item: GetCelebrateFeed_community_celebrationItems_nodes;
+  }) => (
     <CelebrateItemCard
       onClearNotification={onClearNotification}
       event={item}
       organization={organization}
       namePressable={itemNamePressable}
-      onRefresh={refreshCallback}
+      onRefresh={handleRefreshing}
     />
   );
 
   const renderHeader = () => (
     <>
-      <CelebrateFeedHeader isMember={isMember} organization={organization} />
+      <CelebrateFeedHeader isMember={!!person} organization={organization} />
       <ShareStoryInput
         dispatch={dispatch}
-        refreshItems={refreshCallback}
+        refreshItems={handleRefreshing}
         organization={organization}
       />
     </>
