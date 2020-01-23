@@ -124,7 +124,8 @@ export class ContactsFilter extends Component {
       <View style={styles.pageContainer}>
         <Header left={<BackButton />} title={t('title')} />
         <ScrollView style={styles.list}>
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           {options.map(o => (
             <FilterItem
               key={o.id}
@@ -133,7 +134,8 @@ export class ContactsFilter extends Component {
               type="drilldown"
             />
           ))}
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           {toggleOptions.map(o => (
             <FilterItem
               key={o.id}

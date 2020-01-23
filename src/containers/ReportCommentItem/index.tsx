@@ -67,10 +67,12 @@ class ReportCommentItem extends Component {
           <ReportCommentLabel label={t('commentBy')} user={commentBy} />
         </Flex>
         <Flex style={styles.comment}>
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           <CommentItem item={comment} isReported={true} />
         </Flex>
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         <Flex direction="row" style={styles.buttons}>
           <Flex value={1}>
             <Button

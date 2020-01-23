@@ -163,7 +163,8 @@ export class SearchPeopleScreen extends Component {
           placeholder={t('inputPlaceholder')}
           placeholderTextColor={theme.white}
         />
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         {this.state.text ? (
           <IconButton
             name="cancelIcon"

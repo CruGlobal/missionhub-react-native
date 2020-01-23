@@ -75,9 +75,11 @@ class CelebrateDetailScreen extends Component {
       <SafeAreaView>
         <StatusBar {...theme.statusBar.darkContent} />
         <View style={styles.header}>
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           <View flexDirection="row">
-            // @ts-ignore
+            {/* 
+            // @ts-ignore */}
             <View flex={1}>
               <CelebrateItemName
                 // @ts-ignore
@@ -88,7 +90,8 @@ class CelebrateDetailScreen extends Component {
               />
               <CardTime date={event.changed_attribute_value} />
             </View>
-            // @ts-ignore
+            {/* 
+            // @ts-ignore */}
             <CommentLikeComponent event={event} />
             <BackButton
               style={styles.backButtonStyle}

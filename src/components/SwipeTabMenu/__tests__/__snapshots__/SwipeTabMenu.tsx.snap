@@ -18,7 +18,6 @@ exports[`generateSwipeTabMenuNavigator should create a new navigator 1`] = `
       }
     }
   />
-  // @ts-ignore
   <Connect(SwipeTabMenu)
     navigation={
       Object {
@@ -86,7 +85,6 @@ exports[`should render correctly 1`] = `
     snapToAlignment="center"
     snapToInterval={1}
   >
-    // @ts-ignore
     <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
@@ -234,7 +232,6 @@ exports[`should render correctly 2`] = `
     snapToAlignment="center"
     snapToInterval={80}
   >
-    // @ts-ignore
     <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
@@ -386,7 +383,6 @@ exports[`should render light version correctly 1`] = `
     snapToAlignment="center"
     snapToInterval={1}
   >
-    // @ts-ignore
     <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
@@ -536,7 +532,6 @@ exports[`should render light version correctly 2`] = `
     snapToAlignment="center"
     snapToInterval={80}
   >
-    // @ts-ignore
     <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
@@ -690,7 +685,6 @@ exports[`should render second tab based off of previousIndex 1`] = `
     snapToAlignment="center"
     snapToInterval={80}
   >
-    // @ts-ignore
     <TouchableIOS
       key="nav/TAB_1"
       onLayout={[Function]}
