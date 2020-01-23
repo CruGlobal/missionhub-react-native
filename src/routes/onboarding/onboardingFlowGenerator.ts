@@ -70,12 +70,14 @@ export const onboardingFlowGenerator = ({
     ? {
         [WELCOME_SCREEN]: buildTrackedScreen(
           wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
+          // @ts-ignore
           buildTrackingObj('onboarding : welcome', 'onboarding'),
         ),
         [SETUP_SCREEN]: buildTrackedScreen(
           wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
             isMe: true,
           }),
+          // @ts-ignore
           buildTrackingObj('onboarding : name', 'onboarding'),
         ),
       }
@@ -100,6 +102,7 @@ export const onboardingFlowGenerator = ({
               logoutOnBack: startScreen === GET_STARTED_SCREEN,
             },
           ),
+          // @ts-ignore
           buildTrackingObj('onboarding : get started', 'onboarding'),
         ),
         [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
@@ -115,6 +118,7 @@ export const onboardingFlowGenerator = ({
                 }),
               ),
           ),
+          // @ts-ignore
           buildTrackingObj(
             'onboarding : self : choose my steps',
             'onboarding',
@@ -135,6 +139,7 @@ export const onboardingFlowGenerator = ({
                     personId,
                   }),
           ),
+          // @ts-ignore
           buildTrackingObj(
             'onboarding : self : steps : add',
             'onboarding',
@@ -154,6 +159,7 @@ export const onboardingFlowGenerator = ({
         logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
       },
     ),
+    // @ts-ignore
     buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
   ),
   [SETUP_PERSON_SCREEN]: buildTrackedScreen(
@@ -176,6 +182,7 @@ export const onboardingFlowGenerator = ({
       },
       { isMe: false, hideSkipBtn },
     ),
+    // @ts-ignore
     buildTrackingObj(
       'onboarding : add person : name',
       'onboarding',
@@ -212,6 +219,7 @@ export const onboardingFlowGenerator = ({
               personId,
             }),
     ),
+    // @ts-ignore
     buildTrackingObj(
       'onboarding : add person : steps : add',
       'onboarding',
@@ -244,6 +252,7 @@ export const onboardingFlowGenerator = ({
       ) => {
         const isMe = personId === getState().auth.person.id;
 
+        // @ts-ignore
         dispatch(createCustomStep(text, personId));
 
         if (isMe) {
@@ -255,6 +264,7 @@ export const onboardingFlowGenerator = ({
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
     wrapNextAction(CelebrationScreen, () => navigateToMainTabs()),
+    // @ts-ignore
     buildTrackingObj('onboarding : complete', 'onboarding'),
   ),
 });

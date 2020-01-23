@@ -35,6 +35,7 @@ export const JoinByCodeOnboardingFlowScreens = {
         dispatch(navigatePush(WELCOME_SCREEN));
       },
     ),
+    // @ts-ignore
     buildTrackingObj('communities : join', 'communities', 'join'),
     { gesturesEnabled: true },
   ),
@@ -51,6 +52,7 @@ export const JoinByCodeOnboardingFlowScreens = {
         isMe: true,
       },
     ),
+    // @ts-ignore
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
@@ -62,6 +64,7 @@ export const JoinByCodeOnboardingFlowScreens = {
         dispatch(setOnboardingPersonId(''));
       },
     ),
+    // @ts-ignore
     buildTrackingObj('onboarding : complete', 'onboarding'),
   ),
 };

@@ -178,6 +178,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
       />
       <View style={styles.contentContainer}>
         {hasSteps ? (
+          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
         {firstTimeLoading ? (

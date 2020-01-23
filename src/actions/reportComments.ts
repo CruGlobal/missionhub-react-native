@@ -50,6 +50,7 @@ export function ignoreReportComment(orgId: string, reportCommentId: string) {
         },
         {
           data: {
+            // @ts-ignore
             attributes: { ignored_at: formatApiDate() },
           },
         },
