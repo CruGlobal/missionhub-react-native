@@ -197,7 +197,6 @@ exports[`renders correctly 1`] = `
             underlineColorAndroid="rgba(0,0,0,0)"
             value=""
           />
-          // @ts-ignore
         </View>
       </View>
       <View
@@ -394,7 +393,6 @@ exports[`renders with no results state 1`] = `
           }
           value="test"
         />
-        // @ts-ignore
         <IconButton
           name="cancelIcon"
           onPress={[Function]}
@@ -481,7 +479,6 @@ exports[`renders with results state 1`] = `
           }
           value=""
         />
-        // @ts-ignore
       </View>
     }
     left={<Connect(BackButton) />}
@@ -584,7 +581,6 @@ exports[`renders with searching state 1`] = `
           }
           value=""
         />
-        // @ts-ignore
       </View>
     }
     left={<Connect(BackButton) />}

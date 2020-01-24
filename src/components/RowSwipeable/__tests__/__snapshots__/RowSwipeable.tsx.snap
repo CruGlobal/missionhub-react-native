@@ -24,7 +24,6 @@ exports[`renders correctly 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
@@ -159,7 +158,6 @@ exports[`renders edit action correctly 1`] = `
       </View>
     </View>
   </View>
-  // @ts-ignore
   <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
@@ -212,7 +210,6 @@ exports[`renders edit bump correctly 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
@@ -428,7 +425,6 @@ exports[`renders remove/complete actions correctly 1`] = `
       </View>
     </View>
   </View>
-  // @ts-ignore
   <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}

@@ -162,7 +162,8 @@ export class SwipeTabMenu extends Component {
           decelerationRate={'fast'}
           onMomentumScrollEnd={this.onScrollFinishNavigate}
         >
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           {tabs.map((tab, index) => (
             <Touchable
               key={tab.navigationAction}
@@ -231,7 +232,8 @@ export const generateSwipeTabMenuNavigator = (
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>
           <HeaderComponent navigation={navigation} isMember={isMember} />
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           <SwipeTabMenu navigation={navigation} tabs={tabs} isLight={isLight} />
         </ViewOverflow>
       ),

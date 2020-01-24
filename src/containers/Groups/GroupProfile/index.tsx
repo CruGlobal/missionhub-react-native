@@ -205,7 +205,8 @@ class GroupProfile extends Component {
       // @ts-ignore
       <View flex={1}>
         <Analytics screenName={['community', 'detail']} />
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         <View style={styles.container} forceInset={{ bottom: 'never' }}>
           <Header
             left={
