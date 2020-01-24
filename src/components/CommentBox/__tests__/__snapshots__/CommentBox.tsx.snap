@@ -604,7 +604,6 @@ exports[`renders with actions and selected action 1`] = `
                 }
               }
             />
-             
             <MyText
               style={
                 Object {
@@ -1627,7 +1626,6 @@ exports[`renders without actions and selected action 1`] = `
                 }
               }
             />
-             
             <MyText
               style={
                 Object {

@@ -208,7 +208,7 @@ export default class CommentBox extends Component {
             <Flex value={4} justify="center" style={activeTextWrap}>
               <DateComponent date={new Date()} format="LL" style={activeDate} />
               {/* 
-              // @ts-ignore */}{' '}
+              // @ts-ignore */}
               <Text style={activeText}>{t(action.translationKey)}</Text>
             </Flex>
             <Flex style={clearAction}>
