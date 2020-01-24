@@ -36,7 +36,6 @@ const GroupUnreadFeed = ({
   organization,
   count,
 }: GroupUnreadFeedProps) => {
-  const [refreshing, isRefreshing] = useState(false);
   const { t } = useTranslation('groupUnread');
 
   const back = () => dispatch(navigateBack());
@@ -48,7 +47,7 @@ const GroupUnreadFeed = ({
     back();
   };
 
-  const clearNotification = event => dispatch(markCommentRead(event.id));
+  const handleClearNotification = event => dispatch(markCommentRead(event.id));
 
   return (
     <View style={styles.pageContainer}>
@@ -72,11 +71,10 @@ const GroupUnreadFeed = ({
       <View style={styles.cardList}>
         <CelebrateFeed
           organization={organization}
-          refreshCallback={this.refreshItems}
-          refreshing={refreshing}
+          onRefetch={handleRefetch}
           itemNamePressable={true}
           noHeader={true}
-          onClearNotification={this.clearNotification}
+          onClearNotification={handleClearNotification}
         />
       </View>
     </View>

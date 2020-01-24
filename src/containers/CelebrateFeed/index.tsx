@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SectionList, View } from 'react-native';
+import { SectionList, View, SectionListData } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
 import { DateComponent } from '../../components/common';
-import CelebrateItemCard from '../../components/CelebrateItem';
+import CelebrateItem from '../../components/CelebrateItem';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
@@ -52,6 +52,11 @@ export const GET_CELEBRATE_FEED = gql`
           liked
           likesCount
           objectDescription
+          subjectPerson {
+            id
+            firstName
+            lastName
+          }
           subjectPersonName
         }
         pageInfo {
@@ -71,7 +76,9 @@ export interface CelebrateFeedProps {
   noHeader?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
-  onClearNotification?: () => void;
+  onClearNotification?: (
+    event: GetCelebrateFeed_community_celebrationItems_nodes,
+  ) => void;
 }
 
 const CelebrateFeed = ({
@@ -157,7 +164,7 @@ const CelebrateFeed = ({
   const renderSectionHeader = ({
     section: { date },
   }: {
-    section: CelebrateFeedSection;
+    section: SectionListData<CelebrateFeedSection>;
   }) => (
     <View style={styles.header}>
       <DateComponent
@@ -173,7 +180,7 @@ const CelebrateFeed = ({
   }: {
     item: GetCelebrateFeed_community_celebrationItems_nodes;
   }) => (
-    <CelebrateItemCard
+    <CelebrateItem
       onClearNotification={onClearNotification}
       event={item}
       organization={organization}
