@@ -39,6 +39,7 @@ export const GET_CELEBRATE_FEED = gql`
         first: 25
         after: $celebrateCursor
         subjectPersonIds: [$personId]
+        hasUnreadComments: $hasUnreadComments
       ) {
         nodes {
           id
@@ -74,6 +75,7 @@ export interface CelebrateFeedProps {
   person?: Person;
   itemNamePressable: boolean;
   noHeader?: boolean;
+  showUnreadOnly?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
   onClearNotification?: (
@@ -87,6 +89,7 @@ const CelebrateFeed = ({
   person,
   itemNamePressable,
   noHeader,
+  showUnreadOnly,
   onRefetch,
   onFetchMore,
   onClearNotification,
@@ -108,6 +111,7 @@ const CelebrateFeed = ({
     variables: {
       communityId: organization.id,
       personId: person.id,
+      hasUnreadComments: showUnreadOnly,
     },
     pollInterval: 30000,
   });
@@ -127,6 +131,7 @@ const CelebrateFeed = ({
         variables: {
           communityId: organization.id,
           personId: person.id,
+          hasUnreadComments: showUnreadOnly,
           celebrateCursor: endCursor,
         },
         updateQuery: (prev, { fetchMoreResult }) =>

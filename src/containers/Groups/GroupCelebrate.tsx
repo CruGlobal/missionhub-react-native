@@ -10,8 +10,7 @@ import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
 import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
-import { Organization } from '../../reducers/organizations';
+import { Organization, OrganizationsState } from '../../reducers/organizations';
 import Analytics from '../Analytics';
 
 export interface GroupCelebrateProps {

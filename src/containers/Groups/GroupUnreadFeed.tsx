@@ -1,26 +1,24 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import { StatusBar, View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import { refresh } from '../../utils/common';
 import Header from '../../components/Header';
-import { IconButton, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import BackButton from '../BackButton';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
-import { getGroupCelebrateFeedUnread } from '../../actions/celebration';
 import CelebrateFeed from '../CelebrateFeed';
 import theme from '../../theme';
-import { celebrationSelector } from '../../selectors/celebration';
 import { refreshCommunity } from '../../actions/organizations';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
 import {
   markCommentsRead,
   markCommentRead,
 } from '../../actions/unreadComments';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -47,7 +45,9 @@ const GroupUnreadFeed = ({
     back();
   };
 
-  const handleClearNotification = event => dispatch(markCommentRead(event.id));
+  const handleClearNotification = (
+    event: GetCelebrateFeed_community_celebrationItems_nodes,
+  ) => dispatch(markCommentRead(event.id));
 
   return (
     <View style={styles.pageContainer}>
@@ -74,6 +74,7 @@ const GroupUnreadFeed = ({
           onRefetch={handleRefetch}
           itemNamePressable={true}
           noHeader={true}
+          showUnreadOnly={true}
           onClearNotification={handleClearNotification}
         />
       </View>
@@ -89,7 +90,8 @@ const mapStateToProps = (
         params: { organization },
       },
     },
-  }: any,
+  }: /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  any,
 ) => {
   const selectorOrg =
     organizationSelector({ organizations }, { orgId: organization.id }) ||
