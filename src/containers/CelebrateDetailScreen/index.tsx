@@ -125,7 +125,6 @@ class CelebrateDetailScreen extends Component {
               <CelebrateItemContent
                 event={event}
                 organization={organization}
-                fixedHeight={false}
                 style={styles.itemContent}
               />
             ),

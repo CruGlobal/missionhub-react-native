@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import HEARTS from '../../../assets/images/celebrateHearts.png';
 import TARGET from '../../../assets/images/challengeTarget.png';
@@ -14,15 +15,39 @@ import STEPS from '../../../assets/images/footprints.png';
 import { Flex, Text, Card, IconButton } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 import theme from '../../theme';
+import { SwipeState } from '../../reducers/swipe';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('groupOnboardingCard')
-class OnboardingCard extends Component {
-  getImage() {
-    // @ts-ignore
-    switch (this.props.type) {
+export enum GROUP_ONBOARDING_TYPES {
+  celebrate,
+  challenges,
+  members,
+  impact,
+  contacts,
+  surveys,
+  steps,
+}
+
+export interface OnboardingCardProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  type: GROUP_ONBOARDING_TYPES;
+  groupOnboarding: { [key: string]: boolean };
+}
+
+const OnboardingCard = ({
+  dispatch,
+  type,
+  groupOnboarding,
+}: OnboardingCardProps) => {
+  const { t } = useTranslation('groupOnboardingCard');
+
+  if (!groupOnboarding[type]) {
+    return null;
+  }
+
+  const getImage = () => {
+    switch (type) {
       case GROUP_ONBOARDING_TYPES.celebrate:
         return HEARTS;
       case GROUP_ONBOARDING_TYPES.challenges:
@@ -40,77 +65,50 @@ class OnboardingCard extends Component {
       default:
         return null;
     }
-  }
-
-  handlePress = () => {
-    // @ts-ignore
-    const { type, dispatch } = this.props;
-    dispatch(removeGroupOnboardingCard(type));
   };
 
-  render() {
-    // @ts-ignore
-    const { t, type, groupOnboarding } = this.props;
-    if (!groupOnboarding[type]) {
-      return null;
-    }
-    return (
-      <Card
-        style={
-          type === GROUP_ONBOARDING_TYPES.celebrate
-            ? styles.onboardCardNoShadow
-            : styles.onboardingCard
-        }
+  const handlePress = () => dispatch(removeGroupOnboardingCard(type));
+
+  return (
+    <Card
+      style={
+        type === GROUP_ONBOARDING_TYPES.celebrate
+          ? styles.onboardCardNoShadow
+          : styles.onboardingCard
+      }
+    >
+      <Flex
+        value={1}
+        align="center"
+        justify="center"
+        style={styles.onboardingContainer}
       >
-        <Flex
-          value={1}
-          align="center"
-          justify="center"
-          style={styles.onboardingContainer}
-        >
-          <Image
-            source={this.getImage()}
-            style={styles.onboardingImage}
-            resizeMode="contain"
-          />
-          <Text header={true} style={styles.onboardingHeader}>
-            {t(`${type}Header`)}
-          </Text>
-          <Text style={styles.onboardingDescription}>
-            {t(`${type}Description`)}
-          </Text>
-        </Flex>
-        <Flex style={styles.onboardingIconWrap}>
-          <IconButton
-            style={styles.onboardingIcon}
-            name="deleteIcon"
-            type="MissionHub"
-            onPress={this.handlePress}
-            hitSlop={theme.hitSlop(10)}
-          />
-        </Flex>
-      </Card>
-    );
-  }
-}
-
-export const GROUP_ONBOARDING_TYPES = {
-  celebrate: 'celebrate',
-  challenges: 'challenges',
-  members: 'members',
-  impact: 'impact',
-  contacts: 'contacts',
-  surveys: 'surveys',
-  steps: 'steps',
+        <Image
+          source={getImage()}
+          style={styles.onboardingImage}
+          resizeMode="contain"
+        />
+        <Text header={true} style={styles.onboardingHeader}>
+          {t(`${type}Header`)}
+        </Text>
+        <Text style={styles.onboardingDescription}>
+          {t(`${type}Description`)}
+        </Text>
+      </Flex>
+      <Flex style={styles.onboardingIconWrap}>
+        <IconButton
+          style={styles.onboardingIcon}
+          name="deleteIcon"
+          type="MissionHub"
+          onPress={handlePress}
+          hitSlop={theme.hitSlop(10)}
+        />
+      </Flex>
+    </Card>
+  );
 };
 
-// @ts-ignore
-OnboardingCard.propTypes = {
-  type: PropTypes.oneOf(Object.keys(GROUP_ONBOARDING_TYPES)).isRequired,
-};
-
-// @ts-ignore
-const mapStateToProps = ({ swipe }) => ({
+const mapStateToProps = ({ swipe }: { swipe: SwipeState }) => ({
   groupOnboarding: swipe.groupOnboarding || {},
 });
 

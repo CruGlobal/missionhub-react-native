@@ -1,47 +1,50 @@
-import React, { Component } from 'react';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux-legacy';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { Button } from '../../components/common';
 import ItemHeaderText from '../../components/ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
+import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { Organization } from '../../reducers/organizations';
 
-// @ts-ignore
-@withTranslation('celebrateFeeds')
-class CelebrateItemName extends Component {
-  onPressNameLink = () => {
-    // @ts-ignore
-    const { dispatch, person, organization } = this.props;
-
-    dispatch(navToPersonScreen(person, organization));
-  };
-
-  render() {
-    // @ts-ignore
-    const { name, t, customContent, pressable } = this.props;
-    const content = customContent || (
-      <ItemHeaderText text={name || t('missionHubUser')} />
-    );
-
-    if (!name || !pressable) {
-      return content;
-    }
-
-    return (
-      <Button type="transparent" onPress={this.onPressNameLink}>
-        {content}
-      </Button>
-    );
-  }
+export interface CelebrateItemNameProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  name: string | null;
+  person: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson | null;
+  organization: Organization;
+  pressable: boolean;
+  customContent?: JSX.Element;
 }
 
-// @ts-ignore
-CelebrateItemName.propTypes = {
-  name: PropTypes.string,
-  person: PropTypes.object,
-  organization: PropTypes.object,
-  pressable: PropTypes.bool,
+const CelebrateItemName = ({
+  dispatch,
+  name,
+  person,
+  organization,
+  pressable,
+  customContent,
+}: CelebrateItemNameProps) => {
+  const { t } = useTranslation('celebrateFeeds');
+
+  const onPressNameLink = () =>
+    person && dispatch(navToPersonScreen(person, organization));
+
+  const content = customContent || (
+    <ItemHeaderText text={name || t('missionHubUser')} />
+  );
+
+  if (!name || !pressable) {
+    return content;
+  }
+
+  return (
+    <Button type="transparent" onPress={onPressNameLink}>
+      {content}
+    </Button>
+  );
 };
 
 export default connect()(CelebrateItemName);

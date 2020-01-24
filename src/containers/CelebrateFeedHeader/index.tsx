@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { getReportedComments } from '../../actions/reportComments';
 import { Flex } from '../../components/common';
@@ -16,118 +17,114 @@ import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
 import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
 import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
+import { AuthState } from '../../reducers/auth';
+import { OrganizationsState, Organization } from '../../reducers/organizations';
+import { ReportedCommentsState } from '../../reducers/reportedComments';
 
 import styles from './styles';
 
-class CelebrateFeedHeader extends Component {
-  componentDidMount() {
-    const {
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      organization: { id: orgId },
-      // @ts-ignore
-      shouldQueryReport,
-    } = this.props;
-    if (shouldQueryReport) {
-      dispatch(getReportedComments(orgId));
-    }
-  }
+export interface CelebrateFeedHeaderProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  organization: Organization;
+  shouldQueryReport: boolean;
+  isReportVisible: boolean;
+  isCommentCardVisible: boolean;
+  isMember: boolean;
+  reportedCount: number;
+  newCommentsCount: number;
+}
 
-  closeCommentCard = () => {
-    const {
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      organization: { id: orgId },
-    } = this.props;
-    dispatch(markCommentsRead(orgId));
+const CelebrateFeedHeader = ({
+  dispatch,
+  organization,
+  shouldQueryReport,
+  isReportVisible,
+  isCommentCardVisible,
+  isMember,
+  reportedCount,
+  newCommentsCount,
+}: CelebrateFeedHeaderProps) => {
+  useEffect(() => {
+    shouldQueryReport && dispatch(getReportedComments(organization.id));
+  }, []);
+
+  const closeCommentCard = () => {
+    dispatch(markCommentsRead(organization.id));
   };
 
-  report = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
+  const report = () => {
     dispatch(navigatePush(GROUPS_REPORT_SCREEN, { organization }));
   };
 
-  commentCard = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
+  const commentCard = () => {
     dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
   };
 
-  renderCommentCard() {
-    // @ts-ignore
-    const { isCommentCardVisible, newCommentsCount } = this.props;
+  const renderCommentCard = () => {
     if (!isCommentCardVisible) {
       return null;
     }
+
     return (
       <UnreadCommentsCard
         count={newCommentsCount}
-        onPress={this.commentCard}
-        onClose={this.closeCommentCard}
+        onPress={commentCard}
+        onClose={closeCommentCard}
       />
     );
-  }
+  };
 
-  renderReport() {
-    // @ts-ignore
-    const { reportedCount, isReportVisible } = this.props;
+  const renderReport = () => {
     if (!isReportVisible) {
       return null;
     }
-    return (
-      <ReportCommentHeaderCard onPress={this.report} count={reportedCount} />
-    );
-  }
 
-  render() {
-    // @ts-ignore
-    const { isMember, isReportVisible, isCommentCardVisible } = this.props;
-    return (
-      <Fragment>
-        {isCommentCardVisible ? null : (
-          // @ts-ignore
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
-        )}
-        {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
-          <Flex style={styles.itemWrap}>
-            {this.renderCommentCard()}
-            {isReportVisible && isCommentCardVisible ? (
-              <Flex style={styles.bothPadding} />
-            ) : null}
-            {this.renderReport()}
-          </Flex>
-        )}
-      </Fragment>
-    );
-  }
-}
+    return <ReportCommentHeaderCard onPress={report} count={reportedCount} />;
+  };
 
-// @ts-ignore
-CelebrateFeedHeader.propTypes = {
-  organization: PropTypes.object.isRequired,
-  isMember: PropTypes.bool,
+  return (
+    <Fragment>
+      {isCommentCardVisible ? null : (
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+      )}
+      {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
+        <Flex style={styles.itemWrap}>
+          {renderCommentCard()}
+          {isReportVisible && isCommentCardVisible ? (
+            <Flex style={styles.bothPadding} />
+          ) : null}
+          {renderReport()}
+        </Flex>
+      )}
+    </Fragment>
+  );
 };
 
 export const mapStateToProps = (
-  // @ts-ignore
-  { auth, organizations, reportedComments },
-  { organization = {} },
+  {
+    auth,
+    organizations,
+    reportedComments,
+  }: {
+    auth: AuthState;
+    organizations: OrganizationsState;
+    reportedComments: ReportedCommentsState;
+  },
+  { organization }: { organization: Organization },
 ) => {
   const selectorOrg =
-    // @ts-ignore
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;
 
-  // @ts-ignore
-  const myOrgPerm = orgPermissionSelector(null, {
-    person: auth.person,
-    organization: { id: selectorOrg.id },
-  });
-  const allReportedComments = reportedComments.all[selectorOrg.id] || [];
-  const reportedCount = allReportedComments.length;
+  const myOrgPerm = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization: { id: selectorOrg.id },
+    },
+  );
+
+  const reportedCount = (reportedComments.all[selectorOrg.id] || []).length;
 
   const shouldQueryReport = shouldQueryReportedComments(selectorOrg, myOrgPerm);
   const newCommentsCount = selectorOrg.unread_comments_count;
