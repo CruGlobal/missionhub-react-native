@@ -9,6 +9,7 @@ import {
   REQUEST_NOTIFICATIONS,
   DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
+  GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
@@ -168,6 +169,14 @@ function handleNotification(notification) {
         }
         return;
       case 'community_challenges':
+        // IOS Global Community Challenges PN returns the organization_id as null
+        if (organization_id === null) {
+          const community = await dispatch(
+            refreshCommunity(GLOBAL_COMMUNITY_ID),
+          );
+          await dispatch(reloadGroupChallengeFeed(GLOBAL_COMMUNITY_ID));
+          return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+        }
         const community = await dispatch(refreshCommunity(organization_id));
         await dispatch(reloadGroupChallengeFeed(organization_id));
         return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
