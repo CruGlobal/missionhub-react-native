@@ -8,8 +8,9 @@ import {
   getReportedComments,
 } from '../../../actions/reportComments';
 
-import ReportCommentItem from '..';
+import ReportCommentItem, { RESPOND_TO_CONTENT_COMPLAINT } from '..';
 import { fireEvent } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');
@@ -42,9 +43,9 @@ const item = {
   person,
 };
 const org = { id: 'orgId', reportedComments: [item] };
+
 const props = {
   item,
-  orgId: org.id,
   refetch,
 };
 
@@ -68,37 +69,113 @@ it('renders correctly', () => {
 });
 
 describe('report item', () => {
-  it('call handleDelete', async () => {
-    Alert.alert = jest.fn();
-    const { getByTestId, snapshot } = renderWithContext(
-      <ReportCommentItem {...props} />,
-      {
-        initialState,
-      },
-    );
+  describe('Reported comment', () => {
+    it('call handleDelete', async () => {
+      Alert.alert = jest.fn();
+      const { getByTestId, snapshot } = renderWithContext(
+        <ReportCommentItem {...props} />,
+        {
+          initialState,
+        },
+      );
 
-    await fireEvent.press(getByTestId('deleteButton'));
-    await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
-    expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('reportComment:deleteTitle'),
-      '',
-      [
-        { text: i18n.t('cancel'), style: 'cancel' },
-        { text: i18n.t('ok'), onPress: expect.any(Function) },
-      ],
-    );
-    snapshot();
+      await fireEvent.press(getByTestId('deleteButton'));
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18n.t('reportComment:deleteTitle'),
+        '',
+        [
+          { text: i18n.t('cancel'), style: 'cancel' },
+          { text: i18n.t('ok'), onPress: expect.any(Function) },
+        ],
+      );
+      expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
+        variables: {
+          input: { contentComplaintId: item.id, response: 'delete' },
+        },
+      });
+      expect(refetch).toHaveBeenCalled();
+      snapshot();
+    });
+
+    it('call handleIgnore', async () => {
+      const { snapshot, getByTestId } = renderWithContext(
+        <ReportCommentItem {...props} />,
+        {
+          initialState,
+        },
+      );
+      await fireEvent.press(getByTestId('ignoreButton'));
+      expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
+        variables: {
+          input: { contentComplaintId: item.id, response: 'ignore' },
+        },
+      });
+      expect(refetch).toHaveBeenCalled();
+      snapshot();
+    });
   });
-
-  it('call handleIgnore', async () => {
-    const { snapshot, getByTestId } = renderWithContext(
-      <ReportCommentItem {...props} />,
-      {
-        initialState,
+  describe('Reported Story', () => {
+    const StoryProps = {
+      ...props,
+      item: {
+        id: 'StoryReportId',
+        subject: {
+          id: 'storyId',
+          content: 'some story',
+          createdAt: '2020-01-15T20:58:04Z',
+          typeName: 'Story',
+          author: {
+            fullName: 'Christian Huffman',
+          },
+        },
+        person,
       },
-    );
+    };
 
-    // expect(ignoreReportComment).toHaveBeenCalledWith(org.id, item.id);
-    // expect(getReportedComments).toHaveBeenCalled();
+    it('call handleDelete', async () => {
+      Alert.alert = jest.fn();
+      const { getByTestId, snapshot } = renderWithContext(
+        <ReportCommentItem {...StoryProps} />,
+        {
+          initialState,
+        },
+      );
+
+      await fireEvent.press(getByTestId('deleteButton'));
+      await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
+      expect(Alert.alert).toHaveBeenCalledWith(
+        i18n.t('reportComment:deleteTitle'),
+        '',
+        [
+          { text: i18n.t('cancel'), style: 'cancel' },
+          { text: i18n.t('ok'), onPress: expect.any(Function) },
+        ],
+      );
+      expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
+        variables: {
+          input: { contentComplaintId: StoryProps.item.id, response: 'delete' },
+        },
+      });
+      expect(refetch).toHaveBeenCalled();
+      snapshot();
+    });
+
+    it('call handleIgnore', async () => {
+      const { snapshot, getByTestId } = renderWithContext(
+        <ReportCommentItem {...StoryProps} />,
+        {
+          initialState,
+        },
+      );
+      await fireEvent.press(getByTestId('ignoreButton'));
+      expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
+        variables: {
+          input: { contentComplaintId: StoryProps.item.id, response: 'ignore' },
+        },
+      });
+      expect(refetch).toHaveBeenCalled();
+      snapshot();
+    });
   });
 });

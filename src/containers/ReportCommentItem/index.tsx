@@ -1,30 +1,54 @@
 import React from 'react';
 import { Alert } from 'react-native';
+import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import gql from 'graphql-tag';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
-import { ignoreReportComment } from '../../actions/reportComments';
 import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
+import {
+  respondToContentComplaintVariables,
+  respondToContentComplaint,
+} from './__generated__/respondToContentComplaint';
 
 import styles from './styles';
 
+export const RESPOND_TO_CONTENT_COMPLAINT = gql`
+  mutation respondToContentComplaint($input: RespondToContentComplaintInput!) {
+    respondToContentComplaint(input: $input) {
+      contentComplaint {
+        id
+      }
+    }
+  }
+`;
+
 const ReportCommentItem = ({
   item,
-  orgId,
   refetch,
 }: {
   item: ReportedItem | any;
-  orgId: string;
   refetch: () => void;
 }) => {
   const { t } = useTranslation('reportComment');
-  const dispatch = useDispatch();
+
+  const [respondToContentComplaint] = useMutation<
+    respondToContentComplaint,
+    respondToContentComplaintVariables
+  >(RESPOND_TO_CONTENT_COMPLAINT);
 
   const handleIgnore = async () => {
-    await dispatch(ignoreReportComment(orgId, item.id));
+    await respondToContentComplaint({
+      variables: {
+        input: {
+          contentComplaintId: item.id,
+          response: 'ignore',
+        },
+      },
+    });
+
     refetch();
   };
 
@@ -49,8 +73,15 @@ const ReportCommentItem = ({
       {
         text: t('ok'),
         onPress: async () => {
-          // Deleteing contnet will go here once mutation is avaiable
-          await refetch();
+          await respondToContentComplaint({
+            variables: {
+              input: {
+                contentComplaintId: item.id,
+                response: 'delete',
+              },
+            },
+          });
+          refetch();
         },
       },
     ]);
