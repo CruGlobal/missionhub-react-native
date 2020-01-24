@@ -59,9 +59,6 @@ const initialState = {
     person,
   },
 };
-Alert.alert = jest
-  .fn()
-  .mockImplementation((_, __, ___, options) => console.log(options));
 
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(<ReportCommentItem {...props} />, {
@@ -71,23 +68,17 @@ it('renders correctly', () => {
 });
 
 describe('report item', () => {
-  beforeEach(() => {
-    Alert.alert = jest.fn((a, b, c) => c[1].onPress());
-    renderWithContext(<ReportCommentItem {...props} />, {
-      initialState,
-    });
-  });
-
-  xit('call handleDelete', async () => {
-    const { queryAllByTestId, snapshot } = renderWithContext(
+  it('call handleDelete', async () => {
+    Alert.alert = jest.fn();
+    const { getByTestId, snapshot } = renderWithContext(
       <ReportCommentItem {...props} />,
       {
         initialState,
       },
     );
 
-    await fireEvent.press(queryAllByTestId('Button')[1]);
-
+    await fireEvent.press(getByTestId('deleteButton'));
+    await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
     expect(Alert.alert).toHaveBeenCalledWith(
       i18n.t('reportComment:deleteTitle'),
       '',
@@ -96,15 +87,10 @@ describe('report item', () => {
         { text: i18n.t('ok'), onPress: expect.any(Function) },
       ],
     );
-    // expect(deleteCelebrateComment).toHaveBeenCalledWith(
-    //   org.id,
-    //   event,
-    //   item.comment,
-    // );
-    // expect(getReportedComments).toHaveBeenCalled();
+    snapshot();
   });
 
-  xit('call handleIgnore', async () => {
+  it('call handleIgnore', async () => {
     const { snapshot, getByTestId } = renderWithContext(
       <ReportCommentItem {...props} />,
       {

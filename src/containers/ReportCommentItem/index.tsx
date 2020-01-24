@@ -78,6 +78,7 @@ const ReportCommentItem = ({
       <Flex direction="row">
         <Flex value={1}>
           <Button
+            testID="ignoreButton"
             type="secondary"
             onPress={handleIgnore}
             text={t('ignore').toUpperCase()}
@@ -86,6 +87,7 @@ const ReportCommentItem = ({
         </Flex>
         <Flex value={1}>
           <Button
+            testID="deleteButton"
             type="secondary"
             onPress={handleDelete}
             text={t('delete').toUpperCase()}
