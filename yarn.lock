@@ -1702,13 +1702,6 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react-navigation@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-3.4.0.tgz#d610d13c9162312079a8ca102660143f07432cbf"
-  integrity sha512-Y7F5zU8BTBK8tEOvUqgvwvPZ7+9vnc2UI1vHwJ/9ZJG98TntNv04GWa6lrn4MA4149pqw6cyNw/V49Yd2osAFQ==
-  dependencies:
-    react-navigation "*"
-
 "@types/react-redux-legacy@npm:@types/react-redux@^7.1.5", "@types/react-redux@^7.1.5":
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.5.tgz#c7a528d538969250347aa53c52241051cf886bd3"
@@ -8844,7 +8837,7 @@ react-navigation-tabs@^2.5.6:
     react-native-safe-area-view "^0.14.6"
     react-native-tab-view "^2.9.0"
 
-react-navigation@*, react-navigation@^4.0.10:
+react-navigation@^4.0.10:
   version "4.0.10"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.0.10.tgz#ddf41134600689d6ba99e35dd22ba1f664f91e5c"
   integrity sha512-7PqvmsdQ7HIyxPUMYbd9Uq//VoMdniEOLAOSvIhb/ExtbAt/1INSjUF+RiMWOMCWLTCNvNPRvTz7xy7qwWureg==
