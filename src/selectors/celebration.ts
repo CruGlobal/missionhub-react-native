@@ -2,7 +2,6 @@ import { createSelector } from 'reselect';
 
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
-import { OrganizationsState } from '../reducers/organizations';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 export interface CelebrateFeedSection {

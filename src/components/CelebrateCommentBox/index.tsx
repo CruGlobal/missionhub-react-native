@@ -9,15 +9,14 @@ import {
   resetCelebrateEditingComment,
   updateCelebrateComment,
 } from '../../actions/celebrateComments';
-import { celebrationItemSelector } from '../../selectors/celebration';
 import { celebrateCommentsCommentSelector } from '../../selectors/celebrateComments';
-import { OrganizationsState } from '../../reducers/organizations';
 import { CelebrateCommentsState } from '../../reducers/celebrateComments';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 
 interface CelebrateCommentBoxProps {
-  event: object;
+  event: GetCelebrateFeed_community_celebrationItems_nodes;
   editingComment?: object;
   onAddComplete?: () => void;
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
@@ -61,24 +60,16 @@ const CelebrateCommentBox = ({
 };
 const mapStateToProps = (
   {
-    organizations,
     celebrateComments,
   }: {
-    organizations: OrganizationsState;
     celebrateComments: CelebrateCommentsState;
   },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { event }: any,
+  { event }: { event: GetCelebrateFeed_community_celebrationItems_nodes },
 ) => ({
   editingComment: celebrateCommentsCommentSelector(
     { celebrateComments },
     { eventId: event.id, commentId: celebrateComments.editingCommentId },
   ),
-  event:
-    celebrationItemSelector(
-      { organizations },
-      { eventId: event.id, organizationId: event.organization.id },
-    ) || event,
 });
 
 export default connect(mapStateToProps)(CelebrateCommentBox);

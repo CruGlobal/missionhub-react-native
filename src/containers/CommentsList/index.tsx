@@ -1,6 +1,5 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
 import { Alert, FlatList } from 'react-native';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -35,7 +34,9 @@ export interface CommentsListProps {
   event: GetCelebrateFeed_community_celebrationItems_nodes;
   organization: Organization;
   me: Person;
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   celebrateComments: { comments: CelebrateComment[]; pagination: any };
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   listProps: { [key: string]: any };
 }
 

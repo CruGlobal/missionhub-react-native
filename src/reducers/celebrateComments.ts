@@ -9,6 +9,7 @@ import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
 
 import { PaginationObject } from './organizations';
+import { Person } from './people';
 
 export interface CelebrateEvent {
   id: string;
@@ -21,6 +22,7 @@ export interface CelebrateComment {
   updated_at: string;
   created_at: string;
   content: string;
+  person: Person;
 }
 
 export interface CelebrateCommentsState {

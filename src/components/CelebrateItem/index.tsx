@@ -201,6 +201,7 @@ const CelebrateItem = ({
     <Card>
       <View style={{ flex: 1 }}>
         <PopupMenu
+          // @ts-ignore
           testID="CelebrateItemPressable"
           actions={menuActions}
           buttonProps={{

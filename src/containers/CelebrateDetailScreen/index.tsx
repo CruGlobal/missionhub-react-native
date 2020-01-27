@@ -35,7 +35,7 @@ export interface CelebrateDetailScreenProps {
   event: GetCelebrateFeed_community_celebrationItems_nodes;
   organization: Organization;
   celebrateComments: { comments: CelebrateComment[] };
-  editingCommentId: string;
+  editingCommentId: string | null;
 }
 
 const CelebrateDetailScreen = ({
@@ -47,7 +47,7 @@ const CelebrateDetailScreen = ({
 }: CelebrateDetailScreenProps) => {
   const listRef = useRef<FlatList<CelebrateComment>>(null);
 
-  const scrollToEnd = () => listRef && listRef.scrollToEnd();
+  const scrollToEnd = () => listRef.current && listRef.current.scrollToEnd();
 
   const scrollToFocusedRef = () => {
     if (editingCommentId) {
@@ -55,7 +55,8 @@ const CelebrateDetailScreen = ({
         c => c.id === editingCommentId,
       );
       if (index >= 0) {
-        listRef && listRef.scrollToIndex({ index, viewPosition: 1 });
+        listRef.current &&
+          listRef.current.scrollToIndex({ index, viewPosition: 1 });
         return;
       }
     }
