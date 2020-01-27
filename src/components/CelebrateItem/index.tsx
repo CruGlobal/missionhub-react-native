@@ -19,6 +19,7 @@ import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStorySc
 import { orgIsGlobal } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
 import { CELEBRATEABLE_TYPES } from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
@@ -49,7 +50,7 @@ export const REPORT_STORY = gql`
 export interface CelebrateItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   event: GetCelebrateFeed_community_celebrationItems_nodes;
-  organization: object;
+  organization: Organization;
   namePressable: boolean;
   onClearNotification?: (
     event: GetCelebrateFeed_community_celebrationItems_nodes,
@@ -84,7 +85,9 @@ const CelebrateItem = ({
   );
 
   const handlePress = () =>
-    dispatch(navigatePush(CELEBRATE_DETAIL_SCREEN, { event }));
+    dispatch(
+      navigatePush(CELEBRATE_DETAIL_SCREEN, { event, orgId: organization.id }),
+    );
 
   const clearNotification = () =>
     onClearNotification && onClearNotification(event);
