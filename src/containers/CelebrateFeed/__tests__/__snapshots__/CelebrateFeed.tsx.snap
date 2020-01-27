@@ -202,7 +202,6 @@ exports[`no header rendering renders correctly for no header 1`] = `
 
 exports[`renderHeader match snapshot 1`] = `
 <React.Fragment>
-  // @ts-ignore
   <Connect(CelebrateFeedHeader)
     organization={
       Object {

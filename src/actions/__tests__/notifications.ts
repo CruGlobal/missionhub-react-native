@@ -830,14 +830,29 @@ describe('askNotificationPermissions', () => {
 
       it('should navigate to global community if no id passed', async () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
-        // @ts-ignore
-        refreshCommunity.mockReturnValue(() => global_community);
+        (refreshCommunity as jest.Mock).mockReturnValue(() => global_community);
         await testNotification({
           screen: 'community_challenges',
           organization_id: undefined,
         });
         expect(refreshCommunity).toHaveBeenCalledWith(undefined);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
+        expect(navigateToCommunity).toHaveBeenCalledWith(
+          global_community,
+          GROUP_CHALLENGES,
+        );
+      });
+      it('should navigate to global community if Id is null', async () => {
+        const global_community = { id: GLOBAL_COMMUNITY_ID };
+        (refreshCommunity as jest.Mock).mockReturnValue(() => global_community);
+        await testNotification({
+          screen: 'community_challenges',
+          organization_id: null,
+        });
+        expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
+          GLOBAL_COMMUNITY_ID,
+        );
         expect(navigateToCommunity).toHaveBeenCalledWith(
           global_community,
           GROUP_CHALLENGES,

@@ -136,7 +136,8 @@ class CreateGroupScreen extends Component {
           title={t('createCommunity')}
         />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           <ImagePicker onSelectImage={this.handleImageChange}>
             <Flex align="center" justify="center" style={styles.imageWrap}>
               {this.renderImage()}

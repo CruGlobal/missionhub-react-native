@@ -495,7 +495,6 @@ See what God has done through you below.
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -1816,7 +1815,6 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -3137,7 +3135,6 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -5023,7 +5020,6 @@ See what God has done through Test Fname below.
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -6344,7 +6340,6 @@ exports[`ImpactView contact impact renders plural state 1`] = `
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -7665,7 +7660,6 @@ exports[`ImpactView contact impact renders singular state 1`] = `
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -8986,7 +8980,6 @@ See what God has done through all of us below.
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -10307,7 +10300,6 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [
@@ -11628,7 +11620,6 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
             </View>
           </View>
         </View>
-        // @ts-ignore
         <View
           style={
             Array [

@@ -175,7 +175,8 @@ const CelebrateItem = ({
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         <CommentLikeComponent event={event} />
       </View>
     </View>

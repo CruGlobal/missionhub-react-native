@@ -33,7 +33,8 @@ class GroupSurveyItem extends Component {
           <Flex value={3.5} direction="row" style={styles.content}>
             <Flex value={1}>
               <ItemHeaderText text={(survey.title || '').toUpperCase()} />
-              // @ts-ignore
+              {/* 
+              // @ts-ignore */}
               <Text direction="row" align="center">
                 {survey.contacts_count ? (
                   // @ts-ignore

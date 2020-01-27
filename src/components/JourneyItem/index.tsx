@@ -237,7 +237,8 @@ export default class JourneyItem extends Component {
       <Flex value={3.5} direction="column" style={styles.textWrap}>
         {this.renderDate()}
         {this.renderTitle()}
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         {answers.map(a => (
           <Flex direction="column" key={a.id}>
             <Text style={styles.question}>{a.question.label}</Text>

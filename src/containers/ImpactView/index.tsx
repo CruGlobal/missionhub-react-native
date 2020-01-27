@@ -216,7 +216,8 @@ export class ImpactView extends Component {
             );
           })}
         </Flex>
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         {interactionsReport.map(i => {
           return (
             <Flex
