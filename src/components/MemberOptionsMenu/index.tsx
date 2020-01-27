@@ -182,14 +182,16 @@ class MemberOptionsMenu extends Component {
           ? this.createOption('makeAdmin', this.makeAdmin, true)
           : []),
         ...(showRemoveAsAdmin
-          ? // @ts-ignore
+          ? // prettier-ignore
+            // @ts-ignore
             this.createOption('removeAdmin', this.removeAsAdmin)
           : []),
         ...(showMakeOwner
           ? this.createOption('makeOwner', this.makeOwner, true)
           : []),
         ...(showRemoveFromCommunity
-          ? // @ts-ignore
+          ? // prettier-ignore
+            // @ts-ignore
             this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],

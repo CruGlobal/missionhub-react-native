@@ -33,9 +33,11 @@ exports[`renders correctly 1`] = `
         }
       }
     >
+      // @ts-ignore
       <View
         flexDirection="row"
       >
+        // @ts-ignore
         <View
           flex={1}
         >
@@ -52,6 +54,7 @@ exports[`renders correctly 1`] = `
             date="2019-04-11T13:51:49.888"
           />
         </View>
+        // @ts-ignore
         <Connect(CommentLikeComponent)
           event={
             Object {

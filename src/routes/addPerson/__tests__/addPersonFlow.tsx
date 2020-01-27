@@ -25,6 +25,7 @@ jest.mock('../../../actions/steps', () => ({
   })),
 }));
 jest.mock('../../utils');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '111';
 const personId = '222';

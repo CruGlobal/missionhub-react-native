@@ -59,6 +59,7 @@ describe('facebookPromptLogin', () => {
   const FACEBOOK_SCOPE = ['public_profile', 'email'];
 
   it('should call the Facebook SDK to prompt user to sign in', async () => {
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: false,
     });
@@ -71,6 +72,7 @@ describe('facebookPromptLogin', () => {
     );
   });
   it('should throw an error if user cancels sign in', async () => {
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: true,
     });
@@ -89,6 +91,7 @@ describe('facebookPromptLogin', () => {
 describe('facebookLoginWithAccessToken', () => {
   describe('should log in to Facebook and then update analytics and person tracking', () => {
     beforeEach(() => {
+      // @ts-ignore
       AccessToken.getCurrentAccessToken.mockResolvedValue({
         accessToken: fbAccessToken,
         userID: facebookId,
@@ -210,6 +213,7 @@ describe('facebookLoginWithAccessToken', () => {
     });
   });
   it("should throw an error if the Facebook SDK doesn't return an access token", async () => {
+    // @ts-ignore
     AccessToken.getCurrentAccessToken.mockResolvedValue(null);
 
     await expect(
@@ -228,7 +232,9 @@ describe('facebookLoginWithAccessToken', () => {
 
 describe('refreshMissionHubFacebookAccess', () => {
   it('should send current FB access token', async () => {
+    // @ts-ignore
     AccessToken.refreshCurrentAccessTokenAsync.mockResolvedValue();
+    // @ts-ignore
     AccessToken.getCurrentAccessToken.mockResolvedValue({
       accessToken: fbAccessToken,
       userID: facebookId,
@@ -258,7 +264,9 @@ describe('refreshMissionHubFacebookAccess', () => {
   });
 
   it('should prompt user to log in again if an error occurs', async () => {
+    // @ts-ignore
     AccessToken.refreshCurrentAccessTokenAsync.mockRejectedValue();
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: false,
     });
@@ -283,10 +291,13 @@ describe('refreshMissionHubFacebookAccess', () => {
   });
 
   it('should prompt log out if user cancels login prompt', async () => {
+    // @ts-ignore
     AccessToken.refreshCurrentAccessTokenAsync.mockRejectedValue();
+    // @ts-ignore
     LoginManager.logInWithPermissions.mockResolvedValue({
       isCancelled: true,
     });
+    // @ts-ignore
     LoginManager.logOut.mockResolvedValue();
 
     // @ts-ignore

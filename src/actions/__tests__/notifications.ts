@@ -54,7 +54,6 @@ jest.mock('../api');
 jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
   GCM_SENDER_ID: 'Test GCM Sender ID',
-  APNS_MODE: 'APNS',
 }));
 jest.mock('../../selectors/organizations');
 
@@ -96,6 +95,7 @@ describe('showNotificationPrompt', () => {
     PushNotification.checkPermissions.mockImplementation(cb =>
       cb(existingDevicePermissions),
     );
+    // @ts-ignore
     PushNotification.requestPermissions.mockReturnValue(newPermissions);
     // @ts-ignore
     navigatePush.mockImplementation((_, { onComplete }) => {
@@ -431,6 +431,7 @@ describe('showReminderOnLoad', () => {
     PushNotification.checkPermissions.mockImplementation(cb =>
       cb({ alert: 0 }),
     );
+    // @ts-ignore
     PushNotification.requestPermissions.mockReturnValue({ alert: 0 });
     // @ts-ignore
     navigatePush.mockImplementation((_, { onComplete }) => {
@@ -492,6 +493,7 @@ describe('configureNotificationHandler', () => {
 
 describe('askNotificationPermissions', () => {
   beforeEach(() => {
+    // @ts-ignore
     PushNotification.requestPermissions.mockReturnValue({ alert: 1 });
     // @ts-ignore
     navigateReset.mockReturnValue(navigateResetResult);
@@ -750,9 +752,30 @@ describe('askNotificationPermissions', () => {
         screen_extra_data,
       };
 
+      const iosNotification = {
+        data: {
+          link: {
+            data: {
+              screen: 'celebrate',
+              organization_id: organization.id,
+              screen_extra_data,
+            },
+          },
+        },
+      };
+
       it('should parse the notification data', () => {
         const parsedData = parseNotificationData(notification);
         expect(parsedData).toEqual({
+          screen: 'celebrate',
+          person_id: undefined,
+          organization_id: '234234',
+          celebration_item_id: '111',
+        });
+      });
+      it('Should parse iosNotification correctly', () => {
+        const iosParsedData = parseNotificationData(iosNotification);
+        expect(iosParsedData).toEqual({
           screen: 'celebrate',
           person_id: undefined,
           organization_id: '234234',

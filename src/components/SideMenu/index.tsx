@@ -6,6 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { Flex, Button, IconButton } from '../common';
+import { DrawerState } from '../../reducers/drawer';
 
 import styles from './styles';
 
@@ -71,7 +72,7 @@ const SideMenu = ({ isOpen, dispatch, menuItems }: SideMenuProps) => {
   );
 };
 
-const mapStateToProps = ({ drawer }: { drawer: { isOpen: boolean } }) => ({
+const mapStateToProps = ({ drawer }: { drawer: DrawerState }) => ({
   isOpen: drawer.isOpen,
 });
 

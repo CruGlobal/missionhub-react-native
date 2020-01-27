@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 
-import PopupMenu from '../index.ios.js';
+import PopupMenu from '../index.ios';
 import { renderWithContext } from '../../../../testUtils';
 
 const action1 = { text: 'test', onPress: jest.fn() };

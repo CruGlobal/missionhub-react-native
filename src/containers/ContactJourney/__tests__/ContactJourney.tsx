@@ -34,6 +34,7 @@ jest.mock('../../../actions/interactions', () => ({
   addNewInteraction: () => mockAddComment,
   editComment: () => mockEditComment,
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 // @ts-ignore
 let store;

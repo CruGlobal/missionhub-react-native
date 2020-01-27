@@ -1,8 +1,11 @@
 import { navigateToMainTabs, navigateReset } from '../navigation';
 import { resetToInitialRoute } from '../navigationInit';
 import { createThunkStore } from '../../../testUtils';
+import { startOnboarding } from '../onboarding';
 
 jest.mock('../navigation');
+jest.mock('../onboarding');
+jest.mock('../analytics');
 
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
@@ -10,19 +13,19 @@ const myId = '1';
 
 const navigateToMainTabsResult = { type: 'nav to main tabs' };
 const navigateResetResult = { type: 'navigate refresh' };
+const startOnboardingResult = { type: 'start onboarding' };
 
 beforeEach(() => {
-  // @ts-ignore
-  navigateToMainTabs.mockReturnValue(navigateToMainTabsResult);
-  // @ts-ignore
-  navigateReset.mockReturnValue(navigateResetResult);
+  (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
+  (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
+  (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResult);
 });
 
-// @ts-ignore
-const test = store => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const test = (store: { [key: string]: any }) => {
   const mockStore = createThunkStore(store);
-  // @ts-ignore
-  mockStore.dispatch(resetToInitialRoute());
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  mockStore.dispatch<any>(resetToInitialRoute());
   expect(mockStore.getActions()).toMatchSnapshot();
 };
 

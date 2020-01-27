@@ -13,6 +13,7 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../containers/StepsList');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '111';
 const otherId = '222';

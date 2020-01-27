@@ -13,6 +13,8 @@ import {
   logInAnalytics,
   trackActionWithoutData,
   trackSearchFilter,
+  resetAppContext,
+  RESET_APP_CONTEXT,
 } from '../analytics';
 import {
   ACTIONS,
@@ -59,6 +61,14 @@ beforeEach(() => {
   (RNOmniture.loadMarketingCloudId as jest.Mock).mockImplementation(callback =>
     callback(mcId),
   );
+});
+
+describe('resetAppContext', () => {
+  it('sends reset action', () => {
+    store.dispatch<any>(resetAppContext());
+
+    expect(store.getActions()).toEqual([{ type: RESET_APP_CONTEXT }]);
+  });
 });
 
 describe('trackScreenChange', () => {

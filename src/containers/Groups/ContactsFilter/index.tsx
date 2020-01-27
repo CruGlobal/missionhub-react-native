@@ -78,7 +78,8 @@ export class ContactsFilter extends Component {
     const options =
       // @ts-ignore
       isString(item.options) && this.props[item.options]
-        ? // @ts-ignore
+        ? // prettier-ignore
+          // @ts-ignore
           this.props[item.options]
         : item.options;
     // @ts-ignore

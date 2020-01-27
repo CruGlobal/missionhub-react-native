@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import PopupMenu from '../index.android.js';
+import PopupMenu from '../index.android';
 import { renderWithContext } from '../../../../testUtils';
 
 const action1 = { text: 'test', onPress: jest.fn() };

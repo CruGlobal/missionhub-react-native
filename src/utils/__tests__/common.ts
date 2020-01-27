@@ -37,7 +37,6 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../../constants';
-import { trackScreenChange } from '../../actions/analytics';
 import { createThunkStore } from '../../../testUtils';
 
 jest.mock('react-navigation-drawer', () => ({
@@ -45,7 +44,6 @@ jest.mock('react-navigation-drawer', () => ({
     openDrawer: jest.fn(),
   },
 }));
-jest.mock('../../actions/analytics');
 
 const id = '123';
 const first_name = 'Roger';
@@ -291,14 +289,12 @@ describe('openMainMenu', () => {
     const store = createThunkStore();
 
     // @ts-ignore
-    trackScreenChange.mockReturnValue({ type: 'track screen change' });
     // @ts-ignore
     DrawerActions.openDrawer.mockReturnValue({ type: 'open drawer' });
 
     // @ts-ignore
     store.dispatch(openMainMenu());
 
-    expect(trackScreenChange).toHaveBeenCalledWith('menu');
     expect(DrawerActions.openDrawer).toHaveBeenCalledWith({
       drawer: MAIN_MENU_DRAWER,
     });

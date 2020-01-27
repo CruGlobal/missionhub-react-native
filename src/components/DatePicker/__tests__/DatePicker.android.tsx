@@ -4,7 +4,7 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import DatePicker from '../index.android.js';
+import DatePicker from '../index.android';
 
 TimePickerAndroid.open = jest.fn();
 DatePickerAndroid.open = jest.fn();

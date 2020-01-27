@@ -21,6 +21,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       }
     }
   >
+    // @ts-ignore
     <FilterItem
       item={
         Object {
@@ -60,6 +61,7 @@ exports[`ContactsFilter should render correctly 1`] = `
       onSelect={[Function]}
       type="drilldown"
     />
+    // @ts-ignore
     <FilterItem
       isSelected={false}
       item={

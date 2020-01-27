@@ -81,7 +81,7 @@ describe('report item', () => {
   it('call handleDelete', async () => {
     // @ts-ignore
     await component
-      .childAt(2)
+      .childAt(3)
       .childAt(1)
       .childAt(0)
       .props()
@@ -106,7 +106,7 @@ describe('report item', () => {
   it('call handleIgnore', async () => {
     // @ts-ignore
     await component
-      .childAt(2)
+      .childAt(3)
       .childAt(0)
       .childAt(0)
       .props()

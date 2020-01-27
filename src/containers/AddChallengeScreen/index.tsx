@@ -23,7 +23,8 @@ class AddChallengeScreen extends Component {
     title: this.props.isEdit ? this.props.challenge.title : '',
     // @ts-ignore
     date: this.props.isEdit
-      ? // @ts-ignore
+      ? // prettier-ignore
+        // @ts-ignore
         moment(this.props.challenge.end_date).endOf('day')
       : '',
     disableBtn: true,

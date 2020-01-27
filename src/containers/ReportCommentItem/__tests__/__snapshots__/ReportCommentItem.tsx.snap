@@ -39,6 +39,7 @@ exports[`renders correctly 1`] = `
       }
     }
   >
+    // @ts-ignore
     <Connect(CommentItem)
       isReported={true}
       item={
@@ -57,6 +58,7 @@ exports[`renders correctly 1`] = `
       }
     />
   </Flex>
+  // @ts-ignore
   <Flex
     direction="row"
   >

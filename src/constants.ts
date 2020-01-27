@@ -45,6 +45,7 @@ export const SET_CELEBRATE_EDITING_COMMENT =
   'app/SET_CELEBRATE_EDITING_COMMENT';
 export const RESET_CELEBRATE_EDITING_COMMENT =
   'app/RESET_CELEBRATE_EDITING_COMMENT';
+export const RELOAD_APP = 'app/RELOAD_APP';
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
@@ -100,6 +101,7 @@ export const LINKS = {
 };
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
+export const ANALYTICS_CONTEXT_ONBOARDING = 'onboarding';
 
 export const ORG_PERMISSIONS = {
   ADMIN: '1',
@@ -122,6 +124,7 @@ export const ANALYTICS = {
   GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
+  APP_CONTEXT: 'cru.appcontext',
 };
 export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';

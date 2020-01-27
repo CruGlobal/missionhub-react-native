@@ -1,11 +1,7 @@
 /* eslint max-lines: 0 */
 import React from 'react';
 
-import {
-  ACTIONS,
-  CREATE_STEP,
-  NOTIFICATION_PROMPT_TYPES,
-} from '../../../constants';
+import { CREATE_STEP } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
@@ -21,7 +17,8 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { onboardingFlowGenerator } from '../onboardingFlowGenerator';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import {
-  skipOnboarding,
+  skipAddPersonAndCompleteOnboarding,
+  resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
 import { showReminderOnLoad } from '../../../actions/notifications';
@@ -36,6 +33,7 @@ jest.mock('../../../actions/steps');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../containers/StepsList');
 
 const myId = '123';
@@ -57,6 +55,7 @@ const initialState = {
   organizations: { all: [] },
   stages: { stages: [] },
   onboarding: { personId },
+  drawer: { isOpen: false },
 };
 
 const testFlow = onboardingFlowGenerator({});
@@ -67,7 +66,9 @@ beforeEach(() => {
   // @ts-ignore
   navigateToMainTabs.mockReturnValue(() => Promise.resolve());
   // @ts-ignore
-  skipOnboarding.mockReturnValue(() => Promise.resolve());
+  skipAddPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
+  // @ts-ignore
+  resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
   // @ts-ignore
   showReminderOnLoad.mockReturnValue(() => Promise.resolve());
   // @ts-ignore
@@ -89,7 +90,7 @@ const buildAndCallNext = async (
   // eslint-disable-next-line max-params
 ) => {
   // @ts-ignore
-  const Component = flow[screen].screen;
+  const Component = flow[screen];
 
   const { store, getByType } = renderWithContext(<Component />, {
     initialState,
@@ -214,7 +215,7 @@ describe('AddSomeoneScreen next', () => {
   it('should fire required next actions with skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: true });
 
-    expect(skipOnboarding).toHaveBeenCalledWith();
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
@@ -243,7 +244,7 @@ describe('AddSomeoneScreen with extra props', () => {
       testExtraPropsFlow,
     );
 
-    expect(skipOnboarding).toHaveBeenCalledWith();
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
@@ -266,7 +267,7 @@ describe('SetupPersonScreen next', () => {
       skip: true,
     });
 
-    expect(skipOnboarding).toHaveBeenCalledWith();
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
@@ -326,14 +327,7 @@ describe('SuggestedStepDetailScreen next', () => {
       { personId },
     );
 
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
-      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
-      true,
-    );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_COMPLETE,
-    );
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
+    expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
@@ -365,14 +359,7 @@ describe('AddStepScreen next', () => {
 
     expect(createCustomStep).toHaveBeenCalledWith(text, personId);
 
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
-      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
-      true,
-    );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_COMPLETE,
-    );
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
+    expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 

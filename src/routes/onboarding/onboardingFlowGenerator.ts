@@ -6,18 +6,12 @@ import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { createCustomStep } from '../../actions/steps';
 import {
-  skipOnboarding,
+  skipAddPersonAndCompleteOnboarding,
+  resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../actions/onboarding';
-import { showReminderOnLoad } from '../../actions/notifications';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { buildTrackingObj } from '../../utils/common';
-import { buildTrackedScreen, wrapNextAction, wrapNextScreen } from '../helpers';
-import {
-  ACTIONS,
-  CREATE_STEP,
-  NOTIFICATION_PROMPT_TYPES,
-} from '../../constants';
+import { wrapNextAction, wrapNextScreen } from '../helpers';
+import { CREATE_STEP } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, {
   SETUP_SCREEN,
@@ -47,18 +41,6 @@ import CelebrationScreen, {
 } from '../../containers/CelebrationScreen';
 import { OnboardingState } from '../../reducers/onboarding';
 
-const showNotificationAndCompleteOnboarding = async (
-  dispatch: ThunkDispatch<any, null, any>,
-) => {
-  await dispatch(
-    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-  );
-  dispatch(setOnboardingPersonId(''));
-  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-
-  dispatch(navigatePush(CELEBRATION_SCREEN));
-};
-
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
   hideSkipBtn,
@@ -68,203 +50,134 @@ export const onboardingFlowGenerator = ({
 } = {}) => ({
   ...(startScreen === WELCOME_SCREEN
     ? {
-        [WELCOME_SCREEN]: buildTrackedScreen(
-          wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-          // @ts-ignore
-          buildTrackingObj('onboarding : welcome', 'onboarding'),
-        ),
-        [SETUP_SCREEN]: buildTrackedScreen(
-          wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
-            isMe: true,
-          }),
-          // @ts-ignore
-          buildTrackingObj('onboarding : name', 'onboarding'),
-        ),
+        [WELCOME_SCREEN]: wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
+        [SETUP_SCREEN]: wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
+          isMe: true,
+        }),
       }
     : {}),
   ...(startScreen === WELCOME_SCREEN || startScreen === GET_STARTED_SCREEN
     ? {
-        [GET_STARTED_SCREEN]: buildTrackedScreen(
-          wrapNextAction(
-            GetStartedScreen,
-            () => (
-              dispatch: ThunkDispatch<{}, {}, AnyAction>,
-              getState: () => { auth: AuthState },
-            ) =>
-              dispatch(
-                navigatePush(SELECT_STAGE_SCREEN, {
-                  section: 'onboarding',
-                  subsection: 'self',
-                  personId: getState().auth.person.id,
-                }),
-              ),
-            {
-              logoutOnBack: startScreen === GET_STARTED_SCREEN,
-            },
-          ),
-          // @ts-ignore
-          buildTrackingObj('onboarding : get started', 'onboarding'),
+        [GET_STARTED_SCREEN]: wrapNextAction(
+          GetStartedScreen,
+          () => (
+            dispatch: ThunkDispatch<{}, {}, AnyAction>,
+            getState: () => { auth: AuthState },
+          ) =>
+            dispatch(
+              navigatePush(SELECT_STAGE_SCREEN, {
+                section: 'onboarding',
+                subsection: 'self',
+                personId: getState().auth.person.id,
+              }),
+            ),
+          {
+            logoutOnBack: startScreen === GET_STARTED_SCREEN,
+          },
         ),
-        [STAGE_SUCCESS_SCREEN]: buildTrackedScreen(
-          wrapNextAction(
-            StageSuccessScreen,
-            () => (
-              dispatch: ThunkDispatch<{}, {}, AnyAction>,
-              getState: () => { auth: AuthState },
-            ) =>
-              dispatch(
-                navigatePush(SELECT_STEP_SCREEN, {
-                  personId: getState().auth.person.id,
-                }),
-              ),
-          ),
-          // @ts-ignore
-          buildTrackingObj(
-            'onboarding : self : choose my steps',
-            'onboarding',
-            'self',
-          ),
-        ),
-        [SELECT_STEP_SCREEN]: buildTrackedScreen(
-          wrapNextAction(
-            SelectStepScreen,
-            ({ personId, step }: { personId: string; step: object }) =>
-              step
-                ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-                    step,
-                    personId,
-                  })
-                : navigatePush(ADD_STEP_SCREEN, {
-                    type: CREATE_STEP,
-                    personId,
-                  }),
-          ),
-          // @ts-ignore
-          buildTrackingObj(
-            'onboarding : self : steps : add',
-            'onboarding',
-            'self',
-            'steps',
-          ),
+        [STAGE_SUCCESS_SCREEN]: wrapNextAction(
+          StageSuccessScreen,
+          () => (
+            dispatch: ThunkDispatch<{}, {}, AnyAction>,
+            getState: () => { auth: AuthState },
+          ) =>
+            dispatch(
+              navigatePush(SELECT_STEP_SCREEN, {
+                personId: getState().auth.person.id,
+              }),
+            ),
         ),
       }
     : {}),
-  [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      AddSomeoneScreen,
-      ({ skip }: { skip: boolean }) =>
-        skip ? skipOnboarding() : navigatePush(SETUP_PERSON_SCREEN),
-      {
-        hideSkipBtn,
-        logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
-      },
-    ),
-    // @ts-ignore
-    buildTrackingObj('onboarding : add person', 'onboarding', 'add person'),
+  [ADD_SOMEONE_SCREEN]: wrapNextAction(
+    AddSomeoneScreen,
+    ({ skip }: { skip: boolean }) =>
+      skip
+        ? skipAddPersonAndCompleteOnboarding()
+        : navigatePush(SETUP_PERSON_SCREEN),
+    {
+      hideSkipBtn,
+      logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
+    },
   ),
-  [SETUP_PERSON_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SetupScreen,
-      ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
-        dispatch: ThunkDispatch<{}, {}, AnyAction>,
-        getState: () => { onboarding: OnboardingState },
-      ) => {
-        personId && dispatch(setOnboardingPersonId(personId));
-        dispatch(
-          skip
-            ? skipOnboarding()
-            : navigatePush(SELECT_STAGE_SCREEN, {
-                section: 'onboarding',
-                subsection: 'add person',
-                personId: getState().onboarding.personId,
-              }),
-        );
-      },
-      { isMe: false, hideSkipBtn },
-    ),
-    // @ts-ignore
-    buildTrackingObj(
-      'onboarding : add person : name',
-      'onboarding',
-      'add person',
-    ),
-  ),
-  [SELECT_STAGE_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SelectStageScreen,
-      ({ isMe }: { isMe: boolean }) => (
-        dispatch: ThunkDispatch<{}, {}, AnyAction>,
-        getState: () => { onboarding: OnboardingState },
-      ) =>
-        dispatch(
-          isMe
-            ? navigatePush(STAGE_SUCCESS_SCREEN)
-            : navigatePush(SELECT_STEP_SCREEN, {
-                personId: getState().onboarding.personId,
-              }),
-        ),
-    ),
-  ),
-  [SELECT_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SelectStepScreen,
-      ({ personId, step }: { personId: string; step: object }) =>
-        step
-          ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-              step,
-              personId,
-            })
-          : navigatePush(ADD_STEP_SCREEN, {
-              type: CREATE_STEP,
-              personId,
+  [SETUP_PERSON_SCREEN]: wrapNextAction(
+    SetupScreen,
+    ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
+      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      getState: () => { onboarding: OnboardingState },
+    ) => {
+      personId && dispatch(setOnboardingPersonId(personId));
+      dispatch(
+        skip
+          ? skipAddPersonAndCompleteOnboarding()
+          : navigatePush(SELECT_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+              personId: getState().onboarding.personId,
             }),
-    ),
-    // @ts-ignore
-    buildTrackingObj(
-      'onboarding : add person : steps : add',
-      'onboarding',
-      'add person',
-      'steps',
-    ),
+      );
+    },
+    { isMe: false, hideSkipBtn },
   ),
-  [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SuggestedStepDetailScreen,
-      ({ personId }: { personId: string }) => (
-        dispatch: ThunkDispatch<any, null, any>,
-        getState: () => any,
-      ) => {
-        const isMe = personId === getState().auth.person.id;
-
-        if (isMe) {
-          return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-        }
-        showNotificationAndCompleteOnboarding(dispatch);
-      },
-    ),
+  [SELECT_STAGE_SCREEN]: wrapNextAction(
+    SelectStageScreen,
+    ({ isMe }: { isMe: boolean }) => (
+      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      getState: () => { onboarding: OnboardingState },
+    ) =>
+      dispatch(
+        isMe
+          ? navigatePush(STAGE_SUCCESS_SCREEN)
+          : navigatePush(SELECT_STEP_SCREEN, {
+              personId: getState().onboarding.personId,
+            }),
+      ),
   ),
-  [ADD_STEP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      AddStepScreen,
-      ({ text, personId }: { text: string; personId: string }) => async (
-        dispatch: ThunkDispatch<any, null, any>,
-        getState: () => any,
-      ) => {
-        const isMe = personId === getState().auth.person.id;
-
-        // @ts-ignore
-        dispatch(createCustomStep(text, personId));
-
-        if (isMe) {
-          return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
-        }
-        await showNotificationAndCompleteOnboarding(dispatch);
-      },
-    ),
+  [SELECT_STEP_SCREEN]: wrapNextAction(
+    SelectStepScreen,
+    ({ personId, step }: { personId: string; step: object }) =>
+      step
+        ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
+            step,
+            personId,
+          })
+        : navigatePush(ADD_STEP_SCREEN, {
+            type: CREATE_STEP,
+            personId,
+          }),
   ),
-  [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(CelebrationScreen, () => navigateToMainTabs()),
-    // @ts-ignore
-    buildTrackingObj('onboarding : complete', 'onboarding'),
+  [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
+    SuggestedStepDetailScreen,
+    ({ personId }: { personId: string }) => (
+      dispatch: ThunkDispatch<any, null, any>,
+      getState: () => any,
+    ) => {
+      const isMe = personId === getState().auth.person.id;
+
+      if (isMe) {
+        return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+      }
+      dispatch(resetPersonAndCompleteOnboarding());
+    },
+  ),
+  [ADD_STEP_SCREEN]: wrapNextAction(
+    AddStepScreen,
+    ({ text, personId }: { text: string; personId: string }) => (
+      dispatch: ThunkDispatch<any, null, any>,
+      getState: () => any,
+    ) => {
+      const isMe = personId === getState().auth.person.id;
+
+      // @ts-ignore
+      dispatch(createCustomStep(text, personId));
+
+      if (isMe) {
+        return dispatch(navigatePush(ADD_SOMEONE_SCREEN));
+      }
+      dispatch(resetPersonAndCompleteOnboarding());
+    },
+  ),
+  [CELEBRATION_SCREEN]: wrapNextAction(CelebrationScreen, () =>
+    navigateToMainTabs(),
   ),
 });
