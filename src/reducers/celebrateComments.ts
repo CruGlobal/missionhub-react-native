@@ -10,10 +10,18 @@ import { getPagination } from '../utils/common';
 
 import { PaginationObject } from './organizations';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Event = any;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CelebrateComment = any;
+export interface CelebrateEvent {
+  id: string;
+  updated_at: string;
+  created_at: string;
+  comments: CelebrateComment[];
+}
+export interface CelebrateComment {
+  id: string;
+  updated_at: string;
+  created_at: string;
+  content: string;
+}
 
 export interface CelebrateCommentsState {
   all: {

@@ -11,27 +11,6 @@ export interface CelebrateFeedSection {
   data: GetCelebrateFeed_community_celebrationItems_nodes[];
 }
 
-export const celebrationItemSelector = createSelector(
-  ({ organizations }: { organizations: OrganizationsState }) =>
-    organizations.all,
-  (
-    _: { organizations: OrganizationsState },
-    { eventId }: { eventId: string; organizationId: string },
-  ) => eventId,
-  (
-    _: { organizations: OrganizationsState },
-    { organizationId }: { eventId: string; organizationId: string },
-  ) => organizationId,
-  (orgs, eventId, organizationId) => {
-    const { celebrateItems } = orgs.find(({ id }) => id === organizationId);
-
-    return (
-      celebrateItems &&
-      celebrateItems.find(({ id }: CelebrateItem) => id === eventId)
-    );
-  },
-);
-
 export const celebrationSelector = createSelector(
   ({
     celebrateItems,
