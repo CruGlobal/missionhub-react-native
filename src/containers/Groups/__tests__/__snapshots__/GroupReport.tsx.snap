@@ -180,18 +180,18 @@ exports[`should call navigate back 1`] = `
             "fullName": "Elizabeth Zulauf",
           },
           "subject": Object {
-            "__typename": "Story",
-            "author": Object {
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "esse repellat quisquam",
+            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
+            "id": "2",
+            "person": Object {
               "__typename": "Person",
               "firstName": "Aaliyah",
               "fullName": "Aaliyah Champlin",
               "id": "3",
               "lastName": "Champlin",
             },
-            "content": "esse repellat quisquam",
-            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
-            "id": "2",
-            "typeName": "Story",
+            "typeName": "CommunityCelebrationItemComment",
           },
         },
         Object {
@@ -202,18 +202,18 @@ exports[`should call navigate back 1`] = `
             "fullName": "Ezequiel Ortiz",
           },
           "subject": Object {
-            "__typename": "Story",
-            "author": Object {
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "ratione ut sunt",
+            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "id": "5",
+            "person": Object {
               "__typename": "Person",
               "firstName": "Chyna",
               "fullName": "Chyna Howe",
               "id": "6",
               "lastName": "Howe",
             },
-            "content": "ratione ut sunt",
-            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
-            "id": "5",
-            "typeName": "Story",
+            "typeName": "CommunityCelebrationItemComment",
           },
         },
         Object {
@@ -391,7 +391,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Story By
+                Comment By
                 :
               </Text>
               <Text
@@ -825,7 +825,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Story By
+                Comment By
                 :
               </Text>
               <Text
@@ -1780,18 +1780,18 @@ exports[`should refresh correctly 1`] = `
             "fullName": "Ezequiel Ortiz",
           },
           "subject": Object {
-            "__typename": "CommunityCelebrationItemComment",
-            "content": "ratione ut sunt",
-            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
-            "id": "5",
-            "person": Object {
+            "__typename": "Story",
+            "author": Object {
               "__typename": "Person",
               "firstName": "Chyna",
               "fullName": "Chyna Howe",
               "id": "6",
               "lastName": "Howe",
             },
-            "typeName": "CommunityCelebrationItemComment",
+            "content": "ratione ut sunt",
+            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "id": "5",
+            "typeName": "Story",
           },
         },
         Object {
@@ -1802,18 +1802,18 @@ exports[`should refresh correctly 1`] = `
             "fullName": "Marlene Ledner",
           },
           "subject": Object {
-            "__typename": "CommunityCelebrationItemComment",
-            "content": "qui recusandae ut",
-            "createdAt": "Sat, 30 Jul 2011 23:09:48 GMT",
-            "id": "8",
-            "person": Object {
+            "__typename": "Story",
+            "author": Object {
               "__typename": "Person",
               "firstName": "Heather",
               "fullName": "Heather Hahn",
               "id": "9",
               "lastName": "Hahn",
             },
-            "typeName": "CommunityCelebrationItemComment",
+            "content": "qui recusandae ut",
+            "createdAt": "Sat, 30 Jul 2011 23:09:48 GMT",
+            "id": "8",
+            "typeName": "Story",
           },
         },
       ]
@@ -2403,7 +2403,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Comment By
+                Story By
                 :
               </Text>
               <Text
@@ -2837,7 +2837,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Comment By
+                Story By
                 :
               </Text>
               <Text
@@ -3336,18 +3336,18 @@ exports[`should render correctly 1`] = `
             "fullName": "Elizabeth Zulauf",
           },
           "subject": Object {
-            "__typename": "Story",
-            "author": Object {
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "esse repellat quisquam",
+            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
+            "id": "2",
+            "person": Object {
               "__typename": "Person",
               "firstName": "Aaliyah",
               "fullName": "Aaliyah Champlin",
               "id": "3",
               "lastName": "Champlin",
             },
-            "content": "esse repellat quisquam",
-            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
-            "id": "2",
-            "typeName": "Story",
+            "typeName": "CommunityCelebrationItemComment",
           },
         },
         Object {
@@ -3358,18 +3358,18 @@ exports[`should render correctly 1`] = `
             "fullName": "Ezequiel Ortiz",
           },
           "subject": Object {
-            "__typename": "CommunityCelebrationItemComment",
-            "content": "ratione ut sunt",
-            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
-            "id": "5",
-            "person": Object {
+            "__typename": "Story",
+            "author": Object {
               "__typename": "Person",
               "firstName": "Chyna",
               "fullName": "Chyna Howe",
               "id": "6",
               "lastName": "Howe",
             },
-            "typeName": "CommunityCelebrationItemComment",
+            "content": "ratione ut sunt",
+            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "id": "5",
+            "typeName": "Story",
           },
         },
         Object {
@@ -3547,7 +3547,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Story By
+                Comment By
                 :
               </Text>
               <Text
@@ -3981,7 +3981,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Comment By
+                Story By
                 :
               </Text>
               <Text
