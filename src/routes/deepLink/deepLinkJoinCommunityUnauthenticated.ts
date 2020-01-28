@@ -37,6 +37,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
         dispatch(navigatePush(WELCOME_SCREEN, { allowSignIn: true }));
       },
     ),
+    // @ts-ignore
     buildTrackingObj('communities : join', 'communities', 'join'),
   ),
   ...onboardingFlowGenerator(),
@@ -44,6 +45,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     wrapNextScreenFn(WelcomeScreen, ({ signin }) =>
       signin ? SIGN_IN_SCREEN : SETUP_SCREEN,
     ),
+    // @ts-ignore
     buildTrackingObj('onboarding : welcome', 'onboarding'),
   ),
   [SETUP_SCREEN]: buildTrackedScreen(
@@ -61,6 +63,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
         isMe: true,
       },
     ),
+    // @ts-ignore
     buildTrackingObj('onboarding : name', 'onboarding'),
   ),
   [CELEBRATION_SCREEN]: buildTrackedScreen(
@@ -73,6 +76,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
         dispatch(setOnboardingPersonId(''));
       },
     ),
+    // @ts-ignore
     buildTrackingObj('onboarding : complete', 'onboarding'),
   ),
   ...authFlowGenerator({

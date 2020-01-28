@@ -61,6 +61,7 @@ const SignInScreen = ({
   useKeyboardListeners(() => setShowLogo(false), () => setShowLogo(true));
 
   const handleForgotPassword = async () => {
+    // @ts-ignore
     const { code, codeVerifier, redirectUri } = await dispatch(
       openKeyURL('service/selfservice?target=displayForgotPassword'),
     );
@@ -80,6 +81,7 @@ const SignInScreen = ({
     setIsLoading(true);
 
     try {
+      // @ts-ignore
       await dispatch(keyLogin(email, password));
       Keyboard.dismiss();
       dispatch(next());

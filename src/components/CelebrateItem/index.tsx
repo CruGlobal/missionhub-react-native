@@ -162,6 +162,7 @@ const CelebrateItem = ({
         <View style={styles.top}>
           <View style={styles.topLeft}>
             <CelebrateItemName
+              // @ts-ignore
               name={subject_person_name}
               person={subject_person}
               organization={organization}
@@ -174,6 +175,8 @@ const CelebrateItem = ({
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
+        {/* 
+        // @ts-ignore */}
         <CommentLikeComponent event={event} />
       </View>
     </View>
@@ -207,6 +210,7 @@ const CelebrateItem = ({
     <Card>
       <View style={{ flex: 1 }}>
         <PopupMenu
+          // @ts-ignore
           testID="CelebrateItemPressable"
           actions={menuActions}
           buttonProps={{

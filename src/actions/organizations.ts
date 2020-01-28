@@ -118,6 +118,7 @@ export function refreshCommunity(orgId: string = GLOBAL_COMMUNITY_ID) {
     //Refresh Community Data
     const { response } = await dispatch(getOrganization(orgId));
     //Refresh user org permissions
+    // @ts-ignore
     dispatch(getMe());
 
     return response;
@@ -443,6 +444,7 @@ export function transferOrgOwnership(orgId: string, person_id: string) {
     dispatch(trackActionWithoutData(ACTIONS.MANAGE_MAKE_OWNER));
 
     // After transfer, update auth person and other person with new org permissions
+    // @ts-ignore
     dispatch(getMe());
     dispatch(getPersonDetails(person_id, orgId));
 
@@ -483,6 +485,7 @@ export function addNewOrganization(name: string, imageData?: ImageData) {
       dispatch(getMyCommunities());
     }
     // After the org is created, update auth person with new org permissions
+    // @ts-ignore
     dispatch(getMe());
 
     return results;
