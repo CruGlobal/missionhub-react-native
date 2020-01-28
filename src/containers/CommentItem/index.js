@@ -41,7 +41,11 @@ class CommentItem extends Component {
     } = this.props;
     const { content: contentStyle, editingStyle, name: nameStyle } = styles;
 
-    const name = person ? person.fullName : author.fullName;
+    const name = person
+      ? person.first_name
+        ? `${person.first_name} ${person.last_name}`
+        : person.fullName
+      : author.fullName;
     const isMine = person ? person.id === me.id : author.id === me.id;
     const isMineNotReported = isMine && !isReported;
 

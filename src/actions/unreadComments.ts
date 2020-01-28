@@ -12,6 +12,7 @@ export function markCommentsRead(orgId: string) {
         organization_id: orgId,
       }),
     );
+    dispatch(checkForUnreadComments());
   };
 }
 

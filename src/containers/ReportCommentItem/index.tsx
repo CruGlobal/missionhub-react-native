@@ -29,6 +29,7 @@ const ReportCommentItem = ({
   item,
   refetch,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: ReportedItem | any;
   refetch: () => void;
 }) => {
@@ -38,13 +39,13 @@ const ReportCommentItem = ({
     respondToContentComplaint,
     respondToContentComplaintVariables
   >(RESPOND_TO_CONTENT_COMPLAINT);
-
   const handleIgnore = async () => {
     await respondToContentComplaint({
       variables: {
         input: {
           contentComplaintId: item.id,
-          response: 'ignore',
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          response: 'ignore' as any,
         },
       },
     });
@@ -52,7 +53,6 @@ const ReportCommentItem = ({
     refetch();
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getContentType = (type: string) => {
     switch (type) {
       case 'Story':
@@ -77,7 +77,8 @@ const ReportCommentItem = ({
             variables: {
               input: {
                 contentComplaintId: item.id,
-                response: 'delete',
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                response: 'delete' as any,
               },
             },
           });

@@ -14,7 +14,19 @@ Enzyme.configure({ adapter: new Adapter() });
 const item = {
   content: 'hello roge',
   created_at: '2018-06-11 12:00:00 UTC',
-  person: { id: 'notme', first_name: 'Roge', last_name: 'Goers' },
+  person: { id: 'notme', first_name: 'Christian', last_name: 'Huffman' },
+};
+
+const reportedItem = {
+  content: 'hello roge',
+  created_at: '2018-06-11 12:00:00 UTC',
+  person: { id: 'notme', fullName: 'Christian Huffman' },
+};
+
+const story = {
+  content: 'hello roge',
+  created_at: '2018-06-11 12:00:00 UTC',
+  author: { id: 'notme', fullName: 'Christian Huffman' },
 };
 
 const organization = { id: '7342342' };
@@ -56,7 +68,20 @@ it('renders without menu actions', () => {
 it('renders reported comment', () => {
   screen = renderShallow(
     <CommentItem
-      item={item}
+      item={reportedItem}
+      isReported={true}
+      organization={organization}
+      menuActions={menuActions}
+    />,
+    store,
+  );
+  expect(screen).toMatchSnapshot();
+});
+
+it('renders reported story', () => {
+  screen = renderShallow(
+    <CommentItem
+      item={story}
       isReported={true}
       organization={organization}
       menuActions={menuActions}
@@ -69,7 +94,7 @@ it('renders reported comment', () => {
 it('renders my reported comment', () => {
   screen = renderShallow(
     <CommentItem
-      item={{ ...item, person: { ...item.person, id: me.id } }}
+      item={{ ...reportedItem, person: { ...reportedItem.person, id: me.id } }}
       isReported={true}
       organization={organization}
       menuActions={menuActions}

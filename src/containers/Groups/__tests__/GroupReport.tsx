@@ -6,6 +6,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { MockList } from 'graphql-tools';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/celebrateComments');
@@ -38,6 +39,13 @@ it('should render correctly', async () => {
     initialState,
     navParams: {
       organization,
+    },
+    mocks: {
+      Community: () => ({
+        contentComplaints: () => ({
+          nodes: () => new MockList(3),
+        }),
+      }),
     },
   });
 
@@ -76,6 +84,13 @@ it('should call navigate back', async () => {
       navParams: {
         organization,
       },
+      mocks: {
+        Community: () => ({
+          contentComplaints: () => ({
+            nodes: () => new MockList(3),
+          }),
+        }),
+      },
     },
   );
 
@@ -94,6 +109,13 @@ it('should refresh correctly', async () => {
       initialState,
       navParams: {
         organization,
+      },
+      mocks: {
+        Community: () => ({
+          contentComplaints: () => ({
+            nodes: () => new MockList(3),
+          }),
+        }),
       },
     },
   );

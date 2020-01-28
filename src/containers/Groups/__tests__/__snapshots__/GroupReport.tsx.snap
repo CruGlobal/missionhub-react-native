@@ -177,19 +177,19 @@ exports[`should call navigate back 1`] = `
           "id": "1",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Darwin Bosco",
+            "fullName": "Elizabeth Zulauf",
           },
           "subject": Object {
             "__typename": "Story",
             "author": Object {
               "__typename": "Person",
-              "firstName": "Zola",
-              "fullName": "Zola Corkery",
+              "firstName": "Aaliyah",
+              "fullName": "Aaliyah Champlin",
               "id": "3",
-              "lastName": "Corkery",
+              "lastName": "Champlin",
             },
-            "content": "recusandae alias consequuntur",
-            "createdAt": "Thu, 05 Jan 2017 11:40:00 GMT",
+            "content": "esse repellat quisquam",
+            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
             "id": "2",
             "typeName": "Story",
           },
@@ -199,19 +199,41 @@ exports[`should call navigate back 1`] = `
           "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tre Lind",
+            "fullName": "Ezequiel Ortiz",
+          },
+          "subject": Object {
+            "__typename": "Story",
+            "author": Object {
+              "__typename": "Person",
+              "firstName": "Chyna",
+              "fullName": "Chyna Howe",
+              "id": "6",
+              "lastName": "Howe",
+            },
+            "content": "ratione ut sunt",
+            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "id": "5",
+            "typeName": "Story",
+          },
+        },
+        Object {
+          "__typename": "ContentComplaint",
+          "id": "7",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Marlene Ledner",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
-            "content": "qui amet iure",
-            "createdAt": "Sun, 31 Jul 2016 16:52:49 GMT",
-            "id": "5",
+            "content": "qui recusandae ut",
+            "createdAt": "Sat, 30 Jul 2011 23:09:48 GMT",
+            "id": "8",
             "person": Object {
               "__typename": "Person",
-              "firstName": "Marcellus",
-              "fullName": "Marcellus Hyatt",
-              "id": "6",
-              "lastName": "Hyatt",
+              "firstName": "Heather",
+              "fullName": "Heather Hahn",
+              "id": "9",
+              "lastName": "Hahn",
             },
             "typeName": "CommunityCelebrationItemComment",
           },
@@ -341,7 +363,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Darwin Bosco
+                Elizabeth Zulauf
               </Text>
             </View>
             <View
@@ -388,7 +410,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Zola Corkery
+                Aaliyah Champlin
               </Text>
             </View>
           </View>
@@ -442,7 +464,7 @@ exports[`should call navigate back 1`] = `
                     ]
                   }
                 >
-                  Zola Corkery
+                  Aaliyah Champlin
                 </Text>
                 <Text
                   style={
@@ -461,7 +483,7 @@ exports[`should call navigate back 1`] = `
                   }
                   testID="Text"
                 >
-                  January 5, 2017 @ 11:40 AM
+                  September 19, 2010 @ 3:58 AM
                 </Text>
               </View>
               <View
@@ -506,7 +528,7 @@ exports[`should call navigate back 1`] = `
                       ]
                     }
                   >
-                    recusandae alias consequuntur
+                    esse repellat quisquam
                   </Text>
                 </View>
                 <View
@@ -775,7 +797,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Tre Lind
+                Ezequiel Ortiz
               </Text>
             </View>
             <View
@@ -803,7 +825,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Comment By
+                Story By
                 :
               </Text>
               <Text
@@ -822,7 +844,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Marcellus Hyatt
+                Chyna Howe
               </Text>
             </View>
           </View>
@@ -876,7 +898,7 @@ exports[`should call navigate back 1`] = `
                     ]
                   }
                 >
-                  Marcellus Hyatt
+                  Chyna Howe
                 </Text>
                 <Text
                   style={
@@ -895,7 +917,7 @@ exports[`should call navigate back 1`] = `
                   }
                   testID="Text"
                 >
-                  July 31, 2016 @ 4:52 PM
+                  January 27, 2016 @ 11:31 AM
                 </Text>
               </View>
               <View
@@ -940,7 +962,441 @@ exports[`should call navigate back 1`] = `
                       ]
                     }
                   >
-                    qui amet iure
+                    ratione ut sunt
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "flex": 1,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="ignoreButton"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {
+                        "borderBottomLeftRadius": 8,
+                        "borderRightColor": "#ffffff",
+                        "borderRightWidth": 1,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 14,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    IGNORE
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="deleteButton"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {
+                        "borderBottomRightRadius": 8,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 14,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    DELETE
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flexDirection": "row",
+                "marginHorizontal": 16,
+                "marginVertical": 8,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "backgroundColor": "#505256",
+                "flexDirection": "column",
+                "marginBottom": 8,
+                "marginHorizontal": 20,
+                "marginVertical": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#A0A2A6",
+                  "borderBottomWidth": 1,
+                  "padding": 15,
+                },
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                    },
+                  ]
+                }
+              >
+                Reported By
+                :
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ]
+                }
+              >
+                Marlene Ledner
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                    },
+                  ]
+                }
+              >
+                Comment By
+                :
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ]
+                }
+              >
+                Heather Hahn
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingVertical": 15,
+                },
+                Object {},
+              ]
+            }
+          >
+            <View
+              collapsable={false}
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "flex-end",
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "paddingLeft": 10,
+                        "paddingRight": 5,
+                      },
+                    ]
+                  }
+                >
+                  Heather Hahn
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                  testID="Text"
+                >
+                  July 30, 2011 @ 11:09 PM
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderRadius": 8,
+                        "marginVertical": 5,
+                        "paddingHorizontal": 13,
+                        "paddingVertical": 8,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "paddingVertical": 3,
+                          },
+                          null,
+                        ],
+                      ]
+                    }
+                  >
+                    qui recusandae ut
                   </Text>
                 </View>
                 <View
@@ -1299,19 +1755,19 @@ exports[`should refresh correctly 1`] = `
           "id": "1",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Darwin Bosco",
+            "fullName": "Elizabeth Zulauf",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
-            "content": "recusandae alias consequuntur",
-            "createdAt": "Thu, 05 Jan 2017 11:40:00 GMT",
+            "content": "esse repellat quisquam",
+            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
             "id": "2",
             "person": Object {
               "__typename": "Person",
-              "firstName": "Zola",
-              "fullName": "Zola Corkery",
+              "firstName": "Aaliyah",
+              "fullName": "Aaliyah Champlin",
               "id": "3",
-              "lastName": "Corkery",
+              "lastName": "Champlin",
             },
             "typeName": "CommunityCelebrationItemComment",
           },
@@ -1321,21 +1777,43 @@ exports[`should refresh correctly 1`] = `
           "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tre Lind",
+            "fullName": "Ezequiel Ortiz",
           },
           "subject": Object {
-            "__typename": "Story",
-            "author": Object {
-              "__typename": "Person",
-              "firstName": "Marcellus",
-              "fullName": "Marcellus Hyatt",
-              "id": "6",
-              "lastName": "Hyatt",
-            },
-            "content": "qui amet iure",
-            "createdAt": "Sun, 31 Jul 2016 16:52:49 GMT",
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "ratione ut sunt",
+            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
             "id": "5",
-            "typeName": "Story",
+            "person": Object {
+              "__typename": "Person",
+              "firstName": "Chyna",
+              "fullName": "Chyna Howe",
+              "id": "6",
+              "lastName": "Howe",
+            },
+            "typeName": "CommunityCelebrationItemComment",
+          },
+        },
+        Object {
+          "__typename": "ContentComplaint",
+          "id": "7",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Marlene Ledner",
+          },
+          "subject": Object {
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "qui recusandae ut",
+            "createdAt": "Sat, 30 Jul 2011 23:09:48 GMT",
+            "id": "8",
+            "person": Object {
+              "__typename": "Person",
+              "firstName": "Heather",
+              "fullName": "Heather Hahn",
+              "id": "9",
+              "lastName": "Hahn",
+            },
+            "typeName": "CommunityCelebrationItemComment",
           },
         },
       ]
@@ -1463,7 +1941,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Darwin Bosco
+                Elizabeth Zulauf
               </Text>
             </View>
             <View
@@ -1510,7 +1988,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Zola Corkery
+                Aaliyah Champlin
               </Text>
             </View>
           </View>
@@ -1564,7 +2042,7 @@ exports[`should refresh correctly 1`] = `
                     ]
                   }
                 >
-                  Zola Corkery
+                  Aaliyah Champlin
                 </Text>
                 <Text
                   style={
@@ -1583,7 +2061,7 @@ exports[`should refresh correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  January 5, 2017 @ 11:40 AM
+                  September 19, 2010 @ 3:58 AM
                 </Text>
               </View>
               <View
@@ -1628,7 +2106,7 @@ exports[`should refresh correctly 1`] = `
                       ]
                     }
                   >
-                    recusandae alias consequuntur
+                    esse repellat quisquam
                   </Text>
                 </View>
                 <View
@@ -1897,7 +2375,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Tre Lind
+                Ezequiel Ortiz
               </Text>
             </View>
             <View
@@ -1925,7 +2403,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Story By
+                Comment By
                 :
               </Text>
               <Text
@@ -1944,7 +2422,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Marcellus Hyatt
+                Chyna Howe
               </Text>
             </View>
           </View>
@@ -1998,7 +2476,7 @@ exports[`should refresh correctly 1`] = `
                     ]
                   }
                 >
-                  Marcellus Hyatt
+                  Chyna Howe
                 </Text>
                 <Text
                   style={
@@ -2017,7 +2495,7 @@ exports[`should refresh correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  July 31, 2016 @ 4:52 PM
+                  January 27, 2016 @ 11:31 AM
                 </Text>
               </View>
               <View
@@ -2062,7 +2540,441 @@ exports[`should refresh correctly 1`] = `
                       ]
                     }
                   >
-                    qui amet iure
+                    ratione ut sunt
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "flex": 1,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="ignoreButton"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {
+                        "borderBottomLeftRadius": 8,
+                        "borderRightColor": "#ffffff",
+                        "borderRightWidth": 1,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 14,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    IGNORE
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="deleteButton"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {
+                        "borderBottomRightRadius": 8,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 14,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    DELETE
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flexDirection": "row",
+                "marginHorizontal": 16,
+                "marginVertical": 8,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "backgroundColor": "#505256",
+                "flexDirection": "column",
+                "marginBottom": 8,
+                "marginHorizontal": 20,
+                "marginVertical": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#A0A2A6",
+                  "borderBottomWidth": 1,
+                  "padding": 15,
+                },
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                    },
+                  ]
+                }
+              >
+                Reported By
+                :
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ]
+                }
+              >
+                Marlene Ledner
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                    },
+                  ]
+                }
+              >
+                Comment By
+                :
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ]
+                }
+              >
+                Heather Hahn
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingVertical": 15,
+                },
+                Object {},
+              ]
+            }
+          >
+            <View
+              collapsable={false}
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "flex-end",
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "paddingLeft": 10,
+                        "paddingRight": 5,
+                      },
+                    ]
+                  }
+                >
+                  Heather Hahn
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                  testID="Text"
+                >
+                  July 30, 2011 @ 11:09 PM
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderRadius": 8,
+                        "marginVertical": 5,
+                        "paddingHorizontal": 13,
+                        "paddingVertical": 8,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "paddingVertical": 3,
+                          },
+                          null,
+                        ],
+                      ]
+                    }
+                  >
+                    qui recusandae ut
                   </Text>
                 </View>
                 <View
@@ -2421,19 +3333,19 @@ exports[`should render correctly 1`] = `
           "id": "1",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Darwin Bosco",
+            "fullName": "Elizabeth Zulauf",
           },
           "subject": Object {
             "__typename": "Story",
             "author": Object {
               "__typename": "Person",
-              "firstName": "Zola",
-              "fullName": "Zola Corkery",
+              "firstName": "Aaliyah",
+              "fullName": "Aaliyah Champlin",
               "id": "3",
-              "lastName": "Corkery",
+              "lastName": "Champlin",
             },
-            "content": "recusandae alias consequuntur",
-            "createdAt": "Thu, 05 Jan 2017 11:40:00 GMT",
+            "content": "esse repellat quisquam",
+            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
             "id": "2",
             "typeName": "Story",
           },
@@ -2443,21 +3355,43 @@ exports[`should render correctly 1`] = `
           "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tre Lind",
+            "fullName": "Ezequiel Ortiz",
           },
           "subject": Object {
-            "__typename": "Story",
-            "author": Object {
-              "__typename": "Person",
-              "firstName": "Marcellus",
-              "fullName": "Marcellus Hyatt",
-              "id": "6",
-              "lastName": "Hyatt",
-            },
-            "content": "qui amet iure",
-            "createdAt": "Sun, 31 Jul 2016 16:52:49 GMT",
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "ratione ut sunt",
+            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
             "id": "5",
-            "typeName": "Story",
+            "person": Object {
+              "__typename": "Person",
+              "firstName": "Chyna",
+              "fullName": "Chyna Howe",
+              "id": "6",
+              "lastName": "Howe",
+            },
+            "typeName": "CommunityCelebrationItemComment",
+          },
+        },
+        Object {
+          "__typename": "ContentComplaint",
+          "id": "7",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Marlene Ledner",
+          },
+          "subject": Object {
+            "__typename": "CommunityCelebrationItemComment",
+            "content": "qui recusandae ut",
+            "createdAt": "Sat, 30 Jul 2011 23:09:48 GMT",
+            "id": "8",
+            "person": Object {
+              "__typename": "Person",
+              "firstName": "Heather",
+              "fullName": "Heather Hahn",
+              "id": "9",
+              "lastName": "Hahn",
+            },
+            "typeName": "CommunityCelebrationItemComment",
           },
         },
       ]
@@ -2585,7 +3519,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Darwin Bosco
+                Elizabeth Zulauf
               </Text>
             </View>
             <View
@@ -2632,7 +3566,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Zola Corkery
+                Aaliyah Champlin
               </Text>
             </View>
           </View>
@@ -2686,7 +3620,7 @@ exports[`should render correctly 1`] = `
                     ]
                   }
                 >
-                  Zola Corkery
+                  Aaliyah Champlin
                 </Text>
                 <Text
                   style={
@@ -2705,7 +3639,7 @@ exports[`should render correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  January 5, 2017 @ 11:40 AM
+                  September 19, 2010 @ 3:58 AM
                 </Text>
               </View>
               <View
@@ -2750,7 +3684,7 @@ exports[`should render correctly 1`] = `
                       ]
                     }
                   >
-                    recusandae alias consequuntur
+                    esse repellat quisquam
                   </Text>
                 </View>
                 <View
@@ -3019,7 +3953,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Tre Lind
+                Ezequiel Ortiz
               </Text>
             </View>
             <View
@@ -3047,7 +3981,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Story By
+                Comment By
                 :
               </Text>
               <Text
@@ -3066,7 +4000,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Marcellus Hyatt
+                Chyna Howe
               </Text>
             </View>
           </View>
@@ -3120,7 +4054,7 @@ exports[`should render correctly 1`] = `
                     ]
                   }
                 >
-                  Marcellus Hyatt
+                  Chyna Howe
                 </Text>
                 <Text
                   style={
@@ -3139,7 +4073,7 @@ exports[`should render correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  July 31, 2016 @ 4:52 PM
+                  January 27, 2016 @ 11:31 AM
                 </Text>
               </View>
               <View
@@ -3184,7 +4118,441 @@ exports[`should render correctly 1`] = `
                       ]
                     }
                   >
-                    qui amet iure
+                    ratione ut sunt
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "flex": 1,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="ignoreButton"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {
+                        "borderBottomLeftRadius": 8,
+                        "borderRightColor": "#ffffff",
+                        "borderRightWidth": 1,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 14,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    IGNORE
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="deleteButton"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#52C5DC",
+                        "height": 60,
+                        "justifyContent": "center",
+                      },
+                      null,
+                      Object {
+                        "borderBottomRightRadius": 8,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "backgroundColor": "rgba(0,0,0,0)",
+                            "color": "#ffffff",
+                            "fontSize": 14,
+                            "fontWeight": "500",
+                            "letterSpacing": 1.5,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ]
+                    }
+                  >
+                    DELETE
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flexDirection": "row",
+                "marginHorizontal": 16,
+                "marginVertical": 8,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "backgroundColor": "#505256",
+                "flexDirection": "column",
+                "marginBottom": 8,
+                "marginHorizontal": 20,
+                "marginVertical": 0,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#A0A2A6",
+                  "borderBottomWidth": 1,
+                  "padding": 15,
+                },
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                    },
+                  ]
+                }
+              >
+                Reported By
+                :
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ]
+                }
+              >
+                Marlene Ledner
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                    },
+                  ]
+                }
+              >
+                Comment By
+                :
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ]
+                }
+              >
+                Heather Hahn
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingVertical": 15,
+                },
+                Object {},
+              ]
+            }
+          >
+            <View
+              collapsable={false}
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "flex-end",
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "paddingLeft": 10,
+                        "paddingRight": 5,
+                      },
+                    ]
+                  }
+                >
+                  Heather Hahn
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                  testID="Text"
+                >
+                  July 30, 2011 @ 11:09 PM
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderRadius": 8,
+                        "marginVertical": 5,
+                        "paddingHorizontal": 13,
+                        "paddingVertical": 8,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "paddingVertical": 3,
+                          },
+                          null,
+                        ],
+                      ]
+                    }
+                  >
+                    qui recusandae ut
                   </Text>
                 </View>
                 <View
