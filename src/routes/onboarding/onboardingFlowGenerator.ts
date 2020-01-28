@@ -176,6 +176,7 @@ export const onboardingFlowGenerator = ({
     ) => {
       const isMe = personId === getState().auth.person.id;
 
+      // @ts-ignore
       dispatch(createCustomStep(text, personId));
 
       if (isMe) {

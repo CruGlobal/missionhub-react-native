@@ -23,10 +23,12 @@ export const useLogoutOnBack = (
               actionLabel: t('action'),
             }).then(isLoggingOut => {
               if (isLoggingOut) {
+                // @ts-ignore
                 store.dispatch(logout());
               }
             });
           } else {
+            // @ts-ignore
             store.dispatch(navigateBack());
           }
         }

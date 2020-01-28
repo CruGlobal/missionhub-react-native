@@ -48,6 +48,7 @@ const CelebrateCommentBox = ({
 
   return (
     <CommentBox
+      // @ts-ignore
       testID="CelebrateCommentBox"
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}
