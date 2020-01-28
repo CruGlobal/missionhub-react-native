@@ -19,6 +19,7 @@ import { navToPersonScreen } from '../../actions/person';
 import { myStepsSelector } from '../../selectors/steps';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -167,6 +168,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
+      <AnnouncementsModal />
       <Header
         testID="header"
         left={
