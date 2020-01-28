@@ -13,7 +13,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
 import ReportCommentItem from '../ReportCommentItem';
-import Analytics from '../Analytics';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Organization } from '../../reducers/organizations';
 
 import {
@@ -64,6 +64,7 @@ export const GET_REPORTED_CONTENT = gql`
 
 const GroupReport = () => {
   const { t } = useTranslation('groupsReport');
+  useAnalytics(['celebrate', 'reported content']);
   const dispatch = useDispatch();
   const organization: Organization = useNavigationParam('organization');
   const {
@@ -113,10 +114,10 @@ const GroupReport = () => {
 
   return (
     <View style={styles.redPageContainer}>
-      <Analytics screenName={['celebrate', 'reported comments']} />
       <Header
         right={
           <IconButton
+            testID="closeButton"
             name="deleteIcon"
             type="MissionHub"
             onPress={navigateOut}
