@@ -1,120 +1,128 @@
-import { celebrationSelector, celebrationItemSelector } from '../celebration';
+import { celebrationSelector } from '../celebration';
 import { ACCEPTED_STEP } from '../../constants';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
-const itemOne = {
+const itemOne: GetCelebrateFeed_community_celebrationItems_nodes = {
+  __typename: 'CommunityCelebrationItem',
   id: '1',
-  celebrateable_type: 'interaction',
-  adjective_attribute_value: 2,
-  changed_attribute_value: '2018-01-01 00:00:00 UTC',
+  adjectiveAttributeName: '',
+  adjectiveAttributeValue: '2',
+  celebrateableId: '1',
+  celebrateableType: 'interaction',
+  changedAttributeName: '',
+  changedAttributeValue: '2018-01-01 00:00:00 UTC',
+  commentsCount: 0,
+  liked: false,
+  likesCount: 0,
+  objectDescription: null,
+  subjectPerson: null,
+  subjectPersonName: null,
 };
 
-const celebrateItems = [
+const celebrateItems: GetCelebrateFeed_community_celebrationItems_nodes[] = [
   itemOne,
   {
+    ...itemOne,
     id: '2',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 4,
-    changed_attribute_value: '2017-01-01 00:00:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '4',
+    changedAttributeValue: '2017-01-01 00:00:00 UTC',
   },
   {
+    ...itemOne,
     id: '3',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 11,
-    changed_attribute_value: '2018-01-02 00:07:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '11',
+    changedAttributeValue: '2018-01-02 00:07:00 UTC',
   },
   {
+    ...itemOne,
     id: '4',
-    celebrateable_type: ACCEPTED_STEP,
-    adjective_attribute_value: 2,
-    changed_attribute_value: '2018-01-07 00:00:00 UTC',
+    celebrateableType: ACCEPTED_STEP,
+    adjectiveAttributeValue: '2',
+    changedAttributeValue: '2018-01-07 00:00:00 UTC',
   },
   {
+    ...itemOne,
     id: '5',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 9,
-    changed_attribute_value: '2018-01-05 00:00:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '9',
+    changedAttributeValue: '2018-01-05 00:00:00 UTC',
   },
   {
+    ...itemOne,
     id: '6',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 5,
-    changed_attribute_value: '2018-01-02 00:23:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '5',
+    changedAttributeValue: '2018-01-02 00:23:00 UTC',
   },
   {
+    ...itemOne,
     id: '7',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 3,
-    changed_attribute_value: '2018-01-02 00:00:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '3',
+    changedAttributeValue: '2018-01-02 00:00:00 UTC',
   },
   {
+    ...itemOne,
     id: '8',
-    celebrateable_type: 'accepted_community_challenge',
-    changed_attribute_name: 'accepted_at',
-    changed_attribute_value: '2018-01-06 00:04:00 UTC',
+    celebrateableType: 'accepted_community_challenge',
+    changedAttributeName: 'accepted_at',
+    changedAttributeValue: '2018-01-06 00:04:00 UTC',
   },
   {
+    ...itemOne,
     id: '9',
-    celebrateable_type: 'accepted_community_challenge',
-    changed_attribute_name: 'completed_at',
-    changed_attribute_value: '2018-01-06 00:05:00 UTC',
+    celebrateableType: 'accepted_community_challenge',
+    changedAttributeName: 'completed_at',
+    changedAttributeValue: '2018-01-06 00:05:00 UTC',
   },
   {
+    ...itemOne,
     id: '10',
-    celebrateable_type: 'organization',
-    changed_attribute_name: 'created_at',
-    changed_attribute_value: '2016-12-25 00:02:00 UTC',
+    celebrateableType: 'organization',
+    changedAttributeName: 'created_at',
+    changedAttributeValue: '2016-12-25 00:02:00 UTC',
   },
   {
+    ...itemOne,
     id: '11',
-    celebrateable_type: 'organizational_permission',
-    changed_attribute_name: 'created_at',
-    changed_attribute_value: '2016-12-25 00:09:00 UTC',
+    celebrateableType: 'organizational_permission',
+    changedAttributeName: 'created_at',
+    changedAttributeValue: '2016-12-25 00:09:00 UTC',
   },
   {
+    ...itemOne,
     id: '12',
-    celebrateable_type: 'story',
-    changed_attribute_name: 'created_at',
-    changed_attribute_value: '2016-12-25 00:09:00 UTC',
+    celebrateableType: 'story',
+    changedAttributeName: 'created_at',
+    changedAttributeValue: '2016-12-25 00:09:00 UTC',
   },
 ];
 
-const invalidItems = [
+const invalidItems: GetCelebrateFeed_community_celebrationItems_nodes[] = [
   {
+    ...itemOne,
     id: '13',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 42,
-    changed_attribute_value: '2018-01-01 00:00:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '42',
+    changedAttributeValue: '2018-01-01 00:00:00 UTC',
   },
   {
+    ...itemOne,
     id: '14',
-    celebrateable_type: 'interaction',
-    adjective_attribute_value: 1,
-    changed_attribute_value: '2017-01-01 00:00:00 UTC',
+    celebrateableType: 'interaction',
+    adjectiveAttributeValue: '1',
+    changedAttributeValue: '2017-01-01 00:00:00 UTC',
   },
   {
+    ...itemOne,
     id: '15',
-    celebrateable_type: 'roge',
-    adjective_attribute_value: 11,
-    changed_attribute_value: '2018-01-02 00:07:00 UTC',
+    celebrateableType: 'roge',
+    adjectiveAttributeValue: '11',
+    changedAttributeValue: '2018-01-02 00:07:00 UTC',
   },
 ];
-
-describe('celebrationItemSelector', () => {
-  const org = { id: '314234234', celebrateItems: [itemOne] };
-
-  expect(
-    celebrationItemSelector(
-      {
-        organizations: {
-          all: [org],
-          surveysPagination: { page: 1, hasNextPage: false },
-          membersPagination: { page: 1, hasNextPage: false },
-        },
-      },
-      { organizationId: org.id, eventId: itemOne.id },
-    ),
-  ).toEqual(itemOne);
-});
 
 describe('celebrationSelector', () => {
   it('sorts items into sections by date', () => {

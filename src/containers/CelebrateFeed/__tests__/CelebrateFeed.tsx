@@ -1,139 +1,227 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { MockList } from 'graphql-tools';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
+import { useQuery } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../../actions/navigation';
-import { renderShallow } from '../../../../testUtils';
-import { ACCEPTED_STEP } from '../../../constants';
+import { renderWithContext } from '../../../../testUtils';
+import { organizationSelector } from '../../../selectors/organizations';
+import { Organization } from '../../../reducers/organizations';
+import { Person } from '../../../reducers/people';
 
-import CelebrateFeed from '..';
+import CelebrateFeed, { GET_CELEBRATE_FEED } from '..';
 
 jest.mock('../../../actions/navigation');
-jest.mock('../../../actions/celebration');
+jest.mock('../../../selectors/organizations');
+jest.mock('../../../components/common', () => ({
+  DateComponent: 'DateComponent',
+}));
+jest.mock('../../../components/CelebrateItem', () => 'CelebrateItem');
+jest.mock('../../Groups/ShareStoryInput', () => 'ShareStoryInput');
+jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
 
 const myId = '123';
-const organization = { id: '456' };
-const store = configureStore([thunk])({ auth: { person: { id: myId } } });
-
-const celebrationItems = [
-  {
-    date: '2018-03-01 12:00:00',
-    data: [
-      {
-        id: '1',
-        subject_person_name: 'Roge Dog',
-        celebrateable_type: ACCEPTED_STEP,
-        likes_count: 0,
-        adjective_attribute_value: '2',
-        changed_attribute_value: '2018-03-01 12:00:00',
-      },
-      {
-        id: '2',
-        subject_person_name: 'DG With me?',
-        celebrateable_type: 'interaction',
-        likes_count: 0,
-        adjective_attribute_value: '4',
-        changed_attribute_value: '2018-03-01 12:00:00',
-      },
-    ],
-  },
-  {
-    date: '2018-01-01 12:00:00',
-    data: [
-      {
-        id: '4',
-        subject_person_name: 'Roge Dog',
-        celebrateable_type: ACCEPTED_STEP,
-        likes_count: 11,
-        adjective_attribute_value: '1',
-        changed_attribute_value: '2018-01-01 12:00:00',
-      },
-      {
-        id: '3',
-        subject_person_name: 'DG With me?',
-        celebrateable_type: 'interaction',
-        likes_count: 42,
-        adjective_attribute_value: '5',
-        changed_attribute_value: '2018-01-01 12:00:00',
-      },
-    ],
-  },
-];
+const organization: Organization = { id: '456' };
+const person: Person = { id: '789' };
 
 const navigatePushResult = { type: 'navigated' };
 
-// @ts-ignore
-let component;
-
-// @ts-ignore
-navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
-
 beforeEach(() => {
-  component = renderShallow(
-    // @ts-ignore
-    <CelebrateFeed items={celebrationItems} organization={organization} />,
-    store,
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
+    organization,
   );
+  jest.useFakeTimers();
 });
 
-describe('Member Feed rendering', () => {
-  it('renders correctly for member feed', () => {
-    // @ts-ignore
-    expect(component).toMatchSnapshot();
+it('renders empty correctly', () => {
+  renderWithContext(
+    <CelebrateFeed organization={organization} itemNamePressable={true} />,
+    {
+      initialState: {
+        auth: { person: { id: myId } },
+        organizations: { all: [organization] },
+        reportedComments: { all: { [organization.id]: [] } },
+        swipe: { groupOnboarding: {} },
+      },
+      mocks: {
+        CommunityCelebrationItemConnection: () => ({
+          nodes: () => new MockList(10),
+        }),
+      },
+    },
+  ).snapshot();
+});
+
+it('renders with celebration items correctly', async () => {
+  const { snapshot } = renderWithContext(
+    <CelebrateFeed organization={organization} itemNamePressable={true} />,
+    {
+      initialState: {
+        auth: { person: { id: myId } },
+        organizations: { all: [organization] },
+        reportedComments: { all: { [organization.id]: [] } },
+        swipe: { groupOnboarding: {} },
+      },
+      mocks: {
+        CommunityCelebrationItemConnection: () => ({
+          nodes: () => new MockList(10),
+        }),
+      },
+    },
+  );
+
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    pollInterval: 30000,
+    variables: {
+      communityId: organization.id,
+      hasUnreadComments: undefined,
+      personIds: undefined,
+    },
   });
 });
 
-describe('no header rendering', () => {
-  it('renders correctly for no header', () => {
-    component = renderShallow(
+describe('renders for member', () => {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CelebrateFeed
-        // @ts-ignore
-        noHeader={true}
-        items={celebrationItems}
         organization={organization}
+        person={person}
+        itemNamePressable={true}
       />,
-      store,
+      {
+        initialState: {
+          auth: { person: { id: myId } },
+          organizations: { all: [organization] },
+          reportedComments: { all: { [organization.id]: [] } },
+          swipe: { groupOnboarding: {} },
+        },
+        mocks: {
+          CommunityCelebrationItemConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
     );
-    expect(component).toMatchSnapshot();
+
+    await flushMicrotasksQueue();
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: undefined,
+        personIds: [person.id],
+      },
+    });
+  });
+
+  it('renders without header', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed
+        organization={organization}
+        person={person}
+        itemNamePressable={true}
+        noHeader={true}
+      />,
+      {
+        initialState: {
+          auth: { person: { id: myId } },
+          organizations: { all: [organization] },
+          reportedComments: { all: { [organization.id]: [] } },
+          swipe: { groupOnboarding: {} },
+        },
+        mocks: {
+          CommunityCelebrationItemConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: undefined,
+        personIds: [person.id],
+      },
+    });
   });
 });
 
-describe('renders with clear notification set', () => {
-  it('renders correctly with clear notification set', () => {
-    component = renderShallow(
+describe('renders with clear notification', () => {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CelebrateFeed
-        // @ts-ignore
+        organization={organization}
+        itemNamePressable={true}
         onClearNotification={jest.fn()}
-        noHeader={true}
-        items={celebrationItems}
-        organization={organization}
       />,
-      store,
+      {
+        initialState: {
+          auth: { person: { id: myId } },
+          organizations: { all: [organization] },
+          reportedComments: { all: { [organization.id]: [] } },
+          swipe: { groupOnboarding: {} },
+        },
+        mocks: {
+          CommunityCelebrationItemConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
     );
-    expect(component).toMatchSnapshot();
+
+    await flushMicrotasksQueue();
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+      },
+    });
   });
 });
 
-it('renders section header', () => {
-  // @ts-ignore
-  const renderedItem = component
-    .instance()
-    .renderSectionHeader({ section: { date: '2018-08-13T12:00:00.000Z' } });
-  expect(renderedItem).toMatchSnapshot();
-});
+describe('renders for Unread Comments', () => {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed
+        organization={organization}
+        itemNamePressable={true}
+        showUnreadOnly={true}
+      />,
+      {
+        initialState: {
+          auth: { person: { id: myId } },
+          organizations: { all: [organization] },
+          reportedComments: { all: { [organization.id]: [] } },
+          swipe: { groupOnboarding: {} },
+        },
+        mocks: {
+          CommunityCelebrationItemConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
+    );
 
-describe('item', () => {
-  it('renders correctly', () => {
-    // @ts-ignore
-    const renderedItem = component
-      .instance()
-      .renderItem({ item: celebrationItems[0] });
-    expect(renderedItem).toMatchSnapshot();
+    await flushMicrotasksQueue();
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: true,
+        personIds: undefined,
+      },
+    });
   });
-});
-
-it('renderHeader match snapshot', () => {
-  // @ts-ignore
-  const header = component.instance().renderHeader();
-  expect(header).toMatchSnapshot();
 });

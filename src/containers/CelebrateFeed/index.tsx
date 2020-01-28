@@ -29,7 +29,7 @@ import styles from './styles';
 export const GET_CELEBRATE_FEED = gql`
   query GetCelebrateFeed(
     $communityId: ID!
-    $personId: ID
+    $personIds: [ID!] = null
     $hasUnreadComments: Boolean = false
     $celebrateCursor: String
   ) {
@@ -38,7 +38,7 @@ export const GET_CELEBRATE_FEED = gql`
         sortBy: createdAt_ASC
         first: 25
         after: $celebrateCursor
-        subjectPersonIds: [$personId]
+        subjectPersonIds: $personIds
         hasUnreadComments: $hasUnreadComments
       ) {
         nodes {
@@ -110,7 +110,7 @@ const CelebrateFeed = ({
   } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
     variables: {
       communityId: organization.id,
-      personId: person.id,
+      personIds: (person && [person.id]) || undefined,
       hasUnreadComments: showUnreadOnly,
     },
     pollInterval: 30000,
@@ -130,7 +130,7 @@ const CelebrateFeed = ({
       fetchMore({
         variables: {
           communityId: organization.id,
-          personId: person.id,
+          personIds: (person && [person.id]) || undefined,
           hasUnreadComments: showUnreadOnly,
           celebrateCursor: endCursor,
         },
