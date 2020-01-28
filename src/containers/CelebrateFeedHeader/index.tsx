@@ -17,10 +17,10 @@ import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
 import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
 import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
-
-import styles from './styles';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
+
+import styles from './styles';
 
 interface CelebrateFeedHeaderProps {
   shouldQueryReport: boolean;

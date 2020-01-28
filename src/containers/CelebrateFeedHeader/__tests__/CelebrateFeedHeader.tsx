@@ -1,7 +1,10 @@
+/* eslint-disable max-lines */
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { MockList } from 'graphql-tools';
+import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { getReportedComments } from '../../../actions/reportComments';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { organizationSelector } from '../../../selectors/organizations';
 import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
@@ -15,9 +18,6 @@ import { markCommentsRead } from '../../../actions/unreadComments';
 import { GROUP_UNREAD_FEED_SCREEN } from '../../Groups/GroupUnreadFeed';
 
 import CelebrateFeedHeader from '..';
-import { useQuery } from '@apollo/react-hooks';
-import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
-import { MockList } from 'graphql-tools';
 
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/organizations');

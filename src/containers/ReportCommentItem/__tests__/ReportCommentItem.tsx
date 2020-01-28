@@ -1,6 +1,9 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import i18n from 'i18next';
+import { fireEvent } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
+
 import { renderWithContext } from '../../../../testUtils';
 import { deleteCelebrateComment } from '../../../actions/celebrateComments';
 import {
@@ -9,8 +12,6 @@ import {
 } from '../../../actions/reportComments';
 
 import ReportCommentItem, { RESPOND_TO_CONTENT_COMPLAINT } from '..';
-import { fireEvent } from 'react-native-testing-library';
-import { useMutation } from '@apollo/react-hooks';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');

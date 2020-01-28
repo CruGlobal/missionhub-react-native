@@ -1,12 +1,11 @@
 import React from 'react';
+import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
+import { MockList } from 'graphql-tools';
 
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import GroupReport from '../GroupReport';
 import { renderWithContext } from '../../../../testUtils';
-
 import { navigateBack } from '../../../actions/navigation';
-import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { MockList } from 'graphql-tools';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/celebrateComments');

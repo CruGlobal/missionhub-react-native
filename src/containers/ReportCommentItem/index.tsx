@@ -8,15 +8,15 @@ import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
 import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
-import {
-  respondToContentComplaintVariables,
-  respondToContentComplaint,
-} from './__generated__/respondToContentComplaint';
 
+import {
+  RespondToContentComplaintVariables,
+  RespondToContentComplaint,
+} from './__generated__/respondToContentComplaint';
 import styles from './styles';
 
 export const RESPOND_TO_CONTENT_COMPLAINT = gql`
-  mutation respondToContentComplaint($input: RespondToContentComplaintInput!) {
+  mutation RespondToContentComplaint($input: RespondToContentComplaintInput!) {
     respondToContentComplaint(input: $input) {
       contentComplaint {
         id
@@ -36,8 +36,8 @@ const ReportCommentItem = ({
   const { t } = useTranslation('reportComment');
 
   const [respondToContentComplaint] = useMutation<
-    respondToContentComplaint,
-    respondToContentComplaintVariables
+    RespondToContentComplaint,
+    RespondToContentComplaintVariables
   >(RESPOND_TO_CONTENT_COMPLAINT);
   const handleIgnore = async () => {
     await respondToContentComplaint({
