@@ -9,11 +9,15 @@ import ItemHeaderText from '../../components/ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
 import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../reducers/organizations';
+import { Person } from '../../reducers/people';
 
 export interface CelebrateItemNameProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   name: string | null;
-  person: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson | null;
+  person:
+    | GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson
+    | Person
+    | null;
   organization: Organization;
   pressable: boolean;
   customContent?: JSX.Element;
@@ -41,7 +45,7 @@ const CelebrateItemName = ({
   }
 
   return (
-    <Button type="transparent" onPress={onPressNameLink}>
+    <Button testID="NameButton" type="transparent" onPress={onPressNameLink}>
       {content}
     </Button>
   );

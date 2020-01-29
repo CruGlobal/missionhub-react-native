@@ -111,7 +111,6 @@ exports[`Community renders correctly 1`] = `
             Object {
               "marginTop": 14,
             },
-            Object {},
             undefined,
           ]
         }
@@ -160,11 +159,14 @@ exports[`Community renders correctly 1`] = `
         ]
       }
     >
-      // @ts-ignore
       <View
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="flex-end"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
       >
         <Text
           style={
@@ -389,7 +391,6 @@ exports[`Community renders story item correctly 1`] = `
                 Object {
                   "marginTop": 14,
                 },
-                Object {},
                 undefined,
               ]
             }
@@ -438,11 +439,14 @@ exports[`Community renders story item correctly 1`] = `
             ]
           }
         >
-          // @ts-ignore
           <View
-            alignItems="center"
-            flexDirection="row"
-            justifyContent="flex-end"
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+              }
+            }
           >
             <Text
               style={
@@ -652,7 +656,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
             Object {
               "marginTop": 14,
             },
-            Object {},
             undefined,
           ]
         }
@@ -701,11 +704,14 @@ exports[`Community renders with clear notification button correctly 1`] = `
         ]
       }
     >
-      // @ts-ignore
       <View
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="flex-end"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
       >
         <Text
           style={
@@ -975,7 +981,6 @@ exports[`global community renders correctly 1`] = `
             Object {
               "marginTop": 14,
             },
-            Object {},
             undefined,
           ]
         }
@@ -1024,11 +1029,14 @@ exports[`global community renders correctly 1`] = `
         ]
       }
     >
-      // @ts-ignore
       <View
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="flex-end"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
       >
         <Text
           style={
@@ -1228,7 +1236,6 @@ exports[`global community renders story item correctly 1`] = `
             Object {
               "marginTop": 14,
             },
-            Object {},
             undefined,
           ]
         }
@@ -1277,11 +1284,14 @@ exports[`global community renders story item correctly 1`] = `
         ]
       }
     >
-      // @ts-ignore
       <View
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="flex-end"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
       >
         <Text
           style={
@@ -1481,7 +1491,6 @@ exports[`global community renders with clear notification button correctly 1`] =
             Object {
               "marginTop": 14,
             },
-            Object {},
             undefined,
           ]
         }
@@ -1530,11 +1539,14 @@ exports[`global community renders with clear notification button correctly 1`] =
         ]
       }
     >
-      // @ts-ignore
       <View
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="flex-end"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
       >
         <Text
           style={
@@ -1844,7 +1856,6 @@ exports[`renders with name pressable correctly 1`] = `
             Object {
               "marginTop": 14,
             },
-            Object {},
             undefined,
           ]
         }
@@ -1893,11 +1904,14 @@ exports[`renders with name pressable correctly 1`] = `
         ]
       }
     >
-      // @ts-ignore
       <View
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="flex-end"
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
       >
         <Text
           style={

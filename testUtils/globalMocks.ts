@@ -2,6 +2,8 @@ import faker from 'faker/locale/en';
 import { IMocks } from 'graphql-tools';
 import moment from 'moment';
 
+import { CELEBRATEABLE_TYPES } from '../src/constants';
+
 let currentId = 1;
 const nextId = () => currentId++;
 export const resetGlobalMockSeeds = () => {
@@ -10,7 +12,13 @@ export const resetGlobalMockSeeds = () => {
 };
 resetGlobalMockSeeds();
 
-const ISO8601DateTime = () => faker.date.past(10, '2020-01-14').toUTCString();
+const validCelebrateableTypes = [
+  CELEBRATEABLE_TYPES.completedStep,
+  CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+  CELEBRATEABLE_TYPES.createdCommunity,
+  CELEBRATEABLE_TYPES.joinedCommunity,
+  CELEBRATEABLE_TYPES.story,
+];
 
 export const globalMocks: IMocks = {
   String: () => faker.lorem.words(),
@@ -18,7 +26,7 @@ export const globalMocks: IMocks = {
   Float: () => faker.random.number({ precision: 0.01 }),
   Boolean: () => faker.random.boolean(),
   ID: () => nextId(),
-  ISO8601DateTime,
+  ISO8601DateTime: () => faker.date.past(10, '2020-01-14').toUTCString(),
   ISO8601Date: () =>
     moment(faker.date.past(10, '2020-01-14')).format('YYYY-MM-DD'),
 
@@ -43,11 +51,14 @@ export const globalMocks: IMocks = {
   Community: () => ({
     name: faker.company.catchPhrase(),
   }),
-  CommunityCelebrateItem: () => {
+  CommunityCelebrationItem: () => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     return {
-      changedAttributeValue: ISO8601DateTime(),
+      celebrateableType: faker.random.arrayElement(validCelebrateableTypes),
+      changedAttributeValue: moment(faker.date.past(10, '2020-01-14')).format(
+        'YYYY-MM-DDTHH:mm:ss:SS',
+      ),
       subjectPersonName: `${firstName} ${lastName}`,
     };
   },

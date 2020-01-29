@@ -67,6 +67,7 @@ const CommentLikeComponent = ({
           {displayLikeCount ? likesCount : null}
         </Text>
         <Button
+          testID="LikeIconButton"
           type="transparent"
           disabled={isLikeDisabled}
           onPress={onPressLikeIcon}

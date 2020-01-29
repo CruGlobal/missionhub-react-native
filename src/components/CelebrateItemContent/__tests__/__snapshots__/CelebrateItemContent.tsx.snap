@@ -7,7 +7,6 @@ exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -106,7 +105,6 @@ exports[`CelebrateItemContent message renders completed challenge event 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -205,7 +203,6 @@ exports[`CelebrateItemContent message renders created community event 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -239,7 +236,6 @@ exports[`CelebrateItemContent message renders event with no subject person name 
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -273,7 +269,6 @@ exports[`CelebrateItemContent message renders interaction event discipleship 1`]
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -307,7 +302,6 @@ exports[`CelebrateItemContent message renders interaction event gospel 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -341,7 +335,6 @@ exports[`CelebrateItemContent message renders interaction event holy spirit 1`] 
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -375,7 +368,6 @@ exports[`CelebrateItemContent message renders interaction event not found 1`] = 
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -409,7 +401,6 @@ exports[`CelebrateItemContent message renders interaction event personal decisio
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -443,7 +434,6 @@ exports[`CelebrateItemContent message renders interaction event something cool 1
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -477,7 +467,6 @@ exports[`CelebrateItemContent message renders interaction event spiritual 1`] = 
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -511,7 +500,6 @@ exports[`CelebrateItemContent message renders joined community event 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -538,40 +526,6 @@ exports[`CelebrateItemContent message renders joined community event 1`] = `
 </View>
 `;
 
-exports[`CelebrateItemContent message renders joined community with passed in org name 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      Object {},
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. joined My Real Org! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
-</View>
-`;
-
 exports[`CelebrateItemContent message renders step of faith event with stage 1 1`] = `
 <View
   style={
@@ -579,7 +533,6 @@ exports[`CelebrateItemContent message renders step of faith event with stage 1 1
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -613,7 +566,6 @@ exports[`CelebrateItemContent message renders step of faith event with stage 2 1
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -647,7 +599,6 @@ exports[`CelebrateItemContent message renders step of faith event with stage 3 1
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -681,7 +632,6 @@ exports[`CelebrateItemContent message renders step of faith event with stage 4 1
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -715,7 +665,6 @@ exports[`CelebrateItemContent message renders step of faith event with stage 5 1
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -749,7 +698,6 @@ exports[`CelebrateItemContent message renders step of faith event with stage Not
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -783,7 +731,6 @@ exports[`CelebrateItemContent message renders step of faith event without stage 
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -817,7 +764,6 @@ exports[`CelebrateItemContent message renders story 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -851,7 +797,6 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -883,7 +828,6 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -915,7 +859,6 @@ exports[`CelebrateItemContent renders event for subject=me, liked=true, like cou
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -947,7 +890,6 @@ exports[`CelebrateItemContent renders event for subject=other, liked=false, like
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -978,41 +920,6 @@ exports[`CelebrateItemContent renders event for subject=other, liked=true, like 
     Array [
       Object {
         "marginTop": 14,
-      },
-      Object {},
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  />
-</View>
-`;
-
-exports[`CelebrateItemContent renders event with fixed height 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      Object {
-        "height": 70,
       },
       undefined,
     ]
@@ -1045,7 +952,6 @@ exports[`CelebrateItemContent renders event with no subject person (global commu
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }
@@ -1077,7 +983,6 @@ exports[`CelebrateItemContent renders event with no subject person name 1`] = `
       Object {
         "marginTop": 14,
       },
-      Object {},
       undefined,
     ]
   }

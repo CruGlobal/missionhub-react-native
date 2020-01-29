@@ -202,4 +202,5 @@ const CelebrateItemContent = ({
     </View>
   );
 };
+
 export default connect()(CelebrateItemContent);

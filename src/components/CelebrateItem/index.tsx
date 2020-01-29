@@ -18,8 +18,8 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
-import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { Person } from '../../reducers/people';
 import { CELEBRATEABLE_TYPES } from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
