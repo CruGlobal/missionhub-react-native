@@ -12,7 +12,7 @@ import { navigatePush } from '../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
-} from '../../containers/Groups/OnboardingCard';
+} from '../Groups/OnboardingCard';
 import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
 import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
@@ -67,6 +67,8 @@ const CelebrateFeedHeader = ({
 
     return (
       <UnreadCommentsCard
+        //@ts-ignore
+        testID="UnreadCommentsCard"
         count={newCommentsCount}
         onPress={commentCard}
         onClose={closeCommentCard}
@@ -79,12 +81,20 @@ const CelebrateFeedHeader = ({
       return null;
     }
 
-    return <ReportCommentHeaderCard onPress={report} count={reportedCount} />;
+    return (
+      <ReportCommentHeaderCard
+        //@ts-ignore
+        testID="ReportCommentCard"
+        onPress={report}
+        count={reportedCount}
+      />
+    );
   };
 
   return (
     <Fragment>
       {isCommentCardVisible ? null : (
+        //@ts-ignore
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
       {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
