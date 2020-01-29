@@ -81,6 +81,7 @@ export interface CelebrateFeedProps {
   onClearNotification?: (
     event: GetCelebrateFeed_community_celebrationItems_nodes,
   ) => void;
+  testID?: string;
 }
 
 const CelebrateFeed = ({

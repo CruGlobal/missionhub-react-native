@@ -33,6 +33,7 @@ const GroupCelebrate = ({
     <>
       <Analytics screenName={['community', 'celebrate']} />
       <CelebrateFeed
+        testID="CelebrateFeed"
         organization={organization}
         onRefetch={handleRefetch}
         itemNamePressable={!orgIsGlobal(organization)}

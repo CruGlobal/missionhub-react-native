@@ -57,6 +57,7 @@ const GroupUnreadFeed = ({
         left={<BackButton />}
         right={
           <Button
+            testID="MarkAllButton"
             type="transparent"
             text={t('clearAll').toUpperCase()}
             style={styles.clearAllButton}
@@ -70,6 +71,7 @@ const GroupUnreadFeed = ({
       />
       <View style={styles.cardList}>
         <CelebrateFeed
+          testID="CelebrateFeed"
           organization={organization}
           onRefetch={handleRefetch}
           itemNamePressable={true}
