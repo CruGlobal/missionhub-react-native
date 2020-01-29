@@ -1,5 +1,6 @@
 import faker from 'faker/locale/en';
 import { IMocks } from 'graphql-tools';
+import moment from 'moment';
 
 let currentId = 1;
 const nextId = () => currentId++;
@@ -15,6 +16,9 @@ export const globalMocks: IMocks = {
   Float: () => faker.random.number({ precision: 0.01 }),
   Boolean: () => faker.random.boolean(),
   ID: () => nextId(),
+  ISO8601DateTime: () => faker.date.past(10, '2020-01-14').toUTCString(),
+  ISO8601Date: () =>
+    moment(faker.date.past(10, '2020-01-14')).format('YYYY-MM-DD'),
 
   BasePageInfo: () => ({
     endCursor: null,
