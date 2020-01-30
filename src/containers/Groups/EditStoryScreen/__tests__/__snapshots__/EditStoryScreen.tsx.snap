@@ -463,7 +463,6 @@ exports[`renders empty text correctly 1`] = `
       }
       testID="EditInput"
       underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
     />
   </View>
   <RCTSafeAreaView

@@ -4,15 +4,28 @@ import { fireEvent } from 'react-native-testing-library';
 import { navigateBack } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import EditStoryScreen from '..';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../utils/hooks/useAnalytics');
 
-const celebrationItem = {
-  celebrateable_id: '111',
-  object_description: 'It was the best of times...',
+const celebrationItem: GetCelebrateFeed_community_celebrationItems_nodes = {
+  __typename: 'CommunityCelebrationItem',
+  id: '1',
+  adjectiveAttributeName: null,
+  adjectiveAttributeValue: null,
+  celebrateableId: '111',
+  celebrateableType: '',
+  changedAttributeName: '',
+  changedAttributeValue: '',
+  commentsCount: 0,
+  liked: true,
+  likesCount: 1,
+  objectDescription: 'It was the best of times...',
+  subjectPerson: null,
+  subjectPersonName: null,
 };
 
 const newText = 'It was the worst of times...';
@@ -38,7 +51,7 @@ it('renders correctly', () => {
 it('renders empty text correctly', () => {
   renderWithContext(<EditStoryScreen />, {
     navParams: {
-      celebrationItem: { ...celebrationItem, object_description: '' },
+      celebrationItem: { ...celebrationItem, objectDescription: null },
       onRefresh,
     },
   }).snapshot();

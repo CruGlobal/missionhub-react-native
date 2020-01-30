@@ -7,16 +7,31 @@ import {
   resetCelebrateEditingComment,
   updateCelebrateComment,
 } from '../../../actions/celebrateComments';
-import { celebrationItemSelector } from '../../../selectors/celebration';
 import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CelebrateCommentBox from '..';
 
-jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../actions/celebrateComments');
 
-const event = { text: 'some celebrate item', organization: { id: 'orgId' } };
+const event: GetCelebrateFeed_community_celebrationItems_nodes = {
+  __typename: 'CommunityCelebrationItem',
+  id: '1',
+  adjectiveAttributeName: null,
+  adjectiveAttributeValue: null,
+  celebrateableId: '1',
+  celebrateableType: '',
+  changedAttributeName: '',
+  changedAttributeValue: '',
+  commentsCount: 0,
+  liked: true,
+  likesCount: 1,
+  objectDescription: null,
+  subjectPerson: null,
+  subjectPersonName: null,
+};
+
 const createCelebrateCommentResult = { type: 'created comment' };
 const updateCelebrateCommentResult = { type: 'update comment' };
 const resetCelebrateEditingCommentResult = { type: 'reset editing' };
@@ -27,7 +42,6 @@ const editingComment = {
 };
 const onAddComplete = jest.fn();
 const initialState = {
-  organizations: [],
   celebrateComments: {
     editingCommentId: null,
   },
@@ -49,7 +63,6 @@ beforeEach(() => {
   (resetCelebrateEditingComment as jest.Mock).mockReturnValue(
     resetCelebrateEditingCommentResult,
   );
-  ((celebrationItemSelector as unknown) as jest.Mock).mockReturnValue(event);
 });
 
 it('renders correctly', () => {
