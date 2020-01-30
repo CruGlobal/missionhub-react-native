@@ -47,6 +47,7 @@ class OnboardingCard extends Component {
     const { type, dispatch } = this.props;
     dispatch(removeGroupOnboardingCard(type));
   };
+
   render() {
     // @ts-ignore
     const { t, type, groupOnboarding } = this.props;

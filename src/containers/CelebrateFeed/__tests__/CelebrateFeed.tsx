@@ -26,6 +26,13 @@ const person: Person = { id: '789' };
 
 const navigatePushResult = { type: 'navigated' };
 
+const initialState = {
+  auth: { person: { id: myId } },
+  organizations: { all: [organization] },
+  reportedComments: { all: { [organization.id]: [] } },
+  swipe: { groupOnboarding: {} },
+};
+
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
@@ -38,12 +45,7 @@ it('renders empty correctly', () => {
   renderWithContext(
     <CelebrateFeed organization={organization} itemNamePressable={true} />,
     {
-      initialState: {
-        auth: { person: { id: myId } },
-        organizations: { all: [organization] },
-        reportedComments: { all: { [organization.id]: [] } },
-        swipe: { groupOnboarding: {} },
-      },
+      initialState,
       mocks: {
         CommunityCelebrationItemConnection: () => ({
           nodes: () => new MockList(10),
@@ -57,12 +59,7 @@ it('renders with celebration items correctly', async () => {
   const { snapshot } = renderWithContext(
     <CelebrateFeed organization={organization} itemNamePressable={true} />,
     {
-      initialState: {
-        auth: { person: { id: myId } },
-        organizations: { all: [organization] },
-        reportedComments: { all: { [organization.id]: [] } },
-        swipe: { groupOnboarding: {} },
-      },
+      initialState,
       mocks: {
         CommunityCelebrationItemConnection: () => ({
           nodes: () => new MockList(10),
@@ -92,12 +89,7 @@ describe('renders for member', () => {
         itemNamePressable={true}
       />,
       {
-        initialState: {
-          auth: { person: { id: myId } },
-          organizations: { all: [organization] },
-          reportedComments: { all: { [organization.id]: [] } },
-          swipe: { groupOnboarding: {} },
-        },
+        initialState,
         mocks: {
           CommunityCelebrationItemConnection: () => ({
             nodes: () => new MockList(10),
@@ -127,12 +119,7 @@ describe('renders for member', () => {
         noHeader={true}
       />,
       {
-        initialState: {
-          auth: { person: { id: myId } },
-          organizations: { all: [organization] },
-          reportedComments: { all: { [organization.id]: [] } },
-          swipe: { groupOnboarding: {} },
-        },
+        initialState,
         mocks: {
           CommunityCelebrationItemConnection: () => ({
             nodes: () => new MockList(10),
@@ -163,12 +150,7 @@ describe('renders with clear notification', () => {
         onClearNotification={jest.fn()}
       />,
       {
-        initialState: {
-          auth: { person: { id: myId } },
-          organizations: { all: [organization] },
-          reportedComments: { all: { [organization.id]: [] } },
-          swipe: { groupOnboarding: {} },
-        },
+        initialState,
         mocks: {
           CommunityCelebrationItemConnection: () => ({
             nodes: () => new MockList(10),
@@ -199,12 +181,7 @@ describe('renders for Unread Comments', () => {
         showUnreadOnly={true}
       />,
       {
-        initialState: {
-          auth: { person: { id: myId } },
-          organizations: { all: [organization] },
-          reportedComments: { all: { [organization.id]: [] } },
-          swipe: { groupOnboarding: {} },
-        },
+        initialState,
         mocks: {
           CommunityCelebrationItemConnection: () => ({
             nodes: () => new MockList(10),

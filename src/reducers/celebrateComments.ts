@@ -11,12 +11,6 @@ import { getPagination } from '../utils/common';
 import { PaginationObject } from './organizations';
 import { Person } from './people';
 
-export interface CelebrateEvent {
-  id: string;
-  updated_at: string;
-  created_at: string;
-  comments: CelebrateComment[];
-}
 export interface CelebrateComment {
   id: string;
   updated_at: string;
