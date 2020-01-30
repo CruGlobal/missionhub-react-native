@@ -1,7 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Text, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
@@ -19,18 +18,26 @@ import { Person } from '../../reducers/people';
 import styles from './styles';
 
 export interface CommentItemProps {
+  item: CelebrateComment;
+  menuActions?: {
+    text: string;
+    onPress: () => void;
+    destructive?: boolean;
+  }[];
+  organization: Organization;
+  isReported?: boolean;
   me: Person;
   isEditing: boolean;
 }
 
-const CommentItem = ({ me, isEditing }: CommentItemProps) => {
-  const item: CelebrateComment = useNavigationParam('item');
-  const organization: Organization = useNavigationParam('organization');
-  const isReported: boolean = useNavigationParam('isReported') || false;
-  const menuActions: {
-    [key: string]: { text: string; onPress: () => void; destructive?: boolean };
-  } = useNavigationParam('menuActions');
-
+const CommentItem = ({
+  item,
+  menuActions,
+  organization,
+  isReported,
+  me,
+  isEditing,
+}: CommentItemProps) => {
   const { content, person, created_at } = item;
   const {
     itemStyle,

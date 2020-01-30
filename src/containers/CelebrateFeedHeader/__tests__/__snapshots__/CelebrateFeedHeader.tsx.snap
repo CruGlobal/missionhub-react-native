@@ -115,7 +115,7 @@ exports[`admin global community renders without reported comments 1`] = `
         ]
       }
     >
-      0header
+      celebrate one another
     </Text>
     <Text
       style={
@@ -136,7 +136,7 @@ exports[`admin global community renders without reported comments 1`] = `
         ]
       }
     >
-      0Description
+      See and celebrate one another's Steps of Faith.
     </Text>
   </View>
   <View
@@ -375,7 +375,7 @@ exports[`members global community renders without reported comments 1`] = `
         ]
       }
     >
-      0header
+      celebrate one another
     </Text>
     <Text
       style={
@@ -396,7 +396,7 @@ exports[`members global community renders without reported comments 1`] = `
         ]
       }
     >
-      0Description
+      See and celebrate one another's Steps of Faith.
     </Text>
   </View>
   <View
@@ -628,7 +628,7 @@ exports[`owner global community renders without reported comments 1`] = `
         ]
       }
     >
-      0header
+      celebrate one another
     </Text>
     <Text
       style={
@@ -649,7 +649,7 @@ exports[`owner global community renders without reported comments 1`] = `
         ]
       }
     >
-      0Description
+      See and celebrate one another's Steps of Faith.
     </Text>
   </View>
   <View
@@ -918,7 +918,7 @@ exports[`unread comments card renders no comment card when global org 1`] = `
         ]
       }
     >
-      0header
+      celebrate one another
     </Text>
     <Text
       style={
@@ -939,7 +939,7 @@ exports[`unread comments card renders no comment card when global org 1`] = `
         ]
       }
     >
-      0Description
+      See and celebrate one another's Steps of Faith.
     </Text>
   </View>
   <View
@@ -1113,7 +1113,7 @@ Array [
           ]
         }
       >
-        0header
+        celebrate one another
       </Text>
       <Text
         style={
@@ -1134,7 +1134,7 @@ Array [
           ]
         }
       >
-        0Description
+        See and celebrate one another's Steps of Faith.
       </Text>
     </View>
     <View

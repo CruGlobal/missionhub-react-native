@@ -35,7 +35,7 @@ export interface CommentsListProps {
   organization: Organization;
   me: Person;
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  celebrateComments: { comments: CelebrateComment[]; pagination: any };
+  celebrateComments?: { comments: CelebrateComment[]; pagination: any };
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   listProps: { [key: string]: any };
 }
@@ -109,7 +109,12 @@ const CommentsList = ({
   };
 
   const menuActions = (item: CelebrateComment) => {
-    const actions = [];
+    const actions: {
+      text: string;
+      onPress: () => void;
+      destructive?: boolean;
+    }[] = [];
+
     const deleteAction = {
       text: t('deletePost'),
       onPress: () => handleDelete(item),
@@ -146,13 +151,14 @@ const CommentsList = ({
 
   const renderItem = ({ item }: { item: CelebrateComment }) => (
     <CommentItem
+      testID="CommentItem"
       item={item}
       menuActions={menuActions(item)}
       organization={organization}
     />
   );
 
-  const { comments, pagination } = celebrateComments;
+  const { comments, pagination } = celebrateComments || {};
   const { list, listContent } = styles;
 
   return (
@@ -164,7 +170,9 @@ const CommentsList = ({
       contentContainerStyle={listContent}
       ListFooterComponent={
         pagination &&
-        pagination.hasNextPage && <LoadMore onPress={handleLoadMore} />
+        pagination.hasNextPage && (
+          <LoadMore testID="LoadMore" onPress={handleLoadMore} />
+        )
       }
       bounces={false}
       {...listProps}

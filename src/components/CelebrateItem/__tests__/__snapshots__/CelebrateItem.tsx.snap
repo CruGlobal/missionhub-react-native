@@ -231,7 +231,7 @@ exports[`Community renders correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="LikeIconButton"
         >
           <View
             style={
@@ -511,7 +511,7 @@ exports[`Community renders story item correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID="Button"
+              testID="LikeIconButton"
             >
               <View
                 style={
@@ -776,7 +776,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="LikeIconButton"
         >
           <View
             style={
@@ -1101,7 +1101,7 @@ exports[`global community renders correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="LikeIconButton"
         >
           <View
             style={
@@ -1356,7 +1356,7 @@ exports[`global community renders story item correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="LikeIconButton"
         >
           <View
             style={
@@ -1611,7 +1611,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="LikeIconButton"
         >
           <View
             style={
@@ -1791,7 +1791,7 @@ exports[`renders with name pressable correctly 1`] = `
                 "opacity": 1,
               }
             }
-            testID="Button"
+            testID="NameButton"
           >
             <View
               style={
@@ -1976,7 +1976,7 @@ exports[`renders with name pressable correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="LikeIconButton"
         >
           <View
             style={

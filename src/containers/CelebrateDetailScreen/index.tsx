@@ -3,6 +3,7 @@ import { Image, View, SafeAreaView, StatusBar, FlatList } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import CommentLikeComponent from '../CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
@@ -32,7 +33,6 @@ import styles from './styles';
 
 export interface CelebrateDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: GetCelebrateFeed_community_celebrationItems_nodes;
   organization: Organization;
   celebrateComments: { comments: CelebrateComment[] };
   editingCommentId: string | null;
@@ -40,14 +40,20 @@ export interface CelebrateDetailScreenProps {
 
 const CelebrateDetailScreen = ({
   dispatch,
-  event,
   organization,
   celebrateComments,
   editingCommentId,
 }: CelebrateDetailScreenProps) => {
-  const listRef = useRef<FlatList<CelebrateComment>>(null);
+  const event: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
+    'event',
+  );
 
-  const scrollToEnd = () => listRef.current && listRef.current.scrollToEnd();
+  const listRef = useRef<FlatList<CelebrateComment>>(null);
+  debugger;
+  const scrollToEnd = () => {
+    debugger;
+    listRef.current && listRef.current.scrollToEnd();
+  };
 
   const scrollToFocusedRef = () => {
     if (editingCommentId) {
@@ -106,7 +112,11 @@ const CelebrateDetailScreen = ({
         listProps={{
           ref: listRef,
           refreshControl: (
-            <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
+            <RefreshControl
+              testID="RefreshControl"
+              refreshing={isRefreshing}
+              onRefresh={refresh}
+            />
           ),
           ListHeaderComponent: () => (
             <CelebrateItemContent
@@ -121,7 +131,11 @@ const CelebrateDetailScreen = ({
   );
 
   const renderCommentBox = () => (
-    <CelebrateCommentBox event={event} onAddComplete={scrollToEnd} />
+    <CelebrateCommentBox
+      testID="CommentBox"
+      event={event}
+      onAddComplete={scrollToEnd}
+    />
   );
 
   return (
