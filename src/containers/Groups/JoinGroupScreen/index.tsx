@@ -104,7 +104,8 @@ class JoinGroupScreen extends Component {
     const { t } = this.props;
     return (
       <Flex align="center" justify="center">
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         <Image resizeMode="contain" source={GROUP_ICON} style={styles.image} />
         <Text style={styles.text}>{t('enterCode')}</Text>
       </Flex>

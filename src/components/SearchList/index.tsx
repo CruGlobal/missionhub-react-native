@@ -213,7 +213,8 @@ class SearchList extends Component {
     return this.state.isSearching ? null : (
       // @ts-ignore
       <View alignItems="center" flex={1} style={styles.emptyWrap}>
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         <Text style={styles.nullText}>{this.props.t('noResults')}</Text>
       </View>
     );

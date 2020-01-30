@@ -1,5 +1,8 @@
 import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import {
+  InMemoryCache,
+  IntrospectionFragmentMatcher,
+} from 'apollo-cache-inmemory';
 import { SchemaLink } from 'apollo-link-schema';
 import { addMockFunctionsToSchema, IMocks } from 'graphql-tools';
 import { DocumentNode } from 'graphql';
@@ -16,13 +19,18 @@ export const createApolloMockClient = (mocks: IMocks = {}) => {
     (introspectionQuery as unknown) as IntrospectionQuery,
   );
 
+  const fragmentMatcher = new IntrospectionFragmentMatcher({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    introspectionQueryResultData: introspectionQuery as any,
+  });
+
   addMockFunctionsToSchema({
     schema,
     mocks: { ...globalMocks, ...mocks },
   });
 
   return new ApolloClient({
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({ fragmentMatcher }),
     link: new SchemaLink({ schema }),
   });
 };

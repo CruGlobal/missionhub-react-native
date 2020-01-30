@@ -181,7 +181,7 @@ describe('GroupProfile', () => {
       component = buildScreen();
       // Press the "Edit" button
       component
-        .childAt(2)
+        .childAt(1)
         .childAt(0)
         .props()
         .right.props.onPress();
@@ -211,7 +211,7 @@ describe('GroupProfile', () => {
       const data = { uri: 'testuri' };
       // @ts-ignore
       component
-        .childAt(3)
+        .childAt(2)
         .childAt(0)
         .props()
         .onSelectImage(data);
@@ -224,7 +224,7 @@ describe('GroupProfile', () => {
       const text = 'new name';
       // @ts-ignore
       component
-        .childAt(3)
+        .childAt(2)
         .childAt(1)
         .childAt(0)
         .childAt(0)
@@ -238,7 +238,7 @@ describe('GroupProfile', () => {
     it('handle new code', () => {
       // @ts-ignore
       component
-        .childAt(3)
+        .childAt(2)
         .childAt(1)
         .childAt(4)
         .childAt(1)
@@ -256,7 +256,7 @@ describe('GroupProfile', () => {
     it('handle new link', () => {
       // @ts-ignore
       component
-        .childAt(3)
+        .childAt(2)
         .childAt(1)
         .childAt(6)
         .childAt(1)
@@ -274,7 +274,7 @@ describe('GroupProfile', () => {
     it('handles delete organization', async () => {
       // @ts-ignore
       component
-        .childAt(3)
+        .childAt(2)
         .childAt(1)
         .childAt(0)
         .childAt(1)
@@ -307,7 +307,7 @@ describe('GroupProfile', () => {
     it('stops editing', () => {
       // @ts-ignore
       component
-        .childAt(2)
+        .childAt(1)
         .childAt(0)
         .props()
         .right.props.onPress();
@@ -324,7 +324,7 @@ describe('GroupProfile', () => {
     // @ts-ignore
     const component = buildScreen();
     component
-      .childAt(3)
+      .childAt(2)
       .childAt(1)
       .childAt(4)
       .childAt(1)
@@ -343,7 +343,7 @@ describe('GroupProfile', () => {
     // @ts-ignore
     const component = buildScreen();
     component
-      .childAt(3)
+      .childAt(2)
       .childAt(1)
       .childAt(6)
       .childAt(1)

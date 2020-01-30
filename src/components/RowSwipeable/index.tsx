@@ -261,7 +261,8 @@ class RowSwipeable extends Component {
     return (
       <View>
         {this.renderOptions()}
-        // @ts-ignore
+        {/* 
+        // @ts-ignore */}
         <Animated.View {...this.panResponder.panHandlers} style={panStyle}>
           {children}
         </Animated.View>

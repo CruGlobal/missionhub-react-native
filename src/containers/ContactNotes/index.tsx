@@ -139,7 +139,8 @@ export class ContactNotes extends Component {
     return (
       <Flex value={1}>
         <ScrollView>
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           <Text style={styles.notesText}>{this.state.text}</Text>
         </ScrollView>
       </Flex>

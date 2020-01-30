@@ -12,7 +12,6 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     forceInset={
       Object {
@@ -442,7 +441,6 @@ exports[`GroupProfile edit screen stops editing 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     forceInset={
       Object {
@@ -808,7 +806,6 @@ exports[`GroupProfile renders correctly 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     forceInset={
       Object {
@@ -1174,7 +1171,6 @@ exports[`GroupProfile renders with image 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     forceInset={
       Object {
@@ -1540,7 +1536,6 @@ exports[`GroupProfile renders without edit button 1`] = `
       ]
     }
   />
-  // @ts-ignore
   <View
     forceInset={
       Object {

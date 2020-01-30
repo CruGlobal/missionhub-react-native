@@ -250,7 +250,8 @@ export class SearchPeopleFilterScreen extends Component {
             />
           }
         >
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           {this.state.options.map(o => (
             <FilterItem
               key={o.id}
@@ -259,7 +260,8 @@ export class SearchPeopleFilterScreen extends Component {
               type="drilldown"
             />
           ))}
-          // @ts-ignore
+          {/* 
+          // @ts-ignore */}
           {this.state.toggleOptions.map(o => (
             <FilterItem
               key={o.id}

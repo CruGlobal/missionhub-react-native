@@ -211,7 +211,6 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
             ]
           }
         >
-          // @ts-ignore
           <Image
             resizeMode="contain"
             source={
@@ -514,7 +513,6 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
             ]
           }
         >
-          // @ts-ignore
           <Image
             resizeMode="contain"
             source={
@@ -655,7 +653,6 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         align="center"
         justify="center"
       >
-        // @ts-ignore
         <Image
           resizeMode="contain"
           source={
@@ -878,7 +875,6 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         align="center"
         justify="center"
       >
-        // @ts-ignore
         <Image
           resizeMode="contain"
           source={
