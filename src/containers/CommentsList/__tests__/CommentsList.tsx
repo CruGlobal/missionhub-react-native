@@ -1,7 +1,9 @@
+/* eslint max-lines: 0 */
 import React from 'react';
 import { Alert, View, AlertButton } from 'react-native';
 import i18n from 'i18next';
 import { fireEvent } from 'react-native-testing-library';
+import { ReactTestInstance } from 'react-test-renderer';
 
 import { renderWithContext } from '../../../../testUtils';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
@@ -30,8 +32,8 @@ jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/celebrateComments');
 
-const me: Person = { id: '1' };
-const otherPerson: Person = { id: '2' };
+const me: Person = { id: '1', first_name: 'Matt', last_name: 'Smith' };
+const otherPerson: Person = { id: '2', first_name: 'Will', last_name: 'Smith' };
 const organization: Organization = { id: '24234234' };
 const event: GetCelebrateFeed_community_celebrationItems_nodes = {
   __typename: 'CommunityCelebrationItem',
@@ -49,6 +51,7 @@ const event: GetCelebrateFeed_community_celebrationItems_nodes = {
   subjectPerson: null,
   subjectPersonName: 'John Smith',
 };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const comments: { comments: CelebrateComment[]; pagination: any } = {
   comments: [
     {
@@ -195,7 +198,11 @@ describe('with comments', () => {
       fireEvent.press(getByTestId('LoadMore'));
 
       expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(event);
-      expect(store.getActions()).toEqual([getCelebrateCommentsNextPageResult]);
+      expect(store.getActions()).toEqual([
+        reloadCelebrateCommentsResult,
+        resetCelebrateEditingCommentResult,
+        getCelebrateCommentsNextPageResult,
+      ]);
     });
   });
 
@@ -222,8 +229,7 @@ describe('with comments', () => {
 });
 
 describe('determine comment menu actions', () => {
-  let state: typeof initialState;
-  let commentItem: any;
+  let commentItem: ReactTestInstance;
   let comment: CelebrateComment;
   let permission_id: string;
 
@@ -231,23 +237,15 @@ describe('determine comment menu actions', () => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
       permission_id,
     });
-
-    state = {
-      ...initialState,
-      celebrateComments: {
-        all: [
-          {
-            comments: [comment],
-            pagination: {},
-          },
-        ],
-      },
-    };
+    ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue({
+      comments: [comment],
+      pagination: {},
+    });
 
     const { getByTestId } = renderWithContext(
       <CommentsList event={event} organization={organization} listProps={{}} />,
       {
-        initialState: state,
+        initialState,
       },
     );
 
