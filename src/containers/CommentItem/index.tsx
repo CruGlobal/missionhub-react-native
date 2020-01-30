@@ -15,7 +15,7 @@ class CommentItem extends Component {
   renderContent = () => {
     const {
       // @ts-ignore
-      item: { content, person },
+      item: { content, person, author },
       // @ts-ignore
       me,
       // @ts-ignore
@@ -23,7 +23,7 @@ class CommentItem extends Component {
     } = this.props;
     const { itemStyle, myStyle, text, myText } = styles;
 
-    const isMine = person.id === me.id;
+    const isMine = person ? person.id === me.id : author.id === me.id;
     const isMineNotReported = isMine && !isReported;
 
     return (
@@ -33,10 +33,23 @@ class CommentItem extends Component {
     );
   };
 
+  personName = () => {
+    const {
+      // @ts-ignore
+      item: { person, author },
+    } = this.props;
+    const name = person
+      ? person.first_name
+        ? `${person.first_name} ${person.last_name}`
+        : person.fullName
+      : author.fullName;
+    return name;
+  };
+
   render() {
     const {
       // @ts-ignore
-      item: { created_at, person },
+      item: { created_at, person, author, createdAt },
       // @ts-ignore
       organization,
       // @ts-ignore
@@ -50,9 +63,9 @@ class CommentItem extends Component {
     } = this.props;
     const { content: contentStyle, editingStyle, name: nameStyle } = styles;
 
-    const name = `${person.first_name} ${person.last_name}`;
-    const isMine = person.id === me.id;
+    const isMine = person ? person.id === me.id : author.id === me.id;
     const isMineNotReported = isMine && !isReported;
+    const itemDate = created_at ? created_at : createdAt;
 
     return (
       // Android needs the collapsable property to use '.measure' properly within the <CelebrateDetailScreen>
@@ -69,14 +82,14 @@ class CommentItem extends Component {
           ) : (
             <CelebrateItemName
               // @ts-ignore
-              name={name}
+              name={this.personName()}
               person={person}
               organization={organization}
               pressable={!isReported}
-              customContent={<Text style={nameStyle}>{name}</Text>}
+              customContent={<Text style={nameStyle}>{this.personName()}</Text>}
             />
           )}
-          <CardTime date={created_at} format={DateConstants.comment} />
+          <CardTime date={itemDate} format={DateConstants.comment} />
         </Flex>
         <Flex direction="row">
           {isMineNotReported ? <Flex value={1} /> : null}

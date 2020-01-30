@@ -1,33 +1,70 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Alert } from 'react-native';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
-import { connect } from 'react-redux-legacy';
+import { useMutation } from '@apollo/react-hooks';
+import { useTranslation } from 'react-i18next';
+import gql from 'graphql-tag';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
-import { deleteCelebrateComment } from '../../actions/celebrateComments';
-import {
-  ignoreReportComment,
-  getReportedComments,
-} from '../../actions/reportComments';
+import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
+import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
 
+import {
+  RespondToContentComplaintVariables,
+  RespondToContentComplaint,
+} from './__generated__/RespondToContentComplaint';
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('reportComment')
-class ReportCommentItem extends Component {
-  handleIgnore = async () => {
-    // @ts-ignore
-    const { item, dispatch, organization } = this.props;
-    await dispatch(ignoreReportComment(organization.id, item.id));
-    await dispatch(getReportedComments(organization.id));
+export const RESPOND_TO_CONTENT_COMPLAINT = gql`
+  mutation RespondToContentComplaint($input: RespondToContentComplaintInput!) {
+    respondToContentComplaint(input: $input) {
+      contentComplaint {
+        id
+      }
+    }
+  }
+`;
+
+const ReportCommentItem = ({
+  item,
+  refetch,
+}: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  item: ReportedItem | any;
+  refetch: () => void;
+}) => {
+  const { t } = useTranslation('reportComment');
+
+  const [respondToContentComplaint] = useMutation<
+    RespondToContentComplaint,
+    RespondToContentComplaintVariables
+  >(RESPOND_TO_CONTENT_COMPLAINT);
+  const handleIgnore = async () => {
+    await respondToContentComplaint({
+      variables: {
+        input: {
+          contentComplaintId: item.id,
+
+          response: 'ignore' as ContentComplaintResponseEnum,
+        },
+      },
+    });
+    refetch();
   };
 
-  handleDelete = () => {
-    // @ts-ignore
-    const { t, item, dispatch, organization } = this.props;
+  const getContentType = (type: string) => {
+    switch (type) {
+      case 'Story':
+        return 'storyBy';
+      case 'CommunityCelebrationItemComment':
+        return 'commentBy';
+      default:
+        return 'commentBy';
+    }
+  };
+
+  const handleDelete = () => {
     Alert.alert(t('deleteTitle'), '', [
       {
         text: t('cancel'),
@@ -36,72 +73,64 @@ class ReportCommentItem extends Component {
       {
         text: t('ok'),
         onPress: async () => {
-          await dispatch(
-            deleteCelebrateComment(
-              organization.id,
-              item.comment.organization_celebration_item,
-              item.comment,
-            ),
-          );
-          await dispatch(getReportedComments(organization.id));
+          await respondToContentComplaint({
+            variables: {
+              input: {
+                contentComplaintId: item.id,
+
+                response: 'delete' as ContentComplaintResponseEnum,
+              },
+            },
+          });
+          refetch();
         },
       },
     ]);
   };
+  const { subject, person } = item;
 
-  render() {
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      item: { comment, person },
-    } = this.props;
-
-    const reportedBy = person.full_name;
-    const commentBy = comment.person.full_name;
-
-    return (
-      <Card style={styles.card}>
-        <Flex direction="row" style={styles.users}>
-          <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
-          <ReportCommentLabel label={t('commentBy')} user={commentBy} />
-        </Flex>
-        <Flex style={styles.comment}>
-          {/* 
-          // @ts-ignore */}
-          <CommentItem item={comment} isReported={true} />
-        </Flex>
+  const reportedBy = person.fullName;
+  const commentBy =
+    subject.typeName === 'Story'
+      ? subject.author.fullName
+      : subject.person.fullName;
+  const { card, users, comment, buttonLeft, buttonRight } = styles;
+  return (
+    <Card style={card}>
+      <Flex direction="row" style={users}>
+        <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
+        <ReportCommentLabel
+          label={t(`${getContentType(subject.typeName)}`)}
+          user={commentBy}
+        />
+      </Flex>
+      <Flex style={comment}>
         {/* 
-        // @ts-ignore */}
-        <Flex direction="row" style={styles.buttons}>
-          <Flex value={1}>
-            <Button
-              type="secondary"
-              onPress={this.handleIgnore}
-              text={t('ignore').toUpperCase()}
-              // @ts-ignore
-              style={[styles.button, styles.buttonLeft]}
-            />
-          </Flex>
-          <Flex value={1}>
-            <Button
-              type="secondary"
-              onPress={this.handleDelete}
-              text={t('delete').toUpperCase()}
-              // @ts-ignore
-              style={[styles.button, styles.buttonRight]}
-            />
-          </Flex>
+          // @ts-ignore */}
+        <CommentItem item={subject} isReported={true} />
+      </Flex>
+      <Flex direction="row">
+        <Flex value={1}>
+          <Button
+            testID="ignoreButton"
+            type="secondary"
+            onPress={handleIgnore}
+            text={t('ignore').toUpperCase()}
+            style={buttonLeft}
+          />
         </Flex>
-      </Card>
-    );
-  }
-}
-
-// @ts-ignore
-ReportCommentItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
+        <Flex value={1}>
+          <Button
+            testID="deleteButton"
+            type="secondary"
+            onPress={handleDelete}
+            text={t('delete').toUpperCase()}
+            style={buttonRight}
+          />
+        </Flex>
+      </Flex>
+    </Card>
+  );
 };
 
-export default connect()(ReportCommentItem);
+export default ReportCommentItem;
