@@ -151,6 +151,7 @@ const CommentsList = ({
 
   const renderItem = ({ item }: { item: CelebrateComment }) => (
     <CommentItem
+      //@ts-ignore
       testID="CommentItem"
       item={item}
       menuActions={menuActions(item)}
@@ -158,7 +159,7 @@ const CommentsList = ({
     />
   );
 
-  const { comments, pagination } = celebrateComments || {};
+  const { comments = [], pagination } = celebrateComments || {};
   const { list, listContent } = styles;
 
   return (

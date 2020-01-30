@@ -1338,6 +1338,7 @@ exports[`with no comments renders correctly 1`] = `
       "paddingBottom": 15,
     }
   }
+  data={Array []}
   disableVirtualization={false}
   getItem={[Function]}
   getItemCount={[Function]}

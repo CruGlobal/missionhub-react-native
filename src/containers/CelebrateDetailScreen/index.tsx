@@ -131,11 +131,7 @@ const CelebrateDetailScreen = ({
   );
 
   const renderCommentBox = () => (
-    <CelebrateCommentBox
-      testID="CommentBox"
-      event={event}
-      onAddComplete={scrollToEnd}
-    />
+    <CelebrateCommentBox event={event} onAddComplete={scrollToEnd} />
   );
 
   return (

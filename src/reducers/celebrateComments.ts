@@ -21,7 +21,7 @@ export interface CelebrateComment {
 
 export interface CelebrateCommentsState {
   all: {
-    [key in string]: Event & {
+    [key in string]: {
       comments: CelebrateComment[];
       pagination: PaginationObject;
     };

@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-import * as react from 'react';
-import { FlatList } from 'react-native';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
@@ -30,19 +28,22 @@ jest.useFakeTimers();
 
 MockDate.set('2019-04-12 12:00:00', 300);
 
-const comments = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const comments: { comments: CelebrateComment[]; pagination: any } = {
   comments: [
     {
       id: 'comment1',
       person: { first_name: 'Person', last_name: '1' },
       content: 'some comment',
       created_at: '2019-04-11T13:51:49.888',
+      updated_at: '2019-04-11T13:51:49.888',
     },
     {
       id: 'comment2',
       person: { first_name: 'Person', last_name: '2' },
       content: 'some comment',
       created_at: '2019-04-11T13:51:49.888',
+      updated_at: '2019-04-11T13:51:49.888',
     },
   ],
   pagination: {},
@@ -76,13 +77,14 @@ const initialState = {
   celebrateComments,
   auth,
 };
-let listRef: FlatList<CelebrateComment> | null;
+
 let onShowKeyboard: () => void;
+const listRef = {
+  current: { scrollToEnd: jest.fn(), scrollToIndex: jest.fn() },
+};
 
 beforeEach(() => {
-  (react.useRef as jest.Mock).mockImplementation(
-    (ref: FlatList<CelebrateComment> | null) => (listRef = ref),
-  );
+  jest.spyOn(React, 'useRef').mockImplementation(() => listRef);
   (useKeyboardListeners as jest.Mock).mockImplementation(
     (onShow: () => void) => (onShowKeyboard = onShow),
   );
@@ -100,7 +102,7 @@ beforeEach(() => {
   );
 });
 
-it('renders correctly', () => {
+fit('renders correctly', () => {
   renderWithContext(<CelebrateDetailScreen />, {
     initialState,
     navParams: { event, orgId },
@@ -119,7 +121,7 @@ it('renders correctly', () => {
 });
 
 describe('refresh', () => {
-  it('calls refreshComments', () => {
+  fit('calls refreshComments', () => {
     const { getByTestId } = renderWithContext(<CelebrateDetailScreen />, {
       initialState,
       navParams: { event, orgId },
@@ -132,13 +134,13 @@ describe('refresh', () => {
 });
 
 describe('celebrate add complete', () => {
-  fit('scrolls to end on add complete', () => {
+  it('scrolls to end on add complete', () => {
     const { getByTestId } = renderWithContext(<CelebrateDetailScreen />, {
       initialState,
       navParams: { event, orgId },
     });
 
-    fireEvent(getByTestId('CommentBox'), 'onAddComplete');
+    fireEvent(getByTestId('CelebrateCommentBox'), 'onAddComplete');
 
     expect(listRef.current.scrollToEnd).toHaveBeenCalledWith();
   });
