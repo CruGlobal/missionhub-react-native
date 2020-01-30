@@ -4,7 +4,7 @@ exports[`should call navigate back 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#FF5532",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
@@ -25,7 +25,9 @@ exports[`should call navigate back 1`] = `
             "height": 56,
             "paddingTop": 0,
           },
-          undefined,
+          Object {
+            "backgroundColor": "#FF5532",
+          },
           null,
         ]
       }
@@ -1122,7 +1124,7 @@ exports[`should refresh correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#FF5532",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
@@ -1143,7 +1145,9 @@ exports[`should refresh correctly 1`] = `
             "height": 56,
             "paddingTop": 0,
           },
-          undefined,
+          Object {
+            "backgroundColor": "#FF5532",
+          },
           null,
         ]
       }
@@ -2240,7 +2244,7 @@ exports[`should render correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#FF5532",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
@@ -2261,7 +2265,9 @@ exports[`should render correctly 1`] = `
             "height": 56,
             "paddingTop": 0,
           },
-          undefined,
+          Object {
+            "backgroundColor": "#FF5532",
+          },
           null,
         ]
       }
@@ -3358,7 +3364,7 @@ exports[`should render empty correctly 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#FF5532",
+      "backgroundColor": "#ECEEF2",
       "flex": 1,
     }
   }
@@ -3379,7 +3385,9 @@ exports[`should render empty correctly 1`] = `
             "height": 56,
             "paddingTop": 0,
           },
-          undefined,
+          Object {
+            "backgroundColor": "#FF5532",
+          },
           null,
         ]
       }

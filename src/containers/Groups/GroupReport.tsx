@@ -113,7 +113,7 @@ const GroupReport = () => {
   };
 
   return (
-    <View style={styles.redPageContainer}>
+    <View style={styles.greyPageContainer}>
       <Header
         right={
           <IconButton
