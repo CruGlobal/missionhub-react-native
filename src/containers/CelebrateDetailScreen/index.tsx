@@ -72,7 +72,7 @@ const CelebrateDetailScreen = ({
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
 
   const refreshComments = () => {
-    return dispatch(reloadCelebrateComments(event));
+    return dispatch(reloadCelebrateComments(event.id, organization.id));
   };
 
   const { isRefreshing, refresh } = useRefreshing(refreshComments);
@@ -131,7 +131,11 @@ const CelebrateDetailScreen = ({
   );
 
   const renderCommentBox = () => (
-    <CelebrateCommentBox event={event} onAddComplete={scrollToEnd} />
+    <CelebrateCommentBox
+      event={event}
+      onAddComplete={scrollToEnd}
+      organization={organization}
+    />
   );
 
   return (

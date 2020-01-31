@@ -10,20 +10,26 @@ import {
   updateCelebrateComment,
 } from '../../actions/celebrateComments';
 import { celebrateCommentsCommentSelector } from '../../selectors/celebrateComments';
-import { CelebrateCommentsState } from '../../reducers/celebrateComments';
+import {
+  CelebrateCommentsState,
+  CelebrateComment,
+} from '../../reducers/celebrateComments';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
 interface CelebrateCommentBoxProps {
   event: GetCelebrateFeed_community_celebrationItems_nodes;
-  editingComment?: object;
+  organization: Organization;
+  editingComment?: CelebrateComment;
   onAddComplete?: () => void;
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
 }
 
 const CelebrateCommentBox = ({
   event,
+  organization,
   editingComment,
   onAddComplete,
   dispatch,
@@ -34,9 +40,18 @@ const CelebrateCommentBox = ({
   const submitComment = async (action: object, text: string) => {
     if (editingComment) {
       cancel();
-      return dispatch(updateCelebrateComment(editingComment, text));
+      return dispatch(
+        updateCelebrateComment(
+          event.id,
+          organization.id,
+          editingComment.id,
+          text,
+        ),
+      );
     }
-    const results = await dispatch(createCelebrateComment(event, text));
+    const results = await dispatch(
+      createCelebrateComment(event.id, organization.id, text),
+    );
     onAddComplete && onAddComplete();
     return results;
   };

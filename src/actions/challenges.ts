@@ -10,7 +10,6 @@ import {
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
-import { reloadGroupCelebrateFeed } from './celebration';
 import { showNotificationPrompt } from './notifications';
 import { navigatePush, navigateBack } from './navigation';
 import { trackActionWithoutData } from './analytics';
@@ -55,8 +54,6 @@ export function completeChallenge(item, orgId) {
     );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_COMPLETED));
     dispatch(reloadGroupChallengeFeed(orgId));
-    // After completing a challenge, reload the group celebrate feed with this new item
-    dispatch(reloadGroupCelebrateFeed(orgId));
   };
 }
 
@@ -89,8 +86,6 @@ export function joinChallenge(item, orgId) {
     );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
-    // After joining a challenge, reload the group celebrate feed with this new item
-    dispatch(reloadGroupCelebrateFeed(orgId));
   };
 }
 

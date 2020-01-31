@@ -4,10 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import GroupCelebrate from '../GroupCelebrate';
 import { renderWithContext } from '../../../../testUtils';
-import {
-  reloadGroupCelebrateFeed,
-  getGroupCelebrateFeed,
-} from '../../../actions/celebration';
 import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -41,12 +37,6 @@ beforeEach(() => {
   (getReportedComments as jest.Mock).mockReturnValue(() => ({
     type: 'got repoerted comments',
   }));
-  (reloadGroupCelebrateFeed as jest.Mock).mockReturnValue(() =>
-    Promise.resolve(),
-  );
-  (getGroupCelebrateFeed as jest.Mock).mockReturnValue({
-    type: 'got group celebrate feed',
-  });
   (refreshCommunity as jest.Mock).mockReturnValue({
     type: 'refreshed community',
   });

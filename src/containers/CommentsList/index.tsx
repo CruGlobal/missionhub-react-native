@@ -30,7 +30,11 @@ import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateF
 import styles from './styles';
 
 export interface CommentsListProps {
-  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>;
+  dispatch: ThunkDispatch<
+    { auth: AuthState; celebrateComments: CelebrateCommentsState },
+    {},
+    AnyAction
+  >;
   event: GetCelebrateFeed_community_celebrationItems_nodes;
   organization: Organization;
   me: Person;
@@ -51,12 +55,12 @@ const CommentsList = ({
   const { t } = useTranslation('commentsList');
 
   useEffect(() => {
-    dispatch(reloadCelebrateComments(event));
+    dispatch(reloadCelebrateComments(event.id, organization.id));
     dispatch(resetCelebrateEditingComment());
   }, []);
 
   const handleLoadMore = () => {
-    dispatch(getCelebrateCommentsNextPage(event));
+    dispatch(getCelebrateCommentsNextPage(event.id, organization.id));
   };
 
   const handleEdit = (item: CelebrateComment) => {
@@ -92,7 +96,7 @@ const CommentsList = ({
       message: 'deleteAreYouSure',
       actionText: 'deletePost',
       action: () => {
-        dispatch(deleteCelebrateComment(organization.id, event, item));
+        dispatch(deleteCelebrateComment(organization.id, event.id, item.id));
       },
     });
   };
