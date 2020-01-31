@@ -25,15 +25,12 @@ exports[`should render empty correctly 1`] = `
   />
   <Header
     left={
-      <IconButton
-        name="backIcon"
-        onPress={[Function]}
-        style={
+      <Connect(BackButton)
+        iconStyle={
           Object {
             "color": "#000000",
           }
         }
-        type="MissionHub"
       />
     }
     right={
@@ -112,15 +109,12 @@ exports[`should render items correctly 1`] = `
   />
   <Header
     left={
-      <IconButton
-        name="backIcon"
-        onPress={[Function]}
-        style={
+      <Connect(BackButton)
+        iconStyle={
           Object {
             "color": "#000000",
           }
         }
-        type="MissionHub"
       />
     }
     right={
