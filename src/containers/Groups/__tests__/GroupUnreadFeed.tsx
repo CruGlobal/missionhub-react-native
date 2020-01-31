@@ -104,16 +104,6 @@ it('should render empty correctly', () => {
   expect(component).toMatchSnapshot();
 });
 
-it('should call navigate back', () => {
-  const component = buildScreen();
-
-  component
-    .childAt(2)
-    .props()
-    .left.props.onPress();
-  expect(navigateBack).toHaveBeenCalled();
-});
-
 it('should call mark comments read and go back', async () => {
   const component = buildScreen();
 
