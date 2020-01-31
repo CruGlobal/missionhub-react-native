@@ -86,7 +86,11 @@ const CelebrateItem = ({
 
   const handlePress = () =>
     dispatch(
-      navigatePush(CELEBRATE_DETAIL_SCREEN, { event, orgId: organization.id }),
+      navigatePush(CELEBRATE_DETAIL_SCREEN, {
+        event,
+        orgId: organization.id,
+        onRefreshCelebrateItem: onRefresh,
+      }),
     );
 
   const clearNotification = () =>
@@ -168,7 +172,11 @@ const CelebrateItem = ({
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
-        <CommentLikeComponent event={event} organization={organization} />
+        <CommentLikeComponent
+          event={event}
+          organization={organization}
+          onRefresh={onRefresh}
+        />
       </View>
     </View>
   );

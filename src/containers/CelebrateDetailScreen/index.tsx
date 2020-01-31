@@ -47,13 +47,13 @@ const CelebrateDetailScreen = ({
   const event: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
     'event',
   );
+  const onRefreshCelebrateItem: () => void = useNavigationParam(
+    'onRefreshCelebrateItem',
+  );
 
   const listRef = useRef<FlatList<CelebrateComment>>(null);
-  debugger;
-  const scrollToEnd = () => {
-    debugger;
-    listRef.current && listRef.current.scrollToEnd();
-  };
+
+  const scrollToEnd = () => listRef.current && listRef.current.scrollToEnd();
 
   const scrollToFocusedRef = () => {
     if (editingCommentId) {
@@ -91,7 +91,11 @@ const CelebrateDetailScreen = ({
             />
             <CardTime date={event.changedAttributeValue} />
           </View>
-          <CommentLikeComponent event={event} organization={organization} />
+          <CommentLikeComponent
+            event={event}
+            organization={organization}
+            onRefresh={onRefreshCelebrateItem}
+          />
           <BackButton
             style={styles.backButtonStyle}
             iconStyle={styles.backButtonIconStyle}

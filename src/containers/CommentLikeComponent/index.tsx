@@ -16,12 +16,14 @@ import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
+import { refresh } from 'src/utils/common';
 
 export interface CommentLikeComponentProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   event: GetCelebrateFeed_community_celebrationItems_nodes;
   myId: string;
+  onRefresh: () => void;
 }
 
 const CommentLikeComponent = ({
@@ -29,6 +31,7 @@ const CommentLikeComponent = ({
   organization,
   event,
   myId,
+  onRefresh,
 }: CommentLikeComponentProps) => {
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
@@ -41,6 +44,7 @@ const CommentLikeComponent = ({
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       setIsLikeDisabled(false);
+      onRefresh();
     }
   };
 
