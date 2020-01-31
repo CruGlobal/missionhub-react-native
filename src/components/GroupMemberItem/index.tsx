@@ -1,7 +1,7 @@
 /* eslint complexity: 0 */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 
 import { ORG_PERMISSIONS } from '../../constants';
@@ -24,7 +24,7 @@ interface PersonOrgPermissionInterface {
   id: string;
   organization: Organization;
   organization_id: string;
-  permission_id: string;
+  permission_id: number;
 }
 
 interface GroupMemberItemProps {
@@ -65,7 +65,7 @@ const GroupMemberItem = ({
       return '';
     }
 
-    switch (personOrgPermission.permission_id) {
+    switch (`${personOrgPermission.permission_id}`) {
       case ORG_PERMISSIONS.ADMIN:
         return t('profileLabels.admin');
       case ORG_PERMISSIONS.OWNER:
@@ -150,6 +150,7 @@ const GroupMemberItem = ({
         </Flex>
         {showOptionsMenu ? (
           <MemberOptionsMenu
+            // @ts-ignore
             myId={me.id}
             person={person}
             organization={organization}

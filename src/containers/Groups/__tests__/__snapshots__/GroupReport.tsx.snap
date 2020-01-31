@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`report item render row 1`] = `
+<Connect(withI18nextTranslation(ReportCommentItem))
+  item={
+    Object {
+      "comment": Object {
+        "id": "comment1",
+        "organization_celebration_item": Object {
+          "id": "eventId",
+        },
+      },
+      "id": "report1",
+      "person": Object {
+        "full_name": "person full name",
+        "id": "person1",
+      },
+    }
+  }
+  organization={
+    Object {
+      "id": "orgId",
+    }
+  }
+/>
+`;
+
+exports[`should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FF5532",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "reported comments",
+      ]
+    }
+  />
+  <Header
+    right={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="Reported Comments"
+  />
+  <FlatList
+    contentContainerStyle={
+      Object {
+        "paddingVertical": 15,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "comment": Object {
+            "id": "comment1",
+            "organization_celebration_item": Object {
+              "id": "eventId",
+            },
+          },
+          "id": "report1",
+          "person": Object {
+            "full_name": "person full name",
+            "id": "person1",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+</View>
+`;
+
+exports[`should render empty correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FF5532",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "reported comments",
+      ]
+    }
+  />
+  <Header
+    right={
+      <IconButton
+        name="deleteIcon"
+        onPress={[Function]}
+        type="MissionHub"
+      />
+    }
+    title="Reported Comments"
+  />
+  <NullStateComponent
+    descriptionText="No comments have been reported."
+    headerText="NO REPORTED COMMENTS"
+    imageSource={
+      Object {
+        "testUri": "../../../assets/images/curiousIcon.png",
+      }
+    }
+  />
+</View>
+`;

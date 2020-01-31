@@ -40,9 +40,19 @@ export default StyleSheet.create({
     fontWeight: '300',
     lineHeight: 30,
   },
+  imageContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  buttonContainer: {
+    paddingTop: 20,
+    marginBottom: -50,
+  },
   stepsNotifcationImage: {
     position: 'absolute',
-    top: 120,
+    top: '50%',
   },
   buttonText: {
     color: theme.white,

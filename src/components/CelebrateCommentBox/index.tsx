@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -48,6 +48,7 @@ const CelebrateCommentBox = ({
 
   return (
     <CommentBox
+      // @ts-ignore
       testID="CelebrateCommentBox"
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}

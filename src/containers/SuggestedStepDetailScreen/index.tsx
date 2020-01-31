@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -9,6 +9,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -25,6 +26,7 @@ const SuggestedStepDetailScreen = ({
   dispatch,
   next,
 }: SuggestedStepDetailScreenProps) => {
+  useAnalytics(['step detail', 'add step']);
   const { t } = useTranslation('suggestedStepDetail');
   const step: SuggestedStep = useNavigationParam('step');
   const personId: string = useNavigationParam('personId');

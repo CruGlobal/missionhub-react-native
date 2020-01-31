@@ -11,6 +11,7 @@ import {
 } from '../../../actions/misc';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { promptToAssign } from '../../../utils/prompt';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import ContactSteps from '..';
 
@@ -23,11 +24,17 @@ jest.mock('../../../components/AcceptedStepItem', () => ({
   ...jest.requireActual('../../../components/AcceptedStepItem'),
   default: 'AcceptedStepItem',
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const steps = [{ id: '1', title: 'Test Step' }];
 const completedSteps = [{ id: '1', title: 'Test Step', completed_at: 'time' }];
 
 const myId = '123';
+const mePerson = {
+  first_name: 'Christian',
+  id: myId,
+  reverse_contact_assignments: [],
+};
 const person = {
   first_name: 'ben',
   id: '1',
@@ -95,7 +102,7 @@ beforeEach(() => {
   });
 });
 
-it('renders correctly with no steps', () => {
+it('renders correctly when no steps', () => {
   renderWithContext(
     <ContactSteps person={person} organization={{ id: undefined }} />,
     {
@@ -103,7 +110,22 @@ it('renders correctly with no steps', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
+});
+
+it('renders correctly when me and no steps', () => {
+  const { getByText, snapshot } = renderWithContext(
+    <ContactSteps person={mePerson} organization={{ id: undefined }} />,
+    {
+      initialState: initialStateNoSteps,
+    },
+  );
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(getContactSteps).toHaveBeenCalledWith(mePerson.id, undefined);
+  expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
 
 it('renders correctly with steps', () => {
@@ -114,6 +136,7 @@ it('renders correctly with steps', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -129,6 +152,7 @@ it('renders correctly with completed steps', () => {
 
   snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -140,6 +164,7 @@ it('renders correctly with org', () => {
     },
   ).snapshot();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
   expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
 });
 

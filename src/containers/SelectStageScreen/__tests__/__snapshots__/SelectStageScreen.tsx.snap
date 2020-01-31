@@ -97,18 +97,36 @@ exports[`renders for me renders correctly 1`] = `
           Array [
             Object {
               "description": "Stage 1 description",
-              "id": 1,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "1",
+              "localized_pathway_stages": Array [],
               "name": "Stage 1",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 2 description",
-              "id": 2,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "2",
+              "localized_pathway_stages": Array [],
               "name": "Stage 2",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 3 description",
-              "id": 3,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "3",
+              "localized_pathway_stages": Array [],
               "name": "Stage 3",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
           ]
         }
@@ -542,18 +560,36 @@ exports[`renders for me renders firstItem correctly 1`] = `
           Array [
             Object {
               "description": "Stage 1 description",
-              "id": 1,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "1",
+              "localized_pathway_stages": Array [],
               "name": "Stage 1",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 2 description",
-              "id": 2,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "2",
+              "localized_pathway_stages": Array [],
               "name": "Stage 2",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 3 description",
-              "id": 3,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "3",
+              "localized_pathway_stages": Array [],
               "name": "Stage 3",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
           ]
         }
@@ -987,18 +1023,36 @@ exports[`renders for other renders correctly 1`] = `
           Array [
             Object {
               "description": "Stage 1 description",
-              "id": 1,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "1",
+              "localized_pathway_stages": Array [],
               "name": "Stage 1",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 2 description",
-              "id": 2,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "2",
+              "localized_pathway_stages": Array [],
               "name": "Stage 2",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 3 description",
-              "id": 3,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "3",
+              "localized_pathway_stages": Array [],
               "name": "Stage 3",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
           ]
         }
@@ -1432,18 +1486,36 @@ exports[`renders for other renders firstItem correctly 1`] = `
           Array [
             Object {
               "description": "Stage 1 description",
-              "id": 1,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "1",
+              "localized_pathway_stages": Array [],
               "name": "Stage 1",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 2 description",
-              "id": 2,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "2",
+              "localized_pathway_stages": Array [],
               "name": "Stage 2",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 3 description",
-              "id": 3,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "3",
+              "localized_pathway_stages": Array [],
               "name": "Stage 3",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
           ]
         }
@@ -1877,18 +1949,36 @@ exports[`renders renders correctly with question text 1`] = `
           Array [
             Object {
               "description": "Stage 1 description",
-              "id": 1,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "1",
+              "localized_pathway_stages": Array [],
               "name": "Stage 1",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 2 description",
-              "id": 2,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "2",
+              "localized_pathway_stages": Array [],
               "name": "Stage 2",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 3 description",
-              "id": 3,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "3",
+              "localized_pathway_stages": Array [],
               "name": "Stage 3",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
           ]
         }
@@ -2322,18 +2412,36 @@ exports[`renders renders correctly without back button 1`] = `
           Array [
             Object {
               "description": "Stage 1 description",
-              "id": 1,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "1",
+              "localized_pathway_stages": Array [],
               "name": "Stage 1",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 2 description",
-              "id": 2,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "2",
+              "localized_pathway_stages": Array [],
               "name": "Stage 2",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
             Object {
               "description": "Stage 3 description",
-              "id": 3,
+              "description_i18n": "description",
+              "icon_url": "https://misisonhub.com",
+              "id": "3",
+              "localized_pathway_stages": Array [],
               "name": "Stage 3",
+              "name_i18n": "en-US",
+              "position": 1,
+              "self_followup_description": "description",
             },
           ]
         }
@@ -2735,6 +2843,104 @@ exports[`renders renders correctly without stages 1`] = `
       >
         Which stage best describes where Person is on their journey?
       </Text>
+      <RCTScrollView
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={
+          Object {
+            "flex": 0,
+            "flexGrow": 0,
+            "height": 400,
+          }
+        }
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 72.5,
+              "paddingRight": 72.5,
+            },
+            Object {},
+          ]
+        }
+        data={Array []}
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        disableVirtualization={false}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={1}
+        inactiveSlideScale={1}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        invertStickyHeaders={false}
+        inverted={false}
+        itemWidth={680}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onSnapToItem={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={825}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "flex": 0,
+            "flexDirection": "row",
+            "flexGrow": 0,
+            "height": 400,
+            "opacity": 0,
+            "width": 825,
+          }
+        }
+        swipeThreshold={20}
+        updateCellsBatchingPeriod={50}
+        useScrollView={false}
+        vertical={false}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={15}
+      >
+        <View />
+      </RCTScrollView>
     </View>
   </View>
 </View>

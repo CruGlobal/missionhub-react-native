@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, Image, FlatList } from 'react-native';
 import { AnyAction } from 'redux';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
@@ -16,14 +17,17 @@ import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { STEPS_TAB, PEOPLE_TAB } from '../../constants';
+import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
-import TrackTabChange from '../TrackTabChange';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 import {
@@ -38,6 +42,8 @@ interface StepsScreenProps {
 
 const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const { t } = useTranslation('stepsTab');
+  useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
 
   const {
     data: {
@@ -141,7 +147,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
-      <TrackTabChange screen={STEPS_TAB} />
       <Header
         testID="header"
         left={
@@ -161,6 +166,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
           message={t('errorLoadingSteps')}
         />
         {hasSteps ? (
+          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
         {hasSteps ? renderSteps() : loading ? <LoadingGuy /> : renderNull()}

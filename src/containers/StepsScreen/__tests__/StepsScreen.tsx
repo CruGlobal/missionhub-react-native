@@ -1,5 +1,6 @@
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { PEOPLE_TAB } from '../../../constants';
@@ -9,20 +10,25 @@ import { openMainMenu } from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../../utils/hooks/useAnalytics';
 
 import StepsScreen from '..';
 
+// jest.mock('react-navigation-hooks');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
-jest.mock('../../TrackTabChange', () => 'TrackTabChange');
 jest.mock('../../../components/StepItem', () => ({
   __esModule: true,
   ...jest.requireActual('../../../components/StepItem'),
   default: 'StepItem',
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const initialState = {
   swipe: {
@@ -69,6 +75,18 @@ it('renders screen with steps correctly', async () => {
   await flushMicrotasksQueue();
 
   snapshot();
+});
+
+it('tracks screen change on mount', () => {
+  renderWithContext(<StepsScreen />, {
+    initialState,
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'steps',
+    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  );
+  expect(useFocusEffect).toHaveBeenLastCalledWith(expect.any(Function));
 });
 
 describe('handleOpenMainMenu', () => {

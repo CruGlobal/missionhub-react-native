@@ -8,7 +8,7 @@ const receiver = {
   firstName: 'Christian',
 };
 
-function snapshot(props = {}) {
+const snapshot = (props = {}) => {
   renderWithContext(
     <StepDetailScreen
       receiver={receiver}
@@ -19,7 +19,7 @@ function snapshot(props = {}) {
       {...props}
     />,
   ).snapshot();
-}
+};
 
 describe('markdown is not null', () => {
   it('renders correctly', () => {

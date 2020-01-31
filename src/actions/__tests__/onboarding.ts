@@ -1,3 +1,6 @@
+/* eslint max-lines: 0 */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -7,41 +10,40 @@ import {
   skipOnboardingAddPerson,
   createMyPerson,
   createPerson,
-  skipOnboarding,
-  skipOnboardingComplete,
+  skipAddPersonAndCompleteOnboarding,
+  resetPersonAndCompleteOnboarding,
   joinStashedCommunity,
   landOnStashedCommunityScreen,
   SKIP_ONBOARDING_ADD_PERSON,
+  startOnboarding,
+  SET_ONBOARDING_PERSON_ID,
 } from '../onboarding';
 import { showReminderOnLoad } from '../notifications';
+import { navigatePush, navigateBack, navigateToCommunity } from '../navigation';
 import { joinCommunity } from '../organizations';
-import { trackActionWithoutData } from '../analytics';
+import {
+  trackActionWithoutData,
+  setAppContext,
+  resetAppContext,
+} from '../analytics';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
+  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { navigateReset } from '../navigation';
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-} from '../../containers/Groups/GroupScreen';
 import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
+import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 
 jest.mock('../api');
-jest.mock('../navigation', () => ({
-  navigatePush: jest.fn(() => ({ type: 'push' })),
-  navigateReset: jest.fn(() => ({ type: 'reset' })),
-}));
 jest.mock('../notifications');
-jest.mock('../analytics', () => ({
-  trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
-}));
+jest.mock('../analytics');
 jest.mock('../person');
 jest.mock('../organizations');
+jest.mock('../navigation');
 
 const myId = '1';
 
@@ -49,11 +51,27 @@ let store = configureStore([thunk])({
   auth: { person: { id: myId } },
 });
 
+const navigatePushResponse = { type: 'navigate push' };
+const navigateBackResponse = { type: 'navigate back' };
+const navigateToCommunityResponse = { type: 'navigate to community' };
 const showReminderResponse = { type: 'show notification prompt' };
+const trackActionWithoutDataResult = { type: 'track action' };
+const setAppContextResult = { type: 'set app context' };
+const resetAppContextResult = { type: 'reset app context' };
 
 beforeEach(() => {
   store.clearActions();
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
+  (navigateToCommunity as jest.Mock).mockReturnValue(
+    navigateToCommunityResponse,
+  );
   (showReminderOnLoad as jest.Mock).mockReturnValue(showReminderResponse);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(
+    trackActionWithoutDataResult,
+  );
+  (setAppContext as jest.Mock).mockReturnValue(setAppContextResult);
+  (resetAppContext as jest.Mock).mockReturnValue(resetAppContextResult);
 });
 
 describe('setOnboardingPersonId', () => {
@@ -98,6 +116,21 @@ describe('skipOnboardingAddPerson', () => {
   });
 });
 
+describe('startOnboarding', () => {
+  it('sends start onboarding action', () => {
+    store.dispatch<any>(startOnboarding());
+
+    expect(setAppContext).toHaveBeenCalledWith(ANALYTICS_CONTEXT_ONBOARDING);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_STARTED,
+    );
+    expect(store.getActions()).toEqual([
+      setAppContextResult,
+      trackActionWithoutDataResult,
+    ]);
+  });
+});
+
 describe('createMyPerson', () => {
   it('should send the correct API request', async () => {
     const first_name = 'Roger';
@@ -113,7 +146,6 @@ describe('createMyPerson', () => {
       type: 'person',
     }));
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(createMyPerson('Roger', 'Goers'));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -155,7 +187,6 @@ describe('createPerson', () => {
       response: person,
     }));
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(createPerson(first_name, last_name));
 
     expect(callApi).toHaveBeenCalledWith(
@@ -188,31 +219,48 @@ describe('createPerson', () => {
   });
 });
 
-describe('skip onboarding complete', () => {
-  it('skipOnboardingComplete', () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    store.dispatch<any>(skipOnboardingComplete());
-    expect(store.getActions()).toEqual([
-      { type: 'track' },
-      { type: SKIP_ONBOARDING_ADD_PERSON },
-      { type: 'push' },
-    ]);
-  });
-});
+describe('skipAddPersonAndCompleteOnboarding', () => {
+  it('skips add person and completes onboarding', async () => {
+    await store.dispatch<any>(skipAddPersonAndCompleteOnboarding());
 
-describe('skip onboarding', () => {
-  it('skipOnboarding', async () => {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    await store.dispatch<any>(skipOnboarding());
     expect(showReminderOnLoad).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
       true,
     );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([
-      showReminderResponse,
-      { type: 'track' },
       { type: SKIP_ONBOARDING_ADD_PERSON },
-      { type: 'push' },
+      showReminderResponse,
+      trackActionWithoutDataResult,
+      resetAppContextResult,
+      navigatePushResponse,
+    ]);
+  });
+});
+
+describe('resetPersonAndCompleteOnboarding', () => {
+  it('resets onboarding person and completed onboarding', async () => {
+    await store.dispatch<any>(resetPersonAndCompleteOnboarding());
+
+    expect(showReminderOnLoad).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.ONBOARDING,
+      true,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
+    expect(store.getActions()).toEqual([
+      { personId: '', type: SET_ONBOARDING_PERSON_ID },
+      showReminderResponse,
+      trackActionWithoutDataResult,
+      resetAppContextResult,
+      navigatePushResponse,
     ]);
   });
 });
@@ -231,7 +279,6 @@ describe('join stashed community', () => {
       onboarding: { community },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(joinStashedCommunity());
 
     expect(joinCommunity).toHaveBeenCalledWith(
@@ -243,6 +290,12 @@ describe('join stashed community', () => {
 });
 
 describe('land on stashed community screen', () => {
+  beforeEach(() => {
+    (navigateToCommunity as jest.Mock).mockReturnValue({
+      type: 'navigate to org',
+    });
+  });
+
   it('landOnStashedCommunityScreen navigates to GroupScreen', async () => {
     const community = {
       id: '1',
@@ -258,12 +311,9 @@ describe('land on stashed community screen', () => {
       organizations: { all: [community] },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(GROUP_SCREEN, {
-      organization: community,
-    });
+    expect(navigateToCommunity).toHaveBeenCalledWith(community);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );
@@ -286,12 +336,9 @@ describe('land on stashed community screen', () => {
       },
     });
 
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateReset).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      organization: community,
-    });
+    expect(navigateToCommunity).toHaveBeenCalledWith(community);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );

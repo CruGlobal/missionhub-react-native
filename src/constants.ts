@@ -45,6 +45,7 @@ export const SET_CELEBRATE_EDITING_COMMENT =
   'app/SET_CELEBRATE_EDITING_COMMENT';
 export const RESET_CELEBRATE_EDITING_COMMENT =
   'app/RESET_CELEBRATE_EDITING_COMMENT';
+export const RELOAD_APP = 'app/RELOAD_APP';
 
 export const GLOBAL_COMMUNITY_ID = '_global_community_id';
 
@@ -100,6 +101,7 @@ export const LINKS = {
 };
 
 export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
+export const ANALYTICS_CONTEXT_ONBOARDING = 'onboarding';
 
 export const ORG_PERMISSIONS = {
   ADMIN: '1',
@@ -109,26 +111,20 @@ export const ORG_PERMISSIONS = {
 };
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
-export const MAIN_TAB_CHANGED = 'analytics/MAIN_TAB_CHANGED';
-export const GROUP_TAB_CHANGED = 'analytics/GROUP_TAB_CHANGED';
-export const TRACK_TAB = 'analytics/TRACK_TAB';
-export const PERSON_VIEWED_STAGE_CHANGED =
-  'analytics/PERSON_VIEWED_STAGE_CHANGED';
-export const SELF_VIEWED_STAGE_CHANGED = 'analytics/SELF_VIEWED_STAGE_CHANGED';
 export const ANALYTICS = {
   MCID: 'cru.mcid',
-  SCREENNAME: 'cru.screenname',
+  SCREEN_NAME: 'cru.screenname',
   SITE_SECTION: 'cru.sitesection',
   SITE_SUBSECTION: 'cru.sitesubsection',
-  SITE_SUB_SECTION_3: 'cru.subsectionlevel3',
-  SITE_SUB_SECTION_4: 'cru.subsectionlevel4',
-  CONTENT_AUDIENCE_TARGET: 'cru.contentaudiencetarget',
-  CONTENT_TOPIC: 'cru.contenttopic',
+  SITE_SUBSECTION_3: 'cru.subsectionlevel3',
+  PREVIOUS_SCREEN_NAME: 'cru.previousscreenname',
+  APP_NAME: 'cru.appname',
   LOGGED_IN_STATUS: 'cru.loggedinstatus',
   SSO_GUID: 'cru.ssoguid',
   GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
+  APP_CONTEXT: 'cru.appcontext',
 };
 export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';

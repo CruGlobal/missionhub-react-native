@@ -1,17 +1,18 @@
 import React from 'react';
-import { ThunkDispatch } from 'redux-thunk';
 import { SafeAreaView, Image, View } from 'react-native';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import LOGO from '../../../assets/images/missionHubLogoWords.png';
 import { navigatePush } from '../../actions/navigation';
 import { Button, Text } from '../../components/common';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   FULL_ONBOARDING_FLOW,
   JOIN_BY_CODE_ONBOARDING_FLOW,
   SIGN_IN_FLOW,
 } from '../../routes/constants';
+import { startOnboarding } from '../../actions/onboarding';
 
 import styles from './styles';
 
@@ -27,19 +28,18 @@ const {
   signInBtnText,
 } = styles;
 
-const LandingScreen = ({
-  dispatch,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, any>;
-}) => {
+const LandingScreen = () => {
+  useAnalytics('landing');
   const { t } = useTranslation('landing');
+  const dispatch = useDispatch();
 
   const tryItNow = () => {
+    dispatch(startOnboarding());
     dispatch(navigatePush(FULL_ONBOARDING_FLOW));
   };
 
   const communityCode = () => {
+    dispatch(startOnboarding());
     dispatch(navigatePush(JOIN_BY_CODE_ONBOARDING_FLOW));
   };
 
@@ -86,5 +86,5 @@ const LandingScreen = ({
   );
 };
 
-export default connect()(LandingScreen);
+export default LandingScreen;
 export const LANDING_SCREEN = 'nav/LANDING';

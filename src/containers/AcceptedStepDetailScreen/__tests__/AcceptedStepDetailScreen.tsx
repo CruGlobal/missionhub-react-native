@@ -5,6 +5,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import AcceptedStepDetailScreen from '..';
 
@@ -21,6 +22,7 @@ jest.mock('../../../components/ReminderDateText', () => ({
   ...jest.requireActual('../../../components/ReminderDateText'),
   default: 'ReminderDateText',
 }));
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const stepId = '234242';
 
@@ -54,6 +56,7 @@ it('should render correctly without description and without reminder', async () 
   });
   await flushMicrotasksQueue();
   snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
 });
 
 describe('with description, without reminder', () => {

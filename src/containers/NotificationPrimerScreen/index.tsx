@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { connect } from 'react-redux-legacy';
+import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
@@ -9,6 +9,7 @@ import { Text, Button, Flex } from '../../components/common';
 import { requestNativePermissions } from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -27,6 +28,7 @@ interface NotificationPrimerScreenProps {
 const NotificationPrimerScreen = ({
   dispatch,
 }: NotificationPrimerScreenProps) => {
+  useAnalytics('allow notifications');
   const { t } = useTranslation('notificationPrimer');
 
   const onComplete: (
@@ -77,12 +79,14 @@ const NotificationPrimerScreen = ({
               justify="center"
               style={styles.stepsNotificationContainer}
             >
-              <Text style={styles.stepsNotificationText}>
-                {t('stepsNotification.part1')}
-              </Text>
-              <Text style={styles.stepsNotificationText}>
-                {t('stepsNotification.part2')}
-              </Text>
+              <View>
+                <Text style={styles.stepsNotificationText}>
+                  {t('stepsNotification.part1')}
+                </Text>
+                <Text style={styles.stepsNotificationText}>
+                  {t('stepsNotification.part2')}
+                </Text>
+              </View>
             </Flex>
             <Flex
               value={1}
@@ -90,15 +94,22 @@ const NotificationPrimerScreen = ({
               justify="center"
               style={styles.stepsNotificationContainer}
             >
-              <Image
-                source={require('../../../assets/images/notificationPrimerScreen.png')}
-              />
-              <Image
-                style={styles.stepsNotifcationImage}
-                source={require('../../../assets/images/notificationPrimerNotif.png')}
-              />
+              <View style={styles.imageContainer}>
+                <Image
+                  source={require('../../../assets/images/notificationPrimerScreen.png')}
+                />
+                <Image
+                  style={styles.stepsNotifcationImage}
+                  source={require('../../../assets/images/notificationPrimerNotif.png')}
+                />
+              </View>
             </Flex>
-            <Flex value={1} align="center" justify="center">
+            <Flex
+              value={1}
+              align="center"
+              justify="center"
+              style={styles.buttonContainer}
+            >
               <Button
                 pill={true}
                 type="primary"

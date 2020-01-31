@@ -7,6 +7,7 @@ import { requestNativePermissions } from '../../../actions/notifications';
 import { navigatePush } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import NotificationPrimerScreen from '..';
 
@@ -23,6 +24,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('react-native-device-info');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const navigatePushResult = { type: 'navigated push' };
 const registerResult = { type: 'request permissions' };
@@ -44,6 +46,8 @@ describe('notificationTypes', () => {
         notificationType,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
   };
 
   it('renders for ONBOARDING', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';

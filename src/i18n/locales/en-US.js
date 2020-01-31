@@ -184,6 +184,10 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
+    addPerson: {
+      part1: 'Who do you want to take',
+      part2: ' a step of faith with?',
+    },
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
@@ -218,8 +222,8 @@ export default {
   },
   selectStep: {
     meHeader: {
-      part1: 'How do you want to move',
-      part2: 'forward on your spiritual journey?',
+      part1: 'Choose a step of faith',
+      part2: 'to take on your journey this week...',
     },
     personHeader: {
       part1: 'Choose a step of faith',
@@ -273,6 +277,7 @@ export default {
   },
   contactSteps: {
     header: 'STEPS OF FAITH',
+    stepSelfNull: 'Your Steps of Faith will appear here.',
     stepNull: 'Your Steps of Faith with {{name}} appear here.',
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
@@ -522,6 +527,10 @@ export default {
     shareStory: 'Share Story',
     inputPlaceholder: 'Share a Story...',
   },
+  editStoryScreen: {
+    saveStory: 'Save Changes',
+    inputPlaceholder: 'Share a Story...',
+  },
   celebrateFeeds: {
     title: '',
     emptyFeedTitle: 'Celebrate!',
@@ -545,6 +554,24 @@ export default {
       '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
+  },
+  celebrateItems: {
+    edit: {
+      buttonText: 'Edit Post',
+    },
+    delete: {
+      buttonText: 'Delete Post',
+      title: 'Delete Post?',
+      message:
+        "This post will be deleted and you won't be able to find it anymore.",
+    },
+    report: {
+      buttonText: 'Report to Owner',
+      title: 'Report to Owner?',
+      message:
+        'Are you sure you want to report this comment to the community owner?',
+      confirmButtonText: 'Report Post',
+    },
   },
   challengeFeeds: {
     past: 'Past Challenges',
@@ -801,6 +828,7 @@ export default {
   reportComment: {
     reportedBy: 'Reported By',
     commentBy: 'Comment By',
+    // @ts-ignore
     reportedBy: 'Reported By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',

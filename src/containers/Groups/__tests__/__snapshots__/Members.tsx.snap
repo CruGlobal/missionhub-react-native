@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Members calls render item 1`] = `
+<Connect(GroupMemberItem)
+  myOrgPermission={
+    Object {
+      "organization_id": "1",
+      "permission_id": "4",
+    }
+  }
+  onSelect={[Function]}
+  organization={
+    Object {
+      "id": "1",
+      "members": Array [
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 1",
+          "id": "1",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 2",
+          "id": "2",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 3",
+          "id": "3",
+        },
+      ],
+      "name": "Test Org",
+      "user_created": true,
+    }
+  }
+  person={
+    Object {
+      "contact_assignments": Array [],
+      "full_name": "Test User 1",
+      "id": "1",
+    }
+  }
+/>
+`;
+
+exports[`Members renderHeader match snapshot 1`] = `
+<Connect(withI18nextTranslation(OnboardingCard))
+  type="members"
+/>
+`;
+
+exports[`Members should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "community",
+        "members",
+      ]
+    }
+  />
+  <FlatList
+    ListFooterComponent={
+      <LoadMore
+        onPress={[Function]}
+      />
+    }
+    ListHeaderComponent={[Function]}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 90,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 1",
+          "id": "1",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 2",
+          "id": "2",
+        },
+        Object {
+          "contact_assignments": Array [],
+          "full_name": "Test User 3",
+          "id": "3",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+  <BottomButton
+    onPress={[Function]}
+    text="Send Invite"
+  />
+</View>
+`;

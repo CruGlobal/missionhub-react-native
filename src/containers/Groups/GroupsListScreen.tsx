@@ -1,37 +1,42 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   FlatList,
   View,
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { TFunction } from 'i18next';
+import { useFocusEffect } from 'react-navigation-hooks';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
 import { IconButton, Button } from '../../components/common';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateToCommunity } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
-import { navigateToCommunity } from '../../actions/organizations';
 import { resetScrollGroups } from '../../actions/swipe';
-import { ACTIONS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../routes/constants';
-import TrackTabChange from '../TrackTabChange';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
+import { OrganizationsState, Organization } from '../../reducers/organizations';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../utils/hooks/useAnalytics';
+import { checkForUnreadComments } from '../../actions/unreadComments';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -80,7 +85,11 @@ export const GET_COMMUNITIES_QUERY = gql`
 `;
 
 interface GroupsListScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<
+    { organizations: OrganizationsState },
+    null,
+    AnyAction
+  >;
   isAnonymousUser: boolean;
   scrollToId: string | null;
 }
@@ -125,6 +134,8 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
+  useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -206,14 +217,12 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const handlePress = (community: GetCommunities_communities_nodes) => {
+  const handlePress = (community: Organization) => {
     dispatch(navigateToCommunity(community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
-  const handleOpenMainMenu = () => {
-    dispatch(openMainMenu());
-  };
+  const handleOpenMainMenu = () => dispatch(openMainMenu());
 
   const handleScroll = ({
     nativeEvent,
@@ -251,7 +260,6 @@ const GroupsListScreen = ({
 
   return (
     <View style={styles.container}>
-      <TrackTabChange screen={GROUPS_TAB} />
       <Header
         left={
           <IconButton

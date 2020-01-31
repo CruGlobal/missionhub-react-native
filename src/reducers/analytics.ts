@@ -5,28 +5,33 @@ import {
   ANALYTICS,
   NOT_LOGGED_IN,
   LOGOUT,
+  RELOAD_APP,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
+import {
+  RESET_APP_CONTEXT,
+  ResetAppContextAction,
+  SET_APP_CONTEXT,
+  SetAppContextAction,
+} from '../actions/analytics';
 
 export const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
-  [ANALYTICS.SCREENNAME]: '',
-  [ANALYTICS.SITE_SECTION]: '',
-  [ANALYTICS.SITE_SUBSECTION]: '',
-  [ANALYTICS.SITE_SUB_SECTION_3]: '',
-  [ANALYTICS.CONTENT_AUDIENCE_TARGET]: '',
-  [ANALYTICS.CONTENT_TOPIC]: '',
+  [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
+  [ANALYTICS.APP_NAME]: 'MissionHub App',
   [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
   [ANALYTICS.SSO_GUID]: '',
-  ['cru.appname']: 'MissionHub App',
   [ANALYTICS.GR_MASTER_PERSON_ID]: '',
   [ANALYTICS.FACEBOOK_ID]: '',
   [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
+  [ANALYTICS.APP_CONTEXT]: '',
 };
+
+export type AnalyticsState = typeof initialAnalyticsState;
 
 interface AnalyticsContextChangedAction {
   type: typeof ANALYTICS_CONTEXT_CHANGED;
-  analyticsContext: Partial<typeof initialAnalyticsState>;
+  analyticsContext: Partial<AnalyticsAction>;
 }
 
 interface KeyLoginSuccessAction {
@@ -37,6 +42,9 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
+  | SetAppContextAction
+  | ResetAppContextAction
+  | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
 function analyticsReducer(
@@ -47,20 +55,36 @@ function analyticsReducer(
     case ANALYTICS_CONTEXT_CHANGED:
       return {
         ...state,
-        ...(action.analyticsContext as typeof initialAnalyticsState),
+        ...(action.analyticsContext as AnalyticsState),
       };
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,
         [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
       };
+    case SET_APP_CONTEXT:
+      return {
+        ...state,
+        [ANALYTICS.APP_CONTEXT]: action.context,
+      };
+    case RESET_APP_CONTEXT:
+      return {
+        ...state,
+        [ANALYTICS.APP_CONTEXT]: '',
+      };
+    case RELOAD_APP:
+      return {
+        ...state,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
+      };
     case LOGOUT:
       return {
         ...state,
+        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
         [ANALYTICS.SSO_GUID]: '',
         [ANALYTICS.GR_MASTER_PERSON_ID]: '',
         [ANALYTICS.FACEBOOK_ID]: '',
-        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
+        [ANALYTICS.APP_CONTEXT]: '',
       };
     default:
       return state;

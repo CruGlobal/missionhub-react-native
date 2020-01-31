@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render empty correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "new comment items",
+      ]
+    }
+  />
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#000000",
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        text="CLEAR ALL"
+        type="transparent"
+      />
+    }
+    shadow={true}
+    title="0 New Comments"
+    titleStyle={
+      Object {
+        "fontWeight": "400",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+      }
+    }
+  >
+    <Connect(CelebrateFeed)
+      itemNamePressable={true}
+      items={Array []}
+      noHeader={true}
+      onClearNotification={[Function]}
+      organization={
+        Object {
+          "id": "orgId",
+        }
+      }
+      refreshCallback={[Function]}
+      refreshing={false}
+    />
+  </View>
+</View>
+`;
+
+exports[`should render items correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "new comment items",
+      ]
+    }
+  />
+  <StatusBar
+    animated={true}
+    backgroundColor="#006789"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
+  <Header
+    left={
+      <IconButton
+        name="backIcon"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#000000",
+          }
+        }
+        type="MissionHub"
+      />
+    }
+    right={
+      <Button
+        buttonTextStyle={
+          Object {
+            "color": "#000000",
+            "fontSize": 10,
+          }
+        }
+        onPress={[Function]}
+        style={
+          Object {
+            "paddingRight": 5,
+          }
+        }
+        text="CLEAR ALL"
+        type="transparent"
+      />
+    }
+    shadow={true}
+    title="0 New Comments"
+    titleStyle={
+      Object {
+        "fontWeight": "400",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+      }
+    }
+  >
+    <Connect(CelebrateFeed)
+      itemNamePressable={true}
+      items={
+        Array [
+          Object {
+            "date": "2018-06-11 00:00:00 UTC",
+            "events": Array [
+              Object {
+                "celebrateable_type": "interaction",
+                "changed_attribute_value": "2018-06-11 00:00:00 UTC",
+                "id": "10",
+              },
+            ],
+            "id": "1",
+          },
+          Object {
+            "date": "2018-06-10 00:00:00 UTC",
+            "events": Array [
+              Object {
+                "celebrateable_type": "accepted_challenge",
+                "changed_attribute_value": "2018-06-10 00:00:00 UTC",
+                "id": "20",
+              },
+            ],
+            "id": "2",
+          },
+        ]
+      }
+      noHeader={true}
+      onClearNotification={[Function]}
+      organization={
+        Object {
+          "id": "orgId",
+        }
+      }
+      refreshCallback={[Function]}
+      refreshing={false}
+    />
+  </View>
+</View>
+`;

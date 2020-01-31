@@ -1,7 +1,7 @@
 /* eslint max-lines-per-function: 0 */
 
 import React, { useState, useRef } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { SafeAreaView, Keyboard, View, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
@@ -31,6 +31,7 @@ import {
   facebookLoginWithAccessToken,
 } from '../../../actions/auth/facebook';
 import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -47,6 +48,7 @@ const SignInScreen = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }) => {
+  useAnalytics('sign in');
   const { t } = useTranslation('keyLogin');
   const forcedLogout = useNavigationParam('forcedLogout');
 
@@ -62,6 +64,7 @@ const SignInScreen = ({
   );
 
   const handleForgotPassword = async () => {
+    // @ts-ignore
     const { code, codeVerifier, redirectUri } = await dispatch(
       openKeyURL('service/selfservice?target=displayForgotPassword'),
     );
@@ -81,6 +84,7 @@ const SignInScreen = ({
     setIsLoading(true);
 
     try {
+      // @ts-ignore
       await dispatch(keyLogin(email, password));
       Keyboard.dismiss();
       dispatch(next());

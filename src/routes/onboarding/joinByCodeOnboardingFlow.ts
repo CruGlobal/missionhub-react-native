@@ -14,8 +14,7 @@ import {
 import JoinGroupScreen, {
   JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/JoinGroupScreen';
-import { buildTrackedScreen, wrapNextAction } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
+import { wrapNextAction } from '../helpers';
 import { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../containers/SetupScreen';
 import SetupScreen from '../../containers/SetupScreen';
@@ -25,8 +24,8 @@ import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
 import { onboardingFlowGenerator } from './onboardingFlowGenerator';
 
 export const JoinByCodeOnboardingFlowScreens = {
-  [JOIN_GROUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
+  [JOIN_GROUP_SCREEN]: {
+    screen: wrapNextAction(
       JoinGroupScreen,
       ({ community }: { community: Organization }) => (
         dispatch: ThunkDispatch<{}, {}, AnyAction>,
@@ -35,34 +34,27 @@ export const JoinByCodeOnboardingFlowScreens = {
         dispatch(navigatePush(WELCOME_SCREEN));
       },
     ),
-    buildTrackingObj('communities : join', 'communities', 'join'),
-    { gesturesEnabled: true },
-  ),
+    navigationOptions: { gesturesEnabled: true },
+  },
   ...onboardingFlowGenerator(),
-  [SETUP_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      SetupScreen,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      () => async (dispatch: ThunkDispatch<{}, {}, any>) => {
-        await dispatch(joinStashedCommunity());
-        dispatch(navigatePush(GET_STARTED_SCREEN));
-      },
-      {
-        isMe: true,
-      },
-    ),
-    buildTrackingObj('onboarding : name', 'onboarding'),
+  [SETUP_SCREEN]: wrapNextAction(
+    SetupScreen,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    () => async (dispatch: ThunkDispatch<{}, {}, any>) => {
+      await dispatch(joinStashedCommunity());
+      dispatch(navigatePush(GET_STARTED_SCREEN));
+    },
+    {
+      isMe: true,
+    },
   ),
-  [CELEBRATION_SCREEN]: buildTrackedScreen(
-    wrapNextAction(
-      CelebrationScreen,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      () => (dispatch: ThunkDispatch<{}, {}, any>) => {
-        dispatch(landOnStashedCommunityScreen());
-        dispatch(setOnboardingPersonId(''));
-      },
-    ),
-    buildTrackingObj('onboarding : complete', 'onboarding'),
+  [CELEBRATION_SCREEN]: wrapNextAction(
+    CelebrationScreen,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    () => (dispatch: ThunkDispatch<{}, {}, any>) => {
+      dispatch(landOnStashedCommunityScreen());
+      dispatch(setOnboardingPersonId(''));
+    },
   ),
 };
 export const JoinByCodeOnboardingFlowNavigator = createStackNavigator(

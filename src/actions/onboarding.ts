@@ -4,28 +4,27 @@ import { AnyAction } from 'redux';
 
 import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
-import { organizationSelector } from '../selectors/organizations';
 import { OnboardingState } from '../reducers/onboarding';
 import { OrganizationsState } from '../reducers/organizations';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
+  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../constants';
 import { rollbar } from '../utils/rollbar.config';
-import { buildTrackingObj } from '../utils/common';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
-import {
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-} from '../containers/Groups/GroupScreen';
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
 import { getMe } from './person';
-import { navigatePush, navigateReset } from './navigation';
+import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
-import { trackActionWithoutData } from './analytics';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+  setAppContext,
+} from './analytics';
 import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
@@ -70,6 +69,13 @@ export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
   type: SKIP_ONBOARDING_ADD_PERSON,
 });
 
+export const startOnboarding = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+) => {
+  dispatch(setAppContext(ANALYTICS_CONTEXT_ONBOARDING));
+  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+};
+
 export function createMyPerson(firstName: string, lastName: string) {
   const data = {
     code: uuidv4(),
@@ -80,6 +86,7 @@ export function createMyPerson(firstName: string, lastName: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return async (dispatch: ThunkDispatch<{}, {}, any>) => {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+    // @ts-ignore
     const me = ((await dispatch(getMe())) as unknown) as Person;
 
     rollbar.setPerson(me.id);
@@ -132,31 +139,34 @@ export const createPerson = (firstName: string, lastName: string) => async (
   return results;
 };
 
-export function skipOnboardingComplete() {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-    dispatch(skipOnboardingAddPerson());
-    dispatch(
-      navigatePush(CELEBRATION_SCREEN, {
-        trackingObj: buildTrackingObj('onboarding : complete', 'onboarding'),
-      }),
-    );
-  };
-}
+const finalOnboardingActions = () => async (
+  dispatch: ThunkDispatch<{}, null, AnyAction>,
+) => {
+  await dispatch(
+    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
+  );
+  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
+  dispatch(resetAppContext());
+  dispatch(navigatePush(CELEBRATION_SCREEN));
+};
 
-export function skipOnboarding() {
-  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-    await dispatch(
-      showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-    );
+export const skipAddPersonAndCompleteOnboarding = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+) => {
+  dispatch(skipOnboardingAddPerson());
+  dispatch(finalOnboardingActions());
+};
 
-    return dispatch(skipOnboardingComplete());
-  };
-}
+export const resetPersonAndCompleteOnboarding = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+) => {
+  dispatch(setOnboardingPersonId(''));
+  dispatch(finalOnboardingActions());
+};
 
 export function joinStashedCommunity() {
   return async (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
     },
@@ -164,39 +174,28 @@ export function joinStashedCommunity() {
     const {
       onboarding: { community },
     } = getState();
-    await dispatch(
-      joinCommunity(
-        community.id,
-        community.community_code,
-        community.community_url,
-      ),
-    );
+
+    community &&
+      (await dispatch(
+        joinCommunity(
+          community.id,
+          community.community_code,
+          community.community_url,
+        ),
+      ));
   };
 }
 
 export function landOnStashedCommunityScreen() {
   return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
-    getState: () => {
-      onboarding: OnboardingState;
-      organizations: OrganizationsState;
-    },
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      null,
+      AnyAction
+    >,
+    getState: () => { onboarding: OnboardingState },
   ) => {
-    const {
-      organizations,
-      onboarding: {
-        community: { id },
-      },
-    } = getState();
-    const community = organizationSelector({ organizations }, { orgId: id });
-    dispatch(
-      navigateReset(
-        community.user_created ? USER_CREATED_GROUP_SCREEN : GROUP_SCREEN,
-        {
-          organization: community,
-        },
-      ),
-    );
+    dispatch(navigateToCommunity(getState().onboarding.community));
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }

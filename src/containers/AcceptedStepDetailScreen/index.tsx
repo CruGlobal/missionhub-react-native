@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnyAction } from 'redux';
 import { View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -18,6 +18,7 @@ import { REMINDER_BUTTON_FRAGMENT } from '../../components/ReminderButton/querie
 import ReminderDateText from '../../components/ReminderDateText';
 import { REMINDER_DATE_TEXT_FRAGMENT } from '../../components/ReminderDateText/queries';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 import {
@@ -58,6 +59,7 @@ const AcceptedStepDetailScreen = ({
   dispatch,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
+  useAnalytics(['step detail', 'active step']);
   const { data: { step } = { step: undefined }, error, refetch } = useQuery<
     AcceptedStepDetail,
     AcceptedStepDetailVariables

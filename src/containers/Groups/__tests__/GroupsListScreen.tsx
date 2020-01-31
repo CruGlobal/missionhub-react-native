@@ -2,11 +2,12 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
+import { useQuery } from '@apollo/react-hooks';
+import { useFocusEffect } from 'react-navigation-hooks';
 
-import GroupsListScreen from '../GroupsListScreen';
+import GroupsListScreen, { GET_COMMUNITIES_QUERY } from '../GroupsListScreen';
 import { renderWithContext } from '../../../../testUtils';
-import { navigatePush } from '../../../actions/navigation';
-import { navigateToCommunity } from '../../../actions/organizations';
+import { navigatePush, navigateToCommunity } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../../utils/common';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
@@ -16,14 +17,19 @@ import {
   CREATE_COMMUNITY_UNAUTHENTICATED_FLOW,
   JOIN_BY_CODE_FLOW,
 } from '../../../routes/constants';
+import {
+  useAnalytics,
+  ANALYTICS_SCREEN_TYPES,
+} from '../../../utils/hooks/useAnalytics';
 
+jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/common');
-jest.mock('../../TrackTabChange', () => () => null);
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const auth = { upgradeToken: null };
 const swipe = { groupScrollToId: null };
@@ -55,6 +61,12 @@ describe('GroupsListScreen', () => {
         CommunityConnection: () => ({ nodes: () => [] }),
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+    );
+    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('renders with communities', async () => {
@@ -67,6 +79,13 @@ describe('GroupsListScreen', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
+
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+    );
+    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   describe('card item press', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
@@ -11,6 +11,7 @@ import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -22,7 +23,7 @@ export interface Step {
 interface SelectStepScreenProps {
   personId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  organization?: { [key: string]: any };
+  orgId?: string;
   contactName?: string;
   contactStageId: string;
   headerText: [string, string];
@@ -33,14 +34,14 @@ interface SelectStepScreenProps {
     personId: string;
     step?: Step;
     skip: boolean;
-    orgId: string;
+    orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }
 
 const SelectStepScreen = ({
   personId,
-  organization,
+  orgId,
   contactName,
   contactStageId,
   headerText,
@@ -48,13 +49,15 @@ const SelectStepScreen = ({
   dispatch,
   next,
 }: SelectStepScreenProps) => {
+  useAnalytics('add step');
+
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
       next({
         personId,
         step,
         skip,
-        orgId: organization && organization.id,
+        orgId,
       }),
     );
   };
@@ -98,7 +101,7 @@ const SelectStepScreen = ({
       <ParallaxScrollView
         backgroundColor={theme.primaryColor}
         contentBackgroundColor={theme.extraLightGrey}
-        parallaxHeaderHeight={150}
+        parallaxHeaderHeight={180}
         renderForeground={renderForeground}
         stickyHeaderHeight={headerHeight}
         renderStickyHeader={renderHeader}

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { AppState, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
+import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import i18n from 'i18next';
@@ -55,8 +56,11 @@ export default class App extends Component {
 
   onBeforeLift = () => {
     this.checkOldAppToken();
+    // @ts-ignore
     store.dispatch(resetToInitialRoute());
+    // @ts-ignore
     store.dispatch(configureNotificationHandler());
+    // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
@@ -70,9 +74,11 @@ export default class App extends Component {
       const value = await DefaultPreference.get(key);
       if (value) {
         try {
+          // @ts-ignore
           await store.dispatch(codeLogin(value));
           // If we successfully logged in with the user's guest code, clear it out now
           DefaultPreference.clear(key);
+          // @ts-ignore
           store.dispatch(navigateToPostAuthScreen());
         } catch (e) {
           // This happens when there is a problem with the code from the API call
@@ -193,18 +199,20 @@ export default class App extends Component {
       <Fragment>
         <StatusBar {...theme.statusBar.lightContent} />
         <ApolloProvider client={apolloClient}>
-          <Provider store={store}>
-            <PersistGate
-              loading={<LoadingScreen />}
-              onBeforeLift={this.onBeforeLift}
-              persistor={persistor}
-            >
-              {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-              <PlatformKeyboardAvoidingView>
-                <AppWithNavigationState />
-              </PlatformKeyboardAvoidingView>
-            </PersistGate>
-          </Provider>
+          <ProviderLegacy store={store}>
+            <Provider store={store}>
+              <PersistGate
+                loading={<LoadingScreen />}
+                onBeforeLift={this.onBeforeLift}
+                persistor={persistor}
+              >
+                {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+                <PlatformKeyboardAvoidingView>
+                  <AppWithNavigationState />
+                </PlatformKeyboardAvoidingView>
+              </PersistGate>
+            </Provider>
+          </ProviderLegacy>
         </ApolloProvider>
       </Fragment>
     );
