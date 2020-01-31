@@ -5,7 +5,8 @@ import { withTranslation } from 'react-i18next';
 
 import { refresh } from '../../utils/common';
 import Header from '../../components/Header';
-import { IconButton, Button } from '../../components/common';
+import { Button } from '../../components/common';
+import BackButton from '../BackButton';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
 import { getGroupCelebrateFeedUnread } from '../../actions/celebration';
@@ -76,14 +77,7 @@ class GroupUnreadFeed extends Component {
         <Analytics screenName={['celebrate', 'new comment items']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
-          left={
-            <IconButton
-              name="backIcon"
-              type="MissionHub"
-              style={styles.backIcon}
-              onPress={this.back}
-            />
-          }
+          left={<BackButton iconStyle={styles.backIcon} />}
           right={
             <Button
               type="transparent"
