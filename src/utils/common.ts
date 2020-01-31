@@ -1,5 +1,6 @@
 /* eslint max-lines: 0, max-params: 0 */
 
+// eslint-disable-next-line import/named
 import moment, { MomentInput } from 'moment';
 import {
   ToastAndroid,

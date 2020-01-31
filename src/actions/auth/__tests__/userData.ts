@@ -137,17 +137,12 @@ describe('loadHome', () => {
   };
 
   it('loads me, organizations, stages, timezone, and notifications', async () => {
-    // @ts-ignore
-    getMe.mockReturnValue(getMeResult);
-    // @ts-ignore
-    getMyPeople.mockReturnValue(getPeopleResult);
-    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
-    // @ts-ignore
-    getStagesIfNotExists.mockReturnValue(getStagesResult);
-    // @ts-ignore
-    showReminderOnLoad.mockReturnValue(notificationsResult);
-    // @ts-ignore
-    callApi.default.mockReturnValue(updateUserResult);
+    (getMe as jest.Mock).mockReturnValue(getMeResult);
+    (getMyPeople as jest.Mock).mockReturnValue(getPeopleResult);
+    (getMyCommunities as jest.Mock).mockReturnValue(getMyCommunitiesResult);
+    (getStagesIfNotExists as jest.Mock).mockReturnValue(getStagesResult);
+    (showReminderOnLoad as jest.Mock).mockReturnValue(notificationsResult);
+    (callApi.default as jest.Mock).mockReturnValue(updateUserResult);
 
     // @ts-ignore
     await store.dispatch(loadHome());

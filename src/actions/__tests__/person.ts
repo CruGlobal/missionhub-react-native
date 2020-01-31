@@ -623,11 +623,12 @@ describe('deleteContactAssignment', () => {
       query,
       data,
     );
+    // @ts-ignore
     expect(store.getActions()).toEqual([callAPIResult, deleteAction]);
   };
 
   beforeEach(() => {
-    callApi.mockReturnValue(callAPIResult);
+    (callApi as jest.Mock).mockReturnValue(callAPIResult);
   });
 
   it('should send the correct API request', async () => {

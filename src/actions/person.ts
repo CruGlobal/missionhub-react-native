@@ -33,8 +33,7 @@ import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 
-// @ts-ignore
-export function getMe(extraInclude) {
+export function getMe(extraInclude?: string) {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 

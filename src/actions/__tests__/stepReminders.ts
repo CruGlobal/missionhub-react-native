@@ -14,8 +14,7 @@ const mockStore = configureStore([thunk]);
 const challenge_id = '442324';
 const callApiResponse = { type: 'called api' };
 
-// @ts-ignore
-let reminder_at;
+let reminder_at: Date;
 // @ts-ignore
 let recurrence;
 // @ts-ignore

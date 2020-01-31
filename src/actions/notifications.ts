@@ -31,8 +31,10 @@ import {
 } from './navigation';
 import callApi from './api';
 
-// @ts-ignore
-export function showNotificationPrompt(notificationType, doNotNavigateBack) {
+export function showNotificationPrompt(
+  notificationType: string,
+  doNotNavigateBack = false,
+) {
   // @ts-ignore
   return (dispatch, getState) => {
     if (isAndroid) {
@@ -70,8 +72,10 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   };
 }
 
-// @ts-ignore
-export function showReminderOnLoad(notificationType, doNotNavigateBack) {
+export function showReminderOnLoad(
+  notificationType: string,
+  doNotNavigateBack = false,
+) {
   // @ts-ignore
   return async (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {
