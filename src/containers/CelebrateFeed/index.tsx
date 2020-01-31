@@ -82,18 +82,30 @@ class CelebrateFeed extends Component {
   };
 
   renderHeader = () => {
-    // @ts-ignore
-    const { isMember, organization, dispatch, refreshCallback } = this.props;
+    const {
+      // @ts-ignore
+      isMember,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      dispatch,
+      // @ts-ignore
+      refreshCallback,
+      // @ts-ignore
+      person,
+    } = this.props;
     return (
       <>
         {/* 
-      // @ts-ignore */}
+        // @ts-ignore */}
         <CelebrateFeedHeader isMember={isMember} organization={organization} />
-        <ShareStoryInput
-          dispatch={dispatch}
-          refreshItems={refreshCallback}
-          organization={organization}
-        />
+        {!person ? (
+          <ShareStoryInput
+            dispatch={dispatch}
+            refreshItems={refreshCallback}
+            organization={organization}
+          />
+        ) : null}
       </>
     );
   };

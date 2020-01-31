@@ -132,6 +132,41 @@ describe('item', () => {
   });
 });
 
+it('renders header with ShareStoryInput', () => {
+  component = renderShallow(
+    <CelebrateFeed
+      // @ts-ignore
+      noHeader={false}
+      items={celebrationItems}
+      organization={organization}
+      person={null}
+    />,
+    store,
+  );
+  // @ts-ignore
+  const header = component.instance().renderHeader();
+  expect(header).toMatchSnapshot();
+});
+
+it('renders header with no ShareStoryInput', () => {
+  const mockPerson = {
+    fullName: 'Christian Huffman',
+  };
+  component = renderShallow(
+    <CelebrateFeed
+      // @ts-ignore
+      noHeader={false}
+      items={celebrationItems}
+      organization={organization}
+      person={mockPerson}
+    />,
+    store,
+  );
+  // @ts-ignore
+  const header = component.instance().renderHeader();
+  expect(header).toMatchSnapshot();
+});
+
 it('renderHeader match snapshot', () => {
   // @ts-ignore
   const header = component.instance().renderHeader();
