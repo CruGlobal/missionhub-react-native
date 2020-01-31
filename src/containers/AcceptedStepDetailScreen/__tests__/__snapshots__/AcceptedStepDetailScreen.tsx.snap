@@ -36,7 +36,7 @@ Array [
     "reminder": Object {
       "__typename": "StepReminder",
       "id": "4",
-      "nextOccurrenceAt": 2012-04-22T10:14:48.380Z,
+      "nextOccurrenceAt": "2013-05-05T10:14:48.380Z",
       "reminderType": "once",
     },
     "stepSuggestion": Object {
@@ -255,36 +255,50 @@ exports[`should render correctly while loading 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <RCTScrollView
-    style={
-<<<<<<< HEAD
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
-    }
-  >
-    
-  </Text>
   <View
     style={
       Object {
         "flex": 1,
       }
     }
-  />
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          },
+        ]
+      }
+    >
+      
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 32,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          },
+          Object {
+            "paddingBottom": 86,
+          },
+        ]
+      }
+    />
+  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -330,35 +344,10 @@ exports[`should render correctly while loading 1`] = `
             },
             Object {
               "borderRadius": 50,
-=======
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <View>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
->>>>>>> develop
             },
           ]
         }
       >
-<<<<<<< HEAD
         <Text
           style={
             Array [
@@ -432,17 +421,7 @@ exports[`should render correctly without description and without reminder 1`] = 
               "justifyContent": "center",
             },
           ]
-=======
-        ROBERT
-      </Text>
-      <ReminderButton
-        reminder={
-          Object {
-            "id": "1",
-          }
->>>>>>> develop
         }
-        stepId="234242"
       >
         <View
           style={
@@ -529,7 +508,6 @@ exports[`should render correctly without description and without reminder 1`] = 
         style={
           Array [
             Object {
-<<<<<<< HEAD
               "paddingRight": 5,
             },
             Object {
@@ -554,34 +532,14 @@ exports[`should render correctly without description and without reminder 1`] = 
           style={
             Object {
               "opacity": 1,
-=======
-              "alignItems": "center",
-              "borderBottomWidth": 1,
-              "borderColor": "#ECEEF2",
-              "borderTopWidth": 1,
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-              "paddingHorizontal": 16,
-              "paddingVertical": 10,
->>>>>>> develop
             }
           }
           testID="removeStepButton"
         >
           <View
             style={
-              Object {
-                "alignItems": "center",
-                "flex": 1,
-                "flexDirection": "row",
-                "justifyContent": "flex-start",
-              }
-            }
-          >
-            <View
-              style={
+              Array [
                 Object {
-<<<<<<< HEAD
                   "backgroundColor": "transparent",
                 },
                 null,
@@ -590,82 +548,8 @@ exports[`should render correctly without description and without reminder 1`] = 
                 },
                 null,
               ]
-=======
-                  "alignItems": "center",
-                  "backgroundColor": "#52C5DC",
-                  "borderRadius": 16,
-                  "height": 32,
-                  "justifyContent": "center",
-                  "margin": 8,
-                  "width": 32,
-                }
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 18,
-                      },
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-            <ReminderDateText
-              reminder={
-                Object {
-                  "id": "1",
-                }
-              }
-              style={
-                Object {
-                  "fontSize": 16,
-                }
-              }
-            />
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
->>>>>>> develop
             }
-            testID="removeReminderButton"
           >
-<<<<<<< HEAD
             <Text
               style={
                 Array [
@@ -701,53 +585,50 @@ exports[`should render correctly without description and without reminder 1`] = 
       </View>
     </View>
   </RCTSafeAreaView>
-  <Text
+  <View
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Light",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginHorizontal": 32,
-          "marginVertical": 16,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
-    esse repellat quisquam
-  </Text>
-  <ReminderButton
-    reminder={null}
-    stepId="1"
-  >
-    <View
+    <Text
       style={
-        Object {
-          "alignItems": "center",
-          "borderBottomWidth": 1,
-          "borderColor": "#ECEEF2",
-          "borderTopWidth": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "paddingHorizontal": 16,
-          "paddingVertical": 10,
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "lineHeight": 38,
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          },
+        ]
       }
+    >
+      esse repellat quisquam
+    </Text>
+    <ReminderButton
+      reminder={null}
+      stepId="1"
     >
       <View
         style={
           Object {
             "alignItems": "center",
-            "flex": 1,
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
             "flexDirection": "row",
-            "justifyContent": "flex-start",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 16,
+            "paddingVertical": 10,
           }
         }
       >
@@ -755,170 +636,83 @@ exports[`should render correctly without description and without reminder 1`] = 
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "borderRadius": 16,
-              "height": 32,
-              "justifyContent": "center",
-              "margin": 8,
-              "width": 32,
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
             }
           }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-=======
-            <View
-              style={
->>>>>>> develop
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {
-<<<<<<< HEAD
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-        <ReminderDateText
-          reminder={null}
-          style={
-            Object {
-              "fontSize": 16,
-            }
-          }
-        />
-      </View>
-    </View>
-  </ReminderButton>
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  />
-=======
-                    "backgroundColor": "#ffffff",
-                    "borderColor": "#A0A2A6",
-                    "borderRadius": 16,
-                    "borderWidth": 1,
-                    "height": 32,
-                    "margin": 8,
-                    "paddingHorizontal": 0,
-                    "paddingVertical": 0,
-                    "width": 32,
-                  },
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Object {
-                        "color": "#A0A2A6",
-                        "fontSize": 18,
-                      },
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-      </ReminderButton>
-      <View
-        style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            Object {
-              "paddingBottom": 86,
-            },
-          ]
-        }
-      >
-        <View
-          style={Object {}}
         >
           <View
             style={
               Object {
-                "marginVertical": 10,
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "borderRadius": 16,
+                "height": 32,
+                "justifyContent": "center",
+                "margin": 8,
+                "width": 32,
               }
             }
           >
             <Text
+              allowFontScaling={false}
               style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 18,
+                    },
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
               }
             >
-              <Text>
-                roge rules
-              </Text>
+              
             </Text>
           </View>
+          <ReminderDateText
+            reminder={null}
+            style={
+              Object {
+                "fontSize": 16,
+              }
+            }
+          />
         </View>
       </View>
-    </View>
-  </RCTScrollView>
->>>>>>> develop
+    </ReminderButton>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 32,
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          },
+          Object {
+            "paddingBottom": 86,
+          },
+        ]
+      }
+    />
+  </View>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1212,39 +1006,8 @@ exports[`with description, with reminder should render correctly 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-    Repellat quisquam recusandae alias consequuntur corporis.
-  </Text>
-  <ReminderButton
-    reminder={
-      Object {
-        "__typename": "StepReminder",
-        "id": "4",
-        "nextOccurrenceAt": 2012-04-22T10:14:48.380Z,
-        "reminderType": "once",
-      }
-    }
-    stepId="1"
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "borderBottomWidth": 1,
-          "borderColor": "#ECEEF2",
-          "borderTopWidth": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "paddingHorizontal": 16,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <View
-=======
     <View>
       <Text
->>>>>>> develop
         style={
           Array [
             Object {
@@ -1264,10 +1027,18 @@ exports[`with description, with reminder should render correctly 1`] = `
           ]
         }
       >
-        ROBERT
+        Repellat quisquam recusandae alias consequuntur corporis.
       </Text>
       <ReminderButton
-        stepId="234242"
+        reminder={
+          Object {
+            "__typename": "StepReminder",
+            "id": "4",
+            "nextOccurrenceAt": "2013-05-05T10:14:48.380Z",
+            "reminderType": "once",
+          }
+        }
+        stepId="1"
       >
         <View
           style={
@@ -1339,6 +1110,14 @@ exports[`with description, with reminder should render correctly 1`] = `
               </Text>
             </View>
             <ReminderDateText
+              reminder={
+                Object {
+                  "__typename": "StepReminder",
+                  "id": "4",
+                  "nextOccurrenceAt": "2013-05-05T10:14:48.380Z",
+                  "reminderType": "once",
+                }
+              }
               style={
                 Object {
                   "fontSize": 16,
@@ -1346,126 +1125,88 @@ exports[`with description, with reminder should render correctly 1`] = `
               }
             />
           </View>
-        </View>
-<<<<<<< HEAD
-        <ReminderDateText
-          reminder={
-            Object {
-              "__typename": "StepReminder",
-              "id": "4",
-              "nextOccurrenceAt": 2012-04-22T10:14:48.380Z,
-              "reminderType": "once",
-            }
-          }
-          style={
-            Object {
-              "fontSize": 16,
-            }
-          }
-        />
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="removeReminderButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              null,
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderColor": "#A0A2A6",
-                "borderRadius": 16,
-                "borderWidth": 1,
-                "height": 32,
-                "margin": 8,
-                "paddingHorizontal": 0,
-                "paddingVertical": 0,
-                "width": 32,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="removeReminderButton"
+          >
+            <View
+              style={
                 Array [
                   Object {
-                    "color": "#ffffff",
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
                   },
+                  null,
                   Object {
-                    "fontSize": 18,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#A0A2A6",
+                    "borderRadius": 16,
+                    "borderWidth": 1,
+                    "height": 32,
+                    "margin": 8,
+                    "paddingHorizontal": 0,
+                    "paddingVertical": 0,
+                    "width": 32,
                   },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 18,
-                  },
-                ],
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                        "fontSize": 18,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
         </View>
-      </View>
-    </View>
-  </ReminderButton>
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
-    <RCTScrollView
-      contentContainerStyle={
-        Object {
-          "paddingBottom": 32,
-        }
-      }
-      style={
-        Object {
-          "paddingBottom": 14,
-          "paddingHorizontal": 32,
-          "paddingTop": 26,
-=======
       </ReminderButton>
       <View
         style={
@@ -1479,7 +1220,6 @@ exports[`with description, with reminder should render correctly 1`] = `
               "paddingBottom": 86,
             },
           ]
->>>>>>> develop
         }
       >
         <View
@@ -1797,69 +1537,51 @@ exports[`with description, without reminder should render correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-<<<<<<< HEAD
-    esse repellat quisquam
-  </Text>
-  <ReminderButton
-    reminder={null}
-    stepId="1"
-  >
-    <View
-=======
-    <Text
->>>>>>> develop
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginHorizontal": 32,
-            "marginVertical": 16,
-          },
-        ]
-      }
-    >
-      ROBERT
-    </Text>
-    <ReminderButton
-      stepId="234242"
-    >
-      <View
+    <View>
+      <Text
         style={
-          Object {
-            "alignItems": "center",
-            "borderBottomWidth": 1,
-            "borderColor": "#ECEEF2",
-            "borderTopWidth": 1,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "paddingHorizontal": 16,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
         }
+      >
+        esse repellat quisquam
+      </Text>
+      <ReminderButton
+        reminder={null}
+        stepId="1"
       >
         <View
           style={
             Object {
               "alignItems": "center",
-              "flex": 1,
+              "borderBottomWidth": 1,
+              "borderColor": "#ECEEF2",
+              "borderTopWidth": 1,
               "flexDirection": "row",
-              "justifyContent": "flex-start",
+              "justifyContent": "space-between",
+              "paddingHorizontal": 16,
+              "paddingVertical": 10,
             }
           }
         >
@@ -1867,99 +1589,82 @@ exports[`with description, without reminder should render correctly 1`] = `
             style={
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "borderRadius": 16,
-                "height": 32,
-                "justifyContent": "center",
-                "margin": 8,
-                "width": 32,
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
               }
             }
           >
-            <Text
-              allowFontScaling={false}
+            <View
               style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#52C5DC",
+                  "borderRadius": 16,
+                  "height": 32,
+                  "justifyContent": "center",
+                  "margin": 8,
+                  "width": 32,
+                }
               }
             >
-              
-            </Text>
-          </View>
-          <ReminderDateText
-            style={
-              Object {
-                "fontSize": 16,
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 18,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <ReminderDateText
+              reminder={null}
+              style={
+                Object {
+                  "fontSize": 16,
+                }
               }
-            }
-          />
+            />
+          </View>
         </View>
-<<<<<<< HEAD
-        <ReminderDateText
-          reminder={null}
-          style={
+      </ReminderButton>
+      <View
+        style={
+          Array [
             Object {
-              "fontSize": 16,
-            }
-          }
-        />
-=======
->>>>>>> develop
-      </View>
-    </ReminderButton>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          Object {
-            "paddingBottom": 86,
-          },
-        ]
-      }
-<<<<<<< HEAD
-    }
-  >
-    <RCTScrollView
-      contentContainerStyle={
-        Object {
-          "paddingBottom": 32,
+              "paddingBottom": 32,
+              "paddingHorizontal": 32,
+              "paddingTop": 26,
+            },
+            Object {
+              "paddingBottom": 86,
+            },
+          ]
         }
-      }
-      style={
-        Object {
-          "paddingBottom": 14,
-          "paddingHorizontal": 32,
-          "paddingTop": 26,
-        }
-      }
-    >
-      <View>
+      >
         <View
           style={Object {}}
         >
@@ -1987,11 +1692,8 @@ exports[`with description, without reminder should render correctly 1`] = `
           </View>
         </View>
       </View>
-    </RCTScrollView>
-=======
-    />
->>>>>>> develop
-  </View>
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={

@@ -1,6 +1,5 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
 import { StepItem as Step } from '../__generated__/StepItem';
@@ -16,9 +15,6 @@ jest.mock('../../ReminderButton', () => ({
 }));
 
 const mockStep = mockFragment<Step>(STEP_ITEM_FRAGMENT);
-
-const mockDate = '2019-10-17 12:00:00 PM GMT+0';
-MockDate.set(mockDate);
 
 const initialState = {
   auth: {

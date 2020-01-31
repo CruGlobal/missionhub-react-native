@@ -9,9 +9,6 @@ exports[`renders empty screen correctly 1`] = `
     }
   }
 >
-  <TrackTabChange
-    screen="StepsTab"
-  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -350,9 +347,6 @@ exports[`renders loading screen correctly 1`] = `
     }
   }
 >
-  <TrackTabChange
-    screen="StepsTab"
-  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -624,9 +618,6 @@ exports[`renders screen with steps correctly 1`] = `
     }
   }
 >
-  <TrackTabChange
-    screen="StepsTab"
-  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1018,7 +1009,7 @@ exports[`renders screen with steps correctly 1`] = `
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "4",
-              "nextOccurrenceAt": 2013-10-04T09:34:50.933Z,
+              "nextOccurrenceAt": "2014-10-17T09:34:50.933Z",
               "reminderType": "once",
             },
             "title": "Repellat quisquam recusandae alias consequuntur corporis.",
@@ -1038,7 +1029,7 @@ exports[`renders screen with steps correctly 1`] = `
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "8",
-              "nextOccurrenceAt": 2013-08-29T09:20:29.756Z,
+              "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
               "reminderType": "once",
             },
             "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
@@ -1104,7 +1095,7 @@ exports[`renders screen with steps correctly 1`] = `
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "4",
-                  "nextOccurrenceAt": 2013-10-04T09:34:50.933Z,
+                  "nextOccurrenceAt": "2014-10-17T09:34:50.933Z",
                   "reminderType": "once",
                 },
                 "title": "Repellat quisquam recusandae alias consequuntur corporis.",
@@ -1136,7 +1127,7 @@ exports[`renders screen with steps correctly 1`] = `
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "8",
-                  "nextOccurrenceAt": 2013-08-29T09:20:29.756Z,
+                  "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
                   "reminderType": "once",
                 },
                 "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
@@ -1156,8 +1147,8 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -423,10 +423,50 @@
-                \\"nextOccurrenceAt\\": 2013-08-29T09:20:29.756Z,
+@@ -420,10 +420,50 @@
+                \\"nextOccurrenceAt\\": \\"2014-09-11T09:20:29.756Z\\",
                 \\"reminderType\\": \\"once\\",
               },
               \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
@@ -1177,7 +1168,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"12\\",
-+               \\"nextOccurrenceAt\\": 2018-08-11T10:48:02.286Z,
++               \\"nextOccurrenceAt\\": \\"2019-08-24T10:48:02.286Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
@@ -1197,7 +1188,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"16\\",
-+               \\"nextOccurrenceAt\\": 2018-01-07T00:49:00.772Z,
++               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
@@ -1207,7 +1198,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -525,9 +565,80 @@
+@@ -522,9 +562,80 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1236,7 +1227,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"12\\",
-+                   \\"nextOccurrenceAt\\": 2018-08-11T10:48:02.286Z,
++                   \\"nextOccurrenceAt\\": \\"2019-08-24T10:48:02.286Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
@@ -1268,7 +1259,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"16\\",
-+                   \\"nextOccurrenceAt\\": 2018-01-07T00:49:00.772Z,
++                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",

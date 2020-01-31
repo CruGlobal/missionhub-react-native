@@ -616,7 +616,7 @@ exports[`reminder passed in renders correctly 1`] = `
         }
       >
         <RCTDatePicker
-          date={1414788741990}
+          date={1447447941990}
           locale="en-TEST"
           minimumDate={1514853579887}
           mode="datetime"
