@@ -8,14 +8,13 @@ import { useMutation } from '@apollo/react-hooks';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { CELEBRATEABLE_TYPES, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../../containers/Groups/EditStoryScreen';
 import { Organization } from '../../../reducers/organizations';
-import {
-  GetCelebrateFeed_community_celebrationItems_nodes,
-  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson,
-} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../queries';
 
 import CelebrateItem, { DELETE_STORY, REPORT_STORY } from '..';
 
@@ -23,17 +22,11 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 
 const myId = '123';
-const subjectPerson: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson = {
-  __typename: 'Person',
-  id: '234',
-  firstName: 'John',
-  lastName: 'Smith',
-};
-const subjectPersonName = `${subjectPerson.firstName} ${subjectPerson.lastName}`;
 const globalOrg: Organization = { id: GLOBAL_COMMUNITY_ID };
-const organization: Organization = { id: '3' };
+const organization: Organization = { id: '3', name: 'Communidad' };
 
-const date = '2019-08-21T12:00:00.000';
+const event = mockFragment<CelebrateItemData>(CELEBRATE_ITEM_FRAGMENT);
+
 MockDate.set('2019-08-21 12:00:00', 300);
 
 let onRefresh = jest.fn();
@@ -42,24 +35,8 @@ let onClearNotification = jest.fn();
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
 
-const baseEvent: GetCelebrateFeed_community_celebrationItems_nodes = {
-  __typename: 'CommunityCelebrationItem',
-  id: '222',
-  adjectiveAttributeName: null,
-  adjectiveAttributeValue: null,
-  changedAttributeName: 'created_at',
-  changedAttributeValue: date,
-  commentsCount: 0,
-  liked: false,
-  likesCount: 1,
-  subjectPerson: subjectPerson,
-  subjectPersonName,
-  celebrateableId: '2',
-  celebrateableType: CELEBRATEABLE_TYPES.completedStep,
-  objectDescription: 'Celebration',
-};
-const storyEvent: GetCelebrateFeed_community_celebrationItems_nodes = {
-  ...baseEvent,
+const storyEvent: CelebrateItemData = {
+  ...event,
   celebrateableType: CELEBRATEABLE_TYPES.story,
 };
 
@@ -76,7 +53,7 @@ describe('global community', () => {
   it('renders correctly', () => {
     renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -88,7 +65,7 @@ describe('global community', () => {
   it('renders with clear notification button correctly', () => {
     renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -115,7 +92,7 @@ describe('Community', () => {
   it('renders correctly', () => {
     renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={organization}
         namePressable={false}
@@ -127,7 +104,7 @@ describe('Community', () => {
   it('renders with clear notification button correctly', () => {
     renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={organization}
         onClearNotification={onClearNotification}
@@ -153,7 +130,7 @@ describe('Community', () => {
 it('renders with name pressable correctly', () => {
   renderWithContext(
     <CelebrateItem
-      event={baseEvent}
+      event={event}
       onRefresh={onRefresh}
       organization={organization}
       namePressable={true}
@@ -166,7 +143,7 @@ describe('press card', () => {
   it('not pressable in global community', () => {
     const { getByTestId } = renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -182,7 +159,7 @@ describe('press card', () => {
   it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={organization}
         namePressable={false}
@@ -193,17 +170,23 @@ describe('press card', () => {
     fireEvent.press(getByTestId('CelebrateItemPressable'));
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
-      event: baseEvent,
+      event,
       orgId: organization.id,
+      onRefreshCelebrateItem: onRefresh,
     });
   });
 });
 
 describe('long-press card', () => {
   describe('story written by me', () => {
-    const myStoryEvent: GetCelebrateFeed_community_celebrationItems_nodes = {
+    const myStoryEvent: CelebrateItemData = {
       ...storyEvent,
-      subjectPerson: { ...subjectPerson, id: myId },
+      subjectPerson: {
+        __typename: 'Person',
+        id: myId,
+        firstName: 'Matt',
+        lastName: 'Smith',
+      },
     };
 
     it('navigates to edit story screen', () => {
@@ -315,7 +298,7 @@ describe('clear notification button', () => {
   it('calls onClearNotification', () => {
     const { getByTestId } = renderWithContext(
       <CelebrateItem
-        event={baseEvent}
+        event={event}
         onRefresh={onRefresh}
         organization={organization}
         onClearNotification={onClearNotification}
@@ -326,6 +309,6 @@ describe('clear notification button', () => {
 
     fireEvent.press(getByTestId('ClearNotificationButton'));
 
-    expect(onClearNotification).toHaveBeenCalledWith(baseEvent);
+    expect(onClearNotification).toHaveBeenCalledWith(event);
   });
 });

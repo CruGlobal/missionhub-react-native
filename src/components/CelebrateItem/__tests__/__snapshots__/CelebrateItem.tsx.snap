@@ -82,7 +82,7 @@ exports[`Community renders correctly 1`] = `
               ]
             }
           >
-            John Smith
+            Hayden Zieme
           </Text>
           <Text
             style={
@@ -101,7 +101,7 @@ exports[`Community renders correctly 1`] = `
             }
             testID="Text"
           >
-            12:00 PM
+            3:58 AM
           </Text>
         </View>
       </View>
@@ -132,7 +132,7 @@ exports[`Community renders correctly 1`] = `
             ]
           }
         >
-          John S. completed a Step of Faith with someone.
+          Roscoe J. joined Communidad! Now you can see and celebrate the steps of faith they are taking.
         </Text>
       </View>
     </View>
@@ -187,7 +187,9 @@ exports[`Community renders correctly 1`] = `
               },
             ]
           }
-        />
+        >
+          38791
+        </Text>
         <Image
           source={
             Object {
@@ -362,7 +364,7 @@ exports[`Community renders story item correctly 1`] = `
                   ]
                 }
               >
-                John Smith
+                Hayden Zieme
               </Text>
               <Text
                 style={
@@ -381,7 +383,7 @@ exports[`Community renders story item correctly 1`] = `
                 }
                 testID="Text"
               >
-                12:00 PM
+                3:58 AM
               </Text>
             </View>
           </View>
@@ -412,7 +414,7 @@ exports[`Community renders story item correctly 1`] = `
                 ]
               }
             >
-              Celebration
+              qui recusandae ut
             </Text>
           </View>
         </View>
@@ -467,7 +469,9 @@ exports[`Community renders story item correctly 1`] = `
                   },
                 ]
               }
-            />
+            >
+              38791
+            </Text>
             <Image
               source={
                 Object {
@@ -627,7 +631,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
               ]
             }
           >
-            John Smith
+            Hayden Zieme
           </Text>
           <Text
             style={
@@ -646,7 +650,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
             }
             testID="Text"
           >
-            12:00 PM
+            3:58 AM
           </Text>
         </View>
       </View>
@@ -677,7 +681,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
             ]
           }
         >
-          John S. completed a Step of Faith with someone.
+          Roscoe J. joined Communidad! Now you can see and celebrate the steps of faith they are taking.
         </Text>
       </View>
     </View>
@@ -732,7 +736,9 @@ exports[`Community renders with clear notification button correctly 1`] = `
               },
             ]
           }
-        />
+        >
+          38791
+        </Text>
         <Image
           source={
             Object {
@@ -952,7 +958,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            John Smith
+            Hayden Zieme
           </Text>
           <Text
             style={
@@ -971,7 +977,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            12:00 PM
+            3:58 AM
           </Text>
         </View>
       </View>
@@ -1002,7 +1008,7 @@ exports[`global community renders correctly 1`] = `
             ]
           }
         >
-          John S. completed a Step of Faith with someone.
+          Roscoe J. joined ! Now you can see and celebrate the steps of faith they are taking.
         </Text>
       </View>
     </View>
@@ -1057,7 +1063,9 @@ exports[`global community renders correctly 1`] = `
               },
             ]
           }
-        />
+        >
+          38791
+        </Text>
         <Image
           source={
             Object {
@@ -1207,7 +1215,7 @@ exports[`global community renders story item correctly 1`] = `
               ]
             }
           >
-            John Smith
+            Hayden Zieme
           </Text>
           <Text
             style={
@@ -1226,7 +1234,7 @@ exports[`global community renders story item correctly 1`] = `
             }
             testID="Text"
           >
-            12:00 PM
+            3:58 AM
           </Text>
         </View>
       </View>
@@ -1257,7 +1265,7 @@ exports[`global community renders story item correctly 1`] = `
             ]
           }
         >
-          Celebration
+          qui recusandae ut
         </Text>
       </View>
     </View>
@@ -1312,7 +1320,9 @@ exports[`global community renders story item correctly 1`] = `
               },
             ]
           }
-        />
+        >
+          38791
+        </Text>
         <Image
           source={
             Object {
@@ -1462,7 +1472,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            John Smith
+            Hayden Zieme
           </Text>
           <Text
             style={
@@ -1481,7 +1491,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            12:00 PM
+            3:58 AM
           </Text>
         </View>
       </View>
@@ -1512,7 +1522,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             ]
           }
         >
-          John S. completed a Step of Faith with someone.
+          Roscoe J. joined ! Now you can see and celebrate the steps of faith they are taking.
         </Text>
       </View>
     </View>
@@ -1567,7 +1577,9 @@ exports[`global community renders with clear notification button correctly 1`] =
               },
             ]
           }
-        />
+        >
+          38791
+        </Text>
         <Image
           source={
             Object {
@@ -1825,7 +1837,7 @@ exports[`renders with name pressable correctly 1`] = `
                   ]
                 }
               >
-                John Smith
+                Hayden Zieme
               </Text>
             </View>
           </View>
@@ -1846,7 +1858,7 @@ exports[`renders with name pressable correctly 1`] = `
             }
             testID="Text"
           >
-            12:00 PM
+            3:58 AM
           </Text>
         </View>
       </View>
@@ -1877,7 +1889,7 @@ exports[`renders with name pressable correctly 1`] = `
             ]
           }
         >
-          John S. completed a Step of Faith with someone.
+          Roscoe J. joined Communidad! Now you can see and celebrate the steps of faith they are taking.
         </Text>
       </View>
     </View>
@@ -1932,7 +1944,9 @@ exports[`renders with name pressable correctly 1`] = `
               },
             ]
           }
-        />
+        >
+          38791
+        </Text>
         <Image
           source={
             Object {

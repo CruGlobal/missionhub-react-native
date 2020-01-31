@@ -56,9 +56,9 @@ export const globalMocks: IMocks = {
     const lastName = faker.name.lastName();
     return {
       celebrateableType: faker.random.arrayElement(validCelebrateableTypes),
-      changedAttributeValue: moment(faker.date.past(10, '2020-01-14')).format(
-        'YYYY-MM-DDTHH:mm:ss:SS',
-      ),
+      changedAttributeValue: moment(
+        faker.date.past(10, '2020-01-14'),
+      ).toISOString(),
       subjectPersonName: `${firstName} ${lastName}`,
     };
   },

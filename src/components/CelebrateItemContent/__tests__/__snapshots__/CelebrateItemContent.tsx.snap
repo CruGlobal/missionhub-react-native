@@ -1006,3 +1006,69 @@ exports[`CelebrateItemContent renders event with no subject person name 1`] = `
   />
 </View>
 `;
+
+exports[`CelebrateItemContent renders event with no subjectPerson and no subjectPersonName 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    A MissionHub user joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent renders event with no subjectPerson, defaults to subjectPersonName 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 14,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Zieme joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
+</View>
+`;

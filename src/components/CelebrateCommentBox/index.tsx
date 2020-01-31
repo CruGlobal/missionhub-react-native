@@ -14,13 +14,13 @@ import {
   CelebrateCommentsState,
   CelebrateComment,
 } from '../../reducers/celebrateComments';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
 interface CelebrateCommentBoxProps {
-  event: GetCelebrateFeed_community_celebrationItems_nodes;
+  event: CelebrateItem;
   organization: Organization;
   editingComment?: CelebrateComment;
   onAddComplete?: () => void;
@@ -79,7 +79,7 @@ const mapStateToProps = (
   }: {
     celebrateComments: CelebrateCommentsState;
   },
-  { event }: { event: GetCelebrateFeed_community_celebrationItems_nodes },
+  { event }: { event: CelebrateItem },
 ) => ({
   editingComment: celebrateCommentsCommentSelector(
     { celebrateComments },

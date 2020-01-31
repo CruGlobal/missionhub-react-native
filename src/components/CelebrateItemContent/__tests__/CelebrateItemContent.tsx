@@ -6,11 +6,10 @@ import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScre
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
-import {
-  GetCelebrateFeed_community_celebrationItems_nodes,
-  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson,
-} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../../reducers/organizations';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
 
 import CelebrateItemContent, { CelebrateItemContentProps } from '..';
 
@@ -18,36 +17,26 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 
 const myId = '123';
-const mePerson: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson = {
-  __typename: 'Person',
-  id: myId,
-  firstName: 'John',
-  lastName: 'Smith',
-};
 const otherId = '456';
-const otherPerson: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson = {
-  __typename: 'Person',
-  id: otherId,
-  firstName: 'John',
-  lastName: 'Smith',
-};
 const organization: Organization = { id: '111', name: 'Celebration Community' };
-
-const baseEvent: GetCelebrateFeed_community_celebrationItems_nodes = {
-  __typename: 'CommunityCelebrationItem',
-  id: '4',
-  adjectiveAttributeName: null,
-  adjectiveAttributeValue: null,
-  celebrateableId: '4',
-  celebrateableType: CELEBRATEABLE_TYPES.story,
-  changedAttributeName: 'created_at',
-  changedAttributeValue: '2004-04-04 00:00:00 UTC',
-  commentsCount: 0,
-  liked: false,
-  likesCount: 0,
-  objectDescription: null,
-  subjectPerson: null,
-  subjectPersonName: 'John Smith',
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const meEvent: CelebrateItem = {
+  ...event,
+  subjectPerson: {
+    __typename: 'Person',
+    id: myId,
+    firstName: 'John',
+    lastName: 'Smith',
+  },
+};
+const otherEvent: CelebrateItem = {
+  ...event,
+  subjectPerson: {
+    __typename: 'Person',
+    id: otherId,
+    firstName: 'John',
+    lastName: 'Smith',
+  },
 };
 
 const initialState = { auth: { person: { id: myId } } };
@@ -62,7 +51,7 @@ beforeEach(() => {
 
 describe('CelebrateItemContent', () => {
   const testEvent = (
-    e: GetCelebrateFeed_community_celebrationItems_nodes,
+    e: CelebrateItem,
     otherProps: Partial<CelebrateItemContentProps> = {},
   ) => {
     renderWithContext(
@@ -77,13 +66,14 @@ describe('CelebrateItemContent', () => {
     ).snapshot();
   };
 
-  it('renders event with no subject person (global community event)', () =>
-    testEvent(baseEvent));
+  it('renders event with no subjectPerson, defaults to subjectPersonName', () =>
+    testEvent({ ...event, subjectPerson: null }));
 
-  it('renders event with no subject person name', () => {
+  it('renders event with no subjectPerson and no subjectPersonName', () => {
     testEvent(
       {
-        ...baseEvent,
+        ...event,
+        subjectPerson: null,
         subjectPersonName: null,
       },
       organization,
@@ -92,8 +82,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=me, liked=true, like count>0', () => {
     testEvent({
-      ...baseEvent,
-      subjectPerson: mePerson,
+      ...meEvent,
       likesCount: 1,
       liked: true,
     });
@@ -101,8 +90,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=me, liked=false, like count>0', () => {
     testEvent({
-      ...baseEvent,
-      subjectPerson: mePerson,
+      ...meEvent,
       likesCount: 1,
       liked: false,
     });
@@ -110,8 +98,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=me, liked=false, like count=0', () => {
     testEvent({
-      ...baseEvent,
-      subjectPerson: mePerson,
+      ...meEvent,
       likesCount: 0,
       liked: false,
     });
@@ -119,8 +106,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=other, liked=true, like count>0', () => {
     testEvent({
-      ...baseEvent,
-      subjectPerson: otherPerson,
+      ...otherEvent,
       likesCount: 1,
       liked: true,
     });
@@ -128,17 +114,15 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=other, liked=false, like count=0', () => {
     testEvent({
-      ...baseEvent,
-      subjectPerson: otherPerson,
+      ...otherEvent,
       likesCount: 0,
       liked: false,
     });
   });
 
   describe('message', () => {
-    const messageBaseEvent: GetCelebrateFeed_community_celebrationItems_nodes = {
-      ...baseEvent,
-      subjectPerson: mePerson,
+    const messageBaseEvent: CelebrateItem = {
+      ...meEvent,
       likesCount: 0,
       liked: false,
     };
@@ -256,35 +240,20 @@ describe('CelebrateItemContent', () => {
 
 describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', () => {
-    const challengeId = '123';
-
-    const event: GetCelebrateFeed_community_celebrationItems_nodes = {
-      ...baseEvent,
-      id: '1',
-      subjectPersonName: 'John Smith',
-      subjectPerson: {
-        __typename: 'Person',
-        id: otherId,
-        firstName: 'John',
-        lastName: 'Smith',
-      },
-      changedAttributeValue: '2004-04-04 00:00:00 UTC',
-      likesCount: 0,
-      liked: true,
-      celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
-      changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
-      adjectiveAttributeValue: challengeId,
-      objectDescription: 'Invite a friend to church',
-    };
-
     const { getByTestId, store } = renderWithContext(
-      <CelebrateItemContent event={event} organization={organization} />,
+      <CelebrateItemContent
+        event={{
+          ...event,
+          celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+        }}
+        organization={organization}
+      />,
       { initialState },
     );
     fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
-      challengeId,
+      challengeId: event.adjectiveAttributeValue,
       orgId: organization.id,
     });
     expect(store.getActions()).toEqual([navigateResponse]);

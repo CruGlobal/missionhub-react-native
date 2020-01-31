@@ -18,7 +18,7 @@ export const GET_CELEBRATE_FEED = gql`
         hasUnreadComments: $hasUnreadComments
       ) {
         nodes {
-          ...celebrateItem
+          ...CelebrateItem
         }
         pageInfo {
           endCursor

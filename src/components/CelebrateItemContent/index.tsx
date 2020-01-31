@@ -14,14 +14,14 @@ import {
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
 export interface CelebrateItemContentProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: GetCelebrateFeed_community_celebrationItems_nodes;
+  event: CelebrateItem;
   organization: Organization;
   style?: StyleProp<ViewStyle>;
 }

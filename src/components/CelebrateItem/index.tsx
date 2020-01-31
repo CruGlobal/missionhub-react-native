@@ -21,7 +21,7 @@ import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { CELEBRATEABLE_TYPES } from '../../constants';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
@@ -49,12 +49,10 @@ export const REPORT_STORY = gql`
 
 export interface CelebrateItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: GetCelebrateFeed_community_celebrationItems_nodes;
+  event: CelebrateItemData;
   organization: Organization;
   namePressable: boolean;
-  onClearNotification?: (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => void;
+  onClearNotification?: (event: CelebrateItemData) => void;
   onRefresh: () => void;
   me: Person;
 }
