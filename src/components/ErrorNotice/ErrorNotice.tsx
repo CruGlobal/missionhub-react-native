@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ApolloError } from 'apollo-client';
@@ -14,14 +16,17 @@ interface ErrorNoticeProps {
 }
 
 export const ErrorNotice = ({ error, refetch, message }: ErrorNoticeProps) => {
-  const { t } = useTranslation('errorNotice');
+  // Disabling rendering until https://jira.cru.org/browse/MHP-3159 is addressed
+  return null;
 
-  return error ? (
-    <Touchable style={styles.errorContainer} onPress={refetch}>
-      <Text style={styles.white}>{message}</Text>
-      {error.networkError && (
-        <Text style={styles.white}>{t('networkError')}</Text>
-      )}
-    </Touchable>
-  ) : null;
+  // const { t } = useTranslation('errorNotice');
+
+  // return error ? (
+  //   <Touchable style={styles.errorContainer} onPress={refetch}>
+  //     <Text style={styles.white}>{message}</Text>
+  //     {error.networkError && (
+  //       <Text style={styles.white}>{t('networkError')}</Text>
+  //     )}
+  //   </Touchable>
+  // ) : null;
 };
