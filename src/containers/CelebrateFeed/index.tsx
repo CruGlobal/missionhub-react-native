@@ -35,7 +35,7 @@ export const GET_CELEBRATE_FEED = gql`
   ) {
     community(id: $communityId) {
       celebrationItems(
-        sortBy: createdAt_ASC
+        sortBy: createdAt_DESC
         first: 25
         after: $celebrateCursor
         subjectPersonIds: $personIds
