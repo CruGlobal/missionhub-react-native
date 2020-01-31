@@ -20,54 +20,12 @@ import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 
+import { GET_CELEBRATE_FEED } from './queries';
 import {
   GetCelebrateFeed,
   GetCelebrateFeed_community_celebrationItems_nodes,
 } from './__generated__/GetCelebrateFeed';
 import styles from './styles';
-
-export const GET_CELEBRATE_FEED = gql`
-  query GetCelebrateFeed(
-    $communityId: ID!
-    $personIds: [ID!] = null
-    $hasUnreadComments: Boolean = false
-    $celebrateCursor: String
-  ) {
-    community(id: $communityId) {
-      celebrationItems(
-        sortBy: createdAt_DESC
-        first: 25
-        after: $celebrateCursor
-        subjectPersonIds: $personIds
-        hasUnreadComments: $hasUnreadComments
-      ) {
-        nodes {
-          id
-          adjectiveAttributeName
-          adjectiveAttributeValue
-          celebrateableId
-          celebrateableType
-          changedAttributeName
-          changedAttributeValue
-          commentsCount
-          liked
-          likesCount
-          objectDescription
-          subjectPerson {
-            id
-            firstName
-            lastName
-          }
-          subjectPersonName
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
-    }
-  }
-`;
 
 export interface CelebrateFeedProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;

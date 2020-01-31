@@ -1,4 +1,4 @@
-import configureStore from 'redux-mock-store';
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
@@ -20,13 +20,18 @@ import { REQUESTS } from '../../api/routes';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { mockFragment } from '../../../testUtils/apolloMockClient';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
 
 const orgId = '645654';
-const event = { id: '80890', organization: { id: orgId } };
+const eventId = '80890';
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+
 const comment = { pagination: { page: 2, hasNextPage: true } };
 const callApiResponse = { result: 'hello world' };
 const celebrateComments = { someProp: 'asdfasdfasdf' };
@@ -36,27 +41,25 @@ const include = 'organization_celebration_item,person';
 const trackActionResult = { type: 'tracked action' };
 
 const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
-
-// @ts-ignore
-callApi.mockReturnValue(() => callApiResponse);
-// @ts-ignore
-celebrateCommentsSelector.mockReturnValue(comment);
-// @ts-ignore
-trackActionWithoutData.mockReturnValue(trackActionResult);
+let store: MockStore;
 
 beforeEach(() => {
   store = mockStore({ auth: { person: me }, celebrateComments });
+  (callApi as jest.Mock).mockReturnValue(callApiResponse);
+  ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+    comment,
+  );
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
 });
 
 describe('getCelebrateCommentsNextPage', () => {
-  // @ts-ignore
   let response;
 
   beforeEach(
-    // @ts-ignore
-    () => (response = store.dispatch(getCelebrateCommentsNextPage(event))),
+    () =>
+      (response = store.dispatch(
+        getCelebrateCommentsNextPage(event.id, orgId),
+      )),
   );
 
   it('should call selector', () => {
