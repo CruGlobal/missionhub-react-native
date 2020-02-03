@@ -48,17 +48,6 @@ it('should render items correctly', () => {
   }).snapshot();
 });
 
-it('should call navigate back', () => {
-  const { getByTestId } = renderWithContext(<GroupUnreadFeed />, {
-    initialState,
-    navParams: { organization },
-  });
-
-  fireEvent.press(getByTestId('BackButton'));
-
-  expect(navigateBack).toHaveBeenCalled();
-});
-
 it('should call mark comments read and go back', async () => {
   const { getByTestId } = renderWithContext(<GroupUnreadFeed />, {
     initialState,
