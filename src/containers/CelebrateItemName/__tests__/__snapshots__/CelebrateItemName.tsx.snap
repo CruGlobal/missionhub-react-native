@@ -1,24 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`does not have name renders correctly 1`] = `
-<ItemHeaderText
-  text="MissionHub user"
-/>
-`;
-
-exports[`has name is not pressable renders correctly 1`] = `
-<ItemHeaderText
-  text="Roger Goers"
-/>
-`;
-
-exports[`has name is pressable renders correctly 1`] = `
-<Button
-  onPress={[Function]}
-  type="transparent"
+exports[`renders correctly not pressable 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "lineHeight": 20,
+        },
+        undefined,
+      ],
+    ]
+  }
 >
-  <ItemHeaderText
-    text="Roger Goers"
-  />
-</Button>
+  Hayden Zieme
+</Text>
+`;
+
+exports[`renders correctly with name 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="NameButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Object {},
+        null,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "color": "#007398",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      Hayden Zieme
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders correctly without name 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Array [
+        Object {
+          "color": "#007398",
+          "fontSize": 16,
+          "lineHeight": 20,
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  MissionHub user
+</Text>
 `;

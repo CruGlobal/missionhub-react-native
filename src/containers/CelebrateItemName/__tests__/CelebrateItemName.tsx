@@ -1,90 +1,75 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
+import { fireEvent } from 'react-native-testing-library';
 
 import CelebrateItemName from '../index';
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
-
-const mockStore = configureStore();
-// @ts-ignore
-let store;
-
-const navToPersonScreenResult = { type: 'navigated to person screen' };
-const person = { id: '1234123' };
-const organization = { id: '235234' };
-
-// @ts-ignore
-let name;
-// @ts-ignore
-let pressable;
-// @ts-ignore
-let screen;
+import { Organization } from '../../../reducers/organizations';
+import { CELEBRATE_ITEM_PERSON_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 jest.mock('../../../actions/person');
 
-// @ts-ignore
-navToPersonScreen.mockReturnValue(navToPersonScreenResult);
+const person = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const name = `${person.firstName} ${person.lastName}`;
+const organization: Organization = {
+  id: '235234',
+};
+
+const navToPersonScreenResult = { type: 'navigated to person screen' };
 
 beforeEach(() => {
-  store = mockStore();
+  (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
+});
 
-  screen = renderShallow(
+it('renders correctly without name', () => {
+  renderWithContext(
     <CelebrateItemName
-      // @ts-ignore
+      name={null}
+      person={person}
+      organization={organization}
+      pressable={true}
+    />,
+  ).snapshot();
+});
+
+it('renders correctly with name', () => {
+  renderWithContext(
+    <CelebrateItemName
       name={name}
       person={person}
       organization={organization}
-      // @ts-ignore
-      pressable={pressable}
+      pressable={true}
     />,
-    store,
+  ).snapshot();
+});
+
+it('renders correctly not pressable', () => {
+  renderWithContext(
+    <CelebrateItemName
+      name={name}
+      person={person}
+      organization={organization}
+      pressable={false}
+    />,
+  ).snapshot();
+});
+
+it('navigates to person screen', () => {
+  const { store, getByTestId } = renderWithContext(
+    <CelebrateItemName
+      name={name}
+      person={person}
+      organization={organization}
+      pressable={true}
+    />,
   );
-});
 
-describe('does not have name', () => {
-  beforeAll(() => {
-    name = null;
-  });
+  fireEvent.press(getByTestId('NameButton'));
 
-  it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
-  });
-});
-
-describe('has name', () => {
-  beforeAll(() => {
-    name = 'Roger Goers';
-  });
-
-  describe('is not pressable', () => {
-    beforeAll(() => {
-      pressable = false;
-    });
-
-    it('renders correctly', () => {
-      // @ts-ignore
-      expect(screen).toMatchSnapshot();
-    });
-  });
-
-  describe('is pressable', () => {
-    beforeAll(() => {
-      pressable = true;
-    });
-
-    it('renders correctly', () => {
-      // @ts-ignore
-      expect(screen).toMatchSnapshot();
-    });
-
-    it('navigates to person screen', () => {
-      // @ts-ignore
-      screen.props().onPress();
-
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
-      // @ts-ignore
-      expect(store.getActions()).toEqual([navToPersonScreenResult]);
-    });
-  });
+  expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
+  expect(store.getActions()).toEqual([navToPersonScreenResult]);
 });

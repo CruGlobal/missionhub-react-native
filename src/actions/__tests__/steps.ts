@@ -15,7 +15,6 @@ import {
   createCustomStep,
   deleteStepWithTracking,
 } from '../steps';
-import { reloadGroupCelebrateFeed } from '../celebration';
 import { refreshImpact } from '../impact';
 import { trackStepAdded, trackAction } from '../analytics';
 import * as navigation from '../navigation';
@@ -510,7 +509,6 @@ describe('complete challenge', () => {
 
   const trackActionResult = { type: 'tracked action' };
   const impactResponse = { type: 'test impact' };
-  const celebrateResponse = { type: 'test celebrate' };
   const screen = 'contact steps';
 
   beforeEach(() => {
@@ -540,8 +538,6 @@ describe('complete challenge', () => {
     callApi.mockReturnValue(() => Promise.resolve({ type: 'test api' }));
     // @ts-ignore
     refreshImpact.mockReturnValue(impactResponse);
-    // @ts-ignore
-    reloadGroupCelebrateFeed.mockReturnValue(celebrateResponse);
     // Call `onSetComplete` within the navigate push
     // @ts-ignore
     navigation.navigatePush = jest.fn((a, b) => {
@@ -575,7 +571,6 @@ describe('complete challenge', () => {
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
       { [ACTIONS.STEP_COMPLETED.key]: null },
     );
-    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(stepOrgId);
 
     // @ts-ignore
     expect(store.getActions()).toEqual([
@@ -593,7 +588,6 @@ describe('complete challenge', () => {
       trackActionResult,
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
-      celebrateResponse,
     ]);
   });
 
@@ -624,7 +618,6 @@ describe('complete challenge', () => {
       challengeCompleteQuery,
       data,
     );
-    expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
     // @ts-ignore
     expect(store.getActions()).toEqual([
       {
