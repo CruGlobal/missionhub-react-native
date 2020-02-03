@@ -10,6 +10,7 @@ import {
   reloadCelebrateComments,
   resetCelebrateEditingComment,
 } from '../../../actions/celebrateComments';
+import CommentsList from '../../CommentsList';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
@@ -79,14 +80,10 @@ const initialState = {
 };
 
 let onShowKeyboard: () => void;
-const listRef = {
-  current: { scrollToEnd: jest.fn(), scrollToIndex: jest.fn() },
-};
 
 beforeEach(() => {
-  jest.spyOn(React, 'useRef').mockImplementation(() => listRef);
   (useKeyboardListeners as jest.Mock).mockImplementation(
-    (onShow: () => void) => (onShowKeyboard = onShow),
+    ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
   (reloadCelebrateComments as jest.Mock).mockReturnValue({
     type: 'reloadCelebrateComments',
@@ -102,7 +99,7 @@ beforeEach(() => {
   );
 });
 
-fit('renders correctly', () => {
+it('renders correctly', () => {
   renderWithContext(<CelebrateDetailScreen />, {
     initialState,
     navParams: { event, orgId },
@@ -121,7 +118,7 @@ fit('renders correctly', () => {
 });
 
 describe('refresh', () => {
-  fit('calls refreshComments', () => {
+  it('calls refreshComments', () => {
     const { getByTestId } = renderWithContext(<CelebrateDetailScreen />, {
       initialState,
       navParams: { event, orgId },
@@ -129,37 +126,57 @@ describe('refresh', () => {
 
     fireEvent(getByTestId('RefreshControl'), 'onRefresh');
 
-    expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
+    expect(reloadCelebrateComments).toHaveBeenCalledWith(
+      event.id,
+      organization.id,
+    );
   });
 });
 
 describe('celebrate add complete', () => {
   it('scrolls to end on add complete', () => {
-    const { getByTestId } = renderWithContext(<CelebrateDetailScreen />, {
-      initialState,
-      navParams: { event, orgId },
-    });
+    const scrollToEnd = jest.fn();
+
+    const { getByType, getByTestId } = renderWithContext(
+      <CelebrateDetailScreen />,
+      {
+        initialState,
+        navParams: { event, orgId },
+      },
+    );
+
+    getByType(
+      CommentsList,
+    ).props.listProps.ref.current.scrollToEnd = scrollToEnd;
 
     fireEvent(getByTestId('CelebrateCommentBox'), 'onAddComplete');
 
-    expect(listRef.current.scrollToEnd).toHaveBeenCalledWith();
+    expect(scrollToEnd).toHaveBeenCalledWith();
   });
 });
 
 describe('keyboard show', () => {
   it('without editing comment', () => {
-    renderWithContext(<CelebrateDetailScreen />, {
+    const scrollToEnd = jest.fn();
+
+    const { getByType } = renderWithContext(<CelebrateDetailScreen />, {
       initialState,
       navParams: { event, orgId },
     });
 
+    getByType(
+      CommentsList,
+    ).props.listProps.ref.current.scrollToEnd = scrollToEnd;
+
     onShowKeyboard();
 
-    expect(listRef.current.scrollToEnd).toHaveBeenCalledWith();
+    expect(scrollToEnd).toHaveBeenCalledWith();
   });
 
   it('with editing comment', () => {
-    renderWithContext(<CelebrateDetailScreen />, {
+    const scrollToIndex = jest.fn();
+
+    const { getByType } = renderWithContext(<CelebrateDetailScreen />, {
       initialState: {
         ...initialState,
         celebrateComments: { editingCommentId: comments.comments[0].id },
@@ -167,15 +184,22 @@ describe('keyboard show', () => {
       navParams: { event, orgId },
     });
 
+    getByType(
+      CommentsList,
+    ).props.listProps.ref.current.scrollToIndex = scrollToIndex;
+
     onShowKeyboard();
 
-    expect(listRef.current.scrollToIndex).toHaveBeenCalledWith({
+    expect(scrollToIndex).toHaveBeenCalledWith({
       index: 0,
       viewPosition: 1,
     });
   });
+
   it('with editing comment that doesnt exist', () => {
-    renderWithContext(<CelebrateDetailScreen />, {
+    const scrollToEnd = jest.fn();
+
+    const { getByType } = renderWithContext(<CelebrateDetailScreen />, {
       initialState: {
         ...initialState,
         celebrateComments: { editingCommentId: 'doesnt exist' },
@@ -183,8 +207,12 @@ describe('keyboard show', () => {
       navParams: { event, orgId },
     });
 
+    getByType(
+      CommentsList,
+    ).props.listProps.ref.current.scrollToEnd = scrollToEnd;
+
     onShowKeyboard();
 
-    expect(listRef.current.scrollToEnd).toHaveBeenCalledWith();
+    expect(scrollToEnd).toHaveBeenCalledWith();
   });
 });
