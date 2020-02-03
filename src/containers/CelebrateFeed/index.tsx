@@ -72,7 +72,6 @@ const CelebrateFeed = ({
   } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
-    notifyOnNetworkStatusChange: true,
   });
 
   const celebrationItems = celebrationSelector({ celebrateItems: nodes });
