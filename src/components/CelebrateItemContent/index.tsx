@@ -108,7 +108,7 @@ const CelebrateItemContent = ({
       case MHInteractionTypeSomethingCoolHappened.id:
         return t('somethingCoolHappened', { initiator: personName });
       default:
-        return t(completedInteraction, {
+        return t('interaction', {
           initiator: personName,
           interactionName: renderInteraction(),
         });

@@ -1,6 +1,6 @@
 import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { celebrationSelector } from '../celebration';
-import { ACCEPTED_STEP, CELEBRATEABLE_TYPES } from '../../constants';
+import { CELEBRATEABLE_TYPES } from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 

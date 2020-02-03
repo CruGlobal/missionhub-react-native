@@ -67,7 +67,6 @@ const CelebrateFeedHeader = ({
 
     return (
       <UnreadCommentsCard
-        //@ts-ignore
         testID="UnreadCommentsCard"
         count={newCommentsCount}
         onPress={commentCard}
@@ -83,7 +82,6 @@ const CelebrateFeedHeader = ({
 
     return (
       <ReportCommentHeaderCard
-        //@ts-ignore
         testID="ReportCommentCard"
         onPress={report}
         count={reportedCount}

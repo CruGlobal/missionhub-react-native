@@ -817,7 +817,9 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
         },
       ]
     }
-  />
+  >
+    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
 </View>
 `;
 
@@ -848,7 +850,9 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
         },
       ]
     }
-  />
+  >
+    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
 </View>
 `;
 
@@ -879,7 +883,9 @@ exports[`CelebrateItemContent renders event for subject=me, liked=true, like cou
         },
       ]
     }
-  />
+  >
+    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
 </View>
 `;
 
@@ -910,7 +916,9 @@ exports[`CelebrateItemContent renders event for subject=other, liked=false, like
         },
       ]
     }
-  />
+  >
+    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
 </View>
 `;
 
@@ -941,69 +949,9 @@ exports[`CelebrateItemContent renders event for subject=other, liked=true, like 
         },
       ]
     }
-  />
-</View>
-`;
-
-exports[`CelebrateItemContent renders event with no subject person (global community event) 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  />
-</View>
-`;
-
-exports[`CelebrateItemContent renders event with no subject person name 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  />
+  >
+    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+  </Text>
 </View>
 `;
 

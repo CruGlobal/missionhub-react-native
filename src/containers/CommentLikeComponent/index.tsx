@@ -16,7 +16,6 @@ import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
-import { refresh } from 'src/utils/common';
 
 export interface CommentLikeComponentProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;

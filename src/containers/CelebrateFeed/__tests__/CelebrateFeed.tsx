@@ -73,6 +73,7 @@ it('renders with celebration items correctly', async () => {
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
     pollInterval: 30000,
+    notifyOnNetworkStatusChange: true,
     variables: {
       communityId: organization.id,
       hasUnreadComments: undefined,
@@ -103,6 +104,7 @@ describe('renders for member', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
       pollInterval: 30000,
+      notifyOnNetworkStatusChange: true,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
@@ -133,6 +135,7 @@ describe('renders for member', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
       pollInterval: 30000,
+      notifyOnNetworkStatusChange: true,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
@@ -164,6 +167,7 @@ describe('renders with clear notification', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
       pollInterval: 30000,
+      notifyOnNetworkStatusChange: true,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
@@ -195,6 +199,7 @@ describe('renders for Unread Comments', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
       pollInterval: 30000,
+      notifyOnNetworkStatusChange: true,
       variables: {
         communityId: organization.id,
         hasUnreadComments: true,

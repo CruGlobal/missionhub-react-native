@@ -18,6 +18,7 @@ import { Person } from '../../reducers/people';
 import styles from './styles';
 
 export interface CommentItemProps {
+  testID?: string;
   item: CelebrateComment;
   menuActions?: {
     text: string;

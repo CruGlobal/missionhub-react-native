@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 
 import { DateComponent } from '../../components/common';
@@ -18,7 +17,6 @@ import {
 } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
-import { useRefreshing } from '../../utils/hooks/useRefreshing';
 
 import { GET_CELEBRATE_FEED } from './queries';
 import {
@@ -53,44 +51,42 @@ const CelebrateFeed = ({
   onFetchMore,
   onClearNotification,
 }: CelebrateFeedProps) => {
-  const [isListScrolled, setIsListScrolled] = useState(false);
+  const queryVariables = {
+    communityId: organization.id,
+    personIds: (person && [person.id]) || undefined,
+    hasUnreadComments: showUnreadOnly,
+  };
 
   const {
     data: {
       community: {
         celebrationItems: {
           nodes = [],
-          pageInfo: { endCursor = null, hasNextPage = true } = {},
+          pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
       } = {},
     } = {},
+    loading,
     fetchMore,
     refetch,
   } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
-    variables: {
-      communityId: organization.id,
-      personIds: (person && [person.id]) || undefined,
-      hasUnreadComments: showUnreadOnly,
-    },
+    variables: queryVariables,
     pollInterval: 30000,
+    notifyOnNetworkStatusChange: true,
   });
 
   const celebrationItems = celebrationSelector({ celebrateItems: nodes });
 
-  const { isRefreshing, refresh } = useRefreshing(refetch);
-
   const handleRefreshing = () => {
-    refresh();
+    refetch();
     onRefetch && onRefetch();
   };
 
   const handleOnEndReached = () => {
-    if (isListScrolled && hasNextPage) {
+    if (hasNextPage) {
       fetchMore({
         variables: {
-          communityId: organization.id,
-          personIds: (person && [person.id]) || undefined,
-          hasUnreadComments: showUnreadOnly,
+          ...queryVariables,
           celebrateCursor: endCursor,
         },
         updateQuery: (prev, { fetchMoreResult }) =>
@@ -115,13 +111,6 @@ const CelebrateFeed = ({
             : prev,
       });
       onFetchMore && onFetchMore();
-      setIsListScrolled(false);
-    }
-  };
-
-  const handleEndDrag = () => {
-    if (!isListScrolled) {
-      setIsListScrolled(true);
     }
   };
 
@@ -173,10 +162,8 @@ const CelebrateFeed = ({
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
       onEndReached={handleOnEndReached}
-      onScrollEndDrag={handleEndDrag}
       onRefresh={handleRefreshing}
-      refreshing={isRefreshing}
-      extraData={{ isListScrolled }}
+      refreshing={loading}
       style={styles.list}
       contentContainerStyle={styles.listContent}
     />

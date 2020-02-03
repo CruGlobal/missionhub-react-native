@@ -155,7 +155,6 @@ const CommentsList = ({
 
   const renderItem = ({ item }: { item: CelebrateComment }) => (
     <CommentItem
-      //@ts-ignore
       testID="CommentItem"
       item={item}
       menuActions={menuActions(item)}

@@ -10,11 +10,6 @@ exports[`renders empty correctly 1`] = `
   }
   data={Array []}
   disableVirtualization={false}
-  extraData={
-    Object {
-      "isListScrolled": false,
-    }
-  }
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
@@ -33,10 +28,10 @@ exports[`renders empty correctly 1`] = `
   refreshControl={
     <RefreshControlMock
       onRefresh={[Function]}
-      refreshing={false}
+      refreshing={true}
     />
   }
-  refreshing={false}
+  refreshing={true}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
   scrollEventThrottle={50}
@@ -46,6 +41,7 @@ exports[`renders empty correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ECEEF2",
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -361,11 +357,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     ]
   }
   disableVirtualization={false}
-  extraData={
-    Object {
-      "isListScrolled": false,
-    }
-  }
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
@@ -677,6 +668,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ECEEF2",
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -1230,11 +1222,6 @@ exports[`renders for member renders correctly 1`] = `
     ]
   }
   disableVirtualization={false}
-  extraData={
-    Object {
-      "isListScrolled": false,
-    }
-  }
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
@@ -1546,6 +1533,7 @@ exports[`renders for member renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ECEEF2",
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -2098,11 +2086,6 @@ exports[`renders for member renders without header 1`] = `
     ]
   }
   disableVirtualization={false}
-  extraData={
-    Object {
-      "isListScrolled": false,
-    }
-  }
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
@@ -2414,6 +2397,7 @@ exports[`renders for member renders without header 1`] = `
   style={
     Object {
       "backgroundColor": "#ECEEF2",
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -2946,11 +2930,6 @@ exports[`renders with celebration items correctly 1`] = `
     ]
   }
   disableVirtualization={false}
-  extraData={
-    Object {
-      "isListScrolled": false,
-    }
-  }
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
@@ -3262,6 +3241,7 @@ exports[`renders with celebration items correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ECEEF2",
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
@@ -3815,11 +3795,6 @@ exports[`renders with clear notification renders correctly 1`] = `
     ]
   }
   disableVirtualization={false}
-  extraData={
-    Object {
-      "isListScrolled": false,
-    }
-  }
   getItem={[Function]}
   getItemCount={[Function]}
   horizontal={false}
@@ -4131,6 +4106,7 @@ exports[`renders with clear notification renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ECEEF2",
+      "flex": 1,
     }
   }
   updateCellsBatchingPeriod={50}
