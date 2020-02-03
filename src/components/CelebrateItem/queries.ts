@@ -1,5 +1,13 @@
 import gql from 'graphql-tag';
 
+export const CELEBRATE_ITEM_PERSON_FRAGMENT = gql`
+  fragment CelebrateItemPerson on Person {
+    id
+    firstName
+    lastName
+  }
+`;
+
 export const CELEBRATE_ITEM_FRAGMENT = gql`
   fragment CelebrateItem on CommunityCelebrationItem {
     id
@@ -14,10 +22,9 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
     likesCount
     objectDescription
     subjectPerson {
-      id
-      firstName
-      lastName
+      ...CelebrateItemPerson
     }
     subjectPersonName
   }
+  ${CELEBRATE_ITEM_PERSON_FRAGMENT}
 `;

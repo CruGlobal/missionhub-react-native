@@ -21,7 +21,7 @@ exports[`renders correctly not pressable 1`] = `
     ]
   }
 >
-  Matt Smith
+  Hayden Zieme
 </Text>
 `;
 
@@ -76,7 +76,7 @@ exports[`renders correctly with name 1`] = `
         ]
       }
     >
-      Matt Smith
+      Hayden Zieme
     </Text>
   </View>
 </View>

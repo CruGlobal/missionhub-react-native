@@ -13,19 +13,28 @@ import { CELEBRATEABLE_TYPES, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../../containers/Groups/EditStoryScreen';
 import { Organization } from '../../../reducers/organizations';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
-import { CELEBRATE_ITEM_FRAGMENT } from '../queries';
+import {
+  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData,
+  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
+} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+} from '../queries';
 
 import CelebrateItem, { DELETE_STORY, REPORT_STORY } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 
-const myId = '123';
 const globalOrg: Organization = { id: GLOBAL_COMMUNITY_ID };
 const organization: Organization = { id: '3', name: 'Communidad' };
 
 const event = mockFragment<CelebrateItemData>(CELEBRATE_ITEM_FRAGMENT);
+const mePerson = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const myId = mePerson.id;
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
@@ -181,12 +190,7 @@ describe('long-press card', () => {
   describe('story written by me', () => {
     const myStoryEvent: CelebrateItemData = {
       ...storyEvent,
-      subjectPerson: {
-        __typename: 'Person',
-        id: myId,
-        firstName: 'Matt',
-        lastName: 'Smith',
-      },
+      subjectPerson: mePerson,
     };
 
     it('navigates to edit story screen', () => {

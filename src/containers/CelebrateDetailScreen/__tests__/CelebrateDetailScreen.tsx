@@ -4,6 +4,7 @@ import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { organizationSelector } from '../../../selectors/organizations';
 import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
 import {
@@ -14,7 +15,8 @@ import CommentsList from '../../CommentsList';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CelebrateDetailScreen from '..';
 
@@ -52,23 +54,8 @@ const comments: { comments: CelebrateComment[]; pagination: any } = {
 
 const myId = 'myId';
 const orgId = '24234234';
-const organization: Organization = { id: orgId };
-const event: GetCelebrateFeed_community_celebrationItems_nodes = {
-  __typename: 'CommunityCelebrationItem',
-  id: '90001',
-  adjectiveAttributeName: null,
-  adjectiveAttributeValue: null,
-  celebrateableId: '',
-  celebrateableType: '',
-  changedAttributeName: '',
-  changedAttributeValue: '2019-04-11T13:51:49.888',
-  commentsCount: 0,
-  liked: false,
-  likesCount: 0,
-  objectDescription: '',
-  subjectPerson: null,
-  subjectPersonName: 'Roger',
-};
+const organization: Organization = { id: orgId, name: 'Community' };
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 const organizations = [organization];
 const celebrateComments = { editingCommentId: null };
 const auth = { person: { id: myId } };

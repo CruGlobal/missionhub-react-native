@@ -158,6 +158,7 @@ describe('CelebrateItemContent', () => {
       testEvent({
         ...messageBaseEvent,
         celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+        adjectiveAttributeValue: null,
       });
     });
 

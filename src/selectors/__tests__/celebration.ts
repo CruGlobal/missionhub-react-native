@@ -1,117 +1,105 @@
+import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { celebrationSelector } from '../celebration';
-import { ACCEPTED_STEP } from '../../constants';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { ACCEPTED_STEP, CELEBRATEABLE_TYPES } from '../../constants';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 
-const itemOne: GetCelebrateFeed_community_celebrationItems_nodes = {
-  __typename: 'CommunityCelebrationItem',
-  id: '1',
-  adjectiveAttributeName: '',
-  adjectiveAttributeValue: '2',
-  celebrateableId: '1',
-  celebrateableType: 'interaction',
-  changedAttributeName: '',
-  changedAttributeValue: '2018-01-01 00:00:00 UTC',
-  commentsCount: 0,
-  liked: false,
-  likesCount: 0,
-  objectDescription: null,
-  subjectPerson: null,
-  subjectPersonName: null,
-};
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const itemOne = { ...event, changedAttributeValue: '2018-01-01 00:00:00 UTC' };
 
-const celebrateItems: GetCelebrateFeed_community_celebrationItems_nodes[] = [
+const celebrateItems: CelebrateItem[] = [
   itemOne,
   {
     ...itemOne,
     id: '2',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '4',
     changedAttributeValue: '2017-01-01 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '3',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '11',
     changedAttributeValue: '2018-01-02 00:07:00 UTC',
   },
   {
     ...itemOne,
     id: '4',
-    celebrateableType: ACCEPTED_STEP,
+    celebrateableType: CELEBRATEABLE_TYPES.completedStep,
     adjectiveAttributeValue: '2',
     changedAttributeValue: '2018-01-07 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '5',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '9',
     changedAttributeValue: '2018-01-05 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '6',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '5',
     changedAttributeValue: '2018-01-02 00:23:00 UTC',
   },
   {
     ...itemOne,
     id: '7',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '3',
     changedAttributeValue: '2018-01-02 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '8',
-    celebrateableType: 'accepted_community_challenge',
+    celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
     changedAttributeName: 'accepted_at',
     changedAttributeValue: '2018-01-06 00:04:00 UTC',
   },
   {
     ...itemOne,
     id: '9',
-    celebrateableType: 'accepted_community_challenge',
+    celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
     changedAttributeName: 'completed_at',
     changedAttributeValue: '2018-01-06 00:05:00 UTC',
   },
   {
     ...itemOne,
     id: '10',
-    celebrateableType: 'organization',
+    celebrateableType: CELEBRATEABLE_TYPES.createdCommunity,
     changedAttributeName: 'created_at',
     changedAttributeValue: '2016-12-25 00:02:00 UTC',
   },
   {
     ...itemOne,
     id: '11',
-    celebrateableType: 'organizational_permission',
+    celebrateableType: CELEBRATEABLE_TYPES.joinedCommunity,
     changedAttributeName: 'created_at',
     changedAttributeValue: '2016-12-25 00:09:00 UTC',
   },
   {
     ...itemOne,
     id: '12',
-    celebrateableType: 'story',
+    celebrateableType: CELEBRATEABLE_TYPES.story,
     changedAttributeName: 'created_at',
     changedAttributeValue: '2016-12-25 00:09:00 UTC',
   },
 ];
 
-const invalidItems: GetCelebrateFeed_community_celebrationItems_nodes[] = [
+const invalidItems: CelebrateItem[] = [
   {
     ...itemOne,
     id: '13',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '42',
     changedAttributeValue: '2018-01-01 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '14',
-    celebrateableType: 'interaction',
+    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
     adjectiveAttributeValue: '1',
     changedAttributeValue: '2017-01-01 00:00:00 UTC',
   },

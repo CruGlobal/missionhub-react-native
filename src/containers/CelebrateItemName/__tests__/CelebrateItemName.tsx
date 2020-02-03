@@ -3,18 +3,17 @@ import { fireEvent } from 'react-native-testing-library';
 
 import CelebrateItemName from '../index';
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
 import { Organization } from '../../../reducers/organizations';
-import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_PERSON_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 jest.mock('../../../actions/person');
 
-const person: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson = {
-  __typename: 'Person',
-  id: '1234123',
-  firstName: 'Matt',
-  lastName: 'Smith',
-};
+const person = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
 const name = `${person.firstName} ${person.lastName}`;
 const organization: Organization = {
   id: '235234',

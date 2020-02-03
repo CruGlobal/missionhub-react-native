@@ -8,8 +8,9 @@ import { renderWithContext } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { Organization } from '../../../reducers/organizations';
 import { Person } from '../../../reducers/people';
+import { GET_CELEBRATE_FEED } from '../queries';
 
-import CelebrateFeed, { GET_CELEBRATE_FEED } from '..';
+import CelebrateFeed from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');

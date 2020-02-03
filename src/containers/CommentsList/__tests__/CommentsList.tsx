@@ -6,6 +6,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { ReactTestInstance } from 'react-test-renderer';
 
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { orgPermissionSelector } from '../../../selectors/people';
 import {
@@ -16,12 +17,13 @@ import {
   setCelebrateEditingComment,
 } from '../../../actions/celebrateComments';
 import { reportComment } from '../../../actions/reportComments';
-import { ORG_PERMISSIONS, CELEBRATEABLE_TYPES } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { Person } from '../../../reducers/people';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentsList from '..';
 
@@ -35,22 +37,7 @@ jest.mock('../../../selectors/celebrateComments');
 const me: Person = { id: '1', first_name: 'Matt', last_name: 'Smith' };
 const otherPerson: Person = { id: '2', first_name: 'Will', last_name: 'Smith' };
 const organization: Organization = { id: '24234234' };
-const event: GetCelebrateFeed_community_celebrationItems_nodes = {
-  __typename: 'CommunityCelebrationItem',
-  id: '90001',
-  adjectiveAttributeName: null,
-  adjectiveAttributeValue: null,
-  celebrateableId: '4',
-  celebrateableType: CELEBRATEABLE_TYPES.story,
-  changedAttributeName: 'created_at',
-  changedAttributeValue: '2004-04-04 00:00:00 UTC',
-  commentsCount: 0,
-  liked: false,
-  likesCount: 0,
-  objectDescription: null,
-  subjectPerson: null,
-  subjectPersonName: 'John Smith',
-};
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const comments: { comments: CelebrateComment[]; pagination: any } = {
   comments: [
@@ -135,7 +122,10 @@ describe('refreshes on mount', () => {
       },
     );
 
-    expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
+    expect(reloadCelebrateComments).toHaveBeenCalledWith(
+      event.id,
+      organization.id,
+    );
     expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([
       reloadCelebrateCommentsResult,
@@ -197,7 +187,10 @@ describe('with comments', () => {
 
       fireEvent.press(getByTestId('LoadMore'));
 
-      expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(event);
+      expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(
+        event.id,
+        organization.id,
+      );
       expect(store.getActions()).toEqual([
         reloadCelebrateCommentsResult,
         resetCelebrateEditingCommentResult,
@@ -310,8 +303,8 @@ describe('determine comment menu actions', () => {
 
       expect(deleteCelebrateComment).toHaveBeenCalledWith(
         organization.id,
-        event,
-        comment,
+        event.id,
+        comment.id,
       );
       expect(Alert.alert).toHaveBeenCalledWith(
         i18n.t('commentsList:deletePostHeader'),
@@ -364,8 +357,8 @@ describe('determine comment menu actions', () => {
 
       expect(deleteCelebrateComment).toHaveBeenCalledWith(
         organization.id,
-        event,
-        comment,
+        event.id,
+        comment.id,
       );
       expect(Alert.alert).toHaveBeenCalledWith(
         i18n.t('commentsList:deletePostHeader'),

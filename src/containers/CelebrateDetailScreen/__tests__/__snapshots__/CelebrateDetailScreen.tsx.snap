@@ -93,7 +93,7 @@ exports[`renders correctly 1`] = `
                   ]
                 }
               >
-                Roger
+                Hayden Zieme
               </Text>
             </View>
           </View>
@@ -114,7 +114,7 @@ exports[`renders correctly 1`] = `
             }
             testID="Text"
           >
-            1:51 PM
+            3:58 AM
           </Text>
         </View>
         <View
@@ -126,6 +126,35 @@ exports[`renders correctly 1`] = `
             }
           }
         >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                  "paddingRight": 6,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/comments.png",
+              }
+            }
+          />
           <Text
             style={
               Array [
@@ -412,7 +441,9 @@ exports[`renders correctly 1`] = `
                   },
                 ]
               }
-            />
+            >
+              Roscoe J. joined Community! Now you can see and celebrate the steps of faith they are taking.
+            </Text>
           </View>
         </View>
         <View
@@ -443,6 +474,7 @@ exports[`renders correctly 1`] = `
             organization={
               Object {
                 "id": "24234234",
+                "name": "Community",
               }
             }
             testID="CommentItem"
@@ -476,6 +508,7 @@ exports[`renders correctly 1`] = `
             organization={
               Object {
                 "id": "24234234",
+                "name": "Community",
               }
             }
             testID="CommentItem"

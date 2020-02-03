@@ -190,7 +190,7 @@ exports[`renders correctly 1`] = `
       }
       testID="EditInput"
       underlineColorAndroid="rgba(0,0,0,0)"
-      value="It was the best of times..."
+      value="qui recusandae ut"
     />
   </View>
   <RCTSafeAreaView
@@ -556,7 +556,7 @@ exports[`saveStory user edits story 1`] = `
         }
         testID=\\"EditInput\\"
         underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--       value=\\"It was the best of times...\\"
+-       value=\\"qui recusandae ut\\"
 +       value=\\"It was the worst of times...\\"
       />
     </View>

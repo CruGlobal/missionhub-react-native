@@ -5,13 +5,18 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { ReactTestInstance } from 'react-test-renderer';
 
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { toggleLike } from '../../../actions/celebration';
 import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { Organization } from '../../../reducers/organizations';
 import {
-  GetCelebrateFeed_community_celebrationItems_nodes,
-  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson,
+  CELEBRATE_ITEM_FRAGMENT,
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+} from '../../../components/CelebrateItem/queries';
+import {
+  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
+  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
 } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentLikeComponent from '..';
@@ -19,44 +24,25 @@ import CommentLikeComponent from '..';
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');
 
-const myId = '2342';
-const otherId = '3453';
-const mePerson: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson = {
-  __typename: 'Person',
-  id: myId,
-  firstName: 'Me',
-  lastName: 'Meme',
-};
-const otherPerson: GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson = {
-  __typename: 'Person',
-  id: otherId,
-  firstName: 'Other',
-  lastName: 'Otherother',
-};
+const mePerson = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const otherPerson = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const myId = mePerson.id;
 const organization: Organization = { id: '567' };
-const baseEvent: GetCelebrateFeed_community_celebrationItems_nodes = {
-  __typename: 'CommunityCelebrationItem',
-  id: '777711',
-  adjectiveAttributeName: null,
-  adjectiveAttributeValue: null,
-  celebrateableId: '1',
-  celebrateableType: '',
-  changedAttributeName: '',
-  changedAttributeValue: '',
-  commentsCount: 15,
-  liked: false,
-  likesCount: 54,
-  objectDescription: null,
-  subjectPerson: null,
-  subjectPersonName: null,
-};
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 
 const toggleLikeResponse = { type: 'item was liked' };
 const trackActionResponse = { type: 'tracked action' };
 
 const initialState = { auth: { person: { id: myId } } };
 
+let onRefresh: jest.Mock;
+
 beforeEach(() => {
+  onRefresh = jest.fn();
   (toggleLike as jest.Mock).mockReturnValue(toggleLikeResponse);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 });
@@ -64,8 +50,9 @@ beforeEach(() => {
 it('renders nothing with no subject person', () => {
   renderWithContext(
     <CommentLikeComponent
-      event={{ ...baseEvent, subjectPerson: null }}
+      event={{ ...event, subjectPerson: null }}
       organization={organization}
+      onRefresh={onRefresh}
     />,
     {
       initialState,
@@ -78,10 +65,11 @@ describe('with subject person', () => {
     renderWithContext(
       <CommentLikeComponent
         event={{
-          ...baseEvent,
+          ...event,
           subjectPerson: mePerson,
         }}
         organization={organization}
+        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -93,10 +81,11 @@ describe('with subject person', () => {
     renderWithContext(
       <CommentLikeComponent
         event={{
-          ...baseEvent,
+          ...event,
           subjectPerson: otherPerson,
         }}
         organization={organization}
+        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -104,15 +93,16 @@ describe('with subject person', () => {
     ).snapshot();
   });
 
-  it('renders when liked', () => {
+  it('renders when not liked', () => {
     renderWithContext(
       <CommentLikeComponent
         event={{
-          ...baseEvent,
+          ...event,
           subjectPerson: otherPerson,
-          liked: true,
+          liked: false,
         }}
         organization={organization}
+        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -124,11 +114,12 @@ describe('with subject person', () => {
     renderWithContext(
       <CommentLikeComponent
         event={{
-          ...baseEvent,
+          ...event,
           subjectPerson: otherPerson,
           commentsCount: 0,
         }}
         organization={organization}
+        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -140,11 +131,12 @@ describe('with subject person', () => {
     renderWithContext(
       <CommentLikeComponent
         event={{
-          ...baseEvent,
+          ...event,
           subjectPerson: mePerson,
           likesCount: 0,
         }}
         organization={organization}
+        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -165,11 +157,12 @@ describe('with subject person', () => {
         screen = renderWithContext(
           <CommentLikeComponent
             event={{
-              ...baseEvent,
+              ...event,
               subjectPerson: mePerson,
               liked: false,
             }}
             organization={organization}
+            onRefresh={onRefresh}
           />,
           {
             initialState,
@@ -191,7 +184,7 @@ describe('with subject person', () => {
         await fireEvent.press(screen.getByTestId('LikeIconButton'));
 
         expect(toggleLike).toHaveBeenCalledWith(
-          baseEvent.id,
+          event.id,
           false,
           organization.id,
         );
@@ -215,11 +208,12 @@ describe('with subject person', () => {
         screen = renderWithContext(
           <CommentLikeComponent
             event={{
-              ...baseEvent,
+              ...event,
               subjectPerson: mePerson,
               liked: true,
             }}
             organization={organization}
+            onRefresh={onRefresh}
           />,
           {
             initialState,
@@ -241,7 +235,7 @@ describe('with subject person', () => {
         await fireEvent.press(screen.getByTestId('LikeIconButton'));
 
         expect(toggleLike).toHaveBeenCalledWith(
-          baseEvent.id,
+          event.id,
           true,
           organization.id,
         );
