@@ -11,7 +11,7 @@ import {
   getReportedComments,
 } from '../../../actions/reportComments';
 
-import ReportCommentItem, { RESPOND_TO_CONTENT_COMPLAINT } from '..';
+import ReportedItem, { RESPOND_TO_CONTENT_COMPLAINT } from '..';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');
@@ -67,7 +67,7 @@ const initialState = {
 };
 
 it('renders correctly', () => {
-  const { snapshot } = renderWithContext(<ReportCommentItem {...props} />, {
+  const { snapshot } = renderWithContext(<ReportedItem {...props} />, {
     initialState,
   });
   snapshot();
@@ -78,7 +78,7 @@ describe('report item', () => {
     it('call handleDelete', async () => {
       Alert.alert = jest.fn();
       const { getByTestId, snapshot } = renderWithContext(
-        <ReportCommentItem {...props} />,
+        <ReportedItem {...props} />,
         {
           initialState,
         },
@@ -105,7 +105,7 @@ describe('report item', () => {
 
     it('call handleIgnore', async () => {
       const { snapshot, getByTestId } = renderWithContext(
-        <ReportCommentItem {...props} />,
+        <ReportedItem {...props} />,
         {
           initialState,
         },
@@ -144,7 +144,7 @@ describe('report item', () => {
     it('call handleDelete', async () => {
       Alert.alert = jest.fn();
       const { getByTestId, snapshot } = renderWithContext(
-        <ReportCommentItem {...StoryProps} />,
+        <ReportedItem {...StoryProps} />,
         {
           initialState,
         },
@@ -171,7 +171,7 @@ describe('report item', () => {
 
     it('call handleIgnore', async () => {
       const { snapshot, getByTestId } = renderWithContext(
-        <ReportCommentItem {...StoryProps} />,
+        <ReportedItem {...StoryProps} />,
         {
           initialState,
         },

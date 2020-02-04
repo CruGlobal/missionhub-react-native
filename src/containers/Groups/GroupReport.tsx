@@ -12,13 +12,13 @@ import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
-import ReportCommentItem from '../ReportCommentItem';
+import ReportedItem from '../ReportedItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Organization } from '../../reducers/organizations';
 
 import {
   GetReportedContent,
-  GetReportedContent_community_contentComplaints_nodes as ReportedItem,
+  GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface,
 } from './__generated__/GetReportedContent';
 import styles from './styles';
 
@@ -81,13 +81,9 @@ const GroupReport = () => {
     },
   });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const renderItem = ({ item }: { item: ReportedItem | any }) => {
+  const renderItem = ({ item }: { item: ReportedItemInterface | any }) => {
     return (
-      <ReportCommentItem
-        item={item}
-        refetch={refetch}
-        organization={organization}
-      />
+      <ReportedItem item={item} refetch={refetch} organization={organization} />
     );
   };
 

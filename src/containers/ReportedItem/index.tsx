@@ -8,7 +8,7 @@ import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportItemLabel from '../../components/ReportItemLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
-import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
+import { GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface } from '../Groups/__generated__/GetReportedContent';
 import { Organization } from '../../reducers/organizations';
 
 import {
@@ -27,13 +27,13 @@ export const RESPOND_TO_CONTENT_COMPLAINT = gql`
   }
 `;
 
-const ReportCommentItem = ({
+const ReportedItem = ({
   item,
   refetch,
   organization,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  item: ReportedItem | any;
+  item: ReportedItemInterface | any;
   organization: Organization;
   refetch: () => void;
 }) => {
@@ -138,4 +138,4 @@ const ReportCommentItem = ({
   );
 };
 
-export default ReportCommentItem;
+export default ReportedItem;
