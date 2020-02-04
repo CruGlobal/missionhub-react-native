@@ -7,6 +7,7 @@ import callApi from './api';
 import { trackAction, trackActionWithoutData } from './analytics';
 import { refreshImpact } from './impact';
 import { reloadJourney } from './journey';
+import { getCelebrateFeed } from './celebration';
 
 export function addNewInteraction(
   // @ts-ignore
@@ -77,6 +78,7 @@ export function addNewInteraction(
     );
     dispatch(reloadJourney(personId, organizationId));
     dispatch(refreshImpact(organizationId));
+    getCelebrateFeed(organizationId);
 
     return response;
   };

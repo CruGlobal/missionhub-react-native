@@ -29,6 +29,7 @@ import {
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
+import { getCelebrateFeed } from './celebration';
 
 // @ts-ignore
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
@@ -161,6 +162,7 @@ function handleNotification(notification) {
       case 'celebrate':
         if (organization_id) {
           const community = await dispatch(refreshCommunity(organization_id));
+          getCelebrateFeed(organization_id);
           return dispatch(
             navigateToCelebrateComments(community, celebration_item_id),
           );
