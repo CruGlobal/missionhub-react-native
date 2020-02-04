@@ -51,7 +51,7 @@ const CommentItem = ({
   } = styles;
   const isMine = person ? person.id === me.id : author.id === me.id;
   const isMineNotReported = isMine && !isReported;
-  const itemDate = created_at ? created_at : createdAt;
+  const itemDate = created_at ? created_at : createdAt ? createdAt : '';
 
   const personName = () => {
     const name = person
