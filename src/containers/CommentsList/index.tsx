@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
 import { Alert, FlatList } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { useTranslation } from 'react-i18next';
 
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import {
@@ -17,37 +18,66 @@ import LoadMore from '../../components/LoadMore';
 import { keyExtractorId, isOwner } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { orgPermissionSelector } from '../../selectors/people';
+import { AuthState } from '../../reducers/auth';
+import {
+  CelebrateCommentsState,
+  CelebrateComment,
+} from '../../reducers/celebrateComments';
+import { Organization } from '../../reducers/organizations';
+import { Person } from '../../reducers/people';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('commentsList')
-class CommentsList extends Component {
-  componentDidMount() {
-    // @ts-ignore
-    const { dispatch, event } = this.props;
+export interface CommentsListProps {
+  dispatch: ThunkDispatch<
+    { auth: AuthState; celebrateComments: CelebrateCommentsState },
+    {},
+    AnyAction
+  >;
+  event: GetCelebrateFeed_community_celebrationItems_nodes;
+  organization: Organization;
+  me: Person;
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  celebrateComments?: { comments: CelebrateComment[]; pagination: any };
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  listProps: { [key: string]: any };
+}
 
-    dispatch(reloadCelebrateComments(event));
+const CommentsList = ({
+  dispatch,
+  event,
+  organization,
+  me,
+  celebrateComments,
+  listProps,
+}: CommentsListProps) => {
+  const { t } = useTranslation('commentsList');
+
+  useEffect(() => {
+    dispatch(reloadCelebrateComments(event.id, organization.id));
     dispatch(resetCelebrateEditingComment());
-  }
+  }, []);
 
-  handleLoadMore = () => {
-    // @ts-ignore
-    const { dispatch, event } = this.props;
-
-    dispatch(getCelebrateCommentsNextPage(event));
+  const handleLoadMore = () => {
+    dispatch(getCelebrateCommentsNextPage(event.id, organization.id));
   };
 
-  // @ts-ignore
-  handleEdit = item => {
-    // @ts-ignore
-    this.props.dispatch(setCelebrateEditingComment(item.id));
+  const handleEdit = (item: CelebrateComment) => {
+    dispatch(setCelebrateEditingComment(item.id));
   };
 
-  // @ts-ignore
-  alert = ({ title, message, actionText, action }) => {
-    // @ts-ignore
-    const { t } = this.props;
+  const alert = ({
+    title,
+    message,
+    actionText,
+    action,
+  }: {
+    title: string;
+    message: string;
+    actionText: string;
+    action: () => void;
+  }) => {
     Alert.alert(t(title), t(message), [
       {
         text: t('cancel'),
@@ -60,72 +90,62 @@ class CommentsList extends Component {
     ]);
   };
 
-  // @ts-ignore
-  handleDelete = item => {
-    // @ts-ignore
-    const { dispatch, event } = this.props;
-
-    this.alert({
+  const handleDelete = (item: CelebrateComment) => {
+    alert({
       title: 'deletePostHeader',
       message: 'deleteAreYouSure',
       actionText: 'deletePost',
       action: () => {
-        dispatch(deleteCelebrateComment(event.organization.id, event, item));
+        dispatch(deleteCelebrateComment(organization.id, event.id, item.id));
       },
     });
   };
 
-  // @ts-ignore
-  handleReport = item => {
-    // @ts-ignore
-    const { dispatch, event } = this.props;
-    this.alert({
+  const handleReport = (item: CelebrateComment) => {
+    alert({
       title: 'reportToOwnerHeader',
       message: 'reportAreYouSure',
       actionText: 'reportPost',
       action: () => {
-        dispatch(reportComment(event.organization.id, item));
+        dispatch(reportComment(organization.id, item));
       },
     });
   };
 
-  // @ts-ignore
-  menuActions = item => {
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      event: { organization },
-      // @ts-ignore
-      me,
-    } = this.props;
+  const menuActions = (item: CelebrateComment) => {
+    const actions: {
+      text: string;
+      onPress: () => void;
+      destructive?: boolean;
+    }[] = [];
 
-    const actions = [];
     const deleteAction = {
       text: t('deletePost'),
-      onPress: () => this.handleDelete(item),
+      onPress: () => handleDelete(item),
       destructive: true,
     };
 
     if (me.id === item.person.id) {
       actions.push({
         text: t('editPost'),
-        onPress: () => this.handleEdit(item),
+        onPress: () => handleEdit(item),
       });
       actions.push(deleteAction);
     } else {
       const orgPermission =
-        // @ts-ignore
-        orgPermissionSelector(null, {
-          person: me,
-          organization,
-        }) || {};
+        orgPermissionSelector(
+          {},
+          {
+            person: me,
+            organization,
+          },
+        ) || {};
       if (isOwner(orgPermission)) {
         actions.push(deleteAction);
       } else {
         actions.push({
           text: t('reportToOwner'),
-          onPress: () => this.handleReport(item),
+          onPress: () => handleReport(item),
         });
       }
     }
@@ -133,51 +153,44 @@ class CommentsList extends Component {
     return actions;
   };
 
-  // @ts-ignore
-  renderItem = ({ item }) => (
+  const renderItem = ({ item }: { item: CelebrateComment }) => (
     <CommentItem
+      testID="CommentItem"
       item={item}
-      // @ts-ignore
-      menuActions={this.menuActions(item)}
-      // @ts-ignore
-      organization={this.props.event.organization}
+      menuActions={menuActions(item)}
+      organization={organization}
     />
   );
 
-  render() {
-    const {
-      // @ts-ignore
-      listProps,
-      // @ts-ignore
-      celebrateComments: { comments, pagination } = {},
-    } = this.props;
-    const { list, listContent } = styles;
+  const { comments = [], pagination } = celebrateComments || {};
+  const { list, listContent } = styles;
 
-    return (
-      <FlatList
-        data={comments}
-        keyExtractor={keyExtractorId}
-        renderItem={this.renderItem}
-        style={list}
-        contentContainerStyle={listContent}
-        ListFooterComponent={
-          pagination &&
-          pagination.hasNextPage && <LoadMore onPress={this.handleLoadMore} />
-        }
-        bounces={false}
-        {...listProps}
-      />
-    );
-  }
-}
-
-// @ts-ignore
-CommentsList.propTypes = {
-  event: PropTypes.object.isRequired,
+  return (
+    <FlatList
+      data={comments}
+      keyExtractor={keyExtractorId}
+      renderItem={renderItem}
+      style={list}
+      contentContainerStyle={listContent}
+      ListFooterComponent={
+        pagination &&
+        pagination.hasNextPage && (
+          <LoadMore testID="LoadMore" onPress={handleLoadMore} />
+        )
+      }
+      bounces={false}
+      {...listProps}
+    />
+  );
 };
 
-// @ts-ignore
-const mapStateToProps = ({ auth, celebrateComments }, { event }) => ({
+const mapStateToProps = (
+  {
+    auth,
+    celebrateComments,
+  }: { auth: AuthState; celebrateComments: CelebrateCommentsState },
+  { event }: { event: GetCelebrateFeed_community_celebrationItems_nodes },
+) => ({
   me: auth.person,
   celebrateComments: celebrateCommentsSelector(
     { celebrateComments },

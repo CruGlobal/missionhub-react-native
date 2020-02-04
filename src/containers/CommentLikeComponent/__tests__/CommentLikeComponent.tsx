@@ -1,142 +1,247 @@
 import 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { MockStore } from 'redux-mock-store';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { ReactTestInstance } from 'react-test-renderer';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { toggleLike } from '../../../actions/celebration';
 import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { Organization } from '../../../reducers/organizations';
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+} from '../../../components/CelebrateItem/queries';
+import {
+  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
+  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
+} from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentLikeComponent from '..';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');
 
-const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
+const mePerson = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const otherPerson = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const myId = mePerson.id;
+const organization: Organization = { id: '567' };
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 
-const myId = '2342';
 const toggleLikeResponse = { type: 'item was liked' };
 const trackActionResponse = { type: 'tracked action' };
 
-// @ts-ignore
-toggleLike.mockReturnValue(dispatch => dispatch(toggleLikeResponse));
-// @ts-ignore
-trackActionWithoutData.mockReturnValue(dispatch =>
-  dispatch(trackActionResponse),
-);
+const initialState = { auth: { person: { id: myId } } };
+
+let onRefresh: jest.Mock;
 
 beforeEach(() => {
-  store = mockStore({ auth: { person: { id: myId } } });
+  onRefresh = jest.fn();
+  (toggleLike as jest.Mock).mockReturnValue(toggleLikeResponse);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 });
 
 it('renders nothing with no subject person', () => {
-  // @ts-ignore
-  testSnapshotShallow(<CommentLikeComponent event={{}} />, store);
+  renderWithContext(
+    <CommentLikeComponent
+      event={{ ...event, subjectPerson: null }}
+      organization={organization}
+      onRefresh={onRefresh}
+    />,
+    {
+      initialState,
+    },
+  ).snapshot();
 });
 
-it('renders with custom style', () => {
-  testSnapshotShallow(
-    // @ts-ignore
-    <CommentLikeComponent event={{}} style={{ padding: 10 }} />,
-    // @ts-ignore
-    store,
-  );
-});
-
-const event = {
-  id: '777711',
-  liked: false,
-  subject_person: {},
-  likes_count: 54,
-  comments_count: 15,
-  organization: { id: '88732' },
-};
 describe('with subject person', () => {
   it('renders for me', () => {
-    // @ts-ignore
-    testSnapshotShallow(<CommentLikeComponent event={event} />, store);
+    renderWithContext(
+      <CommentLikeComponent
+        event={{
+          ...event,
+          subjectPerson: mePerson,
+        }}
+        organization={organization}
+        onRefresh={onRefresh}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 
   it('renders for someone else', () => {
-    testSnapshotShallow(
+    renderWithContext(
       <CommentLikeComponent
-        // @ts-ignore
-        event={{ ...event, subject_person: { id: myId } }}
+        event={{
+          ...event,
+          subjectPerson: otherPerson,
+        }}
+        organization={organization}
+        onRefresh={onRefresh}
       />,
-      // @ts-ignore
-      store,
-    );
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 
-  it('renders when liked', () => {
-    testSnapshotShallow(
-      // @ts-ignore
-      <CommentLikeComponent event={{ ...event, liked: true }} />,
-      // @ts-ignore
-      store,
-    );
+  it('renders when not liked', () => {
+    renderWithContext(
+      <CommentLikeComponent
+        event={{
+          ...event,
+          subjectPerson: otherPerson,
+          liked: false,
+        }}
+        organization={organization}
+        onRefresh={onRefresh}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 
   it('renders 0 comments_count', () => {
-    testSnapshotShallow(
-      // @ts-ignore
-      <CommentLikeComponent event={{ ...event, comments_count: 0 }} />,
-      // @ts-ignore
-      store,
-    );
+    renderWithContext(
+      <CommentLikeComponent
+        event={{
+          ...event,
+          subjectPerson: otherPerson,
+          commentsCount: 0,
+        }}
+        organization={organization}
+        onRefresh={onRefresh}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 
   it('renders 0 likes_count', () => {
-    testSnapshotShallow(
-      // @ts-ignore
-      <CommentLikeComponent event={{ ...event, likes_count: 0 }} />,
-      // @ts-ignore
-      store,
-    );
-  });
-
-  it('renders disabled heart button', () => {
-    const component = renderShallow(
-      // @ts-ignore
-      <CommentLikeComponent event={event} />,
-      // @ts-ignore
-      store,
-    );
-    component.setState({ isLikeDisabled: true });
-    component.update();
-    expect(component).toMatchSnapshot();
+    renderWithContext(
+      <CommentLikeComponent
+        event={{
+          ...event,
+          subjectPerson: mePerson,
+          likesCount: 0,
+        }}
+        organization={organization}
+        onRefresh={onRefresh}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 
   describe('onPress like button', () => {
-    beforeEach(() =>
-      // @ts-ignore
-      renderShallow(<CommentLikeComponent event={event} />, store)
-        .childAt(3)
-        .props()
-        .onPress(),
-    );
+    describe('unlike -> like', () => {
+      let screen: {
+        store: MockStore;
+        recordSnapshot: () => void;
+        diffSnapshot: () => void;
+        getByTestId: (id: string) => ReactTestInstance;
+      };
 
-    it('toggles like', () => {
-      expect(toggleLike).toHaveBeenCalledWith(
-        event.id,
-        event.liked,
-        event.organization.id,
-      );
-      // @ts-ignore
-      expect(store.getActions()).toEqual(
-        expect.arrayContaining([toggleLikeResponse]),
-      );
+      beforeEach(() => {
+        screen = renderWithContext(
+          <CommentLikeComponent
+            event={{
+              ...event,
+              subjectPerson: mePerson,
+              liked: false,
+            }}
+            organization={organization}
+            onRefresh={onRefresh}
+          />,
+          {
+            initialState,
+          },
+        );
+      });
+
+      it('renders disabled heart button', async () => {
+        screen.recordSnapshot();
+
+        fireEvent.press(screen.getByTestId('LikeIconButton'));
+
+        screen.diffSnapshot();
+
+        await flushMicrotasksQueue();
+      });
+
+      it('toggles like', async () => {
+        await fireEvent.press(screen.getByTestId('LikeIconButton'));
+
+        expect(toggleLike).toHaveBeenCalledWith(
+          event.id,
+          false,
+          organization.id,
+        );
+        expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
+        expect(screen.store.getActions()).toEqual([
+          toggleLikeResponse,
+          trackActionResponse,
+        ]);
+      });
     });
 
-    it('tracks action', () => {
-      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
-      // @ts-ignore
-      expect(store.getActions()).toEqual(
-        expect.arrayContaining([trackActionResponse]),
-      );
+    describe('like -> unlike', () => {
+      let screen: {
+        store: MockStore;
+        recordSnapshot: () => void;
+        diffSnapshot: () => void;
+        getByTestId: (id: string) => ReactTestInstance;
+      };
+
+      beforeEach(() => {
+        screen = renderWithContext(
+          <CommentLikeComponent
+            event={{
+              ...event,
+              subjectPerson: mePerson,
+              liked: true,
+            }}
+            organization={organization}
+            onRefresh={onRefresh}
+          />,
+          {
+            initialState,
+          },
+        );
+      });
+
+      it('renders disabled heart button', async () => {
+        screen.recordSnapshot();
+
+        fireEvent.press(screen.getByTestId('LikeIconButton'));
+
+        screen.diffSnapshot();
+
+        await flushMicrotasksQueue();
+      });
+
+      it('toggles like', async () => {
+        await fireEvent.press(screen.getByTestId('LikeIconButton'));
+
+        expect(toggleLike).toHaveBeenCalledWith(
+          event.id,
+          true,
+          organization.id,
+        );
+        expect(trackActionWithoutData).not.toHaveBeenCalled();
+        expect(screen.store.getActions()).toEqual([toggleLikeResponse]);
+      });
     });
   });
 });

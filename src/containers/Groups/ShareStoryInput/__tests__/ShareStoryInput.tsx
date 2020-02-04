@@ -35,14 +35,14 @@ it('does not render for Global Community', () => {
   renderWithContext(<ShareStoryInput {...globalCommunityProps} />).snapshot();
 });
 
-it('onPress switches to ShareStoryScreen', async () => {
+it('onPress switches to ShareStoryScreen', () => {
   const { getByTestId } = renderWithContext(<ShareStoryInput {...props} />);
   fireEvent.press(getByTestId('ShareStoryInput'));
   expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
     organization: mockOrganization,
     onComplete: expect.any(Function),
   });
-  await (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
+  (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
   expect(props.refreshItems).toHaveBeenCalled();
   expect(navigateBack).toHaveBeenCalled();
 });

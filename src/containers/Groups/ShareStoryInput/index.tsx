@@ -31,8 +31,8 @@ const ShareStoryInput = ({
     return dispatch(
       navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
         organization,
-        onComplete: async () => {
-          await refreshItems();
+        onComplete: () => {
+          refreshItems();
           dispatch(navigateBack());
         },
       }),

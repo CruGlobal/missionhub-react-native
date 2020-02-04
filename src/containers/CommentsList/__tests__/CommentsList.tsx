@@ -1,10 +1,12 @@
+/* eslint max-lines: 0 */
 import React from 'react';
-import { Alert } from 'react-native';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { Alert, View, AlertButton } from 'react-native';
 import i18n from 'i18next';
+import { fireEvent } from 'react-native-testing-library';
+import { ReactTestInstance } from 'react-test-renderer';
 
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { orgPermissionSelector } from '../../../selectors/people';
 import {
@@ -17,7 +19,11 @@ import {
 import { reportComment } from '../../../actions/reportComments';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
-import Text from '../../../components/Text';
+import { Person } from '../../../reducers/people';
+import { Organization } from '../../../reducers/organizations';
+import { CelebrateComment } from '../../../reducers/celebrateComments';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentsList from '..';
 
@@ -28,19 +34,35 @@ jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/people');
 jest.mock('../../../selectors/celebrateComments');
 
-const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
-
-const organizationId = '24234234';
-const event = { id: '90001', organization: { id: organizationId } };
-const celebrateComments = {
-  comments: [{ content: 'some comment' }, { content: 'another comment' }],
+const me: Person = { id: '1', first_name: 'Matt', last_name: 'Smith' };
+const otherPerson: Person = { id: '2', first_name: 'Will', last_name: 'Smith' };
+const organization: Organization = { id: '24234234' };
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const comments: { comments: CelebrateComment[]; pagination: any } = {
+  comments: [
+    {
+      id: '1',
+      created_at: '2004-04-04 00:00:00 UTC',
+      updated_at: '2004-04-04 00:00:00 UTC',
+      content: 'some comment',
+      person: otherPerson,
+    },
+    {
+      id: '2',
+      created_at: '2004-04-04 00:00:00 UTC',
+      updated_at: '2004-04-04 00:00:00 UTC',
+      content: 'some comment',
+      person: otherPerson,
+    },
+  ],
   pagination: {},
 };
 
-const organizations = [event.organization];
-const celebrateCommentsState = [celebrateComments];
+const auth = { person: me };
+const organizations = { all: [organization] };
+const celebrateComments = { all: [comments] };
+
 const reloadCelebrateCommentsResult = { type: 'loaded comments' };
 const getCelebrateCommentsNextPageResult = { type: 'got next page' };
 const deleteCelebrateCommentResult = { type: 'delete comment' };
@@ -49,184 +71,206 @@ const setCelebrateEditingCommentResult = { type: 'set edit comment' };
 const reportCommentResult = { type: 'report comment' };
 const navigatePushResult = { type: 'navigate push' };
 
-// @ts-ignore
-let screen;
-
-// @ts-ignore
-reloadCelebrateComments.mockReturnValue(dispatch =>
-  dispatch(reloadCelebrateCommentsResult),
-);
-// @ts-ignore
-getCelebrateCommentsNextPage.mockReturnValue(dispatch =>
-  dispatch(getCelebrateCommentsNextPageResult),
-);
-// @ts-ignore
-deleteCelebrateComment.mockReturnValue(dispatch =>
-  dispatch(deleteCelebrateCommentResult),
-);
-// @ts-ignore
-resetCelebrateEditingComment.mockReturnValue(dispatch =>
-  dispatch(resetCelebrateEditingCommentResult),
-);
-// @ts-ignore
-setCelebrateEditingComment.mockReturnValue(dispatch =>
-  dispatch(setCelebrateEditingCommentResult),
-);
-// @ts-ignore
-navigatePush.mockReturnValue(dispatch => dispatch(navigatePushResult));
-// @ts-ignore
-reportComment.mockReturnValue(dispatch => dispatch(reportCommentResult));
 Alert.alert = jest.fn();
 
-const me = { id: '1' };
-const otherPerson = { id: '2' };
+const initialState = { auth, organizations, celebrateComments };
 
 beforeEach(() => {
-  store = mockStore({
-    auth: { person: me },
-    organizations,
-    celebrateComments: celebrateCommentsState,
-  });
-
-  screen = renderShallow(<CommentsList event={event} />, store);
+  (reloadCelebrateComments as jest.Mock).mockReturnValue(
+    reloadCelebrateCommentsResult,
+  );
+  (getCelebrateCommentsNextPage as jest.Mock).mockReturnValue(
+    getCelebrateCommentsNextPageResult,
+  );
+  (deleteCelebrateComment as jest.Mock).mockReturnValue(
+    deleteCelebrateCommentResult,
+  );
+  (resetCelebrateEditingComment as jest.Mock).mockReturnValue(
+    resetCelebrateEditingCommentResult,
+  );
+  (setCelebrateEditingComment as jest.Mock).mockReturnValue(
+    setCelebrateEditingCommentResult,
+  );
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (reportComment as jest.Mock).mockReturnValue(reportCommentResult);
+  ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+    comments,
+  );
 });
 
 describe('mounts with custom props', () => {
   it('passes in custom flatlist props', () => {
-    screen = renderShallow(
+    renderWithContext(
       <CommentsList
         event={event}
-        // @ts-ignore
-        listProps={{ ListHeaderComponent: () => <Text>Test</Text> }}
+        organization={organization}
+        listProps={{ listHeaderComponent: () => <View /> }}
       />,
-      // @ts-ignore
-      store,
-    );
-    expect(screen).toMatchSnapshot();
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 });
 
-describe('componentDidMount', () => {
+describe('refreshes on mount', () => {
   it('refreshes items', () => {
-    expect(reloadCelebrateComments).toHaveBeenCalledWith(event);
-    // @ts-ignore
-    expect(store.getActions()).toEqual(
-      expect.arrayContaining([reloadCelebrateCommentsResult]),
+    const { store } = renderWithContext(
+      <CommentsList event={event} organization={organization} listProps={{}} />,
+      {
+        initialState,
+      },
     );
+
+    expect(reloadCelebrateComments).toHaveBeenCalledWith(
+      event.id,
+      organization.id,
+    );
+    expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
+    expect(store.getActions()).toEqual([
+      reloadCelebrateCommentsResult,
+      resetCelebrateEditingCommentResult,
+    ]);
   });
 });
 
 describe('with no comments', () => {
-  // @ts-ignore
-  beforeAll(() => celebrateCommentsSelector.mockReturnValue(undefined));
+  beforeEach(() => {
+    ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+      undefined,
+    );
+  });
 
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderWithContext(
+      <CommentsList event={event} organization={organization} listProps={{}} />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 });
 
 describe('with comments', () => {
   describe('with next page', () => {
-    beforeAll(() =>
-      // @ts-ignore
-      celebrateCommentsSelector.mockReturnValue({
-        ...celebrateComments,
+    beforeEach(() =>
+      ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue({
+        ...comments,
         pagination: { hasNextPage: true },
       }),
     );
 
     it('renders correctly', () => {
-      // @ts-ignore
-      expect(screen).toMatchSnapshot();
-    });
-
-    it('renders item correctly', () => {
-      expect(
-        // @ts-ignore
-        screen.props().renderItem({
-          item: {
-            content: 'hello roge',
-            person: { id: '1' },
-          },
-        }),
-      ).toMatchSnapshot();
+      renderWithContext(
+        <CommentsList
+          event={event}
+          organization={organization}
+          listProps={{}}
+        />,
+        {
+          initialState,
+        },
+      ).snapshot();
     });
 
     it('loads more comments', () => {
-      // @ts-ignore
-      screen.props().ListFooterComponent.props.onPress();
-
-      expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(event);
-      // @ts-ignore
-      expect(store.getActions()).toEqual(
-        expect.arrayContaining([getCelebrateCommentsNextPageResult]),
+      const { store, getByTestId } = renderWithContext(
+        <CommentsList
+          event={event}
+          organization={organization}
+          listProps={{}}
+        />,
+        {
+          initialState,
+        },
       );
+
+      fireEvent.press(getByTestId('LoadMore'));
+
+      expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(
+        event.id,
+        organization.id,
+      );
+      expect(store.getActions()).toEqual([
+        reloadCelebrateCommentsResult,
+        resetCelebrateEditingCommentResult,
+        getCelebrateCommentsNextPageResult,
+      ]);
     });
   });
 
   describe('without next page', () => {
-    beforeAll(() =>
-      // @ts-ignore
-      celebrateCommentsSelector.mockReturnValue(celebrateComments),
+    beforeEach(() =>
+      ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+        comments,
+      ),
     );
 
     it('renders correctly', () => {
-      // @ts-ignore
-      expect(screen).toMatchSnapshot();
+      renderWithContext(
+        <CommentsList
+          event={event}
+          organization={organization}
+          listProps={{}}
+        />,
+        {
+          initialState,
+        },
+      ).snapshot();
     });
   });
 });
 
 describe('determine comment menu actions', () => {
-  // @ts-ignore
-  let screen;
-  // @ts-ignore
-  let comment;
-  // @ts-ignore
-  let permission_id;
+  let commentItem: ReactTestInstance;
+  let comment: CelebrateComment;
+  let permission_id: string;
 
-  const buildScreenWithComment = () => {
-    // @ts-ignore
-    orgPermissionSelector.mockReturnValue({ permission_id });
-
-    store = mockStore({
-      auth: { person: me },
-      organizations,
-      celebrateComments: {
-        // @ts-ignore
-        comments: [comment],
-        pagination: {},
-      },
+  const buildScreen = () => {
+    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+      permission_id,
+    });
+    ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue({
+      comments: [comment],
+      pagination: {},
     });
 
-    screen = renderShallow(<CommentsList event={event} />, store);
+    const { getByTestId } = renderWithContext(
+      <CommentsList event={event} organization={organization} listProps={{}} />,
+      {
+        initialState,
+      },
+    );
+
+    commentItem = getByTestId('CommentItem');
   };
 
-  // @ts-ignore
-  const testActionArray = expectedActions => {
-    expect(
-      // @ts-ignore
-      screen.props().renderItem({ item: comment }).props.menuActions,
-    ).toEqual(expectedActions);
+  const testActionArray = (
+    expectedActions: {
+      text: string;
+      onPress: () => void;
+      destructive?: boolean;
+    }[],
+  ) => {
+    expect(commentItem.props.menuActions).toEqual(expectedActions);
   };
 
-  // @ts-ignore
-  const testFireAction = actionIndex => {
-    // @ts-ignore
-    screen
-      .props()
-      // @ts-ignore
-      .renderItem({ item: comment })
-      // @ts-ignore
-      .props.menuActions[actionIndex].onPress(comment);
+  const testFireAction = (actionIndex: number) => {
+    commentItem.props.menuActions[actionIndex].onPress(comment);
   };
 
   describe('author actions', () => {
     beforeEach(() => {
-      comment = { id: 'comment1', person: me };
+      comment = {
+        id: 'comment1',
+        created_at: '2004-04-04 00:00:00 UTC',
+        updated_at: '2004-04-04 00:00:00 UTC',
+        person: me,
+        content: 'comment 1',
+      };
       permission_id = ORG_PERMISSIONS.ADMIN;
-      buildScreenWithComment();
+
+      buildScreen();
     });
 
     it('creates array', () => {
@@ -245,21 +289,22 @@ describe('determine comment menu actions', () => {
 
     it('handleEdit', () => {
       testFireAction(0);
-      // @ts-ignore
+
       expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
     });
 
     it('handleDelete', () => {
-      // @ts-ignore
-      Alert.alert = jest.fn((a, b, c) => c[1].onPress());
+      Alert.alert = jest.fn(
+        (_, __, c: AlertButton[] | undefined) =>
+          c && c[1] && c[1].onPress && c[1].onPress(),
+      );
 
       testFireAction(1);
 
       expect(deleteCelebrateComment).toHaveBeenCalledWith(
-        organizationId,
-        event,
-        // @ts-ignore
-        comment,
+        organization.id,
+        event.id,
+        comment.id,
       );
       expect(Alert.alert).toHaveBeenCalledWith(
         i18n.t('commentsList:deletePostHeader'),
@@ -280,9 +325,16 @@ describe('determine comment menu actions', () => {
 
   describe('owner actions', () => {
     beforeEach(() => {
-      comment = { id: 'comment1', person: otherPerson };
+      comment = {
+        id: 'comment1',
+        person: otherPerson,
+        created_at: '2004-04-04 00:00:00 UTC',
+        updated_at: '2004-04-04 00:00:00 UTC',
+        content: 'comment 1',
+      };
       permission_id = ORG_PERMISSIONS.OWNER;
-      buildScreenWithComment();
+
+      buildScreen();
     });
 
     it('creates array', () => {
@@ -296,16 +348,17 @@ describe('determine comment menu actions', () => {
     });
 
     it('handleDelete', () => {
-      // @ts-ignore
-      Alert.alert = jest.fn((a, b, c) => c[1].onPress());
+      Alert.alert = jest.fn(
+        (_, __, c: AlertButton[] | undefined) =>
+          c && c[1] && c[1].onPress && c[1].onPress(),
+      );
 
       testFireAction(0);
 
       expect(deleteCelebrateComment).toHaveBeenCalledWith(
-        organizationId,
-        event,
-        // @ts-ignore
-        comment,
+        organization.id,
+        event.id,
+        comment.id,
       );
       expect(Alert.alert).toHaveBeenCalledWith(
         i18n.t('commentsList:deletePostHeader'),
@@ -326,9 +379,16 @@ describe('determine comment menu actions', () => {
 
   describe('user actions', () => {
     beforeEach(() => {
-      comment = { id: 'comment1', person: otherPerson };
+      comment = {
+        id: 'comment1',
+        person: otherPerson,
+        created_at: '2004-04-04 00:00:00 UTC',
+        updated_at: '2004-04-04 00:00:00 UTC',
+        content: 'comment 1',
+      };
       permission_id = ORG_PERMISSIONS.USER;
-      buildScreenWithComment();
+
+      buildScreen();
     });
 
     it('creates array', () => {
@@ -341,13 +401,14 @@ describe('determine comment menu actions', () => {
     });
 
     it('handleReport', () => {
-      // @ts-ignore
-      Alert.alert = jest.fn((a, b, c) => c[1].onPress());
+      Alert.alert = jest.fn(
+        (_, __, c: AlertButton[] | undefined) =>
+          c && c[1] && c[1].onPress && c[1].onPress(),
+      );
 
       testFireAction(0);
 
-      // @ts-ignore
-      expect(reportComment).toHaveBeenCalledWith(organizationId, comment);
+      expect(reportComment).toHaveBeenCalledWith(organization.id, comment);
       expect(Alert.alert).toHaveBeenCalledWith(
         i18n.t('commentsList:reportToOwnerHeader'),
         i18n.t('commentsList:reportAreYouSure'),

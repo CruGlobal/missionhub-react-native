@@ -9,9 +9,6 @@ export default StyleSheet.create({
   description: {
     marginTop: 14,
   },
-  fixedHeightDescription: {
-    height: 70,
-  },
   messageText: {
     fontSize: 14,
     lineHeight: 18,

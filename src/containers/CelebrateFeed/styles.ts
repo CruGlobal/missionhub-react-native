@@ -4,6 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   list: {
+    flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
   listContent: {
