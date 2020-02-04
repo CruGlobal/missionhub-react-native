@@ -12,6 +12,7 @@ import {
   updateChallenge,
   getChallenge,
 } from '../challenges';
+import { getCelebrateFeed } from '../celebration';
 import { trackActionWithoutData } from '../analytics';
 import { showNotificationPrompt } from '../notifications';
 import callApi from '../api';
@@ -161,6 +162,7 @@ describe('completeChallenge', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_COMPLETED,
     );
+    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
     // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
@@ -200,6 +202,7 @@ describe('joinChallenge', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_JOINED,
     );
+    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
     // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
