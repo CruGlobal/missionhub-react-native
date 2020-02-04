@@ -16,6 +16,7 @@ jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'navigate push' })),
   navigateBack: jest.fn(() => ({ type: 'navigate back' })),
 }));
+jest.mock('../../../actions/stages');
 jest.mock('../../../actions/steps', () => ({
   getStepSuggestions: jest.fn(() => ({
     type: 'getStepSuggestions',
@@ -157,16 +158,7 @@ describe('PersonStageScreen next', () => {
       orgId,
       enableSkipButton: true,
     });
-    expect(store.getActions()).toEqual([
-      {
-        data: {},
-        query: {
-          include: 'localized_pathway_stages',
-        },
-        type: 'GET_STAGES_FETCH',
-      },
-      navigatePushResponse,
-    ]);
+    expect(store.getActions()).toEqual([navigatePushResponse]);
   });
 });
 
