@@ -27,8 +27,8 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../components/UnreadCommentsCard', () => 'UnreadCommentsCard');
 jest.mock(
-  '../../../components/ReportCommentHeaderCard',
-  () => 'ReportCommentHeaderCard',
+  '../../../components/ReportItemHeaderCard',
+  () => 'ReportItemHeaderCard',
 );
 
 (markCommentsRead as jest.Mock).mockReturnValue(() => ({
@@ -87,7 +87,7 @@ describe('owner', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
-      expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+      expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
 
     it('renders with multiple reported items', async () => {
@@ -102,7 +102,7 @@ describe('owner', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
-      expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+      expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
 
     it('renders with multiple reported items but no unreadComments', async () => {
@@ -121,7 +121,7 @@ describe('owner', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
-      expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+      expect(queryByTestId('ReportItemCard')).toBeTruthy();
       expect(queryByTestId('UnreadCommentsCard')).toBeNull();
     });
   });
@@ -150,7 +150,7 @@ describe('owner', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
-      expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+      expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
   });
 
@@ -176,7 +176,7 @@ describe('owner', () => {
       );
       await flushMicrotasksQueue();
       snapshot();
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
   });
 
@@ -199,7 +199,7 @@ describe('owner', () => {
       variables: { id: '1' },
     });
     snapshot();
-    expect(queryByTestId('ReportCommentCard')).toBeNull();
+    expect(queryByTestId('ReportItemCard')).toBeNull();
   });
 });
 // Admin
@@ -230,7 +230,7 @@ describe('admin', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
   });
 
@@ -255,7 +255,7 @@ describe('admin', () => {
       );
       await flushMicrotasksQueue();
       snapshot();
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
 
     it('renders with multiple reported items', async () => {
@@ -271,7 +271,7 @@ describe('admin', () => {
       );
       await flushMicrotasksQueue();
       snapshot();
-      expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+      expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
   });
 
@@ -297,7 +297,7 @@ describe('admin', () => {
       );
       await flushMicrotasksQueue();
       snapshot();
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
 
     it('renders with 0 reported items', async () => {
@@ -319,7 +319,7 @@ describe('admin', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
       });
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
   });
 });
@@ -352,7 +352,7 @@ describe('members', () => {
         variables: { id: '1' },
       });
       snapshot();
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
 
     it('does not render the reported items card even when reported items exist', async () => {
@@ -367,7 +367,7 @@ describe('members', () => {
         variables: { id: '1' },
       });
       snapshot();
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
   });
 
@@ -397,7 +397,7 @@ describe('members', () => {
         variables: { id: '1' },
       });
 
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
 
     it('does not render reported item card even when reported items exist', async () => {
@@ -418,7 +418,7 @@ describe('members', () => {
         variables: { id: '1' },
       });
 
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
   });
 
@@ -449,7 +449,7 @@ describe('members', () => {
         variables: { id: GLOBAL_COMMUNITY_ID },
       });
 
-      expect(queryByTestId('ReportCommentCard')).toBeNull();
+      expect(queryByTestId('ReportItemCard')).toBeNull();
     });
   });
 });
@@ -467,7 +467,7 @@ describe('unread comments card', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
       variables: { id: '1' },
     });
-    expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+    expect(queryByTestId('ReportItemCard')).toBeTruthy();
     expect(queryByTestId('UnreadCommentsCard')).toBeTruthy();
   });
 
@@ -484,7 +484,7 @@ describe('unread comments card', () => {
     );
     await flushMicrotasksQueue();
     snapshot();
-    expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+    expect(queryByTestId('ReportItemCard')).toBeTruthy();
     expect(queryByTestId('UnreadCommentsCard')).toBeNull();
   });
 
@@ -504,7 +504,7 @@ describe('unread comments card', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
       variables: { id: '1' },
     });
-    expect(queryByTestId('ReportCommentCard')).toBeTruthy();
+    expect(queryByTestId('ReportItemCard')).toBeTruthy();
     expect(queryByTestId('UnreadCommentsCard')).toBeNull();
   });
 });
@@ -560,7 +560,7 @@ it('navigates to group report screen', async () => {
     variables: { id: '1' },
   });
 
-  fireEvent.press(getByTestId('ReportCommentCard'));
+  fireEvent.press(getByTestId('ReportItemCard'));
 
   expect(navigatePush).toHaveBeenCalledWith(GROUPS_REPORT_SCREEN, {
     organization,

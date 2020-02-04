@@ -15,8 +15,10 @@ export interface CelebrateComment {
   id: string;
   updated_at: string;
   created_at: string;
+  createdAt: string;
   content: string;
   person: Person;
+  author: Person;
 }
 
 export interface CelebrateCommentsState {

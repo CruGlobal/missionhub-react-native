@@ -15,7 +15,7 @@ import OnboardingCard, {
 } from '../Groups/OnboardingCard';
 import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
-import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
+import ReportItemHeaderCard from '../../components/ReportItemHeaderCard';
 import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
@@ -87,8 +87,8 @@ const CelebrateFeedHeader = ({
       return null;
     }
     return (
-      <ReportCommentHeaderCard
-        testID="ReportCommentCard"
+      <ReportItemHeaderCard
+        testID="ReportItemCard"
         onPress={report}
         count={ReportedContentCount}
       />

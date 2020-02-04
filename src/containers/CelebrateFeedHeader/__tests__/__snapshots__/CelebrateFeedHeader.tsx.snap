@@ -29,10 +29,10 @@ exports[`admin cru community renders with multiple reported items 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={2}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -340,10 +340,10 @@ exports[`closes comment card 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={2}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -673,10 +673,10 @@ exports[`navigates to group report screen 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={2}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -710,10 +710,10 @@ exports[`navigates to unread comments screen 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={2}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -747,10 +747,10 @@ exports[`owner cru community renders with 1 reported item 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={1}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -1014,10 +1014,10 @@ exports[`owner user created community renders with 1 reported item 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={1}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -1051,10 +1051,10 @@ exports[`owner user created community renders with multiple reported items 1`] =
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={2}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -1264,10 +1264,10 @@ Array [
       ]
     }
   >
-    <ReportCommentHeaderCard
+    <ReportItemHeaderCard
       count={2}
       onPress={[Function]}
-      testID="ReportCommentCard"
+      testID="ReportItemCard"
     />
   </View>,
 ]
@@ -1302,10 +1302,10 @@ exports[`unread comments card renders comment card 1`] = `
       ]
     }
   />
-  <ReportCommentHeaderCard
+  <ReportItemHeaderCard
     count={2}
     onPress={[Function]}
-    testID="ReportCommentCard"
+    testID="ReportItemCard"
   />
 </View>
 `;
@@ -1515,10 +1515,10 @@ Array [
       ]
     }
   >
-    <ReportCommentHeaderCard
+    <ReportItemHeaderCard
       count={2}
       onPress={[Function]}
-      testID="ReportCommentCard"
+      testID="ReportItemCard"
     />
   </View>,
 ]
@@ -1729,10 +1729,10 @@ Array [
       ]
     }
   >
-    <ReportCommentHeaderCard
+    <ReportItemHeaderCard
       count={2}
       onPress={[Function]}
-      testID="ReportCommentCard"
+      testID="ReportItemCard"
     />
   </View>,
 ]

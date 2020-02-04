@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
       "shadowRadius": 2,
     }
   }
-  testID="ReportCommentHeaderCardButton"
+  testID="ReportItemHeaderCardButton"
 >
   <Text
     allowFontScaling={false}
