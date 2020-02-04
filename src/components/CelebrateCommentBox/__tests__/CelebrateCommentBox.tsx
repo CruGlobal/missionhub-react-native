@@ -2,21 +2,25 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import {
   createCelebrateComment,
   resetCelebrateEditingComment,
   updateCelebrateComment,
 } from '../../../actions/celebrateComments';
-import { celebrationItemSelector } from '../../../selectors/celebration';
 import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
+import { Organization } from '../../../reducers/organizations';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CelebrateCommentBox from '..';
 
-jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../actions/celebrateComments');
 
-const event = { text: 'some celebrate item', organization: { id: 'orgId' } };
+const organization: Organization = { id: '123' };
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+
 const createCelebrateCommentResult = { type: 'created comment' };
 const updateCelebrateCommentResult = { type: 'update comment' };
 const resetCelebrateEditingCommentResult = { type: 'reset editing' };
@@ -27,7 +31,6 @@ const editingComment = {
 };
 const onAddComplete = jest.fn();
 const initialState = {
-  organizations: [],
   celebrateComments: {
     editingCommentId: null,
   },
@@ -35,7 +38,11 @@ const initialState = {
 
 function render() {
   return renderWithContext(
-    <CelebrateCommentBox event={event} onAddComplete={onAddComplete} />,
+    <CelebrateCommentBox
+      event={event}
+      organization={organization}
+      onAddComplete={onAddComplete}
+    />,
     { initialState },
   );
 }
@@ -49,7 +56,6 @@ beforeEach(() => {
   (resetCelebrateEditingComment as jest.Mock).mockReturnValue(
     resetCelebrateEditingCommentResult,
   );
-  ((celebrationItemSelector as unknown) as jest.Mock).mockReturnValue(event);
 });
 
 it('renders correctly', () => {
@@ -68,7 +74,11 @@ describe('onSubmit', () => {
 
     await fireEvent(getByTestId('CelebrateCommentBox'), 'onSubmit', null, text);
 
-    expect(createCelebrateComment).toHaveBeenCalledWith(event, text);
+    expect(createCelebrateComment).toHaveBeenCalledWith(
+      event.id,
+      organization.id,
+      text,
+    );
     expect(onAddComplete).toHaveBeenCalled();
   });
 });
@@ -78,12 +88,15 @@ it('renders editing correctly', () => {
     editingComment,
   );
 
-  renderWithContext(<CelebrateCommentBox event={event} />, {
-    initialState: {
-      ...initialState,
-      celebrateComments: { editingCommentId: editingComment.id },
+  renderWithContext(
+    <CelebrateCommentBox event={event} organization={organization} />,
+    {
+      initialState: {
+        ...initialState,
+        celebrateComments: { editingCommentId: editingComment.id },
+      },
     },
-  }).snapshot();
+  ).snapshot();
 });
 
 it('onCancel', () => {
@@ -91,7 +104,7 @@ it('onCancel', () => {
 
   fireEvent(getByTestId('CelebrateCommentBox'), 'onCancel');
 
-  expect(resetCelebrateEditingComment).toHaveBeenCalled();
+  expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
 });
 
 it('calls update', async () => {
@@ -100,7 +113,7 @@ it('calls update', async () => {
   );
 
   const { getByTestId } = renderWithContext(
-    <CelebrateCommentBox event={event} />,
+    <CelebrateCommentBox event={event} organization={organization} />,
     {
       initialState: {
         ...initialState,
@@ -112,6 +125,11 @@ it('calls update', async () => {
   const text = 'test update';
   await fireEvent(getByTestId('CelebrateCommentBox'), 'onSubmit', null, text);
 
-  expect(resetCelebrateEditingComment).toHaveBeenCalled();
-  expect(updateCelebrateComment).toHaveBeenCalledWith(editingComment, text);
+  expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
+  expect(updateCelebrateComment).toHaveBeenCalledWith(
+    event.id,
+    organization.id,
+    editingComment.id,
+    text,
+  );
 });

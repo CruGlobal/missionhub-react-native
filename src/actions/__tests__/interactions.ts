@@ -7,7 +7,6 @@ import { REQUESTS } from '../../api/routes';
 import { trackActionWithoutData, trackAction } from '../analytics';
 import { refreshImpact } from '../impact';
 import { ACTIONS, INTERACTION_TYPES } from '../../constants';
-import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadJourney } from '../journey';
 
 // @ts-ignore
@@ -47,7 +46,6 @@ const orgId = 2;
 const interaction = INTERACTION_TYPES.MHInteractionTypeGospelPresentation;
 const trackActionResult = { type: 'tracked action' };
 const refreshImpactResult = { type: 'refreshed impact' };
-const celebrationFeedResult = { type: 'refreshed celebration feeed' };
 const reloadJourneyResult = { type: 'reloaded journey' };
 
 // @ts-ignore
@@ -64,8 +62,6 @@ describe('add comment', () => {
   beforeEach(() => {
     // @ts-ignore
     trackAction.mockReturnValue(trackActionResult);
-    // @ts-ignore
-    reloadGroupCelebrateFeed.mockReturnValue(celebrationFeedResult);
   });
 
   describe('without org', () => {
@@ -119,7 +115,6 @@ describe('add comment', () => {
         trackActionResult,
         reloadJourneyResult,
         refreshImpactResult,
-        celebrationFeedResult,
       ]);
     });
   });
@@ -183,7 +178,6 @@ describe('add comment', () => {
         trackActionResult,
         reloadJourneyResult,
         refreshImpactResult,
-        celebrationFeedResult,
       ]);
     });
 

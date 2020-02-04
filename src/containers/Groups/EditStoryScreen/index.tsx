@@ -14,8 +14,8 @@ import Header from '../../../components/Header';
 import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
-import { Event } from '../../../components/CelebrateItem';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
@@ -39,13 +39,16 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
-  const { object_description, celebrateable_id }: Event = useNavigationParam(
+  const {
+    objectDescription,
+    celebrateableId,
+  }: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
     'celebrationItem',
   );
   const [updateStory] = useMutation<UpdateStory, UpdateStoryVariables>(
     UPDATE_STORY,
   );
-  const [story, changeStory] = useState(object_description);
+  const [story, changeStory] = useState(objectDescription || undefined);
 
   const saveStory = async () => {
     if (!story) {
@@ -53,7 +56,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
     }
     Keyboard.dismiss();
     await updateStory({
-      variables: { input: { id: celebrateable_id, content: story } },
+      variables: { input: { id: celebrateableId, content: story } },
     });
 
     onRefresh();

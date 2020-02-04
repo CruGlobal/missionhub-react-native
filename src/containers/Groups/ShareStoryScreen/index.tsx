@@ -34,7 +34,7 @@ const ShareStoryScreen = () => {
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const [story, changeStory] = useState('');
-  const onComplete: () => Promise<void> = useNavigationParam('onComplete');
+  const onComplete: () => void = useNavigationParam('onComplete');
   const organization: Organization = useNavigationParam('organization');
   const [createStory] = useMutation<CreateAStory, CreateAStoryVariables>(
     CREATE_A_STORY,

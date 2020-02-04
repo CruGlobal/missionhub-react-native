@@ -6,6 +6,7 @@ import { Text, Card, Icon } from '../../components/common';
 import styles from './styles';
 
 interface ReportCommentHeaderCardProps {
+  testID?: string;
   count: number;
   onPress: () => void;
 }

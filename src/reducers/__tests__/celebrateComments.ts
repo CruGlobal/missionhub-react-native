@@ -1,5 +1,8 @@
 import { REQUESTS } from '../../api/routes';
-import celebrateCommentsReducer from '../celebrateComments';
+import celebrateCommentsReducer, {
+  CelebrateCommentsState,
+  CelebrateComment,
+} from '../celebrateComments';
 import { getPagination } from '../../utils/common';
 import {
   SET_CELEBRATE_EDITING_COMMENT,
@@ -45,10 +48,28 @@ describe('state has existing comments', () => {
     query: { eventId },
   };
 
-  const existingComments = [{ id: 'comment three' }, { id: 'comment four' }];
-  const stateWithExistingComments = {
+  const existingComments: CelebrateComment[] = [
+    {
+      id: 'comment three',
+      person: {},
+      content: '',
+      created_at: '2019-04-11T13:51:49.888',
+      updated_at: '2019-04-11T13:51:49.888',
+    },
+    {
+      id: 'comment four',
+      person: {},
+      content: '',
+      created_at: '2019-04-11T13:51:49.888',
+      updated_at: '2019-04-11T13:51:49.888',
+    },
+  ];
+  const stateWithExistingComments: CelebrateCommentsState = {
     all: {
-      [eventId]: { comments: existingComments },
+      [eventId]: {
+        comments: existingComments,
+        pagination: { page: 1, hasNextPage: false },
+      },
     },
     editingCommentId,
   };
@@ -94,10 +115,19 @@ describe('state has existing comments', () => {
 describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
   const eventId = '13407923';
   const response = { id: 'comment six' };
-  const existingComment = { id: 'comment five' };
-  const stateWithExistingComments = {
+  const existingComment: CelebrateComment = {
+    id: 'comment five',
+    person: {},
+    content: '',
+    created_at: '2019-04-11T13:51:49.888',
+    updated_at: '2019-04-11T13:51:49.888',
+  };
+  const stateWithExistingComments: CelebrateCommentsState = {
     all: {
-      [eventId]: { comments: [existingComment] },
+      [eventId]: {
+        comments: [existingComment],
+        pagination: { page: 1, hasNextPage: false },
+      },
     },
     editingCommentId: null,
   };
@@ -125,11 +155,26 @@ describe('REQUESTS.GET_CELEBRATE_COMMENTS.SUCCESS', () => {
 describe('REQUESTS.DELETE_CELEBRATE_COMMENTS.SUCCESS', () => {
   const eventId = '13407923';
   const commentId = 'comment five';
-  const existingComment1 = { id: commentId };
-  const existingComment2 = { id: 'comment six' };
-  const stateWithExistingComments = {
+  const existingComment1 = {
+    id: commentId,
+    person: {},
+    content: '',
+    created_at: '2019-04-11T13:51:49.888',
+    updated_at: '2019-04-11T13:51:49.888',
+  };
+  const existingComment2 = {
+    id: 'comment six',
+    person: {},
+    content: '',
+    created_at: '2019-04-11T13:51:49.888',
+    updated_at: '2019-04-11T13:51:49.888',
+  };
+  const stateWithExistingComments: CelebrateCommentsState = {
     all: {
-      [eventId]: { comments: [existingComment1, existingComment2] },
+      [eventId]: {
+        comments: [existingComment1, existingComment2],
+        pagination: { page: 1, hasNextPage: false },
+      },
     },
     editingCommentId: null,
   };
@@ -156,17 +201,32 @@ describe('REQUESTS.DELETE_CELEBRATE_COMMENTS.SUCCESS', () => {
 describe('REQUESTS.UPDATE_CELEBRATE_COMMENTS.SUCCESS', () => {
   const eventId = '13407923';
   const commentId = 'comment five';
-  const existingComment1 = { id: commentId, content: 'text 1' };
-  const existingComment2 = { id: 'comment six', content: 'text 2' };
-  const stateWithExistingComments = {
+  const existingComment1 = {
+    id: commentId,
+    content: 'text 1',
+    person: {},
+    created_at: '2019-04-11T13:51:49.888',
+    updated_at: '2019-04-11T13:51:49.888',
+  };
+  const existingComment2 = {
+    id: 'comment six',
+    content: 'text 2',
+    person: {},
+    created_at: '2019-04-11T13:51:49.888',
+    updated_at: '2019-04-11T13:51:49.888',
+  };
+  const stateWithExistingComments: CelebrateCommentsState = {
     all: {
-      [eventId]: { comments: [existingComment1, existingComment2] },
+      [eventId]: {
+        comments: [existingComment1, existingComment2],
+        pagination: { page: 1, hasNextPage: false },
+      },
     },
     editingCommentId: null,
   };
 
   const updated = 'text 1 updated';
-  const response = { id: commentId, content: updated };
+  const response = { ...existingComment1, id: commentId, content: updated };
   const action = {
     type: REQUESTS.UPDATE_CELEBRATE_COMMENT.SUCCESS,
     results: { response },

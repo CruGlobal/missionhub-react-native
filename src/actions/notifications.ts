@@ -21,7 +21,6 @@ import { REQUESTS } from '../api/routes';
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
-import { reloadGroupCelebrateFeed } from './celebration';
 import {
   navigatePush,
   navigateBack,
@@ -169,7 +168,6 @@ function handleNotification(notification) {
       case 'celebrate_item':
         if (organization_id) {
           const community = await dispatch(refreshCommunity(organization_id));
-          await dispatch(reloadGroupCelebrateFeed(organization_id));
           return dispatch(
             navigateToCelebrateComments(community, celebration_item_id),
           );
