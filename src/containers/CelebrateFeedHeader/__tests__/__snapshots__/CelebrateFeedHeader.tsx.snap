@@ -1273,6 +1273,8 @@ Array [
 ]
 `;
 
+exports[`renders nothing if isMember is true 1`] = `null`;
+
 exports[`unread comments card renders comment card 1`] = `
 <View
   style={

@@ -9,6 +9,7 @@ import CommentItem from '../CommentItem';
 import ReportCommentLabel from '../../components/ReportCommentLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
 import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
+import { Organization } from '../../reducers/organizations';
 
 import {
   RespondToContentComplaintVariables,
@@ -29,9 +30,11 @@ export const RESPOND_TO_CONTENT_COMPLAINT = gql`
 const ReportCommentItem = ({
   item,
   refetch,
+  organization,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: ReportedItem | any;
+  organization: Organization;
   refetch: () => void;
 }) => {
   const { t } = useTranslation('reportComment');
@@ -105,9 +108,11 @@ const ReportCommentItem = ({
         />
       </Flex>
       <Flex style={comment}>
-        {/* 
-          // @ts-ignore */}
-        <CommentItem item={subject} isReported={true} />
+        <CommentItem
+          item={subject}
+          isReported={true}
+          organization={organization}
+        />
       </Flex>
       <Flex direction="row">
         <Flex value={1}>

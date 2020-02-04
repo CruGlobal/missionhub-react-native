@@ -31,6 +31,7 @@ interface CelebrateFeedHeaderProps {
 const CelebrateFeedHeader = ({
   shouldQueryReport,
   organization,
+  isMember,
 }: CelebrateFeedHeaderProps) => {
   const dispatch = useDispatch();
   const { id: orgId } = organization;
@@ -101,13 +102,15 @@ const CelebrateFeedHeader = ({
         //@ts-ignore
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
-      <Flex style={styles.itemWrap}>
-        {!isCommentCardVisible ? null : renderCommentCard()}
-        {isReportVisible && isCommentCardVisible ? (
-          <Flex style={styles.bothPadding} />
-        ) : null}
-        {!isReportVisible ? null : renderReport()}
-      </Flex>
+      {!isMember ? (
+        <Flex style={styles.itemWrap}>
+          {!isCommentCardVisible ? null : renderCommentCard()}
+          {isReportVisible && isCommentCardVisible ? (
+            <Flex style={styles.bothPadding} />
+          ) : null}
+          {!isReportVisible ? null : renderReport()}
+        </Flex>
+      ) : null}
     </>
   );
 };

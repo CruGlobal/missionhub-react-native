@@ -82,7 +82,13 @@ const GroupReport = () => {
   });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderItem = ({ item }: { item: ReportedItem | any }) => {
-    return <ReportCommentItem item={item} refetch={refetch} />;
+    return (
+      <ReportCommentItem
+        item={item}
+        refetch={refetch}
+        organization={organization}
+      />
+    );
   };
 
   const navigateOut = () => {

@@ -566,3 +566,17 @@ it('navigates to group report screen', async () => {
     organization,
   });
 });
+
+it('renders nothing if isMember is true', async () => {
+  const { snapshot } = renderWithContext(
+    <CelebrateFeedHeader isMember={true} organization={organization} />,
+    {
+      initialState,
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
+    variables: { id: '1' },
+  });
+});
