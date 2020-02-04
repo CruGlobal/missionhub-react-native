@@ -51,6 +51,7 @@ const org = { id: 'orgId', reportedComments: [item] };
 const props = {
   item,
   refetch,
+  organization: org,
 };
 
 const initialState = {
