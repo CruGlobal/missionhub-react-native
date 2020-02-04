@@ -30,7 +30,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:host="missionhub.com" />
-                <data android:pathPrefix="/auth" />
+                <data android:path="/auth" />
                 <data android:scheme="http" />
                 <data android:scheme="https" />
             </intent-filter>
