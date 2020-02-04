@@ -159,7 +159,14 @@ function handleNotification(notification) {
             organization: { id: organization_id },
           }),
         );
+      case 'celebrate_feed':
+        if (organization_id) {
+          const community = await dispatch(refreshCommunity(organization_id));
+          await dispatch(reloadGroupCelebrateFeed(organization_id));
+          return dispatch(navigateToCommunity(community));
+        }
       case 'celebrate':
+      case 'celebrate_item':
         if (organization_id) {
           const community = await dispatch(refreshCommunity(organization_id));
           await dispatch(reloadGroupCelebrateFeed(organization_id));

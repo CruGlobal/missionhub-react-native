@@ -783,6 +783,63 @@ describe('askNotificationPermissions', () => {
       });
     });
 
+    describe('celebrate_feed', () => {
+      it('should navigate to community celebrate feed', async () => {
+        await testNotification({
+          screen: 'celebrate_feed',
+          organization_id: organization.id,
+          screen_extra_data: {
+            celebration_item_id: undefined,
+          },
+        });
+
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCommunity).toHaveBeenCalledWith(organization);
+      });
+      it('should not navigate if no organization_id', async () => {
+        await testNotification({
+          screen: 'celebrate_feed',
+          organization_id: undefined,
+          screen_extra_data: {
+            celebration_item_id: undefined,
+          },
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
+        expect(navigateToCommunity).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('celebrate_item', () => {
+      it('should navigate to CELEBRATION_DETAIL_SCREEN', async () => {
+        await testNotification({
+          screen: 'celebrate_item',
+          organization_id: organization.id,
+          screen_extra_data,
+        });
+
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+          organization,
+          celebration_item_id,
+        );
+      });
+      it('should not navigate if no organization_id', async () => {
+        await testNotification({
+          screen: 'celebrate_item',
+          organization_id: undefined,
+          screen_extra_data,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
+        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+      });
+    });
+
     describe('celebrate', () => {
       it('should look for stored org', async () => {
         await testNotification({
