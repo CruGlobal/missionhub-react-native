@@ -790,7 +790,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCommunity).toHaveBeenCalledWith(organization);
       });
       it('should not navigate if no organization_id', async () => {
@@ -803,7 +802,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCommunity).not.toHaveBeenCalled();
       });
     });
@@ -817,7 +815,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCelebrateComments).toHaveBeenCalledWith(
           organization,
           celebration_item_id,
@@ -831,7 +828,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });
