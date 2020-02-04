@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { Image, View, SafeAreaView, StatusBar } from 'react-native';
+import React, { useRef } from 'react';
+import { Image, View, SafeAreaView, StatusBar, FlatList } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import CommentLikeComponent from '../CommentLikeComponent';
-import { celebrationItemSelector } from '../../selectors/celebration';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
@@ -12,7 +13,6 @@ import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';
-import { refresh, keyboardShow } from '../../utils/common';
 import { reloadCelebrateComments } from '../../actions/celebrateComments';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import CardTime from '../../components/CardTime';
@@ -20,170 +20,156 @@ import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
 import Analytics from '../Analytics';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { Organization, OrganizationsState } from '../../reducers/organizations';
+import {
+  CelebrateCommentsState,
+  CelebrateComment,
+} from '../../reducers/celebrateComments';
+import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
+import { useRefreshing } from '../../utils/hooks/useRefreshing';
 
 import styles from './styles';
 
-class CelebrateDetailScreen extends Component {
-  state = { refreshing: false };
+export interface CelebrateDetailScreenProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  organization: Organization;
+  celebrateComments: { comments: CelebrateComment[] };
+  editingCommentId: string | null;
+}
 
-  componentDidMount() {
-    // @ts-ignore
-    this.keyboardShowListener = keyboardShow(this.keyboardShow, 'did');
-  }
+const CelebrateDetailScreen = ({
+  dispatch,
+  organization,
+  celebrateComments,
+  editingCommentId,
+}: CelebrateDetailScreenProps) => {
+  const event: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
+    'event',
+  );
+  const onRefreshCelebrateItem: () => void = useNavigationParam(
+    'onRefreshCelebrateItem',
+  );
 
-  componentWillUnmount() {
-    // @ts-ignore
-    this.keyboardShowListener.remove();
-  }
+  const listRef = useRef<FlatList<CelebrateComment>>(null);
 
-  keyboardShow = () => this.scrollToFocusedRef();
+  const scrollToEnd = () => listRef.current && listRef.current.scrollToEnd();
 
-  // @ts-ignore
-  scrollToEnd = () => this.listRef && this.listRef.scrollToEnd();
-
-  scrollToFocusedRef = () => {
-    const {
-      // @ts-ignore
-      celebrateComments: { comments },
-      // @ts-ignore
-      editingCommentId,
-    } = this.props;
+  const scrollToFocusedRef = () => {
     if (editingCommentId) {
-      // @ts-ignore
-      const index = comments.findIndex(c => c.id === editingCommentId);
+      const index = celebrateComments.comments.findIndex(
+        c => c.id === editingCommentId,
+      );
       if (index >= 0) {
-        // @ts-ignore
-        this.listRef && this.listRef.scrollToIndex({ index, viewPosition: 1 });
+        listRef.current &&
+          listRef.current.scrollToIndex({ index, viewPosition: 1 });
         return;
       }
     }
-    this.scrollToEnd();
+    scrollToEnd();
   };
 
-  refreshComments = () => {
-    // @ts-ignore
-    const { dispatch, event } = this.props;
-    return dispatch(reloadCelebrateComments(event));
+  useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
+
+  const refreshComments = () => {
+    return dispatch(reloadCelebrateComments(event.id, organization.id));
   };
 
-  handleRefresh = () => refresh(this, this.refreshComments);
+  const { isRefreshing, refresh } = useRefreshing(refreshComments);
 
-  renderHeader = () => {
-    // @ts-ignore
-    const { event, organization } = this.props;
-    return (
-      <SafeAreaView>
-        <StatusBar {...theme.statusBar.darkContent} />
-        <View style={styles.header}>
-          {/* 
-          // @ts-ignore */}
-          <View flexDirection="row">
-            {/* 
-            // @ts-ignore */}
-            <View flex={1}>
-              <CelebrateItemName
-                // @ts-ignore
-                name={event.subject_person_name}
-                person={event.subject_person}
-                organization={organization}
-                pressable={true}
-              />
-              <CardTime date={event.changed_attribute_value} />
-            </View>
-            {/* 
-            // @ts-ignore */}
-            <CommentLikeComponent event={event} />
-            <BackButton
-              style={styles.backButtonStyle}
-              iconStyle={styles.backButtonIconStyle}
-              customIcon="deleteIcon"
+  const renderHeader = () => (
+    <SafeAreaView>
+      <StatusBar {...theme.statusBar.darkContent} />
+      <View style={styles.header}>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ flex: 1 }}>
+            <CelebrateItemName
+              name={event.subjectPersonName}
+              person={event.subjectPerson}
+              organization={organization}
+              pressable={true}
             />
+            <CardTime date={event.changedAttributeValue} />
           </View>
+          <CommentLikeComponent
+            event={event}
+            organization={organization}
+            onRefresh={onRefreshCelebrateItem}
+          />
+          <BackButton
+            style={styles.backButtonStyle}
+            iconStyle={styles.backButtonIconStyle}
+            customIcon="deleteIcon"
+          />
         </View>
-      </SafeAreaView>
-    );
-  };
-
-  renderCommentsList = () => {
-    // @ts-ignore
-    const { event, organization } = this.props;
-    const { refreshing } = this.state;
-    return (
-      <View style={styles.contentContainer}>
-        <Image source={TRAILS1} style={styles.trailsTop} />
-        <Image source={TRAILS2} style={styles.trailsBottom} />
-        <CommentsList
-          event={event}
-          // @ts-ignore
-          listProps={{
-            // @ts-ignore
-            ref: c => (this.listRef = c),
-            refreshControl: (
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={this.handleRefresh}
-              />
-            ),
-            ListHeaderComponent: () => (
-              <CelebrateItemContent
-                event={event}
-                organization={organization}
-                fixedHeight={false}
-                style={styles.itemContent}
-              />
-            ),
-          }}
-        />
       </View>
-    );
-  };
+    </SafeAreaView>
+  );
 
-  renderCommentBox = () => {
-    // @ts-ignore
-    const { event } = this.props;
-    return (
-      <CelebrateCommentBox event={event} onAddComplete={this.scrollToEnd} />
-    );
-  };
+  const renderCommentsList = () => (
+    <View style={styles.contentContainer}>
+      <Image source={TRAILS1} style={styles.trailsTop} />
+      <Image source={TRAILS2} style={styles.trailsBottom} />
+      <CommentsList
+        event={event}
+        organization={organization}
+        listProps={{
+          ref: listRef,
+          refreshControl: (
+            <RefreshControl
+              testID="RefreshControl"
+              refreshing={isRefreshing}
+              onRefresh={refresh}
+            />
+          ),
+          ListHeaderComponent: () => (
+            <CelebrateItemContent
+              event={event}
+              organization={organization}
+              style={styles.itemContent}
+            />
+          ),
+        }}
+      />
+    </View>
+  );
 
-  render() {
-    return (
-      <View style={styles.pageContainer}>
-        <Analytics screenName={['celebrate item', 'comments']} />
-        {this.renderHeader()}
-        {this.renderCommentsList()}
-        {this.renderCommentBox()}
-      </View>
-    );
-  }
-}
+  const renderCommentBox = () => (
+    <CelebrateCommentBox
+      event={event}
+      onAddComplete={scrollToEnd}
+      organization={organization}
+    />
+  );
 
-// @ts-ignore
-CelebrateDetailScreen.propTypes = {
-  event: PropTypes.object.isRequired,
+  return (
+    <View style={styles.pageContainer}>
+      <Analytics screenName={['celebrate item', 'comments']} />
+      {renderHeader()}
+      {renderCommentsList()}
+      {renderCommentBox()}
+    </View>
+  );
 };
 
 const mapStateToProps = (
-  // @ts-ignore
-  { organizations, celebrateComments },
+  {
+    organizations,
+    celebrateComments,
+  }: {
+    organizations: OrganizationsState;
+    celebrateComments: CelebrateCommentsState;
+  },
   {
     navigation: {
       state: {
-        // @ts-ignore
-        params: { event },
+        params: { event, orgId },
       },
     },
-  },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
 ) => ({
-  event:
-    celebrationItemSelector(
-      { organizations },
-      { eventId: event.id, organizationId: event.organization.id },
-    ) || event,
-  organization: organizationSelector(
-    { organizations },
-    { orgId: event.organization.id },
-  ),
+  organization: organizationSelector({ organizations }, { orgId }),
   celebrateComments: celebrateCommentsSelector(
     { celebrateComments },
     { eventId: event.id },

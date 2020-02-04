@@ -21,6 +21,7 @@ import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { CELEBRATEABLE_TYPES } from '../../constants';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
@@ -46,23 +47,12 @@ export const REPORT_STORY = gql`
   }
 `;
 
-export interface Event {
-  id: string;
-  changed_attribute_value: string;
-  subject_person: Person;
-  subject_person_name: string;
-  celebrateable_id: string;
-  celebrateable_type: string;
-  organization?: Organization;
-  object_description: string;
-}
-
 export interface CelebrateItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: Event;
-  organization: object;
-  namePressable?: boolean;
-  onClearNotification?: (event: Event) => void;
+  event: CelebrateItemData;
+  organization: Organization;
+  namePressable: boolean;
+  onClearNotification?: (event: CelebrateItemData) => void;
   onRefresh: () => void;
   me: Person;
 }
@@ -77,11 +67,11 @@ const CelebrateItem = ({
   me,
 }: CelebrateItemProps) => {
   const {
-    celebrateable_id,
-    changed_attribute_value,
-    subject_person,
-    subject_person_name,
-    celebrateable_type,
+    celebrateableId,
+    changedAttributeValue,
+    subjectPerson,
+    subjectPersonName,
+    celebrateableType,
   } = event;
 
   const { t } = useTranslation('celebrateItems');
@@ -93,7 +83,13 @@ const CelebrateItem = ({
   );
 
   const handlePress = () =>
-    dispatch(navigatePush(CELEBRATE_DETAIL_SCREEN, { event }));
+    dispatch(
+      navigatePush(CELEBRATE_DETAIL_SCREEN, {
+        event,
+        orgId: organization.id,
+        onRefreshCelebrateItem: onRefresh,
+      }),
+    );
 
   const clearNotification = () =>
     onClearNotification && onClearNotification(event);
@@ -113,7 +109,7 @@ const CelebrateItem = ({
         text: t('delete.buttonText'),
         onPress: async () => {
           await deleteStory({
-            variables: { input: { id: celebrateable_id } },
+            variables: { input: { id: celebrateableId } },
           });
           onRefresh();
         },
@@ -128,7 +124,7 @@ const CelebrateItem = ({
         onPress: () =>
           reportStory({
             variables: {
-              subjectId: celebrateable_id,
+              subjectId: celebrateableId,
             },
           }),
       },
@@ -136,8 +132,8 @@ const CelebrateItem = ({
 
   const menuActions =
     !orgIsGlobal(organization) &&
-    celebrateable_type === CELEBRATEABLE_TYPES.story
-      ? me.id === subject_person.id
+    celebrateableType === CELEBRATEABLE_TYPES.story
+      ? subjectPerson && me.id === subjectPerson.id
         ? [
             {
               text: t('edit.buttonText'),
@@ -162,22 +158,23 @@ const CelebrateItem = ({
         <View style={styles.top}>
           <View style={styles.topLeft}>
             <CelebrateItemName
-              // @ts-ignore
-              name={subject_person_name}
-              person={subject_person}
+              name={subjectPersonName}
+              person={subjectPerson}
               organization={organization}
               pressable={namePressable}
             />
-            <CardTime date={changed_attribute_value} />
+            <CardTime date={changedAttributeValue} />
           </View>
         </View>
         <CelebrateItemContent event={event} organization={organization} />
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
-        {/* 
-        // @ts-ignore */}
-        <CommentLikeComponent event={event} />
+        <CommentLikeComponent
+          event={event}
+          organization={organization}
+          onRefresh={onRefresh}
+        />
       </View>
     </View>
   );

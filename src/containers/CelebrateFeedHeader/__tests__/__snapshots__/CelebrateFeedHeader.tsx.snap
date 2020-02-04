@@ -13,252 +13,12 @@ exports[`admin cru community renders with multiple reported items 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -269,89 +29,11 @@ exports[`admin cru community renders with multiple reported items 1`] = `
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={2}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
@@ -368,256 +50,16 @@ exports[`admin cru community renders without reported items 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
-exports[`admin global community renders with 0 reported comments 1`] = `
+exports[`admin global community renders with 0 reported items 1`] = `
 <View
   style={
     Array [
@@ -630,268 +72,221 @@ exports[`admin global community renders with 0 reported comments 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
-exports[`admin global community renders without reported comments 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      },
-      Object {},
-    ]
-  }
-/>
+exports[`admin global community renders without reported items 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "borderRadius": 0,
+          "marginHorizontal": 0,
+          "marginVertical": 0,
+          "position": "relative",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "padding": 25,
+            "paddingTop": 35,
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../assets/images/celebrateHearts.png",
+          }
+        }
+        style={
+          Object {
+            "height": 60,
+          }
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "AmaticSC-Bold",
+            },
+            Object {
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        celebrate one another
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 40,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        See and celebrate one another's Steps of Faith.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
+          },
+          Object {},
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 12,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#505256",
+          "borderBottomWidth": 1,
+          "padding": 20,
+        },
+        Object {},
+      ]
+    }
+  />,
+]
 `;
 
 exports[`admin user created community does not render reported item card even when there is 1 reported item 1`] = `
@@ -907,252 +302,12 @@ exports[`admin user created community does not render reported item card even wh
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
@@ -1169,252 +324,12 @@ exports[`closes comment card 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -1425,89 +340,11 @@ exports[`closes comment card 1`] = `
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={2}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
@@ -1524,252 +361,12 @@ exports[`members cru community does not render reported item card even when repo
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
@@ -1786,268 +383,221 @@ exports[`members cru community renders without reported items 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
-exports[`members global community renders without reported comments 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      },
-      Object {},
-    ]
-  }
-/>
+exports[`members global community renders without reported items 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "borderRadius": 0,
+          "marginHorizontal": 0,
+          "marginVertical": 0,
+          "position": "relative",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "padding": 25,
+            "paddingTop": 35,
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../assets/images/celebrateHearts.png",
+          }
+        }
+        style={
+          Object {
+            "height": 60,
+          }
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "AmaticSC-Bold",
+            },
+            Object {
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        celebrate one another
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 40,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        See and celebrate one another's Steps of Faith.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
+          },
+          Object {},
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 12,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#505256",
+          "borderBottomWidth": 1,
+          "padding": 20,
+        },
+        Object {},
+      ]
+    }
+  />,
+]
 `;
 
 exports[`members user created community does not render the reported items card even when reported items exist 1`] = `
@@ -2063,252 +613,12 @@ exports[`members user created community does not render the reported items card 
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
@@ -2325,252 +635,12 @@ exports[`members user created community renders without reported items 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
@@ -2587,252 +657,12 @@ exports[`navigates to group report screen 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -2843,89 +673,11 @@ exports[`navigates to group report screen 1`] = `
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={2}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
@@ -2942,252 +694,12 @@ exports[`navigates to unread comments screen 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -3198,89 +710,11 @@ exports[`navigates to unread comments screen 1`] = `
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={2}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
@@ -3297,252 +731,12 @@ exports[`owner cru community renders with 1 reported item 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -3553,105 +747,220 @@ exports[`owner cru community renders with 1 reported item 1`] = `
       ]
     }
   />
+  <ReportCommentHeaderCard
+    count={1}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
+</View>
+`;
+
+exports[`owner global community renders without reported items 1`] = `
+Array [
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "borderRadius": 0,
+          "marginHorizontal": 0,
+          "marginVertical": 0,
+          "position": "relative",
+        },
+      ]
     }
-    testID="ReportCommentHeaderCardButton"
   >
-    <Text
-      allowFontScaling={false}
+    <View
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "padding": 25,
+            "paddingTop": 35,
           },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../assets/images/celebrateHearts.png",
+          }
+        }
+        style={
+          Object {
+            "height": 60,
+          }
+        }
+      />
+      <Text
+        style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "#505256",
             },
             Object {
-              "fontSize": 20,
+              "fontFamily": "AmaticSC-Bold",
             },
             Object {
-              "color": "#ffffff",
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 5,
+              "textAlign": "center",
             },
-          ],
+          ]
+        }
+      >
+        celebrate one another
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 40,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        See and celebrate one another's Steps of Faith.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
           Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
           },
           Object {},
         ]
       }
     >
-      
-    </Text>
-    <Text
-      style={
-        Array [
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
           Object {
-            "color": "#505256",
-          },
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
           Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      1 New Reported Item
-    </Text>
-  </View>
-</View>
-`;
-
-exports[`owner global community renders without reported items 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      },
-      Object {},
-    ]
-  }
-/>
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 12,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#505256",
+          "borderBottomWidth": 1,
+          "padding": 20,
+        },
+        Object {},
+      ]
+    }
+  />,
+]
 `;
 
 exports[`owner renders with 0 reported items 1`] = `
@@ -3667,252 +976,12 @@ exports[`owner renders with 0 reported items 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
 </View>
 `;
 
@@ -3929,252 +998,12 @@ exports[`owner user created community renders with 1 reported item 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -4185,89 +1014,11 @@ exports[`owner user created community renders with 1 reported item 1`] = `
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      1 New Reported Item
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={1}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
@@ -4284,252 +1035,12 @@ exports[`owner user created community renders with multiple reported items 1`] =
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -4540,189 +1051,226 @@ exports[`owner user created community renders with multiple reported items 1`] =
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={2}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
 exports[`owner user created community renders with multiple reported items but no unreadComments 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      },
-      Object {},
-    ]
-  }
->
+Array [
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "borderRadius": 0,
+          "marginHorizontal": 0,
+          "marginVertical": 0,
+          "position": "relative",
+        },
+      ]
     }
-    testID="ReportCommentHeaderCardButton"
   >
-    <Text
-      allowFontScaling={false}
+    <View
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "padding": 25,
+            "paddingTop": 35,
           },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../assets/images/celebrateHearts.png",
+          }
+        }
+        style={
+          Object {
+            "height": 60,
+          }
+        }
+      />
+      <Text
+        style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "#505256",
             },
             Object {
-              "fontSize": 20,
+              "fontFamily": "AmaticSC-Bold",
             },
             Object {
-              "color": "#ffffff",
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 5,
+              "textAlign": "center",
             },
-          ],
+          ]
+        }
+      >
+        celebrate one another
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 40,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        See and celebrate one another's Steps of Faith.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
           Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
           },
           Object {},
         ]
       }
     >
-      
-    </Text>
-    <Text
-      style={
-        Array [
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
           Object {
-            "color": "#505256",
-          },
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
           Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
-</View>
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 12,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#505256",
+          "borderBottomWidth": 1,
+          "padding": 20,
+        },
+        Object {},
+      ]
+    }
+  >
+    <ReportCommentHeaderCard
+      count={2}
+      onPress={[Function]}
+      testID="ReportCommentCard"
+    />
+  </View>,
+]
 `;
 
 exports[`unread comments card renders comment card 1`] = `
@@ -4738,252 +1286,12 @@ exports[`unread comments card renders comment card 1`] = `
     ]
   }
 >
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#505256",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="CardButton"
-  >
-    <View
-      style={
-        Object {
-          "flex": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "borderBottomColor": "#ffffff",
-            "borderBottomWidth": 1,
-            "overflow": "hidden",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 48,
-              },
-            ]
-          }
-        >
-          12
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-              },
-            ]
-          }
-        >
-          New Comments
-        </Text>
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/comments.png",
-            }
-          }
-          style={
-            Object {
-              "height": 48,
-              "opacity": 0.35,
-              "position": "absolute",
-              "right": -15,
-              "top": 32,
-              "width": 48,
-            }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "padding": 12,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 12,
-                "fontWeight": "bold",
-              },
-            ]
-          }
-        >
-          VIEW
-        </Text>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 13,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </View>
+  <UnreadCommentsCard
+    count={12}
+    onClose={[Function]}
+    onPress={[Function]}
+    testID="UnreadCommentsCard"
+  />
   <View
     style={
       Array [
@@ -4994,286 +1302,438 @@ exports[`unread comments card renders comment card 1`] = `
       ]
     }
   />
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
-    }
-    testID="ReportCommentHeaderCardButton"
-  >
-    <Text
-      allowFontScaling={false}
-      style={
-        Array [
-          Object {
-            "color": undefined,
-            "fontSize": 12,
-          },
-          Array [
-            Object {
-              "color": "#ffffff",
-            },
-            Object {
-              "fontSize": 20,
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ],
-          Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
+  <ReportCommentHeaderCard
+    count={2}
+    onPress={[Function]}
+    testID="ReportCommentCard"
+  />
 </View>
 `;
 
 exports[`unread comments card renders no comment card when global org 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      },
-      Object {},
-    ]
-  }
->
+Array [
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "borderRadius": 0,
+          "marginHorizontal": 0,
+          "marginVertical": 0,
+          "position": "relative",
+        },
+      ]
     }
-    testID="ReportCommentHeaderCardButton"
   >
-    <Text
-      allowFontScaling={false}
+    <View
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "padding": 25,
+            "paddingTop": 35,
           },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../assets/images/celebrateHearts.png",
+          }
+        }
+        style={
+          Object {
+            "height": 60,
+          }
+        }
+      />
+      <Text
+        style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "#505256",
             },
             Object {
-              "fontSize": 20,
+              "fontFamily": "AmaticSC-Bold",
             },
             Object {
-              "color": "#ffffff",
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 5,
+              "textAlign": "center",
             },
-          ],
+          ]
+        }
+      >
+        celebrate one another
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 40,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        See and celebrate one another's Steps of Faith.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
           Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
           },
           Object {},
         ]
       }
     >
-      
-    </Text>
-    <Text
-      style={
-        Array [
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
           Object {
-            "color": "#505256",
-          },
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
           Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
-</View>
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 12,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#505256",
+          "borderBottomWidth": 1,
+          "padding": 20,
+        },
+        Object {},
+      ]
+    }
+  >
+    <ReportCommentHeaderCard
+      count={2}
+      onPress={[Function]}
+      testID="ReportCommentCard"
+    />
+  </View>,
+]
 `;
 
 exports[`unread comments card renders no comment card when no new comments 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "borderBottomColor": "#505256",
-        "borderBottomWidth": 1,
-        "padding": 20,
-      },
-      Object {},
-    ]
-  }
->
+Array [
   <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FF5532",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "opacity": 1,
-        "paddingHorizontal": 15,
-        "paddingVertical": 10,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      }
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomColor": "#ECEEF2",
+          "borderBottomWidth": 1,
+          "borderRadius": 0,
+          "marginHorizontal": 0,
+          "marginVertical": 0,
+          "position": "relative",
+        },
+      ]
     }
-    testID="ReportCommentHeaderCardButton"
   >
-    <Text
-      allowFontScaling={false}
+    <View
       style={
         Array [
           Object {
-            "color": undefined,
-            "fontSize": 12,
+            "padding": 25,
+            "paddingTop": 35,
           },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "testUri": "../../../assets/images/celebrateHearts.png",
+          }
+        }
+        style={
+          Object {
+            "height": 60,
+          }
+        }
+      />
+      <Text
+        style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "#505256",
             },
             Object {
-              "fontSize": 20,
+              "fontFamily": "AmaticSC-Bold",
             },
             Object {
-              "color": "#ffffff",
+              "color": "#007398",
+              "fontSize": 42,
+              "paddingTop": 5,
+              "textAlign": "center",
             },
-          ],
+          ]
+        }
+      >
+        celebrate one another
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "paddingHorizontal": 40,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        See and celebrate one another's Steps of Faith.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
           Object {
-            "fontFamily": "icomoon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
           },
           Object {},
         ]
       }
     >
-      
-    </Text>
-    <Text
-      style={
-        Array [
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
           Object {
-            "color": "#505256",
-          },
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
           Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "marginLeft": 15,
-          },
-        ]
-      }
-    >
-      2 New Reported Items
-    </Text>
-  </View>
-</View>
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 18,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 12,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#505256",
+          "borderBottomWidth": 1,
+          "padding": 20,
+        },
+        Object {},
+      ]
+    }
+  >
+    <ReportCommentHeaderCard
+      count={2}
+      onPress={[Function]}
+      testID="ReportCommentCard"
+    />
+  </View>,
+]
 `;

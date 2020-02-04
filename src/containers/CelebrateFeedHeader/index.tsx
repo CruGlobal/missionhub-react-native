@@ -25,6 +25,7 @@ import styles from './styles';
 interface CelebrateFeedHeaderProps {
   shouldQueryReport: boolean;
   organization: Organization;
+  isMember: boolean;
 }
 
 const CelebrateFeedHeader = ({
@@ -70,8 +71,10 @@ const CelebrateFeedHeader = ({
     if (UnreadCommentCount === 0) {
       return null;
     }
+
     return (
       <UnreadCommentsCard
+        testID="UnreadCommentsCard"
         count={UnreadCommentCount}
         onPress={commentCard}
         onClose={closeCommentCard}
@@ -84,14 +87,18 @@ const CelebrateFeedHeader = ({
       return null;
     }
     return (
-      <ReportCommentHeaderCard onPress={report} count={ReportedContentCount} />
+      <ReportCommentHeaderCard
+        testID="ReportCommentCard"
+        onPress={report}
+        count={ReportedContentCount}
+      />
     );
   };
 
   return (
     <>
       {isCommentCardVisible ? null : (
-        // @ts-ignore
+        //@ts-ignore
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
       <Flex style={styles.itemWrap}>
