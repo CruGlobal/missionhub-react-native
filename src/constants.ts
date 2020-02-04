@@ -472,11 +472,11 @@ export const REMINDER_RECURRENCES = {
   MONTHLY: REMINDER_RECURRENCES_ENUM.MONTHLY,
 };
 
-export const NOTIFICATION_PROMPT_TYPES = {
-  ONBOARDING: 'onboarding',
-  FOCUS_STEP: 'focusStep',
-  LOGIN: 'login',
-  SET_REMINDER: 'setReminder',
-  JOIN_COMMUNITY: 'joinCommunity',
-  JOIN_CHALLENGE: 'joinChallenge',
-};
+export enum NOTIFICATION_PROMPT_TYPES {
+  ONBOARDING,
+  FOCUS_STEP,
+  LOGIN,
+  SET_REMINDER,
+  JOIN_COMMUNITY,
+  JOIN_CHALLENGE,
+}
