@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
-import ReportCommentLabel from '../../components/ReportCommentLabel';
+import ReportItemLabel from '../../components/ReportItemLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
 import { GetReportedContent_community_contentComplaints_nodes as ReportedItem } from '../Groups/__generated__/GetReportedContent';
 import { Organization } from '../../reducers/organizations';
@@ -101,8 +101,8 @@ const ReportCommentItem = ({
   return (
     <Card style={card}>
       <Flex direction="row" style={users}>
-        <ReportCommentLabel label={t('reportedBy')} user={reportedBy} />
-        <ReportCommentLabel
+        <ReportItemLabel label={t('reportedBy')} user={reportedBy} />
+        <ReportItemLabel
           label={t(`${getContentType(subject.typeName)}`)}
           user={commentBy}
         />

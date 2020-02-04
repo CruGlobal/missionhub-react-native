@@ -4,15 +4,12 @@ import { Flex, Text } from '../common';
 
 import styles from './styles';
 
-interface ReportCommentLabelProps {
+interface ReportItemLabelProps {
   label: string;
   user: string;
 }
 
-export default function ReportCommentLabel({
-  label,
-  user,
-}: ReportCommentLabelProps) {
+export default function ReportItemLabel({ label, user }: ReportItemLabelProps) {
   return (
     <Flex value={1}>
       <Text style={styles.label}>{label}:</Text>
