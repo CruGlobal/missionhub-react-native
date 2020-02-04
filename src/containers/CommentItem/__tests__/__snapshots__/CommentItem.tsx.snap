@@ -13,57 +13,115 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <Flex
-    align="end"
-    direction="row"
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
-    <Connect(withI18nextTranslation(CelebrateItemName))
-      customContent={
-        <MyText
-          style={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="NameButton"
+    >
+      <View
+        style={
+          Array [
             Object {
-              "color": "#ffffff",
-              "paddingLeft": 10,
-              "paddingRight": 5,
-            }
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "paddingLeft": 10,
+                "paddingRight": 5,
+              },
+            ]
           }
         >
           Roge Goers
-        </MyText>
-      }
-      name="Roge Goers"
-      organization={
-        Object {
-          "id": "7342342",
-        }
-      }
-      person={
-        Object {
-          "first_name": "Roge",
-          "id": "notme",
-          "last_name": "Goers",
-        }
-      }
-      pressable={true}
-    />
-    <CardTime
-      date="2018-06-11 12:00:00 UTC"
-      format="comment"
-    />
-  </Flex>
-  <Flex
-    direction="row"
-  >
-    <withI18nextTranslation(PopupMenu)
-      actions={
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
         Array [
           Object {
-            "onPress": [MockFunction],
-            "text": "text",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
           },
         ]
       }
-      triggerOnLongPress={true}
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
     >
       <View
         style={
@@ -79,24 +137,39 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        <MyText
+        <Text
           style={
             Array [
               Object {
-                "paddingVertical": 3,
+                "color": "#505256",
               },
-              null,
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
             ]
           }
         >
           hello roge
-        </MyText>
+        </Text>
       </View>
-    </withI18nextTranslation(PopupMenu)>
-    <Flex
-      value={1}
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
     />
-  </Flex>
+  </View>
 </View>
 `;
 
@@ -113,34 +186,84 @@ exports[`renders correctly as mine 1`] = `
     ]
   }
 >
-  <Flex
-    align="end"
-    direction="row"
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
-    <Flex
-      value={1}
-    />
-    <CardTime
-      date="2018-06-11 12:00:00 UTC"
-      format="comment"
-    />
-  </Flex>
-  <Flex
-    direction="row"
-  >
-    <Flex
-      value={1}
-    />
-    <withI18nextTranslation(PopupMenu)
-      actions={
+    <View
+      style={
         Array [
+          Object {},
           Object {
-            "onPress": [MockFunction],
-            "text": "text",
+            "flex": 1,
           },
         ]
       }
-      triggerOnLongPress={true}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
     >
       <View
         style={
@@ -158,23 +281,31 @@ exports[`renders correctly as mine 1`] = `
           ]
         }
       >
-        <MyText
+        <Text
           style={
             Array [
               Object {
-                "paddingVertical": 3,
+                "color": "#505256",
               },
               Object {
-                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
               },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ],
             ]
           }
         >
           hello roge
-        </MyText>
+        </Text>
       </View>
-    </withI18nextTranslation(PopupMenu)>
-  </Flex>
+    </View>
+  </View>
 </View>
 `;
 
@@ -187,63 +318,119 @@ exports[`renders editing correctly 1`] = `
         "paddingHorizontal": 20,
         "paddingVertical": 8,
       },
-      Object {
-        "backgroundColor": "rgba(0, 0, 0, 0.5)",
-      },
+      null,
     ]
   }
 >
-  <Flex
-    align="end"
-    direction="row"
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
-    <Connect(withI18nextTranslation(CelebrateItemName))
-      customContent={
-        <MyText
-          style={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="NameButton"
+    >
+      <View
+        style={
+          Array [
             Object {
-              "color": "#ffffff",
-              "paddingLeft": 10,
-              "paddingRight": 5,
-            }
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "paddingLeft": 10,
+                "paddingRight": 5,
+              },
+            ]
           }
         >
           Roge Goers
-        </MyText>
-      }
-      name="Roge Goers"
-      organization={
-        Object {
-          "id": "7342342",
-        }
-      }
-      person={
-        Object {
-          "first_name": "Roge",
-          "id": "notme",
-          "last_name": "Goers",
-        }
-      }
-      pressable={true}
-    />
-    <CardTime
-      date="2018-06-11 12:00:00 UTC"
-      format="comment"
-    />
-  </Flex>
-  <Flex
-    direction="row"
-  >
-    <withI18nextTranslation(PopupMenu)
-      actions={
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
         Array [
           Object {
-            "onPress": [MockFunction],
-            "text": "text",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
           },
         ]
       }
-      triggerOnLongPress={true}
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
     >
       <View
         style={
@@ -259,24 +446,39 @@ exports[`renders editing correctly 1`] = `
           ]
         }
       >
-        <MyText
+        <Text
           style={
             Array [
               Object {
-                "paddingVertical": 3,
+                "color": "#505256",
               },
-              null,
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
             ]
           }
         >
           hello roge
-        </MyText>
+        </Text>
       </View>
-    </withI18nextTranslation(PopupMenu)>
-    <Flex
-      value={1}
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
     />
-  </Flex>
+  </View>
 </View>
 `;
 
@@ -293,58 +495,83 @@ exports[`renders my reported comment 1`] = `
     ]
   }
 >
-  <Flex
-    align="end"
-    direction="row"
-  >
-    <Connect(withI18nextTranslation(CelebrateItemName))
-      customContent={
-        <MyText
-          style={
-            Object {
-              "color": "#ffffff",
-              "paddingLeft": 10,
-              "paddingRight": 5,
-            }
-          }
-        >
-          Roge Goers
-        </MyText>
-      }
-      name="Roge Goers"
-      organization={
+  <View
+    style={
+      Array [
+        Object {},
         Object {
-          "id": "7342342",
-        }
-      }
-      person={
-        Object {
-          "first_name": "Roge",
-          "id": "me",
-          "last_name": "Goers",
-        }
-      }
-      pressable={false}
-    />
-    <CardTime
-      date="2018-06-11 12:00:00 UTC"
-      format="comment"
-    />
-  </Flex>
-  <Flex
-    direction="row"
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
-    <withI18nextTranslation(PopupMenu)
-      actions={
+    <Text
+      style={
         Array [
           Object {
-            "onPress": [MockFunction],
-            "text": "text",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "paddingLeft": 10,
+            "paddingRight": 5,
           },
         ]
       }
-      disabled={true}
-      triggerOnLongPress={true}
+    >
+      Roge Goers
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
     >
       <View
         style={
@@ -360,24 +587,39 @@ exports[`renders my reported comment 1`] = `
           ]
         }
       >
-        <MyText
+        <Text
           style={
             Array [
               Object {
-                "paddingVertical": 3,
+                "color": "#505256",
               },
-              null,
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
             ]
           }
         >
           hello roge
-        </MyText>
+        </Text>
       </View>
-    </withI18nextTranslation(PopupMenu)>
-    <Flex
-      value={1}
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
     />
-  </Flex>
+  </View>
 </View>
 `;
 
@@ -394,58 +636,83 @@ exports[`renders reported comment 1`] = `
     ]
   }
 >
-  <Flex
-    align="end"
-    direction="row"
-  >
-    <Connect(withI18nextTranslation(CelebrateItemName))
-      customContent={
-        <MyText
-          style={
-            Object {
-              "color": "#ffffff",
-              "paddingLeft": 10,
-              "paddingRight": 5,
-            }
-          }
-        >
-          Roge Goers
-        </MyText>
-      }
-      name="Roge Goers"
-      organization={
+  <View
+    style={
+      Array [
+        Object {},
         Object {
-          "id": "7342342",
-        }
-      }
-      person={
-        Object {
-          "first_name": "Roge",
-          "id": "notme",
-          "last_name": "Goers",
-        }
-      }
-      pressable={false}
-    />
-    <CardTime
-      date="2018-06-11 12:00:00 UTC"
-      format="comment"
-    />
-  </Flex>
-  <Flex
-    direction="row"
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
-    <withI18nextTranslation(PopupMenu)
-      actions={
+    <Text
+      style={
         Array [
           Object {
-            "onPress": [MockFunction],
-            "text": "text",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "paddingLeft": 10,
+            "paddingRight": 5,
           },
         ]
       }
-      disabled={true}
-      triggerOnLongPress={true}
+    >
+      Roge Goers
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
     >
       <View
         style={
@@ -461,24 +728,39 @@ exports[`renders reported comment 1`] = `
           ]
         }
       >
-        <MyText
+        <Text
           style={
             Array [
               Object {
-                "paddingVertical": 3,
+                "color": "#505256",
               },
-              null,
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
             ]
           }
         >
           hello roge
-        </MyText>
+        </Text>
       </View>
-    </withI18nextTranslation(PopupMenu)>
-    <Flex
-      value={1}
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
     />
-  </Flex>
+  </View>
 </View>
 `;
 
@@ -495,46 +777,97 @@ exports[`renders without menu actions 1`] = `
     ]
   }
 >
-  <Flex
-    align="end"
-    direction="row"
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
-    <Connect(withI18nextTranslation(CelebrateItemName))
-      customContent={
-        <MyText
-          style={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="NameButton"
+    >
+      <View
+        style={
+          Array [
             Object {
-              "color": "#ffffff",
-              "paddingLeft": 10,
-              "paddingRight": 5,
-            }
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "paddingLeft": 10,
+                "paddingRight": 5,
+              },
+            ]
           }
         >
           Roge Goers
-        </MyText>
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
       }
-      name="Roge Goers"
-      organization={
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
         Object {
-          "id": "7342342",
-        }
-      }
-      person={
-        Object {
-          "first_name": "Roge",
-          "id": "notme",
-          "last_name": "Goers",
-        }
-      }
-      pressable={true}
-    />
-    <CardTime
-      date="2018-06-11 12:00:00 UTC"
-      format="comment"
-    />
-  </Flex>
-  <Flex
-    direction="row"
+          "flexDirection": "row",
+        },
+      ]
+    }
   >
     <View
       style={
@@ -550,22 +883,37 @@ exports[`renders without menu actions 1`] = `
         ]
       }
     >
-      <MyText
+      <Text
         style={
           Array [
             Object {
-              "paddingVertical": 3,
+              "color": "#505256",
             },
-            null,
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              null,
+            ],
           ]
         }
       >
         hello roge
-      </MyText>
+      </Text>
     </View>
-    <Flex
-      value={1}
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
     />
-  </Flex>
+  </View>
 </View>
 `;

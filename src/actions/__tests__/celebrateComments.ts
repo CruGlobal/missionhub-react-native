@@ -1,4 +1,6 @@
-import configureStore from 'redux-mock-store';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import {
@@ -20,43 +22,51 @@ import { REQUESTS } from '../../api/routes';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
+import { mockFragment } from '../../../testUtils/apolloMockClient';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { Person } from '../../reducers/people';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
 
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+
 const orgId = '645654';
-const event = { id: '80890', organization: { id: orgId } };
-const comment = { pagination: { page: 2, hasNextPage: true } };
-const callApiResponse = { result: 'hello world' };
-const celebrateComments = { someProp: 'asdfasdfasdf' };
+const comment = {
+  pagination: { page: 2, hasNextPage: true },
+};
 const baseQuery = { orgId, eventId: event.id };
-const me = { id: 'myId' };
+const me: Person = { id: 'myId' };
 const include = 'organization_celebration_item,person';
+
+const auth = { person: me };
+const celebrateComments = { comments: [comment] };
+
+const callApiResponse = { type: 'call API', result: 'hello world' };
 const trackActionResult = { type: 'tracked action' };
 
 const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
-
-// @ts-ignore
-callApi.mockReturnValue(() => callApiResponse);
-// @ts-ignore
-celebrateCommentsSelector.mockReturnValue(comment);
-// @ts-ignore
-trackActionWithoutData.mockReturnValue(trackActionResult);
+let store: MockStore;
 
 beforeEach(() => {
-  store = mockStore({ auth: { person: me }, celebrateComments });
+  store = mockStore({ auth, celebrateComments });
+  (callApi as jest.Mock).mockReturnValue(callApiResponse);
+  ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+    comment,
+  );
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
 });
 
-describe('getCelebrateCommentsNextPage', () => {
-  // @ts-ignore
-  let response;
+let response: any;
 
+describe('getCelebrateCommentsNextPage', () => {
   beforeEach(
-    // @ts-ignore
-    () => (response = store.dispatch(getCelebrateCommentsNextPage(event))),
+    () =>
+      (response = store.dispatch<any>(
+        getCelebrateCommentsNextPage(event.id, orgId),
+      )),
   );
 
   it('should call selector', () => {
@@ -78,17 +88,18 @@ describe('getCelebrateCommentsNextPage', () => {
   });
 
   it('should return api response', () => {
-    // @ts-ignore
     expect(response).toEqual(callApiResponse);
+    expect(store.getActions()).toEqual([callApiResponse]);
   });
 });
 
 describe('reloadCelebrateComments', () => {
-  // @ts-ignore
-  let response;
-
-  // @ts-ignore
-  beforeEach(() => (response = store.dispatch(reloadCelebrateComments(event))));
+  beforeEach(
+    () =>
+      (response = store.dispatch<any>(
+        reloadCelebrateComments(event.id, orgId),
+      )),
+  );
 
   it('should callApi with no page', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
@@ -98,20 +109,19 @@ describe('reloadCelebrateComments', () => {
   });
 
   it('should return api response', () => {
-    // @ts-ignore
     expect(response).toEqual(callApiResponse);
+    expect(store.getActions()).toEqual([callApiResponse]);
   });
 });
 
 describe('createCelebrateComment', () => {
   const content = 'this is a comment';
-  // @ts-ignore
-  let response;
 
   beforeEach(
     async () =>
-      // @ts-ignore
-      (response = await store.dispatch(createCelebrateComment(event, content))),
+      (response = await store.dispatch<any>(
+        createCelebrateComment(event.id, orgId, content),
+      )),
   );
 
   it('should callApi with no page', () => {
@@ -123,7 +133,6 @@ describe('createCelebrateComment', () => {
   });
 
   it('should return api response', () => {
-    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 
@@ -131,21 +140,17 @@ describe('createCelebrateComment', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CELEBRATE_COMMENT_ADDED,
     );
-    // @ts-ignore
-    expect(store.getActions()).toEqual([trackActionResult]);
+    expect(store.getActions()).toEqual([callApiResponse, trackActionResult]);
   });
 });
 
 describe('deleteCelebrateComment', () => {
   const item = { id: 'comment1' };
-  // @ts-ignore
-  let response;
 
   beforeEach(
     async () =>
-      // @ts-ignore
-      (response = await store.dispatch(
-        deleteCelebrateComment(event.organization.id, event, item),
+      (response = await store.dispatch<any>(
+        deleteCelebrateComment(orgId, event.id, item.id),
       )),
   );
 
@@ -157,7 +162,6 @@ describe('deleteCelebrateComment', () => {
   });
 
   it('should return api response', () => {
-    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 
@@ -165,21 +169,19 @@ describe('deleteCelebrateComment', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CELEBRATE_COMMENT_DELETED,
     );
-    // @ts-ignore
-    expect(store.getActions()).toEqual([trackActionResult]);
+    expect(store.getActions()).toEqual([callApiResponse, trackActionResult]);
   });
 });
 
 describe('updateCelebrateComment', () => {
   const item = { id: 'comment1', organization_celebration_item: event };
   const text = 'text';
-  // @ts-ignore
-  let response;
 
   beforeEach(
     async () =>
-      // @ts-ignore
-      (response = await store.dispatch(updateCelebrateComment(item, text))),
+      (response = await store.dispatch<any>(
+        updateCelebrateComment(event.id, orgId, item.id, text),
+      )),
   );
 
   it('should callApi', () => {
@@ -198,7 +200,6 @@ describe('updateCelebrateComment', () => {
   });
 
   it('should return api response', () => {
-    // @ts-ignore
     expect(response).toEqual(callApiResponse);
   });
 
@@ -206,8 +207,7 @@ describe('updateCelebrateComment', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CELEBRATE_COMMENT_EDITED,
     );
-    // @ts-ignore
-    expect(store.getActions()).toEqual([trackActionResult]);
+    expect(store.getActions()).toEqual([callApiResponse, trackActionResult]);
   });
 });
 
@@ -219,9 +219,9 @@ it('resetCelebrateEditingComment', () => {
 
 it('setCelebrateEditingComment', () => {
   const comment = { id: 'test' };
-  // @ts-ignore
-  store.dispatch(setCelebrateEditingComment(comment.id));
-  // @ts-ignore
+
+  store.dispatch<any>(setCelebrateEditingComment(comment.id));
+
   expect(store.getActions()).toEqual([
     {
       type: RESET_CELEBRATE_EDITING_COMMENT,

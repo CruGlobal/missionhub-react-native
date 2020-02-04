@@ -6,7 +6,6 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { trackAction, trackActionWithoutData } from './analytics';
 import { refreshImpact } from './impact';
-import { reloadGroupCelebrateFeed } from './celebration';
 import { reloadJourney } from './journey';
 
 export function addNewInteraction(
@@ -78,7 +77,6 @@ export function addNewInteraction(
     );
     dispatch(reloadJourney(personId, organizationId));
     dispatch(refreshImpact(organizationId));
-    dispatch(reloadGroupCelebrateFeed(organizationId));
 
     return response;
   };
