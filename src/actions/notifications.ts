@@ -1,7 +1,9 @@
 /* eslint complexity: 0 */
 
 import { PushNotificationIOS } from 'react-native';
-import PushNotification from 'react-native-push-notification';
+import RNPushNotification, {
+  PushNotification,
+} from 'react-native-push-notification';
 import i18next from 'i18next';
 
 import {
@@ -30,6 +32,50 @@ import {
 } from './navigation';
 import callApi from './api';
 
+export interface MHPushNotification extends PushNotification {
+  data: {
+    link?: {
+      data?: {
+        screen: string;
+        person_id?: string;
+        organization_id?: string;
+        celebration_item_id?: string;
+        screen_extra_data?: string;
+      };
+    };
+  };
+  screen?: string;
+  person_id?: string;
+  organization_id?: string;
+  celebration_item_id?: string;
+  screen_extra_data?: string;
+}
+
+export const HAS_SHOWN_NOTIFICATION_PROMPT =
+  'app/HAS_SHOWN_NOTIFICATION_PROMPT';
+export const UPDATE_ACCEPTED_NOTIFICATIONS =
+  'app/UPDATE_ACCEPTED_NOTIFICATIONS';
+
+export interface HasShownPromptAction {
+  type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
+}
+
+export interface UpdateAcceptedNotificationsAction {
+  type: typeof UPDATE_ACCEPTED_NOTIFICATIONS;
+  acceptedNotifications: boolean;
+}
+
+export const hasShownPrompt = (): HasShownPromptAction => ({
+  type: HAS_SHOWN_NOTIFICATION_PROMPT,
+});
+
+export const updateAcceptedNotifications = (
+  acceptedNotifications: boolean,
+): UpdateAcceptedNotificationsAction => ({
+  type: UPDATE_ACCEPTED_NOTIFICATIONS,
+  acceptedNotifications,
+});
+
 // @ts-ignore
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   // @ts-ignore
@@ -39,7 +85,7 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
     }
 
     return new Promise(resolve =>
-      PushNotification.checkPermissions(permission => {
+      RNPushNotification.checkPermissions(permission => {
         // Android does not need to ask user for notification permissions
         if (permission && permission.alert) {
           return resolve(dispatch(requestNativePermissions()));
@@ -86,7 +132,7 @@ export function requestNativePermissions() {
   // @ts-ignore
   return async dispatch => {
     dispatch({ type: REQUEST_NOTIFICATIONS });
-    const permission = await PushNotification.requestPermissions();
+    const permission = await RNPushNotification.requestPermissions();
     return { acceptedNotifications: !!(permission && permission.alert) };
   };
 }
@@ -94,7 +140,7 @@ export function requestNativePermissions() {
 export function configureNotificationHandler() {
   // @ts-ignore
   return (dispatch, getState) => {
-    PushNotification.configure({
+    RNPushNotification.configure({
       onRegister(t) {
         const { pushDevice } = getState().notifications;
 
@@ -242,7 +288,7 @@ export function showWelcomeNotification() {
       return;
     }
 
-    PushNotification.localNotificationSchedule({
+    RNPushNotification.localNotificationSchedule({
       title: i18next.t('welcomeNotification:title'),
       message: i18next.t('welcomeNotification:message'),
       date: new Date(Date.now() + 1000 * 3), // in 3 secs
