@@ -105,3 +105,29 @@ it('renders correctly as mine', () => {
     },
   ).snapshot();
 });
+
+it('renders reported story', () => {
+  const storyItem = {
+    id: '1',
+    content: 'hello roge',
+    createdAt: '2018-06-11 12:00:00 UTC',
+    updated_at: '2018-06-11 12:00:00 UTC',
+    author: {
+      id: 'notme',
+      firstName: 'Roge',
+      lastName: 'Goers',
+      fullName: 'Roge Goers',
+    },
+  };
+  renderWithContext(
+    <CommentItem
+      item={storyItem}
+      isReported={true}
+      organization={organization}
+      menuActions={menuActions}
+    />,
+    {
+      initialState,
+    },
+  ).snapshot();
+});

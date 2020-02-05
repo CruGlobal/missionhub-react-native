@@ -1,24 +1,24 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Text, Card, Icon } from '../../components/common';
+import { Text, Card, Icon } from '../common';
 
 import styles from './styles';
 
-interface ReportCommentHeaderCardProps {
+interface ReportItemHeaderCardProps {
   testID?: string;
   count: number;
   onPress: () => void;
 }
 
-export default function ReportCommentHeaderCard({
+export default function ReportItemHeaderCard({
   count,
   onPress,
-}: ReportCommentHeaderCardProps) {
+}: ReportItemHeaderCardProps) {
   const { t } = useTranslation();
   return (
     <Card
-      testID="ReportCommentHeaderCardButton"
+      testID="ReportItemHeaderCardButton"
       onPress={onPress}
       style={styles.card}
     >

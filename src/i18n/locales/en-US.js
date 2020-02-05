@@ -806,8 +806,8 @@ export default {
       'This post will be deleted and you won’t be able to find it anymore.',
   },
   celebrateFeedHeader: {
-    reports: '{{count}} new reported comment',
-    reports_plural: '{{count}} new reported comments',
+    reports: '{{count}} New Reported Item',
+    reports_plural: '{{count}} New Reported Items',
     newComments: 'New Comment',
     newComments_plural: 'New Comments',
   },
@@ -819,15 +819,14 @@ export default {
     clearAll: 'Clear All',
   },
   groupsReport: {
-    title: 'Reported Comments',
-    header: 'No Reported Comments',
-    reportNull: 'No comments have been reported.',
+    title: 'Reported Items',
+    header: 'No Reported Items',
+    reportNull: 'No items have been reported.',
   },
   reportComment: {
     reportedBy: 'Reported By',
     commentBy: 'Comment By',
-    // @ts-ignore
-    reportedBy: 'Reported By',
+    storyBy: 'Story By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',
   },
