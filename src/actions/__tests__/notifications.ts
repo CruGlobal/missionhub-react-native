@@ -37,7 +37,6 @@ import {
   navigateToCelebrateComments,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
-import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
@@ -577,7 +576,6 @@ describe('askNotificationPermissions', () => {
     const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
     const refreshCommunityResult = organization;
-    const reloadGroupCelebrateFeedResult = { type: 'reload celebrate feed' };
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
     const navToCelebrateResult = { type: 'navigated to celebrate comments' };
     const navToCommunityResult = { type: 'navigated to community' };
@@ -592,8 +590,6 @@ describe('askNotificationPermissions', () => {
       navToPersonScreen.mockReturnValue(navToPersonScreenResult);
       // @ts-ignore
       refreshCommunity.mockReturnValue(() => refreshCommunityResult);
-      // @ts-ignore
-      reloadGroupCelebrateFeed.mockReturnValue(reloadGroupCelebrateFeedResult);
       // @ts-ignore
       reloadGroupChallengeFeed.mockReturnValue(reloadGroupChallengeFeedResult);
       // @ts-ignore
@@ -783,6 +779,59 @@ describe('askNotificationPermissions', () => {
       });
     });
 
+    describe('celebrate_feed', () => {
+      it('should navigate to community celebrate feed', async () => {
+        await testNotification({
+          screen: 'celebrate_feed',
+          organization_id: organization.id,
+          screen_extra_data: {
+            celebration_item_id: undefined,
+          },
+        });
+
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCommunity).toHaveBeenCalledWith(organization);
+      });
+      it('should not navigate if no organization_id', async () => {
+        await testNotification({
+          screen: 'celebrate_feed',
+          organization_id: undefined,
+          screen_extra_data: {
+            celebration_item_id: undefined,
+          },
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(navigateToCommunity).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('celebrate_item', () => {
+      it('should navigate to CELEBRATION_DETAIL_SCREEN', async () => {
+        await testNotification({
+          screen: 'celebrate_item',
+          organization_id: organization.id,
+          screen_extra_data,
+        });
+
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+          organization,
+          celebration_item_id,
+        );
+      });
+      it('should not navigate if no organization_id', async () => {
+        await testNotification({
+          screen: 'celebrate_item',
+          organization_id: undefined,
+          screen_extra_data,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+      });
+    });
+
     describe('celebrate', () => {
       it('should look for stored org', async () => {
         await testNotification({
@@ -792,7 +841,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCelebrateComments).toHaveBeenCalledWith(
           organization,
           celebration_item_id,
@@ -807,7 +855,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });

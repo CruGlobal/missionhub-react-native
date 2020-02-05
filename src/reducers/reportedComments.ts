@@ -5,7 +5,7 @@ import { REQUESTS } from '../api/routes';
 
 import { CelebrateComment } from './celebrateComments';
 
-interface ReportedCommentsState {
+export interface ReportedCommentsState {
   all: {
     [key: string]: CelebrateComment[];
   };

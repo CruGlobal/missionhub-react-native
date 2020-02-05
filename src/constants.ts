@@ -429,8 +429,8 @@ export const INTERACTION_TYPES = {
 export const DEFAULT_PAGE_LIMIT = 25;
 
 export const CELEBRATEABLE_TYPES = {
-  completedStep: 'accepted_challenge',
-  completedInteraction: 'interaction',
+  completedStep: 'V4::AcceptedChallenge',
+  completedInteraction: 'V4::Interaction',
   validInteractionTypes: [
     INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
     INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
@@ -439,14 +439,14 @@ export const CELEBRATEABLE_TYPES = {
     INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
     INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
   ],
-  acceptedCommunityChallenge: 'accepted_community_challenge',
+  acceptedCommunityChallenge: 'V4::AcceptedCommunityChallenge',
   challengeItemTypes: {
     accepted: 'accepted_at',
     completed: 'completed_at',
   },
-  createdCommunity: 'organization',
-  joinedCommunity: 'organizational_permission',
-  story: 'story',
+  createdCommunity: 'V4::Organization',
+  joinedCommunity: 'V4::OrganizationalPermission',
+  story: 'V4::Story',
 };
 
 export const DAYS_OF_THE_WEEK = [

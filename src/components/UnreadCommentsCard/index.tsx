@@ -9,6 +9,7 @@ import COMMENTS from '../../../assets/images/comments.png';
 import styles from './styles';
 
 interface UnreadCommentsCardProps {
+  testID?: string;
   count: number;
   onPress: Function & ((event: GestureResponderEvent) => void);
   onClose: Function;

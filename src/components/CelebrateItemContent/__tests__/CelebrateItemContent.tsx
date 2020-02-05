@@ -6,6 +6,10 @@ import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScre
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { Organization } from '../../../reducers/organizations';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
 
 import CelebrateItemContent, { CelebrateItemContentProps } from '..';
 
@@ -13,25 +17,26 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 
 const myId = '123';
-const mePerson = {
-  id: myId,
-  first_name: 'John',
-  last_name: 'Smith',
-};
 const otherId = '456';
-const otherPerson = {
-  id: otherId,
-  first_name: 'John',
-  last_name: 'Smith',
+const organization: Organization = { id: '111', name: 'Celebration Community' };
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const meEvent: CelebrateItem = {
+  ...event,
+  subjectPerson: {
+    __typename: 'Person',
+    id: myId,
+    firstName: 'John',
+    lastName: 'Smith',
+  },
 };
-const orgId = '111';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Event = any;
-
-const baseEvent = {
-  subject_person_name: 'John Smith',
-  changed_attribute_value: '2004-04-04 00:00:00 UTC',
+const otherEvent: CelebrateItem = {
+  ...event,
+  subjectPerson: {
+    __typename: 'Person',
+    id: otherId,
+    firstName: 'John',
+    lastName: 'Smith',
+  },
 };
 
 const initialState = { auth: { person: { id: myId } } };
@@ -46,87 +51,89 @@ beforeEach(() => {
 
 describe('CelebrateItemContent', () => {
   const testEvent = (
-    e: Event,
+    e: CelebrateItem,
     otherProps: Partial<CelebrateItemContentProps> = {},
   ) => {
-    renderWithContext(<CelebrateItemContent event={e} {...otherProps} />, {
-      initialState,
-    }).snapshot();
+    renderWithContext(
+      <CelebrateItemContent
+        event={e}
+        organization={organization}
+        {...otherProps}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   };
 
-  it('renders event with fixed height', () =>
-    testEvent(baseEvent, { fixedHeight: true }));
+  it('renders event with no subjectPerson, defaults to subjectPersonName', () =>
+    testEvent({ ...event, subjectPerson: null }));
 
-  it('renders event with no subject person (global community event)', () =>
-    testEvent(baseEvent));
-
-  it('renders event with no subject person name', () => {
-    testEvent({
-      ...baseEvent,
-      subject_person_name: null,
-    });
+  it('renders event with no subjectPerson and no subjectPersonName', () => {
+    testEvent(
+      {
+        ...event,
+        subjectPerson: null,
+        subjectPersonName: null,
+      },
+      organization,
+    );
   });
 
   it('renders event for subject=me, liked=true, like count>0', () => {
     testEvent({
-      ...baseEvent,
-      subject_person: mePerson,
-      likes_count: 1,
+      ...meEvent,
+      likesCount: 1,
       liked: true,
     });
   });
 
   it('renders event for subject=me, liked=false, like count>0', () => {
     testEvent({
-      ...baseEvent,
-      subject_person: mePerson,
-      likes_count: 1,
+      ...meEvent,
+      likesCount: 1,
       liked: false,
     });
   });
 
   it('renders event for subject=me, liked=false, like count=0', () => {
     testEvent({
-      ...baseEvent,
-      subject_person: mePerson,
-      likes_count: 0,
+      ...meEvent,
+      likesCount: 0,
       liked: false,
     });
   });
 
   it('renders event for subject=other, liked=true, like count>0', () => {
     testEvent({
-      ...baseEvent,
-      subject_person: otherPerson,
-      likes_count: 1,
+      ...otherEvent,
+      likesCount: 1,
       liked: true,
     });
   });
 
   it('renders event for subject=other, liked=false, like count=0', () => {
     testEvent({
-      ...baseEvent,
-      subject_person: otherPerson,
-      likes_count: 0,
+      ...otherEvent,
+      likesCount: 0,
       liked: false,
     });
   });
 
   describe('message', () => {
-    const messageBaseEvent = {
-      ...baseEvent,
-      subject_person: mePerson,
-      likes_count: 0,
+    const messageBaseEvent: CelebrateItem = {
+      ...meEvent,
+      likesCount: 0,
       liked: false,
     };
 
     it('renders event with no subject person name', () => {
       testEvent({
         ...messageBaseEvent,
-        subject_person: null,
-        subject_person_name: null,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
-        adjective_attribute_value: '3',
+        subjectPerson: null,
+        subjectPersonName: null,
+        celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+        adjectiveAttributeValue: '3',
       });
     });
 
@@ -134,8 +141,8 @@ describe('CelebrateItemContent', () => {
       const testEventStage = (stageNum: string) =>
         testEvent({
           ...messageBaseEvent,
-          celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
-          adjective_attribute_value: stageNum,
+          celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+          adjectiveAttributeValue: stageNum,
         });
 
       it('1', () => testEventStage('1'));
@@ -150,7 +157,8 @@ describe('CelebrateItemContent', () => {
     it('renders step of faith event without stage', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
+        celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+        adjectiveAttributeValue: null,
       });
     });
 
@@ -158,8 +166,8 @@ describe('CelebrateItemContent', () => {
       const testEventInteraction = (interaction: string) =>
         testEvent({
           ...messageBaseEvent,
-          celebrateable_type: CELEBRATEABLE_TYPES.completedInteraction,
-          adjective_attribute_value: interaction,
+          celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+          adjectiveAttributeValue: interaction,
         });
 
       it('personal decision', () =>
@@ -192,60 +200,40 @@ describe('CelebrateItemContent', () => {
     it('renders accepted challenge event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
-        changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
-        object_description: 'Invite a friend to church',
+        celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+        changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
+        objectDescription: 'Invite a friend to church',
       });
     });
 
     it('renders completed challenge event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
-        changed_attribute_name:
-          CELEBRATEABLE_TYPES.challengeItemTypes.completed,
-        object_description: 'Invite a friend to church',
+        celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+        changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
+        objectDescription: 'Invite a friend to church',
       });
     });
 
     it('renders created community event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.createdCommunity,
-        organization: {
-          name: 'Celebration Community',
-        },
+        celebrateableType: CELEBRATEABLE_TYPES.createdCommunity,
       });
     });
 
     it('renders joined community event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.joinedCommunity,
-        organization: {
-          name: 'Celebration Community',
-        },
+        celebrateableType: CELEBRATEABLE_TYPES.joinedCommunity,
       });
-    });
-
-    it('renders joined community with passed in org name', () => {
-      testEvent(
-        {
-          ...messageBaseEvent,
-          celebrateable_type: CELEBRATEABLE_TYPES.joinedCommunity,
-          organization: {
-            name: 'Celebration Community',
-          },
-        },
-        { organization: { id: orgId, name: 'My Real Org' } },
-      );
     });
 
     it('renders story', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateable_type: CELEBRATEABLE_TYPES.story,
-        object_description: 'Once Upon a Time....',
+        celebrateableType: CELEBRATEABLE_TYPES.story,
+        objectDescription: 'Once Upon a Time....',
       });
     });
   });
@@ -253,33 +241,21 @@ describe('CelebrateItemContent', () => {
 
 describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', () => {
-    const challengeId = '123';
-
-    const event = {
-      id: '1',
-      subject_person_name: 'John Smith',
-      subject_person: {
-        id: otherId,
-      },
-      changed_attribute_value: '2004-04-04 00:00:00 UTC',
-      likes_count: 0,
-      liked: true,
-      organization: { id: orgId },
-      celebrateable_type: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
-      changed_attribute_name: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
-      adjective_attribute_value: challengeId,
-      object_description: 'Invite a friend to church',
-    };
-
     const { getByTestId, store } = renderWithContext(
-      <CelebrateItemContent event={event} />,
+      <CelebrateItemContent
+        event={{
+          ...event,
+          celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+        }}
+        organization={organization}
+      />,
       { initialState },
     );
     fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
-      challengeId,
-      orgId,
+      challengeId: event.adjectiveAttributeValue,
+      orgId: organization.id,
     });
     expect(store.getActions()).toEqual([navigateResponse]);
   });

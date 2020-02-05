@@ -2,6 +2,8 @@ import faker from 'faker/locale/en';
 import { IMocks } from 'graphql-tools';
 import moment from 'moment';
 
+import { CELEBRATEABLE_TYPES } from '../src/constants';
+
 let currentId = 1;
 const nextId = () => currentId++;
 export const resetGlobalMockSeeds = () => {
@@ -9,6 +11,14 @@ export const resetGlobalMockSeeds = () => {
   faker.seed(1);
 };
 resetGlobalMockSeeds();
+
+const validCelebrateableTypes = [
+  CELEBRATEABLE_TYPES.completedStep,
+  CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+  CELEBRATEABLE_TYPES.createdCommunity,
+  CELEBRATEABLE_TYPES.joinedCommunity,
+  CELEBRATEABLE_TYPES.story,
+];
 
 export const globalMocks: IMocks = {
   String: () => faker.lorem.words(),
@@ -41,4 +51,15 @@ export const globalMocks: IMocks = {
   Community: () => ({
     name: faker.company.catchPhrase(),
   }),
+  CommunityCelebrationItem: () => {
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+    return {
+      celebrateableType: faker.random.arrayElement(validCelebrateableTypes),
+      changedAttributeValue: moment(
+        faker.date.past(10, '2020-01-14'),
+      ).toISOString(),
+      subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
 };
