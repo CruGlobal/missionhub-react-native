@@ -1,184 +1,327 @@
 import { Linking } from 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import PushNotification from 'react-native-push-notification';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow, testSnapshotShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
+import { requestNativePermissions } from '../../../actions/notifications';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 
 import NotificationOffScreen from '..';
 
-jest.mock('react-native-push-notification');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/notifications');
 
 const {
   ONBOARDING,
   LOGIN,
-  FOCUS_STEP,
   SET_REMINDER,
   JOIN_COMMUNITY,
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-const mockStore = configureStore();
-const APP_SETTINGS_URL = 'app-settings:';
-// @ts-ignore
-let store;
-// @ts-ignore
-let screen;
-// @ts-ignore
-let onComplete;
+let onComplete: jest.Mock;
+const next = jest.fn();
 
-const navigateResult = { type: 'navigated back' };
+const APP_SETTINGS_URL = 'app-settings:';
+
+const navigateBackResult = { type: 'navigate back' };
 const trackActionResult = { type: 'tracked action' };
-const disabledPermissions = { alert: 0 };
-const enabledPermissions = { alert: 1 };
+const requestPermissionsAccepted = {
+  type: 'request permissions',
+  nativePermissionsEnabled: true,
+};
+const requestPermissionsDenied = {
+  type: 'request permissions',
+  nativePermissionsEnabled: false,
+};
+const nextResult = { type: 'next' };
+
+beforeEach(() => {
+  onComplete = jest.fn();
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
+  (next as jest.Mock).mockReturnValue(nextResult);
+  (global.setTimeout as jest.Mock) = jest.fn((callback: () => void) =>
+    callback(),
+  );
+});
 
 describe('notification types', () => {
-  let notificationType = '';
-
-  const test = () => {
-    testSnapshotShallow(
-      <NotificationOffScreen
-        navigation={{ state: {} }}
-        // @ts-ignore
-        onComplete={onComplete}
-        notificationType={notificationType}
-      />,
-      // @ts-ignore
-      store,
-    );
-  };
-
   it('renders for ONBOARDING', () => {
-    notificationType = ONBOARDING;
-    test();
+    renderWithContext(<NotificationOffScreen />, {
+      navParams: {
+        notificationType: ONBOARDING,
+        onComplete,
+      },
+    }).snapshot();
   });
 
   it('renders for LOGIN', () => {
-    notificationType = LOGIN;
-    test();
-  });
-
-  it('renders for FOCUS_STEP', () => {
-    notificationType = FOCUS_STEP;
-    test();
+    renderWithContext(<NotificationOffScreen />, {
+      navParams: {
+        notificationType: LOGIN,
+        onComplete,
+      },
+    }).snapshot();
   });
 
   it('renders for SET_REMINDER', () => {
-    notificationType = SET_REMINDER;
-    test();
+    renderWithContext(<NotificationOffScreen />, {
+      navParams: {
+        notificationType: SET_REMINDER,
+        onComplete,
+      },
+    }).snapshot();
   });
 
   it('renders for JOIN_COMMUNITY', () => {
-    notificationType = JOIN_COMMUNITY;
-    test();
+    renderWithContext(<NotificationOffScreen />, {
+      navParams: {
+        notificationType: JOIN_COMMUNITY,
+        onComplete,
+      },
+    }).snapshot();
   });
 
   it('renders for JOIN_CHALLENGE', () => {
-    notificationType = JOIN_CHALLENGE;
-    test();
+    renderWithContext(<NotificationOffScreen />, {
+      navParams: {
+        notificationType: JOIN_CHALLENGE,
+        onComplete,
+      },
+    }).snapshot();
   });
 });
 
 describe('button methods', () => {
-  beforeEach(() => {
-    store = mockStore();
-    onComplete = jest.fn();
-    // @ts-ignore
-    global.setTimeout = jest.fn(callback => callback());
-
-    screen = renderShallow(
-      <NotificationOffScreen
-        navigation={{ state: {} }}
-        // @ts-ignore
-        onComplete={onComplete}
-        notificationType={ONBOARDING}
-      />,
-      store,
-    );
-
-    // @ts-ignore
-    trackActionWithoutData.mockReturnValue(trackActionResult);
-    // @ts-ignore
-    navigateBack.mockReturnValue(navigateResult);
-  });
-
   describe('not now button', () => {
     beforeEach(() => {
-      // @ts-ignore
-      PushNotification.checkPermissions.mockImplementation(callback =>
-        callback(disabledPermissions),
+      (requestNativePermissions as jest.Mock).mockReturnValue(
+        requestPermissionsDenied,
       );
     });
 
-    it('calls onComplete and tracks an action', () => {
-      // @ts-ignore
-      screen
-        .childAt(3)
-        .childAt(1)
-        .props()
-        .onPress();
+    it('calls next and tracks an action', async () => {
+      const { store, getByTestId } = renderWithContext(
+        <NotificationOffScreen next={next} />,
+        {
+          navParams: {
+            notificationType: ONBOARDING,
+          },
+        },
+      );
 
-      // @ts-ignore
-      expect(onComplete).toHaveBeenCalledWith(false);
+      await fireEvent.press(getByTestId('notNowButton'));
+
+      expect(requestNativePermissions).toHaveBeenCalledWith();
+      expect(next).toHaveBeenCalledWith();
       expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
-      // @ts-ignore
-      expect(store.getActions()).toEqual([trackActionResult]);
+      expect(store.getActions()).toEqual([
+        requestPermissionsDenied,
+        trackActionResult,
+        nextResult,
+      ]);
+    });
+
+    it('calls onComplete and tracks an action', async () => {
+      const { store, getByTestId } = renderWithContext(
+        <NotificationOffScreen />,
+        {
+          navParams: {
+            notificationType: ONBOARDING,
+            onComplete,
+          },
+        },
+      );
+
+      await fireEvent.press(getByTestId('notNowButton'));
+
+      expect(requestNativePermissions).toHaveBeenCalledWith();
+      expect(onComplete).toHaveBeenCalledWith({
+        nativePermissionsEnabled: false,
+        showedPrompt: true,
+      });
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
+      expect(store.getActions()).toEqual([
+        requestPermissionsDenied,
+        trackActionResult,
+      ]);
+    });
+
+    it('navigates back and tracks an action', async () => {
+      const { store, getByTestId } = renderWithContext(
+        <NotificationOffScreen />,
+        {
+          navParams: {
+            notificationType: ONBOARDING,
+          },
+        },
+      );
+
+      await fireEvent.press(getByTestId('notNowButton'));
+
+      expect(requestNativePermissions).toHaveBeenCalledWith();
+      expect(navigateBack).toHaveBeenCalledWith();
+      expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.NO_REMINDERS);
+      expect(store.getActions()).toEqual([
+        requestPermissionsDenied,
+        trackActionResult,
+        navigateBackResult,
+      ]);
     });
   });
 
   describe('go to settings button', () => {
     beforeEach(() => {
-      jest.mock('react-native');
+      (requestNativePermissions as jest.Mock).mockReturnValue(
+        requestPermissionsAccepted,
+      );
     });
 
     describe('user enables permissions', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        PushNotification.checkPermissions.mockImplementation(callback =>
-          callback(enabledPermissions),
+      it('opens settings menu, then calls next when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen next={next} />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
         );
-      });
 
-      it('opens settings menu, then calls onComplete when returning', async () => {
-        // @ts-ignore
-        await screen
-          .childAt(3)
-          .childAt(0)
-          .props()
-          .onPress();
+        await fireEvent.press(getByTestId('allowButton'));
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
-        // @ts-ignore
-        expect(onComplete).toHaveBeenCalledWith(true);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(next).toHaveBeenCalledWith();
+        expect(store.getActions()).toEqual([
+          requestPermissionsAccepted,
+          nextResult,
+        ]);
+      });
+
+      it('opens settings menu, then calls onComplete when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+              onComplete,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
+
+        expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(onComplete).toHaveBeenCalledWith({
+          nativePermissionsEnabled: true,
+          showedPrompt: true,
+        });
+        expect(store.getActions()).toEqual([requestPermissionsAccepted]);
+      });
+
+      it('opens settings menu, then navigates back when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
+
+        expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(navigateBack).toHaveBeenCalledWith();
+        expect(store.getActions()).toEqual([
+          requestPermissionsAccepted,
+          navigateBackResult,
+        ]);
       });
     });
 
     describe('user does not enable permissions', () => {
       beforeEach(() => {
-        // @ts-ignore
-        PushNotification.checkPermissions.mockImplementation(callback =>
-          callback(disabledPermissions),
+        (requestNativePermissions as jest.Mock).mockReturnValue(
+          requestPermissionsDenied,
         );
       });
 
-      it('opens settings menu, then calls onComplete when returning', async () => {
-        // @ts-ignore
-        await screen
-          .childAt(3)
-          .childAt(0)
-          .props()
-          .onPress();
+      it('opens settings menu, then calls next when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen next={next} />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
-        // @ts-ignore
-        expect(onComplete).toHaveBeenCalledWith(false);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(next).toHaveBeenCalledWith();
+        expect(store.getActions()).toEqual([
+          requestPermissionsDenied,
+          nextResult,
+        ]);
+      });
+
+      it('opens settings menu, then calls onComplete when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+              onComplete,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
+
+        expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(onComplete).toHaveBeenCalledWith({
+          nativePermissionsEnabled: false,
+          showedPrompt: true,
+        });
+        expect(store.getActions()).toEqual([requestPermissionsDenied]);
+      });
+
+      it('opens settings menu, then navigates back when returning', async () => {
+        const { store, getByTestId } = renderWithContext(
+          <NotificationOffScreen />,
+          {
+            navParams: {
+              notificationType: ONBOARDING,
+            },
+          },
+        );
+
+        await fireEvent.press(getByTestId('allowButton'));
+
+        expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+        expect(requestNativePermissions).toHaveBeenCalledWith();
+        expect(navigateBack).toHaveBeenCalledWith();
+        expect(store.getActions()).toEqual([
+          requestPermissionsDenied,
+          navigateBackResult,
+        ]);
       });
     });
   });

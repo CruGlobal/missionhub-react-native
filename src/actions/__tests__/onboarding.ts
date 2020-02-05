@@ -18,14 +18,10 @@ import {
   startOnboarding,
   SET_ONBOARDING_PERSON_ID,
 } from '../onboarding';
-import { showReminderOnLoad } from '../notifications';
+import { checkNotifications } from '../notifications';
 import { navigatePush, navigateBack, navigateToCommunity } from '../navigation';
 import { joinCommunity } from '../organizations';
-import {
-  trackActionWithoutData,
-  setAppContext,
-  resetAppContext,
-} from '../analytics';
+import { trackActionWithoutData, setAppContext } from '../analytics';
 import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
@@ -54,7 +50,7 @@ let store = configureStore([thunk])({
 const navigatePushResponse = { type: 'navigate push' };
 const navigateBackResponse = { type: 'navigate back' };
 const navigateToCommunityResponse = { type: 'navigate to community' };
-const showReminderResponse = { type: 'show notification prompt' };
+const checkNotificationsResponse = { type: 'check notifications' };
 const trackActionWithoutDataResult = { type: 'track action' };
 const setAppContextResult = { type: 'set app context' };
 const resetAppContextResult = { type: 'reset app context' };
@@ -66,12 +62,16 @@ beforeEach(() => {
   (navigateToCommunity as jest.Mock).mockReturnValue(
     navigateToCommunityResponse,
   );
-  (showReminderOnLoad as jest.Mock).mockReturnValue(showReminderResponse);
+  (checkNotifications as jest.Mock).mockImplementation(
+    (_, callback: () => void) => {
+      callback();
+      return checkNotificationsResponse;
+    },
+  );
   (trackActionWithoutData as jest.Mock).mockReturnValue(
     trackActionWithoutDataResult,
   );
   (setAppContext as jest.Mock).mockReturnValue(setAppContextResult);
-  (resetAppContext as jest.Mock).mockReturnValue(resetAppContextResult);
 });
 
 describe('setOnboardingPersonId', () => {
@@ -223,21 +223,15 @@ describe('skipAddPersonAndCompleteOnboarding', () => {
   it('skips add person and completes onboarding', async () => {
     await store.dispatch<any>(skipAddPersonAndCompleteOnboarding());
 
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
+    expect(checkNotifications).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
-      true,
+      expect.any(Function),
     );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_COMPLETE,
-    );
-    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([
       { type: SKIP_ONBOARDING_ADD_PERSON },
-      showReminderResponse,
-      trackActionWithoutDataResult,
-      resetAppContextResult,
       navigatePushResponse,
+      checkNotificationsResponse,
     ]);
   });
 });
@@ -246,21 +240,15 @@ describe('resetPersonAndCompleteOnboarding', () => {
   it('resets onboarding person and completed onboarding', async () => {
     await store.dispatch<any>(resetPersonAndCompleteOnboarding());
 
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
+    expect(checkNotifications).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.ONBOARDING,
-      true,
+      expect.any(Function),
     );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_COMPLETE,
-    );
-    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN);
     expect(store.getActions()).toEqual([
       { personId: '', type: SET_ONBOARDING_PERSON_ID },
-      showReminderResponse,
-      trackActionWithoutDataResult,
-      resetAppContextResult,
       navigatePushResponse,
+      checkNotificationsResponse,
     ]);
   });
 });

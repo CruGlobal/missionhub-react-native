@@ -122,8 +122,8 @@ export function createChallenge(
 
 export function updateChallenge(challenge: {
   id: string;
-  title: string;
-  date: string;
+  title?: string;
+  date?: string;
 }) {
   if (!challenge) {
     return Promise.reject(

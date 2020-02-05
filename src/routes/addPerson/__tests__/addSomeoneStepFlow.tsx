@@ -1,9 +1,9 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { MockStore } from 'redux-mock-store';
+import { ReactTestRendererJSON } from 'react-test-renderer';
 
 import { CREATE_STEP } from '../../../constants';
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
@@ -18,8 +18,11 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
-import { showReminderOnLoad } from '../../../actions/notifications';
-import { trackActionWithoutData } from '../../../actions/analytics';
+import { checkNotifications } from '../../../actions/notifications';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+} from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/navigation');
@@ -39,7 +42,7 @@ const stage = { id: stageId };
 const step = { id: '111' };
 const text = 'Step Text';
 
-const store = configureStore([thunk])({
+const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   onboarding: { personId },
   people: {
@@ -51,57 +54,56 @@ const store = configureStore([thunk])({
   },
   organizations: { all: [] },
   stages: { stages: [] },
-});
+};
 
 beforeEach(() => {
-  store.clearActions();
-  // @ts-ignore
-  navigatePush.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  navigateToMainTabs.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  skipAddPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  showReminderOnLoad.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  trackActionWithoutData.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  createCustomStep.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  setOnboardingPersonId.mockReturnValue(() => Promise.resolve());
+  (navigatePush as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (navigateToMainTabs as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (skipAddPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (resetPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (checkNotifications as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (resetAppContext as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (createCustomStep as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (setOnboardingPersonId as jest.Mock).mockReturnValue(() => Promise.resolve());
 });
 
-// @ts-ignore
-let screen;
-// @ts-ignore
-let next;
+let mockStore: MockStore;
+let next: jest.Mock;
+let renderSnapshot: () => ReactTestRendererJSON | null;
 
 describe('AddSomeoneScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[ADD_SOMEONE_SCREEN];
 
-    screen = renderShallow(<Component />, store);
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders without skip button correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions without skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: false }));
+    await mockStore.dispatch(next({ skip: false }));
 
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: true }));
+    await mockStore.dispatch(next({ skip: true }));
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
@@ -111,19 +113,22 @@ describe('SetupPersonScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[SETUP_PERSON_SCREEN];
 
-    screen = renderShallow(<Component />, store);
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders without skip button correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions without skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: false, personId }));
+    await mockStore.dispatch(next({ skip: false, personId }));
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
@@ -133,8 +138,7 @@ describe('SetupPersonScreen next', () => {
   });
 
   it('should fire required next actions with skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: true }));
+    await mockStore.dispatch(next({ skip: true }));
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
@@ -144,28 +148,26 @@ describe('SelectStageScreen', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[SELECT_STAGE_SCREEN];
 
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: { section: 'onboarding', subsection: 'add person' },
-          },
-        }}
-      />,
-      store,
-    );
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+      navParams: {
+        section: 'onboarding',
+        subsection: 'add person',
+      },
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions', async () => {
-    await store.dispatch(
-      // @ts-ignore
+    await mockStore.dispatch(
       next({
         stage: stage,
         personId,
@@ -184,31 +186,26 @@ describe('PersonSelectStepScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[PERSON_SELECT_STEP_SCREEN];
 
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {
-              personId,
-              orgId: 'personal',
-            },
-          },
-        }}
-      />,
-      store,
-    );
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+      navParams: {
+        personId,
+        orgId: 'personal',
+      },
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions for suggested step', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ personId, step }));
+    await mockStore.dispatch(next({ personId, step }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
@@ -217,8 +214,7 @@ describe('PersonSelectStepScreen next', () => {
   });
 
   it('should fire required next actions for create step', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ personId, step: undefined }));
+    await mockStore.dispatch(next({ personId, step: undefined }));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
@@ -231,31 +227,26 @@ describe('SuggestedStepDetailScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN];
 
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {
-              step,
-              personId: myId,
-            },
-          },
-        }}
-      />,
-      store,
-    );
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+      navParams: {
+        step,
+        personId: myId,
+      },
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions for other person', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ contactId: personId }));
+    await mockStore.dispatch(next({ contactId: personId }));
 
     expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
@@ -265,31 +256,26 @@ describe('AddStepScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[ADD_STEP_SCREEN];
 
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {
-              type: CREATE_STEP,
-              personId,
-            },
-          },
-        }}
-      />,
-      store,
-    );
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+      navParams: {
+        type: CREATE_STEP,
+        personId,
+      },
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions for other person', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ text, personId }));
+    await mockStore.dispatch(next({ text, personId }));
 
     expect(createCustomStep).toHaveBeenCalledWith(text, personId);
 
@@ -301,22 +287,22 @@ describe('CelebrationScreen next', () => {
   beforeEach(() => {
     const Component = AddSomeoneStepFlowScreens[CELEBRATION_SCREEN];
 
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
+    const { store, getByType, snapshot } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    mockStore = store;
     // @ts-ignore
-    next = screen.instance().props.next;
+    next = getByType(Component).children[0].props.next;
+    renderSnapshot = snapshot;
   });
 
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderSnapshot();
   });
 
   it('should fire required next actions', async () => {
-    // @ts-ignore
-    await store.dispatch(next());
+    await mockStore.dispatch(next());
 
     expect(navigateToMainTabs).toHaveBeenCalledWith();
   });

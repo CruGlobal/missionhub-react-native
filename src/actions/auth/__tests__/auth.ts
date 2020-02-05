@@ -6,7 +6,7 @@ import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
-import { LOGOUT } from '../../../constants';
+import { LOGOUT, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import {
   SIGN_IN_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
@@ -21,7 +21,7 @@ import {
 import { refreshAccessToken } from '../key';
 import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
-import { deletePushToken } from '../../notifications';
+import { deletePushToken, checkNotifications } from '../../notifications';
 import { navigateReset, navigateToMainTabs } from '../../navigation';
 import { startOnboarding } from '../../onboarding';
 
@@ -45,6 +45,7 @@ const deletePushTokenResult = { type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS };
 const navigateResetResult = { type: 'navigate reset' };
 const startOnboardingResult = { type: 'start onboarding' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
+const checkNotificationsResult = { type: 'check notifications' };
 
 beforeEach(() => {
   store = mockStore();
@@ -53,6 +54,7 @@ beforeEach(() => {
   (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResult);
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
+  (checkNotifications as jest.Mock).mockReturnValue(checkNotificationsResult);
 });
 
 describe('logout', () => {
@@ -135,7 +137,13 @@ describe('navigateToPostAuthScreen', () => {
     store.dispatch<any>(navigateToPostAuthScreen());
 
     expect(navigateToMainTabs).toHaveBeenCalledWith();
-    expect(store.getActions()).toEqual([navigateToMainTabsResult]);
+    expect(checkNotifications).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.LOGIN,
+    );
+    expect(store.getActions()).toEqual([
+      navigateToMainTabsResult,
+      checkNotificationsResult,
+    ]);
   });
 
   it('should navigate to add someone if user has pathway_stage_id and no contact assignments', () => {
