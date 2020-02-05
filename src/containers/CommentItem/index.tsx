@@ -52,15 +52,11 @@ const CommentItem = ({
   const isMine = person ? person.id === me.id : author.id === me.id;
   const isMineNotReported = isMine && !isReported;
   const itemDate = created_at ? created_at : createdAt ? createdAt : '';
-
-  const personName = () => {
-    const name = person
-      ? person.first_name
-        ? `${person.first_name} ${person.last_name}`
-        : person.fullName
-      : author.fullName;
-    return name;
-  };
+  const name = person
+    ? person.first_name
+      ? `${person.first_name} ${person.last_name}`
+      : person.fullName
+    : author.fullName;
 
   const renderContent = () => {
     return (
@@ -82,11 +78,11 @@ const CommentItem = ({
           <Flex value={1} />
         ) : (
           <CelebrateItemName
-            name={personName()}
+            name={name}
             person={person}
             organization={organization}
             pressable={!isReported}
-            customContent={<Text style={nameStyle}>{personName()}</Text>}
+            customContent={<Text style={nameStyle}>{name}</Text>}
           />
         )}
         <CardTime date={itemDate} format={DateConstants.comment} />

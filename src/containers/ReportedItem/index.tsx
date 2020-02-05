@@ -32,8 +32,7 @@ const ReportedItem = ({
   refetch,
   organization,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  item: ReportedItemInterface | any;
+  item: ReportedItemInterface;
   organization: Organization;
   refetch: () => void;
 }) => {
@@ -49,7 +48,7 @@ const ReportedItem = ({
         input: {
           contentComplaintId: item.id,
 
-          response: 'ignore' as ContentComplaintResponseEnum,
+          response: ContentComplaintResponseEnum.ignore,
         },
       },
     });
@@ -81,7 +80,7 @@ const ReportedItem = ({
               input: {
                 contentComplaintId: item.id,
 
-                response: 'delete' as ContentComplaintResponseEnum,
+                response: ContentComplaintResponseEnum.delete,
               },
             },
           });
@@ -94,7 +93,7 @@ const ReportedItem = ({
 
   const reportedBy = person.fullName;
   const commentBy =
-    subject.typeName === 'Story'
+    subject.__typename === 'Story'
       ? subject.author.fullName
       : subject.person.fullName;
   const { card, users, comment, buttonLeft, buttonRight } = styles;
@@ -103,7 +102,7 @@ const ReportedItem = ({
       <Flex direction="row" style={users}>
         <ReportItemLabel label={t('reportedBy')} user={reportedBy} />
         <ReportItemLabel
-          label={t(`${getContentType(subject.typeName)}`)}
+          label={t(`${getContentType(subject.__typename)}`)}
           user={commentBy}
         />
       </Flex>

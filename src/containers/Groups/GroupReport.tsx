@@ -29,10 +29,11 @@ export const GET_REPORTED_CONTENT = gql`
         nodes {
           id
           subject {
-            typeName: __typename
+            __typename
             ... on Story {
               content
               createdAt
+              updatedAt
               id
               author {
                 fullName
@@ -44,6 +45,7 @@ export const GET_REPORTED_CONTENT = gql`
             ... on CommunityCelebrationItemComment {
               content
               createdAt
+              updatedAt
               id
               person {
                 fullName
@@ -80,8 +82,7 @@ const GroupReport = () => {
       id: organization.id,
     },
   });
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const renderItem = ({ item }: { item: ReportedItemInterface | any }) => {
+  const renderItem = ({ item }: { item: ReportedItemInterface }) => {
     return (
       <ReportedItem item={item} refetch={refetch} organization={organization} />
     );

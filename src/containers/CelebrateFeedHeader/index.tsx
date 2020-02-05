@@ -49,11 +49,11 @@ const CelebrateFeedHeader = ({
       id: orgId,
     },
   });
-  const UnreadCommentCount = organization.unread_comments_count;
-  const ReportedContentCount = ReportedContent.length;
-  const isReportVisible = shouldQueryReport && ReportedContentCount !== 0;
+  const unreadCommentCount = organization.unread_comments_count;
+  const reportedContentCount = ReportedContent.length;
+  const isReportVisible = shouldQueryReport && reportedContentCount !== 0;
   const isCommentCardVisible =
-    !orgIsGlobal(organization) && UnreadCommentCount !== 0;
+    !orgIsGlobal(organization) && unreadCommentCount !== 0;
 
   const closeCommentCard = () => {
     dispatch(markCommentsRead(orgId));
@@ -69,14 +69,14 @@ const CelebrateFeedHeader = ({
   };
 
   const renderCommentCard = () => {
-    if (UnreadCommentCount === 0) {
+    if (unreadCommentCount === 0) {
       return null;
     }
 
     return (
       <UnreadCommentsCard
         testID="UnreadCommentsCard"
-        count={UnreadCommentCount}
+        count={unreadCommentCount}
         onPress={commentCard}
         onClose={closeCommentCard}
       />
@@ -84,14 +84,14 @@ const CelebrateFeedHeader = ({
   };
 
   const renderReport = () => {
-    if (loading || ReportedContentCount === 0) {
+    if (loading || reportedContentCount === 0) {
       return null;
     }
     return (
       <ReportItemHeaderCard
         testID="ReportItemCard"
         onPress={report}
-        count={ReportedContentCount}
+        count={reportedContentCount}
       />
     );
   };

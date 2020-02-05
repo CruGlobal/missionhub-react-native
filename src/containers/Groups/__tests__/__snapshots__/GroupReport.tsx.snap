@@ -177,7 +177,7 @@ exports[`should call navigate back 1`] = `
           "id": "1",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Elizabeth Zulauf",
+            "fullName": "Zola Corkery",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
@@ -186,11 +186,11 @@ exports[`should call navigate back 1`] = `
             "id": "2",
             "person": Object {
               "__typename": "Person",
-              "firstName": "Aaliyah",
-              "fullName": "Aaliyah Champlin",
+              "firstName": "Branson",
+              "fullName": "Branson Gutkowski",
               "id": "3",
             },
-            "typeName": "CommunityCelebrationItemComment",
+            "updatedAt": "Mon, 13 Jan 2020 13:58:47 GMT",
           },
         },
         Object {
@@ -198,20 +198,20 @@ exports[`should call navigate back 1`] = `
           "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Ezequiel Ortiz",
+            "fullName": "Gracie Weber",
           },
           "subject": Object {
             "__typename": "Story",
             "author": Object {
               "__typename": "Person",
-              "firstName": "Chyna",
-              "fullName": "Chyna Howe",
+              "firstName": "Ezequiel",
+              "fullName": "Ezequiel Ortiz",
               "id": "6",
             },
-            "content": "ratione ut sunt",
-            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "content": "ut sunt qui",
+            "createdAt": "Mon, 05 Mar 2018 03:36:18 GMT",
             "id": "5",
-            "typeName": "Story",
+            "updatedAt": "Sun, 28 Feb 2016 03:01:08 GMT",
           },
         },
       ]
@@ -339,7 +339,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Elizabeth Zulauf
+                Zola Corkery
               </Text>
             </View>
             <View
@@ -386,7 +386,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Aaliyah Champlin
+                Branson Gutkowski
               </Text>
             </View>
           </View>
@@ -440,7 +440,7 @@ exports[`should call navigate back 1`] = `
                     ]
                   }
                 >
-                  Aaliyah Champlin
+                  Branson Gutkowski
                 </Text>
                 <Text
                   style={
@@ -773,7 +773,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Ezequiel Ortiz
+                Gracie Weber
               </Text>
             </View>
             <View
@@ -820,7 +820,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Chyna Howe
+                Ezequiel Ortiz
               </Text>
             </View>
           </View>
@@ -874,7 +874,7 @@ exports[`should call navigate back 1`] = `
                     ]
                   }
                 >
-                  Chyna Howe
+                  Ezequiel Ortiz
                 </Text>
                 <Text
                   style={
@@ -893,7 +893,7 @@ exports[`should call navigate back 1`] = `
                   }
                   testID="Text"
                 >
-                  January 27, 2016 @ 11:31 AM
+                  March 5, 2018 @ 3:36 AM
                 </Text>
               </View>
               <View
@@ -938,7 +938,7 @@ exports[`should call navigate back 1`] = `
                       ]
                     }
                   >
-                    ratione ut sunt
+                    ut sunt qui
                   </Text>
                 </View>
                 <View
@@ -1297,7 +1297,7 @@ exports[`should refresh correctly 1`] = `
           "id": "1",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Elizabeth Zulauf",
+            "fullName": "Zola Corkery",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
@@ -1306,11 +1306,11 @@ exports[`should refresh correctly 1`] = `
             "id": "2",
             "person": Object {
               "__typename": "Person",
-              "firstName": "Aaliyah",
-              "fullName": "Aaliyah Champlin",
+              "firstName": "Branson",
+              "fullName": "Branson Gutkowski",
               "id": "3",
             },
-            "typeName": "CommunityCelebrationItemComment",
+            "updatedAt": "Mon, 13 Jan 2020 13:58:47 GMT",
           },
         },
         Object {
@@ -1318,20 +1318,20 @@ exports[`should refresh correctly 1`] = `
           "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Ezequiel Ortiz",
+            "fullName": "Gracie Weber",
           },
           "subject": Object {
             "__typename": "Story",
             "author": Object {
               "__typename": "Person",
-              "firstName": "Chyna",
-              "fullName": "Chyna Howe",
+              "firstName": "Ezequiel",
+              "fullName": "Ezequiel Ortiz",
               "id": "6",
             },
-            "content": "ratione ut sunt",
-            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "content": "ut sunt qui",
+            "createdAt": "Mon, 05 Mar 2018 03:36:18 GMT",
             "id": "5",
-            "typeName": "Story",
+            "updatedAt": "Sun, 28 Feb 2016 03:01:08 GMT",
           },
         },
       ]
@@ -1459,7 +1459,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Elizabeth Zulauf
+                Zola Corkery
               </Text>
             </View>
             <View
@@ -1506,7 +1506,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Aaliyah Champlin
+                Branson Gutkowski
               </Text>
             </View>
           </View>
@@ -1560,7 +1560,7 @@ exports[`should refresh correctly 1`] = `
                     ]
                   }
                 >
-                  Aaliyah Champlin
+                  Branson Gutkowski
                 </Text>
                 <Text
                   style={
@@ -1893,7 +1893,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Ezequiel Ortiz
+                Gracie Weber
               </Text>
             </View>
             <View
@@ -1940,7 +1940,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Chyna Howe
+                Ezequiel Ortiz
               </Text>
             </View>
           </View>
@@ -1994,7 +1994,7 @@ exports[`should refresh correctly 1`] = `
                     ]
                   }
                 >
-                  Chyna Howe
+                  Ezequiel Ortiz
                 </Text>
                 <Text
                   style={
@@ -2013,7 +2013,7 @@ exports[`should refresh correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  January 27, 2016 @ 11:31 AM
+                  March 5, 2018 @ 3:36 AM
                 </Text>
               </View>
               <View
@@ -2058,7 +2058,7 @@ exports[`should refresh correctly 1`] = `
                       ]
                     }
                   >
-                    ratione ut sunt
+                    ut sunt qui
                   </Text>
                 </View>
                 <View
@@ -2417,7 +2417,7 @@ exports[`should render correctly 1`] = `
           "id": "1",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Elizabeth Zulauf",
+            "fullName": "Zola Corkery",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
@@ -2426,11 +2426,11 @@ exports[`should render correctly 1`] = `
             "id": "2",
             "person": Object {
               "__typename": "Person",
-              "firstName": "Aaliyah",
-              "fullName": "Aaliyah Champlin",
+              "firstName": "Branson",
+              "fullName": "Branson Gutkowski",
               "id": "3",
             },
-            "typeName": "CommunityCelebrationItemComment",
+            "updatedAt": "Mon, 13 Jan 2020 13:58:47 GMT",
           },
         },
         Object {
@@ -2438,20 +2438,20 @@ exports[`should render correctly 1`] = `
           "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Ezequiel Ortiz",
+            "fullName": "Gracie Weber",
           },
           "subject": Object {
             "__typename": "Story",
             "author": Object {
               "__typename": "Person",
-              "firstName": "Chyna",
-              "fullName": "Chyna Howe",
+              "firstName": "Ezequiel",
+              "fullName": "Ezequiel Ortiz",
               "id": "6",
             },
-            "content": "ratione ut sunt",
-            "createdAt": "Wed, 27 Jan 2016 11:31:41 GMT",
+            "content": "ut sunt qui",
+            "createdAt": "Mon, 05 Mar 2018 03:36:18 GMT",
             "id": "5",
-            "typeName": "Story",
+            "updatedAt": "Sun, 28 Feb 2016 03:01:08 GMT",
           },
         },
       ]
@@ -2579,7 +2579,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Elizabeth Zulauf
+                Zola Corkery
               </Text>
             </View>
             <View
@@ -2626,7 +2626,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Aaliyah Champlin
+                Branson Gutkowski
               </Text>
             </View>
           </View>
@@ -2680,7 +2680,7 @@ exports[`should render correctly 1`] = `
                     ]
                   }
                 >
-                  Aaliyah Champlin
+                  Branson Gutkowski
                 </Text>
                 <Text
                   style={
@@ -3013,7 +3013,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Ezequiel Ortiz
+                Gracie Weber
               </Text>
             </View>
             <View
@@ -3060,7 +3060,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Chyna Howe
+                Ezequiel Ortiz
               </Text>
             </View>
           </View>
@@ -3114,7 +3114,7 @@ exports[`should render correctly 1`] = `
                     ]
                   }
                 >
-                  Chyna Howe
+                  Ezequiel Ortiz
                 </Text>
                 <Text
                   style={
@@ -3133,7 +3133,7 @@ exports[`should render correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  January 27, 2016 @ 11:31 AM
+                  March 5, 2018 @ 3:36 AM
                 </Text>
               </View>
               <View
@@ -3178,7 +3178,7 @@ exports[`should render correctly 1`] = `
                       ]
                     }
                   >
-                    ratione ut sunt
+                    ut sunt qui
                   </Text>
                 </View>
                 <View

@@ -26,11 +26,13 @@ jest.mock('../../../actions/reportComments');
 const refetch = jest.fn();
 
 const subject = {
-  id: 'commentId',
+  __typename: 'CommunityCelebrationItemComment' as 'CommunityCelebrationItemComment',
   content: 'something',
   createdAt: '2020-01-15T20:58:04Z',
-  typeName: 'CommunityCelebrationItemComment',
+  updatedAt: '2020-01-15T20:58:04Z',
+  id: 'commentId',
   person: {
+    __typename: 'Person' as 'Person',
     fullName: 'Christian Huffman',
     firstName: 'Christian',
     lastName: 'Huffman',
@@ -38,10 +40,12 @@ const subject = {
   },
 };
 const person = {
+  __typename: 'Person' as 'Person',
   id: 'personId',
   fullName: 'person full name',
 };
 const item = {
+  __typename: 'ContentComplaint' as 'ContentComplaint',
   id: 'reportId',
   subject,
   person,
@@ -50,8 +54,8 @@ const org = { id: 'orgId', reportedComments: [item] };
 
 const props = {
   item,
-  refetch,
   organization: org,
+  refetch,
 };
 
 const initialState = {
@@ -124,13 +128,16 @@ describe('report item', () => {
     const StoryProps = {
       ...props,
       item: {
+        __typename: 'ContentComplaint' as 'ContentComplaint',
         id: 'StoryReportId',
         subject: {
           id: 'storyId',
           content: 'some story',
           createdAt: '2020-01-15T20:58:04Z',
-          typeName: 'Story',
+          updatedAt: '2020-01-15T20:58:04Z',
+          __typename: 'Story' as 'Story',
           author: {
+            __typename: 'Person' as 'Person',
             fullName: 'Christian Huffman',
             firstName: 'Christian',
             lastName: 'Huffman',
