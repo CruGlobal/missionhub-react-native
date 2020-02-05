@@ -79,14 +79,8 @@ const AnnouncementsModal = () => {
         },
       });
 
-      if (uri && trackAction) {
-        analyticsTrackAction(trackAction, {});
-        return Linking.openURL(uri);
-      } else if (uri) {
-        return Linking.openURL(uri);
-      } else if (trackAction) {
-        return analyticsTrackAction(trackAction, {});
-      }
+      uri && Linking.openURL(uri);
+      trackAction && analyticsTrackAction(trackAction, {});
     } else {
       await handleAnnouncementAction({
         variables: {
