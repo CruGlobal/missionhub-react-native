@@ -359,6 +359,84 @@ describe('navigateToCelebrateComments', () => {
     });
   });
 
+  describe('no celebrationItemId', () => {
+    describe('Cru org | undefined', () => {
+      beforeEach(() => {
+        store.dispatch<any>(navigateToCelebrateComments(cruOrg, undefined));
+      });
+
+      it('navigates to community celebrate feed if celebrationItemId is not present', () => {
+        expect(store.getActions()).toEqual([
+          {
+            type: 'Navigation/PUSH',
+            routeName: GROUP_SCREEN,
+            params: {
+              orgId: cruOrgId,
+              initialTab: undefined,
+            },
+          },
+        ]);
+      });
+    });
+
+    describe('Cru org | null', () => {
+      beforeEach(() => {
+        store.dispatch<any>(navigateToCelebrateComments(cruOrg, null));
+      });
+
+      it('navigates to community celebrate feed if celebrationItemId is not present', () => {
+        expect(store.getActions()).toEqual([
+          {
+            type: 'Navigation/PUSH',
+            routeName: GROUP_SCREEN,
+            params: {
+              orgId: cruOrgId,
+              initialTab: undefined,
+            },
+          },
+        ]);
+      });
+    });
+
+    describe('user-created Org | undefined', () => {
+      beforeEach(() => {
+        store.dispatch<any>(
+          navigateToCelebrateComments(userCreatedOrg, undefined),
+        );
+      });
+      it('navigates to community celebrate feed if celebrationItemId is not present', () => {
+        expect(store.getActions()).toEqual([
+          {
+            type: 'Navigation/PUSH',
+            routeName: USER_CREATED_GROUP_SCREEN,
+            params: {
+              orgId: userCreatedOrgId,
+              initialTab: undefined,
+            },
+          },
+        ]);
+      });
+    });
+
+    describe('user-created Org | null', () => {
+      beforeEach(() => {
+        store.dispatch<any>(navigateToCelebrateComments(userCreatedOrg, null));
+      });
+      it('navigates to community celebrate feed if celebrationItemId is not present', () => {
+        expect(store.getActions()).toEqual([
+          {
+            type: 'Navigation/PUSH',
+            routeName: USER_CREATED_GROUP_SCREEN,
+            params: {
+              orgId: userCreatedOrgId,
+              initialTab: undefined,
+            },
+          },
+        ]);
+      });
+    });
+  });
+
   describe('Cru org', () => {
     beforeEach(() => {
       store.dispatch<any>(navigateToCelebrateComments(cruOrg, celebrateItemId));
