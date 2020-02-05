@@ -144,11 +144,13 @@ const CelebrateFeed = ({
   const renderHeader = () => (
     <>
       <CelebrateFeedHeader isMember={!!person} organization={organization} />
-      <ShareStoryInput
-        dispatch={dispatch}
-        refreshItems={handleRefreshing}
-        organization={organization}
-      />
+      {!person ? (
+        <ShareStoryInput
+          dispatch={dispatch}
+          refreshItems={handleRefreshing}
+          organization={organization}
+        />
+      ) : null}
     </>
   );
 

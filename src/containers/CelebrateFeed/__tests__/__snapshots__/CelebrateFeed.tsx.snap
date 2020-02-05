@@ -1552,15 +1552,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
       />
-      <ShareStoryInput
-        dispatch={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
-        refreshItems={[Function]}
-      />
     </View>
     <View
       onLayout={[Function]}
