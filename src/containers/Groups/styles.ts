@@ -11,9 +11,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  redPageContainer: {
+  greyPageContainer: {
     flex: 1,
-    backgroundColor: theme.red,
+    backgroundColor: theme.extraLightGrey,
   },
   flatList: {
     flex: 1,
@@ -101,6 +101,9 @@ export default StyleSheet.create({
   },
   reportList: {
     paddingVertical: 15,
+  },
+  reportHeader: {
+    backgroundColor: theme.red,
   },
   backIcon: {
     color: theme.black,
