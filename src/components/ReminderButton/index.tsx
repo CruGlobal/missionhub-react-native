@@ -1,20 +1,23 @@
 import React, { useState, ReactNode } from 'react';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   NOTIFICATION_PROMPT_TYPES,
   REMINDER_RECURRENCES_ENUM,
 } from '../../constants';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
-import { navigatePush } from '../../actions/navigation';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
 import {
-  showNotificationPrompt,
   requestNativePermissions,
+  checkNotifications,
 } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
+import { AuthState } from '../../reducers/auth';
+import { NotificationsState } from '../../reducers/notifications';
 
 export interface ReminderButtonProps {
   stepId: string;
@@ -24,8 +27,11 @@ export interface ReminderButtonProps {
     reminder_type?: REMINDER_RECURRENCES_ENUM;
   };
   children: ReactNode;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<
+    { auth: AuthState; notifications: NotificationsState },
+    null,
+    AnyAction
+  >;
   testID?: string;
 }
 const ReminderButton = ({
@@ -45,12 +51,16 @@ const ReminderButton = ({
     dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
   };
   // for iOS, ask for notifications, navigate to step reminder screen
-  const handlePressIOS = async ({ showPicker }: { showPicker: Function }) => {
-    const { acceptedNotifications } = await dispatch(
-      // @ts-ignore
-      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.SET_REMINDER),
+  const handlePressIOS = ({ showPicker }: { showPicker: Function }) => {
+    dispatch(
+      checkNotifications(
+        NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+        ({ nativePermissionsEnabled, showedPrompt }) => {
+          showedPrompt && dispatch(navigateBack());
+          nativePermissionsEnabled && showPicker();
+        },
+      ),
     );
-    acceptedNotifications && showPicker();
   };
   const handleChangeDate = (date: Date) => {
     dispatch(createStepReminder(stepId, date, recurrence));

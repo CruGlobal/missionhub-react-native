@@ -47,6 +47,7 @@ function facebookLoginAction(accessToken, facebookId) {
 
     await dispatch(
       retryIfInvalidatedClientToken(
+        // @ts-ignore
         loginWithFacebookAccessToken(accessToken, upgradeToken),
         // @ts-ignore
         loginWithFacebookAccessToken(accessToken),

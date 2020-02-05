@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import uuidv4 from 'uuid/v4';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -19,12 +21,8 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
-import { showReminderOnLoad } from './notifications';
-import {
-  trackActionWithoutData,
-  resetAppContext,
-  setAppContext,
-} from './analytics';
+import { checkNotifications } from './notifications';
+import { trackActionWithoutData, setAppContext } from './analytics';
 import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
@@ -83,9 +81,8 @@ export function createMyPerson(firstName: string, lastName: string) {
     last_name: lastName,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return async (dispatch: ThunkDispatch<{}, {}, any>) => {
-    await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    await dispatch<any>(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
     // @ts-ignore
     const me = ((await dispatch(getMe())) as unknown) as Person;
 
@@ -101,8 +98,7 @@ export function createMyPerson(firstName: string, lastName: string) {
 }
 
 export const createPerson = (firstName: string, lastName: string) => async (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, any>,
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
   getState: () => { auth: AuthState },
 ) => {
   const {
@@ -126,7 +122,7 @@ export const createPerson = (firstName: string, lastName: string) => async (
     ],
   };
 
-  const results = (await dispatch(
+  const results = (await dispatch<any>(
     callApi(REQUESTS.ADD_NEW_PERSON, {}, data),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   )) as any;
@@ -139,29 +135,26 @@ export const createPerson = (firstName: string, lastName: string) => async (
   return results;
 };
 
-const finalOnboardingActions = () => async (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
-) => {
-  await dispatch(
-    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-  );
-  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(resetAppContext());
-  dispatch(navigatePush(CELEBRATION_SCREEN));
-};
-
 export const skipAddPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(skipOnboardingAddPerson());
-  dispatch(finalOnboardingActions());
+  dispatch<any>(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export const resetPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(setOnboardingPersonId(''));
-  dispatch(finalOnboardingActions());
+  dispatch<any>(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export function joinStashedCommunity() {
