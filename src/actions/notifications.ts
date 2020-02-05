@@ -91,6 +91,7 @@ export const checkNotifications = (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
+  let nativePermissionsEnabled = false;
   const {
     auth: { token },
     notifications: { appHasShownPrompt, userHasAcceptedNotifications },
@@ -110,17 +111,17 @@ export const checkNotifications = (
     }
 
     //check Native Permissions status
-    const { nativePermissionsEnabled } = await dispatch(
-      requestNativePermissions(),
-    );
+    nativePermissionsEnabled = (await dispatch(requestNativePermissions()))
+      .nativePermissionsEnabled;
 
     //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
-    //navigate to NotificationOffScreen
+    //delete push token from API and Redux, then navigate to NotificationOffScreen
     if (
       !isAndroid &&
       userHasAcceptedNotifications &&
       !nativePermissionsEnabled
     ) {
+      dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
           notificationType,
@@ -128,14 +129,13 @@ export const checkNotifications = (
         }),
       );
     }
-
-    //all other cases, return the result of the Native Permissions check
-    //NOTE: Android does not need permissions from the user to enable notifications
-    return (
-      onComplete &&
-      onComplete({ nativePermissionsEnabled, showedPrompt: false })
-    );
   }
+
+  //all other cases, return the result of the Native Permissions check
+  //NOTE: Android does not need permissions from the user to enable notifications
+  return (
+    onComplete && onComplete({ nativePermissionsEnabled, showedPrompt: false })
+  );
 };
 
 //RNPushNotification.requestPermissions() will do the following:
