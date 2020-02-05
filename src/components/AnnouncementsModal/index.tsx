@@ -6,43 +6,40 @@ import gql from 'graphql-tag';
 
 import { Button, Flex } from '../../components/common';
 import IconButton from '../IconButton';
-import { trackAction } from '../../actions/analytics';
+import { trackAction as analyticsTrackAction } from '../../actions/analytics';
 
 import styles from './styles';
 import {
-  GetAnnouncements,
-  GetAnnouncements_announcements_nodes_actions_nodes,
-} from './__generated__/GetAnnouncements';
-import { handleAnnouncement } from './__generated__/handleAnnouncement';
+  GetAnnouncement,
+  GetAnnouncement_announcement_actions_nodes,
+} from './__generated__/GetAnnouncement';
+import {
+  markAnnouncementAsRead,
+  markAnnouncementAsReadVariables,
+} from './__generated__/markAnnouncementAsRead';
 
-export const GET_ANNOUNCEMENTS = gql`
-  query GetAnnouncements {
-    announcements(first: 1) {
-      nodes {
-        body
-        id
-        title
-        actions {
-          nodes {
-            id
-            label
-            action
-            args
-          }
+export const GET_ANNOUNCEMENT = gql`
+  query GetAnnouncement {
+    announcement {
+      body
+      id
+      title
+      actions {
+        nodes {
+          id
+          label
+          trackAction
+          uri
         }
       }
     }
   }
 `;
 
-export const HANDLE_ANNOUNCEMENTS = gql`
-  mutation handleAnnouncement($input: CreatePersonAnnouncementInput!) {
-    createPersonAnnouncement(input: $input) {
-      personAnnouncement {
-        announcement {
-          id
-        }
-      }
+export const HANDLE_ANNOUNCEMENT = gql`
+  mutation markAnnouncementAsRead($input: MarkAnnouncementAsReadInput!) {
+    markAnnouncementAsRead(input: $input) {
+      success
     }
   }
 `;
@@ -57,23 +54,22 @@ const AnnouncementsModal = () => {
     bodyText,
   } = styles;
   const { t } = useTranslation();
-  const {
-    data: { announcements: { nodes: [announcement] = [] } = {} } = {},
-    loading,
-  } = useQuery<GetAnnouncements>(GET_ANNOUNCEMENTS);
-  const [handleAnnouncementAction] = useMutation<handleAnnouncement>(
-    HANDLE_ANNOUNCEMENTS,
-    {
-      refetchQueries: [{ query: GET_ANNOUNCEMENTS }],
-    },
-  );
+  const { data: { announcement = null } = {}, loading } = useQuery<
+    GetAnnouncement
+  >(GET_ANNOUNCEMENT);
+  const [handleAnnouncementAction] = useMutation<
+    markAnnouncementAsRead,
+    markAnnouncementAsReadVariables
+  >(HANDLE_ANNOUNCEMENT, {
+    refetchQueries: [{ query: GET_ANNOUNCEMENT }],
+  });
 
   const completeAnnouncementAction = async (
     announcementId: string,
-    announcementAction?: GetAnnouncements_announcements_nodes_actions_nodes,
+    announcementAction?: GetAnnouncement_announcement_actions_nodes,
   ) => {
     if (announcementAction) {
-      const { id, action, args } = announcementAction;
+      const { id, trackAction, uri } = announcementAction;
       await handleAnnouncementAction({
         variables: {
           input: {
@@ -82,12 +78,14 @@ const AnnouncementsModal = () => {
           },
         },
       });
-      switch (action) {
-        case 'go':
-          Linking.openURL(args);
-          break;
-        case 'track':
-          return trackAction(args, {});
+
+      if (uri && trackAction) {
+        analyticsTrackAction(trackAction, {});
+        return Linking.openURL(uri);
+      } else if (uri) {
+        return Linking.openURL(uri);
+      } else if (trackAction) {
+        return analyticsTrackAction(trackAction, {});
       }
     } else {
       await handleAnnouncementAction({

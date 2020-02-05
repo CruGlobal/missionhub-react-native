@@ -5,34 +5,31 @@ import { MockList } from 'graphql-tools';
 
 import { renderWithContext } from '../../../../testUtils';
 
-import AnnouncementsModal, {
-  GET_ANNOUNCEMENTS,
-  HANDLE_ANNOUNCEMENTS,
-} from '..';
+import AnnouncementsModal, { GET_ANNOUNCEMENT, HANDLE_ANNOUNCEMENT } from '..';
 
 const initialState = {};
 it('renders correctly', async () => {
   renderWithContext(<AnnouncementsModal />, {
     initialState,
     mocks: {
-      AnnouncementConnection: () => ({ nodes: () => new MockList(1) }),
+      Announcement: () => new MockList(1),
     },
   });
   await flushMicrotasksQueue();
 
-  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT);
 });
 
 it('Should not render if there are no announcements', async () => {
   const { snapshot } = renderWithContext(<AnnouncementsModal />, {
     initialState,
     mocks: {
-      AnnouncementConnection: () => ({ nodes: () => [] }),
+      Announcement: () => null,
     },
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+  expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT);
 });
 
 describe('User clicks the close button', () => {
@@ -40,24 +37,25 @@ describe('User clicks the close button', () => {
     const { getByTestId } = renderWithContext(<AnnouncementsModal />, {
       initialState,
       mocks: {
-        AnnouncementConnection: () => ({ nodes: () => new MockList(1) }),
+        Announcement: () => new MockList(1),
       },
     });
     await flushMicrotasksQueue();
 
     expect(getByTestId('CloseButton')).toBeTruthy();
   });
+
   it('Should fire the HANDLE_ANNOUNCEMENTS mutation when the user clicks the close button', async () => {
     const { getByTestId } = renderWithContext(<AnnouncementsModal />, {
       initialState,
       mocks: {
-        AnnouncementConnection: () => ({ nodes: () => new MockList(1) }),
+        Announcement: () => new MockList(1),
       },
     });
     await flushMicrotasksQueue();
 
     await fireEvent.press(getByTestId('CloseButton'));
-    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
       variables: { input: { announcementId: '1' } },
     });
   });
@@ -68,24 +66,19 @@ describe('User clicks the Modal Action Button', () => {
     const { getByTestId } = renderWithContext(<AnnouncementsModal />, {
       initialState,
       mocks: {
-        AnnouncementConnection: () => ({
-          nodes: () => [
-            {
-              body: 'This is  a test for the new modal',
-              id: '24',
-              title: 'Another Test 17',
-              actions: {
-                nodes: [
-                  {
-                    label: 'Go To Google',
-                    id: '18',
-                    action: 'go',
-                    args: 'https://www.google.com/',
-                  },
-                ],
+        Announcement: () => ({
+          body: 'This is  a test for the new modal',
+          id: '24',
+          title: 'Another Test 17',
+          actions: {
+            nodes: [
+              {
+                label: 'Go To Google',
+                id: '18',
+                uri: 'https://www.google.com/',
               },
-            },
-          ],
+            ],
+          },
         }),
       },
     });
@@ -100,15 +93,11 @@ describe('User clicks the Modal Action Button', () => {
       {
         initialState,
         mocks: {
-          AnnouncementConnection: () => ({
-            nodes: () => [
-              {
-                body: 'This is  a test for the new modal',
-                id: '24',
-                title: 'Another Test 17',
-                actions: { nodes: [] },
-              },
-            ],
+          Announcement: () => ({
+            body: 'This is  a test for the new modal',
+            id: '24',
+            title: 'Another Test 17',
+            actions: { nodes: [] },
           }),
         },
       },
@@ -118,7 +107,7 @@ describe('User clicks the Modal Action Button', () => {
     expect(getByTestId('AnnouncementNoActionButton')).toBeTruthy();
     snapshot();
     await fireEvent.press(getByTestId('AnnouncementNoActionButton'));
-    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
       variables: {
         input: { announcementId: '24' },
       },
@@ -128,30 +117,26 @@ describe('User clicks the Modal Action Button', () => {
     );
   });
 
-  it('Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO action', async () => {
+  it('Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO and Track action', async () => {
     const { getByTestId, snapshot } = renderWithContext(
       <AnnouncementsModal />,
       {
         initialState,
         mocks: {
-          AnnouncementConnection: () => ({
-            nodes: () => [
-              {
-                body: 'This is  a test for the new modal',
-                id: '24',
-                title: 'Another Test 17',
-                actions: {
-                  nodes: [
-                    {
-                      label: 'Go To Google',
-                      id: '18',
-                      action: 'go',
-                      args: 'https://www.google.com/',
-                    },
-                  ],
+          Announcement: () => ({
+            body: 'This is  a test for the new modal',
+            id: '24',
+            title: 'Another Test 17',
+            actions: {
+              nodes: [
+                {
+                  label: 'Go To Google',
+                  id: '18',
+                  uri: 'https://www.google.com/',
+                  trackAction: 'some action to track',
                 },
-              },
-            ],
+              ],
+            },
           }),
         },
       },
@@ -160,7 +145,45 @@ describe('User clicks the Modal Action Button', () => {
 
     expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
     await fireEvent.press(getByTestId('AnnouncementActionButton'));
-    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
+      variables: {
+        input: { announcementId: '24', announcementActionId: '18' },
+      },
+    });
+    expect(getByTestId('AnnouncementActionButton').props.text).toEqual(
+      'GO TO GOOGLE',
+    );
+    snapshot();
+  });
+
+  it('Should fire the HANDLE_ANNOUCMENTS mutation when the user clicks the modals action button | GO action', async () => {
+    const { getByTestId, snapshot } = renderWithContext(
+      <AnnouncementsModal />,
+      {
+        initialState,
+        mocks: {
+          Announcement: () => ({
+            body: 'This is  a test for the new modal',
+            id: '24',
+            title: 'Another Test 17',
+            actions: {
+              nodes: [
+                {
+                  label: 'Go To Google',
+                  id: '18',
+                  uri: 'https://www.google.com/',
+                },
+              ],
+            },
+          }),
+        },
+      },
+    );
+    await flushMicrotasksQueue();
+
+    expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
+    await fireEvent.press(getByTestId('AnnouncementActionButton'));
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
       variables: {
         input: { announcementId: '24', announcementActionId: '18' },
       },
@@ -177,24 +200,19 @@ describe('User clicks the Modal Action Button', () => {
       {
         initialState,
         mocks: {
-          AnnouncementConnection: () => ({
-            nodes: () => [
-              {
-                body: 'This is  a test for the new modal',
-                id: '24',
-                title: 'Another Test 17',
-                actions: {
-                  nodes: [
-                    {
-                      label: 'Track this action',
-                      id: '18',
-                      action: 'track',
-                      args: 'some action to track',
-                    },
-                  ],
+          Announcement: () => ({
+            body: 'This is  a test for the new modal',
+            id: '24',
+            title: 'Another Test 17',
+            actions: {
+              nodes: [
+                {
+                  label: 'Track this action',
+                  id: '18',
+                  trackAction: 'some action to track',
                 },
-              },
-            ],
+              ],
+            },
           }),
         },
       },
@@ -203,7 +221,7 @@ describe('User clicks the Modal Action Button', () => {
 
     expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
     await fireEvent.press(getByTestId('AnnouncementActionButton'));
-    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
       variables: {
         input: { announcementId: '24', announcementActionId: '18' },
       },
@@ -213,39 +231,35 @@ describe('User clicks the Modal Action Button', () => {
     );
     snapshot();
   });
+
   it('Should call useQuery again to refetch more announcements after user clicks an action', async () => {
     const { getByTestId } = renderWithContext(<AnnouncementsModal />, {
       initialState,
       mocks: {
-        AnnouncementConnection: () => ({
-          nodes: () => [
-            {
-              body: 'This is  a test for the new modal',
-              id: '24',
-              title: 'Another Test 17',
-              actions: {
-                nodes: [
-                  {
-                    label: 'Go To Google',
-                    id: '18',
-                    action: 'go',
-                    args: 'https://www.google.com/',
-                  },
-                ],
+        Announcement: () => ({
+          body: 'This is  a test for the new modal',
+          id: '24',
+          title: 'Another Test 17',
+          actions: {
+            nodes: [
+              {
+                label: 'Go To Google',
+                id: '18',
+                uri: 'https://www.google.com/',
               },
-            },
-          ],
+            ],
+          },
         }),
       },
     });
     await flushMicrotasksQueue();
     expect(getByTestId('AnnouncementActionButton')).toBeTruthy();
     await fireEvent.press(getByTestId('AnnouncementActionButton'));
-    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENTS, {
+    expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
       variables: {
         input: { announcementId: '24', announcementActionId: '18' },
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENTS);
+    expect(useQuery).toHaveBeenCalledWith(GET_ANNOUNCEMENT);
   });
 });
