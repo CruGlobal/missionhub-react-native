@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Linking } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import PersonListItem from '../../components/PersonListItem';
 import { organizationSelector } from '../../selectors/organizations';
 import { searchRemoveFilter, unassignedFilter } from '../../utils/filters';
 import { buildUpdatedPagination } from '../../utils/pagination';
+import { InfoModal } from '../../components/InfoModal/InfoModal';
 
 import { SEARCH_CONTACTS_FILTER_SCREEN } from './ContactsFilter';
 import styles from './styles';
@@ -124,10 +125,20 @@ class Contacts extends Component {
 
   render() {
     // @ts-ignore
-    const { t } = this.props;
+    const { t, organization } = this.props;
     const { filters, defaultResults } = this.state;
     return (
       <View style={styles.pageContainer}>
+        <InfoModal
+          title={t('movingToWeb')}
+          titleStyle={{ maxWidth: 200 }}
+          buttonLabel={t('findThemHere').toUpperCase()}
+          action={() =>
+            Linking.openURL(
+              `https://missionhub.com/ministries/${organization.id}/people`,
+            )
+          }
+        />
         <SearchList
           // @ts-ignore
           setSearch={this.setSearch}
