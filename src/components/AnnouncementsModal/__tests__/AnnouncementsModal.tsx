@@ -1,13 +1,24 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { MockList } from 'graphql-tools';
 
+import { trackAction } from '../../../actions/analytics';
 import { renderWithContext } from '../../../../testUtils';
 
 import AnnouncementsModal, { GET_ANNOUNCEMENT, HANDLE_ANNOUNCEMENT } from '..';
 
+jest.mock('../../../actions/analytics');
+
 const initialState = {};
+const trackActionResponse = { type: 'tracked action' };
+
+beforeEach(() => {
+  Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
+  (trackAction as jest.Mock).mockReturnValue(trackActionResponse);
+});
+
 it('renders correctly', async () => {
   renderWithContext(<AnnouncementsModal />, {
     initialState,
@@ -153,6 +164,8 @@ describe('User clicks the Modal Action Button', () => {
     expect(getByTestId('AnnouncementActionButton').props.text).toEqual(
       'GO TO GOOGLE',
     );
+    expect(Linking.openURL).toHaveBeenCalledWith('https://www.google.com/');
+    expect(trackAction).toHaveBeenCalledWith('some action to track', {});
     snapshot();
   });
 
@@ -191,6 +204,7 @@ describe('User clicks the Modal Action Button', () => {
     expect(getByTestId('AnnouncementActionButton').props.text).toEqual(
       'GO TO GOOGLE',
     );
+    expect(Linking.openURL).toHaveBeenCalledWith('https://www.google.com/');
     snapshot();
   });
 
@@ -229,6 +243,7 @@ describe('User clicks the Modal Action Button', () => {
     expect(getByTestId('AnnouncementActionButton').props.text).toEqual(
       'TRACK THIS ACTION',
     );
+    expect(trackAction).toHaveBeenCalledWith('some action to track', {});
     snapshot();
   });
 
