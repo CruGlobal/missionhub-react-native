@@ -114,7 +114,7 @@ export function navigateToCommunity(
 
 export function navigateToCelebrateComments(
   community: Organization,
-  celebrationItemId: string,
+  celebrationItemId?: string | null,
 ) {
   return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const orgId = community.id;
@@ -122,18 +122,22 @@ export function navigateToCelebrateComments(
 
     const event = { id: celebrationItemId, organization: community };
 
-    await dispatch(
-      navigateNestedReset([
-        {
-          routeName: getScreenForOrg(orgId, userCreated),
-          params: { orgId },
-        },
-        {
-          routeName: GROUP_UNREAD_FEED_SCREEN,
-          params: { organization: community },
-        },
-        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
-      ]),
-    );
+    if (celebrationItemId) {
+      await dispatch(
+        navigateNestedReset([
+          {
+            routeName: getScreenForOrg(orgId, userCreated),
+            params: { orgId },
+          },
+          {
+            routeName: GROUP_UNREAD_FEED_SCREEN,
+            params: { organization: community },
+          },
+          { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
+        ]),
+      );
+    } else {
+      dispatch(navigateToCommunity(community));
+    }
   };
 }
