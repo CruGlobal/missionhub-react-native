@@ -48,7 +48,7 @@ describe('getCelebrateFeed', () => {
       query: GET_CELEBRATE_FEED,
       variables: {
         communityId: orgId,
-        personIds: [personId],
+        personIds: personId,
         hasUnreadComments: undefined,
       },
     });

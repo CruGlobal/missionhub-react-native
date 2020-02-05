@@ -16,7 +16,7 @@ export const getCelebrateFeed = (
     query: GET_CELEBRATE_FEED,
     variables: {
       communityId,
-      personIds: (personId && [personId]) || undefined,
+      personIds: personId,
       hasUnreadComments,
     },
   });

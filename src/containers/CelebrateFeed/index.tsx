@@ -53,7 +53,7 @@ const CelebrateFeed = ({
 }: CelebrateFeedProps) => {
   const queryVariables = {
     communityId: organization.id,
-    personIds: (person && [person.id]) || undefined,
+    personIds: (person && person.id) || undefined,
     hasUnreadComments: showUnreadOnly,
   };
 
