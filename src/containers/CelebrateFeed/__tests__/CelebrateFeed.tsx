@@ -106,7 +106,7 @@ describe('renders for member', () => {
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
-        personIds: [person.id],
+        personIds: person.id,
       },
     });
   });
@@ -136,7 +136,7 @@ describe('renders for member', () => {
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
-        personIds: [person.id],
+        personIds: person.id,
       },
     });
   });
