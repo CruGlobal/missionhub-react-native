@@ -67,7 +67,7 @@ describe('User clicks the close button', () => {
 
     await fireEvent.press(getByTestId('CloseButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
-      variables: { input: { announcementId: '1' } },
+      variables: { input: { announcementId: '1', announcementActionId: null } },
     });
   });
 });
@@ -120,7 +120,7 @@ describe('User clicks the Modal Action Button', () => {
     await fireEvent.press(getByTestId('AnnouncementNoActionButton'));
     expect(useMutation).toHaveBeenMutatedWith(HANDLE_ANNOUNCEMENT, {
       variables: {
-        input: { announcementId: '24' },
+        input: { announcementId: '24', announcementActionId: null },
       },
     });
     expect(getByTestId('AnnouncementNoActionButton').props.text).toEqual(

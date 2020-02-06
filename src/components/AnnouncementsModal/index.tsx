@@ -68,28 +68,18 @@ const AnnouncementsModal = () => {
     announcementId: string,
     announcementAction?: GetAnnouncement_announcement_actions_nodes,
   ) => {
-    if (announcementAction) {
-      const { id, trackAction, uri } = announcementAction;
-      await handleAnnouncementAction({
-        variables: {
-          input: {
-            announcementId,
-            announcementActionId: id,
-          },
+    const { id, trackAction, uri } = announcementAction || {};
+    await handleAnnouncementAction({
+      variables: {
+        input: {
+          announcementId,
+          announcementActionId: id ? id : null,
         },
-      });
+      },
+    });
 
-      uri && Linking.openURL(uri);
-      trackAction && analyticsTrackAction(trackAction, {});
-    } else {
-      await handleAnnouncementAction({
-        variables: {
-          input: {
-            announcementId,
-          },
-        },
-      });
-    }
+    uri && Linking.openURL(uri);
+    trackAction && analyticsTrackAction(trackAction, {});
   };
 
   if (loading || !announcement) {
