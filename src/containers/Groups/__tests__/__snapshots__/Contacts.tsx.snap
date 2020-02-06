@@ -9,6 +9,16 @@ exports[`Contacts should render correctly 1`] = `
     }
   }
 >
+  <InfoModal
+    action={[Function]}
+    buttonLabel="FIND THEM HERE"
+    title="We are moving Contacts to the web!"
+    titleStyle={
+      Object {
+        "maxWidth": 200,
+      }
+    }
+  />
   <withI18nextTranslation(SearchList)
     defaultData={Array []}
     filters={

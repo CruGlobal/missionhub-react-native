@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Linking } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import { navigatePush } from '../../actions/navigation';
 import { getOrgSurveys, getOrgSurveysNextPage } from '../../actions/surveys';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
+import { InfoModal } from '../../components/InfoModal/InfoModal';
 
 import { GROUPS_SURVEY_CONTACTS } from './SurveyContacts';
 import styles from './styles';
@@ -71,9 +72,19 @@ class Surveys extends Component {
 
   render() {
     // @ts-ignore
-    const { surveys, pagination } = this.props;
+    const { surveys, pagination, organization, t } = this.props;
     return (
       <View style={styles.pageContainer}>
+        <InfoModal
+          title={t('movingToWeb')}
+          titleStyle={{ maxWidth: 200 }}
+          buttonLabel={t('findThemHere').toUpperCase()}
+          action={() =>
+            Linking.openURL(
+              `https://missionhub.com/ministries/${organization.id}/surveyResponses`,
+            )
+          }
+        />
         <FlatList
           data={surveys}
           ListHeaderComponent={this.renderHeader}

@@ -667,12 +667,16 @@ export default {
   groupsContacts: {
     title: '',
     searchPlaceholder: 'Search Contacts',
+    movingToWeb: 'We are moving Contacts to the web!',
+    findThemHere: 'Find them here',
   },
   memberContacts: {
     nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
   },
   groupsSurveys: {
     title: '',
+    movingToWeb: 'We are moving Surveys to the web!',
+    findThemHere: 'Find them here',
   },
   groupsSurveyContacts: {
     searchPlaceholder: 'Search Contacts',
