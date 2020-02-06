@@ -4,6 +4,7 @@ import { connect } from 'react-redux-legacy';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useApolloClient } from '@apollo/react-hooks';
 
 import CommentLikeComponent from '../CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
@@ -20,7 +21,8 @@ import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
 import Analytics from '../Analytics';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import {
   CelebrateCommentsState,
@@ -44,9 +46,14 @@ const CelebrateDetailScreen = ({
   celebrateComments,
   editingCommentId,
 }: CelebrateDetailScreenProps) => {
-  const event: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
-    'event',
-  );
+  const client = useApolloClient();
+  const event: CelebrateItem = useNavigationParam('event');
+  const event2 = client.readFragment<CelebrateItem>({
+    id: `CommunityCelebrationItem:${event.id}`,
+    fragment: CELEBRATE_ITEM_FRAGMENT,
+    fragmentName: 'CelebrateItem',
+  });
+  const celebrateItem = event2 || event;
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
@@ -72,7 +79,7 @@ const CelebrateDetailScreen = ({
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
 
   const refreshComments = () => {
-    return dispatch(reloadCelebrateComments(event.id, organization.id));
+    return dispatch(reloadCelebrateComments(celebrateItem.id, organization.id));
   };
 
   const { isRefreshing, refresh } = useRefreshing(refreshComments);
@@ -84,15 +91,15 @@ const CelebrateDetailScreen = ({
         <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
             <CelebrateItemName
-              name={event.subjectPersonName}
-              person={event.subjectPerson}
+              name={celebrateItem.subjectPersonName}
+              person={celebrateItem.subjectPerson}
               organization={organization}
               pressable={true}
             />
-            <CardTime date={event.changedAttributeValue} />
+            <CardTime date={celebrateItem.changedAttributeValue} />
           </View>
           <CommentLikeComponent
-            event={event}
+            event={celebrateItem}
             organization={organization}
             onRefresh={onRefreshCelebrateItem}
           />
@@ -111,7 +118,7 @@ const CelebrateDetailScreen = ({
       <Image source={TRAILS1} style={styles.trailsTop} />
       <Image source={TRAILS2} style={styles.trailsBottom} />
       <CommentsList
-        event={event}
+        event={celebrateItem}
         organization={organization}
         listProps={{
           ref: listRef,
@@ -124,7 +131,7 @@ const CelebrateDetailScreen = ({
           ),
           ListHeaderComponent: () => (
             <CelebrateItemContent
-              event={event}
+              event={celebrateItem}
               organization={organization}
               style={styles.itemContent}
             />
@@ -136,7 +143,7 @@ const CelebrateDetailScreen = ({
 
   const renderCommentBox = () => (
     <CelebrateCommentBox
-      event={event}
+      event={celebrateItem}
       onAddComplete={scrollToEnd}
       organization={organization}
     />
