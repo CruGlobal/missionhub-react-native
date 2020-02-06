@@ -47,13 +47,13 @@ const CelebrateDetailScreen = ({
   editingCommentId,
 }: CelebrateDetailScreenProps) => {
   const client = useApolloClient();
-  const event: CelebrateItem = useNavigationParam('event');
-  const event2 = client.readFragment<CelebrateItem>({
-    id: `CommunityCelebrationItem:${event.id}`,
-    fragment: CELEBRATE_ITEM_FRAGMENT,
-    fragmentName: 'CelebrateItem',
-  });
-  const celebrateItem = event2 || event;
+  const navParamsEvent: CelebrateItem = useNavigationParam('event');
+  const event =
+    client.readFragment<CelebrateItem>({
+      id: `CommunityCelebrationItem:${navParamsEvent.id}`,
+      fragment: CELEBRATE_ITEM_FRAGMENT,
+      fragmentName: 'CelebrateItem',
+    }) || navParamsEvent;
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
@@ -79,7 +79,7 @@ const CelebrateDetailScreen = ({
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
 
   const refreshComments = () => {
-    return dispatch(reloadCelebrateComments(celebrateItem.id, organization.id));
+    return dispatch(reloadCelebrateComments(event.id, organization.id));
   };
 
   const { isRefreshing, refresh } = useRefreshing(refreshComments);
@@ -91,15 +91,15 @@ const CelebrateDetailScreen = ({
         <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
             <CelebrateItemName
-              name={celebrateItem.subjectPersonName}
-              person={celebrateItem.subjectPerson}
+              name={event.subjectPersonName}
+              person={event.subjectPerson}
               organization={organization}
               pressable={true}
             />
-            <CardTime date={celebrateItem.changedAttributeValue} />
+            <CardTime date={event.changedAttributeValue} />
           </View>
           <CommentLikeComponent
-            event={celebrateItem}
+            event={event}
             organization={organization}
             onRefresh={onRefreshCelebrateItem}
           />
@@ -118,7 +118,7 @@ const CelebrateDetailScreen = ({
       <Image source={TRAILS1} style={styles.trailsTop} />
       <Image source={TRAILS2} style={styles.trailsBottom} />
       <CommentsList
-        event={celebrateItem}
+        event={event}
         organization={organization}
         listProps={{
           ref: listRef,
@@ -131,7 +131,7 @@ const CelebrateDetailScreen = ({
           ),
           ListHeaderComponent: () => (
             <CelebrateItemContent
-              event={celebrateItem}
+              event={event}
               organization={organization}
               style={styles.itemContent}
             />
@@ -143,7 +143,7 @@ const CelebrateDetailScreen = ({
 
   const renderCommentBox = () => (
     <CelebrateCommentBox
-      event={celebrateItem}
+      event={event}
       onAddComplete={scrollToEnd}
       organization={organization}
     />
