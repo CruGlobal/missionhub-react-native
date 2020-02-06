@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { addNewInteraction, editComment } from '../interactions';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
+import { getCelebrateFeed } from '../celebration';
 import { trackActionWithoutData, trackAction } from '../analytics';
 import { refreshImpact } from '../impact';
 import { ACTIONS, INTERACTION_TYPES } from '../../constants';
@@ -172,6 +173,7 @@ describe('add comment', () => {
       expect(trackAction).toHaveBeenCalledWith(ACTIONS.INTERACTION.name, {
         [interaction.tracking]: null,
       });
+      expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
       // @ts-ignore
       expect(store.getActions()).toEqual([
         addCommentResult,
