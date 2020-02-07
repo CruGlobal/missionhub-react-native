@@ -5,9 +5,8 @@ exports[`OnboardingCard render celebrate card 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
-      "borderBottomColor": "#ECEEF2",
-      "borderBottomWidth": 1,
       "borderRadius": 0,
+      "marginBottom": 5,
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
