@@ -74,6 +74,871 @@ exports[`renders empty correctly 1`] = `
 </RCTScrollView>
 `;
 
+exports[`renders for Global Community renders correctly 1`] = `
+<RCTScrollView
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 10,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "hic veritatis qui",
+            "adjectiveAttributeValue": "ex culpa earum",
+            "celebrateableId": "20",
+            "celebrateableType": "V4::Story",
+            "changedAttributeName": "voluptate vel labore",
+            "changedAttributeValue": "2017-09-28T01:02:07.116Z",
+            "commentsCount": 76292,
+            "id": "19",
+            "liked": true,
+            "likesCount": 77159,
+            "objectDescription": "sunt corporis alias",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Oliver",
+              "id": "21",
+              "lastName": "Morissette",
+            },
+            "subjectPersonName": "Connor Kihn",
+          },
+        ],
+        "date": "2017-09-28T01:02:07.116Z",
+        "id": 0,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ratione a officia",
+            "adjectiveAttributeValue": "quaerat cumque incidunt",
+            "celebrateableId": "8",
+            "celebrateableType": "V4::AcceptedChallenge",
+            "changedAttributeName": "aut provident esse",
+            "changedAttributeValue": "2016-01-27T11:31:41.601Z",
+            "commentsCount": 94993,
+            "id": "7",
+            "liked": true,
+            "likesCount": 49305,
+            "objectDescription": "esse ut ab",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Nova",
+              "id": "9",
+              "lastName": "Leuschke",
+            },
+            "subjectPersonName": "Caesar Feest",
+          },
+        ],
+        "date": "2016-01-27T11:31:41.601Z",
+        "id": 1,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "eligendi omnis repellat",
+            "adjectiveAttributeValue": "quasi ipsum rem",
+            "celebrateableId": "26",
+            "celebrateableType": "V4::Organization",
+            "changedAttributeName": "eos quod recusandae",
+            "changedAttributeValue": "2015-09-24T22:48:18.365Z",
+            "commentsCount": 19195,
+            "id": "25",
+            "liked": true,
+            "likesCount": 46431,
+            "objectDescription": "et incidunt possimus",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Joey",
+              "id": "27",
+              "lastName": "Romaguera",
+            },
+            "subjectPersonName": "Haylee Klocko",
+          },
+        ],
+        "date": "2015-09-24T22:48:18.365Z",
+        "id": 2,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ex ut voluptas",
+            "adjectiveAttributeValue": "enim ex eveniet",
+            "celebrateableId": "17",
+            "celebrateableType": "V4::OrganizationalPermission",
+            "changedAttributeName": "facere molestiae aut",
+            "changedAttributeValue": "2014-10-17T09:34:50.933Z",
+            "commentsCount": 96484,
+            "id": "16",
+            "liked": false,
+            "likesCount": 66344,
+            "objectDescription": "et dolorum architecto",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Betsy",
+              "id": "18",
+              "lastName": "Schaefer",
+            },
+            "subjectPersonName": "Heather Hahn",
+          },
+        ],
+        "date": "2014-10-17T09:34:50.933Z",
+        "id": 3,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "quae nam eos",
+            "adjectiveAttributeValue": "sint autem rerum",
+            "celebrateableId": "11",
+            "celebrateableType": "V4::AcceptedCommunityChallenge",
+            "changedAttributeName": "doloremque officia aut",
+            "changedAttributeValue": "2013-05-05T10:14:48.380Z",
+            "commentsCount": 90340,
+            "id": "10",
+            "liked": true,
+            "likesCount": 13747,
+            "objectDescription": "ducimus eos saepe",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Raegan",
+              "id": "12",
+              "lastName": "Hirthe",
+            },
+            "subjectPersonName": "Chyna Howe",
+          },
+        ],
+        "date": "2013-05-05T10:14:48.380Z",
+        "id": 4,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "quia et ab",
+            "adjectiveAttributeValue": "quo occaecati quia",
+            "celebrateableId": "29",
+            "celebrateableType": "V4::AcceptedChallenge",
+            "changedAttributeName": "ipsum sit qui",
+            "changedAttributeValue": "2012-04-03T21:06:10.473Z",
+            "commentsCount": 2621,
+            "id": "28",
+            "liked": false,
+            "likesCount": 2830,
+            "objectDescription": "molestias dolore aut",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Ryley",
+              "id": "30",
+              "lastName": "Grant",
+            },
+            "subjectPersonName": "Brooklyn Weimann",
+          },
+        ],
+        "date": "2012-04-03T21:06:10.473Z",
+        "id": 5,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "in ut dolorem",
+            "adjectiveAttributeValue": "et molestiae ea",
+            "celebrateableId": "14",
+            "celebrateableType": "V4::Organization",
+            "changedAttributeName": "ut sunt placeat",
+            "changedAttributeValue": "2011-07-30T23:09:48.676Z",
+            "commentsCount": 63783,
+            "id": "13",
+            "liked": true,
+            "likesCount": 12631,
+            "objectDescription": "aut est fuga",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Luz",
+              "id": "15",
+              "lastName": "Rohan",
+            },
+            "subjectPersonName": "Gracie Weber",
+          },
+        ],
+        "date": "2011-07-30T23:09:48.676Z",
+        "id": 6,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "sequi voluptas culpa",
+            "adjectiveAttributeValue": "non aut rerum",
+            "celebrateableId": "23",
+            "celebrateableType": "V4::OrganizationalPermission",
+            "changedAttributeName": "impedit ex rem",
+            "changedAttributeValue": "2010-11-26T00:55:36.529Z",
+            "commentsCount": 90853,
+            "id": "22",
+            "liked": true,
+            "likesCount": 62336,
+            "objectDescription": "totam perferendis ut",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Tobin",
+              "id": "24",
+              "lastName": "Sipes",
+            },
+            "subjectPersonName": "Alek Lesch",
+          },
+        ],
+        "date": "2010-11-26T00:55:36.529Z",
+        "id": 7,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "doloribus distinctio placeat",
+            "adjectiveAttributeValue": "ullam minima ducimus",
+            "celebrateableId": "2",
+            "celebrateableType": "V4::OrganizationalPermission",
+            "changedAttributeName": "temporibus modi aut",
+            "changedAttributeValue": "2010-09-19T03:58:30.504Z",
+            "commentsCount": 7336,
+            "id": "1",
+            "liked": false,
+            "likesCount": 46923,
+            "objectDescription": "voluptates explicabo exercitationem",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Stewart",
+              "id": "3",
+              "lastName": "Grant",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          },
+        ],
+        "date": "2010-09-19T03:58:30.504Z",
+        "id": 8,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "sed magni cupiditate",
+            "adjectiveAttributeValue": "sit vitae soluta",
+            "celebrateableId": "5",
+            "celebrateableType": "V4::AcceptedCommunityChallenge",
+            "changedAttributeName": "sint non voluptates",
+            "changedAttributeValue": "2010-01-19T12:03:03.064Z",
+            "commentsCount": 26554,
+            "id": "4",
+            "liked": false,
+            "likesCount": 49157,
+            "objectDescription": "qui illo error",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Kieran",
+              "id": "6",
+              "lastName": "Morar",
+            },
+            "subjectPersonName": "Aaliyah Champlin",
+          },
+        ],
+        "date": "2010-01-19T12:03:03.064Z",
+        "id": 9,
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={50}
+  sections={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "hic veritatis qui",
+            "adjectiveAttributeValue": "ex culpa earum",
+            "celebrateableId": "20",
+            "celebrateableType": "V4::Story",
+            "changedAttributeName": "voluptate vel labore",
+            "changedAttributeValue": "2017-09-28T01:02:07.116Z",
+            "commentsCount": 76292,
+            "id": "19",
+            "liked": true,
+            "likesCount": 77159,
+            "objectDescription": "sunt corporis alias",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Oliver",
+              "id": "21",
+              "lastName": "Morissette",
+            },
+            "subjectPersonName": "Connor Kihn",
+          },
+        ],
+        "date": "2017-09-28T01:02:07.116Z",
+        "id": 0,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ratione a officia",
+            "adjectiveAttributeValue": "quaerat cumque incidunt",
+            "celebrateableId": "8",
+            "celebrateableType": "V4::AcceptedChallenge",
+            "changedAttributeName": "aut provident esse",
+            "changedAttributeValue": "2016-01-27T11:31:41.601Z",
+            "commentsCount": 94993,
+            "id": "7",
+            "liked": true,
+            "likesCount": 49305,
+            "objectDescription": "esse ut ab",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Nova",
+              "id": "9",
+              "lastName": "Leuschke",
+            },
+            "subjectPersonName": "Caesar Feest",
+          },
+        ],
+        "date": "2016-01-27T11:31:41.601Z",
+        "id": 1,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "eligendi omnis repellat",
+            "adjectiveAttributeValue": "quasi ipsum rem",
+            "celebrateableId": "26",
+            "celebrateableType": "V4::Organization",
+            "changedAttributeName": "eos quod recusandae",
+            "changedAttributeValue": "2015-09-24T22:48:18.365Z",
+            "commentsCount": 19195,
+            "id": "25",
+            "liked": true,
+            "likesCount": 46431,
+            "objectDescription": "et incidunt possimus",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Joey",
+              "id": "27",
+              "lastName": "Romaguera",
+            },
+            "subjectPersonName": "Haylee Klocko",
+          },
+        ],
+        "date": "2015-09-24T22:48:18.365Z",
+        "id": 2,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ex ut voluptas",
+            "adjectiveAttributeValue": "enim ex eveniet",
+            "celebrateableId": "17",
+            "celebrateableType": "V4::OrganizationalPermission",
+            "changedAttributeName": "facere molestiae aut",
+            "changedAttributeValue": "2014-10-17T09:34:50.933Z",
+            "commentsCount": 96484,
+            "id": "16",
+            "liked": false,
+            "likesCount": 66344,
+            "objectDescription": "et dolorum architecto",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Betsy",
+              "id": "18",
+              "lastName": "Schaefer",
+            },
+            "subjectPersonName": "Heather Hahn",
+          },
+        ],
+        "date": "2014-10-17T09:34:50.933Z",
+        "id": 3,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "quae nam eos",
+            "adjectiveAttributeValue": "sint autem rerum",
+            "celebrateableId": "11",
+            "celebrateableType": "V4::AcceptedCommunityChallenge",
+            "changedAttributeName": "doloremque officia aut",
+            "changedAttributeValue": "2013-05-05T10:14:48.380Z",
+            "commentsCount": 90340,
+            "id": "10",
+            "liked": true,
+            "likesCount": 13747,
+            "objectDescription": "ducimus eos saepe",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Raegan",
+              "id": "12",
+              "lastName": "Hirthe",
+            },
+            "subjectPersonName": "Chyna Howe",
+          },
+        ],
+        "date": "2013-05-05T10:14:48.380Z",
+        "id": 4,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "quia et ab",
+            "adjectiveAttributeValue": "quo occaecati quia",
+            "celebrateableId": "29",
+            "celebrateableType": "V4::AcceptedChallenge",
+            "changedAttributeName": "ipsum sit qui",
+            "changedAttributeValue": "2012-04-03T21:06:10.473Z",
+            "commentsCount": 2621,
+            "id": "28",
+            "liked": false,
+            "likesCount": 2830,
+            "objectDescription": "molestias dolore aut",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Ryley",
+              "id": "30",
+              "lastName": "Grant",
+            },
+            "subjectPersonName": "Brooklyn Weimann",
+          },
+        ],
+        "date": "2012-04-03T21:06:10.473Z",
+        "id": 5,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "in ut dolorem",
+            "adjectiveAttributeValue": "et molestiae ea",
+            "celebrateableId": "14",
+            "celebrateableType": "V4::Organization",
+            "changedAttributeName": "ut sunt placeat",
+            "changedAttributeValue": "2011-07-30T23:09:48.676Z",
+            "commentsCount": 63783,
+            "id": "13",
+            "liked": true,
+            "likesCount": 12631,
+            "objectDescription": "aut est fuga",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Luz",
+              "id": "15",
+              "lastName": "Rohan",
+            },
+            "subjectPersonName": "Gracie Weber",
+          },
+        ],
+        "date": "2011-07-30T23:09:48.676Z",
+        "id": 6,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "sequi voluptas culpa",
+            "adjectiveAttributeValue": "non aut rerum",
+            "celebrateableId": "23",
+            "celebrateableType": "V4::OrganizationalPermission",
+            "changedAttributeName": "impedit ex rem",
+            "changedAttributeValue": "2010-11-26T00:55:36.529Z",
+            "commentsCount": 90853,
+            "id": "22",
+            "liked": true,
+            "likesCount": 62336,
+            "objectDescription": "totam perferendis ut",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Tobin",
+              "id": "24",
+              "lastName": "Sipes",
+            },
+            "subjectPersonName": "Alek Lesch",
+          },
+        ],
+        "date": "2010-11-26T00:55:36.529Z",
+        "id": 7,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "doloribus distinctio placeat",
+            "adjectiveAttributeValue": "ullam minima ducimus",
+            "celebrateableId": "2",
+            "celebrateableType": "V4::OrganizationalPermission",
+            "changedAttributeName": "temporibus modi aut",
+            "changedAttributeValue": "2010-09-19T03:58:30.504Z",
+            "commentsCount": 7336,
+            "id": "1",
+            "liked": false,
+            "likesCount": 46923,
+            "objectDescription": "voluptates explicabo exercitationem",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Stewart",
+              "id": "3",
+              "lastName": "Grant",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          },
+        ],
+        "date": "2010-09-19T03:58:30.504Z",
+        "id": 8,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "sed magni cupiditate",
+            "adjectiveAttributeValue": "sit vitae soluta",
+            "celebrateableId": "5",
+            "celebrateableType": "V4::AcceptedCommunityChallenge",
+            "changedAttributeName": "sint non voluptates",
+            "changedAttributeValue": "2010-01-19T12:03:03.064Z",
+            "commentsCount": 26554,
+            "id": "4",
+            "liked": false,
+            "likesCount": 49157,
+            "objectDescription": "qui illo error",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Kieran",
+              "id": "6",
+              "lastName": "Morar",
+            },
+            "subjectPersonName": "Aaliyah Champlin",
+          },
+        ],
+        "date": "2010-01-19T12:03:03.064Z",
+        "id": 9,
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+      4,
+      7,
+      10,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CelebrateFeedHeader
+        isMember={false}
+        organization={
+          Object {
+            "id": "_global_community_id",
+          }
+        }
+      />
+      <ShareStoryInput
+        dispatch={[Function]}
+        organization={
+          Object {
+            "id": "_global_community_id",
+          }
+        }
+        refreshItems={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <DateComponent
+          date="2017-09-28T01:02:07.116Z"
+          format="relative"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 12,
+              "textAlign": "center",
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CelebrateItem
+        event={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "hic veritatis qui",
+            "adjectiveAttributeValue": "ex culpa earum",
+            "celebrateableId": "20",
+            "celebrateableType": "V4::Story",
+            "changedAttributeName": "voluptate vel labore",
+            "changedAttributeValue": "2017-09-28T01:02:07.116Z",
+            "commentsCount": 76292,
+            "id": "19",
+            "liked": true,
+            "likesCount": 77159,
+            "objectDescription": "sunt corporis alias",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Oliver",
+              "id": "21",
+              "lastName": "Morissette",
+            },
+            "subjectPersonName": "Connor Kihn",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+        organization={
+          Object {
+            "id": "_global_community_id",
+          }
+        }
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <DateComponent
+          date="2016-01-27T11:31:41.601Z"
+          format="relative"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 12,
+              "textAlign": "center",
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CelebrateItem
+        event={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ratione a officia",
+            "adjectiveAttributeValue": "quaerat cumque incidunt",
+            "celebrateableId": "8",
+            "celebrateableType": "V4::AcceptedChallenge",
+            "changedAttributeName": "aut provident esse",
+            "changedAttributeValue": "2016-01-27T11:31:41.601Z",
+            "commentsCount": 94993,
+            "id": "7",
+            "liked": true,
+            "likesCount": 49305,
+            "objectDescription": "esse ut ab",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Nova",
+              "id": "9",
+              "lastName": "Leuschke",
+            },
+            "subjectPersonName": "Caesar Feest",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+        organization={
+          Object {
+            "id": "_global_community_id",
+          }
+        }
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <DateComponent
+          date="2015-09-24T22:48:18.365Z"
+          format="relative"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 12,
+              "textAlign": "center",
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CelebrateItem
+        event={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "eligendi omnis repellat",
+            "adjectiveAttributeValue": "quasi ipsum rem",
+            "celebrateableId": "26",
+            "celebrateableType": "V4::Organization",
+            "changedAttributeName": "eos quod recusandae",
+            "changedAttributeValue": "2015-09-24T22:48:18.365Z",
+            "commentsCount": 19195,
+            "id": "25",
+            "liked": true,
+            "likesCount": 46431,
+            "objectDescription": "et incidunt possimus",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Joey",
+              "id": "27",
+              "lastName": "Romaguera",
+            },
+            "subjectPersonName": "Haylee Klocko",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+        organization={
+          Object {
+            "id": "_global_community_id",
+          }
+        }
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <DateComponent
+          date="2014-10-17T09:34:50.933Z"
+          format="relative"
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 12,
+              "textAlign": "center",
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
 exports[`renders for Unread Comments renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
