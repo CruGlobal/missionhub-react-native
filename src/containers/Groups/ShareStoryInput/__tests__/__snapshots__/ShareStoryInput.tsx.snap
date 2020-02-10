@@ -11,6 +11,8 @@ exports[`renders correctly 1`] = `
       "borderBottomWidth": 1,
       "elevation": 4,
       "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 1,

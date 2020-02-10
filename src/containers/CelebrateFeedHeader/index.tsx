@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
+import { useQuery } from '@apollo/react-hooks';
+import { useDispatch } from 'react-redux';
 
-import { getReportedComments } from '../../actions/reportComments';
+import { GET_REPORTED_CONTENT } from '../Groups/GroupReport';
 import { Flex } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -11,135 +12,132 @@ import { navigatePush } from '../../actions/navigation';
 import { GROUPS_REPORT_SCREEN } from '../Groups/GroupReport';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
-} from '../../containers/Groups/OnboardingCard';
+} from '../Groups/OnboardingCard';
 import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
-import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
+import ReportItemHeaderCard from '../../components/ReportItemHeaderCard';
 import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
+import { Organization, OrganizationsState } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
-class CelebrateFeedHeader extends Component {
-  componentDidMount() {
-    const {
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      organization: { id: orgId },
-      // @ts-ignore
-      shouldQueryReport,
-    } = this.props;
-    if (shouldQueryReport) {
-      dispatch(getReportedComments(orgId));
-    }
-  }
+interface CelebrateFeedHeaderProps {
+  shouldQueryReport: boolean;
+  organization: Organization;
+  isMember: boolean;
+}
 
-  closeCommentCard = () => {
-    const {
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      organization: { id: orgId },
-    } = this.props;
+const CelebrateFeedHeader = ({
+  shouldQueryReport,
+  organization,
+  isMember,
+}: CelebrateFeedHeaderProps) => {
+  const dispatch = useDispatch();
+  const { id: orgId } = organization;
+
+  const {
+    data: {
+      community: {
+        contentComplaints: { nodes: ReportedContent = [] } = {},
+      } = {},
+    } = {},
+    loading,
+    refetch,
+  } = useQuery(GET_REPORTED_CONTENT, {
+    variables: {
+      id: orgId,
+    },
+  });
+  const unreadCommentCount = organization.unread_comments_count;
+  const reportedContentCount = ReportedContent.length;
+  const isReportVisible = shouldQueryReport && reportedContentCount !== 0;
+  const isCommentCardVisible =
+    !orgIsGlobal(organization) && unreadCommentCount !== 0;
+
+  const closeCommentCard = () => {
     dispatch(markCommentsRead(orgId));
+    refetch();
   };
 
-  report = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
+  const report = () => {
     dispatch(navigatePush(GROUPS_REPORT_SCREEN, { organization }));
   };
 
-  commentCard = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
+  const commentCard = () => {
     dispatch(navigatePush(GROUP_UNREAD_FEED_SCREEN, { organization }));
   };
 
-  renderCommentCard() {
-    // @ts-ignore
-    const { isCommentCardVisible, newCommentsCount } = this.props;
-    if (!isCommentCardVisible) {
+  const renderCommentCard = () => {
+    if (unreadCommentCount === 0) {
       return null;
     }
+
     return (
       <UnreadCommentsCard
-        count={newCommentsCount}
-        onPress={this.commentCard}
-        onClose={this.closeCommentCard}
+        testID="UnreadCommentsCard"
+        count={unreadCommentCount}
+        onPress={commentCard}
+        onClose={closeCommentCard}
       />
     );
-  }
+  };
 
-  renderReport() {
-    // @ts-ignore
-    const { reportedCount, isReportVisible } = this.props;
-    if (!isReportVisible) {
+  const renderReport = () => {
+    if (loading || reportedContentCount === 0) {
       return null;
     }
     return (
-      <ReportCommentHeaderCard onPress={this.report} count={reportedCount} />
+      <ReportItemHeaderCard
+        testID="ReportItemCard"
+        onPress={report}
+        count={reportedContentCount}
+      />
     );
-  }
+  };
 
-  render() {
-    // @ts-ignore
-    const { isMember, isReportVisible, isCommentCardVisible } = this.props;
-    return (
-      <Fragment>
-        {isCommentCardVisible ? null : (
-          // @ts-ignore
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
-        )}
-        {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
-          <Flex style={styles.itemWrap}>
-            {this.renderCommentCard()}
-            {isReportVisible && isCommentCardVisible ? (
-              <Flex style={styles.bothPadding} />
-            ) : null}
-            {this.renderReport()}
-          </Flex>
-        )}
-      </Fragment>
-    );
-  }
-}
-
-// @ts-ignore
-CelebrateFeedHeader.propTypes = {
-  organization: PropTypes.object.isRequired,
-  isMember: PropTypes.bool,
+  return (
+    <>
+      {isCommentCardVisible ? null : (
+        //@ts-ignore
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+      )}
+      {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
+        <Flex style={styles.itemWrap}>
+          {!isCommentCardVisible ? null : renderCommentCard()}
+          {isReportVisible && isCommentCardVisible ? (
+            <Flex style={styles.bothPadding} />
+          ) : null}
+          {!isReportVisible ? null : renderReport()}
+        </Flex>
+      )}
+    </>
+  );
 };
 
 export const mapStateToProps = (
-  // @ts-ignore
-  { auth, organizations, reportedComments },
-  { organization = {} },
+  {
+    auth,
+    organizations,
+  }: { auth: AuthState; organizations: OrganizationsState },
+  { organization = {} }: { organization: Organization },
 ) => {
   const selectorOrg =
-    // @ts-ignore
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;
 
-  // @ts-ignore
-  const myOrgPerm = orgPermissionSelector(null, {
-    person: auth.person,
-    organization: { id: selectorOrg.id },
-  });
-  const allReportedComments = reportedComments.all[selectorOrg.id] || [];
-  const reportedCount = allReportedComments.length;
-
+  const myOrgPerm = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization: { id: selectorOrg.id },
+    },
+  );
   const shouldQueryReport = shouldQueryReportedComments(selectorOrg, myOrgPerm);
-  const newCommentsCount = selectorOrg.unread_comments_count;
 
   return {
     organization: selectorOrg,
     shouldQueryReport,
-    isReportVisible: shouldQueryReport && reportedCount !== 0,
-    reportedCount,
-    isCommentCardVisible:
-      !orgIsGlobal(selectorOrg) && newCommentsCount && newCommentsCount !== 0,
-    newCommentsCount,
   };
 };
 

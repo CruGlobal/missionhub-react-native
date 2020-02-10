@@ -6,7 +6,6 @@ import {
   GET_ORGANIZATIONS_CONTACTS_REPORT,
   GET_ORGANIZATION_SURVEYS,
   GET_ORGANIZATION_MEMBERS,
-  RESET_CELEBRATION_PAGINATION,
   RESET_CHALLENGE_PAGINATION,
   LOAD_ORGANIZATIONS,
   DEFAULT_PAGE_LIMIT,
@@ -124,8 +123,6 @@ function organizationsReducer(state = initialState, action: any) {
           : state.all,
         surveysPagination: getPagination(action, allSurveys.length),
       };
-    case REQUESTS.GET_GROUP_CELEBRATE_FEED.SUCCESS:
-    case REQUESTS.GET_GLOBAL_CELEBRATE_FEED.SUCCESS:
     case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
       const isChallenge =
         action.type === REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS;
@@ -178,8 +175,6 @@ function organizationsReducer(state = initialState, action: any) {
             )
           : state.all,
       };
-
-    case RESET_CELEBRATION_PAGINATION:
     case RESET_CHALLENGE_PAGINATION:
       const resetCPagination =
         action.type === RESET_CHALLENGE_PAGINATION
@@ -196,18 +191,6 @@ function organizationsReducer(state = initialState, action: any) {
             : o,
         ),
       };
-    case REQUESTS.CREATE_CELEBRATE_COMMENT.SUCCESS:
-      return changeOrgCelebrationComment(action, state, true);
-    case REQUESTS.DELETE_CELEBRATE_COMMENT.SUCCESS:
-      return changeOrgCelebrationComment(action, state, false);
-    case REQUESTS.LIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleOrgCelebrationLike(action, state, true);
-    case REQUESTS.UNLIKE_CELEBRATE_ITEM.SUCCESS:
-      return toggleOrgCelebrationLike(action, state, false);
-    case REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
-      return toggleGlobalCelebrationLike(action, state, true);
-    case REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM.SUCCESS:
-      return toggleGlobalCelebrationLike(action, state, false);
     case GET_ORGANIZATION_MEMBERS:
       const { orgId: memberOrgId, query: memberQuery, members } = action;
       const currentMemberOrg = state.all.find(o => o.id === memberOrgId);
@@ -317,79 +300,6 @@ function organizationsReducer(state = initialState, action: any) {
     default:
       return state;
   }
-}
-
-function changeOrgCelebrationComment(
-  { query: { orgId, eventId } }: { query: { orgId: string; eventId: string } },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  state: any,
-  isIncrement: boolean,
-) {
-  return updateCelebrationItem(
-    { id: orgId, eventId },
-    state,
-    (c: { comments_count: number }) => ({
-      ...c,
-      comments_count: c.comments_count + (isIncrement ? 1 : -1),
-    }),
-  );
-}
-
-function toggleLiked(liked: boolean) {
-  return (c: { likes_count: number }) => ({
-    ...c,
-    liked,
-    likes_count: c.likes_count + (liked ? 1 : -1),
-  });
-}
-
-function toggleOrgCelebrationLike(
-  { query: { orgId, eventId } }: { query: { orgId: string; eventId: string } },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  state: any,
-  liked: boolean,
-) {
-  return updateCelebrationItem(
-    { id: orgId, eventId },
-    state,
-    toggleLiked(liked),
-  );
-}
-
-function toggleGlobalCelebrationLike(
-  { query: { eventId } }: { query: { eventId: string } },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  state: any,
-  liked: boolean,
-) {
-  return updateCelebrationItem(
-    { id: GLOBAL_COMMUNITY_ID, eventId },
-    state,
-    toggleLiked(liked),
-  );
-}
-
-function updateCelebrationItem(
-  { id, eventId }: { id: string; eventId: string },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  state: any,
-  fn: Function,
-) {
-  const org = state.all.find((o: Organization) => o.id === id);
-  if (!org) {
-    return state; // Return if the organization does not exist
-  }
-  const newOrg = {
-    ...org,
-    celebrateItems: org.celebrateItems.map((c: { id: string }) =>
-      c.id === eventId ? fn(c) : c,
-    ),
-  };
-
-  return {
-    ...state,
-    all: state.all.map((o: Organization) => (o.id === id ? newOrg : o)),
-  };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

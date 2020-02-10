@@ -59,6 +59,7 @@ matrix:
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
         - yarn run onesky:download
+        - yarn gql:codegen
         - yarn gql:schema
       script:
         - (cd ios && fastlane ios beta)
@@ -112,6 +113,7 @@ matrix:
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
         - yarn run onesky:download
+        - yarn gql:codegen
         - yarn gql:schema
       script:
         - (cd android && fastlane android beta)

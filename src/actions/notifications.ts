@@ -21,7 +21,6 @@ import { REQUESTS } from '../api/routes';
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
-import { reloadGroupCelebrateFeed } from './celebration';
 import {
   navigatePush,
   navigateBack,
@@ -30,6 +29,7 @@ import {
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
+import { getCelebrateFeed } from './celebration';
 
 // @ts-ignore
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
@@ -40,6 +40,7 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
     }
 
     return new Promise(resolve =>
+      // @ts-ignore
       PushNotification.checkPermissions(permission => {
         // Android does not need to ask user for notification permissions
         if (permission && permission.alert) {
@@ -96,6 +97,7 @@ export function configureNotificationHandler() {
   // @ts-ignore
   return (dispatch, getState) => {
     PushNotification.configure({
+      // @ts-ignore
       onRegister(t) {
         const { pushDevice } = getState().notifications;
 
@@ -108,7 +110,7 @@ export function configureNotificationHandler() {
       // @ts-ignore
       async onNotification(notification = {}) {
         await dispatch(handleNotification(notification));
-
+        // @ts-ignore
         notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
       // ANDROID ONLY: GCM Sender ID
@@ -159,10 +161,16 @@ function handleNotification(notification) {
             organization: { id: organization_id },
           }),
         );
-      case 'celebrate':
+      case 'celebrate_feed':
         if (organization_id) {
           const community = await dispatch(refreshCommunity(organization_id));
-          await dispatch(reloadGroupCelebrateFeed(organization_id));
+          return dispatch(navigateToCommunity(community));
+        }
+      case 'celebrate':
+      case 'celebrate_item':
+        if (organization_id) {
+          const community = await dispatch(refreshCommunity(organization_id));
+          getCelebrateFeed(organization_id);
           return dispatch(
             navigateToCelebrateComments(community, celebration_item_id),
           );

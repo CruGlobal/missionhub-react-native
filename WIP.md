@@ -43,8 +43,8 @@ Components to convert to TS+Hooks
 - ReminderButton
 - ReminderDateText
 - ReminderRepeatButtons
-- ReportCommentHeaderCard
-- ReportCommentLabel
+- ReportItemHeaderCard
+- ReportItemLabel
 - ShareSurveyMenu
 - SideMenu
 - StepDetailScreen
