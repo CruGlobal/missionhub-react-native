@@ -89,7 +89,7 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<CelebrateDetailScreen />, {
     initialState,
-    navParams: { event: { id: event.id }, orgId },
+    navParams: { event, orgId },
   }).snapshot();
 
   expect(organizationSelector).toHaveBeenCalledWith(
