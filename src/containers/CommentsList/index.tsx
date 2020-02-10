@@ -59,6 +59,13 @@ const CommentsList = ({
     dispatch(resetCelebrateEditingComment());
   }, []);
 
+  // celebrateCommentsSelector returns comments in backwards order
+  // This sorts them numeracically by their id.
+  celebrateComments &&
+    celebrateComments.comments.sort((a: { id: string }, b: { id: string }) => {
+      return parseInt(a.id) - parseInt(b.id);
+    });
+
   const handleLoadMore = () => {
     dispatch(getCelebrateCommentsNextPage(event.id, organization.id));
   };
@@ -66,7 +73,6 @@ const CommentsList = ({
   const handleEdit = (item: CelebrateComment) => {
     dispatch(setCelebrateEditingComment(item.id));
   };
-
   const alert = ({
     title,
     message,

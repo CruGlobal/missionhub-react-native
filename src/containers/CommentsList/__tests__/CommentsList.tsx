@@ -199,6 +199,49 @@ describe('with comments', () => {
     });
   });
 
+  describe('comments out of order', () => {
+    const reversedComments: {
+      comments: CelebrateComment[];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      pagination: any;
+    } = {
+      comments: [
+        {
+          id: '2',
+          created_at: '2004-04-04 00:00:00 UTC',
+          updated_at: '2004-04-04 00:00:00 UTC',
+          content: 'some comment',
+          person: otherPerson,
+        },
+        {
+          id: '1',
+          created_at: '2004-04-04 00:00:00 UTC',
+          updated_at: '2004-04-04 00:00:00 UTC',
+          content: 'some comment',
+          person: otherPerson,
+        },
+      ],
+      pagination: {},
+    };
+    beforeEach(() =>
+      ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
+        reversedComments,
+      ),
+    );
+    it('renders correctly in order', () => {
+      renderWithContext(
+        <CommentsList
+          event={event}
+          organization={organization}
+          listProps={{}}
+        />,
+        {
+          initialState,
+        },
+      ).snapshot();
+    });
+  });
+
   describe('without next page', () => {
     beforeEach(() =>
       ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
