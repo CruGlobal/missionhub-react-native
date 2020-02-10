@@ -3,6 +3,7 @@
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { apolloClient } from '../../apolloClient';
 import { toggleLike, getCelebrateFeed } from '../celebration';
 import callApi from '../api';
@@ -107,6 +108,29 @@ describe('toggleLike', () => {
   });
 
   it('toggles from unlike to like in global community', () => {
+    store.dispatch<any>(toggleLike(eventId, false, GLOBAL_COMMUNITY_ID));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM, {
+      orgId: GLOBAL_COMMUNITY_ID,
+      eventId,
+    });
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from like to unlike in global community', () => {
+    store.dispatch<any>(toggleLike(eventId, true, GLOBAL_COMMUNITY_ID));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM,
+      {
+        orgId: GLOBAL_COMMUNITY_ID,
+        eventId,
+      },
+    );
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from unlike to like in global community when orgId undefined', () => {
     store.dispatch<any>(toggleLike(eventId, false, undefined));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM, {
@@ -116,7 +140,7 @@ describe('toggleLike', () => {
     expect(store.getActions()).toEqual([apiResult]);
   });
 
-  it('toggles from like to unlike in global community', () => {
+  it('toggles from like to unlike in global community when orgId undefined', () => {
     store.dispatch<any>(toggleLike(eventId, true, undefined));
 
     expect(callApi).toHaveBeenCalledWith(

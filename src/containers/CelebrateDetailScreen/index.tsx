@@ -4,6 +4,7 @@ import { connect } from 'react-redux-legacy';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useApolloClient } from '@apollo/react-hooks';
 
 import CommentLikeComponent from '../CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
@@ -20,7 +21,8 @@ import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
 import Analytics from '../Analytics';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import {
   CelebrateCommentsState,
@@ -44,9 +46,14 @@ const CelebrateDetailScreen = ({
   celebrateComments,
   editingCommentId,
 }: CelebrateDetailScreenProps) => {
-  const event: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
-    'event',
-  );
+  const client = useApolloClient();
+  const navParamsEvent: CelebrateItem = useNavigationParam('event');
+  const event =
+    client.readFragment<CelebrateItem>({
+      id: `CommunityCelebrationItem:${navParamsEvent.id}`,
+      fragment: CELEBRATE_ITEM_FRAGMENT,
+      fragmentName: 'CelebrateItem',
+    }) || navParamsEvent;
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
