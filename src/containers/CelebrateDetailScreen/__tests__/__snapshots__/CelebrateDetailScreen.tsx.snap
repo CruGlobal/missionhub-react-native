@@ -86,7 +86,6 @@ exports[`renders correctly 1`] = `
                       Object {
                         "color": "#007398",
                         "fontSize": 16,
-                        "lineHeight": 20,
                       },
                       undefined,
                     ],
