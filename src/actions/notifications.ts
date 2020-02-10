@@ -171,11 +171,15 @@ function handleNotification(notification) {
       case 'celebrate_item':
         if (organization_id) {
           dispatch(navigatePush(LOADING_SCREEN));
-          const community = await dispatch(refreshCommunity(organization_id));
-          getCelebrateFeed(organization_id);
-          return dispatch(
-            navigateToCelebrateComments(community, celebration_item_id),
-          );
+          try {
+            const community = await dispatch(refreshCommunity(organization_id));
+            getCelebrateFeed(organization_id);
+            return dispatch(
+              navigateToCelebrateComments(community, celebration_item_id),
+            );
+          } catch {
+            dispatch(navigateToMainTabs());
+          }
         }
         return;
       case 'community_challenges':
