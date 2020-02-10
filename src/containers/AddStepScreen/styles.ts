@@ -30,5 +30,6 @@ export default StyleSheet.create({
     paddingHorizontal: 45,
     fontFamily: 'SourceSansPro-Light',
     minHeight: 90.5,
+    paddingBottom: 96,
   },
 });
