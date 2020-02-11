@@ -177,8 +177,9 @@ function handleNotification(notification) {
             return dispatch(
               navigateToCelebrateComments(community, celebration_item_id),
             );
-          } catch {
+          } catch (error) {
             dispatch(navigateToMainTabs());
+            throw error;
           }
         }
         return;
