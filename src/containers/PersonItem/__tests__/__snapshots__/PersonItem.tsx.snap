@@ -86,7 +86,6 @@ exports[`renders cru org contact correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -331,7 +330,6 @@ exports[`renders cru org contact without stage correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -615,7 +613,6 @@ exports[`renders cru org member correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -820,7 +817,6 @@ exports[`renders me correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -1025,7 +1021,6 @@ exports[`renders personal ministry contact correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -1230,7 +1225,6 @@ exports[`renders personal ministry with no steps correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -1444,7 +1438,6 @@ exports[`renders uncontacted cru org contact correctly 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
