@@ -75,7 +75,6 @@ exports[`Community renders correctly 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "lineHeight": 20,
                   },
                   undefined,
                 ],
@@ -357,7 +356,6 @@ exports[`Community renders story item correctly 1`] = `
                       Object {
                         "color": "#007398",
                         "fontSize": 16,
-                        "lineHeight": 20,
                       },
                       undefined,
                     ],
@@ -624,7 +622,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "lineHeight": 20,
                   },
                   undefined,
                 ],
@@ -951,7 +948,6 @@ exports[`global community renders correctly 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "lineHeight": 20,
                   },
                   undefined,
                 ],
@@ -1208,7 +1204,6 @@ exports[`global community renders story item correctly 1`] = `
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "lineHeight": 20,
                   },
                   undefined,
                 ],
@@ -1465,7 +1460,6 @@ exports[`global community renders with clear notification button correctly 1`] =
                   Object {
                     "color": "#007398",
                     "fontSize": 16,
-                    "lineHeight": 20,
                   },
                   undefined,
                 ],
@@ -1830,7 +1824,6 @@ exports[`renders with name pressable correctly 1`] = `
                       Object {
                         "color": "#007398",
                         "fontSize": 16,
-                        "lineHeight": 20,
                       },
                       undefined,
                     ],

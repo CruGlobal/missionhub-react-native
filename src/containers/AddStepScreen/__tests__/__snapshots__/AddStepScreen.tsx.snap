@@ -184,6 +184,7 @@ exports[`renders create step correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -457,6 +458,7 @@ exports[`renders edit journey item correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -730,6 +732,7 @@ exports[`renders edit journey item for me correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -1003,6 +1006,7 @@ exports[`renders edit journey step correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -1276,6 +1280,7 @@ exports[`renders edit journey step for me correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -1621,6 +1626,7 @@ exports[`renders step note correctly 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -1966,6 +1972,7 @@ exports[`renders step note correctly for me 1`] = `
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
             "minHeight": 90.5,
+            "paddingBottom": 96,
             "paddingHorizontal": 45,
           },
         ]
@@ -2061,7 +2068,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -257,11 +257,11 @@
+@@ -258,11 +258,11 @@
           ]
         }
         testID=\\"stepInput\\"
