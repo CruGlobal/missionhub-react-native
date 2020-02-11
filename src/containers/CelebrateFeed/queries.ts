@@ -29,3 +29,24 @@ export const GET_CELEBRATE_FEED = gql`
   }
   ${CELEBRATE_ITEM_FRAGMENT}
 `;
+
+export const GET_GLOBAL_CELEBRATE_FEED = gql`
+  query GetGlobalCelebrateFeed($celebrateCursor: String) {
+    globalCommunity {
+      celebrationItems(
+        sortBy: createdAt_DESC
+        first: 25
+        after: $celebrateCursor
+      ) {
+        nodes {
+          ...CelebrateItem
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+  ${CELEBRATE_ITEM_FRAGMENT}
+`;

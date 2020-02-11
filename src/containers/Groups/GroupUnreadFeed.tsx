@@ -54,7 +54,7 @@ const GroupUnreadFeed = ({
       <Analytics screenName={['celebrate', 'new comment items']} />
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={<BackButton />}
+        left={<BackButton iconStyle={styles.backIcon} />}
         right={
           <Button
             testID="MarkAllButton"
