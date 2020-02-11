@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Linking, Image, View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useAppState } from 'react-native-hooks';
 
 import { Text, Button } from '../../components/common';
 import { isAndroid } from '../../utils/common';
@@ -42,6 +43,8 @@ const NotificationOffScreen = ({
   const notificationType: NOTIFICATION_PROMPT_TYPES = useNavigationParam(
     'notificationType',
   );
+  const [settingsOpened, setSettingsOpened] = useState(false);
+  const appState = useAppState();
 
   const close = async () => {
     let nativePermissionsEnabled = false;
@@ -57,6 +60,15 @@ const NotificationOffScreen = ({
     }
   };
 
+  useEffect(() => {
+    if (appState === 'background') {
+      setSettingsOpened(true);
+    } else {
+      settingsOpened && close();
+      setSettingsOpened(false);
+    }
+  }, [appState]);
+
   const notNow = () => {
     close();
     dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
@@ -68,13 +80,18 @@ const NotificationOffScreen = ({
       const isSupported = await Linking.canOpenURL(APP_SETTINGS_URL);
 
       if (isSupported) {
-        await Linking.openURL(APP_SETTINGS_URL);
-        return setTimeout(() => close(), 500);
+        return Linking.openURL(APP_SETTINGS_URL);
       }
     }
 
     close();
   };
+
+  useEffect(() => {
+    Linking.addEventListener('url', close);
+
+    return () => Linking.removeEventListener('url', close);
+  }, []);
 
   const descriptionText = t(
     notificationType === JOIN_COMMUNITY
