@@ -13,6 +13,8 @@ export default StyleSheet.create({
     shadowRadius: 2,
     elevation: 4,
     marginBottom: 5,
+    marginTop: -5,
+    paddingTop: 5,
   },
   inputButton: {
     borderColor: theme.lightGrey,

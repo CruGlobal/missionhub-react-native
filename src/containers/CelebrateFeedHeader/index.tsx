@@ -102,7 +102,7 @@ const CelebrateFeedHeader = ({
         //@ts-ignore
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
-      {!isMember ? (
+      {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
         <Flex style={styles.itemWrap}>
           {!isCommentCardVisible ? null : renderCommentCard()}
           {isReportVisible && isCommentCardVisible ? (
@@ -110,7 +110,7 @@ const CelebrateFeedHeader = ({
           ) : null}
           {!isReportVisible ? null : renderReport()}
         </Flex>
-      ) : null}
+      )}
     </>
   );
 };
