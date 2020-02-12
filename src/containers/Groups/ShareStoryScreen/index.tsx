@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, ScrollView } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
@@ -53,13 +53,14 @@ const ShareStoryScreen = () => {
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
-      <Flex value={1}>
+      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
           testID="StoryInput"
+          scrollEnabled={false}
           onChangeText={e => changeStory(e)}
           placeholder={t('inputPlaceholder')}
           value={story}
-          autoFocus={false}
+          autoFocus={true}
           autoCorrect={true}
           multiline={true}
           returnKeyType="done"
@@ -68,7 +69,7 @@ const ShareStoryScreen = () => {
           placeholderTextColor={theme.lightGrey}
           style={textInput}
         />
-      </Flex>
+      </ScrollView>
       <BottomButton
         text={t('shareStory')}
         onPress={saveStory}

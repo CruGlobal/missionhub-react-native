@@ -115,12 +115,12 @@ export class ContactNotes extends Component {
   inputRef = c => (this.notesInput = c);
 
   renderNotes() {
-    // @ts-ignore
-    if (this.state.editing) {
-      return (
-        <Flex value={1}>
+    return (
+      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+        {this.state.editing ? (
           <Input
             ref={this.inputRef}
+            scrollEnabled={false}
             onChangeText={this.onTextChanged}
             // @ts-ignore
             editable={this.state.editing}
@@ -133,17 +133,10 @@ export class ContactNotes extends Component {
             autoGrow={false}
             autoCorrect={true}
           />
-        </Flex>
-      );
-    }
-    return (
-      <Flex value={1}>
-        <ScrollView>
-          {/* 
-          // @ts-ignore */}
+        ) : (
           <Text style={styles.notesText}>{this.state.text}</Text>
-        </ScrollView>
-      </Flex>
+        )}
+      </ScrollView>
     );
   }
 

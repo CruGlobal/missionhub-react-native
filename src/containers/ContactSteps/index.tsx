@@ -132,6 +132,7 @@ const ContactSteps = ({
   const renderSteps = () => (
     <SectionList
       contentContainerStyle={styles.list}
+      contentInset={{ bottom: 90 }}
       sections={stepListSections}
       keyExtractor={keyExtractorId}
       renderItem={renderItem}
