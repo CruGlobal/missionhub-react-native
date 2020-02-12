@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { Input, Flex } from '../../../components/common';
+import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import BackButton from '../../BackButton';

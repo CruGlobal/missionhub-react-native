@@ -17,8 +17,17 @@ exports[`contact notes and editing is set to true button message changes to DONE
       ]
     }
   />
-  <Flex
-    value={1}
+  <ScrollViewMock
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
     <Input
       autoCorrect={true}
@@ -27,19 +36,19 @@ exports[`contact notes and editing is set to true button message changes to DONE
       editable={true}
       multiline={true}
       onChangeText={[Function]}
+      scrollEnabled={false}
       style={
         Object {
           "borderBottomWidth": 0,
           "color": "#505256",
           "fontSize": 16,
           "marginTop": 30,
-          "paddingBottom": 96,
           "paddingHorizontal": 36,
           "textAlign": "left",
         }
       }
     />
-  </Flex>
+  </ScrollViewMock>
   <BottomButton
     onPress={[Function]}
     text="Done"
@@ -130,27 +139,33 @@ exports[`contact notes notes are shown 1`] = `
       ]
     }
   />
-  <Flex
-    value={1}
+  <ScrollViewMock
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
-    <ScrollViewMock>
-      <MyText
-        style={
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#505256",
-            "fontSize": 16,
-            "marginTop": 30,
-            "paddingBottom": 96,
-            "paddingHorizontal": 36,
-            "textAlign": "left",
-          }
+    <MyText
+      style={
+        Object {
+          "borderBottomWidth": 0,
+          "color": "#505256",
+          "fontSize": 16,
+          "marginTop": 30,
+          "paddingHorizontal": 36,
+          "textAlign": "left",
         }
-      >
-        Hello, Roge! Here are some notes.
-      </MyText>
-    </ScrollViewMock>
-  </Flex>
+      }
+    >
+      Hello, Roge! Here are some notes.
+    </MyText>
+  </ScrollViewMock>
   <BottomButton
     onPress={[Function]}
     text="EDIT PRIVATE NOTES"

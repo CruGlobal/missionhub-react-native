@@ -4,7 +4,7 @@ import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
-import { Text, Flex, Input } from '../../components/common';
+import { Text, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';

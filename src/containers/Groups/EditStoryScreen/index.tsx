@@ -8,7 +8,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux-legacy';
 
-import { Input, Flex } from '../../../components/common';
+import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import { navigateBack } from '../../../actions/navigation';
