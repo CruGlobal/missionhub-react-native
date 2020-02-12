@@ -166,7 +166,7 @@ describe('keyboard show', () => {
     const { getByType } = renderWithContext(<CelebrateDetailScreen />, {
       initialState: {
         ...initialState,
-        celebrateComments: { editingCommentId: comments.comments[0].id },
+        celebrateComments: { editingCommentId: comments.comments[1].id },
       },
       navParams: { event, orgId },
     });
@@ -178,7 +178,7 @@ describe('keyboard show', () => {
     onShowKeyboard();
 
     expect(scrollToIndex).toHaveBeenCalledWith({
-      index: 0,
+      index: 1,
       viewPosition: 1,
     });
   });
