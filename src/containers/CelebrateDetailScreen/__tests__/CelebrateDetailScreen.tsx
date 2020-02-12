@@ -160,7 +160,7 @@ describe('keyboard show', () => {
     expect(scrollToEnd).toHaveBeenCalledWith();
   });
 
-  fit('with editing comment', () => {
+  it('with editing comment', () => {
     const scrollToIndex = jest.fn();
 
     const { getByType } = renderWithContext(<CelebrateDetailScreen />, {
