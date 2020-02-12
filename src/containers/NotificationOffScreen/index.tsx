@@ -45,6 +45,7 @@ const NotificationOffScreen = ({
   );
   const [settingsOpened, setSettingsOpened] = useState(false);
   const appState = useAppState();
+  console.log(`appState: ${appState} and settingsOpened: ${settingsOpened}`);
 
   const close = async () => {
     let nativePermissionsEnabled = false;
@@ -61,10 +62,12 @@ const NotificationOffScreen = ({
   };
 
   useEffect(() => {
+    console.log('useEffect');
     if (appState === 'background') {
       setSettingsOpened(true);
-    } else {
-      settingsOpened && close();
+    }
+    if (appState === 'active' && settingsOpened) {
+      close();
       setSettingsOpened(false);
     }
   }, [appState]);

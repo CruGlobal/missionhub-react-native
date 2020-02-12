@@ -1,6 +1,7 @@
 import { Linking } from 'react-native';
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useAppState } from 'react-native-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -13,6 +14,7 @@ import NotificationOffScreen from '..';
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('react-native-hooks');
 
 const {
   ONBOARDING,
@@ -44,9 +46,7 @@ beforeEach(() => {
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (next as jest.Mock).mockReturnValue(nextResult);
-  (global.setTimeout as jest.Mock) = jest.fn((callback: () => void) =>
-    callback(),
-  );
+  (useAppState as jest.Mock).mockReturnValue('active');
 });
 
 describe('notification types', () => {
@@ -182,8 +182,8 @@ describe('button methods', () => {
     });
 
     describe('user enables permissions', () => {
-      it('opens settings menu, then calls next when returning', async () => {
-        const { store, getByTestId } = renderWithContext(
+      fit('opens settings menu, then calls next when returning', async () => {
+        const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen next={next} />,
           {
             navParams: {
@@ -196,6 +196,15 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+
+        (useAppState as jest.Mock).mockReturnValue('background');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
+        (useAppState as jest.Mock).mockReturnValue('active');
+        rerender(<NotificationOffScreen next={next} />);
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
