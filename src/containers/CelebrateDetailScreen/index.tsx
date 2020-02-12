@@ -36,7 +36,8 @@ import styles from './styles';
 export interface CelebrateDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
-  celebrateComments: { comments: CelebrateComment[] };
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  celebrateComments?: { comments: CelebrateComment[]; pagination: any };
   editingCommentId: string | null;
 }
 
@@ -64,10 +65,10 @@ const CelebrateDetailScreen = ({
 
   const scrollToFocusedRef = () => {
     if (editingCommentId) {
-      const index = celebrateComments.comments.findIndex(
-        c => c.id === editingCommentId,
-      );
-      if (index >= 0) {
+      const index =
+        celebrateComments &&
+        celebrateComments.comments.findIndex(c => c.id === editingCommentId);
+      if (index && index >= 0) {
         listRef.current &&
           listRef.current.scrollToIndex({ index, viewPosition: 1 });
         return;
