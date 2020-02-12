@@ -462,7 +462,7 @@ describe('navigateToCelebrateComments', () => {
             {
               type: 'Navigation/NAVIGATE',
               routeName: CELEBRATE_DETAIL_SCREEN,
-              params: { event: { id: celebrateItemId, organization: cruOrg } },
+              params: { event: { id: celebrateItemId }, orgId: cruOrgId },
             },
           ],
         },
@@ -498,7 +498,8 @@ describe('navigateToCelebrateComments', () => {
               type: 'Navigation/NAVIGATE',
               routeName: CELEBRATE_DETAIL_SCREEN,
               params: {
-                event: { id: celebrateItemId, organization: userCreatedOrg },
+                event: { id: celebrateItemId },
+                orgId: userCreatedOrgId,
               },
             },
           ],
