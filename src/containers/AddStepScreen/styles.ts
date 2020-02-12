@@ -10,7 +10,6 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   fieldWrap: {
-    flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
     paddingTop: 10,
@@ -24,12 +23,12 @@ export default StyleSheet.create({
     color: theme.lightGrey,
   },
   input: {
+    flex: 1,
     borderBottomColor: 'transparent',
     fontSize: 32,
     color: theme.lightGrey,
     paddingHorizontal: 45,
     fontFamily: 'SourceSansPro-Light',
     minHeight: 90.5,
-    paddingBottom: 96,
   },
 });
