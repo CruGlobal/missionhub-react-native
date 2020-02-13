@@ -1,52 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`contact notes and editing is set to true button message changes to DONE 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
->
-  <Analytics
-    screenName={
-      Array [
-        "person",
-        "my notes",
-      ]
-    }
-  />
-  <Flex
-    value={1}
-  >
-    <Input
-      autoCorrect={true}
-      autoGrow={false}
-      blurOnSubmit={false}
-      editable={true}
-      multiline={true}
-      onChangeText={[Function]}
-      style={
-        Object {
-          "borderBottomWidth": 0,
-          "color": "#505256",
-          "fontSize": 16,
-          "marginTop": 30,
-          "paddingBottom": 96,
-          "paddingHorizontal": 36,
-          "textAlign": "left",
-        }
-      }
-    />
-  </Flex>
-  <BottomButton
-    onPress={[Function]}
-    text="Done"
-  />
-</View>
-`;
-
 exports[`contact notes icon and prompt are shown if no notes 1`] = `
 <View
   style={
@@ -56,27 +9,151 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
+  <View
+    style={
       Array [
-        "person",
-        "my notes",
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
       ]
     }
-  />
-  <NullStateComponent
-    descriptionText="Remember important details about Roger, like favorite food, hobbies they love or something interesting they said."
-    headerText="MY NOTES"
-    imageSource={
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/myNotes.png",
+        }
+      }
+      style={
+        Object {
+          "flexShrink": 1,
+        }
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "paddingTop": 10,
+          },
+        ]
+      }
+    >
+      my notes
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
       Object {
-        "testUri": "../../../assets/images/myNotes.png",
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
       }
     }
-  />
-  <BottomButton
-    onPress={[Function]}
-    text="ADD PRIVATE NOTES"
-  />
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          ADD PRIVATE NOTES
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -89,27 +166,151 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
+  <View
+    style={
       Array [
-        "person",
-        "my notes",
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
       ]
     }
-  />
-  <NullStateComponent
-    descriptionText="Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God."
-    headerText="MY NOTES"
-    imageSource={
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "testUri": "../../../assets/images/myNotes.png",
+        }
+      }
+      style={
+        Object {
+          "flexShrink": 1,
+        }
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#007398",
+            "fontSize": 42,
+            "paddingTop": 10,
+          },
+        ]
+      }
+    >
+      my notes
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontSize": 16,
+            "paddingHorizontal": 70,
+            "paddingVertical": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
       Object {
-        "testUri": "../../../assets/images/myNotes.png",
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
       }
     }
-  />
-  <BottomButton
-    onPress={[Function]}
-    text="ADD PRIVATE NOTES"
-  />
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          ADD PRIVATE NOTES
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -122,38 +323,269 @@ exports[`contact notes notes are shown 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "person",
-        "my notes",
-      ]
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
     }
-  />
-  <Flex
-    value={1}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
-    <ScrollViewMock>
-      <MyText
+    <View>
+      <Text
         style={
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#505256",
-            "fontSize": 16,
-            "marginTop": 30,
-            "paddingBottom": 96,
-            "paddingHorizontal": 36,
-            "textAlign": "left",
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#505256",
+              "fontSize": 16,
+              "marginTop": 30,
+              "paddingHorizontal": 36,
+              "textAlign": "left",
+            },
+          ]
         }
       >
-        Hello, Roge! Here are some notes.
-      </MyText>
-    </ScrollViewMock>
-  </Flex>
-  <BottomButton
-    onPress={[Function]}
-    text="EDIT PRIVATE NOTES"
-  />
+        Roge rules
+      </Text>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          EDIT PRIVATE NOTES
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
+`;
+
+exports[`contact notes press bottom button saves and switches to not editing state 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,33 +17,18 @@
+          \\"flex\\": 1,
+        }
+      }
+    >
+      <View>
+-       <TextInput
+-         allowFontScaling={true}
+-         autoCorrect={true}
+-         autoFocus={false}
+-         blurOnSubmit={false}
+-         editable={true}
+-         multiline={true}
+-         onChangeText={[Function onTextChanged]}
+-         placeholderTextColor=\\"#505256\\"
+-         rejectResponderTermination={true}
+-         scrollEnabled={false}
+-         selectionColor=\\"#005A7F\\"
++       <Text
+          style={
+            Array [
+              Object {
+-               \\"backgroundColor\\": \\"transparent\\",
+-               \\"borderBottomColor\\": \\"#52C5DC\\",
+-               \\"borderBottomWidth\\": 1,
+-               \\"color\\": \\"#ffffff\\",
++               \\"color\\": \\"#505256\\",
++             },
++             Object {
+                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"letterSpacing\\": 0.25,
+-               \\"paddingVertical\\": 5,
+              },
+              Object {
+                \\"borderBottomWidth\\": 0,
+                \\"color\\": \\"#505256\\",
+                \\"fontSize\\": 16,
+@@ -51,13 +36,13 @@
+                \\"paddingHorizontal\\": 36,
+                \\"textAlign\\": \\"left\\",
+              },
+            ]
+          }
+-         underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"Roge rules\\"
+-       />
++       >
++         Roge rules
++       </Text>
+      </View>
+    </RCTScrollView>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+@@ -128,11 +113,11 @@
+                  Object {},
+                ],
+              ]
+            }
+          >
+-           DONE
++           EDIT PRIVATE NOTES
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>"
+`;
+
+exports[`contact notes press bottom button switches to editing state 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,18 +17,33 @@
+          \\"flex\\": 1,
+        }
+      }
+    >
+      <View>
+-       <Text
++       <TextInput
++         allowFontScaling={true}
++         autoCorrect={true}
++         autoFocus={false}
++         blurOnSubmit={false}
++         editable={true}
++         multiline={true}
++         onChangeText={[Function onTextChanged]}
++         placeholderTextColor=\\"#505256\\"
++         rejectResponderTermination={true}
++         scrollEnabled={false}
++         selectionColor=\\"#005A7F\\"
+          style={
+            Array [
+              Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-             Object {
++               \\"backgroundColor\\": \\"transparent\\",
++               \\"borderBottomColor\\": \\"#52C5DC\\",
++               \\"borderBottomWidth\\": 1,
++               \\"color\\": \\"#ffffff\\",
+                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               \\"fontSize\\": 16,
++               \\"letterSpacing\\": 0.25,
++               \\"paddingVertical\\": 5,
+              },
+              Object {
+                \\"borderBottomWidth\\": 0,
+                \\"color\\": \\"#505256\\",
+                \\"fontSize\\": 16,
+@@ -36,13 +51,13 @@
+                \\"paddingHorizontal\\": 36,
+                \\"textAlign\\": \\"left\\",
+              },
+            ]
+          }
+-       >
+-         Roge rules
+-       </Text>
++         underlineColorAndroid=\\"rgba(0,0,0,0)\\"
++         value=\\"Roge rules\\"
++       />
+      </View>
+    </RCTScrollView>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+@@ -113,11 +128,11 @@
+                  Object {},
+                ],
+              ]
+            }
+          >
+-           EDIT PRIVATE NOTES
++           DONE
+          </Text>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>"
 `;

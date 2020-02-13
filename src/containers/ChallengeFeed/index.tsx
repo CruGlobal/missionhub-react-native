@@ -129,10 +129,8 @@ class ChallengeFeed extends Component {
         onRefresh={this.handleRefreshing}
         refreshing={refreshing || false}
         extraData={this.state}
-        contentContainerStyle={[
-          styles.list,
-          extraPadding ? styles.listExtraPadding : null,
-        ]}
+        contentContainerStyle={styles.list}
+        contentInset={{ bottom: extraPadding ? 90 : 10 }}
       />
     );
   }

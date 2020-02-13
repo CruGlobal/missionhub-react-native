@@ -173,7 +173,7 @@ function handleNotification(notification) {
           dispatch(navigatePush(LOADING_SCREEN));
           try {
             const community = await dispatch(refreshCommunity(organization_id));
-            getCelebrateFeed(organization_id);
+            await getCelebrateFeed(organization_id);
             return dispatch(
               navigateToCelebrateComments(community, celebration_item_id),
             );
