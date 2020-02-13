@@ -3,7 +3,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { CREATE_STEP } from '../../../constants';
+import { CREATE_STEP, ACTIONS } from '../../../constants';
 import { renderShallow } from '../../../../testUtils';
 import { buildTrackingObj } from '../../../utils/common';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
@@ -17,6 +17,8 @@ import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../../containers/NotificationPrimerScreen';
+import { NOTIFICATION_OFF_SCREEN } from '../../../containers/NotificationOffScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { onboardingFlowGenerator } from '../onboardingFlowGenerator';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
@@ -25,13 +27,14 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
-import { showReminderOnLoad } from '../../../actions/notifications';
-import { trackActionWithoutData } from '../../../actions/analytics';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+} from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
-jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/steps');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
@@ -73,7 +76,7 @@ beforeEach(() => {
   // @ts-ignore
   resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
   // @ts-ignore
-  showReminderOnLoad.mockReturnValue(() => Promise.resolve());
+  resetAppContext.mockReturnValue(() => Promise.resolve());
   // @ts-ignore
   trackActionWithoutData.mockReturnValue(() => Promise.resolve());
   // @ts-ignore
@@ -526,6 +529,36 @@ describe('AddStepScreen next', () => {
   });
 });
 
+describe('NotificationPrimerScreen next', () => {
+  it('should fire required next actions', () => {
+    const Component = testFlow[NOTIFICATION_PRIMER_SCREEN];
+
+    store.dispatch(
+      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
+        .instance()
+        // @ts-ignore
+        .props.next(),
+    );
+
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, undefined);
+  });
+});
+
+describe('NotificationOffScreen next', () => {
+  it('should fire required next actions', () => {
+    const Component = testFlow[NOTIFICATION_OFF_SCREEN];
+
+    store.dispatch(
+      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
+        .instance()
+        // @ts-ignore
+        .props.next(),
+    );
+
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, undefined);
+  });
+});
+
 describe('CelebrationScreen next', () => {
   it('should fire required next actions', async () => {
     const Component = testFlow[CELEBRATION_SCREEN];
@@ -537,6 +570,10 @@ describe('CelebrationScreen next', () => {
         .props.next(),
     );
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigateToMainTabs).toHaveBeenCalledWith();
   });
 });

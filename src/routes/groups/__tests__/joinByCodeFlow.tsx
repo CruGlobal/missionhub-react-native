@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { JOIN_GROUP_SCREEN } from '../../../containers/Groups/JoinGroupScreen';
 import { JoinByCodeFlowScreens } from '../joinByCodeFlow';
 import { renderShallow } from '../../../../testUtils';
-import { showNotificationPrompt } from '../../../actions/notifications';
+import { checkNotifications } from '../../../actions/notifications';
 import { joinCommunity } from '../../../actions/organizations';
 import {
   GROUP_TAB_SCROLL_ON_MOUNT,
@@ -29,7 +29,7 @@ describe('JoinGroupScreen next', () => {
     // @ts-ignore
     joinCommunity.mockReturnValue(() => Promise.resolve());
     // @ts-ignore
-    showNotificationPrompt.mockReturnValue(() => Promise.resolve());
+    checkNotifications.mockReturnValue(() => Promise.resolve());
 
     const WrappedJoinGroupScreen =
       JoinByCodeFlowScreens[JOIN_GROUP_SCREEN].screen;
@@ -45,27 +45,12 @@ describe('JoinGroupScreen next', () => {
       community.id,
       community.community_code,
     );
-    expect(showNotificationPrompt).toHaveBeenCalledWith(
+    expect(checkNotifications).toHaveBeenCalledWith(
       NOTIFICATION_PROMPT_TYPES.JOIN_COMMUNITY,
-      true,
+      expect.any(Function),
     );
     expect(store.getActions()).toEqual([
       { type: GROUP_TAB_SCROLL_ON_MOUNT, value: '1' },
-      {
-        actions: [
-          {
-            action: {
-              routeName: 'GroupsTab',
-              type: 'Navigation/NAVIGATE',
-            },
-            routeName: 'nav/MAIN_TABS',
-            type: 'Navigation/NAVIGATE',
-          },
-        ],
-        index: 0,
-        key: null,
-        type: 'Navigation/RESET',
-      },
     ]);
   });
 });

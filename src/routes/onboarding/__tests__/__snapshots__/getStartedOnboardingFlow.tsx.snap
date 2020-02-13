@@ -33,20 +33,6 @@ exports[`AddStepScreen next renders correctly 1`] = `
 />
 `;
 
-exports[`CelebrationScreen next renders correctly 1`] = `
-<CelebrationScreen
-  dispatch={[Function]}
-  navigation={
-    Object {
-      "state": Object {
-        "params": Object {},
-      },
-    }
-  }
-  next={[Function]}
-/>
-`;
-
 exports[`GetStartedScreen renders without back button correctly 1`] = `
 <GetStartedScreen
   dispatch={[Function]}

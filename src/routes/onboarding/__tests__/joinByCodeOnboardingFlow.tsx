@@ -13,6 +13,8 @@ import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import * as navigationActions from '../../../actions/navigation';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
+import { NOTIFICATION_PRIMER_SCREEN } from '../../../containers/NotificationPrimerScreen';
+import { NOTIFICATION_OFF_SCREEN } from '../../../containers/NotificationOffScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/api');
@@ -92,6 +94,53 @@ describe('SetupScreen next', () => {
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
       GET_STARTED_SCREEN,
+    );
+  });
+});
+
+describe('NotificationPrimerScreen next', () => {
+  it('should fire required next actions', () => {
+    const Component =
+      JoinByCodeOnboardingFlowScreens[NOTIFICATION_PRIMER_SCREEN];
+
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    const originalComponent = getByType(Component).children[0];
+
+    if (typeof originalComponent === 'string') {
+      throw "Can't access component props";
+    }
+
+    store.dispatch(originalComponent.props.next());
+
+    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+      CELEBRATION_SCREEN,
+      undefined,
+    );
+  });
+});
+
+describe('NotificationOffScreen next', () => {
+  it('should fire required next actions', () => {
+    const Component = JoinByCodeOnboardingFlowScreens[NOTIFICATION_OFF_SCREEN];
+
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+    });
+
+    const originalComponent = getByType(Component).children[0];
+
+    if (typeof originalComponent === 'string') {
+      throw "Can't access component props";
+    }
+
+    store.dispatch(originalComponent.props.next());
+
+    expect(navigationActions.navigatePush).toHaveBeenCalledWith(
+      CELEBRATION_SCREEN,
+      undefined,
     );
   });
 });

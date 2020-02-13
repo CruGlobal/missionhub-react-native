@@ -27,20 +27,6 @@ exports[`AddStepScreen next renders correctly 1`] = `
 />
 `;
 
-exports[`CelebrationScreen next renders correctly 1`] = `
-<CelebrationScreen
-  dispatch={[Function]}
-  navigation={
-    Object {
-      "state": Object {
-        "params": Object {},
-      },
-    }
-  }
-  next={[Function]}
-/>
-`;
-
 exports[`PersonSelectStepScreen next renders correctly 1`] = `
 <PersonSelectStepScreen
   contactName="Someone"
