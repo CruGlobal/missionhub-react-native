@@ -67,9 +67,7 @@ class OnboardingCard extends Component {
             style={styles.onboardingImage}
             resizeMode="contain"
           />
-          <Text header={true} style={styles.onboardingHeader}>
-            {t(`${type}Header`)}
-          </Text>
+          <Text style={styles.onboardingHeader}>{t(`${type}Header`)}</Text>
           <Text style={styles.onboardingDescription}>
             {t(`${type}Description`)}
           </Text>

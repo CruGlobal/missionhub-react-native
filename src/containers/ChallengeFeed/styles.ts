@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 12,
-    color: theme.textColor,
+    color: theme.lightGrey,
     textAlign: 'center',
   },
 });
