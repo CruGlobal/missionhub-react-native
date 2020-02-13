@@ -12,6 +12,7 @@ import { Alert } from 'react-native';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { StreamApp } from 'react-native-activity-feed';
 
 Icon.loadFont();
 
@@ -201,16 +202,26 @@ export default class App extends Component {
         <ApolloProvider client={apolloClient}>
           <ProviderLegacy store={store}>
             <Provider store={store}>
-              <PersistGate
-                loading={<LoadingScreen />}
-                onBeforeLift={this.onBeforeLift}
-                persistor={persistor}
+              <StreamApp
+                apiKey={Config.STREAM_API_KEY}
+                appId={Config.STREAM_APP_ID}
+                userId={'1'}
+                token={
+                  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMSJ9.6f3AOerS4Jii7P-XwdSApEvl-LMkNfnarbwtP2x9uAo'
+                }
+                analyticsToken={Config.STREAM_ANALYTICS_TOKEN}
               >
-                {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-                <PlatformKeyboardAvoidingView>
-                  <AppWithNavigationState />
-                </PlatformKeyboardAvoidingView>
-              </PersistGate>
+                <PersistGate
+                  loading={<LoadingScreen />}
+                  onBeforeLift={this.onBeforeLift}
+                  persistor={persistor}
+                >
+                  {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+                  <PlatformKeyboardAvoidingView>
+                    <AppWithNavigationState />
+                  </PlatformKeyboardAvoidingView>
+                </PersistGate>
+              </StreamApp>
             </Provider>
           </ProviderLegacy>
         </ApolloProvider>

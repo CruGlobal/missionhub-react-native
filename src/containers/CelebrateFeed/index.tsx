@@ -4,6 +4,7 @@ import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
+import { FlatFeed } from 'react-native-activity-feed';
 
 import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
@@ -212,19 +213,20 @@ const CelebrateFeed = ({
   );
 
   return (
-    <SectionList
-      sections={celebrationItems}
-      ListHeaderComponent={noHeader ? undefined : renderHeader}
-      renderSectionHeader={renderSectionHeader}
-      renderItem={renderItem}
-      keyExtractor={keyExtractorId}
-      onEndReachedThreshold={0.2}
-      onEndReached={isGlobal ? handleOnEndReachedGlobal : handleOnEndReached}
-      onRefresh={handleRefreshing}
-      refreshing={isGlobal ? globalLoading : loading}
-      style={styles.list}
-      contentContainerStyle={styles.listContent}
-    />
+    <FlatFeed feedGroup="CelebrateFeed" />
+    // <SectionList
+    //   sections={celebrationItems}
+    //   ListHeaderComponent={noHeader ? undefined : renderHeader}
+    //   renderSectionHeader={renderSectionHeader}
+    //   renderItem={renderItem}
+    //   keyExtractor={keyExtractorId}
+    //   onEndReachedThreshold={0.2}
+    //   onEndReached={isGlobal ? handleOnEndReachedGlobal : handleOnEndReached}
+    //   onRefresh={handleRefreshing}
+    //   refreshing={isGlobal ? globalLoading : loading}
+    //   style={styles.list}
+    //   contentContainerStyle={styles.listContent}
+    // />
   );
 };
 
