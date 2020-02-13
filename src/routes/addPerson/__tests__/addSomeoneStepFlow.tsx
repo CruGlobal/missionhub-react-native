@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CREATE_STEP } from '../../../constants';
+import { CREATE_STEP, ACTIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
@@ -90,7 +90,17 @@ beforeEach(() => {
   );
 });
 
-const renderScreen = (screenName: string, navParams: any = {}) => {
+type ScreenName =
+  | typeof ADD_SOMEONE_SCREEN
+  | typeof SETUP_PERSON_SCREEN
+  | typeof SELECT_STAGE_SCREEN
+  | typeof PERSON_SELECT_STEP_SCREEN
+  | typeof SUGGESTED_STEP_DETAIL_SCREEN
+  | typeof ADD_STEP_SCREEN
+  | typeof CELEBRATION_SCREEN;
+
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+const renderScreen = (screenName: ScreenName, navParams: any = {}) => {
   const Component = AddSomeoneStepFlowScreens[screenName];
 
   const { store, getByType, snapshot } = renderWithContext(<Component />, {
@@ -141,6 +151,7 @@ describe('SetupPersonScreen next', () => {
 
     await store.dispatch(next({ skip: false, personId }));
 
+    expect(setOnboardingPersonId).toHaveBeenCalledWith(personId);
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'add person',
@@ -153,6 +164,7 @@ describe('SetupPersonScreen next', () => {
 
     await store.dispatch(next({ skip: true }));
 
+    expect(setOnboardingPersonId).not.toHaveBeenCalled();
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
@@ -274,6 +286,10 @@ describe('CelebrationScreen next', () => {
 
     await store.dispatch(next());
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigateToMainTabs).toHaveBeenCalledWith();
   });
 });
