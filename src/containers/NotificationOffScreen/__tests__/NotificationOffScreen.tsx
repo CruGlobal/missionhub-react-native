@@ -182,7 +182,7 @@ describe('button methods', () => {
     });
 
     describe('user enables permissions', () => {
-      fit('opens settings menu, then calls next when returning', async () => {
+      it('opens settings menu, then calls next when returning', async () => {
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen next={next} />,
           {
@@ -205,6 +205,8 @@ describe('button methods', () => {
         (useAppState as jest.Mock).mockReturnValue('active');
         rerender(<NotificationOffScreen next={next} />);
 
+        await flushMicrotasksQueue();
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
@@ -214,7 +216,7 @@ describe('button methods', () => {
       });
 
       it('opens settings menu, then calls onComplete when returning', async () => {
-        const { store, getByTestId } = renderWithContext(
+        const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
             navParams: {
@@ -228,6 +230,17 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+
+        (useAppState as jest.Mock).mockReturnValue('background');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
+        (useAppState as jest.Mock).mockReturnValue('active');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(onComplete).toHaveBeenCalledWith({
           nativePermissionsEnabled: true,
@@ -237,7 +250,7 @@ describe('button methods', () => {
       });
 
       it('opens settings menu, then navigates back when returning', async () => {
-        const { store, getByTestId } = renderWithContext(
+        const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
             navParams: {
@@ -250,6 +263,17 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+
+        (useAppState as jest.Mock).mockReturnValue('background');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
+        (useAppState as jest.Mock).mockReturnValue('active');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(navigateBack).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
@@ -267,7 +291,7 @@ describe('button methods', () => {
       });
 
       it('opens settings menu, then calls next when returning', async () => {
-        const { store, getByTestId } = renderWithContext(
+        const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen next={next} />,
           {
             navParams: {
@@ -280,6 +304,17 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+
+        (useAppState as jest.Mock).mockReturnValue('background');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
+        (useAppState as jest.Mock).mockReturnValue('active');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
@@ -289,7 +324,7 @@ describe('button methods', () => {
       });
 
       it('opens settings menu, then calls onComplete when returning', async () => {
-        const { store, getByTestId } = renderWithContext(
+        const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
             navParams: {
@@ -303,6 +338,17 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+
+        (useAppState as jest.Mock).mockReturnValue('background');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
+        (useAppState as jest.Mock).mockReturnValue('active');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(onComplete).toHaveBeenCalledWith({
           nativePermissionsEnabled: false,
@@ -312,7 +358,7 @@ describe('button methods', () => {
       });
 
       it('opens settings menu, then navigates back when returning', async () => {
-        const { store, getByTestId } = renderWithContext(
+        const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
             navParams: {
@@ -325,6 +371,17 @@ describe('button methods', () => {
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
+
+        (useAppState as jest.Mock).mockReturnValue('background');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
+        (useAppState as jest.Mock).mockReturnValue('active');
+        rerender(<NotificationOffScreen next={next} />);
+
+        await flushMicrotasksQueue();
+
         expect(requestNativePermissions).toHaveBeenCalledWith();
         expect(navigateBack).toHaveBeenCalledWith();
         expect(store.getActions()).toEqual([
