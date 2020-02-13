@@ -9,7 +9,7 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { CELEBRATEABLE_TYPES, GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../../containers/Groups/EditStoryScreen';
 import { Organization } from '../../../reducers/organizations';
@@ -21,6 +21,7 @@ import {
   CELEBRATE_ITEM_FRAGMENT,
   CELEBRATE_ITEM_PERSON_FRAGMENT,
 } from '../queries';
+import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
 
 import CelebrateItem, { DELETE_STORY, REPORT_STORY } from '..';
 
@@ -46,7 +47,7 @@ const navigatePushResult = { type: 'navigate push' };
 
 const storyEvent: CelebrateItemData = {
   ...event,
-  celebrateableType: CELEBRATEABLE_TYPES.story,
+  celebrateableType: CommunityCelebrationCelebrateableEnum.story,
 };
 
 const initialState = { auth: { person: { id: myId } } };

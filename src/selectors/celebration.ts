@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityCelebrationCelebrateableEnum } from '../../__generated__/globalTypes';
 
 export interface CelebrateFeedSection {
   id: number;
@@ -66,27 +67,19 @@ const compare = (
 const filterCelebrationFeedItems = (
   items: GetCelebrateFeed_community_celebrationItems_nodes[],
 ) => {
-  const {
-    completedInteraction,
-    completedStep,
-    validInteractionTypes,
-    acceptedCommunityChallenge,
-    createdCommunity,
-    joinedCommunity,
-    story,
-  } = CELEBRATEABLE_TYPES;
+  const { validInteractionTypes } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {
     switch (item.celebrateableType) {
-      case completedInteraction:
+      case CommunityCelebrationCelebrateableEnum.completed_interaction:
         return validInteractionTypes.includes(
           `${item.adjectiveAttributeValue}`,
         );
-      case completedStep:
-      case acceptedCommunityChallenge:
-      case createdCommunity:
-      case joinedCommunity:
-      case story:
+      case CommunityCelebrationCelebrateableEnum.completed_step:
+      case CommunityCelebrationCelebrateableEnum.community_challenge:
+      case CommunityCelebrationCelebrateableEnum.created_community:
+      case CommunityCelebrationCelebrateableEnum.joined_community:
+      case CommunityCelebrationCelebrateableEnum.story:
         return true;
       default:
         return false;

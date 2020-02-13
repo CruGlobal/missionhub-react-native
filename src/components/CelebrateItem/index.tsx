@@ -20,8 +20,8 @@ import { orgIsGlobal } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
-import { CELEBRATEABLE_TYPES } from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
@@ -132,7 +132,7 @@ const CelebrateItem = ({
 
   const menuActions =
     !orgIsGlobal(organization) &&
-    celebrateableType === CELEBRATEABLE_TYPES.story
+    celebrateableType === CommunityCelebrationCelebrateableEnum.story
       ? subjectPerson && me.id === subjectPerson.id
         ? [
             {
