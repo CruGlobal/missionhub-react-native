@@ -1,145 +1,126 @@
-import ReactNative from 'react-native';
 import React from 'react';
-// @ts-ignore
-import { shallow } from 'enzyme/build/index';
-// @ts-ignore
-import Enzyme from 'enzyme/build/index';
-// @ts-ignore
-import Adapter from 'enzyme-adapter-react-16/build/index';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
+import { useIsFocused } from 'react-navigation-hooks';
 
+import { renderWithContext } from '../../../../testUtils';
 import { getPersonNote, savePersonNote } from '../../../actions/person';
-import BottomButton from '../../../components/BottomButton';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
-import { ContactNotes } from '..';
+import ContactNotes from '..';
 
-Enzyme.configure({ adapter: new Adapter() });
-
-const mockStore = configureStore([thunk]);
-// @ts-ignore
-let shallowScreen;
+jest.mock('react-native-device-info');
+jest.mock('react-navigation-hooks');
+jest.mock('../../../actions/person');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const person = { id: '141234', first_name: 'Roger' };
+const myPersonId = '123';
 const myUserId = '1';
 const note = { id: '988998', content: 'Roge rules' };
 
-// @ts-ignore
-getPersonNote.mockReturnValue(() => Promise.resolve(note));
-// @ts-ignore
-savePersonNote.mockReturnValue(() => {});
+const initialState = {
+  auth: { person: { id: myPersonId, user: { id: myUserId } } },
+};
 
-jest.mock('react-native-device-info');
-jest.mock('../../../actions/person');
-
-beforeEach(
-  () =>
-    (shallowScreen = shallow(
-      <ContactNotes
-        // @ts-ignore
-        person={person}
-        myUserId={myUserId}
-        dispatch={mockStore().dispatch}
-      />,
-    ).dive()),
-);
+beforeEach(() => {
+  (useIsFocused as jest.Mock).mockReturnValue(true);
+  (getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve(note));
+  (savePersonNote as jest.Mock).mockReturnValue(() => Promise.resolve());
+});
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {
-    // @ts-ignore
-    expect(shallowScreen).toMatchSnapshot();
+    renderWithContext(<ContactNotes person={person} />, {
+      initialState,
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
   });
+
   it('icon and prompt are shown if no notes as me', () => {
-    shallowScreen = shallow(
-      <ContactNotes
-        // @ts-ignore
-        person={person}
-        myPersonId={person.id}
-        myUserId={myUserId}
-        dispatch={mockStore().dispatch}
-      />,
-    ).dive();
-    expect(shallowScreen).toMatchSnapshot();
+    renderWithContext(<ContactNotes person={{ ...person, id: myPersonId }} />, {
+      initialState,
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
   });
 
-  it('notes are shown', () => {
-    // @ts-ignore
-    shallowScreen.setState({ text: 'Hello, Roge! Here are some notes.' });
-
-    // @ts-ignore
-    expect(shallowScreen).toMatchSnapshot();
-  });
-
-  describe('and editing is set to true', () => {
-    beforeEach(() => {
-      // @ts-ignore
-      shallowScreen.setState({ editing: true });
+  it('notes are shown', async () => {
+    const { snapshot } = renderWithContext(<ContactNotes person={person} />, {
+      initialState,
     });
 
-    it('button message changes to DONE', () => {
-      // @ts-ignore
-      expect(shallowScreen).toMatchSnapshot();
-    });
+    await flushMicrotasksQueue();
 
-    it('editing is set to false when button is pressed', () => {
-      ReactNative.Keyboard.dismiss = jest.fn();
-      // @ts-ignore
-      jest.spyOn(shallowScreen.instance(), 'saveNote');
+    snapshot();
 
-      // @ts-ignore
-      shallowScreen.find(BottomButton).simulate('press');
-
-      // @ts-ignore
-      expect(shallowScreen.state('editing')).toBe(false);
-      // @ts-ignore
-      expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
-      expect(ReactNative.Keyboard.dismiss).toHaveBeenCalled();
-    });
-  });
-
-  it('editing is set to true when button is pressed', () => {
-    const mockFocus = jest.fn();
-    // @ts-ignore
-    Object.defineProperty(shallowScreen.instance(), 'notesInput', {
-      value: { focus: mockFocus },
-    });
-
-    // @ts-ignore
-    shallowScreen.find(BottomButton).simulate('press');
-
-    // @ts-ignore
-    expect(shallowScreen.state('editing')).toBe(true);
-    expect(mockFocus).toHaveBeenCalled();
-  });
-});
-
-describe('UNSAFE_componentWillReceiveProps', () => {
-  it('should save notes when navigating away', () => {
-    // @ts-ignore
-    jest.spyOn(shallowScreen.instance(), 'saveNote');
-
-    // @ts-ignore
-    shallowScreen
-
-      .instance()
-      .UNSAFE_componentWillReceiveProps({ isActiveTab: false });
-
-    // @ts-ignore
-    expect(shallowScreen.instance().saveNote).toHaveBeenCalled();
-  });
-});
-
-describe('componentDidMount', () => {
-  it('should load note', async () => {
-    // @ts-ignore
-    await shallowScreen.instance().componentDidMount();
-
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
     expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
-    // @ts-ignore
-    expect(shallowScreen.state()).toEqual({
-      editing: false,
-      noteId: note.id,
-      text: note.content,
+  });
+
+  describe('press bottom button', () => {
+    it('switches to editing state', async () => {
+      const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+        <ContactNotes person={person} />,
+        {
+          initialState,
+        },
+      );
+
+      await flushMicrotasksQueue();
+      recordSnapshot();
+
+      fireEvent.press(getByTestId('bottomButton'));
+
+      diffSnapshot();
     });
+
+    it('saves and switches to not editing state', async () => {
+      const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+        <ContactNotes person={person} />,
+        {
+          initialState,
+        },
+      );
+
+      await flushMicrotasksQueue();
+      fireEvent.press(getByTestId('bottomButton'));
+      recordSnapshot();
+
+      fireEvent.press(getByTestId('bottomButton'));
+
+      diffSnapshot();
+      expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
+      expect(savePersonNote).toHaveBeenCalledWith(
+        person.id,
+        note.content,
+        note.id,
+        myUserId,
+      );
+    });
+  });
+
+  it('should save on blur', async () => {
+    const { rerender, getByTestId } = renderWithContext(
+      <ContactNotes person={person} />,
+      {
+        initialState,
+      },
+    );
+
+    expect(savePersonNote).not.toHaveBeenCalled();
+
+    await flushMicrotasksQueue();
+    fireEvent.press(getByTestId('bottomButton'));
+
+    (useIsFocused as jest.Mock).mockReturnValue(false);
+    rerender(<ContactNotes person={person} />);
+
+    expect(savePersonNote).toHaveBeenCalledWith(
+      person.id,
+      note.content,
+      note.id,
+      myUserId,
+    );
   });
 });

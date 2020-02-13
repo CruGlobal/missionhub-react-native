@@ -207,6 +207,11 @@ exports[`with description, with reminder renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -411,16 +416,10 @@ exports[`with description, with reminder renders correctly 1`] = `
       </ReminderButton>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            Object {
-              "paddingBottom": 86,
-            },
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View
@@ -739,6 +738,11 @@ exports[`with description, without reminder renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -852,16 +856,10 @@ exports[`with description, without reminder renders correctly 1`] = `
       </ReminderButton>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            Object {
-              "paddingBottom": 86,
-            },
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View
@@ -1292,16 +1290,10 @@ exports[`without description, without reminder renders correctly 1`] = `
     </ReminderButton>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          Object {
-            "paddingBottom": 86,
-          },
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>
