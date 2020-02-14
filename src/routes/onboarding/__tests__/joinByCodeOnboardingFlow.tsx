@@ -27,6 +27,10 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));
 
+const mockMath = Object.create(global.Math);
+mockMath.random = () => 0;
+global.Math = mockMath;
+
 const community = { id: '1', community_code: '123456' };
 
 const initialState = {
@@ -40,31 +44,44 @@ beforeEach(() => {
   (navigationActions.navigatePush as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
+  (setOnboardingCommunity as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (joinStashedCommunity as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (landOnStashedCommunityScreen as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (setOnboardingPersonId as jest.Mock).mockReturnValue(() => Promise.resolve());
 });
 
+const renderScreen = (
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  Component: (props: any) => JSX.Element,
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  navParams: any = {},
+) => {
+  const { store, getByType, snapshot } = renderWithContext(<Component />, {
+    initialState,
+    navParams,
+  });
+
+  const originalComponent = getByType(Component).children[0];
+
+  if (typeof originalComponent === 'string') {
+    throw "Can't access component props";
+  }
+
+  const next = originalComponent.props.next;
+
+  return { store, next, snapshot };
+};
+
 describe('JoinGroupScreen next', () => {
-  it('should fire required next actions', async () => {
-    (setOnboardingCommunity as jest.Mock).mockReturnValue(() =>
-      Promise.resolve(),
-    );
-
+  it('should fire required next actions', () => {
     const Component = JoinByCodeOnboardingFlowScreens[JOIN_GROUP_SCREEN].screen;
+    const { store, next } = renderScreen(Component);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-    });
-
-    const originalComponent = getByType(Component).children[0];
-
-    if (typeof originalComponent === 'string') {
-      throw "Can't access component props";
-    }
-
-    await store.dispatch(
-      originalComponent.props.next({
-        community,
-      }),
-    );
+    store.dispatch(next({ community }));
 
     expect(setOnboardingCommunity).toHaveBeenCalledWith(community);
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(WELCOME_SCREEN);
@@ -73,23 +90,10 @@ describe('JoinGroupScreen next', () => {
 
 describe('SetupScreen next', () => {
   it('should fire required next actions', async () => {
-    (joinStashedCommunity as jest.Mock).mockReturnValue(() =>
-      Promise.resolve(),
-    );
-
     const Component = JoinByCodeOnboardingFlowScreens[SETUP_SCREEN];
+    const { store, next } = renderScreen(Component);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-    });
-
-    const originalComponent = getByType(Component).children[0];
-
-    if (typeof originalComponent === 'string') {
-      throw "Can't access component props";
-    }
-
-    await store.dispatch(originalComponent.props.next());
+    await store.dispatch(next());
 
     expect(joinStashedCommunity).toHaveBeenCalled();
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
@@ -102,18 +106,9 @@ describe('NotificationPrimerScreen next', () => {
   it('should fire required next actions', () => {
     const Component =
       JoinByCodeOnboardingFlowScreens[NOTIFICATION_PRIMER_SCREEN];
+    const { store, next } = renderScreen(Component);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-    });
-
-    const originalComponent = getByType(Component).children[0];
-
-    if (typeof originalComponent === 'string') {
-      throw "Can't access component props";
-    }
-
-    store.dispatch(originalComponent.props.next());
+    store.dispatch(next());
 
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
       CELEBRATION_SCREEN,
@@ -125,18 +120,9 @@ describe('NotificationPrimerScreen next', () => {
 describe('NotificationOffScreen next', () => {
   it('should fire required next actions', () => {
     const Component = JoinByCodeOnboardingFlowScreens[NOTIFICATION_OFF_SCREEN];
+    const { store, next } = renderScreen(Component);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-    });
-
-    const originalComponent = getByType(Component).children[0];
-
-    if (typeof originalComponent === 'string') {
-      throw "Can't access component props";
-    }
-
-    store.dispatch(originalComponent.props.next());
+    store.dispatch(next());
 
     expect(navigationActions.navigatePush).toHaveBeenCalledWith(
       CELEBRATION_SCREEN,
@@ -146,27 +132,11 @@ describe('NotificationOffScreen next', () => {
 });
 
 describe('CelebrationScreen next', () => {
-  it('should fire required next actions', async () => {
-    (landOnStashedCommunityScreen as jest.Mock).mockReturnValue(() =>
-      Promise.resolve(),
-    );
-    (setOnboardingPersonId as jest.Mock).mockReturnValue(() =>
-      Promise.resolve(),
-    );
-
+  it('should fire required next actions', () => {
     const Component = JoinByCodeOnboardingFlowScreens[CELEBRATION_SCREEN];
+    const { store, next } = renderScreen(Component);
 
-    const { store, getByType } = renderWithContext(<Component />, {
-      initialState,
-    });
-
-    const originalComponent = getByType(Component).children[0];
-
-    if (typeof originalComponent === 'string') {
-      throw "Can't access component props";
-    }
-
-    await store.dispatch(originalComponent.props.next());
+    store.dispatch(next());
 
     expect(landOnStashedCommunityScreen).toHaveBeenCalled();
     expect(setOnboardingPersonId).toHaveBeenCalled();

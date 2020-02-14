@@ -124,18 +124,18 @@ describe('AddSomeoneScreen next', () => {
     renderScreen(ADD_SOMEONE_SCREEN).snapshot();
   });
 
-  it('should fire required next actions without skip', async () => {
+  it('should fire required next actions without skip', () => {
     const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
 
-    await store.dispatch(next({ skip: false }));
+    store.dispatch(next({ skip: false }));
 
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 
-  it('should fire required next actions with skip', async () => {
+  it('should fire required next actions with skip', () => {
     const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
 
-    await store.dispatch(next({ skip: true }));
+    store.dispatch(next({ skip: true }));
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
@@ -146,10 +146,10 @@ describe('SetupPersonScreen next', () => {
     renderScreen(SETUP_PERSON_SCREEN).snapshot();
   });
 
-  it('should fire required next actions without skip', async () => {
+  it('should fire required next actions without skip', () => {
     const { store, next } = renderScreen(SETUP_PERSON_SCREEN);
 
-    await store.dispatch(next({ skip: false, personId }));
+    store.dispatch(next({ skip: false, personId }));
 
     expect(setOnboardingPersonId).toHaveBeenCalledWith(personId);
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
@@ -159,10 +159,10 @@ describe('SetupPersonScreen next', () => {
     });
   });
 
-  it('should fire required next actions with skip', async () => {
+  it('should fire required next actions with skip', () => {
     const { store, next } = renderScreen(SETUP_PERSON_SCREEN);
 
-    await store.dispatch(next({ skip: true }));
+    store.dispatch(next({ skip: true }));
 
     expect(setOnboardingPersonId).not.toHaveBeenCalled();
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
@@ -178,21 +178,14 @@ describe('SelectStageScreen', () => {
     }).snapshot();
   });
 
-  it('should fire required next actions', async () => {
+  it('should fire required next actions', () => {
     const { store, next } = renderScreen(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'add person',
       personId,
     });
 
-    await store.dispatch(
-      next({
-        stage: stage,
-        personId,
-        firstName: personFirstName,
-        isMe: false,
-      }),
-    );
+    store.dispatch(next({ isMe: false }));
 
     expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
       personId,
@@ -207,12 +200,12 @@ describe('PersonSelectStepScreen next', () => {
     }).snapshot();
   });
 
-  it('should fire required next actions for suggested step', async () => {
+  it('should fire required next actions for suggested step', () => {
     const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
       personId,
     });
 
-    await store.dispatch(next({ personId, step }));
+    store.dispatch(next({ personId, step }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
@@ -220,12 +213,12 @@ describe('PersonSelectStepScreen next', () => {
     });
   });
 
-  it('should fire required next actions for create step', async () => {
+  it('should fire required next actions for create step', () => {
     const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
       personId,
     });
 
-    await store.dispatch(next({ personId, step: undefined }));
+    store.dispatch(next({ personId, step: undefined }));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
@@ -242,13 +235,13 @@ describe('SuggestedStepDetailScreen next', () => {
     }).snapshot();
   });
 
-  it('should fire required next actions for other person', async () => {
+  it('should fire required next actions', () => {
     const { store, next } = renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
       personId,
     });
 
-    await store.dispatch(next({ contactId: personId }));
+    store.dispatch(next({ personId }));
 
     expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
@@ -262,13 +255,13 @@ describe('AddStepScreen next', () => {
     }).snapshot();
   });
 
-  it('should fire required next actions for other person', async () => {
+  it('should fire required next actions for other person', () => {
     const { store, next } = renderScreen(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
       personId,
     });
 
-    await store.dispatch(next({ text, personId }));
+    store.dispatch(next({ text, personId }));
 
     expect(createCustomStep).toHaveBeenCalledWith(text, personId);
 
@@ -281,10 +274,10 @@ describe('CelebrationScreen next', () => {
     renderScreen(CELEBRATION_SCREEN).snapshot();
   });
 
-  it('should fire required next actions', async () => {
+  it('should fire required next actions', () => {
     const { store, next } = renderScreen(CELEBRATION_SCREEN);
 
-    await store.dispatch(next());
+    store.dispatch(next());
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.ONBOARDING_COMPLETE,

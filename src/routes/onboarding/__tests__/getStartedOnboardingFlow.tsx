@@ -1,10 +1,8 @@
 /* eslint max-lines: 0 */
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 import { CREATE_STEP, ACTIONS } from '../../../constants';
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
@@ -28,84 +26,122 @@ import {
   trackActionWithoutData,
   resetAppContext,
 } from '../../../actions/analytics';
-import { createCustomStep } from '../../../actions/steps';
+import { createCustomStep, getStepSuggestions } from '../../../actions/steps';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../../selectors/people';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/steps');
+jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
-  useLogoutOnBack: jest.fn(),
+  useLogoutOnBack: () => jest.fn(),
 }));
+jest.mock('../../../utils/hooks/useAnalytics', () => ({
+  useAnalytics: jest.fn(),
+}));
+
+const mockMath = Object.create(global.Math);
+mockMath.random = () => 0;
+global.Math = mockMath;
 
 const myId = '123';
 const personId = '321';
 const personFirstName = 'Someone';
+const person = { id: personId, first_name: personFirstName };
 const stageId = '3';
 const stage = { id: stageId };
 const step = { id: '111' };
 const text = 'Step Text';
+const contactAssignment = { id: '4', pathway_stage_id: stageId };
 
-const store = configureStore([thunk])({
+const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   onboarding: { personId },
   people: {
     allByOrg: {
       personal: {
-        people: { [personId]: { id: personId, first_name: personFirstName } },
+        people: { [personId]: person },
       },
     },
   },
   organizations: { all: [] },
   stages: { stages: [] },
-});
+  steps: {
+    suggestedForMe: { stageId: [] },
+    suggestedForOthers: { stageId: [] },
+  },
+};
 
 beforeEach(() => {
-  store.clearActions();
-  // @ts-ignore
-  navigatePush.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  navigateToMainTabs.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  skipAddPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  resetAppContext.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  trackActionWithoutData.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  createCustomStep.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  setOnboardingPersonId.mockReturnValue(() => Promise.resolve());
+  (navigatePush as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (navigateToMainTabs as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (skipAddPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (resetPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (resetAppContext as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (createCustomStep as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (getStepSuggestions as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (setOnboardingPersonId as jest.Mock).mockReturnValue(() => Promise.resolve());
+  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+    contactAssignment,
+  );
 });
 
-// @ts-ignore
-let screen;
-// @ts-ignore
-let next;
+type ScreenName =
+  | typeof GET_STARTED_SCREEN
+  | typeof STAGE_SUCCESS_SCREEN
+  | typeof SELECT_MY_STEP_SCREEN
+  | typeof ADD_SOMEONE_SCREEN
+  | typeof SETUP_PERSON_SCREEN
+  | typeof SELECT_STAGE_SCREEN
+  | typeof PERSON_SELECT_STEP_SCREEN
+  | typeof SUGGESTED_STEP_DETAIL_SCREEN
+  | typeof ADD_STEP_SCREEN
+  | typeof NOTIFICATION_PRIMER_SCREEN
+  | typeof NOTIFICATION_OFF_SCREEN
+  | typeof CELEBRATION_SCREEN;
+
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+const renderScreen = (screenName: ScreenName, navParams: any = {}) => {
+  //@ts-ignore
+  const Component = GetStartedOnboardingFlowScreens[screenName];
+
+  const { store, getByType, snapshot } = renderWithContext(<Component />, {
+    initialState,
+    navParams,
+  });
+
+  const originalComponent = getByType(Component).children[0];
+
+  if (typeof originalComponent === 'string') {
+    throw "Can't access component props";
+  }
+
+  const next = originalComponent.props.next;
+
+  return { store, next, snapshot };
+};
 
 describe('GetStartedScreen', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    const Component = GetStartedOnboardingFlowScreens[GET_STARTED_SCREEN];
-
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
+  it('renders correctly', () => {
+    renderScreen(GET_STARTED_SCREEN).snapshot();
   });
 
-  it('renders without back button correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
-  });
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(GET_STARTED_SCREEN);
 
-  it('should fire required next actions', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ id: myId }));
+    store.dispatch(next());
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
@@ -116,56 +152,28 @@ describe('GetStartedScreen', () => {
 });
 
 describe('StageSuccessScreen', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    const Component = GetStartedOnboardingFlowScreens[STAGE_SUCCESS_SCREEN];
-
-    screen = renderShallow(
-      <Component
-        navigation={{ state: { params: { selectedStage: stage } } }}
-      />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(STAGE_SUCCESS_SCREEN, { selectedStage: stage }).snapshot();
   });
 
-  it('should fire required next actions', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ selectedStage: stage }));
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(STAGE_SUCCESS_SCREEN);
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, {
-      selectedStage: stage,
-    });
+    store.dispatch(next());
+
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, undefined);
   });
 });
 
 describe('SelectMyStepScreen', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    const Component = GetStartedOnboardingFlowScreens[SELECT_MY_STEP_SCREEN];
-
-    screen = renderShallow(
-      <Component navigation={{ state: { params: { contactStage: stage } } }} />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(SELECT_MY_STEP_SCREEN).snapshot();
   });
 
-  it('should fire required next actions for suggested step', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ personId: myId, step }));
+  it('should fire required next actions for suggested step', () => {
+    const { store, next } = renderScreen(SELECT_MY_STEP_SCREEN);
+
+    store.dispatch(next({ personId: myId, step }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
@@ -173,9 +181,10 @@ describe('SelectMyStepScreen', () => {
     });
   });
 
-  it('should fire required next actions for create step', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ personId: myId, step: undefined }));
+  it('should fire required next actions for create step', () => {
+    const { store, next } = renderScreen(SELECT_MY_STEP_SCREEN);
+
+    store.dispatch(next({ personId: myId, step: undefined }));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
@@ -185,55 +194,38 @@ describe('SelectMyStepScreen', () => {
 });
 
 describe('AddSomeoneScreen next', () => {
-  beforeEach(() => {
-    const Component = GetStartedOnboardingFlowScreens[ADD_SOMEONE_SCREEN];
-
-    screen = renderShallow(
-      <Component navigation={{ state: { params: {} } }} />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders with back button correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(ADD_SOMEONE_SCREEN).snapshot();
   });
 
-  it('should fire required next actions without skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: false }));
+  it('should fire required next actions without skip', () => {
+    const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
+
+    store.dispatch(next({ skip: false }));
 
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 
-  it('should fire required next actions with skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: true }));
+  it('should fire required next actions with skip', () => {
+    const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
+
+    store.dispatch(next({ skip: true }));
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
 describe('SetupPersonScreen next', () => {
-  beforeEach(() => {
-    const Component = GetStartedOnboardingFlowScreens[SETUP_PERSON_SCREEN];
-
-    screen = renderShallow(<Component />, store);
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(SETUP_PERSON_SCREEN).snapshot();
   });
 
-  it('should fire required next actions without skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: false, personId }));
+  it('should fire required next actions without skip', () => {
+    const { store, next } = renderScreen(SETUP_PERSON_SCREEN);
 
+    store.dispatch(next({ skip: false, personId }));
+
+    expect(setOnboardingPersonId).toHaveBeenCalledWith(personId);
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'add person',
@@ -241,127 +233,65 @@ describe('SetupPersonScreen next', () => {
     });
   });
 
-  it('should fire required next actions with skip', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ skip: true }));
+  it('should fire required next actions with skip', () => {
+    const { store, next } = renderScreen(SETUP_PERSON_SCREEN);
 
+    store.dispatch(next({ skip: true }));
+
+    expect(setOnboardingPersonId).not.toHaveBeenCalled();
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
 describe('SelectStageScreen', () => {
-  describe('person is me', () => {
-    beforeEach(() => {
-      const Component = GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN];
-
-      screen = renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: {
-                section: 'onboarding',
-                subsection: 'self',
-                personId: myId,
-              },
-            },
-          }}
-        />,
-        store,
-      );
-      // @ts-ignore
-      next = screen.instance().props.next;
-    });
-
-    it('renders correctly', () => {
-      // @ts-ignore
-      expect(screen).toMatchSnapshot();
-    });
-
-    it('should fire required next actions', async () => {
-      // @ts-ignore
-      await store.dispatch(next({ stage, isMe: true }));
-
-      expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN);
-    });
+  it('renders correctly', () => {
+    renderScreen(SELECT_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'self',
+      personId: myId,
+    }).snapshot();
   });
 
-  describe('person is other', () => {
-    beforeEach(() => {
-      const Component = GetStartedOnboardingFlowScreens[SELECT_STAGE_SCREEN];
-
-      screen = renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: {
-                section: 'onboarding',
-                subsection: 'add person',
-                personId,
-              },
-            },
-          }}
-        />,
-        store,
-      );
-      // @ts-ignore
-      next = screen.instance().props.next;
+  it('should fire required next actions for me', () => {
+    const { store, next } = renderScreen(SELECT_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'self',
+      personId: myId,
     });
 
-    it('renders correctly', () => {
-      // @ts-ignore
-      expect(screen).toMatchSnapshot();
+    store.dispatch(next({ isMe: true }));
+
+    expect(navigatePush).toHaveBeenCalledWith(STAGE_SUCCESS_SCREEN);
+  });
+
+  it('should fire required next actions for other person', () => {
+    const { store, next } = renderScreen(SELECT_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'add person',
+      personId,
     });
 
-    it('should fire required next actions', async () => {
-      await store.dispatch(
-        // @ts-ignore
-        next({
-          stage: stage,
-          personId,
-          firstName: personFirstName,
-          isMe: false,
-        }),
-      );
+    store.dispatch(next({ isMe: false }));
 
-      expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-        personId,
-      });
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+      personId,
     });
   });
 });
 
 describe('PersonSelectStepScreen next', () => {
-  beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[PERSON_SELECT_STEP_SCREEN];
-
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {
-              contactStage: stage,
-              contactName: personFirstName,
-              contactId: personId,
-              orgId: '123',
-            },
-          },
-        }}
-      />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(PERSON_SELECT_STEP_SCREEN, {
+      personId,
+    }).snapshot();
   });
 
-  it('should fire required next actions for suggested step', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ personId, step }));
+  it('should fire required next actions for suggested step', () => {
+    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+      personId,
+    });
+
+    store.dispatch(next({ personId, step }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
@@ -369,9 +299,12 @@ describe('PersonSelectStepScreen next', () => {
     });
   });
 
-  it('should fire required next actions for create step', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ personId, step: undefined }));
+  it('should fire required next actions for create step', () => {
+    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+      personId,
+    });
+
+    store.dispatch(next({ personId, step: undefined }));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
@@ -381,69 +314,64 @@ describe('PersonSelectStepScreen next', () => {
 });
 
 describe('SuggestedStepDetailScreen next', () => {
-  beforeEach(() => {
-    const Component =
-      GetStartedOnboardingFlowScreens[SUGGESTED_STEP_DETAIL_SCREEN];
-
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {
-              step,
-              personId: myId,
-            },
-          },
-        }}
-      />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step,
+      personId,
+    }).snapshot();
   });
 
-  it('should fire required next actions for other person', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ contactId: personId }));
+  it('should fire required next actions for me', () => {
+    const { store, next } = renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step,
+      personId: myId,
+    });
+
+    store.dispatch(next({ personId: myId }));
+
+    expect(navigatePush).toHaveBeenCalledWith(ADD_SOMEONE_SCREEN);
+  });
+
+  it('should fire required next actions for other person', () => {
+    const { store, next } = renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step,
+      personId,
+    });
+
+    store.dispatch(next({ personId }));
 
     expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
 describe('AddStepScreen next', () => {
-  beforeEach(() => {
-    const Component = GetStartedOnboardingFlowScreens[ADD_STEP_SCREEN];
-
-    screen = renderShallow(
-      <Component
-        navigation={{
-          state: {
-            params: {
-              type: CREATE_STEP,
-              personId,
-            },
-          },
-        }}
-      />,
-      store,
-    );
-    // @ts-ignore
-    next = screen.instance().props.next;
-  });
-
   it('renders correctly', () => {
-    // @ts-ignore
-    expect(screen).toMatchSnapshot();
+    renderScreen(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      personId,
+    }).snapshot();
   });
 
-  it('should fire required next actions for other person', async () => {
-    // @ts-ignore
-    await store.dispatch(next({ text, personId }));
+  it('should fire required next actions for me', () => {
+    const { store, next } = renderScreen(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      personId: myId,
+    });
+
+    store.dispatch(next({ text, personId: myId }));
+
+    expect(createCustomStep).toHaveBeenCalledWith(text, myId);
+
+    expect(navigatePush).toHaveBeenCalledWith(ADD_SOMEONE_SCREEN);
+  });
+
+  it('should fire required next actions for other person', () => {
+    const { store, next } = renderScreen(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      personId,
+    });
+
+    store.dispatch(next({ text, personId }));
 
     expect(createCustomStep).toHaveBeenCalledWith(text, personId);
 
@@ -453,15 +381,9 @@ describe('AddStepScreen next', () => {
 
 describe('NotificationPrimerScreen next', () => {
   it('should fire required next actions', () => {
-    const Component =
-      GetStartedOnboardingFlowScreens[NOTIFICATION_PRIMER_SCREEN];
+    const { store, next } = renderScreen(NOTIFICATION_PRIMER_SCREEN);
 
-    store.dispatch(
-      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
-        .instance()
-        // @ts-ignore
-        .props.next(),
-    );
+    store.dispatch(next());
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, undefined);
   });
@@ -469,29 +391,23 @@ describe('NotificationPrimerScreen next', () => {
 
 describe('NotificationOffScreen next', () => {
   it('should fire required next actions', () => {
-    const Component = GetStartedOnboardingFlowScreens[NOTIFICATION_OFF_SCREEN];
+    const { store, next } = renderScreen(NOTIFICATION_OFF_SCREEN);
 
-    store.dispatch(
-      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
-        .instance()
-        // @ts-ignore
-        .props.next(),
-    );
+    store.dispatch(next());
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, undefined);
   });
 });
 
 describe('CelebrationScreen next', () => {
-  it('should fire required next actions', async () => {
-    const Component = GetStartedOnboardingFlowScreens[CELEBRATION_SCREEN];
+  it('renders correctly', () => {
+    renderScreen(CELEBRATION_SCREEN).snapshot();
+  });
 
-    await store.dispatch(
-      renderShallow(<Component navigation={{ state: { params: {} } }} />, store)
-        .instance()
-        // @ts-ignore
-        .props.next(),
-    );
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(CELEBRATION_SCREEN);
+
+    store.dispatch(next());
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.ONBOARDING_COMPLETE,
