@@ -485,6 +485,112 @@ exports[`create methods clears date 1`] = `
           style={"
 `;
 
+exports[`create methods fires onBlur | detailInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -135,11 +135,11 @@
+          multiline={true}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeTitle]}
+          onFocus={[Function onFocus]}
+          placeholder=\\"New Challenge\\"
+-         placeholderTextColor=\\"#3CC8E6\\"
++         placeholderTextColor=\\"#B4B6BA\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#52C5DC\\"
+          style={
+            Array [
+@@ -261,11 +261,11 @@
+            multiline={true}
+            onBlur={[Function onBlur]}
+            onChangeText={[Function onChangeText]}
+            onFocus={[Function onFocus]}
+            placeholder=\\"Add details to your Challenge (optional)\\"
+-           placeholderTextColor=\\"#B4B6BA\\"
++           placeholderTextColor=\\"#3CC8E6\\"
+            rejectResponderTermination={true}
+            returnKeyType=\\"done\\"
+            selectionColor=\\"#52C5DC\\"
+            style={
+              Array ["
+`;
+
+exports[`create methods fires onBlur | titleInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -135,11 +135,11 @@
+          multiline={true}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeTitle]}
+          onFocus={[Function onFocus]}
+          placeholder=\\"New Challenge\\"
+-         placeholderTextColor=\\"#B4B6BA\\"
++         placeholderTextColor=\\"#3CC8E6\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#52C5DC\\"
+          style={
+            Array [
+@@ -261,11 +261,11 @@
+            multiline={true}
+            onBlur={[Function onBlur]}
+            onChangeText={[Function onChangeText]}
+            onFocus={[Function onFocus]}
+            placeholder=\\"Add details to your Challenge (optional)\\"
+-           placeholderTextColor=\\"#3CC8E6\\"
++           placeholderTextColor=\\"#B4B6BA\\"
+            rejectResponderTermination={true}
+            returnKeyType=\\"done\\"
+            selectionColor=\\"#52C5DC\\"
+            style={
+              Array ["
+`;
+
+exports[`create methods focuses on press | detailInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -261,11 +261,11 @@
+            multiline={true}
+            onBlur={[Function onBlur]}
+            onChangeText={[Function onChangeText]}
+            onFocus={[Function onFocus]}
+            placeholder=\\"Add details to your Challenge (optional)\\"
+-           placeholderTextColor=\\"#3CC8E6\\"
++           placeholderTextColor=\\"#B4B6BA\\"
+            rejectResponderTermination={true}
+            returnKeyType=\\"done\\"
+            selectionColor=\\"#52C5DC\\"
+            style={
+              Array ["
+`;
+
+exports[`create methods focuses on press | titleInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -135,11 +135,11 @@
+          multiline={true}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeTitle]}
+          onFocus={[Function onFocus]}
+          placeholder=\\"New Challenge\\"
+-         placeholderTextColor=\\"#3CC8E6\\"
++         placeholderTextColor=\\"#B4B6BA\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#52C5DC\\"
+          style={
+            Array ["
+`;
+
 exports[`create methods sets disable false 1`] = `
 "Snapshot Diff:
 - First value

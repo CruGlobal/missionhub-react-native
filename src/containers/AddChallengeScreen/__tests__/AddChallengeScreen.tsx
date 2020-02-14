@@ -45,6 +45,71 @@ it('renders edit challenge correctly', () => {
 });
 
 describe('create methods', () => {
+  it('focuses on press | titleInput', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddChallengeScreen />,
+      {
+        initialState: {},
+        navParams: {
+          onComplete,
+          isEdit: false,
+        },
+      },
+    );
+    recordSnapshot();
+    await fireEvent(getByTestId('titleInput'), 'onFocus');
+    diffSnapshot();
+  });
+  it('focuses on press | detailInput', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddChallengeScreen />,
+      {
+        initialState: {},
+        navParams: {
+          onComplete,
+          isEdit: false,
+        },
+      },
+    );
+    recordSnapshot();
+    await fireEvent(getByTestId('detailInput'), 'onFocus');
+    diffSnapshot();
+  });
+
+  it('fires onBlur | titleInput', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddChallengeScreen />,
+      {
+        initialState: {},
+        navParams: {
+          onComplete,
+          isEdit: false,
+        },
+      },
+    );
+    await fireEvent(getByTestId('titleInput'), 'onFocus');
+    recordSnapshot();
+    await fireEvent(getByTestId('detailInput'), 'onFocus');
+    diffSnapshot();
+  });
+
+  it('fires onBlur | detailInput', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddChallengeScreen />,
+      {
+        initialState: {},
+        navParams: {
+          onComplete,
+          isEdit: false,
+        },
+      },
+    );
+    await fireEvent(getByTestId('detailInput'), 'onFocus');
+    recordSnapshot();
+    await fireEvent(getByTestId('titleInput'), 'onFocus');
+    diffSnapshot();
+  });
+
   it('changes title', async () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
