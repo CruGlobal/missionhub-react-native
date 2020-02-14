@@ -75,7 +75,6 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -235,7 +234,6 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -395,7 +393,6 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -636,7 +633,6 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -877,7 +873,6 @@ exports[`render contacts count cru org should render 0 assigned 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1037,7 +1032,6 @@ exports[`render contacts count cru org should render 0 uncontacted 1`] = `
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1156,7 +1150,6 @@ exports[`render contacts count cru org should render assigned and uncontacted 1`
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1316,7 +1309,6 @@ exports[`render contacts count user created org should render no stage, admin pe
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1435,7 +1427,6 @@ exports[`render contacts count user created org should render no stage, member p
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1535,7 +1526,6 @@ exports[`render contacts count user created org should render no stage, owner pe
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1654,7 +1644,6 @@ exports[`render contacts count user created org should render stage, admin permi
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1814,7 +1803,6 @@ exports[`render contacts count user created org should render stage, member perm
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],
@@ -1933,7 +1921,6 @@ exports[`render contacts count user created org should render stage, owner permi
               Object {
                 "color": "#007398",
                 "fontSize": 16,
-                "lineHeight": 20,
               },
               undefined,
             ],

@@ -18,6 +18,7 @@ import callApi from './api';
 import { checkNotifications } from './notifications';
 import { navigatePush, navigateBack } from './navigation';
 import { trackActionWithoutData } from './analytics';
+import { getCelebrateFeed } from './celebration';
 
 export function getGroupChallengeFeed(orgId: string) {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
@@ -57,6 +58,7 @@ export function completeChallenge(item: { id: string }, orgId: string) {
     );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_COMPLETED));
     dispatch(reloadGroupChallengeFeed(orgId));
+    getCelebrateFeed(orgId);
   };
 }
 
@@ -78,6 +80,7 @@ export function joinChallenge(item: { id: string }, orgId: string) {
     );
     dispatch<any>(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
+    getCelebrateFeed(orgId);
 
     await dispatch<any>(
       checkNotifications(

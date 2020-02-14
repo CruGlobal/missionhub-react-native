@@ -31,6 +31,16 @@ exports[`Surveys should render correctly 1`] = `
     }
   }
 >
+  <InfoModal
+    action={[Function]}
+    buttonLabel="FIND THEM HERE"
+    title="We are moving Surveys to the web!"
+    titleStyle={
+      Object {
+        "maxWidth": 200,
+      }
+    }
+  />
   <FlatList
     ListFooterComponent={
       <LoadMore

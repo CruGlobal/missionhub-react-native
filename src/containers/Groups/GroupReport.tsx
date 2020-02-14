@@ -1,49 +1,99 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FlatList, View } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
+import { useQuery } from '@apollo/react-hooks';
+import { useDispatch } from 'react-redux';
+import gql from 'graphql-tag';
 
-import { refresh, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
-import { getReportedComments } from '../../actions/reportComments';
 import NULL from '../../../assets/images/curiousIcon.png';
 import { navigateBack } from '../../actions/navigation';
-import ReportCommentItem from '../ReportCommentItem';
-import Analytics from '../Analytics';
+import ReportedItem from '../ReportedItem';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { Organization } from '../../reducers/organizations';
 
+import {
+  GetReportedContent,
+  GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface,
+} from './__generated__/GetReportedContent';
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('groupsReport')
-export class GroupReport extends Component {
-  state = { refreshing: false };
+export const GET_REPORTED_CONTENT = gql`
+  query GetReportedContent($id: ID!) {
+    community(id: $id) {
+      contentComplaints(ignored: false) {
+        nodes {
+          id
+          subject {
+            __typename
+            ... on Story {
+              content
+              createdAt
+              updatedAt
+              id
+              author {
+                fullName
+                firstName
 
-  loadItems = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
-    return dispatch(getReportedComments(organization.id));
+                id
+              }
+            }
+            ... on CommunityCelebrationItemComment {
+              content
+              createdAt
+              updatedAt
+              id
+              person {
+                fullName
+                firstName
+
+                id
+              }
+            }
+          }
+          person {
+            fullName
+          }
+        }
+      }
+    }
+  }
+`;
+
+const GroupReport = () => {
+  const { t } = useTranslation('groupsReport');
+  useAnalytics(['celebrate', 'reported content']);
+  const dispatch = useDispatch();
+  const organization: Organization = useNavigationParam('organization');
+  const {
+    data: {
+      community: {
+        contentComplaints: { nodes: ReportedContent = [] } = {},
+      } = {},
+    } = {},
+    loading,
+    refetch,
+  } = useQuery<GetReportedContent>(GET_REPORTED_CONTENT, {
+    variables: {
+      id: organization.id,
+    },
+  });
+  const renderItem = ({ item }: { item: ReportedItemInterface }) => {
+    return (
+      <ReportedItem item={item} refetch={refetch} organization={organization} />
+    );
   };
 
-  refreshItems = () => {
-    refresh(this, this.loadItems);
+  const navigateOut = () => {
+    return dispatch(navigateBack());
   };
 
-  // @ts-ignore
-  renderItem = ({ item }) => (
-    // @ts-ignore
-    <ReportCommentItem item={item} organization={this.props.organization} />
-  );
-
-  // @ts-ignore
-  navigateBack = () => this.props.dispatch(navigateBack());
-
-  renderList = () => {
-    const { refreshing } = this.state;
-    // @ts-ignore
-    const { t, reportedComments } = this.props;
-    if (reportedComments.length === 0) {
+  const renderList = () => {
+    if (ReportedContent.length === 0) {
       return (
         <NullStateComponent
           imageSource={NULL}
@@ -55,59 +105,34 @@ export class GroupReport extends Component {
     return (
       <FlatList
         contentContainerStyle={styles.reportList}
-        data={reportedComments}
+        data={ReportedContent}
         keyExtractor={keyExtractorId}
-        renderItem={this.renderItem}
+        renderItem={renderItem}
         refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={this.refreshItems}
-          />
+          <RefreshControl refreshing={loading} onRefresh={refetch} />
         }
       />
     );
   };
 
-  render() {
-    // @ts-ignore
-    const { t } = this.props;
+  return (
+    <View style={styles.greyPageContainer}>
+      <Header
+        right={
+          <IconButton
+            testID="closeButton"
+            name="deleteIcon"
+            type="MissionHub"
+            onPress={navigateOut}
+          />
+        }
+        style={styles.reportHeader}
+        title={t('title')}
+      />
+      {renderList()}
+    </View>
+  );
+};
 
-    return (
-      <View style={styles.redPageContainer}>
-        <Analytics screenName={['celebrate', 'reported comments']} />
-        <Header
-          right={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.navigateBack}
-            />
-          }
-          // @ts-ignore
-          style={styles.reportHeader}
-          title={t('title')}
-        />
-        {this.renderList()}
-      </View>
-    );
-  }
-}
-
-const mapStateToProps = (
-  // @ts-ignore
-  { reportedComments },
-  {
-    navigation: {
-      state: {
-        // @ts-ignore
-        params: { organization },
-      },
-    },
-  },
-) => ({
-  organization,
-  reportedComments: reportedComments.all[organization.id] || [],
-});
-
-export default connect(mapStateToProps)(GroupReport);
+export default GroupReport;
 export const GROUPS_REPORT_SCREEN = 'nav/GROUPS_REPORT_SCREEN';

@@ -54,12 +54,6 @@
         "skipComments": true
       }
     ],
-    "complexity": [
-      2,
-      {
-        "max": 10
-      }
-    ],
     "no-return-await": 2,
     "quotes": [
       2,

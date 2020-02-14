@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, ScrollView } from 'react-native';
 import { AnyAction } from 'redux';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
@@ -8,7 +8,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux-legacy';
 
-import { Input, Flex } from '../../../components/common';
+import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import { navigateBack } from '../../../actions/navigation';
@@ -66,9 +66,10 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
-      <Flex value={1}>
+      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
           testID="EditInput"
+          scrollEnabled={false}
           onChangeText={e => changeStory(e)}
           placeholder={t('inputPlaceholder')}
           value={story}
@@ -81,7 +82,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
           placeholderTextColor={theme.lightGrey}
           style={textInput}
         />
-      </Flex>
+      </ScrollView>
       <BottomButton
         text={t('saveStory')}
         onPress={saveStory}

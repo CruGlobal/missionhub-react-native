@@ -3,12 +3,13 @@ import { MockList } from 'graphql-tools';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 import { useQuery } from '@apollo/react-hooks';
 
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { Organization } from '../../../reducers/organizations';
 import { Person } from '../../../reducers/people';
-import { GET_CELEBRATE_FEED } from '../queries';
+import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from '../queries';
 
 import CelebrateFeed from '..';
 
@@ -71,13 +72,19 @@ it('renders with celebration items correctly', async () => {
 
   await flushMicrotasksQueue();
   snapshot();
+
   expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    skip: false,
     pollInterval: 30000,
     variables: {
       communityId: organization.id,
       hasUnreadComments: undefined,
       personIds: undefined,
     },
+  });
+  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+    skip: true,
+    pollInterval: 30000,
   });
 });
 
@@ -101,13 +108,19 @@ describe('renders for member', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      skip: false,
       pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
-        personIds: [person.id],
+        personIds: person.id,
       },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+      skip: true,
+      pollInterval: 30000,
     });
   });
 
@@ -131,13 +144,19 @@ describe('renders for member', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      skip: false,
       pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
-        personIds: [person.id],
+        personIds: person.id,
       },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+      skip: true,
+      pollInterval: 30000,
     });
   });
 });
@@ -162,13 +181,19 @@ describe('renders with clear notification', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      skip: false,
       pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
         personIds: undefined,
       },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+      skip: true,
+      pollInterval: 30000,
     });
   });
 });
@@ -193,13 +218,55 @@ describe('renders for Unread Comments', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+
     expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      skip: false,
       pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: true,
         personIds: undefined,
       },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+      skip: true,
+      pollInterval: 30000,
+    });
+  });
+});
+
+describe('renders for Global Community', () => {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed
+        organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
+        itemNamePressable={true}
+      />,
+      {
+        initialState,
+        mocks: {
+          CommunityCelebrationItemConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+      skip: true,
+      pollInterval: 30000,
+      variables: {
+        communityId: GLOBAL_COMMUNITY_ID,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+      skip: false,
+      pollInterval: 30000,
     });
   });
 });

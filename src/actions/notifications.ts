@@ -18,6 +18,7 @@ import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
+import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import { NotificationsState } from '../reducers/notifications';
@@ -33,6 +34,7 @@ import {
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
+import { getCelebrateFeed } from './celebration';
 
 export interface MHPushNotification extends PushNotification {
   data: {
@@ -185,7 +187,7 @@ export const configureNotificationHandler = () => (
 };
 
 const handleNotification = (notification: MHPushNotification) => async (
-  dispatch: ThunkDispatch<{ organization: OrganizationsState }, {}, AnyAction>,
+  dispatch: ThunkDispatch<{ organizations: OrganizationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState },
 ) => {
   if (isAndroid && !notification.userInteraction) {
@@ -223,21 +225,32 @@ const handleNotification = (notification: MHPushNotification) => async (
           organization: { id: organization_id },
         }),
       );
-    case 'celebrate':
+    case 'celebrate_feed':
       if (organization_id) {
-        const community = await dispatch<any>(
-          refreshCommunity(organization_id),
-        );
-        return dispatch(
-          navigateToCelebrateComments(community, celebration_item_id),
-        );
+        const community = await dispatch(refreshCommunity(organization_id));
+        return dispatch(navigateToCommunity(community));
+      }
+    case 'celebrate':
+    case 'celebrate_item':
+      if (organization_id) {
+        dispatch(navigatePush(LOADING_SCREEN));
+        try {
+          const community = await dispatch(refreshCommunity(organization_id));
+          await getCelebrateFeed(organization_id);
+          return dispatch(
+            navigateToCelebrateComments(community, celebration_item_id),
+          );
+        } catch (error) {
+          dispatch(navigateToMainTabs());
+          throw error;
+        }
       }
       return;
     case 'community_challenges':
       // IOS Global Community Challenges PN returns the organization_id as null
       const orgId =
         organization_id === null ? GLOBAL_COMMUNITY_ID : organization_id;
-      const community = await dispatch<any>(refreshCommunity(orgId));
+      const community = await dispatch(refreshCommunity(orgId));
       await dispatch(reloadGroupChallengeFeed(orgId));
       return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
   }
@@ -247,7 +260,6 @@ export function parseNotificationData(notification: MHPushNotification) {
   const {
     data: { link: { data: iosData = { screen_extra_data: {} } } = {} } = {},
   } = notification;
-
   const data = {
     ...notification,
     ...(typeof notification.screen_extra_data === 'string' &&

@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import { DateConstants } from '../../components/DateComponent';
-import { keyExtractorId } from '../../utils/common';
+import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import ShareStoryInput from '../Groups/ShareStoryInput';
 import {
@@ -18,11 +18,12 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 
-import { GET_CELEBRATE_FEED } from './queries';
+import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
 import {
   GetCelebrateFeed,
   GetCelebrateFeed_community_celebrationItems_nodes,
 } from './__generated__/GetCelebrateFeed';
+import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
@@ -51,9 +52,10 @@ const CelebrateFeed = ({
   onFetchMore,
   onClearNotification,
 }: CelebrateFeedProps) => {
+  const isGlobal = orgIsGlobal(organization);
   const queryVariables = {
     communityId: organization.id,
-    personIds: (person && [person.id]) || undefined,
+    personIds: person && person.id,
     hasUnreadComments: showUnreadOnly,
   };
 
@@ -72,12 +74,35 @@ const CelebrateFeed = ({
   } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
+    skip: isGlobal,
   });
 
-  const celebrationItems = celebrationSelector({ celebrateItems: nodes });
+  const {
+    data: {
+      globalCommunity: {
+        celebrationItems: {
+          nodes: globalNodes = [],
+          pageInfo: {
+            endCursor: globalEndCursor = null,
+            hasNextPage: globalHasNextPage = false,
+          } = {},
+        } = {},
+      } = {},
+    } = {},
+    loading: globalLoading,
+    fetchMore: globalFetchMore,
+    refetch: globalRefetch,
+  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
+    pollInterval: 30000,
+    skip: !isGlobal,
+  });
+
+  const celebrationItems = celebrationSelector({
+    celebrateItems: isGlobal ? globalNodes : nodes,
+  });
 
   const handleRefreshing = () => {
-    refetch();
+    isGlobal ? globalRefetch() : refetch();
     onRefetch && onRefetch();
   };
 
@@ -103,6 +128,38 @@ const CelebrateFeed = ({
                       ...(prev.community.celebrationItems.nodes || []),
                       ...(fetchMoreResult.community.celebrationItems.nodes ||
                         []),
+                    ],
+                  },
+                },
+              }
+            : prev,
+      });
+      onFetchMore && onFetchMore();
+    }
+  };
+
+  const handleOnEndReachedGlobal = () => {
+    if (globalHasNextPage) {
+      globalFetchMore({
+        variables: {
+          ...queryVariables,
+          celebrateCursor: globalEndCursor,
+        },
+        updateQuery: (prev, { fetchMoreResult }) =>
+          fetchMoreResult
+            ? {
+                ...prev,
+                ...fetchMoreResult,
+                globalCommunity: {
+                  ...prev.globalCommunity,
+                  ...fetchMoreResult.globalCommunity,
+                  celebrationItems: {
+                    ...prev.globalCommunity.celebrationItems,
+                    ...fetchMoreResult.globalCommunity.celebrationItems,
+                    nodes: [
+                      ...(prev.globalCommunity.celebrationItems.nodes || []),
+                      ...(fetchMoreResult.globalCommunity.celebrationItems
+                        .nodes || []),
                     ],
                   },
                 },
@@ -144,11 +201,13 @@ const CelebrateFeed = ({
   const renderHeader = () => (
     <>
       <CelebrateFeedHeader isMember={!!person} organization={organization} />
-      <ShareStoryInput
-        dispatch={dispatch}
-        refreshItems={handleRefreshing}
-        organization={organization}
-      />
+      {!person ? (
+        <ShareStoryInput
+          dispatch={dispatch}
+          refreshItems={handleRefreshing}
+          organization={organization}
+        />
+      ) : null}
     </>
   );
 
@@ -160,9 +219,9 @@ const CelebrateFeed = ({
       renderItem={renderItem}
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
-      onEndReached={handleOnEndReached}
+      onEndReached={isGlobal ? handleOnEndReachedGlobal : handleOnEndReached}
       onRefresh={handleRefreshing}
-      refreshing={loading}
+      refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
       contentContainerStyle={styles.listContent}
     />

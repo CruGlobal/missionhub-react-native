@@ -170,6 +170,11 @@ exports[`with challenge suggestion renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 32,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -248,14 +253,10 @@ exports[`with challenge suggestion renders correctly 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            undefined,
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View
@@ -537,14 +538,10 @@ exports[`without challenge suggestion renders correctly 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          undefined,
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>

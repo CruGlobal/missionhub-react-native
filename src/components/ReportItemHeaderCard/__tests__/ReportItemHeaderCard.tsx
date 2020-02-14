@@ -3,11 +3,11 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 
-import ReportCommentHeaderCard from '..';
+import ReportItemHeaderCard from '..';
 
 const props = { count: 12, onPress: jest.fn() };
 it('renders correctly', () => {
-  renderWithContext(<ReportCommentHeaderCard {...props} />, {
+  renderWithContext(<ReportItemHeaderCard {...props} />, {
     noWrappers: true,
   }).snapshot();
 });
@@ -15,10 +15,10 @@ it('renders correctly', () => {
 describe('press event', () => {
   it('calls onPress', () => {
     const { getByTestId } = renderWithContext(
-      <ReportCommentHeaderCard {...props} />,
+      <ReportItemHeaderCard {...props} />,
       { noWrappers: true },
     );
-    fireEvent.press(getByTestId('ReportCommentHeaderCardButton'));
+    fireEvent.press(getByTestId('ReportItemHeaderCardButton'));
 
     expect(props.onPress).toHaveBeenCalled();
   });
