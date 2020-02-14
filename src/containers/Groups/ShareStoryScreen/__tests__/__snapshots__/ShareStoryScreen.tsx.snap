@@ -281,7 +281,7 @@ exports[`Creating a story user types a story 1`] = `
 - First value
 + Second value
 
-@@ -188,11 +188,11 @@
+@@ -187,11 +187,11 @@
               },
             ]
           }

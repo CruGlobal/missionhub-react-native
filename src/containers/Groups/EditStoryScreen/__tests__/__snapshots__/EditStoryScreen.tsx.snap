@@ -556,7 +556,7 @@ exports[`saveStory user edits story 1`] = `
 - First value
 + Second value
 
-@@ -188,11 +188,11 @@
+@@ -187,11 +187,11 @@
               },
             ]
           }

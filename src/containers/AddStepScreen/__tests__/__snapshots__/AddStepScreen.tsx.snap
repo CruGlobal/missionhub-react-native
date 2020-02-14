@@ -2110,7 +2110,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -264,11 +264,11 @@
+@@ -263,11 +263,11 @@
             ]
           }
           testID=\\"stepInput\\"
