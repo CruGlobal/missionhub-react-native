@@ -158,24 +158,24 @@ const CelebrateItemContent = ({
 
   const renderMessage = () => {
     switch (celebrateableType) {
-      case CommunityCelebrationCelebrateableEnum.completed_step:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_STEP:
         return renderStepOfFaithMessage();
-      case CommunityCelebrationCelebrateableEnum.completed_interaction:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION:
         return buildInteractionMessage();
-      case CommunityCelebrationCelebrateableEnum.community_challenge:
+      case CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE:
         return buildChallengeMessage();
-      case CommunityCelebrationCelebrateableEnum.created_community:
+      case CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY:
         return buildCreateCommunityMessage();
-      case CommunityCelebrationCelebrateableEnum.joined_community:
+      case CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY:
         return buildJoinedCommunityMessage();
-      case CommunityCelebrationCelebrateableEnum.story:
+      case CommunityCelebrationCelebrateableEnum.STORY:
         return objectDescription;
     }
   };
 
   const renderChallengeLink = () => {
     return celebrateableType ===
-      CommunityCelebrationCelebrateableEnum.community_challenge ? (
+      CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE ? (
       <View style={styles.row}>
         <Button
           testID="ChallengeLinkButton"

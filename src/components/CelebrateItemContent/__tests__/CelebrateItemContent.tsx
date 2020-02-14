@@ -133,7 +133,7 @@ describe('CelebrateItemContent', () => {
         ...messageBaseEvent,
         subjectPerson: null,
         subjectPersonName: null,
-        celebrateableType: CommunityCelebrationCelebrateableEnum.completed_step,
+        celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
         adjectiveAttributeValue: '3',
       });
     });
@@ -143,7 +143,7 @@ describe('CelebrateItemContent', () => {
         testEvent({
           ...messageBaseEvent,
           celebrateableType:
-            CommunityCelebrationCelebrateableEnum.completed_step,
+            CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
           adjectiveAttributeValue: stageNum,
         });
 
@@ -159,7 +159,7 @@ describe('CelebrateItemContent', () => {
     it('renders step of faith event without stage', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CommunityCelebrationCelebrateableEnum.completed_step,
+        celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
         adjectiveAttributeValue: null,
       });
     });
@@ -169,7 +169,7 @@ describe('CelebrateItemContent', () => {
         testEvent({
           ...messageBaseEvent,
           celebrateableType:
-            CommunityCelebrationCelebrateableEnum.completed_interaction,
+            CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
           adjectiveAttributeValue: interaction,
         });
 
@@ -204,7 +204,7 @@ describe('CelebrateItemContent', () => {
       testEvent({
         ...messageBaseEvent,
         celebrateableType:
-          CommunityCelebrationCelebrateableEnum.community_challenge,
+          CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
         changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
         objectDescription: 'Invite a friend to church',
       });
@@ -214,7 +214,7 @@ describe('CelebrateItemContent', () => {
       testEvent({
         ...messageBaseEvent,
         celebrateableType:
-          CommunityCelebrationCelebrateableEnum.community_challenge,
+          CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
         changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
         objectDescription: 'Invite a friend to church',
       });
@@ -224,7 +224,7 @@ describe('CelebrateItemContent', () => {
       testEvent({
         ...messageBaseEvent,
         celebrateableType:
-          CommunityCelebrationCelebrateableEnum.created_community,
+          CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY,
       });
     });
 
@@ -232,14 +232,14 @@ describe('CelebrateItemContent', () => {
       testEvent({
         ...messageBaseEvent,
         celebrateableType:
-          CommunityCelebrationCelebrateableEnum.joined_community,
+          CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY,
       });
     });
 
     it('renders story', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CommunityCelebrationCelebrateableEnum.story,
+        celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
         objectDescription: 'Once Upon a Time....',
       });
     });
@@ -253,7 +253,7 @@ describe('onPressChallengeLink', () => {
         event={{
           ...event,
           celebrateableType:
-            CommunityCelebrationCelebrateableEnum.community_challenge,
+            CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
         }}
         organization={organization}
       />,

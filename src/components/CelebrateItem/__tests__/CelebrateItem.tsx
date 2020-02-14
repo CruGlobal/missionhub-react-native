@@ -47,7 +47,7 @@ const navigatePushResult = { type: 'navigate push' };
 
 const storyEvent: CelebrateItemData = {
   ...event,
-  celebrateableType: CommunityCelebrationCelebrateableEnum.story,
+  celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
 };
 
 const initialState = { auth: { person: { id: myId } } };

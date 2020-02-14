@@ -71,15 +71,15 @@ const filterCelebrationFeedItems = (
 
   return items.filter(item => {
     switch (item.celebrateableType) {
-      case CommunityCelebrationCelebrateableEnum.completed_interaction:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION:
         return validInteractionTypes.includes(
           `${item.adjectiveAttributeValue}`,
         );
-      case CommunityCelebrationCelebrateableEnum.completed_step:
-      case CommunityCelebrationCelebrateableEnum.community_challenge:
-      case CommunityCelebrationCelebrateableEnum.created_community:
-      case CommunityCelebrationCelebrateableEnum.joined_community:
-      case CommunityCelebrationCelebrateableEnum.story:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_STEP:
+      case CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE:
+      case CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY:
+      case CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY:
+      case CommunityCelebrationCelebrateableEnum.STORY:
         return true;
       default:
         return false;

@@ -132,7 +132,7 @@ const CelebrateItem = ({
 
   const menuActions =
     !orgIsGlobal(organization) &&
-    celebrateableType === CommunityCelebrationCelebrateableEnum.story
+    celebrateableType === CommunityCelebrationCelebrateableEnum.STORY
       ? subjectPerson && me.id === subjectPerson.id
         ? [
             {
