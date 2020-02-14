@@ -355,6 +355,10 @@ export const ACTIONS = {
     name: 'Delete Community',
     key: 'cru.communitydelete',
   },
+  SHARE_STORY: {
+    name: 'Share Story',
+    key: 'cru.sharestory',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
