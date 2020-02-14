@@ -10,7 +10,7 @@ import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
-import Analytics from '../Analytics';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -47,6 +47,8 @@ const AddChallengeScreen = () => {
       ? changeDisableBtn(false)
       : changeDisableBtn(true);
   }, [date, title, detail]);
+
+  useAnalytics(['challenge', isEdit ? 'edit' : 'create']);
 
   const {
     container,
@@ -100,6 +102,7 @@ const AddChallengeScreen = () => {
   const renderTitleInput = () => {
     return (
       <Input
+        testID="titleInput"
         onChangeText={onChangeTitle}
         onFocus={() => setEditing('title')}
         onBlur={() => setEditing('')}
@@ -128,6 +131,7 @@ const AddChallengeScreen = () => {
         mode="date"
         minDate={today}
         onDateChange={onChangeDate}
+        testID="datePicker"
       >
         <View style={dateWrap}>
           <Text style={dateLabel}>{t('dateLabel')}</Text>
@@ -144,6 +148,7 @@ const AddChallengeScreen = () => {
       <View style={detailWrap}>
         <Text style={detailLabel}>{t('detailsLabel')}</Text>
         <Input
+          testID="detailInput"
           onChangeText={e => changeDetail(e)}
           onFocus={() => setEditing('detail')}
           onBlur={() => setEditing('')}
@@ -166,7 +171,6 @@ const AddChallengeScreen = () => {
 
   return (
     <View style={container}>
-      <Analytics screenName={['challenge', isEdit ? 'edit' : 'create']} />
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         right={
@@ -183,6 +187,7 @@ const AddChallengeScreen = () => {
         {renderDetailInput()}
       </ScrollView>
       <BottomButton
+        testID="saveChallengeButton"
         disabled={disableBtn}
         onPress={saveChallenge}
         text={t(isEdit ? 'save' : 'add')}

@@ -135,7 +135,6 @@ exports[`renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -408,7 +407,6 @@ exports[`renders empty text correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -550,7 +548,7 @@ exports[`saveStory user edits story 1`] = `
 - First value
 + Second value
 
-@@ -185,11 +185,11 @@
+@@ -184,11 +184,11 @@
             },
           ]
         }

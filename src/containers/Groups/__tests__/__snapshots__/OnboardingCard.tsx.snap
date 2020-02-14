@@ -10,6 +10,13 @@ exports[`OnboardingCard render celebrate card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -38,11 +45,11 @@ exports[`OnboardingCard render celebrate card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -55,7 +62,7 @@ exports[`OnboardingCard render celebrate card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
@@ -86,7 +93,7 @@ exports[`OnboardingCard render celebrate card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }
@@ -108,6 +115,13 @@ exports[`OnboardingCard render challenges card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -136,11 +150,11 @@ exports[`OnboardingCard render challenges card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -153,13 +167,13 @@ exports[`OnboardingCard render challenges card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
       }
     >
-      Join each other in a challenge created by your community.
+      Create a community challenge everyone can join.
     </MyText>
   </Flex>
   <Flex
@@ -184,7 +198,7 @@ exports[`OnboardingCard render challenges card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }
@@ -206,6 +220,13 @@ exports[`OnboardingCard render contacts card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -234,11 +255,11 @@ exports[`OnboardingCard render contacts card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -251,7 +272,7 @@ exports[`OnboardingCard render contacts card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
@@ -282,7 +303,7 @@ exports[`OnboardingCard render contacts card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }
@@ -304,6 +325,13 @@ exports[`OnboardingCard render impact card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -332,11 +360,11 @@ exports[`OnboardingCard render impact card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -349,7 +377,7 @@ exports[`OnboardingCard render impact card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
@@ -380,7 +408,7 @@ exports[`OnboardingCard render impact card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }
@@ -402,6 +430,13 @@ exports[`OnboardingCard render members card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -430,11 +465,11 @@ exports[`OnboardingCard render members card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -447,7 +482,7 @@ exports[`OnboardingCard render members card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
@@ -478,7 +513,7 @@ exports[`OnboardingCard render members card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }
@@ -500,6 +535,13 @@ exports[`OnboardingCard render steps card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -528,11 +570,11 @@ exports[`OnboardingCard render steps card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -545,7 +587,7 @@ exports[`OnboardingCard render steps card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
@@ -576,7 +618,7 @@ exports[`OnboardingCard render steps card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }
@@ -598,6 +640,13 @@ exports[`OnboardingCard render surveys card 1`] = `
       "marginHorizontal": 0,
       "marginVertical": 0,
       "position": "relative",
+      "shadowColor": "#B4B6BA",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
 >
@@ -626,11 +675,11 @@ exports[`OnboardingCard render surveys card 1`] = `
       }
     />
     <MyText
-      header={true}
       style={
         Object {
           "color": "#007398",
-          "fontSize": 42,
+          "fontSize": 24,
+          "fontWeight": "300",
           "paddingTop": 5,
           "textAlign": "center",
         }
@@ -643,7 +692,7 @@ exports[`OnboardingCard render surveys card 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 40,
+          "paddingHorizontal": 50,
           "paddingVertical": 5,
           "textAlign": "center",
         }
@@ -674,7 +723,7 @@ exports[`OnboardingCard render surveys card 1`] = `
       onPress={[Function]}
       style={
         Object {
-          "color": "#007398",
+          "color": "#B4B6BA",
           "fontSize": 12,
         }
       }

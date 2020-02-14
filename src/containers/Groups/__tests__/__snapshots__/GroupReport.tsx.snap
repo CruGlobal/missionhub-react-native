@@ -90,7 +90,6 @@ exports[`should call navigate back 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1210,7 +1209,6 @@ exports[`should refresh correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -2330,7 +2328,6 @@ exports[`should render correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -3450,7 +3447,6 @@ exports[`should render empty correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]

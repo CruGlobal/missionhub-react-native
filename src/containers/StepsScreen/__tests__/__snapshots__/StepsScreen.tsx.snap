@@ -162,7 +162,6 @@ exports[`renders empty screen correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -500,7 +499,6 @@ exports[`renders loading screen correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -771,7 +769,6 @@ exports[`renders screen with steps correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -813,6 +810,13 @@ exports[`renders screen with steps correctly 1`] = `
             "marginHorizontal": 0,
             "marginVertical": 0,
             "position": "relative",
+            "shadowColor": "#B4B6BA",
+            "shadowOffset": Object {
+              "height": 4,
+              "width": 0,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 2,
           },
         ]
       }
@@ -852,18 +856,19 @@ exports[`renders screen with steps correctly 1`] = `
                 "color": "#505256",
               },
               Object {
-                "fontFamily": "AmaticSC-Bold",
+                "fontFamily": "SourceSansPro-Regular",
               },
               Object {
                 "color": "#007398",
-                "fontSize": 42,
+                "fontSize": 24,
+                "fontWeight": "300",
                 "paddingTop": 5,
                 "textAlign": "center",
               },
             ]
           }
         >
-          steps of faith
+          Steps of Faith
         </Text>
         <Text
           style={
@@ -877,7 +882,7 @@ exports[`renders screen with steps correctly 1`] = `
               Object {
                 "color": "#505256",
                 "fontSize": 16,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
               },
@@ -965,7 +970,7 @@ exports[`renders screen with steps correctly 1`] = `
                         "margin": 10,
                       },
                       Object {
-                        "color": "#007398",
+                        "color": "#B4B6BA",
                         "fontSize": 12,
                       },
                     ],

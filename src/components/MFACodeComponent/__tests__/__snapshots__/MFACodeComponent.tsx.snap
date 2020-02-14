@@ -82,7 +82,7 @@ exports[`should render correctly 1`] = `
             "paddingRight": 5,
           }
         }
-        value={1}
+        value={0}
       >
         <Button
           buttonTextStyle={

@@ -135,7 +135,6 @@ exports[`renders create step correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -409,7 +408,6 @@ exports[`renders edit journey item correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -682,7 +680,6 @@ exports[`renders edit journey item for me correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -955,7 +952,6 @@ exports[`renders edit journey step correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1228,7 +1224,6 @@ exports[`renders edit journey step for me correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1501,7 +1496,6 @@ exports[`renders step note correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1846,7 +1840,6 @@ exports[`renders step note correctly for me 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -2061,7 +2054,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -257,11 +257,11 @@
+@@ -256,11 +256,11 @@
           ]
         }
         testID=\\"stepInput\\"

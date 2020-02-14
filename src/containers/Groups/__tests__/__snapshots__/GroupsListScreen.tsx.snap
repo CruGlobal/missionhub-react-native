@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -362,11 +362,11 @@
+@@ -361,11 +361,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
             \\"userCreated\\": true,
           },
-@@ -656,12 +656,302 @@
+@@ -655,12 +655,302 @@
               \\"contactCount\\": 62169,
               \\"memberCount\\": 7379,
               \\"unassignedCount\\": 11474,
@@ -321,7 +321,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -719,11 +1009,11 @@
+@@ -718,11 +1008,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -334,7 +334,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
                 \\"userCreated\\": true,
               }
-@@ -1084,11 +1374,11 @@
+@@ -1083,11 +1373,11 @@
           />
         </View>
         <View
@@ -521,7 +521,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1619,7 +1618,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]

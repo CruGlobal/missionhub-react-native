@@ -108,6 +108,13 @@ exports[`admin global community renders without reported items 1`] = `
         "marginHorizontal": 0,
         "marginVertical": 0,
         "position": "relative",
+        "shadowColor": "#B4B6BA",
+        "shadowOffset": Object {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
       },
     ]
   }
@@ -147,18 +154,19 @@ exports[`admin global community renders without reported items 1`] = `
             "color": "#505256",
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
+            "fontFamily": "SourceSansPro-Regular",
           },
           Object {
             "color": "#007398",
-            "fontSize": 42,
+            "fontSize": 24,
+            "fontWeight": "300",
             "paddingTop": 5,
             "textAlign": "center",
           },
         ]
       }
     >
-      celebrate one another
+      Celebrate One Another
     </Text>
     <Text
       style={
@@ -172,7 +180,7 @@ exports[`admin global community renders without reported items 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 40,
+            "paddingHorizontal": 50,
             "paddingVertical": 5,
             "textAlign": "center",
           },
@@ -252,7 +260,7 @@ exports[`admin global community renders without reported items 1`] = `
                     "margin": 10,
                   },
                   Object {
-                    "color": "#007398",
+                    "color": "#B4B6BA",
                     "fontSize": 12,
                   },
                 ],
@@ -404,6 +412,13 @@ exports[`members global community renders without reported items 1`] = `
         "marginHorizontal": 0,
         "marginVertical": 0,
         "position": "relative",
+        "shadowColor": "#B4B6BA",
+        "shadowOffset": Object {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
       },
     ]
   }
@@ -443,18 +458,19 @@ exports[`members global community renders without reported items 1`] = `
             "color": "#505256",
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
+            "fontFamily": "SourceSansPro-Regular",
           },
           Object {
             "color": "#007398",
-            "fontSize": 42,
+            "fontSize": 24,
+            "fontWeight": "300",
             "paddingTop": 5,
             "textAlign": "center",
           },
         ]
       }
     >
-      celebrate one another
+      Celebrate One Another
     </Text>
     <Text
       style={
@@ -468,7 +484,7 @@ exports[`members global community renders without reported items 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 40,
+            "paddingHorizontal": 50,
             "paddingVertical": 5,
             "textAlign": "center",
           },
@@ -548,7 +564,7 @@ exports[`members global community renders without reported items 1`] = `
                     "margin": 10,
                   },
                   Object {
-                    "color": "#007398",
+                    "color": "#B4B6BA",
                     "fontSize": 12,
                   },
                 ],
@@ -752,6 +768,13 @@ exports[`owner global community renders without reported items 1`] = `
         "marginHorizontal": 0,
         "marginVertical": 0,
         "position": "relative",
+        "shadowColor": "#B4B6BA",
+        "shadowOffset": Object {
+          "height": 4,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
       },
     ]
   }
@@ -791,18 +814,19 @@ exports[`owner global community renders without reported items 1`] = `
             "color": "#505256",
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
+            "fontFamily": "SourceSansPro-Regular",
           },
           Object {
             "color": "#007398",
-            "fontSize": 42,
+            "fontSize": 24,
+            "fontWeight": "300",
             "paddingTop": 5,
             "textAlign": "center",
           },
         ]
       }
     >
-      celebrate one another
+      Celebrate One Another
     </Text>
     <Text
       style={
@@ -816,7 +840,7 @@ exports[`owner global community renders without reported items 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 40,
+            "paddingHorizontal": 50,
             "paddingVertical": 5,
             "textAlign": "center",
           },
@@ -896,7 +920,7 @@ exports[`owner global community renders without reported items 1`] = `
                     "margin": 10,
                   },
                   Object {
-                    "color": "#007398",
+                    "color": "#B4B6BA",
                     "fontSize": 12,
                   },
                 ],
@@ -1042,6 +1066,13 @@ Array [
           "marginHorizontal": 0,
           "marginVertical": 0,
           "position": "relative",
+          "shadowColor": "#B4B6BA",
+          "shadowOffset": Object {
+            "height": 4,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
       ]
     }
@@ -1081,18 +1112,19 @@ Array [
               "color": "#505256",
             },
             Object {
-              "fontFamily": "AmaticSC-Bold",
+              "fontFamily": "SourceSansPro-Regular",
             },
             Object {
               "color": "#007398",
-              "fontSize": 42,
+              "fontSize": 24,
+              "fontWeight": "300",
               "paddingTop": 5,
               "textAlign": "center",
             },
           ]
         }
       >
-        celebrate one another
+        Celebrate One Another
       </Text>
       <Text
         style={
@@ -1106,7 +1138,7 @@ Array [
             Object {
               "color": "#505256",
               "fontSize": 16,
-              "paddingHorizontal": 40,
+              "paddingHorizontal": 50,
               "paddingVertical": 5,
               "textAlign": "center",
             },
@@ -1186,7 +1218,7 @@ Array [
                       "margin": 10,
                     },
                     Object {
-                      "color": "#007398",
+                      "color": "#B4B6BA",
                       "fontSize": 12,
                     },
                   ],
@@ -1294,6 +1326,13 @@ Array [
           "marginHorizontal": 0,
           "marginVertical": 0,
           "position": "relative",
+          "shadowColor": "#B4B6BA",
+          "shadowOffset": Object {
+            "height": 4,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
       ]
     }
@@ -1333,18 +1372,19 @@ Array [
               "color": "#505256",
             },
             Object {
-              "fontFamily": "AmaticSC-Bold",
+              "fontFamily": "SourceSansPro-Regular",
             },
             Object {
               "color": "#007398",
-              "fontSize": 42,
+              "fontSize": 24,
+              "fontWeight": "300",
               "paddingTop": 5,
               "textAlign": "center",
             },
           ]
         }
       >
-        celebrate one another
+        Celebrate One Another
       </Text>
       <Text
         style={
@@ -1358,7 +1398,7 @@ Array [
             Object {
               "color": "#505256",
               "fontSize": 16,
-              "paddingHorizontal": 40,
+              "paddingHorizontal": 50,
               "paddingVertical": 5,
               "textAlign": "center",
             },
@@ -1438,7 +1478,7 @@ Array [
                       "margin": 10,
                     },
                     Object {
-                      "color": "#007398",
+                      "color": "#B4B6BA",
                       "fontSize": 12,
                     },
                   ],
@@ -1507,6 +1547,13 @@ Array [
           "marginHorizontal": 0,
           "marginVertical": 0,
           "position": "relative",
+          "shadowColor": "#B4B6BA",
+          "shadowOffset": Object {
+            "height": 4,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
       ]
     }
@@ -1546,18 +1593,19 @@ Array [
               "color": "#505256",
             },
             Object {
-              "fontFamily": "AmaticSC-Bold",
+              "fontFamily": "SourceSansPro-Regular",
             },
             Object {
               "color": "#007398",
-              "fontSize": 42,
+              "fontSize": 24,
+              "fontWeight": "300",
               "paddingTop": 5,
               "textAlign": "center",
             },
           ]
         }
       >
-        celebrate one another
+        Celebrate One Another
       </Text>
       <Text
         style={
@@ -1571,7 +1619,7 @@ Array [
             Object {
               "color": "#505256",
               "fontSize": 16,
-              "paddingHorizontal": 40,
+              "paddingHorizontal": 50,
               "paddingVertical": 5,
               "textAlign": "center",
             },
@@ -1651,7 +1699,7 @@ Array [
                       "margin": 10,
                     },
                     Object {
-                      "color": "#007398",
+                      "color": "#B4B6BA",
                       "fontSize": 12,
                     },
                   ],

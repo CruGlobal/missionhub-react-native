@@ -133,7 +133,6 @@ exports[`with description, with reminder renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -665,7 +664,6 @@ exports[`with description, without reminder renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1106,7 +1104,6 @@ exports[`without description, without reminder renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
-              "flex": 1,
               "justifyContent": "center",
             },
           ]

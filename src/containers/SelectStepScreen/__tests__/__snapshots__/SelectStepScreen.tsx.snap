@@ -219,7 +219,6 @@ exports[`with enableSkipButton renders correctly 1`] = `
                           },
                           Object {
                             "alignItems": "flex-end",
-                            "flex": 1,
                             "justifyContent": "center",
                           },
                         ]
@@ -558,7 +557,6 @@ exports[`with enableSkipButton renders correctly 1`] = `
                     },
                     Object {
                       "alignItems": "flex-end",
-                      "flex": 1,
                       "justifyContent": "center",
                     },
                   ]
@@ -860,7 +858,6 @@ exports[`without enableSkipButton renders correctly 1`] = `
                           },
                           Object {
                             "alignItems": "flex-end",
-                            "flex": 1,
                             "justifyContent": "center",
                           },
                         ]
@@ -1131,7 +1128,6 @@ exports[`without enableSkipButton renders correctly 1`] = `
                     },
                     Object {
                       "alignItems": "flex-end",
-                      "flex": 1,
                       "justifyContent": "center",
                     },
                   ]
