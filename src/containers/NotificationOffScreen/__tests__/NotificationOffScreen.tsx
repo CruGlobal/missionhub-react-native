@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 import { Linking } from 'react-native';
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';

@@ -100,6 +100,7 @@ function getTicketAndLogin() {
 
     await dispatch(
       retryIfInvalidatedClientToken(
+        // @ts-ignore
         loginWithKeyTicket(ticket, upgradeToken),
         // @ts-ignore
         loginWithKeyTicket(ticket),

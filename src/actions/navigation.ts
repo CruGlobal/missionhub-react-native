@@ -14,6 +14,7 @@ import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
 import { MAIN_TABS, STEPS_TAB, GLOBAL_COMMUNITY_ID } from '../constants';
 import { Organization } from '../reducers/organizations';
+import { AuthState } from '../reducers/auth';
 
 import { loadHome } from './auth/userData';
 
@@ -89,7 +90,7 @@ export function navigateReplace(screen: string, props = {}) {
 }
 
 export const navigateToMainTabs = (tab = STEPS_TAB) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
 ) => {
   dispatch(loadHome());
   dispatch(navigateResetTab(MAIN_TABS, tab));

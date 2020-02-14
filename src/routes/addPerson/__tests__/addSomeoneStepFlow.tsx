@@ -48,7 +48,6 @@ const personId = '321';
 const personFirstName = 'Someone';
 const person = { id: personId, first_name: personFirstName };
 const stageId = '3';
-const stage = { id: stageId };
 const step = { id: '111' };
 const text = 'Step Text';
 const contactAssignment = { id: '4', pathway_stage_id: stageId };
