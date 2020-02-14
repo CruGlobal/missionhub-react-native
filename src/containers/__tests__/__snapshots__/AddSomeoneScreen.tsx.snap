@@ -131,6 +131,7 @@ exports[`renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -406,6 +407,7 @@ exports[`renders without back button correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -760,6 +762,7 @@ exports[`renders without skip button correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]

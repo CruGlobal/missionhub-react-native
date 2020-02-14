@@ -135,6 +135,7 @@ exports[`Creating a story calls changeStory function when the user types a story
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -281,7 +282,7 @@ exports[`Creating a story user types a story 1`] = `
 - First value
 + Second value
 
-@@ -187,11 +187,11 @@
+@@ -188,11 +188,11 @@
               },
             ]
           }
@@ -431,6 +432,7 @@ exports[`renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]

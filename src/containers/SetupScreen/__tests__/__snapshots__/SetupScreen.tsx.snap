@@ -133,6 +133,7 @@ exports[`renders isMe version correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -683,6 +684,7 @@ exports[`renders other person version correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1008,7 +1010,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -324,11 +324,11 @@
+@@ -325,11 +325,11 @@
               Object {},
             ]
           }
@@ -1028,7 +1030,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -364,11 +364,11 @@
+@@ -365,11 +365,11 @@
               Object {},
             ]
           }

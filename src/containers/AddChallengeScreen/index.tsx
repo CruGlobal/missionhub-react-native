@@ -171,7 +171,14 @@ const AddChallengeScreen = () => {
   return (
     <View style={container}>
       <StatusBar {...theme.statusBar.darkContent} />
-      <Header right={<BackButton image={CLOSE_BUTTON} />} />
+      <Header
+        right={
+          <BackButton
+            image={CLOSE_BUTTON}
+            style={{ alignItems: 'flex-end', alignSelf: 'flex-end' }}
+          />
+        }
+      />
       <ScrollView style={{ flex: 1 }}>
         {renderTitleInput()}
         {renderDateInput()}

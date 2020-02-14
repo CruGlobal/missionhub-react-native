@@ -82,7 +82,7 @@ const Header = ({
           {left || null}
         </Flex>
         {renderCenter()}
-        <Flex value={0} align="end" justify="center" style={styles.right}>
+        <Flex value={1} align="end" justify="center" style={styles.right}>
           {right || null}
         </Flex>
       </View>

@@ -101,7 +101,7 @@ exports[`WelcomeScreen should render correctly 1`] = `
             "paddingRight": 5,
           }
         }
-        value={0}
+        value={1}
       />
     </View>
   </RCTSafeAreaView>
@@ -255,7 +255,7 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
             "paddingRight": 5,
           }
         }
-        value={0}
+        value={1}
       />
     </View>
   </RCTSafeAreaView>

@@ -72,6 +72,7 @@ exports[`renders with center content 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -141,6 +142,7 @@ exports[`renders with left content 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -194,6 +196,7 @@ exports[`renders with no props 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -247,6 +250,7 @@ exports[`renders with right content 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -318,6 +322,7 @@ exports[`renders with shadow 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -411,6 +416,7 @@ exports[`renders with styles 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -500,6 +506,7 @@ exports[`renders with title 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]
@@ -607,6 +614,7 @@ exports[`renders with title and subtitle 1`] = `
           },
           Object {
             "alignItems": "flex-end",
+            "flex": 1,
             "justifyContent": "center",
           },
         ]

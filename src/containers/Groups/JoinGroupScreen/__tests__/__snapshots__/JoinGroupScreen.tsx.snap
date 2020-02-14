@@ -169,6 +169,7 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -470,6 +471,7 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]

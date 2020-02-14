@@ -53,6 +53,7 @@ exports[`create methods calls onComplete 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -66,7 +67,10 @@ exports[`create methods calls onComplete 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              undefined,
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "flex-end",
+              },
             ]
           }
         >
@@ -380,7 +384,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -163,11 +163,11 @@
+@@ -167,11 +167,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -393,7 +397,7 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -215,11 +215,11 @@
+@@ -219,11 +219,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -413,7 +417,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -285,11 +285,11 @@
+@@ -289,11 +289,11 @@
                 },
               ]
             }
@@ -433,7 +437,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -160,11 +160,11 @@
+@@ -164,11 +164,11 @@
               },
             ]
           }
@@ -453,7 +457,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -163,11 +163,11 @@
+@@ -167,11 +167,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -466,7 +470,7 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -215,11 +215,11 @@
+@@ -219,11 +219,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -486,7 +490,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -160,14 +160,14 @@
+@@ -164,14 +164,14 @@
               },
             ]
           }
@@ -503,7 +507,7 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -215,11 +215,11 @@
+@@ -219,11 +219,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -516,7 +520,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -327,16 +327,13 @@
+@@ -331,16 +331,13 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -541,7 +545,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -285,11 +285,11 @@
+@@ -289,11 +289,11 @@
                 },
               ]
             }
@@ -609,6 +613,7 @@ exports[`edit methods calls onComplete 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -622,7 +627,10 @@ exports[`edit methods calls onComplete 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              undefined,
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "flex-end",
+              },
             ]
           }
         >
@@ -936,7 +944,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -160,11 +160,11 @@
+@@ -164,11 +164,11 @@
               },
             ]
           }
@@ -949,7 +957,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
           date={\\"2020-02-13T23:59:59.999Z\\"}
           minDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
-@@ -327,13 +327,16 @@
+@@ -331,13 +331,16 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -1022,6 +1030,7 @@ exports[`renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1035,7 +1044,10 @@ exports[`renders correctly 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              undefined,
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "flex-end",
+              },
             ]
           }
         >
@@ -1400,6 +1412,7 @@ exports[`renders edit challenge correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -1413,7 +1426,10 @@ exports[`renders edit challenge correctly 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              undefined,
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "flex-end",
+              },
             ]
           }
         >

@@ -219,6 +219,7 @@ exports[`allows for undefined organization 1`] = `
                           },
                           Object {
                             "alignItems": "flex-end",
+                            "flex": 1,
                             "justifyContent": "center",
                           },
                         ]
@@ -604,6 +605,7 @@ exports[`allows for undefined organization 1`] = `
                     },
                     Object {
                       "alignItems": "flex-end",
+                      "flex": 1,
                       "justifyContent": "center",
                     },
                   ]
@@ -837,6 +839,7 @@ exports[`renders correctly 1`] = `
                           },
                           Object {
                             "alignItems": "flex-end",
+                            "flex": 1,
                             "justifyContent": "center",
                           },
                         ]
@@ -1222,6 +1225,7 @@ exports[`renders correctly 1`] = `
                     },
                     Object {
                       "alignItems": "flex-end",
+                      "flex": 1,
                       "justifyContent": "center",
                     },
                   ]

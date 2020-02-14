@@ -161,6 +161,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
@@ -451,6 +452,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
             },
             Object {
               "alignItems": "flex-end",
+              "flex": 1,
               "justifyContent": "center",
             },
           ]
