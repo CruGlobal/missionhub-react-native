@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
-import { StatusBar, Keyboard, Alert, View } from 'react-native';
+import { StatusBar, Keyboard, Alert, View, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -129,9 +129,13 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
         }
       />
       <StatusBar {...theme.statusBar.darkContent} />
-      <View style={styles.fieldWrap}>
+      <ScrollView
+        contentContainerStyle={styles.fieldWrap}
+        contentInset={{ bottom: 96 }}
+      >
         <Input
           testID="stepInput"
+          scrollEnabled={false}
           style={styles.input}
           onChangeText={onChangeText}
           value={savedText}
@@ -145,7 +149,7 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
           placeholderTextColor={theme.lightGrey}
           maxLength={type === CREATE_STEP ? characterLimit : undefined}
         />
-      </View>
+      </ScrollView>
       <BottomButton
         onPress={handleSaveStep}
         text={buttonText}

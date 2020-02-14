@@ -8,12 +8,12 @@ import { GET_CELEBRATE_FEED } from '../containers/CelebrateFeed/queries';
 
 import callApi from './api';
 
-export const getCelebrateFeed = (
+export const getCelebrateFeed = async (
   communityId: string,
   personId?: string,
   hasUnreadComments?: boolean,
 ) => {
-  apolloClient.query({
+  await apolloClient.query({
     query: GET_CELEBRATE_FEED,
     variables: {
       communityId,
