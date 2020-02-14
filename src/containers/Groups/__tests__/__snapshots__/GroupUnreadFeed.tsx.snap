@@ -115,7 +115,9 @@ exports[`should render items correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        Object {
+                          "color": "#000000",
+                        },
                       ],
                     ],
                     Object {

@@ -4,13 +4,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 <SectionList
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Array [
-      Object {
-        "backgroundColor": "#ECEEF2",
-        "paddingBottom": 10,
-      },
-      null,
-    ]
+    Object {
+      "backgroundColor": "#ECEEF2",
+    }
+  }
+  contentInset={
+    Object {
+      "bottom": 10,
+    }
   }
   data={Array []}
   disableVirtualization={false}

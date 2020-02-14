@@ -29,8 +29,8 @@ beforeEach(() => {
 });
 
 describe('getCelebrateFeed', () => {
-  it('should get group celebrate feed', () => {
-    getCelebrateFeed(orgId);
+  it('should get group celebrate feed', async () => {
+    await getCelebrateFeed(orgId);
 
     expect(apolloClient.query).toHaveBeenCalledWith({
       query: GET_CELEBRATE_FEED,

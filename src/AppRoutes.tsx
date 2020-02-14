@@ -216,6 +216,7 @@ import ShareStoryScreen, {
 import EditStoryScreen, {
   CELEBRATE_EDIT_STORY_SCREEN,
 } from './containers/Groups/EditStoryScreen';
+import LoadingScreen, { LOADING_SCREEN } from './containers/LoadingScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -549,6 +550,7 @@ const screens = {
   [ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW]: AddPersonThenCommunityMembersFlowNavigator,
   [EDIT_PERSON_FLOW]: EditPersonFlowNavigator,
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
+  [LOADING_SCREEN]: LoadingScreen,
 };
 
 export const trackableScreens = {

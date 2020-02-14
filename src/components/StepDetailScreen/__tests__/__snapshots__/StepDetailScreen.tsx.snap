@@ -190,14 +190,10 @@ exports[`markdown is empty string renders correctly 1`] = `
     </Text>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          undefined,
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>
@@ -361,6 +357,11 @@ exports[`markdown is not null renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 32,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -395,14 +396,10 @@ exports[`markdown is not null renders correctly 1`] = `
       </Text>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            undefined,
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View
@@ -627,16 +624,10 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
     </Text>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          Object {
-            "paddingBottom": 86,
-          },
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>
@@ -910,14 +901,10 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
     </Text>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          undefined,
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>
@@ -1081,6 +1068,11 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 32,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -1115,14 +1107,10 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
       </Text>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            undefined,
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View

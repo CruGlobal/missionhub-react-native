@@ -2,24 +2,31 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
+import { ACTIONS } from '../../../../constants';
 import { navigatePush } from '../../../../actions/navigation';
+import { trackActionWithoutData } from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import ShareStoryScreen, { CREATE_A_STORY } from '..';
 
 jest.mock('../../../../actions/navigation');
+jest.mock('../../../../actions/analytics');
+jest.mock('../../../../utils/hooks/useAnalytics');
+
 const onComplete = jest.fn();
 const navigatePushResult = { type: 'navigated push' };
 const organization = {
   id: '1234',
 };
-jest.mock('../../../../utils/hooks/useAnalytics');
 
 const MOCK_STORY = 'This is my cool story! 📘✏️';
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
 });
 
 it('renders correctly', () => {
@@ -111,8 +118,9 @@ describe('Creating a story', () => {
 
     await fireEvent(getByTestId('StoryInput'), 'onChangeText', MOCK_STORY);
     await fireEvent.press(getByTestId('SaveStoryButton'));
-    expect(onComplete).toHaveBeenCalled();
 
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(onComplete).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(CREATE_A_STORY, {
       variables: {
         input: {

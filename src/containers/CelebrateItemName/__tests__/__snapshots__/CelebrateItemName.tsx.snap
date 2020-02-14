@@ -14,7 +14,6 @@ exports[`renders correctly not pressable 1`] = `
         Object {
           "color": "#007398",
           "fontSize": 16,
-          "lineHeight": 20,
         },
         undefined,
       ],
@@ -69,7 +68,6 @@ exports[`renders correctly with name 1`] = `
             Object {
               "color": "#007398",
               "fontSize": 16,
-              "lineHeight": 20,
             },
             undefined,
           ],
@@ -96,7 +94,6 @@ exports[`renders correctly without name 1`] = `
         Object {
           "color": "#007398",
           "fontSize": 16,
-          "lineHeight": 20,
         },
         undefined,
       ],

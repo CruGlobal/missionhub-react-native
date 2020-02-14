@@ -142,57 +142,65 @@ exports[`renders create step correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      maxLength={255}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Create your own step"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        maxLength={255}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Create your own step"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -415,56 +423,64 @@ exports[`renders edit journey item correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Edit your comment"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Edit your comment"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -687,56 +703,64 @@ exports[`renders edit journey item for me correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Edit your comment"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Edit your comment"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -959,56 +983,64 @@ exports[`renders edit journey step correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Edit your comment"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Edit your comment"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1231,56 +1263,64 @@ exports[`renders edit journey step for me correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Edit your comment"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Edit your comment"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1575,56 +1615,64 @@ exports[`renders step note correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="What did you see God do?"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1919,56 +1967,64 @@ exports[`renders step note correctly for me 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
-    style={
+  <RCTScrollView
+    contentContainerStyle={
       Object {
         "alignItems": "stretch",
-        "flex": 1,
         "justifyContent": "center",
         "paddingTop": 10,
       }
     }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="What did you see God do?"
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#005A7F"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomColor": "transparent",
-            "color": "#B4B6BA",
-            "fontFamily": "SourceSansPro-Light",
-            "fontSize": 32,
-            "minHeight": 90.5,
-            "paddingHorizontal": 45,
-          },
-        ]
+    contentInset={
+      Object {
+        "bottom": 96,
       }
-      testID="stepInput"
-      textAlignVertical="top"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="What did you see God do?"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -2054,17 +2110,17 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -256,11 +256,11 @@
-          ]
-        }
-        testID=\\"stepInput\\"
-        textAlignVertical=\\"top\\"
-        underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--       value=\\"\\"
-+       value=\\"Comment\\"
-      />
-    </View>
+@@ -264,11 +264,11 @@
+            ]
+          }
+          testID=\\"stepInput\\"
+          textAlignVertical=\\"top\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"\\"
++         value=\\"Comment\\"
+        />
+      </View>
+    </RCTScrollView>
     <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={"
+      emulateUnlessSupported={true}"
 `;
