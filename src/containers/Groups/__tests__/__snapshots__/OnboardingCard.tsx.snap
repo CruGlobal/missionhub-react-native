@@ -89,6 +89,11 @@ exports[`OnboardingCard render celebrate card 1`] = `
           "top": 10,
         }
       }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
+        }
+      }
       name="deleteIcon"
       onPress={[Function]}
       style={
@@ -192,6 +197,11 @@ exports[`OnboardingCard render challenges card 1`] = `
           "left": 10,
           "right": 10,
           "top": 10,
+        }
+      }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
         }
       }
       name="deleteIcon"
@@ -299,6 +309,11 @@ exports[`OnboardingCard render contacts card 1`] = `
           "top": 10,
         }
       }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
+        }
+      }
       name="deleteIcon"
       onPress={[Function]}
       style={
@@ -402,6 +417,11 @@ exports[`OnboardingCard render impact card 1`] = `
           "left": 10,
           "right": 10,
           "top": 10,
+        }
+      }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
         }
       }
       name="deleteIcon"
@@ -509,6 +529,11 @@ exports[`OnboardingCard render members card 1`] = `
           "top": 10,
         }
       }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
+        }
+      }
       name="deleteIcon"
       onPress={[Function]}
       style={
@@ -614,6 +639,11 @@ exports[`OnboardingCard render steps card 1`] = `
           "top": 10,
         }
       }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
+        }
+      }
       name="deleteIcon"
       onPress={[Function]}
       style={
@@ -717,6 +747,11 @@ exports[`OnboardingCard render surveys card 1`] = `
           "left": 10,
           "right": 10,
           "top": 10,
+        }
+      }
+      image={
+        Object {
+          "testUri": "../../../assets/images/closeIcon.png",
         }
       }
       name="deleteIcon"

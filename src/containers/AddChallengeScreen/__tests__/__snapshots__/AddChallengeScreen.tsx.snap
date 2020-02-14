@@ -66,13 +66,7 @@ exports[`create methods calls onComplete 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 50,
-                "height": 32,
-                "marginRight": 10,
-                "width": 32,
-              },
+              undefined,
             ]
           }
         >
@@ -106,42 +100,18 @@ exports[`create methods calls onComplete 1`] = `
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 12,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeButton.png",
+                  }
                 }
-              >
-                
-              </Text>
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
             </View>
           </View>
         </View>
@@ -410,7 +380,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -193,11 +193,11 @@
+@@ -163,11 +163,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -423,7 +393,7 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -245,11 +245,11 @@
+@@ -215,11 +215,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -443,7 +413,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -315,11 +315,11 @@
+@@ -285,11 +285,11 @@
                 },
               ]
             }
@@ -463,7 +433,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -190,11 +190,11 @@
+@@ -160,11 +160,11 @@
               },
             ]
           }
@@ -483,7 +453,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -193,11 +193,11 @@
+@@ -163,11 +163,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -496,7 +466,7 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -245,11 +245,11 @@
+@@ -215,11 +215,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -516,7 +486,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -190,14 +190,14 @@
+@@ -160,14 +160,14 @@
               },
             ]
           }
@@ -533,7 +503,7 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -245,11 +245,11 @@
+@@ -215,11 +215,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -546,7 +516,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -357,16 +357,13 @@
+@@ -327,16 +327,13 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -571,7 +541,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -315,11 +315,11 @@
+@@ -285,11 +285,11 @@
                 },
               ]
             }
@@ -652,13 +622,7 @@ exports[`edit methods calls onComplete 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 50,
-                "height": 32,
-                "marginRight": 10,
-                "width": 32,
-              },
+              undefined,
             ]
           }
         >
@@ -692,42 +656,18 @@ exports[`edit methods calls onComplete 1`] = `
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 12,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeButton.png",
+                  }
                 }
-              >
-                
-              </Text>
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
             </View>
           </View>
         </View>
@@ -996,7 +936,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -190,11 +190,11 @@
+@@ -160,11 +160,11 @@
               },
             ]
           }
@@ -1009,7 +949,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
           date={\\"2020-02-13T23:59:59.999Z\\"}
           minDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
-@@ -357,13 +357,16 @@
+@@ -327,13 +327,16 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -1095,13 +1035,7 @@ exports[`renders correctly 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 50,
-                "height": 32,
-                "marginRight": 10,
-                "width": 32,
-              },
+              undefined,
             ]
           }
         >
@@ -1135,42 +1069,18 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 12,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeButton.png",
+                  }
                 }
-              >
-                
-              </Text>
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
             </View>
           </View>
         </View>
@@ -1503,13 +1413,7 @@ exports[`renders edit challenge correctly 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              Object {
-                "backgroundColor": "#B4B6BA",
-                "borderRadius": 50,
-                "height": 32,
-                "marginRight": 10,
-                "width": 32,
-              },
+              undefined,
             ]
           }
         >
@@ -1543,42 +1447,18 @@ exports[`renders edit challenge correctly 1`] = `
                 ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 12,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeButton.png",
+                  }
                 }
-              >
-                
-              </Text>
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
             </View>
           </View>
         </View>

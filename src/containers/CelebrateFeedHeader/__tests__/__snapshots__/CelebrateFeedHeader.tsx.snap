@@ -240,42 +240,18 @@ exports[`admin global community renders without reported items 1`] = `
           ]
         }
       >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/closeIcon.png",
+            }
           }
-        >
-          
-        </Text>
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        />
       </View>
     </View>
   </View>
@@ -544,42 +520,18 @@ exports[`members global community renders without reported items 1`] = `
           ]
         }
       >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/closeIcon.png",
+            }
           }
-        >
-          
-        </Text>
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        />
       </View>
     </View>
   </View>
@@ -900,42 +852,18 @@ exports[`owner global community renders without reported items 1`] = `
           ]
         }
       >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 18,
-                },
-                Array [
-                  Object {
-                    "margin": 10,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                  },
-                ],
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/closeIcon.png",
+            }
           }
-        >
-          
-        </Text>
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        />
       </View>
     </View>
   </View>
@@ -1198,42 +1126,18 @@ Array [
             ]
           }
         >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/closeIcon.png",
+              }
             }
-          >
-            
-          </Text>
+            style={
+              Object {
+                "margin": 10,
+              }
+            }
+          />
         </View>
       </View>
     </View>
@@ -1458,42 +1362,18 @@ Array [
             ]
           }
         >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/closeIcon.png",
+              }
             }
-          >
-            
-          </Text>
+            style={
+              Object {
+                "margin": 10,
+              }
+            }
+          />
         </View>
       </View>
     </View>
@@ -1679,42 +1559,18 @@ Array [
             ]
           }
         >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/closeIcon.png",
+              }
             }
-          >
-            
-          </Text>
+            style={
+              Object {
+                "margin": 10,
+              }
+            }
+          />
         </View>
       </View>
     </View>

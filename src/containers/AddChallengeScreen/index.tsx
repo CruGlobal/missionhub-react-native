@@ -10,6 +10,7 @@ import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
+import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -52,8 +53,6 @@ const AddChallengeScreen = () => {
 
   const {
     container,
-    backButton,
-    iconButton,
     textInput,
     dateWrap,
     dateLabel,
@@ -172,15 +171,7 @@ const AddChallengeScreen = () => {
   return (
     <View style={container}>
       <StatusBar {...theme.statusBar.darkContent} />
-      <Header
-        right={
-          <BackButton
-            style={backButton}
-            iconStyle={iconButton}
-            customIcon={'deleteIcon'}
-          />
-        }
-      />
+      <Header right={<BackButton image={CLOSE_BUTTON} />} />
       <ScrollView style={{ flex: 1 }}>
         {renderTitleInput()}
         {renderDateInput()}

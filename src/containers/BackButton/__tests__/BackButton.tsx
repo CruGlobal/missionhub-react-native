@@ -12,6 +12,10 @@ describe('back button', () => {
     renderWithContext(<BackButton />).snapshot();
   });
 
+  it('renders with image', () => {
+    renderWithContext(<BackButton image={12345} />).snapshot();
+  });
+
   it('calls navigate back once', () => {
     const { store, getByTestId } = renderWithContext(<BackButton />);
 

@@ -8,17 +8,6 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
     flexDirection: 'column',
   },
-  backButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 50,
-    backgroundColor: theme.lightGrey,
-    marginRight: 10,
-  },
-  iconButton: {
-    fontSize: 12,
-    color: theme.white,
-  },
   textInput: {
     fontSize: 24,
     fontWeight: '300',
