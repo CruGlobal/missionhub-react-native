@@ -13,18 +13,42 @@ import {
   ResetAppContextAction,
   SET_APP_CONTEXT,
   SetAppContextAction,
+  SectionTypeValue,
+  AssignmentTypeValue,
+  EditModeValue,
+  PermissionTypeValue,
 } from '../actions/analytics';
 
+const {
+  MCID,
+  PREVIOUS_SCREEN_NAME,
+  APP_NAME,
+  LOGGED_IN_STATUS,
+  SSO_GUID,
+  GR_MASTER_PERSON_ID,
+  FACEBOOK_ID,
+  CONTENT_LANGUAGE,
+  SECTION_TYPE,
+  ASSIGNMENT_TYPE,
+  EDIT_MODE,
+  PERMISSION_TYPE,
+  MINISTRY_MODE,
+} = ANALYTICS;
+
 export const initialAnalyticsState = {
-  [ANALYTICS.MCID]: '',
-  [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
-  [ANALYTICS.APP_NAME]: 'MissionHub App',
-  [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-  [ANALYTICS.SSO_GUID]: '',
-  [ANALYTICS.GR_MASTER_PERSON_ID]: '',
-  [ANALYTICS.FACEBOOK_ID]: '',
-  [ANALYTICS.CONTENT_LANGUAGE]: i18next.language,
-  [ANALYTICS.APP_CONTEXT]: '',
+  [MCID]: '',
+  [PREVIOUS_SCREEN_NAME]: '',
+  [APP_NAME]: 'MissionHub App',
+  [LOGGED_IN_STATUS]: NOT_LOGGED_IN,
+  [SSO_GUID]: '',
+  [GR_MASTER_PERSON_ID]: '',
+  [FACEBOOK_ID]: '',
+  [CONTENT_LANGUAGE]: i18next.language,
+  [SECTION_TYPE]: '' as SectionTypeValue,
+  [ASSIGNMENT_TYPE]: '' as AssignmentTypeValue,
+  [EDIT_MODE]: '' as EditModeValue,
+  [PERMISSION_TYPE]: '' as PermissionTypeValue,
+  [MINISTRY_MODE]: false,
 };
 
 export type AnalyticsState = typeof initialAnalyticsState;
@@ -65,12 +89,16 @@ function analyticsReducer(
     case SET_APP_CONTEXT:
       return {
         ...state,
-        [ANALYTICS.APP_CONTEXT]: action.context,
+        ...action.context,
       };
     case RESET_APP_CONTEXT:
       return {
         ...state,
-        [ANALYTICS.APP_CONTEXT]: '',
+        [SECTION_TYPE]: '',
+        [ASSIGNMENT_TYPE]: '',
+        [EDIT_MODE]: '',
+        [PERMISSION_TYPE]: '',
+        [MINISTRY_MODE]: false,
       };
     case RELOAD_APP:
       return {
@@ -78,14 +106,7 @@ function analyticsReducer(
         [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
       };
     case LOGOUT:
-      return {
-        ...state,
-        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-        [ANALYTICS.SSO_GUID]: '',
-        [ANALYTICS.GR_MASTER_PERSON_ID]: '',
-        [ANALYTICS.FACEBOOK_ID]: '',
-        [ANALYTICS.APP_CONTEXT]: '',
-      };
+      return initialAnalyticsState;
     default:
       return state;
   }

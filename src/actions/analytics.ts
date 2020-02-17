@@ -15,19 +15,42 @@ import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
 
+const {
+  SECTION_TYPE,
+  ASSIGNMENT_TYPE,
+  EDIT_MODE,
+  PERMISSION_TYPE,
+  MINISTRY_MODE,
+} = ANALYTICS;
+
+export type SectionTypeValue = 'onboarding';
+export type AssignmentTypeValue = 'self' | 'contact' | 'community member';
+export type EditModeValue = 'set' | 'update';
+export type PermissionTypeValue = 'owner' | 'member' | 'admin';
+
+const Context = {
+  [SECTION_TYPE]: '' as SectionTypeValue,
+  [ASSIGNMENT_TYPE]: '' as AssignmentTypeValue,
+  [EDIT_MODE]: '' as EditModeValue,
+  [PERMISSION_TYPE]: '' as PermissionTypeValue,
+  [MINISTRY_MODE]: false,
+};
+
 export const SET_APP_CONTEXT = 'SET_APP_CONTEXT';
 export const RESET_APP_CONTEXT = 'RESET_APP_CONTEXT';
 
 export interface SetAppContextAction {
   type: typeof SET_APP_CONTEXT;
-  context: string;
+  context: typeof Context;
 }
 
 export interface ResetAppContextAction {
   type: typeof RESET_APP_CONTEXT;
 }
 
-export const setAppContext = (context: string): SetAppContextAction => ({
+export const setAppContext = (
+  context: typeof Context,
+): SetAppContextAction => ({
   type: SET_APP_CONTEXT,
   context,
 });
