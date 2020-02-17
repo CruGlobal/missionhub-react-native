@@ -8,18 +8,13 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
     flexDirection: 'column',
   },
-  backButton: {
-    fontSize: 16,
-    color: theme.lightGrey,
-  },
   textInput: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: '300',
-    lineHeight: 38,
-    color: theme.lightGrey,
+    lineHeight: 30,
+    color: theme.grey,
     borderBottomWidth: 0,
-    marginTop: 64,
-    marginBottom: 26,
+    marginBottom: 16,
     paddingHorizontal: 32,
   },
   dateWrap: {
@@ -30,12 +25,30 @@ export default StyleSheet.create({
     paddingHorizontal: 32,
   },
   dateLabel: {
-    fontSize: 10,
-    color: theme.lightGrey,
+    fontSize: 12,
+    color: '#939393',
   },
   dateInput: {
     fontSize: 16,
     lineHeight: 22,
-    color: theme.lightGrey,
+    color: theme.challengeBlue,
+  },
+  detailWrap: {
+    borderColor: theme.extraLightGrey,
+    borderTopWidth: 1,
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+  },
+  detailLabel: {
+    fontSize: 12,
+    color: '#939393',
+  },
+  detailInput: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: theme.grey,
+    borderBottomWidth: 0,
+    marginBottom: 26,
+    paddingBottom: 70,
   },
 });

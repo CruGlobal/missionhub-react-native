@@ -11,6 +11,7 @@ import JOURNEY from '../../../assets/images/ourJourney.png';
 import CONTACTS from '../../../assets/images/MemberContacts.png';
 import SURVEY from '../../../assets/images/curiousIcon.png';
 import STEPS from '../../../assets/images/footprints.png';
+import CLOSE_ICON from '../../../assets/images/closeIcon.png';
 import { Flex, Text, Card, IconButton } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 import theme from '../../theme';
@@ -67,9 +68,7 @@ class OnboardingCard extends Component {
             style={styles.onboardingImage}
             resizeMode="contain"
           />
-          <Text header={true} style={styles.onboardingHeader}>
-            {t(`${type}Header`)}
-          </Text>
+          <Text style={styles.onboardingHeader}>{t(`${type}Header`)}</Text>
           <Text style={styles.onboardingDescription}>
             {t(`${type}Description`)}
           </Text>
@@ -79,6 +78,7 @@ class OnboardingCard extends Component {
             style={styles.onboardingIcon}
             name="deleteIcon"
             type="MissionHub"
+            image={CLOSE_ICON}
             onPress={this.handlePress}
             hitSlop={theme.hitSlop(10)}
           />

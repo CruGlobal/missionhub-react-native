@@ -152,7 +152,7 @@ exports[`renders section header 1`] = `
   <MyText
     style={
       Object {
-        "color": "#505256",
+        "color": "#B4B6BA",
         "fontSize": 12,
         "textAlign": "center",
       }
