@@ -25,20 +25,11 @@ import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
 import { localizedStageSelector } from '../../selectors/stages';
+import { GetPeopleStepsCount_people_nodes } from '../../components/PeopleList/__generated__/GetPeopleStepsCount';
 
 import styles from './styles';
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
-
-interface StepsDataInterface {
-  full_name: string;
-  id: string;
-  steps: {
-    pageInfo: {
-      totalCount: number;
-    };
-  };
-}
 
 interface PersonItemProps {
   person: PersonAttributes;
@@ -47,7 +38,7 @@ interface PersonItemProps {
   stagesObj: StagesObj;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
-  stepsData: StepsDataInterface;
+  stepsData?: GetPeopleStepsCount_people_nodes;
 }
 
 const PersonItem = ({
