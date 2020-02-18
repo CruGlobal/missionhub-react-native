@@ -92,7 +92,18 @@ function analyticsReducer(
         'cru.previousscreenname': '',
       };
     case LOGOUT:
-      return initialAnalyticsState;
+      return {
+        ...state,
+        'cru.loggedinstatus': NOT_LOGGED_IN,
+        'cru.ssoguid': '',
+        'cru.grmasterpersonid': '',
+        'cru.facebookid': '',
+        'cru.section-type': '',
+        'cru.assignment-type': '',
+        'cru.edit-mode': '',
+        'cru.permission-type': '',
+        'cru.ministry-mode': false,
+      };
     default:
       return state;
   }
