@@ -10,7 +10,7 @@ import {
 } from '../../../actions/misc';
 import { navToPersonScreen } from '../../../actions/person';
 import { orgIsCru, hasOrgPermissions } from '../../../utils/common';
-import { GetPeopleStepsCount_people_nodes } from '../../../components/PeopleList/__generated__/GetPeopleStepsCount';
+import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../../components/PeopleList/__generated__/GetPeopleStepsCount';
 
 import PersonItem from '..';
 
@@ -81,7 +81,7 @@ const mockPersonWithSteps = {
   totalCount: mockStepsCount,
 };
 
-const totalStepCount: GetPeopleStepsCount_people_nodes = {
+const totalStepCount: PersonStepCount = {
   __typename: 'Person',
   id: mockPersonWithSteps.id,
   steps: {
@@ -93,7 +93,7 @@ const totalStepCount: GetPeopleStepsCount_people_nodes = {
   },
 };
 
-const noStepsCount: GetPeopleStepsCount_people_nodes = {
+const noStepsCount: PersonStepCount = {
   ...totalStepCount,
   steps: {
     __typename: 'StepConnection',

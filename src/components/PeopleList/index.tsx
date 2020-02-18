@@ -22,7 +22,7 @@ import { keyExtractorId } from '../../utils/common';
 
 import {
   GetPeopleStepsCount,
-  GetPeopleStepsCount_people_nodes,
+  GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount,
 } from './__generated__/GetPeopleStepsCount';
 import { GET_PEOPLE_STEPS_COUNT } from './queries';
 import styles from './styles';
@@ -47,24 +47,41 @@ export default ({
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
-  const {
-    data: {
-      people: { nodes = [] } = {},
-      currentUser: { person: mePerson = {} } = {},
-    } = {},
-    refetch: refetchCommunities,
-  } = useQuery<GetPeopleStepsCount>(GET_PEOPLE_STEPS_COUNT, {
-    variables: {
-      myId: [personId],
+  const { data, refetch: refetchCommunities } = useQuery<GetPeopleStepsCount>(
+    GET_PEOPLE_STEPS_COUNT,
+    {
+      variables: {
+        myId: [personId],
+      },
     },
-  });
-  debugger;
+  );
+
   const peopleStepCounts: {
-    [key: string]: GetPeopleStepsCount_people_nodes;
-  } = [
-    ...(mePerson ? [mePerson as GetPeopleStepsCount_people_nodes] : []),
-    ...nodes,
-  ].reduce((acc, person) => ({ ...acc, [person.id]: person }), {});
+    [key: string]: PersonStepCount;
+  } = !data
+    ? {}
+    : [
+        {
+          __typename: data.currentUser.person.__typename,
+          id: data.currentUser.person.id,
+          steps: data.currentUser.person.steps,
+        },
+        ...data.currentUser.person.contactAssignments.nodes.map(
+          node => node.person,
+        ),
+        ...data.communities.nodes.flatMap(node => node.people.nodes),
+      ].reduce(
+        (
+          accumulator: {
+            [key: string]: PersonStepCount;
+          },
+          currentValue,
+        ) => {
+          accumulator[currentValue.id] = currentValue;
+          return accumulator;
+        },
+        {},
+      );
 
   useEffect(() => {
     refetchCommunities();

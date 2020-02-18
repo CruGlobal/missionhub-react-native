@@ -25,7 +25,7 @@ import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
 import { localizedStageSelector } from '../../selectors/stages';
-import { GetPeopleStepsCount_people_nodes } from '../../components/PeopleList/__generated__/GetPeopleStepsCount';
+import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../components/PeopleList/__generated__/GetPeopleStepsCount';
 
 import styles from './styles';
 
@@ -38,7 +38,7 @@ interface PersonItemProps {
   stagesObj: StagesObj;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;
-  stepsData?: GetPeopleStepsCount_people_nodes;
+  stepsData?: PersonStepCount;
 }
 
 const PersonItem = ({
