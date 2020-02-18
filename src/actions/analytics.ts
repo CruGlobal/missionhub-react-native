@@ -9,51 +9,46 @@ import {
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,
   LOGGED_IN,
+  NOT_LOGGED_IN,
   //ID_SCHEMA,
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { isCustomStep } from '../utils/common';
 
-const {
-  SECTION_TYPE,
-  ASSIGNMENT_TYPE,
-  EDIT_MODE,
-  PERMISSION_TYPE,
-  MINISTRY_MODE,
-} = ANALYTICS;
-
-export type SectionTypeValue = 'onboarding';
-export type AssignmentTypeValue = 'self' | 'contact' | 'community member';
-export type EditModeValue = 'set' | 'update';
-export type PermissionTypeValue = 'owner' | 'member' | 'admin';
-
-const Context = {
-  [SECTION_TYPE]: '' as SectionTypeValue,
-  [ASSIGNMENT_TYPE]: '' as AssignmentTypeValue,
-  [EDIT_MODE]: '' as EditModeValue,
-  [PERMISSION_TYPE]: '' as PermissionTypeValue,
-  [MINISTRY_MODE]: false,
-};
-
-export const SET_APP_CONTEXT = 'SET_APP_CONTEXT';
-export const RESET_APP_CONTEXT = 'RESET_APP_CONTEXT';
-
-export interface SetAppContextAction {
-  type: typeof SET_APP_CONTEXT;
-  context: typeof Context;
+export interface TrackStateContext {
+  'cru.mcid': string;
+  'cru.screenname': string;
+  'cru.sitesection': string;
+  'cru.sitesubsection': string;
+  'cru.subsectionlevel3': string;
+  'cru.previousscreenname': string;
+  'cru.appname': 'MissionHub App';
+  'cru.loggedinstatus': typeof LOGGED_IN | typeof NOT_LOGGED_IN;
+  'cru.ssoguid': string;
+  'cru.grmasterpersonid': string;
+  'cru.facebookid': string;
+  'cru.contentlanguage': string;
+  'cru.section-type': 'onboarding' | '';
+  'cru.assignment-type': 'self' | 'contact' | 'community member' | '';
+  'cru.edit-mode': 'set' | 'update' | '';
+  'cru.permission-type': 'owner' | 'member' | 'admin' | '';
+  'cru.ministry-mode': boolean;
 }
+
+interface AppContext {
+  'cru.section-type': TrackStateContext['cru.section-type'];
+  'cru.assignment-type': TrackStateContext['cru.assignment-type'];
+  'cru.edit-mode': TrackStateContext['cru.edit-mode'];
+  'cru.permission-type': TrackStateContext['cru.permission-type'];
+  'cru.ministry-mode': TrackStateContext['cru.ministry-mode'];
+}
+
+export const RESET_APP_CONTEXT = 'RESET_APP_CONTEXT';
 
 export interface ResetAppContextAction {
   type: typeof RESET_APP_CONTEXT;
 }
-
-export const setAppContext = (
-  context: typeof Context,
-): SetAppContextAction => ({
-  type: SET_APP_CONTEXT,
-  context,
-});
 
 export const resetAppContext = (): ResetAppContextAction => ({
   type: RESET_APP_CONTEXT,
@@ -65,7 +60,7 @@ export function trackScreenChange(screenName: string | string[]) {
     getState: () => { analytics: AnalyticsState },
   ) => {
     const { analytics } = getState();
-    const { [ANALYTICS.MCID]: mcid } = analytics;
+    const { 'cru.mcid': mcid } = analytics;
 
     const screenFragments = Array.isArray(screenName)
       ? screenName
@@ -76,20 +71,20 @@ export function trackScreenChange(screenName: string | string[]) {
     );
 
     const sendScreenChange = (MCID: string) => {
-      const context = {
+      const context: TrackStateContext = {
         ...analytics,
-        [ANALYTICS.MCID]: MCID,
-        [ANALYTICS.SCREEN_NAME]: screen,
-        [ANALYTICS.SITE_SECTION]: screenFragments[0],
-        [ANALYTICS.SITE_SUBSECTION]: screenFragments[1],
-        [ANALYTICS.SITE_SUBSECTION_3]: screenFragments[2],
+        'cru.mcid': MCID,
+        'cru.screenname': screen,
+        'cru.sitesection': screenFragments[0],
+        'cru.sitesubsection': screenFragments[1],
+        'cru.subsectionlevel3': screenFragments[2],
       };
 
       RNOmniture.trackState(screen, context);
       //sendStateToSnowplow(context);
       dispatch(
         updateAnalyticsContext({
-          [ANALYTICS.PREVIOUS_SCREEN_NAME]: screen,
+          'cru.previousscreenname': screen,
         }),
       );
     };

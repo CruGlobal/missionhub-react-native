@@ -2,7 +2,6 @@ import i18next from 'i18next';
 
 import {
   ANALYTICS_CONTEXT_CHANGED,
-  ANALYTICS,
   NOT_LOGGED_IN,
   LOGOUT,
   RELOAD_APP,
@@ -11,47 +10,40 @@ import { REQUESTS } from '../api/routes';
 import {
   RESET_APP_CONTEXT,
   ResetAppContextAction,
-  SET_APP_CONTEXT,
-  SetAppContextAction,
-  SectionTypeValue,
-  AssignmentTypeValue,
-  EditModeValue,
-  PermissionTypeValue,
+  TrackStateContext,
 } from '../actions/analytics';
 
-const {
-  MCID,
-  PREVIOUS_SCREEN_NAME,
-  APP_NAME,
-  LOGGED_IN_STATUS,
-  SSO_GUID,
-  GR_MASTER_PERSON_ID,
-  FACEBOOK_ID,
-  CONTENT_LANGUAGE,
-  SECTION_TYPE,
-  ASSIGNMENT_TYPE,
-  EDIT_MODE,
-  PERMISSION_TYPE,
-  MINISTRY_MODE,
-} = ANALYTICS;
+export interface AnalyticsState {
+  'cru.mcid': TrackStateContext['cru.mcid'];
+  'cru.previousscreenname': TrackStateContext['cru.previousscreenname'];
+  'cru.appname': TrackStateContext['cru.appname'];
+  'cru.loggedinstatus': TrackStateContext['cru.loggedinstatus'];
+  'cru.ssoguid': TrackStateContext['cru.ssoguid'];
+  'cru.grmasterpersonid': TrackStateContext['cru.grmasterpersonid'];
+  'cru.facebookid': TrackStateContext['cru.facebookid'];
+  'cru.contentlanguage': TrackStateContext['cru.contentlanguage'];
+  'cru.section-type': TrackStateContext['cru.section-type'];
+  'cru.assignment-type': TrackStateContext['cru.assignment-type'];
+  'cru.edit-mode': TrackStateContext['cru.edit-mode'];
+  'cru.permission-type': TrackStateContext['cru.permission-type'];
+  'cru.ministry-mode': TrackStateContext['cru.ministry-mode'];
+}
 
-export const initialAnalyticsState = {
-  [MCID]: '',
-  [PREVIOUS_SCREEN_NAME]: '',
-  [APP_NAME]: 'MissionHub App',
-  [LOGGED_IN_STATUS]: NOT_LOGGED_IN,
-  [SSO_GUID]: '',
-  [GR_MASTER_PERSON_ID]: '',
-  [FACEBOOK_ID]: '',
-  [CONTENT_LANGUAGE]: i18next.language,
-  [SECTION_TYPE]: '' as SectionTypeValue,
-  [ASSIGNMENT_TYPE]: '' as AssignmentTypeValue,
-  [EDIT_MODE]: '' as EditModeValue,
-  [PERMISSION_TYPE]: '' as PermissionTypeValue,
-  [MINISTRY_MODE]: false,
+export const initialAnalyticsState: AnalyticsState = {
+  'cru.mcid': '',
+  'cru.previousscreenname': '',
+  'cru.appname': 'MissionHub App',
+  'cru.loggedinstatus': NOT_LOGGED_IN,
+  'cru.ssoguid': '',
+  'cru.grmasterpersonid': '',
+  'cru.facebookid': '',
+  'cru.contentlanguage': i18next.language,
+  'cru.section-type': '',
+  'cru.assignment-type': '',
+  'cru.edit-mode': '',
+  'cru.permission-type': '',
+  'cru.ministry-mode': false,
 };
-
-export type AnalyticsState = typeof initialAnalyticsState;
 
 interface AnalyticsContextChangedAction {
   type: typeof ANALYTICS_CONTEXT_CHANGED;
@@ -66,7 +58,6 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
-  | SetAppContextAction
   | ResetAppContextAction
   | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
@@ -84,26 +75,21 @@ function analyticsReducer(
     case REQUESTS.KEY_LOGIN.SUCCESS:
       return {
         ...state,
-        [ANALYTICS.SSO_GUID]: action.results.thekey_guid,
-      };
-    case SET_APP_CONTEXT:
-      return {
-        ...state,
-        ...action.context,
+        'cru.ssoguid': action.results.thekey_guid,
       };
     case RESET_APP_CONTEXT:
       return {
         ...state,
-        [SECTION_TYPE]: '',
-        [ASSIGNMENT_TYPE]: '',
-        [EDIT_MODE]: '',
-        [PERMISSION_TYPE]: '',
-        [MINISTRY_MODE]: false,
+        'cru.section-type': '',
+        'cru.assignment-type': '',
+        'cru.edit-mode': '',
+        'cru.permission-type': '',
+        'cru.ministry-mode': false,
       };
     case RELOAD_APP:
       return {
         ...state,
-        [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
+        'cru.previousscreenname': '',
       };
     case LOGOUT:
       return initialAnalyticsState;

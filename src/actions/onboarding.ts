@@ -10,7 +10,7 @@ import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
-  ANALYTICS_CONTEXT_ONBOARDING,
+  ANALYTICS,
 } from '../constants';
 import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -20,11 +20,7 @@ import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
-import {
-  trackActionWithoutData,
-  resetAppContext,
-  setAppContext,
-} from './analytics';
+import { trackActionWithoutData, setAppContext } from './analytics';
 import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
@@ -72,7 +68,7 @@ export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
 export const startOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch(setAppContext(ANALYTICS_CONTEXT_ONBOARDING));
+  dispatch(setAppContext({ [ANALYTICS.SECTION_TYPE]: 'onboarding' }));
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
 };
 
@@ -146,7 +142,7 @@ const finalOnboardingActions = () => async (
     showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
   );
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(resetAppContext());
+  dispatch(setAppContext({ [ANALYTICS.SECTION_TYPE]: '' }));
   dispatch(navigatePush(CELEBRATION_SCREEN));
 };
 
