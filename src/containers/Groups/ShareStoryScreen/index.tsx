@@ -4,7 +4,9 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useDispatch } from 'react-redux';
 
+import { ACTIONS } from '../../../constants';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
@@ -12,6 +14,7 @@ import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { trackActionWithoutData } from '../../../actions/analytics';
 
 import styles from './styles';
 import {
@@ -33,6 +36,7 @@ const ShareStoryScreen = () => {
   useAnalytics(['story', 'share']);
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
+  const dispatch = useDispatch();
   const [story, changeStory] = useState('');
   const onComplete: () => void = useNavigationParam('onComplete');
   const organization: Organization = useNavigationParam('organization');
@@ -48,6 +52,8 @@ const ShareStoryScreen = () => {
     await createStory({
       variables: { input: { content: story, organizationId: organization.id } },
     });
+    dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY));
+
     onComplete();
   };
   return (

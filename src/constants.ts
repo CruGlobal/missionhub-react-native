@@ -358,6 +358,10 @@ export const ACTIONS = {
     name: 'Delete Community',
     key: 'cru.communitydelete',
   },
+  SHARE_STORY: {
+    name: 'Share Story',
+    key: 'cru.sharestory',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
@@ -432,8 +436,6 @@ export const INTERACTION_TYPES = {
 export const DEFAULT_PAGE_LIMIT = 25;
 
 export const CELEBRATEABLE_TYPES = {
-  completedStep: 'V4::AcceptedChallenge',
-  completedInteraction: 'V4::Interaction',
   validInteractionTypes: [
     INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
     INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
@@ -442,14 +444,10 @@ export const CELEBRATEABLE_TYPES = {
     INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
     INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
   ],
-  acceptedCommunityChallenge: 'V4::AcceptedCommunityChallenge',
   challengeItemTypes: {
     accepted: 'accepted_at',
     completed: 'completed_at',
   },
-  createdCommunity: 'V4::Organization',
-  joinedCommunity: 'V4::OrganizationalPermission',
-  story: 'V4::Story',
 };
 
 export const DAYS_OF_THE_WEEK = [

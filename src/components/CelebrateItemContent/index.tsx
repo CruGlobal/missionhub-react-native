@@ -15,6 +15,7 @@ import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
@@ -28,12 +29,6 @@ export interface CelebrateItemContentProps {
 
 const {
   challengeItemTypes: { accepted, completed },
-  completedInteraction,
-  completedStep,
-  acceptedCommunityChallenge,
-  createdCommunity,
-  joinedCommunity,
-  story,
 } = CELEBRATEABLE_TYPES;
 const {
   MHInteractionTypePersonalDecision,
@@ -163,23 +158,24 @@ const CelebrateItemContent = ({
 
   const renderMessage = () => {
     switch (celebrateableType) {
-      case completedStep:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_STEP:
         return renderStepOfFaithMessage();
-      case completedInteraction:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION:
         return buildInteractionMessage();
-      case acceptedCommunityChallenge:
+      case CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE:
         return buildChallengeMessage();
-      case createdCommunity:
+      case CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY:
         return buildCreateCommunityMessage();
-      case joinedCommunity:
+      case CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY:
         return buildJoinedCommunityMessage();
-      case story:
+      case CommunityCelebrationCelebrateableEnum.STORY:
         return objectDescription;
     }
   };
 
   const renderChallengeLink = () => {
-    return celebrateableType === acceptedCommunityChallenge ? (
+    return celebrateableType ===
+      CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE ? (
       <View style={styles.row}>
         <Button
           testID="ChallengeLinkButton"
