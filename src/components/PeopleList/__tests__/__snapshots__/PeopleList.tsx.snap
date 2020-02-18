@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -72,203 +72,10 @@
+@@ -72,200 +72,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -106,13 +106,12 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -               stepsData={
 -                 Object {
 -                   \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Elizabeth Zulauf\\",
 -                   \\"id\\": \\"1\\",
 -                   \\"steps\\": Object {
 -                     \\"__typename\\": \\"StepConnection\\",
 -                     \\"pageInfo\\": Object {
 -                       \\"__typename\\": \\"BasePageInfo\\",
--                       \\"totalCount\\": 9233,
+-                       \\"totalCount\\": 11,
 -                     },
 -                   },
 -                 }
@@ -154,13 +153,12 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -               stepsData={
 -                 Object {
 -                   \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Caesar Feest\\",
 -                   \\"id\\": \\"2\\",
 -                   \\"steps\\": Object {
 -                     \\"__typename\\": \\"StepConnection\\",
 -                     \\"pageInfo\\": Object {
 -                       \\"__typename\\": \\"BasePageInfo\\",
--                       \\"totalCount\\": 39658,
+-                       \\"totalCount\\": 12812,
 -                     },
 -                   },
 -                 }
@@ -202,13 +200,12 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -               stepsData={
 -                 Object {
 -                   \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Chyna Howe\\",
 -                   \\"id\\": \\"3\\",
 -                   \\"steps\\": Object {
 -                     \\"__typename\\": \\"StepConnection\\",
 -                     \\"pageInfo\\": Object {
 -                       \\"__typename\\": \\"BasePageInfo\\",
--                       \\"totalCount\\": 39676,
+-                       \\"totalCount\\": 14675,
 -                     },
 -                   },
 -                 }
@@ -306,13 +303,12 @@ exports[`renders correctly as Casey 1`] = `
           stepsData={
             Object {
               "__typename": "Person",
-              "fullName": "Elizabeth Zulauf",
               "id": "1",
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 9233,
+                  "totalCount": 11,
                 },
               },
             }
@@ -333,13 +329,12 @@ exports[`renders correctly as Casey 1`] = `
           stepsData={
             Object {
               "__typename": "Person",
-              "fullName": "Caesar Feest",
               "id": "2",
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 39658,
+                  "totalCount": 12812,
                 },
               },
             }
@@ -360,13 +355,12 @@ exports[`renders correctly as Casey 1`] = `
           stepsData={
             Object {
               "__typename": "Person",
-              "fullName": "Chyna Howe",
               "id": "3",
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 39676,
+                  "totalCount": 14675,
                 },
               },
             }
@@ -537,13 +531,12 @@ exports[`renders correctly as Jean 1`] = `
               stepsData={
                 Object {
                   "__typename": "Person",
-                  "fullName": "Elizabeth Zulauf",
                   "id": "1",
                   "steps": Object {
                     "__typename": "StepConnection",
                     "pageInfo": Object {
                       "__typename": "BasePageInfo",
-                      "totalCount": 9233,
+                      "totalCount": 11,
                     },
                   },
                 }
@@ -585,13 +578,12 @@ exports[`renders correctly as Jean 1`] = `
               stepsData={
                 Object {
                   "__typename": "Person",
-                  "fullName": "Caesar Feest",
                   "id": "2",
                   "steps": Object {
                     "__typename": "StepConnection",
                     "pageInfo": Object {
                       "__typename": "BasePageInfo",
-                      "totalCount": 39658,
+                      "totalCount": 12812,
                     },
                   },
                 }
@@ -633,13 +625,12 @@ exports[`renders correctly as Jean 1`] = `
               stepsData={
                 Object {
                   "__typename": "Person",
-                  "fullName": "Chyna Howe",
                   "id": "3",
                   "steps": Object {
                     "__typename": "StepConnection",
                     "pageInfo": Object {
                       "__typename": "BasePageInfo",
-                      "totalCount": 39676,
+                      "totalCount": 14675,
                     },
                   },
                 }
