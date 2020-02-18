@@ -1,8 +1,8 @@
 import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { celebrationSelector } from '../celebration';
-import { CELEBRATEABLE_TYPES } from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
 const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 const itemOne = { ...event, changedAttributeValue: '2018-01-01 00:00:00 UTC' };
@@ -12,77 +12,84 @@ const celebrateItems: CelebrateItem[] = [
   {
     ...itemOne,
     id: '2',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '4',
     changedAttributeValue: '2017-01-01 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '3',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '11',
     changedAttributeValue: '2018-01-02 00:07:00 UTC',
   },
   {
     ...itemOne,
     id: '4',
-    celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+    celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
     adjectiveAttributeValue: '2',
     changedAttributeValue: '2018-01-07 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '5',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '9',
     changedAttributeValue: '2018-01-05 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '6',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '5',
     changedAttributeValue: '2018-01-02 00:23:00 UTC',
   },
   {
     ...itemOne,
     id: '7',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '3',
     changedAttributeValue: '2018-01-02 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '8',
-    celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
     changedAttributeName: 'accepted_at',
     changedAttributeValue: '2018-01-06 00:04:00 UTC',
   },
   {
     ...itemOne,
     id: '9',
-    celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
     changedAttributeName: 'completed_at',
     changedAttributeValue: '2018-01-06 00:05:00 UTC',
   },
   {
     ...itemOne,
     id: '10',
-    celebrateableType: CELEBRATEABLE_TYPES.createdCommunity,
+    celebrateableType: CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY,
     changedAttributeName: 'created_at',
     changedAttributeValue: '2016-12-25 00:02:00 UTC',
   },
   {
     ...itemOne,
     id: '11',
-    celebrateableType: CELEBRATEABLE_TYPES.joinedCommunity,
+    celebrateableType: CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY,
     changedAttributeName: 'created_at',
     changedAttributeValue: '2016-12-25 00:09:00 UTC',
   },
   {
     ...itemOne,
     id: '12',
-    celebrateableType: CELEBRATEABLE_TYPES.story,
+    celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
     changedAttributeName: 'created_at',
     changedAttributeValue: '2016-12-25 00:09:00 UTC',
   },
@@ -92,21 +99,23 @@ const invalidItems: CelebrateItem[] = [
   {
     ...itemOne,
     id: '13',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '42',
     changedAttributeValue: '2018-01-01 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '14',
-    celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+    celebrateableType:
+      CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
     adjectiveAttributeValue: '1',
     changedAttributeValue: '2017-01-01 00:00:00 UTC',
   },
   {
     ...itemOne,
     id: '15',
-    celebrateableType: 'roge',
+    celebrateableType: 'type not in enum' as CommunityCelebrationCelebrateableEnum,
     adjectiveAttributeValue: '11',
     changedAttributeValue: '2018-01-02 00:07:00 UTC',
   },
