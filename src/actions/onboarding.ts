@@ -19,7 +19,7 @@ import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
-import { trackActionWithoutData, updateAnalyticsContext } from './analytics';
+import { trackActionWithoutData, setAnalyticsSection } from './analytics';
 import { joinCommunity } from './organizations';
 
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
@@ -67,7 +67,7 @@ export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
 export const startOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch(updateAnalyticsContext({ 'cru.section-type': 'onboarding' }));
+  dispatch(setAnalyticsSection('onboarding'));
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
 };
 
@@ -141,7 +141,7 @@ const finalOnboardingActions = () => async (
     showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
   );
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(updateAnalyticsContext({ 'cru.section-type': '' }));
+  dispatch(setAnalyticsSection(''));
   dispatch(navigatePush(CELEBRATION_SCREEN));
 };
 

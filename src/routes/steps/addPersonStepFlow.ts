@@ -3,7 +3,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { wrapNextScreen, wrapNextAction } from '../helpers';
+import { setAnalyticsSelfOrContact } from '../../actions/analytics';
+import { wrapNextAction } from '../helpers';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';
@@ -30,13 +31,17 @@ export const AddPersonStepFlowScreens = {
             orgId,
           }),
   ),
-  [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextScreen(
+  [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
     SuggestedStepDetailScreen,
-    CELEBRATION_SCREEN,
+    () => dispatch => {
+      dispatch(setAnalyticsSelfOrContact(''));
+      dispatch(navigatePush(CELEBRATION_SCREEN));
+    },
   ),
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ text, personId, orgId }) => dispatch => {
+      dispatch(setAnalyticsSelfOrContact(''));
       dispatch(createCustomStep(text, personId, orgId));
       dispatch(navigatePush(CELEBRATION_SCREEN));
     },

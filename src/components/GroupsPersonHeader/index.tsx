@@ -214,15 +214,7 @@ export default class GroupsPersonHeader extends Component {
         : contactAssignment && contactAssignment.pathway_stage_id,
     );
 
-    dispatch(
-      navigateToStageScreen(
-        isMe,
-        person,
-        contactAssignment,
-        organization,
-        stageId,
-      ),
-    );
+    dispatch(navigateToStageScreen(isMe, person, organization, stageId));
   };
 
   render() {

@@ -1,6 +1,8 @@
 /* eslint max-params: 0, max-lines-per-function: 0 */
 
 import { Linking } from 'react-native';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { contactAssignmentSelector } from '../selectors/people';
 import {
@@ -10,9 +12,9 @@ import {
   ADD_PERSON_STEP_FLOW,
 } from '../routes/constants';
 import { WARN } from '../utils/logging';
-import { buildTrackingObj } from '../utils/common';
+import { AuthState } from '../reducers/auth';
 
-import { trackActionWithoutData } from './analytics';
+import { trackActionWithoutData, setAnalyticsSelfOrContact } from './analytics';
 import { getContactSteps } from './steps';
 import { reloadJourney } from './journey';
 import { createContactAssignment, getPersonScreenRoute } from './person';
@@ -55,131 +57,94 @@ export function loadStepsAndJourney(personId, organizationId) {
   };
 }
 
-// @ts-ignore
-export function assignContactAndPickStage(person, organization) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
-    const auth = getState().auth;
-    const authPerson = auth.person;
-    const myId = auth.person.id;
-    const orgId = organization.id;
-    const personId = person.id;
+export const assignContactAndPickStage = (
+  person: { id: string },
+  organization: { id: string },
+) => async (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => { auth: AuthState },
+) => {
+  const auth = getState().auth;
+  const authPerson = auth.person;
+  const myId = auth.person.id;
+  const orgId = organization.id;
+  const personId = person.id;
 
-    const { person: resultPerson } = await dispatch(
-      createContactAssignment(orgId, myId, personId),
-    );
+  const { person: resultPerson } = await dispatch(
+    createContactAssignment(orgId, myId, personId),
+  );
 
-    const contactAssignment = contactAssignmentSelector(
-      { auth },
-      { person: resultPerson, orgId },
-    );
+  const contactAssignment = contactAssignmentSelector(
+    { auth },
+    { person: resultPerson, orgId },
+  );
 
-    dispatch(
-      navigateReplace(
-        getPersonScreenRoute(
-          authPerson,
-          resultPerson,
-          organization,
-          contactAssignment,
-        ),
-        {
-          person: resultPerson,
-          organization,
-        },
+  dispatch(
+    navigateReplace(
+      getPersonScreenRoute(
+        authPerson,
+        resultPerson,
+        organization,
+        contactAssignment,
       ),
-    );
+      {
+        person: resultPerson,
+        organization,
+      },
+    ),
+  );
 
+  dispatch(setAnalyticsSelfOrContact('contact'));
+  dispatch(
+    navigatePush(SELECT_PERSON_STAGE_FLOW, {
+      personId: resultPerson.id,
+      orgId,
+    }),
+  );
+};
+
+export const navigateToStageScreen = (
+  personIsCurrentUser: boolean,
+  person: { id: string },
+  organization: { id: string },
+  firstItemIndex: number | null, //todo find a way to not pass this
+) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  if (personIsCurrentUser) {
+    dispatch(setAnalyticsSelfOrContact('self'));
     dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        personId: resultPerson.id,
-        orgId,
-        section: 'people',
-        subsection: 'person',
+      navigatePush(SELECT_MY_STAGE_FLOW, {
+        selectedStageId: firstItemIndex,
+        personId: person.id,
       }),
     );
-  };
-}
+  } else {
+    dispatch(setAnalyticsSelfOrContact('contact'));
+    dispatch(
+      navigatePush(SELECT_PERSON_STAGE_FLOW, {
+        selectedStageId: firstItemIndex,
+        personId: person.id,
+        orgId: organization.id,
+      }),
+    );
+  }
+};
 
-export function navigateToStageScreen(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  person,
-  // @ts-ignore
-  contactAssignment,
-  organization = {},
-  // @ts-ignore
-  firstItemIndex, //todo find a way to not pass this
-) {
-  // @ts-ignore
-  return dispatch => {
-    if (personIsCurrentUser) {
-      dispatch(
-        navigatePush(SELECT_MY_STAGE_FLOW, {
-          selectedStageId: firstItemIndex,
-          personId: person.id,
-          section: 'people',
-          subsection: 'self',
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(SELECT_PERSON_STAGE_FLOW, {
-          selectedStageId: firstItemIndex,
-          personId: person.id,
-          // @ts-ignore
-          orgId: organization.id,
-          section: 'people',
-          subsection: 'person',
-        }),
-      );
-    }
-  };
-}
-
-export function navigateToAddStepFlow(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  person,
-  // @ts-ignore
-  organization,
-) {
-  // @ts-ignore
-  return dispatch => {
-    const trackingParams = {
-      // @ts-ignore
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
-    };
-
-    if (personIsCurrentUser) {
-      dispatch(
-        navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
-          organization,
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_STEP_FLOW, {
-          ...trackingParams,
-          contactName: person.first_name,
-          personId: person.id,
-          organization,
-          // @ts-ignore
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
-        }),
-      );
-    }
-  };
-}
+export const navigateToAddStepFlow = (
+  personIsCurrentUser: boolean,
+  person: { id: string; first_name: string },
+  organization: { id: string },
+) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  if (personIsCurrentUser) {
+    dispatch(setAnalyticsSelfOrContact('self'));
+    dispatch(navigatePush(ADD_MY_STEP_FLOW));
+  } else {
+    dispatch(setAnalyticsSelfOrContact('contact'));
+    dispatch(
+      navigatePush(ADD_PERSON_STEP_FLOW, {
+        contactName: person.first_name,
+        personId: person.id,
+        orgId: organization.id,
+      }),
+    );
+  }
+};

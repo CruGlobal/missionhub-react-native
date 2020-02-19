@@ -19,7 +19,7 @@ import {
   LOAD_PERSON_DETAILS,
   ORG_PERMISSIONS,
 } from '../constants';
-import { hasOrgPermissions, exists, userIsJean } from '../utils/common';
+import { hasOrgPermissions, exists } from '../utils/common';
 import {
   personSelector,
   orgPermissionSelector,
@@ -27,15 +27,21 @@ import {
 } from '../selectors/people';
 import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
+import { AuthState } from '../reducers/auth';
 
 import callApi from './api';
-import { trackActionWithoutData, updateAnalyticsContext } from './analytics';
+import {
+  trackActionWithoutData,
+  updateAnalyticsContext,
+  setAnalyticsMinistryMode,
+  setAnalyticsPersonType,
+} from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 import { getMySteps } from './steps';
 
 export const getMe = (extraInclude: string) => async (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
+  dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
 ) => {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
@@ -48,11 +54,7 @@ export const getMe = (extraInclude: string) => async (
     callApi(REQUESTS.GET_ME, { include }),
   );
 
-  dispatch(
-    updateAnalyticsContext({
-      'cru.ministry-mode': userIsJean(person.organizational_permissions),
-    }),
-  );
+  dispatch(setAnalyticsMinistryMode());
 
   return person;
 };
@@ -478,6 +480,8 @@ export function navToPersonScreen(person, org, props = {}) {
       { person: selectorPerson, orgId },
     );
     const authPerson = auth.person;
+
+    dispatch(setAnalyticsPersonType(personId, orgId));
 
     dispatch(
       navigatePush(

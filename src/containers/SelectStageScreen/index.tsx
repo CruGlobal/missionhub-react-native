@@ -71,8 +71,6 @@ export interface SelectStageNavParams {
   enableBackButton: boolean;
   personId: string;
   orgId?: string;
-  section: string;
-  subsection: string;
   questionText?: string;
 }
 

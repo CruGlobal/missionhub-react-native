@@ -28,7 +28,7 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import styles from './styles';
 
 interface ContactStepsProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>;
   showAssignPrompt: boolean;
   steps: Step[];
   completedSteps: Step[];
@@ -79,15 +79,7 @@ const ContactSteps = ({
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
       ? dispatch(navigateToAddStepFlow(isMe, person, organization))
       : contactAssignment
-      ? dispatch(
-          navigateToStageScreen(
-            false,
-            person,
-            contactAssignment,
-            organization,
-            null,
-          ),
-        )
+      ? dispatch(navigateToStageScreen(false, person, organization, null))
       : handleAssign();
   };
 

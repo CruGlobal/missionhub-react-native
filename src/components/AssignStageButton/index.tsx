@@ -22,8 +22,6 @@ interface AssignStageButtonProps {
   person: object;
   organization: object;
   isMe: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contactAssignment: any;
   firstItemIndex: number;
   pathwayStage: Stage | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -34,22 +32,13 @@ const AssignStageButton = ({
   dispatch,
   isMe,
   person,
-  contactAssignment = null,
   organization,
   firstItemIndex,
   pathwayStage,
 }: AssignStageButtonProps) => {
   const { t } = useTranslation('contactHeader');
   const assignStage = () => {
-    dispatch(
-      navigateToStageScreen(
-        isMe,
-        person,
-        contactAssignment,
-        organization,
-        firstItemIndex,
-      ),
-    );
+    dispatch(navigateToStageScreen(isMe, person, organization, firstItemIndex));
   };
   return (
     <Button
@@ -103,7 +92,6 @@ const mapStateToProps = (
       contactAssignment && stagesList.find(s => s.id === `${personStageId}`),
     firstItemIndex:
       contactAssignment && getStageIndex(stagesList, personStageId),
-    contactAssignment,
   };
 };
 export default connect(mapStateToProps)(AssignStageButton);

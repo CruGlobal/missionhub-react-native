@@ -99,13 +99,7 @@ const PersonItem = ({
 
   const handleChangeStage = () =>
     dispatch(
-      navigateToStageScreen(
-        isMe,
-        person,
-        contactAssignment,
-        organization,
-        stage && stage.id - 1,
-      ),
+      navigateToStageScreen(isMe, person, organization, stage && stage.id - 1),
     );
 
   const handleAddStep = () =>
