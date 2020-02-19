@@ -251,7 +251,7 @@ exports[`with subject person renders 0 likes_count 1`] = `
       ]
     }
   >
-    93553
+    45720
   </Text>
   <Image
     source={
@@ -355,7 +355,7 @@ exports[`with subject person renders for me 1`] = `
       ]
     }
   >
-    93553
+    45720
   </Text>
   <Image
     source={
@@ -384,7 +384,7 @@ exports[`with subject person renders for me 1`] = `
       ]
     }
   >
-    84631
+    43069
   </Text>
   <View
     accessible={true}
@@ -461,7 +461,7 @@ exports[`with subject person renders for someone else 1`] = `
       ]
     }
   >
-    93553
+    45720
   </Text>
   <Image
     source={
@@ -565,7 +565,7 @@ exports[`with subject person renders when not liked 1`] = `
       ]
     }
   >
-    93553
+    45720
   </Text>
   <Image
     source={
