@@ -90,6 +90,10 @@ function analyticsReducer(
       return {
         ...state,
         'cru.previousscreenname': '',
+        'cru.section-type': '',
+        'cru.assignment-type': '',
+        'cru.edit-mode': '',
+        'cru.permission-type': '',
       };
     case LOGOUT:
       return {

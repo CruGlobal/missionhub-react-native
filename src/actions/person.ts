@@ -1,4 +1,6 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   CONTACT_PERSON_SCREEN,
@@ -17,7 +19,7 @@ import {
   LOAD_PERSON_DETAILS,
   ORG_PERMISSIONS,
 } from '../constants';
-import { hasOrgPermissions, exists } from '../utils/common';
+import { hasOrgPermissions, exists, userIsJean } from '../utils/common';
 import {
   personSelector,
   orgPermissionSelector,
@@ -27,13 +29,14 @@ import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
-import { trackActionWithoutData } from './analytics';
+import { trackActionWithoutData, updateAnalyticsContext } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 import { getMySteps } from './steps';
 
-// @ts-ignore
-export function getMe(extraInclude) {
+export const getMe = (extraInclude: string) => async (
+  dispatch: ThunkDispatch<{}, null, AnyAction>,
+) => {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
@@ -41,14 +44,18 @@ export function getMe(extraInclude) {
     ? `${personInclude},${extraInclude}`
     : personInclude;
 
-  // @ts-ignore
-  return async dispatch => {
-    const { response: person } = await dispatch(
-      callApi(REQUESTS.GET_ME, { include }),
-    );
-    return person;
-  };
-}
+  const { response: person } = await dispatch(
+    callApi(REQUESTS.GET_ME, { include }),
+  );
+
+  dispatch(
+    updateAnalyticsContext({
+      'cru.ministry-mode': userIsJean(person.organizational_permissions),
+    }),
+  );
+
+  return person;
+};
 
 // @ts-ignore
 export function getPersonDetails(id, orgId) {
