@@ -2,7 +2,10 @@ import faker from 'faker/locale/en';
 import { IMocks } from 'graphql-tools';
 import moment from 'moment';
 
-import { CommunityCelebrationCelebrateableEnum } from '../__generated__/globalTypes';
+import {
+  CommunityCelebrationCelebrateableEnum,
+  PermissionEnum,
+} from '../__generated__/globalTypes';
 
 let currentId = 1;
 const nextId = () => currentId++;
@@ -54,6 +57,11 @@ export const globalMocks: IMocks = {
         faker.date.past(10, '2020-01-14'),
       ).toISOString(),
       subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
+  CommunityPermission: () => {
+    return {
+      permission: faker.random.arrayElement(Object.values(PermissionEnum)),
     };
   },
 };
