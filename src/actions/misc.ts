@@ -61,7 +61,7 @@ export const assignContactAndPickStage = (
   person: { id: string },
   organization: { id: string },
 ) => async (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
   getState: () => { auth: AuthState },
 ) => {
   const auth = getState().auth;
@@ -94,7 +94,7 @@ export const assignContactAndPickStage = (
     ),
   );
 
-  dispatch(setAnalyticsSelfOrContact('contact'));
+  dispatch(setAnalyticsSelfOrContact(resultPerson.id));
   dispatch(
     navigatePush(SELECT_PERSON_STAGE_FLOW, {
       personId: resultPerson.id,
@@ -108,9 +108,9 @@ export const navigateToStageScreen = (
   person: { id: string },
   organization: { id: string },
   firstItemIndex: number | null, //todo find a way to not pass this
-) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+) => (dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>) => {
+  dispatch(setAnalyticsSelfOrContact(person.id));
   if (personIsCurrentUser) {
-    dispatch(setAnalyticsSelfOrContact('self'));
     dispatch(
       navigatePush(SELECT_MY_STAGE_FLOW, {
         selectedStageId: firstItemIndex,
@@ -118,7 +118,6 @@ export const navigateToStageScreen = (
       }),
     );
   } else {
-    dispatch(setAnalyticsSelfOrContact('contact'));
     dispatch(
       navigatePush(SELECT_PERSON_STAGE_FLOW, {
         selectedStageId: firstItemIndex,
@@ -133,12 +132,11 @@ export const navigateToAddStepFlow = (
   personIsCurrentUser: boolean,
   person: { id: string; first_name: string },
   organization: { id: string },
-) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+) => (dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>) => {
+  dispatch(setAnalyticsSelfOrContact(person.id));
   if (personIsCurrentUser) {
-    dispatch(setAnalyticsSelfOrContact('self'));
     dispatch(navigatePush(ADD_MY_STEP_FLOW));
   } else {
-    dispatch(setAnalyticsSelfOrContact('contact'));
     dispatch(
       navigatePush(ADD_PERSON_STEP_FLOW, {
         contactName: person.first_name,

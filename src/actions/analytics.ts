@@ -41,12 +41,11 @@ export interface TrackStateContext {
   'cru.ministry-mode': boolean;
 }
 
-interface AppContext {
+export interface ScreenContext {
   'cru.section-type': TrackStateContext['cru.section-type'];
   'cru.assignment-type': TrackStateContext['cru.assignment-type'];
   'cru.edit-mode': TrackStateContext['cru.edit-mode'];
   'cru.permission-type': TrackStateContext['cru.permission-type'];
-  'cru.ministry-mode': TrackStateContext['cru.ministry-mode'];
 }
 
 export const RESET_APP_CONTEXT = 'RESET_APP_CONTEXT';
@@ -78,9 +77,14 @@ export const setAnalyticsSection = (
   dispatch(updateAnalyticsContext({ 'cru.section-type': section }));
 };
 
-export const setAnalyticsSelfOrContact = (
-  assignmentType: TrackStateContext['cru.assignment-type'],
-) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+export const setAnalyticsSelfOrContact = (personId: string) => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => { auth: AuthState },
+) => {
+  const myId = getState().auth.person.id;
+  const assignmentType =
+    personId === '' ? '' : personId === myId ? 'self' : 'contact';
+
   dispatch(
     updateAnalyticsContext({
       'cru.assignment-type': assignmentType,
@@ -145,7 +149,10 @@ export const setAnalyticsCommunityScreenType = (orgId: string) => (
   );
 };
 
-export function trackScreenChange(screenName: string | string[]) {
+export function trackScreenChange(
+  screenName: string | string[],
+  screenContext: Partial<ScreenContext>,
+) {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => { analytics: AnalyticsState },
@@ -164,6 +171,11 @@ export function trackScreenChange(screenName: string | string[]) {
     const sendScreenChange = (MCID: string) => {
       const context: TrackStateContext = {
         ...analytics,
+        'cru.section-type': '',
+        'cru.assignment-type': '',
+        'cru.edit-mode': '',
+        'cru.permission-type': '',
+        ...screenContext,
         'cru.mcid': MCID,
         'cru.screenname': screen,
         'cru.sitesection': screenFragments[0],

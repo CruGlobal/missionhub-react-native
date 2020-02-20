@@ -39,7 +39,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
 
       const { id: personId } = person;
 
-      dispatch(setAnalyticsSelfOrContact('contact'));
+      dispatch(setAnalyticsSelfOrContact(personId));
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           enableBackButton: false,

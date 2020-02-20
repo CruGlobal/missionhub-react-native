@@ -57,11 +57,7 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
         dispatch({ type: RESET_STEP_COUNT, userId: personId });
       }
 
-      dispatch(
-        setAnalyticsSelfOrContact(
-          personId === getState().auth.person.id ? 'self' : 'contact',
-        ),
-      );
+      dispatch(setAnalyticsSelfOrContact(personId));
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           section: 'people',

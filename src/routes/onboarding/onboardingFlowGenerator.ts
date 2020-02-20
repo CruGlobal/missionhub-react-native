@@ -65,15 +65,16 @@ export const onboardingFlowGenerator = ({
         [GET_STARTED_SCREEN]: wrapNextAction(
           GetStartedScreen,
           () => (
-            dispatch: ThunkDispatch<{}, {}, AnyAction>,
+            dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
             getState: () => { auth: AuthState },
           ) => {
-            dispatch(setAnalyticsSelfOrContact('self'));
+            const myId = getState().auth.person.id;
+            dispatch(setAnalyticsSelfOrContact(myId));
             dispatch(
               navigatePush(SELECT_STAGE_SCREEN, {
                 section: 'onboarding',
                 subsection: 'self',
-                personId: getState().auth.person.id,
+                personId: myId,
               }),
             );
           },
@@ -114,7 +115,7 @@ export const onboardingFlowGenerator = ({
   [SETUP_PERSON_SCREEN]: wrapNextAction(
     SetupScreen,
     ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
-      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
       getState: () => { onboarding: OnboardingState },
     ) => {
       if (skip) {
@@ -122,12 +123,14 @@ export const onboardingFlowGenerator = ({
       }
 
       personId && dispatch(setOnboardingPersonId(personId));
-      dispatch(setAnalyticsSelfOrContact('contact'));
+      const savedPersonId = getState().onboarding.personId;
+
+      dispatch(setAnalyticsSelfOrContact(savedPersonId));
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           section: 'onboarding',
           subsection: 'add person',
-          personId: getState().onboarding.personId,
+          personId: savedPersonId,
         }),
       );
     },
