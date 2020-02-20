@@ -97,6 +97,9 @@ const SelectStageScreen = ({
 
   const handleSnapToItem = (index: number) => setStageIndex(index);
 
+  const analyticsSectionType = 'onboarding';
+  const analyticsAssignmentType = isMe ? 'self' : 'contact';
+
   const trackPanelChange = async () => {
     const stage =
       stages[stageIndex] || (await dispatch(getStages())).response[stageIndex];

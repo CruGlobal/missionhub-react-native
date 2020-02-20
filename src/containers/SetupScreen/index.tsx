@@ -47,7 +47,12 @@ const SetupScreen = ({
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
-  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`]);
+  useAnalytics({
+    screenName: ['onboarding', `${isMe ? 'self' : 'contact'} name`],
+    screenContext: {
+      'cru.section-type': 'onboarding',
+    },
+  });
   const { t } = useTranslation('onboardingCreatePerson');
   const [firstName, setFirstName] = useState(loadedFirstName);
   const [lastName, setLastName] = useState(loadedLastName);
