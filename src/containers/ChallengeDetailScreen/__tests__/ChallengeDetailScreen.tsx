@@ -13,11 +13,7 @@ import { communityChallengeSelector } from '../../../selectors/challenges';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
 
-import {
-  ChallengeDetailScreen,
-  mapStateToProps,
-  CHALLENGE_DETAIL_TABS,
-} from '..';
+import { ChallengeDetailScreen, mapStateToProps } from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
@@ -257,8 +253,4 @@ it('should call navigateBack from press', () => {
     .left.props.onPress();
 
   expect(navigateBack).toHaveBeenCalled();
-});
-
-it('should render tabs correctly', () => {
-  expect(CHALLENGE_DETAIL_TABS).toMatchSnapshot();
 });

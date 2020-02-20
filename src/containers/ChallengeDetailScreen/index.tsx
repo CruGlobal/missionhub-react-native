@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, Image } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -12,9 +12,9 @@ import {
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
-import { IconButton, Button } from '../../components/common';
+import { Button } from '../../components/common';
+import BackButton from '../BackButton';
 import Header from '../../components/Header';
-import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
 import ChallengeMembers from '../ChallengeMembers';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { communityChallengeSelector } from '../../selectors/challenges';
@@ -23,50 +23,10 @@ import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { isAdminOrOwner } from '../../utils/common';
 import theme from '../../theme';
 import Analytics from '../Analytics';
+import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 
 import styles from './styles';
-
-const CHALLENGE_JOINED = 'nav/CHALLENGE_JOINED';
-const CHALLENGE_COMPLETED = 'nav/CHALLENGE_COMPLETED';
-
-export const CHALLENGE_DETAIL_TABS = [
-  {
-    name: i18next.t('challengeFeeds:joined'),
-    navigationAction: CHALLENGE_JOINED,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { challengeId, orgId },
-        },
-      },
-    }) => (
-      <ChallengeMembers
-        challengeId={challengeId}
-        orgId={orgId}
-        completed={false}
-      />
-    ),
-  },
-  {
-    name: i18next.t('challengeFeeds:completed'),
-    navigationAction: CHALLENGE_COMPLETED,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { challengeId, orgId },
-        },
-      },
-    }) => (
-      <ChallengeMembers
-        challengeId={challengeId}
-        orgId={orgId}
-        completed={true}
-      />
-    ),
-  },
-];
+import BottomButton from '../../components/BottomButton';
 
 // @ts-ignore
 @withTranslation('challengeFeeds')
@@ -98,13 +58,13 @@ export class ChallengeDetailScreen extends Component {
     dispatch(updateChallenge(challenge, orgId));
   };
 
-  handleEdit = () => {
+  handleEdit = (currentChallenge: any) => {
     // @ts-ignore
-    const { dispatch, challenge } = this.props;
+    const { dispatch } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
-        challenge,
+        challenge: currentChallenge,
         // @ts-ignore
         onComplete: updatedChallenge => {
           this.editChallenge(updatedChallenge);
@@ -143,31 +103,27 @@ export class ChallengeDetailScreen extends Component {
         <Analytics screenName={['challenge', 'detail']} />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
-          left={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.handleCancel}
-              style={styles.buttonText}
-            />
-          }
+          left={<BackButton iconStyle={{ color: theme.lightGrey }} />}
           right={
-            !completed && !isPast ? (
+            !completed && !isPast && canEditChallenges ? (
               <Button
                 type="transparent"
-                text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
-                onPress={joined ? this.handleComplete : this.handleJoin}
+                text={t('Edit').toUpperCase()}
+                onPress={() => this.handleEdit(challenge)}
                 style={styles.button}
                 buttonTextStyle={styles.buttonText}
               />
             ) : null
           }
         />
-        <ChallengeDetailHeader
-          challenge={challenge}
-          canEditChallenges={canEditChallenges}
-          onEdit={this.handleEdit}
-        />
+        <ChallengeDetailHeader challenge={challenge} />
+        <Image source={CHALLENGE_TARGET} style={styles.challengeImage} />
+        {!completed && !isPast ? (
+          <BottomButton
+            text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
+            onPress={joined ? this.handleComplete : this.handleJoin}
+          />
+        ) : null}
       </View>
     );
   }
@@ -214,13 +170,6 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   };
 };
 
-const connectedDetailScreen = connect(mapStateToProps)(ChallengeDetailScreen);
-
-export default generateSwipeTabMenuNavigator(
-  CHALLENGE_DETAIL_TABS,
-  connectedDetailScreen,
-  false,
-  true,
-);
+export default connect(mapStateToProps)(ChallengeDetailScreen);
 
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';

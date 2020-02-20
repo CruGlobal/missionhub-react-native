@@ -22,7 +22,7 @@ export default StyleSheet.create({
     paddingTop: 8,
   },
   joinButton: {
-    backgroundColor: theme.secondaryColor,
+    backgroundColor: theme.challengeBlue,
     paddingVertical: 8,
     height: undefined, // Need this to override the normal button styles
     borderBottomLeftRadius: 8,
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     borderBottomRightRadius: 8,
   },
   joinCompleteButtonText: {
-    fontSize: 14,
+    fontSize: 15,
   },
   checkIcon: {
     color: theme.green,

@@ -5,18 +5,19 @@ import theme from '../../theme';
 export default StyleSheet.create({
   subHeader: {
     color: theme.inactiveColor,
-    fontSize: 10,
+    fontSize: 12,
+    lineHeight: 16,
   },
   number: {
-    color: theme.primaryColor,
+    color: theme.challengeBlue,
     fontFamily: 'SourceSansPro-ExtraLight',
-    fontSize: 48,
-    lineHeight: 50,
+    fontSize: 32,
+    lineHeight: 38,
   },
   numberSmall: {
     color: theme.textColor,
     fontFamily: 'SourceSansPro-ExtraLight',
-    fontSize: 32,
-    lineHeight: 32,
+    fontSize: 24,
+    lineHeight: 30,
   },
 });

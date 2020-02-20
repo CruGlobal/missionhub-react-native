@@ -49,22 +49,27 @@ const ChallengeStats = ({
     ? endDate.diff(startDate, 'days') + 1
     : endDate.diff(today, 'days');
   const numberStyle = small ? styles.numberSmall : styles.number;
+
   return (
     <Flex style={containerStyle} direction="row" justify="between">
-      <Flex direction="column" justify="start">
-        <Text style={styles.subHeader}>
-          {isPast ? t('days') : t('daysLeft')}
-        </Text>
-        <Text style={numberStyle}>{days}</Text>
-      </Flex>
-      <Flex direction="column" justify="start">
+      {small ? (
+        <Flex value={1} direction="column" justify="start">
+          <Text style={styles.subHeader}>
+            {isPast ? t('days') : t('daysLeft')}
+          </Text>
+          <Text style={numberStyle}>{days}</Text>
+        </Flex>
+      ) : null}
+
+      <Flex value={1} direction="column" justify="start">
         <Text style={styles.subHeader}>{t('joined')}</Text>
         <Text style={numberStyle}>{accepted_count}</Text>
       </Flex>
-      <Flex direction="column" justify="start">
+      <Flex value={1} direction="column" justify="start">
         <Text style={styles.subHeader}>{t('completed')}</Text>
         <Text style={numberStyle}>{completed_count}</Text>
       </Flex>
+      {!small ? <Flex value={1} direction="column" justify="start" /> : null}
     </Flex>
   );
 };
