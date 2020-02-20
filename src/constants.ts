@@ -123,11 +123,6 @@ export const ANALYTICS = {
   GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',
   FACEBOOK_ID: 'cru.facebookid',
   CONTENT_LANGUAGE: 'cru.contentlanguage',
-  SECTION_TYPE: 'cru.section-type',
-  ASSIGNMENT_TYPE: 'cru.assignment-type',
-  EDIT_MODE: 'cru.edit-mode',
-  PERMISSION_TYPE: 'cru.permission-type',
-  MINISTRY_MODE: 'cru.ministry-mode',
 };
 export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';

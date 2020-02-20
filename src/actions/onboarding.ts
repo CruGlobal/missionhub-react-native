@@ -78,7 +78,6 @@ export const startOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
-  return { type: START_ONBOARDING };
 };
 
 export function createMyPerson(firstName: string, lastName: string) {
@@ -152,7 +151,6 @@ const finalOnboardingActions = () => async (
   );
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
   dispatch(navigatePush(CELEBRATION_SCREEN));
-  return { type: FINISH_ONBOARDING };
 };
 
 export const skipAddPersonAndCompleteOnboarding = () => (

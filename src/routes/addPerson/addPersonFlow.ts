@@ -12,7 +12,6 @@ import {
 } from '../../actions/navigation';
 import { getOrganizationMembers } from '../../actions/organizations';
 import { createCustomStep } from '../../actions/steps';
-import { setAnalyticsSelfOrContact } from '../../actions/analytics';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
@@ -39,7 +38,6 @@ export const AddPersonFlowScreens = onFlowComplete => ({
 
       const { id: personId } = person;
 
-      dispatch(setAnalyticsSelfOrContact(personId));
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           enableBackButton: false,
@@ -80,15 +78,11 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
     SuggestedStepDetailScreen,
-    ({ orgId }) => dispatch => {
-      dispatch(setAnalyticsSelfOrContact(''));
-      dispatch(onFlowComplete({ orgId }));
-    },
+    ({ orgId }) => onFlowComplete({ orgId }),
   ),
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ text, personId, orgId }) => dispatch => {
-      dispatch(setAnalyticsSelfOrContact(''));
       dispatch(createCustomStep(text, personId, orgId));
       dispatch(onFlowComplete({ orgId }));
     },

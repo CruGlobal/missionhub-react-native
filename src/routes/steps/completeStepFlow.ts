@@ -14,10 +14,7 @@ import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
 import { updateChallengeNote } from '../../actions/steps';
-import {
-  trackAction,
-  setAnalyticsSelfOrContact,
-} from '../../actions/analytics';
+import { trackAction } from '../../actions/analytics';
 import { SelectMyStageFlowScreens } from '../stage/selectMyStageFlow';
 import { SelectPersonStageFlowScreens } from '../stage/selectPersonStageFlow';
 import { paramsForStageNavigation } from '../utils';
@@ -57,7 +54,6 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
         dispatch({ type: RESET_STEP_COUNT, userId: personId });
       }
 
-      dispatch(setAnalyticsSelfOrContact(personId));
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           section: 'people',

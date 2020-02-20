@@ -28,7 +28,7 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import styles from './styles';
 
 interface ContactStepsProps {
-  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>;
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   showAssignPrompt: boolean;
   steps: Step[];
   completedSteps: Step[];

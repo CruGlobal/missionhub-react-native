@@ -5,6 +5,7 @@ import { StatusBar, View } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
+import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
@@ -24,8 +25,6 @@ import {
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
 import { getPersonDetails } from '../../../actions/person';
-import { updateAnalyticsContext } from '../../../actions/analytics';
-import { navigateBack } from '../../../actions/navigation';
 import PathwayStageDisplay from '../../PathwayStageDisplay';
 import { keyboardShow, keyboardHide, orgIsCru } from '../../../utils/common';
 import theme from '../../../theme';
@@ -191,13 +190,6 @@ export class AssignedPersonScreen extends Component {
     this.setState({ keyboardVisible: false });
   };
 
-  handleBack = () => {
-    // @ts-ignore
-    const { dispatch } = this.props;
-    dispatch(updateAnalyticsContext({ 'cru.assignment-type': '' }));
-    dispatch(navigateBack());
-  };
-
   openDrawer = () => {
     // @ts-ignore
     this.props.dispatch(
@@ -235,7 +227,7 @@ export class AssignedPersonScreen extends Component {
       <View style={styles.container}>
         <StatusBar {...theme.statusBar.lightContent} />
         <Header
-          left={<BackButton customNavigate={this.handleBack} />}
+          left={<BackButton />}
           right={
             <IconButton
               name="moreIcon"
@@ -278,6 +270,18 @@ export class AssignedPersonScreen extends Component {
     );
   }
 }
+
+// @ts-ignore
+AssignedPersonScreen.propTypes = {
+  person: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    first_name: PropTypes.string.isRequired,
+  }).isRequired,
+  organization: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+  }),
+};
 
 export const mapStateToProps = (
   // @ts-ignore

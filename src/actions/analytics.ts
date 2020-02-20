@@ -48,16 +48,6 @@ export interface ScreenContext {
   'cru.permission-type': TrackStateContext['cru.permission-type'];
 }
 
-export const RESET_APP_CONTEXT = 'RESET_APP_CONTEXT';
-
-export interface ResetAppContextAction {
-  type: typeof RESET_APP_CONTEXT;
-}
-
-export const resetAppContext = (): ResetAppContextAction => ({
-  type: RESET_APP_CONTEXT,
-});
-
 export const setAnalyticsMinistryMode = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
   getState: () => { auth: AuthState },
@@ -67,84 +57,6 @@ export const setAnalyticsMinistryMode = () => (
   dispatch(
     updateAnalyticsContext({
       'cru.ministry-mode': userIsJean(authPersonPermissions),
-    }),
-  );
-};
-
-export const setAnalyticsSection = (
-  section: TrackStateContext['cru.section-type'],
-) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-  dispatch(updateAnalyticsContext({ 'cru.section-type': section }));
-};
-
-export const setAnalyticsSelfOrContact = (personId: string) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-  getState: () => { auth: AuthState },
-) => {
-  const myId = getState().auth.person.id;
-  const assignmentType =
-    personId === '' ? '' : personId === myId ? 'self' : 'contact';
-
-  dispatch(
-    updateAnalyticsContext({
-      'cru.assignment-type': assignmentType,
-    }),
-  );
-};
-
-export const setAnalyticsPersonType = (personId: string, orgId: string) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-  getState: () => {
-    auth: AuthState;
-    people: PeopleState;
-    organizations: OrganizationsState;
-  },
-) => {
-  const { auth, people, organizations } = getState();
-
-  const myId = auth.person.id;
-  const person = personSelector({ people }, { personId });
-  const organization = organizationSelector({ organizations }, { orgId });
-  const orgPermission = orgPermissionSelector({}, { person, organization });
-
-  dispatch(
-    updateAnalyticsContext({
-      'cru.assignment-type':
-        personId === myId
-          ? 'self'
-          : !!orgPermission
-          ? 'community member'
-          : 'contact',
-    }),
-  );
-};
-
-export const setAnalyticsEditMode = (
-  editMode: TrackStateContext['cru.edit-mode'],
-) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-  dispatch(updateAnalyticsContext({ 'cru.edit-mode': editMode }));
-};
-
-export const setAnalyticsCommunityScreenType = (orgId: string) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-  getState: () => {
-    auth: AuthState;
-    organizations: OrganizationsState;
-  },
-) => {
-  const { auth, organizations } = getState();
-
-  const { person } = auth;
-  const organization = organizationSelector({ organizations }, { orgId });
-  const orgPermission = orgPermissionSelector({}, { person, organization });
-
-  dispatch(
-    updateAnalyticsContext({
-      'cru.permission-type': isOwner(orgPermission)
-        ? 'owner'
-        : isAdmin(orgPermission)
-        ? 'admin'
-        : 'member',
     }),
   );
 };

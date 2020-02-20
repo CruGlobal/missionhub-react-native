@@ -10,7 +10,6 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../actions/onboarding';
-import { setAnalyticsSelfOrContact } from '../../actions/analytics';
 import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { CREATE_STEP } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
@@ -67,17 +66,14 @@ export const onboardingFlowGenerator = ({
           () => (
             dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
             getState: () => { auth: AuthState },
-          ) => {
-            const myId = getState().auth.person.id;
-            dispatch(setAnalyticsSelfOrContact(myId));
+          ) =>
             dispatch(
               navigatePush(SELECT_STAGE_SCREEN, {
                 section: 'onboarding',
                 subsection: 'self',
-                personId: myId,
+                personId: getState().auth.person.id,
               }),
-            );
-          },
+            ),
           {
             logoutOnBack: startScreen === GET_STARTED_SCREEN,
           },
@@ -118,20 +114,15 @@ export const onboardingFlowGenerator = ({
       dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
       getState: () => { onboarding: OnboardingState },
     ) => {
-      if (skip) {
-        return dispatch(skipAddPersonAndCompleteOnboarding());
-      }
-
       personId && dispatch(setOnboardingPersonId(personId));
-      const savedPersonId = getState().onboarding.personId;
-
-      dispatch(setAnalyticsSelfOrContact(savedPersonId));
       dispatch(
-        navigatePush(SELECT_STAGE_SCREEN, {
-          section: 'onboarding',
-          subsection: 'add person',
-          personId: savedPersonId,
-        }),
+        skip
+          ? skipAddPersonAndCompleteOnboarding()
+          : navigatePush(SELECT_STAGE_SCREEN, {
+              section: 'onboarding',
+              subsection: 'add person',
+              personId: getState().onboarding.personId,
+            }),
       );
     },
     { isMe: false, hideSkipBtn },
@@ -169,7 +160,6 @@ export const onboardingFlowGenerator = ({
       dispatch: ThunkDispatch<any, null, any>,
       getState: () => any,
     ) => {
-      dispatch(setAnalyticsSelfOrContact(''));
       const isMe = personId === getState().auth.person.id;
 
       if (isMe) {
@@ -184,7 +174,6 @@ export const onboardingFlowGenerator = ({
       dispatch: ThunkDispatch<any, null, any>,
       getState: () => any,
     ) => {
-      dispatch(setAnalyticsSelfOrContact(''));
       const isMe = personId === getState().auth.person.id;
 
       // @ts-ignore

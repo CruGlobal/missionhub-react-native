@@ -30,12 +30,7 @@ import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 
 import callApi from './api';
-import {
-  trackActionWithoutData,
-  updateAnalyticsContext,
-  setAnalyticsMinistryMode,
-  setAnalyticsPersonType,
-} from './analytics';
+import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 import { getMySteps } from './steps';
@@ -480,8 +475,6 @@ export function navToPersonScreen(person, org, props = {}) {
       { person: selectorPerson, orgId },
     );
     const authPerson = auth.person;
-
-    dispatch(setAnalyticsPersonType(personId, orgId));
 
     dispatch(
       navigatePush(
