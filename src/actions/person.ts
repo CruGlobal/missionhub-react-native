@@ -503,11 +503,13 @@ export function getPersonScreenRoute(
   const isMe = person.id === mePerson.id;
 
   const isMember = hasOrgPermissions(
-    // @ts-ignore
-    orgPermissionSelector(null, {
-      person: person,
-      organization,
-    }),
+    orgPermissionSelector(
+      {},
+      {
+        person: person,
+        organization,
+      },
+    ),
   );
 
   const isUserCreatedOrg = organization.user_created;

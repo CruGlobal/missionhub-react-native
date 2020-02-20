@@ -17,6 +17,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -42,6 +58,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -61,6 +93,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -86,6 +134,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -111,6 +175,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -130,6 +210,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -149,6 +245,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -174,6 +286,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -199,6 +327,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -224,6 +368,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -243,6 +403,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -262,6 +438,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -292,6 +484,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -317,6 +525,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -336,6 +560,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -361,6 +601,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -386,6 +642,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -405,6 +677,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -424,6 +712,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -449,6 +753,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -474,6 +794,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -499,6 +835,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -518,6 +870,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -537,6 +905,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
