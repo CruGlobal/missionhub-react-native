@@ -151,7 +151,7 @@ export const setAnalyticsCommunityScreenType = (orgId: string) => (
 
 export function trackScreenChange(
   screenName: string | string[],
-  screenContext: Partial<ScreenContext>,
+  screenContext: Partial<ScreenContext> = {},
 ) {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,

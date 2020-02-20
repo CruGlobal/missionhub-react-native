@@ -30,6 +30,7 @@ import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
 import { AnalyticsState } from '../../reducers/analytics';
+import { OnboardingState } from '../../reducers/onboarding';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -63,6 +64,7 @@ interface SelectStageScreenProps {
   contactAssignmentId?: string;
   isMe: boolean;
   stages: Stage[];
+  isOnboarding: boolean;
   testID?: string;
 }
 
@@ -82,6 +84,7 @@ const SelectStageScreen = ({
   contactAssignmentId,
   isMe,
   stages,
+  isOnboarding,
 }: SelectStageScreenProps) => {
   const {
     selectedStageId,
@@ -97,14 +100,18 @@ const SelectStageScreen = ({
 
   const handleSnapToItem = (index: number) => setStageIndex(index);
 
-  const analyticsSectionType = 'onboarding';
-  const analyticsAssignmentType = isMe ? 'self' : 'contact';
-
   const trackPanelChange = async () => {
     const stage =
       stages[stageIndex] || (await dispatch(getStages())).response[stageIndex];
 
-    stage && dispatch(trackScreenChange(['stage', stage.name.toLowerCase()]));
+    stage &&
+      dispatch(
+        trackScreenChange(['stage', stage.name.toLowerCase()], {
+          'cru.section-type': isOnboarding ? 'onboarding' : '',
+          'cru.assignment-type': isMe ? 'self' : 'contact',
+          'cru.edit-mode': selectedStageId ? 'update' : 'set',
+        }),
+      );
   };
 
   useFocusEffect(
@@ -224,7 +231,13 @@ const mapStateToProps = (
     auth,
     people,
     stages,
-  }: { auth: AuthState; people: PeopleState; stages: StagesState },
+    onboarding,
+  }: {
+    auth: AuthState;
+    people: PeopleState;
+    stages: StagesState;
+    onboarding: OnboardingState;
+  },
   {
     navigation: {
       state: {
@@ -245,6 +258,7 @@ const mapStateToProps = (
     contactAssignmentId: contactAssignment.id,
     isMe: personId === myId,
     stages: stages.stages,
+    isOnboarding: onboarding.currentlyInOnboarding,
   };
 };
 

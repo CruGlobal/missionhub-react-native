@@ -32,7 +32,10 @@ const StageSuccessScreen = ({
   firstName,
   stage,
 }: StageSuccessScreenProps) => {
-  useAnalytics(['onboarding', 'stage confirmation']);
+  useAnalytics({
+    screenName: ['onboarding', 'stage confirmation'],
+    screenContext: { 'cru.section-type': 'onboarding' },
+  });
   const { t } = useTranslation('stageSuccess');
 
   const handleNavigateToStep = () => dispatch(next());

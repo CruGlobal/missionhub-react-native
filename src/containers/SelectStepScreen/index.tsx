@@ -12,6 +12,8 @@ import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
 
 import styles from './styles';
 
@@ -37,6 +39,8 @@ interface SelectStepScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
+  isMe: boolean;
+  isOnboarding: boolean;
 }
 
 const SelectStepScreen = ({
@@ -48,8 +52,16 @@ const SelectStepScreen = ({
   enableSkipButton = false,
   dispatch,
   next,
+  isMe,
+  isOnboarding,
 }: SelectStepScreenProps) => {
-  useAnalytics('add step');
+  useAnalytics({
+    screenName: 'add step',
+    screenContext: {
+      'cru.section-type': isOnboarding ? 'onboarding' : '',
+      'cru.assignment-type': isMe ? 'self' : 'contact',
+    },
+  });
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
@@ -118,4 +130,12 @@ const SelectStepScreen = ({
   );
 };
 
-export default connect()(SelectStepScreen);
+const mapStateToProps = (
+  { auth, onboarding }: { auth: AuthState; onboarding: OnboardingState },
+  { personId }: { personId: string },
+) => ({
+  isMe: personId === auth.person.id,
+  isOnboarding: onboarding.currentlyInOnboarding,
+});
+
+export default connect(mapStateToProps)(SelectStepScreen);

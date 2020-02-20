@@ -19,12 +19,22 @@ import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
 import { showReminderOnLoad } from './notifications';
-import { trackActionWithoutData, setAnalyticsSection } from './analytics';
+import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
 
+export const START_ONBOARDING = 'START_ONBOARDING';
+export const FINISH_ONBOARDING = 'FINISH_ONBOARDING';
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';
 export const SKIP_ONBOARDING_ADD_PERSON = 'SKIP_ONBOARDING_ADD_PERSON';
+
+export interface StartOnboardingAction {
+  type: typeof START_ONBOARDING;
+}
+
+export interface FinishOnboardingAction {
+  type: typeof FINISH_ONBOARDING;
+}
 
 export interface SetOnboardingPersonIdAction {
   type: typeof SET_ONBOARDING_PERSON_ID;
@@ -67,8 +77,8 @@ export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
 export const startOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch(setAnalyticsSection('onboarding'));
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+  return { type: START_ONBOARDING };
 };
 
 export function createMyPerson(firstName: string, lastName: string) {
@@ -141,8 +151,8 @@ const finalOnboardingActions = () => async (
     showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
   );
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(setAnalyticsSection(''));
   dispatch(navigatePush(CELEBRATION_SCREEN));
+  return { type: FINISH_ONBOARDING };
 };
 
 export const skipAddPersonAndCompleteOnboarding = () => (
