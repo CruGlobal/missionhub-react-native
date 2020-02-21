@@ -48,7 +48,12 @@ const ContactSteps = ({
   person,
   organization,
 }: ContactStepsProps) => {
-  useAnalytics(['person', 'my steps']);
+  useAnalytics({
+    screenName: ['person', 'my steps'],
+    screenContext: {
+      'cru.assignment-type': person.id === myId ? 'self' : 'contact',
+    },
+  });
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
 

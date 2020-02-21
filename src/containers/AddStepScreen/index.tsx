@@ -21,6 +21,7 @@ import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
@@ -39,9 +40,15 @@ interface AddStepScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   myId: string;
+  isOnboarding: boolean;
 }
 
-const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
+const AddStepScreen = ({
+  dispatch,
+  next,
+  myId,
+  isOnboarding,
+}: AddStepScreenProps) => {
   const { t } = useTranslation('addStep');
   useAndroidBackButton();
   const type: string = useNavigationParam('type');
@@ -68,7 +75,13 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
       : 'our journey'
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
-  useAnalytics([screenSection, screenSubsection]);
+  useAnalytics({
+    screenName: [screenSection, screenSubsection],
+    screenContext: {
+      'cru.assignment-type': isMe ? 'self' : 'contact',
+      'cru.section-type': isCreateStep && isOnboarding ? 'onboarding' : '',
+    },
+  });
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 
@@ -159,8 +172,15 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
   );
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+const mapStateToProps = ({
+  auth,
+  onboarding,
+}: {
+  auth: AuthState;
+  onboarding: OnboardingState;
+}) => ({
   myId: auth.person.id,
+  isOnboarding: onboarding.currentlyInOnboarding,
 });
 
 export default connect(mapStateToProps)(AddStepScreen);

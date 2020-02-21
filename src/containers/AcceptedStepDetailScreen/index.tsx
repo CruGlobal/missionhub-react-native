@@ -16,6 +16,7 @@ import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
 import { ReminderType, StepReminderState } from '../../reducers/stepReminders';
 import { Step } from '../../reducers/steps';
+import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -23,14 +24,19 @@ import styles from './styles';
 interface AcceptedStepDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   reminder?: ReminderType;
+  isMe: boolean;
 }
 
 const AcceptedStepDetailScreen = ({
   dispatch,
   reminder,
+  isMe,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
-  useAnalytics(['step detail', 'active step']);
+  useAnalytics({
+    screenName: ['step detail', 'active step'],
+    screenContext: { 'cru.assignment-type': isMe ? 'self' : 'contact' },
+  });
   const step: Step = useNavigationParam('step');
 
   const { id: stepId, challenge_suggestion, title, receiver } = step;
@@ -99,7 +105,10 @@ const AcceptedStepDetailScreen = ({
 };
 
 const mapStateToProps = (
-  { stepReminders }: { stepReminders: StepReminderState },
+  {
+    auth,
+    stepReminders,
+  }: { auth: AuthState; stepReminders: StepReminderState },
   {
     navigation: {
       state: {
@@ -108,7 +117,8 @@ const mapStateToProps = (
     } = { state: { params: { step: {} as Step } } },
   }: { navigation?: { state: { params: { step: Step } } } },
 ) => ({
-  reminder: reminderSelector({ stepReminders }, { stepId: step && step.id }),
+  isMe: step.receiver.id === auth.person.id,
+  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);

@@ -59,7 +59,10 @@ function isCloseToBottom({
 }
 
 const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
-  useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics({
+    screenName: 'steps',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('stepsTab');
 

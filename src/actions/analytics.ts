@@ -15,11 +15,7 @@ import {
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
 import { AuthState } from '../reducers/auth';
-import { PeopleState } from '../reducers/people';
-import { OrganizationsState } from '../reducers/organizations';
-import { isCustomStep, userIsJean, isOwner, isAdmin } from '../utils/common';
-import { personSelector, orgPermissionSelector } from '../selectors/people';
-import { organizationSelector } from '../selectors/organizations';
+import { isCustomStep, userIsJean } from '../utils/common';
 
 export interface TrackStateContext {
   'cru.mcid': string;

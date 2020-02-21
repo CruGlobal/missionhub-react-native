@@ -9,6 +9,8 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
+import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -20,13 +22,23 @@ interface SuggestedStepDetailScreenProps {
     orgId: string | undefined;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
+  isMe: boolean;
+  isOnboarding: boolean;
 }
 
 const SuggestedStepDetailScreen = ({
   dispatch,
   next,
+  isMe,
+  isOnboarding,
 }: SuggestedStepDetailScreenProps) => {
-  useAnalytics(['step detail', 'add step']);
+  useAnalytics({
+    screenName: ['step detail', 'add step'],
+    screenContext: {
+      'cru.section-type': isOnboarding ? 'onboarding' : '',
+      'cru.assignment-type': isMe ? 'self' : 'contact',
+    },
+  });
   const { t } = useTranslation('suggestedStepDetail');
   const step: SuggestedStep = useNavigationParam('step');
   const personId: string = useNavigationParam('personId');
@@ -54,5 +66,26 @@ const SuggestedStepDetailScreen = ({
   );
 };
 
-export default connect()(SuggestedStepDetailScreen);
+const mapStateToProps = (
+  {
+    auth,
+    onboarding,
+  }: {
+    auth: AuthState;
+    onboarding: OnboardingState;
+  },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
+  isMe: personId === auth.person.id,
+  isOnboarding: onboarding.currentlyInOnboarding,
+});
+
+export default connect(mapStateToProps)(SuggestedStepDetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

@@ -33,7 +33,7 @@ export const CREATE_A_STORY = gql`
 `;
 
 const ShareStoryScreen = () => {
-  useAnalytics(['story', 'share']);
+  useAnalytics({ screenName: ['story', 'share'], screenContext: {} });
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const dispatch = useDispatch();
