@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { wrapNextAction, wrapNextScreen } from '../helpers';
+import { wrapNextScreen, wrapNextAction } from '../helpers';
 import PersonSelectStepScreen, {
   PERSON_SELECT_STEP_SCREEN,
 } from '../../containers/PersonSelectStepScreen';

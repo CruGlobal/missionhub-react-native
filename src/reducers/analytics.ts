@@ -7,11 +7,7 @@ import {
   RELOAD_APP,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
-import {
-  RESET_APP_CONTEXT,
-  ResetAppContextAction,
-  TrackStateContext,
-} from '../actions/analytics';
+import { TrackStateContext } from '../actions/analytics';
 
 export interface AnalyticsState {
   'cru.mcid': TrackStateContext['cru.mcid'];
@@ -58,7 +54,6 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
-  | ResetAppContextAction
   | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
@@ -76,15 +71,6 @@ function analyticsReducer(
       return {
         ...state,
         'cru.ssoguid': action.results.thekey_guid,
-      };
-    case RESET_APP_CONTEXT:
-      return {
-        ...state,
-        'cru.section-type': '',
-        'cru.assignment-type': '',
-        'cru.edit-mode': '',
-        'cru.permission-type': '',
-        'cru.ministry-mode': false,
       };
     case RELOAD_APP:
       return {

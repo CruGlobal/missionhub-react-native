@@ -90,7 +90,7 @@ export function trackScreenChange(
         'cru.sitesubsection': screenFragments[1],
         'cru.subsectionlevel3': screenFragments[2],
       };
-
+      console.log(context);
       RNOmniture.trackState(screen, context);
       //sendStateToSnowplow(context);
       dispatch(

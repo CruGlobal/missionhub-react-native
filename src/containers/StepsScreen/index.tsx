@@ -16,7 +16,6 @@ import { getMySteps, getMyStepsNextPage } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
-import { setAnalyticsSelfOrContact } from '../../actions/analytics';
 import { myStepsSelector } from '../../selectors/steps';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
@@ -82,10 +81,8 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
 
   const { isRefreshing, refresh } = useRefreshing(handleRefresh);
 
-  const handleRowSelect = (step: Step) => {
-    dispatch(setAnalyticsSelfOrContact(step.receiver.id));
+  const handleRowSelect = (step: Step) =>
     dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
-  };
 
   const handleNavToPerson = (step: Step) => {
     const { receiver, organization } = step;

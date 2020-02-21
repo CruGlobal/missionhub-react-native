@@ -10,19 +10,22 @@ import ReminderButton from '../ReminderButton';
 import ReminderDateText from '../ReminderDateText';
 import { completeStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
-import { setAnalyticsSelfOrContact } from '../../actions/analytics';
 import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetailScreen';
 import { reminderSelector } from '../../selectors/stepReminders';
 import { CONTACT_STEPS } from '../../constants';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
 import Icon from '../Icon';
 import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
-import { Step } from '../../reducers/steps';
 
 import styles from './styles';
 
 type AcceptedStepItemProps = {
-  step: Step;
+  step: {
+    id: string;
+    title: string;
+    body?: string;
+    completed_at?: string;
+  };
   reminder?: ReminderType;
   onComplete?: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -36,11 +39,9 @@ const AcceptedStepItem = ({
   dispatch,
 }: AcceptedStepItemProps) => {
   const handleNavigateAcceptedDetailScreen = () => {
-    dispatch(setAnalyticsSelfOrContact(step.receiver.id));
     dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
   };
   const handleNavigateCompletedDetailScreen = () => {
-    dispatch(setAnalyticsSelfOrContact(step.receiver.id));
     dispatch(navigatePush(COMPLETED_STEP_DETAIL_SCREEN, { step }));
   };
   const handleCompleteStep = async () => {
