@@ -26,6 +26,7 @@ import { isAdminOrOwner } from '../../utils/common';
 import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
+import CHALLENGE_COMPLETE from '../../../assets/images/challengeComplete.png';
 
 import styles from './styles';
 
@@ -129,6 +130,7 @@ const ChallengeDetailScreen = ({
       <Image source={CHALLENGE_TARGET} style={styles.challengeImage} />
       {!completed && !isPast ? (
         <BottomButton
+          image={joined ? CHALLENGE_COMPLETE : null}
           testID="handleButton"
           text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
           onPress={joined ? handleComplete : handleJoin}
