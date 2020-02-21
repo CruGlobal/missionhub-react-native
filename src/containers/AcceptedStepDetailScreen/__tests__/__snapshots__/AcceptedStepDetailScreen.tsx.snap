@@ -286,16 +286,10 @@ exports[`should render correctly while loading 1`] = `
     </Text>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          Object {
-            "paddingBottom": 86,
-          },
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>
@@ -700,16 +694,10 @@ exports[`should render correctly without description and without reminder 1`] = 
     </ReminderButton>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          Object {
-            "paddingBottom": 86,
-          },
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>
@@ -1000,6 +988,11 @@ exports[`with description, with reminder should render correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -1210,16 +1203,10 @@ exports[`with description, with reminder should render correctly 1`] = `
       </ReminderButton>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            Object {
-              "paddingBottom": 86,
-            },
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View
@@ -1538,6 +1525,11 @@ exports[`with description, without reminder should render correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -1653,16 +1645,10 @@ exports[`with description, without reminder should render correctly 1`] = `
       </ReminderButton>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            Object {
-              "paddingBottom": 86,
-            },
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View

@@ -2,100 +2,151 @@
 
 exports[`renders nothing with no subject person 1`] = `
 <View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
 >
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   />
-  <Button
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 24,
-        "width": 24,
+        "opacity": 1,
       }
     }
-    type="transparent"
+    testID="LikeIconButton"
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
       }
-    />
-  </Button>
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
 </View>
 `;
 
-exports[`renders with custom style 1`] = `
-<View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
->
-  <MyText
-    style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
-    }
-  />
-  <Button
-    disabled={false}
-    onPress={[Function]}
-    style={
-      Object {
-        "height": 24,
-        "width": 24,
-      }
-    }
-    type="transparent"
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
-      }
-    />
-  </Button>
-</View>
+exports[`with subject person onPress like button like -> unlike renders disabled heart button 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -80,11 +80,13 @@
+        style={
+          Array [
+            Object {
+              \\"backgroundColor\\": \\"transparent\\",
+            },
+-           null,
++           Object {
++             \\"opacity\\": 0.6,
++           },
+            Object {
+              \\"height\\": 24,
+              \\"width\\": 24,
+            },
+            null,"
+`;
+
+exports[`with subject person onPress like button unlike -> like renders disabled heart button 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -80,11 +80,13 @@
+        style={
+          Array [
+            Object {
+              \\"backgroundColor\\": \\"transparent\\",
+            },
+-           null,
++           Object {
++             \\"opacity\\": 0.6,
++           },
+            Object {
+              \\"height\\": 24,
+              \\"width\\": 24,
+            },
+            null,"
 `;
 
 exports[`with subject person renders 0 comments_count 1`] = `
 <View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
 >
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   />
   <Image
@@ -105,60 +156,103 @@ exports[`with subject person renders 0 comments_count 1`] = `
       }
     }
   />
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   />
-  <Button
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 24,
-        "width": 24,
+        "opacity": 1,
       }
     }
-    type="transparent"
+    testID="LikeIconButton"
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
       }
-    />
-  </Button>
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
 </View>
 `;
 
 exports[`with subject person renders 0 likes_count 1`] = `
 <View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
 >
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   >
-    15
-  </MyText>
+    45720
+  </Text>
   <Image
     source={
       Object {
@@ -166,121 +260,103 @@ exports[`with subject person renders 0 likes_count 1`] = `
       }
     }
   />
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
-    }
-  />
-  <Button
-    disabled={false}
-    onPress={[Function]}
-    style={
-      Object {
-        "height": 24,
-        "width": 24,
-      }
-    }
-    type="transparent"
-  >
-    <Image
-      source={
+      Array [
         Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
-      }
-    />
-  </Button>
-</View>
-`;
-
-exports[`with subject person renders disabled heart button 1`] = `
-<View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
->
-  <MyText
-    style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
-    }
-  >
-    15
-  </MyText>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../assets/images/comments.png",
-      }
-    }
-  />
-  <MyText
-    style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
-    }
-  />
-  <Button
-    disabled={true}
-    onPress={[Function]}
-    style={
-      Object {
-        "height": 24,
-        "width": 24,
-      }
-    }
-    type="transparent"
-  >
-    <Image
-      source={
+          "color": "#505256",
+        },
         Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
       }
-    />
-  </Button>
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
 </View>
 `;
 
 exports[`with subject person renders for me 1`] = `
 <View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
 >
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   >
-    15
-  </MyText>
+    45720
+  </Text>
   <Image
     source={
       Object {
@@ -288,60 +364,105 @@ exports[`with subject person renders for me 1`] = `
       }
     }
   />
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
-    }
-  />
-  <Button
-    disabled={false}
-    onPress={[Function]}
-    style={
-      Object {
-        "height": 24,
-        "width": 24,
-      }
-    }
-    type="transparent"
-  >
-    <Image
-      source={
+      Array [
         Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    43069
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
       }
-    />
-  </Button>
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
 </View>
 `;
 
 exports[`with subject person renders for someone else 1`] = `
 <View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
 >
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   >
-    15
-  </MyText>
+    45720
+  </Text>
   <Image
     source={
       Object {
@@ -349,62 +470,103 @@ exports[`with subject person renders for someone else 1`] = `
       }
     }
   />
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
-    }
-  >
-    54
-  </MyText>
-  <Button
-    disabled={false}
-    onPress={[Function]}
-    style={
-      Object {
-        "height": 24,
-        "width": 24,
-      }
-    }
-    type="transparent"
-  >
-    <Image
-      source={
+      Array [
         Object {
-          "testUri": "../../../assets/images/heart-grey.png",
-        }
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
       }
-    />
-  </Button>
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
 </View>
 `;
 
-exports[`with subject person renders when liked 1`] = `
+exports[`with subject person renders when not liked 1`] = `
 <View
-  alignItems="center"
-  flexDirection="row"
-  justifyContent="flex-end"
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
 >
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   >
-    15
-  </MyText>
+    45720
+  </Text>
   <Image
     source={
       Object {
@@ -412,36 +574,67 @@ exports[`with subject person renders when liked 1`] = `
       }
     }
   />
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#B4B6BA",
-        "fontSize": 12,
-        "lineHeight": 16,
-        "paddingRight": 6,
-        "textAlign": "right",
-        "width": 30,
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
     }
   />
-  <Button
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 24,
-        "width": 24,
+        "opacity": 1,
       }
     }
-    type="transparent"
+    testID="LikeIconButton"
   >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/heart-blue.png",
-        }
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
       }
-    />
-  </Button>
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-grey.png",
+          }
+        }
+      />
+    </View>
+  </View>
 </View>
 `;

@@ -1,59 +1,37 @@
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import {
-  getFeed,
-  reloadFeed,
-  CELEBRATE,
-  GET_CELEBRATE_INCLUDE,
-} from '../utils/actions';
+import { GLOBAL_COMMUNITY_ID } from '../constants';
+import { apolloClient } from '../apolloClient';
 import { REQUESTS } from '../api/routes';
-import { OrganizationsState } from '../reducers/organizations';
+import { GET_CELEBRATE_FEED } from '../containers/CelebrateFeed/queries';
 
 import callApi from './api';
 
-export function getGroupCelebrateFeedUnread(orgId: string) {
-  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
-    dispatch(
-      callApi(REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD, {
-        orgId,
-        filters: { has_unread_comments: true },
-        include: GET_CELEBRATE_INCLUDE,
-      }),
-    );
-}
-
-export function getGroupCelebrateFeed(
-  orgId: string,
-  personId: string | null = null,
-) {
-  return (
-    dispatch: ThunkDispatch<
-      { organizations: OrganizationsState },
-      null,
-      AnyAction
-    >,
-  ) => dispatch(getFeed(CELEBRATE, orgId, personId));
-}
-
-export function reloadGroupCelebrateFeed(orgId: string) {
-  return (
-    dispatch: ThunkDispatch<
-      { organizations: OrganizationsState },
-      null,
-      AnyAction
-    >,
-  ) => dispatch(reloadFeed(CELEBRATE, orgId));
-}
+export const getCelebrateFeed = async (
+  communityId: string,
+  personId?: string,
+  hasUnreadComments?: boolean,
+) => {
+  await apolloClient.query({
+    query: GET_CELEBRATE_FEED,
+    variables: {
+      communityId,
+      personIds: personId,
+      hasUnreadComments,
+    },
+  });
+};
 
 export function toggleLike(eventId: string, liked: boolean, orgId?: string) {
-  const request = orgId
-    ? liked
-      ? REQUESTS.UNLIKE_CELEBRATE_ITEM
-      : REQUESTS.LIKE_CELEBRATE_ITEM
-    : liked
-    ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
-    : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
+  const request =
+    orgId && orgId != GLOBAL_COMMUNITY_ID
+      ? liked
+        ? REQUESTS.UNLIKE_CELEBRATE_ITEM
+        : REQUESTS.LIKE_CELEBRATE_ITEM
+      : liked
+      ? REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM
+      : REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM;
 
   return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
     dispatch(callApi(request, { orgId, eventId }));

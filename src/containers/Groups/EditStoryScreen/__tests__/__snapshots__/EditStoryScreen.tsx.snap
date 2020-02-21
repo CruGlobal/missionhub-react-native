@@ -143,56 +143,60 @@ exports[`renders correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Share a Story..."
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#52C5DC"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginBottom": 70,
-            "paddingHorizontal": 32,
-          },
-        ]
-      }
-      testID="EditInput"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value="It was the best of times..."
-    />
-  </View>
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a Story..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "paddingHorizontal": 32,
+            },
+          ]
+        }
+        testID="EditInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="qui recusandae ut"
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -416,56 +420,59 @@ exports[`renders empty text correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={true}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Share a Story..."
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#52C5DC"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "marginBottom": 70,
-            "paddingHorizontal": 32,
-          },
-        ]
-      }
-      testID="EditInput"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a Story..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "paddingHorizontal": 32,
+            },
+          ]
+        }
+        testID="EditInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -551,17 +558,17 @@ exports[`saveStory user edits story 1`] = `
 - First value
 + Second value
 
-@@ -185,11 +185,11 @@
-            },
-          ]
-        }
-        testID=\\"EditInput\\"
-        underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--       value=\\"It was the best of times...\\"
-+       value=\\"It was the worst of times...\\"
-      />
-    </View>
+@@ -188,11 +188,11 @@
+              },
+            ]
+          }
+          testID=\\"EditInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"qui recusandae ut\\"
++         value=\\"It was the worst of times...\\"
+        />
+      </View>
+    </RCTScrollView>
     <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={"
+      emulateUnlessSupported={true}"
 `;

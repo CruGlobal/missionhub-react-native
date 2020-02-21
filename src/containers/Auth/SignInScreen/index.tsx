@@ -58,10 +58,10 @@ const SignInScreen = ({
   const [isLoading, setIsLoading] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
 
-  useKeyboardListeners(
-    () => setShowLogo(false),
-    () => setShowLogo(true),
-  );
+  useKeyboardListeners({
+    onShow: () => setShowLogo(false),
+    onHide: () => setShowLogo(true),
+  });
 
   const handleForgotPassword = async () => {
     // @ts-ignore

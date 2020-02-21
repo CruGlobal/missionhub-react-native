@@ -112,17 +112,17 @@ export function navigateToCommunity(
   };
 }
 
-export function navigateToCelebrateComments(
+export const navigateToCelebrateComments = (
   community: Organization,
-  celebrationItemId: string,
-) {
-  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const orgId = community.id;
-    const userCreated = orgIsUserCreated(community);
+  celebrationItemId?: string | null,
+) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
+  const orgId = community.id;
+  const userCreated = orgIsUserCreated(community);
 
-    const event = { id: celebrationItemId, organization: community };
+  const event = { id: celebrationItemId };
 
-    await dispatch(
+  if (celebrationItemId) {
+    dispatch(
       navigateNestedReset([
         {
           routeName: getScreenForOrg(orgId, userCreated),
@@ -132,8 +132,10 @@ export function navigateToCelebrateComments(
           routeName: GROUP_UNREAD_FEED_SCREEN,
           params: { organization: community },
         },
-        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event } },
+        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event, orgId } },
       ]),
     );
-  };
-}
+  } else {
+    dispatch(navigateToCommunity(community));
+  }
+};

@@ -22,6 +22,7 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
+import { PermissionEnum } from '../../__generated__/globalTypes';
 
 // @ts-ignore
 export const shuffleArray = arr => {
@@ -127,23 +128,40 @@ const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,
   ORG_PERMISSIONS.ADMIN,
   ORG_PERMISSIONS.USER,
+  PermissionEnum.admin,
+  PermissionEnum.owner,
+  PermissionEnum.user,
 ];
+
 // @ts-ignore
-export const hasOrgPermissions = orgPermission =>
-  !!orgPermission &&
-  MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`);
+export const hasOrgPermissions = orgPermission => {
+  return (
+    (!!orgPermission &&
+      MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`)) ||
+    (!!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission))
+  );
+};
+
 // @ts-ignore
 export const isAdminOrOwner = orgPermission =>
-  !!orgPermission &&
-  [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
-    `${orgPermission.permission_id}`,
-  );
+  (!!orgPermission &&
+    [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
+      `${orgPermission.permission_id}`,
+    )) ||
+  (!!orgPermission &&
+    [PermissionEnum.admin, PermissionEnum.owner].includes(
+      orgPermission.permission,
+    ));
 // @ts-ignore
 export const isOwner = orgPermission =>
-  !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER;
+  (!!orgPermission &&
+    `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||
+  (!!orgPermission && orgPermission.permission === PermissionEnum.owner);
 // @ts-ignore
 export const isAdmin = orgPermission =>
-  !!orgPermission && `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN;
+  (!!orgPermission &&
+    `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN) ||
+  (!!orgPermission && orgPermission.permission === PermissionEnum.admin);
 
 // @ts-ignore
 export const shouldQueryReportedComments = (org, orgPermission) =>

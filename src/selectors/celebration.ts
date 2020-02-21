@@ -2,47 +2,30 @@ import { createSelector } from 'reselect';
 
 import { momentUtc } from '../utils/common';
 import { CELEBRATEABLE_TYPES } from '../constants';
-import { OrganizationsState } from '../reducers/organizations';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityCelebrationCelebrateableEnum } from '../../__generated__/globalTypes';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type CelebrateItem = any;
-
-export const celebrationItemSelector = createSelector(
-  ({ organizations }: { organizations: OrganizationsState }) =>
-    organizations.all,
-  (
-    _: { organizations: OrganizationsState },
-    { eventId }: { eventId: string; organizationId: string },
-  ) => eventId,
-  (
-    _: { organizations: OrganizationsState },
-    { organizationId }: { eventId: string; organizationId: string },
-  ) => organizationId,
-  (orgs, eventId, organizationId) => {
-    const { celebrateItems } = orgs.find(({ id }) => id === organizationId);
-
-    return (
-      celebrateItems &&
-      celebrateItems.find(({ id }: CelebrateItem) => id === eventId)
-    );
-  },
-);
+export interface CelebrateFeedSection {
+  id: number;
+  date: string;
+  data: GetCelebrateFeed_community_celebrationItems_nodes[];
+}
 
 export const celebrationSelector = createSelector(
-  ({ celebrateItems }: { celebrateItems: CelebrateItem[] }) => celebrateItems,
+  ({
+    celebrateItems,
+  }: {
+    celebrateItems: GetCelebrateFeed_community_celebrationItems_nodes[];
+  }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
     const sortByDate = filteredCelebrateItems;
     sortByDate.sort(compare);
 
-    const dateSections: {
-      id: number;
-      date: string;
-      data: CelebrateItem[];
-    }[] = [];
-    sortByDate.forEach((item: CelebrateItem) => {
+    const dateSections: CelebrateFeedSection[] = [];
+    sortByDate.forEach(item => {
       const length = dateSections.length;
-      const itemMoment = momentUtc(item.changed_attribute_value).local();
+      const itemMoment = momentUtc(item.changedAttributeValue).local();
 
       if (
         length > 0 &&
@@ -55,7 +38,7 @@ export const celebrationSelector = createSelector(
       } else {
         dateSections.push({
           id: dateSections.length,
-          date: item.changed_attribute_value,
+          date: item.changedAttributeValue,
           data: [item],
         });
       }
@@ -65,9 +48,12 @@ export const celebrationSelector = createSelector(
   },
 );
 
-const compare = (a: CelebrateItem, b: CelebrateItem) => {
-  const aValue = a.changed_attribute_value,
-    bValue = b.changed_attribute_value;
+const compare = (
+  a: GetCelebrateFeed_community_celebrationItems_nodes,
+  b: GetCelebrateFeed_community_celebrationItems_nodes,
+) => {
+  const aValue = a.changedAttributeValue,
+    bValue = b.changedAttributeValue;
 
   if (aValue < bValue) {
     return 1;
@@ -78,28 +64,22 @@ const compare = (a: CelebrateItem, b: CelebrateItem) => {
   return 0;
 };
 
-const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
-  const {
-    completedInteraction,
-    completedStep,
-    validInteractionTypes,
-    acceptedCommunityChallenge,
-    createdCommunity,
-    joinedCommunity,
-    story,
-  } = CELEBRATEABLE_TYPES;
+const filterCelebrationFeedItems = (
+  items: GetCelebrateFeed_community_celebrationItems_nodes[],
+) => {
+  const { validInteractionTypes } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {
-    switch (item.celebrateable_type) {
-      case completedInteraction:
+    switch (item.celebrateableType) {
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION:
         return validInteractionTypes.includes(
-          `${item.adjective_attribute_value}`,
+          `${item.adjectiveAttributeValue}`,
         );
-      case completedStep:
-      case acceptedCommunityChallenge:
-      case createdCommunity:
-      case joinedCommunity:
-      case story:
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_STEP:
+      case CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE:
+      case CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY:
+      case CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY:
+      case CommunityCelebrationCelebrateableEnum.STORY:
         return true;
       default:
         return false;

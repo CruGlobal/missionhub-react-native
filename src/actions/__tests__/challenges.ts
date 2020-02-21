@@ -12,8 +12,8 @@ import {
   updateChallenge,
   getChallenge,
 } from '../challenges';
+import { getCelebrateFeed } from '../celebration';
 import { trackActionWithoutData } from '../analytics';
-import { reloadGroupCelebrateFeed } from '../celebration';
 import { showNotificationPrompt } from '../notifications';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
@@ -42,7 +42,6 @@ const orgId = '123';
 
 const apiResult = { type: 'done' };
 const navigateResult = { type: 'has navigated' };
-const celebrateResult = { type: 'reloaded celebrate feed' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
 const trackActionResult = { type: 'track action' };
 const showNotificationResult = { type: 'show notification prompt' };
@@ -73,8 +72,6 @@ beforeEach(() => {
   callApi.mockReturnValue(apiResult);
   // @ts-ignore
   navigatePush.mockReturnValue(navigateResult);
-  // @ts-ignore
-  reloadGroupCelebrateFeed.mockReturnValue(celebrateResult);
   // @ts-ignore
   trackActionWithoutData.mockReturnValue(trackActionResult);
   // @ts-ignore
@@ -165,7 +162,7 @@ describe('completeChallenge', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_COMPLETED,
     );
-    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
+    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
     // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
@@ -173,7 +170,6 @@ describe('completeChallenge', () => {
       trackActionResult,
       resetResult,
       apiResult,
-      celebrateResult,
     ]);
   });
 });
@@ -206,7 +202,7 @@ describe('joinChallenge', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_JOINED,
     );
-    expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(orgId);
+    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
     // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
@@ -215,7 +211,6 @@ describe('joinChallenge', () => {
       trackActionResult,
       resetResult,
       apiResult,
-      celebrateResult,
     ]);
   });
 });

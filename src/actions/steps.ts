@@ -25,7 +25,7 @@ import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
 import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
-import { reloadGroupCelebrateFeed } from './celebration';
+import { getCelebrateFeed } from './celebration';
 
 export function getStepSuggestions(isMe: boolean, contactStageId: string) {
   return (dispatch: ThunkDispatch<never, never, never>) => {
@@ -172,9 +172,7 @@ function completeChallengeAPI(step: {
     removeFromStepsList(stepId);
     dispatch(getContactSteps(receiverId, orgId));
 
-    if (orgId) {
-      dispatch(reloadGroupCelebrateFeed(orgId));
-    }
+    orgId && getCelebrateFeed(orgId);
   };
 }
 

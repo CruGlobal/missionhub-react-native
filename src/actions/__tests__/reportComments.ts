@@ -14,6 +14,7 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
 import { formatApiDate } from '../../utils/common';
+import { CelebrateComment } from '../../reducers/celebrateComments';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
@@ -40,7 +41,13 @@ beforeEach(() => {
 });
 
 describe('report comments', () => {
-  const item = { id: 'comment1' };
+  const item: CelebrateComment = {
+    id: 'comment1',
+    person: {},
+    created_at: '2019-04-11T13:51:49.888',
+    updated_at: '2019-04-11T13:51:49.888',
+    content: '',
+  };
 
   it('should callApi for report', async () => {
     const response = await store.dispatch<any>(reportComment(orgId, item));

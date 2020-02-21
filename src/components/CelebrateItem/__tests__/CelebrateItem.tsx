@@ -8,26 +8,35 @@ import { useMutation } from '@apollo/react-hooks';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
-import { CELEBRATEABLE_TYPES, GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../../containers/Groups/EditStoryScreen';
+import { Organization } from '../../../reducers/organizations';
+import {
+  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData,
+  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
+} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+} from '../queries';
+import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
 
-import CelebrateItem, { Event, DELETE_STORY, REPORT_STORY } from '..';
+import CelebrateItem, { DELETE_STORY, REPORT_STORY } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 
-const myId = '123';
-const subjectPerson = {
-  id: '234',
-  first_name: 'John',
-  last_name: 'Smith',
-  full_name: 'John Smith',
-};
-const globalOrg = { id: GLOBAL_COMMUNITY_ID };
-const organization = { id: '3' };
+const globalOrg: Organization = { id: GLOBAL_COMMUNITY_ID };
+const organization: Organization = { id: '3', name: 'Communidad' };
 
-const date = '2019-08-21T12:00:00.000';
+const event = mockFragment<CelebrateItemData>(CELEBRATE_ITEM_FRAGMENT);
+const mePerson = mockFragment<CelebrateItemPerson>(
+  CELEBRATE_ITEM_PERSON_FRAGMENT,
+);
+const myId = mePerson.id;
+
 MockDate.set('2019-08-21 12:00:00', 300);
 
 let onRefresh = jest.fn();
@@ -36,19 +45,9 @@ let onClearNotification = jest.fn();
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
 
-const event: Event = {
-  id: '222',
-  changed_attribute_value: date,
-  subject_person: subjectPerson,
-  subject_person_name: subjectPerson.full_name,
-  celebrateable_id: '2',
-  celebrateable_type: CELEBRATEABLE_TYPES.completedStep,
-  organization,
-  object_description: 'Celebration',
-};
-const storyEvent: Event = {
+const storyEvent: CelebrateItemData = {
   ...event,
-  celebrateable_type: CELEBRATEABLE_TYPES.story,
+  celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
 };
 
 const initialState = { auth: { person: { id: myId } } };
@@ -67,6 +66,7 @@ describe('global community', () => {
         event={event}
         onRefresh={onRefresh}
         organization={globalOrg}
+        namePressable={false}
       />,
       { initialState },
     ).snapshot();
@@ -78,6 +78,7 @@ describe('global community', () => {
         event={event}
         onRefresh={onRefresh}
         organization={globalOrg}
+        namePressable={false}
         onClearNotification={onClearNotification}
       />,
       { initialState },
@@ -90,6 +91,7 @@ describe('global community', () => {
         event={storyEvent}
         onRefresh={onRefresh}
         organization={globalOrg}
+        namePressable={false}
       />,
       { initialState },
     ).snapshot();
@@ -103,6 +105,7 @@ describe('Community', () => {
         event={event}
         onRefresh={onRefresh}
         organization={organization}
+        namePressable={false}
       />,
       { initialState },
     ).snapshot();
@@ -115,6 +118,7 @@ describe('Community', () => {
         onRefresh={onRefresh}
         organization={organization}
         onClearNotification={onClearNotification}
+        namePressable={false}
       />,
       { initialState },
     ).snapshot();
@@ -126,6 +130,7 @@ describe('Community', () => {
         event={storyEvent}
         onRefresh={onRefresh}
         organization={organization}
+        namePressable={false}
       />,
       { initialState },
     ).snapshot();
@@ -151,6 +156,7 @@ describe('press card', () => {
         event={event}
         onRefresh={onRefresh}
         organization={globalOrg}
+        namePressable={false}
       />,
       { initialState },
     );
@@ -166,6 +172,7 @@ describe('press card', () => {
         event={event}
         onRefresh={onRefresh}
         organization={organization}
+        namePressable={false}
       />,
       { initialState },
     );
@@ -174,15 +181,17 @@ describe('press card', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
       event,
+      orgId: organization.id,
+      onRefreshCelebrateItem: onRefresh,
     });
   });
 });
 
 describe('long-press card', () => {
   describe('story written by me', () => {
-    const myStoryEvent = {
+    const myStoryEvent: CelebrateItemData = {
       ...storyEvent,
-      subject_person: { ...subjectPerson, id: myId },
+      subjectPerson: mePerson,
     };
 
     it('navigates to edit story screen', () => {
@@ -194,6 +203,7 @@ describe('long-press card', () => {
           event={myStoryEvent}
           onRefresh={onRefresh}
           organization={organization}
+          namePressable={false}
         />,
         { initialState },
       );
@@ -219,6 +229,7 @@ describe('long-press card', () => {
           event={myStoryEvent}
           onRefresh={onRefresh}
           organization={organization}
+          namePressable={false}
         />,
         { initialState },
       );
@@ -242,7 +253,7 @@ describe('long-press card', () => {
         ],
       );
       expect(useMutation).toHaveBeenMutatedWith(DELETE_STORY, {
-        variables: { input: { id: event.celebrateable_id } },
+        variables: { input: { id: myStoryEvent.celebrateableId } },
       });
       expect(onRefresh).toHaveBeenCalled();
     });
@@ -258,6 +269,7 @@ describe('long-press card', () => {
           event={storyEvent}
           onRefresh={onRefresh}
           organization={organization}
+          namePressable={false}
         />,
         { initialState },
       );
@@ -281,7 +293,7 @@ describe('long-press card', () => {
         ],
       );
       expect(useMutation).toHaveBeenMutatedWith(REPORT_STORY, {
-        variables: { subjectId: event.celebrateable_id },
+        variables: { subjectId: storyEvent.celebrateableId },
       });
     });
   });
@@ -295,6 +307,7 @@ describe('clear notification button', () => {
         onRefresh={onRefresh}
         organization={organization}
         onClearNotification={onClearNotification}
+        namePressable={false}
       />,
       { initialState },
     );

@@ -3,23 +3,30 @@ import { Keyboard } from 'react-native';
 
 import { isAndroid } from '../common';
 
-export const useKeyboardListeners = (
-  onShow: () => void,
-  onHide: () => void,
-) => {
+export const useKeyboardListeners = ({
+  onShow,
+  onHide,
+}: {
+  onShow?: () => void;
+  onHide?: () => void;
+}) => {
   useEffect(() => {
-    const keyboardShowListener = Keyboard.addListener(
-      isAndroid ? 'keyboardDidShow' : 'keyboardWillShow',
-      onShow,
-    );
-    const keyboardHideListener = Keyboard.addListener(
-      isAndroid ? 'keyboardDidHide' : 'keyboardWillHide',
-      onHide,
-    );
+    const keyboardShowListener = onShow
+      ? Keyboard.addListener(
+          isAndroid ? 'keyboardDidShow' : 'keyboardWillShow',
+          onShow,
+        )
+      : null;
+    const keyboardHideListener = onHide
+      ? Keyboard.addListener(
+          isAndroid ? 'keyboardDidHide' : 'keyboardWillHide',
+          onHide,
+        )
+      : null;
 
     return () => {
-      keyboardShowListener.remove();
-      keyboardHideListener.remove();
+      keyboardShowListener && keyboardShowListener.remove();
+      keyboardHideListener && keyboardHideListener.remove();
     };
   }, [onShow, onHide]);
 };

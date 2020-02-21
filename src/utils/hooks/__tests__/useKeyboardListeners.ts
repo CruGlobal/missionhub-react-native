@@ -18,7 +18,7 @@ const onHide = jest.fn();
 
 describe('useKeyboardListeners', () => {
   beforeEach(() => {
-    renderHook(() => useKeyboardListeners(onShow, onHide));
+    renderHook(() => useKeyboardListeners({ onShow, onHide }));
 
     expect(onShow).not.toHaveBeenCalled();
     expect(onHide).not.toHaveBeenCalled();

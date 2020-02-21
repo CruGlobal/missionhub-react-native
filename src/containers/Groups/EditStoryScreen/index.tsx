@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, ScrollView } from 'react-native';
 import { AnyAction } from 'redux';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
@@ -8,14 +8,14 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux-legacy';
 
-import { Input, Flex } from '../../../components/common';
+import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
-import { Event } from '../../../components/CelebrateItem';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
@@ -39,13 +39,16 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
-  const { object_description, celebrateable_id }: Event = useNavigationParam(
+  const {
+    objectDescription,
+    celebrateableId,
+  }: GetCelebrateFeed_community_celebrationItems_nodes = useNavigationParam(
     'celebrationItem',
   );
   const [updateStory] = useMutation<UpdateStory, UpdateStoryVariables>(
     UPDATE_STORY,
   );
-  const [story, changeStory] = useState(object_description);
+  const [story, changeStory] = useState(objectDescription || undefined);
 
   const saveStory = async () => {
     if (!story) {
@@ -53,7 +56,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
     }
     Keyboard.dismiss();
     await updateStory({
-      variables: { input: { id: celebrateable_id, content: story } },
+      variables: { input: { id: celebrateableId, content: story } },
     });
 
     onRefresh();
@@ -63,9 +66,10 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
-      <Flex value={1}>
+      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
           testID="EditInput"
+          scrollEnabled={false}
           onChangeText={e => changeStory(e)}
           placeholder={t('inputPlaceholder')}
           value={story}
@@ -78,7 +82,7 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
           placeholderTextColor={theme.lightGrey}
           style={textInput}
         />
-      </Flex>
+      </ScrollView>
       <BottomButton
         text={t('saveStory')}
         onPress={saveStory}

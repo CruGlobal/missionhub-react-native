@@ -1,3 +1,6 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+
 import {
   DEFAULT_PAGE_LIMIT,
   RESET_CELEBRATE_EDITING_COMMENT,
@@ -6,14 +9,13 @@ import {
 import { celebrateCommentsSelector } from '../selectors/celebrateComments';
 import { ACTIONS } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { CelebrateCommentsState } from '../reducers/celebrateComments';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 
-// @ts-ignore
-export function setCelebrateEditingComment(commentId) {
-  // @ts-ignore
-  return dispatch => {
+export function setCelebrateEditingComment(commentId: string) {
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     dispatch(resetCelebrateEditingComment());
     dispatch({ type: SET_CELEBRATE_EDITING_COMMENT, commentId });
   };
@@ -23,13 +25,14 @@ export function resetCelebrateEditingComment() {
   return { type: RESET_CELEBRATE_EDITING_COMMENT };
 }
 
-// @ts-ignore
-export function getCelebrateCommentsNextPage(event) {
-  // @ts-ignore
-  return (dispatch, getState) => {
+export function getCelebrateCommentsNextPage(eventId: string, orgId: string) {
+  return (
+    dispatch: ThunkDispatch<{}, null, AnyAction>,
+    getState: () => { celebrateComments: CelebrateCommentsState },
+  ) => {
     const { pagination } = celebrateCommentsSelector(
       { celebrateComments: getState().celebrateComments },
-      { eventId: event.id },
+      { eventId },
     );
 
     const { page, hasNextPage } = pagination
@@ -41,7 +44,7 @@ export function getCelebrateCommentsNextPage(event) {
     }
 
     return dispatch(
-      getCelebrateComments(event, {
+      getCelebrateComments(eventId, orgId, {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * page,
       }),
@@ -49,36 +52,40 @@ export function getCelebrateCommentsNextPage(event) {
   };
 }
 
-// @ts-ignore
-export function reloadCelebrateComments(event) {
-  // @ts-ignore
-  return dispatch => dispatch(getCelebrateComments(event));
+export function reloadCelebrateComments(eventId: string, orgId: string) {
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
+    dispatch(getCelebrateComments(eventId, orgId));
 }
 
-// @ts-ignore
-function getCelebrateComments(event, page) {
-  // @ts-ignore
-  return dispatch =>
+function getCelebrateComments(
+  eventId: string,
+  orgId: string,
+  page?: { limit: number; offset: number },
+) {
+  return (dispatch: ThunkDispatch<{}, null, AnyAction>) =>
     dispatch(
       callApi(REQUESTS.GET_CELEBRATE_COMMENTS, {
-        orgId: event.organization.id,
-        eventId: event.id,
+        orgId,
+        eventId,
         page,
-        include: 'organization_celebration_item,person',
+        include:
+          'organization_celebration_item,person,person.organizational_permissions',
       }),
     );
 }
 
-// @ts-ignore
-export function createCelebrateComment(event, content) {
-  // @ts-ignore
-  return async dispatch => {
+export function createCelebrateComment(
+  eventId: string,
+  orgId: string,
+  content: string,
+) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const result = await dispatch(
       callApi(
         REQUESTS.CREATE_CELEBRATE_COMMENT,
         {
-          orgId: event.organization.id,
-          eventId: event.id,
+          orgId,
+          eventId,
         },
         {
           data: {
@@ -93,17 +100,21 @@ export function createCelebrateComment(event, content) {
   };
 }
 
-// @ts-ignore
-export function updateCelebrateComment(item, content) {
-  // @ts-ignore
-  return async dispatch => {
+//eslint-disable-next-line max-params
+export function updateCelebrateComment(
+  eventId: string,
+  orgId: string,
+  commentId: string,
+  content: string,
+) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const result = await dispatch(
       callApi(
         REQUESTS.UPDATE_CELEBRATE_COMMENT,
         {
-          orgId: item.organization_celebration_item.organization.id,
-          eventId: item.organization_celebration_item.id,
-          commentId: item.id,
+          orgId,
+          eventId,
+          commentId,
         },
         { data: { attributes: { content } } },
       ),
@@ -114,15 +125,17 @@ export function updateCelebrateComment(item, content) {
   };
 }
 
-// @ts-ignore
-export function deleteCelebrateComment(orgId, event, item) {
-  // @ts-ignore
-  return async dispatch => {
+export function deleteCelebrateComment(
+  orgId: string,
+  eventId: string,
+  commentId: string,
+) {
+  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
     const result = await dispatch(
       callApi(REQUESTS.DELETE_CELEBRATE_COMMENT, {
         orgId,
-        eventId: event.id,
-        commentId: item.id,
+        eventId,
+        commentId,
       }),
     );
 

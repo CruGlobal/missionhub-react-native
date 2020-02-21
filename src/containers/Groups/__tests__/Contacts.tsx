@@ -102,7 +102,7 @@ describe('Contacts', () => {
     const person = people[0];
     const screen = renderShallow(component, store);
     const listItem = screen
-      .childAt(0)
+      .childAt(1)
       .props()
       .listProps.renderItem({ item: person });
 
