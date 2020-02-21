@@ -5,6 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { getContactSteps } from '../../actions/steps';
 import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -26,7 +27,6 @@ import { Organization } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
-import { ANALYTICS_ASSIGNMENT_TYPE } from 'src/constants';
 
 interface ContactStepsProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;

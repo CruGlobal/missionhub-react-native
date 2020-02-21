@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 import gql from 'graphql-tag';
 
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { keyExtractorId } from '../../utils/common';
 import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
@@ -21,7 +22,6 @@ import {
   GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface,
 } from './__generated__/GetReportedContent';
 import styles from './styles';
-import { ANALYTICS_PERMISSION_TYPE } from 'src/constants';
 
 export const GET_REPORTED_CONTENT = gql`
   query GetReportedContent($id: ID!) {

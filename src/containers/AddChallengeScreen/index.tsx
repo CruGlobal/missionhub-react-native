@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { Text, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
@@ -127,7 +128,10 @@ class AddChallengeScreen extends Component {
 
     return (
       <View style={container}>
-        <Analytics screenName={['challenge', isEdit ? 'edit' : 'create']} />
+        <Analytics
+          screenName={['challenge', isEdit ? 'edit' : 'create']}
+          screenContext={{ [ANALYTICS_PERMISSION_TYPE]: '' }}
+        />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header left={<BackButton iconStyle={backButton} />} />
         <View style={{ flex: 1 }}>

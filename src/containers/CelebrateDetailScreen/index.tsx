@@ -6,6 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useApolloClient } from '@apollo/react-hooks';
 
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import CommentLikeComponent from '../CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
@@ -20,7 +21,6 @@ import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
-import Analytics from '../Analytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
@@ -28,8 +28,10 @@ import {
   CelebrateCommentsState,
   CelebrateComment,
 } from '../../reducers/celebrateComments';
+import { AuthState } from '../../reducers/auth';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -39,6 +41,7 @@ export interface CelebrateDetailScreenProps {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   celebrateComments?: { comments: CelebrateComment[]; pagination: any };
   editingCommentId: string | null;
+  isMe: boolean;
 }
 
 const CelebrateDetailScreen = ({
@@ -46,7 +49,12 @@ const CelebrateDetailScreen = ({
   organization,
   celebrateComments,
   editingCommentId,
+  isMe,
 }: CelebrateDetailScreenProps) => {
+  useAnalytics({
+    screenName: ['celebrate item', 'comments'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact' },
+  });
   const client = useApolloClient();
   const navParamsEvent: CelebrateItem = useNavigationParam('event');
   const event =
@@ -152,7 +160,6 @@ const CelebrateDetailScreen = ({
 
   return (
     <View style={styles.pageContainer}>
-      <Analytics screenName={['celebrate item', 'comments']} />
       {renderHeader()}
       {renderCommentsList()}
       {renderCommentBox()}
@@ -162,9 +169,11 @@ const CelebrateDetailScreen = ({
 
 const mapStateToProps = (
   {
+    auth,
     organizations,
     celebrateComments,
   }: {
+    auth: AuthState;
     organizations: OrganizationsState;
     celebrateComments: CelebrateCommentsState;
   },
@@ -174,8 +183,9 @@ const mapStateToProps = (
         params: { event, orgId },
       },
     },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
+  }: {
+    navigation: { state: { params: { event: CelebrateItem; orgId: string } } };
+  },
 ) => ({
   organization: organizationSelector({ organizations }, { orgId }),
   celebrateComments: celebrateCommentsSelector(
@@ -183,6 +193,8 @@ const mapStateToProps = (
     { eventId: event.id },
   ),
   editingCommentId: celebrateComments.editingCommentId,
+  isMe:
+    event && event.subjectPerson && event.subjectPerson.id === auth.person.id,
 });
 export default connect(mapStateToProps)(CelebrateDetailScreen);
 export const CELEBRATE_DETAIL_SCREEN = 'nav/CELEBRATE_DETAIL_SCREEN';
