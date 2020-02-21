@@ -21,20 +21,14 @@ export default StyleSheet.create({
   statsSection: {
     paddingTop: 8,
   },
-  joinButton: {
+  joinCompleteButton: {
     backgroundColor: theme.challengeBlue,
     paddingVertical: 8,
     height: undefined, // Need this to override the normal button styles
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
   },
-  completeButton: {
-    backgroundColor: theme.green,
-    paddingVertical: 8,
-    height: undefined, // Need this to override the normal button styles
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
-  },
+
   joinCompleteButtonText: {
     fontSize: 15,
   },
