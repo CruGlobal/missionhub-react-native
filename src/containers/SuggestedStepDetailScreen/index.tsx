@@ -6,6 +6,10 @@ import { View } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
@@ -35,8 +39,8 @@ const SuggestedStepDetailScreen = ({
   useAnalytics({
     screenName: ['step detail', 'add step'],
     screenContext: {
-      'cru.section-type': isOnboarding ? 'onboarding' : '',
-      'cru.assignment-type': isMe ? 'self' : 'contact',
+      [ANALYTICS_SECTION_TYPE]: isOnboarding ? 'onboarding' : '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact',
     },
   });
   const { t } = useTranslation('suggestedStepDetail');

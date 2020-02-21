@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
+import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import { Flex, Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
@@ -33,7 +34,7 @@ const GetStartedScreen = ({
 }: GetStartedScreenProps) => {
   useAnalytics({
     screenName: ['onboarding', 'personal greeting'],
-    screenContext: { 'cru.section-type': 'onboarding' },
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
   const { t } = useTranslation('getStarted');
 

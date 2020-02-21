@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
+import { ANALYTICS_SECTION_TYPE } from '../constants';
 import { navigateBack } from '../actions/navigation';
 import { AuthState } from '../reducers/auth';
 import { Stage, StagesState } from '../reducers/stages';
@@ -34,7 +35,7 @@ const StageSuccessScreen = ({
 }: StageSuccessScreenProps) => {
   useAnalytics({
     screenName: ['onboarding', 'stage confirmation'],
-    screenContext: { 'cru.section-type': 'onboarding' },
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
   const { t } = useTranslation('stageSuccess');
 

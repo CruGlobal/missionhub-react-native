@@ -8,6 +8,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux-legacy';
 
+import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
@@ -35,7 +36,10 @@ interface EditStoryProps {
 }
 
 const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
-  useAnalytics({ screenName: ['story', 'edit'], screenContext: {} });
+  useAnalytics({
+    screenName: ['story', 'edit'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: '' },
+  });
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');

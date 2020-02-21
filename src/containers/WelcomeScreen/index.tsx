@@ -9,7 +9,7 @@ import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
 
@@ -26,7 +26,7 @@ const WelcomeScreen = ({
 }) => {
   useAnalytics({
     screenName: ['onboarding', 'welcome'],
-    screenContext: { 'cru.section-type': 'onboarding' },
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 
   useEffect(() => {

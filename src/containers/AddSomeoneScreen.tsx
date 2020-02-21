@@ -3,6 +3,7 @@ import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
+import { ANALYTICS_SECTION_TYPE } from '../constants';
 import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../utils/hooks/useAnalytics';
 
@@ -27,7 +28,7 @@ const AddSomeoneScreen = ({
 }: AddSomeoneScreenProps) => {
   useAnalytics({
     screenName: ['onboarding', 'add someone'],
-    screenContext: { 'cru.section-type': 'onboarding' },
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
   const { t } = useTranslation('addContact');
 

@@ -38,7 +38,11 @@ import {
   trackScreenChange,
 } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ACTIONS, GROUPS_TAB } from '../../../constants';
+import {
+  ACTIONS,
+  GROUPS_TAB,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
 import Header from '../../../components/Header';
@@ -152,10 +156,18 @@ class GroupProfile extends Component {
     if (this.state.editing) {
       this.save();
       this.setState({ editing: false });
-      dispatch(trackScreenChange(['community', 'detail']));
+      dispatch(
+        trackScreenChange(['community', 'detail'], {
+          [ANALYTICS_PERMISSION_TYPE]: '',
+        }),
+      );
     } else {
       this.setState({ editing: true, name: organization.name });
-      dispatch(trackScreenChange(['community', 'detail', 'edit']));
+      dispatch(
+        trackScreenChange(['community', 'detail', 'edit'], {
+          [ANALYTICS_PERMISSION_TYPE]: '',
+        }),
+      );
       dispatch(trackActionWithoutData(ACTIONS.COMMUNITY_EDIT));
     }
   };

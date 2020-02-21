@@ -5,6 +5,10 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import { Text } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
@@ -58,8 +62,8 @@ const SelectStepScreen = ({
   useAnalytics({
     screenName: 'add step',
     screenContext: {
-      'cru.section-type': isOnboarding ? 'onboarding' : '',
-      'cru.assignment-type': isMe ? 'self' : 'contact',
+      [ANALYTICS_SECTION_TYPE]: isOnboarding ? 'onboarding' : '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact',
     },
   });
 

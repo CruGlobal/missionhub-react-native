@@ -15,6 +15,8 @@ import {
   EDIT_JOURNEY_ITEM,
   STEP_NOTE,
   CREATE_STEP,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_SECTION_TYPE,
 } from '../../constants';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
@@ -78,8 +80,9 @@ const AddStepScreen = ({
   useAnalytics({
     screenName: [screenSection, screenSubsection],
     screenContext: {
-      'cru.assignment-type': isMe ? 'self' : 'contact',
-      'cru.section-type': isCreateStep && isOnboarding ? 'onboarding' : '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact',
+      [ANALYTICS_SECTION_TYPE]:
+        isCreateStep && isOnboarding ? 'onboarding' : '',
     },
   });
 

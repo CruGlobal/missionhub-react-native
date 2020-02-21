@@ -5,6 +5,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import moment from 'moment';
 import { connect } from 'react-redux';
 
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
@@ -23,7 +24,7 @@ const CompletedStepDetailScreen = ({
 }: CompletedStepDetailScreenProps) => {
   useAnalytics({
     screenName: ['step detail', 'completed step'],
-    screenContext: { 'cru.assignment-type': isMe ? 'self' : 'contact' },
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact' },
   });
   const { t } = useTranslation('completedStepDetail');
   const step: Step = useNavigationParam('step');

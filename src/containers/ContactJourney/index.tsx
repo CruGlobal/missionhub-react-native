@@ -178,6 +178,9 @@ class ContactJourney extends Component {
             'person',
             person.id === myId ? 'my journey' : 'our journey',
           ]}
+          screenContext={{
+            'cru.assignment-type': person.id === myId ? 'self' : 'contact',
+          }}
         />
         {this.renderContent()}
         <Flex justify="end">

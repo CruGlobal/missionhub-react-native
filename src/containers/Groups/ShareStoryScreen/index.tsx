@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
 
-import { ACTIONS } from '../../../constants';
+import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
@@ -33,7 +33,10 @@ export const CREATE_A_STORY = gql`
 `;
 
 const ShareStoryScreen = () => {
-  useAnalytics({ screenName: ['story', 'share'], screenContext: {} });
+  useAnalytics({
+    screenName: ['story', 'share'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: '' },
+  });
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const dispatch = useDispatch();

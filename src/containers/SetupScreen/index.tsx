@@ -17,7 +17,7 @@ import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import Skip from '../../components/Skip';
@@ -50,7 +50,7 @@ const SetupScreen = ({
   useAnalytics({
     screenName: ['onboarding', `${isMe ? 'self' : 'contact'} name`],
     screenContext: {
-      'cru.section-type': 'onboarding',
+      [ANALYTICS_SECTION_TYPE]: 'onboarding',
     },
   });
   const { t } = useTranslation('onboardingCreatePerson');

@@ -24,7 +24,12 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction, trackScreenChange } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import {
+  ACTIONS,
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_EDIT_MODE,
+} from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
@@ -107,9 +112,9 @@ const SelectStageScreen = ({
     stage &&
       dispatch(
         trackScreenChange(['stage', stage.name.toLowerCase()], {
-          'cru.section-type': isOnboarding ? 'onboarding' : '',
-          'cru.assignment-type': isMe ? 'self' : 'contact',
-          'cru.edit-mode': selectedStageId ? 'update' : 'set',
+          [ANALYTICS_SECTION_TYPE]: isOnboarding ? 'onboarding' : '',
+          [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact',
+          [ANALYTICS_EDIT_MODE]: selectedStageId ? 'update' : 'set',
         }),
       );
   };

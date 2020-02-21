@@ -279,7 +279,10 @@ export class ImpactView extends Component {
 
     return (
       <ScrollView style={styles.container} bounces={false}>
-        <Analytics screenName={[screenSection, screenSubsection]} />
+        <Analytics
+          screenName={[screenSection, screenSubsection]}
+          screenContext={{ 'cru.assignment-type': isMe ? 'self' : 'contact' }}
+        />
         {organization.id !== 'person' ? (
           // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />

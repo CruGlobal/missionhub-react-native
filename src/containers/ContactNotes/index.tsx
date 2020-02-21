@@ -6,6 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useIsFocused } from 'react-navigation-hooks';
 
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Text, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
@@ -33,7 +34,8 @@ const ContactNotes = ({
   useAnalytics({
     screenName: ['person', 'my notes'],
     screenContext: {
-      'cru.assignment-type': person.id === myPersonId ? 'self' : 'contact',
+      [ANALYTICS_ASSIGNMENT_TYPE]:
+        person.id === myPersonId ? 'self' : 'contact',
     },
   });
   const { t } = useTranslation('notes');

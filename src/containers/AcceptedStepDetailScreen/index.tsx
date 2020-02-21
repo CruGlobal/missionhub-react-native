@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
@@ -35,7 +36,7 @@ const AcceptedStepDetailScreen = ({
   const { t } = useTranslation('acceptedStepDetail');
   useAnalytics({
     screenName: ['step detail', 'active step'],
-    screenContext: { 'cru.assignment-type': isMe ? 'self' : 'contact' },
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: isMe ? 'self' : 'contact' },
   });
   const step: Step = useNavigationParam('step');
 

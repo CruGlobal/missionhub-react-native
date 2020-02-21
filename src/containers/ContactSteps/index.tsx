@@ -26,6 +26,7 @@ import { Organization } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
+import { ANALYTICS_ASSIGNMENT_TYPE } from 'src/constants';
 
 interface ContactStepsProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
@@ -51,7 +52,7 @@ const ContactSteps = ({
   useAnalytics({
     screenName: ['person', 'my steps'],
     screenContext: {
-      'cru.assignment-type': person.id === myId ? 'self' : 'contact',
+      [ANALYTICS_ASSIGNMENT_TYPE]: person.id === myId ? 'self' : 'contact',
     },
   });
   const { t } = useTranslation('contactSteps');

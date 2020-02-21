@@ -21,6 +21,7 @@ import {
   GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface,
 } from './__generated__/GetReportedContent';
 import styles from './styles';
+import { ANALYTICS_PERMISSION_TYPE } from 'src/constants';
 
 export const GET_REPORTED_CONTENT = gql`
   query GetReportedContent($id: ID!) {
@@ -68,7 +69,7 @@ const GroupReport = () => {
   const { t } = useTranslation('groupsReport');
   useAnalytics({
     screenName: ['celebrate', 'reported content'],
-    screenContext: {},
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: '' },
   });
   const dispatch = useDispatch();
   const organization: Organization = useNavigationParam('organization');
