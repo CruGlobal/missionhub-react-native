@@ -74,7 +74,10 @@ export const setAnalyticsMinistryMode = () => (
   );
 };
 
-export function trackScreenChange(screenName: string | string[]) {
+export function trackScreenChange(
+  screenName: string | string[],
+  screenContext: Partial<ScreenContext> = {},
+) {
   return (
     dispatch: ThunkDispatch<{}, {}, AnyAction>,
     getState: () => { analytics: AnalyticsState },
@@ -97,6 +100,7 @@ export function trackScreenChange(screenName: string | string[]) {
         [ANALYTICS_ASSIGNMENT_TYPE]: '',
         [ANALYTICS_EDIT_MODE]: '',
         [ANALYTICS_PERMISSION_TYPE]: '',
+        ...screenContext,
         [ANALYTICS_MCID]: MCID,
         [ANALYTICS_SCREEN_NAME]: screen,
         [ANALYTICS_SITE_SECTION]: screenFragments[0],

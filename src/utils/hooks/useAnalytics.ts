@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { trackScreenChange } from '../../actions/analytics';
+import { trackScreenChange, ScreenContext } from '../../actions/analytics';
 import { DrawerState } from '../../reducers/drawer';
 
 export enum ANALYTICS_SCREEN_TYPES {
@@ -11,10 +11,17 @@ export enum ANALYTICS_SCREEN_TYPES {
   drawer,
 }
 
-export const useAnalytics = (
-  screenName: string | string[],
+interface UseAnalyticsParams {
+  screenName: string | string[];
+  screenType?: ANALYTICS_SCREEN_TYPES;
+  screenContext?: Partial<ScreenContext>;
+}
+
+export const useAnalytics = ({
+  screenName,
   screenType = ANALYTICS_SCREEN_TYPES.screen,
-) => {
+  screenContext = {},
+}: UseAnalyticsParams) => {
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
   const isDrawerOpen = useSelector(
@@ -22,7 +29,7 @@ export const useAnalytics = (
   );
 
   const handleScreenChange = (name: string | string[]) => {
-    dispatch(trackScreenChange(name));
+    dispatch(trackScreenChange(name, screenContext));
   };
 
   //normally screens should only respond to focus events
