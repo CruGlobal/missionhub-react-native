@@ -149,6 +149,15 @@ Object {
 }
 `;
 
+exports[`orgPermissionSelector should get a person's organizationalPermission for the current org | GraphQL 1`] = `
+Object {
+  "community": Object {
+    "id": "200",
+  },
+  "permission": "owner",
+}
+`;
+
 exports[`orgPermissionSelector should get a person's organizationalPermission for the current org 1`] = `
 Object {
   "organization_id": "200",

@@ -345,4 +345,35 @@ describe('orgPermissionSelector', () => {
       ),
     ).toMatchSnapshot();
   });
+
+  it("should get a person's organizationalPermission for the current org | GraphQL", () => {
+    expect(
+      orgPermissionSelector(
+        {},
+        {
+          person: {
+            communityPermissions: {
+              nodes: [
+                {
+                  community: {
+                    id: organizationOne.id,
+                  },
+                  permission: 'admin',
+                },
+                {
+                  community: {
+                    id: organizationTwo.id,
+                  },
+                  permission: 'owner',
+                },
+              ],
+            },
+          },
+          organization: {
+            id: organizationTwo.id,
+          },
+        },
+      ),
+    ).toMatchSnapshot();
+  });
 });
