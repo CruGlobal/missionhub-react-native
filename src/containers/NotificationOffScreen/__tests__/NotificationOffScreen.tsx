@@ -1,6 +1,7 @@
 /* eslint max-lines: 0 */
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { Linking } from 'react-native';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useAppState } from 'react-native-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -27,14 +28,14 @@ const {
 let onComplete: jest.Mock;
 const next = jest.fn();
 
-//const APP_SETTINGS_URL = 'app-settings:';
+const APP_SETTINGS_URL = 'app-settings:';
 
 const navigateBackResult = { type: 'navigate back' };
 const trackActionResult = { type: 'tracked action' };
-/*const requestPermissionsAccepted = {
+const requestPermissionsAccepted = {
   type: 'request permissions',
   nativePermissionsEnabled: true,
-};*/
+};
 const requestPermissionsDenied = {
   type: 'request permissions',
   nativePermissionsEnabled: false,
@@ -175,7 +176,7 @@ describe('button methods', () => {
   });
 
   //TODO: Get these tests to work
-  /*describe('go to settings button', () => {
+  describe('go to settings button', () => {
     beforeEach(() => {
       (requestNativePermissions as jest.Mock).mockReturnValue(
         requestPermissionsAccepted,
@@ -358,7 +359,7 @@ describe('button methods', () => {
         expect(store.getActions()).toEqual([requestPermissionsDenied]);
       });
 
-      it('opens settings menu, then navigates back when returning', async () => {
+      fit('opens settings menu, then navigates back when returning', async () => {
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
@@ -374,12 +375,10 @@ describe('button methods', () => {
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
 
         (useAppState as jest.Mock).mockReturnValue('background');
-        rerender(<NotificationOffScreen next={next} />);
-
-        await flushMicrotasksQueue();
+        rerender(<NotificationOffScreen propToForceSecondRender />);
 
         (useAppState as jest.Mock).mockReturnValue('active');
-        rerender(<NotificationOffScreen next={next} />);
+        rerender(<NotificationOffScreen propToForceThirdRender />);
 
         await flushMicrotasksQueue();
 
@@ -391,5 +390,5 @@ describe('button methods', () => {
         ]);
       });
     });
-  });*/
+  });
 });
