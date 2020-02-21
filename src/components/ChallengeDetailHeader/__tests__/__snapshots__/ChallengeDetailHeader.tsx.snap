@@ -1,120 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render for active challenge 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingHorizontal": 40,
-        "paddingVertical": 10,
-      },
-      Object {
-        "flexDirection": "row",
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 5,
-          "flexDirection": "column",
-          "justifyContent": "flex-start",
-        },
-      ]
-    }
-  >
+<RCTScrollView>
+  <View>
     <View
       style={
         Array [
           Object {
-            "paddingVertical": 8,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Challenge Title
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            },
-          ]
-        }
-      >
-        End Date
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-            },
-          ]
-        }
-        testID="Text"
-      >
-        Sunday, August 25, 2019
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
+            "backgroundColor": "transparent",
+            "marginBottom": 80,
+            "paddingVertical": 10,
           },
           Object {
             "flexDirection": "row",
-            "justifyContent": "space-between",
           },
         ]
       }
@@ -124,236 +22,72 @@ exports[`render for active challenge 1`] = `
           Array [
             Object {},
             Object {
+              "flex": 5,
               "flexDirection": "column",
               "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
-            ]
-          }
-        >
-          Days Left
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        >
-          0
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
-            ]
-          }
-        >
-          Joined
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
-            ]
-          }
-        >
-          Completed
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
-  />
-</View>
-`;
-
-exports[`render for active challenge with edit 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingHorizontal": 40,
-        "paddingVertical": 10,
-      },
-      Object {
-        "flexDirection": "row",
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 5,
-          "flexDirection": "column",
-          "justifyContent": "flex-start",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {},
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "row",
             },
           ]
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {},
+            ]
           }
-          testID="ChallengeDetailHeaderEditButton"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "lineHeight": 30,
+                },
+              ]
+            }
+          >
+            Challenge Title
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
         >
           <View
             style={
               Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
                 Object {},
-                null,
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
               ]
             }
           >
@@ -366,388 +100,215 @@ exports[`render for active challenge with edit 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#52C5DC",
-                      "fontSize": 14,
-                      "fontWeight": "300",
-                      "letterSpacing": 1,
-                    },
-                  ],
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
                 ]
               }
             >
-              Edit
+              Joined
             </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
           </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ]
+              }
+            >
+              Completed
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          />
         </View>
-      </View>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Challenge Title
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            },
-          ]
-        }
-      >
-        End Date
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-            },
-          ]
-        }
-        testID="Text"
-      >
-        Sunday, August 25, 2019
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-          },
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
+              Object {},
             ]
           }
         >
-          Days Left
-        </Text>
-        <Text
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            Sunday
+          </Text>
+        </View>
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
+              Object {},
             ]
           }
         >
-          0
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
-            ]
-          }
-        >
-          Joined
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
-            ]
-          }
-        >
-          Completed
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Details
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+              ]
+            }
+          >
+            Add details to your Challenge (optional)
+          </Text>
+        </View>
       </View>
     </View>
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
-  />
-</View>
+</RCTScrollView>
 `;
 
 exports[`render for past challenge 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "paddingHorizontal": 40,
-        "paddingVertical": 10,
-      },
-      Object {
-        "flexDirection": "row",
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 5,
-          "flexDirection": "column",
-          "justifyContent": "flex-start",
-        },
-      ]
-    }
-  >
+<RCTScrollView>
+  <View>
     <View
       style={
         Array [
           Object {
-            "paddingVertical": 8,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "lineHeight": 30,
-            },
-          ]
-        }
-      >
-        Challenge Title
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {},
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 10,
-            },
-          ]
-        }
-      >
-        End Date
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 14,
-            },
-          ]
-        }
-        testID="Text"
-      >
-        Sunday, August 25, 2019
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "paddingVertical": 8,
+            "backgroundColor": "transparent",
+            "marginBottom": 80,
+            "paddingVertical": 10,
           },
           Object {
             "flexDirection": "row",
-            "justifyContent": "space-between",
           },
         ]
       }
@@ -757,158 +318,572 @@ exports[`render for past challenge 1`] = `
           Array [
             Object {},
             Object {
+              "flex": 5,
               "flexDirection": "column",
               "justifyContent": "flex-start",
             },
           ]
         }
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "lineHeight": 30,
+                },
+              ]
+            }
+          >
+            Challenge Title
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
               },
             ]
           }
         >
-          Days
-        </Text>
-        <Text
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ]
+              }
+            >
+              Joined
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ]
+              }
+            >
+              Completed
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          />
+        </View>
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
+              Object {},
             ]
           }
         >
-          1
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            Sunday
+          </Text>
+        </View>
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
+              Object {},
             ]
           }
         >
-          Joined
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        />
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#A0A2A6",
-                "fontSize": 10,
-              },
-            ]
-          }
-        >
-          Completed
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-ExtraLight",
-                "fontSize": 48,
-                "lineHeight": 50,
-              },
-            ]
-          }
-        />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Details
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+              ]
+            }
+          >
+            Add details to your Challenge (optional)
+          </Text>
+        </View>
       </View>
     </View>
   </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
-  />
-</View>
+</RCTScrollView>
+`;
+
+exports[`renders with details 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "marginBottom": 80,
+            "paddingVertical": 10,
+          },
+          Object {
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "flex": 5,
+              "flexDirection": "column",
+              "justifyContent": "flex-start",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "lineHeight": 30,
+                },
+              ]
+            }
+          >
+            Challenge Title
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ]
+              }
+            >
+              Joined
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ]
+              }
+            >
+              Completed
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            Sunday
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Details
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+              ]
+            }
+          >
+            Super cool details
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
 `;

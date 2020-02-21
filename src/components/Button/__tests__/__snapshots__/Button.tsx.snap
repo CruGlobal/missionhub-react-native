@@ -193,3 +193,160 @@ exports[`renders transparent correctly 1`] = `
   />
 </View>
 `;
+
+exports[`renders with image correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="Button"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Object {},
+        null,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-around",
+          },
+        ]
+      }
+    >
+      <Image
+        source={1234}
+        style={
+          Object {
+            "marginHorizontal": 5,
+          }
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+              Object {},
+            ],
+          ]
+        }
+      >
+        Button
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders with text correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="Button"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Object {},
+        null,
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Array [
+            Object {
+              "backgroundColor": "rgba(0,0,0,0)",
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "500",
+              "letterSpacing": 1.5,
+              "textAlign": "center",
+            },
+            Object {},
+          ],
+        ]
+      }
+    >
+      Button
+    </Text>
+  </View>
+</View>
+`;

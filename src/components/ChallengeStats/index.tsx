@@ -21,13 +21,13 @@ type ChallengeItem = {
 
 interface ChallengeStatsProps {
   challenge: ChallengeItem;
-  small?: boolean;
+  isDetailScreen?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
 const ChallengeStats = ({
   challenge,
-  small,
+  isDetailScreen,
   style: containerStyle,
 }: ChallengeStatsProps) => {
   const { t } = useTranslation('challengeStats');
@@ -48,11 +48,11 @@ const ChallengeStats = ({
   const days = isPast
     ? endDate.diff(startDate, 'days') + 1
     : endDate.diff(today, 'days');
-  const numberStyle = small ? styles.numberSmall : styles.number;
+  const numberStyle = !isDetailScreen ? styles.numberSmall : styles.number;
 
   return (
     <Flex style={containerStyle} direction="row" justify="between">
-      {small ? (
+      {!isDetailScreen ? (
         <Flex value={1} direction="column" justify="start">
           <Text style={styles.subHeader}>
             {isPast ? t('days') : t('daysLeft')}
@@ -69,7 +69,9 @@ const ChallengeStats = ({
         <Text style={styles.subHeader}>{t('completed')}</Text>
         <Text style={numberStyle}>{completed_count}</Text>
       </Flex>
-      {!small ? <Flex value={1} direction="column" justify="start" /> : null}
+      {isDetailScreen ? (
+        <Flex value={1} direction="column" justify="start" />
+      ) : null}
     </Flex>
   );
 };

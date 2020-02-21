@@ -1,8 +1,12 @@
+/* eslint complexity: 0, max-lines: 0, max-params: 0 */
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
+import { AuthState } from '../../../reducers/auth';
+import { OrganizationsState } from '../../../reducers/organizations';
 import {
   getChallenge,
   joinChallenge,
@@ -12,9 +16,11 @@ import {
 import { communityChallengeSelector } from '../../../selectors/challenges';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
-import { ChallengeDetailScreen, mapStateToProps } from '..';
+import ChallengeDetailScreen, { mapStateToProps } from '..';
 
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
 jest.mock('../../../selectors/challenges');
@@ -25,6 +31,7 @@ const orgId = '123';
 const organization = { id: orgId };
 
 const date = '2018-09-22';
+const created_at = '2018- 09-19';
 const joinedChallenge = { id: 'a1', person: { id: myId } };
 const completedChallenge = { ...joinedChallenge, completed_at: date };
 const challengeId = '1';
@@ -32,6 +39,7 @@ const challenge = {
   id: challengeId,
   title: 'Read "There and Back Again"',
   end_date: date,
+  created_at,
   isPast: false,
   accepted_community_challenges: [joinedChallenge],
 };
@@ -44,8 +52,7 @@ const unjoinedProps = {
   onJoin: jest.fn(),
   onEdit: jest.fn(),
   canEditChallenges: true,
-  acceptedChallenge: undefined,
-  dispatch: jest.fn(),
+  acceptedChallenge: {},
 };
 const joinedProps = {
   ...unjoinedProps,
@@ -71,10 +78,10 @@ const store = {
       id: myId,
       organizational_permissions: [orgPermission],
     },
-  },
+  } as AuthState,
   organizations: {
     all: [organization],
-  },
+  } as OrganizationsState,
 };
 
 const nav = {
@@ -87,24 +94,42 @@ const nav = {
     },
   },
 };
+beforeEach(() => {
+  (getChallenge as jest.Mock).mockReturnValue({ type: 'got challenges' });
+  (joinChallenge as jest.Mock).mockReturnValue({ type: 'join challenge' });
+  (updateChallenge as jest.Mock).mockReturnValue({ type: 'update challenge' });
+  (completeChallenge as jest.Mock).mockReturnValue({
+    type: 'complete challenge',
+  });
+  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigate back' });
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+
+  ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue(
+    challenge,
+  );
+
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+    orgPermission,
+  );
+});
 
 describe('mapStateToProps', () => {
   beforeEach(() => {
-    // @ts-ignore
-    communityChallengeSelector.mockReturnValue(challenge);
-    // @ts-ignore
-    orgPermissionSelector.mockReturnValue(orgPermission);
+    ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue(
+      challenge,
+    );
+    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+      orgPermission,
+    );
   });
 
   it('should provide necessary props for Member', () => {
-    // @ts-ignore
-    orgPermissionSelector.mockReturnValue({
+    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
       ...orgPermission,
       permission_id: ORG_PERMISSIONS.USER,
     });
 
     expect(mapStateToProps(store, nav)).toEqual({
-      ...nav.navigation.state.params,
       canEditChallenges: false,
       challenge,
       acceptedChallenge: joinedChallenge,
@@ -114,7 +139,6 @@ describe('mapStateToProps', () => {
 
   it('should provide necessary props for Admin', () => {
     expect(mapStateToProps(store, nav)).toEqual({
-      ...nav.navigation.state.params,
       canEditChallenges: true,
       challenge,
       acceptedChallenge: joinedChallenge,
@@ -123,14 +147,12 @@ describe('mapStateToProps', () => {
   });
 
   it('should provide necessary props for Owner', () => {
-    // @ts-ignore
-    orgPermissionSelector.mockReturnValue({
+    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
       ...orgPermission,
       permission_id: ORG_PERMISSIONS.OWNER,
     });
 
     expect(mapStateToProps(store, nav)).toEqual({
-      ...nav.navigation.state.params,
       canEditChallenges: true,
       challenge,
       acceptedChallenge: joinedChallenge,
@@ -140,85 +162,162 @@ describe('mapStateToProps', () => {
 });
 
 it('should render unjoined challenge correctly', () => {
-  testSnapshotShallow(<ChallengeDetailScreen {...unjoinedProps} />);
+  ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue({
+    ...challenge,
+    accepted_community_challenges: [],
+  });
+
+  renderWithContext(<ChallengeDetailScreen {...unjoinedProps} />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
+    },
+  }).snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
 it('should render joined challenge correctly', () => {
-  testSnapshotShallow(<ChallengeDetailScreen {...joinedProps} />);
+  const { snapshot } = renderWithContext(
+    <ChallengeDetailScreen {...joinedProps} />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
+  );
+  snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
 it('should render completed challenge correctly', () => {
-  testSnapshotShallow(<ChallengeDetailScreen {...completedProps} />);
+  ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue({
+    ...challenge,
+    accepted_community_challenges: [completedChallenge],
+  });
+  const { snapshot } = renderWithContext(
+    <ChallengeDetailScreen {...completedProps} />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
+  );
+  snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
 it('should render without edit correctly', () => {
-  testSnapshotShallow(<ChallengeDetailScreen {...noEditProps} />);
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+    ...orgPermission,
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+  const { snapshot, queryByTestId } = renderWithContext(
+    <ChallengeDetailScreen {...noEditProps} />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
+  );
+  snapshot();
+  expect(queryByTestId('editButton')).toBeFalsy();
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
 });
 
-it('should call joinChallenge from press', () => {
-  const component = renderShallow(
-    <ChallengeDetailScreen {...unjoinedProps} />,
-    // @ts-ignore
-    store,
-  );
-  component
-    .find('Header')
-    .props()
-    // @ts-ignore
-    .right.props.onPress();
+it('should call joinChallenge from press', async () => {
+  ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue({
+    ...challenge,
+    accepted_community_challenges: [],
+  });
 
-  expect(joinChallenge).toHaveBeenCalledWith(challenge, orgId);
+  const { getByTestId } = renderWithContext(
+    <ChallengeDetailScreen {...unjoinedProps} />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
+  );
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
+  expect(getChallenge).toHaveBeenCalledWith(challengeId);
+  await fireEvent.press(getByTestId('handleButton'));
+  expect(joinChallenge).toHaveBeenCalledWith(
+    { ...challenge, accepted_community_challenges: [] },
+    orgId,
+  );
 });
 
-it('should call completeChallenge from press', () => {
-  const component = renderShallow(
+it('should call completeChallenge from press', async () => {
+  const { getByTestId } = renderWithContext(
     <ChallengeDetailScreen {...joinedProps} />,
-    // @ts-ignore
-    store,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
   );
-  component
-    .find('Header')
-    .props()
-    // @ts-ignore
-    .right.props.onPress();
 
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
+  expect(getChallenge).toHaveBeenCalledWith(challengeId);
+  await fireEvent.press(getByTestId('handleButton'));
   expect(completeChallenge).toHaveBeenCalledWith(
     joinedProps.acceptedChallenge,
     orgId,
   );
 });
 
-it('should not call completeChallenge with no accepted challenge', () => {
-  const component = renderShallow(
-    <ChallengeDetailScreen
-      {...joinedProps}
-      // @ts-ignore
-      challenge={{ ...challenge, accepted_community_challenges: undefined }}
-    />,
-    // @ts-ignore
-    store,
-  );
-  component
-    .find('Header')
-    .props()
-    // @ts-ignore
-    .right.props.onPress();
+it('should not call completeChallenge with no accepted challenge', async () => {
+  ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue({
+    ...challenge,
+    accepted_community_challenges: [],
+  });
 
+  const { getByTestId } = renderWithContext(
+    <ChallengeDetailScreen {...joinedProps} />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
+  );
+
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
+  expect(getChallenge).toHaveBeenCalledWith(challengeId);
+  await fireEvent.press(getByTestId('handleButton'));
   expect(completeChallenge).not.toHaveBeenCalled();
 });
 
-it('should navigate to edit screen from press', () => {
-  const component = renderShallow(
+it('should navigate to edit screen from press', async () => {
+  const { getByTestId } = renderWithContext(
     <ChallengeDetailScreen {...joinedProps} />,
-    // @ts-ignore
-    store,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
   );
-  // @ts-ignore
-  component.instance().handleEdit();
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
+  expect(getChallenge).toHaveBeenCalledWith(challengeId);
+  await fireEvent.press(getByTestId('editButton'));
 
   expect(navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     isEdit: true,
@@ -227,30 +326,20 @@ it('should navigate to edit screen from press', () => {
   });
 });
 
-it('should call updateChallenge', () => {
-  const component = renderShallow(
+it('should call navigateBack from press', async () => {
+  const { snapshot, getByTestId } = renderWithContext(
     <ChallengeDetailScreen {...joinedProps} />,
-    // @ts-ignore
-    store,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+      },
+    },
   );
-  // @ts-ignore
-  component.instance().editChallenge(challenge);
-
-  expect(updateChallenge).toHaveBeenCalledWith(challenge, orgId);
-});
-
-it('should call navigateBack from press', () => {
-  const component = renderShallow(
-    // @ts-ignore
-    <ChallengeDetailScreen {...joinedProps} dispatch={jest.fn()} />,
-    // @ts-ignore
-    store,
-  );
-  component
-    .find('Header')
-    .props()
-    // @ts-ignore
-    .left.props.onPress();
-
+  snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
+  expect(getChallenge).toHaveBeenCalledWith(challengeId);
+  await fireEvent.press(getByTestId('BackButton'));
   expect(navigateBack).toHaveBeenCalled();
 });

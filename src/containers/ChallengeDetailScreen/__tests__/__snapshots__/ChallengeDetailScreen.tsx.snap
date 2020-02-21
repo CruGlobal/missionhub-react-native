@@ -1,63 +1,1045 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should call navigateBack from press 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "height": "100%",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "paddingRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              EDIT
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "marginBottom": 80,
+              "paddingVertical": 10,
+            },
+            Object {
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 5,
+                "flexDirection": "column",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Light",
+                    "fontSize": 24,
+                    "lineHeight": 30,
+                  },
+                ]
+              }
+            >
+              Read "There and Back Again"
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Joined
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Completed
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Challenge Ends
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+              testID="Text"
+            >
+              Saturday, September 22, 2018
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Details
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              Add details to your Challenge (optional)
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          I DID IT
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
 exports[`should render completed challenge correctly 1`] = `
 <View
   style={
     Object {
       "backgroundColor": "#ffffff",
+      "height": "100%",
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "challenge",
-        "detail",
-      ]
-    }
-  />
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={null}
-  />
-  <ChallengeDetailHeader
-    canEditChallenges={true}
-    challenge={
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
       Object {
-        "accepted_community_challenges": Array [
-          Object {
-            "id": "a1",
-            "person": Object {
-              "id": "1111",
-            },
-          },
-        ],
-        "end_date": "2018-09-22",
-        "id": "1",
-        "isPast": false,
-        "title": "Read \\"There and Back Again\\"",
+        "backgroundColor": "transparent",
       }
     }
-    onEdit={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "marginBottom": 80,
+              "paddingVertical": 10,
+            },
+            Object {
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 5,
+                "flexDirection": "column",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Light",
+                    "fontSize": 24,
+                    "lineHeight": 30,
+                  },
+                ]
+              }
+            >
+              Read "There and Back Again"
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Joined
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Completed
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Challenge Ends
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+              testID="Text"
+            >
+              Saturday, September 22, 2018
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Details
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              Add details to your Challenge (optional)
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
   />
 </View>
 `;
@@ -67,94 +1049,591 @@ exports[`should render joined challenge correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
+      "height": "100%",
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "challenge",
-        "detail",
-      ]
-    }
-  />
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingRight": 10,
-          }
-        }
-        text="I DID IT"
-        type="transparent"
-      />
-    }
-  />
-  <ChallengeDetailHeader
-    canEditChallenges={true}
-    challenge={
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
       Object {
-        "accepted_community_challenges": Array [
-          Object {
-            "id": "a1",
-            "person": Object {
-              "id": "1111",
-            },
-          },
-        ],
-        "end_date": "2018-09-22",
-        "id": "1",
-        "isPast": false,
-        "title": "Read \\"There and Back Again\\"",
+        "backgroundColor": "transparent",
       }
     }
-    onEdit={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "paddingRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              EDIT
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "marginBottom": 80,
+              "paddingVertical": 10,
+            },
+            Object {
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 5,
+                "flexDirection": "column",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Light",
+                    "fontSize": 24,
+                    "lineHeight": 30,
+                  },
+                ]
+              }
+            >
+              Read "There and Back Again"
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Joined
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Completed
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Challenge Ends
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+              testID="Text"
+            >
+              Saturday, September 22, 2018
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Details
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              Add details to your Challenge (optional)
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
   />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          I DID IT
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
-`;
-
-exports[`should render tabs correctly 1`] = `
-Array [
-  Object {
-    "component": [Function],
-    "name": "Joined",
-    "navigationAction": "nav/CHALLENGE_JOINED",
-  },
-  Object {
-    "component": [Function],
-    "name": "Completed",
-    "navigationAction": "nav/CHALLENGE_COMPLETED",
-  },
-]
 `;
 
 exports[`should render unjoined challenge correctly 1`] = `
@@ -162,78 +1641,590 @@ exports[`should render unjoined challenge correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
+      "height": "100%",
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "challenge",
-        "detail",
-      ]
-    }
-  />
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingRight": 10,
-          }
-        }
-        text="JOIN"
-        type="transparent"
-      />
-    }
-  />
-  <ChallengeDetailHeader
-    canEditChallenges={true}
-    challenge={
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
       Object {
-        "accepted_community_challenges": Array [
-          Object {
-            "id": "a1",
-            "person": Object {
-              "id": "1111",
-            },
-          },
-        ],
-        "end_date": "2018-09-22",
-        "id": "1",
-        "isPast": false,
-        "title": "Read \\"There and Back Again\\"",
+        "backgroundColor": "transparent",
       }
     }
-    onEdit={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "paddingRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              EDIT
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "marginBottom": 80,
+              "paddingVertical": 10,
+            },
+            Object {
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 5,
+                "flexDirection": "column",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Light",
+                    "fontSize": 24,
+                    "lineHeight": 30,
+                  },
+                ]
+              }
+            >
+              Read "There and Back Again"
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Joined
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Completed
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Challenge Ends
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+              testID="Text"
+            >
+              Saturday, September 22, 2018
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Details
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              Add details to your Challenge (optional)
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
   />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          JOIN
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -242,77 +2233,526 @@ exports[`should render without edit correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#ffffff",
+      "height": "100%",
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "challenge",
-        "detail",
-      ]
-    }
-  />
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    left={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        style={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        type="MissionHub"
-      />
-    }
-    right={
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#007398",
-            "fontSize": 14,
-            "fontWeight": "400",
-          }
-        }
-        onPress={[Function]}
-        style={
-          Object {
-            "paddingRight": 10,
-          }
-        }
-        text="JOIN"
-        type="transparent"
-      />
-    }
-  />
-  <ChallengeDetailHeader
-    canEditChallenges={false}
-    challenge={
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
       Object {
-        "accepted_community_challenges": Array [
-          Object {
-            "id": "a1",
-            "person": Object {
-              "id": "1111",
-            },
-          },
-        ],
-        "end_date": "2018-09-22",
-        "id": "1",
-        "isPast": false,
-        "title": "Read \\"There and Back Again\\"",
+        "backgroundColor": "transparent",
       }
     }
-    onEdit={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "marginBottom": 80,
+              "paddingVertical": 10,
+            },
+            Object {
+              "flexDirection": "row",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flex": 5,
+                "flexDirection": "column",
+                "justifyContent": "flex-start",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Light",
+                    "fontSize": 24,
+                    "lineHeight": 30,
+                  },
+                ]
+              }
+            >
+              Read "There and Back Again"
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Joined
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+              >
+                Completed
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                  ]
+                }
+              />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "flex-start",
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "borderBottomWidth": 1,
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Challenge Ends
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                  },
+                ]
+              }
+              testID="Text"
+            >
+              Saturday, September 22, 2018
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingHorizontal": 40,
+                  "paddingVertical": 14,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Details
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                  },
+                ]
+              }
+            >
+              Add details to your Challenge (optional)
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
   />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          I DID IT
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;

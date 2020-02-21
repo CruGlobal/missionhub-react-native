@@ -9,12 +9,11 @@ import {
 } from 'react-native';
 import debounce from 'lodash.debounce';
 
-import { Touchable, Text } from '../common';
+import { Touchable, Text, Flex } from '../common';
 import { exists } from '../../utils/common';
 import { PressPropsType, TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
-import Flex from '../Flex';
 
 // Return the styles.TYPE if it exists or just the default button style
 const getTypeStyle = (type: ButtonProps['type']) =>

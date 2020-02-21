@@ -61,11 +61,7 @@ const ChallengeItem = ({
         <Flex value={1} style={styles.content} direction="row" align="center">
           <Flex value={5} direction="column">
             <Text style={styles.title}>{title}</Text>
-            <ChallengeStats
-              challenge={item}
-              small={true}
-              style={styles.statsSection}
-            />
+            <ChallengeStats challenge={item} style={styles.statsSection} />
           </Flex>
           <Flex value={1} align="end" justify="center">
             {completed ? (

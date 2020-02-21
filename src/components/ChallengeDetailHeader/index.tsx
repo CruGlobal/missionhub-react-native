@@ -35,7 +35,11 @@ const ChallengeDetailHeader = ({ challenge }: ChallengeDetailHeaderProps) => {
           <Flex style={styles.section}>
             <Text style={styles.title}>{title}</Text>
           </Flex>
-          <ChallengeStats challenge={challenge} style={styles.section} />
+          <ChallengeStats
+            challenge={challenge}
+            style={styles.section}
+            isDetailScreen={true}
+          />
           <Flex style={styles.section}>
             <Text style={styles.subHeader}>{t('endDate')}</Text>
             <DateComponent
