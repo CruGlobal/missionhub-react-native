@@ -13,6 +13,7 @@ import callApi from './api';
 import { showNotificationPrompt } from './notifications';
 import { navigatePush, navigateBack } from './navigation';
 import { trackActionWithoutData } from './analytics';
+import { getCelebrateFeed } from './celebration';
 
 // @ts-ignore
 export function getGroupChallengeFeed(orgId) {
@@ -54,6 +55,7 @@ export function completeChallenge(item, orgId) {
     );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_COMPLETED));
     dispatch(reloadGroupChallengeFeed(orgId));
+    getCelebrateFeed(orgId);
   };
 }
 
@@ -86,6 +88,7 @@ export function joinChallenge(item, orgId) {
     );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
+    getCelebrateFeed(orgId);
   };
 }
 

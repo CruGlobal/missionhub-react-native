@@ -326,8 +326,12 @@ exports[`renders correctly with completed steps 1`] = `
   <RCTScrollView
     contentContainerStyle={
       Object {
-        "paddingBottom": 96,
         "paddingTop": 16,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
       }
     }
     data={
@@ -633,8 +637,12 @@ exports[`renders correctly with org 1`] = `
   <RCTScrollView
     contentContainerStyle={
       Object {
-        "paddingBottom": 96,
         "paddingTop": 16,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
       }
     }
     data={
@@ -808,8 +816,12 @@ exports[`renders correctly with steps 1`] = `
   <RCTScrollView
     contentContainerStyle={
       Object {
-        "paddingBottom": 96,
         "paddingTop": 16,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
       }
     }
     data={

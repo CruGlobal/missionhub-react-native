@@ -9,7 +9,6 @@ export default StyleSheet.create({
   },
   list: {
     paddingTop: 16,
-    paddingBottom: 96,
   },
   completedStepsButton: {
     backgroundColor: theme.transparent,

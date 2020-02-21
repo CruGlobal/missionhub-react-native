@@ -5,10 +5,6 @@ import theme from '../../theme';
 export default StyleSheet.create({
   list: {
     backgroundColor: theme.extraLightGrey,
-    paddingBottom: 10,
-  },
-  listExtraPadding: {
-    paddingBottom: 90,
   },
   header: {
     alignItems: 'center',

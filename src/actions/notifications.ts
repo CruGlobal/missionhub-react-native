@@ -17,6 +17,7 @@ import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
+import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
 
 import { refreshCommunity } from './organizations';
@@ -30,6 +31,7 @@ import {
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
+import { getCelebrateFeed } from './celebration';
 
 // @ts-ignore
 export function showNotificationPrompt(notificationType, doNotNavigateBack) {
@@ -169,10 +171,17 @@ function handleNotification(notification) {
       case 'celebrate':
       case 'celebrate_item':
         if (organization_id) {
-          const community = await dispatch(refreshCommunity(organization_id));
-          return dispatch(
-            navigateToCelebrateComments(community, celebration_item_id),
-          );
+          dispatch(navigatePush(LOADING_SCREEN));
+          try {
+            const community = await dispatch(refreshCommunity(organization_id));
+            await getCelebrateFeed(organization_id);
+            return dispatch(
+              navigateToCelebrateComments(community, celebration_item_id),
+            );
+          } catch (error) {
+            dispatch(navigateToMainTabs());
+            throw error;
+          }
         }
         return;
       case 'community_challenges':

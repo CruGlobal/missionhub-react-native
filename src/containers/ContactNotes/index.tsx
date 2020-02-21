@@ -1,155 +1,108 @@
-import React, { Component } from 'react';
-import { View, ScrollView, Keyboard } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, ScrollView, Keyboard, TextInput } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { useIsFocused } from 'react-navigation-hooks';
 
-import { Text, Flex, Input } from '../../components/common';
+import { Text, Input } from '../../components/common';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
-import Analytics from '../Analytics';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { Person } from '../../reducers/people';
+import { AuthState } from '../../reducers/auth';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('notes')
-export class ContactNotes extends Component {
-  // @ts-ignore
-  constructor(props) {
-    super(props);
+export interface ContactNotesProps {
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  person: Person;
+  myPersonId: string;
+  myUserId: string;
+}
 
-    this.state = {
-      text: undefined,
-      editing: false,
-      noteId: null,
-    };
+const ContactNotes = ({
+  dispatch,
+  person,
+  myPersonId,
+  myUserId,
+}: ContactNotesProps) => {
+  useAnalytics(['person', 'my notes']);
+  const { t } = useTranslation('notes');
+  const [text, setText] = useState<string | undefined>(undefined);
+  const [editing, setEditing] = useState(false);
+  const [noteId, setNoteId] = useState<string | null>(null);
+  const isFocused = useIsFocused();
+  const notesInput = useRef<TextInput>(null);
 
-    this.saveNote = this.saveNote.bind(this);
-    this.onButtonPress = this.onButtonPress.bind(this);
-    this.onTextChanged = this.onTextChanged.bind(this);
-  }
+  const getNote = async () => {
+    const results = await dispatch(getPersonNote(person.id, myUserId));
 
-  componentDidMount() {
-    this.getNote();
-  }
+    setText(results ? results.content : undefined);
+    setNoteId(results ? results.id : null);
+  };
 
-  // @ts-ignore
-  UNSAFE_componentWillReceiveProps(props) {
-    if (!props.isActiveTab) {
-      this.saveNote();
-    }
-  }
-
-  async getNote() {
-    // @ts-ignore
-    const { person, myUserId } = this.props;
-
-    // @ts-ignore
-    const results = await this.props.dispatch(
-      getPersonNote(person.id, myUserId),
-    );
-
-    const text = results ? results.content : undefined;
-    const noteId = results ? results.id : null;
-    this.setState({ noteId, text });
-  }
-
-  // @ts-ignore
-  onTextChanged(text) {
-    this.setState({ text });
-  }
-
-  saveNote() {
+  const saveNote = () => {
     Keyboard.dismiss();
 
-    // @ts-ignore
-    if (this.state.editing) {
-      // @ts-ignore
-      this.props.dispatch(
-        savePersonNote(
-          // @ts-ignore
-          this.props.person.id,
-          // @ts-ignore
-          this.state.text,
-          // @ts-ignore
-          this.state.noteId,
-          // @ts-ignore
-          this.props.myUserId,
-        ),
-      );
-    }
+    editing && dispatch(savePersonNote(person.id, text, noteId, myUserId));
 
-    this.setState({ editing: false });
-  }
+    setEditing(false);
+  };
 
-  onButtonPress() {
-    // @ts-ignore
-    if (this.state.editing) {
-      this.saveNote();
+  useEffect(() => {
+    getNote();
+  }, []);
+
+  useEffect(() => {
+    !isFocused && saveNote();
+  }, [isFocused]);
+
+  const onTextChanged = (text: string) => setText(text);
+
+  const onButtonPress = () => {
+    if (editing) {
+      saveNote();
     } else {
-      this.setState({ editing: true }, () => {
-        // @ts-ignore
-        this.notesInput.focus();
-      });
+      setEditing(true);
+      notesInput.current && notesInput.current.focus();
     }
-  }
+  };
 
-  getButtonText() {
-    // @ts-ignore
-    const t = this.props.t;
-
-    // @ts-ignore
-    if (this.state.editing) {
+  const getButtonText = () => {
+    if (editing) {
       return t('done');
-      // @ts-ignore
-    } else if (this.state.text) {
+    } else if (text) {
       return t('edit');
     } else {
       return t('add');
     }
-  }
+  };
 
-  // @ts-ignore
-  inputRef = c => (this.notesInput = c);
+  const renderNotes = () => (
+    <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+      {editing ? (
+        <Input
+          ref={notesInput}
+          scrollEnabled={false}
+          onChangeText={onTextChanged}
+          editable={true}
+          value={text}
+          style={styles.notesText}
+          multiline={true}
+          blurOnSubmit={false}
+          autoCorrect={true}
+        />
+      ) : (
+        <Text style={styles.notesText}>{text}</Text>
+      )}
+    </ScrollView>
+  );
 
-  renderNotes() {
-    // @ts-ignore
-    if (this.state.editing) {
-      return (
-        <Flex value={1}>
-          <Input
-            ref={this.inputRef}
-            onChangeText={this.onTextChanged}
-            // @ts-ignore
-            editable={this.state.editing}
-            // @ts-ignore
-            value={this.state.text}
-            style={styles.notesText}
-            multiline={true}
-            blurOnSubmit={false}
-            // @ts-ignore
-            autoGrow={false}
-            autoCorrect={true}
-          />
-        </Flex>
-      );
-    }
-    return (
-      <Flex value={1}>
-        <ScrollView>
-          {/* 
-          // @ts-ignore */}
-          <Text style={styles.notesText}>{this.state.text}</Text>
-        </ScrollView>
-      </Flex>
-    );
-  }
-
-  renderEmpty() {
-    // @ts-ignore
-    const { t, person, myPersonId } = this.props;
+  const renderEmpty = () => {
     const isMe = person.id === myPersonId;
     const text = t(isMe ? 'promptMe' : 'prompt', {
       personFirstName: person.first_name,
@@ -162,32 +115,17 @@ export class ContactNotes extends Component {
         descriptionText={text}
       />
     );
-  }
+  };
 
-  render() {
-    // @ts-ignore
-    const { text, editing } = this.state;
-    return (
-      <View style={styles.container}>
-        <Analytics screenName={['person', 'my notes']} />
-        {text || editing ? this.renderNotes() : this.renderEmpty()}
-        <BottomButton
-          onPress={this.onButtonPress}
-          text={this.getButtonText()}
-        />
-      </View>
-    );
-  }
-}
-
-// @ts-ignore
-ContactNotes.propTypes = {
-  person: PropTypes.object.isRequired,
-  organization: PropTypes.object,
+  return (
+    <View style={styles.container}>
+      {text || editing ? renderNotes() : renderEmpty()}
+      <BottomButton onPress={onButtonPress} text={getButtonText()} />
+    </View>
+  );
 };
 
-// @ts-ignore
-const mapStateToProps = ({ auth }) => ({
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myPersonId: auth.person.id,
   myUserId: auth.person.user.id,
 });

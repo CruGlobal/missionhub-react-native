@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
       "shadowRadius": 2,
     }
   }
-  testID="ReportCommentHeaderCardButton"
+  testID="ReportItemHeaderCardButton"
 >
   <Text
     allowFontScaling={false}
@@ -81,7 +81,7 @@ exports[`renders correctly 1`] = `
       ]
     }
   >
-    12 new reported comments
+    12 New Reported Items
   </Text>
 </View>
 `;

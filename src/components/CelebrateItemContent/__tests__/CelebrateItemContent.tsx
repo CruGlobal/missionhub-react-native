@@ -7,9 +7,16 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import {
+  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
+  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson_communityPermissions as CommunityPermission,
+} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../../reducers/organizations';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  COMMUNITY_PERMISSIONS_FRAGMENT,
+} from '../../../components/CelebrateItem/queries';
+import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
 
 import CelebrateItemContent, { CelebrateItemContentProps } from '..';
 
@@ -20,6 +27,9 @@ const myId = '123';
 const otherId = '456';
 const organization: Organization = { id: '111', name: 'Celebration Community' };
 const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const communityPermissions = mockFragment<CommunityPermission>(
+  COMMUNITY_PERMISSIONS_FRAGMENT,
+);
 const meEvent: CelebrateItem = {
   ...event,
   subjectPerson: {
@@ -27,6 +37,7 @@ const meEvent: CelebrateItem = {
     id: myId,
     firstName: 'John',
     lastName: 'Smith',
+    communityPermissions,
   },
 };
 const otherEvent: CelebrateItem = {
@@ -36,6 +47,7 @@ const otherEvent: CelebrateItem = {
     id: otherId,
     firstName: 'John',
     lastName: 'Smith',
+    communityPermissions,
   },
 };
 
@@ -132,7 +144,7 @@ describe('CelebrateItemContent', () => {
         ...messageBaseEvent,
         subjectPerson: null,
         subjectPersonName: null,
-        celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+        celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
         adjectiveAttributeValue: '3',
       });
     });
@@ -141,7 +153,8 @@ describe('CelebrateItemContent', () => {
       const testEventStage = (stageNum: string) =>
         testEvent({
           ...messageBaseEvent,
-          celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+          celebrateableType:
+            CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
           adjectiveAttributeValue: stageNum,
         });
 
@@ -157,7 +170,7 @@ describe('CelebrateItemContent', () => {
     it('renders step of faith event without stage', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CELEBRATEABLE_TYPES.completedStep,
+        celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
         adjectiveAttributeValue: null,
       });
     });
@@ -166,7 +179,8 @@ describe('CelebrateItemContent', () => {
       const testEventInteraction = (interaction: string) =>
         testEvent({
           ...messageBaseEvent,
-          celebrateableType: CELEBRATEABLE_TYPES.completedInteraction,
+          celebrateableType:
+            CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
           adjectiveAttributeValue: interaction,
         });
 
@@ -200,7 +214,8 @@ describe('CelebrateItemContent', () => {
     it('renders accepted challenge event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+        celebrateableType:
+          CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
         changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
         objectDescription: 'Invite a friend to church',
       });
@@ -209,7 +224,8 @@ describe('CelebrateItemContent', () => {
     it('renders completed challenge event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+        celebrateableType:
+          CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
         changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
         objectDescription: 'Invite a friend to church',
       });
@@ -218,21 +234,23 @@ describe('CelebrateItemContent', () => {
     it('renders created community event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CELEBRATEABLE_TYPES.createdCommunity,
+        celebrateableType:
+          CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY,
       });
     });
 
     it('renders joined community event', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CELEBRATEABLE_TYPES.joinedCommunity,
+        celebrateableType:
+          CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY,
       });
     });
 
     it('renders story', () => {
       testEvent({
         ...messageBaseEvent,
-        celebrateableType: CELEBRATEABLE_TYPES.story,
+        celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
         objectDescription: 'Once Upon a Time....',
       });
     });
@@ -245,7 +263,8 @@ describe('onPressChallengeLink', () => {
       <CelebrateItemContent
         event={{
           ...event,
-          celebrateableType: CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
+          celebrateableType:
+            CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
         }}
         organization={organization}
       />,

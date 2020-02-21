@@ -28,6 +28,7 @@ import {
   ACCEPTED_STEP,
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
+import { getCelebrateFeed } from '../celebration';
 
 const mockStore = configureStore([thunk]);
 // @ts-ignore
@@ -571,6 +572,7 @@ describe('complete challenge', () => {
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
       { [ACTIONS.STEP_COMPLETED.key]: null },
     );
+    expect(getCelebrateFeed).toHaveBeenCalledWith(stepOrgId);
 
     // @ts-ignore
     expect(store.getActions()).toEqual([
@@ -618,6 +620,7 @@ describe('complete challenge', () => {
       challengeCompleteQuery,
       data,
     );
+    expect(getCelebrateFeed).not.toHaveBeenCalled();
     // @ts-ignore
     expect(store.getActions()).toEqual([
       {

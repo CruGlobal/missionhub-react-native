@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { useQuery } from '@apollo/react-hooks';
+import { useDispatch } from 'react-redux';
 
-import { getReportedComments } from '../../actions/reportComments';
+import { GET_REPORTED_CONTENT } from '../Groups/GroupReport';
 import { Flex } from '../../components/common';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -15,41 +15,49 @@ import OnboardingCard, {
 } from '../Groups/OnboardingCard';
 import { markCommentsRead } from '../../actions/unreadComments';
 import UnreadCommentsCard from '../../components/UnreadCommentsCard';
-import ReportCommentHeaderCard from '../../components/ReportCommentHeaderCard';
+import ReportItemHeaderCard from '../../components/ReportItemHeaderCard';
 import { GROUP_UNREAD_FEED_SCREEN } from '../Groups/GroupUnreadFeed';
+import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
-import { OrganizationsState, Organization } from '../../reducers/organizations';
-import { ReportedCommentsState } from '../../reducers/reportedComments';
 
 import styles from './styles';
 
-export interface CelebrateFeedHeaderProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  organization: Organization;
+interface CelebrateFeedHeaderProps {
   shouldQueryReport: boolean;
-  isReportVisible: boolean;
-  isCommentCardVisible: boolean;
+  organization: Organization;
   isMember: boolean;
-  reportedCount: number;
-  newCommentsCount: number;
 }
 
 const CelebrateFeedHeader = ({
-  dispatch,
-  organization,
   shouldQueryReport,
-  isReportVisible,
-  isCommentCardVisible,
+  organization,
   isMember,
-  reportedCount,
-  newCommentsCount,
 }: CelebrateFeedHeaderProps) => {
-  useEffect(() => {
-    shouldQueryReport && dispatch(getReportedComments(organization.id));
-  }, []);
+  const dispatch = useDispatch();
+  const { id: orgId } = organization;
+
+  const {
+    data: {
+      community: {
+        contentComplaints: { nodes: ReportedContent = [] } = {},
+      } = {},
+    } = {},
+    loading,
+    refetch,
+  } = useQuery(GET_REPORTED_CONTENT, {
+    variables: {
+      id: orgId,
+    },
+  });
+  const unreadCommentCount = organization.unread_comments_count;
+  const reportedContentCount = ReportedContent.length;
+  const isReportVisible = shouldQueryReport && reportedContentCount !== 0;
+  const isCommentCardVisible =
+    !orgIsGlobal(organization) && unreadCommentCount !== 0;
 
   const closeCommentCard = () => {
-    dispatch(markCommentsRead(organization.id));
+    dispatch(markCommentsRead(orgId));
+    refetch();
   };
 
   const report = () => {
@@ -61,14 +69,14 @@ const CelebrateFeedHeader = ({
   };
 
   const renderCommentCard = () => {
-    if (!isCommentCardVisible) {
+    if (unreadCommentCount === 0) {
       return null;
     }
 
     return (
       <UnreadCommentsCard
         testID="UnreadCommentsCard"
-        count={newCommentsCount}
+        count={unreadCommentCount}
         onPress={commentCard}
         onClose={closeCommentCard}
       />
@@ -76,35 +84,34 @@ const CelebrateFeedHeader = ({
   };
 
   const renderReport = () => {
-    if (!isReportVisible) {
+    if (loading || reportedContentCount === 0) {
       return null;
     }
-
     return (
-      <ReportCommentHeaderCard
-        testID="ReportCommentCard"
+      <ReportItemHeaderCard
+        testID="ReportItemCard"
         onPress={report}
-        count={reportedCount}
+        count={reportedContentCount}
       />
     );
   };
 
   return (
-    <Fragment>
+    <>
       {isCommentCardVisible ? null : (
         //@ts-ignore
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
       {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (
         <Flex style={styles.itemWrap}>
-          {renderCommentCard()}
+          {!isCommentCardVisible ? null : renderCommentCard()}
           {isReportVisible && isCommentCardVisible ? (
             <Flex style={styles.bothPadding} />
           ) : null}
-          {renderReport()}
+          {!isReportVisible ? null : renderReport()}
         </Flex>
       )}
-    </Fragment>
+    </>
   );
 };
 
@@ -112,13 +119,8 @@ export const mapStateToProps = (
   {
     auth,
     organizations,
-    reportedComments,
-  }: {
-    auth: AuthState;
-    organizations: OrganizationsState;
-    reportedComments: ReportedCommentsState;
-  },
-  { organization }: { organization: Organization },
+  }: { auth: AuthState; organizations: OrganizationsState },
+  { organization = {} }: { organization: Organization },
 ) => {
   const selectorOrg =
     organizationSelector({ organizations }, { orgId: organization.id }) ||
@@ -131,20 +133,11 @@ export const mapStateToProps = (
       organization: { id: selectorOrg.id },
     },
   );
-
-  const reportedCount = (reportedComments.all[selectorOrg.id] || []).length;
-
   const shouldQueryReport = shouldQueryReportedComments(selectorOrg, myOrgPerm);
-  const newCommentsCount = selectorOrg.unread_comments_count;
 
   return {
     organization: selectorOrg,
     shouldQueryReport,
-    isReportVisible: shouldQueryReport && reportedCount !== 0,
-    reportedCount,
-    isCommentCardVisible:
-      !orgIsGlobal(selectorOrg) && newCommentsCount && newCommentsCount !== 0,
-    newCommentsCount,
   };
 };
 

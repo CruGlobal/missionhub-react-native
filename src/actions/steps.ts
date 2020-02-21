@@ -21,6 +21,7 @@ import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
 import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
+import { getCelebrateFeed } from './celebration';
 
 // @ts-ignore
 export function getStepSuggestions(isMe, contactStageId) {
@@ -193,6 +194,8 @@ function completeChallengeAPI(step) {
 
     dispatch(getMySteps());
     dispatch(getContactSteps(receiverId, orgId));
+
+    orgId && getCelebrateFeed(orgId);
   };
 }
 

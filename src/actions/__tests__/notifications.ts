@@ -43,6 +43,7 @@ import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen'
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
+import { getCelebrateFeed } from '../celebration';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -842,6 +843,7 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCelebrateComments).toHaveBeenCalledWith(
           organization,
           celebration_item_id,
@@ -856,6 +858,7 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(getCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });

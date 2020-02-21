@@ -167,8 +167,19 @@ describe('hasOrgPermissions', () => {
     expect(hasOrgPermissions({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    // @ts-ignore
-    expect(hasOrgPermissions()).toEqual(false);
+    expect(hasOrgPermissions(null)).toEqual(false);
+  });
+  it('should return true for admins | permission', () => {
+    expect(hasOrgPermissions({ permission: 'admin' })).toEqual(true);
+  });
+  it('should return true for owners | permission', () => {
+    expect(hasOrgPermissions({ permission: 'owner' })).toEqual(true);
+  });
+  it('should return true for users | permission', () => {
+    expect(hasOrgPermissions({ permission: 'user' })).toEqual(true);
+  });
+  it('should return false for no_permission | permission', () => {
+    expect(hasOrgPermissions({ permission: 'no_permissions' })).toEqual(false);
   });
 });
 
@@ -186,8 +197,19 @@ describe('isAdminOrOwner', () => {
     expect(isAdminOrOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    // @ts-ignore
-    expect(isAdminOrOwner()).toEqual(false);
+    expect(isAdminOrOwner(null)).toEqual(false);
+  });
+  it('should return true for admins | permission', () => {
+    expect(isAdminOrOwner({ permission: 'admin' })).toEqual(true);
+  });
+  it('should return true for owners | permission', () => {
+    expect(isAdminOrOwner({ permission: 'owner' })).toEqual(true);
+  });
+  it('should return false for users | permission', () => {
+    expect(isAdminOrOwner({ permission: 'user' })).toEqual(false);
+  });
+  it('should return false for no_permission | permission', () => {
+    expect(isAdminOrOwner({ permission: 'no_permissions' })).toEqual(false);
   });
 });
 
@@ -205,8 +227,19 @@ describe('isOwner', () => {
     expect(isOwner({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    // @ts-ignore
-    expect(isOwner()).toEqual(false);
+    expect(isOwner(null)).toEqual(false);
+  });
+  it('should return false for admins | permission', () => {
+    expect(isOwner({ permission: 'admin' })).toEqual(false);
+  });
+  it('should return true for owners | permission', () => {
+    expect(isOwner({ permission: 'owner' })).toEqual(true);
+  });
+  it('should return false for users | permission', () => {
+    expect(isOwner({ permission: 'user' })).toEqual(false);
+  });
+  it('should return false for no_permission | permission', () => {
+    expect(isOwner({ permission: 'no_permission' })).toEqual(false);
   });
 });
 
@@ -224,8 +257,19 @@ describe('isAdmin', () => {
     expect(isAdmin({ permission_id: 2 })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
-    // @ts-ignore
-    expect(isAdmin()).toEqual(false);
+    expect(isAdmin(null)).toEqual(false);
+  });
+  it('should return true for admins | permission', () => {
+    expect(isAdmin({ permission: 'admin' })).toEqual(true);
+  });
+  it('should return false for owners | permission', () => {
+    expect(isAdmin({ permission: 'owners' })).toEqual(false);
+  });
+  it('should return false for users | permission', () => {
+    expect(isAdmin({ permission: 'user' })).toEqual(false);
+  });
+  it('should return false for no_permissions | permission', () => {
+    expect(isAdmin({ permission: 'no_permissions' })).toEqual(false);
   });
 });
 
