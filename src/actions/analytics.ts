@@ -29,7 +29,8 @@ import {
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
 import { SuggestedStep } from '../reducers/steps';
-import { isCustomStep } from '../utils/common';
+import { AuthState } from '../reducers/auth';
+import { isCustomStep, userIsJean } from '../utils/common';
 
 export interface TrackStateContext {
   [ANALYTICS_MCID]: string;
@@ -59,6 +60,19 @@ export interface ScreenContext {
   [ANALYTICS_EDIT_MODE]: TrackStateContext[typeof ANALYTICS_EDIT_MODE];
   [ANALYTICS_PERMISSION_TYPE]: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
+
+export const setAnalyticsMinistryMode = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => { auth: AuthState },
+) => {
+  const authPersonPermissions = getState().auth.person
+    .organizational_permissions;
+  dispatch(
+    updateAnalyticsContext({
+      'cru.ministry-mode': userIsJean(authPersonPermissions),
+    }),
+  );
+};
 
 export function trackScreenChange(screenName: string | string[]) {
   return (
