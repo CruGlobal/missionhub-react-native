@@ -842,10 +842,13 @@ describe('navToPersonScreen', () => {
           { people },
           { orgId: organization.id, personId: me.id },
         );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-          person: me,
-          organization,
-        });
+        expect(orgPermissionSelector).toHaveBeenCalledWith(
+          {},
+          {
+            person: me,
+            organization,
+          },
+        );
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
           // @ts-ignore
           { auth },
@@ -915,10 +918,13 @@ describe('navToPersonScreen', () => {
           { people },
           { orgId: undefined, personId: me.id },
         );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-          person: me,
-          organization: {},
-        });
+        expect(orgPermissionSelector).toHaveBeenCalledWith(
+          {},
+          {
+            person: me,
+            organization: {},
+          },
+        );
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
           // @ts-ignore
           { auth },
@@ -959,10 +965,13 @@ describe('navToPersonScreen', () => {
           { people },
           { orgId: testOrg.id, personId: testPerson.id },
         );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-          person: testPerson,
-          organization: testOrg,
-        });
+        expect(orgPermissionSelector).toHaveBeenCalledWith(
+          {},
+          {
+            person: testPerson,
+            organization: testOrg,
+          },
+        );
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
           // @ts-ignore
           { auth },
@@ -1040,10 +1049,13 @@ describe('navToPersonScreen', () => {
           { people },
           { orgId: undefined, personId: person.id },
         );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-          person,
-          organization: {},
-        });
+        expect(orgPermissionSelector).toHaveBeenCalledWith(
+          {},
+          {
+            person,
+            organization: {},
+          },
+        );
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
           // @ts-ignore
           { auth },
@@ -1105,10 +1117,13 @@ describe('navToPersonScreen', () => {
           { people },
           { orgId: organization.id, personId: person.id },
         );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(null, {
-          person,
-          organization,
-        });
+        expect(orgPermissionSelector).toHaveBeenCalledWith(
+          {},
+          {
+            person,
+            organization,
+          },
+        );
         expect(contactAssignmentSelector).toHaveBeenCalledWith(
           // @ts-ignore
           { auth },

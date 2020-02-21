@@ -68,7 +68,8 @@ function getCelebrateComments(
         orgId,
         eventId,
         page,
-        include: 'organization_celebration_item,person',
+        include:
+          'organization_celebration_item,person,person.organizational_permissions',
       }),
     );
 }

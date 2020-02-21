@@ -7,9 +7,15 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import {
+  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
+  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson_communityPermissions as CommunityPermission,
+} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../../reducers/organizations';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  COMMUNITY_PERMISSIONS_FRAGMENT,
+} from '../../../components/CelebrateItem/queries';
 import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
 
 import CelebrateItemContent, { CelebrateItemContentProps } from '..';
@@ -21,6 +27,9 @@ const myId = '123';
 const otherId = '456';
 const organization: Organization = { id: '111', name: 'Celebration Community' };
 const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const communityPermissions = mockFragment<CommunityPermission>(
+  COMMUNITY_PERMISSIONS_FRAGMENT,
+);
 const meEvent: CelebrateItem = {
   ...event,
   subjectPerson: {
@@ -28,6 +37,7 @@ const meEvent: CelebrateItem = {
     id: myId,
     firstName: 'John',
     lastName: 'Smith',
+    communityPermissions,
   },
 };
 const otherEvent: CelebrateItem = {
@@ -37,6 +47,7 @@ const otherEvent: CelebrateItem = {
     id: otherId,
     firstName: 'John',
     lastName: 'Smith',
+    communityPermissions,
   },
 };
 
