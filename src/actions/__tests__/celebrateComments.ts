@@ -39,7 +39,8 @@ const comment = {
 };
 const baseQuery = { orgId, eventId: event.id };
 const me: Person = { id: 'myId' };
-const include = 'organization_celebration_item,person';
+const include =
+  'organization_celebration_item,person,person.organizational_permissions';
 
 const auth = { person: me };
 const celebrateComments = { comments: [comment] };
@@ -105,6 +106,7 @@ describe('reloadCelebrateComments', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CELEBRATE_COMMENTS, {
       ...baseQuery,
       include,
+      page: undefined,
     });
   });
 

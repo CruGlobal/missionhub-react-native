@@ -8,7 +8,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "2",
         "celebrateableId": "2",
-        "celebrateableType": "V4::AcceptedChallenge",
+        "celebrateableType": "COMPLETED_STEP",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-07 00:00:00 UTC",
         "commentsCount": 38791,
@@ -17,6 +17,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -33,7 +49,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::AcceptedCommunityChallenge",
+        "celebrateableType": "COMMUNITY_CHALLENGE",
         "changedAttributeName": "completed_at",
         "changedAttributeValue": "2018-01-06 00:05:00 UTC",
         "commentsCount": 38791,
@@ -42,6 +58,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -52,7 +84,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::AcceptedCommunityChallenge",
+        "celebrateableType": "COMMUNITY_CHALLENGE",
         "changedAttributeName": "accepted_at",
         "changedAttributeValue": "2018-01-06 00:04:00 UTC",
         "commentsCount": 38791,
@@ -61,6 +93,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -77,7 +125,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "9",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-05 00:00:00 UTC",
         "commentsCount": 38791,
@@ -86,6 +134,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -102,7 +166,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "5",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-02 00:23:00 UTC",
         "commentsCount": 38791,
@@ -111,6 +175,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -121,7 +201,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "11",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-02 00:07:00 UTC",
         "commentsCount": 38791,
@@ -130,6 +210,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -140,7 +236,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "3",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-02 00:00:00 UTC",
         "commentsCount": 38791,
@@ -149,6 +245,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -165,7 +277,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::OrganizationalPermission",
+        "celebrateableType": "JOINED_COMMUNITY",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-01 00:00:00 UTC",
         "commentsCount": 38791,
@@ -174,6 +286,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -190,7 +318,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "4",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2017-01-01 00:00:00 UTC",
         "commentsCount": 38791,
@@ -199,6 +327,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -215,7 +359,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::OrganizationalPermission",
+        "celebrateableType": "JOINED_COMMUNITY",
         "changedAttributeName": "created_at",
         "changedAttributeValue": "2016-12-25 00:09:00 UTC",
         "commentsCount": 38791,
@@ -224,6 +368,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -234,7 +394,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Story",
+        "celebrateableType": "STORY",
         "changedAttributeName": "created_at",
         "changedAttributeValue": "2016-12-25 00:09:00 UTC",
         "commentsCount": 38791,
@@ -243,6 +403,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -253,7 +429,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Organization",
+        "celebrateableType": "CREATED_COMMUNITY",
         "changedAttributeName": "created_at",
         "changedAttributeValue": "2016-12-25 00:02:00 UTC",
         "commentsCount": 38791,
@@ -262,6 +438,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -283,7 +475,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "2",
         "celebrateableId": "2",
-        "celebrateableType": "V4::AcceptedChallenge",
+        "celebrateableType": "COMPLETED_STEP",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-07 00:00:00 UTC",
         "commentsCount": 38791,
@@ -292,6 +484,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -308,7 +516,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::AcceptedCommunityChallenge",
+        "celebrateableType": "COMMUNITY_CHALLENGE",
         "changedAttributeName": "completed_at",
         "changedAttributeValue": "2018-01-06 00:05:00 UTC",
         "commentsCount": 38791,
@@ -317,6 +525,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -327,7 +551,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::AcceptedCommunityChallenge",
+        "celebrateableType": "COMMUNITY_CHALLENGE",
         "changedAttributeName": "accepted_at",
         "changedAttributeValue": "2018-01-06 00:04:00 UTC",
         "commentsCount": 38791,
@@ -336,6 +560,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -352,7 +592,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "9",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-05 00:00:00 UTC",
         "commentsCount": 38791,
@@ -361,6 +601,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -377,7 +633,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "5",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-02 00:23:00 UTC",
         "commentsCount": 38791,
@@ -386,6 +642,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -396,7 +668,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "11",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-02 00:07:00 UTC",
         "commentsCount": 38791,
@@ -405,6 +677,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -415,7 +703,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "3",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-02 00:00:00 UTC",
         "commentsCount": 38791,
@@ -424,6 +712,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -440,7 +744,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::OrganizationalPermission",
+        "celebrateableType": "JOINED_COMMUNITY",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2018-01-01 00:00:00 UTC",
         "commentsCount": 38791,
@@ -449,6 +753,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -465,7 +785,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "4",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Interaction",
+        "celebrateableType": "COMPLETED_INTERACTION",
         "changedAttributeName": "sunt qui amet",
         "changedAttributeValue": "2017-01-01 00:00:00 UTC",
         "commentsCount": 38791,
@@ -474,6 +794,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -490,7 +826,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::OrganizationalPermission",
+        "celebrateableType": "JOINED_COMMUNITY",
         "changedAttributeName": "created_at",
         "changedAttributeValue": "2016-12-25 00:09:00 UTC",
         "commentsCount": 38791,
@@ -499,6 +835,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -509,7 +861,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Story",
+        "celebrateableType": "STORY",
         "changedAttributeName": "created_at",
         "changedAttributeValue": "2016-12-25 00:09:00 UTC",
         "commentsCount": 38791,
@@ -518,6 +870,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",
@@ -528,7 +896,7 @@ Array [
         "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
-        "celebrateableType": "V4::Organization",
+        "celebrateableType": "CREATED_COMMUNITY",
         "changedAttributeName": "created_at",
         "changedAttributeValue": "2016-12-25 00:02:00 UTC",
         "commentsCount": 38791,
@@ -537,6 +905,22 @@ Array [
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
         "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "no_permissions",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "owner",
+              },
+            ],
+          },
           "firstName": "Roscoe",
           "id": "3",
           "lastName": "Johnson",

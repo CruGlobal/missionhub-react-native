@@ -2,7 +2,10 @@ import faker from 'faker/locale/en';
 import { IMocks } from 'graphql-tools';
 import moment from 'moment';
 
-import { CELEBRATEABLE_TYPES } from '../src/constants';
+import {
+  CommunityCelebrationCelebrateableEnum,
+  PermissionEnum,
+} from '../__generated__/globalTypes';
 
 let currentId = 1;
 const nextId = () => currentId++;
@@ -11,14 +14,6 @@ export const resetGlobalMockSeeds = () => {
   faker.seed(1);
 };
 resetGlobalMockSeeds();
-
-const validCelebrateableTypes = [
-  CELEBRATEABLE_TYPES.completedStep,
-  CELEBRATEABLE_TYPES.acceptedCommunityChallenge,
-  CELEBRATEABLE_TYPES.createdCommunity,
-  CELEBRATEABLE_TYPES.joinedCommunity,
-  CELEBRATEABLE_TYPES.story,
-];
 
 export const globalMocks: IMocks = {
   String: () => faker.lorem.words(),
@@ -55,11 +50,18 @@ export const globalMocks: IMocks = {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     return {
-      celebrateableType: faker.random.arrayElement(validCelebrateableTypes),
+      celebrateableType: faker.random.arrayElement(
+        Object.values(CommunityCelebrationCelebrateableEnum),
+      ),
       changedAttributeValue: moment(
         faker.date.past(10, '2020-01-14'),
       ).toISOString(),
       subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
+  CommunityPermission: () => {
+    return {
+      permission: faker.random.arrayElement(Object.values(PermissionEnum)),
     };
   },
 };
