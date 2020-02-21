@@ -743,6 +743,7 @@ describe('askNotificationPermissions', () => {
     describe('celebrate_feed', () => {
       it('should navigate to community celebrate feed', async () => {
         await testNotification({
+          ...baseNotification,
           screen: 'celebrate_feed',
           organization_id: organization.id,
           screen_extra_data: {
@@ -755,6 +756,7 @@ describe('askNotificationPermissions', () => {
       });
       it('should not navigate if no organization_id', async () => {
         await testNotification({
+          ...baseNotification,
           screen: 'celebrate_feed',
           organization_id: undefined,
           screen_extra_data: {
@@ -770,6 +772,7 @@ describe('askNotificationPermissions', () => {
     describe('celebrate_item', () => {
       it('should navigate to CELEBRATION_DETAIL_SCREEN', async () => {
         await testNotification({
+          ...baseNotification,
           screen: 'celebrate_item',
           organization_id: organization.id,
           screen_extra_data,
@@ -783,6 +786,7 @@ describe('askNotificationPermissions', () => {
       });
       it('should not navigate if no organization_id', async () => {
         await testNotification({
+          ...baseNotification,
           screen: 'celebrate_item',
           organization_id: undefined,
           screen_extra_data,

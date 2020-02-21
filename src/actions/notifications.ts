@@ -44,7 +44,7 @@ export interface MHPushNotification extends PushNotification {
         person_id?: string;
         organization_id?: string;
         celebration_item_id?: string;
-        screen_extra_data?: string;
+        screen_extra_data?: string | { [key: string]: any };
       };
     };
   };
@@ -52,7 +52,7 @@ export interface MHPushNotification extends PushNotification {
   person_id?: string;
   organization_id?: string;
   celebration_item_id?: string;
-  screen_extra_data?: string;
+  screen_extra_data?: string | { [key: string]: any };
 }
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
