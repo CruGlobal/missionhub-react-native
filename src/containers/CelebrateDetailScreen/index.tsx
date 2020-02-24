@@ -15,11 +15,13 @@ import theme from '../../theme';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';
 import { reloadCelebrateComments } from '../../actions/celebrateComments';
+import { TrackStateContext } from '../../actions/analytics';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import Analytics from '../Analytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
@@ -28,6 +30,9 @@ import {
   CelebrateCommentsState,
   CelebrateComment,
 } from '../../reducers/celebrateComments';
+import { AuthState } from '../../reducers/auth';
+import { getAnalyticsAssignmentType } from '../../utils/common';
+import { orgPermissionSelector } from '../../selectors/people';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 
@@ -39,6 +44,7 @@ export interface CelebrateDetailScreenProps {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   celebrateComments?: { comments: CelebrateComment[]; pagination: any };
   editingCommentId: string | null;
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const CelebrateDetailScreen = ({
@@ -46,6 +52,7 @@ const CelebrateDetailScreen = ({
   organization,
   celebrateComments,
   editingCommentId,
+  analyticsAssignmentType,
 }: CelebrateDetailScreenProps) => {
   const client = useApolloClient();
   const navParamsEvent: CelebrateItem = useNavigationParam('event');
@@ -152,7 +159,10 @@ const CelebrateDetailScreen = ({
 
   return (
     <View style={styles.pageContainer}>
-      <Analytics screenName={['celebrate item', 'comments']} />
+      <Analytics
+        screenName={['celebrate item', 'comments']}
+        screenContext={{ [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType }}
+      />
       {renderHeader()}
       {renderCommentsList()}
       {renderCommentBox()}
@@ -162,9 +172,11 @@ const CelebrateDetailScreen = ({
 
 const mapStateToProps = (
   {
+    auth,
     organizations,
     celebrateComments,
   }: {
+    auth: AuthState;
     organizations: OrganizationsState;
     celebrateComments: CelebrateCommentsState;
   },
@@ -176,13 +188,26 @@ const mapStateToProps = (
     },
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
-) => ({
-  organization: organizationSelector({ organizations }, { orgId }),
-  celebrateComments: celebrateCommentsSelector(
-    { celebrateComments },
-    { eventId: event.id },
-  ),
-  editingCommentId: celebrateComments.editingCommentId,
-});
+) => {
+  const { subjectPerson } = event as CelebrateItem;
+  const organization = organizationSelector({ organizations }, { orgId });
+  const orgPermission = orgPermissionSelector(
+    {},
+    { person: subjectPerson, organization },
+  );
+
+  return {
+    organization,
+    celebrateComments: celebrateCommentsSelector(
+      { celebrateComments },
+      { eventId: event.id },
+    ),
+    editingCommentId: celebrateComments.editingCommentId,
+    analyticsAssignmentType:
+      (subjectPerson &&
+        getAnalyticsAssignmentType(subjectPerson.id, auth, orgPermission)) ||
+      ('' as TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE]),
+  };
+};
 export default connect(mapStateToProps)(CelebrateDetailScreen);
 export const CELEBRATE_DETAIL_SCREEN = 'nav/CELEBRATE_DETAIL_SCREEN';

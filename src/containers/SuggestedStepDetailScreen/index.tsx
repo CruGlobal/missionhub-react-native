@@ -10,9 +10,14 @@ import { TrackStateContext } from '../../actions/analytics';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
 import { OnboardingState } from '../../reducers/onboarding';
+import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../../utils/common';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
 import { ANALYTICS_SECTION_TYPE } from '../../constants';
+import { Step } from '../SelectStepScreen';
 
 import styles from './styles';
 
@@ -61,8 +66,24 @@ const SuggestedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+const mapStateToProps = (
+  {
+    auth,
+    onboarding,
+  }: {
+    auth: AuthState;
+    onboarding: OnboardingState;
+  },
+  {
+    navigation: {
+      state: {
+        params: { step },
+      },
+    } = { state: { params: { step: {} as Step } } },
+  }: { navigation?: { state: { params: { step: Step } } } },
+) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType(step.receiver.id, auth),
 });
 
 export default connect(mapStateToProps)(SuggestedStepDetailScreen);

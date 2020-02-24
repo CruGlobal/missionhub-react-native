@@ -1,37 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, ScrollView, Keyboard, TextInput } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { View, ScrollView, Keyboard, TextInput } from 'react-native';
+import { connect, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useIsFocused } from 'react-navigation-hooks';
 
 import { Text, Input } from '../../components/common';
+import { getAnalyticsAssignmentType } from '../../utils/common';
+import { TrackStateContext } from '../../actions/analytics';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
+import { Organization } from '../../reducers/organizations';
+import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
 
 export interface ContactNotesProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   person: Person;
   myPersonId: string;
   myUserId: string;
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const ContactNotes = ({
-  dispatch,
   person,
   myPersonId,
   myUserId,
+  analyticsAssignmentType,
 }: ContactNotesProps) => {
-  useAnalytics({ screenName: ['person', 'my notes'] });
+  useAnalytics({
+    screenName: ['person', 'my notes'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
   const { t } = useTranslation('notes');
+  const dispatch = useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
   const [text, setText] = useState<string | undefined>(undefined);
   const [editing, setEditing] = useState(false);
   const [noteId, setNoteId] = useState<string | null>(null);
@@ -125,9 +134,21 @@ const ContactNotes = ({
   );
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  myPersonId: auth.person.id,
-  myUserId: auth.person.user.id,
-});
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  { person, organization }: { person: Person; organization: Organization },
+) => {
+  const orgPermission = orgPermissionSelector({}, { person, organization });
+
+  return {
+    myPersonId: auth.person.id,
+    myUserId: auth.person.user.id,
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      person.id,
+      auth,
+      orgPermission,
+    ),
+  };
+};
 
 export default connect(mapStateToProps)(ContactNotes);

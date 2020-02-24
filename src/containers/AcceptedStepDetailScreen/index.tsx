@@ -7,7 +7,10 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Button, Icon } from '../../components/common';
+import { getAnalyticsAssignmentType } from '../../utils/common';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
+import { TrackStateContext } from '../../actions/analytics';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
@@ -16,6 +19,7 @@ import ReminderDateText from '../../components/ReminderDateText';
 import { reminderSelector } from '../../selectors/stepReminders';
 import { ReminderType, StepReminderState } from '../../reducers/stepReminders';
 import { Step } from '../../reducers/steps';
+import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -23,6 +27,7 @@ import styles from './styles';
 interface AcceptedStepDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   reminder?: ReminderType;
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const AcceptedStepDetailScreen = ({
@@ -99,7 +104,10 @@ const AcceptedStepDetailScreen = ({
 };
 
 const mapStateToProps = (
-  { stepReminders }: { stepReminders: StepReminderState },
+  {
+    auth,
+    stepReminders,
+  }: { auth: AuthState; stepReminders: StepReminderState },
   {
     navigation: {
       state: {
@@ -108,7 +116,8 @@ const mapStateToProps = (
     } = { state: { params: { step: {} as Step } } },
   }: { navigation?: { state: { params: { step: Step } } } },
 ) => ({
-  reminder: reminderSelector({ stepReminders }, { stepId: step && step.id }),
+  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
+  analyticsAssignmentType: getAnalyticsAssignmentType(step.receiver.id, auth),
 });
 
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);

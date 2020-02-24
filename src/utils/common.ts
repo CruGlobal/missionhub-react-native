@@ -21,6 +21,7 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
   ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../constants';
 import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
@@ -107,7 +108,7 @@ export const getAnalyticsAssignmentType = (
     permission_id: string;
     permission: PermissionEnum;
   },
-) =>
+): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] =>
   personIsCurrentUser(personId, authState)
     ? 'self'
     : personOrgPermission && hasOrgPermissions(personOrgPermission)

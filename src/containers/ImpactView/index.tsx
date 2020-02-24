@@ -11,16 +11,24 @@ import {
   getImpactSummary,
 } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
-import { INTERACTION_TYPES, GLOBAL_COMMUNITY_ID } from '../../constants';
+import {
+  INTERACTION_TYPES,
+  GLOBAL_COMMUNITY_ID,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import {
   impactInteractionsSelector,
   impactSummarySelector,
 } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
+import { orgPermissionSelector } from '../../selectors/people';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
-import { orgIsPersonalMinistry } from '../../utils/common';
+import {
+  orgIsPersonalMinistry,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -262,6 +270,8 @@ export class ImpactView extends Component {
       organization,
       // @ts-ignore
       isGlobalCommunity,
+      // @ts-ignore
+      analyticsAssignmentType,
     } = this.props;
 
     const showGlobalImpact =
@@ -279,7 +289,12 @@ export class ImpactView extends Component {
 
     return (
       <ScrollView style={styles.container} bounces={false}>
-        <Analytics screenName={[screenSection, screenSubsection]} />
+        <Analytics
+          screenName={[screenSection, screenSubsection]}
+          screenContext={{
+            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          }}
+        />
         {organization.id !== 'person' ? (
           // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
@@ -327,6 +342,8 @@ export const mapStateToProps = (
   const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
 
   const organization = organizationSelector({ organizations }, { orgId });
+  const orgPermission =
+    personId && orgPermissionSelector({}, { person, organization });
 
   return {
     isMe,
@@ -351,6 +368,9 @@ export const mapStateToProps = (
     isGlobalCommunity,
     myId,
     organization,
+    analyticsAssignmentType:
+      (personId && getAnalyticsAssignmentType(personId, auth, orgPermission)) ||
+      '',
   };
 };
 
