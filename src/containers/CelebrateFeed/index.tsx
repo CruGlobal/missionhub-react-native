@@ -4,8 +4,16 @@ import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
-import { FlatFeed } from 'react-native-activity-feed';
+import {
+  FlatFeed,
+  Activity,
+  ReactionToggleIcon,
+  StatusUpdateForm,
+  buildStylesheet,
+} from 'react-native-activity-feed';
 
+import GREY_HEART from '../../../assets/images/heart-grey.png';
+import BLUE_HEART from '../../../assets/images/heart-blue.png';
 import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import { DateConstants } from '../../components/DateComponent';
@@ -213,7 +221,10 @@ const CelebrateFeed = ({
   );
 
   return (
-    <FlatFeed feedGroup="CelebrateFeed" />
+    <>
+      <FlatFeed feedGroup="CelebrateFeed" Activity={CustomActivity} />
+      <StatusUpdateForm feedGroup="CelebrateFeed" />
+    </>
     // <SectionList
     //   sections={celebrationItems}
     //   ListHeaderComponent={noHeader ? undefined : renderHeader}
@@ -231,3 +242,54 @@ const CelebrateFeed = ({
 };
 
 export default connect()(CelebrateFeed);
+
+const CustomActivity = props => {
+  return <Activity {...props} Footer={<LikeButton {...props} />} />;
+};
+
+export class LikeButton extends React.Component {
+  static defaultProps = {
+    reactionKind: 'like',
+  };
+  _onPress = () => {
+    const {
+      activity,
+      reaction,
+      reactionKind,
+      onToggleReaction,
+      onToggleChildReaction,
+    } = this.props;
+
+    if (reaction && onToggleChildReaction) {
+      return onToggleChildReaction(reactionKind, reaction, {}, {});
+    }
+    return onToggleReaction(reactionKind, activity, {}, {});
+  };
+
+  render() {
+    const { activity, reaction, reactionKind } = this.props;
+    const styles = buildStylesheet('likeButton', this.props.styles);
+    let counts, own_reactions;
+    if (reaction && this.props.onToggleChildReaction) {
+      counts = reaction.children_counts;
+      own_reactions = reaction.own_children;
+    } else {
+      counts = activity.reaction_counts;
+      own_reactions = activity.own_reactions;
+    }
+
+    return (
+      <ReactionToggleIcon
+        styles={styles}
+        counts={counts}
+        own_reactions={own_reactions}
+        kind={reactionKind}
+        onPress={this._onPress}
+        activeIcon={BLUE_HEART}
+        inactiveIcon={GREY_HEART}
+        labelSingle="like"
+        labelPlural="likes"
+      />
+    );
+  }
+}
