@@ -18,7 +18,7 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
-import ChallengeDetailScreen, { mapStateToProps } from '..';
+import ChallengeDetailScreen from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/navigation');
@@ -84,16 +84,6 @@ const store = {
   } as OrganizationsState,
 };
 
-const nav = {
-  navigation: {
-    state: {
-      params: {
-        orgId,
-        challengeId,
-      },
-    },
-  },
-};
 beforeEach(() => {
   (getChallenge as jest.Mock).mockReturnValue({ type: 'got challenges' });
   (joinChallenge as jest.Mock).mockReturnValue({ type: 'join challenge' });
@@ -111,54 +101,6 @@ beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
     orgPermission,
   );
-});
-
-describe('mapStateToProps', () => {
-  beforeEach(() => {
-    ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue(
-      challenge,
-    );
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-      orgPermission,
-    );
-  });
-
-  it('should provide necessary props for Member', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-      ...orgPermission,
-      permission_id: ORG_PERMISSIONS.USER,
-    });
-
-    expect(mapStateToProps(store, nav)).toEqual({
-      canEditChallenges: false,
-      challenge,
-      acceptedChallenge: joinedChallenge,
-      myId,
-    });
-  });
-
-  it('should provide necessary props for Admin', () => {
-    expect(mapStateToProps(store, nav)).toEqual({
-      canEditChallenges: true,
-      challenge,
-      acceptedChallenge: joinedChallenge,
-      myId,
-    });
-  });
-
-  it('should provide necessary props for Owner', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-      ...orgPermission,
-      permission_id: ORG_PERMISSIONS.OWNER,
-    });
-
-    expect(mapStateToProps(store, nav)).toEqual({
-      canEditChallenges: true,
-      challenge,
-      acceptedChallenge: joinedChallenge,
-      myId,
-    });
-  });
 });
 
 it('should render unjoined challenge correctly', () => {

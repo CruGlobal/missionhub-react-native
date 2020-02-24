@@ -36,8 +36,8 @@ interface ChallengeInterface {
   created_at: string;
   end_date: string;
   isPast: boolean;
-  completed_at?: string;
   accepted_community_challenges: {
+    completed_at?: string;
     id: string;
     person: {
       id: string;
@@ -46,22 +46,42 @@ interface ChallengeInterface {
 }
 
 interface ChallengeDetailScreenProps {
-  challenge: ChallengeInterface;
-  acceptedChallenge?: ChallengeInterface;
-  canEditChallenges: boolean;
-  myId: string;
+  auth: AuthState;
+  organizations: OrganizationsState;
 }
 
 const ChallengeDetailScreen = ({
-  challenge,
-  acceptedChallenge,
-  canEditChallenges,
-  myId,
+  organizations,
+  auth,
 }: ChallengeDetailScreenProps) => {
   const dispatch = useDispatch();
   useAnalytics(['challenge', 'detail']);
   const { t } = useTranslation('challengeFeeds');
   const orgId: string = useNavigationParam('orgId');
+  const challengeId: string = useNavigationParam('challengeId');
+
+  const myId = auth.person.id;
+
+  const challenge: ChallengeInterface = communityChallengeSelector(
+    { organizations },
+    { orgId, challengeId },
+  );
+
+  const acceptedChallenge =
+    challenge.accepted_community_challenges &&
+    challenge.accepted_community_challenges.find(
+      c => c.person && c.person.id === myId,
+    );
+
+  const myOrgPerm = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization: { id: orgId },
+    },
+  );
+
+  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
 
   useEffect(() => {
     dispatch(getChallenge(challenge.id));
@@ -140,44 +160,16 @@ const ChallengeDetailScreen = ({
   );
 };
 
-export const mapStateToProps = (
-  {
-    auth,
-    organizations,
-  }: { auth: AuthState; organizations: OrganizationsState },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { navigation }: any,
-) => {
-  const navParams = navigation.state.params || {};
-  const { challengeId, orgId } = navParams;
-  const myId = auth.person.id;
-
-  const challenge = communityChallengeSelector(
-    { organizations },
-    { orgId, challengeId },
-  );
-
-  const acceptedChallenge =
-    challenge.accepted_community_challenges &&
-    challenge.accepted_community_challenges.find(
-      // @ts-ignore
-      c => c.person && c.person.id === myId,
-    );
-
-  const myOrgPerm = orgPermissionSelector(
-    {},
-    {
-      person: auth.person,
-      organization: { id: orgId },
-    },
-  );
-  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
-
+export const mapStateToProps = ({
+  auth,
+  organizations,
+}: {
+  auth: AuthState;
+  organizations: OrganizationsState;
+}) => {
   return {
-    myId,
-    challenge,
-    acceptedChallenge,
-    canEditChallenges,
+    organizations,
+    auth,
   };
 };
 
