@@ -222,7 +222,11 @@ const CelebrateFeed = ({
 
   return (
     <>
-      <FlatFeed feedGroup="CelebrateFeed" Activity={CustomActivity} />
+      <FlatFeed
+        feedGroup="CelebrateFeed"
+        Activity={CustomActivity}
+        notify={true}
+      />
       <StatusUpdateForm feedGroup="CelebrateFeed" />
     </>
     // <SectionList
