@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { ThunkAction } from 'redux-thunk';
@@ -16,8 +16,10 @@ import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
 } from '../../utils/common';
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
-import { Step } from '../SelectStepScreen';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 
 import styles from './styles';
 
@@ -28,15 +30,20 @@ interface SuggestedStepDetailScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const SuggestedStepDetailScreen = ({
   next,
   analyticsSection,
+  analyticsAssignmentType,
 }: SuggestedStepDetailScreenProps) => {
   useAnalytics({
     screenName: ['step detail', 'add step'],
-    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+    },
   });
   const { t } = useTranslation('suggestedStepDetail');
   const dispatch = useDispatch();
@@ -77,13 +84,14 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { step },
+        params: { personId },
       },
-    } = { state: { params: { step: {} as Step } } },
-  }: { navigation?: { state: { params: { step: Step } } } },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
 ) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType(step.receiver.id, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
 });
 
 export default connect(mapStateToProps)(SuggestedStepDetailScreen);

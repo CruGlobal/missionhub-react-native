@@ -6,14 +6,21 @@ import { ThunkAction } from 'redux-thunk';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { TrackStateContext } from '../../actions/analytics';
-import { getAnalyticsSectionType } from '../../utils/common';
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import { Text } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
+import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
@@ -40,6 +47,7 @@ interface SelectStepScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
   analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const SelectStepScreen = ({
@@ -51,10 +59,14 @@ const SelectStepScreen = ({
   enableSkipButton = false,
   next,
   analyticsSection,
+  analyticsAssignmentType,
 }: SelectStepScreenProps) => {
   useAnalytics({
     screenName: 'add step',
-    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+    },
   });
   const dispatch = useDispatch();
 
@@ -125,8 +137,12 @@ const SelectStepScreen = ({
   );
 };
 
-const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+const mapStateToProps = (
+  { auth, onboarding }: { auth: AuthState; onboarding: OnboardingState },
+  { personId }: { personId: string },
+) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);
