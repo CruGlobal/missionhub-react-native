@@ -3,7 +3,6 @@ import { View, StatusBar, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { connect } from 'react-redux-legacy';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import {
@@ -45,13 +44,14 @@ interface ChallengeInterface {
   }[];
 }
 
-const ChallengeDetailScreen = ({ auth }: { auth: AuthState }) => {
+const ChallengeDetailScreen = () => {
   const dispatch = useDispatch();
   useAnalytics(['challenge', 'detail']);
   const { t } = useTranslation('challengeFeeds');
   const orgId: string = useNavigationParam('orgId');
   const challengeId: string = useNavigationParam('challengeId');
 
+  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
   const myId = auth.person.id;
 
   const challenge: ChallengeInterface = useSelector(
@@ -153,12 +153,6 @@ const ChallengeDetailScreen = ({ auth }: { auth: AuthState }) => {
   );
 };
 
-export const mapStateToProps = ({ auth }: { auth: AuthState }) => {
-  return {
-    auth,
-  };
-};
-
-export default connect(mapStateToProps)(ChallengeDetailScreen);
+export default ChallengeDetailScreen;
 
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';
