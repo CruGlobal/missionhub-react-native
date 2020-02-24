@@ -1,6 +1,7 @@
 /* eslint max-lines: 0 */
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { AppState, Linking } from 'react-native';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useAppState } from 'react-native-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -27,14 +28,14 @@ const {
 let onComplete: jest.Mock;
 const next = jest.fn();
 
-//const APP_SETTINGS_URL = 'app-settings:';
+const APP_SETTINGS_URL = 'app-settings:';
 
 const navigateBackResult = { type: 'navigate back' };
 const trackActionResult = { type: 'tracked action' };
-/*const requestPermissionsAccepted = {
+const requestPermissionsAccepted = {
   type: 'request permissions',
   nativePermissionsEnabled: true,
-};*/
+};
 const requestPermissionsDenied = {
   type: 'request permissions',
   nativePermissionsEnabled: false,
@@ -174,8 +175,7 @@ describe('button methods', () => {
     });
   });
 
-  //TODO: Get these tests to work
-  /*describe('go to settings button', () => {
+  describe('go to settings button', () => {
     beforeEach(() => {
       (requestNativePermissions as jest.Mock).mockReturnValue(
         requestPermissionsAccepted,
@@ -183,7 +183,20 @@ describe('button methods', () => {
     });
 
     describe('user enables permissions', () => {
-      it('opens settings menu, then calls next when returning', async () => {
+      fit('opens settings menu, then calls next when returning', async () => {
+        let capturedChangeCallback = null;
+
+        const mockAddListener = jest.fn((event, callback) => {
+          if (event === 'change') {
+            capturedChangeCallback = callback;
+          }
+        });
+
+        jest.resetModules();
+        jest.doMock('react-native/Libraries/AppState/AppState', () => ({
+          addEventListener: mockAddListener,
+        }));
+
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen next={next} />,
           {
@@ -198,13 +211,13 @@ describe('button methods', () => {
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
 
-        (useAppState as jest.Mock).mockReturnValue('background');
-        rerender(<NotificationOffScreen next={next} />);
+        // change called
+        capturedChangeCallback('background');
 
         await flushMicrotasksQueue();
 
-        (useAppState as jest.Mock).mockReturnValue('active');
-        rerender(<NotificationOffScreen next={next} />);
+        // change called
+        capturedChangeCallback('active');
 
         await flushMicrotasksQueue();
 
@@ -216,7 +229,7 @@ describe('button methods', () => {
         ]);
       });
 
-      it('opens settings menu, then calls onComplete when returning', async () => {
+      xit('opens settings menu, then calls onComplete when returning', async () => {
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
@@ -250,7 +263,7 @@ describe('button methods', () => {
         expect(store.getActions()).toEqual([requestPermissionsAccepted]);
       });
 
-      it('opens settings menu, then navigates back when returning', async () => {
+      xit('opens settings menu, then navigates back when returning', async () => {
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
@@ -284,7 +297,7 @@ describe('button methods', () => {
       });
     });
 
-    describe('user does not enable permissions', () => {
+    xdescribe('user does not enable permissions', () => {
       beforeEach(() => {
         (requestNativePermissions as jest.Mock).mockReturnValue(
           requestPermissionsDenied,
@@ -391,5 +404,5 @@ describe('button methods', () => {
         ]);
       });
     });
-  });*/
+  });
 });
