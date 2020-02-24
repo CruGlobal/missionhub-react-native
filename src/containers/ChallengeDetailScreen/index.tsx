@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, StatusBar, Image } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { connect } from 'react-redux-legacy';
@@ -45,15 +45,7 @@ interface ChallengeInterface {
   }[];
 }
 
-interface ChallengeDetailScreenProps {
-  auth: AuthState;
-  organizations: OrganizationsState;
-}
-
-const ChallengeDetailScreen = ({
-  organizations,
-  auth,
-}: ChallengeDetailScreenProps) => {
+const ChallengeDetailScreen = ({ auth }: { auth: AuthState }) => {
   const dispatch = useDispatch();
   useAnalytics(['challenge', 'detail']);
   const { t } = useTranslation('challengeFeeds');
@@ -62,23 +54,24 @@ const ChallengeDetailScreen = ({
 
   const myId = auth.person.id;
 
-  const challenge: ChallengeInterface = communityChallengeSelector(
-    { organizations },
-    { orgId, challengeId },
+  const challenge: ChallengeInterface = useSelector(
+    ({ organizations }: { organizations: OrganizationsState }) =>
+      communityChallengeSelector({ organizations }, { orgId, challengeId }),
   );
-
   const acceptedChallenge =
     challenge.accepted_community_challenges &&
     challenge.accepted_community_challenges.find(
       c => c.person && c.person.id === myId,
     );
 
-  const myOrgPerm = orgPermissionSelector(
-    {},
-    {
-      person: auth.person,
-      organization: { id: orgId },
-    },
+  const myOrgPerm = useSelector(() =>
+    orgPermissionSelector(
+      {},
+      {
+        person: auth.person,
+        organization: { id: orgId },
+      },
+    ),
   );
 
   const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
@@ -160,15 +153,8 @@ const ChallengeDetailScreen = ({
   );
 };
 
-export const mapStateToProps = ({
-  auth,
-  organizations,
-}: {
-  auth: AuthState;
-  organizations: OrganizationsState;
-}) => {
+export const mapStateToProps = ({ auth }: { auth: AuthState }) => {
   return {
-    organizations,
     auth,
   };
 };
