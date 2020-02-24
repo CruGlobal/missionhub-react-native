@@ -109,7 +109,7 @@ it('should render unjoined challenge correctly', () => {
     accepted_community_challenges: [],
   });
 
-  renderWithContext(<ChallengeDetailScreen {...unjoinedProps} />, {
+  renderWithContext(<ChallengeDetailScreen />, {
     initialState: store,
     navParams: {
       orgId,
@@ -121,16 +121,13 @@ it('should render unjoined challenge correctly', () => {
 });
 
 it('should render joined challenge correctly', () => {
-  const { snapshot } = renderWithContext(
-    <ChallengeDetailScreen {...joinedProps} />,
-    {
-      initialState: store,
-      navParams: {
-        orgId,
-        challengeId,
-      },
+  const { snapshot } = renderWithContext(<ChallengeDetailScreen />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
     },
-  );
+  });
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
@@ -141,16 +138,13 @@ it('should render completed challenge correctly', () => {
     ...challenge,
     accepted_community_challenges: [completedChallenge],
   });
-  const { snapshot } = renderWithContext(
-    <ChallengeDetailScreen {...completedProps} />,
-    {
-      initialState: store,
-      navParams: {
-        orgId,
-        challengeId,
-      },
+  const { snapshot } = renderWithContext(<ChallengeDetailScreen />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
     },
-  );
+  });
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
@@ -162,7 +156,7 @@ it('should render without edit correctly', () => {
     permission_id: ORG_PERMISSIONS.USER,
   });
   const { snapshot, queryByTestId } = renderWithContext(
-    <ChallengeDetailScreen {...noEditProps} />,
+    <ChallengeDetailScreen />,
     {
       initialState: store,
       navParams: {
@@ -183,16 +177,13 @@ it('should call joinChallenge from press', async () => {
     accepted_community_challenges: [],
   });
 
-  const { getByTestId } = renderWithContext(
-    <ChallengeDetailScreen {...unjoinedProps} />,
-    {
-      initialState: store,
-      navParams: {
-        orgId,
-        challengeId,
-      },
+  const { getByTestId } = renderWithContext(<ChallengeDetailScreen />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
     },
-  );
+  });
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
   await fireEvent.press(getByTestId('handleButton'));
@@ -203,16 +194,13 @@ it('should call joinChallenge from press', async () => {
 });
 
 it('should call completeChallenge from press', async () => {
-  const { getByTestId } = renderWithContext(
-    <ChallengeDetailScreen {...joinedProps} />,
-    {
-      initialState: store,
-      navParams: {
-        orgId,
-        challengeId,
-      },
+  const { getByTestId } = renderWithContext(<ChallengeDetailScreen />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
     },
-  );
+  });
 
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
@@ -229,16 +217,13 @@ it('should not call completeChallenge with no accepted challenge', async () => {
     accepted_community_challenges: [],
   });
 
-  const { getByTestId } = renderWithContext(
-    <ChallengeDetailScreen {...joinedProps} />,
-    {
-      initialState: store,
-      navParams: {
-        orgId,
-        challengeId,
-      },
+  const { getByTestId } = renderWithContext(<ChallengeDetailScreen />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
     },
-  );
+  });
 
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
@@ -247,16 +232,13 @@ it('should not call completeChallenge with no accepted challenge', async () => {
 });
 
 it('should navigate to edit screen from press', async () => {
-  const { getByTestId } = renderWithContext(
-    <ChallengeDetailScreen {...joinedProps} />,
-    {
-      initialState: store,
-      navParams: {
-        orgId,
-        challengeId,
-      },
+  const { getByTestId } = renderWithContext(<ChallengeDetailScreen />, {
+    initialState: store,
+    navParams: {
+      orgId,
+      challengeId,
     },
-  );
+  });
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
   await fireEvent.press(getByTestId('editButton'));
@@ -270,7 +252,7 @@ it('should navigate to edit screen from press', async () => {
 
 it('should call navigateBack from press', async () => {
   const { snapshot, getByTestId } = renderWithContext(
-    <ChallengeDetailScreen {...joinedProps} />,
+    <ChallengeDetailScreen />,
     {
       initialState: store,
       navParams: {
