@@ -29,7 +29,7 @@ const {
 } = styles;
 
 const LandingScreen = () => {
-  useAnalytics('landing');
+  useAnalytics({ screenName: 'landing' });
   const { t } = useTranslation('landing');
   const dispatch = useDispatch();
 

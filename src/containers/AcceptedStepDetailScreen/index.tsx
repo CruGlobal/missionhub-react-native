@@ -30,7 +30,7 @@ const AcceptedStepDetailScreen = ({
   reminder,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
-  useAnalytics(['step detail', 'active step']);
+  useAnalytics({ screenName: ['step detail', 'active step'] });
   const step: Step = useNavigationParam('step');
 
   const { id: stepId, challenge_suggestion, title, receiver } = step;

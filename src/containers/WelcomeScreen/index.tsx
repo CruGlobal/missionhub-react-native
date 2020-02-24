@@ -24,7 +24,7 @@ const WelcomeScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
 }) => {
-  useAnalytics(['onboarding', 'welcome']);
+  useAnalytics({ screenName: ['onboarding', 'welcome'] });
 
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));

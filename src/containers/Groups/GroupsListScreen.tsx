@@ -134,7 +134,10 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics({
+    screenName: 'communities',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

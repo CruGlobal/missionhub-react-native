@@ -47,7 +47,10 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
-  useAnalytics('people', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics({
+    screenName: 'people',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('peopleScreen');
 

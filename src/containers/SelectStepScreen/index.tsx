@@ -49,7 +49,7 @@ const SelectStepScreen = ({
   dispatch,
   next,
 }: SelectStepScreenProps) => {
-  useAnalytics('add step');
+  useAnalytics({ screenName: 'add step' });
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(

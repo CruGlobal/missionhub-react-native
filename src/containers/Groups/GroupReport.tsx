@@ -66,7 +66,7 @@ export const GET_REPORTED_CONTENT = gql`
 
 const GroupReport = () => {
   const { t } = useTranslation('groupsReport');
-  useAnalytics(['celebrate', 'reported content']);
+  useAnalytics({ screenName: ['celebrate', 'reported content'] });
   const dispatch = useDispatch();
   const organization: Organization = useNavigationParam('organization');
   const {
