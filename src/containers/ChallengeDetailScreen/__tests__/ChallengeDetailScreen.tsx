@@ -58,14 +58,6 @@ const joinedProps = {
   ...unjoinedProps,
   acceptedChallenge: joinedChallenge,
 };
-const completedProps = {
-  ...unjoinedProps,
-  acceptedChallenge: completedChallenge,
-};
-const noEditProps = {
-  ...unjoinedProps,
-  canEditChallenges: false,
-};
 
 const orgPermission = {
   organization_id: '456',
