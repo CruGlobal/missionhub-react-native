@@ -20,7 +20,9 @@ import {
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
+  ANALYTICS_SECTION_TYPE,
 } from '../constants';
+import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
@@ -112,7 +114,9 @@ export const getAnalyticsAssignmentType = (
     ? 'community member'
     : 'contact';
 
-export const getAnalyticsSectionType = (onboardingState: OnboardingState) =>
+export const getAnalyticsSectionType = (
+  onboardingState: OnboardingState,
+): TrackStateContext[typeof ANALYTICS_SECTION_TYPE] =>
   isOnboarding(onboardingState) ? 'onboarding' : '';
 
 export const getAnalyticsEditMode = (isEdit: boolean) =>

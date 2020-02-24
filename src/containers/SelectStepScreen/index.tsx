@@ -1,16 +1,20 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { connect, useDispatch } from 'react-redux';
+import { ThunkAction } from 'redux-thunk';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
+import { TrackStateContext } from '../../actions/analytics';
+import { getAnalyticsSectionType } from '../../utils/common';
+import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import { Text } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
+import { OnboardingState } from '../../reducers/onboarding';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -28,8 +32,6 @@ interface SelectStepScreenProps {
   contactStageId: string;
   headerText: [string, string];
   enableSkipButton?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
   next: (nextProps: {
     personId: string;
     step?: Step;
@@ -37,6 +39,7 @@ interface SelectStepScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
 }
 
 const SelectStepScreen = ({
@@ -46,10 +49,14 @@ const SelectStepScreen = ({
   contactStageId,
   headerText,
   enableSkipButton = false,
-  dispatch,
   next,
+  analyticsSection,
 }: SelectStepScreenProps) => {
-  useAnalytics({ screenName: 'add step' });
+  useAnalytics({
+    screenName: 'add step',
+    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
+  });
+  const dispatch = useDispatch();
 
   const navigateNext = (step?: Step, skip = false) => {
     dispatch(
@@ -118,4 +125,8 @@ const SelectStepScreen = ({
   );
 };
 
-export default connect()(SelectStepScreen);
+const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+  analyticsSection: getAnalyticsSectionType(onboarding),
+});
+
+export default connect(mapStateToProps)(SelectStepScreen);

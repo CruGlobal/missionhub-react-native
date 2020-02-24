@@ -1,13 +1,13 @@
 /* eslint complexity: 0 */
 
 import React, { useState } from 'react';
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 import { StatusBar, Keyboard, Alert, View, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import { TrackStateContext } from '../../actions/analytics';
 import { Input } from '../../components/common';
 import theme from '../../theme';
 import {
@@ -15,12 +15,15 @@ import {
   EDIT_JOURNEY_ITEM,
   STEP_NOTE,
   CREATE_STEP,
+  ANALYTICS_SECTION_TYPE,
 } from '../../constants';
+import { getAnalyticsSectionType } from '../../utils/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
@@ -29,7 +32,6 @@ import styles from './styles';
 const characterLimit = 255;
 
 interface AddStepScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props: {
     text?: string;
     id?: string;
@@ -38,11 +40,17 @@ interface AddStepScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
   myId: string;
 }
 
-const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
+const AddStepScreen = ({
+  next,
+  analyticsSection,
+  myId,
+}: AddStepScreenProps) => {
   const { t } = useTranslation('addStep');
+  const dispatch = useDispatch();
   useAndroidBackButton();
   const type: string = useNavigationParam('type');
   const personId: string = useNavigationParam('personId');
@@ -68,7 +76,10 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
       : 'our journey'
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
-  useAnalytics({ screenName: [screenSection, screenSubsection] });
+  useAnalytics({
+    screenName: [screenSection, screenSubsection],
+    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
+  });
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 
@@ -159,8 +170,15 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
   );
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+const mapStateToProps = ({
+  auth,
+  onboarding,
+}: {
+  auth: AuthState;
+  onboarding: OnboardingState;
+}) => ({
   myId: auth.person.id,
+  analyticsSection: getAnalyticsSectionType(onboarding),
 });
 
 export default connect(mapStateToProps)(AddStepScreen);

@@ -1,30 +1,39 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { trackActionWithoutData } from '../../actions/analytics';
+import {
+  trackActionWithoutData,
+  TrackStateContext,
+} from '../../actions/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ACTIONS } from '../../constants';
+import { getAnalyticsSectionType } from '../../utils/common';
+import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
+import { OnboardingState } from '../../reducers/onboarding';
 
 import styles from './styles';
 
-const WelcomeScreen = ({
-  dispatch,
-  next,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+interface WelcomeScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
-}) => {
-  useAnalytics({ screenName: ['onboarding', 'welcome'] });
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+}
+
+const WelcomeScreen = ({ next, analyticsSection }: WelcomeScreenProps) => {
+  useAnalytics({
+    screenName: ['onboarding', 'welcome'],
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+    },
+  });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
@@ -83,5 +92,9 @@ const WelcomeScreen = ({
   );
 };
 
-export default connect()(WelcomeScreen);
+const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+  analyticsSection: getAnalyticsSectionType(onboarding),
+});
+
+export default connect(mapStateToProps)(WelcomeScreen);
 export const WELCOME_SCREEN = 'nav/WELCOME';
