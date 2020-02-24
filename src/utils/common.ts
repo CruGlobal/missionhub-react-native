@@ -21,6 +21,8 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
+import { AuthState } from '../reducers/auth';
+import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
 
 // @ts-ignore
@@ -40,9 +42,6 @@ export const shuffleArray = arr => {
 
 export const isAndroid = Platform.OS === 'android';
 
-// @ts-ignore
-export const getAnalyticsSubsection = (personId, myId) =>
-  personId === myId ? 'self' : 'person';
 export const openMainMenu = () => {
   // @ts-ignore
   return dispatch => {
@@ -99,14 +98,50 @@ export const refresh = (obj, method) => {
     });
 };
 
-// @ts-ignore
-export const isAuthenticated = authState => authState.token;
+export const getAnalyticsAssignmentType = (
+  personId: string,
+  authState: AuthState,
+  personOrgPermission?: {
+    permission_id: string;
+    permission: PermissionEnum;
+  },
+) =>
+  personIsCurrentUser(personId, authState)
+    ? 'self'
+    : personOrgPermission && hasOrgPermissions(personOrgPermission)
+    ? 'community member'
+    : 'contact';
+
+export const getAnalyticsSectionType = (onboardingState: OnboardingState) =>
+  isOnboarding(onboardingState) ? 'onboarding' : '';
+
+export const getAnalyticsEditMode = (isEdit: boolean) =>
+  isEdit ? 'update' : 'set';
+
+export const getAnalyticsPermissionType = (orgPermission: {
+  permission_id: string;
+  permission: PermissionEnum;
+}) =>
+  hasOrgPermissions(orgPermission)
+    ? isOwner(orgPermission)
+      ? 'owner'
+      : isAdmin(orgPermission)
+      ? 'admin'
+      : 'member'
+    : '';
+
+export const isAuthenticated = (authState: AuthState) => authState.token;
+
+export const personIsCurrentUser = (personId: string, authState: AuthState) =>
+  personId === authState.person.id;
+
+export const isOnboarding = (onboardingState: OnboardingState) =>
+  onboardingState.currentlyOnboarding;
 
 //If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
-// @ts-ignore
-export const userIsJean = orgPermissions =>
-  // @ts-ignore
-  orgPermissions.some(p => !p.organization.user_created);
+export const userIsJean = (
+  orgPermissions: { organization: { user_created: boolean } }[],
+) => orgPermissions.some(p => !p.organization.user_created);
 
 // @ts-ignore
 export const orgIsPersonalMinistry = org =>
@@ -132,8 +167,10 @@ const MHUB_PERMISSIONS = [
   PermissionEnum.user,
 ];
 
-// @ts-ignore
-export const hasOrgPermissions = orgPermission => {
+export const hasOrgPermissions = (orgPermission: {
+  permission_id: string;
+  permission: PermissionEnum;
+}) => {
   return (
     (!!orgPermission &&
       MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`)) ||
@@ -141,8 +178,10 @@ export const hasOrgPermissions = orgPermission => {
   );
 };
 
-// @ts-ignore
-export const isAdminOrOwner = orgPermission =>
+export const isAdminOrOwner = (orgPermission: {
+  permission_id: string;
+  permission: PermissionEnum;
+}) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
       `${orgPermission.permission_id}`,
@@ -151,13 +190,19 @@ export const isAdminOrOwner = orgPermission =>
     [PermissionEnum.admin, PermissionEnum.owner].includes(
       orgPermission.permission,
     ));
-// @ts-ignore
-export const isOwner = orgPermission =>
+
+export const isOwner = (orgPermission: {
+  permission_id: string;
+  permission: PermissionEnum;
+}) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||
   (!!orgPermission && orgPermission.permission === PermissionEnum.owner);
-// @ts-ignore
-export const isAdmin = orgPermission =>
+
+export const isAdmin = (orgPermission: {
+  permission_id: string;
+  permission: PermissionEnum;
+}) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN) ||
   (!!orgPermission && orgPermission.permission === PermissionEnum.admin);
