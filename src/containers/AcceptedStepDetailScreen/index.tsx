@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
@@ -14,42 +13,16 @@ import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
-import { REMINDER_BUTTON_FRAGMENT } from '../../components/ReminderButton/queries';
 import ReminderDateText from '../../components/ReminderDateText';
-import { REMINDER_DATE_TEXT_FRAGMENT } from '../../components/ReminderDateText/queries';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
+import { ACCEPTED_STEP_DETAIL_QUERY } from './queries';
 import {
   AcceptedStepDetail,
   AcceptedStepDetailVariables,
 } from './__generated__/AcceptedStepDetail';
-
-const ACCEPTED_STEP_DETAIL_QUERY = gql`
-  query AcceptedStepDetail($id: ID!) {
-    step(id: $id) {
-      id
-      title
-      stepSuggestion {
-        descriptionMarkdown
-      }
-      receiver {
-        id
-        firstName
-      }
-      community {
-        id
-      }
-      reminder {
-        ...ReminderButton
-        ...ReminderDateText
-      }
-    }
-  }
-  ${REMINDER_BUTTON_FRAGMENT}
-  ${REMINDER_DATE_TEXT_FRAGMENT}
-`;
 
 interface AcceptedStepDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
