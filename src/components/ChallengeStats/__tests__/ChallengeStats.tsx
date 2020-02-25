@@ -35,15 +35,15 @@ it('render challenge stats', () => {
   }).snapshot();
 });
 
-it('render challenge stats small', () => {
-  renderWithContext(<ChallengeStats {...props} small={true} />, {
+it('render challenge stats | DetailScreen', () => {
+  renderWithContext(<ChallengeStats {...props} isDetailScreen={true} />, {
     noWrappers: true,
   }).snapshot();
 });
 
 it('render challenge stats small with style', () => {
   renderWithContext(
-    <ChallengeStats {...props} small={true} style={{ padding: 5 }} />,
+    <ChallengeStats {...props} isDetailScreen={false} style={{ padding: 5 }} />,
     {
       noWrappers: true,
     },

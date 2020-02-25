@@ -581,7 +581,9 @@ export default {
     joined: 'Joined',
     completed: 'Completed',
     iDidIt: 'I Did It',
-    endDate: 'End Date',
+    endDate: 'Challenge Ends',
+    details: 'Details',
+    detailsPlaceholder: 'Add details to your Challenge (optional)',
   },
   challengeStats: {
     days: 'Days',
