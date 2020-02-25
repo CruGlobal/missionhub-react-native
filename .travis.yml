@@ -8,8 +8,10 @@ matrix:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
         - |
           if [ "$TRAVIS_BRANCH" == "master" ]; then
+            echo "Setting ENVFILE to .env.production"
             export ENVFILE=.env.production
           else
+            echo "Setting ENVFILE to .env.staging"
             export ENVFILE=.env.staging
           fi
       script:
