@@ -333,7 +333,6 @@ describe('openMainMenu', () => {
     const store = createThunkStore();
 
     // @ts-ignore
-    // @ts-ignore
     DrawerActions.openDrawer.mockReturnValue({ type: 'open drawer' });
 
     // @ts-ignore
