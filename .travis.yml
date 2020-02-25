@@ -4,10 +4,14 @@ matrix:
       language: node_js
       node_js:
         - '11'
-      env:
-        - ENVFILE=.env.production
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
+        - |
+          if [ "$TRAVIS_BRANCH" == "master" ]; then
+            export ENVFILE=.env.production
+          else
+            export ENVFILE=.env.staging
+          fi
       script:
         - yarn gql:codegen
         - yarn gql:schema
