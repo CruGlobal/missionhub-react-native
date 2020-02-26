@@ -24,6 +24,7 @@ import {
   isOwner,
   getCommunityUrl,
   orgIsUserCreated,
+  getAnalyticsPermissionType,
 } from '../../../utils/common';
 import { navigateBack, navigateToMainTabs } from '../../../actions/navigation';
 import {
@@ -379,6 +380,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     canEdit:
       isOwner(myOrgPerm) ||
       (!orgIsUserCreated(selectorOrg) && isAdminOrOwner(myOrgPerm)),
+    analyticsPermissionType: getAnalyticsPermissionType(myOrgPerm),
   };
 };
 

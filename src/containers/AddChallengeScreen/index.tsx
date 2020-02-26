@@ -5,12 +5,15 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { Text, Input } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
+import { getAnalyticsPermissionType } from '../../utils/common';
+import { orgPermissionSelector } from '../../selectors/people';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -121,13 +124,18 @@ class AddChallengeScreen extends Component {
 
   render() {
     // @ts-ignore
-    const { t, isEdit } = this.props;
+    const { t, isEdit, analyticsPermissionType } = this.props;
     const { disableBtn } = this.state;
     const { container, backButton } = styles;
 
     return (
       <View style={container}>
-        <Analytics screenName={['challenge', isEdit ? 'edit' : 'create']} />
+        <Analytics
+          screenName={['challenge', isEdit ? 'edit' : 'create']}
+          screenContext={{
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
+        />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header left={<BackButton iconStyle={backButton} />} />
         <View style={{ flex: 1 }}>
@@ -152,8 +160,10 @@ AddChallengeScreen.propTypes = {
 };
 
 // @ts-ignore
-const mapStateToProps = (reduxState, { navigation }) => ({
-  ...(navigation.state.params || {}),
+const mapStateToProps = ({ auth }, { organization }) => ({
+  analyticsPermissionType: getAnalyticsPermissionType(
+    orgPermissionSelector({}, { person: auth.person, organization }),
+  ),
 });
 
 export default connect(mapStateToProps)(AddChallengeScreen);

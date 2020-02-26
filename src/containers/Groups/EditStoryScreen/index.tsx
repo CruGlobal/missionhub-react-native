@@ -15,10 +15,13 @@ import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { AuthState } from '../../../reducers/auth';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
+import { getAnalyticsPermissionType } from 'src/utils/common';
+import { orgPermissionSelector } from 'src/selectors/people';
 
 export const UPDATE_STORY = gql`
   mutation UpdateStory($input: UpdateStoryInput!) {
@@ -92,5 +95,21 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   );
 };
 
-export default connect()(EditStoryScreen);
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  {
+    navigation: {
+      state: {
+        params: { organization },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
+  analyticsPermissionType: getAnalyticsPermissionType(
+    orgPermissionSelector({}, { person: auth.person, organization }),
+  ),
+});
+
+export default connect(mapStateToProps)(EditStoryScreen);
 export const CELEBRATE_EDIT_STORY_SCREEN = 'nav/CELEBRATE_EDIT_STORY_SCREEN';

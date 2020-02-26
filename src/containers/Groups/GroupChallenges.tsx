@@ -56,9 +56,10 @@ class GroupChallenges extends Component {
 
   create = () => {
     // @ts-ignore
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
+        organization,
         // @ts-ignore
         onComplete: challenge => {
           this.createChallenge(challenge);

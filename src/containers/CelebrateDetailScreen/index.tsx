@@ -21,7 +21,10 @@ import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
+import {
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../constants';
 import Analytics from '../Analytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
@@ -31,7 +34,10 @@ import {
   CelebrateComment,
 } from '../../reducers/celebrateComments';
 import { AuthState } from '../../reducers/auth';
-import { getAnalyticsAssignmentType } from '../../utils/common';
+import {
+  getAnalyticsAssignmentType,
+  getAnalyticsPermissionType,
+} from '../../utils/common';
 import { orgPermissionSelector } from '../../selectors/people';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
@@ -45,6 +51,7 @@ export interface CelebrateDetailScreenProps {
   celebrateComments?: { comments: CelebrateComment[]; pagination: any };
   editingCommentId: string | null;
   analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
 const CelebrateDetailScreen = ({
@@ -53,6 +60,7 @@ const CelebrateDetailScreen = ({
   celebrateComments,
   editingCommentId,
   analyticsAssignmentType,
+  analyticsPermissionType,
 }: CelebrateDetailScreenProps) => {
   const client = useApolloClient();
   const navParamsEvent: CelebrateItem = useNavigationParam('event');
@@ -161,7 +169,10 @@ const CelebrateDetailScreen = ({
     <View style={styles.pageContainer}>
       <Analytics
         screenName={['celebrate item', 'comments']}
-        screenContext={{ [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType }}
+        screenContext={{
+          [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+        }}
       />
       {renderHeader()}
       {renderCommentsList()}
@@ -207,6 +218,9 @@ const mapStateToProps = (
       (subjectPerson &&
         getAnalyticsAssignmentType(subjectPerson.id, auth, orgPermission)) ||
       ('' as TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE]),
+    analyticsPermissionType:
+      (subjectPerson && getAnalyticsPermissionType(orgPermission)) ||
+      ('' as TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE]),
   };
 };
 export default connect(mapStateToProps)(CelebrateDetailScreen);

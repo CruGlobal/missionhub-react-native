@@ -100,9 +100,10 @@ export class ChallengeDetailScreen extends Component {
 
   handleEdit = () => {
     // @ts-ignore
-    const { dispatch, challenge } = this.props;
+    const { dispatch, challenge, organization } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
+        organization,
         isEdit: true,
         challenge,
         // @ts-ignore
