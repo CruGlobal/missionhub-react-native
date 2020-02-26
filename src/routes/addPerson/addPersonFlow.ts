@@ -63,8 +63,10 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   ),
   [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
     PersonSelectStepScreen,
-    ({ personId, step, orgId }) =>
-      step
+    ({ personId, step, orgId, skip }) =>
+      skip
+        ? onFlowComplete({ orgId })
+        : step
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             step,
             personId,

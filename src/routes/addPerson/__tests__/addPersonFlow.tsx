@@ -159,25 +159,6 @@ describe('PersonStageScreen next', () => {
   });
 });
 
-describe('PersonStageScreen next', () => {
-  beforeEach(async () => {
-    await buildAndCallNext(
-      SELECT_STAGE_SCREEN,
-      {},
-      { stage, firstName: contactName, personId: contactId, orgId },
-    );
-  });
-
-  it('should fire required next actions', () => {
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
-      personId: contactId,
-      orgId,
-      enableSkipButton: true,
-    });
-    expect(store.getActions()).toEqual([navigatePushResponse]);
-  });
-});
-
 describe('PersonSelectStepScreen next', () => {
   describe('select a suggested step', () => {
     beforeEach(async () => {
@@ -214,6 +195,21 @@ describe('PersonSelectStepScreen next', () => {
         orgId,
       });
       expect(store.getActions()).toEqual([navigatePushResponse]);
+    });
+  });
+
+  describe('skips add step', () => {
+    beforeEach(async () => {
+      await buildAndCallNext(
+        PERSON_SELECT_STEP_SCREEN,
+        {},
+        { skip: true, orgId },
+      );
+    });
+
+    it('should fire required next actions', () => {
+      expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+      expect(store.getActions()).toEqual([flowCompleteResponse]);
     });
   });
 });
