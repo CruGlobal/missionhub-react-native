@@ -490,6 +490,24 @@ exports[`render for past challenge 1`] = `
             >
               1
             </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 32,
+                    "lineHeight": 38,
+                  },
+                ]
+              }
+            />
           </View>
           <View
             style={
@@ -645,6 +663,44 @@ exports[`renders with details 1`] = `
                 "borderBottomWidth": 1,
                 "paddingHorizontal": 40,
                 "paddingVertical": 14,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "lineHeight": 30,
+                },
+              ]
+            }
+          >
+            Challenge Title
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingHorizontal": 40,
+                "paddingVertical": 14,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
               },
               Object {},
             ]

@@ -41,7 +41,7 @@ exports[`does not navigates if accepted_count is 0 | Joined 1`] = `
         ]
       }
     >
-      Days Left
+      Joined
     </Text>
     <Text
       style={
@@ -61,7 +61,7 @@ exports[`does not navigates if accepted_count is 0 | Joined 1`] = `
         ]
       }
     >
-      0
+      5
     </Text>
   </View>
   <View
@@ -93,7 +93,7 @@ exports[`does not navigates if accepted_count is 0 | Joined 1`] = `
         ]
       }
     >
-      Joined
+      Completed
     </Text>
     <Text
       onPress={[Function]}
