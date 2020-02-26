@@ -28,7 +28,7 @@ export function markCommentRead(eventId: string, orgId: string) {
   };
 }
 
-export function refreshUnreadComments(orgId: string) {
+function refreshUnreadComments(orgId: string) {
   return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
     //refresh unread comments count in Redux
     dispatch(checkForUnreadComments());
