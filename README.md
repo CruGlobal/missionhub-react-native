@@ -72,7 +72,7 @@ This project has three `.env` files in two different locations. Their purpose is
 ### Project root directory
 These files 
 - .env.production - this file has the Production API URL, Production authentication server (TheKey) URL, as well as Production keys for code push. This file is meant to be used with any Release build to the Play Store or App Store.
-- .env.beta - this file has the Production API URL, Production authentication server (TheKey) URL as well as Staging keys for code push. This file is meant to be kept around for the scenarios when we need to release a Beta build against the Production APIs with CodePush changes that we want to test. This process will be manual, for now.
+- .env.staging - this file has the Staging API URL, Production authentication server (TheKey) URL as well as Staging keys for code push. This file is used by Travis for non master builds to point GraphQL tooling at staging.
 - .env - this file is ignored by Git, but developers should use this file to build and run the project locally. It is recommended to copy and paste one of the .env files listed above to this file name and modify as needed.
 
 ### iOS directory ({ROOT}/ios
