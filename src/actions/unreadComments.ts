@@ -13,8 +13,7 @@ export function markCommentsRead(orgId: string) {
         organization_id: orgId,
       }),
     );
-    dispatch(checkForUnreadComments());
-    getCelebrateFeed(orgId, undefined, true);
+    dispatch(refreshUnreadComments(orgId));
   };
 }
 
@@ -25,7 +24,17 @@ export function markCommentRead(eventId: string, orgId: string) {
         organization_celebration_item_id: eventId,
       }),
     );
+    dispatch(refreshUnreadComments(orgId));
+  };
+}
+
+export function refreshUnreadComments(orgId: string) {
+  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+    //refresh unread comments count in Redux
     dispatch(checkForUnreadComments());
+    //refresh this org's celebrate feed, including the unread comments count
+    getCelebrateFeed(orgId);
+    //refresh this org's unread comments feed
     getCelebrateFeed(orgId, undefined, true);
   };
 }
