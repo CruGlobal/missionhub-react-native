@@ -702,44 +702,6 @@ exports[`renders with details 1`] = `
                 "flexDirection": "row",
                 "justifyContent": "space-between",
               },
-              Object {},
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "lineHeight": 30,
-                },
-              ]
-            }
-          >
-            Challenge Title
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "borderBottomColor": "#ECEEF2",
-                "borderBottomWidth": 1,
-                "paddingHorizontal": 40,
-                "paddingVertical": 14,
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
             ]
           }
         >

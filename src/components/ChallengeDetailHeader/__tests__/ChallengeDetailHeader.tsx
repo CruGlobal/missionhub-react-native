@@ -32,7 +32,7 @@ it('render for active challenge', () => {
   ).snapshot();
 });
 
-it('renders with details', () => {
+fit('renders with details', () => {
   renderWithContext(
     <ChallengeDetailHeader challenge={challengeWithDetails} />,
   ).snapshot();
