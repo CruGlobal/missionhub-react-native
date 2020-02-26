@@ -314,6 +314,7 @@ exports[`should call navigateBack from press 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -330,6 +331,7 @@ exports[`should call navigateBack from press 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               />
             </View>
             <View
@@ -364,6 +366,7 @@ exports[`should call navigateBack from press 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -380,6 +383,7 @@ exports[`should call navigateBack from press 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               />
             </View>
             <View
@@ -868,6 +872,7 @@ exports[`should render completed challenge correctly 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -884,6 +889,7 @@ exports[`should render completed challenge correctly 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               />
             </View>
             <View
@@ -918,6 +924,7 @@ exports[`should render completed challenge correctly 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -934,6 +941,7 @@ exports[`should render completed challenge correctly 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               />
             </View>
             <View
@@ -1383,6 +1391,7 @@ exports[`should render joined challenge correctly 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1399,6 +1408,7 @@ exports[`should render joined challenge correctly 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               />
             </View>
             <View
@@ -1433,6 +1443,7 @@ exports[`should render joined challenge correctly 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1449,6 +1460,7 @@ exports[`should render joined challenge correctly 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               />
             </View>
             <View
@@ -2000,6 +2012,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -2016,6 +2029,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               />
             </View>
             <View
@@ -2050,6 +2064,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -2066,6 +2081,7 @@ exports[`should render unjoined challenge correctly 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               />
             </View>
             <View
@@ -2529,6 +2545,7 @@ exports[`should render without edit correctly 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -2545,6 +2562,7 @@ exports[`should render without edit correctly 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               />
             </View>
             <View
@@ -2579,6 +2597,7 @@ exports[`should render without edit correctly 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -2595,6 +2614,7 @@ exports[`should render without edit correctly 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               />
             </View>
             <View

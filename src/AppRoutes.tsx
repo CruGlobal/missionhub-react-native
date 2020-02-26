@@ -217,6 +217,9 @@ import EditStoryScreen, {
   CELEBRATE_EDIT_STORY_SCREEN,
 } from './containers/Groups/EditStoryScreen';
 import LoadingScreen, { LOADING_SCREEN } from './containers/LoadingScreen';
+import ChallengeMembers, {
+  CHALLENGE_MEMBERS_SCREEN,
+} from './containers/ChallengeMembers';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -551,6 +554,7 @@ const screens = {
   [EDIT_PERSON_FLOW]: EditPersonFlowNavigator,
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
   [LOADING_SCREEN]: LoadingScreen,
+  [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
 };
 
 export const trackableScreens = {

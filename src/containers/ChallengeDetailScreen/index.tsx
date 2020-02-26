@@ -18,6 +18,7 @@ import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
+import { ChallengeItem } from '../../components/ChallengeStats';
 import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
@@ -29,21 +30,6 @@ import CHALLENGE_COMPLETE from '../../../assets/images/challengeComplete.png';
 
 import styles from './styles';
 
-interface ChallengeInterface {
-  id: string;
-  title: string;
-  created_at: string;
-  end_date: string;
-  isPast: boolean;
-  accepted_community_challenges: {
-    completed_at?: string;
-    id: string;
-    person: {
-      id: string;
-    };
-  }[];
-}
-
 const ChallengeDetailScreen = () => {
   const dispatch = useDispatch();
   useAnalytics(['challenge', 'detail']);
@@ -54,7 +40,7 @@ const ChallengeDetailScreen = () => {
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
   const myId = auth.person.id;
 
-  const challenge: ChallengeInterface = useSelector(
+  const challenge: ChallengeItem = useSelector(
     ({ organizations }: { organizations: OrganizationsState }) =>
       communityChallengeSelector({ organizations }, { orgId, challengeId }),
   );
@@ -82,22 +68,22 @@ const ChallengeDetailScreen = () => {
 
   const getAcceptedChallenge = ({
     accepted_community_challenges,
-  }: ChallengeInterface) => {
+  }: ChallengeItem) => {
     return (accepted_community_challenges || []).find(
       c => c.person && c.person.id === myId,
     );
   };
 
-  const editChallenge = (challenge: ChallengeInterface) => {
+  const editChallenge = (challenge: ChallengeItem) => {
     dispatch(updateChallenge(challenge));
   };
 
-  const handleEdit = (currentChallenge: ChallengeInterface) => {
+  const handleEdit = (currentChallenge: ChallengeItem) => {
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge: currentChallenge,
-        onComplete: (updatedChallenge: ChallengeInterface) => {
+        onComplete: (updatedChallenge: ChallengeItem) => {
           editChallenge(updatedChallenge);
           dispatch(navigateBack());
         },

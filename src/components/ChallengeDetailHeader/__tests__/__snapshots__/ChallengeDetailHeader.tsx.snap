@@ -111,6 +111,7 @@ exports[`render for active challenge 1`] = `
               Joined
             </Text>
             <Text
+              onPress={[Function]}
               style={
                 Array [
                   Object {
@@ -127,7 +128,10 @@ exports[`render for active challenge 1`] = `
                   },
                 ]
               }
-            />
+              testID="joinedCount"
+            >
+              1
+            </Text>
           </View>
           <View
             style={
@@ -161,6 +165,7 @@ exports[`render for active challenge 1`] = `
               Completed
             </Text>
             <Text
+              onPress={[Function]}
               style={
                 Array [
                   Object {
@@ -177,7 +182,10 @@ exports[`render for active challenge 1`] = `
                   },
                 ]
               }
-            />
+              testID="completedCount"
+            >
+              1
+            </Text>
           </View>
           <View
             style={
@@ -407,6 +415,7 @@ exports[`render for past challenge 1`] = `
               Joined
             </Text>
             <Text
+              onPress={[Function]}
               style={
                 Array [
                   Object {
@@ -423,7 +432,10 @@ exports[`render for past challenge 1`] = `
                   },
                 ]
               }
-            />
+              testID="joinedCount"
+            >
+              1
+            </Text>
           </View>
           <View
             style={
@@ -457,6 +469,7 @@ exports[`render for past challenge 1`] = `
               Completed
             </Text>
             <Text
+              onPress={[Function]}
               style={
                 Array [
                   Object {
@@ -473,7 +486,10 @@ exports[`render for past challenge 1`] = `
                   },
                 ]
               }
-            />
+              testID="completedCount"
+            >
+              1
+            </Text>
           </View>
           <View
             style={
@@ -703,6 +719,7 @@ exports[`renders with details 1`] = `
               Joined
             </Text>
             <Text
+              onPress={[Function]}
               style={
                 Array [
                   Object {
@@ -719,7 +736,10 @@ exports[`renders with details 1`] = `
                   },
                 ]
               }
-            />
+              testID="joinedCount"
+            >
+              1
+            </Text>
           </View>
           <View
             style={
@@ -753,6 +773,7 @@ exports[`renders with details 1`] = `
               Completed
             </Text>
             <Text
+              onPress={[Function]}
               style={
                 Array [
                   Object {
@@ -769,7 +790,10 @@ exports[`renders with details 1`] = `
                   },
                 ]
               }
-            />
+              testID="completedCount"
+            >
+              1
+            </Text>
           </View>
           <View
             style={

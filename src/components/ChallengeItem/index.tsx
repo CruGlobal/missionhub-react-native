@@ -3,30 +3,20 @@ import { Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Card, Text, Flex, Button } from '../../components/common';
-import ChallengeStats from '../ChallengeStats';
+import ChallengeStats, {
+  ChallengeItem as ChallengeItemType,
+} from '../ChallengeStats';
 import CHALLENGE_COMPLETE from '../../../assets/images/challengeComplete.png';
 import CHALLENGE_COMPLETE_GREEN from '../../../assets/images/challengeCompleteGreen.png';
 
 import styles from './styles';
 
-type ChallengeItem = {
-  title: string;
-  isPast?: boolean;
-  completed_at?: string;
-  creator_id?: string;
-  organization_id?: string;
-  end_date?: string;
-  accepted_count?: number;
-  completed_count?: number;
-  created_at?: string;
-};
-
 interface ChallengeItemProps {
-  item: ChallengeItem;
-  onComplete: (item: ChallengeItem) => void;
-  onJoin: (item: ChallengeItem) => void;
-  onSelect: (item: ChallengeItem) => void;
-  acceptedChallenge?: ChallengeItem;
+  item: ChallengeItemType;
+  onComplete: (item: ChallengeItemType) => void;
+  onJoin: (item: ChallengeItemType) => void;
+  onSelect: (item: ChallengeItemType) => void;
+  acceptedChallenge?: ChallengeItemType;
 }
 
 const ChallengeItem = ({

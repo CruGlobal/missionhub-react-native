@@ -2,21 +2,38 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleProp, ViewStyle } from 'react-native';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
 
 import { Text, Flex } from '../../components/common';
+import { navigatePush } from '../../actions/navigation';
+import { CHALLENGE_MEMBERS_SCREEN } from '../../containers/ChallengeMembers';
+import { Organization } from '../../reducers/organizations';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
-type ChallengeItem = {
+export type ChallengeItem = {
+  id: string;
   title: string;
   isPast?: boolean;
   completed_at?: string;
+  accepted_at?: string;
   creator_id?: string;
   organization_id?: string;
-  end_date?: string;
-  accepted_count?: number;
-  completed_count?: number;
+  end_date: string | Date;
+  accepted_count: number;
+  completed_count: number;
   created_at?: string;
+  organization?: Organization;
+  details_markdown?: string;
+  person?: Person;
+  accepted_community_challenges?: {
+    completed_at?: string;
+    id: string;
+    person: {
+      id: string;
+    };
+  }[];
 };
 
 interface ChallengeStatsProps {
@@ -39,7 +56,7 @@ const ChallengeStats = ({
     isPast,
     created_at,
   } = challenge;
-
+  const dispatch = useDispatch();
   // Total days or days remaining
   const endDate = moment(end_date).endOf('day');
   const startDate = moment(created_at).endOf('day');
@@ -49,6 +66,20 @@ const ChallengeStats = ({
     ? endDate.diff(startDate, 'days') + 1
     : endDate.diff(today, 'days');
   const numberStyle = !isDetailScreen ? styles.numberSmall : styles.number;
+  const navToMemberScreen = (completed: boolean) => {
+    if (
+      (accepted_count > 0 && !completed) ||
+      (completed_count > 0 && completed)
+    ) {
+      return dispatch(
+        navigatePush(CHALLENGE_MEMBERS_SCREEN, {
+          challenge,
+          orgId: challenge.organization.id,
+          completed,
+        }),
+      );
+    }
+  };
 
   return (
     <Flex style={containerStyle} direction="row" justify="between">
@@ -63,11 +94,23 @@ const ChallengeStats = ({
 
       <Flex value={1} direction="column" justify="start">
         <Text style={styles.subHeader}>{t('joined')}</Text>
-        <Text style={numberStyle}>{accepted_count}</Text>
+        <Text
+          testID="joinedCount"
+          onPress={() => navToMemberScreen(false)}
+          style={numberStyle}
+        >
+          {accepted_count}
+        </Text>
       </Flex>
       <Flex value={1} direction="column" justify="start">
         <Text style={styles.subHeader}>{t('completed')}</Text>
-        <Text style={numberStyle}>{completed_count}</Text>
+        <Text
+          testID="completedCount"
+          onPress={() => navToMemberScreen(true)}
+          style={numberStyle}
+        >
+          {completed_count}
+        </Text>
       </Flex>
       {isDetailScreen ? (
         <Flex value={1} direction="column" justify="start" />
