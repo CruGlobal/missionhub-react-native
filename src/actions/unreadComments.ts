@@ -4,6 +4,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
+import { getCelebrateFeed } from './celebration';
 
 export function markCommentsRead(orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
@@ -13,10 +14,11 @@ export function markCommentsRead(orgId: string) {
       }),
     );
     dispatch(checkForUnreadComments());
+    getCelebrateFeed(orgId, undefined, true);
   };
 }
 
-export function markCommentRead(eventId: string) {
+export function markCommentRead(eventId: string, orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
     await dispatch(
       callApi(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
@@ -24,6 +26,7 @@ export function markCommentRead(eventId: string) {
       }),
     );
     dispatch(checkForUnreadComments());
+    getCelebrateFeed(orgId, undefined, true);
   };
 }
 
