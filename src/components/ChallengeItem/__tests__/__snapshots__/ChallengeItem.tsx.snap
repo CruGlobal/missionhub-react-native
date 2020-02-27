@@ -200,6 +200,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -216,6 +217,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -252,6 +254,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -268,6 +271,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -509,6 +513,7 @@ exports[`render active and joined challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -525,6 +530,7 @@ exports[`render active and joined challenge item 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -561,6 +567,7 @@ exports[`render active and joined challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -577,6 +584,7 @@ exports[`render active and joined challenge item 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -894,6 +902,7 @@ exports[`render active challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -910,6 +919,7 @@ exports[`render active challenge item 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -946,6 +956,7 @@ exports[`render active challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -962,6 +973,7 @@ exports[`render active challenge item 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -1254,6 +1266,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1270,6 +1283,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -1306,6 +1320,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1322,6 +1337,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -1563,6 +1579,7 @@ exports[`render past and joined challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1579,6 +1596,7 @@ exports[`render past and joined challenge item 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -1615,6 +1633,7 @@ exports[`render past and joined challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1631,6 +1650,7 @@ exports[`render past and joined challenge item 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -1855,6 +1875,7 @@ exports[`render past challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1871,6 +1892,7 @@ exports[`render past challenge item 1`] = `
                     },
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -1907,6 +1929,7 @@ exports[`render past challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1923,6 +1946,7 @@ exports[`render past challenge item 1`] = `
                     },
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>

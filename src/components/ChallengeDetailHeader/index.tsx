@@ -4,19 +4,12 @@ import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 
 import { Flex, Text, DateComponent } from '../common';
-import ChallengeStats from '../ChallengeStats';
+import ChallengeStats, { ChallengeItem } from '../ChallengeStats';
 
 import styles from './styles';
 
-type ChallengeType = {
-  isPast: boolean;
-  title: string;
-  end_date: string;
-  details_markdown?: string;
-};
-
 interface ChallengeDetailHeaderProps {
-  challenge: ChallengeType;
+  challenge: ChallengeItem;
 }
 
 const ChallengeDetailHeader = ({ challenge }: ChallengeDetailHeaderProps) => {

@@ -601,6 +601,12 @@ export default {
     detailsLabel: 'Details',
     detailPlaceholder: 'Add details to your Challenge (optional)',
   },
+  challengeMembers: {
+    joined: 'Member Joined',
+    pluralJoined: 'Members Joined',
+    completed: 'Member Completed',
+    pluralCompleted: 'Members Completed',
+  },
   groupsChallenge: {
     create: 'Create Challenge',
   },

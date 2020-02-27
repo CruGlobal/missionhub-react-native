@@ -1,5 +1,355 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`does not navigates if accepted_count is 0 | Joined 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+        ]
+      }
+    >
+      Days Left
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "lineHeight": 30,
+          },
+        ]
+      }
+    >
+      0
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+        ]
+      }
+    >
+      Joined
+    </Text>
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "lineHeight": 30,
+          },
+        ]
+      }
+      testID="joinedCount"
+    >
+      0
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+        ]
+      }
+    >
+      Completed
+    </Text>
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "lineHeight": 30,
+          },
+        ]
+      }
+      testID="completedCount"
+    >
+      3
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`does not navigates if completed_count is 0 | Completed 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+        ]
+      }
+    >
+      Days Left
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "lineHeight": 30,
+          },
+        ]
+      }
+    >
+      0
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+        ]
+      }
+    >
+      Joined
+    </Text>
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "lineHeight": 30,
+          },
+        ]
+      }
+      testID="joinedCount"
+    >
+      5
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "flex-start",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#A0A2A6",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+        ]
+      }
+    >
+      Completed
+    </Text>
+    <Text
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-ExtraLight",
+            "fontSize": 24,
+            "lineHeight": 30,
+          },
+        ]
+      }
+      testID="completedCount"
+    >
+      0
+    </Text>
+  </View>
+</View>
+`;
+
 exports[`render challenge stats | DetailScreen 1`] = `
 <View
   style={
@@ -44,6 +394,7 @@ exports[`render challenge stats | DetailScreen 1`] = `
       Joined
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -60,6 +411,7 @@ exports[`render challenge stats | DetailScreen 1`] = `
           },
         ]
       }
+      testID="joinedCount"
     >
       5
     </Text>
@@ -96,6 +448,7 @@ exports[`render challenge stats | DetailScreen 1`] = `
       Completed
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -112,6 +465,7 @@ exports[`render challenge stats | DetailScreen 1`] = `
           },
         ]
       }
+      testID="completedCount"
     >
       3
     </Text>
@@ -227,6 +581,7 @@ exports[`render challenge stats 1`] = `
       Joined
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -243,6 +598,7 @@ exports[`render challenge stats 1`] = `
           },
         ]
       }
+      testID="joinedCount"
     >
       5
     </Text>
@@ -279,6 +635,7 @@ exports[`render challenge stats 1`] = `
       Completed
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -295,6 +652,7 @@ exports[`render challenge stats 1`] = `
           },
         ]
       }
+      testID="completedCount"
     >
       3
     </Text>
@@ -400,6 +758,7 @@ exports[`render challenge stats small with style 1`] = `
       Joined
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -416,6 +775,7 @@ exports[`render challenge stats small with style 1`] = `
           },
         ]
       }
+      testID="joinedCount"
     >
       5
     </Text>
@@ -452,6 +812,7 @@ exports[`render challenge stats small with style 1`] = `
       Completed
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -468,6 +829,7 @@ exports[`render challenge stats small with style 1`] = `
           },
         ]
       }
+      testID="completedCount"
     >
       3
     </Text>
@@ -573,6 +935,7 @@ exports[`render challenge stats with style 1`] = `
       Joined
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -589,6 +952,7 @@ exports[`render challenge stats with style 1`] = `
           },
         ]
       }
+      testID="joinedCount"
     >
       5
     </Text>
@@ -625,6 +989,7 @@ exports[`render challenge stats with style 1`] = `
       Completed
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -641,6 +1006,7 @@ exports[`render challenge stats with style 1`] = `
           },
         ]
       }
+      testID="completedCount"
     >
       3
     </Text>
@@ -744,6 +1110,7 @@ exports[`render past challenge stats 1`] = `
       Joined
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -760,6 +1127,7 @@ exports[`render past challenge stats 1`] = `
           },
         ]
       }
+      testID="joinedCount"
     >
       5
     </Text>
@@ -796,6 +1164,7 @@ exports[`render past challenge stats 1`] = `
       Completed
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -812,6 +1181,7 @@ exports[`render past challenge stats 1`] = `
           },
         ]
       }
+      testID="completedCount"
     >
       3
     </Text>
@@ -915,6 +1285,7 @@ exports[`render upcoming challenge stats 1`] = `
       Joined
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -931,6 +1302,7 @@ exports[`render upcoming challenge stats 1`] = `
           },
         ]
       }
+      testID="joinedCount"
     >
       5
     </Text>
@@ -967,6 +1339,7 @@ exports[`render upcoming challenge stats 1`] = `
       Completed
     </Text>
     <Text
+      onPress={[Function]}
       style={
         Array [
           Object {
@@ -983,6 +1356,7 @@ exports[`render upcoming challenge stats 1`] = `
           },
         ]
       }
+      testID="completedCount"
     >
       3
     </Text>
