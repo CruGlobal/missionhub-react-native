@@ -260,7 +260,6 @@ exports[`create methods calls onComplete 1`] = `
           allowFontScaling={true}
           autoCorrect={true}
           autoFocus={false}
-          blurOnSubmit={true}
           multiline={true}
           onBlur={[Function]}
           onChangeText={[Function]}
@@ -417,7 +416,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -289,11 +289,11 @@
+@@ -288,11 +288,11 @@
                 },
               ]
             }
@@ -503,7 +502,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
           selectionColor=\\"#52C5DC\\"
           style={
             Array [
-@@ -261,11 +261,11 @@
+@@ -260,11 +260,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -536,7 +535,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
           selectionColor=\\"#52C5DC\\"
           style={
             Array [
-@@ -261,11 +261,11 @@
+@@ -260,11 +260,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -556,7 +555,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -261,11 +261,11 @@
+@@ -260,11 +260,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -626,7 +625,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -331,16 +331,13 @@
+@@ -330,16 +330,13 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -651,7 +650,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -289,11 +289,11 @@
+@@ -288,11 +288,11 @@
                 },
               ]
             }
@@ -926,7 +925,6 @@ exports[`edit methods calls onComplete 1`] = `
           allowFontScaling={true}
           autoCorrect={true}
           autoFocus={false}
-          blurOnSubmit={true}
           multiline={true}
           onBlur={[Function]}
           onChangeText={[Function]}
@@ -1063,7 +1061,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
           date={\\"2020-02-13T23:59:59.999Z\\"}
           minDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
-@@ -331,13 +331,16 @@
+@@ -330,13 +330,16 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -1343,7 +1341,6 @@ exports[`renders correctly 1`] = `
           allowFontScaling={true}
           autoCorrect={true}
           autoFocus={false}
-          blurOnSubmit={true}
           multiline={true}
           onBlur={[Function]}
           onChangeText={[Function]}
@@ -1725,7 +1722,6 @@ exports[`renders edit challenge correctly 1`] = `
           allowFontScaling={true}
           autoCorrect={true}
           autoFocus={false}
-          blurOnSubmit={true}
           multiline={true}
           onBlur={[Function]}
           onChangeText={[Function]}

@@ -156,7 +156,6 @@ const AddChallengeScreen = () => {
           autoCorrect={true}
           multiline={true}
           returnKeyType="done"
-          blurOnSubmit={true}
           selectionColor={theme.secondaryColor}
           placeholder={t('detailPlaceholder')}
           placeholderTextColor={
