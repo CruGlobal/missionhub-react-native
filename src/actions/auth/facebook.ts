@@ -1,3 +1,4 @@
+// @ts-ignore
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
 import { ANALYTICS, FACEBOOK_CANCELED_ERROR } from '../../constants';
