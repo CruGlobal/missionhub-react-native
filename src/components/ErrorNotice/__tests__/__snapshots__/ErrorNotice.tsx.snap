@@ -15,7 +15,9 @@ exports[`ErrorNotice should render a network error 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#FF5532",
+      "backgroundColor": "#505256",
+      "flexDirection": "row",
+      "justifyContent": "center",
       "opacity": 1,
       "padding": 5,
     }
@@ -36,24 +38,35 @@ exports[`ErrorNotice should render a network error 1`] = `
       ]
     }
   >
-    A test error was fired.
+    Offline
   </Text>
   <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": undefined,
+          "fontSize": 12,
         },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Object {},
+        ],
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
         },
-        Object {
-          "color": "#ffffff",
-        },
+        Object {},
       ]
     }
   >
-    Please check your network connection.
+    
   </Text>
 </View>
 `;
@@ -73,7 +86,9 @@ exports[`ErrorNotice should render an error 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#FF5532",
+      "backgroundColor": "#505256",
+      "flexDirection": "row",
+      "justifyContent": "center",
       "opacity": 1,
       "padding": 5,
     }
@@ -95,6 +110,34 @@ exports[`ErrorNotice should render an error 1`] = `
     }
   >
     A test error was fired.
+  </Text>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 18,
+          },
+          Object {},
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
   </Text>
 </View>
 `;
