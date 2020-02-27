@@ -14,6 +14,7 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { getAnalyticsPermissionType } from '../../utils/common';
 import { orgPermissionSelector } from '../../selectors/people';
+import { AuthState } from '../../reducers/auth';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -159,8 +160,17 @@ AddChallengeScreen.propTypes = {
   challenge: PropTypes.object,
 };
 
-// @ts-ignore
-const mapStateToProps = ({ auth }, { organization }) => ({
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  {
+    navigation: {
+      state: {
+        params: { organization },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
   analyticsPermissionType: getAnalyticsPermissionType(
     orgPermissionSelector({}, { person: auth.person, organization }),
   ),

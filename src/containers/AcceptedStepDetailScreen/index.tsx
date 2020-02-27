@@ -1,9 +1,7 @@
 import React from 'react';
-import { AnyAction } from 'redux';
 import { View } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
 import { Button, Icon } from '../../components/common';
@@ -25,17 +23,20 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import styles from './styles';
 
 interface AcceptedStepDetailScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   reminder?: ReminderType;
   analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const AcceptedStepDetailScreen = ({
-  dispatch,
   reminder,
+  analyticsAssignmentType,
 }: AcceptedStepDetailScreenProps) => {
+  const dispatch = useDispatch();
   const { t } = useTranslation('acceptedStepDetail');
-  useAnalytics({ screenName: ['step detail', 'active step'] });
+  useAnalytics({
+    screenName: ['step detail', 'active step'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
   const step: Step = useNavigationParam('step');
 
   const { id: stepId, challenge_suggestion, title, receiver } = step;

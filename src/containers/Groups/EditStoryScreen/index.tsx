@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { View, Keyboard, ScrollView } from 'react-native';
-import { AnyAction } from 'redux';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch } from 'redux-thunk';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux-legacy';
 
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
@@ -36,14 +34,11 @@ export const UPDATE_STORY = gql`
 `;
 
 interface EditStoryProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
-const EditStoryScreen = ({
-  dispatch,
-  analyticsPermissionType,
-}: EditStoryProps) => {
+const EditStoryScreen = ({ analyticsPermissionType }: EditStoryProps) => {
+  const dispatch = useDispatch();
   useAnalytics({
     screenName: ['story', 'edit'],
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },

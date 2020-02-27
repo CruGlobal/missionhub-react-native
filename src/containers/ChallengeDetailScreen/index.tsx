@@ -12,6 +12,7 @@ import {
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { IconButton, Button } from '../../components/common';
 import Header from '../../components/Header';
 import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
@@ -20,7 +21,7 @@ import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { isAdminOrOwner } from '../../utils/common';
+import { isAdminOrOwner, getAnalyticsPermissionType } from '../../utils/common';
 import theme from '../../theme';
 import Analytics from '../Analytics';
 
@@ -132,8 +133,18 @@ export class ChallengeDetailScreen extends Component {
   };
 
   render() {
-    // @ts-ignore
-    const { t, challenge, acceptedChallenge, canEditChallenges } = this.props;
+    const {
+      // @ts-ignore
+      t,
+      // @ts-ignore
+      challenge,
+      // @ts-ignore
+      acceptedChallenge,
+      // @ts-ignore
+      canEditChallenges,
+      // @ts-ignore
+      analyticsPermissionType,
+    } = this.props;
 
     const { isPast } = challenge;
     const joined = !!acceptedChallenge;
@@ -141,7 +152,12 @@ export class ChallengeDetailScreen extends Component {
 
     return (
       <View style={styles.pageContainer}>
-        <Analytics screenName={['challenge', 'detail']} />
+        <Analytics
+          screenName={['challenge', 'detail']}
+          screenContext={{
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
+        />
         <StatusBar {...theme.statusBar.darkContent} />
         <Header
           left={
@@ -212,6 +228,7 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     challenge,
     acceptedChallenge,
     canEditChallenges,
+    analyticsPermissionType: getAnalyticsPermissionType(myOrgPerm),
   };
 };
 

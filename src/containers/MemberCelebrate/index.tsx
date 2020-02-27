@@ -7,10 +7,10 @@ import CelebrateFeed from '../CelebrateFeed';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgPermissionSelector } from '../../selectors/people';
-import Analytics from '../Analytics';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 export interface MemberCelebrateProps {
   organization: Organization;
@@ -23,18 +23,17 @@ const MemberCelebrate = ({
   person,
   analyticsAssignmentType,
 }: MemberCelebrateProps) => {
+  useAnalytics({
+    screenName: ['person', 'celebrate'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
+
   return (
-    <>
-      <Analytics
-        screenName={['person', 'celebrate']}
-        screenContext={{ [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType }}
-      />
-      <CelebrateFeed
-        organization={organization}
-        person={person}
-        itemNamePressable={false}
-      />
-    </>
+    <CelebrateFeed
+      organization={organization}
+      person={person}
+      itemNamePressable={false}
+    />
   );
 };
 
