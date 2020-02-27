@@ -4,9 +4,9 @@ import { CREATE_STEP } from '../../constants';
 import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { wrapNextScreen, wrapNextAction } from '../helpers';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from '../../containers/PersonSelectStepScreen';
+import SelectStepScreen, {
+  SELECT_STEP_SCREEN,
+} from '../../containers/SelectStepScreen';
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
@@ -15,8 +15,8 @@ import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 
 export const AddPersonStepFlowScreens = {
-  [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
-    PersonSelectStepScreen,
+  [SELECT_STEP_SCREEN]: wrapNextAction(
+    SelectStepScreen,
     ({ personId, step, orgId }) =>
       step
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {

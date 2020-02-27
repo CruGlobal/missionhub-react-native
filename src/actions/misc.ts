@@ -161,6 +161,7 @@ export function navigateToAddStepFlow(
       dispatch(
         navigatePush(ADD_MY_STEP_FLOW, {
           ...trackingParams,
+          personId: person.id,
           organization,
         }),
       );
@@ -168,7 +169,6 @@ export function navigateToAddStepFlow(
       dispatch(
         navigatePush(ADD_PERSON_STEP_FLOW, {
           ...trackingParams,
-          contactName: person.first_name,
           personId: person.id,
           organization,
           // @ts-ignore

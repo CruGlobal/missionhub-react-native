@@ -2,6 +2,7 @@
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
 import { PushNotificationIOS } from 'react-native';
 import i18next from 'i18next';
