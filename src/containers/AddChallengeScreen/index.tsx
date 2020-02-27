@@ -163,18 +163,19 @@ AddChallengeScreen.propTypes = {
 const mapStateToProps = (
   { auth }: { auth: AuthState },
   {
-    navigation: {
-      state: {
-        params: { organization },
-      },
-    },
+    navigation,
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
-) => ({
-  analyticsPermissionType: getAnalyticsPermissionType(
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  ),
-});
+) => {
+  const { organization } = navigation.state.params;
+
+  return {
+    ...(navigation.state.params || {}),
+    analyticsPermissionType: getAnalyticsPermissionType(
+      orgPermissionSelector({}, { person: auth.person, organization }),
+    ),
+  };
+};
 
 export default connect(mapStateToProps)(AddChallengeScreen);
 export const ADD_CHALLENGE_SCREEN = 'nav/ADD_CHALLENGE';

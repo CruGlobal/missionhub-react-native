@@ -1,26 +1,41 @@
 import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import createMockStore from 'redux-mock-store';
 
 import {
   createMockNavState,
   testSnapshotShallow,
-  createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
+import { ORG_PERMISSIONS } from '../../../constants';
+import { orgPermissionSelector } from '../../../selectors/people';
 
 import AddChallengeScreen from '..';
 
+jest.mock('../../../selectors/people');
+
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
-
-const store = createThunkStore();
 
 const editChallenge = {
   id: '1',
   title: 'Test Title',
   end_date: '2018-09-30',
 };
+const auth = { person: { id: '1' } };
+
+const orgPermission = { id: '2', permission_id: ORG_PERMISSIONS.OWNER };
+
+const store = createMockStore()({
+  auth,
+});
+
+beforeEach(() => {
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+    orgPermission,
+  );
+});
 
 it('renders correctly', () => {
   testSnapshotShallow(

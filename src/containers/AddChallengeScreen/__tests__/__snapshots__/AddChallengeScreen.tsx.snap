@@ -11,6 +11,11 @@ exports[`renders correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "owner",
+      }
+    }
     screenName={
       Array [
         "challenge",
@@ -131,6 +136,11 @@ exports[`renders edit challenge correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "owner",
+      }
+    }
     screenName={
       Array [
         "challenge",

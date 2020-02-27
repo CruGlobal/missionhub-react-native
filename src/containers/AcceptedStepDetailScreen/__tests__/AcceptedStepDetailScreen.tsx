@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
@@ -18,10 +19,13 @@ jest.mock('../../../components/ReminderButton', () => 'ReminderButton');
 jest.mock('../../../components/ReminderDateText', () => 'ReminderDateText');
 jest.mock('../../../utils/hooks/useAnalytics');
 
+const myId = '4';
+const person = { id: myId, first_name: 'Christian' };
 const stepId = '234242';
 const reminderId = '1';
 const reminder = { id: reminderId };
 const challenge_suggestion = { description_markdown: 'roge rules' };
+const auth = { person };
 const stepReminders = {
   all: {
     [reminderId]: reminder,
@@ -32,9 +36,7 @@ const step = {
   id: stepId,
   title: 'ROBERT',
   challenge_suggestion,
-  receiver: {
-    first_name: 'Christian',
-  },
+  receiver: person,
 };
 
 const completeStepResult = { type: 'completed step' };
@@ -55,7 +57,7 @@ describe('without description, without reminder', () => {
     ((reminderSelector as unknown) as jest.Mock).mockReturnValue(undefined);
 
     renderWithContext(<AcceptedStepDetailScreen />, {
-      initialState: { stepReminders },
+      initialState: { auth, stepReminders },
       navParams: { step: { ...step, challenge_suggestion: {} } },
     }).snapshot();
 
@@ -63,7 +65,10 @@ describe('without description, without reminder', () => {
       { stepReminders },
       { stepId },
     );
-    expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
+    expect(useAnalytics).toHaveBeenCalledWith({
+      screenName: ['step detail', 'active step'],
+      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
+    });
   });
 });
 
@@ -72,7 +77,7 @@ describe('with description, without reminder', () => {
     ((reminderSelector as unknown) as jest.Mock).mockReturnValue(undefined);
 
     renderWithContext(<AcceptedStepDetailScreen />, {
-      initialState: { stepReminders },
+      initialState: { auth, stepReminders },
       navParams: { step },
     }).snapshot();
 
@@ -86,7 +91,7 @@ describe('with description, without reminder', () => {
 describe('with description, with reminder', () => {
   it('renders correctly', () => {
     renderWithContext(<AcceptedStepDetailScreen />, {
-      initialState: { stepReminders },
+      initialState: { auth, stepReminders },
       navParams: { step },
     }).snapshot();
 
@@ -101,7 +106,7 @@ it('completes step', () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      initialState: { stepReminders },
+      initialState: { auth, stepReminders },
       navParams: { step },
     },
   );
@@ -116,7 +121,7 @@ it('deletes step', () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      initialState: { stepReminders },
+      initialState: { auth, stepReminders },
       navParams: { step },
     },
   );
@@ -132,7 +137,7 @@ it('deletes reminder', () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      initialState: { stepReminders },
+      initialState: { auth, stepReminders },
       navParams: { step },
     },
   );

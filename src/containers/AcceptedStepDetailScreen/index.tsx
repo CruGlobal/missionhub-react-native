@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { connect, useDispatch } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
