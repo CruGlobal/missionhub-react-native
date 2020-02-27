@@ -53,6 +53,7 @@ function hasContactWithPathwayStage(myId: string, people: PeopleState) {
     Object.values(org.people).some(
       (person: Person) =>
         person.id !== myId &&
+        // @ts-ignore
         person.reverse_contact_assignments.some(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (assignment: any) =>
