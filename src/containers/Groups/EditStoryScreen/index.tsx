@@ -11,17 +11,19 @@ import { connect } from 'react-redux-legacy';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
+import { TrackStateContext } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { getAnalyticsPermissionType } from '../../../utils/common';
+import { orgPermissionSelector } from '../../../selectors/people';
 import { AuthState } from '../../../reducers/auth';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
-import { getAnalyticsPermissionType } from 'src/utils/common';
-import { orgPermissionSelector } from 'src/selectors/people';
 
 export const UPDATE_STORY = gql`
   mutation UpdateStory($input: UpdateStoryInput!) {
@@ -35,10 +37,17 @@ export const UPDATE_STORY = gql`
 
 interface EditStoryProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
-const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
-  useAnalytics({ screenName: ['story', 'edit'] });
+const EditStoryScreen = ({
+  dispatch,
+  analyticsPermissionType,
+}: EditStoryProps) => {
+  useAnalytics({
+    screenName: ['story', 'edit'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  });
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
@@ -108,7 +117,7 @@ const mapStateToProps = (
 ) => ({
   analyticsPermissionType: getAnalyticsPermissionType(
     orgPermissionSelector({}, { person: auth.person, organization }),
-  ),
+  ) as TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE],
 });
 
 export default connect(mapStateToProps)(EditStoryScreen);

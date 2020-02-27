@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, connect } from 'react-redux';
 
-import { ACTIONS } from '../../../constants';
+import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/common';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
@@ -16,7 +16,10 @@ import theme from '../../../theme';
 import { Organization } from '../../../reducers/organizations';
 import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { trackActionWithoutData } from '../../../actions/analytics';
+import {
+  trackActionWithoutData,
+  TrackStateContext,
+} from '../../../actions/analytics';
 import { orgPermissionSelector } from '../../../selectors/people';
 
 import styles from './styles';
@@ -35,8 +38,17 @@ export const CREATE_A_STORY = gql`
   }
 `;
 
-const ShareStoryScreen = () => {
-  useAnalytics({ screenName: ['story', 'share'] });
+interface ShareStoryScreenProps {
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
+}
+
+const ShareStoryScreen = ({
+  analyticsPermissionType,
+}: ShareStoryScreenProps) => {
+  useAnalytics({
+    screenName: ['story', 'share'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  });
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const dispatch = useDispatch();

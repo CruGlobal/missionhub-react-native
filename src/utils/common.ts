@@ -22,6 +22,8 @@ import {
   GLOBAL_COMMUNITY_ID,
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
+  ANALYTICS_EDIT_MODE,
 } from '../constants';
 import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
@@ -120,13 +122,14 @@ export const getAnalyticsSectionType = (
 ): TrackStateContext[typeof ANALYTICS_SECTION_TYPE] =>
   isOnboarding(onboardingState) ? 'onboarding' : '';
 
-export const getAnalyticsEditMode = (isEdit: boolean) =>
-  isEdit ? 'update' : 'set';
+export const getAnalyticsEditMode = (
+  isEdit: boolean,
+): TrackStateContext[typeof ANALYTICS_EDIT_MODE] => (isEdit ? 'update' : 'set');
 
 export const getAnalyticsPermissionType = (orgPermission: {
   permission_id: string;
   permission: PermissionEnum;
-}) =>
+}): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] =>
   hasOrgPermissions(orgPermission)
     ? isOwner(orgPermission)
       ? 'owner'

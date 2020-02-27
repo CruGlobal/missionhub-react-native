@@ -199,13 +199,28 @@ class GroupProfile extends Component {
   }
 
   render() {
-    // @ts-ignore
-    const { t, organization, membersLength, owner, canEdit } = this.props;
+    const {
+      // @ts-ignore
+      t,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      membersLength,
+      // @ts-ignore
+      owner,
+      // @ts-ignore
+      canEdit,
+      // @ts-ignore
+      analyticsPermissionType,
+    } = this.props;
     const { editing, name } = this.state;
     return (
       // @ts-ignore
       <View flex={1}>
-        <Analytics screenName={['community', 'detail']} />
+        <Analytics
+          screenName={['community', 'detail']}
+          screenContext={analyticsPermissionType}
+        />
         {/* 
         // @ts-ignore */}
         <View style={styles.container} forceInset={{ bottom: 'never' }}>
