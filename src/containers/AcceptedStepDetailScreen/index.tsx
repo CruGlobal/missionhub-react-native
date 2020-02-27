@@ -97,7 +97,7 @@ const AcceptedStepDetailScreen = ({
       receiver={step?.receiver}
       Banner={
         <ErrorNotice
-          message={t('stepDetailError')}
+          message={t('errorLoadingStepDetails')}
           error={error}
           refetch={refetch}
         />

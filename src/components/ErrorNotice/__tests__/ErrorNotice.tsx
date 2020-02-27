@@ -6,8 +6,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { ErrorNotice } from '../ErrorNotice';
 
-// Tests disabled until https://jira.cru.org/browse/MHP-3159 is addressed
-xdescribe('ErrorNotice', () => {
+describe('ErrorNotice', () => {
   it('should render nothing if no error', () => {
     renderWithContext(
       <ErrorNotice
