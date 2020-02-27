@@ -159,12 +159,12 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
         }
         title={t('title').toUpperCase()}
       />
+      <ErrorNotice
+        error={error}
+        refetch={refetch}
+        message={t('errorLoadingSteps')}
+      />
       <View style={styles.contentContainer}>
-        <ErrorNotice
-          error={error}
-          refetch={refetch}
-          message={t('errorLoadingSteps')}
-        />
         {hasSteps ? (
           // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
