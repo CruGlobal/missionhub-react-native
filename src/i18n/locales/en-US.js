@@ -240,7 +240,7 @@ export default {
   acceptedStepDetail: {
     removeStep: 'Remove Step',
     iDidIt: 'I Did It!',
-    stepDetailError: 'There was an error loading your step details.',
+    stepDetailError: 'Error loading your step details',
   },
   completedStepDetail: {
     completedStep: 'Completed Step',
@@ -448,7 +448,7 @@ export default {
       part2: 'Choose a person and add some new steps.',
     },
     title: 'Steps of Faith',
-    errorLoadingSteps: 'There was an error loading your steps.',
+    errorLoadingSteps: 'Error loading your steps',
   },
   contactSideMenu: {
     edit: 'Edit',
@@ -837,6 +837,6 @@ export default {
       'Deleting this comment removes it completely and it will no longer be found.',
   },
   errorNotice: {
-    networkError: 'Please check your network connection.',
+    offline: 'Offline',
   },
 };

@@ -4,9 +4,11 @@ import theme from '../../theme';
 
 export const styles = StyleSheet.create({
   errorContainer: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.grey,
     alignItems: 'center',
     padding: 5,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   white: { color: theme.white },
 });

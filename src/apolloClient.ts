@@ -23,15 +23,11 @@ const rollbarLink = onError(({ graphQLErrors, networkError }) => {
     graphQLErrors.forEach(error => {
       const errorMessage = `[Apollo GraphQL error]: ${error.message}`;
       rollbar.error(errorMessage, error);
-      // eslint-disable-next-line no-console
-      console.error(errorMessage, error);
     });
   }
   if (networkError) {
     const errorMessage = `[Apollo Network error]: ${networkError.message}`;
     rollbar.error(errorMessage, networkError);
-    // eslint-disable-next-line no-console
-    console.error(errorMessage, networkError);
   }
 });
 
