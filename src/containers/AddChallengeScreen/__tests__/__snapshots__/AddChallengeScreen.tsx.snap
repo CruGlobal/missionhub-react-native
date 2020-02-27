@@ -415,6 +415,7 @@ exports[`create methods changes detail 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
+
 @@ -288,11 +288,11 @@
                 },
               ]
@@ -1060,7 +1061,6 @@ exports[`edit methods disables button if user deletes title 1`] = `
           date={\\"2020-02-13T23:59:59.999Z\\"}
           minDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
-          
 @@ -330,13 +330,16 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
