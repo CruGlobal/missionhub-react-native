@@ -2,7 +2,9 @@
 
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
+// @ts-ignore
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
@@ -62,6 +64,7 @@ describe('logout', () => {
     expect(deletePushToken).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(LANDING_SCREEN);
     expect(PushNotification.unregister).toHaveBeenCalled();
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       deletePushTokenResult,
       { type: LOGOUT },
@@ -77,6 +80,7 @@ describe('logout', () => {
       forcedLogout: true,
     });
     expect(PushNotification.unregister).toHaveBeenCalled();
+    // @ts-ignore
     expect(store.getActions()).toEqual([
       deletePushTokenResult,
       { type: LOGOUT },
@@ -96,6 +100,7 @@ describe('logout', () => {
       forcedLogout: true,
     });
     expect(PushNotification.unregister).toHaveBeenCalled();
+    // @ts-ignore
     expect(store.getActions()).toEqual([{ type: LOGOUT }, navigateResetResult]);
   });
 });

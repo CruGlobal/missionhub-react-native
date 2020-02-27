@@ -18,9 +18,9 @@ import AddContactScreen, {
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from '../../containers/PersonSelectStepScreen';
+import SelectStepScreen, {
+  SELECT_STEP_SCREEN,
+} from '../../containers/SelectStepScreen';
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
@@ -53,7 +53,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
     SelectStageScreen,
     ({ personId, orgId }) => dispatch => {
       dispatch(
-        navigatePush(PERSON_SELECT_STEP_SCREEN, {
+        navigatePush(SELECT_STEP_SCREEN, {
           personId,
           orgId,
           enableSkipButton: true,
@@ -61,8 +61,8 @@ export const AddPersonFlowScreens = onFlowComplete => ({
       );
     },
   ),
-  [PERSON_SELECT_STEP_SCREEN]: wrapNextAction(
-    PersonSelectStepScreen,
+  [SELECT_STEP_SCREEN]: wrapNextAction(
+    SelectStepScreen,
     ({ personId, step, orgId, skip }) =>
       skip
         ? onFlowComplete({ orgId })

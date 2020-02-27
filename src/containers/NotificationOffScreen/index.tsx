@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Linking, Image, View } from 'react-native';
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
@@ -32,6 +33,7 @@ class NotificationOffScreen extends Component {
     const { onComplete } = this.props;
 
     //check if permissions have been set since entering this screen
+    // @ts-ignore
     PushNotification.checkPermissions(permission => {
       onComplete(!!(permission && permission.alert));
     });
