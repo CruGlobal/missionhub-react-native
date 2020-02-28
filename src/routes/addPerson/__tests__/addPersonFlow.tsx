@@ -202,6 +202,22 @@ describe('SelectStepScreen next', () => {
       ]);
     });
   });
+
+  describe('skips add step', () => {
+    it('should fire required next actions', async () => {
+      const { store } = await buildAndCallNext(
+        SELECT_STEP_SCREEN,
+        { personId, orgId },
+        { skip: true, orgId },
+      );
+
+      expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+      expect(store.getActions()).toEqual([
+        getStepSuggestionsResponse,
+        flowCompleteResponse,
+      ]);
+    });
+  });
 });
 
 describe('SuggestedStepDetailScreen next', () => {
