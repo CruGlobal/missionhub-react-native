@@ -108,8 +108,8 @@ export const getAnalyticsAssignmentType = (
   personId: string,
   authState: AuthState,
   personOrgPermission?: {
-    permission_id: string;
-    permission: PermissionEnum;
+    permission_id?: string;
+    permission?: PermissionEnum;
   },
 ): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] =>
   personIsCurrentUser(personId, authState)
@@ -128,8 +128,8 @@ export const getAnalyticsEditMode = (
 ): TrackStateContext[typeof ANALYTICS_EDIT_MODE] => (isEdit ? 'update' : 'set');
 
 export const getAnalyticsPermissionType = (orgPermission: {
-  permission_id: string;
-  permission: PermissionEnum;
+  permission_id?: string;
+  permission?: PermissionEnum;
 }): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] =>
   hasOrgPermissions(orgPermission)
     ? isOwner(orgPermission)
@@ -139,7 +139,7 @@ export const getAnalyticsPermissionType = (orgPermission: {
       : 'member'
     : '';
 
-export const isAuthenticated = (authState: AuthState) => authState.token;
+export const isAuthenticated = (authState: AuthState) => authState.token != '';
 
 export const personIsCurrentUser = (personId: string, authState: AuthState) =>
   personId === authState.person.id;
@@ -176,45 +176,60 @@ const MHUB_PERMISSIONS = [
   PermissionEnum.user,
 ];
 
-export const hasOrgPermissions = (orgPermission: {
-  permission_id: string;
-  permission: PermissionEnum;
-}) => {
+export const hasOrgPermissions = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) => {
   return (
     (!!orgPermission &&
       MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`)) ||
-    (!!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission))
+    (!!orgPermission &&
+      !!orgPermission.permission &&
+      MHUB_PERMISSIONS.includes(orgPermission.permission))
   );
 };
 
-export const isAdminOrOwner = (orgPermission: {
-  permission_id: string;
-  permission: PermissionEnum;
-}) =>
+export const isAdminOrOwner = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
       `${orgPermission.permission_id}`,
     )) ||
   (!!orgPermission &&
+    !!orgPermission.permission &&
     [PermissionEnum.admin, PermissionEnum.owner].includes(
       orgPermission.permission,
     ));
 
-export const isOwner = (orgPermission: {
-  permission_id: string;
-  permission: PermissionEnum;
-}) =>
+export const isOwner = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||
-  (!!orgPermission && orgPermission.permission === PermissionEnum.owner);
+  (!!orgPermission &&
+    !!orgPermission.permission &&
+    orgPermission.permission === PermissionEnum.owner);
 
-export const isAdmin = (orgPermission: {
-  permission_id: string;
-  permission: PermissionEnum;
-}) =>
+export const isAdmin = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN) ||
-  (!!orgPermission && orgPermission.permission === PermissionEnum.admin);
+  (!!orgPermission &&
+    !!orgPermission.permission &&
+    orgPermission.permission === PermissionEnum.admin);
 
 // @ts-ignore
 export const shouldQueryReportedComments = (org, orgPermission) =>

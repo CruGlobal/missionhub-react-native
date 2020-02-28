@@ -30,14 +30,25 @@ import {
   isAdmin,
   orgIsGlobal,
   shouldQueryReportedComments,
+  getAnalyticsAssignmentType,
+  getAnalyticsSectionType,
+  getAnalyticsEditMode,
+  getAnalyticsPermissionType,
+  isAuthenticated,
+  personIsCurrentUser,
+  isOnboarding,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
+  ORG_PERMISSIONS,
 } from '../../constants';
 import { createThunkStore } from '../../../testUtils';
+import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
+import { PermissionEnum } from '../../../__generated__/globalTypes';
 
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -61,6 +72,135 @@ describe('buildTrackingObj', () => {
     subsection,
     level3,
     level4,
+  });
+});
+
+describe('getAnalyticsAssignmentType', () => {
+  const myId = '1';
+  const otherId = '2';
+  const authState = { person: { id: myId } } as AuthState;
+  const orgPermission = { permission_id: ORG_PERMISSIONS.USER };
+
+  it('returns self', () => {
+    expect(getAnalyticsAssignmentType(myId, authState)).toEqual('self');
+  });
+
+  it('returns contact', () => {
+    expect(getAnalyticsAssignmentType(otherId, authState)).toEqual('contact');
+  });
+
+  it('returns community member', () => {
+    expect(
+      getAnalyticsAssignmentType(otherId, authState, orgPermission),
+    ).toEqual('community member');
+  });
+});
+
+describe('getAnalyticsSectionType', () => {
+  it('returns self', () => {
+    expect(
+      getAnalyticsSectionType({ currentlyOnboarding: true } as OnboardingState),
+    ).toEqual('onboarding');
+  });
+
+  it('returns contact', () => {
+    expect(
+      getAnalyticsSectionType({
+        currentlyOnboarding: false,
+      } as OnboardingState),
+    ).toEqual('');
+  });
+});
+
+describe('getAnalyticsEditMode', () => {
+  it('returns update', () => {
+    expect(getAnalyticsEditMode(true)).toEqual('update');
+  });
+
+  it('returns set', () => {
+    expect(getAnalyticsEditMode(false)).toEqual('set');
+  });
+});
+
+describe('getAnalyticsPermissionType', () => {
+  it('returns owner from permission_id', () => {
+    expect(
+      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.OWNER }),
+    ).toEqual('owner');
+  });
+
+  it('returns owner from permission', () => {
+    expect(
+      getAnalyticsPermissionType({ permission: PermissionEnum.owner }),
+    ).toEqual('owner');
+  });
+
+  it('returns admin from permission_id', () => {
+    expect(
+      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.ADMIN }),
+    ).toEqual('admin');
+  });
+
+  it('returns admin from permission', () => {
+    expect(
+      getAnalyticsPermissionType({ permission: PermissionEnum.admin }),
+    ).toEqual('admin');
+  });
+
+  it('returns member from permission_id', () => {
+    expect(
+      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.USER }),
+    ).toEqual('member');
+  });
+
+  it('returns member from permission', () => {
+    expect(
+      getAnalyticsPermissionType({ permission: PermissionEnum.user }),
+    ).toEqual('member');
+  });
+
+  it('returns empty string if no permissions', () => {
+    expect(
+      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.CONTACT }),
+    ).toEqual('');
+  });
+});
+
+describe('isAuthenticated', () => {
+  it('returns true', () => {
+    expect(isAuthenticated({ token: 'abcd' } as AuthState)).toEqual(true);
+  });
+
+  it('returns false', () => {
+    expect(isAuthenticated({ token: '' } as AuthState)).toEqual(false);
+  });
+});
+
+describe('personIsCurrentUser', () => {
+  const myId = '1';
+  const otherId = '2';
+  const authState = { person: { id: myId } } as AuthState;
+
+  it('returns true', () => {
+    expect(personIsCurrentUser(myId, authState)).toEqual(true);
+  });
+
+  it('returns false', () => {
+    expect(personIsCurrentUser(otherId, authState)).toEqual(false);
+  });
+});
+
+describe('isOnboarding', () => {
+  it('returns true', () => {
+    expect(
+      isOnboarding({ currentlyOnboarding: true } as OnboardingState),
+    ).toEqual(true);
+  });
+
+  it('returns false', () => {
+    expect(
+      isOnboarding({ currentlyOnboarding: false } as OnboardingState),
+    ).toEqual(false);
   });
 });
 
@@ -155,121 +295,151 @@ describe('orgIsGlobal', () => {
 
 describe('hasOrgPermissions', () => {
   it('should return true for admins', () => {
-    expect(hasOrgPermissions({ permission_id: 1 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: ORG_PERMISSIONS.ADMIN })).toEqual(
+      true,
+    );
   });
   it('should return true for owners', () => {
-    expect(hasOrgPermissions({ permission_id: 3 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: ORG_PERMISSIONS.OWNER })).toEqual(
+      true,
+    );
   });
   it('should return true for users', () => {
-    expect(hasOrgPermissions({ permission_id: 4 })).toEqual(true);
+    expect(hasOrgPermissions({ permission_id: ORG_PERMISSIONS.USER })).toEqual(
+      true,
+    );
   });
   it('should return false for contacts', () => {
-    expect(hasOrgPermissions({ permission_id: 2 })).toEqual(false);
+    expect(
+      hasOrgPermissions({ permission_id: ORG_PERMISSIONS.CONTACT }),
+    ).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
     expect(hasOrgPermissions(null)).toEqual(false);
   });
   it('should return true for admins | permission', () => {
-    expect(hasOrgPermissions({ permission: 'admin' })).toEqual(true);
+    expect(hasOrgPermissions({ permission: PermissionEnum.admin })).toEqual(
+      true,
+    );
   });
   it('should return true for owners | permission', () => {
-    expect(hasOrgPermissions({ permission: 'owner' })).toEqual(true);
+    expect(hasOrgPermissions({ permission: PermissionEnum.owner })).toEqual(
+      true,
+    );
   });
   it('should return true for users | permission', () => {
-    expect(hasOrgPermissions({ permission: 'user' })).toEqual(true);
+    expect(hasOrgPermissions({ permission: PermissionEnum.user })).toEqual(
+      true,
+    );
   });
   it('should return false for no_permission | permission', () => {
-    expect(hasOrgPermissions({ permission: 'no_permissions' })).toEqual(false);
+    expect(
+      hasOrgPermissions({ permission: PermissionEnum.no_permissions }),
+    ).toEqual(false);
   });
 });
 
 describe('isAdminOrOwner', () => {
   it('should return true for admins', () => {
-    expect(isAdminOrOwner({ permission_id: 1 })).toEqual(true);
+    expect(isAdminOrOwner({ permission_id: ORG_PERMISSIONS.ADMIN })).toEqual(
+      true,
+    );
   });
   it('should return true for owners', () => {
-    expect(isAdminOrOwner({ permission_id: 3 })).toEqual(true);
+    expect(isAdminOrOwner({ permission_id: ORG_PERMISSIONS.OWNER })).toEqual(
+      true,
+    );
   });
   it('should return false for users', () => {
-    expect(isAdminOrOwner({ permission_id: 4 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: ORG_PERMISSIONS.USER })).toEqual(
+      false,
+    );
   });
   it('should return false for contacts', () => {
-    expect(isAdminOrOwner({ permission_id: 2 })).toEqual(false);
+    expect(isAdminOrOwner({ permission_id: ORG_PERMISSIONS.CONTACT })).toEqual(
+      false,
+    );
   });
   it('should return false if there is no org permission', () => {
     expect(isAdminOrOwner(null)).toEqual(false);
   });
   it('should return true for admins | permission', () => {
-    expect(isAdminOrOwner({ permission: 'admin' })).toEqual(true);
+    expect(isAdminOrOwner({ permission: PermissionEnum.admin })).toEqual(true);
   });
   it('should return true for owners | permission', () => {
-    expect(isAdminOrOwner({ permission: 'owner' })).toEqual(true);
+    expect(isAdminOrOwner({ permission: PermissionEnum.owner })).toEqual(true);
   });
   it('should return false for users | permission', () => {
-    expect(isAdminOrOwner({ permission: 'user' })).toEqual(false);
+    expect(isAdminOrOwner({ permission: PermissionEnum.user })).toEqual(false);
   });
   it('should return false for no_permission | permission', () => {
-    expect(isAdminOrOwner({ permission: 'no_permissions' })).toEqual(false);
+    expect(
+      isAdminOrOwner({ permission: PermissionEnum.no_permissions }),
+    ).toEqual(false);
   });
 });
 
 describe('isOwner', () => {
   it('should return false for admins', () => {
-    expect(isOwner({ permission_id: 1 })).toEqual(false);
+    expect(isOwner({ permission_id: ORG_PERMISSIONS.ADMIN })).toEqual(false);
   });
   it('should return true for owners', () => {
-    expect(isOwner({ permission_id: 3 })).toEqual(true);
+    expect(isOwner({ permission_id: ORG_PERMISSIONS.OWNER })).toEqual(true);
   });
   it('should return false for users', () => {
-    expect(isOwner({ permission_id: 4 })).toEqual(false);
+    expect(isOwner({ permission_id: ORG_PERMISSIONS.USER })).toEqual(false);
   });
   it('should return false for contacts', () => {
-    expect(isOwner({ permission_id: 2 })).toEqual(false);
+    expect(isOwner({ permission_id: ORG_PERMISSIONS.CONTACT })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
     expect(isOwner(null)).toEqual(false);
   });
   it('should return false for admins | permission', () => {
-    expect(isOwner({ permission: 'admin' })).toEqual(false);
+    expect(isOwner({ permission: PermissionEnum.admin })).toEqual(false);
   });
   it('should return true for owners | permission', () => {
-    expect(isOwner({ permission: 'owner' })).toEqual(true);
+    expect(isOwner({ permission: PermissionEnum.owner })).toEqual(true);
   });
   it('should return false for users | permission', () => {
-    expect(isOwner({ permission: 'user' })).toEqual(false);
+    expect(isOwner({ permission: PermissionEnum.user })).toEqual(false);
   });
   it('should return false for no_permission | permission', () => {
-    expect(isOwner({ permission: 'no_permission' })).toEqual(false);
+    expect(isOwner({ permission: PermissionEnum.no_permissions })).toEqual(
+      false,
+    );
   });
 });
 
 describe('isAdmin', () => {
   it('should return true for admins', () => {
-    expect(isAdmin({ permission_id: 1 })).toEqual(true);
+    expect(isAdmin({ permission_id: ORG_PERMISSIONS.ADMIN })).toEqual(true);
   });
   it('should return false for owners', () => {
-    expect(isAdmin({ permission_id: 3 })).toEqual(false);
+    expect(isAdmin({ permission_id: ORG_PERMISSIONS.OWNER })).toEqual(false);
   });
   it('should return false for users', () => {
-    expect(isAdmin({ permission_id: 4 })).toEqual(false);
+    expect(isAdmin({ permission_id: ORG_PERMISSIONS.USER })).toEqual(false);
   });
   it('should return false for contacts', () => {
-    expect(isAdmin({ permission_id: 2 })).toEqual(false);
+    expect(isAdmin({ permission_id: ORG_PERMISSIONS.CONTACT })).toEqual(false);
   });
   it('should return false if there is no org permission', () => {
     expect(isAdmin(null)).toEqual(false);
   });
   it('should return true for admins | permission', () => {
-    expect(isAdmin({ permission: 'admin' })).toEqual(true);
+    expect(isAdmin({ permission: PermissionEnum.admin })).toEqual(true);
   });
   it('should return false for owners | permission', () => {
-    expect(isAdmin({ permission: 'owners' })).toEqual(false);
+    expect(isAdmin({ permission: PermissionEnum.owner })).toEqual(false);
   });
   it('should return false for users | permission', () => {
-    expect(isAdmin({ permission: 'user' })).toEqual(false);
+    expect(isAdmin({ permission: PermissionEnum.user })).toEqual(false);
   });
   it('should return false for no_permissions | permission', () => {
-    expect(isAdmin({ permission: 'no_permissions' })).toEqual(false);
+    expect(isAdmin({ permission: PermissionEnum.no_permissions })).toEqual(
+      false,
+    );
   });
 });
 

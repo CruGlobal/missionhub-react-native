@@ -44,9 +44,9 @@ export const initialAnalyticsState = {
   [ANALYTICS_MINISTRY_MODE]: false,
 };
 
-interface AnalyticsContextChangedAction {
+export interface AnalyticsContextChangedAction {
   type: typeof ANALYTICS_CONTEXT_CHANGED;
-  analyticsContext: Partial<AnalyticsAction>;
+  analyticsContext: Partial<AnalyticsState>;
 }
 
 interface KeyLoginSuccessAction {

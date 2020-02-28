@@ -20,7 +20,7 @@ interface UseAnalyticsParams {
 export const useAnalytics = ({
   screenName,
   screenType = ANALYTICS_SCREEN_TYPES.screen,
-  screenContext = {},
+  screenContext,
 }: UseAnalyticsParams) => {
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
@@ -30,7 +30,7 @@ export const useAnalytics = ({
 
   const handleScreenChange = (
     name: string | string[],
-    context: Partial<ScreenContext>,
+    context?: Partial<ScreenContext>,
   ) => {
     dispatch(trackScreenChange(name, context));
   };

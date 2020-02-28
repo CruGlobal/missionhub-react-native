@@ -23,7 +23,7 @@ export interface OnboardingState {
   skippedAddingPerson: boolean;
 }
 
-const initialState: OnboardingState = {
+export const initialState: OnboardingState = {
   currentlyOnboarding: false,
   personId: '',
   community: null,

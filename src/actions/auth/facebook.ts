@@ -1,7 +1,10 @@
 // @ts-ignore
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
-import { ANALYTICS, FACEBOOK_CANCELED_ERROR } from '../../constants';
+import {
+  FACEBOOK_CANCELED_ERROR,
+  ANALYTICS_FACEBOOK_ID,
+} from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { updateAnalyticsContext } from '../analytics';
@@ -53,7 +56,7 @@ function facebookLoginAction(accessToken, facebookId) {
         loginWithFacebookAccessToken(accessToken),
       ),
     );
-    dispatch(updateAnalyticsContext({ [ANALYTICS.FACEBOOK_ID]: facebookId }));
+    dispatch(updateAnalyticsContext({ [ANALYTICS_FACEBOOK_ID]: facebookId }));
   };
 }
 
