@@ -53,8 +53,6 @@ const navigateBackResponse = { type: 'navigate back' };
 const navigateToCommunityResponse = { type: 'navigate to community' };
 const showReminderResponse = { type: 'show notification prompt' };
 const trackActionWithoutDataResult = { type: 'track action' };
-const setAppContextResult = { type: 'set app context' };
-const resetAppContextResult = { type: 'reset app context' };
 
 beforeEach(() => {
   store.clearActions();

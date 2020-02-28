@@ -19,7 +19,7 @@ const MFACodeScreen = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: () => ThunkAction<void, any, null, never>;
 }) => {
-  useAnalytics(['sign in', 'verification']);
+  useAnalytics({ screenName: ['sign in', 'verification'] });
   const { t } = useTranslation('mfaLogin');
   const email: string = useNavigationParam('email');
   const password: string = useNavigationParam('password');

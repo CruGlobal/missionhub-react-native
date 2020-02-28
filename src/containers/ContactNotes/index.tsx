@@ -30,7 +30,7 @@ const ContactNotes = ({
   myPersonId,
   myUserId,
 }: ContactNotesProps) => {
-  useAnalytics(['person', 'my notes']);
+  useAnalytics({ screenName: ['person', 'my notes'] });
   const { t } = useTranslation('notes');
   const [text, setText] = useState<string | undefined>(undefined);
   const [editing, setEditing] = useState(false);

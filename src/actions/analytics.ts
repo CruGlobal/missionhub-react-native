@@ -223,7 +223,7 @@ export function logInAnalytics() {
     const updatedContext = {
       ...context,
       [ANALYTICS_LOGGED_IN_STATUS]: LOGGED_IN,
-    };
+    } as AnalyticsState;
 
     return dispatch(updateAnalyticsContext(updatedContext));
   };

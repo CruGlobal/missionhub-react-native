@@ -34,7 +34,9 @@ describe('contact notes', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
+    expect(useAnalytics).toHaveBeenCalledWith({
+      screenName: ['person', 'my notes'],
+    });
   });
 
   it('icon and prompt are shown if no notes as me', () => {
@@ -42,7 +44,9 @@ describe('contact notes', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
+    expect(useAnalytics).toHaveBeenCalledWith({
+      screenName: ['person', 'my notes'],
+    });
   });
 
   it('notes are shown', async () => {
@@ -54,7 +58,9 @@ describe('contact notes', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
+    expect(useAnalytics).toHaveBeenCalledWith({
+      screenName: ['person', 'my notes'],
+    });
     expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
   });
 

@@ -120,10 +120,10 @@ it('renders empty correctly', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    'people',
-    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-  );
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: 'people',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
@@ -132,10 +132,10 @@ it('renders correctly as Casey', () => {
     <PeopleScreen {...props} isJean={false} items={people} />,
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    'people',
-    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-  );
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: 'people',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
@@ -144,10 +144,10 @@ it('renders correctly as Jean', () => {
     <PeopleScreen {...props} isJean={true} items={orgs} />,
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    'people',
-    ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-  );
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: 'people',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 

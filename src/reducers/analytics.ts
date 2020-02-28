@@ -35,8 +35,8 @@ export interface AnalyticsState {
 export const initialAnalyticsState = {
   [ANALYTICS_MCID]: '',
   [ANALYTICS_PREVIOUS_SCREEN_NAME]: '',
-  [ANALYTICS_APP_NAME]: 'MissionHub App' as TrackStateContext[typeof ANALYTICS_APP_NAME],
-  [ANALYTICS_LOGGED_IN_STATUS]: 'NOT_LOGGED_IN' as TrackStateContext[typeof ANALYTICS_LOGGED_IN_STATUS],
+  [ANALYTICS_APP_NAME]: 'MissionHub App',
+  [ANALYTICS_LOGGED_IN_STATUS]: 'NOT_LOGGED_IN',
   [ANALYTICS_SSO_GUID]: '',
   [ANALYTICS_GR_MASTER_PERSON_ID]: '',
   [ANALYTICS_FACEBOOK_ID]: '',

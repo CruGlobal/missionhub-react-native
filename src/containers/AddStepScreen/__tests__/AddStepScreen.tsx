@@ -74,7 +74,9 @@ it('renders create step correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['custom step', 'add'],
+  });
 });
 
 it('renders edit journey step correctly', () => {
@@ -83,7 +85,9 @@ it('renders edit journey step correctly', () => {
     navParams: editJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['our journey', 'edit'],
+  });
 });
 
 it('renders edit journey step for me correctly', () => {
@@ -92,7 +96,9 @@ it('renders edit journey step for me correctly', () => {
     navParams: editMyJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['my journey', 'edit'],
+  });
 });
 
 it('renders edit journey item correctly', () => {
@@ -101,7 +107,9 @@ it('renders edit journey item correctly', () => {
     navParams: editJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['our journey', 'edit'],
+  });
 });
 
 it('renders edit journey item for me correctly', () => {
@@ -110,7 +118,9 @@ it('renders edit journey item for me correctly', () => {
     navParams: editMyJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['my journey', 'edit'],
+  });
 });
 
 it('renders step note correctly', () => {
@@ -119,7 +129,9 @@ it('renders step note correctly', () => {
     navParams: stepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['step note', 'add'],
+  });
 });
 
 it('renders step note correctly for me', () => {
@@ -128,7 +140,9 @@ it('renders step note correctly for me', () => {
     navParams: myStepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['step note', 'add'],
+  });
 });
 
 it('updates text', () => {

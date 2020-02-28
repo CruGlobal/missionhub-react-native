@@ -32,7 +32,7 @@ it('renders correctly', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({ screenName: ['story', 'edit'] });
 });
 
 it('renders empty text correctly', () => {
@@ -43,7 +43,7 @@ it('renders empty text correctly', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({ screenName: ['story', 'edit'] });
 });
 
 describe('saveStory', () => {

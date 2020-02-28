@@ -12,5 +12,5 @@ it('renders and calls useAnalytics hook', () => {
 
   renderWithContext(<Analytics screenName={screenName} />).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(screenName);
+  expect(useAnalytics).toHaveBeenCalledWith({ screenName });
 });

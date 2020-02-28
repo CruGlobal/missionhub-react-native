@@ -110,7 +110,9 @@ it('renders correctly when no steps', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -123,7 +125,9 @@ it('renders correctly when me and no steps', () => {
   );
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+  });
   expect(getContactSteps).toHaveBeenCalledWith(mePerson.id, undefined);
   expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
@@ -136,7 +140,9 @@ it('renders correctly with steps', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -152,7 +158,9 @@ it('renders correctly with completed steps', () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -164,7 +172,9 @@ it('renders correctly with org', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
 });
 

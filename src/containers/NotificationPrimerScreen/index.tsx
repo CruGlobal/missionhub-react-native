@@ -28,7 +28,7 @@ interface NotificationPrimerScreenProps {
 const NotificationPrimerScreen = ({
   dispatch,
 }: NotificationPrimerScreenProps) => {
-  useAnalytics('allow notifications');
+  useAnalytics({ screenName: 'allow notifications' });
   const { t } = useTranslation('notificationPrimer');
 
   const onComplete: (

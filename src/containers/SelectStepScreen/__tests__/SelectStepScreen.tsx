@@ -62,7 +62,7 @@ describe('without enableSkipButton', () => {
   it('renders correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step');
+    expect(useAnalytics).toHaveBeenCalledWith({ screenName: 'add step' });
   });
 });
 
@@ -74,7 +74,7 @@ describe('with enableSkipButton', () => {
   it('renders correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step');
+    expect(useAnalytics).toHaveBeenCalledWith({ screenName: 'add step' });
   });
 });
 

@@ -47,7 +47,9 @@ describe('notificationTypes', () => {
       },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('allow notifications');
+    expect(useAnalytics).toHaveBeenCalledWith({
+      screenName: 'allow notifications',
+    });
   };
 
   it('renders for ONBOARDING', () => {

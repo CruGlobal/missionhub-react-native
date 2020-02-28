@@ -42,7 +42,7 @@ interface SelectStepScreenProps {
 
 const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  useAnalytics('add step');
+  useAnalytics({ screenName: 'add step' });
   const dispatch = useDispatch();
 
   const personId: string = useNavigationParam('personId');

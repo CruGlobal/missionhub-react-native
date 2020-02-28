@@ -42,7 +42,10 @@ interface StepsScreenProps {
 
 const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const { t } = useTranslation('stepsTab');
-  useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics({
+    screenName: 'steps',
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
 
   const {

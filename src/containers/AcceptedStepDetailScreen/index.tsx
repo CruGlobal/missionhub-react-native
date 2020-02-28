@@ -32,7 +32,7 @@ const AcceptedStepDetailScreen = ({
   dispatch,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
-  useAnalytics(['step detail', 'active step']);
+  useAnalytics({ screenName: ['step detail', 'active step'] });
   const { data: { step } = { step: undefined }, error, refetch } = useQuery<
     AcceptedStepDetail,
     AcceptedStepDetailVariables

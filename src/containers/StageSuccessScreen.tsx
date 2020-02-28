@@ -32,7 +32,7 @@ const StageSuccessScreen = ({
   firstName,
   stage,
 }: StageSuccessScreenProps) => {
-  useAnalytics(['onboarding', 'stage confirmation']);
+  useAnalytics({ screenName: ['onboarding', 'stage confirmation'] });
   const { t } = useTranslation('stageSuccess');
 
   const handleNavigateToStep = () => dispatch(next());

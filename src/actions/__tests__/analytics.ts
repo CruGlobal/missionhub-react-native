@@ -61,7 +61,7 @@ beforeEach(() => {
     [ANALYTICS_MCID]: mcId,
     [ANALYTICS_SSO_GUID]: ssoGuid,
     [ANALYTICS_GR_MASTER_PERSON_ID]: grMasterPersonId,
-  };
+  } as AnalyticsState;
   screenContext = {
     [ANALYTICS_ASSIGNMENT_TYPE]: '',
     [ANALYTICS_EDIT_MODE]: '',

@@ -40,7 +40,7 @@ it('renders correctly', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['story', 'share']);
+  expect(useAnalytics).toHaveBeenCalledWith({ screenName: ['story', 'share'] });
 });
 
 it('should find the saveStoryButton', () => {

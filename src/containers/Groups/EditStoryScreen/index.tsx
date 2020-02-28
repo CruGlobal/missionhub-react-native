@@ -35,7 +35,7 @@ interface EditStoryProps {
 }
 
 const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
-  useAnalytics(['story', 'edit']);
+  useAnalytics({ screenName: ['story', 'edit'] });
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
