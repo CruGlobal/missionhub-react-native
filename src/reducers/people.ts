@@ -1,6 +1,5 @@
 /* eslint complexity: 0 */
 
-import { REQUESTS } from '../api/routes';
 import {
   DELETE_PERSON,
   LOGOUT,
@@ -67,8 +66,6 @@ export default function peopleReducer(state = initialState, action: any) {
       };
     case GET_ORGANIZATION_PEOPLE:
       return loadPeople(state, action);
-    case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      return loadContactsFromSteps(state, action);
     case LOGOUT:
       return initialState;
     case PEOPLE_WITH_ORG_SECTIONS:
@@ -101,40 +98,6 @@ function loadPeople(state: PeopleState, action: any) {
         people: allPeople,
       },
     },
-  };
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function loadContactsFromSteps(state: PeopleState, action: any) {
-  const { response } = action.results;
-
-  const { allByOrg } = state;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  response.forEach((s: any) => {
-    if (!s) {
-      return;
-    }
-    const orgId = (s.organization && s.organization.id) || 'personal';
-    const receiver = s.receiver;
-    if (!receiver) {
-      return;
-    }
-
-    if (!allByOrg[orgId]) {
-      allByOrg[orgId] = { people: {} };
-    }
-
-    const existingContact = allByOrg[orgId].people[receiver.id] || {};
-
-    allByOrg[orgId].people[receiver.id] = {
-      ...existingContact,
-      ...receiver,
-    };
-  });
-
-  return {
-    ...state,
-    allByOrg,
   };
 }
 

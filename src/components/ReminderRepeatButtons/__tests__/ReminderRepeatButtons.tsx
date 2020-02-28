@@ -1,11 +1,9 @@
 import React from 'react';
 
 import { renderShallow } from '../../../../testUtils';
-import { REMINDER_RECURRENCES } from '../../../constants';
+import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 
 import ReminderRepeatButtons from '..';
-
-const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 const onRecurrenceChange = jest.fn();
 
@@ -37,7 +35,7 @@ describe('none selected', () => {
 
     it('calls onRecurrenceChange with DAILY', () => {
       expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
-      expect(onRecurrenceChange).toHaveBeenCalledWith(DAILY);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(ReminderTypeEnum.daily);
     });
   });
 });
@@ -47,7 +45,7 @@ describe('starts with weekly selected', () => {
     onRecurrenceChange.mockClear();
     component = renderShallow(
       <ReminderRepeatButtons
-        recurrence={WEEKLY}
+        recurrence={ReminderTypeEnum.weekly}
         onRecurrenceChange={onRecurrenceChange}
       />,
     );
@@ -68,7 +66,7 @@ describe('starts with weekly selected', () => {
 
     it('calls onRecurrenceChange with ONCE', () => {
       expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
-      expect(onRecurrenceChange).toHaveBeenCalledWith(ONCE);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(ReminderTypeEnum.once);
     });
   });
 
@@ -83,7 +81,7 @@ describe('starts with weekly selected', () => {
 
     it('calls onRecurrenceChange with MONTHLY', () => {
       expect(onRecurrenceChange).toHaveBeenCalledTimes(1);
-      expect(onRecurrenceChange).toHaveBeenCalledWith(MONTHLY);
+      expect(onRecurrenceChange).toHaveBeenCalledWith(ReminderTypeEnum.monthly);
     });
   });
 });
@@ -93,7 +91,7 @@ describe('starts with daily selected', () => {
     onRecurrenceChange.mockClear();
     component = renderShallow(
       <ReminderRepeatButtons
-        recurrence={DAILY}
+        recurrence={ReminderTypeEnum.daily}
         onRecurrenceChange={onRecurrenceChange}
       />,
     );
@@ -109,7 +107,7 @@ describe('starts with monthly selected', () => {
     onRecurrenceChange.mockClear();
     component = renderShallow(
       <ReminderRepeatButtons
-        recurrence={MONTHLY}
+        recurrence={ReminderTypeEnum.monthly}
         onRecurrenceChange={onRecurrenceChange}
       />,
     );

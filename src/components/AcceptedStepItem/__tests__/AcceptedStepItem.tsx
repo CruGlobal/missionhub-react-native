@@ -74,7 +74,7 @@ describe('AcceptedStepItem', () => {
     fireEvent.press(getByTestId('AcceptedCardButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
-      step,
+      stepId,
     });
   });
 

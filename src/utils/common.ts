@@ -1,6 +1,7 @@
 /* eslint max-lines: 0, max-params: 0 */
 
-import moment from 'moment';
+// eslint-disable-next-line import/named
+import moment, { MomentInput } from 'moment';
 import {
   ToastAndroid,
   BackHandler,
@@ -176,10 +177,9 @@ export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type).filter(element => !element._placeHolder);
 
 // Pull dates out of UTC format into a moment object
-// @ts-ignore
-export const momentUtc = time => moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
-// @ts-ignore
-export const formatApiDate = date =>
+export const momentUtc = (time: MomentInput) =>
+  moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
+export const formatApiDate = (date: MomentInput) =>
   moment(date)
     .utc()
     .format();
