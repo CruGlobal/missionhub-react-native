@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { trackScreenChange } from '../../actions/analytics';
+import { trackScreenChange, ScreenContext } from '../../actions/analytics';
 import { DrawerState } from '../../reducers/drawer';
 
 export enum ANALYTICS_SCREEN_TYPES {
@@ -11,24 +11,34 @@ export enum ANALYTICS_SCREEN_TYPES {
   drawer,
 }
 
-export const useAnalytics = (
-  screenName: string | string[],
+interface UseAnalyticsParams {
+  screenName: string | string[];
+  screenType?: ANALYTICS_SCREEN_TYPES;
+  screenContext?: Partial<ScreenContext>;
+}
+
+export const useAnalytics = ({
+  screenName,
   screenType = ANALYTICS_SCREEN_TYPES.screen,
-) => {
+  screenContext = {},
+}: UseAnalyticsParams) => {
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
   const isDrawerOpen = useSelector(
     ({ drawer }: { drawer: DrawerState }) => drawer.isOpen,
   );
 
-  const handleScreenChange = (name: string | string[]) => {
-    dispatch(trackScreenChange(name));
+  const handleScreenChange = (
+    name: string | string[],
+    context: Partial<ScreenContext>,
+  ) => {
+    dispatch(trackScreenChange(name, context));
   };
 
   //normally screens should only respond to focus events
   useEffect(() => {
     if (isFocused && screenType === ANALYTICS_SCREEN_TYPES.screen) {
-      handleScreenChange(screenName);
+      handleScreenChange(screenName, screenContext);
     }
   }, [isFocused]);
 
@@ -36,12 +46,12 @@ export const useAnalytics = (
   useEffect(() => {
     if (isFocused) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
-        handleScreenChange(screenName);
+        handleScreenChange(screenName, screenContext);
       } else if (
         screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
         !isDrawerOpen
       ) {
-        handleScreenChange(screenName);
+        handleScreenChange(screenName, screenContext);
       }
     }
   }, [isFocused, isDrawerOpen]);
