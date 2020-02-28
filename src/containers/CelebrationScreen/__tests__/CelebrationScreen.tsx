@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
-import { CONTACT_PERSON_SCREEN } from '../../Groups/AssignedPersonScreen';
 
 import CelebrationScreen from '..';
 
@@ -64,18 +63,6 @@ describe('celebration screen methods', () => {
       jest.runAllTimers();
 
       expect(navigateToMainTabs).toHaveBeenCalled();
-    });
-
-    it('runs navigateReset with next screen', () => {
-      // @ts-ignore
-      const { getByTestId } = renderWithContext(<CelebrationScreen />, {
-        navParams: { nextScreen: CONTACT_PERSON_SCREEN },
-      });
-
-      fireEvent(getByTestId('gif'), 'onLoad');
-      jest.runAllTimers();
-
-      expect(navigateReset).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN);
     });
   });
 });

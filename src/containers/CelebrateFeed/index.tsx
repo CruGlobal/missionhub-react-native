@@ -4,6 +4,7 @@ import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
+import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
@@ -17,6 +18,7 @@ import {
 } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
 import {
@@ -52,6 +54,7 @@ const CelebrateFeed = ({
   onFetchMore,
   onClearNotification,
 }: CelebrateFeedProps) => {
+  const { t } = useTranslation('celebrateFeed');
   const isGlobal = orgIsGlobal(organization);
   const queryVariables = {
     communityId: organization.id,
@@ -69,6 +72,7 @@ const CelebrateFeed = ({
       } = {},
     } = {},
     loading,
+    error,
     fetchMore,
     refetch,
   } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
@@ -90,6 +94,7 @@ const CelebrateFeed = ({
       } = {},
     } = {},
     loading: globalLoading,
+    error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
   } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
@@ -200,21 +205,38 @@ const CelebrateFeed = ({
 
   const renderHeader = () => (
     <>
-      <CelebrateFeedHeader isMember={!!person} organization={organization} />
-      {!person ? (
-        <ShareStoryInput
-          dispatch={dispatch}
-          refreshItems={handleRefreshing}
-          organization={organization}
-        />
-      ) : null}
+      <ErrorNotice
+        message={t('errorLoadingCelebrateFeed')}
+        error={error}
+        refetch={refetch}
+      />
+      <ErrorNotice
+        message={t('errorLoadingCelebrateFeed')}
+        error={globalError}
+        refetch={globalRefetch}
+      />
+      {noHeader ? null : (
+        <>
+          <CelebrateFeedHeader
+            isMember={!!person}
+            organization={organization}
+          />
+          {!person ? (
+            <ShareStoryInput
+              dispatch={dispatch}
+              refreshItems={handleRefreshing}
+              organization={organization}
+            />
+          ) : null}
+        </>
+      )}
     </>
   );
 
   return (
     <SectionList
       sections={celebrationItems}
-      ListHeaderComponent={noHeader ? undefined : renderHeader}
+      ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
       keyExtractor={keyExtractorId}

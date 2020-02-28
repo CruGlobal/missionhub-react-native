@@ -9,7 +9,6 @@ import { REQUESTS } from '../../api/routes';
 import {
   completeStep,
   getStepSuggestions,
-  getMyStepsNextPage,
   getContactSteps,
   addStep,
   createCustomStep,
@@ -46,8 +45,6 @@ jest.mock('../impact');
 jest.mock('../celebration');
 jest.mock('../analytics');
 
-const getMyChallengesIncludes =
-  'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder';
 const getChallengesByFilterIncludes = 'receiver,challenge_suggestion,reminder';
 
 beforeEach(() => {
@@ -73,46 +70,6 @@ describe('get step suggestions', () => {
     );
     // @ts-ignore
     expect(store.getActions()).toEqual([apiResult]);
-  });
-});
-
-describe('get steps page', () => {
-  const stepsPageQuery = {
-    order: '-accepted_at',
-    page: { limit: 25, offset: 25 },
-    filters: { completed: false },
-    include: getMyChallengesIncludes,
-  };
-  const apiResult = { type: 'done' };
-
-  it('should filter with page', () => {
-    store = mockStore({
-      steps: { pagination: { page: 1, hasNextPage: true } },
-    });
-    // @ts-ignore
-    callApi.mockReturnValue(apiResult);
-
-    // @ts-ignore
-    store.dispatch(getMyStepsNextPage());
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsPageQuery,
-    );
-    expect(store.getActions()[0]).toEqual(apiResult);
-  });
-
-  it('should not filter, no more pages', async () => {
-    store = mockStore({
-      steps: { pagination: { page: 1, hasNextPage: false } },
-    });
-    // @ts-ignore
-    callApi.mockReturnValue(apiResult);
-
-    // @ts-ignore
-    const result = await store.dispatch(getMyStepsNextPage());
-
-    expect(result).toEqual(undefined);
   });
 });
 
@@ -190,11 +147,6 @@ describe('addStep', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-accepted_at',
-      filters: { completed: false },
-      include: getMyChallengesIncludes,
-    });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: 'personal' },
       include: getChallengesByFilterIncludes,
@@ -204,7 +156,6 @@ describe('addStep', () => {
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
-      callApiResult,
       callApiResult,
     ]);
   });
@@ -245,11 +196,6 @@ describe('addStep', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-accepted_at',
-      filters: { completed: false },
-      include: getMyChallengesIncludes,
-    });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: orgId },
       include: getChallengesByFilterIncludes,
@@ -259,7 +205,6 @@ describe('addStep', () => {
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
-      callApiResult,
       callApiResult,
     ]);
   });
@@ -294,11 +239,6 @@ describe('addStep', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-accepted_at',
-      filters: { completed: false },
-      include: getMyChallengesIncludes,
-    });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: 'personal' },
       include: getChallengesByFilterIncludes,
@@ -308,7 +248,6 @@ describe('addStep', () => {
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
-      callApiResult,
       callApiResult,
     ]);
   });
@@ -360,11 +299,6 @@ describe('create custom step', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-accepted_at',
-      filters: { completed: false },
-      include: getMyChallengesIncludes,
-    });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: 'personal' },
       include: getChallengesByFilterIncludes,
@@ -374,7 +308,6 @@ describe('create custom step', () => {
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
-      callApiResult,
       callApiResult,
     ]);
   });
@@ -409,11 +342,6 @@ describe('create custom step', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-accepted_at',
-      filters: { completed: false },
-      include: getMyChallengesIncludes,
-    });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: myId, organization_ids: 'personal' },
       include: getChallengesByFilterIncludes,
@@ -423,7 +351,6 @@ describe('create custom step', () => {
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
-      callApiResult,
       callApiResult,
     ]);
   });
@@ -464,11 +391,6 @@ describe('create custom step', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_MY_CHALLENGES, {
-      order: '-accepted_at',
-      filters: { completed: false },
-      include: getMyChallengesIncludes,
-    });
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
       filters: { receiver_ids: receiverId, organization_ids: orgId },
       include: getChallengesByFilterIncludes,
@@ -478,7 +400,6 @@ describe('create custom step', () => {
     expect(store.getActions()).toEqual([
       callApiResult,
       stepAddedResult,
-      callApiResult,
       callApiResult,
     ]);
   });
@@ -494,11 +415,6 @@ describe('complete challenge', () => {
   };
 
   const challengeCompleteQuery = { challenge_id: stepId };
-  const stepsQuery = {
-    order: '-accepted_at',
-    filters: { completed: false },
-    include: getMyChallengesIncludes,
-  };
   const data = {
     data: {
       type: ACCEPTED_STEP,
@@ -556,10 +472,6 @@ describe('complete challenge', () => {
       data,
     );
     expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsQuery,
-    );
-    expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_CHALLENGES_BY_FILTER,
       expect.objectContaining({
         filters: expect.objectContaining({
@@ -568,7 +480,9 @@ describe('complete challenge', () => {
         }),
       }),
     );
-    expect(trackAction).toHaveBeenCalledWith(
+    expect(
+      trackAction,
+    ).toHaveBeenCalledWith(
       `${ACTIONS.STEP_COMPLETED.name} on ${screen} Screen`,
       { [ACTIONS.STEP_COMPLETED.key]: null },
     );
@@ -597,10 +511,6 @@ describe('complete challenge', () => {
     const noOrgStep = { ...step, organization: undefined };
     // @ts-ignore
     await store.dispatch(completeStep(noOrgStep, screen));
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_MY_CHALLENGES,
-      stepsQuery,
-    );
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.GET_CHALLENGES_BY_FILTER,
       expect.objectContaining({
@@ -664,7 +574,9 @@ describe('deleteStepWithTracking', () => {
     expect(store.getActions()).toEqual([trackActionResult]);
     expect(trackAction).toHaveBeenCalledWith(
       `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
-      { [ACTIONS.STEP_REMOVED.key]: null },
+      {
+        [ACTIONS.STEP_REMOVED.key]: null,
+      },
     );
   });
 });

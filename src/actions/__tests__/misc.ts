@@ -18,7 +18,7 @@ import {
 import { getContactSteps } from '../steps';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
-import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen/constants';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,

@@ -972,52 +972,51 @@ exports[`renders screen with steps correctly 1`] = `
     <RCTScrollView
       ListFooterComponent={null}
       contentContainerStyle={
-        Array [
-          Object {
-            "paddingVertical": 8,
-          },
-          Object {
-            "paddingBottom": 40,
-          },
-        ]
+        Object {
+          "paddingVertical": 8,
+        }
       }
       data={
         Array [
           Object {
-            "id": 0,
-            "organization": Object {
-              "id": "000",
+            "__typename": "Step",
+            "community": Object {
+              "__typename": "Community",
+              "id": "3",
             },
+            "id": "1",
             "receiver": Object {
-              "id": "00",
+              "__typename": "Person",
+              "fullName": "Kali Stamm",
+              "id": "2",
             },
+            "reminder": Object {
+              "__typename": "StepReminder",
+              "id": "4",
+              "nextOccurrenceAt": "2014-10-17T09:34:50.933Z",
+              "reminderType": "once",
+            },
+            "title": "Repellat quisquam recusandae alias consequuntur corporis.",
           },
           Object {
-            "id": 1,
-            "organization": Object {
-              "id": "111",
+            "__typename": "Step",
+            "community": Object {
+              "__typename": "Community",
+              "id": "7",
             },
+            "id": "5",
             "receiver": Object {
-              "id": "11",
+              "__typename": "Person",
+              "fullName": "Connor Kihn",
+              "id": "6",
             },
-          },
-          Object {
-            "id": 2,
-            "organization": Object {
-              "id": "222",
+            "reminder": Object {
+              "__typename": "StepReminder",
+              "id": "8",
+              "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
+              "reminderType": "once",
             },
-            "receiver": Object {
-              "id": "22",
-            },
-          },
-          Object {
-            "id": 3,
-            "organization": Object {
-              "id": "333",
-            },
-            "receiver": Object {
-              "id": "33",
-            },
+            "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
           },
         ]
       }
@@ -1030,7 +1029,8 @@ exports[`renders screen with steps correctly 1`] = `
       maxToRenderPerBatch={10}
       numColumns={1}
       onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0.25}
       onLayout={[Function]}
       onMomentumScrollEnd={[Function]}
       onRefresh={[Function]}
@@ -1046,7 +1046,7 @@ exports[`renders screen with steps correctly 1`] = `
       refreshing={false}
       removeClippedSubviews={false}
       renderItem={[Function]}
-      scrollEventThrottle={16}
+      scrollEventThrottle={50}
       showsVerticalScrollIndicator={false}
       stickyHeaderIndices={Array []}
       testID="stepsList"
@@ -1065,16 +1065,27 @@ exports[`renders screen with steps correctly 1`] = `
             onSelect={[Function]}
             step={
               Object {
-                "id": 0,
-                "organization": Object {
-                  "id": "000",
+                "__typename": "Step",
+                "community": Object {
+                  "__typename": "Community",
+                  "id": "3",
                 },
+                "id": "1",
                 "receiver": Object {
-                  "id": "00",
+                  "__typename": "Person",
+                  "fullName": "Kali Stamm",
+                  "id": "2",
                 },
+                "reminder": Object {
+                  "__typename": "StepReminder",
+                  "id": "4",
+                  "nextOccurrenceAt": "2014-10-17T09:34:50.933Z",
+                  "reminderType": "once",
+                },
+                "title": "Repellat quisquam recusandae alias consequuntur corporis.",
               }
             }
-            testID="stepItem0"
+            testID="stepItem"
           />
         </View>
         <View
@@ -1086,62 +1097,170 @@ exports[`renders screen with steps correctly 1`] = `
             onSelect={[Function]}
             step={
               Object {
-                "id": 1,
-                "organization": Object {
-                  "id": "111",
+                "__typename": "Step",
+                "community": Object {
+                  "__typename": "Community",
+                  "id": "7",
                 },
+                "id": "5",
                 "receiver": Object {
-                  "id": "11",
+                  "__typename": "Person",
+                  "fullName": "Connor Kihn",
+                  "id": "6",
                 },
+                "reminder": Object {
+                  "__typename": "StepReminder",
+                  "id": "8",
+                  "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
+                  "reminderType": "once",
+                },
+                "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
               }
             }
-            testID="stepItem1"
-          />
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <StepItem
-            onPressName={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 2,
-                "organization": Object {
-                  "id": "222",
-                },
-                "receiver": Object {
-                  "id": "22",
-                },
-              }
-            }
-            testID="stepItem2"
-          />
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <StepItem
-            onPressName={[Function]}
-            onSelect={[Function]}
-            step={
-              Object {
-                "id": 3,
-                "organization": Object {
-                  "id": "333",
-                },
-                "receiver": Object {
-                  "id": "33",
-                },
-              }
-            }
-            testID="stepItem3"
+            testID="stepItem"
           />
         </View>
       </View>
     </RCTScrollView>
   </View>
 </View>
+`;
+
+exports[`stepsList onEndReached should paginate when the end of the scroll list is reached 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -420,10 +420,50 @@
+                \\"nextOccurrenceAt\\": \\"2014-09-11T09:20:29.756Z\\",
+                \\"reminderType\\": \\"once\\",
+              },
+              \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
+            },
++           Object {
++             \\"__typename\\": \\"Step\\",
++             \\"community\\": Object {
++               \\"__typename\\": \\"Community\\",
++               \\"id\\": \\"11\\",
++             },
++             \\"id\\": \\"9\\",
++             \\"receiver\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"fullName\\": \\"Samantha Tremblay\\",
++               \\"id\\": \\"10\\",
++             },
++             \\"reminder\\": Object {
++               \\"__typename\\": \\"StepReminder\\",
++               \\"id\\": \\"12\\",
++               \\"nextOccurrenceAt\\": \\"2019-08-24T10:48:02.286Z\\",
++               \\"reminderType\\": \\"once\\",
++             },
++             \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
++           },
++           Object {
++             \\"__typename\\": \\"Step\\",
++             \\"community\\": Object {
++               \\"__typename\\": \\"Community\\",
++               \\"id\\": \\"15\\",
++             },
++             \\"id\\": \\"13\\",
++             \\"receiver\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"fullName\\": \\"Dorcas Dach\\",
++               \\"id\\": \\"14\\",
++             },
++             \\"reminder\\": Object {
++               \\"__typename\\": \\"StepReminder\\",
++               \\"id\\": \\"16\\",
++               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++               \\"reminderType\\": \\"once\\",
++             },
++             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
++           },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function anonymous]}
+        getItemCount={[Function anonymous]}
+@@ -522,9 +562,80 @@
+                }
+              }
+              testID=\\"stepItem\\"
+            />
+          </View>
++         <View
++           onLayout={[Function onLayout]}
++           style={null}
++         >
++           <StepItem
++             onPressName={[Function handleNavToPerson]}
++             onSelect={[Function handleRowSelect]}
++             step={
++               Object {
++                 \\"__typename\\": \\"Step\\",
++                 \\"community\\": Object {
++                   \\"__typename\\": \\"Community\\",
++                   \\"id\\": \\"11\\",
++                 },
++                 \\"id\\": \\"9\\",
++                 \\"receiver\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Samantha Tremblay\\",
++                   \\"id\\": \\"10\\",
++                 },
++                 \\"reminder\\": Object {
++                   \\"__typename\\": \\"StepReminder\\",
++                   \\"id\\": \\"12\\",
++                   \\"nextOccurrenceAt\\": \\"2019-08-24T10:48:02.286Z\\",
++                   \\"reminderType\\": \\"once\\",
++                 },
++                 \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
++               }
++             }
++             testID=\\"stepItem\\"
++           />
++         </View>
++         <View
++           onLayout={[Function onLayout]}
++           style={null}
++         >
++           <StepItem
++             onPressName={[Function handleNavToPerson]}
++             onSelect={[Function handleRowSelect]}
++             step={
++               Object {
++                 \\"__typename\\": \\"Step\\",
++                 \\"community\\": Object {
++                   \\"__typename\\": \\"Community\\",
++                   \\"id\\": \\"15\\",
++                 },
++                 \\"id\\": \\"13\\",
++                 \\"receiver\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Dorcas Dach\\",
++                   \\"id\\": \\"14\\",
++                 },
++                 \\"reminder\\": Object {
++                   \\"__typename\\": \\"StepReminder\\",
++                   \\"id\\": \\"16\\",
++                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++                   \\"reminderType\\": \\"once\\",
++                 },
++                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
++               }
++             }
++             testID=\\"stepItem\\"
++           />
++         </View>
++         <View
++           style={
++             Object {
++               \\"height\\": 0,
++             }
++           }
++         />
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>"
 `;
