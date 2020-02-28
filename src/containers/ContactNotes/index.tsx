@@ -136,7 +136,7 @@ const ContactNotes = ({
 
 const mapStateToProps = (
   { auth }: { auth: AuthState },
-  { person, organization }: { person: Person; organization: Organization },
+  { person, organization }: { person: Person; organization?: Organization },
 ) => {
   const orgPermission = orgPermissionSelector({}, { person, organization });
 

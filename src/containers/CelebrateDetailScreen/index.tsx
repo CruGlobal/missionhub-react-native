@@ -25,7 +25,6 @@ import {
   ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
-import Analytics from '../Analytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
@@ -41,6 +40,7 @@ import {
 import { orgPermissionSelector } from '../../selectors/people';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -62,6 +62,13 @@ const CelebrateDetailScreen = ({
   analyticsAssignmentType,
   analyticsPermissionType,
 }: CelebrateDetailScreenProps) => {
+  useAnalytics({
+    screenName: ['celebrate item', 'comments'],
+    screenContext: {
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+    },
+  });
   const client = useApolloClient();
   const navParamsEvent: CelebrateItem = useNavigationParam('event');
   const event =
@@ -167,13 +174,6 @@ const CelebrateDetailScreen = ({
 
   return (
     <View style={styles.pageContainer}>
-      <Analytics
-        screenName={['celebrate item', 'comments']}
-        screenContext={{
-          [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-          [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-        }}
-      />
       {renderHeader()}
       {renderCommentsList()}
       {renderCommentBox()}

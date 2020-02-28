@@ -9,6 +9,11 @@ exports[`should render completed challenge correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": undefined,
+      }
+    }
     screenName={
       Array [
         "challenge",
@@ -71,6 +76,11 @@ exports[`should render joined challenge correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": undefined,
+      }
+    }
     screenName={
       Array [
         "challenge",
@@ -166,6 +176,11 @@ exports[`should render unjoined challenge correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": undefined,
+      }
+    }
     screenName={
       Array [
         "challenge",
@@ -246,6 +261,11 @@ exports[`should render without edit correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": undefined,
+      }
+    }
     screenName={
       Array [
         "challenge",

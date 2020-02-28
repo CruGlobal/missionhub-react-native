@@ -5,6 +5,11 @@ exports[`should render correctly 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "admin",
+      }
+    }
     screenName={
       Array [
         "community",
@@ -102,6 +107,11 @@ exports[`should render correctly for basic member 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "member",
+      }
+    }
     screenName={
       Array [
         "community",
@@ -195,6 +205,11 @@ exports[`should render empty correctly 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "admin",
+      }
+    }
     screenName={
       Array [
         "community",

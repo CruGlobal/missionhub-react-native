@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 
 import CelebrateFeed from '../CelebrateFeed';
 import { TrackStateContext } from '../../actions/analytics';
@@ -16,7 +16,6 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import Analytics from '../Analytics';
 
 export interface GroupCelebrateProps {
   organization: Organization;

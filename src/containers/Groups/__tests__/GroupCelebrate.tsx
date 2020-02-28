@@ -8,15 +8,20 @@ import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
+import {
+  ORG_PERMISSIONS,
+  GLOBAL_COMMUNITY_ID,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../../constants';
 import { Organization } from '../../../reducers/organizations';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/reportComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
-jest.mock('../../Analytics', () => 'Analytics');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../CelebrateFeed', () => 'CelebrateFeed');
 
 MockDate.set('2017-06-18');
@@ -50,6 +55,11 @@ it('should render correctly', () => {
   renderWithContext(<GroupCelebrate orgId={orgId} />, {
     initialState,
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['community', 'celebrate'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+  });
 });
 
 describe('refresh', () => {

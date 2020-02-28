@@ -3,6 +3,7 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { getContactSteps } from '../../../actions/steps';
 import {
   navigateToStageScreen,
@@ -106,7 +107,10 @@ it('renders correctly when no steps', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -119,7 +123,10 @@ it('renders correctly when me and no steps', () => {
   );
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
+  });
   expect(getContactSteps).toHaveBeenCalledWith(mePerson.id, undefined);
   expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
@@ -132,7 +139,10 @@ it('renders correctly with steps', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -148,7 +158,10 @@ it('renders correctly with completed steps', () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, undefined);
 });
 
@@ -160,7 +173,10 @@ it('renders correctly with org', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['person', 'my steps'],
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+  });
   expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
 });
 

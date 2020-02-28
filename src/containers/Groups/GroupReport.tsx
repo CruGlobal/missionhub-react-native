@@ -3,11 +3,11 @@ import { FlatList, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import gql from 'graphql-tag';
 
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { keyExtractorId } from '../../utils/common';
+import { keyExtractorId, getAnalyticsPermissionType } from '../../utils/common';
 import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
@@ -17,6 +17,8 @@ import { navigateBack } from '../../actions/navigation';
 import ReportedItem from '../ReportedItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Organization } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
+import { orgPermissionSelector } from '../../selectors/people';
 
 import {
   GetReportedContent,
@@ -143,5 +145,21 @@ const GroupReport = ({ analyticsPermissionType }: GroupReportProps) => {
   );
 };
 
-export default GroupReport;
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  {
+    navigation: {
+      state: {
+        params: { organization },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
+  analyticsPermissionType: getAnalyticsPermissionType(
+    orgPermissionSelector({}, { person: auth.person, organization }),
+  ),
+});
+
+export default connect(mapStateToProps)(GroupReport);
 export const GROUPS_REPORT_SCREEN = 'nav/GROUPS_REPORT_SCREEN';

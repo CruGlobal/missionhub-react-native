@@ -3,6 +3,10 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { navigateBack } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
+import {
+  ANALYTICS_PERMISSION_TYPE,
+  ORG_PERMISSIONS,
+} from '../../../../constants';
 import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../../../components/CelebrateItem/queries';
@@ -13,6 +17,21 @@ import EditStoryScreen from '..';
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../utils/hooks/useAnalytics');
 
+const organization = { id: '123' };
+const initialState = {
+  auth: {
+    person: {
+      id: '1',
+      organizational_permissions: [
+        {
+          id: '2',
+          organization_id: organization.id,
+          permission_id: ORG_PERMISSIONS.USER,
+        },
+      ],
+    },
+  },
+};
 const celebrationItem = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 
 const newText = 'It was the worst of times...';
@@ -26,30 +45,42 @@ beforeEach(() => {
 
 it('renders correctly', () => {
   renderWithContext(<EditStoryScreen />, {
+    initialState,
     navParams: {
+      organization,
       celebrationItem,
       onRefresh,
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['story', 'edit'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+  });
 });
 
 it('renders empty text correctly', () => {
   renderWithContext(<EditStoryScreen />, {
+    initialState,
     navParams: {
+      organization,
       celebrationItem: { ...celebrationItem, objectDescription: null },
       onRefresh,
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['story', 'edit'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+  });
 });
 
 describe('saveStory', () => {
   it('should not call onComplete if the user has not typed anything', () => {
     const { getByTestId } = renderWithContext(<EditStoryScreen />, {
+      initialState,
       navParams: {
+        organization,
         celebrationItem,
         onRefresh,
       },
@@ -66,7 +97,9 @@ describe('saveStory', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <EditStoryScreen />,
       {
+        initialState,
         navParams: {
+          organization,
           celebrationItem,
           onRefresh,
         },
@@ -79,7 +112,9 @@ describe('saveStory', () => {
 
   it('calls saveStory function when the user clicks the share story button', async () => {
     const { getByTestId } = renderWithContext(<EditStoryScreen />, {
+      initialState,
       navParams: {
+        organization,
         celebrationItem,
         onRefresh,
       },

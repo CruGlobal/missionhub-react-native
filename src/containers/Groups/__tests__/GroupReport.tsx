@@ -2,6 +2,7 @@ import React from 'react';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
+import { ANALYTICS_PERMISSION_TYPE, ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import GroupReport from '../GroupReport';
 import { renderWithContext } from '../../../../testUtils';
@@ -14,7 +15,12 @@ jest.mock('../../../actions/navigation');
 
 const organization = { id: '12345' };
 const navigateBackResult = { type: 'navigate back' };
-const me = { id: 'myId' };
+const me = {
+  id: 'myId',
+  organization_permissions: [
+    { organization_id: organization.id, permission_id: ORG_PERMISSIONS.USER },
+  ],
+};
 const comment1 = { id: 'reported1' };
 const initialState = {
   organizations: [],
@@ -61,7 +67,10 @@ it('should render correctly', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content']);
+  expect(useAnalytics).toHaveBeenCalledWith({
+    screenName: ['celebrate', 'reported content'],
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+  });
   expect(queryByText('No items have been reported.')).not.toBeTruthy();
   snapshot();
 });

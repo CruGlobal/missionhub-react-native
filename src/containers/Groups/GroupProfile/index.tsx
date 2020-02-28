@@ -39,7 +39,11 @@ import {
   trackScreenChange,
 } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ACTIONS, GROUPS_TAB } from '../../../constants';
+import {
+  ACTIONS,
+  GROUPS_TAB,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import PopupMenu from '../../../components/PopupMenu';
 import Header from '../../../components/Header';
@@ -219,7 +223,9 @@ class GroupProfile extends Component {
       <View flex={1}>
         <Analytics
           screenName={['community', 'detail']}
-          screenContext={analyticsPermissionType}
+          screenContext={{
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
         />
         {/* 
         // @ts-ignore */}

@@ -85,7 +85,7 @@ const loginResult = { type: 'login result' };
 it('renders correctly', () => {
   renderWithContext(<SignInScreen next={next} />).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith('sign in');
+  expect(useAnalytics).toHaveBeenCalledWith({ screenName: 'sign in' });
 });
 
 it('renders correctly for forced logout', () => {

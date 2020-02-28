@@ -109,6 +109,7 @@ describe('mapStateToProps', () => {
 
     expect(mapStateToProps(store, nav)).toEqual({
       ...nav.navigation.state.params,
+      analyticsPermissionType: 'member',
       canEditChallenges: false,
       challenge,
       acceptedChallenge: joinedChallenge,
@@ -119,6 +120,7 @@ describe('mapStateToProps', () => {
   it('should provide necessary props for Admin', () => {
     expect(mapStateToProps(store, nav)).toEqual({
       ...nav.navigation.state.params,
+      analyticsPermissionType: 'admin',
       canEditChallenges: true,
       challenge,
       acceptedChallenge: joinedChallenge,
@@ -135,6 +137,7 @@ describe('mapStateToProps', () => {
 
     expect(mapStateToProps(store, nav)).toEqual({
       ...nav.navigation.state.params,
+      analyticsPermissionType: 'owner',
       canEditChallenges: true,
       challenge,
       acceptedChallenge: joinedChallenge,
