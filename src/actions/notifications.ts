@@ -1,6 +1,7 @@
 /* eslint complexity: 0 */
 
 import { PushNotificationIOS } from 'react-native';
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
 import i18next from 'i18next';
 

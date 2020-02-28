@@ -257,6 +257,7 @@ describe('navigateToAddStepFlow', () => {
     );
     expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
       trackingObj: buildTrackingObjResult,
+      personId: myId,
       organization,
     });
     // @ts-ignore
@@ -281,7 +282,6 @@ describe('navigateToAddStepFlow', () => {
     );
     expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
       trackingObj: buildTrackingObjResult,
-      contactName: person.first_name,
       personId: person.id,
       organization,
       createStepTracking: buildTrackingObjResult,
