@@ -204,17 +204,18 @@ describe('SelectStepScreen next', () => {
   });
 
   describe('skips add step', () => {
-    beforeEach(async () => {
-      await buildAndCallNext(
-        PERSON_SELECT_STEP_SCREEN,
-        {},
+    it('should fire required next actions', async () => {
+      const { store } = await buildAndCallNext(
+        SELECT_STEP_SCREEN,
+        { personId, orgId },
         { skip: true, orgId },
       );
-    });
 
-    it('should fire required next actions', () => {
       expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
-      expect(store.getActions()).toEqual([flowCompleteResponse]);
+      expect(store.getActions()).toEqual([
+        getStepSuggestionsResponse,
+        flowCompleteResponse,
+      ]);
     });
   });
 });
