@@ -31,10 +31,10 @@ it('renders correctly', () => {
     initialState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'personal greeting'],
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'personal greeting'],
+    { screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' } },
+  );
 });
 
 it('renders without back button correctly', () => {
@@ -44,10 +44,10 @@ it('renders without back button correctly', () => {
     initialState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'personal greeting'],
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'personal greeting'],
+    { screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' } },
+  );
 });
 
 it('navigates to next screen', () => {

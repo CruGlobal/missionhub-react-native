@@ -56,8 +56,7 @@ const ContactSteps = ({
   organization,
   analyticsAssignmentType,
 }: ContactStepsProps) => {
-  useAnalytics({
-    screenName: ['person', 'my steps'],
+  useAnalytics(['person', 'my steps'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
   const { t } = useTranslation('contactSteps');

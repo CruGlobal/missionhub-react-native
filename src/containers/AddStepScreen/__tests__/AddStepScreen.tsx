@@ -76,8 +76,7 @@ it('renders create step correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['custom step', 'add'],
+  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },
@@ -90,8 +89,7 @@ it('renders create step in onboarding correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['custom step', 'add'],
+  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: 'onboarding',
     },
@@ -104,8 +102,7 @@ it('renders edit journey step correctly', () => {
     navParams: editJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['our journey', 'edit'],
+  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },
@@ -118,8 +115,7 @@ it('renders edit journey step for me correctly', () => {
     navParams: editMyJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['my journey', 'edit'],
+  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },
@@ -132,8 +128,7 @@ it('renders edit journey item correctly', () => {
     navParams: editJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['our journey', 'edit'],
+  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },
@@ -146,8 +141,7 @@ it('renders edit journey item for me correctly', () => {
     navParams: editMyJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['my journey', 'edit'],
+  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },
@@ -160,8 +154,7 @@ it('renders step note correctly', () => {
     navParams: stepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['step note', 'add'],
+  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },
@@ -174,8 +167,7 @@ it('renders step note correctly for me', () => {
     navParams: myStepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['step note', 'add'],
+  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
     },

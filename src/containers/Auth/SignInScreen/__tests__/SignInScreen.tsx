@@ -85,7 +85,7 @@ const loginResult = { type: 'login result' };
 it('renders correctly', () => {
   renderWithContext(<SignInScreen next={next} />).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({ screenName: 'sign in' });
+  expect(useAnalytics).toHaveBeenCalledWith('sign in');
 });
 
 it('renders correctly for forced logout', () => {
@@ -93,7 +93,7 @@ it('renders correctly for forced logout', () => {
     navParams: { forcedLogout: true },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({ screenName: 'sign in' });
+  expect(useAnalytics).toHaveBeenCalledWith('sign in');
 });
 
 describe('keyboard listeners', () => {

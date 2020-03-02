@@ -40,8 +40,7 @@ describe('WelcomeScreen', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: ['onboarding', 'welcome'],
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome'], {
       screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
     });
   });
@@ -52,8 +51,7 @@ describe('WelcomeScreen', () => {
       allowSignInVariantConfig,
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: ['onboarding', 'welcome'],
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome'], {
       screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
     });
   });

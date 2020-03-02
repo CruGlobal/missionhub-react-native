@@ -64,8 +64,7 @@ describe('without enableSkipButton', () => {
   it('renders correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: 'add step',
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
       screenContext: { [ANALYTICS_SECTION_TYPE]: '' },
     });
   });
@@ -79,8 +78,7 @@ describe('with enableSkipButton', () => {
   it('renders correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: 'add step',
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
       screenContext: { [ANALYTICS_SECTION_TYPE]: '' },
     });
   });
@@ -93,8 +91,7 @@ describe('in onboarding', () => {
       navParams: { personId, orgId, enableSkipButton },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: 'add step',
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
       screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
     });
   });

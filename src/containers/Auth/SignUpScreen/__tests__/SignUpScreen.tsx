@@ -50,9 +50,7 @@ jest.mock('../../../BackButton', () => 'BackButton');
 it('renders correctly with logo', () => {
   renderWithContext(<SignUpScreen next={next} />).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['menu', 'sign up'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['menu', 'sign up']);
 });
 
 it('renders correctly for Create Community', () => {
@@ -65,9 +63,7 @@ it('renders correctly for Create Community', () => {
   );
   diffSnapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['communities', 'sign up'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['communities', 'sign up']);
 });
 
 describe('a login button is clicked', () => {

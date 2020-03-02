@@ -61,9 +61,7 @@ it('should render correctly', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['celebrate', 'reported content'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content']);
   expect(queryByText('No items have been reported.')).not.toBeTruthy();
   snapshot();
 });
@@ -84,9 +82,7 @@ it('should render empty correctly', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['celebrate', 'reported content'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content']);
   expect(queryByText('No items have been reported.')).toBeTruthy();
   snapshot();
 });
@@ -110,9 +106,7 @@ it('should call navigate back', async () => {
   );
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['celebrate', 'reported content'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content']);
   expect(queryByText('No comments have been reported.')).not.toBeTruthy();
   await fireEvent.press(getByTestId('closeButton'));
   snapshot();
@@ -139,9 +133,7 @@ it('should refresh correctly', async () => {
   );
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['celebrate', 'reported content'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content']);
   expect(queryByText('No comments have been reported.')).not.toBeTruthy();
   await fireEvent.press(getAllByTestId('ignoreButton')[0]);
   expect(useMutation).toHaveBeenCalled();

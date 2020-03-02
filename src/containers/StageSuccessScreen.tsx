@@ -35,8 +35,7 @@ const StageSuccessScreen = ({
   firstName,
   stage,
 }: StageSuccessScreenProps) => {
-  useAnalytics({
-    screenName: ['onboarding', 'stage confirmation'],
+  useAnalytics(['onboarding', 'stage confirmation'], {
     screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
   });
   const dispatch = useDispatch();

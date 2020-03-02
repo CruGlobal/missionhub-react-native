@@ -24,8 +24,7 @@ interface CompletedStepDetailScreenProps {
 const CompletedStepDetailScreen = ({
   analyticsAssignmentType,
 }: CompletedStepDetailScreenProps) => {
-  useAnalytics({
-    screenName: ['step detail', 'completed step'],
+  useAnalytics(['step detail', 'completed step'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
   const { t } = useTranslation('completedStepDetail');

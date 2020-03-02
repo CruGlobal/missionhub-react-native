@@ -137,8 +137,7 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics({
-    screenName: 'communities',
+  useAnalytics('communities', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));

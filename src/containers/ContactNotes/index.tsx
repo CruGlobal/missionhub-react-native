@@ -36,8 +36,7 @@ const ContactNotes = ({
   myUserId,
   analyticsAssignmentType,
 }: ContactNotesProps) => {
-  useAnalytics({
-    screenName: ['person', 'my notes'],
+  useAnalytics(['person', 'my notes'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
   const { t } = useTranslation('notes');
