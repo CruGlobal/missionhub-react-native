@@ -82,8 +82,7 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: 'steps',
+  expect(useAnalytics).toHaveBeenCalledWith('steps', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   expect(useFocusEffect).toHaveBeenLastCalledWith(expect.any(Function));

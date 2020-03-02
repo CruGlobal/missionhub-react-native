@@ -48,8 +48,7 @@ it('renders correctly in oboarding', () => {
     navParams: { step, personId, orgId },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['step detail', 'add step'],
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
     screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 });

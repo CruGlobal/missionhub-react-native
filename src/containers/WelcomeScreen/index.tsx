@@ -28,8 +28,7 @@ interface WelcomeScreenProps {
 }
 
 const WelcomeScreen = ({ next, analyticsSection }: WelcomeScreenProps) => {
-  useAnalytics({
-    screenName: ['onboarding', 'welcome'],
+  useAnalytics(['onboarding', 'welcome'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
     },

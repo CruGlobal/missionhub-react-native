@@ -77,8 +77,7 @@ const AddStepScreen = ({
       : 'our journey'
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
-  useAnalytics({
-    screenName: [screenSection, screenSubsection],
+  useAnalytics([screenSection, screenSubsection], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
     },

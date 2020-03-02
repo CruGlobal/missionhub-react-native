@@ -41,10 +41,10 @@ it('renders correctly', () => {
     initialState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'stage confirmation'],
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'stage confirmation'],
+    { screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' } },
+  );
 });
 
 it('calls next with selected stage', () => {

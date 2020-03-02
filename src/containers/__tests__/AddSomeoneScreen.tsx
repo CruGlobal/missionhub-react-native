@@ -47,8 +47,7 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'add someone'],
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'add someone'], {
     screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 });

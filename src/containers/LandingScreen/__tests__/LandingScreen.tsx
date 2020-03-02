@@ -34,7 +34,7 @@ it('renders correctly', () => {
 it('tracks screen change on mount', () => {
   renderWithContext(<LandingScreen />);
 
-  expect(useAnalytics).toHaveBeenCalledWith({ screenName: 'landing' });
+  expect(useAnalytics).toHaveBeenCalledWith('landing');
 });
 
 describe('a button is clicked', () => {

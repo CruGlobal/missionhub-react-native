@@ -51,8 +51,7 @@ const SelectStepScreen = ({
   analyticsSection,
 }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  useAnalytics({
-    screenName: 'add step',
+  useAnalytics('add step', {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
     },

@@ -11,17 +11,18 @@ export enum ANALYTICS_SCREEN_TYPES {
   drawer,
 }
 
-interface UseAnalyticsParams {
-  screenName: string | string[];
+interface UseAnalyticsOptions {
   screenType?: ANALYTICS_SCREEN_TYPES;
   screenContext?: Partial<ScreenContext>;
 }
 
-export const useAnalytics = ({
-  screenName,
-  screenType = ANALYTICS_SCREEN_TYPES.screen,
-  screenContext,
-}: UseAnalyticsParams) => {
+export const useAnalytics = (
+  screenName: string | string[],
+  {
+    screenType = ANALYTICS_SCREEN_TYPES.screen,
+    screenContext,
+  }: UseAnalyticsOptions = {},
+) => {
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
   const isDrawerOpen = useSelector(

@@ -51,8 +51,7 @@ const SetupScreen = ({
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
-  useAnalytics({
-    screenName: ['onboarding', `${isMe ? 'self' : 'contact'} name`],
+  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`], {
     screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
   });
   const { t } = useTranslation('onboardingCreatePerson');

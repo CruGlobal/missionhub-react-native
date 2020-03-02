@@ -30,8 +30,7 @@ const SuggestedStepDetailScreen = ({
   next,
   analyticsSection,
 }: SuggestedStepDetailScreenProps) => {
-  useAnalytics({
-    screenName: ['step detail', 'add step'],
+  useAnalytics(['step detail', 'add step'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
     },

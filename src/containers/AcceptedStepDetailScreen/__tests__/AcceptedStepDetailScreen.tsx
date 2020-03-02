@@ -56,9 +56,7 @@ it('should render correctly without description and without reminder', async () 
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['step detail', 'active step'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
 });
 
 describe('with description, without reminder', () => {

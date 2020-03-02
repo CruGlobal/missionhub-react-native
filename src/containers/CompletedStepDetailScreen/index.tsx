@@ -13,7 +13,7 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import styles from './styles';
 
 const CompletedStepDetailScreen = () => {
-  useAnalytics({ screenName: ['step detail', 'completed step'] });
+  useAnalytics(['step detail', 'completed step']);
   const { t } = useTranslation('completedStepDetail');
   const step: Step = useNavigationParam('step');
 
