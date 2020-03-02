@@ -40,9 +40,7 @@ it('renders without back button correctly', () => {
 it('tracks screen change on mount', () => {
   renderWithContext(<AddSomeoneScreen next={next} />);
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'add someone'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'add someone']);
 });
 
 describe('onComplete', () => {

@@ -23,9 +23,10 @@ describe('with challenge suggestion', () => {
       navParams: { step },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: ['step detail', 'completed step'],
-    });
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });
 
@@ -35,8 +36,9 @@ describe('without challenge suggestion', () => {
       navParams: { step: { ...step, challenge_suggestion: {} } },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: ['step detail', 'completed step'],
-    });
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'step detail',
+      'completed step',
+    ]);
   });
 });

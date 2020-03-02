@@ -25,7 +25,7 @@ const AddSomeoneScreen = ({
   enableBackButton = true,
   logoutOnBack = false,
 }: AddSomeoneScreenProps) => {
-  useAnalytics({ screenName: ['onboarding', 'add someone'] });
+  useAnalytics(['onboarding', 'add someone']);
   const { t } = useTranslation('addContact');
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);

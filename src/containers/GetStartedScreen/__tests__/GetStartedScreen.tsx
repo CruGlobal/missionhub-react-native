@@ -33,9 +33,10 @@ it('renders correctly', () => {
     initialState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'personal greeting'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'personal greeting',
+  ]);
 });
 
 it('renders without back button correctly', () => {
@@ -45,9 +46,10 @@ it('renders without back button correctly', () => {
     initialState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'personal greeting'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'personal greeting',
+  ]);
 });
 
 it('navigates to next screen', () => {

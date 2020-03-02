@@ -68,7 +68,7 @@ const AddStepScreen = ({ dispatch, next, myId }: AddStepScreenProps) => {
       : 'our journey'
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
-  useAnalytics({ screenName: [screenSection, screenSubsection] });
+  useAnalytics([screenSection, screenSubsection]);
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 

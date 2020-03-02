@@ -34,9 +34,7 @@ describe('useAnalytics', () => {
       (useIsFocused as jest.Mock).mockReturnValue(false);
       (useSelector as jest.Mock).mockReturnValue(true);
 
-      const { rerender } = renderHook(() =>
-        useAnalytics({ screenName: screenFragments }),
-      );
+      const { rerender } = renderHook(() => useAnalytics(screenFragments));
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 
@@ -52,9 +50,7 @@ describe('useAnalytics', () => {
       (useIsFocused as jest.Mock).mockReturnValue(false);
       (useSelector as jest.Mock).mockReturnValue(false);
 
-      const { rerender } = renderHook(() =>
-        useAnalytics({ screenName: screenFragments }),
-      );
+      const { rerender } = renderHook(() => useAnalytics(screenFragments));
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 
@@ -70,9 +66,7 @@ describe('useAnalytics', () => {
       (useIsFocused as jest.Mock).mockReturnValue(false);
       (useSelector as jest.Mock).mockReturnValue(false);
 
-      const { rerender } = renderHook(() =>
-        useAnalytics({ screenName: screenFragments }),
-      );
+      const { rerender } = renderHook(() => useAnalytics(screenFragments));
 
       fireFocus(true, rerender);
 
@@ -87,9 +81,7 @@ describe('useAnalytics', () => {
       (useIsFocused as jest.Mock).mockReturnValue(false);
       (useSelector as jest.Mock).mockReturnValue(true);
 
-      const { rerender } = renderHook(() =>
-        useAnalytics({ screenName: screenFragments }),
-      );
+      const { rerender } = renderHook(() => useAnalytics(screenFragments));
 
       fireFocus(true, rerender);
 
@@ -104,9 +96,7 @@ describe('useAnalytics', () => {
       (useIsFocused as jest.Mock).mockReturnValue(false);
       (useSelector as jest.Mock).mockReturnValue(false);
 
-      const { result } = renderHook(() =>
-        useAnalytics({ screenName: screenFragments }),
-      );
+      const { result } = renderHook(() => useAnalytics(screenFragments));
 
       result.current(screenFragments);
 
@@ -123,8 +113,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
         }),
       );
@@ -141,8 +130,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
         }),
       );
@@ -162,8 +150,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
         }),
       );
@@ -182,8 +169,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
         }),
       );
@@ -205,8 +191,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { result } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
         }),
       );
@@ -226,8 +211,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.drawer,
         }),
       );
@@ -247,8 +231,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.drawer,
         }),
       );
@@ -265,8 +248,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.drawer,
         }),
       );
@@ -288,8 +270,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.drawer,
         }),
       );
@@ -308,8 +289,7 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { result } = renderHook(() =>
-        useAnalytics({
-          screenName: screenFragments,
+        useAnalytics(screenFragments, {
           screenType: ANALYTICS_SCREEN_TYPES.drawer,
         }),
       );
