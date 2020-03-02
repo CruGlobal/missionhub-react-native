@@ -14,12 +14,15 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { removeSwipeJourney } from '../../actions/swipe';
 import NullStateComponent from '../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../routes/constants';
+import { getAnalyticsAssignmentType } from '../../utils/common';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
+  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
 import Analytics from '../Analytics';
+import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -169,8 +172,18 @@ class ContactJourney extends Component {
   render() {
     // @ts-ignore
     const { isPersonalMinistry } = this.state;
-    // @ts-ignore
-    const { myId, person, organization, isUserCreatedOrg } = this.props;
+    const {
+      // @ts-ignore
+      myId,
+      // @ts-ignore
+      person,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      isUserCreatedOrg,
+      // @ts-ignore
+      analyticsAssignmentType,
+    } = this.props;
     return (
       <View style={styles.container}>
         <Analytics
@@ -178,6 +191,9 @@ class ContactJourney extends Component {
             'person',
             person.id === myId ? 'my journey' : 'our journey',
           ]}
+          screenContext={{
+            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          }}
         />
         {this.renderContent()}
         <Flex justify="end">
@@ -210,6 +226,7 @@ const mapStateToProps = (
   const personId = person.id;
   const journeyOrg = journey[orgId];
   const journeyItems = (journeyOrg && journeyOrg[personId]) || undefined;
+  const orgPermission = orgPermissionSelector({}, { person, organization });
 
   return {
     journeyItems,
@@ -218,6 +235,11 @@ const mapStateToProps = (
     showReminder: swipe.journey,
     // @ts-ignore
     isUserCreatedOrg: organization && organization.user_created,
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      personId,
+      auth,
+      orgPermission,
+    ),
   };
 };
 

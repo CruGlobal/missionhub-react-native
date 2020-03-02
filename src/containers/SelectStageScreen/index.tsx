@@ -29,9 +29,16 @@ import {
   trackScreenChange,
   TrackStateContext,
 } from '../../actions/analytics';
-import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
+import {
+  ACTIONS,
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import { getAnalyticsSectionType } from '../../utils/common';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
@@ -64,6 +71,7 @@ interface SelectStageScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
   myId: string;
   firstName: string;
   contactAssignmentId?: string;
@@ -85,6 +93,7 @@ export interface SelectStageNavParams {
 const SelectStageScreen = ({
   next,
   analyticsSection,
+  analyticsAssignmentType,
   myId,
   firstName,
   contactAssignmentId,
@@ -116,6 +125,7 @@ const SelectStageScreen = ({
       dispatch(
         trackScreenChange(['stage', stage.name.toLowerCase()], {
           [ANALYTICS_SECTION_TYPE]: analyticsSection,
+          [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
         }),
       );
   };
@@ -265,6 +275,7 @@ const mapStateToProps = (
     isMe: personId === myId,
     stages: stages.stages,
     analyticsSection: getAnalyticsSectionType(onboarding),
+    analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
   };
 };
 
