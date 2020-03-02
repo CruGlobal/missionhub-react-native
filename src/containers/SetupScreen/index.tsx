@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { Text, Flex, Input } from '../../components/common';
@@ -16,8 +17,12 @@ import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import { getAnalyticsSectionType } from '../../utils/common';
+import {
+  trackActionWithoutData,
+  TrackStateContext,
+} from '../../actions/analytics';
+import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import Skip from '../../components/Skip';
@@ -25,13 +30,12 @@ import Skip from '../../components/Skip';
 import styles from './styles';
 
 interface SetupScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, any>;
   next: (props: {
     skip?: boolean;
     personId?: string;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
   isMe: boolean;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
   personId?: string;
   loadedFirstName?: string;
   loadedLastName?: string;
@@ -39,9 +43,9 @@ interface SetupScreenProps {
 }
 
 const SetupScreen = ({
-  dispatch,
   next,
   isMe,
+  analyticsSection,
   personId,
   loadedFirstName = '',
   loadedLastName = '',
@@ -49,8 +53,10 @@ const SetupScreen = ({
 }: SetupScreenProps) => {
   useAnalytics({
     screenName: ['onboarding', `${isMe ? 'self' : 'contact'} name`],
+    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
   });
   const { t } = useTranslation('onboardingCreatePerson');
+  const dispatch = useDispatch();
   const [firstName, setFirstName] = useState(loadedFirstName);
   const [lastName, setLastName] = useState(loadedLastName);
   const [isLoading, setIsLoading] = useState(false);
@@ -168,10 +174,11 @@ const SetupScreen = ({
     </View>
   );
 };
+
 const mapStateToProps = (
   {
     auth,
-    onboarding: { personId },
+    onboarding,
     people,
   }: { auth: AuthState; onboarding: OnboardingState; people: PeopleState },
   {
@@ -179,22 +186,28 @@ const mapStateToProps = (
   }: {
     isMe: boolean;
   },
-) => ({
-  isMe,
-  ...(isMe
-    ? {
-        loadedFirstName: auth.person.first_name,
-        loadedLastName: auth.person.last_name,
-        personId: auth.person.id,
-      }
-    : {
-        loadedFirstName: (personSelector({ people }, { personId }) || {})
-          .first_name,
-        loadedLastName: (personSelector({ people }, { personId }) || {})
-          .last_name,
-        personId,
-      }),
-});
+) => {
+  const { personId } = onboarding;
+
+  return {
+    isMe,
+    analyticsSection: getAnalyticsSectionType(onboarding),
+    ...(isMe
+      ? {
+          loadedFirstName: auth.person.first_name,
+          loadedLastName: auth.person.last_name,
+          personId: auth.person.id,
+        }
+      : {
+          loadedFirstName: (personSelector({ people }, { personId }) || {})
+            .first_name,
+          loadedLastName: (personSelector({ people }, { personId }) || {})
+            .last_name,
+          personId,
+        }),
+  };
+};
+
 export default connect(mapStateToProps)(SetupScreen);
 export const SETUP_SCREEN = 'nav/SETUP';
 export const SETUP_PERSON_SCREEN = 'nav/SETUP_PERSON_SCREEN';
