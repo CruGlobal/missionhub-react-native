@@ -5,7 +5,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ACTIONS } from '../../../constants';
+import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../../constants';
 
 import WelcomeScreen from '..';
 
@@ -21,6 +21,8 @@ jest.mock('../../../components/common', () => ({
 }));
 jest.mock('../../../utils/hooks/useAnalytics');
 
+const initialState = { onboarding: { currentlyOnboarding: true } };
+
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue({
     type: 'tracked action without data',
@@ -29,14 +31,18 @@ beforeEach(() => {
 
 describe('WelcomeScreen', () => {
   const allowSignInVariantConfig = {
+    initialState,
     navParams: { allowSignIn: true },
   };
 
   it('should render correctly', () => {
-    renderWithContext(<WelcomeScreen next={next} />).snapshot();
+    renderWithContext(<WelcomeScreen next={next} />, {
+      initialState,
+    }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith({
       screenName: ['onboarding', 'welcome'],
+      screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
     });
   });
 
@@ -48,11 +54,14 @@ describe('WelcomeScreen', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith({
       screenName: ['onboarding', 'welcome'],
+      screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
     });
   });
 
   it('getStarted btn should call next', () => {
-    const { getByTestId } = renderWithContext(<WelcomeScreen next={next} />);
+    const { getByTestId } = renderWithContext(<WelcomeScreen next={next} />, {
+      initialState,
+    });
     fireEvent.press(getByTestId('get-started'));
 
     expect(next).toHaveBeenCalledTimes(1);
@@ -82,7 +91,7 @@ describe('WelcomeScreen', () => {
   });
 
   it('should fire analytics event on mount', () => {
-    renderWithContext(<WelcomeScreen next={next} />);
+    renderWithContext(<WelcomeScreen next={next} />, { initialState });
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.ONBOARDING_STARTED,

@@ -4,6 +4,7 @@ import { fireEvent, GetByAPI } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { updatePerson } from '../../../actions/person';
+import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
@@ -12,7 +13,7 @@ import SetupScreen from '..';
 
 const personId = '1';
 const mockState = {
-  onboarding: {},
+  onboarding: { currentlyOnboarding: true },
   auth: { person: {} },
   people: { allByOrg: {} },
 };
@@ -50,6 +51,7 @@ it('renders isMe version correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith({
     screenName: ['onboarding', 'self name'],
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 });
 
@@ -60,6 +62,7 @@ it('renders other person version correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith({
     screenName: ['onboarding', 'contact name'],
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 });
 

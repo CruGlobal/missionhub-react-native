@@ -3,27 +3,25 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { disableBack } from '../../../utils/common';
+import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import GetStartedScreen from '..';
 
 jest.mock('react-native-device-info');
-jest.mock('../../../utils/common');
 jest.mock('../../../utils/hooks/useLogoutOnBack');
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const initialState = {
   auth: { person: { first_name: 'Roger' } },
+  onboarding: { currentlyOnboarding: true },
 };
 const next = jest.fn();
 const back = jest.fn();
 const nextResult = { type: 'next' };
 
 beforeEach(() => {
-  disableBack.add = jest.fn();
-  disableBack.remove = jest.fn();
   next.mockReturnValue(nextResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
@@ -35,6 +33,7 @@ it('renders correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith({
     screenName: ['onboarding', 'personal greeting'],
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 });
 
@@ -47,6 +46,7 @@ it('renders without back button correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith({
     screenName: ['onboarding', 'personal greeting'],
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
   });
 });
 
