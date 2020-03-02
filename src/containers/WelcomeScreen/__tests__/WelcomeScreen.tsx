@@ -35,9 +35,7 @@ describe('WelcomeScreen', () => {
   it('should render correctly', () => {
     renderWithContext(<WelcomeScreen next={next} />).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: ['onboarding', 'welcome'],
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('should render correctly with sign in button', () => {
@@ -46,9 +44,7 @@ describe('WelcomeScreen', () => {
       allowSignInVariantConfig,
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith({
-      screenName: ['onboarding', 'welcome'],
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome']);
   });
 
   it('getStarted btn should call next', () => {

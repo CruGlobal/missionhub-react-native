@@ -48,9 +48,7 @@ it('renders isMe version correctly', () => {
     initialState: mockState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'self name'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name']);
 });
 
 it('renders other person version correctly', () => {
@@ -58,9 +56,7 @@ it('renders other person version correctly', () => {
     initialState: mockState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'contact name'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name']);
 });
 
 describe('setup screen methods', () => {

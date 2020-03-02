@@ -25,8 +25,7 @@ it('renders correctly for authenticated user', () => {
     initialState: getState(false),
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: 'menu',
+  expect(useAnalytics).toHaveBeenCalledWith('menu', {
     screenType: ANALYTICS_SCREEN_TYPES.drawer,
   });
 });
@@ -36,8 +35,7 @@ it('renders correctly for try it now user', () => {
     initialState: getState(true),
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: 'menu',
+  expect(useAnalytics).toHaveBeenCalledWith('menu', {
     screenType: ANALYTICS_SCREEN_TYPES.drawer,
   });
 });

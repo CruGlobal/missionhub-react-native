@@ -47,8 +47,7 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
-  useAnalytics({
-    screenName: 'people',
+  useAnalytics('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));

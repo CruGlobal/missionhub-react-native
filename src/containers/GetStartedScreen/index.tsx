@@ -31,7 +31,7 @@ const GetStartedScreen = ({
   enableBackButton = true,
   logoutOnBack = false,
 }: GetStartedScreenProps) => {
-  useAnalytics({ screenName: ['onboarding', 'personal greeting'] });
+  useAnalytics(['onboarding', 'personal greeting']);
   const { t } = useTranslation('getStarted');
 
   const handleBack = useLogoutOnBack(enableBackButton, logoutOnBack);

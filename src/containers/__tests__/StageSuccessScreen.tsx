@@ -39,9 +39,10 @@ it('renders correctly', () => {
     initialState: mockState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['onboarding', 'stage confirmation'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith([
+    'onboarding',
+    'stage confirmation',
+  ]);
 });
 
 it('calls next with selected stage', () => {

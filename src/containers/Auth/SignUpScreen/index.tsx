@@ -65,12 +65,10 @@ const SignUpScreen = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
 }) => {
-  useAnalytics({
-    screenName: [
-      signUpType === SIGNUP_TYPES.CREATE_COMMUNITY ? 'communities' : 'menu',
-      'sign up',
-    ],
-  });
+  useAnalytics([
+    signUpType === SIGNUP_TYPES.CREATE_COMMUNITY ? 'communities' : 'menu',
+    'sign up',
+  ]);
   const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation('loginOptions');

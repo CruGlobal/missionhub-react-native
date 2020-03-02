@@ -7,7 +7,7 @@ interface TrackOnFocusProps {
 }
 
 const Analytics = ({ screenName, screenContext }: TrackOnFocusProps) => {
-  useAnalytics({ screenName, screenContext });
+  useAnalytics(screenName, screenContext ? { screenContext } : undefined);
 
   return null;
 };

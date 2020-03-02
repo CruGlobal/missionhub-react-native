@@ -26,7 +26,7 @@ const SuggestedStepDetailScreen = ({
   dispatch,
   next,
 }: SuggestedStepDetailScreenProps) => {
-  useAnalytics({ screenName: ['step detail', 'add step'] });
+  useAnalytics(['step detail', 'add step']);
   const { t } = useTranslation('suggestedStepDetail');
   const step: SuggestedStep = useNavigationParam('step');
   const personId: string = useNavigationParam('personId');

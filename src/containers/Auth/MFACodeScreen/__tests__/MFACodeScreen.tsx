@@ -32,9 +32,7 @@ const renderConfig = {
 it('renders correctly', () => {
   renderWithContext(<MFACodeScreen next={next} />, renderConfig).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['sign in', 'verification'],
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(['sign in', 'verification']);
 });
 
 it('changes text', () => {

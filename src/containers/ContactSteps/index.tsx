@@ -48,7 +48,7 @@ const ContactSteps = ({
   person,
   organization,
 }: ContactStepsProps) => {
-  useAnalytics({ screenName: ['person', 'my steps'] });
+  useAnalytics(['person', 'my steps']);
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
 
