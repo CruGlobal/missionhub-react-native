@@ -89,8 +89,7 @@ it('renders create step in onboarding correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith({
-    screenName: ['custom step', 'add'],
+  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: 'onboarding',
     },
