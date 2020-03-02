@@ -11,7 +11,7 @@ export enum ANALYTICS_SCREEN_TYPES {
   drawer,
 }
 
-interface UseAnalyticsParams {
+interface UseAnalyticsOptions {
   screenType?: ANALYTICS_SCREEN_TYPES;
   screenContext?: Partial<ScreenContext>;
 }
@@ -21,7 +21,7 @@ export const useAnalytics = (
   {
     screenType = ANALYTICS_SCREEN_TYPES.screen,
     screenContext,
-  }: UseAnalyticsParams = {},
+  }: UseAnalyticsOptions = {},
 ) => {
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
