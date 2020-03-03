@@ -315,17 +315,19 @@ exports[`renders correctly 1`] = `
             "color": "#505256",
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
+            "fontFamily": "SourceSansPro-Regular",
           },
           Object {
             "color": "#007398",
-            "fontSize": 42,
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontWeight": "300",
             "paddingTop": 10,
           },
         ]
       }
     >
-      search
+      Search
     </Text>
     <Text
       style={

@@ -255,7 +255,7 @@ describe('edit methods', () => {
         },
       },
     );
-    await fireEvent.press(getByTestId('saveChallengeButton'));
+    await fireEvent.press(getByTestId('editButton'));
     expect(onComplete).toHaveBeenCalledWith({ ...challenge, details });
     snapshot();
   });
@@ -274,7 +274,7 @@ describe('edit methods', () => {
     );
     recordSnapshot();
     await fireEvent.changeText(getByTestId('titleInput'), '');
-    await fireEvent.press(getByTestId('saveChallengeButton'));
+    await fireEvent.press(getByTestId('editButton'));
     expect(onComplete).not.toHaveBeenCalled();
     diffSnapshot();
   });
@@ -293,7 +293,7 @@ describe('edit methods', () => {
     );
     recordSnapshot();
     await fireEvent.changeText(getByTestId('detailInput'), '');
-    await fireEvent.press(getByTestId('saveChallengeButton'));
+    await fireEvent.press(getByTestId('editButton'));
     expect(onComplete).toHaveBeenCalledWith({ ...challenge, details: '' });
     diffSnapshot();
   });

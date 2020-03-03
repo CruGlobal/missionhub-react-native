@@ -51,4 +51,14 @@ export default StyleSheet.create({
     marginBottom: 26,
     paddingBottom: 70,
   },
+  challengeImage: {
+    position: 'absolute',
+    zIndex: -1,
+    bottom: 0,
+    right: 0,
+  },
+  backButton: {
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
+  },
 });

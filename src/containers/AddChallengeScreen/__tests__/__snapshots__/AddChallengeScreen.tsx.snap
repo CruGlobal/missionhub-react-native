@@ -298,6 +298,21 @@ exports[`create methods calls onComplete 1`] = `
       </View>
     </View>
   </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -428,7 +443,7 @@ exports[`create methods changes detail 1`] = `
         </View>
       </View>
     </RCTScrollView>
-    <RCTSafeAreaView"
+    <Image"
 `;
 
 exports[`create methods changes title 1`] = `
@@ -625,7 +640,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -330,16 +330,13 @@
+@@ -345,16 +345,13 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -650,7 +665,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -288,11 +288,11 @@
+@@ -371,11 +371,11 @@
                 },
               ]
             }
@@ -662,7 +677,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
         </View>
       </View>
     </RCTScrollView>
-    <RCTSafeAreaView"
+    <Image"
 `;
 
 exports[`edit methods calls onComplete 1`] = `
@@ -709,20 +724,6 @@ exports[`edit methods calls onComplete 1`] = `
             },
           ]
         }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "paddingRight": 5,
-            },
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
       >
         <View
           style={
@@ -732,10 +733,7 @@ exports[`edit methods calls onComplete 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              Object {
-                "alignItems": "flex-end",
-                "alignSelf": "flex-end",
-              },
+              undefined,
             ]
           }
         >
@@ -769,19 +767,119 @@ exports[`edit methods calls onComplete 1`] = `
                 ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
-                }
+              <Text
+                allowFontScaling={false}
                 style={
-                  Object {
-                    "margin": 10,
-                  }
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
                 }
-              />
+              >
+                
+              </Text>
             </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "marginRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              SAVE
+            </Text>
           </View>
         </View>
       </View>
@@ -963,83 +1061,21 @@ exports[`edit methods calls onComplete 1`] = `
       </View>
     </View>
   </RCTScrollView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
+  <Image
+    source={
       Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
       }
     }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
       }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          SAVE CHANGES
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
+    }
+  />
 </View>
 `;
 
@@ -1048,7 +1084,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -164,11 +164,11 @@
+@@ -247,11 +247,11 @@
               },
             ]
           }
@@ -1060,25 +1096,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
         <DatePicker
           date={\\"2020-02-13T23:59:59.999Z\\"}
           minDate={2020-02-13T00:00:00.000Z}
-          mode=\\"date\\"
-@@ -330,13 +330,16 @@
-                \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
-                \\"height\\": 60,
-                \\"justifyContent\\": \\"center\\",
-              },
--             null,
-+             Object {
-+               \\"opacity\\": 0.6,
-+             },
-              Object {
-                \\"alignItems\\": \\"center\\",
-+               \\"backgroundColor\\": \\"#B4B6BA\\",
-                \\"height\\": 48,
-                \\"width\\": 650,
-              },
-              Object {
-                \\"borderRadius\\": 50,"
+          mode=\\"date\\""
 `;
 
 exports[`renders correctly 1`] = `
@@ -1379,6 +1397,21 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
+  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1506,20 +1539,6 @@ exports[`renders edit challenge correctly 1`] = `
             },
           ]
         }
-      />
-      <View
-        style={
-          Array [
-            Object {
-              "paddingRight": 5,
-            },
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
       >
         <View
           style={
@@ -1529,10 +1548,7 @@ exports[`renders edit challenge correctly 1`] = `
                 "alignSelf": "flex-start",
                 "justifyContent": "center",
               },
-              Object {
-                "alignItems": "flex-end",
-                "alignSelf": "flex-end",
-              },
+              undefined,
             ]
           }
         >
@@ -1566,19 +1582,119 @@ exports[`renders edit challenge correctly 1`] = `
                 ]
               }
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeButton.png",
-                  }
-                }
+              <Text
+                allowFontScaling={false}
                 style={
-                  Object {
-                    "margin": 10,
-                  }
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
                 }
-              />
+              >
+                
+              </Text>
             </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "marginRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              SAVE
+            </Text>
           </View>
         </View>
       </View>
@@ -1759,82 +1875,20 @@ exports[`renders edit challenge correctly 1`] = `
       </View>
     </View>
   </RCTScrollView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
+  <Image
+    source={
       Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
       }
     }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
       }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          SAVE CHANGES
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
+    }
+  />
 </View>
 `;
