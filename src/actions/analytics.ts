@@ -74,58 +74,54 @@ export const setAnalyticsMinistryMode = () => (
   );
 };
 
-export function trackScreenChange(
+export const trackScreenChange = (
   screenName: string | string[],
   screenContext: Partial<ScreenContext> = {},
-) {
-  return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
-    getState: () => { analytics: AnalyticsState },
-  ) => {
-    const { analytics } = getState();
-    const { [ANALYTICS_MCID]: mcid } = analytics;
+) => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => { analytics: AnalyticsState },
+) => {
+  const { analytics } = getState();
+  const { [ANALYTICS_MCID]: mcid } = analytics;
 
-    const screenFragments = Array.isArray(screenName)
-      ? screenName
-      : [screenName];
-    const screen = screenFragments.reduce(
-      (name, current) => `${name} : ${current}`,
-      'mh',
-    );
+  const screenFragments = Array.isArray(screenName) ? screenName : [screenName];
+  const screen = screenFragments.reduce(
+    (name, current) => `${name} : ${current}`,
+    'mh',
+  );
 
-    const sendScreenChange = (MCID: string) => {
-      const context: TrackStateContext = {
-        ...analytics,
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: '',
-        [ANALYTICS_EDIT_MODE]: '',
-        [ANALYTICS_PERMISSION_TYPE]: '',
-        ...screenContext,
-        [ANALYTICS_MCID]: MCID,
-        [ANALYTICS_SCREEN_NAME]: screen,
-        [ANALYTICS_SITE_SECTION]: screenFragments[0],
-        [ANALYTICS_SITE_SUBSECTION]: screenFragments[1],
-        [ANALYTICS_SITE_SUBSECTION_3]: screenFragments[2],
-      };
-
-      RNOmniture.trackState(screen, context);
-      //sendStateToSnowplow(context);
-      dispatch(
-        updateAnalyticsContext({
-          [ANALYTICS_PREVIOUS_SCREEN_NAME]: screen,
-        }),
-      );
+  const sendScreenChange = (MCID: string) => {
+    const context: TrackStateContext = {
+      ...analytics,
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: '',
+      [ANALYTICS_EDIT_MODE]: '',
+      [ANALYTICS_PERMISSION_TYPE]: '',
+      ...screenContext,
+      [ANALYTICS_MCID]: MCID,
+      [ANALYTICS_SCREEN_NAME]: screen,
+      [ANALYTICS_SITE_SECTION]: screenFragments[0],
+      [ANALYTICS_SITE_SUBSECTION]: screenFragments[1],
+      [ANALYTICS_SITE_SUBSECTION_3]: screenFragments[2],
     };
 
-    if (mcid !== '') {
-      sendScreenChange(mcid);
-    } else {
-      RNOmniture.loadMarketingCloudId(result => {
-        sendScreenChange(result);
-      });
-    }
+    RNOmniture.trackState(screen, context);
+    //sendStateToSnowplow(context);
+    dispatch(
+      updateAnalyticsContext({
+        [ANALYTICS_PREVIOUS_SCREEN_NAME]: screen,
+      }),
+    );
   };
-}
+
+  if (mcid !== '') {
+    sendScreenChange(mcid);
+  } else {
+    RNOmniture.loadMarketingCloudId(result => {
+      sendScreenChange(result);
+    });
+  }
+};
 
 export function updateAnalyticsContext(
   analyticsContext: Partial<AnalyticsState>,
