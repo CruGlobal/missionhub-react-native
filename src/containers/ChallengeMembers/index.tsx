@@ -71,9 +71,7 @@ const ChallengeMembers = () => {
       />
       <ScrollView style={styles.container}>
         <Text style={styles.memberText}>
-          {`${members.length} ${
-            members.length > 1 ? t('pluralJoined') : t('joined')
-          }`}
+          {t('joined', { count: members.length })}
         </Text>
         <Flex value={1} style={{ paddingTop: 20 }}>
           <FlatList

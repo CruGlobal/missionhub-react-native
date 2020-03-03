@@ -612,8 +612,8 @@ export default {
     detailPlaceholder: 'Add details to your Challenge (optional)',
   },
   challengeMembers: {
-    joined: 'Member Joined',
-    pluralJoined: 'Members Joined',
+    joined: '{{count}} Member Joined',
+    joined_plural: '{{count}} Members Joined',
   },
   groupsChallenge: {
     create: 'Create Challenge',
