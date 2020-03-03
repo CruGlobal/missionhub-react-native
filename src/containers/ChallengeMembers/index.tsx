@@ -41,20 +41,10 @@ const ChallengeMembers = () => {
     ),
   );
 
-  const members = completed
-    ? currentAcceptedChallenge.completed
-    : currentAcceptedChallenge.joined;
+  const members = currentAcceptedChallenge.joined;
 
   const handleSelect = (person: Person) => {
     dispatch(navToPersonScreen(person, organization));
-  };
-
-  const memberText = () => {
-    if (completed) {
-      return members.length > 1 ? t('pluralCompleted') : t('completed');
-    } else {
-      return members.length > 1 ? t('pluralJoined') : t('joined');
-    }
   };
 
   const renderItem = ({ item }: { item: ChallengeItem }) => {
@@ -62,7 +52,9 @@ const ChallengeMembers = () => {
       <ChallengeMemberItem
         item={item}
         onSelect={handleSelect}
-        date={completed ? item.completed_at : item.accepted_at}
+        date={
+          completed && item.completed_at ? item.completed_at : item.accepted_at
+        }
       />
     );
   };
@@ -78,9 +70,9 @@ const ChallengeMembers = () => {
         }
       />
       <ScrollView style={styles.container}>
-        <Text style={styles.memberText}>{`${
-          members.length
-        } ${memberText()}`}</Text>
+        <Text style={styles.memberText}>
+          {t('joined', { count: members.length })}
+        </Text>
         <Flex value={1} style={{ paddingTop: 20 }}>
           <FlatList
             data={members}

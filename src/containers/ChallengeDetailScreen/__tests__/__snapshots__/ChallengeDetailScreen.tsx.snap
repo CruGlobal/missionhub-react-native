@@ -323,12 +323,17 @@ exports[`should call navigateBack from press 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -375,12 +380,17 @@ exports[`should call navigateBack from press 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="completedCount"
@@ -881,12 +891,17 @@ exports[`should render completed challenge correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -933,12 +948,17 @@ exports[`should render completed challenge correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="completedCount"
@@ -1400,12 +1420,17 @@ exports[`should render joined challenge correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -1452,12 +1477,17 @@ exports[`should render joined challenge correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="completedCount"
@@ -2021,12 +2051,17 @@ exports[`should render unjoined challenge correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -2073,12 +2108,17 @@ exports[`should render unjoined challenge correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="completedCount"
@@ -2554,12 +2594,17 @@ exports[`should render without edit correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="joinedCount"
@@ -2606,12 +2651,17 @@ exports[`should render without edit correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 38,
-                    },
+                    Array [
+                      Object {
+                        "color": "#3CC8E6",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 32,
+                        "lineHeight": 38,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                      },
+                    ],
                   ]
                 }
                 testID="completedCount"

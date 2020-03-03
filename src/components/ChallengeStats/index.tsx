@@ -97,7 +97,7 @@ const ChallengeStats = ({
         <Text
           testID="joinedCount"
           onPress={() => navToMemberScreen(false)}
-          style={numberStyle}
+          style={[numberStyle, accepted_count > 0 ? null : styles.numberNull]}
         >
           {accepted_count}
         </Text>
@@ -107,7 +107,7 @@ const ChallengeStats = ({
         <Text
           testID="completedCount"
           onPress={() => navToMemberScreen(true)}
-          style={numberStyle}
+          style={[numberStyle, completed_count > 0 ? null : styles.numberNull]}
         >
           {completed_count}
         </Text>

@@ -20,4 +20,7 @@ export default StyleSheet.create({
     fontSize: 24,
     lineHeight: 30,
   },
+  numberNull: {
+    color: theme.lightGrey,
+  },
 });

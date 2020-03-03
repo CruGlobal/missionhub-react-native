@@ -151,7 +151,7 @@ exports[`renders correctly for completed members 1`] = `
           ]
         }
       >
-        2 Members Completed
+        2 Members Joined
       </Text>
       <View
         style={
@@ -169,21 +169,21 @@ exports[`renders correctly for completed members 1`] = `
           data={
             Array [
               Object {
-                "completed_at": "2020-02-26",
+                "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
+                "id": "111",
+                "person": Object {
+                  "first_name": "Christian",
+                  "id": "111",
+                  "last_name": "Huffman",
+                },
+              },
+              Object {
+                "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "112",
                 "person": Object {
                   "first_name": "Scotty",
                   "id": "112",
                   "last_name": "Waggoner",
-                },
-              },
-              Object {
-                "completed_at": "2020-02-26",
-                "id": "113",
-                "person": Object {
-                  "first_name": "Robert",
-                  "id": "113",
-                  "last_name": "Eldredge",
                 },
               },
             ]
@@ -324,7 +324,7 @@ exports[`renders correctly for completed members 1`] = `
                             ]
                           }
                         >
-                          Scotty Waggoner
+                          Christian Huffman
                         </Text>
                         <Text
                           style={
@@ -344,7 +344,7 @@ exports[`renders correctly for completed members 1`] = `
                             ]
                           }
                         >
-                          Completed 
+                          Joined 
                           <Text
                             style={
                               Array [
@@ -367,11 +367,7 @@ exports[`renders correctly for completed members 1`] = `
                         </Text>
                       </View>
                       <Image
-                        source={
-                          Object {
-                            "testUri": "../../../assets/images/challengeCompleteGreen.png",
-                          }
-                        }
+                        source={null}
                         style={
                           Object {
                             "marginRight": 25,
@@ -489,7 +485,7 @@ exports[`renders correctly for completed members 1`] = `
                             ]
                           }
                         >
-                          Robert Eldredge
+                          Scotty Waggoner
                         </Text>
                         <Text
                           style={
@@ -509,7 +505,7 @@ exports[`renders correctly for completed members 1`] = `
                             ]
                           }
                         >
-                          Completed 
+                          Joined 
                           <Text
                             style={
                               Array [
@@ -532,11 +528,7 @@ exports[`renders correctly for completed members 1`] = `
                         </Text>
                       </View>
                       <Image
-                        source={
-                          Object {
-                            "testUri": "../../../assets/images/challengeCompleteGreen.png",
-                          }
-                        }
+                        source={null}
                         style={
                           Object {
                             "marginRight": 25,
@@ -725,7 +717,7 @@ exports[`renders correctly for joined members 1`] = `
           data={
             Array [
               Object {
-                "accepted_at": "2020-02-26",
+                "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "111",
                 "person": Object {
                   "first_name": "Christian",
@@ -1103,6 +1095,7 @@ exports[`renders plural sentence for joined members 1`] = `
           data={
             Array [
               Object {
+                "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "111",
                 "person": Object {
                   "first_name": "Christian",
@@ -1111,6 +1104,7 @@ exports[`renders plural sentence for joined members 1`] = `
                 },
               },
               Object {
+                "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "112",
                 "person": Object {
                   "first_name": "Scotty",
@@ -1294,7 +1288,7 @@ exports[`renders plural sentence for joined members 1`] = `
                             }
                             testID="Text"
                           >
-                            Invalid date
+                            Wednesday
                           </Text>
                         </Text>
                       </View>
@@ -1455,7 +1449,7 @@ exports[`renders plural sentence for joined members 1`] = `
                             }
                             testID="Text"
                           >
-                            Invalid date
+                            Wednesday
                           </Text>
                         </Text>
                       </View>
@@ -1631,7 +1625,7 @@ exports[`renders singular sentence for completed members 1`] = `
           ]
         }
       >
-        1 Member Completed
+        1 Member Joined
       </Text>
       <View
         style={
@@ -1649,11 +1643,12 @@ exports[`renders singular sentence for completed members 1`] = `
           data={
             Array [
               Object {
-                "id": "112",
+                "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
+                "id": "111",
                 "person": Object {
-                  "first_name": "Scotty",
-                  "id": "112",
-                  "last_name": "Waggoner",
+                  "first_name": "Christian",
+                  "id": "111",
+                  "last_name": "Huffman",
                 },
               },
             ]
@@ -1794,7 +1789,7 @@ exports[`renders singular sentence for completed members 1`] = `
                             ]
                           }
                         >
-                          Scotty Waggoner
+                          Christian Huffman
                         </Text>
                         <Text
                           style={
@@ -1832,7 +1827,7 @@ exports[`renders singular sentence for completed members 1`] = `
                             }
                             testID="Text"
                           >
-                            Invalid date
+                            Wednesday
                           </Text>
                         </Text>
                       </View>
