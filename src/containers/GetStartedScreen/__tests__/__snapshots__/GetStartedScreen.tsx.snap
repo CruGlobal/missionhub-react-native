@@ -78,15 +78,7 @@ exports[`renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
                     "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
                   },
                   null,
                   Object {},
@@ -248,14 +240,9 @@ Let's figure out where you are on your journey.
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
+                "backgroundColor": "#52C5DC",
                 "height": 60,
                 "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
               },
               null,
               Object {
@@ -462,14 +449,9 @@ Let's figure out where you are on your journey.
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
+                "backgroundColor": "#52C5DC",
                 "height": 60,
                 "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
               },
               null,
               Object {

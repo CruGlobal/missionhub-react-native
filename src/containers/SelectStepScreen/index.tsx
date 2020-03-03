@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
+import { connect } from 'react-redux-legacy';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -7,6 +8,9 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
+import { TrackStateContext } from '../../actions/analytics';
+import { getAnalyticsSectionType } from '../../utils/common';
+import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import { Text } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
@@ -19,6 +23,7 @@ import {
   contactAssignmentSelector,
 } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
 import { PeopleState, Person } from '../../reducers/people';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 
@@ -38,11 +43,19 @@ interface SelectStepScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
 }
 
-const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
+const SelectStepScreen = ({
+  next,
+  analyticsSection,
+}: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  useAnalytics('add step');
+  useAnalytics('add step', {
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+    },
+  });
   const dispatch = useDispatch();
 
   const personId: string = useNavigationParam('personId');
@@ -142,5 +155,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   );
 };
 
-export default SelectStepScreen;
+const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+  analyticsSection: getAnalyticsSectionType(onboarding),
+});
+
+export default connect(mapStateToProps)(SelectStepScreen);
 export const SELECT_STEP_SCREEN = 'nav/SELECT_STEP';

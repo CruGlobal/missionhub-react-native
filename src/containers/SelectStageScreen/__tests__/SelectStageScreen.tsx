@@ -5,6 +5,7 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { getStages } from '../../../actions/stages';
 import { trackAction, trackScreenChange } from '../../../actions/analytics';
 import {
@@ -115,6 +116,7 @@ const state = {
     },
   },
   stages: { stages },
+  onboarding: { currentlyOnboarding: false },
 };
 
 const baseParams = {
@@ -254,7 +256,33 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: '',
+      });
+      expect(store.getActions()).toEqual([
+        getStagesResult,
+        trackScreenChangeResult,
+      ]);
+    });
+
+    it('gets stages and snaps to first item on mount in onboarding', async () => {
+      const { store } = await buildAndTestMount(
+        {
+          ...state,
+          stages: { stages: [] },
+          onboarding: { currentlyOnboarding: true },
+        },
+        {
+          ...baseParams,
+          personId: myId,
+          selectedStageId: stageId,
+        },
+      );
+
+      expect(getStages).toHaveBeenCalledWith();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: 'onboarding',
+      });
       expect(store.getActions()).toEqual([
         getStagesResult,
         trackScreenChangeResult,
@@ -277,7 +305,9 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: '',
+      });
       expect(store.getActions()).toEqual([
         getStagesResult,
         trackScreenChangeResult,
@@ -294,7 +324,9 @@ describe('actions on mount', () => {
       });
 
       expect(getStages).not.toHaveBeenCalled();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: '',
+      });
       expect(store.getActions()).toEqual([trackScreenChangeResult]);
     });
   });

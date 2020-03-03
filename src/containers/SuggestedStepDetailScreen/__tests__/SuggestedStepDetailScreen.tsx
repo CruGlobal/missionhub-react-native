@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { addStep } from '../../../actions/steps';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
@@ -22,6 +23,8 @@ const addStepResponse = { type: 'add step' };
 
 const next = jest.fn();
 
+const initialState = { onboarding: { currentlyOnboarding: false } };
+
 beforeEach(() => {
   next.mockReturnValue(nextResponse);
   ((addStep as unknown) as jest.Mock).mockReturnValue(addStepResponse);
@@ -29,10 +32,24 @@ beforeEach(() => {
 
 it('renders correctly', () => {
   renderWithContext(<SuggestedStepDetailScreen next={next} />, {
+    initialState,
     navParams: { step, personId, orgId },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step']);
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
+    screenContext: { [ANALYTICS_SECTION_TYPE]: '' },
+  });
+});
+
+it('renders correctly in oboarding', () => {
+  renderWithContext(<SuggestedStepDetailScreen next={next} />, {
+    initialState: { onboarding: { currentlyOnboarding: true } },
+    navParams: { step, personId, orgId },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
+    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
+  });
 });
 
 describe('bottomButtonProps', () => {
@@ -40,6 +57,7 @@ describe('bottomButtonProps', () => {
     const { getByTestId, store } = renderWithContext(
       <SuggestedStepDetailScreen next={next} />,
       {
+        initialState,
         navParams: { step, personId, orgId },
       },
     );
