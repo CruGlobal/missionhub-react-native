@@ -153,9 +153,10 @@ const ChallengeFeed = ({
     );
   };
 
-  const itemCount: number = items.reduce((count, element) => {
-    return (count += element.data.length);
-  }, 0);
+  const itemCount: number = items.reduce(
+    (count, element) => count + element.data.length,
+    0,
+  );
 
   if (itemCount === 0) {
     return renderNull();
