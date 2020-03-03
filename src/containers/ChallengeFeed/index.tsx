@@ -153,11 +153,9 @@ const ChallengeFeed = ({
     );
   };
 
-  let itemCount = 0;
-  // Find the total count of challenges
-  items.forEach((element: ItemsInterface) => {
-    itemCount += element.data.length;
-  });
+  const itemCount: number = items.reduce((count, element) => {
+    return (count += element.data.length);
+  }, 0);
 
   if (itemCount === 0) {
     return renderNull();
