@@ -54,8 +54,7 @@ const CelebrateDetailScreen = ({
   editingCommentId,
   analyticsAssignmentType,
 }: CelebrateDetailScreenProps) => {
-  useAnalytics({
-    screenName: ['celebrate item', 'comments'],
+  useAnalytics(['celebrate item', 'comments'], {
     screenContext: {
       [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },

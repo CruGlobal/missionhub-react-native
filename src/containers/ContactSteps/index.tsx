@@ -56,6 +56,7 @@ const ContactSteps = ({
   organization,
   analyticsAssignmentType,
 }: ContactStepsProps) => {
+  console.log(contactAssignment);
   useAnalytics(['person', 'my steps'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });

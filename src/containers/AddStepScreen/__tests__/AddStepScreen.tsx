@@ -10,6 +10,7 @@ import {
   CREATE_STEP,
   STEP_NOTE,
   ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -79,6 +80,7 @@ it('renders create step correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
     },
   });
 });
@@ -92,6 +94,7 @@ it('renders create step in onboarding correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: 'onboarding',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
     },
   });
 });
@@ -105,6 +108,7 @@ it('renders edit journey step correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
     },
   });
 });
@@ -118,6 +122,7 @@ it('renders edit journey step for me correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
     },
   });
 });
@@ -131,6 +136,7 @@ it('renders edit journey item correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
     },
   });
 });
@@ -144,6 +150,7 @@ it('renders edit journey item for me correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
     },
   });
 });
@@ -157,6 +164,7 @@ it('renders step note correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
     },
   });
 });
@@ -170,6 +178,7 @@ it('renders step note correctly for me', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
     },
   });
 });

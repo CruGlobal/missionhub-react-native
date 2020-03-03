@@ -9,6 +9,7 @@ import {
   ACCEPTED_STEP,
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
+  ORG_PERMISSIONS,
 } from '../../../constants';
 import { renderShallow, renderWithContext } from '../../../../testUtils';
 
@@ -20,7 +21,9 @@ const orgId = '222';
 const mockPerson = {
   id: personId,
   first_name: 'ben',
-  organizational_permissions: [{ organization_id: orgId }],
+  organizational_permissions: [
+    { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
+  ],
 };
 
 const mockJourneyList = [

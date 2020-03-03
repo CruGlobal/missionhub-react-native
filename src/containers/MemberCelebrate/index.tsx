@@ -23,8 +23,7 @@ const MemberCelebrate = ({
   person,
   analyticsAssignmentType,
 }: MemberCelebrateProps) => {
-  useAnalytics({
-    screenName: ['person', 'celebrate'],
+  useAnalytics(['person', 'celebrate'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
 

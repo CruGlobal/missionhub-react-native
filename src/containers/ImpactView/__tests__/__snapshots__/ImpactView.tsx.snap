@@ -12,6 +12,11 @@ exports[`ImpactView ME person community impact view renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -1332,6 +1337,11 @@ exports[`ImpactView ME person community impact view renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -2652,6 +2662,11 @@ exports[`ImpactView ME person community impact view renders singular state 1`] =
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -3972,6 +3987,11 @@ exports[`ImpactView ME person impact view for user created org renders empty sta
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -4053,6 +4073,11 @@ exports[`ImpactView ME person impact view for user created org renders plural st
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -4136,6 +4161,11 @@ exports[`ImpactView ME person impact view for user created org renders singular 
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -4219,6 +4249,11 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -4325,6 +4360,11 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -4431,6 +4471,11 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "self",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -4537,6 +4582,11 @@ exports[`ImpactView contact impact renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "community member",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -5857,6 +5907,11 @@ exports[`ImpactView contact impact renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "community member",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -7177,6 +7232,11 @@ exports[`ImpactView contact impact renders singular state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "community member",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -8497,6 +8557,11 @@ exports[`ImpactView cru community impact renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -9817,6 +9882,11 @@ exports[`ImpactView cru community impact renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -11137,6 +11207,11 @@ exports[`ImpactView cru community impact renders singular state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -12457,6 +12532,11 @@ exports[`ImpactView global community impact renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -12561,6 +12641,11 @@ exports[`ImpactView global community impact renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -12667,6 +12752,11 @@ exports[`ImpactView global community impact renders singular state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -12773,6 +12863,11 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "community member",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -12854,6 +12949,11 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "community member",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -12937,6 +13037,11 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "community member",
+        }
+      }
       screenName={
         Array [
           "person",
@@ -13020,6 +13125,11 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -13124,6 +13234,11 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",
@@ -13230,6 +13345,11 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
 >
   <View>
     <Analytics
+      screenContext={
+        Object {
+          "cru.assignment-type": "",
+        }
+      }
       screenName={
         Array [
           "community",

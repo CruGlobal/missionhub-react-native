@@ -5,7 +5,10 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_SECTION_TYPE } from '../../../constants';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../../constants';
 import { getStages } from '../../../actions/stages';
 import { trackAction, trackScreenChange } from '../../../actions/analytics';
 import {
@@ -258,6 +261,7 @@ describe('actions on mount', () => {
       expect(getStages).toHaveBeenCalledWith();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       });
       expect(store.getActions()).toEqual([
         getStagesResult,
@@ -282,6 +286,7 @@ describe('actions on mount', () => {
       expect(getStages).toHaveBeenCalledWith();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: 'onboarding',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       });
       expect(store.getActions()).toEqual([
         getStagesResult,
@@ -307,6 +312,7 @@ describe('actions on mount', () => {
       expect(getStages).toHaveBeenCalledWith();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
       });
       expect(store.getActions()).toEqual([
         getStagesResult,
@@ -326,6 +332,7 @@ describe('actions on mount', () => {
       expect(getStages).not.toHaveBeenCalled();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       });
       expect(store.getActions()).toEqual([trackScreenChangeResult]);
     });
