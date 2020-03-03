@@ -3,7 +3,7 @@ import { AnyAction } from 'redux';
 
 import { REQUESTS } from '../api/routes';
 import { LOGOUT, COMPLETED_STEP_COUNT, RESET_STEP_COUNT } from '../constants';
-import { getPagination, shuffleArray } from '../utils/common';
+import { shuffleArray } from '../utils/common';
 
 import { Person } from './people';
 import { Organization } from './organizations';
@@ -30,11 +30,9 @@ export type Step = {
 };
 
 export interface StepsState {
-  mine: Step[] | null;
   suggestedForMe: { [key: string]: Step[] };
   suggestedForOthers: { [key: string]: Step[] };
   userStepCount: { [key: string]: number };
-  pagination: { hasNextPage: boolean; page: number };
   contactSteps: {
     [key: string]: {
       steps: Step[];
@@ -44,14 +42,9 @@ export interface StepsState {
 }
 
 export const initialState: StepsState = {
-  mine: null, // null indicates user has never loaded. [] indicates loaded but user doesn't have any
   suggestedForMe: {},
   suggestedForOthers: {},
   userStepCount: {},
-  pagination: {
-    hasNextPage: true,
-    page: 1,
-  },
   contactSteps: {},
 };
 
@@ -76,20 +69,6 @@ export default function stepsReducer(state = initialState, action: AnyAction) {
             ? state.suggestedForOthers[contactStageId]
             : suggestions,
         },
-      };
-    case REQUESTS.GET_MY_CHALLENGES.SUCCESS:
-      const newSteps = action.results.response;
-
-      // If we're doing paging, concat the old steps with the new ones
-      const allSteps =
-        action.query.page && action.query.page.offset > 0
-          ? [...(state.mine || []), ...newSteps]
-          : newSteps;
-
-      return {
-        ...state,
-        mine: allSteps,
-        pagination: getPagination(action, allSteps.length),
       };
     case REQUESTS.GET_CHALLENGES_BY_FILTER.SUCCESS:
       const {
@@ -126,7 +105,6 @@ export default function stepsReducer(state = initialState, action: AnyAction) {
 
       return {
         ...state,
-        mine: [newStep, ...(state.mine || [])],
         contactSteps: {
           ...state.contactSteps,
           [personOrgId]: {
@@ -144,7 +122,6 @@ export default function stepsReducer(state = initialState, action: AnyAction) {
 
       return {
         ...state,
-        mine: state.mine === null ? null : removeStepById(stepId, state.mine),
         contactSteps: Object.entries(state.contactSteps).reduce(
           (acc, [personOrgId, combinedSteps]) => ({
             ...acc,

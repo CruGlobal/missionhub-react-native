@@ -37,6 +37,7 @@ import {
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 import { checkForUnreadComments } from '../../actions/unreadComments';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -153,6 +154,7 @@ const GroupsListScreen = ({
     } = {},
     fetchMore,
     refetch,
+    error,
   } = useQuery<GetCommunities>(GET_COMMUNITIES_QUERY);
 
   const globalCommunity = createGlobalCommunity(t, usersCount);
@@ -293,6 +295,11 @@ const GroupsListScreen = ({
           />
         </View>
       </View>
+      <ErrorNotice
+        message={t('errorLoadingCommunities')}
+        error={error}
+        refetch={refetch}
+      />
       <FlatList
         testID="flatList"
         refreshing={isRefreshing}

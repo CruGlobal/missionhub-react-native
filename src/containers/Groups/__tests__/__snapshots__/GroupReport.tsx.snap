@@ -182,7 +182,7 @@ exports[`should call navigate back 1`] = `
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
             "content": "esse repellat quisquam",
-            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
+            "createdAt": "2010-09-19T03:58:30.504Z",
             "id": "2",
             "person": Object {
               "__typename": "Person",
@@ -190,7 +190,7 @@ exports[`should call navigate back 1`] = `
               "fullName": "Branson Gutkowski",
               "id": "3",
             },
-            "updatedAt": "Mon, 13 Jan 2020 13:58:47 GMT",
+            "updatedAt": "2020-01-13T13:58:47.783Z",
           },
         },
         Object {
@@ -209,9 +209,9 @@ exports[`should call navigate back 1`] = `
               "id": "6",
             },
             "content": "ut sunt qui",
-            "createdAt": "Mon, 05 Mar 2018 03:36:18 GMT",
+            "createdAt": "2018-03-05T03:36:18.957Z",
             "id": "5",
-            "updatedAt": "Sun, 28 Feb 2016 03:01:08 GMT",
+            "updatedAt": "2016-02-28T03:01:08.353Z",
           },
         },
       ]
@@ -1302,7 +1302,7 @@ exports[`should refresh correctly 1`] = `
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
             "content": "esse repellat quisquam",
-            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
+            "createdAt": "2010-09-19T03:58:30.504Z",
             "id": "2",
             "person": Object {
               "__typename": "Person",
@@ -1310,7 +1310,7 @@ exports[`should refresh correctly 1`] = `
               "fullName": "Branson Gutkowski",
               "id": "3",
             },
-            "updatedAt": "Mon, 13 Jan 2020 13:58:47 GMT",
+            "updatedAt": "2020-01-13T13:58:47.783Z",
           },
         },
         Object {
@@ -1329,9 +1329,9 @@ exports[`should refresh correctly 1`] = `
               "id": "6",
             },
             "content": "ut sunt qui",
-            "createdAt": "Mon, 05 Mar 2018 03:36:18 GMT",
+            "createdAt": "2018-03-05T03:36:18.957Z",
             "id": "5",
-            "updatedAt": "Sun, 28 Feb 2016 03:01:08 GMT",
+            "updatedAt": "2016-02-28T03:01:08.353Z",
           },
         },
       ]
@@ -2422,7 +2422,7 @@ exports[`should render correctly 1`] = `
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
             "content": "esse repellat quisquam",
-            "createdAt": "Sun, 19 Sep 2010 03:58:30 GMT",
+            "createdAt": "2010-09-19T03:58:30.504Z",
             "id": "2",
             "person": Object {
               "__typename": "Person",
@@ -2430,7 +2430,7 @@ exports[`should render correctly 1`] = `
               "fullName": "Branson Gutkowski",
               "id": "3",
             },
-            "updatedAt": "Mon, 13 Jan 2020 13:58:47 GMT",
+            "updatedAt": "2020-01-13T13:58:47.783Z",
           },
         },
         Object {
@@ -2449,9 +2449,9 @@ exports[`should render correctly 1`] = `
               "id": "6",
             },
             "content": "ut sunt qui",
-            "createdAt": "Mon, 05 Mar 2018 03:36:18 GMT",
+            "createdAt": "2018-03-05T03:36:18.957Z",
             "id": "5",
-            "updatedAt": "Sun, 28 Feb 2016 03:01:08 GMT",
+            "updatedAt": "2016-02-28T03:01:08.353Z",
           },
         },
       ]

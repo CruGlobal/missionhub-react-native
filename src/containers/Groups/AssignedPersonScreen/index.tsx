@@ -384,13 +384,3 @@ export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
   connectedPersonScreen,
   true,
 );
-
-export const CONTACT_PERSON_SCREEN = 'nav/CONTACT_PERSON';
-export const IS_USER_CREATED_MEMBER_PERSON_SCREEN =
-  'nav/IS_USER_CREATED_MEMBER_PERSON';
-export const IS_GROUPS_MEMBER_PERSON_SCREEN = 'nav/IS_GROUPS_MEMBER_PERSON';
-export const MEMBER_PERSON_SCREEN = 'nav/MEMBER_PERSON';
-export const ME_PERSONAL_PERSON_SCREEN = 'nav/ME_PERSONAL_PERSON';
-export const IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN =
-  'nav/IS_GROUPS_ME_COMMUNITY_PERSON';
-export const ME_COMMUNITY_PERSON_SCREEN = 'nav/ME_COMMUNITY_PERSON';

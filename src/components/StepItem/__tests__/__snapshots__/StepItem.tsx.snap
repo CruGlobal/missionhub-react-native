@@ -91,10 +91,17 @@ exports[`renders not me correctly 1`] = `
             ]
           }
         >
-          Receiver Name
+          Zola Corkery
         </Text>
       </View>
       <ReminderButton
+        reminder={
+          Object {
+            "id": "4",
+            "nextOccurrenceAt": "2018-03-05T03:36:18.957Z",
+            "reminderType": "once",
+          }
+        }
         stepId="2"
         testID="StepReminderButton"
       >
@@ -160,7 +167,7 @@ exports[`renders not me correctly 1`] = `
               ]
             }
           >
-            Set a Reminder
+            Monday, Mar 5 @ 3:36 AM
           </Text>
         </View>
       </ReminderButton>
@@ -180,7 +187,7 @@ exports[`renders not me correctly 1`] = `
         ]
       }
     >
-      Test Step
+      Repellat quisquam recusandae alias consequuntur corporis.
     </Text>
   </View>
 </View>
@@ -277,13 +284,15 @@ exports[`renders with pressable name correctly 1`] = `
             ]
           }
         >
-          Receiver Name
+          Zola Corkery
         </Text>
       </View>
       <ReminderButton
         reminder={
           Object {
-            "id": "11",
+            "id": "4",
+            "nextOccurrenceAt": "2018-03-05T03:36:18.957Z",
+            "reminderType": "once",
           }
         }
         stepId="1"
@@ -351,7 +360,7 @@ exports[`renders with pressable name correctly 1`] = `
               ]
             }
           >
-            Set a Reminder
+            Monday, Mar 5 @ 3:36 AM
           </Text>
         </View>
       </ReminderButton>
@@ -371,7 +380,7 @@ exports[`renders with pressable name correctly 1`] = `
         ]
       }
     >
-      Test Step
+      Repellat quisquam recusandae alias consequuntur corporis.
     </Text>
   </View>
 </View>

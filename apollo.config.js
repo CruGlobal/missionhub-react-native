@@ -1,6 +1,10 @@
 const dotenv = require('dotenv');
 
-dotenv.config({ path: process.env.ENVFILE || '.env' });
+const result = dotenv.config({ path: process.env.ENVFILE || '.env' });
+
+if (result.error) {
+  throw result.error;
+}
 
 module.exports = {
   client: {

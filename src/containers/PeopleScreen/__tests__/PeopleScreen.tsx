@@ -173,7 +173,9 @@ describe('handleAddContact', () => {
 
         expect(navigatePush).toHaveBeenCalledWith(
           ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization: undefined },
+          {
+            organization: undefined,
+          },
         );
       });
     });
@@ -188,7 +190,9 @@ describe('handleAddContact', () => {
 
         expect(navigatePush).toHaveBeenCalledWith(
           ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization: undefined },
+          {
+            organization: undefined,
+          },
         );
       });
     });
@@ -215,7 +219,9 @@ describe('handleAddContact', () => {
 
         expect(navigatePush).toHaveBeenCalledWith(
           ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization },
+          {
+            organization,
+          },
         );
       });
     });
@@ -230,7 +236,9 @@ describe('handleAddContact', () => {
 
         expect(navigatePush).toHaveBeenCalledWith(
           ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          { organization: undefined },
+          {
+            organization: undefined,
+          },
         );
       });
     });

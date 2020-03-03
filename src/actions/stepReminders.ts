@@ -1,30 +1,52 @@
-import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../constants';
+import { ThunkDispatch } from 'redux-thunk';
+import gql from 'graphql-tag';
+
+import { DAYS_OF_THE_WEEK } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { ReminderTypeEnum } from '../../__generated__/globalTypes';
+import { apolloClient } from '../apolloClient';
 
 import callApi from './api';
+import {
+  refreshStepReminder,
+  refreshStepReminderVariables,
+} from './__generated__/refreshStepReminder';
 
-const { ONCE, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
+const REFRESH_STEP_REMINDER_QUERY = gql`
+  query refreshStepReminder($stepId: ID!) {
+    step(id: $stepId) {
+      id
+      reminder {
+        id
+        reminderType
+        nextOccurrenceAt
+      }
+    }
+  }
+`;
 
-// @ts-ignore
-export function removeStepReminder(challenge_id) {
-  // @ts-ignore
-  return dispatch =>
-    dispatch(callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id }));
+export function removeStepReminder(stepId: string) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
+    await dispatch(
+      callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id: stepId }),
+    );
+    apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
+      query: REFRESH_STEP_REMINDER_QUERY,
+      variables: { stepId },
+    });
+  };
 }
 
 export function createStepReminder(
-  // @ts-ignore
-  challenge_id,
-  // @ts-ignore
-  reminder_at,
-  reminder_type = ONCE,
+  stepId: string,
+  reminder_at: Date,
+  reminder_type = ReminderTypeEnum.once,
 ) {
-  // @ts-ignore
-  return dispatch =>
-    dispatch(
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
+    await dispatch(
       callApi(
         REQUESTS.CREATE_CHALLENGE_REMINDER,
-        { challenge_id },
+        { challenge_id: stepId },
         {
           data: {
             attributes: {
@@ -36,32 +58,34 @@ export function createStepReminder(
         },
       ),
     );
+    apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
+      query: REFRESH_STEP_REMINDER_QUERY,
+      variables: { stepId },
+    });
+  };
 }
 
-// @ts-ignore
-function createAt(reminder_at, reminder_type) {
+function createAt(reminder_at: Date, reminder_type: string) {
   switch (reminder_type) {
-    case ONCE:
+    case ReminderTypeEnum.once:
       return reminder_at.toISOString();
     default:
       return reminder_at.toLocaleTimeString(undefined, { hour12: false });
   }
 }
 
-// @ts-ignore
-function createOn(reminder_at, reminder_type) {
+function createOn(reminder_at: Date, reminder_type: ReminderTypeEnum) {
   switch (reminder_type) {
-    case WEEKLY:
+    case ReminderTypeEnum.weekly:
       return DAYS_OF_THE_WEEK[reminder_at.getDay()];
-    case MONTHLY:
+    case ReminderTypeEnum.monthly:
       return getDayOfMonth(reminder_at.getDate());
     default:
       return null;
   }
 }
 
-// @ts-ignore
-function getDayOfMonth(day) {
+function getDayOfMonth(day: number) {
   if (day > 28) {
     return day - 32;
   }

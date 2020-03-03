@@ -39,9 +39,9 @@ const celebrateComments: CelebrateCommentsState = {
 };
 
 it('should return comments for matching event id', () => {
-  expect(celebrateCommentsSelector({ celebrateComments }, { eventId })).toEqual(
-    { comments, pagination: { page: 1, hasNextPage: false } },
-  );
+  expect(
+    celebrateCommentsSelector({ celebrateComments }, { eventId }),
+  ).toEqual({ comments, pagination: { page: 1, hasNextPage: false } });
 });
 
 it('should return comments for matching event id', () => {

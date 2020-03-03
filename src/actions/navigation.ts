@@ -89,7 +89,7 @@ export function navigateReplace(screen: string, props = {}) {
 }
 
 export const navigateToMainTabs = (tab = STEPS_TAB) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<never, {}, AnyAction>,
 ) => {
   dispatch(loadHome());
   dispatch(navigateResetTab(MAIN_TABS, tab));
