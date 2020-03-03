@@ -2,9 +2,11 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { REQUESTS } from '../api/routes';
+import { OrganizationsState } from '../reducers/organizations';
 
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
+import { refreshCommunity, getMyCommunities } from './organizations';
 
 export function markCommentsRead(orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
@@ -29,11 +31,15 @@ export function markCommentRead(eventId: string, orgId: string) {
 }
 
 function refreshUnreadComments(orgId: string) {
-  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+  return (
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      null,
+      AnyAction
+    >,
+  ) => {
     //refresh unread comments count in Redux
-    dispatch(checkForUnreadComments());
-    //refresh this org's celebrate feed, including the unread comments count
-    getCelebrateFeed(orgId);
+    dispatch(refreshCommunity(orgId));
     //refresh this org's unread comments feed
     getCelebrateFeed(orgId, undefined, true);
   };
@@ -50,5 +56,6 @@ export function checkForUnreadComments() {
     };
 
     dispatch(callApi(REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION, query));
+    dispatch(getMyCommunities());
   };
 }

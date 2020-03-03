@@ -10,15 +10,26 @@ import {
 } from '../unreadComments';
 import { getMe } from '../person';
 import { getCelebrateFeed } from '../celebration';
+import { refreshCommunity, getMyCommunities } from '../organizations';
 
 jest.mock('../api');
 jest.mock('../person');
 jest.mock('../celebration');
+jest.mock('../organizations');
 (callApi as jest.Mock).mockReturnValue(() => {
   result: 'marked as unread';
 });
 (getMe as jest.Mock).mockReturnValue(() => {
   type: 'reloaded person';
+});
+(getCelebrateFeed as jest.Mock).mockReturnValue(() => {
+  type: 'get celebrate feed';
+});
+(refreshCommunity as jest.Mock).mockReturnValue(() => {
+  type: 'refresh community';
+});
+(getMyCommunities as jest.Mock).mockReturnValue(() => {
+  type: 'get my communities';
 });
 
 const orgId = '4';
@@ -47,15 +58,8 @@ describe('markCommentsRead', () => {
     });
   });
 
-  it('should send a request to refresh unread comments notification', () => {
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION,
-      unreadCommentsQuery,
-    );
-  });
-
-  it('should refresh community celebrate feed', () => {
-    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
+  it('should refresh community', () => {
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
   });
 
   it('should refresh community unread comments feed', () => {
@@ -76,15 +80,8 @@ describe('markCommentRead', () => {
     });
   });
 
-  it('should send a request to refresh unread comments notification', () => {
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION,
-      unreadCommentsQuery,
-    );
-  });
-
-  it('should refresh community celebrate feed', () => {
-    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
+  it('should refresh community', () => {
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
   });
 
   it('should refresh community unread comments feed', () => {
