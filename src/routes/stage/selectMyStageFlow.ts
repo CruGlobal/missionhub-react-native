@@ -7,7 +7,7 @@ import { loadStepsAndJourney } from '../../actions/misc';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
 } from '../../containers/SelectStageScreen';
-import { SELECT_MY_STEP_SCREEN } from '../../containers/SelectMyStepScreen';
+import { SELECT_STEP_SCREEN } from '../../containers/SelectStepScreen';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';
 
@@ -25,8 +25,8 @@ export const SelectMyStageFlowScreens = {
       dispatch(
         isAlreadySelected
           ? navigatePush(CELEBRATION_SCREEN, { personId, orgId })
-          : navigatePush(SELECT_MY_STEP_SCREEN, {
-              contactStage: stage,
+          : navigatePush(SELECT_STEP_SCREEN, {
+              personId: personId,
               organization: { id: orgId },
             }),
       );

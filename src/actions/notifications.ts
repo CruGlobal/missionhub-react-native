@@ -1,6 +1,7 @@
 /* eslint complexity: 0 */
 
 import { PushNotificationIOS } from 'react-native';
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
 import i18next from 'i18next';
 
@@ -32,8 +33,10 @@ import {
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
 
-// @ts-ignore
-export function showNotificationPrompt(notificationType, doNotNavigateBack) {
+export function showNotificationPrompt(
+  notificationType: string,
+  doNotNavigateBack = false,
+) {
   // @ts-ignore
   return (dispatch, getState) => {
     if (isAndroid) {
@@ -72,8 +75,10 @@ export function showNotificationPrompt(notificationType, doNotNavigateBack) {
   };
 }
 
-// @ts-ignore
-export function showReminderOnLoad(notificationType, doNotNavigateBack) {
+export function showReminderOnLoad(
+  notificationType: string,
+  doNotNavigateBack = false,
+) {
   // @ts-ignore
   return async (dispatch, getState) => {
     if (getState().notifications.showReminderOnLoad) {

@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   NOTIFICATION_PROMPT_TYPES,
@@ -9,12 +10,12 @@ import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { showReminderOnLoad } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
-import { getMySteps } from '../steps';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getMyCommunities } from '../organizations';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
+import { AuthState } from '../../reducers/auth';
 
 function getTimezoneString() {
   return `${(new Date().getTimezoneOffset() / 60) * -1}`;
@@ -63,21 +64,20 @@ export function authSuccess() {
 }
 
 export function loadHome() {
-  // @ts-ignore
-  return async (dispatch, getState) => {
+  return (
+    dispatch: ThunkDispatch<never, never, never>,
+    getState: () => { auth: AuthState },
+  ) => {
     // Don't try to run all these things if there is no token
     if (!getState().auth.token) {
       return Promise.resolve();
     }
     // TODO: Set this up so it only loads these if it hasn't loaded them in X amount of time
-    // @ts-ignore
     dispatch(getMe());
     dispatch(getMyPeople());
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    await dispatch(getMySteps());
-    // @ts-ignore
     dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }

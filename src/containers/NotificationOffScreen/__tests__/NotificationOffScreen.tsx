@@ -1,6 +1,7 @@
 import { Linking } from 'react-native';
 import React from 'react';
 import configureStore from 'redux-mock-store';
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
 
 import { renderShallow, testSnapshotShallow } from '../../../../testUtils';

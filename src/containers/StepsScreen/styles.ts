@@ -14,9 +14,6 @@ export default StyleSheet.create({
   list: {
     paddingVertical: 8,
   },
-  listExtraPadding: {
-    paddingBottom: 40,
-  },
   nullWrap: {
     flex: 1,
     alignItems: 'center',

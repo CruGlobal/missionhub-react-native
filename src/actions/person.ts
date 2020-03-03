@@ -8,7 +8,7 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
-} from '../containers/Groups/AssignedPersonScreen/';
+} from '../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
   UPDATE_PERSON_ATTRIBUTES,
@@ -25,15 +25,15 @@ import {
 } from '../selectors/people';
 import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
+import { apolloClient } from '../apolloClient';
+import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
-import { getMySteps } from './steps';
 
-// @ts-ignore
-export function getMe(extraInclude) {
+export function getMe(extraInclude?: string) {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
@@ -441,7 +441,7 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
       ),
     );
 
-    dispatch(getMySteps());
+    apolloClient.query({ query: STEPS_QUERY });
     return dispatch({
       type: DELETE_PERSON,
       personId,

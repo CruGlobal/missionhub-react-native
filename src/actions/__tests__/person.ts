@@ -32,7 +32,6 @@ import { REQUESTS } from '../../api/routes';
 import * as analytics from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
-import { getMySteps } from '../steps';
 import {
   CONTACT_PERSON_SCREEN,
   IS_USER_CREATED_MEMBER_PERSON_SCREEN,
@@ -41,7 +40,7 @@ import {
   ME_PERSONAL_PERSON_SCREEN,
   IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
   ME_COMMUNITY_PERSON_SCREEN,
-} from '../../containers/Groups/AssignedPersonScreen';
+} from '../../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
 import {
   personSelector,
@@ -53,7 +52,6 @@ import { organizationSelector } from '../../selectors/organizations';
 jest.mock('../api');
 jest.mock('../navigation');
 jest.mock('../organizations');
-jest.mock('../steps');
 jest.mock('../../selectors/people');
 jest.mock('../../selectors/organizations');
 jest.mock('../analytics');
@@ -612,7 +610,6 @@ describe('deleteContactAssignment', () => {
   };
 
   const callAPIResult = { type: 'call api' };
-  const getMyStepsResult = { type: 'get my steps' };
 
   const deleteAction = {
     type: DELETE_PERSON,
@@ -626,20 +623,12 @@ describe('deleteContactAssignment', () => {
       query,
       data,
     );
-    expect(getMySteps).toHaveBeenCalledWith();
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callAPIResult,
-      getMyStepsResult,
-      deleteAction,
-    ]);
+    expect(store.getActions()).toEqual([callAPIResult, deleteAction]);
   };
 
   beforeEach(() => {
-    // @ts-ignore
-    getMySteps.mockReturnValue(getMyStepsResult);
-    // @ts-ignore
-    callApi.mockReturnValue(callAPIResult);
+    (callApi as jest.Mock).mockReturnValue(callAPIResult);
   });
 
   it('should send the correct API request', async () => {

@@ -77,9 +77,9 @@ exports[`reminder not passed in renders correctly 1`] = `
         }
       >
         <RCTDatePicker
-          date={1536753600000}
+          date={1514853579887}
           locale="en-TEST"
-          minimumDate={1536753600000}
+          minimumDate={1514853579887}
           mode="datetime"
           onChange={[Function]}
           onResponderTerminationRequest={[Function]}
@@ -616,9 +616,9 @@ exports[`reminder passed in renders correctly 1`] = `
         }
       >
         <RCTDatePicker
-          date={1536753600000}
+          date={1447447941990}
           locale="en-TEST"
-          minimumDate={1536753600000}
+          minimumDate={1514853579887}
           mode="datetime"
           onChange={[Function]}
           onResponderTerminationRequest={[Function]}

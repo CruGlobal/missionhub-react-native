@@ -7,15 +7,13 @@ import { renderShallow, createMockNavState } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { createStepReminder } from '../../../actions/stepReminders';
 import { reminderSelector } from '../../../selectors/stepReminders';
-import { REMINDER_RECURRENCES } from '../../../constants';
+import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SetReminderScreen from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 jest.mock('../../../selectors/stepReminders');
-
-const { ONCE } = REMINDER_RECURRENCES;
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
@@ -25,7 +23,7 @@ const stepId = '42234';
 const reminderId = '1';
 const reminder = {
   id: reminderId,
-  reminder_type: ONCE,
+  reminder_type: ReminderTypeEnum.once,
   next_occurrence_at: mockDate,
 };
 const stepReminders = {
@@ -167,7 +165,7 @@ describe('handleRecurrenceChange', () => {
       .childAt(1)
       .childAt(1)
       .props()
-      .onRecurrenceChange(ONCE);
+      .onRecurrenceChange(ReminderTypeEnum.once);
 
     // @ts-ignore
     component.update();
@@ -178,7 +176,7 @@ describe('handleRecurrenceChange', () => {
     expect(instance.state).toEqual({
       date: '',
       disableBtn: true,
-      recurrence: ONCE,
+      recurrence: ReminderTypeEnum.once,
     });
   });
 

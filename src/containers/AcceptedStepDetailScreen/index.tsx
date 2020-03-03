@@ -5,6 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
@@ -13,67 +14,94 @@ import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
-import { reminderSelector } from '../../selectors/stepReminders';
-import { ReminderType, StepReminderState } from '../../reducers/stepReminders';
-import { Step } from '../../reducers/steps';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
+import { ACCEPTED_STEP_DETAIL_QUERY } from './queries';
+import {
+  AcceptedStepDetail,
+  AcceptedStepDetailVariables,
+} from './__generated__/AcceptedStepDetail';
 
 interface AcceptedStepDetailScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  reminder?: ReminderType;
 }
 
 const AcceptedStepDetailScreen = ({
   dispatch,
-  reminder,
 }: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
   useAnalytics(['step detail', 'active step']);
-  const step: Step = useNavigationParam('step');
-
-  const { id: stepId, challenge_suggestion, title, receiver } = step;
+  const { data: { step } = { step: undefined }, error, refetch } = useQuery<
+    AcceptedStepDetail,
+    AcceptedStepDetailVariables
+  >(ACCEPTED_STEP_DETAIL_QUERY, {
+    variables: { id: useNavigationParam('stepId') },
+  });
 
   const handleCompleteStep = () =>
-    dispatch(completeStep(step, 'Step Detail', true));
+    step &&
+    dispatch(
+      completeStep(
+        {
+          id: step.id,
+          receiver: step.receiver,
+          organization: step.community || undefined,
+        },
+        'Step Detail',
+        true,
+      ),
+    );
 
   const handleRemoveStep = () => {
-    dispatch(deleteStepWithTracking(step, 'Step Detail'));
+    step && dispatch(deleteStepWithTracking(step, 'Step Detail'));
     dispatch(navigateBack());
   };
 
-  const handleRemoveReminder = () => dispatch(removeStepReminder(stepId));
+  const handleRemoveReminder = () =>
+    step && dispatch(removeStepReminder(step.id));
 
-  const renderReminderButton = () => (
-    <ReminderButton stepId={stepId} reminder={reminder}>
-      <View style={styles.reminderButton}>
-        <View style={styles.reminderContainer}>
-          <View style={styles.reminderIconCircle}>
-            <Icon
-              name="bellIcon"
-              type="MissionHub"
-              style={styles.reminderIcon}
+  const renderReminderButton = () =>
+    !step ? null : (
+      <ReminderButton stepId={step.id} reminder={step.reminder}>
+        <View style={styles.reminderButton}>
+          <View style={styles.reminderContainer}>
+            <View style={styles.reminderIconCircle}>
+              <Icon
+                name="bellIcon"
+                type="MissionHub"
+                style={styles.reminderIcon}
+              />
+            </View>
+            <ReminderDateText
+              style={styles.reminderText}
+              reminder={step.reminder}
             />
           </View>
-          <ReminderDateText style={styles.reminderText} reminder={reminder} />
+          {step.reminder ? (
+            <Button
+              testID="removeReminderButton"
+              onPress={handleRemoveReminder}
+              style={styles.cancelIconButton}
+            >
+              <Icon name="close" type="Material" style={styles.cancelIcon} />
+            </Button>
+          ) : null}
         </View>
-        {reminder ? (
-          <Button
-            testID="removeReminderButton"
-            onPress={handleRemoveReminder}
-            style={styles.cancelIconButton}
-          >
-            <Icon name="close" type="Material" style={styles.cancelIcon} />
-          </Button>
-        ) : null}
-      </View>
-    </ReminderButton>
-  );
+      </ReminderButton>
+    );
 
   return (
     <StepDetailScreen
-      receiver={receiver}
+      receiver={step?.receiver}
+      Banner={
+        <ErrorNotice
+          message={t('errorLoadingStepDetails')}
+          error={error}
+          refetch={refetch}
+        />
+      }
       CenterHeader={null}
       RightHeader={
         <Button
@@ -87,9 +115,10 @@ const AcceptedStepDetailScreen = ({
       }
       CenterContent={renderReminderButton()}
       markdown={
-        challenge_suggestion && challenge_suggestion.description_markdown
+        (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ||
+        undefined
       }
-      text={title}
+      text={step?.title ?? ''}
       bottomButtonProps={{
         onPress: handleCompleteStep,
         text: t('iDidIt'),
@@ -98,18 +127,5 @@ const AcceptedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = (
-  { stepReminders }: { stepReminders: StepReminderState },
-  {
-    navigation: {
-      state: {
-        params: { step },
-      },
-    } = { state: { params: { step: {} as Step } } },
-  }: { navigation?: { state: { params: { step: Step } } } },
-) => ({
-  reminder: reminderSelector({ stepReminders }, { stepId: step && step.id }),
-});
-
-export default connect(mapStateToProps)(AcceptedStepDetailScreen);
+export default connect()(AcceptedStepDetailScreen);
 export const ACCEPTED_STEP_DETAIL_SCREEN = 'nav/ACCEPTED_STEP_DETAIL_SCREEN';

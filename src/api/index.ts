@@ -12,7 +12,8 @@ const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 // Setup API call
 const API_CALLS: {
   [key: string]: (
-    queryParams: { [key: string]: string },
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
+    queryParams: { [key: string]: string | { [key: string]: any } },
     data: {},
   ) => Promise<{
     meta?: {};
