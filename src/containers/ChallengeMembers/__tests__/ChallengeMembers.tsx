@@ -50,19 +50,19 @@ const organizations = {
 const sortedAcceptedChallenges = {
   joined: [
     {
-      accepted_at: '2020-02-26',
+      accepted_at: mockDate,
       id: '111',
       person: { id: '111', first_name: 'Christian', last_name: 'Huffman' },
     },
   ],
   completed: [
     {
-      completed_at: '2020-02-26',
+      completed_at: mockDate,
       id: '112',
       person: { id: '112', first_name: 'Scotty', last_name: 'Waggoner' },
     },
     {
-      completed_at: '2020-02-26',
+      completed_at: mockDate,
       id: '113',
       person: { id: '113', first_name: 'Robert', last_name: 'Eldredge' },
     },
@@ -103,10 +103,12 @@ it('renders plural sentence for joined members', () => {
     ...sortedAcceptedChallenges,
     joined: [
       {
+        accepted_at: mockDate,
         id: '111',
         person: { id: '111', first_name: 'Christian', last_name: 'Huffman' },
       },
       {
+        accepted_at: mockDate,
         id: '112',
         person: { id: '112', first_name: 'Scotty', last_name: 'Waggoner' },
       },
@@ -154,6 +156,7 @@ it('renders singular sentence for completed members', () => {
     ...sortedAcceptedChallenges,
     completed: [
       {
+        completed_at: mockDate,
         id: '112',
         person: { id: '112', first_name: 'Scotty', last_name: 'Waggoner' },
       },

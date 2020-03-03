@@ -746,12 +746,15 @@ exports[`renders with details 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-ExtraLight",
-                    "fontSize": 32,
-                    "lineHeight": 38,
-                  },
+                  Array [
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                    null,
+                  ],
                 ]
               }
               testID="joinedCount"
@@ -800,12 +803,15 @@ exports[`renders with details 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Object {
-                    "color": "#3CC8E6",
-                    "fontFamily": "SourceSansPro-ExtraLight",
-                    "fontSize": 32,
-                    "lineHeight": 38,
-                  },
+                  Array [
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 32,
+                      "lineHeight": 38,
+                    },
+                    null,
+                  ],
                 ]
               }
               testID="completedCount"

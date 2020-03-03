@@ -105,12 +105,17 @@ exports[`does not navigates if accepted_count is 0 | Joined 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
         ]
       }
       testID="joinedCount"
@@ -159,12 +164,15 @@ exports[`does not navigates if accepted_count is 0 | Joined 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"
@@ -280,12 +288,15 @@ exports[`does not navigates if completed_count is 0 | Completed 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -334,12 +345,17 @@ exports[`does not navigates if completed_count is 0 | Completed 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            Object {
+              "color": "#B4B6BA",
+            },
+          ],
         ]
       }
       testID="completedCount"
@@ -403,12 +419,15 @@ exports[`render challenge stats | DetailScreen 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#3CC8E6",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 32,
-            "lineHeight": 38,
-          },
+          Array [
+            Object {
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 32,
+              "lineHeight": 38,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -457,12 +476,15 @@ exports[`render challenge stats | DetailScreen 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#3CC8E6",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 32,
-            "lineHeight": 38,
-          },
+          Array [
+            Object {
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 32,
+              "lineHeight": 38,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"
@@ -590,12 +612,15 @@ exports[`render challenge stats 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -644,12 +669,15 @@ exports[`render challenge stats 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"
@@ -767,12 +795,15 @@ exports[`render challenge stats small with style 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -821,12 +852,15 @@ exports[`render challenge stats small with style 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"
@@ -944,12 +978,15 @@ exports[`render challenge stats with style 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -998,12 +1035,15 @@ exports[`render challenge stats with style 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"
@@ -1119,12 +1159,15 @@ exports[`render past challenge stats 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -1173,12 +1216,15 @@ exports[`render past challenge stats 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"
@@ -1294,12 +1340,15 @@ exports[`render upcoming challenge stats 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="joinedCount"
@@ -1348,12 +1397,15 @@ exports[`render upcoming challenge stats 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#505256",
-            "fontFamily": "SourceSansPro-ExtraLight",
-            "fontSize": 24,
-            "lineHeight": 30,
-          },
+          Array [
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-ExtraLight",
+              "fontSize": 24,
+              "lineHeight": 30,
+            },
+            null,
+          ],
         ]
       }
       testID="completedCount"

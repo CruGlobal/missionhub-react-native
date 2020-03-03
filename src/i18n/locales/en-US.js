@@ -614,8 +614,6 @@ export default {
   challengeMembers: {
     joined: 'Member Joined',
     pluralJoined: 'Members Joined',
-    completed: 'Member Completed',
-    pluralCompleted: 'Members Completed',
   },
   groupsChallenge: {
     create: 'Create Challenge',

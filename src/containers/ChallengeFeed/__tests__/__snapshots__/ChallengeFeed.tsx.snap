@@ -635,12 +635,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -689,12 +692,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -1001,12 +1007,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -1055,12 +1064,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -1430,12 +1442,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -1484,12 +1499,17 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            Object {
+                              "color": "#B4B6BA",
+                            },
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -1728,12 +1748,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -1782,12 +1805,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -2457,12 +2483,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -2511,12 +2540,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -2823,12 +2855,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -2877,12 +2912,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -3252,12 +3290,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -3306,12 +3347,17 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            Object {
+                              "color": "#B4B6BA",
+                            },
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -3550,12 +3596,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -3604,12 +3653,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -4850,12 +4902,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -4904,12 +4959,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -5216,12 +5274,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -5270,12 +5331,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -5645,12 +5709,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -5699,12 +5766,17 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            Object {
+                              "color": "#B4B6BA",
+                            },
+                          ],
                         ]
                       }
                       testID="completedCount"
@@ -5943,12 +6015,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="joinedCount"
@@ -5997,12 +6072,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                           Object {
                             "fontFamily": "SourceSansPro-Regular",
                           },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
+                          Array [
+                            Object {
+                              "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "lineHeight": 30,
+                            },
+                            null,
+                          ],
                         ]
                       }
                       testID="completedCount"
