@@ -32,6 +32,10 @@ const completedSteps = [{ id: '1', title: 'Test Step', completed_at: 'time' }];
 
 const myId = '123';
 const orgId = '1111';
+const contactAssignment = {
+  organization: { id: orgId },
+  assigned_to: { id: myId },
+};
 const mePerson = {
   first_name: 'Christian',
   id: myId,
@@ -50,11 +54,11 @@ const person = {
     { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
   ],
 };
-const organization = { id: orgId, user_created: true };
-const contactAssignment = {
-  organization: { id: orgId },
-  assigned_to: { id: myId },
+const assignedPerson = {
+  ...person,
+  reverse_contact_assignments: [contactAssignment],
 };
+const organization = { id: orgId, user_created: true };
 
 const initialStateNoSteps = {
   steps: {
@@ -177,7 +181,7 @@ it('renders correctly with completed steps', () => {
 
 it('renders correctly with org', () => {
   renderWithContext(
-    <ContactSteps person={person} organization={organization} />,
+    <ContactSteps person={assignedPerson} organization={organization} />,
     {
       initialState: initialStateWithStepsOrg,
     },
@@ -206,11 +210,6 @@ describe('step item', () => {
 });
 
 describe('handleCreateStep', () => {
-  const assignedPerson = {
-    ...person,
-    reverse_contact_assignments: [contactAssignment],
-  };
-
   describe('for me', () => {
     it('navigates to select my steps flow', () => {
       const mePerson = { ...person, id: myId };
@@ -255,8 +254,15 @@ describe('handleCreateStep', () => {
 
   describe('for contact with stage', () => {
     it('navigates to select person steps flow', () => {
+      const personWithStage = {
+        ...assignedPerson,
+        reverse_contact_assignments: [
+          { ...contactAssignment, pathway_stage_id: '2' },
+        ],
+      };
+
       const { getByTestId } = renderWithContext(
-        <ContactSteps person={assignedPerson} organization={organization} />,
+        <ContactSteps person={personWithStage} organization={organization} />,
         {
           initialState: initialStateWithSteps,
         },
@@ -266,7 +272,7 @@ describe('handleCreateStep', () => {
 
       expect(navigateToAddStepFlow).toHaveBeenCalledWith(
         false,
-        assignedPerson,
+        personWithStage,
         organization,
       );
     });
