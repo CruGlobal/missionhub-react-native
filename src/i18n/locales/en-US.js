@@ -591,6 +591,9 @@ export default {
     endDate: 'Challenge Ends',
     details: 'Details',
     detailsPlaceholder: 'Add details to your Challenge (optional)',
+    nullTitle: 'Our Challenges',
+    nullMembers: 'Join each other in a challenge created for your community.',
+    nullAdmins: 'Create a community challenge everyone can join.',
   },
   challengeStats: {
     days: 'Days',
@@ -602,7 +605,7 @@ export default {
     titlePlaceholderEdit: 'Edit Challenge',
     titlePlaceholderAdd: 'New Challenge',
     add: 'Create Challenge',
-    save: 'Save Changes',
+    save: 'Save',
     datePlaceholder: 'End Date (Required)',
     dateLabel: 'Challenge Ends',
     detailsLabel: 'Details',

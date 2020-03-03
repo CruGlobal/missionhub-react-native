@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { SectionList, View } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import OnboardingCard, {
@@ -10,91 +11,91 @@ import OnboardingCard, {
 } from '../Groups/OnboardingCard';
 import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
+import { orgPermissionSelector } from '../../selectors/people';
+import { isAdminOrOwner } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import { keyExtractorId } from '../../utils/common';
+import NullStateComponent from '../../components/NullStateComponent';
+import TARGET from '../../../assets/images/challengeTarget.png';
+import { AuthState } from '../../reducers/auth';
+import { ChallengeItem as ChallengeItemInterface } from '../../components/ChallengeStats';
+import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
-class ChallengeFeed extends Component {
-  // @ts-ignore
-  constructor(props) {
-    super(props);
-    // isListScrolled works around a known issue with SectionList in RN. see commit msg for details.
-    this.state = { ...this.state, isListScrolled: false };
-  }
+interface ItemsInterface {
+  title: string;
+  data: ChallengeItemInterface[];
+}
 
-  // @ts-ignore
-  getAcceptedChallenge({ accepted_community_challenges }) {
-    return accepted_community_challenges.find(
-      // @ts-ignore
-      c => c.person && c.person.id === this.props.myId,
+interface ChallengeFeedProps {
+  organization: Organization;
+  refreshing: boolean;
+  refreshCallback: () => void;
+  items: ItemsInterface[];
+  extraPadding: boolean;
+  loadMoreItemsCallback: () => void;
+}
+
+const ChallengeFeed = ({
+  organization,
+  refreshing,
+  refreshCallback,
+  items,
+  extraPadding,
+  loadMoreItemsCallback,
+}: ChallengeFeedProps) => {
+  const { t } = useTranslation('challengeFeeds');
+  useAnalytics(['challenge', 'feed']);
+  const dispatch = useDispatch();
+  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
+  const myId = auth.person.id;
+  const person = auth.person;
+  const orgPerm = useSelector(() =>
+    orgPermissionSelector(
+      {},
+      {
+        person,
+        organization,
+      },
+    ),
+  );
+
+  const [isListScrolled, setListScrolled] = useState(false);
+  const getAcceptedChallenge = ({
+    accepted_community_challenges,
+  }: ChallengeItemInterface) => {
+    return (
+      accepted_community_challenges &&
+      accepted_community_challenges.find(c => c.person && c.person.id === myId)
     );
-  }
-
-  // @ts-ignore
-  renderSectionHeader = ({ section: { title } }) => (
+  };
+  const renderSectionHeader = ({
+    section: { title },
+  }: {
+    section: { title: string };
+  }) => (
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>
     </View>
   );
 
-  // @ts-ignore
-  renderItem = ({ item }) => (
-    <ChallengeItem
-      item={item}
-      onComplete={this.handleComplete}
-      onJoin={this.handleJoin}
-      onSelect={this.handleSelectRow}
-      acceptedChallenge={this.getAcceptedChallenge(item)}
-    />
-  );
+  const handleComplete = (challenge: ChallengeItemInterface) => {
+    const accepted_challenge = getAcceptedChallenge(challenge);
 
-  handleOnEndReached = () => {
-    // @ts-ignore
-    if (this.state.isListScrolled && !this.props.refreshing) {
-      // @ts-ignore
-      this.props.loadMoreItemsCallback();
-      this.setState({ isListScrolled: false });
-    }
-  };
-
-  handleEndDrag = () => {
-    // @ts-ignore
-    if (!this.state.isListScrolled) {
-      this.setState({ isListScrolled: true });
-    }
-  };
-
-  handleRefreshing = () => {
-    // @ts-ignore
-    this.props.refreshCallback();
-  };
-
-  // @ts-ignore
-  handleComplete = challenge => {
-    // @ts-ignore
-    const { organization, dispatch } = this.props;
-    const accepted_challenge = this.getAcceptedChallenge(challenge);
     if (!accepted_challenge) {
       return;
     }
     dispatch(completeChallenge(accepted_challenge, organization.id));
   };
 
-  // @ts-ignore
-  handleJoin = challenge => {
-    // @ts-ignore
-    const { organization, dispatch } = this.props;
+  const handleJoin = (challenge: ChallengeItemInterface) => {
     dispatch(joinChallenge(challenge, organization.id));
   };
 
-  // @ts-ignore
-  handleSelectRow = challenge => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
-
+  const handleSelectRow = (challenge: ChallengeItemInterface) => {
     if (organization.id !== GLOBAL_COMMUNITY_ID) {
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
@@ -106,47 +107,80 @@ class ChallengeFeed extends Component {
     }
   };
 
-  renderHeader = () => (
+  const renderItem = ({ item }: { item: ChallengeItemInterface }) => (
+    <ChallengeItem
+      item={item}
+      onComplete={handleComplete}
+      onJoin={handleJoin}
+      onSelect={handleSelectRow}
+      // @ts-ignore
+      acceptedChallenge={getAcceptedChallenge(item)}
+    />
+  );
+
+  const handleOnEndReached = () => {
+    if (isListScrolled && !refreshing) {
+      loadMoreItemsCallback();
+      setListScrolled(false);
+    }
+  };
+
+  const handleEndDrag = () => {
+    if (!isListScrolled) {
+      setListScrolled(true);
+    }
+  };
+
+  const handleRefreshing = () => {
+    refreshCallback();
+  };
+  const renderHeader = () => (
     // @ts-ignore
     <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />
   );
-
-  render() {
-    // @ts-ignore
-    const { items, refreshing, extraPadding } = this.props;
-
+  const renderNull = () => {
     return (
-      <SectionList
-        sections={items}
-        ListHeaderComponent={this.renderHeader}
-        // @ts-ignore
-        renderSectionHeader={this.renderSectionHeader}
-        renderItem={this.renderItem}
-        keyExtractor={keyExtractorId}
-        onEndReachedThreshold={0.2}
-        onEndReached={this.handleOnEndReached}
-        onScrollEndDrag={this.handleEndDrag}
-        onRefresh={this.handleRefreshing}
-        refreshing={refreshing || false}
-        extraData={this.state}
-        contentContainerStyle={styles.list}
-        contentInset={{ bottom: extraPadding ? 90 : 10 }}
-      />
+      <>
+        {renderHeader()}
+        <NullStateComponent
+          imageSource={TARGET}
+          headerText={t('nullTitle')}
+          descriptionText={
+            isAdminOrOwner(orgPerm) ? t('nullAdmins') : t('nullMembers')
+          }
+        />
+      </>
     );
-  }
-}
+  };
 
-// @ts-ignore
-ChallengeFeed.propTypes = {
-  items: PropTypes.array.isRequired,
-  organization: PropTypes.object.isRequired,
-  refreshing: PropTypes.bool,
-  extraPadding: PropTypes.bool,
+  const itemCount: number = items.reduce(
+    (count, element) => count + element.data.length,
+    0,
+  );
+
+  if (itemCount === 0) {
+    return renderNull();
+  }
+
+  return (
+    <SectionList
+      testID="ChallengeFeed"
+      sections={items}
+      ListHeaderComponent={renderHeader}
+      // @ts-ignore
+      renderSectionHeader={renderSectionHeader}
+      renderItem={renderItem}
+      keyExtractor={keyExtractorId}
+      onEndReachedThreshold={0.2}
+      onEndReached={handleOnEndReached}
+      onScrollEndDrag={handleEndDrag}
+      onRefresh={handleRefreshing}
+      refreshing={refreshing || false}
+      extraData={isListScrolled}
+      contentContainerStyle={styles.list}
+      contentInset={{ bottom: extraPadding ? 90 : 10 }}
+    />
+  );
 };
 
-// @ts-ignore
-const mapStateToProps = ({ auth }) => ({
-  myId: auth.person.id,
-});
-
-export default connect(mapStateToProps)(ChallengeFeed);
+export default ChallengeFeed;

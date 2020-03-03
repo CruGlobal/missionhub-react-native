@@ -7,7 +7,9 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   header: {
-    fontSize: 42,
+    fontSize: 24,
+    fontFamily: 'SourceSansPro-Regular',
+    fontWeight: '300',
     color: theme.primaryColor,
     paddingTop: 10,
   },

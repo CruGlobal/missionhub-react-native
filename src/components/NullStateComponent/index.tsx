@@ -25,9 +25,7 @@ const NullStateComponent = ({
         style={{ flexShrink: 1 }}
         resizeMode="contain"
       />
-      <Text header={true} style={styles.header}>
-        {headerText}
-      </Text>
+      <Text style={styles.header}>{headerText}</Text>
       <Text style={styles.description}>{descriptionText}</Text>
       {content}
     </Flex>

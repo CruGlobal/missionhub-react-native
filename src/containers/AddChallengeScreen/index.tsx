@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Keyboard, StatusBar, ScrollView } from 'react-native';
+import { View, Keyboard, StatusBar, ScrollView, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import moment from 'moment';
 
-import { Text, Input } from '../../components/common';
+import { Text, Input, Button } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
+import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -171,11 +172,22 @@ const AddChallengeScreen = () => {
     <View style={container}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
+        left={
+          isEdit ? <BackButton iconStyle={{ color: theme.lightGrey }} /> : null
+        }
         right={
-          <BackButton
-            image={CLOSE_BUTTON}
-            style={{ alignItems: 'flex-end', alignSelf: 'flex-end' }}
-          />
+          isEdit ? (
+            <Button
+              type="transparent"
+              testID="editButton"
+              text={t('save').toUpperCase()}
+              onPress={saveChallenge}
+              buttonTextStyle={{ color: theme.challengeBlue, fontSize: 14 }}
+              style={{ marginRight: 10 }}
+            />
+          ) : (
+            <BackButton image={CLOSE_BUTTON} style={styles.backButton} />
+          )
         }
       />
       <ScrollView style={{ flex: 1 }}>
@@ -183,12 +195,15 @@ const AddChallengeScreen = () => {
         {renderDateInput()}
         {renderDetailInput()}
       </ScrollView>
-      <BottomButton
-        testID="saveChallengeButton"
-        disabled={disableBtn}
-        onPress={saveChallenge}
-        text={t(isEdit ? 'save' : 'add')}
-      />
+      <Image source={CHALLENGE_TARGET} style={styles.challengeImage} />
+      {isEdit ? null : (
+        <BottomButton
+          testID="saveChallengeButton"
+          disabled={disableBtn}
+          onPress={saveChallenge}
+          text={t('add')}
+        />
+      )}
     </View>
   );
 };
