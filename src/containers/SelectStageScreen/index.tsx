@@ -29,9 +29,17 @@ import {
   trackScreenChange,
   TrackStateContext,
 } from '../../actions/analytics';
-import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
+import {
+  ACTIONS,
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_EDIT_MODE,
+} from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
-import { getAnalyticsSectionType } from '../../utils/common';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsEditMode,
+  exists,
+} from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
@@ -77,8 +85,6 @@ export interface SelectStageNavParams {
   enableBackButton: boolean;
   personId: string;
   orgId?: string;
-  section: string;
-  subsection: string;
   questionText?: string;
 }
 
@@ -116,6 +122,7 @@ const SelectStageScreen = ({
       dispatch(
         trackScreenChange(['stage', stage.name.toLowerCase()], {
           [ANALYTICS_SECTION_TYPE]: analyticsSection,
+          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(exists(selectedStageId)),
         }),
       );
   };
