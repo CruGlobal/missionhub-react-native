@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 
 import { personSelector } from '../../selectors/people';
-import { getStageIndex, getAnalyticsSubsection } from '../../utils/common';
+import { getStageIndex } from '../../utils/common';
 
 // @ts-ignore
 export function paramsForStageNavigation(personId, orgId, getState) {
@@ -22,7 +22,6 @@ export function paramsForStageNavigation(personId, orgId, getState) {
   const stageId = getStageId(isMe, assignment, authPerson);
   const hasHitCount = hasHitThreeSteps(steps, personId);
   const isNotSure = hasNotSureStage(stagesObj, stageId);
-  const subsection = getAnalyticsSubsection(personId, authPerson.id);
   const firstItemIndex = getStageIndex(stages, stageId);
   const firstName = isMe ? authPerson.first_name : person.first_name;
   const questionText = getQuestionText(isMe, isNotSure, firstName);
@@ -30,7 +29,6 @@ export function paramsForStageNavigation(personId, orgId, getState) {
   return {
     hasHitCount,
     isNotSure,
-    subsection,
     firstItemIndex,
     questionText,
   };
