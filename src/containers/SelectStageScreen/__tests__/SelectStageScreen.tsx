@@ -8,6 +8,7 @@ import { renderWithContext } from '../../../../testUtils';
 import {
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { getStages } from '../../../actions/stages';
 import { trackAction, trackScreenChange } from '../../../actions/analytics';
@@ -65,8 +66,6 @@ const stages: Stage[] = [
   },
 ];
 
-const section = 'section';
-const subsection = 'subsection';
 const myId = '111';
 const myName = 'Me';
 const assignedPersonId = '123';
@@ -123,8 +122,6 @@ const state = {
 };
 
 const baseParams = {
-  section,
-  subsection,
   personId: assignedPersonId,
   orgId,
   enableBackButton: true,
@@ -193,6 +190,11 @@ describe('renders for me', () => {
       initialState: state,
       navParams: myNavParams,
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_EDIT_MODE]: 'set',
+    });
   });
 
   it('renders firstItem correctly', () => {
@@ -200,6 +202,11 @@ describe('renders for me', () => {
       initialState: state,
       navParams: { ...myNavParams, selectedStageId: 1 },
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    });
   });
 });
 
@@ -214,6 +221,11 @@ describe('renders for other', () => {
       initialState: state,
       navParams: otherNavParams,
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_EDIT_MODE]: 'set',
+    });
   });
 
   it('renders firstItem correctly', () => {
@@ -221,6 +233,11 @@ describe('renders for other', () => {
       initialState: state,
       navParams: { ...otherNavParams, selectedStageId: 1 },
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    });
   });
 });
 
@@ -262,6 +279,7 @@ describe('actions on mount', () => {
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
         [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+        [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([
         getStagesResult,
@@ -287,6 +305,7 @@ describe('actions on mount', () => {
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: 'onboarding',
         [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+        [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([
         getStagesResult,
@@ -313,6 +332,7 @@ describe('actions on mount', () => {
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
         [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+        [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([
         getStagesResult,
@@ -333,6 +353,7 @@ describe('actions on mount', () => {
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
         [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+        [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([trackScreenChangeResult]);
     });

@@ -33,11 +33,14 @@ import {
   ACTIONS,
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_EDIT_MODE,
 } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
+  getAnalyticsEditMode,
+  exists,
 } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
@@ -85,8 +88,6 @@ export interface SelectStageNavParams {
   enableBackButton: boolean;
   personId: string;
   orgId?: string;
-  section: string;
-  subsection: string;
   questionText?: string;
 }
 
@@ -126,6 +127,7 @@ const SelectStageScreen = ({
         trackScreenChange(['stage', stage.name.toLowerCase()], {
           [ANALYTICS_SECTION_TYPE]: analyticsSection,
           [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(exists(selectedStageId)),
         }),
       );
   };
