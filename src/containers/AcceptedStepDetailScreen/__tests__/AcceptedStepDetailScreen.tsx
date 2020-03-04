@@ -33,10 +33,6 @@ const person: AcceptedStepDetail_step_receiver = {
   id: myId,
   firstName: 'Christian',
 };
-const otherPerson: AcceptedStepDetail_step_receiver = {
-  ...person,
-  id: otherId,
-};
 const stepId = '234242';
 
 const completeStepResult = { type: 'completed step' };
