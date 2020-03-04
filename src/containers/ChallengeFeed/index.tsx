@@ -8,6 +8,7 @@ import { Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
+  PermissionTypesEnum,
 } from '../Groups/OnboardingCard';
 import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
@@ -137,7 +138,9 @@ const ChallengeFeed = ({
   const renderHeader = () => (
     <OnboardingCard
       type={GROUP_ONBOARDING_TYPES.challenges}
-      permissions={adminOrOwner ? 'Admin' : 'Member'}
+      permissions={
+        adminOrOwner ? PermissionTypesEnum.admin : PermissionTypesEnum.member
+      }
     />
   );
   const renderNull = () => {

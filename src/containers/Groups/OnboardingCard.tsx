@@ -19,8 +19,8 @@ import theme from '../../theme';
 import styles from './styles';
 
 interface OnboardingCardProps {
-  type: string;
-  permissions?: string;
+  type: GROUP_ONBOARDING_TYPES;
+  permissions?: PermissionTypesEnum;
 }
 
 const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
@@ -54,6 +54,22 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
     dispatch(removeGroupOnboardingCard(type));
   };
 
+  const getText = () => {
+    switch (type) {
+      case GROUP_ONBOARDING_TYPES.challenges:
+        return permissions === PermissionTypesEnum.admin
+          ? t(`${GROUP_ONBOARDING_TYPES.challenges}AdminDescription`)
+          : t(`${GROUP_ONBOARDING_TYPES.challenges}MemberDescription`);
+      case GROUP_ONBOARDING_TYPES.celebrate:
+      case GROUP_ONBOARDING_TYPES.impact:
+      case GROUP_ONBOARDING_TYPES.members:
+      case GROUP_ONBOARDING_TYPES.contacts:
+      case GROUP_ONBOARDING_TYPES.surveys:
+      case GROUP_ONBOARDING_TYPES.steps:
+        return t(`${type}Description`);
+    }
+  };
+
   if (!groupOnboarding[type]) {
     return null;
   }
@@ -72,9 +88,7 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
           resizeMode="contain"
         />
         <Text style={styles.onboardingHeader}>{t(`${type}Header`)}</Text>
-        <Text style={styles.onboardingDescription}>
-          {t(`${type}${permissions ? permissions : ''}Description`)}
-        </Text>
+        <Text style={styles.onboardingDescription}>{getText()}</Text>
       </Flex>
       <Flex style={styles.onboardingIconWrap}>
         <IconButton
@@ -90,14 +104,19 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
   );
 };
 
-export const GROUP_ONBOARDING_TYPES = {
-  celebrate: 'celebrate',
-  challenges: 'challenges',
-  members: 'members',
-  impact: 'impact',
-  contacts: 'contacts',
-  surveys: 'surveys',
-  steps: 'steps',
-};
+export enum PermissionTypesEnum {
+  admin = 'Admin',
+  member = 'Member',
+}
+
+export enum GROUP_ONBOARDING_TYPES {
+  celebrate = 'celebrate',
+  challenges = 'challenges',
+  members = 'members',
+  impact = 'impact',
+  contacts = 'contacts',
+  surveys = 'surveys',
+  steps = 'steps',
+}
 
 export default OnboardingCard;

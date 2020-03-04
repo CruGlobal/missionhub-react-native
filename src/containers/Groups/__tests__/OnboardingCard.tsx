@@ -2,7 +2,10 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import OnboardingCard, { GROUP_ONBOARDING_TYPES } from '../OnboardingCard';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+  PermissionTypesEnum,
+} from '../OnboardingCard';
 import { removeGroupOnboardingCard } from '../../../actions/swipe';
 
 jest.mock('../../../actions/swipe');
@@ -55,7 +58,7 @@ describe('OnboardingCard', () => {
     renderWithContext(
       <OnboardingCard
         type={GROUP_ONBOARDING_TYPES.challenges}
-        permissions={'Admin'}
+        permissions={PermissionTypesEnum.admin}
       />,
       {
         initialState: {
@@ -71,7 +74,7 @@ describe('OnboardingCard', () => {
     renderWithContext(
       <OnboardingCard
         type={GROUP_ONBOARDING_TYPES.challenges}
-        permissions={'Member'}
+        permissions={PermissionTypesEnum.member}
       />,
       {
         initialState: {
