@@ -4,6 +4,7 @@ import { AnyAction } from 'redux';
 import { REQUESTS } from '../api/routes';
 import { LOGOUT, COMPLETED_STEP_COUNT, RESET_STEP_COUNT } from '../constants';
 import { shuffleArray } from '../utils/common';
+import { StepTypeEnum } from '../../__generated__/globalTypes';
 
 import { Person } from './people';
 import { Organization } from './organizations';
@@ -13,7 +14,7 @@ export type SuggestedStep = {
   id: string;
   body: string;
   description_markdown?: string;
-  challenge_type: string;
+  challenge_type: StepTypeEnum;
   self_step: boolean;
   locale: string;
   pathway_stage: Stage;

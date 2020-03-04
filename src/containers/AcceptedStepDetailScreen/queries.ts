@@ -10,6 +10,7 @@ export const ACCEPTED_STEP_DETAIL_QUERY = gql`
       title
       stepSuggestion {
         descriptionMarkdown
+        stepType
       }
       receiver {
         id

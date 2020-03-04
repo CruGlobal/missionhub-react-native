@@ -56,6 +56,7 @@ const CompletedStepDetailScreen = () => {
       }
       markdown={step?.stepSuggestion?.descriptionMarkdown ?? undefined}
       text={step?.title}
+      stepType={step?.stepSuggestion?.stepType}
     />
   );
 };
