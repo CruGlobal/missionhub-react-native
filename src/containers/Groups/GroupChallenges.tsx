@@ -122,13 +122,6 @@ class GroupChallenges extends Component {
 // @ts-ignore
 const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
   const organization = organizationSelector({ organizations }, { orgId });
-  const myOrgPermissions = orgPermissionSelector(
-    {},
-    {
-      person: auth.person,
-      organization,
-    },
-  );
 
   return {
     organization,
@@ -137,8 +130,14 @@ const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
       challengeItems: organization.challengeItems || [],
     }),
     pagination: organization.challengePagination || {},
-    myOrgPermissions,
-    analyticsPermissionType: getAnalyticsPermissionType(myOrgPermissions),
+    myOrgPermissions: orgPermissionSelector(
+      {},
+      {
+        person: auth.person,
+        organization,
+      },
+    ),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

@@ -85,7 +85,7 @@ const mapStateToProps = (
   any,
 ) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
 });
 
 export default connect(mapStateToProps)(SuggestedStepDetailScreen);

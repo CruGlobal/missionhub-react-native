@@ -65,7 +65,7 @@ const mapStateToProps = (
     } = { state: { params: { step: {} as Step } } },
   }: { navigation?: { state: { params: { step: Step } } } },
 ) => ({
-  analyticsAssignmentType: getAnalyticsAssignmentType(step.receiver.id, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType(step.receiver, auth),
 });
 
 export default connect(mapStateToProps)(CompletedStepDetailScreen);

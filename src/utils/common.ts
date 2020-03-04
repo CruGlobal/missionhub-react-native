@@ -28,7 +28,10 @@ import {
 } from '../constants';
 import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
+import { Organization } from '../reducers/organizations';
+import { Person } from '../reducers/people';
 import { OnboardingState } from '../reducers/onboarding';
+import { orgPermissionSelector } from '../selectors/people';
 import { PermissionEnum } from '../../__generated__/globalTypes';
 
 // @ts-ignore
@@ -105,18 +108,20 @@ export const refresh = (obj, method) => {
 };
 
 export const getAnalyticsAssignmentType = (
-  personId: string,
+  person: Person | null,
   authState: AuthState,
-  personOrgPermission?: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  },
-): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] =>
-  personIsCurrentUser(personId, authState)
-    ? 'self'
-    : personOrgPermission && hasOrgPermissions(personOrgPermission)
-    ? 'community member'
-    : 'contact';
+  organization?: Organization,
+): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] => {
+  const orgPermission = orgPermissionSelector({}, { person, organization });
+
+  return person
+    ? personIsCurrentUser(person.id, authState)
+      ? 'self'
+      : orgPermission && hasOrgPermissions(orgPermission)
+      ? 'community member'
+      : 'contact'
+    : '';
+};
 
 export const getAnalyticsSectionType = (
   onboardingState: OnboardingState,
@@ -127,17 +132,23 @@ export const getAnalyticsEditMode = (
   isEdit: boolean,
 ): TrackStateContext[typeof ANALYTICS_EDIT_MODE] => (isEdit ? 'update' : 'set');
 
-export const getAnalyticsPermissionType = (orgPermission: {
-  permission_id?: string;
-  permission?: PermissionEnum;
-}): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] =>
-  hasOrgPermissions(orgPermission)
+export const getAnalyticsPermissionType = (
+  auth: AuthState,
+  organization: Organization,
+): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] => {
+  const orgPermission = orgPermissionSelector(
+    {},
+    { person: auth.person, organization },
+  );
+
+  return hasOrgPermissions(orgPermission)
     ? isOwner(orgPermission)
       ? 'owner'
       : isAdmin(orgPermission)
       ? 'admin'
       : 'member'
     : '';
+};
 
 export const isAuthenticated = (authState: AuthState) => authState.token != '';
 

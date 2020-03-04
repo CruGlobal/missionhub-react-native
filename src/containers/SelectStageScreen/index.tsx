@@ -277,7 +277,7 @@ const mapStateToProps = (
     isMe: personId === myId,
     stages: stages.stages,
     analyticsSection: getAnalyticsSectionType(onboarding),
-    analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
+    analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
   };
 };
 

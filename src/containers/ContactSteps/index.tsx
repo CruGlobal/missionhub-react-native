@@ -17,10 +17,7 @@ import {
   getAnalyticsAssignmentType,
 } from '../../utils/common';
 import { promptToAssign } from '../../utils/prompt';
-import {
-  contactAssignmentSelector,
-  orgPermissionSelector,
-} from '../../selectors/people';
+import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
@@ -177,7 +174,6 @@ const mapStateToProps = (
 ) => {
   const allSteps =
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
-  const orgPermission = orgPermissionSelector({}, { person, organization });
 
   return {
     showAssignPrompt: orgIsCru(organization),
@@ -189,9 +185,9 @@ const mapStateToProps = (
     ),
     myId: auth.person.id,
     analyticsAssignmentType: getAnalyticsAssignmentType(
-      person.id,
+      person,
       auth,
-      orgPermission,
+      organization,
     ),
   };
 };

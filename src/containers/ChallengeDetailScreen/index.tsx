@@ -228,7 +228,7 @@ export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     challenge,
     acceptedChallenge,
     canEditChallenges,
-    analyticsPermissionType: getAnalyticsPermissionType(myOrgPerm),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, { id: orgId }),
   };
 };
 

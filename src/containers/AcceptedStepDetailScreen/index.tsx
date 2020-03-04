@@ -45,7 +45,7 @@ const AcceptedStepDetailScreen = ({ myId }: AcceptedStepDetailScreenProps) => {
     screenContext: {
       [ANALYTICS_ASSIGNMENT_TYPE]:
         step &&
-        getAnalyticsAssignmentType(step.receiver.id, {
+        getAnalyticsAssignmentType(step.receiver, {
           person: { id: myId },
         } as AuthState),
     },

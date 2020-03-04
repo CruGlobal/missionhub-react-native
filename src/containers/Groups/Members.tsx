@@ -174,7 +174,7 @@ const mapStateToProps = ({ auth, organizations, swipe }, { orgId }) => {
     pagination: organizations.membersPagination,
     myOrgPermission,
     organization,
-    analyticsPermissionType: getAnalyticsPermissionType(myOrgPermission),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

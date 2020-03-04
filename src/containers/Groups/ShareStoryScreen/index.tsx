@@ -111,9 +111,7 @@ const mapStateToProps = (
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => ({
-  analyticsPermissionType: getAnalyticsPermissionType(
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  ),
+  analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
 });
 
 export default connect(mapStateToProps)(ShareStoryScreen);

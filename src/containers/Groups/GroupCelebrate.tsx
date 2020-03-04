@@ -68,7 +68,7 @@ const mapStateToProps = (
       organization,
       myOrgPermission,
     ),
-    analyticsPermissionType: getAnalyticsPermissionType(myOrgPermission),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

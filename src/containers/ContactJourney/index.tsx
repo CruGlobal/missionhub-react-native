@@ -22,7 +22,6 @@ import {
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
 import Analytics from '../Analytics';
-import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -226,7 +225,6 @@ const mapStateToProps = (
   const personId = person.id;
   const journeyOrg = journey[orgId];
   const journeyItems = (journeyOrg && journeyOrg[personId]) || undefined;
-  const orgPermission = orgPermissionSelector({}, { person, organization });
 
   return {
     journeyItems,
@@ -236,9 +234,9 @@ const mapStateToProps = (
     // @ts-ignore
     isUserCreatedOrg: organization && organization.user_created,
     analyticsAssignmentType: getAnalyticsAssignmentType(
-      personId,
+      person,
       auth,
-      orgPermission,
+      organization,
     ),
   };
 };

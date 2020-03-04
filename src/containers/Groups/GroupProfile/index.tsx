@@ -401,7 +401,7 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
     canEdit:
       isOwner(myOrgPerm) ||
       (!orgIsUserCreated(selectorOrg) && isAdminOrOwner(myOrgPerm)),
-    analyticsPermissionType: getAnalyticsPermissionType(myOrgPerm),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

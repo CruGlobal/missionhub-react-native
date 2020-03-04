@@ -19,7 +19,6 @@ import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
-import { orgPermissionSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -137,18 +136,14 @@ const ContactNotes = ({
 const mapStateToProps = (
   { auth }: { auth: AuthState },
   { person, organization }: { person: Person; organization?: Organization },
-) => {
-  const orgPermission = orgPermissionSelector({}, { person, organization });
-
-  return {
-    myPersonId: auth.person.id,
-    myUserId: auth.person.user.id,
-    analyticsAssignmentType: getAnalyticsAssignmentType(
-      person.id,
-      auth,
-      orgPermission,
-    ),
-  };
-};
+) => ({
+  myPersonId: auth.person.id,
+  myUserId: auth.person.user.id,
+  analyticsAssignmentType: getAnalyticsAssignmentType(
+    person,
+    auth,
+    organization,
+  ),
+});
 
 export default connect(mapStateToProps)(ContactNotes);

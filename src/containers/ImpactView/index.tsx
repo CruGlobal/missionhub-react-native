@@ -22,7 +22,6 @@ import {
   impactSummarySelector,
 } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgPermissionSelector } from '../../selectors/people';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
@@ -347,8 +346,6 @@ export const mapStateToProps = (
   const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
 
   const organization = organizationSelector({ organizations }, { orgId });
-  const orgPermission =
-    personId && orgPermissionSelector({}, { person, organization });
 
   return {
     isMe,
@@ -373,11 +370,12 @@ export const mapStateToProps = (
     isGlobalCommunity,
     myId,
     organization,
-    analyticsAssignmentType:
-      (personId && getAnalyticsAssignmentType(personId, auth, orgPermission)) ||
-      '',
-    analyticsPermissionType:
-      (orgPermission && getAnalyticsPermissionType(orgPermission)) || '',
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      person,
+      auth,
+      organization,
+    ),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

@@ -37,7 +37,6 @@ import {
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
 } from '../../utils/common';
-import { orgPermissionSelector } from '../../selectors/people';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -201,10 +200,6 @@ const mapStateToProps = (
 ) => {
   const { subjectPerson } = event as CelebrateItem;
   const organization = organizationSelector({ organizations }, { orgId });
-  const orgPermission = orgPermissionSelector(
-    {},
-    { person: subjectPerson, organization },
-  );
 
   return {
     organization,
@@ -213,13 +208,12 @@ const mapStateToProps = (
       { eventId: event.id },
     ),
     editingCommentId: celebrateComments.editingCommentId,
-    analyticsAssignmentType:
-      (subjectPerson &&
-        getAnalyticsAssignmentType(subjectPerson.id, auth, orgPermission)) ||
-      ('' as TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE]),
-    analyticsPermissionType:
-      (subjectPerson && getAnalyticsPermissionType(orgPermission)) ||
-      ('' as TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE]),
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      subjectPerson,
+      auth,
+      organization,
+    ),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

@@ -198,7 +198,7 @@ const mapStateToProps = (
 ) => ({
   myId: auth.person.id,
   analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
 });
 
 export default connect(mapStateToProps)(AddStepScreen);
