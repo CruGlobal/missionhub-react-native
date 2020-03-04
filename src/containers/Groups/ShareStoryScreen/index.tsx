@@ -21,7 +21,6 @@ import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../../actions/analytics';
-import { orgPermissionSelector } from '../../../selectors/people';
 
 import styles from './styles';
 import {

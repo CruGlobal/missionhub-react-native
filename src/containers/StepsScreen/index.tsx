@@ -70,7 +70,12 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const { isRefreshing, refresh } = useRefreshing(handleRefresh);
 
   const handleRowSelect = (step: Step) =>
-    dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { stepId: step.id }));
+    dispatch(
+      navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, {
+        stepId: step.id,
+        personId: step.receiver.id,
+      }),
+    );
 
   const handleNavToPerson = (step: Step) => {
     const { receiver, community } = step;

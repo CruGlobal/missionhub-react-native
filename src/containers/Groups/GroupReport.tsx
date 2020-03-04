@@ -19,7 +19,6 @@ import ReportedItem from '../ReportedItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
-import { orgPermissionSelector } from '../../selectors/people';
 
 import {
   GetReportedContent,

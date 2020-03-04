@@ -12,7 +12,6 @@ import BackButton from '../BackButton';
 import { TrackStateContext } from '../../actions/analytics';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgPermissionSelector } from '../../selectors/people';
 import CelebrateFeed from '../CelebrateFeed';
 import theme from '../../theme';
 import { refreshCommunity } from '../../actions/organizations';

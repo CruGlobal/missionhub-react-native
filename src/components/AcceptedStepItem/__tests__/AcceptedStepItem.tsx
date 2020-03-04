@@ -19,6 +19,7 @@ const mockDate = '2019-08-24 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 
 const stepId = '1';
+const personId = '333';
 const reminderId = '11';
 const reminder = { id: reminderId };
 const step = {
@@ -26,6 +27,7 @@ const step = {
   title: 'title',
   body: 'Step of Faith',
   reminder,
+  receiver: { id: personId },
 };
 const stepReminders = {
   allByStep: {
@@ -75,6 +77,7 @@ describe('AcceptedStepItem', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
       stepId,
+      personId,
     });
   });
 

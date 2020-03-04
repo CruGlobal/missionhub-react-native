@@ -78,20 +78,32 @@ describe('buildTrackingObj', () => {
 describe('getAnalyticsAssignmentType', () => {
   const myId = '1';
   const otherId = '2';
-  const authState = { person: { id: myId } } as AuthState;
-  const orgPermission = { permission_id: ORG_PERMISSIONS.USER };
+  const organization = { id: '3' };
+  const orgPermission = {
+    organization_id: organization.id,
+    permission_id: ORG_PERMISSIONS.USER,
+  };
+  const otherPerson = {
+    id: otherId,
+    organizational_permissions: [orgPermission],
+  };
+  const authState = {
+    person: { id: myId },
+  } as AuthState;
 
   it('returns self', () => {
-    expect(getAnalyticsAssignmentType(myId, authState)).toEqual('self');
+    expect(getAnalyticsAssignmentType({ id: myId }, authState)).toEqual('self');
   });
 
   it('returns contact', () => {
-    expect(getAnalyticsAssignmentType(otherId, authState)).toEqual('contact');
+    expect(getAnalyticsAssignmentType(otherPerson, authState)).toEqual(
+      'contact',
+    );
   });
 
   it('returns community member', () => {
     expect(
-      getAnalyticsAssignmentType(otherId, authState, orgPermission),
+      getAnalyticsAssignmentType(otherPerson, authState, organization),
     ).toEqual('community member');
   });
 });
@@ -123,46 +135,92 @@ describe('getAnalyticsEditMode', () => {
 });
 
 describe('getAnalyticsPermissionType', () => {
+  const orgId = '6';
+  const organization = { id: orgId };
+  const orgPermission = { organization_id: orgId };
+
   it('returns owner from permission_id', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.OWNER }),
-    ).toEqual('owner');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission_id: ORG_PERMISSIONS.OWNER },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('owner');
   });
 
   it('returns owner from permission', () => {
-    expect(
-      getAnalyticsPermissionType({ permission: PermissionEnum.owner }),
-    ).toEqual('owner');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission: PermissionEnum.owner },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('owner');
   });
 
   it('returns admin from permission_id', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.ADMIN }),
-    ).toEqual('admin');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission_id: ORG_PERMISSIONS.ADMIN },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('admin');
   });
 
   it('returns admin from permission', () => {
-    expect(
-      getAnalyticsPermissionType({ permission: PermissionEnum.admin }),
-    ).toEqual('admin');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission: PermissionEnum.admin },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('admin');
   });
 
   it('returns member from permission_id', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.USER }),
-    ).toEqual('member');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission_id: ORG_PERMISSIONS.USER },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('member');
   });
 
   it('returns member from permission', () => {
-    expect(
-      getAnalyticsPermissionType({ permission: PermissionEnum.user }),
-    ).toEqual('member');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission: PermissionEnum.user },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('member');
   });
 
   it('returns empty string if no permissions', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.CONTACT }),
-    ).toEqual('');
+    const auth = {
+      person: {
+        organizational_permissions: [
+          { ...orgPermission, permission_id: ORG_PERMISSIONS.CONTACT },
+        ],
+      },
+    } as AuthState;
+
+    expect(getAnalyticsPermissionType(auth, organization)).toEqual('');
   });
 });
 
