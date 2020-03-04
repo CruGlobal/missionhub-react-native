@@ -11,7 +11,12 @@ import {
 } from '../../actions/challenges';
 import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
-import { refresh, isAdminOrOwner } from '../../utils/common';
+import {
+  refresh,
+  isAdminOrOwner,
+  getAnalyticsPermissionType,
+} from '../../utils/common';
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
