@@ -61,9 +61,10 @@ class GroupChallenges extends Component {
 
   create = () => {
     // @ts-ignore
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
+        organization,
         // @ts-ignore
         onComplete: challenge => {
           this.createChallenge(challenge);
@@ -75,15 +76,30 @@ class GroupChallenges extends Component {
 
   render() {
     const { refreshing } = this.state;
-    // @ts-ignore
-    const { t, challengeItems, organization, myOrgPermissions } = this.props;
+    const {
+      // @ts-ignore
+      t,
+      // @ts-ignore
+      challengeItems,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      myOrgPermissions,
+      // @ts-ignore
+      analyticsPermissionType,
+    } = this.props;
 
     const canCreate = isAdminOrOwner(myOrgPermissions);
 
     return (
       // @ts-ignore
       <View flex={1}>
-        <Analytics screenName={['community', 'challenges']} />
+        <Analytics
+          screenName={['community', 'challenges']}
+          screenContext={{
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
+        />
         <View style={styles.cardList}>
           <ChallengeFeed
             // @ts-ignore
@@ -106,6 +122,13 @@ class GroupChallenges extends Component {
 // @ts-ignore
 const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
   const organization = organizationSelector({ organizations }, { orgId });
+  const myOrgPermissions = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization,
+    },
+  );
 
   return {
     organization,
@@ -114,11 +137,8 @@ const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
       challengeItems: organization.challengeItems || [],
     }),
     pagination: organization.challengePagination || {},
-    // @ts-ignore
-    myOrgPermissions: orgPermissionSelector(null, {
-      person: auth.person,
-      organization,
-    }),
+    myOrgPermissions,
+    analyticsPermissionType: getAnalyticsPermissionType(myOrgPermissions),
   };
 };
 

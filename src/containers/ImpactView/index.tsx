@@ -15,6 +15,7 @@ import {
   INTERACTION_TYPES,
   GLOBAL_COMMUNITY_ID,
   ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
 import {
   impactInteractionsSelector,
@@ -28,6 +29,7 @@ import OnboardingCard, {
 import {
   orgIsPersonalMinistry,
   getAnalyticsAssignmentType,
+  getAnalyticsPermissionType,
 } from '../../utils/common';
 import Analytics from '../Analytics';
 
@@ -272,6 +274,8 @@ export class ImpactView extends Component {
       isGlobalCommunity,
       // @ts-ignore
       analyticsAssignmentType,
+      // @ts-ignore
+      analyticsPermissionType,
     } = this.props;
 
     const showGlobalImpact =
@@ -293,6 +297,7 @@ export class ImpactView extends Component {
           screenName={[screenSection, screenSubsection]}
           screenContext={{
             [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
           }}
         />
         {organization.id !== 'person' ? (
@@ -371,6 +376,8 @@ export const mapStateToProps = (
     analyticsAssignmentType:
       (personId && getAnalyticsAssignmentType(personId, auth, orgPermission)) ||
       '',
+    analyticsPermissionType:
+      (orgPermission && getAnalyticsPermissionType(orgPermission)) || '',
   };
 };
 

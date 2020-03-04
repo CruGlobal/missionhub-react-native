@@ -4,7 +4,7 @@ import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import { ACTIONS } from '../../constants';
+import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { RefreshControl } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import {
@@ -12,6 +12,7 @@ import {
   getCommunityUrl,
   keyExtractorId,
   orgIsUserCreated,
+  getAnalyticsPermissionType,
 } from '../../utils/common';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
@@ -116,10 +117,15 @@ class Members extends Component {
 
   render() {
     // @ts-ignore
-    const { t, members, pagination } = this.props;
+    const { t, members, pagination, analyticsPermissionType } = this.props;
     return (
       <View style={styles.cardList}>
-        <Analytics screenName={['community', 'members']} />
+        <Analytics
+          screenName={['community', 'members']}
+          screenContext={{
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
+        />
         <FlatList
           data={members}
           ListHeaderComponent={this.renderHeader}
@@ -154,17 +160,21 @@ Members.propTypes = {
 // @ts-ignore
 const mapStateToProps = ({ auth, organizations, swipe }, { orgId }) => {
   const organization = organizationSelector({ organizations }, { orgId });
+  const myOrgPermission = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization,
+    },
+  );
 
   return {
     groupInviteInfo: swipe.groupInviteInfo,
     members: organization.members || [],
     pagination: organizations.membersPagination,
-    // @ts-ignore
-    myOrgPermission: orgPermissionSelector(null, {
-      person: auth.person,
-      organization,
-    }),
+    myOrgPermission,
     organization,
+    analyticsPermissionType: getAnalyticsPermissionType(myOrgPermission),
   };
 };
 
