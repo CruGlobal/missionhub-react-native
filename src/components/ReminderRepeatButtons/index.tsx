@@ -3,18 +3,13 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../common';
-import {
-  REMINDER_RECURRENCES,
-  REMINDER_RECURRENCES_ENUM,
-} from '../../constants';
 import { TouchablePress } from '../Touchable/index.ios';
+import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 
-const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
-
 interface ReminderRepeatButtonsProps {
-  recurrence?: REMINDER_RECURRENCES_ENUM;
+  recurrence?: ReminderTypeEnum;
   onRecurrenceChange: Function;
 }
 
@@ -23,16 +18,18 @@ const ReminderRepeatButtons = ({
   onRecurrenceChange,
 }: ReminderRepeatButtonsProps) => {
   const { t } = useTranslation('stepReminder');
-  function setButtonState(clickedRecurrence: REMINDER_RECURRENCES_ENUM) {
+  function setButtonState(clickedRecurrence: ReminderTypeEnum) {
     const recurrence =
-      currentRecurrence === clickedRecurrence ? ONCE : clickedRecurrence;
+      currentRecurrence === clickedRecurrence
+        ? ReminderTypeEnum.once
+        : clickedRecurrence;
     onRecurrenceChange(recurrence);
   }
-  const handleSetDaily = () => setButtonState(DAILY);
-  const handleSetWeekly = () => setButtonState(WEEKLY);
-  const handleSetMonthly = () => setButtonState(MONTHLY);
+  const handleSetDaily = () => setButtonState(ReminderTypeEnum.daily);
+  const handleSetWeekly = () => setButtonState(ReminderTypeEnum.weekly);
+  const handleSetMonthly = () => setButtonState(ReminderTypeEnum.monthly);
   function renderReminderButton(
-    recurrence: REMINDER_RECURRENCES_ENUM,
+    recurrence: ReminderTypeEnum,
     onPress: TouchablePress,
   ) {
     const {
@@ -48,9 +45,9 @@ const ReminderRepeatButtons = ({
     return (
       <Button
         testID={
-          recurrence === DAILY
+          recurrence === ReminderTypeEnum.daily
             ? 'ReminderRepeatButtonDaily'
-            : recurrence === WEEKLY
+            : recurrence === ReminderTypeEnum.weekly
             ? 'ReminderRepeatButtonWeekly'
             : 'ReminderRepeatButtonMonthly'
         }
@@ -67,9 +64,9 @@ const ReminderRepeatButtons = ({
   const { container } = styles;
   return (
     <View style={container}>
-      {renderReminderButton(DAILY, handleSetDaily)}
-      {renderReminderButton(WEEKLY, handleSetWeekly)}
-      {renderReminderButton(MONTHLY, handleSetMonthly)}
+      {renderReminderButton(ReminderTypeEnum.daily, handleSetDaily)}
+      {renderReminderButton(ReminderTypeEnum.weekly, handleSetWeekly)}
+      {renderReminderButton(ReminderTypeEnum.monthly, handleSetMonthly)}
     </View>
   );
 };

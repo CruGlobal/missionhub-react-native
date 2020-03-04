@@ -1,12 +1,12 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 
 import i18next from 'i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   COMPLETED_STEP_COUNT,
   STEP_NOTE,
   ACTIONS,
-  DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
 } from '../constants';
 import { formatApiDate, isCustomStep } from '../utils/common';
@@ -16,6 +16,10 @@ import {
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from '../routes/constants';
 import { REQUESTS } from '../api/routes';
+import { AuthState } from '../reducers/auth';
+import { apolloClient } from '../apolloClient';
+import { STEPS_QUERY } from '../containers/StepsScreen/queries';
+import { StepsList } from '../containers/StepsScreen/__generated__/StepsList';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
@@ -23,10 +27,8 @@ import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
 import { getCelebrateFeed } from './celebration';
 
-// @ts-ignore
-export function getStepSuggestions(isMe, contactStageId) {
-  // @ts-ignore
-  return dispatch => {
+export function getStepSuggestions(isMe: boolean, contactStageId: string) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const language = i18next.language;
     const query = {
       filters: {
@@ -40,47 +42,8 @@ export function getStepSuggestions(isMe, contactStageId) {
   };
 }
 
-export function getMySteps(query = {}) {
-  // @ts-ignore
-  return dispatch => {
-    const queryObj = {
-      order: '-accepted_at',
-      ...query,
-      filters: {
-        // @ts-ignore
-        ...(query.filters || {}),
-        completed: false,
-      },
-      include:
-        'receiver,receiver.reverse_contact_assignments,receiver.organizational_permissions,challenge_suggestion,reminder',
-    };
-    return dispatch(callApi(REQUESTS.GET_MY_CHALLENGES, queryObj));
-  };
-}
-
-export function getMyStepsNextPage() {
-  // @ts-ignore
-  return (dispatch, getState) => {
-    const { page, hasNextPage } = getState().steps.pagination;
-    if (!hasNextPage) {
-      // Does not have more data
-      return Promise.resolve();
-    }
-    const query = {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * page,
-      },
-      include: '',
-    };
-    return dispatch(getMySteps(query));
-  };
-}
-
-// @ts-ignore
-export function getContactSteps(personId, orgId) {
-  // @ts-ignore
-  return dispatch => {
+export function getContactSteps(personId: string, orgId?: string) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const query = {
       filters: {
         receiver_ids: personId,
@@ -93,10 +56,12 @@ export function getContactSteps(personId, orgId) {
   };
 }
 
-// @ts-ignore
-export function addStep(stepSuggestion, personId, orgId) {
-  // @ts-ignore
-  return async dispatch => {
+export function addStep(
+  stepSuggestion: { id?: string; body: string; challenge_type?: string },
+  personId: string,
+  orgId?: string,
+) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
     const payload = {
       data: {
         type: ACCEPTED_STEP,
@@ -134,16 +99,22 @@ export function addStep(stepSuggestion, personId, orgId) {
     };
 
     await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
+    // @ts-ignore
     dispatch(trackStepAdded(stepSuggestion));
-    dispatch(getMySteps());
+    apolloClient.query<StepsList>({ query: STEPS_QUERY });
     dispatch(getContactSteps(personId, orgId));
   };
 }
 
-// @ts-ignore
-export function createCustomStep(stepText, personId, orgId) {
-  // @ts-ignore
-  return (dispatch, getState) => {
+export function createCustomStep(
+  stepText: string,
+  personId: string,
+  orgId?: string,
+) {
+  return (
+    dispatch: ThunkDispatch<never, never, never>,
+    getState: () => { auth: AuthState },
+  ) => {
     const {
       auth: {
         person: { id: myId },
@@ -155,10 +126,8 @@ export function createCustomStep(stepText, personId, orgId) {
   };
 }
 
-// @ts-ignore
-export function updateChallengeNote(stepId, note) {
-  // @ts-ignore
-  return dispatch => {
+export function updateChallengeNote(stepId: string, note: string) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const query = { challenge_id: stepId };
     const data = buildChallengeData({ note });
 
@@ -166,8 +135,7 @@ export function updateChallengeNote(stepId, note) {
   };
 }
 
-// @ts-ignore
-function buildChallengeData(attributes) {
+function buildChallengeData(attributes: object) {
   return {
     data: {
       type: ACCEPTED_STEP,
@@ -176,33 +144,48 @@ function buildChallengeData(attributes) {
   };
 }
 
-// @ts-ignore
-function completeChallengeAPI(step) {
-  // @ts-ignore
-  return async dispatch => {
+function completeChallengeAPI(step: {
+  id: string;
+  receiver: { id: string };
+  organization?: { id: string };
+}) {
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return async (dispatch: ThunkDispatch<never, never, any>) => {
     const { id: stepId, receiver, organization } = step;
-    const receiverId = (receiver && receiver.id) || null;
-    const orgId = (organization && organization.id) || null;
+    const receiverId = receiver && receiver.id;
+    const orgId = organization && organization.id;
 
-    const query = { challenge_id: stepId };
-    // @ts-ignore
-    const data = buildChallengeData({ completed_at: formatApiDate() });
+    const query = {
+      challenge_id: stepId,
+    };
+    const data = buildChallengeData({
+      completed_at: formatApiDate(),
+    });
 
     await dispatch(callApi(REQUESTS.CHALLENGE_COMPLETE, query, data));
-    dispatch({ type: COMPLETED_STEP_COUNT, userId: receiverId });
+    dispatch({
+      type: COMPLETED_STEP_COUNT,
+      userId: receiverId,
+    });
     dispatch(refreshImpact(orgId));
 
-    dispatch(getMySteps());
+    removeFromStepsList(stepId);
     dispatch(getContactSteps(receiverId, orgId));
 
     orgId && getCelebrateFeed(orgId);
   };
 }
 
-// @ts-ignore
-export function completeStep(step, screen, extraBack = false) {
-  // @ts-ignore
-  return dispatch => {
+export function completeStep(
+  step: {
+    id: string;
+    receiver: { id: string };
+    organization?: { id: string };
+  },
+  screen: string,
+  extraBack = false,
+) {
+  return (dispatch: ThunkDispatch<never, never, never>) => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
@@ -228,10 +211,8 @@ export function completeStep(step, screen, extraBack = false) {
   };
 }
 
-// @ts-ignore
-export function deleteStepWithTracking(step, screen) {
-  // @ts-ignore
-  return async dispatch => {
+export function deleteStepWithTracking(step: { id: string }, screen: string) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
     await dispatch(deleteStep(step));
     dispatch(
       trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
@@ -241,11 +222,27 @@ export function deleteStepWithTracking(step, screen) {
   };
 }
 
-// @ts-ignore
-function deleteStep(step) {
-  // @ts-ignore
-  return dispatch => {
+function deleteStep(step: { id: string }) {
+  return async (dispatch: ThunkDispatch<never, never, never>) => {
     const query = { challenge_id: step.id };
-    return dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
+    await dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
+    removeFromStepsList(step.id);
   };
 }
+
+const removeFromStepsList = (stepId: string) => {
+  const cachedSteps = apolloClient.readQuery<StepsList>({
+    query: STEPS_QUERY,
+  });
+  cachedSteps &&
+    apolloClient.writeQuery<StepsList>({
+      query: STEPS_QUERY,
+      data: {
+        ...cachedSteps,
+        steps: {
+          ...cachedSteps.steps,
+          nodes: cachedSteps.steps.nodes.filter(({ id }) => id !== stepId),
+        },
+      },
+    });
+};

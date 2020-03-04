@@ -17,6 +17,7 @@ import {
   resetCelebrateEditingComment,
   setCelebrateEditingComment,
 } from '../celebrateComments';
+import { getCelebrateFeed } from '../celebration';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
@@ -28,6 +29,7 @@ import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } fr
 import { Person } from '../../reducers/people';
 
 jest.mock('../api');
+jest.mock('../celebration');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
 
@@ -132,6 +134,7 @@ describe('createCelebrateComment', () => {
       baseQuery,
       { data: { attributes: { content } } },
     );
+    expect(getCelebrateFeed).toHaveBeenLastCalledWith(orgId);
   });
 
   it('should return api response', () => {
@@ -143,6 +146,10 @@ describe('createCelebrateComment', () => {
       ACTIONS.CELEBRATE_COMMENT_ADDED,
     );
     expect(store.getActions()).toEqual([callApiResponse, trackActionResult]);
+  });
+
+  it('refreshes celebrate feed', () => {
+    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
   });
 });
 
@@ -172,6 +179,10 @@ describe('deleteCelebrateComment', () => {
       ACTIONS.CELEBRATE_COMMENT_DELETED,
     );
     expect(store.getActions()).toEqual([callApiResponse, trackActionResult]);
+  });
+
+  it('refreshes celebrate feed', () => {
+    expect(getCelebrateFeed).toHaveBeenCalledWith(orgId);
   });
 });
 

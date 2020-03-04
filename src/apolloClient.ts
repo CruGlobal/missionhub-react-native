@@ -20,15 +20,14 @@ import { rollbar } from './utils/rollbar.config';
 
 const rollbarLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.map(error =>
-      rollbar.error(`[Apollo GraphQL error]: ${error.message}`, error),
-    );
+    graphQLErrors.forEach(error => {
+      const errorMessage = `[Apollo GraphQL error]: ${error.message}`;
+      rollbar.error(errorMessage, error);
+    });
   }
   if (networkError) {
-    rollbar.error(
-      `[Apollo Network error]: ${networkError.message}`,
-      networkError,
-    );
+    const errorMessage = `[Apollo Network error]: ${networkError.message}`;
+    rollbar.error(errorMessage, networkError);
   }
 });
 
@@ -77,6 +76,7 @@ persistCache({
 export const apolloClient = new ApolloClient({
   link,
   cache,
+  assumeImmutableResults: true,
   defaultOptions: {
     watchQuery: {
       errorPolicy: 'all',

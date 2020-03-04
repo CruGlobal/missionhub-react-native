@@ -1,22 +1,20 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { DAYS_OF_THE_WEEK, REMINDER_RECURRENCES } from '../../constants';
+import { DAYS_OF_THE_WEEK } from '../../constants';
 import { removeStepReminder, createStepReminder } from '../stepReminders';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
+import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 jest.mock('../api');
-
-const { ONCE, DAILY, WEEKLY, MONTHLY } = REMINDER_RECURRENCES;
 
 const mockStore = configureStore([thunk]);
 
 const challenge_id = '442324';
 const callApiResponse = { type: 'called api' };
 
-// @ts-ignore
-let reminder_at;
+let reminder_at: Date;
 // @ts-ignore
 let recurrence;
 // @ts-ignore
@@ -70,50 +68,45 @@ describe('createStepReminder', () => {
     beforeAll(() => (recurrence = undefined));
 
     it('calls api with correct payload', () =>
-      // @ts-ignore
-      testApiCall(ONCE, reminder_at.toISOString(), null));
+      testApiCall(ReminderTypeEnum.once, reminder_at.toISOString(), null));
   });
 
   describe('with once recurrence', () => {
-    beforeAll(() => (recurrence = ONCE));
+    beforeAll(() => (recurrence = ReminderTypeEnum.once));
 
     it('calls api with correct payload', () =>
-      // @ts-ignore
-      testApiCall(ONCE, reminder_at.toISOString(), null));
+      testApiCall(ReminderTypeEnum.once, reminder_at.toISOString(), null));
   });
 
   describe('with daily recurrence', () => {
-    beforeAll(() => (recurrence = DAILY));
+    beforeAll(() => (recurrence = ReminderTypeEnum.daily));
 
     it('calls api with correct payload', () =>
       testApiCall(
-        DAILY,
-        // @ts-ignore
+        ReminderTypeEnum.daily,
         reminder_at.toLocaleTimeString(undefined, { hour12: false }),
         null,
       ));
   });
 
   describe('with weekly recurrence', () => {
-    beforeAll(() => (recurrence = WEEKLY));
+    beforeAll(() => (recurrence = ReminderTypeEnum.weekly));
 
     it('calls api with correct payload', () =>
       testApiCall(
-        WEEKLY,
-        // @ts-ignore
+        ReminderTypeEnum.weekly,
         reminder_at.toLocaleTimeString(undefined, { hour12: false }),
         DAYS_OF_THE_WEEK[4],
       ));
   });
 
   describe('with monthly recurrence', () => {
-    beforeAll(() => (recurrence = MONTHLY));
+    beforeAll(() => (recurrence = ReminderTypeEnum.monthly));
 
     describe('with day that occurs in every month', () => {
       it('calls api with correct payload', () =>
         testApiCall(
-          MONTHLY,
-          // @ts-ignore
+          ReminderTypeEnum.monthly,
           reminder_at.toLocaleTimeString(undefined, { hour12: false }),
           // @ts-ignore
           reminder_at.getDate(),
@@ -125,8 +118,7 @@ describe('createStepReminder', () => {
 
       it('calls api with correct payload', () =>
         testApiCall(
-          MONTHLY,
-          // @ts-ignore
+          ReminderTypeEnum.monthly,
           reminder_at.toLocaleTimeString(undefined, { hour12: false }),
           // @ts-ignore
           reminder_at.getDate() - 32,

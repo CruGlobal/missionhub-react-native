@@ -119,45 +119,6 @@ it('increments existing user step count', () => {
   expect(state.userStepCount[1]).toBe(2);
 });
 
-it('adds new items to existing mine array', () => {
-  const state = steps(
-    {
-      ...initialState,
-      mine: Array(25).fill({ id: '1' }),
-    },
-    {
-      type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
-      results: {
-        response: [{ id: '26' }],
-      },
-      query: { page: { offset: 25 } },
-    },
-  );
-
-  expect(state.mine.length).toEqual(26);
-  expect(state.pagination).toEqual({ page: 2, hasNextPage: false });
-});
-
-it('receives reminders', () => {
-  const stepsResponse = [{ id: '1', focus: true }, { id: '2', focus: false }];
-
-  const state = steps(
-    {
-      ...initialState,
-      mine: [],
-    },
-    {
-      type: REQUESTS.GET_MY_CHALLENGES.SUCCESS,
-      results: {
-        response: stepsResponse,
-      },
-      query: { page: { offset: 0 } },
-    },
-  );
-
-  expect(state.mine).toEqual(stepsResponse);
-});
-
 it('receives contact steps and sorts completed', () => {
   const state = steps(
     {
@@ -209,7 +170,6 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
     const state = steps(
       {
         ...initialState,
-        mine: [existingStep],
         contactSteps: {
           '123-456': { steps: [existingStep], completedSteps: [] },
           '987-personal': { steps: [existingStep], completedSteps: [] },
@@ -221,7 +181,6 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
       },
     );
 
-    expect(state.mine).toEqual([newStep, existingStep]);
     expect(state.contactSteps).toEqual({
       '123-456': { steps: [existingStep], completedSteps: [] },
       '987-personal': { steps: [newStep, existingStep], completedSteps: [] },
@@ -238,7 +197,6 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
     const state = steps(
       {
         ...initialState,
-        mine: [existingStep],
         contactSteps: {
           '123-456': { steps: [existingStep], completedSteps: [] },
           '987-personal': { steps: [existingStep], completedSteps: [] },
@@ -250,7 +208,6 @@ describe('REQUESTS.ADD_CHALLENGE.SUCCESS', () => {
       },
     );
 
-    expect(state.mine).toEqual([newStep, { id: '6' }]);
     expect(state.contactSteps).toEqual({
       '123-456': { steps: [newStep, { id: '6' }], completedSteps: [] },
       '987-personal': { steps: [{ id: '6' }], completedSteps: [] },
@@ -265,7 +222,6 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
   const state = steps(
     {
       ...initialState,
-      mine: [step1, step2],
       contactSteps: {
         '123-456': { steps: [step1, step2], completedSteps: [] },
         '987-personal': {
@@ -280,7 +236,6 @@ it('deletes steps locally on REQUESTS.DELETE_CHALLENGE.SUCCESS', () => {
     },
   );
 
-  expect(state.mine).toEqual([{ id: '2' }]);
   expect(state.contactSteps).toEqual({
     '123-456': { steps: [{ id: '2' }], completedSteps: [] },
     '987-personal': { steps: [{ id: '2' }], completedSteps: [] },

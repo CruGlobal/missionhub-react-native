@@ -8,38 +8,18 @@ import ItemHeaderText from '../ItemHeaderText';
 import { AuthState } from '../../reducers/auth';
 import ReminderButton from '../ReminderButton';
 import ReminderDateText from '../ReminderDateText';
-import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
-import { reminderSelector } from '../../selectors/stepReminders';
 
 import styles from './styles';
-
-type StepType = {
-  id: string;
-  title: string;
-  accepted_at?: string;
-  completed_at?: string;
-  created_at?: string;
-  updated_at?: string;
-  notified_at?: string;
-  note?: string;
-  owner: object;
-  receiver?: { id: string; full_name: string };
-};
+import { StepItem as Step } from './__generated__/StepItem';
 
 export interface StepItemProps {
-  step: StepType;
-  onSelect?: (step: StepType) => void;
-  onPressName?: (step: StepType) => void;
+  step: Step;
+  onSelect?: (step: Step) => void;
+  onPressName?: (step: Step) => void;
   myId?: string;
-  reminder?: ReminderType;
+  testID?: string;
 }
-const StepItem = ({
-  step,
-  onSelect,
-  myId,
-  reminder,
-  onPressName,
-}: StepItemProps) => {
+const StepItem = ({ step, onSelect, myId, onPressName }: StepItemProps) => {
   const { t } = useTranslation();
 
   const handleSelect = () => {
@@ -53,7 +33,7 @@ const StepItem = ({
   const isMe = step.receiver && step.receiver.id === myId;
   const ownerName = isMe
     ? t('me')
-    : (step.receiver && step.receiver.full_name) || '';
+    : (step.receiver && step.receiver.fullName) || '';
   const { bellIcon, reminderButton } = styles;
   return (
     <Card testID="StepItemCard" onPress={handleSelect} style={styles.card}>
@@ -69,11 +49,11 @@ const StepItem = ({
           <ReminderButton
             testID="StepReminderButton"
             stepId={step.id}
-            reminder={reminder}
+            reminder={step.reminder}
           >
             <View style={reminderButton}>
               <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              <ReminderDateText reminder={reminder} />
+              <ReminderDateText reminder={step.reminder} />
             </View>
           </ReminderButton>
         </View>
@@ -83,15 +63,7 @@ const StepItem = ({
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    stepReminders,
-  }: { auth: AuthState; stepReminders: StepReminderState },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { step }: any,
-) => ({
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myId: auth.person.id,
-  reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });
 export default connect(mapStateToProps)(StepItem);

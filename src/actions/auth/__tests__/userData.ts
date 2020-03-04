@@ -13,14 +13,12 @@ import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
 import { getStagesIfNotExists } from '../../stages';
-import { getMySteps } from '../../steps';
 import { rollbar } from '../../../utils/rollbar.config';
 
 const notificationsResult = { type: 'show notification reminder' };
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
 const getPeopleResult = { type: 'get my people' };
-const getStepsResult = { type: 'got steps successfully' };
 const getStagesResult = { type: 'got stages' };
 const updateUserResult = { type: 'updated locale and TZ' };
 
@@ -139,20 +137,12 @@ describe('loadHome', () => {
   };
 
   it('loads me, organizations, stages, timezone, and notifications', async () => {
-    // @ts-ignore
-    getMe.mockReturnValue(getMeResult);
-    // @ts-ignore
-    getMyPeople.mockReturnValue(getPeopleResult);
-    // @ts-ignore
-    getMySteps.mockReturnValue(getStepsResult);
-    // @ts-ignore
-    getMyCommunities.mockReturnValue(getMyCommunitiesResult);
-    // @ts-ignore
-    getStagesIfNotExists.mockReturnValue(getStagesResult);
-    // @ts-ignore
-    showReminderOnLoad.mockReturnValue(notificationsResult);
-    // @ts-ignore
-    callApi.default.mockReturnValue(updateUserResult);
+    (getMe as jest.Mock).mockReturnValue(getMeResult);
+    (getMyPeople as jest.Mock).mockReturnValue(getPeopleResult);
+    (getMyCommunities as jest.Mock).mockReturnValue(getMyCommunitiesResult);
+    (getStagesIfNotExists as jest.Mock).mockReturnValue(getStagesResult);
+    (showReminderOnLoad as jest.Mock).mockReturnValue(notificationsResult);
+    (callApi.default as jest.Mock).mockReturnValue(updateUserResult);
 
     // @ts-ignore
     await store.dispatch(loadHome());
@@ -173,7 +163,6 @@ describe('loadHome', () => {
       getMyCommunitiesResult,
       getStagesResult,
       updateUserResult,
-      getStepsResult,
       notificationsResult,
     ]);
   });

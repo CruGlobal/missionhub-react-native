@@ -46,7 +46,7 @@ exports[`renders with reminder correctly 1`] = `
     ]
   }
 >
-  Today @ 12:00 PM
+  Friday, Nov 13 @ 8:52 PM
 </Text>
 `;
 

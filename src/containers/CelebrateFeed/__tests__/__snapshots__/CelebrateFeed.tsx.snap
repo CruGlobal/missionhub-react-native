@@ -3535,6 +3535,7 @@ exports[`renders for member renders correctly 1`] = `
 
 exports[`renders for member renders without header 1`] = `
 <RCTScrollView
+  ListHeaderComponent={[Function]}
   contentContainerStyle={
     Object {
       "paddingBottom": 10,
@@ -4344,10 +4345,10 @@ exports[`renders for member renders without header 1`] = `
   }
   stickyHeaderIndices={
     Array [
-      0,
-      3,
-      6,
-      9,
+      1,
+      4,
+      7,
+      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -4362,6 +4363,9 @@ exports[`renders for member renders without header 1`] = `
 >
   <RCTRefreshControl />
   <View>
+    <View
+      onLayout={[Function]}
+    />
     <View
       onLayout={[Function]}
       style={null}

@@ -11,13 +11,6 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import SelectMyStepScreen, {
-  SELECT_MY_STEP_ONBOARDING_SCREEN,
-  SELECT_MY_STEP_SCREEN,
-} from './containers/SelectMyStepScreen';
-import PersonSelectStepScreen, {
-  PERSON_SELECT_STEP_SCREEN,
-} from './containers/PersonSelectStepScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
@@ -66,21 +59,23 @@ import NotificationOffScreen, {
 } from './containers/NotificationOffScreen';
 import {
   ALL_PERSON_TAB_ROUTES,
-  CONTACT_PERSON_SCREEN,
   ContactPersonScreen,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
   IsGroupsMeCommunityPersonScreen,
   IsGroupsMemberPersonScreen,
   IsUserCreatedMemberPersonScreen,
-  ME_COMMUNITY_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
   MeCommunityPersonScreen,
-  MEMBER_PERSON_SCREEN,
   MemberPersonScreen,
   MePersonalPersonScreen,
 } from './containers/Groups/AssignedPersonScreen';
+import {
+  CONTACT_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+} from './containers/Groups/AssignedPersonScreen/constants';
 import SettingsMenu from './components/SettingsMenu';
 import PersonSideMenu from './components/PersonSideMenu';
 import theme from './theme';
@@ -346,21 +341,6 @@ const screens = {
     // @ts-ignore
     buildTrackingObj('step : detail : reminder', 'step', 'detail'),
   ),
-  [SELECT_MY_STEP_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    // @ts-ignore
-    buildTrackingObj('people : self : steps : add', 'people', 'self', 'steps'),
-  ),
-  [SELECT_MY_STEP_ONBOARDING_SCREEN]: buildTrackedScreen(
-    SelectMyStepScreen,
-    // @ts-ignore
-    buildTrackingObj(
-      'onboarding : self : steps : add',
-      'onboarding',
-      'self',
-      'steps',
-    ),
-  ),
   [ADD_SOMEONE_SCREEN]: buildTrackedScreen(
     AddSomeoneScreen,
     // @ts-ignore
@@ -581,16 +561,6 @@ export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
-    [PERSON_SELECT_STEP_SCREEN]: {
-      screen: PersonSelectStepScreen,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [SELECT_MY_STEP_SCREEN]: {
-      screen: SelectMyStepScreen,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },

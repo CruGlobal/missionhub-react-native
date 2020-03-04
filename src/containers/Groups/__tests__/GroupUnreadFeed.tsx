@@ -70,7 +70,7 @@ it('should call mark specific celebration item comments as read and go back', ()
 
   fireEvent(getByTestId('CelebrateFeed'), 'onClearNotification', event);
 
-  expect(markCommentRead).toHaveBeenCalledWith(event.id);
+  expect(markCommentRead).toHaveBeenCalledWith(event.id, organization.id);
 });
 
 it('should refetch correctly', () => {
