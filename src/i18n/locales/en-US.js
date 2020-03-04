@@ -245,6 +245,7 @@ export default {
   completedStepDetail: {
     completedStep: 'Completed Step',
     completedOn: 'Completed {{date}}',
+    errorLoadingStepDetails: 'Error loading your step details',
   },
   selectStage: {
     meQuestion:
