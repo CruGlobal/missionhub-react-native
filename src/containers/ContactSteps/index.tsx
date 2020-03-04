@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { AnyAction } from 'redux';
 import { View, SectionList, SectionListData } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { getContactSteps } from '../../actions/steps';
+import { TrackStateContext } from '../../actions/analytics';
 import { Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
-import { orgIsCru, keyExtractorId } from '../../utils/common';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
+import {
+  orgIsCru,
+  keyExtractorId,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
 import { promptToAssign } from '../../utils/prompt';
-import { contactAssignmentSelector } from '../../selectors/people';
+import {
+  contactAssignmentSelector,
+  orgPermissionSelector,
+} from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
@@ -28,7 +36,6 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import styles from './styles';
 
 interface ContactStepsProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   showAssignPrompt: boolean;
   steps: Step[];
   completedSteps: Step[];
@@ -36,10 +43,10 @@ interface ContactStepsProps {
   myId: string;
   person: Person;
   organization: Organization;
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const ContactSteps = ({
-  dispatch,
   showAssignPrompt,
   steps,
   completedSteps,
@@ -47,9 +54,13 @@ const ContactSteps = ({
   myId,
   person,
   organization,
+  analyticsAssignmentType,
 }: ContactStepsProps) => {
-  useAnalytics(['person', 'my steps']);
+  useAnalytics(['person', 'my steps'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
   const { t } = useTranslation('contactSteps');
+  const dispatch = useDispatch();
   const [hideCompleted, setHideCompleted] = useState(true);
 
   const isMe = myId === person.id;
@@ -166,6 +177,7 @@ const mapStateToProps = (
 ) => {
   const allSteps =
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
+  const orgPermission = orgPermissionSelector({}, { person, organization });
 
   return {
     showAssignPrompt: orgIsCru(organization),
@@ -176,6 +188,11 @@ const mapStateToProps = (
       { person, orgId: organization.id },
     ),
     myId: auth.person.id,
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      person.id,
+      auth,
+      orgPermission,
+    ),
   };
 };
 

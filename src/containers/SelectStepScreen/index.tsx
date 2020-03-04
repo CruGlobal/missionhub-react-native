@@ -9,8 +9,14 @@ import { useTranslation } from 'react-i18next';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import { TrackStateContext } from '../../actions/analytics';
-import { getAnalyticsSectionType } from '../../utils/common';
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import { Text } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
@@ -44,16 +50,19 @@ interface SelectStepScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
   analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const SelectStepScreen = ({
   next,
   analyticsSection,
+  analyticsAssignmentType,
 }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
   useAnalytics('add step', {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
   const dispatch = useDispatch();
@@ -155,8 +164,25 @@ const SelectStepScreen = ({
   );
 };
 
-const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+const mapStateToProps = (
+  {
+    auth,
+    onboarding,
+  }: {
+    auth: AuthState;
+    onboarding: OnboardingState;
+  },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    },
+  }: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  any,
+) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

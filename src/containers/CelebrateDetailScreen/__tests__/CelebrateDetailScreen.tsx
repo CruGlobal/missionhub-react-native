@@ -4,8 +4,10 @@ import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_ASSIGNMENT_TYPE, ORG_PERMISSIONS } from '../../../constants';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { organizationSelector } from '../../../selectors/organizations';
+import { orgPermissionSelector } from '../../../selectors/people';
 import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
 import {
   reloadCelebrateComments,
@@ -16,6 +18,7 @@ import { celebrateCommentsSelector } from '../../../selectors/celebrateComments'
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CelebrateDetailScreen from '..';
@@ -24,9 +27,10 @@ jest.mock('../../../utils/hooks/useKeyboardListeners');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../selectors/organizations');
+jest.mock('../../../selectors/people');
 jest.mock('../../../actions/celebrateComments');
-jest.mock('../../Analytics', () => 'Analytics');
 jest.mock('../../CommentItem', () => 'CommentItem');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.useFakeTimers();
 
 MockDate.set('2019-04-12 12:00:00', 300);
@@ -55,6 +59,7 @@ const comments: { comments: CelebrateComment[]; pagination: any } = {
 const myId = 'myId';
 const orgId = '24234234';
 const organization: Organization = { id: orgId, name: 'Community' };
+const orgPermission = { id: '222', permission_id: ORG_PERMISSIONS.USER };
 const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 const organizations = [organization];
 const celebrateComments = { editingCommentId: null };
@@ -81,6 +86,9 @@ beforeEach(() => {
   ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
     organization,
   );
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+    orgPermission,
+  );
   ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
     comments,
   );
@@ -96,12 +104,21 @@ it('renders correctly', () => {
     { organizations },
     { orgId },
   );
+  expect(orgPermissionSelector).toHaveBeenCalledWith(
+    {},
+    { person: event.subjectPerson, organization },
+  );
   expect(celebrateCommentsSelector).toHaveBeenCalledWith(
     {
       celebrateComments,
     },
     { eventId: event.id },
   );
+  expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
+    screenContext: {
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'community member',
+    },
+  });
 });
 
 describe('refresh', () => {

@@ -17,8 +17,12 @@ import {
   STEP_NOTE,
   CREATE_STEP,
   ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
-import { getAnalyticsSectionType } from '../../utils/common';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
@@ -42,12 +46,14 @@ interface AddStepScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
   myId: string;
 }
 
 const AddStepScreen = ({
   next,
   analyticsSection,
+  analyticsAssignmentType,
   myId,
 }: AddStepScreenProps) => {
   const { t } = useTranslation('addStep');
@@ -80,6 +86,7 @@ const AddStepScreen = ({
   useAnalytics([screenSection, screenSubsection], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
 
@@ -172,15 +179,26 @@ const AddStepScreen = ({
   );
 };
 
-const mapStateToProps = ({
-  auth,
-  onboarding,
-}: {
-  auth: AuthState;
-  onboarding: OnboardingState;
-}) => ({
+const mapStateToProps = (
+  {
+    auth,
+    onboarding,
+  }: {
+    auth: AuthState;
+    onboarding: OnboardingState;
+  },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
   myId: auth.person.id,
   analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
 });
 
 export default connect(mapStateToProps)(AddStepScreen);

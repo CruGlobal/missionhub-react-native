@@ -7,6 +7,7 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import {
   ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { getStages } from '../../../actions/stages';
@@ -192,6 +193,7 @@ describe('renders for me', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       [ANALYTICS_EDIT_MODE]: 'set',
     });
   });
@@ -204,6 +206,7 @@ describe('renders for me', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       [ANALYTICS_EDIT_MODE]: 'update',
     });
   });
@@ -223,6 +226,7 @@ describe('renders for other', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
       [ANALYTICS_EDIT_MODE]: 'set',
     });
   });
@@ -235,6 +239,7 @@ describe('renders for other', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
       [ANALYTICS_EDIT_MODE]: 'update',
     });
   });
@@ -277,6 +282,7 @@ describe('actions on mount', () => {
       expect(getStages).toHaveBeenCalledWith();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
         [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([
@@ -302,6 +308,7 @@ describe('actions on mount', () => {
       expect(getStages).toHaveBeenCalledWith();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: 'onboarding',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
         [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([
@@ -328,6 +335,7 @@ describe('actions on mount', () => {
       expect(getStages).toHaveBeenCalledWith();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
         [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([
@@ -348,6 +356,7 @@ describe('actions on mount', () => {
       expect(getStages).not.toHaveBeenCalled();
       expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
         [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
         [ANALYTICS_EDIT_MODE]: 'update',
       });
       expect(store.getActions()).toEqual([trackScreenChangeResult]);

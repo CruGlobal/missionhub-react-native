@@ -11,9 +11,16 @@ import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../../utils/common';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/common';
+import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 
 import styles from './styles';
 
@@ -24,15 +31,18 @@ interface SuggestedStepDetailScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
   analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const SuggestedStepDetailScreen = ({
   next,
   analyticsSection,
+  analyticsAssignmentType,
 }: SuggestedStepDetailScreenProps) => {
   useAnalytics(['step detail', 'add step'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
   const { t } = useTranslation('suggestedStepDetail');
@@ -63,8 +73,19 @@ const SuggestedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+const mapStateToProps = (
+  { auth, onboarding }: { auth: AuthState; onboarding: OnboardingState },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
 });
 
 export default connect(mapStateToProps)(SuggestedStepDetailScreen);

@@ -6,7 +6,7 @@ import MockDate from 'mockdate';
 
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 import { renderWithContext } from '../../../../testUtils';
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { GLOBAL_COMMUNITY_ID, ORG_PERMISSIONS } from '../../../constants';
 
 import ImpactView from '..';
 
@@ -215,189 +215,177 @@ describe('ImpactView', () => {
   });
 
   describe('ME person community impact view', () => {
+    const meWithOrgPermission = {
+      ...me,
+      organizational_permissions: [
+        {
+          organization_id: cruOrgId,
+          permission_id: ORG_PERMISSIONS.OWNER,
+        },
+      ],
+    };
+
     it('renders empty state', () => {
-      renderWithContext(<ImpactView person={me} orgId={cruOrgId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${me.id}-`]: {
-                ...myImpact,
-                steps_count: 0,
-                pathway_moved_count: 0,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 0,
-                step_owners_count: 0,
-                pathway_moved_count: 0,
+      renderWithContext(
+        <ImpactView person={meWithOrgPermission} orgId={cruOrgId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${me.id}-`]: {
+                  ...myImpact,
+                  steps_count: 0,
+                  pathway_moved_count: 0,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 0,
+                  step_owners_count: 0,
+                  pathway_moved_count: 0,
+                },
               },
             },
           },
         },
-      }).snapshot();
+      ).snapshot();
     });
 
     it('renders singular state', () => {
-      renderWithContext(<ImpactView person={me} orgId={cruOrgId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${me.id}-`]: {
-                ...myImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                pathway_moved_count: 1,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                step_owners_count: 1,
-                pathway_moved_count: 1,
+      renderWithContext(
+        <ImpactView person={meWithOrgPermission} orgId={cruOrgId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${me.id}-`]: {
+                  ...myImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  pathway_moved_count: 1,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  step_owners_count: 1,
+                  pathway_moved_count: 1,
+                },
               },
             },
           },
         },
-      }).snapshot();
+      ).snapshot();
     });
 
     it('renders plural state', () => {
-      renderWithContext(<ImpactView person={me} orgId={cruOrgId} />, {
-        initialState: state,
-      }).snapshot();
+      renderWithContext(
+        <ImpactView person={meWithOrgPermission} orgId={cruOrgId} />,
+        {
+          initialState: state,
+        },
+      ).snapshot();
     });
   });
 
   describe('ME person impact view for user created org', () => {
+    const meWithOrgPermission = {
+      ...me,
+      organizational_permissions: [
+        {
+          organization_id: userCreatedOrgId,
+          permission_id: ORG_PERMISSIONS.OWNER,
+        },
+      ],
+    };
+
     it('renders empty state', () => {
-      renderWithContext(<ImpactView person={me} orgId={userCreatedOrgId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${me.id}-`]: {
-                ...myImpact,
-                steps_count: 0,
-                pathway_moved_count: 0,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 0,
-                step_owners_count: 0,
-                pathway_moved_count: 0,
+      renderWithContext(
+        <ImpactView person={meWithOrgPermission} orgId={userCreatedOrgId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${me.id}-`]: {
+                  ...myImpact,
+                  steps_count: 0,
+                  pathway_moved_count: 0,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 0,
+                  step_owners_count: 0,
+                  pathway_moved_count: 0,
+                },
               },
             },
           },
         },
-      }).snapshot();
+      ).snapshot();
     });
 
     it('renders singular state', () => {
-      renderWithContext(<ImpactView person={me} orgId={userCreatedOrgId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${me.id}-`]: {
-                ...myImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                pathway_moved_count: 1,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                step_owners_count: 1,
-                pathway_moved_count: 1,
+      renderWithContext(
+        <ImpactView person={meWithOrgPermission} orgId={userCreatedOrgId} />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${me.id}-`]: {
+                  ...myImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  pathway_moved_count: 1,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  step_owners_count: 1,
+                  pathway_moved_count: 1,
+                },
               },
             },
           },
         },
-      }).snapshot();
+      ).snapshot();
     });
 
     it('renders plural state', () => {
-      renderWithContext(<ImpactView person={me} orgId={userCreatedOrgId} />, {
-        initialState: state,
-      }).snapshot();
+      renderWithContext(
+        <ImpactView person={meWithOrgPermission} orgId={userCreatedOrgId} />,
+        {
+          initialState: state,
+        },
+      ).snapshot();
     });
   });
 
   describe('contact impact', () => {
-    it('renders empty state', () => {
-      renderWithContext(<ImpactView person={person} orgId={cruOrgId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${person.id}-`]: {
-                ...personImpact,
-                steps_count: 0,
-                pathway_moved_count: 0,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 0,
-                step_owners_count: 0,
-                pathway_moved_count: 0,
-              },
-            },
-          },
+    const personWithOrgPermission = {
+      ...person,
+      organizational_permissions: [
+        {
+          organization_id: cruOrgId,
+          permission_id: ORG_PERMISSIONS.OWNER,
         },
-      }).snapshot();
-    });
+      ],
+    };
 
-    it('renders singular state', () => {
-      renderWithContext(<ImpactView person={person} orgId={cruOrgId} />, {
-        initialState: {
-          ...state,
-          impact: {
-            ...state.impact,
-            summary: {
-              ...state.impact.summary,
-              [`${person.id}-`]: {
-                ...personImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                pathway_moved_count: 1,
-              },
-              '-': {
-                ...globalImpact,
-                steps_count: 1,
-                receivers_count: 1,
-                step_owners_count: 1,
-                pathway_moved_count: 1,
-              },
-            },
-          },
-        },
-      }).snapshot();
-    });
-
-    it('renders plural state', () => {
-      renderWithContext(<ImpactView person={person} orgId={cruOrgId} />, {
-        initialState: state,
-      }).snapshot();
-    });
-  });
-
-  describe('user created member impact', () => {
     it('renders empty state', () => {
       renderWithContext(
-        <ImpactView person={person} orgId={userCreatedOrgId} />,
+        <ImpactView person={personWithOrgPermission} orgId={cruOrgId} />,
         {
           initialState: {
             ...state,
@@ -425,7 +413,7 @@ describe('ImpactView', () => {
 
     it('renders singular state', () => {
       renderWithContext(
-        <ImpactView person={person} orgId={userCreatedOrgId} />,
+        <ImpactView person={personWithOrgPermission} orgId={cruOrgId} />,
         {
           initialState: {
             ...state,
@@ -455,7 +443,95 @@ describe('ImpactView', () => {
 
     it('renders plural state', () => {
       renderWithContext(
-        <ImpactView person={person} orgId={userCreatedOrgId} />,
+        <ImpactView person={personWithOrgPermission} orgId={cruOrgId} />,
+        {
+          initialState: state,
+        },
+      ).snapshot();
+    });
+  });
+
+  describe('user created member impact', () => {
+    const personWithOrgPermission = {
+      ...person,
+      organizational_permissions: [
+        {
+          organization_id: userCreatedOrgId,
+          permission_id: ORG_PERMISSIONS.OWNER,
+        },
+      ],
+    };
+
+    it('renders empty state', () => {
+      renderWithContext(
+        <ImpactView
+          person={personWithOrgPermission}
+          orgId={userCreatedOrgId}
+        />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${person.id}-`]: {
+                  ...personImpact,
+                  steps_count: 0,
+                  pathway_moved_count: 0,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 0,
+                  step_owners_count: 0,
+                  pathway_moved_count: 0,
+                },
+              },
+            },
+          },
+        },
+      ).snapshot();
+    });
+
+    it('renders singular state', () => {
+      renderWithContext(
+        <ImpactView
+          person={personWithOrgPermission}
+          orgId={userCreatedOrgId}
+        />,
+        {
+          initialState: {
+            ...state,
+            impact: {
+              ...state.impact,
+              summary: {
+                ...state.impact.summary,
+                [`${person.id}-`]: {
+                  ...personImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  pathway_moved_count: 1,
+                },
+                '-': {
+                  ...globalImpact,
+                  steps_count: 1,
+                  receivers_count: 1,
+                  step_owners_count: 1,
+                  pathway_moved_count: 1,
+                },
+              },
+            },
+          },
+        },
+      ).snapshot();
+    });
+
+    it('renders plural state', () => {
+      renderWithContext(
+        <ImpactView
+          person={personWithOrgPermission}
+          orgId={userCreatedOrgId}
+        />,
         {
           initialState: state,
         },

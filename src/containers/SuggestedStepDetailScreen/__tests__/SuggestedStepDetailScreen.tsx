@@ -2,7 +2,10 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_SECTION_TYPE } from '../../../constants';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../../constants';
 import { addStep } from '../../../actions/steps';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
@@ -15,6 +18,7 @@ const step = {
   body: 'do this step',
   description_markdown: 'some markdown',
 };
+const myId = '4444';
 const personId = '423325';
 const orgId = '880124';
 
@@ -23,7 +27,10 @@ const addStepResponse = { type: 'add step' };
 
 const next = jest.fn();
 
-const initialState = { onboarding: { currentlyOnboarding: false } };
+const initialState = {
+  auth: { person: { id: myId } },
+  onboarding: { currentlyOnboarding: false },
+};
 
 beforeEach(() => {
   next.mockReturnValue(nextResponse);
@@ -37,18 +44,41 @@ it('renders correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: '' },
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    },
+  });
+});
+
+it('renders correctly for me', () => {
+  renderWithContext(<SuggestedStepDetailScreen next={next} />, {
+    initialState,
+    navParams: { step, personId: myId, orgId },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+    },
   });
 });
 
 it('renders correctly in oboarding', () => {
   renderWithContext(<SuggestedStepDetailScreen next={next} />, {
-    initialState: { onboarding: { currentlyOnboarding: true } },
+    initialState: {
+      auth: { person: { id: myId } },
+      onboarding: { currentlyOnboarding: true },
+    },
     navParams: { step, personId, orgId },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: 'onboarding',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    },
   });
 });
 

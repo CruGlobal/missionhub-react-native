@@ -42,7 +42,12 @@ const AcceptedStepItem = ({
   dispatch,
 }: AcceptedStepItemProps) => {
   const handleNavigateAcceptedDetailScreen = () => {
-    dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { stepId: step.id }));
+    dispatch(
+      navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, {
+        stepId: step.id,
+        personId: step.receiver.id,
+      }),
+    );
   };
   const handleNavigateCompletedDetailScreen = () => {
     dispatch(navigatePush(COMPLETED_STEP_DETAIL_SCREEN, { step }));

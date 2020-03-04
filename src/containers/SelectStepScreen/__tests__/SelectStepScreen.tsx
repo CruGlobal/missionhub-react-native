@@ -3,7 +3,10 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ANALYTICS_SECTION_TYPE } from '../../../constants';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 
 import SelectStepScreen from '..';
@@ -65,7 +68,10 @@ describe('without enableSkipButton', () => {
     screen.snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: { [ANALYTICS_SECTION_TYPE]: '' },
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
     });
   });
 });
@@ -79,7 +85,10 @@ describe('with enableSkipButton', () => {
     screen.snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: { [ANALYTICS_SECTION_TYPE]: '' },
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
     });
   });
 });
@@ -92,7 +101,10 @@ describe('in onboarding', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: 'onboarding',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
     });
   });
 });
