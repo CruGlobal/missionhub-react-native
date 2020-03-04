@@ -13,7 +13,7 @@ import theme from '../../theme';
 import styles from './styles';
 
 interface StepDetailScreenProps {
-  text: string;
+  text?: string;
   receiver?: {
     firstName: string;
   };
@@ -26,8 +26,8 @@ interface StepDetailScreenProps {
 }
 
 const StepDetailScreen = ({
-  text,
-  markdown,
+  text = '',
+  markdown = '',
   CenterHeader,
   RightHeader,
   CenterContent,
