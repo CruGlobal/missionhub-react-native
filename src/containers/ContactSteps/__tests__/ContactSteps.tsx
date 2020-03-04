@@ -2,6 +2,7 @@ import 'react-native';
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
+import { SectionList } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
 import {
@@ -100,6 +101,34 @@ it('renders correctly with steps', async () => {
   await flushMicrotasksQueue();
 
   snapshot();
+});
+
+it('should paginate', async () => {
+  const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
+    <ContactSteps person={person} organization={{ id: undefined }} />,
+    {
+      initialState,
+      mocks: {
+        Query: () => ({
+          person: () => ({
+            steps: () => ({
+              nodes: () => new MockList(1, () => ({ completedAt: null })),
+              pageInfo: () => ({ totalCount: 0, hasNextPage: true }), // For completedSteps alias
+            }),
+          }),
+        }),
+      },
+    },
+  );
+
+  await flushMicrotasksQueue();
+
+  recordSnapshot();
+
+  fireEvent(getByType(SectionList), 'onEndReached');
+
+  await flushMicrotasksQueue();
+  diffSnapshot();
 });
 
 it('renders correctly with completed steps', async () => {

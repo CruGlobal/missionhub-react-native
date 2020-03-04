@@ -969,3 +969,133 @@ exports[`renders correctly with steps 1`] = `
   </RCTSafeAreaView>
 </View>
 `;
+
+exports[`should paginate 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -40,10 +40,31 @@
+                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
+              },
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"7\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"5\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"id\\": \\"6\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"8\\",
++                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
++             },
+            ],
+            \\"key\\": \\"active\\",
+          },
+        ]
+      }
+@@ -93,11 +114,32 @@
+                  \\"id\\": \\"4\\",
+                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
++             },
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"7\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"5\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"id\\": \\"6\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"8\\",
++                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"reminderType\\": \\"once\\",
+                },
++               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
++             },
+            ],
+            \\"key\\": \\"active\\",
+          },
+        ]
+      }
+@@ -142,18 +184,57 @@
+                  \\"id\\": \\"4\\",
+                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
++             }
++           }
++           testID=\\"stepItem\\"
++         />
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <StepItem
++           showName={false}
++           step={
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"7\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"5\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"id\\": \\"6\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"8\\",
++                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
+              }
+            }
+            testID=\\"stepItem\\"
+          />
+        </View>
+        <View
+          onLayout={[Function onLayout]}
+          style={null}
++       />
++       <View
++         style={
++           Object {
++             \\"height\\": 0,
++           }
++         }
+        />
+      </View>
+    </RCTScrollView>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}"
+`;
