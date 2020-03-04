@@ -8,6 +8,7 @@ import { Text } from '../../components/common';
 import ChallengeItem from '../../components/ChallengeItem';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
+  PermissionTypesEnum,
 } from '../Groups/OnboardingCard';
 import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
@@ -62,7 +63,7 @@ const ChallengeFeed = ({
       },
     ),
   );
-
+  const adminOrOwner = isAdminOrOwner(orgPerm);
   const [isListScrolled, setListScrolled] = useState(false);
   const getAcceptedChallenge = ({
     accepted_community_challenges,
@@ -135,19 +136,22 @@ const ChallengeFeed = ({
     refreshCallback();
   };
   const renderHeader = () => (
-    // @ts-ignore
-    <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />
+    <OnboardingCard
+      type={GROUP_ONBOARDING_TYPES.challenges}
+      permissions={
+        adminOrOwner ? PermissionTypesEnum.admin : PermissionTypesEnum.member
+      }
+    />
   );
   const renderNull = () => {
     return (
       <>
         {renderHeader()}
         <NullStateComponent
+          style={styles.nullContainer}
           imageSource={TARGET}
           headerText={t('nullTitle')}
-          descriptionText={
-            isAdminOrOwner(orgPerm) ? t('nullAdmins') : t('nullMembers')
-          }
+          descriptionText={adminOrOwner ? t('nullAdmins') : t('nullMembers')}
         />
       </>
     );

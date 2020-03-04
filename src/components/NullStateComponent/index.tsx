@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleProp, ViewStyle } from 'react-native';
 
 import { Flex, Text } from '../../components/common';
 
@@ -10,6 +10,7 @@ interface NullStateComponentProps {
   headerText: string;
   descriptionText: string;
   content?: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 }
 
 const NullStateComponent = ({
@@ -17,9 +18,15 @@ const NullStateComponent = ({
   headerText,
   descriptionText,
   content,
+  style,
 }: NullStateComponentProps) => {
   return (
-    <Flex align="center" justify="center" value={1} style={styles.container}>
+    <Flex
+      align="center"
+      justify="center"
+      value={1}
+      style={[styles.container, style]}
+    >
       <Image
         source={imageSource}
         style={{ flexShrink: 1 }}

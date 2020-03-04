@@ -41,9 +41,9 @@ export default StyleSheet.create({
     marginVertical: 0,
     marginBottom: 5,
     shadowColor: theme.lightGrey,
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
-    shadowRadius: 2,
+    shadowRadius: 4,
   },
   onboardingContainer: {
     paddingTop: 35,
