@@ -622,7 +622,10 @@ export default {
     celebrateHeader: 'Celebrate One Another',
     celebrateDescription: "See and celebrate one another's Steps of Faith.",
     challengesHeader: 'Our Challenges',
-    challengesDescription: 'Create a community challenge everyone can join.',
+    challengesAdminDescription:
+      'Create a community challenge everyone can join.',
+    challengesMemberDescription:
+      'Join each other in a challenge created for your community.',
     membersHeader: 'Journey Together',
     membersDescription: 'Take a Step of Faith with someone in your community.',
     impactHeader: 'See God at Work',

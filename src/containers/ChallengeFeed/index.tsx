@@ -62,7 +62,7 @@ const ChallengeFeed = ({
       },
     ),
   );
-
+  const adminOrOwner = isAdminOrOwner(orgPerm);
   const [isListScrolled, setListScrolled] = useState(false);
   const getAcceptedChallenge = ({
     accepted_community_challenges,
@@ -135,19 +135,20 @@ const ChallengeFeed = ({
     refreshCallback();
   };
   const renderHeader = () => (
-    // @ts-ignore
-    <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />
+    <OnboardingCard
+      type={GROUP_ONBOARDING_TYPES.challenges}
+      permissions={adminOrOwner ? 'Admin' : 'Member'}
+    />
   );
   const renderNull = () => {
     return (
       <>
         {renderHeader()}
         <NullStateComponent
+          style={styles.nullContainer}
           imageSource={TARGET}
           headerText={t('nullTitle')}
-          descriptionText={
-            isAdminOrOwner(orgPerm) ? t('nullAdmins') : t('nullMembers')
-          }
+          descriptionText={adminOrOwner ? t('nullAdmins') : t('nullMembers')}
         />
       </>
     );

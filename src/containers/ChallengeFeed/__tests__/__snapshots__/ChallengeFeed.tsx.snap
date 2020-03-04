@@ -242,11 +242,11 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               "position": "relative",
               "shadowColor": "#B4B6BA",
               "shadowOffset": Object {
-                "height": 4,
+                "height": 8,
                 "width": 0,
               },
               "shadowOpacity": 0.3,
-              "shadowRadius": 2,
+              "shadowRadius": 4,
             },
           ]
         }
@@ -399,6 +399,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
           }
         }
       >
@@ -1206,6 +1207,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
           }
         }
       >
@@ -2090,11 +2092,11 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               "position": "relative",
               "shadowColor": "#B4B6BA",
               "shadowOffset": Object {
-                "height": 4,
+                "height": 8,
                 "width": 0,
               },
               "shadowOpacity": 0.3,
-              "shadowRadius": 2,
+              "shadowRadius": 4,
             },
           ]
         }
@@ -2167,7 +2169,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               ]
             }
           >
-            Create a community challenge everyone can join.
+            Join each other in a challenge created for your community.
           </Text>
         </View>
         <View
@@ -2247,6 +2249,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
           }
         }
       >
@@ -3054,6 +3057,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
           }
         }
       >
@@ -3726,11 +3730,11 @@ Array [
           "position": "relative",
           "shadowColor": "#B4B6BA",
           "shadowOffset": Object {
-            "height": 4,
+            "height": 8,
             "width": 0,
           },
           "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+          "shadowRadius": 4,
         },
       ]
     }
@@ -3875,9 +3879,15 @@ Array [
   <View
     style={
       Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "marginTop": 5,
+          },
+        ],
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -3932,7 +3942,7 @@ Array [
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 80,
             "paddingVertical": 10,
             "textAlign": "center",
           },
@@ -3975,11 +3985,11 @@ Array [
           "position": "relative",
           "shadowColor": "#B4B6BA",
           "shadowOffset": Object {
-            "height": 4,
+            "height": 8,
             "width": 0,
           },
           "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+          "shadowRadius": 4,
         },
       ]
     }
@@ -4052,7 +4062,7 @@ Array [
           ]
         }
       >
-        Create a community challenge everyone can join.
+        Join each other in a challenge created for your community.
       </Text>
     </View>
     <View
@@ -4124,9 +4134,15 @@ Array [
   <View
     style={
       Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "marginTop": 5,
+          },
+        ],
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -4181,7 +4197,7 @@ Array [
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 80,
             "paddingVertical": 10,
             "textAlign": "center",
           },
@@ -4198,9 +4214,15 @@ exports[`Challenge Feed rendering renders null without header 1`] = `
 <View
   style={
     Array [
-      Object {
-        "backgroundColor": "#ffffff",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "marginTop": 5,
+        },
+      ],
       Object {
         "alignItems": "center",
         "flex": 1,
@@ -4255,7 +4277,7 @@ exports[`Challenge Feed rendering renders null without header 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 70,
+          "paddingHorizontal": 80,
           "paddingVertical": 10,
           "textAlign": "center",
         },
@@ -4509,11 +4531,11 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               "position": "relative",
               "shadowColor": "#B4B6BA",
               "shadowOffset": Object {
-                "height": 4,
+                "height": 8,
                 "width": 0,
               },
               "shadowOpacity": 0.3,
-              "shadowRadius": 2,
+              "shadowRadius": 4,
             },
           ]
         }
@@ -4586,7 +4608,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               ]
             }
           >
-            Create a community challenge everyone can join.
+            Join each other in a challenge created for your community.
           </Text>
         </View>
         <View
@@ -4666,6 +4688,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
           }
         }
       >
@@ -5473,6 +5496,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
           }
         }
       >

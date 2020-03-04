@@ -12,9 +12,12 @@ exports[`renders correctly when me and no steps 1`] = `
   <View
     style={
       Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          undefined,
+        ],
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -69,7 +72,7 @@ exports[`renders correctly when me and no steps 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 80,
             "paddingVertical": 10,
             "textAlign": "center",
           },
@@ -171,9 +174,12 @@ exports[`renders correctly when no steps 1`] = `
   <View
     style={
       Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          undefined,
+        ],
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -228,7 +234,7 @@ exports[`renders correctly when no steps 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 80,
             "paddingVertical": 10,
             "textAlign": "center",
           },

@@ -4,9 +4,12 @@ exports[`render assigned contact 1`] = `
 <View
   style={
     Array [
-      Object {
-        "backgroundColor": "#ffffff",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        undefined,
+      ],
       Object {
         "alignItems": "center",
         "flex": 1,
@@ -57,7 +60,7 @@ exports[`render assigned contact 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 70,
+          "paddingHorizontal": 80,
           "paddingVertical": 10,
           "textAlign": "center",
         },
@@ -73,9 +76,12 @@ exports[`render with content 1`] = `
 <View
   style={
     Array [
-      Object {
-        "backgroundColor": "#ffffff",
-      },
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+        },
+        undefined,
+      ],
       Object {
         "alignItems": "center",
         "flex": 1,
@@ -126,7 +132,7 @@ exports[`render with content 1`] = `
         Object {
           "color": "#505256",
           "fontSize": 16,
-          "paddingHorizontal": 70,
+          "paddingHorizontal": 80,
           "paddingVertical": 10,
           "textAlign": "center",
         },

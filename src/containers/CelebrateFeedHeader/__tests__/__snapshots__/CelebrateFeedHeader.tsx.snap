@@ -110,11 +110,11 @@ exports[`admin global community renders without reported items 1`] = `
         "position": "relative",
         "shadowColor": "#B4B6BA",
         "shadowOffset": Object {
-          "height": 4,
+          "height": 8,
           "width": 0,
         },
         "shadowOpacity": 0.3,
-        "shadowRadius": 2,
+        "shadowRadius": 4,
       },
     ]
   }
@@ -390,11 +390,11 @@ exports[`members global community renders without reported items 1`] = `
         "position": "relative",
         "shadowColor": "#B4B6BA",
         "shadowOffset": Object {
-          "height": 4,
+          "height": 8,
           "width": 0,
         },
         "shadowOpacity": 0.3,
-        "shadowRadius": 2,
+        "shadowRadius": 4,
       },
     ]
   }
@@ -722,11 +722,11 @@ exports[`owner global community renders without reported items 1`] = `
         "position": "relative",
         "shadowColor": "#B4B6BA",
         "shadowOffset": Object {
-          "height": 4,
+          "height": 8,
           "width": 0,
         },
         "shadowOpacity": 0.3,
-        "shadowRadius": 2,
+        "shadowRadius": 4,
       },
     ]
   }
@@ -996,11 +996,11 @@ Array [
           "position": "relative",
           "shadowColor": "#B4B6BA",
           "shadowOffset": Object {
-            "height": 4,
+            "height": 8,
             "width": 0,
           },
           "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+          "shadowRadius": 4,
         },
       ]
     }
@@ -1232,11 +1232,11 @@ Array [
           "position": "relative",
           "shadowColor": "#B4B6BA",
           "shadowOffset": Object {
-            "height": 4,
+            "height": 8,
             "width": 0,
           },
           "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+          "shadowRadius": 4,
         },
       ]
     }
@@ -1429,11 +1429,11 @@ Array [
           "position": "relative",
           "shadowColor": "#B4B6BA",
           "shadowOffset": Object {
-            "height": 4,
+            "height": 8,
             "width": 0,
           },
           "shadowOpacity": 0.3,
-          "shadowRadius": 2,
+          "shadowRadius": 4,
         },
       ]
     }

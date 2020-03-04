@@ -16,7 +16,7 @@ export default StyleSheet.create({
   description: {
     fontSize: 16,
     color: theme.textColor,
-    paddingHorizontal: 70,
+    paddingHorizontal: 80,
     textAlign: 'center',
     paddingVertical: 10,
   },
