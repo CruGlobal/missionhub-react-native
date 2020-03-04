@@ -47,7 +47,7 @@ const GroupUnreadFeed = ({
 
   const handleClearNotification = (
     event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => dispatch(markCommentRead(event.id));
+  ) => dispatch(markCommentRead(event.id, organization.id));
 
   return (
     <View style={styles.pageContainer}>

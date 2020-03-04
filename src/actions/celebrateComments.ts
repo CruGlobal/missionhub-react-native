@@ -13,6 +13,7 @@ import { CelebrateCommentsState } from '../reducers/celebrateComments';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
+import { getCelebrateFeed } from './celebration';
 
 export function setCelebrateEditingComment(commentId: string) {
   return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
@@ -95,6 +96,7 @@ export function createCelebrateComment(
       ),
     );
 
+    getCelebrateFeed(orgId);
     dispatch(trackActionWithoutData(ACTIONS.CELEBRATE_COMMENT_ADDED));
     return result;
   };
@@ -139,6 +141,7 @@ export function deleteCelebrateComment(
       }),
     );
 
+    getCelebrateFeed(orgId);
     dispatch(trackActionWithoutData(ACTIONS.CELEBRATE_COMMENT_DELETED));
     return result;
   };
