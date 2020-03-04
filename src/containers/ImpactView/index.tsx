@@ -370,12 +370,12 @@ export const mapStateToProps = (
     isGlobalCommunity,
     myId,
     organization,
-    analyticsAssignmentType: getAnalyticsAssignmentType(
-      person,
-      auth,
-      organization,
-    ),
-    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
+    analyticsAssignmentType: personId
+      ? getAnalyticsAssignmentType(person, auth, organization)
+      : '',
+    analyticsPermissionType: !personId
+      ? getAnalyticsPermissionType(auth, organization)
+      : '',
   };
 };
 

@@ -112,7 +112,7 @@ const mapStateToProps = (
   return {
     organization: selectorOrg,
     count: (selectorOrg.unread_comments_count || 0) as number,
-    analyticsPermisisonType: getAnalyticsPermissionType(auth, organization),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

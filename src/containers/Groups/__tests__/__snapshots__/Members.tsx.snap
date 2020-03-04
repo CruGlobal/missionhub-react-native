@@ -59,6 +59,11 @@ exports[`Members should render correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "member",
+      }
+    }
     screenName={
       Array [
         "community",

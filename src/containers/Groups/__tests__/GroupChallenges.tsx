@@ -164,6 +164,7 @@ it('should call create', () => {
 
   expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     onComplete: expect.any(Function),
+    organization: org,
   });
 });
 

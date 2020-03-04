@@ -9,14 +9,6 @@ exports[`should render items correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "celebrate",
-        "new comment items",
-      ]
-    }
-  />
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={

@@ -8,15 +8,20 @@ import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
+import {
+  ORG_PERMISSIONS,
+  GLOBAL_COMMUNITY_ID,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../../constants';
 import { Organization } from '../../../reducers/organizations';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/reportComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
-jest.mock('../../Analytics', () => 'Analytics');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../CelebrateFeed', () => 'CelebrateFeed');
 
 MockDate.set('2017-06-18');
@@ -76,6 +81,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
         expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
@@ -97,6 +105,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
         expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
@@ -118,6 +129,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
         expect(getReportedComments).not.toHaveBeenCalled();
       });
@@ -147,6 +161,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
         expect(getReportedComments).not.toHaveBeenCalled();
       });
@@ -168,10 +185,14 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
         expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
+
     describe('global community', () => {
       it('should refresh correctly', () => {
         ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
@@ -188,6 +209,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
         expect(getReportedComments).not.toHaveBeenCalled();
       });
@@ -217,6 +241,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
         expect(getReportedComments).not.toHaveBeenCalled();
       });
@@ -238,6 +265,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
         expect(getReportedComments).not.toHaveBeenCalled();
       });
@@ -258,6 +288,9 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
+        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+        });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
         expect(getReportedComments).not.toHaveBeenCalled();
       });
