@@ -9,6 +9,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { Button, Icon } from '../../components/common';
 import { getAnalyticsAssignmentType } from '../../utils/common';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
+import { TrackStateContext } from '../../actions/analytics';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
@@ -27,10 +28,12 @@ import {
 } from './__generated__/AcceptedStepDetail';
 
 interface AcceptedStepDetailScreenProps {
-  myId: string;
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
-const AcceptedStepDetailScreen = ({ myId }: AcceptedStepDetailScreenProps) => {
+const AcceptedStepDetailScreen = ({
+  analyticsAssignmentType,
+}: AcceptedStepDetailScreenProps) => {
   const { t } = useTranslation('acceptedStepDetail');
   const dispatch = useDispatch();
 
@@ -43,11 +46,7 @@ const AcceptedStepDetailScreen = ({ myId }: AcceptedStepDetailScreenProps) => {
 
   useAnalytics(['step detail', 'active step'], {
     screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]:
-        step &&
-        getAnalyticsAssignmentType(step.receiver.id, {
-          person: { id: myId },
-        } as AuthState),
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
 
@@ -138,8 +137,17 @@ const AcceptedStepDetailScreen = ({ myId }: AcceptedStepDetailScreenProps) => {
   );
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  myId: auth.person.id,
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    }, //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }: any,
+) => ({
+  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
 });
 
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);

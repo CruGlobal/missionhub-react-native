@@ -119,16 +119,23 @@ describe('handleRefresh', () => {
 
 describe('handleRowSelect', () => {
   it('should navigate to step detail screen', async () => {
+    const stepId = '1';
+    const personId = '777';
+
     const { getAllByTestId, store } = renderWithContext(<StepsScreen />, {
       initialState,
     });
 
     await flushMicrotasksQueue();
 
-    fireEvent(getAllByTestId('stepItem')[0], 'onSelect', { id: '1' });
+    fireEvent(getAllByTestId('stepItem')[0], 'onSelect', {
+      id: stepId,
+      receiver: { id: personId },
+    });
 
     expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
-      stepId: '1',
+      stepId,
+      personId,
     });
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
