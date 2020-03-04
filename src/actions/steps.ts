@@ -107,7 +107,10 @@ export function addStep(
     // @ts-ignore
     dispatch(trackStepAdded(stepSuggestion));
     apolloClient.query<StepsList>({ query: STEPS_QUERY });
-    dispatch(getContactSteps(personId, orgId));
+    apolloClient.query<PersonStepsList, PersonStepsListVariables>({
+      query: PERSON_STEPS_QUERY,
+      variables: { personId, completed: false },
+    });
   };
 }
 
@@ -175,7 +178,6 @@ function completeChallengeAPI(step: {
     dispatch(refreshImpact(orgId));
 
     removeFromStepsList(stepId, receiverId);
-    dispatch(getContactSteps(receiverId, orgId));
 
     orgId && getCelebrateFeed(orgId);
   };
