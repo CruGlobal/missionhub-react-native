@@ -64,7 +64,7 @@ it('renders correctly when no steps', () => {
     },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'other person steps']);
+  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps']);
 });
 
 it('renders correctly when me and no steps', () => {

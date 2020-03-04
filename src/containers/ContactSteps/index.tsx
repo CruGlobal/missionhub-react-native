@@ -39,11 +39,11 @@ interface ContactStepsProps {
 }
 
 const ContactSteps = ({ person, organization }: ContactStepsProps) => {
-  const isMe = useIsMe(person.id);
-  useAnalytics(['person', isMe ? 'my steps' : 'other person steps']);
+  useAnalytics(['person', 'my steps']);
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();
+  const isMe = useIsMe(person.id);
   const showAssignPrompt = orgIsCru(organization);
   const contactAssignment = useSelector(({ auth }: { auth: AuthState }) =>
     contactAssignmentSelector({ auth }, { person, orgId: organization.id }),
