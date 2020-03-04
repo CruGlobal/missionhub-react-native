@@ -193,6 +193,7 @@ describe('renders for me', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       [ANALYTICS_EDIT_MODE]: 'set',
     });
   });
@@ -205,6 +206,7 @@ describe('renders for me', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
       [ANALYTICS_EDIT_MODE]: 'update',
     });
   });
@@ -224,6 +226,7 @@ describe('renders for other', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
       [ANALYTICS_EDIT_MODE]: 'set',
     });
   });
@@ -236,6 +239,7 @@ describe('renders for other', () => {
 
     expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
       [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
       [ANALYTICS_EDIT_MODE]: 'update',
     });
   });
