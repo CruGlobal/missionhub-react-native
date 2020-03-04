@@ -489,23 +489,32 @@ exports[`should call navigateBack from press 1`] = `
             >
               Details
             </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                  },
-                ]
-              }
+            <View
+              style={Object {}}
             >
-              Add details to your Challenge (optional)
-            </Text>
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    }
+                  }
+                >
+                  <Text>
+                    Add details to your Challenge (optional)
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -1057,23 +1066,32 @@ exports[`should render completed challenge correctly 1`] = `
             >
               Details
             </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                  },
-                ]
-              }
+            <View
+              style={Object {}}
             >
-              Add details to your Challenge (optional)
-            </Text>
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    }
+                  }
+                >
+                  <Text>
+                    Add details to your Challenge (optional)
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -1586,23 +1604,32 @@ exports[`should render joined challenge correctly 1`] = `
             >
               Details
             </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                  },
-                ]
-              }
+            <View
+              style={Object {}}
             >
-              Add details to your Challenge (optional)
-            </Text>
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    }
+                  }
+                >
+                  <Text>
+                    Add details to your Challenge (optional)
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -2217,23 +2244,32 @@ exports[`should render unjoined challenge correctly 1`] = `
             >
               Details
             </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                  },
-                ]
-              }
+            <View
+              style={Object {}}
             >
-              Add details to your Challenge (optional)
-            </Text>
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    }
+                  }
+                >
+                  <Text>
+                    Add details to your Challenge (optional)
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -2760,23 +2796,32 @@ exports[`should render without edit correctly 1`] = `
             >
               Details
             </Text>
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                  },
-                ]
-              }
+            <View
+              style={Object {}}
             >
-              Add details to your Challenge (optional)
-            </Text>
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    }
+                  }
+                >
+                  <Text>
+                    Add details to your Challenge (optional)
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>

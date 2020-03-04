@@ -912,23 +912,32 @@ exports[`renders with details 1`] = `
           >
             Details
           </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            Super cool details
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                  }
+                }
+              >
+                <Text>
+                  Super cool details
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
