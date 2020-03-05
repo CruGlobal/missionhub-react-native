@@ -1,10 +1,12 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import Markdown from 'react-native-markdown-renderer';
 import moment from 'moment';
 
 import { Flex, Text, DateComponent } from '../common';
 import ChallengeStats, { ChallengeItem } from '../ChallengeStats';
+import markdownStyles from '../../markdownStyles';
 
 import styles from './styles';
 
@@ -43,9 +45,9 @@ const ChallengeDetailHeader = ({ challenge }: ChallengeDetailHeaderProps) => {
           </Flex>
           <Flex style={styles.detailSection}>
             <Text style={styles.subHeader}>{t('details')}</Text>
-            <Text style={styles.detailText}>
+            <Markdown style={markdownStyles}>
               {details_markdown ? details_markdown : t('detailsPlaceholder')}
-            </Text>
+            </Markdown>
           </Flex>
         </Flex>
       </Flex>
