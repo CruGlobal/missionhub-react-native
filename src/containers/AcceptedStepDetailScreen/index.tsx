@@ -125,10 +125,10 @@ const AcceptedStepDetailScreen = ({
       }
       CenterContent={renderReminderButton()}
       markdown={
-        (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ||
+        (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ??
         undefined
       }
-      text={step?.title ?? ''}
+      text={step?.title}
       bottomButtonProps={{
         onPress: handleCompleteStep,
         text: t('iDidIt'),
