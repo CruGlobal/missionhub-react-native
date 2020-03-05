@@ -36,7 +36,7 @@ import { AuthState } from '../../reducers/auth';
 import {
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';

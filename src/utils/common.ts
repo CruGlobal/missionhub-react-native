@@ -21,17 +21,9 @@ import {
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-  ANALYTICS_EDIT_MODE,
 } from '../constants';
-import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
-import { Organization } from '../reducers/organizations';
-import { Person } from '../reducers/people';
 import { OnboardingState } from '../reducers/onboarding';
-import { orgPermissionSelector } from '../selectors/people';
 import { PermissionEnum } from '../../__generated__/globalTypes';
 
 // @ts-ignore
@@ -105,49 +97,6 @@ export const refresh = (obj, method) => {
     .catch(() => {
       obj.setState({ refreshing: false });
     });
-};
-
-export const getAnalyticsAssignmentType = (
-  person: Person | null,
-  authState: AuthState,
-  organization?: Organization,
-): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] => {
-  const orgPermission = orgPermissionSelector({}, { person, organization });
-
-  return person
-    ? personIsCurrentUser(person.id, authState)
-      ? 'self'
-      : orgPermission && hasOrgPermissions(orgPermission)
-      ? 'community member'
-      : 'contact'
-    : '';
-};
-
-export const getAnalyticsSectionType = (
-  onboardingState: OnboardingState,
-): TrackStateContext[typeof ANALYTICS_SECTION_TYPE] =>
-  isOnboarding(onboardingState) ? 'onboarding' : '';
-
-export const getAnalyticsEditMode = (
-  isEdit: boolean,
-): TrackStateContext[typeof ANALYTICS_EDIT_MODE] => (isEdit ? 'update' : 'set');
-
-export const getAnalyticsPermissionType = (
-  auth: AuthState,
-  organization: Organization,
-): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] => {
-  const orgPermission = orgPermissionSelector(
-    {},
-    { person: auth.person, organization },
-  );
-
-  return hasOrgPermissions(orgPermission)
-    ? isOwner(orgPermission)
-      ? 'owner'
-      : isAdmin(orgPermission)
-      ? 'admin'
-      : 'member'
-    : '';
 };
 
 export const isAuthenticated = (authState: AuthState) => authState.token != '';

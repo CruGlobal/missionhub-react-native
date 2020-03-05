@@ -16,7 +16,7 @@ import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
-import { getAnalyticsPermissionType } from '../../../utils/common';
+import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { AuthState } from '../../../reducers/auth';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 

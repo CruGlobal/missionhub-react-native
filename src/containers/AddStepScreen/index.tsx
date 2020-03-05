@@ -22,7 +22,7 @@ import {
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';

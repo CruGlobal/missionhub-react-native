@@ -36,12 +36,12 @@ import {
   ANALYTICS_EDIT_MODE,
 } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { exists } from '../../utils/common';
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
   getAnalyticsEditMode,
-  exists,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';

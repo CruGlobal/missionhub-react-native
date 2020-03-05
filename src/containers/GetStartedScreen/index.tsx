@@ -11,7 +11,7 @@ import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../../utils/common';
+import { getAnalyticsSectionType } from '../../utils/analytics';
 import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';

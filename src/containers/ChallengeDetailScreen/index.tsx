@@ -21,7 +21,8 @@ import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { isAdminOrOwner, getAnalyticsPermissionType } from '../../utils/common';
+import { isAdminOrOwner } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import theme from '../../theme';
 import Analytics from '../Analytics';
 

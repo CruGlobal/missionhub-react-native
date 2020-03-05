@@ -7,7 +7,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { TrackStateContext } from '../../actions/analytics';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';

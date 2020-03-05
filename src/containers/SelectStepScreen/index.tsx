@@ -12,7 +12,7 @@ import { TrackStateContext } from '../../actions/analytics';
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import {
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,

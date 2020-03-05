@@ -11,11 +11,8 @@ import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
-import {
-  orgIsCru,
-  keyExtractorId,
-  getAnalyticsAssignmentType,
-} from '../../utils/common';
+import { orgIsCru, keyExtractorId } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { promptToAssign } from '../../utils/prompt';
 import { contactAssignmentSelector } from '../../selectors/people';
 import {

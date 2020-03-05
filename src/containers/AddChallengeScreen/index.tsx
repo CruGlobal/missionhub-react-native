@@ -12,7 +12,7 @@ import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
-import { getAnalyticsPermissionType } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { AuthState } from '../../reducers/auth';
 import Analytics from '../Analytics';
 

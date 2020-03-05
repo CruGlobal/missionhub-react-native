@@ -12,8 +12,8 @@ import {
   getCommunityUrl,
   keyExtractorId,
   orgIsUserCreated,
-  getAnalyticsPermissionType,
 } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import GroupMemberItem from '../../components/GroupMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {

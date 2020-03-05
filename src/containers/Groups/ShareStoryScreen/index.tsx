@@ -8,7 +8,7 @@ import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 
 import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
-import { getAnalyticsPermissionType } from '../../../utils/common';
+import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';

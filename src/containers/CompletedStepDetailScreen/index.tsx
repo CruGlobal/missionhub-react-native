@@ -8,7 +8,7 @@ import moment from 'moment';
 import { TrackStateContext } from '../../actions/analytics';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Text } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { Step } from '../../reducers/steps';

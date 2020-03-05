@@ -25,11 +25,12 @@ import { organizationSelector } from '../../selectors/organizations';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
+import { orgIsPersonalMinistry } from '../../utils/common';
 import {
-  orgIsPersonalMinistry,
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
-} from '../../utils/common';
+} from '../../utils/analytics';
+import { Person } from '../../reducers/people';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -337,7 +338,7 @@ ImpactView.propTypes = {
 export const mapStateToProps = (
   // @ts-ignore
   { impact, auth, organizations },
-  { person = {}, orgId = 'personal' },
+  { person = {}, orgId = 'personal' }: { person?: Person; orgId?: string },
 ) => {
   // @ts-ignore
   const personId = person.id;
@@ -370,7 +371,7 @@ export const mapStateToProps = (
     isGlobalCommunity,
     myId,
     organization,
-    analyticsAssignmentType: personId
+    analyticsAssignmentType: person.id
       ? getAnalyticsAssignmentType(person, auth, organization)
       : '',
     analyticsPermissionType: !personId

@@ -24,8 +24,8 @@ import {
   isOwner,
   getCommunityUrl,
   orgIsUserCreated,
-  getAnalyticsPermissionType,
 } from '../../../utils/common';
+import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigateBack, navigateToMainTabs } from '../../../actions/navigation';
 import {
   updateOrganization,

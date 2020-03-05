@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import Header from '../../components/Header';
 import { Button } from '../../components/common';
-import { getAnalyticsPermissionType } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import BackButton from '../BackButton';
 import { TrackStateContext } from '../../actions/analytics';

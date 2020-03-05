@@ -17,7 +17,7 @@ import BackButton from '../BackButton';
 import Header from '../../components/Header';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../../utils/common';
+import { getAnalyticsSectionType } from '../../utils/analytics';
 import {
   trackActionWithoutData,
   TrackStateContext,

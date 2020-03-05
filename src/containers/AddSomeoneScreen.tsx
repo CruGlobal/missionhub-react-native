@@ -9,7 +9,7 @@ import { OnboardingState } from '../reducers/onboarding';
 import { ANALYTICS_SECTION_TYPE } from '../constants';
 import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../utils/common';
+import { getAnalyticsSectionType } from '../utils/analytics';
 
 import IconMessageScreen from './IconMessageScreen';
 

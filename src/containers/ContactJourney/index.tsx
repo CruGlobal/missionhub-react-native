@@ -14,13 +14,15 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { removeSwipeJourney } from '../../actions/swipe';
 import NullStateComponent from '../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../routes/constants';
-import { getAnalyticsAssignmentType } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
+import { Person } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -217,11 +219,9 @@ ContactJourney.propTypes = {
 const mapStateToProps = (
   // @ts-ignore
   { auth, swipe, journey },
-  { person = {}, organization = {} },
+  { person, organization }: { person: Person; organization: Organization },
 ) => {
-  // @ts-ignore
-  const orgId = organization.id || 'personal';
-  // @ts-ignore
+  const orgId = (organization && organization.id) || 'personal';
   const personId = person.id;
   const journeyOrg = journey[orgId];
   const journeyItems = (journeyOrg && journeyOrg[personId]) || undefined;

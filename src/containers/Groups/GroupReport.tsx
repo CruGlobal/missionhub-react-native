@@ -8,7 +8,8 @@ import { useDispatch } from 'react-redux';
 import gql from 'graphql-tag';
 
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { keyExtractorId, getAnalyticsPermissionType } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';

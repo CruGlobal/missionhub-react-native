@@ -14,7 +14,7 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
 import {

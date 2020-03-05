@@ -6,11 +6,8 @@ import CelebrateFeed from '../CelebrateFeed';
 import { TrackStateContext } from '../../actions/analytics';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
-import {
-  orgIsGlobal,
-  shouldQueryReportedComments,
-  getAnalyticsPermissionType,
-} from '../../utils/common';
+import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';

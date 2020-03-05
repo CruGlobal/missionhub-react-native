@@ -8,7 +8,7 @@ import { AnyAction } from 'redux';
 import { useIsFocused } from 'react-navigation-hooks';
 
 import { Text, Input } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { TrackStateContext } from '../../actions/analytics';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
