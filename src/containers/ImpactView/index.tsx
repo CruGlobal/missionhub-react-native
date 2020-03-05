@@ -15,20 +15,22 @@ import {
   INTERACTION_TYPES,
   GLOBAL_COMMUNITY_ID,
   ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
 import {
   impactInteractionsSelector,
   impactSummarySelector,
 } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgPermissionSelector } from '../../selectors/people';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
+import { orgIsPersonalMinistry } from '../../utils/common';
 import {
-  orgIsPersonalMinistry,
   getAnalyticsAssignmentType,
-} from '../../utils/common';
+  getAnalyticsPermissionType,
+} from '../../utils/analytics';
+import { Person } from '../../reducers/people';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -272,6 +274,8 @@ export class ImpactView extends Component {
       isGlobalCommunity,
       // @ts-ignore
       analyticsAssignmentType,
+      // @ts-ignore
+      analyticsPermissionType,
     } = this.props;
 
     const showGlobalImpact =
@@ -293,6 +297,7 @@ export class ImpactView extends Component {
           screenName={[screenSection, screenSubsection]}
           screenContext={{
             [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
           }}
         />
         {organization.id !== 'person' ? (
@@ -333,7 +338,7 @@ ImpactView.propTypes = {
 export const mapStateToProps = (
   // @ts-ignore
   { impact, auth, organizations },
-  { person = {}, orgId = 'personal' },
+  { person = {}, orgId = 'personal' }: { person?: Person; orgId?: string },
 ) => {
   // @ts-ignore
   const personId = person.id;
@@ -342,8 +347,6 @@ export const mapStateToProps = (
   const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
 
   const organization = organizationSelector({ organizations }, { orgId });
-  const orgPermission =
-    personId && orgPermissionSelector({}, { person, organization });
 
   return {
     isMe,
@@ -368,9 +371,12 @@ export const mapStateToProps = (
     isGlobalCommunity,
     myId,
     organization,
-    analyticsAssignmentType:
-      (personId && getAnalyticsAssignmentType(personId, auth, orgPermission)) ||
-      '',
+    analyticsAssignmentType: person.id
+      ? getAnalyticsAssignmentType(person, auth, organization)
+      : '',
+    analyticsPermissionType: !personId
+      ? getAnalyticsPermissionType(auth, organization)
+      : '',
   };
 };
 

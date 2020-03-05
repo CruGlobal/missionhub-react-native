@@ -8,13 +8,26 @@ import {
   createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
+import { ORG_PERMISSIONS } from '../../../constants';
 
 import AddChallengeScreen from '..';
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
-const store = createThunkStore();
+const myId = '5';
+const orgId = '7';
+const person = {
+  id: myId,
+  organizational_permissions: [
+    { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
+  ],
+};
+const organization = { id: orgId };
+
+const store = createThunkStore({
+  auth: { person },
+});
 
 const editChallenge = {
   id: '1',
@@ -27,6 +40,7 @@ it('renders correctly', () => {
     <AddChallengeScreen
       navigation={createMockNavState({
         onComplete: jest.fn(),
+        organization,
       })}
     />,
     store,
@@ -40,6 +54,7 @@ it('renders edit challenge correctly', () => {
         onComplete: jest.fn(),
         challenge: editChallenge,
         isEdit: true,
+        organization,
       })}
     />,
     store,
@@ -61,6 +76,7 @@ describe('create methods', () => {
       <AddChallengeScreen
         navigation={createMockNavState({
           onComplete: mockComplete,
+          organization,
         })}
       />,
       store,
@@ -157,6 +173,7 @@ describe('edit methods', () => {
           onComplete: mockComplete,
           challenge: editChallenge,
           isEdit: true,
+          organization,
         })}
       />,
       store,

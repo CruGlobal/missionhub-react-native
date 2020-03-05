@@ -21,7 +21,10 @@ import CardTime from '../../components/CardTime';
 import CelebrateItemName from '../CelebrateItemName';
 import CelebrateItemContent from '../../components/CelebrateItemContent';
 import { RefreshControl } from '../../components/common';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
+import {
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
@@ -30,8 +33,10 @@ import {
   CelebrateComment,
 } from '../../reducers/celebrateComments';
 import { AuthState } from '../../reducers/auth';
-import { getAnalyticsAssignmentType } from '../../utils/common';
-import { orgPermissionSelector } from '../../selectors/people';
+import {
+  getAnalyticsAssignmentType,
+  getAnalyticsPermissionType,
+} from '../../utils/analytics';
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -45,6 +50,7 @@ export interface CelebrateDetailScreenProps {
   celebrateComments?: { comments: CelebrateComment[]; pagination: any };
   editingCommentId: string | null;
   analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
 const CelebrateDetailScreen = ({
@@ -53,10 +59,12 @@ const CelebrateDetailScreen = ({
   celebrateComments,
   editingCommentId,
   analyticsAssignmentType,
+  analyticsPermissionType,
 }: CelebrateDetailScreenProps) => {
   useAnalytics(['celebrate item', 'comments'], {
     screenContext: {
       [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
     },
   });
   const client = useApolloClient();
@@ -192,10 +200,6 @@ const mapStateToProps = (
 ) => {
   const { subjectPerson } = event as CelebrateItem;
   const organization = organizationSelector({ organizations }, { orgId });
-  const orgPermission = orgPermissionSelector(
-    {},
-    { person: subjectPerson, organization },
-  );
 
   return {
     organization,
@@ -204,10 +208,12 @@ const mapStateToProps = (
       { eventId: event.id },
     ),
     editingCommentId: celebrateComments.editingCommentId,
-    analyticsAssignmentType:
-      (subjectPerson &&
-        getAnalyticsAssignmentType(subjectPerson.id, auth, orgPermission)) ||
-      ('' as TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE]),
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      subjectPerson,
+      auth,
+      organization,
+    ),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

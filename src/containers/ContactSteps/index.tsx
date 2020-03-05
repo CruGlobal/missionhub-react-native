@@ -11,16 +11,10 @@ import BottomButton from '../../components/BottomButton';
 import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
-import {
-  orgIsCru,
-  keyExtractorId,
-  getAnalyticsAssignmentType,
-} from '../../utils/common';
+import { orgIsCru, keyExtractorId } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { promptToAssign } from '../../utils/prompt';
-import {
-  contactAssignmentSelector,
-  orgPermissionSelector,
-} from '../../selectors/people';
+import { contactAssignmentSelector } from '../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
@@ -177,7 +171,6 @@ const mapStateToProps = (
 ) => {
   const allSteps =
     steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
-  const orgPermission = orgPermissionSelector({}, { person, organization });
 
   return {
     showAssignPrompt: orgIsCru(organization),
@@ -189,9 +182,9 @@ const mapStateToProps = (
     ),
     myId: auth.person.id,
     analyticsAssignmentType: getAnalyticsAssignmentType(
-      person.id,
+      person,
       auth,
-      orgPermission,
+      organization,
     ),
   };
 };

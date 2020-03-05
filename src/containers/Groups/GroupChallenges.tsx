@@ -12,6 +12,8 @@ import {
 import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
@@ -56,9 +58,10 @@ class GroupChallenges extends Component {
 
   create = () => {
     // @ts-ignore
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
+        organization,
         // @ts-ignore
         onComplete: challenge => {
           this.createChallenge(challenge);
@@ -70,15 +73,30 @@ class GroupChallenges extends Component {
 
   render() {
     const { refreshing } = this.state;
-    // @ts-ignore
-    const { t, challengeItems, organization, myOrgPermissions } = this.props;
+    const {
+      // @ts-ignore
+      t,
+      // @ts-ignore
+      challengeItems,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      myOrgPermissions,
+      // @ts-ignore
+      analyticsPermissionType,
+    } = this.props;
 
     const canCreate = isAdminOrOwner(myOrgPermissions);
 
     return (
       // @ts-ignore
       <View flex={1}>
-        <Analytics screenName={['community', 'challenges']} />
+        <Analytics
+          screenName={['community', 'challenges']}
+          screenContext={{
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
+        />
         <View style={styles.cardList}>
           <ChallengeFeed
             // @ts-ignore
@@ -109,11 +127,14 @@ const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
       challengeItems: organization.challengeItems || [],
     }),
     pagination: organization.challengePagination || {},
-    // @ts-ignore
-    myOrgPermissions: orgPermissionSelector(null, {
-      person: auth.person,
-      organization,
-    }),
+    myOrgPermissions: orgPermissionSelector(
+      {},
+      {
+        person: auth.person,
+        organization,
+      },
+    ),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

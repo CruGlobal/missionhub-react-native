@@ -50,6 +50,7 @@ const unjoinedProps = {
   canEditChallenges: true,
   acceptedChallenge: undefined,
   dispatch: jest.fn(),
+  analyticsPermissionType: 'owner',
 };
 const joinedProps = {
   ...unjoinedProps,
@@ -113,6 +114,7 @@ describe('mapStateToProps', () => {
       challenge,
       acceptedChallenge: joinedChallenge,
       myId,
+      analyticsPermissionType: 'member',
     });
   });
 
@@ -123,6 +125,7 @@ describe('mapStateToProps', () => {
       challenge,
       acceptedChallenge: joinedChallenge,
       myId,
+      analyticsPermissionType: 'admin',
     });
   });
 
@@ -139,6 +142,7 @@ describe('mapStateToProps', () => {
       challenge,
       acceptedChallenge: joinedChallenge,
       myId,
+      analyticsPermissionType: 'owner',
     });
   });
 });

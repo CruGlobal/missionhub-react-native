@@ -16,7 +16,18 @@ MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 const cruOrgId = '34';
 const userCreatedOrgId = '43';
 
-const me = { id: '1', type: 'person', first_name: 'ME' };
+const me = {
+  id: '1',
+  type: 'person',
+  first_name: 'ME',
+  organizational_permissions: [
+    { organization_id: cruOrgId, permission_id: ORG_PERMISSIONS.USER },
+    {
+      organization_id: userCreatedOrgId,
+      permission_id: ORG_PERMISSIONS.USER,
+    },
+  ],
+};
 const person = { id: '2', type: 'person', first_name: 'Test Fname' };
 const myImpact = {
   id: 'me-2018',
@@ -129,7 +140,9 @@ const userCreatedOrg = {
 };
 
 const state = {
-  auth: { person: me },
+  auth: {
+    person: me,
+  },
   impact: {
     summary: {
       [`${me.id}-`]: myImpact,

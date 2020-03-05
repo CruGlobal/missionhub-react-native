@@ -12,7 +12,7 @@ import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../actions/analytics';
-import { getAnalyticsSectionType } from '../../utils/common';
+import { getAnalyticsSectionType } from '../../utils/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';

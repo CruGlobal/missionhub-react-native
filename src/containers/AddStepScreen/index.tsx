@@ -22,7 +22,7 @@ import {
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
@@ -198,7 +198,7 @@ const mapStateToProps = (
 ) => ({
   myId: auth.person.id,
   analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
 });
 
 export default connect(mapStateToProps)(AddStepScreen);

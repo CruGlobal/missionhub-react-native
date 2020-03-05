@@ -21,12 +21,7 @@ import {
   DEFAULT_PAGE_LIMIT,
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-  ANALYTICS_EDIT_MODE,
 } from '../constants';
-import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
@@ -103,41 +98,6 @@ export const refresh = (obj, method) => {
       obj.setState({ refreshing: false });
     });
 };
-
-export const getAnalyticsAssignmentType = (
-  personId: string,
-  authState: AuthState,
-  personOrgPermission?: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  },
-): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] =>
-  personIsCurrentUser(personId, authState)
-    ? 'self'
-    : personOrgPermission && hasOrgPermissions(personOrgPermission)
-    ? 'community member'
-    : 'contact';
-
-export const getAnalyticsSectionType = (
-  onboardingState: OnboardingState,
-): TrackStateContext[typeof ANALYTICS_SECTION_TYPE] =>
-  isOnboarding(onboardingState) ? 'onboarding' : '';
-
-export const getAnalyticsEditMode = (
-  isEdit: boolean,
-): TrackStateContext[typeof ANALYTICS_EDIT_MODE] => (isEdit ? 'update' : 'set');
-
-export const getAnalyticsPermissionType = (orgPermission: {
-  permission_id?: string;
-  permission?: PermissionEnum;
-}): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] =>
-  hasOrgPermissions(orgPermission)
-    ? isOwner(orgPermission)
-      ? 'owner'
-      : isAdmin(orgPermission)
-      ? 'admin'
-      : 'member'
-    : '';
 
 export const isAuthenticated = (authState: AuthState) => authState.token != '';
 

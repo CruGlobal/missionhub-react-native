@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 
 import { ANALYTICS_SECTION_TYPE } from '../constants';
-import { getAnalyticsSectionType } from '../utils/common';
+import { getAnalyticsSectionType } from '../utils/analytics';
 import { navigateBack } from '../actions/navigation';
 import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';

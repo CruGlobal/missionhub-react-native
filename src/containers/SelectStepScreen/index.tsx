@@ -12,7 +12,7 @@ import { TrackStateContext } from '../../actions/analytics';
 import {
   getAnalyticsSectionType,
   getAnalyticsAssignmentType,
-} from '../../utils/common';
+} from '../../utils/analytics';
 import {
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
@@ -182,7 +182,7 @@ const mapStateToProps = (
   any,
 ) => ({
   analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
 });
 
 export default connect(mapStateToProps)(SelectStepScreen);

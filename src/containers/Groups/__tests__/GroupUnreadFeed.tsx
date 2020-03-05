@@ -3,6 +3,7 @@ import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import GroupUnreadFeed from '../GroupUnreadFeed';
+import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -12,6 +13,7 @@ import {
 } from '../../../actions/unreadComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import { Organization } from '../../../reducers/organizations';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/unreadComments');
@@ -19,13 +21,20 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/organizations');
-jest.mock('../../Analytics', () => 'Analytics');
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../CelebrateFeed', () => 'CelebrateFeed');
 
 MockDate.set('2017-06-18');
+
+const myId = '4';
 const organization: Organization = { id: 'orgId' };
+const orgPermission = {
+  organization_id: organization.id,
+  permission_id: ORG_PERMISSIONS.OWNER,
+};
 
 const initialState = {
+  auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
   organizations: {
     all: [organization],
   },
@@ -46,6 +55,13 @@ it('should render items correctly', () => {
     initialState,
     navParams: { organization },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate', 'new comment items'],
+    {
+      screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    },
+  );
 });
 
 it('should call mark comments read and go back', async () => {
@@ -70,7 +86,7 @@ it('should call mark specific celebration item comments as read and go back', ()
 
   fireEvent(getByTestId('CelebrateFeed'), 'onClearNotification', event);
 
-  expect(markCommentRead).toHaveBeenCalledWith(event.id);
+  expect(markCommentRead).toHaveBeenCalledWith(event.id, organization.id);
 });
 
 it('should refetch correctly', () => {

@@ -4,7 +4,11 @@ import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_ASSIGNMENT_TYPE, ORG_PERMISSIONS } from '../../../constants';
+import {
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ORG_PERMISSIONS,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../../constants';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { organizationSelector } from '../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../selectors/people';
@@ -117,6 +121,7 @@ it('renders correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
     screenContext: {
       [ANALYTICS_ASSIGNMENT_TYPE]: 'community member',
+      [ANALYTICS_PERMISSION_TYPE]: 'member',
     },
   });
 });

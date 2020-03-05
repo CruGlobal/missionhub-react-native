@@ -7,7 +7,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { TrackStateContext } from '../../actions/analytics';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
@@ -125,10 +125,10 @@ const AcceptedStepDetailScreen = ({
       }
       CenterContent={renderReminderButton()}
       markdown={
-        (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ||
+        (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ??
         undefined
       }
-      text={step?.title ?? ''}
+      text={step?.title}
       bottomButtonProps={{
         onPress: handleCompleteStep,
         text: t('iDidIt'),
@@ -147,7 +147,7 @@ const mapStateToProps = (
     }, //eslint-disable-next-line @typescript-eslint/no-explicit-any
   }: any,
 ) => ({
-  analyticsAssignmentType: getAnalyticsAssignmentType(personId, auth),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
 });
 
 export default connect(mapStateToProps)(AcceptedStepDetailScreen);

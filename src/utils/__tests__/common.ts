@@ -30,10 +30,6 @@ import {
   isAdmin,
   orgIsGlobal,
   shouldQueryReportedComments,
-  getAnalyticsAssignmentType,
-  getAnalyticsSectionType,
-  getAnalyticsEditMode,
-  getAnalyticsPermissionType,
   isAuthenticated,
   personIsCurrentUser,
   isOnboarding,
@@ -72,97 +68,6 @@ describe('buildTrackingObj', () => {
     subsection,
     level3,
     level4,
-  });
-});
-
-describe('getAnalyticsAssignmentType', () => {
-  const myId = '1';
-  const otherId = '2';
-  const authState = { person: { id: myId } } as AuthState;
-  const orgPermission = { permission_id: ORG_PERMISSIONS.USER };
-
-  it('returns self', () => {
-    expect(getAnalyticsAssignmentType(myId, authState)).toEqual('self');
-  });
-
-  it('returns contact', () => {
-    expect(getAnalyticsAssignmentType(otherId, authState)).toEqual('contact');
-  });
-
-  it('returns community member', () => {
-    expect(
-      getAnalyticsAssignmentType(otherId, authState, orgPermission),
-    ).toEqual('community member');
-  });
-});
-
-describe('getAnalyticsSectionType', () => {
-  it('returns self', () => {
-    expect(
-      getAnalyticsSectionType({ currentlyOnboarding: true } as OnboardingState),
-    ).toEqual('onboarding');
-  });
-
-  it('returns contact', () => {
-    expect(
-      getAnalyticsSectionType({
-        currentlyOnboarding: false,
-      } as OnboardingState),
-    ).toEqual('');
-  });
-});
-
-describe('getAnalyticsEditMode', () => {
-  it('returns update', () => {
-    expect(getAnalyticsEditMode(true)).toEqual('update');
-  });
-
-  it('returns set', () => {
-    expect(getAnalyticsEditMode(false)).toEqual('set');
-  });
-});
-
-describe('getAnalyticsPermissionType', () => {
-  it('returns owner from permission_id', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.OWNER }),
-    ).toEqual('owner');
-  });
-
-  it('returns owner from permission', () => {
-    expect(
-      getAnalyticsPermissionType({ permission: PermissionEnum.owner }),
-    ).toEqual('owner');
-  });
-
-  it('returns admin from permission_id', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.ADMIN }),
-    ).toEqual('admin');
-  });
-
-  it('returns admin from permission', () => {
-    expect(
-      getAnalyticsPermissionType({ permission: PermissionEnum.admin }),
-    ).toEqual('admin');
-  });
-
-  it('returns member from permission_id', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.USER }),
-    ).toEqual('member');
-  });
-
-  it('returns member from permission', () => {
-    expect(
-      getAnalyticsPermissionType({ permission: PermissionEnum.user }),
-    ).toEqual('member');
-  });
-
-  it('returns empty string if no permissions', () => {
-    expect(
-      getAnalyticsPermissionType({ permission_id: ORG_PERMISSIONS.CONTACT }),
-    ).toEqual('');
   });
 });
 
