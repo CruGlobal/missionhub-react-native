@@ -23,7 +23,6 @@ import {
   COMPLETED_STEP_COUNT,
   NAVIGATE_FORWARD,
   STEP_NOTE,
-  CUSTOM_STEP_TYPE,
   ACCEPTED_STEP,
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
@@ -104,7 +103,7 @@ describe('addStep', () => {
   const customStepSuggestion = {
     id: 'f53836fd-c6e3-4c69-bcd3-362928c5c924',
     body: 'Hello world',
-    challenge_type: CUSTOM_STEP_TYPE,
+    challenge_type: null,
   };
 
   const callApiResult = { type: 'call API' };

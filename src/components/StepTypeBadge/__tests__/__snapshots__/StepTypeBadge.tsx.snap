@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepTypeBadge should hide icon 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 0,
+        },
+      ]
+    }
+  >
+    STEP OF FAITH
+  </Text>
+</View>
+`;
+
+exports[`StepTypeBadge should hide label 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+</View>
+`;
+
+exports[`StepTypeBadge should render the care step type 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 4,
+        },
+      ]
+    }
+  >
+    CARE
+  </Text>
+</View>
+`;
+
+exports[`StepTypeBadge should render the generic step type 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 4,
+        },
+      ]
+    }
+  >
+    STEP OF FAITH
+  </Text>
+</View>
+`;
+
+exports[`StepTypeBadge should render the pray step type 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 4,
+        },
+      ]
+    }
+  >
+    PRAY
+  </Text>
+</View>
+`;
+
+exports[`StepTypeBadge should render the relate step type 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 4,
+        },
+      ]
+    }
+  >
+    RELATE
+  </Text>
+</View>
+`;
+
+exports[`StepTypeBadge should render the share step type 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 4,
+        },
+      ]
+    }
+  >
+    SHARE
+  </Text>
+</View>
+`;
+
+exports[`StepTypeBadge should render vertically 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "paddingLeft": 4,
+        },
+      ]
+    }
+  >
+    STEP OF FAITH
+  </Text>
+</View>
+`;

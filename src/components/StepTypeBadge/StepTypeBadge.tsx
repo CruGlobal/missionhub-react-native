@@ -15,6 +15,7 @@ interface StepTypeBadgeProps {
   stepType?: StepTypeEnum;
   displayVertically?: boolean;
   hideLabel?: boolean;
+  hideIcon?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -22,11 +23,12 @@ export const StepTypeBadge = ({
   stepType,
   displayVertically = false,
   hideLabel = false,
+  hideIcon = false,
   style,
 }: StepTypeBadgeProps) => {
   const { t } = useTranslation('stepTypes');
 
-  const renderIcon = (stepType?: StepTypeEnum) => {
+  const renderIcon = () => {
     switch (stepType) {
       case 'relate':
         return <RelateIcon height={24} color={theme.lightGrey} />;
@@ -41,7 +43,7 @@ export const StepTypeBadge = ({
     }
   };
 
-  const renderText = (stepType?: StepTypeEnum) => {
+  const renderText = () => {
     switch (stepType) {
       case 'relate':
       case 'pray':
@@ -57,7 +59,7 @@ export const StepTypeBadge = ({
     <View
       style={[{ flexDirection: displayVertically ? 'column' : 'row' }, style]}
     >
-      {renderIcon(stepType)}
+      {hideIcon ? null : renderIcon()}
       {hideLabel ? null : (
         <Text
           style={{
@@ -65,7 +67,7 @@ export const StepTypeBadge = ({
             fontWeight: 'bold',
             color: theme.lightGrey,
             letterSpacing: 1,
-            paddingLeft: 4,
+            paddingLeft: hideIcon ? 0 : 4,
           }}
         >
           {renderText().toUpperCase()}

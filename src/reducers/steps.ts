@@ -14,7 +14,7 @@ export type SuggestedStep = {
   id: string;
   body: string;
   description_markdown?: string;
-  challenge_type: StepTypeEnum;
+  challenge_type: StepTypeEnum | null;
   self_step: boolean;
   locale: string;
   pathway_stage: Stage;

@@ -186,6 +186,9 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
+    "moduleNameMapper": {
+      "\\.svg$": "<rootDir>/__mock__/svgMock.ts"
+    },
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|@?react-navigation|react-navigation-redux-helpers)"
     ],

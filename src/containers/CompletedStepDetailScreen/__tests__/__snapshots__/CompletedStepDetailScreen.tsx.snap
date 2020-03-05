@@ -182,6 +182,45 @@ exports[`with challenge suggestion renders correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -280,7 +319,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
               }
             >
               <Text>
-                ratione ut sunt
+                ut sunt qui
               </Text>
             </Text>
           </View>
@@ -467,6 +506,45 @@ exports[`without challenge suggestion renders correctly 1`] = `
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "paddingLeft": 4,
+            },
+          ]
+        }
+      >
+        STEP OF FAITH
+      </Text>
+    </View>
     <Text
       style={
         Array [

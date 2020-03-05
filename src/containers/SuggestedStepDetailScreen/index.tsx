@@ -45,7 +45,7 @@ const SuggestedStepDetailScreen = ({
       RightHeader={null}
       CenterContent={<View style={styles.centerContent} />}
       text={body}
-      stepType={challenge_type}
+      stepType={challenge_type ?? undefined}
       markdown={description_markdown}
       bottomButtonProps={{
         onPress: handleAddStep,
