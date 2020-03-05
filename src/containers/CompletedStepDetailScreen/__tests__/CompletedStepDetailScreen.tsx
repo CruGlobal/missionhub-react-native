@@ -1,5 +1,4 @@
 import React from 'react';
-import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
