@@ -2000,7 +2000,9 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
           },
         ]
       }
-    />
+    >
+      
+    </Text>
     <View
       style={
         Object {

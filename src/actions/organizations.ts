@@ -70,9 +70,9 @@ export function getMyOrganizations() {
     dispatch: ThunkDispatch<{}, null, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
-    const orgs: Organization[] = (await dispatch(
-      callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery),
-    )).response;
+    const orgs: Organization[] = (
+      await dispatch(callApi(REQUESTS.GET_ORGANIZATIONS, getOrganizationsQuery))
+    ).response;
     const orgOrder = getState().auth.person.user.organization_order;
 
     if (orgOrder) {
@@ -248,9 +248,11 @@ export function getOrganizationMembers(orgId: string, query = {}) {
       period: 'P1Y',
       organization_ids: orgId,
     };
-    const reports: PersonInteractionReport[] = (await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
-    )).response;
+    const reports: PersonInteractionReport[] = (
+      await dispatch(
+        callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
+      )
+    ).response;
 
     // Get an object with { [key = person_id]: [value = { counts }] }
     const reportsCountObj: { [key: string]: any } = reports.reduce(

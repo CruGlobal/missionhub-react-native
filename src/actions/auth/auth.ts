@@ -1,4 +1,6 @@
+// @ts-ignore
 import PushNotification from 'react-native-push-notification';
+// @ts-ignore
 import { AccessToken } from 'react-native-fbsdk';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';

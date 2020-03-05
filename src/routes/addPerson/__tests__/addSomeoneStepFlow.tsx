@@ -5,7 +5,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
@@ -93,7 +93,7 @@ type ScreenName =
   | typeof ADD_SOMEONE_SCREEN
   | typeof SETUP_PERSON_SCREEN
   | typeof SELECT_STAGE_SCREEN
-  | typeof PERSON_SELECT_STEP_SCREEN
+  | typeof SELECT_STEP_SCREEN
   | typeof SUGGESTED_STEP_DETAIL_SCREEN
   | typeof ADD_STEP_SCREEN
   | typeof CELEBRATION_SCREEN;
@@ -186,7 +186,7 @@ describe('SelectStageScreen', () => {
 
     store.dispatch(next({ isMe: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
       personId,
     });
   });
@@ -194,14 +194,16 @@ describe('SelectStageScreen', () => {
 
 describe('PersonSelectStepScreen next', () => {
   it('renders correctly', () => {
-    renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    renderScreen(SELECT_STEP_SCREEN, {
       personId,
+      step,
     }).snapshot();
   });
 
   it('should fire required next actions for suggested step', () => {
-    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
+      step,
     });
 
     store.dispatch(next({ personId, step }));
@@ -213,8 +215,9 @@ describe('PersonSelectStepScreen next', () => {
   });
 
   it('should fire required next actions for create step', () => {
-    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
+      step: undefined,
     });
 
     store.dispatch(next({ personId, step: undefined }));

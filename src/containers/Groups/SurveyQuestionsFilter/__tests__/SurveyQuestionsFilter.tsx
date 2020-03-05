@@ -23,19 +23,28 @@ const options = [
   {
     id: '1',
     text: 'Question 1',
-    options: [{ id: '1.1', text: '1.1' }, { id: '1.2', text: '1.2' }],
+    options: [
+      { id: '1.1', text: '1.1' },
+      { id: '1.2', text: '1.2' },
+    ],
     preview: 'any',
   },
   {
     id: '2',
     text: 'Question 2',
-    options: [{ id: '2.1', text: '2.1' }, { id: '2.2', text: '2.2' }],
+    options: [
+      { id: '2.1', text: '2.1' },
+      { id: '2.2', text: '2.2' },
+    ],
     preview: 'any',
   },
   {
     id: '3',
     text: 'Question 3',
-    options: [{ id: '3.1', text: '3.1' }, { id: '3.2', text: '3.2' }],
+    options: [
+      { id: '3.1', text: '3.1' },
+      { id: '3.2', text: '3.2' },
+    ],
     preview: 'any',
   },
 ];

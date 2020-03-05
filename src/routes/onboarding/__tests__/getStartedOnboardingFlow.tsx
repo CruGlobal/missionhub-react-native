@@ -6,8 +6,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
-import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../../containers/NotificationPrimerScreen';
@@ -53,7 +52,6 @@ const personId = '321';
 const personFirstName = 'Someone';
 const person = { id: personId, first_name: personFirstName };
 const stageId = '3';
-const stage = { id: stageId };
 const step = { id: '111' };
 const text = 'Step Text';
 const contactAssignment = { id: '4', pathway_stage_id: stageId };
@@ -101,11 +99,10 @@ beforeEach(() => {
 type ScreenName =
   | typeof GET_STARTED_SCREEN
   | typeof STAGE_SUCCESS_SCREEN
-  | typeof SELECT_MY_STEP_SCREEN
+  | typeof SELECT_STEP_SCREEN
   | typeof ADD_SOMEONE_SCREEN
   | typeof SETUP_PERSON_SCREEN
   | typeof SELECT_STAGE_SCREEN
-  | typeof PERSON_SELECT_STEP_SCREEN
   | typeof SUGGESTED_STEP_DETAIL_SCREEN
   | typeof ADD_STEP_SCREEN
   | typeof NOTIFICATION_PRIMER_SCREEN
@@ -153,7 +150,9 @@ describe('GetStartedScreen', () => {
 
 describe('StageSuccessScreen', () => {
   it('renders correctly', () => {
-    renderScreen(STAGE_SUCCESS_SCREEN, { selectedStage: stage }).snapshot();
+    renderScreen(STAGE_SUCCESS_SCREEN, {
+      selectedStage: { id: stageId },
+    }).snapshot();
   });
 
   it('should fire required next actions', () => {
@@ -161,17 +160,21 @@ describe('StageSuccessScreen', () => {
 
     store.dispatch(next());
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, undefined);
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
+      personId: myId,
+    });
   });
 });
 
-describe('SelectMyStepScreen', () => {
+describe('SelectStepScreen next for me', () => {
   it('renders correctly', () => {
-    renderScreen(SELECT_MY_STEP_SCREEN).snapshot();
+    renderScreen(SELECT_STEP_SCREEN).snapshot();
   });
 
   it('should fire required next actions for suggested step', () => {
-    const { store, next } = renderScreen(SELECT_MY_STEP_SCREEN);
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
+      personId: myId,
+    });
 
     store.dispatch(next({ personId: myId, step }));
 
@@ -182,7 +185,7 @@ describe('SelectMyStepScreen', () => {
   });
 
   it('should fire required next actions for create step', () => {
-    const { store, next } = renderScreen(SELECT_MY_STEP_SCREEN);
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN);
 
     store.dispatch(next({ personId: myId, step: undefined }));
 
@@ -273,21 +276,21 @@ describe('SelectStageScreen', () => {
 
     store.dispatch(next({ isMe: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
       personId,
     });
   });
 });
 
-describe('PersonSelectStepScreen next', () => {
+describe('SelectStepScreen next for other', () => {
   it('renders correctly', () => {
-    renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    renderScreen(SELECT_STEP_SCREEN, {
       personId,
     }).snapshot();
   });
 
   it('should fire required next actions for suggested step', () => {
-    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
     });
 
@@ -300,7 +303,7 @@ describe('PersonSelectStepScreen next', () => {
   });
 
   it('should fire required next actions for create step', () => {
-    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
     });
 

@@ -18,7 +18,7 @@ import {
 import { getContactSteps } from '../steps';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
-import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen';
+import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen/constants';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -257,6 +257,7 @@ describe('navigateToAddStepFlow', () => {
     );
     expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
       trackingObj: buildTrackingObjResult,
+      personId: myId,
       organization,
     });
     // @ts-ignore
@@ -281,7 +282,6 @@ describe('navigateToAddStepFlow', () => {
     );
     expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
       trackingObj: buildTrackingObjResult,
-      contactName: person.first_name,
       personId: person.id,
       organization,
       createStepTracking: buildTrackingObjResult,

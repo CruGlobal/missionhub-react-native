@@ -13,36 +13,39 @@ import theme from '../../theme';
 import styles from './styles';
 
 interface StepDetailScreenProps {
-  text: string;
+  text?: string;
   receiver?: {
-    first_name: string;
+    firstName: string;
   };
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
   CenterContent?: React.ReactNode;
+  Banner?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
 }
 
 const StepDetailScreen = ({
-  text,
-  markdown,
+  text = '',
+  markdown = '',
   CenterHeader,
   RightHeader,
   CenterContent,
   bottomButtonProps,
-  receiver,
+  receiver = { firstName: '' },
+  Banner = null,
 }: StepDetailScreenProps) => {
   const { stepTitleText, body, backButton, pageContainer } = styles;
 
   const renderContent = () => (
     <>
+      {Banner}
       <Text style={stepTitleText}>{text}</Text>
       {CenterContent}
       <View style={body}>
         {markdown ? (
           <Markdown style={markdownStyles}>
-            {markdown.replace(/<<name>>/g, receiver ? receiver.first_name : '')}
+            {markdown.replace(/<<name>>/g, receiver ? receiver.firstName : '')}
           </Markdown>
         ) : null}
       </View>

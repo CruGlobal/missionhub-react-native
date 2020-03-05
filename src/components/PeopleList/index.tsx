@@ -19,6 +19,7 @@ import IconButton from '../IconButton';
 import PersonItem from '../../containers/PersonItem';
 import { Flex, Text, RefreshControl } from '../common';
 import { keyExtractorId } from '../../utils/common';
+import { ErrorNotice } from '../ErrorNotice/ErrorNotice';
 
 import {
   GetPeopleStepsCount,
@@ -47,14 +48,15 @@ export default ({
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
-  const { data, refetch: refetchCommunities } = useQuery<GetPeopleStepsCount>(
-    GET_PEOPLE_STEPS_COUNT,
-    {
-      variables: {
-        myId: [personId],
-      },
+  const {
+    data,
+    refetch: refetchPeopleStepsCount,
+    error: peopleStepsCountError,
+  } = useQuery<GetPeopleStepsCount>(GET_PEOPLE_STEPS_COUNT, {
+    variables: {
+      myId: [personId],
     },
-  );
+  });
 
   const peopleStepCounts: {
     [key: string]: PersonStepCount;
@@ -84,7 +86,7 @@ export default ({
       );
 
   useEffect(() => {
-    refetchCommunities();
+    refetchPeopleStepsCount();
   }, [onRefresh]);
 
   const toggleSection = (id: string) => {
@@ -152,22 +154,30 @@ export default ({
     );
   };
 
-  if (sections) {
-    return (
-      <ScrollView
-        style={styles.sectionWrap}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
-        {items.map((org: any) => (
-          <Flex key={org.id}>
-            {renderSectionHeader(org)}
-            {collapsedOrgs.has(org.id) ? null : renderList(org.people, org)}
-          </Flex>
-        ))}
-      </ScrollView>
-    );
-  }
-  return <View style={styles.sectionWrap}>{renderList(items)}</View>;
+  return (
+    <>
+      <ErrorNotice
+        message={t('errorLoadingStepCounts')}
+        error={peopleStepsCountError}
+        refetch={refetchPeopleStepsCount}
+      />
+      {sections ? (
+        <ScrollView
+          style={styles.sectionWrap}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          {items.map((org: any) => (
+            <Flex key={org.id}>
+              {renderSectionHeader(org)}
+              {collapsedOrgs.has(org.id) ? null : renderList(org.people, org)}
+            </Flex>
+          ))}
+        </ScrollView>
+      ) : (
+        <View style={styles.sectionWrap}>{renderList(items)}</View>
+      )}
+    </>
+  );
 };

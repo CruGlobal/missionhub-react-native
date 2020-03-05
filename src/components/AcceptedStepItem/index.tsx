@@ -25,6 +25,9 @@ type AcceptedStepItemProps = {
     title: string;
     body?: string;
     completed_at?: string;
+    receiver: {
+      id: string;
+    };
   };
   reminder?: ReminderType;
   onComplete?: () => void;
@@ -39,10 +42,10 @@ const AcceptedStepItem = ({
   dispatch,
 }: AcceptedStepItemProps) => {
   const handleNavigateAcceptedDetailScreen = () => {
-    dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
+    dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { stepId: step.id }));
   };
   const handleNavigateCompletedDetailScreen = () => {
-    dispatch(navigatePush(COMPLETED_STEP_DETAIL_SCREEN, { step }));
+    dispatch(navigatePush(COMPLETED_STEP_DETAIL_SCREEN, { stepId: step.id }));
   };
   const handleCompleteStep = async () => {
     await dispatch(completeStep(step, CONTACT_STEPS));

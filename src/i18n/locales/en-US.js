@@ -240,10 +240,12 @@ export default {
   acceptedStepDetail: {
     removeStep: 'Remove Step',
     iDidIt: 'I Did It!',
+    errorLoadingStepDetails: 'Error loading your step details',
   },
   completedStepDetail: {
     completedStep: 'Completed Step',
     completedOn: 'Completed {{date}}',
+    errorLoadingStepDetails: 'Error loading your step details',
   },
   selectStage: {
     meQuestion:
@@ -447,6 +449,7 @@ export default {
       part2: 'Choose a person and add some new steps.',
     },
     title: 'Steps of Faith',
+    errorLoadingSteps: 'Error loading your steps',
   },
   contactSideMenu: {
     edit: 'Edit',
@@ -473,6 +476,7 @@ export default {
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',
+    errorLoadingStepCounts: 'Error loading step counts for your people',
   },
   appRoutes: {
     steps: 'Steps',
@@ -520,6 +524,7 @@ export default {
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',
     globalCommunity: 'MissionHub Community',
+    errorLoadingCommunities: 'Error loading communities',
   },
   shareAStoryScreen: {
     shareStory: 'Share Story',
@@ -528,6 +533,9 @@ export default {
   editStoryScreen: {
     saveStory: 'Save Changes',
     inputPlaceholder: 'Share a Story...',
+  },
+  celebrateFeed: {
+    errorLoadingCelebrateFeed: 'Error loading celebrate feed',
   },
   celebrateFeeds: {
     title: '',
@@ -833,5 +841,8 @@ export default {
     storyBy: 'Story By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',
+  },
+  errorNotice: {
+    offline: 'Offline',
   },
 };

@@ -9,7 +9,6 @@ import { LOAD_PERSON_DETAILS } from '../../constants';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { getStagesIfNotExists } from '../stages';
-import { getMySteps } from '../steps';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getMyCommunities } from '../organizations';
@@ -83,6 +82,5 @@ export function loadHome() {
     dispatch(getMyCommunities());
     dispatch<any>(getStagesIfNotExists());
     dispatch<any>(updateLocaleAndTimezone());
-    dispatch(getMySteps());
   };
 }

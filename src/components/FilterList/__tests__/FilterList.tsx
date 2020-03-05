@@ -5,7 +5,10 @@ import { renderWithContext } from '../../../../testUtils';
 
 import FilterList from '..';
 
-const options = [{ id: '1', text: 'option1' }, { id: '2', text: 'option 2' }];
+const options = [
+  { id: '1', text: 'option1' },
+  { id: '2', text: 'option 2' },
+];
 const toggleOptions = [
   { id: '3', selected: true },
   { id: '2', selected: false },

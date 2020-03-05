@@ -13,13 +13,11 @@ import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
 import { getStagesIfNotExists } from '../../stages';
-import { getMySteps } from '../../steps';
 import { rollbar } from '../../../utils/rollbar.config';
 
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
 const getPeopleResult = { type: 'get my people' };
-const getStepsResult = { type: 'got steps successfully' };
 const getStagesResult = { type: 'got stages' };
 const updateUserResult = { type: 'updated locale and TZ' };
 
@@ -137,7 +135,6 @@ describe('loadHome', () => {
   it('loads me, organizations, stages, timezone, and notifications', async () => {
     (getMe as jest.Mock).mockReturnValue(getMeResult);
     (getMyPeople as jest.Mock).mockReturnValue(getPeopleResult);
-    (getMySteps as jest.Mock).mockReturnValue(getStepsResult);
     (getMyCommunities as jest.Mock).mockReturnValue(getMyCommunitiesResult);
     (getStagesIfNotExists as jest.Mock).mockReturnValue(getStagesResult);
     ((callApi as unknown) as {
@@ -158,7 +155,6 @@ describe('loadHome', () => {
       getMyCommunitiesResult,
       getStagesResult,
       updateUserResult,
-      getStepsResult,
     ]);
   });
 

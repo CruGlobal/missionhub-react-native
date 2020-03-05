@@ -2,11 +2,9 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { View } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
+import faker from 'faker/locale/en';
 
-import {
-  NOTIFICATION_PROMPT_TYPES,
-  REMINDER_RECURRENCES_ENUM,
-} from '../../../constants';
+import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import {
   requestNativePermissions,
@@ -15,6 +13,10 @@ import {
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../../containers/StepReminderScreen';
 import { createStepReminder } from '../../../actions/stepReminders';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { ReminderButton as Reminder } from '../__generated__/ReminderButton';
+import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
+import { REMINDER_BUTTON_FRAGMENT } from '../queries';
 
 import ReminderButton from '..';
 
@@ -23,10 +25,9 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 
 const stepId = '1';
-const mockDate = '2018-09-12 12:00:00 PM GMT+0';
-const reminder = { id: '11', next_occurrence_at: mockDate };
+const reminder = mockFragment<Reminder>(REMINDER_BUTTON_FRAGMENT);
 
-MockDate.set(mockDate);
+MockDate.set(faker.date.past(1, '2019-01-01'));
 
 const requestNotificationsResult = { type: 'requested notifications' };
 const navigatePushResult = { type: 'navigated push' };
@@ -58,7 +59,7 @@ describe('reminder passed in', () => {
 describe('reminder not passed in', () => {
   it('renders correctly', () => {
     renderWithContext(
-      <ReminderButton {...props}>
+      <ReminderButton {...props} reminder={null}>
         <View />
       </ReminderButton>,
       { initialState: {} },
@@ -230,9 +231,9 @@ describe('handlePressIOS', () => {
 });
 
 describe('onDateChange', () => {
-  const reminder2 = {
+  const reminder2: Reminder = {
     ...reminder,
-    reminder_type: REMINDER_RECURRENCES_ENUM.WEEKLY,
+    reminderType: ReminderTypeEnum.weekly,
   };
   it('creates step reminder', () => {
     const { getByTestId } = renderWithContext(
@@ -246,7 +247,7 @@ describe('onDateChange', () => {
     expect(createStepReminder).toHaveBeenCalledWith(
       stepId,
       date,
-      reminder2.reminder_type,
+      reminder2.reminderType,
     );
   });
 });

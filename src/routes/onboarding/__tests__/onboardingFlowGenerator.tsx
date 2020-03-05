@@ -8,10 +8,9 @@ import { SETUP_SCREEN } from '../../../containers/SetupScreen';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
-import { SELECT_MY_STEP_SCREEN } from '../../../containers/SelectMyStepScreen';
+import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
-import { PERSON_SELECT_STEP_SCREEN } from '../../../containers/PersonSelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../../containers/NotificationPrimerScreen';
@@ -106,11 +105,10 @@ type ScreenName =
   | typeof SETUP_SCREEN
   | typeof GET_STARTED_SCREEN
   | typeof STAGE_SUCCESS_SCREEN
-  | typeof SELECT_MY_STEP_SCREEN
+  | typeof SELECT_STEP_SCREEN
   | typeof ADD_SOMEONE_SCREEN
   | typeof SETUP_PERSON_SCREEN
   | typeof SELECT_STAGE_SCREEN
-  | typeof PERSON_SELECT_STEP_SCREEN
   | typeof SUGGESTED_STEP_DETAIL_SCREEN
   | typeof ADD_STEP_SCREEN
   | typeof NOTIFICATION_PRIMER_SCREEN
@@ -194,7 +192,7 @@ describe('SelectStageScreen next', () => {
 
     store.dispatch(next({ isMe: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(PERSON_SELECT_STEP_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
       personId,
     });
   });
@@ -206,13 +204,15 @@ describe('StageSuccessScreen next', () => {
 
     store.dispatch(next());
 
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STEP_SCREEN, undefined);
+    expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
+      personId: myId,
+    });
   });
 });
 
 describe('SelectMyStepScreen next', () => {
   it('should fire required next actions for suggested step', () => {
-    const { store, next } = renderScreen(SELECT_MY_STEP_SCREEN);
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN);
 
     store.dispatch(next({ personId: myId, step }));
 
@@ -223,7 +223,7 @@ describe('SelectMyStepScreen next', () => {
   });
 
   it('should fire required next actions for create step', () => {
-    const { store, next } = renderScreen(SELECT_MY_STEP_SCREEN);
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN);
 
     store.dispatch(next({ personId: myId, step: undefined }));
 
@@ -312,7 +312,7 @@ describe('SetupPersonScreen next', () => {
 
 describe('PersonSelectStepScreen next', () => {
   it('should fire required next actions for suggested step', () => {
-    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
     });
 
@@ -325,7 +325,7 @@ describe('PersonSelectStepScreen next', () => {
   });
 
   it('should fire required next actions for create step', () => {
-    const { store, next } = renderScreen(PERSON_SELECT_STEP_SCREEN, {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
     });
 
