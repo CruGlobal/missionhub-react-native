@@ -1,6 +1,6 @@
 /* eslint max-lines: 0 */
 import React from 'react';
-import { AppState, Linking } from 'react-native';
+import { Linking } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useAppState } from 'react-native-hooks';
 
@@ -12,10 +12,10 @@ import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 
 import NotificationOffScreen from '..';
 
+jest.mock('react-native-hooks');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
-jest.mock('react-native-hooks');
 
 const {
   ONBOARDING,
@@ -182,10 +182,10 @@ describe('button methods', () => {
       );
     });
 
-    describe('user enables permissions', () => {
-      fit('opens settings menu, then calls next when returning', async () => {
-        let capturedChangeCallback = null;
+    xdescribe('user enables permissions', () => {
+      let capturedChangeCallback: ((currentState: string) => void) | null;
 
+      it('opens settings menu, then calls next when returning', async () => {
         const mockAddListener = jest.fn((event, callback) => {
           if (event === 'change') {
             capturedChangeCallback = callback;
@@ -197,7 +197,7 @@ describe('button methods', () => {
           addEventListener: mockAddListener,
         }));
 
-        const { store, getByTestId, rerender } = renderWithContext(
+        const { store, getByTestId } = renderWithContext(
           <NotificationOffScreen next={next} />,
           {
             navParams: {
@@ -206,18 +206,23 @@ describe('button methods', () => {
           },
         );
 
+        const svc = require('@services/appState').default;
+        svc.setStore(store);
+
+        capturedChangeCallback && capturedChangeCallback('active');
+
         await fireEvent.press(getByTestId('allowButton'));
 
         expect(Linking.canOpenURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
         expect(Linking.openURL).toHaveBeenCalledWith(APP_SETTINGS_URL);
 
         // change called
-        capturedChangeCallback('background');
+        capturedChangeCallback && capturedChangeCallback('background');
 
         await flushMicrotasksQueue();
 
         // change called
-        capturedChangeCallback('active');
+        capturedChangeCallback && capturedChangeCallback('active');
 
         await flushMicrotasksQueue();
 
@@ -229,7 +234,7 @@ describe('button methods', () => {
         ]);
       });
 
-      xit('opens settings menu, then calls onComplete when returning', async () => {
+      it('opens settings menu, then calls onComplete when returning', async () => {
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
@@ -263,7 +268,7 @@ describe('button methods', () => {
         expect(store.getActions()).toEqual([requestPermissionsAccepted]);
       });
 
-      xit('opens settings menu, then navigates back when returning', async () => {
+      it('opens settings menu, then navigates back when returning', async () => {
         const { store, getByTestId, rerender } = renderWithContext(
           <NotificationOffScreen />,
           {
