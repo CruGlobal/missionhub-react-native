@@ -78,6 +78,17 @@ describe('with enableSkipButton', () => {
   });
 });
 
+xdescribe('with explainer open', () => {
+  // Note there are 2 icon buttons buttons (and 2 headers) because of the parallax view
+  beforeAll(() => {
+    enableSkipButton = false;
+  });
+  it('opens explainer modal', () => {
+    fireEvent.press(screen.getAllByTestId('SelectStepExplainerIconButton')[0]);
+    screen.snapshot();
+  });
+});
+
 xdescribe('skip button', () => {
   // Note there are 2 skip buttons (and 2 headers) because of the parallax view
   beforeAll(() => {

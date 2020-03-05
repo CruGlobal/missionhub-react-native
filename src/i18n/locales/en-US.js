@@ -234,6 +234,15 @@ export default {
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
   },
+  selectStepExplainer: {
+    part1:
+      "MissionHub helps you\nsee four ways to shine light in someone's life.",
+    part2:
+      "MissionHub helps you\nsee four ways to shine light in someone's life.",
+    part3: 'MissionHub ...',
+    part4: 'MissionHub ...',
+    part5: 'MissionHub ...',
+  },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
   },
@@ -844,5 +853,12 @@ export default {
   },
   errorNotice: {
     offline: 'Offline',
+  },
+  stepTypes: {
+    relate: 'Relate',
+    pray: 'Pray',
+    care: 'Care',
+    share: 'Share',
+    stepOfFaith: 'Step of Faith',
   },
 };
