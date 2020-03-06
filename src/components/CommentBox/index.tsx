@@ -1,6 +1,12 @@
 /* eslint max-lines-per-function: 0 */
 import React, { useState, useEffect, useRef } from 'react';
-import { Keyboard, View, SafeAreaView } from 'react-native';
+import {
+  Keyboard,
+  View,
+  SafeAreaView,
+  TextInput,
+  ViewStyle,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { INTERACTION_TYPES } from '../../constants';
@@ -15,21 +21,30 @@ import {
   DateComponent,
 } from '../common';
 import theme from '../../theme';
+import { CelebrateComment } from '../../reducers/celebrateComments';
 
 import styles from './styles';
 
-const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
-  // @ts-ignore
+type ActionItem = {
+  id: string;
+  iconName: string;
+  translationKey: string;
+  hideReport?: boolean;
+  isOnAction?: boolean;
+  tracking: string;
+};
+
+const ACTION_ITEMS = (Object.values(INTERACTION_TYPES) as ActionItem[]).filter(
   i => i.isOnAction && i.translationKey !== 'interactionNote',
 );
 
 interface CommentBoxProps {
-  editingComment: boolean;
+  editingComment: CelebrateComment;
   onCancel: () => void;
-  onSubmit: (action: any, text: string) => void;
+  onSubmit: (action: ActionItem | null, text: string) => void;
   placeholderTextKey: string;
   hideActions: boolean;
-  containerStyle: StyleSheet;
+  containerStyle: ViewStyle;
 }
 
 const CommentBox = ({
@@ -41,15 +56,41 @@ const CommentBox = ({
   containerStyle,
 }: CommentBoxProps) => {
   const { t } = useTranslation('actions');
-  const commentInput = useRef();
+  const commentInput = useRef<TextInput>(null);
   const [text, setText] = useState('');
   const [showActions, setShowActions] = useState(false);
-  const [action, setAction] = useState(null);
+  const [action, setAction] = useState<ActionItem | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const startEdit = (comment: any) => {
+  const {
+    actionRowWrap,
+    actionIconButton,
+    actionIconActive,
+    actionText,
+    inputBoxWrap,
+    activeAction,
+    activeActionIcon,
+    activeIcon,
+    activeTextWrap,
+    activeDate,
+    activeText,
+    clearAction,
+    clearActionButton,
+    inputWrap,
+    input,
+    submitIcon,
+    container,
+    boxWrap,
+    actionSelectionWrap,
+    actionsOpen,
+    cancelWrap,
+    cancelIcon,
+    actions,
+  } = styles;
+
+  const startEdit = (comment: CelebrateComment) => {
     setText(comment.content);
-    commentInput.current.focus();
+    commentInput.current && commentInput.current.focus();
   };
 
   useEffect(() => {
@@ -66,7 +107,7 @@ const CommentBox = ({
     Keyboard.dismiss();
   };
 
-  const submit = async () => {
+  const handleSubmit = async () => {
     Keyboard.dismiss();
     const origText = text;
     const origShowActions = showActions;
@@ -97,171 +138,105 @@ const CommentBox = ({
     setShowActions(!showActions);
   };
 
-  const selectAction = item => {
+  const selectAction = (item: ActionItem) => {
     setAction(item);
   };
 
-  const clearAction = () => {
+  const handleClearAction = () => {
     setAction(null);
   };
 
-  const renderIcons = item => {
-    const {
-      actionRowWrap,
-      actionIconButton,
-      actionIconActive,
-      actionIcon,
-      actionText,
-    } = styles;
-
-    return (
-      <Touchable
-        key={item.id}
-        pressProps={[item]}
-        onPress={selectAction}
-        style={actionRowWrap}
+  const renderActionIcons = (item: ActionItem) => (
+    <Touchable
+      key={item.id}
+      pressProps={[item]}
+      onPress={selectAction}
+      style={actionRowWrap}
+    >
+      <View
+        style={[
+          actionIconButton,
+          action && item.id === `${action.id}` ? actionIconActive : null,
+        ]}
       >
-        <Flex
-          style={[
-            actionIconButton,
-            action && item.id === `${action.id}` ? actionIconActive : null,
-          ]}
-        >
-          <Icon
-            size={16}
-            style={actionIcon}
-            name={item.iconName}
-            type="MissionHub"
-          />
-        </Flex>
-        <Text style={actionText} numberOfLines={2}>
-          {t(item.translationKey)}
-        </Text>
-      </Touchable>
-    );
-  };
+        <Icon size={16} name={item.iconName} type="MissionHub" />
+      </View>
+      <Text style={actionText} numberOfLines={2}>
+        {t(item.translationKey)}
+      </Text>
+    </Touchable>
+  );
 
-  const renderActions = () => {
-    const { actions } = styles;
-
-    if (!showActions) {
-      return null;
-    }
-
-    return (
+  const renderActions = () =>
+    !showActions ? null : (
       <Flex direction="row" align="center" style={actions}>
-        {ACTION_ITEMS.map(renderIcons)}
+        {ACTION_ITEMS.map(renderActionIcons)}
       </Flex>
     );
-  };
 
-  const renderInput = () => {
-    const {
-      inputBoxWrap,
-      activeAction,
-      activeIcon,
-      activeTextWrap,
-      activeDate,
-      activeText,
-      clearAction,
-      clearActionButton,
-      inputWrap,
-      input,
-      submitIcon,
-    } = styles;
-
-    return (
-      <Flex
-        value={1}
-        direction="column"
-        align="center"
-        justify="center"
-        style={inputBoxWrap}
-        self="stretch"
-      >
-        {action ? (
-          <Flex
-            direction="row"
-            align="center"
-            self="stretch"
-            style={activeAction}
-          >
-            <Flex value={1} align="center">
-              <Icon
-                name={action.iconName}
-                type="MissionHub"
-                size={24}
-                style={activeIcon}
-              />
-            </Flex>
-            <Flex value={4} justify="center" style={activeTextWrap}>
-              <DateComponent date={new Date()} format="LL" style={activeDate} />
-              <Text style={activeText}>{t(action.translationKey)}</Text>
-            </Flex>
-            <Flex style={clearAction}>
-              <Button
-                type="transparent"
-                onPress={clearAction}
-                style={clearActionButton}
-              >
-                <Icon name="deleteIcon" type="MissionHub" size={10} />
-              </Button>
-            </Flex>
-          </Flex>
-        ) : null}
-        <Flex
-          direction="row"
-          align="center"
-          justify="center"
-          self="stretch"
-          style={inputWrap}
-        >
-          <Input
-            ref={commentInput}
-            onChangeText={handleTextChange}
-            value={text}
-            style={input}
-            autoFocus={false}
-            autoCorrect={true}
-            returnKeyType="done"
-            blurOnSubmit={true}
-            placeholder={t(placeholderTextKey)}
-            placeholderTextColor={theme.grey1}
+  const renderActionDisplay = () =>
+    action ? (
+      <View style={activeAction}>
+        <View style={activeActionIcon}>
+          <Icon
+            name={action.iconName}
+            type="MissionHub"
+            size={24}
+            style={activeIcon}
           />
-          {text || action ? (
-            <IconButton
-              name="upArrow"
-              disabled={isSubmitting}
-              type="MissionHub"
-              onPress={submit}
-              style={submitIcon}
-              size={22}
-            />
-          ) : null}
-        </Flex>
-      </Flex>
-    );
-  };
+        </View>
+        <View style={activeTextWrap}>
+          <DateComponent date={new Date()} format="LL" style={activeDate} />
+          <Text style={activeText}>{t(action.translationKey)}</Text>
+        </View>
+        <View style={clearAction}>
+          <Button
+            type="transparent"
+            onPress={handleClearAction}
+            style={clearActionButton}
+          >
+            <Icon name="deleteIcon" type="MissionHub" size={10} />
+          </Button>
+        </View>
+      </View>
+    ) : null;
 
-  const {
-    container,
-    boxWrap,
-    actionSelectionWrap,
-    actionsOpen,
-    // @ts-ignore
-    actionSelection,
-    cancelWrap,
-    cancelIcon,
-  } = styles;
+  const renderInput = () => (
+    <View style={inputBoxWrap}>
+      {renderActionDisplay()}
+      <View style={inputWrap}>
+        <Input
+          ref={commentInput}
+          onChangeText={handleTextChange}
+          value={text}
+          style={input}
+          autoFocus={false}
+          autoCorrect={true}
+          returnKeyType="done"
+          blurOnSubmit={true}
+          placeholder={t(placeholderTextKey)}
+          placeholderTextColor={theme.grey1}
+        />
+        {text || action ? (
+          <IconButton
+            name="upArrow"
+            disabled={isSubmitting}
+            type="MissionHub"
+            onPress={handleSubmit}
+            style={submitIcon}
+            size={22}
+          />
+        ) : null}
+      </View>
+    </View>
+  );
 
   return (
     <View style={[container, containerStyle]}>
       <SafeAreaView>
-        <Flex direction="row" align="center" justify="center" style={boxWrap}>
+        <View style={boxWrap}>
           {!hideActions && !action ? (
-            <Flex
-              align="center"
-              justify="center"
+            <View
               style={[actionSelectionWrap, showActions ? actionsOpen : null]}
             >
               <IconButton
@@ -269,12 +244,11 @@ const CommentBox = ({
                 type="MissionHub"
                 size={13}
                 onPress={handleActionPress}
-                style={actionSelection}
               />
-            </Flex>
+            </View>
           ) : null}
           {!action && editingComment ? (
-            <Flex style={cancelWrap}>
+            <View style={cancelWrap}>
               <IconButton
                 name="deleteIcon"
                 type="MissionHub"
@@ -282,10 +256,10 @@ const CommentBox = ({
                 style={cancelIcon}
                 size={12}
               />
-            </Flex>
+            </View>
           ) : null}
           {renderInput()}
-        </Flex>
+        </View>
         {renderActions()}
       </SafeAreaView>
     </View>

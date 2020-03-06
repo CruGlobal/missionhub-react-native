@@ -13,6 +13,8 @@ export default StyleSheet.create({
     flexDirection: 'column',
   },
   actionSelectionWrap: {
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: theme.primaryColor,
     borderRadius: 25,
     marginRight: 15,
@@ -47,17 +49,29 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   boxWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 5,
     marginBottom: 5,
     marginHorizontal: 10,
   },
   inputBoxWrap: {
+    flex: 1,
+    flexDirection: 'column',
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: theme.white,
     borderRadius: 20,
     borderColor: theme.grey1,
     borderWidth: 1,
   },
   inputWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'stretch',
     paddingLeft: 13,
   },
   input: {
@@ -76,10 +90,17 @@ export default StyleSheet.create({
     minHeight: 30,
   },
   activeAction: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'stretch',
     paddingVertical: 13,
     borderBottomColor: theme.grey1,
     borderBottomWidth: 1,
     position: 'relative',
+  },
+  activeActionIcon: {
+    flex: 1,
+    alignItems: 'center',
   },
   activeIcon: {
     textAlign: 'center',
@@ -87,6 +108,8 @@ export default StyleSheet.create({
     color: theme.primaryColor,
   },
   activeTextWrap: {
+    flex: 4,
+    justifyContent: 'center',
     borderLeftColor: theme.separatorColor,
     borderLeftWidth: 1,
     paddingLeft: 20,
