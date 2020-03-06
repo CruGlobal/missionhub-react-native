@@ -7,7 +7,7 @@ export default {
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
       firstNameNickname: '$t(profileLabels.firstName) or Nickname',
       lastName: 'Last Name',
-      lastNameOptional: '$t(profileLabels.lastName) (if you want)',
+      lastNameOptional: '$t(profileLabels.lastName) (optional)',
       email: 'Email',
       emailRequired: '$t(profileLabels.email) (Required)',
       phone: 'Phone',
@@ -185,9 +185,22 @@ export default {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
     addPerson: {
-      part1: 'Who do you want to take',
-      part2: ' a step of faith with?',
+      part1: 'Who would you like',
+      part2: ' to take steps of faith with',
+      part3: ' this week?',
     },
+  },
+  categories: {
+    onboardingPrompt: {
+      part1: 'Think of someone you want',
+      part2: ' to help grow closer to God.',
+      part3: ' Who are they?',
+    },
+    family: 'Family',
+    friend: 'Friend',
+    neighbor: 'Neighbor',
+    coworker: 'Coworker',
+    other: 'Other',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
