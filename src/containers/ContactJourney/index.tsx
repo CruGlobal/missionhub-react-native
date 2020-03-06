@@ -182,7 +182,6 @@ class ContactJourney extends Component {
         {this.renderContent()}
         <Flex justify="end">
           <JourneyCommentBox
-            // @ts-ignore
             person={person}
             organization={organization}
             hideActions={isPersonalMinistry || isUserCreatedOrg}

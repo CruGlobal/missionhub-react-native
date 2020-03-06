@@ -37,7 +37,7 @@ const CelebrateCommentBox = ({
   // Make sure we run "cancel" when component unmounts
   useEffect(() => () => cancel(), []);
 
-  const submitComment = async (action: object, text: string) => {
+  const submitComment = async (_, text: string) => {
     if (editingComment) {
       cancel();
       return dispatch(
@@ -62,7 +62,6 @@ const CelebrateCommentBox = ({
 
   return (
     <CommentBox
-      // @ts-ignore
       testID="CelebrateCommentBox"
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}
@@ -73,6 +72,7 @@ const CelebrateCommentBox = ({
     />
   );
 };
+
 const mapStateToProps = (
   {
     celebrateComments,

@@ -39,12 +39,13 @@ const ACTION_ITEMS = (Object.values(INTERACTION_TYPES) as ActionItem[]).filter(
 );
 
 interface CommentBoxProps {
-  editingComment: CelebrateComment;
-  onCancel: () => void;
+  editingComment?: CelebrateComment;
+  onCancel?: () => void;
   onSubmit: (action: ActionItem | null, text: string) => void;
   placeholderTextKey: string;
   hideActions: boolean;
-  containerStyle: ViewStyle;
+  containerStyle?: ViewStyle;
+  testID?: string;
 }
 
 const CommentBox = ({
@@ -103,7 +104,7 @@ const CommentBox = ({
     setAction(null);
     setIsSubmitting(false);
 
-    onCancel();
+    onCancel && onCancel();
     Keyboard.dismiss();
   };
 
