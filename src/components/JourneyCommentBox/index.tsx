@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 
-import CommentBox from '../CommentBox';
+import CommentBox, { ActionItem } from '../CommentBox';
 import { addNewInteraction } from '../../actions/interactions';
 import { INTERACTION_TYPES } from '../../constants';
 import { Person } from '../../reducers/people';
@@ -12,18 +12,18 @@ interface JourneyCommentBoxProps {
   person: Person;
   organization: Organization;
   onSubmit?: () => void;
-  hideActions?: boolean;
+  showInteractions?: boolean;
 }
 
 const JourneyCommentBox = ({
   person,
   organization,
   onSubmit,
-  hideActions,
+  showInteractions,
 }: JourneyCommentBoxProps) => {
   const dispatch = useDispatch();
 
-  const submitInteraction = (action: any, text: string) => {
+  const submitInteraction = (action: ActionItem, text: string) => {
     const interaction = action || INTERACTION_TYPES.MHInteractionTypeNote;
 
     dispatch(
@@ -41,7 +41,7 @@ const JourneyCommentBox = ({
     <CommentBox
       placeholderTextKey={'actions:commentBoxPlaceholder'}
       onSubmit={submitInteraction}
-      hideActions={hideActions}
+      showInteractions={showInteractions}
     />
   );
 };

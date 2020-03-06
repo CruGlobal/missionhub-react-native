@@ -25,7 +25,7 @@ import { CelebrateComment } from '../../reducers/celebrateComments';
 
 import styles from './styles';
 
-type ActionItem = {
+export type ActionItem = {
   id: string;
   iconName: string;
   translationKey: string;
@@ -39,21 +39,21 @@ const ACTION_ITEMS = (Object.values(INTERACTION_TYPES) as ActionItem[]).filter(
 );
 
 interface CommentBoxProps {
-  editingComment?: CelebrateComment;
   onCancel?: () => void;
   onSubmit: (action: ActionItem | null, text: string) => void;
   placeholderTextKey: string;
-  hideActions: boolean;
+  showInteractions?: boolean;
+  editingComment?: CelebrateComment;
   containerStyle?: ViewStyle;
   testID?: string;
 }
 
 const CommentBox = ({
-  editingComment,
   onCancel,
   onSubmit,
   placeholderTextKey,
-  hideActions,
+  showInteractions,
+  editingComment,
   containerStyle,
 }: CommentBoxProps) => {
   const { t } = useTranslation('actions');
@@ -168,13 +168,6 @@ const CommentBox = ({
     </Touchable>
   );
 
-  const renderActions = () =>
-    !showActions ? null : (
-      <Flex direction="row" align="center" style={actions}>
-        {ACTION_ITEMS.map(renderActionIcons)}
-      </Flex>
-    );
-
   const renderActionDisplay = () =>
     action ? (
       <View style={activeAction}>
@@ -200,6 +193,30 @@ const CommentBox = ({
           </Button>
         </View>
       </View>
+    ) : null;
+
+  const renderTopButton = () =>
+    !action ? (
+      showInteractions ? (
+        <View style={[actionSelectionWrap, showActions ? actionsOpen : null]}>
+          <IconButton
+            name={showActions ? 'deleteIcon' : 'plusIcon'}
+            type="MissionHub"
+            size={13}
+            onPress={handleActionPress}
+          />
+        </View>
+      ) : editingComment ? (
+        <View style={cancelWrap}>
+          <IconButton
+            name="deleteIcon"
+            type="MissionHub"
+            onPress={cancel}
+            style={cancelIcon}
+            size={12}
+          />
+        </View>
+      ) : null
     ) : null;
 
   const renderInput = () => (
@@ -232,38 +249,21 @@ const CommentBox = ({
     </View>
   );
 
+  const renderActions = () =>
+    !showActions ? null : (
+      <Flex direction="row" align="center" style={actions}>
+        {ACTION_ITEMS.map(renderActionIcons)}
+      </Flex>
+    );
+
   return (
-    <View style={[container, containerStyle]}>
-      <SafeAreaView>
-        <View style={boxWrap}>
-          {!hideActions && !action ? (
-            <View
-              style={[actionSelectionWrap, showActions ? actionsOpen : null]}
-            >
-              <IconButton
-                name={showActions ? 'deleteIcon' : 'plusIcon'}
-                type="MissionHub"
-                size={13}
-                onPress={handleActionPress}
-              />
-            </View>
-          ) : null}
-          {!action && editingComment ? (
-            <View style={cancelWrap}>
-              <IconButton
-                name="deleteIcon"
-                type="MissionHub"
-                onPress={cancel}
-                style={cancelIcon}
-                size={12}
-              />
-            </View>
-          ) : null}
-          {renderInput()}
-        </View>
-        {renderActions()}
-      </SafeAreaView>
-    </View>
+    <SafeAreaView style={[container, containerStyle]}>
+      <View style={boxWrap}>
+        {renderTopButton()}
+        {renderInput()}
+      </View>
+      {renderActions()}
+    </SafeAreaView>
   );
 };
 
