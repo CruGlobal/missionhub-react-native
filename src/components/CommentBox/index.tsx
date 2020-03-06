@@ -1,8 +1,7 @@
 /* eslint max-lines-per-function: 0 */
-import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Keyboard, View, SafeAreaView } from 'react-native';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { INTERACTION_TYPES } from '../../constants';
 import {
@@ -24,94 +23,93 @@ const ACTION_ITEMS = Object.values(INTERACTION_TYPES).filter(
   i => i.isOnAction && i.translationKey !== 'interactionNote',
 );
 
-const initialState = {
-  text: '',
-  showActions: false,
-  action: null,
-  isSubmitting: false,
-};
+interface CommentBoxProps {
+  editingComment: boolean;
+  onCancel: () => void;
+  onSubmit: (action: any, text: string) => void;
+  placeholderTextKey: string;
+  hideActions: boolean;
+  containerStyle: StyleSheet;
+}
 
-// @ts-ignore
-@withTranslation('actions')
-export default class CommentBox extends Component {
-  state = initialState;
+const CommentBox = ({
+  editingComment,
+  onCancel,
+  onSubmit,
+  placeholderTextKey,
+  hideActions,
+  containerStyle,
+}: CommentBoxProps) => {
+  const { t } = useTranslation('actions');
+  const commentInput = useRef();
+  const [text, setText] = useState('');
+  const [showActions, setShowActions] = useState(false);
+  const [action, setAction] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  componentDidMount() {
-    // @ts-ignore
-    const { editingComment } = this.props;
-    if (editingComment) {
-      this.startEdit(editingComment);
-    }
-  }
+  const startEdit = (comment: any) => {
+    setText(comment.content);
+    commentInput.current.focus();
+  };
 
-  // @ts-ignore
-  componentDidUpdate(prevProps) {
-    // @ts-ignore
-    const { editingComment } = this.props;
-    if (!prevProps.editingComment && editingComment) {
-      this.startEdit(editingComment);
-    }
-  }
+  useEffect(() => {
+    editingComment && startEdit(editingComment);
+  }, [editingComment]);
 
-  cancel = () => {
-    this.setState(initialState);
-    // @ts-ignore
-    this.props.onCancel();
+  const cancel = () => {
+    setText('');
+    setShowActions(false);
+    setAction(null);
+    setIsSubmitting(false);
+
+    onCancel();
     Keyboard.dismiss();
   };
 
-  // @ts-ignore
-  startEdit = comment => {
-    this.setState({ text: comment.content });
-    // @ts-ignore
-    this.commentInput.focus();
-  };
-
-  submit = async () => {
-    // @ts-ignore
-    const { onSubmit } = this.props;
-    const { action, text } = this.state;
-
+  const submit = async () => {
     Keyboard.dismiss();
-    const origState = this.state;
+    const origText = text;
+    const origShowActions = showActions;
+    const origActions = action;
+
     try {
-      // Optimistically reset the whole box before the APi before waiting for the API call
-      this.setState({ ...initialState, isSubmitting: true });
+      setText('');
+      setShowActions(false);
+      setAction(null);
+      setIsSubmitting(true);
+
       await onSubmit(action, text);
-      this.setState({ isSubmitting: false });
+
+      setIsSubmitting(false);
     } catch (error) {
-      this.setState({ ...origState, isSubmitting: false });
+      setText(origText);
+      setShowActions(origShowActions);
+      setAction(origActions);
+      setIsSubmitting(false);
     }
   };
 
-  // @ts-ignore
-  handleTextChange = t => {
-    this.setState({ text: t });
+  const handleTextChange = (t: string) => {
+    setText(t);
   };
 
-  handleActionPress = () => {
-    this.setState({ showActions: !this.state.showActions });
+  const handleActionPress = () => {
+    setShowActions(!showActions);
   };
 
-  // @ts-ignore
-  selectAction = item => {
-    this.setState({ action: item });
+  const selectAction = item => {
+    setAction(item);
   };
 
-  clearAction = () => {
-    this.setState({ action: null });
+  const clearAction = () => {
+    setAction(null);
   };
 
-  // @ts-ignore
-  renderIcons = item => {
-    // @ts-ignore
-    const { t } = this.props;
-    const { action } = this.state;
+  const renderIcons = item => {
     const {
       actionRowWrap,
       actionIconButton,
       actionIconActive,
-      // @ts-ignore
       actionIcon,
       actionText,
     } = styles;
@@ -120,13 +118,12 @@ export default class CommentBox extends Component {
       <Touchable
         key={item.id}
         pressProps={[item]}
-        onPress={this.selectAction}
+        onPress={selectAction}
         style={actionRowWrap}
       >
         <Flex
           style={[
             actionIconButton,
-            // @ts-ignore
             action && item.id === `${action.id}` ? actionIconActive : null,
           ]}
         >
@@ -144,8 +141,7 @@ export default class CommentBox extends Component {
     );
   };
 
-  renderActions() {
-    const { showActions } = this.state;
+  const renderActions = () => {
     const { actions } = styles;
 
     if (!showActions) {
@@ -154,18 +150,12 @@ export default class CommentBox extends Component {
 
     return (
       <Flex direction="row" align="center" style={actions}>
-        {ACTION_ITEMS.map(this.renderIcons)}
+        {ACTION_ITEMS.map(renderIcons)}
       </Flex>
     );
-  }
+  };
 
-  // @ts-ignore
-  ref = c => (this.commentInput = c);
-
-  renderInput() {
-    // @ts-ignore
-    const { t, placeholderTextKey } = this.props;
-    const { text, action, isSubmitting } = this.state;
+  const renderInput = () => {
     const {
       inputBoxWrap,
       activeAction,
@@ -198,7 +188,6 @@ export default class CommentBox extends Component {
           >
             <Flex value={1} align="center">
               <Icon
-                // @ts-ignore
                 name={action.iconName}
                 type="MissionHub"
                 size={24}
@@ -207,14 +196,12 @@ export default class CommentBox extends Component {
             </Flex>
             <Flex value={4} justify="center" style={activeTextWrap}>
               <DateComponent date={new Date()} format="LL" style={activeDate} />
-              {/* 
-              // @ts-ignore */}
               <Text style={activeText}>{t(action.translationKey)}</Text>
             </Flex>
             <Flex style={clearAction}>
               <Button
                 type="transparent"
-                onPress={this.clearAction}
+                onPress={clearAction}
                 style={clearActionButton}
               >
                 <Icon name="deleteIcon" type="MissionHub" size={10} />
@@ -230,8 +217,8 @@ export default class CommentBox extends Component {
           style={inputWrap}
         >
           <Input
-            ref={this.ref}
-            onChangeText={this.handleTextChange}
+            ref={commentInput}
+            onChangeText={handleTextChange}
             value={text}
             style={input}
             autoFocus={false}
@@ -246,7 +233,7 @@ export default class CommentBox extends Component {
               name="upArrow"
               disabled={isSubmitting}
               type="MissionHub"
-              onPress={this.submit}
+              onPress={submit}
               style={submitIcon}
               size={22}
             />
@@ -254,72 +241,55 @@ export default class CommentBox extends Component {
         </Flex>
       </Flex>
     );
-  }
+  };
 
-  render() {
+  const {
+    container,
+    boxWrap,
+    actionSelectionWrap,
+    actionsOpen,
     // @ts-ignore
-    const { hideActions, editingComment, containerStyle } = this.props;
-    const { showActions, action } = this.state;
-    const {
-      container,
-      boxWrap,
-      actionSelectionWrap,
-      actionsOpen,
-      // @ts-ignore
-      actionSelection,
-      cancelWrap,
-      cancelIcon,
-    } = styles;
+    actionSelection,
+    cancelWrap,
+    cancelIcon,
+  } = styles;
 
-    return (
-      <View style={[container, containerStyle]}>
-        <SafeAreaView>
-          <Flex direction="row" align="center" justify="center" style={boxWrap}>
-            {!hideActions && !action ? (
-              <Flex
-                align="center"
-                justify="center"
-                style={[actionSelectionWrap, showActions ? actionsOpen : null]}
-              >
-                <IconButton
-                  name={showActions ? 'deleteIcon' : 'plusIcon'}
-                  type="MissionHub"
-                  size={13}
-                  onPress={this.handleActionPress}
-                  style={actionSelection}
-                />
-              </Flex>
-            ) : null}
-            {!action && editingComment ? (
-              <Flex style={cancelWrap}>
-                <IconButton
-                  name="deleteIcon"
-                  type="MissionHub"
-                  onPress={this.cancel}
-                  style={cancelIcon}
-                  size={12}
-                />
-              </Flex>
-            ) : null}
-            {this.renderInput()}
-          </Flex>
-          {this.renderActions()}
-        </SafeAreaView>
-      </View>
-    );
-  }
-}
-
-// @ts-ignore
-CommentBox.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onCancel: PropTypes.func,
-  hideActions: PropTypes.bool,
-  containerStyle: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-    PropTypes.number,
-  ]),
-  placeholderTextKey: PropTypes.string.isRequired,
-  editingComment: PropTypes.object,
+  return (
+    <View style={[container, containerStyle]}>
+      <SafeAreaView>
+        <Flex direction="row" align="center" justify="center" style={boxWrap}>
+          {!hideActions && !action ? (
+            <Flex
+              align="center"
+              justify="center"
+              style={[actionSelectionWrap, showActions ? actionsOpen : null]}
+            >
+              <IconButton
+                name={showActions ? 'deleteIcon' : 'plusIcon'}
+                type="MissionHub"
+                size={13}
+                onPress={handleActionPress}
+                style={actionSelection}
+              />
+            </Flex>
+          ) : null}
+          {!action && editingComment ? (
+            <Flex style={cancelWrap}>
+              <IconButton
+                name="deleteIcon"
+                type="MissionHub"
+                onPress={cancel}
+                style={cancelIcon}
+                size={12}
+              />
+            </Flex>
+          ) : null}
+          {renderInput()}
+        </Flex>
+        {renderActions()}
+      </SafeAreaView>
+    </View>
+  );
 };
+
+export default CommentBox;
