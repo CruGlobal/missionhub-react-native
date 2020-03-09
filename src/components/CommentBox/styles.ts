@@ -8,8 +8,6 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
     borderTopColor: theme.grey1,
     borderTopWidth: theme.separatorHeight,
-    paddingTop: 5,
-    paddingBottom: 5,
     flexDirection: 'column',
   },
   actionSelectionWrap: {
@@ -52,9 +50,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 5,
-    marginBottom: 5,
-    marginHorizontal: 10,
+    marginVertical: 10,
+    marginHorizontal: 20,
   },
   inputBoxWrap: {
     flex: 1,

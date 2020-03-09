@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 
 import CommentBox, { ActionItem } from '../CommentBox';
 import {
@@ -36,7 +35,7 @@ const CelebrateCommentBox = ({
   // Make sure we run "cancel" when component unmounts
   useEffect(() => () => cancel(), []);
 
-  const submitComment = async (_: ActionItem, text: string) => {
+  const submitComment = async (_: ActionItem | null, text: string) => {
     if (editingComment) {
       cancel();
       return dispatch(

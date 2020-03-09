@@ -23,7 +23,7 @@ const JourneyCommentBox = ({
 }: JourneyCommentBoxProps) => {
   const dispatch = useDispatch();
 
-  const submitInteraction = (action: ActionItem, text: string) => {
+  const submitInteraction = (action: ActionItem | null, text: string) => {
     const interaction = action || INTERACTION_TYPES.MHInteractionTypeNote;
 
     dispatch(

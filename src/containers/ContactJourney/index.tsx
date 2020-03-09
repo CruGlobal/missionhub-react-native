@@ -184,7 +184,7 @@ class ContactJourney extends Component {
           <JourneyCommentBox
             person={person}
             organization={organization}
-            hideActions={isPersonalMinistry || isUserCreatedOrg}
+            showInteractions={isPersonalMinistry || isUserCreatedOrg}
           />
         </Flex>
       </View>

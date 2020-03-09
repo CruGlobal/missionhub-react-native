@@ -98,12 +98,15 @@ const CommentBox = ({
     editingComment && startEdit(editingComment);
   }, [editingComment]);
 
-  const cancel = () => {
+  const resetState = () => {
     setText('');
     setShowActions(false);
     setAction(null);
     setIsSubmitting(false);
+  };
 
+  const cancel = () => {
+    resetState();
     onCancel && onCancel();
     Keyboard.dismiss();
   };
@@ -115,10 +118,7 @@ const CommentBox = ({
     const origActions = action;
 
     try {
-      setText('');
-      setShowActions(false);
-      setAction(null);
-      setIsSubmitting(true);
+      resetState();
 
       await onSubmit(action, text);
 
