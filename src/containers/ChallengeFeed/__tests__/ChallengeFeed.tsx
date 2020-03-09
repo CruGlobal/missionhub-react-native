@@ -287,6 +287,7 @@ describe('item action methods', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
       challengeId: challengeItems[0].data[0].id,
+      isAdmin: true,
       orgId: organization.id,
     });
 

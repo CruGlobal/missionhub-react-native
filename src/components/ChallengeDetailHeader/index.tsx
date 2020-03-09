@@ -12,9 +12,13 @@ import styles from './styles';
 
 interface ChallengeDetailHeaderProps {
   challenge: ChallengeItem;
+  isAdmin: boolean;
 }
 
-const ChallengeDetailHeader = ({ challenge }: ChallengeDetailHeaderProps) => {
+const ChallengeDetailHeader = ({
+  challenge,
+  isAdmin,
+}: ChallengeDetailHeaderProps) => {
   const { t } = useTranslation('challengeFeeds');
   const { title, end_date, details_markdown } = challenge;
   const todaysDate = moment().endOf('day');
@@ -46,7 +50,11 @@ const ChallengeDetailHeader = ({ challenge }: ChallengeDetailHeaderProps) => {
           <Flex style={styles.detailSection}>
             <Text style={styles.subHeader}>{t('details')}</Text>
             <Markdown style={markdownStyles}>
-              {details_markdown ? details_markdown : t('detailsPlaceholder')}
+              {details_markdown
+                ? details_markdown
+                : isAdmin
+                ? t('detailsPlaceholder')
+                : null}
             </Markdown>
           </Flex>
         </Flex>

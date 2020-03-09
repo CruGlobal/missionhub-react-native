@@ -16,7 +16,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { isAdminOrOwner } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
-import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
+import { ACTIONS } from '../../constants';
 import { keyExtractorId } from '../../utils/common';
 import NullStateComponent from '../../components/NullStateComponent';
 import TARGET from '../../../assets/images/challengeTarget.png';
@@ -97,15 +97,14 @@ const ChallengeFeed = ({
   };
 
   const handleSelectRow = (challenge: ChallengeItemInterface) => {
-    if (organization.id !== GLOBAL_COMMUNITY_ID) {
-      dispatch(
-        navigatePush(CHALLENGE_DETAIL_SCREEN, {
-          challengeId: challenge.id,
-          orgId: organization.id,
-        }),
-      );
-      dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));
-    }
+    dispatch(
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        challengeId: challenge.id,
+        orgId: organization.id,
+        isAdmin: adminOrOwner,
+      }),
+    );
+    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));
   };
 
   const renderItem = ({ item }: { item: ChallengeItemInterface }) => (

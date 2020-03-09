@@ -104,7 +104,7 @@ it('navigates to ChallengeMemberScreen when Pressed | Completed', async () => {
   });
 });
 
-it('does not navigates if accepted_count is 0 | Joined', async () => {
+it('does not navigate if accepted_count is 0 | Joined', async () => {
   const { getByTestId, snapshot } = renderWithContext(
     <ChallengeStats
       {...props}
@@ -119,12 +119,44 @@ it('does not navigates if accepted_count is 0 | Joined', async () => {
   expect(navigatePush).not.toHaveBeenCalled();
 });
 
-it('does not navigates if completed_count is 0 | Completed', async () => {
+it('does not navigate if completed_count is 0 | Completed', async () => {
   const { getByTestId, snapshot } = renderWithContext(
     <ChallengeStats
       {...props}
       challenge={{
         ...challenge,
+        completed_count: 0,
+      }}
+    />,
+  );
+  snapshot();
+  await fireEvent.press(getByTestId('completedCount'));
+  expect(navigatePush).not.toHaveBeenCalled();
+});
+
+it('does not navigate if organization is null | Joined', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
+    <ChallengeStats
+      {...props}
+      challenge={{
+        ...challenge,
+        organization: null,
+        accepted_count: 0,
+      }}
+    />,
+  );
+  snapshot();
+  await fireEvent.press(getByTestId('joinedCount'));
+  expect(navigatePush).not.toHaveBeenCalled();
+});
+
+it('does not navigate if organization is null | Completed', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
+    <ChallengeStats
+      {...props}
+      challenge={{
+        ...challenge,
+        organization: null,
         completed_count: 0,
       }}
     />,
