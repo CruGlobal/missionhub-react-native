@@ -1,112 +1,112 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { addNewInteraction } from '../../../actions/interactions';
+import CommentBox from '../../CommentBox';
 import { INTERACTION_TYPES } from '../../../constants';
 
 import JourneyCommentBox from '..';
 
 jest.mock('../../../actions/interactions');
+jest.mock('../../CommentBox', () => 'CommentBox');
 
-const mockStore = configureStore([thunk]);
 const person = { id: '4243242' };
-// @ts-ignore
-let organization;
-const onSubmit = jest.fn();
+const organization = { id: '99999' };
+const text = 'matt watts loves the spurs';
+const spiritualConversationAction =
+  INTERACTION_TYPES.MHInteractionTypeSpiritualConversation;
 
-// @ts-ignore
-let screen;
-let store;
-
-// @ts-ignore
-addNewInteraction.mockReturnValue(() => Promise.resolve());
+let onSubmit: jest.Mock;
 
 beforeEach(() => {
-  store = mockStore();
-
-  screen = renderShallow(
-    <JourneyCommentBox
-      // @ts-ignore
-      hideActions={true}
-      person={person}
-      // @ts-ignore
-      organization={organization}
-      onSubmit={onSubmit}
-    />,
-    store,
-  );
+  onSubmit = jest.fn();
+  (addNewInteraction as jest.Mock).mockReturnValue(() => Promise.resolve());
 });
 
 it('renders correctly', () => {
-  // @ts-ignore
-  expect(screen).toMatchSnapshot();
+  renderWithContext(
+    <JourneyCommentBox
+      showInteractions={false}
+      person={person}
+      organization={null}
+      onSubmit={onSubmit}
+    />,
+  ).snapshot();
 });
 
 describe('onSubmit', () => {
-  const text = 'matt watts loves the spurs';
-  // @ts-ignore
-  let action;
-
-  beforeAll(() => {
-    organization = null;
-  });
-  // @ts-ignore
-  beforeEach(() => screen.props().onSubmit(action, text));
-
   describe('without organization', () => {
     describe('action type is submitted', () => {
-      const spiritualConversationAction =
-        INTERACTION_TYPES.MHInteractionTypeSpiritualConversation;
-
-      beforeAll(() => {
-        action = spiritualConversationAction;
-      });
-
       it('creates interaction with type', () => {
+        const { getAllByType } = renderWithContext(
+          <JourneyCommentBox
+            showInteractions={false}
+            person={person}
+            organization={null}
+            onSubmit={onSubmit}
+          />,
+        );
+
+        fireEvent(
+          getAllByType(CommentBox)[0],
+          'onSubmit',
+          spiritualConversationAction,
+          text,
+        );
+
         expect(addNewInteraction).toHaveBeenCalledWith(
           person.id,
           spiritualConversationAction,
           text,
           undefined,
         );
+        expect(onSubmit).toHaveBeenCalledWith();
       });
     });
 
     describe('action type is not submitted', () => {
-      beforeAll(() => {
-        action = null;
-      });
-
       it('creates note', () => {
+        const { getAllByType } = renderWithContext(
+          <JourneyCommentBox
+            showInteractions={false}
+            person={person}
+            organization={null}
+            onSubmit={onSubmit}
+          />,
+        );
+
+        fireEvent(getAllByType(CommentBox)[0], 'onSubmit', null, text);
+
         expect(addNewInteraction).toHaveBeenCalledWith(
           person.id,
           INTERACTION_TYPES.MHInteractionTypeNote,
           text,
           undefined,
         );
+        expect(onSubmit).toHaveBeenCalledWith();
       });
-    });
-
-    it('executes onSubmit', () => {
-      expect(onSubmit).toHaveBeenCalled();
     });
   });
 
   describe('with organization', () => {
-    const org = { id: '99999' };
-
-    beforeAll(() => {
-      organization = org;
-    });
-
     it('creates interaction with org id', () => {
+      const { getAllByType } = renderWithContext(
+        <JourneyCommentBox
+          showInteractions={false}
+          person={person}
+          organization={organization}
+          onSubmit={onSubmit}
+        />,
+      );
+
+      fireEvent(getAllByType(CommentBox)[0], 'onSubmit', null, text);
+
       expect(addNewInteraction).toHaveBeenCalledWith(
         person.id,
         INTERACTION_TYPES.MHInteractionTypeNote,
         text,
-        org.id,
+        organization.id,
       );
     });
   });

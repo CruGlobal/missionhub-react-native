@@ -10,7 +10,7 @@ import { Organization } from '../../reducers/organizations';
 
 interface JourneyCommentBoxProps {
   person: Person;
-  organization: Organization;
+  organization: Organization | null;
   onSubmit?: () => void;
   showInteractions?: boolean;
 }

@@ -105,7 +105,7 @@ const CommentBox = ({
     setIsSubmitting(false);
   };
 
-  const cancel = () => {
+  const handleCancel = () => {
     resetState();
     onCancel && onCancel();
     Keyboard.dismiss();
@@ -119,6 +119,7 @@ const CommentBox = ({
 
     try {
       resetState();
+      setIsSubmitting(true);
 
       await onSubmit(action, text);
 
@@ -149,6 +150,7 @@ const CommentBox = ({
 
   const renderActionIcons = (item: ActionItem) => (
     <Touchable
+      testID="ActionButton"
       key={item.id}
       pressProps={[item]}
       onPress={selectAction}
@@ -185,6 +187,7 @@ const CommentBox = ({
         </View>
         <View style={clearAction}>
           <Button
+            testID="ClearActionButton"
             type="transparent"
             onPress={handleClearAction}
             style={clearActionButton}
@@ -200,6 +203,7 @@ const CommentBox = ({
       showInteractions ? (
         <View style={[actionSelectionWrap, showActions ? actionsOpen : null]}>
           <IconButton
+            testID="ActionAddButton"
             name={showActions ? 'deleteIcon' : 'plusIcon'}
             type="MissionHub"
             size={13}
@@ -209,9 +213,10 @@ const CommentBox = ({
       ) : editingComment ? (
         <View style={cancelWrap}>
           <IconButton
+            testID="CancelButton"
             name="deleteIcon"
             type="MissionHub"
-            onPress={cancel}
+            onPress={handleCancel}
             style={cancelIcon}
             size={12}
           />
@@ -237,6 +242,7 @@ const CommentBox = ({
         />
         {text || action ? (
           <IconButton
+            testID="SubmitButton"
             name="upArrow"
             disabled={isSubmitting}
             type="MissionHub"
