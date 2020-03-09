@@ -68,8 +68,8 @@ const ChallengeStats = ({
   const numberStyle = !isDetailScreen ? styles.numberSmall : styles.number;
   const navToMemberScreen = (completed: boolean) => {
     if (
-      (accepted_count > 0 && !completed) ||
-      (completed_count > 0 && completed)
+      challenge.organization &&
+      ((accepted_count > 0 && !completed) || (completed_count > 0 && completed))
     ) {
       return dispatch(
         navigatePush(CHALLENGE_MEMBERS_SCREEN, {
