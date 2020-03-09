@@ -1004,14 +1004,18 @@ exports[`renders screen with steps correctly 1`] = `
             "id": "1",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Roscoe Johnson",
+              "fullName": "Heather Hahn",
               "id": "2",
             },
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "4",
-              "nextOccurrenceAt": "2017-12-28T17:58:57.964Z",
+              "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
               "reminderType": "once",
+            },
+            "stepSuggestion": Object {
+              "__typename": "StepSuggestion",
+              "stepType": "relate",
             },
             "title": "Repellat quisquam recusandae alias consequuntur corporis.",
           },
@@ -1021,18 +1025,22 @@ exports[`renders screen with steps correctly 1`] = `
               "__typename": "Community",
               "id": "7",
             },
-            "completedAt": "2015-08-09T09:31:34.869Z",
+            "completedAt": "2011-04-05T20:54:44.943Z",
             "id": "5",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Shad Farrell",
+              "fullName": "Alek Lesch",
               "id": "6",
             },
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "8",
-              "nextOccurrenceAt": "2010-11-26T00:55:36.529Z",
+              "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
               "reminderType": "once",
+            },
+            "stepSuggestion": Object {
+              "__typename": "StepSuggestion",
+              "stepType": "bond",
             },
             "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
           },
@@ -1091,14 +1099,18 @@ exports[`renders screen with steps correctly 1`] = `
                 "id": "1",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Roscoe Johnson",
+                  "fullName": "Heather Hahn",
                   "id": "2",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "4",
-                  "nextOccurrenceAt": "2017-12-28T17:58:57.964Z",
+                  "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
                   "reminderType": "once",
+                },
+                "stepSuggestion": Object {
+                  "__typename": "StepSuggestion",
+                  "stepType": "relate",
                 },
                 "title": "Repellat quisquam recusandae alias consequuntur corporis.",
               }
@@ -1119,18 +1131,22 @@ exports[`renders screen with steps correctly 1`] = `
                   "__typename": "Community",
                   "id": "7",
                 },
-                "completedAt": "2015-08-09T09:31:34.869Z",
+                "completedAt": "2011-04-05T20:54:44.943Z",
                 "id": "5",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Shad Farrell",
+                  "fullName": "Alek Lesch",
                   "id": "6",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "8",
-                  "nextOccurrenceAt": "2010-11-26T00:55:36.529Z",
+                  "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                   "reminderType": "once",
+                },
+                "stepSuggestion": Object {
+                  "__typename": "StepSuggestion",
+                  "stepType": "bond",
                 },
                 "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
               }
@@ -1149,9 +1165,9 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -422,10 +422,52 @@
-                \\"nextOccurrenceAt\\": \\"2010-11-26T00:55:36.529Z\\",
-                \\"reminderType\\": \\"once\\",
+@@ -430,10 +430,60 @@
+                \\"__typename\\": \\"StepSuggestion\\",
+                \\"stepType\\": \\"bond\\",
               },
               \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
             },
@@ -1161,20 +1177,24 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"11\\",
 +             },
-+             \\"completedAt\\": \\"2011-05-23T16:13:35.303Z\\",
++             \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
 +             \\"id\\": \\"9\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Soledad Simonis\\",
++               \\"fullName\\": \\"Dorcas Dach\\",
 +               \\"id\\": \\"10\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"12\\",
-+               \\"nextOccurrenceAt\\": \\"2017-04-22T08:49:18.408Z\\",
++               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"title\\": \\"Blanditiis natus et eos itaque velit.\\",
++             \\"stepSuggestion\\": Object {
++               \\"__typename\\": \\"StepSuggestion\\",
++               \\"stepType\\": \\"affirm\\",
++             },
++             \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
@@ -1182,27 +1202,31 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"15\\",
 +             },
-+             \\"completedAt\\": \\"2018-05-04T02:51:17.094Z\\",
++             \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
 +             \\"id\\": \\"13\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Andres Thiel\\",
++               \\"fullName\\": \\"Margaret Williamson\\",
 +               \\"id\\": \\"14\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"16\\",
-+               \\"nextOccurrenceAt\\": \\"2015-10-29T22:58:20.157Z\\",
++               \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
++             \\"stepSuggestion\\": Object {
++               \\"__typename\\": \\"StepSuggestion\\",
++               \\"stepType\\": \\"care\\",
++             },
++             \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -524,9 +566,80 @@
+@@ -540,9 +590,88 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1221,20 +1245,24 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"__typename\\": \\"Community\\",
 +                   \\"id\\": \\"11\\",
 +                 },
-+                 \\"completedAt\\": \\"2011-05-23T16:13:35.303Z\\",
++                 \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
 +                 \\"id\\": \\"9\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Soledad Simonis\\",
++                   \\"fullName\\": \\"Dorcas Dach\\",
 +                   \\"id\\": \\"10\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"12\\",
-+                   \\"nextOccurrenceAt\\": \\"2017-04-22T08:49:18.408Z\\",
++                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"title\\": \\"Blanditiis natus et eos itaque velit.\\",
++                 \\"stepSuggestion\\": Object {
++                   \\"__typename\\": \\"StepSuggestion\\",
++                   \\"stepType\\": \\"affirm\\",
++                 },
++                 \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1253,20 +1281,24 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"__typename\\": \\"Community\\",
 +                   \\"id\\": \\"15\\",
 +                 },
-+                 \\"completedAt\\": \\"2018-05-04T02:51:17.094Z\\",
++                 \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
 +                 \\"id\\": \\"13\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Andres Thiel\\",
++                   \\"fullName\\": \\"Margaret Williamson\\",
 +                   \\"id\\": \\"14\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"16\\",
-+                   \\"nextOccurrenceAt\\": \\"2015-10-29T22:58:20.157Z\\",
++                   \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
++                 \\"stepSuggestion\\": Object {
++                   \\"__typename\\": \\"StepSuggestion\\",
++                   \\"stepType\\": \\"care\\",
++                 },
++                 \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
