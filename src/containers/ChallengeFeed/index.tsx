@@ -101,6 +101,7 @@ const ChallengeFeed = ({
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
         challengeId: challenge.id,
         orgId: organization.id,
+        isAdmin: adminOrOwner,
       }),
     );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_DETAIL));

@@ -20,9 +20,7 @@ import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import { communityChallengeSelector } from '../../selectors/challenges';
-import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { isAdminOrOwner } from '../../utils/common';
 import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
@@ -36,6 +34,7 @@ const ChallengeDetailScreen = () => {
   const { t } = useTranslation('challengeFeeds');
   const orgId: string = useNavigationParam('orgId');
   const challengeId: string = useNavigationParam('challengeId');
+  const isAdmin: boolean = useNavigationParam('isAdmin');
 
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
   const myId = auth.person.id;
@@ -50,17 +49,7 @@ const ChallengeDetailScreen = () => {
       c => c.person && c.person.id === myId,
     );
 
-  const myOrgPerm = useSelector(() =>
-    orgPermissionSelector(
-      {},
-      {
-        person: auth.person,
-        organization: { id: orgId },
-      },
-    ),
-  );
-
-  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
+  const canEditChallenges = isAdmin;
 
   useEffect(() => {
     dispatch(getChallenge(challenge.id));
@@ -125,7 +114,7 @@ const ChallengeDetailScreen = () => {
           ) : null
         }
       />
-      <ChallengeDetailHeader challenge={challenge} />
+      <ChallengeDetailHeader challenge={challenge} isAdmin={isAdmin} />
       <Image source={CHALLENGE_TARGET} style={styles.challengeImage} />
       {!completed && !isPast ? (
         <BottomButton

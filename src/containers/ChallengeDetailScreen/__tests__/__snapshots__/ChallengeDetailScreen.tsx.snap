@@ -2798,30 +2798,7 @@ exports[`should render without edit correctly 1`] = `
             </Text>
             <View
               style={Object {}}
-            >
-              <View
-                style={
-                  Object {
-                    "marginVertical": 10,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                    }
-                  }
-                >
-                  <Text>
-                    Add details to your Challenge (optional)
-                  </Text>
-                </Text>
-              </View>
-            </View>
+            />
           </View>
         </View>
       </View>

@@ -14,7 +14,6 @@ import {
   updateChallenge,
 } from '../../../actions/challenges';
 import { communityChallengeSelector } from '../../../selectors/challenges';
-import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
@@ -89,10 +88,6 @@ beforeEach(() => {
   ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue(
     challenge,
   );
-
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    orgPermission,
-  );
 });
 
 it('should render unjoined challenge correctly', () => {
@@ -106,6 +101,7 @@ it('should render unjoined challenge correctly', () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
@@ -118,6 +114,7 @@ it('should render joined challenge correctly', () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   });
   snapshot();
@@ -135,6 +132,7 @@ it('should render completed challenge correctly', () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   });
   snapshot();
@@ -143,10 +141,6 @@ it('should render completed challenge correctly', () => {
 });
 
 it('should render without edit correctly', () => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-    ...orgPermission,
-    permission_id: ORG_PERMISSIONS.USER,
-  });
   const { snapshot, queryByTestId } = renderWithContext(
     <ChallengeDetailScreen />,
     {
@@ -154,6 +148,7 @@ it('should render without edit correctly', () => {
       navParams: {
         orgId,
         challengeId,
+        isAdmin: false,
       },
     },
   );
@@ -174,6 +169,7 @@ it('should call joinChallenge from press', async () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   });
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
@@ -191,6 +187,7 @@ it('should call completeChallenge from press', async () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   });
 
@@ -214,6 +211,7 @@ it('should not call completeChallenge with no accepted challenge', async () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   });
 
@@ -229,6 +227,7 @@ it('should navigate to edit screen from press', async () => {
     navParams: {
       orgId,
       challengeId,
+      isAdmin: true,
     },
   });
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
@@ -250,6 +249,7 @@ it('should call navigateBack from press', async () => {
       navParams: {
         orgId,
         challengeId,
+        isAdmin: true,
       },
     },
   );

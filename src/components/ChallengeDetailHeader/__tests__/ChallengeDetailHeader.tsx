@@ -28,18 +28,24 @@ const pastChallenge = {
 
 it('render for active challenge', () => {
   renderWithContext(
-    <ChallengeDetailHeader challenge={activeChallenge} />,
+    <ChallengeDetailHeader challenge={activeChallenge} isAdmin={true} />,
   ).snapshot();
 });
 
-fit('renders with details', () => {
+it('renders with details', () => {
   renderWithContext(
-    <ChallengeDetailHeader challenge={challengeWithDetails} />,
+    <ChallengeDetailHeader challenge={challengeWithDetails} isAdmin={true} />,
   ).snapshot();
 });
 
 it('render for past challenge', () => {
   renderWithContext(
-    <ChallengeDetailHeader challenge={pastChallenge} />,
+    <ChallengeDetailHeader challenge={pastChallenge} isAdmin={true} />,
+  ).snapshot();
+});
+
+it('renders no text when no details and not an admin', () => {
+  renderWithContext(
+    <ChallengeDetailHeader challenge={pastChallenge} isAdmin={false} />,
   ).snapshot();
 });
