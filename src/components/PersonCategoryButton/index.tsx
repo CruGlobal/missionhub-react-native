@@ -2,8 +2,15 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Button, Flex, Text } from '../../components/common';
-import styles from './styles';
+import FamilyIcon from '../../../assets/images/categoryFamilyIcon.svg';
+import FriendIcon from '../../../assets/images/categoryFriendIcon.svg';
+import NeighborIcon from '../../../assets/images/categoryNeighborIcon.svg';
+import CoworkerIcon from '../../../assets/images/categoryCoworkerIcon.svg';
+import OtherIcon from '../../../assets/images/categoryOtherIcon.svg';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+
+import styles from './styles';
+import theme from '../../theme';
 
 interface PersonCategoryButtonProps {
   currentCategory: RelationshipTypeEnum | null;
@@ -17,20 +24,40 @@ const PersonCategoryButton = ({
   onPress,
 }: PersonCategoryButtonProps) => {
   const { t } = useTranslation('categories');
-  // const getImage = () => {
-  //   switch (category) {
-  //     case RelationshipTypeEnum.family:
-  //       return FAMILY;
-  //     case RelationshipTypeEnum.friend:
-  //       return FRIEND;
-  //     case RelationshipTypeEnum.neighbor:
-  //       return NEIGHBOR;
-  //     case RelationshipTypeEnum.coworker:
-  //       return COWORKER;
-  //     case RelationshipTypeEnum.other:
-  //       return OTHER;
-  //   }
-  // };
+  const getImage = () => {
+    switch (category) {
+      case RelationshipTypeEnum.family:
+        return (
+          <FamilyIcon
+            color={currentCategory === category ? theme.white : '#3CC8E6'}
+          />
+        );
+      case RelationshipTypeEnum.friend:
+        return (
+          <FriendIcon
+            color={currentCategory === category ? theme.white : '#3CC8E6'}
+          />
+        );
+      case RelationshipTypeEnum.neighbor:
+        return (
+          <NeighborIcon
+            color={currentCategory === category ? theme.white : '#3CC8E6'}
+          />
+        );
+      case RelationshipTypeEnum.coworker:
+        return (
+          <CoworkerIcon
+            color={currentCategory === category ? theme.white : '#3CC8E6'}
+          />
+        );
+      case RelationshipTypeEnum.other:
+        return (
+          <OtherIcon
+            color={currentCategory === category ? theme.white : '#3CC8E6'}
+          />
+        );
+    }
+  };
 
   const getContent = () => {
     return (
@@ -42,7 +69,7 @@ const PersonCategoryButton = ({
         align="center"
       >
         <Text style={styles.categoryButtonText}>{t(`${category}`)}</Text>
-        {/* <Image source={getImage()} /> */}
+        {getImage()}
       </Flex>
     );
   };
