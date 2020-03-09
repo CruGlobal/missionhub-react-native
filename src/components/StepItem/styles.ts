@@ -10,6 +10,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
   },
+  cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 8,
+  },
   stepUserName: {
     fontSize: 16,
     fontWeight: 'normal',
@@ -20,7 +25,7 @@ export default StyleSheet.create({
   reminderButton: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    paddingVertical: 4,
+    paddingTop: 8,
   },
   bellIcon: {
     fontSize: 18,
