@@ -63,7 +63,6 @@ const createMockStore = (id, personalJourney, isJean = true) => {
 
 const org = { id: orgId };
 const personalOrg = { id: 'personal' };
-const userCreatedOrg = { ...org, user_created: true };
 
 // @ts-ignore
 const createComponent = props => {
