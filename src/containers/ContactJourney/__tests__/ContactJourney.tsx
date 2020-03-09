@@ -34,6 +34,7 @@ jest.mock('../../../actions/interactions', () => ({
   addNewInteraction: () => mockAddComment,
   editComment: () => mockEditComment,
 }));
+jest.mock('../../../components/JourneyCommentBox', () => 'JourneyCommentBox');
 jest.mock('../../../utils/hooks/useAnalytics');
 
 // @ts-ignore
@@ -103,50 +104,6 @@ describe('ContactJourney', () => {
     component = createComponent({ organization: personalOrg });
 
     expect(component).toMatchSnapshot();
-  });
-
-  it('Not Jean, org is Personal', () => {
-    store = createMockStore(personId, { [personId]: mockJourneyList }, false);
-    const instance = createComponent({ organization: personalOrg }).instance();
-
-    // @ts-ignore
-    expect(instance.state.isPersonalMinistry).toEqual(true);
-  });
-
-  it('Not Jean, org is User-Created', () => {
-    store = createMockStore(personId, { [personId]: mockJourneyList }, false);
-    const instance = createComponent({
-      organization: userCreatedOrg,
-    }).instance();
-
-    // @ts-ignore
-    expect(instance.state.isPersonalMinistry).toEqual(true);
-  });
-
-  it('Is Jean, org is Personal', () => {
-    store = createMockStore(personId, { [personId]: mockJourneyList }, true);
-    const instance = createComponent({ organization: personalOrg }).instance();
-
-    // @ts-ignore
-    expect(instance.state.isPersonalMinistry).toEqual(true);
-  });
-
-  it('Is Jean, org is Cru', () => {
-    store = createMockStore(personId, { [personId]: mockJourneyList }, true);
-    const instance = createComponent({ organization: org }).instance();
-
-    // @ts-ignore
-    expect(instance.state.isPersonalMinistry).toEqual(false);
-  });
-
-  it('lIs Jean, org is User-Created', () => {
-    store = createMockStore(personId, { [personId]: mockJourneyList }, true);
-    const instance = createComponent({
-      organization: userCreatedOrg,
-    }).instance();
-
-    // @ts-ignore
-    expect(instance.state.isPersonalMinistry).toEqual(false);
   });
 });
 

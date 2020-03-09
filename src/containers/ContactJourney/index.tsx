@@ -19,6 +19,7 @@ import {
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
 } from '../../constants';
+import { orgIsCru } from '../../utils/common';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -29,13 +30,6 @@ class ContactJourney extends Component {
   // @ts-ignore
   constructor(props) {
     super(props);
-
-    const org = props.organization || {};
-    const isPersonal = props.isCasey || !org.id || org.id === 'personal';
-
-    this.state = {
-      isPersonalMinistry: isPersonal,
-    };
 
     this.completeBump = this.completeBump.bind(this);
     this.renderRow = this.renderRow.bind(this);
@@ -168,9 +162,7 @@ class ContactJourney extends Component {
 
   render() {
     // @ts-ignore
-    const { isPersonalMinistry } = this.state;
-    // @ts-ignore
-    const { myId, person, organization, isUserCreatedOrg } = this.props;
+    const { myId, person, organization, isCruOrg } = this.props;
     return (
       <View style={styles.container}>
         <Analytics
@@ -184,7 +176,7 @@ class ContactJourney extends Component {
           <JourneyCommentBox
             person={person}
             organization={organization}
-            showInteractions={isPersonalMinistry || isUserCreatedOrg}
+            showInteractions={isCruOrg}
           />
         </Flex>
       </View>
@@ -215,8 +207,7 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
-    // @ts-ignore
-    isUserCreatedOrg: organization && organization.user_created,
+    isCruOrg: orgIsCru(organization),
   };
 };
 

@@ -63,7 +63,6 @@ const CelebrateCommentBox = ({
       testID="CelebrateCommentBox"
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}
-      showInteractions={false}
       editingComment={editingComment}
       onCancel={cancel}
       containerStyle={styles.container}
