@@ -52,7 +52,7 @@ const StepReminderScreen = () => {
       dispatch(
         createStepReminder(
           stepId,
-          date as Date,
+          new Date(date),
           recurrence ? recurrence : ReminderTypeEnum.once,
         ),
       );
