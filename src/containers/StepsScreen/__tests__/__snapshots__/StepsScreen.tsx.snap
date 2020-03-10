@@ -984,16 +984,17 @@ exports[`renders screen with steps correctly 1`] = `
               "__typename": "Community",
               "id": "3",
             },
+            "completedAt": "2014-08-26T07:39:14.970Z",
             "id": "1",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Kali Stamm",
+              "fullName": "Roscoe Johnson",
               "id": "2",
             },
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "4",
-              "nextOccurrenceAt": "2014-10-17T09:34:50.933Z",
+              "nextOccurrenceAt": "2017-12-28T17:58:57.964Z",
               "reminderType": "once",
             },
             "title": "Repellat quisquam recusandae alias consequuntur corporis.",
@@ -1004,16 +1005,17 @@ exports[`renders screen with steps correctly 1`] = `
               "__typename": "Community",
               "id": "7",
             },
+            "completedAt": "2015-08-09T09:31:34.869Z",
             "id": "5",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Connor Kihn",
+              "fullName": "Shad Farrell",
               "id": "6",
             },
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "8",
-              "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
+              "nextOccurrenceAt": "2010-11-26T00:55:36.529Z",
               "reminderType": "once",
             },
             "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
@@ -1061,8 +1063,7 @@ exports[`renders screen with steps correctly 1`] = `
           style={null}
         >
           <StepItem
-            onPressName={[Function]}
-            onSelect={[Function]}
+            showCheckbox={false}
             step={
               Object {
                 "__typename": "Step",
@@ -1070,16 +1071,17 @@ exports[`renders screen with steps correctly 1`] = `
                   "__typename": "Community",
                   "id": "3",
                 },
+                "completedAt": "2014-08-26T07:39:14.970Z",
                 "id": "1",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Kali Stamm",
+                  "fullName": "Roscoe Johnson",
                   "id": "2",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "4",
-                  "nextOccurrenceAt": "2014-10-17T09:34:50.933Z",
+                  "nextOccurrenceAt": "2017-12-28T17:58:57.964Z",
                   "reminderType": "once",
                 },
                 "title": "Repellat quisquam recusandae alias consequuntur corporis.",
@@ -1093,8 +1095,7 @@ exports[`renders screen with steps correctly 1`] = `
           style={null}
         >
           <StepItem
-            onPressName={[Function]}
-            onSelect={[Function]}
+            showCheckbox={false}
             step={
               Object {
                 "__typename": "Step",
@@ -1102,16 +1103,17 @@ exports[`renders screen with steps correctly 1`] = `
                   "__typename": "Community",
                   "id": "7",
                 },
+                "completedAt": "2015-08-09T09:31:34.869Z",
                 "id": "5",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Connor Kihn",
+                  "fullName": "Shad Farrell",
                   "id": "6",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "8",
-                  "nextOccurrenceAt": "2014-09-11T09:20:29.756Z",
+                  "nextOccurrenceAt": "2010-11-26T00:55:36.529Z",
                   "reminderType": "once",
                 },
                 "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
@@ -1143,19 +1145,20 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"11\\",
 +             },
++             \\"completedAt\\": \\"2011-05-23T16:13:35.303Z\\",
 +             \\"id\\": \\"9\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Samantha Tremblay\\",
++               \\"fullName\\": \\"Soledad Simonis\\",
 +               \\"id\\": \\"10\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"12\\",
-+               \\"nextOccurrenceAt\\": \\"2019-08-24T10:48:02.286Z\\",
++               \\"nextOccurrenceAt\\": \\"2017-04-22T08:49:18.408Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
++             \\"title\\": \\"Blanditiis natus et eos itaque velit.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
@@ -1163,16 +1166,17 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"15\\",
 +             },
++             \\"completedAt\\": \\"2018-05-04T02:51:17.094Z\\",
 +             \\"id\\": \\"13\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Dorcas Dach\\",
++               \\"fullName\\": \\"Andres Thiel\\",
 +               \\"id\\": \\"14\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"16\\",
-+               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++               \\"nextOccurrenceAt\\": \\"2015-10-29T22:58:20.157Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
@@ -1193,8 +1197,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +           style={null}
 +         >
 +           <StepItem
-+             onPressName={[Function handleNavToPerson]}
-+             onSelect={[Function handleRowSelect]}
++             showCheckbox={false}
 +             step={
 +               Object {
 +                 \\"__typename\\": \\"Step\\",
@@ -1202,19 +1205,20 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"__typename\\": \\"Community\\",
 +                   \\"id\\": \\"11\\",
 +                 },
++                 \\"completedAt\\": \\"2011-05-23T16:13:35.303Z\\",
 +                 \\"id\\": \\"9\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Samantha Tremblay\\",
++                   \\"fullName\\": \\"Soledad Simonis\\",
 +                   \\"id\\": \\"10\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"12\\",
-+                   \\"nextOccurrenceAt\\": \\"2019-08-24T10:48:02.286Z\\",
++                   \\"nextOccurrenceAt\\": \\"2017-04-22T08:49:18.408Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"title\\": \\"Repudiandae esse blanditiis natus et eos itaque velit.\\",
++                 \\"title\\": \\"Blanditiis natus et eos itaque velit.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1225,8 +1229,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +           style={null}
 +         >
 +           <StepItem
-+             onPressName={[Function handleNavToPerson]}
-+             onSelect={[Function handleRowSelect]}
++             showCheckbox={false}
 +             step={
 +               Object {
 +                 \\"__typename\\": \\"Step\\",
@@ -1234,16 +1237,17 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"__typename\\": \\"Community\\",
 +                   \\"id\\": \\"15\\",
 +                 },
++                 \\"completedAt\\": \\"2018-05-04T02:51:17.094Z\\",
 +                 \\"id\\": \\"13\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Dorcas Dach\\",
++                   \\"fullName\\": \\"Andres Thiel\\",
 +                   \\"id\\": \\"14\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"16\\",
-+                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++                   \\"nextOccurrenceAt\\": \\"2015-10-29T22:58:20.157Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",

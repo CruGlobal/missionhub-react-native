@@ -28,6 +28,13 @@ import {
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
+import { PERSON_STEPS_QUERY } from '../../containers/ContactSteps/queries';
+import { apolloClient } from '../../apolloClient';
+import { STEPS_QUERY } from '../../containers/StepsScreen/queries';
+
+apolloClient.query = jest.fn();
+apolloClient.readQuery = jest.fn();
+apolloClient.writeQuery = jest.fn();
 
 const mockStore = configureStore([thunk]);
 // @ts-ignore
@@ -147,17 +154,15 @@ describe('addStep', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: { receiver_ids: receiverId, organization_ids: 'personal' },
-      include: getChallengesByFilterIncludes,
-      page: { limit: 1000 },
+    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
+      query: STEPS_QUERY,
+    });
+    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
     });
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callApiResult,
-      stepAddedResult,
-      callApiResult,
-    ]);
+    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
   });
 
   it('creates step with org', async () => {
@@ -196,17 +201,15 @@ describe('addStep', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: { receiver_ids: receiverId, organization_ids: orgId },
-      include: getChallengesByFilterIncludes,
-      page: { limit: 1000 },
+    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
+      query: STEPS_QUERY,
+    });
+    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
     });
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callApiResult,
-      stepAddedResult,
-      callApiResult,
-    ]);
+    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
   });
 
   it('creates step with custom step suggestion', async () => {
@@ -239,17 +242,15 @@ describe('addStep', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: { receiver_ids: receiverId, organization_ids: 'personal' },
-      include: getChallengesByFilterIncludes,
-      page: { limit: 1000 },
+    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
+      query: STEPS_QUERY,
+    });
+    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
     });
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callApiResult,
-      stepAddedResult,
-      callApiResult,
-    ]);
+    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
   });
 });
 
@@ -299,17 +300,15 @@ describe('create custom step', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: { receiver_ids: receiverId, organization_ids: 'personal' },
-      include: getChallengesByFilterIncludes,
-      page: { limit: 1000 },
+    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
+      query: STEPS_QUERY,
+    });
+    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
     });
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callApiResult,
-      stepAddedResult,
-      callApiResult,
-    ]);
+    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
   });
 
   it('creates custom step for me', async () => {
@@ -342,17 +341,15 @@ describe('create custom step', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: { receiver_ids: myId, organization_ids: 'personal' },
-      include: getChallengesByFilterIncludes,
-      page: { limit: 1000 },
+    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
+      query: STEPS_QUERY,
+    });
+    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: myId, completed: false },
     });
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callApiResult,
-      stepAddedResult,
-      callApiResult,
-    ]);
+    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
   });
 
   it('creates custom step for other person in org', async () => {
@@ -391,21 +388,19 @@ describe('create custom step', () => {
         },
       },
     );
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: { receiver_ids: receiverId, organization_ids: orgId },
-      include: getChallengesByFilterIncludes,
-      page: { limit: 1000 },
+    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
+      query: STEPS_QUERY,
+    });
+    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: false },
     });
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      callApiResult,
-      stepAddedResult,
-      callApiResult,
-    ]);
+    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
   });
 });
 
-describe('complete challenge', () => {
+describe('completeStep', () => {
   const stepId = 34556;
   const stepOrgId = '555';
   const step = {
@@ -471,15 +466,6 @@ describe('complete challenge', () => {
       challengeCompleteQuery,
       data,
     );
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_CHALLENGES_BY_FILTER,
-      expect.objectContaining({
-        filters: expect.objectContaining({
-          receiver_ids: receiverId,
-          organization_ids: stepOrgId,
-        }),
-      }),
-    );
     expect(
       trackAction,
     ).toHaveBeenCalledWith(
@@ -512,15 +498,6 @@ describe('complete challenge', () => {
     // @ts-ignore
     await store.dispatch(completeStep(noOrgStep, screen));
     expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_CHALLENGES_BY_FILTER,
-      expect.objectContaining({
-        filters: expect.objectContaining({
-          receiver_ids: receiverId,
-          organization_ids: 'personal',
-        }),
-      }),
-    );
-    expect(callApi).toHaveBeenCalledWith(
       REQUESTS.CHALLENGE_COMPLETE,
       challengeCompleteQuery,
       data,
@@ -552,7 +529,7 @@ describe('complete challenge', () => {
 });
 
 describe('deleteStepWithTracking', () => {
-  const step = { id: '123124' };
+  const step = { id: '123124', receiver: { id: '3' } };
   const screen = 'steps';
   const trackActionResult = { type: 'hello world' };
 

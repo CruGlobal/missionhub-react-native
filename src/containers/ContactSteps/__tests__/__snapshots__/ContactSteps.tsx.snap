@@ -349,8 +349,25 @@ exports[`renders correctly with completed steps 1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "3",
+              },
+              "completedAt": null,
               "id": "1",
-              "title": "Test Step",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Grace Dibbert",
+                "id": "2",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "4",
+                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "reminderType": "once",
+              },
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
           "key": "active",
@@ -358,9 +375,25 @@ exports[`renders correctly with completed steps 1`] = `
         Object {
           "data": Array [
             Object {
-              "completed_at": "time",
-              "id": "1",
-              "title": "Test Step",
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "7",
+              },
+              "completedAt": null,
+              "id": "5",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Kaden Ortiz",
+                "id": "6",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "8",
+                "nextOccurrenceAt": "2014-06-14T18:46:15.611Z",
+                "reminderType": "once",
+              },
+              "title": "Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.",
             },
           ],
           "key": "completed",
@@ -375,12 +408,19 @@ exports[`renders correctly with completed steps 1`] = `
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
     onLayout={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
     renderItem={[Function]}
     renderSectionFooter={[Function]}
     scrollEventThrottle={50}
@@ -389,8 +429,25 @@ exports[`renders correctly with completed steps 1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "3",
+              },
+              "completedAt": null,
               "id": "1",
-              "title": "Test Step",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Grace Dibbert",
+                "id": "2",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "4",
+                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "reminderType": "once",
+              },
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
           "key": "active",
@@ -398,9 +455,25 @@ exports[`renders correctly with completed steps 1`] = `
         Object {
           "data": Array [
             Object {
-              "completed_at": "time",
-              "id": "1",
-              "title": "Test Step",
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "7",
+              },
+              "completedAt": null,
+              "id": "5",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Kaden Ortiz",
+                "id": "6",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "8",
+                "nextOccurrenceAt": "2014-06-14T18:46:15.611Z",
+                "reminderType": "once",
+              },
+              "title": "Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.",
             },
           ],
           "key": "completed",
@@ -418,6 +491,7 @@ exports[`renders correctly with completed steps 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   >
+    <RCTRefreshControl />
     <View>
       <View
         onLayout={[Function]}
@@ -427,12 +501,29 @@ exports[`renders correctly with completed steps 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <AcceptedStepItem
-          onComplete={[Function]}
+        <StepItem
+          showName={false}
           step={
             Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "3",
+              },
+              "completedAt": null,
               "id": "1",
-              "title": "Test Step",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Grace Dibbert",
+                "id": "2",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "4",
+                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "reminderType": "once",
+              },
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             }
           }
           testID="stepItem"
@@ -530,13 +621,29 @@ exports[`renders correctly with completed steps 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <AcceptedStepItem
-          onComplete={[Function]}
+        <StepItem
+          showName={false}
           step={
             Object {
-              "completed_at": "time",
-              "id": "1",
-              "title": "Test Step",
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "7",
+              },
+              "completedAt": null,
+              "id": "5",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Kaden Ortiz",
+                "id": "6",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "8",
+                "nextOccurrenceAt": "2014-06-14T18:46:15.611Z",
+                "reminderType": "once",
+              },
+              "title": "Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.",
             }
           }
           testID="stepItem"
@@ -552,185 +659,6 @@ exports[`renders correctly with completed steps 1`] = `
             "height": 0,
           }
         }
-      />
-    </View>
-  </RCTScrollView>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
-            Object {
-              "borderRadius": 50,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {},
-              ],
-            ]
-          }
-        >
-          ADD A STEP OF FAITH
-        </Text>
-      </View>
-    </View>
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`renders correctly with org 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#ECEEF2",
-      "flex": 1,
-    }
-  }
->
-  <RCTScrollView
-    contentContainerStyle={
-      Object {
-        "paddingTop": 16,
-      }
-    }
-    contentInset={
-      Object {
-        "bottom": 90,
-      }
-    }
-    data={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "id": "1",
-              "title": "Test Step",
-            },
-          ],
-          "key": "active",
-        },
-      ]
-    }
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    renderItem={[Function]}
-    renderSectionFooter={[Function]}
-    scrollEventThrottle={50}
-    sections={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "id": "1",
-              "title": "Test Step",
-            },
-          ],
-          "key": "active",
-        },
-      ]
-    }
-    showsVerticalScrollIndicator={false}
-    stickyHeaderIndices={
-      Array [
-        0,
-      ]
-    }
-    stickySectionHeadersEnabled={true}
-    updateCellsBatchingPeriod={50}
-    windowSize={21}
-  >
-    <View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      />
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <AcceptedStepItem
-          onComplete={[Function]}
-          step={
-            Object {
-              "id": "1",
-              "title": "Test Step",
-            }
-          }
-          testID="stepItem"
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
       />
     </View>
   </RCTScrollView>
@@ -839,8 +767,25 @@ exports[`renders correctly with steps 1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "3",
+              },
+              "completedAt": null,
               "id": "1",
-              "title": "Test Step",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Grace Dibbert",
+                "id": "2",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "4",
+                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "reminderType": "once",
+              },
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
           "key": "active",
@@ -855,12 +800,19 @@ exports[`renders correctly with steps 1`] = `
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
     onLayout={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
     renderItem={[Function]}
     renderSectionFooter={[Function]}
     scrollEventThrottle={50}
@@ -869,8 +821,25 @@ exports[`renders correctly with steps 1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "3",
+              },
+              "completedAt": null,
               "id": "1",
-              "title": "Test Step",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Grace Dibbert",
+                "id": "2",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "4",
+                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "reminderType": "once",
+              },
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
           "key": "active",
@@ -887,6 +856,7 @@ exports[`renders correctly with steps 1`] = `
     updateCellsBatchingPeriod={50}
     windowSize={21}
   >
+    <RCTRefreshControl />
     <View>
       <View
         onLayout={[Function]}
@@ -896,12 +866,29 @@ exports[`renders correctly with steps 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <AcceptedStepItem
-          onComplete={[Function]}
+        <StepItem
+          showName={false}
           step={
             Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "3",
+              },
+              "completedAt": null,
               "id": "1",
-              "title": "Test Step",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Grace Dibbert",
+                "id": "2",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "4",
+                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "reminderType": "once",
+              },
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             }
           }
           testID="stepItem"
@@ -991,4 +978,134 @@ exports[`renders correctly with steps 1`] = `
     </View>
   </RCTSafeAreaView>
 </View>
+`;
+
+exports[`should paginate 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -40,10 +40,31 @@
+                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
+              },
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"7\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"5\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"id\\": \\"6\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"8\\",
++                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
++             },
+            ],
+            \\"key\\": \\"active\\",
+          },
+        ]
+      }
+@@ -93,11 +114,32 @@
+                  \\"id\\": \\"4\\",
+                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
++             },
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"7\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"5\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"id\\": \\"6\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"8\\",
++                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"reminderType\\": \\"once\\",
+                },
++               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
++             },
+            ],
+            \\"key\\": \\"active\\",
+          },
+        ]
+      }
+@@ -142,18 +184,57 @@
+                  \\"id\\": \\"4\\",
+                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
++             }
++           }
++           testID=\\"stepItem\\"
++         />
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <StepItem
++           showName={false}
++           step={
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"7\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"5\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"id\\": \\"6\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"8\\",
++                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
+              }
+            }
+            testID=\\"stepItem\\"
+          />
+        </View>
+        <View
+          onLayout={[Function onLayout]}
+          style={null}
++       />
++       <View
++         style={
++           Object {
++             \\"height\\": 0,
++           }
++         }
+        />
+      </View>
+    </RCTScrollView>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}"
 `;
