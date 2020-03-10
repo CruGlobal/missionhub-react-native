@@ -1133,8 +1133,8 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -404,10 +404,50 @@
-                \\"nextOccurrenceAt\\": \\"2014-09-11T09:20:29.756Z\\",
+@@ -406,10 +406,52 @@
+                \\"nextOccurrenceAt\\": \\"2010-11-26T00:55:36.529Z\\",
                 \\"reminderType\\": \\"once\\",
               },
               \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
@@ -1186,7 +1186,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -506,9 +546,80 @@
+@@ -508,9 +550,80 @@
                 }
               }
               testID=\\"stepItem\\"
