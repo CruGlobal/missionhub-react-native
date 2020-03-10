@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux-legacy';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { View } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
@@ -12,63 +13,63 @@ import ReminderDateText from '../../components/ReminderDateText';
 import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
-import { reminderSelector } from '../../selectors/stepReminders';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('stepReminder')
-class StepReminderScreen extends Component {
-  state = {
-    // @ts-ignore
-    date: (this.props.reminder && this.props.reminder.next_occurrence_at) || '',
-    disableBtn:
-      // @ts-ignore
-      !(this.props.reminder && this.props.reminder.next_occurrence_at),
-    // @ts-ignore
-    recurrence: this.props.reminder && this.props.reminder.reminder_type,
-  };
+const StepReminderScreen = () => {
+  const { t } = useTranslation('stepReminder');
+  const reminder = useNavigationParam('reminder');
+  const stepId = useNavigationParam('stepId');
+  const dispatch = useDispatch();
 
-  // @ts-ignore
-  handleChangeDate = date => {
+  const [date, setDate] = useState<Date | ''>(
+    (reminder && reminder.nextOccurrenceAt) || '',
+  );
+  const [disableBtn, setDisableBtn] = useState<boolean>(
+    !(reminder && reminder.nextOccurrenceAt),
+  );
+  const [recurrence, setRecurrence] = useState<ReminderTypeEnum>(
+    reminder && reminder.reminderType,
+  );
+  const handleChangeDate = (date: Date) => {
     if (!date) {
-      this.setState({ date: '', disableBtn: true });
+      setDate('');
+      setDisableBtn(true);
     } else {
-      this.setState({ date, disableBtn: false });
+      setDate(date);
+      setDisableBtn(false);
     }
   };
 
-  handleSetReminder = () => {
-    // @ts-ignore
-    const { dispatch, stepId } = this.props;
-    const { date, recurrence } = this.state;
-
+  const handleSetReminder = () => {
     dispatch(navigateBack());
-    dispatch(createStepReminder(stepId, date, recurrence));
+    date &&
+      dispatch(
+        createStepReminder(
+          stepId,
+          date,
+          recurrence ? recurrence : ReminderTypeEnum.once,
+        ),
+      );
   };
 
-  // @ts-ignore
-  handleRecurrenceChange = recurrence => {
-    this.setState({ recurrence });
+  const handleRecurrenceChange = (recurrence: ReminderTypeEnum) => {
+    setRecurrence(recurrence);
   };
 
-  renderHeader() {
+  const renderHeader = () => {
     const { backButton, headerText } = styles;
 
     return (
       <Header
         left={<BackButton iconStyle={backButton} />}
-        // @ts-ignore
-        center={<Text style={headerText}>{this.props.t('setReminder')}</Text>}
+        center={<Text style={headerText}>{t('setReminder')}</Text>}
       />
     );
-  }
+  };
 
-  renderDateInput() {
-    // @ts-ignore
-    const { t } = this.props;
-    const { date, recurrence } = this.state;
+  const renderDateInput = () => {
     const {
       dateInputContainer,
       inputHeaderText,
@@ -86,8 +87,8 @@ class StepReminderScreen extends Component {
     ];
 
     const sampleReminder = date && {
-      type: recurrence || ReminderTypeEnum.once,
-      next_occurrence_at: date,
+      reminderType: recurrence || ReminderTypeEnum.once,
+      nextOccurrenceAt: date,
     };
 
     return (
@@ -95,10 +96,12 @@ class StepReminderScreen extends Component {
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
         <DatePicker
           // @ts-ignore
+          testID="datePicker"
+          // @ts-ignore
           date={date}
           mode="datetime"
           minDate={today}
-          onDateChange={this.handleChangeDate}
+          onDateChange={handleChangeDate}
         >
           <View>
             <ReminderDateText
@@ -111,48 +114,29 @@ class StepReminderScreen extends Component {
         </DatePicker>
       </View>
     );
-  }
-
-  render() {
-    // @ts-ignore
-    const { t } = this.props;
-    const { recurrence } = this.state;
-    const { container, inputContainer } = styles;
-
-    return (
-      <View style={container}>
-        {this.renderHeader()}
-        <View style={inputContainer}>
-          {this.renderDateInput()}
-          <ReminderRepeatButtons
-            recurrence={recurrence}
-            onRecurrenceChange={this.handleRecurrenceChange}
-          />
-        </View>
-        <BottomButton
-          disabled={this.state.disableBtn}
-          text={t('done')}
-          onPress={this.handleSetReminder}
+  };
+  const { container, inputContainer } = styles;
+  return (
+    <View style={container}>
+      {renderHeader()}
+      <View style={inputContainer}>
+        {renderDateInput()}
+        <ReminderRepeatButtons
+          // @ts-ignore
+          testID="reminderRepeatButtons"
+          recurrence={recurrence}
+          onRecurrenceChange={handleRecurrenceChange}
         />
       </View>
-    );
-  }
-}
+      <BottomButton
+        testID="setReminderButton"
+        disabled={disableBtn}
+        text={t('done')}
+        onPress={handleSetReminder}
+      />
+    </View>
+  );
+};
 
-const mapStateToProps = (
-  // @ts-ignore
-  { stepReminders },
-  {
-    navigation: {
-      state: {
-        // @ts-ignore
-        params: { stepId },
-      },
-    },
-  },
-) => ({
-  stepId,
-  reminder: reminderSelector({ stepReminders }, { stepId }),
-});
-export default connect(mapStateToProps)(StepReminderScreen);
+export default StepReminderScreen;
 export const STEP_REMINDER_SCREEN = 'nav/STEP_REMINDER';

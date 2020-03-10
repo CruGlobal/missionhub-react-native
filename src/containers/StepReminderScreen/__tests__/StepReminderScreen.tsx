@@ -1,229 +1,218 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
-import { renderShallow, createMockNavState } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { createStepReminder } from '../../../actions/stepReminders';
-import { reminderSelector } from '../../../selectors/stepReminders';
 import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 
-import SetReminderScreen from '..';
+import StepReminderScreen from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/stepReminders');
 jest.mock('../../../selectors/stepReminders');
+jest.mock('../../../components/DatePicker', () => 'DatePicker');
 
 const mockDate = '2018-09-01';
 MockDate.set(mockDate);
 
-const mockStore = configureStore([thunk]);
 const stepId = '42234';
 const reminderId = '1';
 const reminder = {
   id: reminderId,
-  reminder_type: ReminderTypeEnum.once,
-  next_occurrence_at: mockDate,
+  reminderType: ReminderTypeEnum.once,
+  nextOccurrenceAt: mockDate,
 };
-const stepReminders = {
-  all: {
-    [reminderId]: reminder,
-  },
-};
-
-// @ts-ignore
-let component;
-// @ts-ignore
-let instance;
-// @ts-ignore
-let store;
 
 const navigateBackResult = { type: 'navigated back' };
 const createStepReminderResult = { type: 'created step reminder' };
 
-// @ts-ignore
-navigateBack.mockReturnValue(navigateBackResult);
-// @ts-ignore
-createStepReminder.mockReturnValue(createStepReminderResult);
-
-const createComponent = () => {
-  store = mockStore({ stepReminders });
-
-  component = renderShallow(
-    // @ts-ignore
-    <SetReminderScreen navigation={createMockNavState({ stepId })} />,
-    store,
-  );
-  instance = component.instance();
-};
+(navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
+(createStepReminder as jest.Mock).mockReturnValue(createStepReminderResult);
 
 describe('render', () => {
   describe('reminder in props', () => {
-    beforeEach(() => {
-      // @ts-ignore
-      reminderSelector.mockReturnValue(reminder);
-      createComponent();
-    });
-
     it('renders correctly', () => {
-      // @ts-ignore
-      expect(component).toMatchSnapshot();
-    });
-
-    it('selects reminder from Redux', () => {
-      expect(reminderSelector).toHaveBeenCalledWith(
-        { stepReminders },
-        { stepId },
-      );
+      renderWithContext(<StepReminderScreen />, {
+        navParams: {
+          reminder,
+          stepId,
+        },
+      }).snapshot();
     });
   });
 
   describe('no reminder in props', () => {
-    beforeEach(() => {
-      // @ts-ignore
-      reminderSelector.mockReturnValue(null);
-      createComponent();
-    });
-
     it('renders correctly', () => {
-      // @ts-ignore
-      expect(component).toMatchSnapshot();
+      renderWithContext(<StepReminderScreen />, {
+        navParams: {
+          reminder: null,
+          stepId,
+        },
+      }).snapshot();
     });
   });
 });
 
 describe('handleChangeDate', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    reminderSelector.mockReturnValue(null);
-    createComponent();
-  });
-
+  const newDate = '2020-03-10';
   describe('date passed in', () => {
-    beforeEach(() => {
-      // @ts-ignore
-      component
-        .childAt(1)
-        .childAt(0)
-        .childAt(1)
-        .props()
-        .onDateChange(mockDate);
+    it('sets new state and renders', () => {
+      const { getByTestId, snapshot } = renderWithContext(
+        <StepReminderScreen />,
+        {
+          navParams: {
+            reminder,
+            stepId,
+          },
+        },
+      );
+      fireEvent(getByTestId('datePicker'), 'onDateChange', newDate);
 
-      // @ts-ignore
-      component.update();
-    });
-
-    it('sets new state', () => {
-      // @ts-ignore
-      expect(instance.state).toEqual({
-        date: mockDate,
-        disableBtn: false,
-        recurrence: null,
-      });
-    });
-
-    it('renders correctly', () => {
-      // @ts-ignore
-      expect(component).toMatchSnapshot();
+      snapshot();
     });
   });
 
   describe('date not passed in', () => {
-    beforeEach(() => {
-      // @ts-ignore
-      component
-        .childAt(1)
-        .childAt(0)
-        .childAt(1)
-        .props()
-        .onDateChange(null);
+    it('sets new state and renders', () => {
+      const newDate = '2020-03-10';
+      const { getByTestId, snapshot } = renderWithContext(
+        <StepReminderScreen />,
+        {
+          navParams: {
+            reminder: null,
+            stepId,
+          },
+        },
+      );
+      fireEvent(getByTestId('datePicker'), 'onDateChange', newDate);
 
-      // @ts-ignore
-      component.update();
+      snapshot();
+    });
+  });
+
+  describe('handleRecurrenceChange', () => {
+    describe('reminder passed in', () => {
+      it('sets new state', () => {
+        const { getByTestId, snapshot } = renderWithContext(
+          <StepReminderScreen />,
+          {
+            navParams: {
+              reminder,
+              stepId,
+            },
+          },
+        );
+        fireEvent(
+          getByTestId('reminderRepeatButtons'),
+          'onRecurrenceChange',
+          ReminderTypeEnum.daily,
+        );
+
+        snapshot();
+      });
     });
 
-    it('sets new state', () => {
-      // @ts-ignore
-      expect(instance.state).toEqual({
-        date: '',
-        disableBtn: true,
-        recurrence: null,
+    describe('reminder not passed in', () => {
+      it('sets new state', () => {
+        const { getByTestId, snapshot } = renderWithContext(
+          <StepReminderScreen />,
+          {
+            navParams: {
+              reminder: null,
+              stepId,
+            },
+          },
+        );
+        fireEvent(
+          getByTestId('reminderRepeatButtons'),
+          'onRecurrenceChange',
+          ReminderTypeEnum.daily,
+        );
+
+        snapshot();
       });
     });
   });
-});
 
-describe('handleRecurrenceChange', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    reminderSelector.mockReturnValue(null);
-    createComponent();
+  describe('handleSetReminder', () => {
+    describe('reminder not passed in', () => {
+      it('calls createStepReminder and navigates back', async () => {
+        const { getByTestId, snapshot } = renderWithContext(
+          <StepReminderScreen />,
+          {
+            navParams: {
+              reminder: null,
+              stepId,
+            },
+          },
+        );
 
-    // @ts-ignore
-    component
-      .childAt(1)
-      .childAt(1)
-      .props()
-      .onRecurrenceChange(ReminderTypeEnum.once);
+        await fireEvent(getByTestId('datePicker'), 'onDateChange', newDate);
+        await fireEvent(
+          getByTestId('reminderRepeatButtons'),
+          'onRecurrenceChange',
+          ReminderTypeEnum.daily,
+        );
+        await fireEvent(getByTestId('setReminderButton'), 'onPress');
 
-    // @ts-ignore
-    component.update();
-  });
+        expect(navigateBack).toHaveBeenCalled();
+        expect(createStepReminder).toHaveBeenCalledWith(
+          stepId,
+          newDate,
+          ReminderTypeEnum.daily,
+        );
+        snapshot();
+      });
 
-  it('sets new state', () => {
-    // @ts-ignore
-    expect(instance.state).toEqual({
-      date: '',
-      disableBtn: true,
-      recurrence: ReminderTypeEnum.once,
+      it('calls createStepReminder without recurrence', async () => {
+        const { getByTestId, snapshot } = renderWithContext(
+          <StepReminderScreen />,
+          {
+            navParams: {
+              reminder: null,
+              stepId,
+            },
+          },
+        );
+
+        await fireEvent(getByTestId('datePicker'), 'onDateChange', newDate);
+
+        await fireEvent(getByTestId('setReminderButton'), 'onPress');
+
+        expect(navigateBack).toHaveBeenCalled();
+        expect(createStepReminder).toHaveBeenCalledWith(
+          stepId,
+          newDate,
+          ReminderTypeEnum.once,
+        );
+        snapshot();
+      });
     });
-  });
 
-  it('renders correctly', () => {
-    // @ts-ignore
-    expect(component).toMatchSnapshot();
-  });
-});
+    describe('reminder passed in', () => {
+      it('calls createStepReminder and navigates back', async () => {
+        const { getByTestId, snapshot } = renderWithContext(
+          <StepReminderScreen />,
+          {
+            navParams: {
+              reminder,
+              stepId,
+            },
+          },
+        );
 
-describe('handleSetReminder', () => {
-  const recurrence = 'ROBERT';
+        await fireEvent(getByTestId('setReminderButton'), 'onPress');
 
-  beforeEach(() => {
-    // @ts-ignore
-    component
-      .childAt(1)
-      .childAt(0)
-      .childAt(1)
-      .props()
-      .onDateChange(mockDate);
-    // @ts-ignore
-    component
-      .childAt(1)
-      .childAt(1)
-      .props()
-      .onRecurrenceChange(recurrence);
-    // @ts-ignore
-    component
-      .childAt(2)
-      .props()
-      .onPress();
-
-    // @ts-ignore
-    component.update();
-  });
-
-  it('navigates back and creates step', () => {
-    expect(navigateBack).toHaveBeenCalled();
-    expect(createStepReminder).toHaveBeenCalledWith(
-      stepId,
-      mockDate,
-      recurrence,
-    );
-    // @ts-ignore
-    expect(store.getActions()).toEqual([
-      navigateBackResult,
-      createStepReminderResult,
-    ]);
+        expect(navigateBack).toHaveBeenCalled();
+        expect(createStepReminder).toHaveBeenCalledWith(
+          stepId,
+          reminder.nextOccurrenceAt,
+          reminder.reminderType,
+        );
+        snapshot();
+      });
+    });
   });
 });
