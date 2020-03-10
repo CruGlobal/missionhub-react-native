@@ -32,13 +32,11 @@ const IconMessageScreen = ({
       left={onBack ? <BackButton customNavigate={onBack} /> : null}
       right={onSkip ? <Skip onSkip={onSkip} /> : null}
     />
-    <Flex align="center" justify="center" value={1} style={styles.content}>
-      <Flex align="start" justify="center" value={4}>
-        <Image source={iconPath} style={styles.image} />
-        <Text style={styles.text}>{mainText}</Text>
-      </Flex>
-      <BottomButton onPress={onComplete} text={buttonText} />
-    </Flex>
+    <View style={styles.content}>
+      <Image source={iconPath} style={styles.image} />
+      <Text style={styles.text}>{mainText}</Text>
+    </View>
+    <BottomButton onPress={onComplete} text={buttonText} />
   </View>
 );
 
