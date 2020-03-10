@@ -105,52 +105,46 @@ exports[`WelcomeScreen should render correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <Flex
-    align="center"
-    justify="center"
+  <View
     style={
       Object {
+        "alignItems": "flex-start",
+        "justifyContent": "flex-start",
         "paddingHorizontal": 60,
+        "paddingVertical": 36,
       }
     }
-    value={1}
   >
-    <Flex
-      align="start"
-      justify="center"
-      value={3}
+    <Text
+      header={true}
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 48,
+        }
+      }
     >
-      <Text
-        header={true}
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 48,
-          }
+      welcome!
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "lineHeight": 32,
+          "paddingVertical": 10,
+          "textAlign": "left",
         }
-      >
-        welcome!
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-      >
-        Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.
-      </Text>
-    </Flex>
-    <BottomButton
-      onPress={[Function]}
-      testID="get-started"
-      text="Continue"
-    />
-  </Flex>
+      }
+    >
+      Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.
+    </Text>
+  </View>
+  <BottomButton
+    onPress={[Function]}
+    testID="get-started"
+    text="Continue"
+  />
 </View>
 `;
 
@@ -259,100 +253,99 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <Flex
-    align="center"
-    justify="center"
+  <View
     style={
       Object {
+        "alignItems": "flex-start",
+        "justifyContent": "flex-start",
         "paddingHorizontal": 60,
+        "paddingVertical": 36,
       }
     }
-    value={1}
   >
-    <Flex
-      align="start"
-      justify="center"
-      value={3}
+    <Text
+      header={true}
+      style={
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 48,
+        }
+      }
     >
-      <Text
-        header={true}
-        style={
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 48,
-          }
+      welcome!
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "lineHeight": 32,
+          "paddingVertical": 10,
+          "textAlign": "left",
         }
-      >
-        welcome!
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          }
-        }
-      >
-        Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.
-      </Text>
-    </Flex>
-    <Flex
-      align="center"
-      justify="start"
-      value={1}
+      }
     >
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "500",
-            "letterSpacing": 1.5,
-            "paddingTop": 2,
-          }
+      Growing closer to God involves helping others experience Him. MissionHub joins you in that journey by suggesting steps of faith to take with others.
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 32,
+        "position": "absolute",
+      }
+    }
+  >
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
         }
-        onPress={[Function]}
-        pill={true}
-        style={
-          Object {
-            "backgroundColor": "#52C5DC",
-            "height": 48,
-            "margin": 8,
-            "width": 670,
-          }
+      }
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "#52C5DC",
+          "height": 48,
+          "margin": 8,
+          "width": 670,
         }
-        testID="sign-in"
-        text="SIGN IN"
-      />
-      <Button
-        buttonTextStyle={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "fontWeight": "500",
-            "letterSpacing": 1.5,
-            "paddingTop": 2,
-          }
+      }
+      testID="sign-in"
+      text="SIGN IN"
+    />
+    <Button
+      buttonTextStyle={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "letterSpacing": 1.5,
+          "paddingTop": 2,
         }
-        onPress={[Function]}
-        pill={true}
-        style={
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-            "height": 48,
-            "margin": 8,
-            "width": 670,
-          }
+      }
+      onPress={[Function]}
+      pill={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderColor": "#52C5DC",
+          "borderWidth": 1,
+          "height": 48,
+          "margin": 8,
+          "width": 670,
         }
-        testID="get-started-sign-in-variant"
-        text="GET STARTED"
-      />
-    </Flex>
-  </Flex>
+      }
+      testID="get-started-sign-in-variant"
+      text="GET STARTED"
+    />
+  </RCTSafeAreaView>
 </View>
 `;
