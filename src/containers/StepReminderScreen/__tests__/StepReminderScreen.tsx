@@ -160,7 +160,7 @@ describe('handleChangeDate', () => {
         expect(navigateBack).toHaveBeenCalled();
         expect(createStepReminder).toHaveBeenCalledWith(
           stepId,
-          newDate,
+          new Date(newDate),
           ReminderTypeEnum.daily,
         );
         snapshot();
@@ -184,7 +184,7 @@ describe('handleChangeDate', () => {
         expect(navigateBack).toHaveBeenCalled();
         expect(createStepReminder).toHaveBeenCalledWith(
           stepId,
-          newDate,
+          new Date(newDate),
           ReminderTypeEnum.once,
         );
         snapshot();
@@ -208,7 +208,7 @@ describe('handleChangeDate', () => {
         expect(navigateBack).toHaveBeenCalled();
         expect(createStepReminder).toHaveBeenCalledWith(
           stepId,
-          reminder.nextOccurrenceAt,
+          new Date(reminder.nextOccurrenceAt),
           reminder.reminderType,
         );
         snapshot();
