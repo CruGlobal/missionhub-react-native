@@ -1,15 +1,15 @@
 import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import i18next from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
 
-import SelectStepExplainerModal, { getExplainerData } from '..';
+import SelectStepExplainerModal, { AddStepExplainer } from '..';
 
 const onClose = jest.fn();
 
 let screen: ReturnType<typeof renderWithContext>;
-const mockText = 'test';
 
 beforeEach(() => {
   screen = renderWithContext(<SelectStepExplainerModal onClose={onClose} />);
@@ -29,52 +29,42 @@ describe('presses buttons', () => {
 });
 
 describe('explainer data', () => {
-  const t = jest.fn().mockReturnValue(mockText);
   it('part 1', () => {
-    expect(getExplainerData(0, t)).toEqual({
+    expect(AddStepExplainer[0]).toEqual({
       source: expect.anything(),
-      text: mockText,
+      text: i18next.t('selectStepExplainer:part1'),
     });
-    expect(t).toHaveBeenCalledWith('selectStepExplainer:part1');
   });
   it('part 2', () => {
-    expect(getExplainerData(1, t)).toEqual({
+    expect(AddStepExplainer[1]).toEqual({
       source: expect.anything(),
-      text: mockText,
+      text: i18next.t('selectStepExplainer:part2'),
       icon: 'filterIcon',
-      title: mockText,
+      title: i18next.t('stepTypes:relate'),
     });
-    expect(t).toHaveBeenCalledWith('selectStepExplainer:part2');
-    expect(t).toHaveBeenCalledWith('stepTypes:relate');
   });
   it('part 3', () => {
-    expect(getExplainerData(2, t)).toEqual({
+    expect(AddStepExplainer[2]).toEqual({
       source: expect.anything(),
-      text: mockText,
+      text: i18next.t('selectStepExplainer:part3'),
       icon: 'filterIcon',
-      title: mockText,
+      title: i18next.t('stepTypes:pray'),
     });
-    expect(t).toHaveBeenCalledWith('selectStepExplainer:part3');
-    expect(t).toHaveBeenCalledWith('stepTypes:pray');
   });
   it('part 4', () => {
-    expect(getExplainerData(3, t)).toEqual({
+    expect(AddStepExplainer[3]).toEqual({
       source: expect.anything(),
-      text: mockText,
+      text: i18next.t('selectStepExplainer:part4'),
       icon: 'filterIcon',
-      title: mockText,
+      title: i18next.t('stepTypes:care'),
     });
-    expect(t).toHaveBeenCalledWith('selectStepExplainer:part4');
-    expect(t).toHaveBeenCalledWith('stepTypes:care');
   });
   it('part 5', () => {
-    expect(getExplainerData(4, t)).toEqual({
+    expect(AddStepExplainer[4]).toEqual({
       source: expect.anything(),
-      text: mockText,
+      text: i18next.t('selectStepExplainer:part5'),
       icon: 'filterIcon',
-      title: mockText,
+      title: i18next.t('stepTypes:share'),
     });
-    expect(t).toHaveBeenCalledWith('selectStepExplainer:part5');
-    expect(t).toHaveBeenCalledWith('stepTypes:share');
   });
 });

@@ -53,11 +53,45 @@ exports[`renders correctly renders correctly 1`] = `
       }
       data={
         Array [
-          0,
-          1,
-          2,
-          3,
-          4,
+          Object {
+            "source": Object {
+              "testUri": "../../../assets/images/explainerModal1.png",
+            },
+            "text": "MissionHub helps you
+see four ways to shine light in someone's life.",
+          },
+          Object {
+            "icon": "filterIcon",
+            "source": Object {
+              "testUri": "../../../assets/images/explainerModal2.png",
+            },
+            "text": "Ideas to help you deepen this relationship and build trust.",
+            "title": "Relate",
+          },
+          Object {
+            "icon": "filterIcon",
+            "source": Object {
+              "testUri": "../../../assets/images/explainerModal3.png",
+            },
+            "text": "Ways to invite God into your relationship with this person.",
+            "title": "Pray",
+          },
+          Object {
+            "icon": "filterIcon",
+            "source": Object {
+              "testUri": "../../../assets/images/explainerModal4.png",
+            },
+            "text": "Ideas to help you demonstrate that you care about this person.",
+            "title": "Care",
+          },
+          Object {
+            "icon": "filterIcon",
+            "source": Object {
+              "testUri": "../../../assets/images/explainerModal5.png",
+            },
+            "text": "Ways to help this person know the truth about God or talk about what they believe.",
+            "title": "Share",
+          },
         ]
       }
       decelerationRate="fast"
@@ -245,7 +279,7 @@ see four ways to shine light in someone's life.
                 resizeMode="cover"
                 source={
                   Object {
-                    "testUri": "../../../assets/images/explainerModal1.png",
+                    "testUri": "../../../assets/images/explainerModal2.png",
                   }
                 }
                 style={
@@ -389,8 +423,7 @@ see four ways to shine light in someone's life.
                   ]
                 }
               >
-                MissionHub helps you
-see four ways to shine light in someone's life.
+                Ideas to help you deepen this relationship and build trust.
               </Text>
             </View>
           </View>
@@ -429,7 +462,7 @@ see four ways to shine light in someone's life.
                 resizeMode="cover"
                 source={
                   Object {
-                    "testUri": "../../../assets/images/explainerModal1.png",
+                    "testUri": "../../../assets/images/explainerModal3.png",
                   }
                 }
                 style={
@@ -573,7 +606,7 @@ see four ways to shine light in someone's life.
                   ]
                 }
               >
-                MissionHub ...
+                Ways to invite God into your relationship with this person.
               </Text>
             </View>
           </View>
@@ -612,7 +645,7 @@ see four ways to shine light in someone's life.
                 resizeMode="cover"
                 source={
                   Object {
-                    "testUri": "../../../assets/images/explainerModal1.png",
+                    "testUri": "../../../assets/images/explainerModal4.png",
                   }
                 }
                 style={
@@ -756,7 +789,7 @@ see four ways to shine light in someone's life.
                   ]
                 }
               >
-                MissionHub ...
+                Ideas to help you demonstrate that you care about this person.
               </Text>
             </View>
           </View>
@@ -795,7 +828,7 @@ see four ways to shine light in someone's life.
                 resizeMode="cover"
                 source={
                   Object {
-                    "testUri": "../../../assets/images/explainerModal1.png",
+                    "testUri": "../../../assets/images/explainerModal5.png",
                   }
                 }
                 style={
@@ -939,7 +972,7 @@ see four ways to shine light in someone's life.
                   ]
                 }
               >
-                MissionHub ...
+                Ways to help this person know the truth about God or talk about what they believe.
               </Text>
             </View>
           </View>

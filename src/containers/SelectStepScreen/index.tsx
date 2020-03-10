@@ -117,16 +117,16 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     <Header
       left={<BackButton />}
       right={
-        enableSkipButton ? (
-          <Skip onSkip={handleSkip} />
-        ) : (
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}
+          {/* TODO: Plug in the right information icon */}
           <IconButton
             name="filterIcon"
             type="MissionHub"
             onPress={() => setIsExplainerOpen(true)}
             testID="SelectStepExplainerIconButton"
           />
-        )
+        </View>
       }
     />
   );

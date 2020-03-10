@@ -237,11 +237,11 @@ export default {
   selectStepExplainer: {
     part1:
       "MissionHub helps you\nsee four ways to shine light in someone's life.",
-    part2:
-      "MissionHub helps you\nsee four ways to shine light in someone's life.",
-    part3: 'MissionHub ...',
-    part4: 'MissionHub ...',
-    part5: 'MissionHub ...',
+    part2: 'Ideas to help you deepen this relationship and build trust.',
+    part3: 'Ways to invite God into your relationship with this person.',
+    part4: 'Ideas to help you demonstrate that you care about this person.',
+    part5:
+      'Ways to help this person know the truth about God or talk about what they believe.',
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
