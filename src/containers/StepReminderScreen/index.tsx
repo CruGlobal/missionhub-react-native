@@ -14,24 +14,28 @@ import { Text } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
+import { StepItem_reminder as ReminderType } from '../../components/StepItem/__generated__/StepItem';
 
 import styles from './styles';
 
 const StepReminderScreen = () => {
   const { t } = useTranslation('stepReminder');
-  const reminder = useNavigationParam('reminder');
+  const reminder: ReminderType = useNavigationParam('reminder');
   const stepId = useNavigationParam('stepId');
   const dispatch = useDispatch();
 
-  const [date, setDate] = useState<Date | ''>(
+  const [date, setDate] = useState<Date | string>(
     (reminder && reminder.nextOccurrenceAt) || '',
   );
+
   const [disableBtn, setDisableBtn] = useState<boolean>(
     !(reminder && reminder.nextOccurrenceAt),
   );
+
   const [recurrence, setRecurrence] = useState<ReminderTypeEnum>(
     reminder && reminder.reminderType,
   );
+
   const handleChangeDate = (date: Date) => {
     if (!date) {
       setDate('');
@@ -48,7 +52,7 @@ const StepReminderScreen = () => {
       dispatch(
         createStepReminder(
           stepId,
-          date,
+          date as Date,
           recurrence ? recurrence : ReminderTypeEnum.once,
         ),
       );
