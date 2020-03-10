@@ -48,7 +48,7 @@ export const PeopleScreen = ({
   person,
 }: PeopleScreenProps) => {
   useAnalytics('people', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
-  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
+  useFocusEffect(useCallback(() => checkForUnreadComments(), []));
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
@@ -66,7 +66,7 @@ export const PeopleScreen = ({
   };
 
   const handleRefresh = () => {
-    dispatch(checkForUnreadComments());
+    checkForUnreadComments();
     return dispatch(getMyPeople());
   };
 

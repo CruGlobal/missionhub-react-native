@@ -43,7 +43,7 @@ interface StepsScreenProps {
 const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const { t } = useTranslation('stepsTab');
   useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
-  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
+  useFocusEffect(useCallback(() => checkForUnreadComments(), []));
 
   const {
     data: {
@@ -61,7 +61,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const hasSteps = steps && steps.length > 0;
 
   const handleRefresh = () => {
-    dispatch(checkForUnreadComments());
+    checkForUnreadComments();
     refetch();
   };
 

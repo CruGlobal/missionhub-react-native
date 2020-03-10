@@ -136,7 +136,7 @@ const GroupsListScreen = ({
   scrollToId,
 }: GroupsListScreenProps) => {
   useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
-  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
+  useFocusEffect(useCallback(() => checkForUnreadComments(), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);

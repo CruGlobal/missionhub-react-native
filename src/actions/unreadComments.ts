@@ -1,12 +1,24 @@
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import gql from 'graphql-tag';
 
 import { REQUESTS } from '../api/routes';
 import { OrganizationsState } from '../reducers/organizations';
+import { apolloClient } from '../apolloClient';
 
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
-import { refreshCommunity, getMyCommunities } from './organizations';
+import { refreshCommunity } from './organizations';
+
+const GET_UNREAD_COMMENTS_COUNT = gql`
+  query getUnreadCommentsCount() {
+    communities() {
+      nodes {
+        unreadCommentsCount
+      }
+    }
+  }
+`;
 
 export function markCommentsRead(orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
@@ -46,16 +58,7 @@ function refreshUnreadComments(orgId: string) {
 }
 
 export function checkForUnreadComments() {
-  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
-    const query = {
-      include:
-        'organizational_permissions,organizational_permissions.organization',
-      'fields[person]': 'organizational_permissions,unread_comments_count',
-      'fields[organizational_permissions]': 'organization',
-      'fields[organization]': 'unread_comments_count',
-    };
-
-    dispatch(callApi(REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION, query));
-    dispatch(getMyCommunities());
-  };
+  apolloClient.query<getUnreadCommentsCount, getUnreadCommentsCountVariables>({
+    query: GET_UNREAD_COMMENTS_COUNT,
+  });
 }

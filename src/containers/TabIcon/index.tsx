@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux-legacy';
 import i18next from 'i18next';
+import { useApolloClient } from '@apollo/react-hooks';
 
 import Flex from '../../components/Flex';
 import Icon from '../../components/Icon';
@@ -11,6 +12,8 @@ import styles from './styles';
 
 // @ts-ignore
 function TabIcon({ name, tintColor, showNotification }) {
+  const client = useApolloClient();
+
   const icon = (
     <Icon
       type="MissionHub"
