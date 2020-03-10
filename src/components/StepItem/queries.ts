@@ -7,6 +7,7 @@ export const STEP_ITEM_FRAGMENT = gql`
   fragment StepItem on Step {
     id
     title
+    completedAt
     receiver {
       id
       fullName
