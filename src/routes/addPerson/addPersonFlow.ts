@@ -26,6 +26,9 @@ import SuggestedStepDetailScreen, {
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import { wrapNextAction } from '../helpers';
+import PersonCategoryScreen, {
+  PERSON_CATEGORY_SCREEN,
+} from '../../containers/PersonCategoryScreen';
 
 // @ts-ignore
 export const AddPersonFlowScreens = onFlowComplete => ({
@@ -36,8 +39,17 @@ export const AddPersonFlowScreens = onFlowComplete => ({
         return dispatch(navigateBack());
       }
 
-      const { id: personId } = person;
-
+      dispatch(
+        navigatePush(PERSON_CATEGORY_SCREEN, {
+          person,
+          orgId,
+        }),
+      );
+    },
+  ),
+  [PERSON_CATEGORY_SCREEN]: wrapNextAction(
+    PersonCategoryScreen,
+    ({ personId, orgId }: { personId: string; orgId: string }) => dispatch => {
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           enableBackButton: false,

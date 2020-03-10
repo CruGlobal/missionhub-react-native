@@ -196,6 +196,10 @@ export default {
       part2: ' to help grow closer to God.',
       part3: ' Who are they?',
     },
+    addPersonPrompt: {
+      part1: 'How do you know',
+      part2: 'each other?',
+    },
     family: 'Family',
     friend: 'Friend',
     neighbor: 'Neighbor',
@@ -214,6 +218,11 @@ export default {
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
+    prompt: {
+      part1: 'Who would you like',
+      part2: 'to take steps of faith with',
+      part3: 'this week?',
+    },
   },
   addStep: {
     header: 'Create your own step',

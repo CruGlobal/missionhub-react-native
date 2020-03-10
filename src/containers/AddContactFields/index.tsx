@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 
 import React, { Component, Fragment } from 'react';
-import { KeyboardAvoidingView } from 'react-native';
+import { KeyboardAvoidingView, View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -20,7 +20,7 @@ import {
 import styles from './styles';
 
 // @ts-ignore
-@withTranslation()
+@withTranslation('addContact')
 class AddContactFields extends Component {
   state = {
     firstName: '',
@@ -170,6 +170,13 @@ class AddContactFields extends Component {
     return (
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
+          <Flex value={2} justify="end" align="center">
+            <View style={styles.textWrap}>
+              <Text style={styles.addPersonText}>{t('prompt.part1')}</Text>
+              <Text style={styles.addPersonText}>{t('prompt.part2')}</Text>
+              <Text style={styles.addPersonText}>{t('prompt.part3')}</Text>
+            </View>
+          </Flex>
           <Text style={styles.label}>
             {t('profileLabels.firstNameRequired')}
           </Text>
@@ -192,7 +199,7 @@ class AddContactFields extends Component {
             editable={!personHasOrgPermission}
             onChangeText={this.updateLastName}
             value={lastName}
-            placeholder={t('profileLabels.lastName')}
+            placeholder={t('profileLabels.lastNameOptional')}
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}

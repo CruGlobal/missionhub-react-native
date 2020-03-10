@@ -7,6 +7,15 @@ export default StyleSheet.create({
     paddingVertical: 50,
     paddingHorizontal: 25,
   },
+  textWrap: { alignItems: 'center', marginBottom: 30 },
+  addPersonText: {
+    fontFamily: 'SourceSansPro-Light',
+    color: theme.white,
+    fontSize: 24,
+    fontWeight: '300',
+    lineHeight: 30,
+    textAlign: 'center',
+  },
   label: {
     fontSize: 13,
     marginTop: 15,

@@ -10,4 +10,8 @@ export default StyleSheet.create({
   scrollView: {
     flex: 1,
   },
+  disabledButton: {
+    backgroundColor: theme.accentColor,
+    color: '#007398',
+  },
 });

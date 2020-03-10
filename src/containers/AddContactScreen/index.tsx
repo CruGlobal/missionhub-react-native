@@ -21,6 +21,8 @@ import {
   getPersonPhoneNumber,
   hasOrgPermissions,
 } from '../../utils/common';
+import BackIcon from '../../../assets/images/backIcon.svg';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -173,19 +175,12 @@ class AddContactScreen extends Component {
       <View style={styles.container}>
         <Analytics screenName={['people', 'add']} />
         <Header
-          right={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
+          left={
+            <BackIcon
+              style={{ marginLeft: 10 }}
               onPress={this.completeWithoutSave}
+              color={theme.white}
             />
-          }
-          title={
-            person
-              ? t('editPerson').toUpperCase()
-              : orgName
-              ? t('addToOrg', { orgName })
-              : t('addSomeone').toUpperCase()
           }
         />
         <ScrollView style={styles.scrollView}>
@@ -198,7 +193,11 @@ class AddContactScreen extends Component {
             onUpdateData={this.handleUpdateData}
           />
         </ScrollView>
-        <BottomButton onPress={this.savePerson} text={t('done')} />
+        <BottomButton
+          style={!this.state.person.firstName ? styles.disabledButton : null}
+          onPress={this.savePerson}
+          text={t('continue')}
+        />
       </View>
     );
   }

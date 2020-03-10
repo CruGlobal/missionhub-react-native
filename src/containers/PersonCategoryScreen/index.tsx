@@ -4,16 +4,26 @@ import { useDispatch } from 'react-redux';
 import { View } from 'react-native';
 import { Text, Flex } from '../../components/common';
 import PersonCategoryButton from '../../components/PersonCategoryButton';
+import { useMutation } from '@apollo/react-hooks';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { useNavigationParam } from 'react-navigation-hooks';
+import { Person } from '../../reducers/people';
+import { UPDATE_PERSON } from '../../containers/SetupScreen/queries';
+import {
+  UpdatePerson,
+  UpdatePersonVariables,
+} from '../../containers/SetupScreen/__generated__/UpdatePerson';
 
 import styles from './styles';
 
 interface PersonCategoryScreenProps {
   next: (props: {
+    personId?: string;
+    orgId?: string;
     relationshipType?: RelationshipTypeEnum;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
@@ -23,10 +33,56 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
   const { t } = useTranslation('categories');
   const dispatch = useDispatch();
   const [category, setCategory] = useState<RelationshipTypeEnum | null>(null);
+  const person: Person = useNavigationParam('person');
+  const orgId: string = useNavigationParam('orgId');
 
-  const selectCategory = (relationshipType: RelationshipTypeEnum) => {
+  const [updatePerson] = useMutation<UpdatePerson, UpdatePersonVariables>(
+    UPDATE_PERSON,
+  );
+
+  const selectCategory = async (relationshipType: RelationshipTypeEnum) => {
     setCategory(relationshipType);
-    dispatch(next({ relationshipType }));
+    if (person) {
+      const { data } = await updatePerson({
+        variables: {
+          input: {
+            id: person.id,
+            relationshipType,
+          },
+        },
+      });
+      data?.updatePerson?.person &&
+        dispatch(next({ personId: data?.updatePerson?.person.id, orgId }));
+    } else {
+      dispatch(next({ relationshipType }));
+    }
+  };
+
+  const getText = () => {
+    if (person) {
+      return (
+        <>
+          <Text style={styles.chooseCategoryText}>
+            {t('addPersonPrompt.part1')}
+          </Text>
+          <Text style={styles.chooseCategoryText}>
+            {t('addPersonPrompt.part2')}
+          </Text>
+        </>
+      );
+    } else {
+      <>
+        <Text style={styles.chooseCategoryText}>
+          {t('onboardingPrompt.part1')}
+        </Text>
+        <Text style={styles.chooseCategoryText}>
+          {t('onboardingPrompt.part2')}
+        </Text>
+        <Text style={styles.chooseCategoryText}>
+          {t('onboardingPrompt.part3')}
+        </Text>
+      </>;
+    }
   };
 
   const relationshipTypeList = Object.values(RelationshipTypeEnum).slice(1, 4);
@@ -37,17 +93,7 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
     <View style={styles.container}>
       <Header left={<BackButton />} />
       <Flex value={2} justify="start" align="center" style={{ marginTop: 20 }}>
-        <View style={styles.textWrap}>
-          <Text style={styles.chooseCategoryText}>
-            {t('onboardingPrompt.part1')}
-          </Text>
-          <Text style={styles.chooseCategoryText}>
-            {t('onboardingPrompt.part2')}
-          </Text>
-          <Text style={styles.chooseCategoryText}>
-            {t('onboardingPrompt.part3')}
-          </Text>
-        </View>
+        <View style={styles.textWrap}>{getText()}</View>
         {Object.values(relationshipTypeList).map(type => (
           <PersonCategoryButton
             key={type}

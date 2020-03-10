@@ -14,7 +14,7 @@ export default StyleSheet.create({
   },
   categoryButtonText: {
     color: theme.white,
-    fontFamily: 'SourceSansPro-Regular',
+    fontFamily: 'SourceSansPro-Light',
     fontSize: 24,
     fontWeight: '300',
     lineHeight: 30,
