@@ -192,6 +192,8 @@ dependencies {
 
     // // This is for multidex support for Android versions <5.0
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation "com.google.firebase:firebase-perf:17.0.2"
 }
 
 // Run this once to be able to run the application with BUCK
@@ -202,6 +204,8 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply plugin: 'com.google.gms.google-services' // For Firebase
+apply plugin: "com.android.application"
+apply plugin: "com.google.firebase.firebase-perf"
 
 googleServices {
     disableVersionCheck = true // Waiting on a fix here: https://github.com/google/play-services-plugins/issues/30.
