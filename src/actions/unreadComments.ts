@@ -10,9 +10,9 @@ import callApi from './api';
 import { getCelebrateFeed } from './celebration';
 import { refreshCommunity } from './organizations';
 
-const GET_UNREAD_COMMENTS_COUNT = gql`
+export const GET_UNREAD_COMMENTS_COUNT = gql`
   query getUnreadCommentsCount() {
-    communities() {
+    communities {
       nodes {
         unreadCommentsCount
       }
@@ -58,7 +58,8 @@ function refreshUnreadComments(orgId: string) {
 }
 
 export function checkForUnreadComments() {
-  apolloClient.query<getUnreadCommentsCount, getUnreadCommentsCountVariables>({
+  console.log('here');
+  apolloClient.query({
     query: GET_UNREAD_COMMENTS_COUNT,
   });
 }
