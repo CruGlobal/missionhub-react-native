@@ -20,6 +20,11 @@ import { AuthState } from '../reducers/auth';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { StepsList } from '../containers/StepsScreen/__generated__/StepsList';
+import { PERSON_STEPS_QUERY } from '../containers/ContactSteps/queries';
+import {
+  PersonStepsList,
+  PersonStepsListVariables,
+} from '../containers/ContactSteps/__generated__/PersonStepsList';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
@@ -102,7 +107,10 @@ export function addStep(
     // @ts-ignore
     dispatch(trackStepAdded(stepSuggestion));
     apolloClient.query<StepsList>({ query: STEPS_QUERY });
-    dispatch(getContactSteps(personId, orgId));
+    apolloClient.query<PersonStepsList, PersonStepsListVariables>({
+      query: PERSON_STEPS_QUERY,
+      variables: { personId, completed: false },
+    });
   };
 }
 
@@ -169,8 +177,7 @@ function completeChallengeAPI(step: {
     });
     dispatch(refreshImpact(orgId));
 
-    removeFromStepsList(stepId);
-    dispatch(getContactSteps(receiverId, orgId));
+    removeFromStepsList(stepId, receiverId);
 
     orgId && getCelebrateFeed(orgId);
   };
@@ -211,7 +218,10 @@ export function completeStep(
   };
 }
 
-export function deleteStepWithTracking(step: { id: string }, screen: string) {
+export function deleteStepWithTracking(
+  step: { id: string; receiver: { id: string } },
+  screen: string,
+) {
   return async (dispatch: ThunkDispatch<never, never, never>) => {
     await dispatch(deleteStep(step));
     dispatch(
@@ -222,15 +232,15 @@ export function deleteStepWithTracking(step: { id: string }, screen: string) {
   };
 }
 
-function deleteStep(step: { id: string }) {
+function deleteStep(step: { id: string; receiver: { id: string } }) {
   return async (dispatch: ThunkDispatch<never, never, never>) => {
     const query = { challenge_id: step.id };
     await dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
-    removeFromStepsList(step.id);
+    removeFromStepsList(step.id, step.receiver.id);
   };
 }
 
-const removeFromStepsList = (stepId: string) => {
+const removeFromStepsList = (stepId: string, personId: string) => {
   const cachedSteps = apolloClient.readQuery<StepsList>({
     query: STEPS_QUERY,
   });
@@ -242,6 +252,34 @@ const removeFromStepsList = (stepId: string) => {
         steps: {
           ...cachedSteps.steps,
           nodes: cachedSteps.steps.nodes.filter(({ id }) => id !== stepId),
+        },
+      },
+    });
+
+  const personStepsVariables = { personId, completed: false };
+
+  const cachedPersonSteps = apolloClient.readQuery<
+    PersonStepsList,
+    PersonStepsListVariables
+  >({
+    query: PERSON_STEPS_QUERY,
+    variables: personStepsVariables,
+  });
+
+  cachedPersonSteps &&
+    apolloClient.writeQuery<PersonStepsList, PersonStepsListVariables>({
+      query: PERSON_STEPS_QUERY,
+      variables: personStepsVariables,
+      data: {
+        ...cachedPersonSteps,
+        person: {
+          ...cachedPersonSteps.person,
+          steps: {
+            ...cachedPersonSteps.person.steps,
+            nodes: cachedPersonSteps.person.steps.nodes.filter(
+              ({ id }) => id !== stepId,
+            ),
+          },
         },
       },
     });

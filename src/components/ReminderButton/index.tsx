@@ -44,7 +44,7 @@ const ReminderButton = ({
   // for Android, request notifications, then navigate to step reminder screen
   const handlePressAndroid = () => {
     dispatch(requestNativePermissions());
-    dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
+    dispatch(navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }));
   };
   // for iOS, ask for notifications, navigate to step reminder screen
   const handlePressIOS = ({ showPicker }: { showPicker: Function }) => {
