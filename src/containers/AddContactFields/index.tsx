@@ -150,6 +150,8 @@ class AddContactFields extends Component {
       orgPermission: personOrgPermission,
       // @ts-ignore
       isGroupInvite,
+      // @ts-ignore
+      isMe,
     } = this.props;
     const {
       firstName,
@@ -171,11 +173,13 @@ class AddContactFields extends Component {
       <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
         <Flex direction="column">
           <Flex value={2} justify="end" align="center">
-            <View style={styles.textWrap}>
-              <Text style={styles.addPersonText}>{t('prompt.part1')}</Text>
-              <Text style={styles.addPersonText}>{t('prompt.part2')}</Text>
-              <Text style={styles.addPersonText}>{t('prompt.part3')}</Text>
-            </View>
+            {isMe ? null : (
+              <View style={styles.textWrap}>
+                <Text style={styles.addPersonText}>{t('prompt.part1')}</Text>
+                <Text style={styles.addPersonText}>{t('prompt.part2')}</Text>
+                <Text style={styles.addPersonText}>{t('prompt.part3')}</Text>
+              </View>
+            )}
           </Flex>
           <Text style={styles.label}>
             {t('profileLabels.firstNameRequired')}

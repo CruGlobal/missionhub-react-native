@@ -32,9 +32,14 @@ RelationshipTypeEnum;
 const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
   const { t } = useTranslation('categories');
   const dispatch = useDispatch();
-  const [category, setCategory] = useState<RelationshipTypeEnum | null>(null);
   const person: Person = useNavigationParam('person');
   const orgId: string = useNavigationParam('orgId');
+  const personCategory = person?.relationship_type
+    ? person?.relationship_type
+    : null;
+  const [category, setCategory] = useState<RelationshipTypeEnum | null>(
+    personCategory,
+  );
 
   const [updatePerson] = useMutation<UpdatePerson, UpdatePersonVariables>(
     UPDATE_PERSON,
@@ -71,17 +76,19 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
         </>
       );
     } else {
-      <>
-        <Text style={styles.chooseCategoryText}>
-          {t('onboardingPrompt.part1')}
-        </Text>
-        <Text style={styles.chooseCategoryText}>
-          {t('onboardingPrompt.part2')}
-        </Text>
-        <Text style={styles.chooseCategoryText}>
-          {t('onboardingPrompt.part3')}
-        </Text>
-      </>;
+      return (
+        <>
+          <Text style={styles.chooseCategoryText}>
+            {t('onboardingPrompt.part1')}
+          </Text>
+          <Text style={styles.chooseCategoryText}>
+            {t('onboardingPrompt.part2')}
+          </Text>
+          <Text style={styles.chooseCategoryText}>
+            {t('onboardingPrompt.part3')}
+          </Text>
+        </>
+      );
     }
   };
 

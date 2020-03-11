@@ -8,7 +8,6 @@ import { withTranslation } from 'react-i18next';
 
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
-import { IconButton } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
@@ -32,6 +31,8 @@ class AddContactScreen extends Component {
   state = {
     // @ts-ignore
     person: this.props.person || {},
+    // @ts-ignore
+    isMe: this.props.me.id === this.props?.person?.id,
   };
 
   // @ts-ignore
@@ -45,7 +46,12 @@ class AddContactScreen extends Component {
     const { dispatch, organization, next } = this.props;
 
     dispatch(
-      next({ person, orgId: organization && organization.id, didSavePerson }),
+      next({
+        person,
+        orgId: organization?.id,
+        didSavePerson,
+        isMe: this.state.isMe,
+      }),
     );
   };
 
@@ -185,6 +191,8 @@ class AddContactScreen extends Component {
         />
         <ScrollView style={styles.scrollView}>
           <AddContactFields
+            // @ts-ignore
+            isMe={this.state.isMe}
             person={person}
             organization={organization}
             // @ts-ignore
