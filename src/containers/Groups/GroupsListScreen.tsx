@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FlatList,
   View,
@@ -12,7 +12,6 @@ import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { TFunction } from 'i18next';
-import { useFocusEffect } from 'react-navigation-hooks';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
@@ -36,7 +35,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
-import { checkForUnreadComments } from '../../actions/unreadComments';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
@@ -136,7 +134,6 @@ const GroupsListScreen = ({
   scrollToId,
 }: GroupsListScreenProps) => {
   useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
-  useFocusEffect(useCallback(() => checkForUnreadComments(), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);

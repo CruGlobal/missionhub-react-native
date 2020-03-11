@@ -1,7 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux-legacy';
 import i18next from 'i18next';
-import { useApolloClient } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import Flex from '../../components/Flex';
 import Icon from '../../components/Icon';
@@ -9,10 +8,23 @@ import { Text } from '../../components/common';
 import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
+import { GET_UNREAD_COMMENTS_COUNT } from './queries';
+import { getUnreadCommentsCount } from './__generated__/getUnreadCommentsCount';
 
-// @ts-ignore
-function TabIcon({ name, tintColor, showNotification }) {
-  const client = useApolloClient();
+interface TabIconProps {
+  name: string;
+  tintColor: string;
+}
+
+const TabIcon = ({ name, tintColor }: TabIconProps) => {
+  const { data: { communities: { nodes = [] } = {} } = {} } = useQuery<
+    getUnreadCommentsCount
+  >(GET_UNREAD_COMMENTS_COUNT, {
+    skip: name != 'group',
+    pollInterval: 30000,
+  });
+
+  const showNotification = nodes.some(n => n.unreadCommentsCount > 0);
 
   const icon = (
     <Icon
@@ -38,10 +50,6 @@ function TabIcon({ name, tintColor, showNotification }) {
       </Text>
     </Flex>
   );
-}
+};
 
-// @ts-ignore
-const mapStateToProps = ({ auth }, { name }) => ({
-  showNotification: name === 'group' && auth.person.unread_comments_count,
-});
-export default connect(mapStateToProps)(TabIcon);
+export default TabIcon;

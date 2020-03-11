@@ -1,24 +1,12 @@
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import gql from 'graphql-tag';
 
 import { REQUESTS } from '../api/routes';
 import { OrganizationsState } from '../reducers/organizations';
-import { apolloClient } from '../apolloClient';
 
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
 import { refreshCommunity } from './organizations';
-
-export const GET_UNREAD_COMMENTS_COUNT = gql`
-  query getUnreadCommentsCount() {
-    communities {
-      nodes {
-        unreadCommentsCount
-      }
-    }
-  }
-`;
 
 export function markCommentsRead(orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
@@ -55,11 +43,4 @@ function refreshUnreadComments(orgId: string) {
     //refresh this org's unread comments feed
     getCelebrateFeed(orgId, undefined, true);
   };
-}
-
-export function checkForUnreadComments() {
-  console.log('here');
-  apolloClient.query({
-    query: GET_UNREAD_COMMENTS_COUNT,
-  });
 }

@@ -1,12 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
-import { useFocusEffect } from 'react-navigation-hooks';
 
 import { getMyPeople } from '../../actions/people';
-import { checkForUnreadComments } from '../../actions/unreadComments';
 import {
   peopleByOrgSelector,
   allAssignedPeopleSelector,
@@ -48,7 +46,6 @@ export const PeopleScreen = ({
   person,
 }: PeopleScreenProps) => {
   useAnalytics('people', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
-  useFocusEffect(useCallback(() => checkForUnreadComments(), []));
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
@@ -66,7 +63,6 @@ export const PeopleScreen = ({
   };
 
   const handleRefresh = () => {
-    checkForUnreadComments();
     return dispatch(getMyPeople());
   };
 

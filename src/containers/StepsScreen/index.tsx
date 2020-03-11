@@ -1,13 +1,11 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View, Image, FlatList } from 'react-native';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import { useFocusEffect } from 'react-navigation-hooks';
 
-import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
 import { navToPersonScreen } from '../../actions/person';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
@@ -43,7 +41,6 @@ interface StepsScreenProps {
 const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const { t } = useTranslation('stepsTab');
   useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
-  useFocusEffect(useCallback(() => checkForUnreadComments(), []));
 
   const {
     data: {
@@ -61,7 +58,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const hasSteps = steps && steps.length > 0;
 
   const handleRefresh = () => {
-    checkForUnreadComments();
     refetch();
   };
 
