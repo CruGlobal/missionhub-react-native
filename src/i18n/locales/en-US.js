@@ -845,4 +845,11 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
+  stepTypes: {
+    relate: 'Relate',
+    pray: 'Pray',
+    care: 'Care',
+    share: 'Share',
+    stepOfFaith: 'Step of Faith',
+  },
 };

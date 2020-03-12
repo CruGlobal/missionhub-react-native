@@ -20,6 +20,7 @@ import { AuthState } from '../reducers/auth';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { StepsList } from '../containers/StepsScreen/__generated__/StepsList';
+import { StepTypeEnum } from '../../__generated__/globalTypes';
 import { PERSON_STEPS_QUERY } from '../containers/ContactSteps/queries';
 import {
   PersonStepsList,
@@ -62,7 +63,11 @@ export function getContactSteps(personId: string, orgId?: string) {
 }
 
 export function addStep(
-  stepSuggestion: { id?: string; body: string; challenge_type?: string },
+  stepSuggestion: {
+    id?: string;
+    body: string;
+    challenge_type: StepTypeEnum | null;
+  },
   personId: string,
   orgId?: string,
 ) {

@@ -32,7 +32,7 @@ const SuggestedStepDetailScreen = ({
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
 
-  const { body, description_markdown } = step;
+  const { body, description_markdown, challenge_type } = step;
 
   const handleAddStep = () => {
     dispatch(addStep(step, personId, orgId));
@@ -45,6 +45,7 @@ const SuggestedStepDetailScreen = ({
       RightHeader={null}
       CenterContent={<View style={styles.centerContent} />}
       text={body}
+      stepType={challenge_type ?? undefined}
       markdown={description_markdown}
       bottomButtonProps={{
         onPress: handleAddStep,

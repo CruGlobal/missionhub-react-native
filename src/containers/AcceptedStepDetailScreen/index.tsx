@@ -119,6 +119,7 @@ const AcceptedStepDetailScreen = ({
         undefined
       }
       text={step?.title}
+      stepType={step?.stepSuggestion?.stepType}
       bottomButtonProps={{
         onPress: handleCompleteStep,
         text: t('iDidIt'),

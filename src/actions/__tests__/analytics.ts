@@ -20,13 +20,14 @@ import {
   ACTIONS,
   ANALYTICS,
   ANALYTICS_CONTEXT_CHANGED,
-  CUSTOM_STEP_TYPE,
   LOGGED_IN,
 } from '../../constants';
 import {
   initialAnalyticsState,
   AnalyticsState,
 } from '../../reducers/analytics';
+import { SuggestedStep } from '../../reducers/steps';
+import { StepTypeEnum } from '../../../__generated__/globalTypes';
 
 jest.mock('react-native-omniture', () => ({
   trackState: jest.fn(),
@@ -211,8 +212,8 @@ describe('trackAction', () => {
 
 describe('trackStepAdded', () => {
   it('should track suggested steps', async () => {
-    const step = {
-      challenge_type: 'affirm',
+    const step: SuggestedStep = {
+      challenge_type: StepTypeEnum.relate,
       id: '1',
       pathway_stage: {
         id: '1',
@@ -247,8 +248,8 @@ describe('trackStepAdded', () => {
   });
 
   it('should track custom steps', async () => {
-    const step = {
-      challenge_type: CUSTOM_STEP_TYPE,
+    const step: SuggestedStep = {
+      challenge_type: null,
       id: '2',
       pathway_stage: {
         id: '1',
@@ -276,7 +277,7 @@ describe('trackStepAdded', () => {
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEP_DETAIL.name,
       {
-        [ACTIONS.STEP_DETAIL.key]: `${CUSTOM_STEP_TYPE} | Y | ${step.locale}`,
+        [ACTIONS.STEP_DETAIL.key]: `null | Y | ${step.locale}`,
       },
     );
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
