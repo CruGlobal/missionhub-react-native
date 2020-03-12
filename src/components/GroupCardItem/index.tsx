@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useApolloClient } from '@apollo/react-hooks';
 
 import { Text, Flex, Card, Button, Icon } from '../common';
 import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
@@ -8,6 +9,8 @@ import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 import { TouchablePress } from '../Touchable/index.ios';
+import { CommunityUnreadComments } from '../TabIcon/__generated__/CommunityUnreadComments';
+import { COMMUNITY_UNREAD_COMMENTS_FRAGMENT } from '../TabIcon/queries';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
 import styles from './styles';
@@ -20,13 +23,20 @@ export interface GroupCardItemProps {
 }
 
 const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
+  const client = useApolloClient();
   const { t } = useTranslation('groupItem');
+
+  const { unreadCommentsCount } =
+    client.readFragment<CommunityUnreadComments>({
+      id: `Community:${group.id}`,
+      fragment: COMMUNITY_UNREAD_COMMENTS_FRAGMENT,
+      fragmentName: 'CommunityUnreadComments',
+    }) || group;
 
   const {
     name,
     userCreated,
     communityPhotoUrl,
-    unreadCommentsCount,
     owner: {
       nodes: [owner],
     },

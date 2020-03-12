@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 import { TFunction } from 'i18next';
 
 import Header from '../../components/Header';
@@ -43,45 +42,7 @@ import {
   GetCommunities,
   GetCommunities_communities_nodes,
 } from './__generated__/GetCommunities';
-
-export const GET_COMMUNITIES_QUERY = gql`
-  query GetCommunities($communityCursor: String) {
-    globalCommunity {
-      usersReport {
-        usersCount
-      }
-    }
-    communities(
-      ministryActivitiesOnly: true
-      sortBy: name_ASC
-      first: 10
-      after: $communityCursor
-    ) {
-      nodes {
-        id
-        name
-        unreadCommentsCount
-        userCreated
-        communityPhotoUrl
-        owner: people(permissions: [owner]) {
-          nodes {
-            firstName
-            lastName
-          }
-        }
-        report(period: "P1W") {
-          contactCount
-          memberCount
-          unassignedCount
-        }
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-`;
+import { GET_COMMUNITIES_QUERY } from './queries';
 
 interface GroupsListScreenProps {
   dispatch: ThunkDispatch<
