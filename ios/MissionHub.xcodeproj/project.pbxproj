@@ -579,7 +579,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 15201;
+				CURRENT_PROJECT_VERSION = 15312;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -607,7 +607,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
-				MARKETING_VERSION = 5.2.3;
+				MARKETING_VERSION = 5.2.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
@@ -684,7 +684,7 @@
 				CODE_SIGN_ENTITLEMENTS = MissionHub/MissionHub.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 15201;
+				CURRENT_PROJECT_VERSION = 15312;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -712,7 +712,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AdobeMobileLibrary",
 				);
-				MARKETING_VERSION = 5.2.3;
+				MARKETING_VERSION = 5.2.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.missionhub;
 				PRODUCT_NAME = MissionHub;
