@@ -1,11 +1,15 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import { MockList } from 'graphql-tools';
+import { useApolloClient } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { GetCommunities_communities_nodes } from '../../../containers/Groups/__generated__/GetCommunities';
 
 import GroupCardItem, { GroupCardItemProps } from '..';
+
+jest.mock('@apollo/react-hooks');
 
 const contactCount = 768;
 const unassignedCount = 13;
@@ -27,7 +31,6 @@ const group: GetCommunities_communities_nodes = {
     memberCount: 0,
   },
   userCreated: false,
-  unreadCommentsCount: 0,
 };
 
 let props: GroupCardItemProps = {
@@ -36,6 +39,11 @@ let props: GroupCardItemProps = {
   onJoin: undefined,
 };
 
+beforeEach(() => {
+  const readFragment = jest.fn().mockReturnValue({ unreadCommentsCount: 0 });
+  (useApolloClient as jest.Mock).mockReturnValue({ readFragment });
+});
+
 const test = () => {
   renderWithContext(<GroupCardItem {...props} />, {
     noWrappers: true,
@@ -43,7 +51,7 @@ const test = () => {
 };
 
 describe('GroupCardItem', () => {
-  it('renders with no report counts', () => {
+  fit('renders with no report counts', () => {
     test();
   });
 

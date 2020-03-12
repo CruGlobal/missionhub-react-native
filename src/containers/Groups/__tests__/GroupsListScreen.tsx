@@ -4,7 +4,8 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 import { useQuery } from '@apollo/react-hooks';
 
-import GroupsListScreen, { GET_COMMUNITIES_QUERY } from '../GroupsListScreen';
+import GroupsListScreen from '../GroupsListScreen';
+import { GET_COMMUNITIES_QUERY } from '../queries';
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush, navigateToCommunity } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';

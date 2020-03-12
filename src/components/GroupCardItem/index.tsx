@@ -32,7 +32,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
       fragment: COMMUNITY_UNREAD_COMMENTS_FRAGMENT,
       fragmentName: 'CommunityUnreadComments',
     }) || group;
-
+  console.log(unreadCommentsCount);
   const {
     name,
     userCreated,
