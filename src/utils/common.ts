@@ -405,5 +405,4 @@ export function copyText(string) {
   toast(i18n.t('copyMessage'));
 }
 
-// @ts-ignore
-export const keyExtractorId = item => item.id;
+export const keyExtractorId = ({ id }: { id: string }) => id;

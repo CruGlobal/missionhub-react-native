@@ -6,7 +6,6 @@ import { PEOPLE_TAB } from '../../../constants';
 import { navToPersonScreen } from '../../../actions/person';
 import { openMainMenu } from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
-import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../AcceptedStepDetailScreen';
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 import {
   useAnalytics,
@@ -104,43 +103,6 @@ describe('handleRefresh', () => {
     await flushMicrotasksQueue();
 
     fireEvent(getByTestId('stepsList'), 'onRefresh');
-  });
-});
-
-describe('handleRowSelect', () => {
-  it('should navigate to step detail screen', async () => {
-    const { getAllByTestId, store } = renderWithContext(<StepsScreen />, {
-      initialState,
-    });
-
-    await flushMicrotasksQueue();
-
-    fireEvent(getAllByTestId('stepItem')[0], 'onSelect', { id: '1' });
-
-    expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
-      stepId: '1',
-    });
-    expect(store.getActions()).toEqual([navigatePushResult]);
-  });
-});
-
-describe('handleNavToPerson', () => {
-  it('should navigate to person screen', async () => {
-    const { getAllByTestId, store } = renderWithContext(<StepsScreen />, {
-      initialState,
-    });
-
-    const step = { receiver: { id: '3' }, community: { id: '4' } };
-
-    await flushMicrotasksQueue();
-
-    fireEvent(getAllByTestId('stepItem')[0], 'onPressName', step);
-
-    expect(navToPersonScreen).toHaveBeenCalledWith(
-      step.receiver,
-      step.community,
-    );
-    expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 });
 
