@@ -2,9 +2,9 @@ import React from 'react';
 import i18next from 'i18next';
 import { useQuery } from '@apollo/react-hooks';
 
-import Flex from '../../components/Flex';
-import Icon from '../../components/Icon';
-import { Text } from '../../components/common';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import { Text } from '../common';
 import { isAndroid } from '../../utils/common';
 
 import styles from './styles';

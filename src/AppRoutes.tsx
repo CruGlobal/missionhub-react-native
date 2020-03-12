@@ -200,7 +200,7 @@ import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
 import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
-import TabIcon from './containers/TabIcon';
+import TabIcon from './components/TabIcon';
 import GroupUnreadFeed, {
   GROUP_UNREAD_FEED_SCREEN,
 } from './containers/Groups/GroupUnreadFeed';
