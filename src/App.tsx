@@ -192,6 +192,10 @@ export default class App extends Component {
       nextAppState === 'active'
     ) {
       this.collectLifecycleData();
+      // https://github.com/AppsFlyerSDK/react-native-appsflyer/blob/master/Docs/API.md#trackAppLaunch
+      if (!isAndroid) {
+        appsFlyer.trackAppLaunch();
+      }
     }
 
     this.setState({ appState: nextAppState });
