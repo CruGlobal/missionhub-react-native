@@ -1,5 +1,6 @@
 PODS:
   - AdobeMobileLibrary (4.13.8)
+  - AppsFlyerFramework (5.1.0)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - CodePush (5.7.0):
@@ -280,6 +281,9 @@ PODS:
     - React-cxxreact (= 0.61.2)
     - React-jsi (= 0.61.2)
   - React-jsinspector (0.61.2)
+  - react-native-appsflyer (5.1.3):
+    - AppsFlyerFramework (~> 5.1.0)
+    - React
   - react-native-config (0.11.7):
     - React
   - react-native-fbsdk (1.0.1):
@@ -393,6 +397,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-appsflyer (from `../node_modules/react-native-appsflyer`)
   - react-native-config (from `../node_modules/react-native-config`)
   - react-native-fbsdk (from `../node_modules/react-native-fbsdk`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -434,6 +439,7 @@ SPEC REPOS:
     - RSKImageCropper
     - SSZipArchive
   trunk:
+    - AppsFlyerFramework
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -481,6 +487,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-appsflyer:
+    :path: "../node_modules/react-native-appsflyer"
   react-native-config:
     :path: "../node_modules/react-native-config"
   react-native-fbsdk:
@@ -536,6 +544,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AdobeMobileLibrary: 067db283616af75ff813711d6e0039a6f4c5a1a9
+  AppsFlyerFramework: b5e6d0d1718c445eeb151769e97246c00ae4628d
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CodePush: d2e54ad42df82a8db65b2d23d8191b950ba945e1
@@ -571,6 +580,7 @@ SPEC CHECKSUMS:
   React-jsi: 32285a21b1b24c36060493ed3057a34677d58d09
   React-jsiexecutor: 8909917ff7d8f21a57e443a866fd8d4560e50c65
   React-jsinspector: 111d7d342b07a904c400592e02a2b958f1098b60
+  react-native-appsflyer: 386b8f3110f620788a3af9470f18ead5d4e5d162
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-fbsdk: 080f3bb23513c5b59b6528543206fe0d1436bb7e
   React-RCTActionSheet: 89b037c0fb7d2671607cb645760164e7e0c013f6

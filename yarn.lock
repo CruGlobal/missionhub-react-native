@@ -9221,6 +9221,11 @@ react-native-animatable@^1.3.2:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-appsflyer@^5.1.3:
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-appsflyer/-/react-native-appsflyer-5.1.3.tgz#5947097af38c708be92adac2e167326dc7db2b1a"
+  integrity sha512-zHUSN+NcpNWLUEAx5JkPh15L1e+ivFbWNYx1Wz1FP9aGb8pOfKYKmYGdlicHnxY3IfP32R+4EA4tlPTZZqRjQA==
+
 react-native-code-push@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-5.7.0.tgz#38667c1ba5a5e1a6dd1b4271468c6ef6284b3ca4"
