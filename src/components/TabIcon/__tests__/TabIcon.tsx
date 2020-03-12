@@ -1,52 +1,88 @@
 import 'react-native';
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { MockList } from 'graphql-tools';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
-import { renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import TabIcon from '..';
 
-const mockStore = configureStore([thunk]);
-// @ts-ignore
-let store;
-
-const buildScreen = (props = {}) => {
-  // @ts-ignore
-  return renderShallow(<TabIcon {...props} />, store);
-};
-
-const storeActive = {
-  auth: { person: { unread_comments_count: 10 } },
-};
-const storeInactive = {
-  auth: { person: { unread_comments_count: 0 } },
-};
-
-beforeEach(() => {
-  store = mockStore(storeInactive);
-});
-
 describe('renders', () => {
   it('steps', () => {
-    const screen = buildScreen({ name: 'steps', tintColor: 'blue' });
-    expect(screen).toMatchSnapshot();
+    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />, {
+      mocks: {
+        CommunityConnection: () => ({
+          nodes: () => [],
+        }),
+      },
+    }).snapshot();
   });
-  it('steps different tint color', () => {
-    const screen = buildScreen({ name: 'steps', tintColor: 'grey' });
-    expect(screen).toMatchSnapshot();
+
+  it('steps different tint color', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name={'steps'} tintColor={'grey'} />,
+      {
+        mocks: {
+          CommunityConnection: () => ({
+            nodes: () => [],
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
-  it('people', () => {
-    const screen = buildScreen({ name: 'people', tintColor: 'blue' });
-    expect(screen).toMatchSnapshot();
+
+  it('people', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name={'people'} tintColor={'blue'} />,
+      {
+        mocks: {
+          CommunityConnection: () => ({
+            nodes: () => [],
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
-  it('group', () => {
-    const screen = buildScreen({ name: 'group', tintColor: 'blue' });
-    expect(screen).toMatchSnapshot();
+
+  it('group', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name={'group'} tintColor={'blue'} />,
+      {
+        mocks: {
+          CommunityConnection: () => ({
+            nodes: () => [],
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
-  it('group with notification dot', () => {
-    store = mockStore(storeActive);
-    const screen = buildScreen({ name: 'group', tintColor: 'blue' });
-    expect(screen).toMatchSnapshot();
+
+  it('group with notification dot', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name={'group'} tintColor={'blue'} />,
+      {
+        mocks: {
+          CommunityConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
   });
 });

@@ -1,189 +1,370 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders group 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  value={1}
->
-  <Icon
-    name="groupIcon"
-    size={24}
-    style={
+<View
+  style={
+    Array [
+      Object {},
       Object {
-        "color": "blue",
-      }
-    }
-    type="MissionHub"
-  />
-  <MyText
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "fontSize": 14,
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
         },
         Object {
-          "color": "blue",
+          "fontFamily": "SourceSansPro-Regular",
         },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
       ]
     }
   >
     Communities
-  </MyText>
-</Flex>
+  </Text>
+</View>
 `;
 
 exports[`renders group with notification dot 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  value={1}
->
-  <Flex
-    style={
+<View
+  style={
+    Array [
+      Object {},
       Object {
-        "position": "relative",
-      }
-    }
-  >
-    <Icon
-      name="groupIcon"
-      size={24}
-      style={
-        Object {
-          "color": "blue",
-        }
-      }
-      type="MissionHub"
-    />
-    <Flex
-      style={
-        Object {
-          "backgroundColor": "#FF5532",
-          "borderColor": "#ffffff",
-          "borderRadius": 8,
-          "borderWidth": 2,
-          "height": 16,
-          "position": "absolute",
-          "right": -10,
-          "top": -3,
-          "width": 16,
-        }
-      }
-    />
-  </Flex>
-  <MyText
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
     style={
       Array [
         Object {
-          "fontSize": 14,
+          "position": "relative",
+        },
+        Object {},
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 24,
+            },
+            Object {
+              "color": "blue",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF5532",
+            "borderColor": "#ffffff",
+            "borderRadius": 8,
+            "borderWidth": 2,
+            "height": 16,
+            "position": "absolute",
+            "right": -10,
+            "top": -3,
+            "width": 16,
+          },
+          Object {},
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
         },
         Object {
-          "color": "blue",
+          "fontFamily": "SourceSansPro-Regular",
         },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
       ]
     }
   >
     Communities
-  </MyText>
-</Flex>
+  </Text>
+</View>
 `;
 
 exports[`renders people 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  value={1}
->
-  <Icon
-    name="peopleIcon"
-    size={24}
-    style={
+<View
+  style={
+    Array [
+      Object {},
       Object {
-        "color": "blue",
-      }
-    }
-    type="MissionHub"
-  />
-  <MyText
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "fontSize": 14,
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
         },
         Object {
-          "color": "blue",
+          "fontFamily": "SourceSansPro-Regular",
         },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
       ]
     }
   >
     People
-  </MyText>
-</Flex>
+  </Text>
+</View>
 `;
 
 exports[`renders steps 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  value={1}
->
-  <Icon
-    name="stepsIcon"
-    size={24}
-    style={
+<View
+  style={
+    Array [
+      Object {},
       Object {
-        "color": "blue",
-      }
-    }
-    type="MissionHub"
-  />
-  <MyText
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "fontSize": 14,
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
         },
         Object {
-          "color": "blue",
+          "fontFamily": "SourceSansPro-Regular",
         },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
       ]
     }
   >
     Steps
-  </MyText>
-</Flex>
+  </Text>
+</View>
 `;
 
 exports[`renders steps different tint color 1`] = `
-<Flex
-  align="center"
-  justify="center"
-  value={1}
->
-  <Icon
-    name="stepsIcon"
-    size={24}
-    style={
+<View
+  style={
+    Array [
+      Object {},
       Object {
-        "color": "grey",
-      }
-    }
-    type="MissionHub"
-  />
-  <MyText
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
     style={
       Array [
         Object {
-          "fontSize": 14,
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "grey",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
         },
         Object {
-          "color": "grey",
+          "fontFamily": "SourceSansPro-Regular",
         },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "grey",
+          },
+        ],
       ]
     }
   >
     Steps
-  </MyText>
-</Flex>
+  </Text>
+</View>
 `;

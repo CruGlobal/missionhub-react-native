@@ -3,7 +3,6 @@ import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 import { useQuery } from '@apollo/react-hooks';
-import { useFocusEffect } from 'react-navigation-hooks';
 
 import GroupsListScreen, { GET_COMMUNITIES_QUERY } from '../GroupsListScreen';
 import { renderWithContext } from '../../../../testUtils';
@@ -66,7 +65,6 @@ describe('GroupsListScreen', () => {
       'communities',
       ANALYTICS_SCREEN_TYPES.screenWithDrawer,
     );
-    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('renders with communities', async () => {
@@ -85,7 +83,6 @@ describe('GroupsListScreen', () => {
       'communities',
       ANALYTICS_SCREEN_TYPES.screenWithDrawer,
     );
-    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   describe('card item press', () => {

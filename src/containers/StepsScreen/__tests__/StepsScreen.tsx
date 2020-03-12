@@ -1,10 +1,8 @@
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
-import { useFocusEffect } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { PEOPLE_TAB } from '../../../constants';
-import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { navToPersonScreen } from '../../../actions/person';
 import { openMainMenu } from '../../../utils/common';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
@@ -39,16 +37,12 @@ const initialState = {
 };
 
 const openMainMenuResult = { type: 'open main menu' };
-const checkForUnreadCommentsResult = { type: 'check for unread comments' };
 const navigatePushResult = { type: 'navigate push' };
 const navToPersonScreenResult = { type: 'navigate to person screen' };
 const navigateToMainTabsResult = { type: 'navigate to main tabs' };
 
 beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResult);
-  (checkForUnreadComments as jest.Mock).mockReturnValue(
-    checkForUnreadCommentsResult,
-  );
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
@@ -86,7 +80,6 @@ it('tracks screen change on mount', () => {
     'steps',
     ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   );
-  expect(useFocusEffect).toHaveBeenLastCalledWith(expect.any(Function));
 });
 
 describe('handleOpenMainMenu', () => {
@@ -104,17 +97,13 @@ describe('handleOpenMainMenu', () => {
 
 describe('handleRefresh', () => {
   it('refetches steps and checks for unread comments', async () => {
-    const { getByTestId, store } = renderWithContext(<StepsScreen />, {
+    const { getByTestId } = renderWithContext(<StepsScreen />, {
       initialState,
     });
 
     await flushMicrotasksQueue();
 
     fireEvent(getByTestId('stepsList'), 'onRefresh');
-
-    expect(checkForUnreadComments).toHaveBeenCalledWith();
-    // TODO: no expectations that refetch got called
-    expect(store.getActions()).toEqual([checkForUnreadCommentsResult]);
   });
 });
 
