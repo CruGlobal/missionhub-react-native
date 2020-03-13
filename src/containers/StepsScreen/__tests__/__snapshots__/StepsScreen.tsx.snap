@@ -1735,7 +1735,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -723,10 +723,52 @@
+@@ -707,10 +707,52 @@
                 \\"nextOccurrenceAt\\": \\"2010-11-26T00:55:36.529Z\\",
                 \\"reminderType\\": \\"once\\",
               },
@@ -1788,7 +1788,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -825,9 +867,80 @@
+@@ -809,9 +851,80 @@
                 }
               }
               testID=\\"stepItem\\"
