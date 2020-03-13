@@ -140,7 +140,7 @@ const ContactSteps = ({ person, organization }: ContactStepsProps) => {
             person,
             contactAssignment,
             organization,
-            null,
+            undefined,
           ),
         )
       : handleAssign();

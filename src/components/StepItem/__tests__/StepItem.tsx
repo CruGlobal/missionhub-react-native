@@ -63,7 +63,7 @@ it('renders completed step', () => {
     <StepItem
       step={{
         ...mockStep,
-        completedAt: '2019-01-01u',
+        completedAt: '2019-01-01',
       }}
     />,
     { initialState },

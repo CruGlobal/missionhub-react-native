@@ -200,7 +200,7 @@ describe('handleCreateStep', () => {
         person,
         contactAssignment,
         organization,
-        null,
+        undefined,
       );
     });
   });
