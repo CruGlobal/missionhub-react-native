@@ -20,6 +20,9 @@ import com.microsoft.codepush.react.CodePush;
 import java.util.Arrays;
 import java.util.List;
 
+import io.invertase.firebase.perf.RNFirebasePerformancePackage;
+
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
