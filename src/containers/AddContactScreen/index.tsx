@@ -1,17 +1,17 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import { useNavigationParam } from 'react-navigation-hooks';
+import { useTranslation } from 'react-i18next';
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
-import Analytics from '../Analytics';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -21,49 +21,62 @@ import {
   hasOrgPermissions,
 } from '../../utils/common';
 import BackIcon from '../../../assets/images/backIcon.svg';
+import { AuthState } from '../../reducers/auth';
+import { Person } from '../../reducers/people';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 import theme from '../../theme';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('addContact')
-class AddContactScreen extends Component {
-  state = {
-    // @ts-ignore
-    person: this.props.person || {},
-    // @ts-ignore
-    isMe: this.props.me.id === this.props?.person?.id,
+interface AddContactScreenProps {
+  next: (props: {
+    person?: Person;
+    orgId: string;
+    didSavePerson: boolean;
+    isMe: boolean;
+  }) => ThunkAction<unknown, {}, {}, AnyAction>;
+}
+
+const AddContactScreen = ({ next }: AddContactScreenProps) => {
+  const { t } = useTranslation('addContact');
+  const dispatch = useDispatch();
+  useAnalytics(['people', 'add']);
+  const organization = useNavigationParam('organization');
+  const currentPerson = useNavigationParam('person') || {};
+  const [person, setPerson] = useState(currentPerson);
+  const personOrgPermission = useSelector(() =>
+    orgPermissionSelector({}, { person, organization }),
+  );
+
+  const auth = useSelector<{ auth: AuthState }, Person>(({ auth }) => auth);
+  const authPerson = auth.person;
+  const isJean = auth.isJean;
+  const authPersonId = authPerson.id;
+  const isEdit = !!currentPerson?.id;
+  const isMe = person.id === authPersonId;
+  const handleUpdateData = (newData: Person) => {
+    setPerson({ ...person, ...newData });
   };
 
-  // @ts-ignore
-  handleUpdateData = newData => {
-    this.setState({ person: { ...this.state.person, ...newData } });
-  };
-
-  // @ts-ignore
-  complete = (didSavePerson, person) => {
-    // @ts-ignore
-    const { dispatch, organization, next } = this.props;
-
+  const complete = (didSavePerson: boolean, person?: Person) => {
     dispatch(
       next({
         person,
         orgId: organization?.id,
         didSavePerson,
-        isMe: this.state.isMe,
+        isMe: isMe,
       }),
     );
   };
 
-  completeWithoutSave = () => {
-    // @ts-ignore
-    this.complete(false);
+  const completeWithoutSave = () => {
+    complete(false);
   };
 
-  removeUneditedFields() {
-    // @ts-ignore
-    const { person, personOrgPermission, organization } = this.props;
-    const saveData = { ...this.state.person };
+  const removeUneditedFields = () => {
+    const saveData = person;
 
     if (person) {
       // Remove the first name if it's the same as before so we don't try to update it with the API
@@ -83,20 +96,22 @@ class AddContactScreen extends Component {
 
       // Only remove the org permission if it's the same as the current persons org permission
       if (
-        saveData.orgPermission &&
-        personOrgPermission &&
-        saveData.orgPermission.permission_id ===
-          personOrgPermission.permission_id
+        (saveData.orgPermission &&
+          personOrgPermission &&
+          saveData.orgPermission.permission_id ===
+            personOrgPermission.permission_id) ||
+        !saveData?.orgPermission.permission_id
       ) {
         delete saveData.orgPermission;
       }
 
       const personEmail = (getPersonEmailAddress(person) || {}).email;
-      if (saveData.email === personEmail) {
+      if (saveData.email === personEmail || saveData.email === '') {
         delete saveData.email;
       }
+
       const personPhone = (getPersonPhoneNumber(person) || {}).number;
-      if (saveData.phone === personPhone) {
+      if (saveData.phone === personPhone || saveData.phone === '') {
         delete saveData.phone;
       }
     }
@@ -107,13 +122,10 @@ class AddContactScreen extends Component {
     saveData.assignToMe = true;
 
     return saveData;
-  }
+  };
 
-  checkEmailAndName() {
-    // @ts-ignore
-    const { t } = this.props;
-    const saveData = { ...this.state.person };
-
+  const checkEmailAndName = () => {
+    const saveData = person;
     // For new User/Admin people, the name, email, and permissions are required fields
     if (
       (!saveData.email || !saveData.firstName) &&
@@ -124,13 +136,9 @@ class AddContactScreen extends Component {
     }
 
     return true;
-  }
+  };
 
-  // @ts-ignore
-  handleError(error) {
-    // @ts-ignore
-    const { t } = this.props;
-
+  const handleError = (error: any) => {
     if (error && error.apiError) {
       if (
         error.apiError.errors &&
@@ -143,99 +151,64 @@ class AddContactScreen extends Component {
         }
       }
     }
-  }
+  };
 
-  savePerson = async () => {
-    // @ts-ignore
-    const { dispatch, isEdit } = this.props;
-
-    if (!this.checkEmailAndName()) {
+  const savePerson = async () => {
+    if (!checkEmailAndName()) {
       return;
     }
 
-    const saveData = this.removeUneditedFields();
+    const saveData = await removeUneditedFields();
 
     try {
       const results = await dispatch(
         isEdit ? updatePerson(saveData) : addNewPerson(saveData),
       );
 
-      this.setState({
-        person: { ...this.state.person, id: results.response.id },
-      });
-
+      // @ts-ignore
+      setPerson({ ...person, id: results.response.id });
       !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-
-      this.complete(true, results.response);
+      // @ts-ignore
+      complete(true, results.response);
     } catch (error) {
-      this.handleError(error);
+      handleError(error);
     }
   };
 
-  render() {
-    // @ts-ignore
-    const { t, organization, person, isJean } = this.props;
-    const orgName = organization ? organization.name : undefined;
-
-    return (
-      <View style={styles.container}>
-        <Analytics screenName={['people', 'add']} />
-        <Header
-          left={
-            <BackIcon
-              style={{ marginLeft: 10 }}
-              onPress={this.completeWithoutSave}
-              color={theme.white}
-            />
-          }
-        />
-        <ScrollView style={styles.scrollView}>
-          <AddContactFields
-            // @ts-ignore
-            isMe={this.state.isMe}
-            person={person}
-            organization={organization}
-            // @ts-ignore
-            isJean={isJean}
-            isGroupInvite={false}
-            onUpdateData={this.handleUpdateData}
+  return (
+    <View style={styles.container}>
+      <Header
+        left={
+          <BackIcon
+            testID="backIcon"
+            style={{ marginLeft: 10 }}
+            onPress={completeWithoutSave}
+            color={theme.white}
           />
-        </ScrollView>
-        <BottomButton
-          style={!this.state.person.firstName ? styles.disabledButton : null}
-          onPress={this.savePerson}
-          text={t('continue')}
+        }
+      />
+      <ScrollView style={styles.scrollView}>
+        <AddContactFields
+          // @ts-ignore
+          testID="contactFields"
+          // @ts-ignore
+          isMe={isMe}
+          person={person}
+          organization={organization}
+          isJean={isJean}
+          isGroupInvite={false}
+          onUpdateData={handleUpdateData}
         />
-      </View>
-    );
-  }
-}
-
-// @ts-ignore
-AddContactScreen.propTypes = {
-  person: PropTypes.object,
-  organization: PropTypes.object,
-  next: PropTypes.func.isRequired,
+      </ScrollView>
+      <BottomButton
+        testID="continueButton"
+        style={!person.firstName ? styles.disabledButton : null}
+        onPress={savePerson}
+        text={t('continue')}
+      />
+    </View>
+  );
 };
 
-// @ts-ignore
-const mapStateToProps = ({ auth }, { navigation }) => {
-  const navProps = navigation.state.params || {};
-  const { person, organization = {} } = navProps;
-  return {
-    me: auth.person,
-    isJean: auth.isJean,
-    personOrgPermission:
-      organization.id &&
-      // @ts-ignore
-      orgPermissionSelector(null, {
-        person: person || {},
-        organization: { id: organization.id },
-      }),
-    isEdit: !!person,
-    ...navProps,
-  };
-};
-
-export default connect(mapStateToProps)(AddContactScreen);
+export default AddContactScreen;
 export const ADD_CONTACT_SCREEN = 'nav/ADD_CONTACT';

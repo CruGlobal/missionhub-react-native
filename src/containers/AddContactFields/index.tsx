@@ -28,7 +28,6 @@ class AddContactFields extends Component {
     email: '',
     phone: '',
     gender: null,
-    path: null,
     orgPermission: {},
   };
 
@@ -185,6 +184,7 @@ class AddContactFields extends Component {
             {t('profileLabels.firstNameRequired')}
           </Text>
           <Input
+            testID="firstNameInput"
             ref={this.firstNameRef}
             editable={!personHasOrgPermission}
             onChangeText={this.updateFirstName}
@@ -199,6 +199,7 @@ class AddContactFields extends Component {
         <Flex direction="column">
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
           <Input
+            testID="lastNameInput"
             ref={this.lastNameRef}
             editable={!personHasOrgPermission}
             onChangeText={this.updateLastName}
@@ -215,6 +216,7 @@ class AddContactFields extends Component {
             <Flex direction="column" key="email">
               <Text style={styles.label}>{t('profileLabels.email')}</Text>
               <Input
+                testID="emailInput"
                 ref={this.emailRef}
                 onChangeText={this.updateEmail}
                 value={email}

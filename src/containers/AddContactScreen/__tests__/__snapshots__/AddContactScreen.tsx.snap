@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handleUpdateData should update the state 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -238,11 +238,11 @@
+                    Object {},
+                  ]
+                }
+                testID=\\"firstNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-               value=\\"Christian\\"
++               value=\\"GreatGuy\\"
+              />
+            </View>
+            <View
+              style={
+                Array ["
+`;
+
 exports[`renders correctly 1`] = `
 <View
   style={
@@ -9,39 +29,584 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "people",
-        "add",
-      ]
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
-  />
-  <Header
-    right={
-      <IconButton
-        name="deleteIcon"
-        onPress={[Function]}
-        type="MissionHub"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ffffff"
+          onPress={[Function]}
+          style={
+            Object {
+              "marginLeft": 10,
+            }
+          }
+          testID="backIcon"
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
       />
-    }
-    title="ADD SOMEONE"
-  />
-  <ScrollViewMock
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <Connect(withI18nextTranslation(AddContactFields))
-      isGroupInvite={false}
-      onUpdateData={[Function]}
-    />
-  </ScrollViewMock>
-  <BottomButton
-    onPress={[Function]}
-    text="Done"
-  />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "paddingHorizontal": 25,
+            "paddingVertical": 50,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "bottom": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 2,
+                    "justifyContent": "flex-end",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "marginBottom": 30,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontFamily": "SourceSansPro-Light",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Who would you like
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontFamily": "SourceSansPro-Light",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  to take steps of faith with
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontFamily": "SourceSansPro-Light",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  this week?
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            >
+              First Name (Required)
+            </Text>
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              autoFocus={false}
+              blurOnSubmit={false}
+              editable={true}
+              multiline={false}
+              onChangeText={[Function]}
+              onSubmitEditing={[Function]}
+              placeholder="First Name (Required)"
+              placeholderTextColor="#ffffff"
+              rejectResponderTermination={true}
+              returnKeyType="next"
+              selectionColor="#005A7F"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {},
+                ]
+              }
+              testID="firstNameInput"
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value="Christian"
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            >
+              Last Name
+            </Text>
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              autoFocus={false}
+              blurOnSubmit={false}
+              editable={true}
+              multiline={false}
+              onChangeText={[Function]}
+              onSubmitEditing={[Function]}
+              placeholder="Last Name (optional)"
+              placeholderTextColor="#ffffff"
+              rejectResponderTermination={true}
+              returnKeyType="next"
+              selectionColor="#005A7F"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {},
+                ]
+              }
+              testID="lastNameInput"
+              underlineColorAndroid="rgba(0,0,0,0)"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              null,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  null,
+                ],
+              ],
+            ]
+          }
+        >
+          CONTINUE
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
+`;
+
+exports[`savePerson add new person with org should add a new person 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -238,10 +238,11 @@
+                    Object {},
+                  ]
+                }
+                testID=\\"firstNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
++               value=\\"new name\\"
+              />
+            </View>
+            <View
+              style={
+                Array [
+@@ -350,14 +351,11 @@
+                Object {
+                  \\"alignItems\\": \\"center\\",
+                  \\"height\\": 48,
+                  \\"width\\": 650,
+                },
+-               Object {
+-                 \\"backgroundColor\\": \\"#005A7F\\",
+-                 \\"color\\": \\"#007398\\",
+-               },
++               null,
+              ],
+              Object {
+                \\"borderRadius\\": 50,
+              },
+            ]
+@@ -380,14 +378,11 @@
+                    \\"fontWeight\\": \\"500\\",
+                    \\"letterSpacing\\": 1.5,
+                    \\"textAlign\\": \\"center\\",
+                  },
+                  Array [
+-                   Object {
+-                     \\"backgroundColor\\": \\"#005A7F\\",
+-                     \\"color\\": \\"#007398\\",
+-                   },
++                   null,
+                  ],
+                ],
+              ]
+            }
+          >"
+`;
+
+exports[`savePerson add new person without org should add a new person 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -238,10 +238,11 @@
+                    Object {},
+                  ]
+                }
+                testID=\\"firstNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
++               value=\\"new name\\"
+              />
+            </View>
+            <View
+              style={
+                Array [
+@@ -350,14 +351,11 @@
+                Object {
+                  \\"alignItems\\": \\"center\\",
+                  \\"height\\": 48,
+                  \\"width\\": 650,
+                },
+-               Object {
+-                 \\"backgroundColor\\": \\"#005A7F\\",
+-                 \\"color\\": \\"#007398\\",
+-               },
++               null,
+              ],
+              Object {
+                \\"borderRadius\\": 50,
+              },
+            ]
+@@ -380,14 +378,11 @@
+                    \\"fontWeight\\": \\"500\\",
+                    \\"letterSpacing\\": 1.5,
+                    \\"textAlign\\": \\"center\\",
+                  },
+                  Array [
+-                   Object {
+-                     \\"backgroundColor\\": \\"#005A7F\\",
+-                     \\"color\\": \\"#007398\\",
+-                   },
++                   null,
+                  ],
+                ],
+              ]
+            }
+          >"
+`;
+
+exports[`savePerson update existing person set last name to null should update person and navigate back 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -301,11 +301,11 @@
+                    Object {},
+                  ]
+                }
+                testID=\\"lastNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-               value=\\"someLastName\\"
++               value=\\"\\"
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+@@ -352,11 +352,14 @@
+                Object {
+                  \\"alignItems\\": \\"center\\",
+                  \\"height\\": 48,
+                  \\"width\\": 650,
+                },
+-               null,
++               Object {
++                 \\"backgroundColor\\": \\"#005A7F\\",
++                 \\"color\\": \\"#007398\\",
++               },
+              ],
+              Object {
+                \\"borderRadius\\": 50,
+              },
+            ]
+@@ -379,11 +382,14 @@
+                    \\"fontWeight\\": \\"500\\",
+                    \\"letterSpacing\\": 1.5,
+                    \\"textAlign\\": \\"center\\",
+                  },
+                  Array [
+-                   null,
++                   Object {
++                     \\"backgroundColor\\": \\"#005A7F\\",
++                     \\"color\\": \\"#007398\\",
++                   },
+                  ],
+                ],
+              ]
+            }
+          >"
+`;
+
+exports[`savePerson update existing person with org should update person and navigate back 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -238,11 +238,11 @@
+                    Object {},
+                  ]
+                }
+                testID=\\"firstNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-               value=\\"Christian\\"
++               value=\\"new name\\"
+              />
+            </View>
+            <View
+              style={
+                Array ["
+`;
+
+exports[`savePerson update existing person without org should update person and navigate back 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -238,11 +238,11 @@
+                    Object {},
+                  ]
+                }
+                testID=\\"firstNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-               value=\\"Christian\\"
++               value=\\"new name\\"
+              />
+            </View>
+            <View
+              style={
+                Array ["
 `;

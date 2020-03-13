@@ -17,6 +17,7 @@ import {
   UpdatePerson,
   UpdatePersonVariables,
 } from '../../containers/SetupScreen/__generated__/UpdatePerson';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -31,6 +32,7 @@ RelationshipTypeEnum;
 
 const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
   const { t } = useTranslation('categories');
+  useAnalytics(['add person', 'select category']);
   const dispatch = useDispatch();
   const person: Person = useNavigationParam('person');
   const orgId: string = useNavigationParam('orgId');
