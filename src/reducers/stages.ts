@@ -25,7 +25,6 @@ export type StagesObj = { [key: string]: Stage };
 
 export interface StagesState {
   stages: Stage[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   stagesObj?: StagesObj;
 }
 
@@ -34,7 +33,6 @@ const initialStagesState: StagesState = {
   stagesObj: undefined,
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function stagesReducer(
   state = initialStagesState,
   action:
