@@ -24,7 +24,7 @@ interface AssignStageButtonProps {
   isMe: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   contactAssignment: any;
-  firstItemIndex: number;
+  firstItemIndex?: number;
   pathwayStage: Stage | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<any, null, never>;

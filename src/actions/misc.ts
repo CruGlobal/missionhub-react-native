@@ -11,6 +11,7 @@ import {
 } from '../routes/constants';
 import { WARN } from '../utils/logging';
 import { buildTrackingObj } from '../utils/common';
+import { Person } from '../reducers/people';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
@@ -101,15 +102,12 @@ export function assignContactAndPickStage(person, organization) {
 }
 
 export function navigateToStageScreen(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  person,
+  personIsCurrentUser: boolean,
+  person: Person,
   // @ts-ignore
   contactAssignment,
   organization = {},
-  // @ts-ignore
-  firstItemIndex, //todo find a way to not pass this
+  firstItemIndex: number | undefined, //todo find a way to not pass this
 ) {
   // @ts-ignore
   return dispatch => {
