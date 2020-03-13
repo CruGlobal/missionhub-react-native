@@ -21,7 +21,7 @@
 #import <React/RCTLinkingManager.h>
 
 #import "ADBMobile.h"
-@import Firebase;
+#import <Firebase.h>
 
 const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
@@ -37,6 +37,8 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [FIRApp configure]; // Firebase
+
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"MissionHub"
@@ -44,8 +46,6 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
-
-  [FIRApp configure]; // Firebase
 
   if (@available(iOS 10, *)) {
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];

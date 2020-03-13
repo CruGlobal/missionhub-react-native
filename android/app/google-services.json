@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "208966923006-vp0ekv4bmla32jf7548iim8q5v4vt7db.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.missionhub",
+            "certificate_hash": "0ce8421166021cbc6c137012d069e2bb30910824"
+          }
+        },
+        {
           "client_id": "208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -25,15 +33,21 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "208966923006-g1bc9nvue6vqdhahk35kjhb4p8dt62jg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.missionhub",
+                "app_store_id": "447869440"
+              }
+            }
+          ]
         }
       }
     },
@@ -56,15 +70,21 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208966923006-psifsd9u6ia0bc5bbt8racvdqqrb4u05.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "208966923006-g1bc9nvue6vqdhahk35kjhb4p8dt62jg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.missionhub",
+                "app_store_id": "447869440"
+              }
+            }
+          ]
         }
       }
     }

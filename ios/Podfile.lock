@@ -430,6 +430,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - Firebase/Core (~> 6.13.0)
   - Firebase/Performance (~> 6.13.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -671,6 +672,6 @@ SPEC CHECKSUMS:
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
-PODFILE CHECKSUM: 5b83c075165135ed74186e39c9fe727f70facc31
+PODFILE CHECKSUM: 077f26a0f4f820f35767869a05dbee96837db2b5
 
 COCOAPODS: 1.8.4
