@@ -17,6 +17,7 @@ import { Card } from '../../components/common';
 import styles from './styles';
 
 interface StepInterface {
+  id: string;
   body: string;
 }
 

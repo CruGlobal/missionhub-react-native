@@ -20,12 +20,11 @@ export default StyleSheet.create({
   reminderButton: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    padding: 4,
+    paddingVertical: 4,
   },
   bellIcon: {
     fontSize: 18,
     paddingRight: 8,
-    paddingLeft: 8,
     color: theme.secondaryColor,
   },
   contentWrap: {
@@ -50,6 +49,7 @@ export default StyleSheet.create({
   },
   nameWrap: {
     alignSelf: 'center',
+    paddingRight: 8,
   },
   description: {
     fontSize: 14,
@@ -64,5 +64,21 @@ export default StyleSheet.create({
   },
   iconReminder: {
     color: theme.primaryColor,
+  },
+
+  iconButton: {
+    paddingHorizontal: 4,
+    paddingVertical: 4,
+  },
+  checkIcon: {
+    height: 24,
+    width: 24,
+  },
+
+  active: {
+    color: theme.secondaryColor,
+  },
+  completed: {
+    color: theme.inactiveColor,
   },
 });
