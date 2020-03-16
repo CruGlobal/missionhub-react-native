@@ -638,14 +638,21 @@ describe('getPersonEmailAddress', () => {
 });
 
 describe('getStageIndex', () => {
-  const stageOne = { id: '1' };
-  const stageTwo = { id: '2' };
+  const stageOne = {
+    id: '1',
+    name: 'Test Stage',
+    description: 'Test Description',
+    self_followup_description: 'Test self description',
+    position: 1,
+    name_i18n: 'Test Stage',
+    description_i18n: 'Test Description',
+    icon_url: '',
+    localized_pathway_stages: [],
+  };
+  const stageTwo = { ...stageOne, id: '2' };
 
   it('should get index of stage ID', () =>
     expect(getStageIndex([stageOne], stageOne.id)).toEqual(0));
-
-  it('should skip null/undefined stages', () =>
-    expect(getStageIndex([null, stageTwo], stageTwo.id)).toEqual(1));
 
   it('returns undefined if not found', () =>
     expect(getStageIndex([stageOne, stageTwo], '3')).toBe(undefined));
