@@ -3,7 +3,7 @@ import { View, Image } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import i18next from 'i18next';
 
-import { Text, Icon, IconButton } from '../../components/common';
+import { Text, IconButton } from '../../components/common';
 import theme from '../../theme';
 
 import styles, { sliderWidth, sliderHeight } from './styles';
@@ -16,25 +16,25 @@ export const AddStepExplainer = [
   {
     source: require('../../../assets/images/explainerModal2.png'),
     text: i18next.t('selectStepExplainer:part2'),
-    icon: 'filterIcon', // TODO: Need Icon
+    iconSource: require('../../../assets/images/icon_step_relate.png'),
     title: i18next.t('stepTypes:relate'),
   },
   {
     source: require('../../../assets/images/explainerModal3.png'),
     text: i18next.t('selectStepExplainer:part3'),
-    icon: 'filterIcon', // TODO: Need Icon
+    iconSource: require('../../../assets/images/icon_step_pray.png'),
     title: i18next.t('stepTypes:pray'),
   },
   {
     source: require('../../../assets/images/explainerModal4.png'),
     text: i18next.t('selectStepExplainer:part4'),
-    icon: 'filterIcon', // TODO: Need Icon
+    iconSource: require('../../../assets/images/icon_step_care.png'),
     title: i18next.t('stepTypes:care'),
   },
   {
     source: require('../../../assets/images/explainerModal5.png'),
     text: i18next.t('selectStepExplainer:part5'),
-    icon: 'filterIcon', // TODO: Need Icon
+    iconSource: require('../../../assets/images/icon_step_share.png'),
     title: i18next.t('stepTypes:share'),
   },
 ];
@@ -49,7 +49,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
           renderItem={({ item }) => {
-            const { source, text, icon, title } = item;
+            const { source, text, iconSource, title } = item;
             return (
               <>
                 <View style={{ flex: 1 }}>
@@ -59,14 +59,13 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                     resizeMode="cover"
                   />
                 </View>
-                {icon && (
+                {iconSource && (
                   <View style={styles.middleIconWrap}>
                     <View style={styles.middleIconCircle}>
-                      <Icon
-                        style={{ color: theme.impactBlue }}
-                        name={icon}
-                        size={48}
-                        type="MissionHub"
+                      <Image
+                        source={iconSource}
+                        style={styles.iconImage}
+                        resizeMode="cover"
                       />
                     </View>
                   </View>

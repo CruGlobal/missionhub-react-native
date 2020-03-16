@@ -39,7 +39,7 @@ describe('explainer data', () => {
     expect(AddStepExplainer[1]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part2'),
-      icon: 'filterIcon',
+      iconSource: expect.anything(),
       title: i18next.t('stepTypes:relate'),
     });
   });
@@ -47,7 +47,7 @@ describe('explainer data', () => {
     expect(AddStepExplainer[2]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part3'),
-      icon: 'filterIcon',
+      iconSource: expect.anything(),
       title: i18next.t('stepTypes:pray'),
     });
   });
@@ -55,7 +55,7 @@ describe('explainer data', () => {
     expect(AddStepExplainer[3]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part4'),
-      icon: 'filterIcon',
+      iconSource: expect.anything(),
       title: i18next.t('stepTypes:care'),
     });
   });
@@ -63,7 +63,7 @@ describe('explainer data', () => {
     expect(AddStepExplainer[4]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part5'),
-      icon: 'filterIcon',
+      iconSource: expect.anything(),
       title: i18next.t('stepTypes:share'),
     });
   });

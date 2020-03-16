@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { Text } from '../../components/common';
+import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
@@ -23,6 +23,7 @@ import { AuthState } from '../../reducers/auth';
 import { PeopleState, Person } from '../../reducers/people';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import SelectStepExplainerModal from '../../components/SelectStepExplainerModal';
+import InfoIcon from '../../../assets/images/infoIcon.svg';
 
 import styles from './styles';
 
@@ -119,13 +120,15 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       right={
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}
-          {/* TODO: Plug in the right information icon */}
-          <IconButton
-            name="filterIcon"
-            type="MissionHub"
+          <Button
             onPress={() => setIsExplainerOpen(true)}
             testID="SelectStepExplainerIconButton"
-          />
+          >
+            <InfoIcon
+              color={theme.black}
+              testID="SelectStepExplainerIconButton"
+            />
+          </Button>
         </View>
       }
     />

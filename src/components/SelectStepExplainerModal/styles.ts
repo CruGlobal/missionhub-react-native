@@ -30,6 +30,10 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
   },
+  iconImage: {
+    height: 48,
+    width: 48,
+  },
   textWrap: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -46,8 +50,10 @@ export default StyleSheet.create({
     marginTop: 20,
     fontSize: 32,
     lineHeight: 38,
+    marginHorizontal: 20,
   },
   textWithTitle: {
+    marginHorizontal: 20,
     marginTop: 5,
     fontSize: 14,
     lineHeight: 20,

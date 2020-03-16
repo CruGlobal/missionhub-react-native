@@ -316,13 +316,21 @@ exports[`with enableSkipButton renders correctly 1`] = `
                               "opacity": 1,
                             }
                           }
-                          testID="IconButton"
+                          testID="SelectStepExplainerIconButton"
                         >
                           <View
                             style={
                               Array [
                                 Object {
+                                  "alignItems": "center",
                                   "backgroundColor": "transparent",
+                                  "borderRadius": 0,
+                                  "borderWidth": 0,
+                                  "height": 60,
+                                  "justifyContent": "center",
+                                  "margin": 0,
+                                  "paddingHorizontal": 20,
+                                  "paddingVertical": 10,
                                 },
                                 null,
                                 Object {},
@@ -330,39 +338,10 @@ exports[`with enableSkipButton renders correctly 1`] = `
                               ]
                             }
                           >
-                            <Text
-                              allowFontScaling={false}
-                              style={
-                                Array [
-                                  Object {
-                                    "color": undefined,
-                                    "fontSize": 12,
-                                  },
-                                  Array [
-                                    Object {
-                                      "color": "#ffffff",
-                                    },
-                                    Object {
-                                      "fontSize": 18,
-                                    },
-                                    Array [
-                                      Object {
-                                        "margin": 10,
-                                      },
-                                      Object {},
-                                    ],
-                                  ],
-                                  Object {
-                                    "fontFamily": "icomoon",
-                                    "fontStyle": "normal",
-                                    "fontWeight": "normal",
-                                  },
-                                  Object {},
-                                ]
-                              }
-                            >
-                              
-                            </Text>
+                            <SvgMock
+                              color="#000000"
+                              testID="SelectStepExplainerIconButton"
+                            />
                           </View>
                         </View>
                       </View>
@@ -729,13 +708,21 @@ exports[`with enableSkipButton renders correctly 1`] = `
                         "opacity": 1,
                       }
                     }
-                    testID="IconButton"
+                    testID="SelectStepExplainerIconButton"
                   >
                     <View
                       style={
                         Array [
                           Object {
+                            "alignItems": "center",
                             "backgroundColor": "transparent",
+                            "borderRadius": 0,
+                            "borderWidth": 0,
+                            "height": 60,
+                            "justifyContent": "center",
+                            "margin": 0,
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 10,
                           },
                           null,
                           Object {},
@@ -743,39 +730,10 @@ exports[`with enableSkipButton renders correctly 1`] = `
                         ]
                       }
                     >
-                      <Text
-                        allowFontScaling={false}
-                        style={
-                          Array [
-                            Object {
-                              "color": undefined,
-                              "fontSize": 12,
-                            },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 18,
-                              },
-                              Array [
-                                Object {
-                                  "margin": 10,
-                                },
-                                Object {},
-                              ],
-                            ],
-                            Object {
-                              "fontFamily": "icomoon",
-                              "fontStyle": "normal",
-                              "fontWeight": "normal",
-                            },
-                            Object {},
-                          ]
-                        }
-                      >
-                        
-                      </Text>
+                      <SvgMock
+                        color="#000000"
+                        testID="SelectStepExplainerIconButton"
+                      />
                     </View>
                   </View>
                 </View>
@@ -1038,13 +996,21 @@ exports[`without enableSkipButton renders correctly 1`] = `
                               "opacity": 1,
                             }
                           }
-                          testID="IconButton"
+                          testID="SelectStepExplainerIconButton"
                         >
                           <View
                             style={
                               Array [
                                 Object {
+                                  "alignItems": "center",
                                   "backgroundColor": "transparent",
+                                  "borderRadius": 0,
+                                  "borderWidth": 0,
+                                  "height": 60,
+                                  "justifyContent": "center",
+                                  "margin": 0,
+                                  "paddingHorizontal": 20,
+                                  "paddingVertical": 10,
                                 },
                                 null,
                                 Object {},
@@ -1052,39 +1018,10 @@ exports[`without enableSkipButton renders correctly 1`] = `
                               ]
                             }
                           >
-                            <Text
-                              allowFontScaling={false}
-                              style={
-                                Array [
-                                  Object {
-                                    "color": undefined,
-                                    "fontSize": 12,
-                                  },
-                                  Array [
-                                    Object {
-                                      "color": "#ffffff",
-                                    },
-                                    Object {
-                                      "fontSize": 18,
-                                    },
-                                    Array [
-                                      Object {
-                                        "margin": 10,
-                                      },
-                                      Object {},
-                                    ],
-                                  ],
-                                  Object {
-                                    "fontFamily": "icomoon",
-                                    "fontStyle": "normal",
-                                    "fontWeight": "normal",
-                                  },
-                                  Object {},
-                                ]
-                              }
-                            >
-                              
-                            </Text>
+                            <SvgMock
+                              color="#000000"
+                              testID="SelectStepExplainerIconButton"
+                            />
                           </View>
                         </View>
                       </View>
@@ -1384,13 +1321,21 @@ exports[`without enableSkipButton renders correctly 1`] = `
                         "opacity": 1,
                       }
                     }
-                    testID="IconButton"
+                    testID="SelectStepExplainerIconButton"
                   >
                     <View
                       style={
                         Array [
                           Object {
+                            "alignItems": "center",
                             "backgroundColor": "transparent",
+                            "borderRadius": 0,
+                            "borderWidth": 0,
+                            "height": 60,
+                            "justifyContent": "center",
+                            "margin": 0,
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 10,
                           },
                           null,
                           Object {},
@@ -1398,39 +1343,10 @@ exports[`without enableSkipButton renders correctly 1`] = `
                         ]
                       }
                     >
-                      <Text
-                        allowFontScaling={false}
-                        style={
-                          Array [
-                            Object {
-                              "color": undefined,
-                              "fontSize": 12,
-                            },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 18,
-                              },
-                              Array [
-                                Object {
-                                  "margin": 10,
-                                },
-                                Object {},
-                              ],
-                            ],
-                            Object {
-                              "fontFamily": "icomoon",
-                              "fontStyle": "normal",
-                              "fontWeight": "normal",
-                            },
-                            Object {},
-                          ]
-                        }
-                      >
-                        
-                      </Text>
+                      <SvgMock
+                        color="#000000"
+                        testID="SelectStepExplainerIconButton"
+                      />
                     </View>
                   </View>
                 </View>
