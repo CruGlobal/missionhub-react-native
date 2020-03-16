@@ -11,6 +11,7 @@ import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigateToMainTabs } from '../../actions/navigation';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -132,6 +133,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
+      <AnnouncementsModal />
       <Header
         testID="header"
         left={
