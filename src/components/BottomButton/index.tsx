@@ -39,21 +39,15 @@ const BottomButton = ({
         disabled={disabled}
         onPress={handlePress}
         text={text.toUpperCase()}
+        style={[
+          {
+            width: theme.fullWidth - 100,
+            height: 48,
+            alignItems: 'center',
+          },
+          style,
+        ]}
         buttonTextStyle={[style]}
-        style={
-          !disabled
-            ? {
-                width: theme.fullWidth - 100,
-                height: 48,
-                alignItems: 'center',
-              }
-            : {
-                width: theme.fullWidth - 100,
-                height: 48,
-                alignItems: 'center',
-                backgroundColor: theme.lightGrey,
-              }
-        }
         pill={true}
       />
     </SafeAreaView>

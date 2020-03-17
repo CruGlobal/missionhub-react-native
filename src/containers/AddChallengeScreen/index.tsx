@@ -199,6 +199,7 @@ const AddChallengeScreen = () => {
       {isEdit ? null : (
         <BottomButton
           testID="saveChallengeButton"
+          style={disableBtn ? styles.disabledButton : null}
           disabled={disableBtn}
           onPress={saveChallenge}
           text={t('add')}

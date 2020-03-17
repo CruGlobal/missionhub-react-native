@@ -61,4 +61,7 @@ export default StyleSheet.create({
     alignItems: 'flex-end',
     alignSelf: 'flex-end',
   },
+  disabledButton: {
+    backgroundColor: theme.lightGrey,
+  },
 });
