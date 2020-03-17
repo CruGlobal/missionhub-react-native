@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import {
+  View,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  Image,
+  ImageSourcePropType,
+} from 'react-native';
 import debounce from 'lodash.debounce';
 
-import { Touchable, Text } from '../common';
+import { Touchable, Text, Flex } from '../common';
 import { exists } from '../../utils/common';
 import { PressPropsType, TouchablePress } from '../Touchable/index.ios';
 
@@ -16,6 +23,7 @@ export interface ButtonProps {
   onPress: TouchablePress;
   type?: 'transparent' | 'primary' | 'secondary';
   text?: string;
+  image?: ImageSourcePropType;
   pill?: boolean;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -71,6 +79,7 @@ export default class Button extends Component<ButtonProps, ButtonState> {
       type,
       text,
       pill,
+      image,
       children,
       disabled,
       style = {},
@@ -83,7 +92,14 @@ export default class Button extends Component<ButtonProps, ButtonState> {
       // If there are no children passed in, assume text is used for the button
       const textStyle = [styles.buttonText, buttonTextStyle];
       if (text) {
-        content = <Text style={textStyle}>{text}</Text>;
+        content = image ? (
+          <Flex direction={'row'} justify={'around'} align={'center'}>
+            <Image source={image} style={{ marginHorizontal: 5 }} />
+            <Text style={textStyle}>{text}</Text>
+          </Flex>
+        ) : (
+          <Text style={textStyle}>{text}</Text>
+        );
       }
     }
     const isDisabled = disabled || this.state.clickedDisabled;

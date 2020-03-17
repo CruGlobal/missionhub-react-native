@@ -1,6 +1,5 @@
 import React from 'react';
 import MockDate from 'mockdate';
-import { fireEvent } from 'react-native-testing-library';
 
 import ChallengeDetailHeader from '../../../components/ChallengeDetailHeader';
 import { renderWithContext } from '../../../../testUtils';
@@ -9,9 +8,17 @@ const mockDate = '2019-08-25 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 
 const activeChallenge = {
+  id: '1',
+  accepted_count: 1,
+  completed_count: 1,
   isPast: false,
   title: 'Challenge Title',
   end_date: mockDate,
+};
+
+const challengeWithDetails = {
+  ...activeChallenge,
+  details_markdown: 'Super cool details',
 };
 
 const pastChallenge = {
@@ -19,43 +26,26 @@ const pastChallenge = {
   isPast: true,
 };
 
-const props = {
-  challenge: activeChallenge,
-  canEditChallenges: false,
-  onEdit: jest.fn(),
-};
-
 it('render for active challenge', () => {
-  renderWithContext(<ChallengeDetailHeader {...props} />, {
-    noWrappers: true,
-  }).snapshot();
+  renderWithContext(
+    <ChallengeDetailHeader challenge={activeChallenge} isAdmin={true} />,
+  ).snapshot();
 });
 
-it('render for active challenge with edit', () => {
+it('renders with details', () => {
   renderWithContext(
-    <ChallengeDetailHeader {...props} canEditChallenges={true} />,
-    { noWrappers: true },
+    <ChallengeDetailHeader challenge={challengeWithDetails} isAdmin={true} />,
   ).snapshot();
 });
 
 it('render for past challenge', () => {
   renderWithContext(
-    <ChallengeDetailHeader
-      {...props}
-      canEditChallenges={true}
-      challenge={pastChallenge}
-    />,
-    { noWrappers: true },
+    <ChallengeDetailHeader challenge={pastChallenge} isAdmin={true} />,
   ).snapshot();
 });
 
-it('should call onEdit from press', () => {
-  const { getByTestId } = renderWithContext(
-    <ChallengeDetailHeader {...props} canEditChallenges={true} />,
-    { noWrappers: true },
-  );
-
-  fireEvent.press(getByTestId('ChallengeDetailHeaderEditButton'));
-
-  expect(props.onEdit).toHaveBeenCalledWith(activeChallenge);
+it('renders no text when no details and not an admin', () => {
+  renderWithContext(
+    <ChallengeDetailHeader challenge={pastChallenge} isAdmin={false} />,
+  ).snapshot();
 });
