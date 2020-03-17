@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
-
 import { useSelector, useDispatch } from 'react-redux';
-
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
+
 import { addNewPerson } from '../../actions/organizations';
 import { updatePerson } from '../../actions/person';
 import BottomButton from '../../components/BottomButton';
@@ -24,8 +25,6 @@ import BackIcon from '../../../assets/images/backIcon.svg';
 import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ThunkAction } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -138,6 +137,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     return true;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleError = (error: any) => {
     if (error && error.apiError) {
       if (

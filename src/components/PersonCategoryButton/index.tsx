@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { useTranslation } from 'react-i18next';
+
 import { Button, Flex, Text } from '../../components/common';
 import FamilyIcon from '../../../assets/images/categoryFamilyIcon.svg';
 import FriendIcon from '../../../assets/images/categoryFriendIcon.svg';
@@ -8,9 +8,9 @@ import NeighborIcon from '../../../assets/images/categoryNeighborIcon.svg';
 import CoworkerIcon from '../../../assets/images/categoryCoworkerIcon.svg';
 import OtherIcon from '../../../assets/images/categoryOtherIcon.svg';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import theme from '../../theme';
 
 import styles from './styles';
-import theme from '../../theme';
 
 interface PersonCategoryButtonProps {
   currentCategory: RelationshipTypeEnum | null;
@@ -76,12 +76,14 @@ const PersonCategoryButton = ({
 
   return (
     <Button
+      testID={`${category}Button`}
       onPress={onPress}
       pill={true}
       style={[
         styles.categoryButton,
         currentCategory === category ? styles.categoryActive : null,
       ]}
+      // eslint-disable-next-line
       children={getContent()}
     />
   );

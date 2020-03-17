@@ -15,6 +15,63 @@ exports[`renders casey view correctly 1`] = `
   <Flex
     direction="column"
   >
+    <Flex
+      align="center"
+      justify="end"
+      value={2}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": 30,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          Who would you like
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          to take steps of faith with
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          this week?
+        </MyText>
+      </View>
+    </Flex>
     <MyText
       style={
         Object {
@@ -34,6 +91,7 @@ exports[`renders casey view correctly 1`] = `
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="firstNameInput"
     />
   </Flex>
   <Flex
@@ -55,9 +113,10 @@ exports[`renders casey view correctly 1`] = `
       editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
-      placeholder="Last Name"
+      placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="lastNameInput"
     />
   </Flex>
 </KeyboardAvoidingView>
@@ -78,6 +137,63 @@ exports[`renders jean invite with organization and user and admin radio buttons 
   <Flex
     direction="column"
   >
+    <Flex
+      align="center"
+      justify="end"
+      value={2}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": 30,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          Who would you like
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          to take steps of faith with
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          this week?
+        </MyText>
+      </View>
+    </Flex>
     <MyText
       style={
         Object {
@@ -97,6 +213,7 @@ exports[`renders jean invite with organization and user and admin radio buttons 
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="firstNameInput"
     />
   </Flex>
   <Flex
@@ -118,9 +235,10 @@ exports[`renders jean invite with organization and user and admin radio buttons 
       editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
-      placeholder="Last Name"
+      placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="lastNameInput"
     />
   </Flex>
   <Flex
@@ -147,6 +265,7 @@ exports[`renders jean invite with organization and user and admin radio buttons 
       placeholder="Email"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="emailInput"
     />
   </Flex>
   <MyText
@@ -188,6 +307,63 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
   <Flex
     direction="column"
   >
+    <Flex
+      align="center"
+      justify="end"
+      value={2}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": 30,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          Who would you like
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          to take steps of faith with
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          this week?
+        </MyText>
+      </View>
+    </Flex>
     <MyText
       style={
         Object {
@@ -207,6 +383,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="firstNameInput"
     />
   </Flex>
   <Flex
@@ -228,9 +405,10 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
-      placeholder="Last Name"
+      placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="lastNameInput"
     />
   </Flex>
   <Flex
@@ -257,6 +435,7 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
       placeholder="Email"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="emailInput"
     />
   </Flex>
   <Flex
@@ -382,6 +561,63 @@ exports[`renders jean with organization and user radio buttons 1`] = `
   <Flex
     direction="column"
   >
+    <Flex
+      align="center"
+      justify="end"
+      value={2}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": 30,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          Who would you like
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          to take steps of faith with
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          this week?
+        </MyText>
+      </View>
+    </Flex>
     <MyText
       style={
         Object {
@@ -401,6 +637,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="firstNameInput"
     />
   </Flex>
   <Flex
@@ -422,9 +659,10 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
-      placeholder="Last Name"
+      placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="lastNameInput"
     />
   </Flex>
   <Flex
@@ -451,6 +689,7 @@ exports[`renders jean with organization and user radio buttons 1`] = `
       placeholder="Email"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="emailInput"
     />
   </Flex>
   <Flex
@@ -576,6 +815,63 @@ exports[`renders jean with organization view correctly 1`] = `
   <Flex
     direction="column"
   >
+    <Flex
+      align="center"
+      justify="end"
+      value={2}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": 30,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          Who would you like
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          to take steps of faith with
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          this week?
+        </MyText>
+      </View>
+    </Flex>
     <MyText
       style={
         Object {
@@ -595,6 +891,7 @@ exports[`renders jean with organization view correctly 1`] = `
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="firstNameInput"
     />
   </Flex>
   <Flex
@@ -616,9 +913,10 @@ exports[`renders jean with organization view correctly 1`] = `
       editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
-      placeholder="Last Name"
+      placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="lastNameInput"
     />
   </Flex>
   <Flex
@@ -645,6 +943,7 @@ exports[`renders jean with organization view correctly 1`] = `
       placeholder="Email"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="emailInput"
     />
   </Flex>
   <Flex
@@ -770,6 +1069,63 @@ exports[`renders jean without organization view correctly 1`] = `
   <Flex
     direction="column"
   >
+    <Flex
+      align="center"
+      justify="end"
+      value={2}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginBottom": 30,
+          }
+        }
+      >
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          Who would you like
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          to take steps of faith with
+        </MyText>
+        <MyText
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          this week?
+        </MyText>
+      </View>
+    </Flex>
     <MyText
       style={
         Object {
@@ -789,6 +1145,7 @@ exports[`renders jean without organization view correctly 1`] = `
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="firstNameInput"
     />
   </Flex>
   <Flex
@@ -810,9 +1167,10 @@ exports[`renders jean without organization view correctly 1`] = `
       editable={true}
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
-      placeholder="Last Name"
+      placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="lastNameInput"
     />
   </Flex>
   <Flex
@@ -839,6 +1197,7 @@ exports[`renders jean without organization view correctly 1`] = `
       placeholder="Email"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      testID="emailInput"
     />
   </Flex>
   <Flex

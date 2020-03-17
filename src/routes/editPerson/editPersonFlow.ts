@@ -5,7 +5,6 @@ import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
-import { buildTrackingObj } from '../../utils/common';
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';

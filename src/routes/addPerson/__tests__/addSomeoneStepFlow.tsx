@@ -9,6 +9,7 @@ import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
 import { AddSomeoneStepFlowScreens } from '../addSomeoneStepFlow';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import {
@@ -16,6 +17,7 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
@@ -91,11 +93,30 @@ describe('AddSomeoneScreen next', () => {
   it('should fire required next actions without skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: false });
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: true });
+
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  it('should fire required next actions without skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, {
+      skip: false,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      relationshipType: RelationshipTypeEnum.family,
+    });
+  });
+
+  it('should fire required next actions with skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, { skip: true });
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });

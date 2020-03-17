@@ -1,12 +1,15 @@
 import { Keyboard } from 'react-native';
 import React from 'react';
 import { fireEvent, GetByAPI } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { updatePerson } from '../../../actions/person';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
+import { UPDATE_PERSON, CREATE_PERSON } from '../queries';
 
 import SetupScreen from '..';
 
@@ -89,6 +92,9 @@ describe('saveAndNavigateNext', () => {
         <SetupScreen next={next} isMe={false} />,
         {
           initialState: { ...mockState, onboarding: { personId } },
+          navParams: {
+            relationshipType: RelationshipTypeEnum.family,
+          },
         },
       ).getByTestId;
       await fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
@@ -98,10 +104,15 @@ describe('saveAndNavigateNext', () => {
     it('should update person and call next on save btn press', async () => {
       await fireEvent.press(getByTestId('SaveBottomButton'));
 
-      expect(updatePerson).toHaveBeenCalledWith({
-        id: personId,
-        firstName,
-        lastName,
+      expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+        variables: {
+          input: {
+            id: personId,
+            firstName,
+            lastName,
+            relationshipType: RelationshipTypeEnum.family,
+          },
+        },
       });
       expect(next).toHaveBeenCalledWith({ personId });
     });
@@ -109,10 +120,15 @@ describe('saveAndNavigateNext', () => {
     it('should update person and call next on last name submit', async () => {
       await fireEvent(getByTestId('InputLastName'), 'onSubmitEditing');
 
-      expect(updatePerson).toHaveBeenCalledWith({
-        id: personId,
-        firstName,
-        lastName,
+      expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+        variables: {
+          input: {
+            id: personId,
+            firstName,
+            lastName,
+            relationshipType: RelationshipTypeEnum.family,
+          },
+        },
       });
       expect(next).toHaveBeenCalledWith({ personId });
     });
@@ -124,6 +140,9 @@ describe('saveAndNavigateNext', () => {
         <SetupScreen next={next} isMe={true} />,
         {
           initialState: mockState,
+          navParams: {
+            relationshipType: RelationshipTypeEnum.neighbor,
+          },
         },
       );
       await fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
@@ -142,6 +161,9 @@ describe('saveAndNavigateNext', () => {
         <SetupScreen next={next} isMe={false} />,
         {
           initialState: mockState,
+          navParams: {
+            relationshipType: RelationshipTypeEnum.neighbor,
+          },
         },
       );
       await fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
@@ -149,7 +171,16 @@ describe('saveAndNavigateNext', () => {
 
       await fireEvent.press(getByTestId('SaveBottomButton'));
 
-      expect(createPerson).toHaveBeenCalledWith(firstName, lastName);
+      expect(useMutation).toHaveBeenMutatedWith(CREATE_PERSON, {
+        variables: {
+          input: {
+            firstName,
+            lastName,
+            relationshipType: RelationshipTypeEnum.neighbor,
+            assignToMe: true,
+          },
+        },
+      });
       expect(next).toHaveBeenCalledWith({ personId });
     });
   });
@@ -163,9 +194,29 @@ describe('saveAndNavigateNext', () => {
     );
     await fireEvent.press(getByTestId('SaveBottomButton'));
 
-    expect(updatePerson).not.toHaveBeenCalled();
+    expect(useMutation).not.toHaveBeenMutatedWith(CREATE_PERSON, {
+      variables: {
+        input: {
+          firstName: '',
+          lastName,
+          relationshipType: RelationshipTypeEnum.neighbor,
+          assignToMe: true,
+        },
+      },
+    });
+
+    expect(useMutation).not.toHaveBeenMutatedWith(UPDATE_PERSON, {
+      variables: {
+        input: {
+          id: personId,
+          firstName: '',
+          lastName,
+          relationshipType: RelationshipTypeEnum.family,
+        },
+      },
+    });
     expect(createMyPerson).not.toHaveBeenCalled();
-    expect(createPerson).not.toHaveBeenCalled();
+
     expect(next).not.toHaveBeenCalled();
   });
 });

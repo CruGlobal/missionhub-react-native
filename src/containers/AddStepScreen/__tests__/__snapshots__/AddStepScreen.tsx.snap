@@ -240,11 +240,14 @@ exports[`renders create step correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -269,7 +272,9 @@ exports[`renders create step correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -521,11 +526,14 @@ exports[`renders edit journey item correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -550,7 +558,9 @@ exports[`renders edit journey item correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -802,11 +812,14 @@ exports[`renders edit journey item for me correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -831,7 +844,9 @@ exports[`renders edit journey item for me correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1083,11 +1098,14 @@ exports[`renders edit journey step correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1112,7 +1130,9 @@ exports[`renders edit journey step correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1364,11 +1384,14 @@ exports[`renders edit journey step for me correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1393,7 +1416,9 @@ exports[`renders edit journey step for me correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1717,11 +1742,14 @@ exports[`renders step note correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1746,7 +1774,9 @@ exports[`renders step note correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -2070,11 +2100,14 @@ exports[`renders step note correctly for me 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -2099,7 +2132,9 @@ exports[`renders step note correctly for me 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }

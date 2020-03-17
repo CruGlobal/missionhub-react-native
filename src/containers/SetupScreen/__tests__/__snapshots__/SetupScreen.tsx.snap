@@ -509,11 +509,14 @@ exports[`renders isMe version correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -538,7 +541,9 @@ exports[`renders isMe version correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -799,7 +804,7 @@ exports[`renders other person version correctly 1`] = `
           ]
         }
       >
-        Who do you want to take
+        Who would you like
       </Text>
       <Text
         style={
@@ -820,7 +825,28 @@ exports[`renders other person version correctly 1`] = `
           ]
         }
       >
-         a step of faith with?
+         to take steps of faith with
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+         this week?
       </Text>
     </View>
   </View>
@@ -899,7 +925,7 @@ exports[`renders other person version correctly 1`] = `
         multiline={false}
         onChangeText={[Function]}
         onSubmitEditing={[Function]}
-        placeholder="Last Name (if you want)"
+        placeholder="Last Name (optional)"
         placeholderTextColor="white"
         rejectResponderTermination={true}
         returnKeyType="done"
@@ -963,11 +989,14 @@ exports[`renders other person version correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -992,7 +1021,9 @@ exports[`renders other person version correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1010,7 +1041,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -325,11 +325,11 @@
+@@ -346,11 +346,11 @@
               Object {},
             ]
           }
@@ -1030,7 +1061,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -365,11 +365,11 @@
+@@ -386,11 +386,11 @@
               Object {},
             ]
           }

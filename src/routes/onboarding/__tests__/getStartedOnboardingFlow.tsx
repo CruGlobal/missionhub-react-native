@@ -12,6 +12,7 @@ import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
 import { GetStartedOnboardingFlowScreens } from '../getStartedOnboardingFlow';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import {
@@ -22,6 +23,7 @@ import {
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -144,11 +146,33 @@ describe('AddSomeoneScreen next', () => {
   it('should fire required next actions without skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: false });
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: true });
+
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  it('should fire required next actions without skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, {
+      skip: false,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      relationshipType: RelationshipTypeEnum.family,
+    });
+  });
+
+  it('should fire required next actions with skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, {
+      skip: true,
+      relationshipType: RelationshipTypeEnum.family,
+    });
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });

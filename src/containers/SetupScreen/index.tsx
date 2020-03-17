@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux-legacy';
 import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -13,15 +13,17 @@ import { createMyPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
 import { AuthState } from '../../reducers/auth';
 import { PeopleState } from '../../reducers/people';
-import { updatePerson } from '../../actions/person';
 import BackButton from '../BackButton';
 import Header from '../../components/Header';
+import Skip from '../../components/Skip';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+
 import { CREATE_PERSON, UPDATE_PERSON } from './queries';
 import {
   CreatePersonVariables,
@@ -31,9 +33,6 @@ import {
   UpdatePerson,
   UpdatePersonVariables,
 } from './__generated__/UpdatePerson';
-import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
-import Skip from '../../components/Skip';
-
 import styles from './styles';
 
 interface SetupScreenProps {

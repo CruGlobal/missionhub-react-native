@@ -12,6 +12,7 @@ import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { onboardingFlowGenerator } from '../onboardingFlowGenerator';
@@ -21,6 +22,7 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
@@ -61,31 +63,35 @@ const initialState = {
 const testFlow = onboardingFlowGenerator({});
 
 beforeEach(() => {
-  // @ts-ignore
-  navigatePush.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  navigateToMainTabs.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  skipAddPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  showReminderOnLoad.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  trackActionWithoutData.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  createCustomStep.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  setOnboardingPersonId.mockReturnValue(() => Promise.resolve());
+  (navigatePush as jest.Mock).mockReturnValue(() => Promise.resolve());
+
+  (navigateToMainTabs as jest.Mock).mockReturnValue(() => Promise.resolve());
+
+  (skipAddPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+
+  (resetPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+
+  (showReminderOnLoad as jest.Mock).mockReturnValue(() => Promise.resolve());
+
+  (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+
+  (createCustomStep as jest.Mock).mockReturnValue(() => Promise.resolve());
+
+  (setOnboardingPersonId as jest.Mock).mockReturnValue(() => Promise.resolve());
 });
 
 const buildAndCallNext = async (
-  // @ts-ignore
-  screen,
-  // @ts-ignore
-  navParams,
-  // @ts-ignore
-  nextProps,
+  screen: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  navParams?: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  nextProps?: any,
   flow = testFlow,
   // eslint-disable-next-line max-params
 ) => {
@@ -103,7 +109,6 @@ const buildAndCallNext = async (
 
 describe('WelcomeScreen next', () => {
   it('should fire required next actions', async () => {
-    // @ts-ignore
     await buildAndCallNext(WELCOME_SCREEN);
 
     expect(navigatePush).toHaveBeenCalledWith(SETUP_SCREEN, undefined);
@@ -209,7 +214,7 @@ describe('AddSomeoneScreen next', () => {
   it('should fire required next actions without skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: false });
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
@@ -233,7 +238,7 @@ describe('AddSomeoneScreen with extra props', () => {
       testExtraPropsFlow,
     );
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
@@ -243,6 +248,25 @@ describe('AddSomeoneScreen with extra props', () => {
       { skip: true },
       testExtraPropsFlow,
     );
+
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  it('should fire required next actions without skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, {
+      skip: false,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      relationshipType: RelationshipTypeEnum.family,
+    });
+  });
+
+  it('should fire required next actions with skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, { skip: true });
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });

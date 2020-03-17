@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 import { View } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
+import { useDispatch } from 'react-redux';
+import { useMutation } from '@apollo/react-hooks';
+import { AnyAction } from 'redux';
+import { ThunkAction } from 'redux-thunk';
+
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Text, Flex } from '../../components/common';
 import PersonCategoryButton from '../../components/PersonCategoryButton';
-import { useMutation } from '@apollo/react-hooks';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
-import { ThunkAction } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
-import { useNavigationParam } from 'react-navigation-hooks';
 import { Person } from '../../reducers/people';
 import { UPDATE_PERSON } from '../../containers/SetupScreen/queries';
 import {
   UpdatePerson,
   UpdatePersonVariables,
 } from '../../containers/SetupScreen/__generated__/UpdatePerson';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 

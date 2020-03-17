@@ -19,6 +19,8 @@ import {
 import { showReminderOnLoad } from '../../../actions/notifications';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep } from '../../../actions/steps';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -91,11 +93,32 @@ describe('AddSomeoneScreen next', () => {
       skip: false,
     });
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', async () => {
     await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, {
+      skip: true,
+    });
+
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  it('should fire required next actions without skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, {
+      skip: false,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      relationshipType: RelationshipTypeEnum.family,
+    });
+  });
+
+  it('should fire required next actions with skip', async () => {
+    await buildAndCallNext(PERSON_CATEGORY_SCREEN, undefined, {
       skip: true,
     });
 

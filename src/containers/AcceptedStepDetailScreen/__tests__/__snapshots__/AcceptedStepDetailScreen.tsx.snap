@@ -331,11 +331,14 @@ exports[`should render correctly while loading 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -360,7 +363,9 @@ exports[`should render correctly while loading 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -739,11 +744,14 @@ exports[`should render correctly without description and without reminder 1`] = 
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -768,7 +776,9 @@ exports[`should render correctly without description and without reminder 1`] = 
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1276,11 +1286,14 @@ exports[`with description, with reminder should render correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1305,7 +1318,9 @@ exports[`with description, with reminder should render correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1718,11 +1733,14 @@ exports[`with description, without reminder should render correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1747,7 +1765,9 @@ exports[`with description, without reminder should render correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
