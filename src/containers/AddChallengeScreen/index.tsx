@@ -149,6 +149,7 @@ const AddChallengeScreen = () => {
         <Text style={detailLabel}>{t('detailsLabel')}</Text>
         <Input
           testID="detailInput"
+          scrollEnabled={false}
           onChangeText={e => changeDetail(e)}
           onFocus={() => setEditing('detail')}
           onBlur={() => setEditing('')}
@@ -156,7 +157,6 @@ const AddChallengeScreen = () => {
           autoFocus={false}
           autoCorrect={true}
           multiline={true}
-          returnKeyType="done"
           selectionColor={theme.secondaryColor}
           placeholder={t('detailPlaceholder')}
           placeholderTextColor={
@@ -190,7 +190,10 @@ const AddChallengeScreen = () => {
           )
         }
       />
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView
+        contentContainerStyle={styles.fieldWrap}
+        contentInset={{ bottom: 96 }}
+      >
         {renderTitleInput()}
         {renderDateInput()}
         {renderDetailInput()}

@@ -161,7 +161,12 @@ describe('Challenge Feed rendering', () => {
         organization={organization}
       />,
       {
-        initialState,
+        initialState: {
+          ...initialState,
+          swipe: {
+            groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: false },
+          },
+        },
       },
     ).snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
@@ -178,7 +183,12 @@ describe('Challenge Feed rendering', () => {
         organization={organization}
       />,
       {
-        initialState,
+        initialState: {
+          ...initialState,
+          swipe: {
+            groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: false },
+          },
+        },
       },
     ).snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
