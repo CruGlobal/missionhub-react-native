@@ -210,6 +210,51 @@ exports[`renders correctly with icon props 1`] = `
 </View>
 `;
 
+exports[`renders correctly with image 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="IconButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        null,
+        Object {
+          "margin": 20,
+        },
+        null,
+      ]
+    }
+  >
+    <Image
+      source={1234}
+      style={
+        Object {
+          "margin": 10,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
 exports[`renders correctly without onpress 1`] = `
 <View
   accessible={true}
