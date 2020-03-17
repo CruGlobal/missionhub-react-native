@@ -511,19 +511,6 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -142,11 +142,11 @@
-          multiline={true}
-          onBlur={[Function onBlur]}
-          onChangeText={[Function onChangeTitle]}
-          onFocus={[Function onFocus]}
-          placeholder=\\"New Challenge\\"
--         placeholderTextColor=\\"#3CC8E6\\"
-+         placeholderTextColor=\\"#B4B6BA\\"
-          rejectResponderTermination={true}
-          returnKeyType=\\"done\\"
-          selectionColor=\\"#52C5DC\\"
-          style={
-            Array [
 @@ -267,11 +267,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
@@ -556,20 +543,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
           returnKeyType=\\"done\\"
           selectionColor=\\"#52C5DC\\"
           style={
-            Array [
-@@ -267,11 +267,11 @@
-            multiline={true}
-            onBlur={[Function onBlur]}
-            onChangeText={[Function onChangeText]}
-            onFocus={[Function onFocus]}
-            placeholder=\\"Add details to your Challenge (optional)\\"
--           placeholderTextColor=\\"#3CC8E6\\"
-+           placeholderTextColor=\\"#B4B6BA\\"
-            rejectResponderTermination={true}
-            scrollEnabled={false}
-            selectionColor=\\"#52C5DC\\"
-            style={
-              Array ["
+            Array ["
 `;
 
 exports[`create methods focuses on press | detailInput 1`] = `

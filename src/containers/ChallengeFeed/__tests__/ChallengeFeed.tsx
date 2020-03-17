@@ -226,6 +226,20 @@ describe('Challenge Feed rendering', () => {
     ).snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
+
+  it('renders null with header', () => {
+    renderWithContext(
+      <ChallengeFeed
+        {...props}
+        items={[{ title: '', data: [] }]}
+        organization={organization}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
+    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
+  });
 });
 
 describe('item action methods', () => {
