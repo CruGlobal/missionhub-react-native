@@ -281,7 +281,6 @@ export class ImpactView extends Component {
       <ScrollView style={styles.container} bounces={false}>
         <Analytics screenName={[screenSection, screenSubsection]} />
         {organization.id !== 'person' ? (
-          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
         <Flex style={styles.topSection}>

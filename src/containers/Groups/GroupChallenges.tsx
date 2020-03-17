@@ -81,7 +81,6 @@ class GroupChallenges extends Component {
         <Analytics screenName={['community', 'challenges']} />
         <View style={styles.cardList}>
           <ChallengeFeed
-            // @ts-ignore
             organization={organization}
             items={challengeItems}
             loadMoreItemsCallback={this.loadItems}

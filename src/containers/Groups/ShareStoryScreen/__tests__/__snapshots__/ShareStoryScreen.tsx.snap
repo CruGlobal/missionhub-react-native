@@ -160,7 +160,6 @@ exports[`Creating a story calls changeStory function when the user types a story
         allowFontScaling={true}
         autoCorrect={true}
         autoFocus={true}
-        blurOnSubmit={true}
         multiline={true}
         onChangeText={[Function]}
         placeholder="Share a Story..."
@@ -282,7 +281,7 @@ exports[`Creating a story user types a story 1`] = `
 - First value
 + Second value
 
-@@ -188,11 +188,11 @@
+@@ -187,11 +187,11 @@
               },
             ]
           }
@@ -457,7 +456,6 @@ exports[`renders correctly 1`] = `
         allowFontScaling={true}
         autoCorrect={true}
         autoFocus={true}
-        blurOnSubmit={true}
         multiline={true}
         onChangeText={[Function]}
         placeholder="Share a Story..."

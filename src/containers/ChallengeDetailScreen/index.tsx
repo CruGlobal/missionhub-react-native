@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { withTranslation } from 'react-i18next';
-import PropTypes from 'prop-types';
-import i18next from 'i18next';
+import React, { useEffect } from 'react';
+import { View, StatusBar, Image } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { navigateBack, navigatePush } from '../../actions/navigation';
 import {
@@ -12,215 +11,123 @@ import {
   joinChallenge,
   updateChallenge,
 } from '../../actions/challenges';
-import { IconButton, Button } from '../../components/common';
+import { AuthState } from '../../reducers/auth';
+import { OrganizationsState } from '../../reducers/organizations';
+import { Button } from '../../components/common';
+import BackButton from '../BackButton';
 import Header from '../../components/Header';
-import { generateSwipeTabMenuNavigator } from '../../components/SwipeTabMenu/index';
-import ChallengeMembers from '../ChallengeMembers';
+import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
+import { ChallengeItem } from '../../components/ChallengeStats';
 import { communityChallengeSelector } from '../../selectors/challenges';
-import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { isAdminOrOwner } from '../../utils/common';
 import theme from '../../theme';
-import Analytics from '../Analytics';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
+import CHALLENGE_COMPLETE from '../../../assets/images/challengeComplete.png';
 
 import styles from './styles';
 
-const CHALLENGE_JOINED = 'nav/CHALLENGE_JOINED';
-const CHALLENGE_COMPLETED = 'nav/CHALLENGE_COMPLETED';
+const ChallengeDetailScreen = () => {
+  const dispatch = useDispatch();
+  useAnalytics(['challenge', 'detail']);
+  const { t } = useTranslation('challengeFeeds');
+  const orgId: string = useNavigationParam('orgId');
+  const challengeId: string = useNavigationParam('challengeId');
+  const isAdmin: boolean = useNavigationParam('isAdmin');
 
-export const CHALLENGE_DETAIL_TABS = [
-  {
-    name: i18next.t('challengeFeeds:joined'),
-    navigationAction: CHALLENGE_JOINED,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { challengeId, orgId },
-        },
-      },
-    }) => (
-      <ChallengeMembers
-        challengeId={challengeId}
-        orgId={orgId}
-        completed={false}
-      />
-    ),
-  },
-  {
-    name: i18next.t('challengeFeeds:completed'),
-    navigationAction: CHALLENGE_COMPLETED,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { challengeId, orgId },
-        },
-      },
-    }) => (
-      <ChallengeMembers
-        challengeId={challengeId}
-        orgId={orgId}
-        completed={true}
-      />
-    ),
-  },
-];
+  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
+  const myId = auth.person.id;
 
-// @ts-ignore
-@withTranslation('challengeFeeds')
-export class ChallengeDetailScreen extends Component {
-  componentDidMount() {
-    // @ts-ignore
-    const { dispatch, challenge } = this.props;
-    dispatch(getChallenge(challenge.id));
-  }
-
-  // @ts-ignore
-  getAcceptedChallenge({ accepted_community_challenges }) {
-    return (accepted_community_challenges || []).find(
-      // @ts-ignore
-      c => c.person && c.person.id === this.props.myId,
+  const challenge: ChallengeItem = useSelector(
+    ({ organizations }: { organizations: OrganizationsState }) =>
+      communityChallengeSelector({ organizations }, { orgId, challengeId }),
+  );
+  const acceptedChallenge =
+    challenge.accepted_community_challenges &&
+    challenge.accepted_community_challenges.find(
+      c => c.person && c.person.id === myId,
     );
-  }
 
-  handleCancel = () => {
-    // @ts-ignore
-    this.props.dispatch(navigateBack());
+  const canEditChallenges = isAdmin;
+
+  useEffect(() => {
+    dispatch(getChallenge(challenge.id));
+  }, []);
+
+  const getAcceptedChallenge = ({
+    accepted_community_challenges,
+  }: ChallengeItem) => {
+    return (accepted_community_challenges || []).find(
+      c => c.person && c.person.id === myId,
+    );
   };
 
-  // @ts-ignore
-  editChallenge = challenge => {
-    // @ts-ignore
-    const { orgId, dispatch } = this.props;
-    // @ts-ignore
-    dispatch(updateChallenge(challenge, orgId));
+  const editChallenge = (challenge: ChallengeItem) => {
+    dispatch(updateChallenge(challenge));
   };
 
-  handleEdit = () => {
-    // @ts-ignore
-    const { dispatch, challenge } = this.props;
+  const handleEdit = (currentChallenge: ChallengeItem) => {
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
-        challenge,
-        // @ts-ignore
-        onComplete: updatedChallenge => {
-          this.editChallenge(updatedChallenge);
+        challenge: currentChallenge,
+        onComplete: (updatedChallenge: ChallengeItem) => {
+          editChallenge(updatedChallenge);
           dispatch(navigateBack());
         },
       }),
     );
   };
 
-  handleJoin = () => {
-    // @ts-ignore
-    const { orgId, dispatch, challenge } = this.props;
+  const handleJoin = () => {
     dispatch(joinChallenge(challenge, orgId));
   };
 
-  handleComplete = () => {
-    // @ts-ignore
-    const { orgId, dispatch, challenge } = this.props;
-    const accepted_challenge = this.getAcceptedChallenge(challenge);
+  const handleComplete = () => {
+    const accepted_challenge = getAcceptedChallenge(challenge);
     if (!accepted_challenge) {
       return;
     }
     dispatch(completeChallenge(accepted_challenge, orgId));
   };
 
-  render() {
-    // @ts-ignore
-    const { t, challenge, acceptedChallenge, canEditChallenges } = this.props;
+  const { isPast } = challenge;
+  const joined = !!acceptedChallenge;
+  const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
 
-    const { isPast } = challenge;
-    const joined = !!acceptedChallenge;
-    const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
-
-    return (
-      <View style={styles.pageContainer}>
-        <Analytics screenName={['challenge', 'detail']} />
-        <StatusBar {...theme.statusBar.darkContent} />
-        <Header
-          left={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.handleCancel}
-              style={styles.buttonText}
+  return (
+    <View style={styles.pageContainer}>
+      <StatusBar {...theme.statusBar.darkContent} />
+      <Header
+        left={<BackButton iconStyle={{ color: theme.lightGrey }} />}
+        right={
+          !completed && !isPast && canEditChallenges ? (
+            <Button
+              testID="editButton"
+              type="transparent"
+              text={t('Edit').toUpperCase()}
+              onPress={() => handleEdit(challenge)}
+              style={styles.button}
+              buttonTextStyle={styles.buttonText}
             />
-          }
-          right={
-            !completed && !isPast ? (
-              <Button
-                type="transparent"
-                text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
-                onPress={joined ? this.handleComplete : this.handleJoin}
-                style={styles.button}
-                buttonTextStyle={styles.buttonText}
-              />
-            ) : null
-          }
+          ) : null
+        }
+      />
+      <ChallengeDetailHeader challenge={challenge} isAdmin={isAdmin} />
+      <Image source={CHALLENGE_TARGET} style={styles.challengeImage} />
+      {!completed && !isPast ? (
+        <BottomButton
+          image={joined ? CHALLENGE_COMPLETE : null}
+          testID="handleButton"
+          text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
+          onPress={joined ? handleComplete : handleJoin}
         />
-        <ChallengeDetailHeader
-          challenge={challenge}
-          canEditChallenges={canEditChallenges}
-          onEdit={this.handleEdit}
-        />
-      </View>
-    );
-  }
-}
-
-// @ts-ignore
-ChallengeDetailScreen.propTypes = {
-  challenge: PropTypes.object.isRequired,
-  canEditChallenges: PropTypes.bool.isRequired,
-  acceptedChallenge: PropTypes.object,
-};
-
-// @ts-ignore
-export const mapStateToProps = ({ auth, organizations }, { navigation }) => {
-  const navParams = navigation.state.params || {};
-  const { challengeId, orgId } = navParams;
-  const myId = auth.person.id;
-
-  const challenge = communityChallengeSelector(
-    { organizations },
-    { orgId, challengeId },
+      ) : null}
+    </View>
   );
-
-  const acceptedChallenge =
-    challenge.accepted_community_challenges &&
-    challenge.accepted_community_challenges.find(
-      // @ts-ignore
-      c => c.person && c.person.id === myId,
-    );
-
-  // @ts-ignore
-  const myOrgPerm = orgPermissionSelector(null, {
-    person: auth.person,
-    organization: { id: orgId },
-  });
-  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
-
-  return {
-    ...navParams,
-    myId,
-    challenge,
-    acceptedChallenge,
-    canEditChallenges,
-  };
 };
 
-const connectedDetailScreen = connect(mapStateToProps)(ChallengeDetailScreen);
-
-export default generateSwipeTabMenuNavigator(
-  CHALLENGE_DETAIL_TABS,
-  connectedDetailScreen,
-  false,
-  true,
-);
+export default ChallengeDetailScreen;
 
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';

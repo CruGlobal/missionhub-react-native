@@ -99,7 +99,6 @@ const CelebrateFeedHeader = ({
   return (
     <>
       {isCommentCardVisible ? null : (
-        //@ts-ignore
         <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
       )}
       {isMember || (!isReportVisible && !isCommentCardVisible) ? null : (

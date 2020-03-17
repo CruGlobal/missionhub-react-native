@@ -1,5 +1,1104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`create methods calls onComplete 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "flex-end",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeButton.png",
+                  }
+                }
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="New Challenge"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 16,
+              "paddingHorizontal": 32,
+            },
+          ]
+        }
+        testID="titleInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="New Title"
+      />
+      <DatePicker
+        date={2020-02-13T00:00:00.000Z}
+        minDate={2020-02-13T00:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
+        testID="datePicker"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#ECEEF2",
+              "borderTopWidth": 1,
+              "paddingHorizontal": 32,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#939393",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#3CC8E6",
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            February 13, 2020
+          </Text>
+        </View>
+      </DatePicker>
+      <View
+        style={
+          Object {
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "paddingHorizontal": 32,
+            "paddingVertical": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#939393",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Details
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          multiline={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Add details to your Challenge (optional)"
+          placeholderTextColor="#3CC8E6"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#52C5DC"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "marginBottom": 26,
+                "paddingBottom": 70,
+              },
+            ]
+          }
+          testID="detailInput"
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value="New details for my challenge"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CREATE CHALLENGE
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`create methods changes date 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -167,11 +167,11 @@
+          testID=\\"titleInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+          value=\\"\\"
+        />
+        <DatePicker
+-         date=\\"\\"
++         date={2020-02-13T00:00:00.000Z}
+          minDate={2020-02-13T00:00:00.000Z}
+          mode=\\"date\\"
+          onDateChange={[Function onChangeDate]}
+          testID=\\"datePicker\\"
+        >
+@@ -219,11 +219,11 @@
+                    \\"lineHeight\\": 22,
+                  },
+                ]
+              }
+            >
+-             End Date (Required)
++             February 13, 2020
+            </Text>
+          </View>
+        </DatePicker>
+        <View
+          style={"
+`;
+
+exports[`create methods changes detail 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -288,11 +288,11 @@
+                },
+              ]
+            }
+            testID=\\"detailInput\\"
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-           value=\\"\\"
++           value=\\"New details for my challenge\\"
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+    <Image"
+`;
+
+exports[`create methods changes title 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -164,11 +164,11 @@
+              },
+            ]
+          }
+          testID=\\"titleInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"\\"
++         value=\\"New Title For My Challenge\\"
+        />
+        <DatePicker
+          date=\\"\\"
+          minDate={2020-02-13T00:00:00.000Z}
+          mode=\\"date\\""
+`;
+
+exports[`create methods clears date 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -167,11 +167,11 @@
+          testID=\\"titleInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+          value=\\"\\"
+        />
+        <DatePicker
+-         date={2020-02-13T00:00:00.000Z}
++         date=\\"\\"
+          minDate={2020-02-13T00:00:00.000Z}
+          mode=\\"date\\"
+          onDateChange={[Function onChangeDate]}
+          testID=\\"datePicker\\"
+        >
+@@ -219,11 +219,11 @@
+                    \\"lineHeight\\": 22,
+                  },
+                ]
+              }
+            >
+-             February 13, 2020
++             End Date (Required)
+            </Text>
+          </View>
+        </DatePicker>
+        <View
+          style={"
+`;
+
+exports[`create methods fires onBlur | detailInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -135,11 +135,11 @@
+          multiline={true}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeTitle]}
+          onFocus={[Function onFocus]}
+          placeholder=\\"New Challenge\\"
+-         placeholderTextColor=\\"#3CC8E6\\"
++         placeholderTextColor=\\"#B4B6BA\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#52C5DC\\"
+          style={
+            Array [
+@@ -260,11 +260,11 @@
+            multiline={true}
+            onBlur={[Function onBlur]}
+            onChangeText={[Function onChangeText]}
+            onFocus={[Function onFocus]}
+            placeholder=\\"Add details to your Challenge (optional)\\"
+-           placeholderTextColor=\\"#B4B6BA\\"
++           placeholderTextColor=\\"#3CC8E6\\"
+            rejectResponderTermination={true}
+            returnKeyType=\\"done\\"
+            selectionColor=\\"#52C5DC\\"
+            style={
+              Array ["
+`;
+
+exports[`create methods fires onBlur | titleInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -135,11 +135,11 @@
+          multiline={true}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeTitle]}
+          onFocus={[Function onFocus]}
+          placeholder=\\"New Challenge\\"
+-         placeholderTextColor=\\"#B4B6BA\\"
++         placeholderTextColor=\\"#3CC8E6\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#52C5DC\\"
+          style={
+            Array [
+@@ -260,11 +260,11 @@
+            multiline={true}
+            onBlur={[Function onBlur]}
+            onChangeText={[Function onChangeText]}
+            onFocus={[Function onFocus]}
+            placeholder=\\"Add details to your Challenge (optional)\\"
+-           placeholderTextColor=\\"#3CC8E6\\"
++           placeholderTextColor=\\"#B4B6BA\\"
+            rejectResponderTermination={true}
+            returnKeyType=\\"done\\"
+            selectionColor=\\"#52C5DC\\"
+            style={
+              Array ["
+`;
+
+exports[`create methods focuses on press | detailInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -260,11 +260,11 @@
+            multiline={true}
+            onBlur={[Function onBlur]}
+            onChangeText={[Function onChangeText]}
+            onFocus={[Function onFocus]}
+            placeholder=\\"Add details to your Challenge (optional)\\"
+-           placeholderTextColor=\\"#3CC8E6\\"
++           placeholderTextColor=\\"#B4B6BA\\"
+            rejectResponderTermination={true}
+            returnKeyType=\\"done\\"
+            selectionColor=\\"#52C5DC\\"
+            style={
+              Array ["
+`;
+
+exports[`create methods focuses on press | titleInput 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -135,11 +135,11 @@
+          multiline={true}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeTitle]}
+          onFocus={[Function onFocus]}
+          placeholder=\\"New Challenge\\"
+-         placeholderTextColor=\\"#3CC8E6\\"
++         placeholderTextColor=\\"#B4B6BA\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#52C5DC\\"
+          style={
+            Array ["
+`;
+
+exports[`create methods sets disable false 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -164,14 +164,14 @@
+              },
+            ]
+          }
+          testID=\\"titleInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"\\"
++         value=\\"New Title\\"
+        />
+        <DatePicker
+-         date=\\"\\"
++         date={2020-02-13T00:00:00.000Z}
+          minDate={2020-02-13T00:00:00.000Z}
+          mode=\\"date\\"
+          onDateChange={[Function onChangeDate]}
+          testID=\\"datePicker\\"
+        >
+@@ -219,11 +219,11 @@
+                    \\"lineHeight\\": 22,
+                  },
+                ]
+              }
+            >
+-             End Date (Required)
++             February 13, 2020
+            </Text>
+          </View>
+        </DatePicker>
+        <View
+          style={
+@@ -345,16 +345,13 @@
+                \\"alignItems\\": \\"center\\",
+                \\"backgroundColor\\": \\"#52C5DC\\",
+                \\"height\\": 60,
+                \\"justifyContent\\": \\"center\\",
+              },
+-             Object {
+-               \\"opacity\\": 0.6,
+-             },
++             null,
+              Object {
+                \\"alignItems\\": \\"center\\",
+-               \\"backgroundColor\\": \\"#B4B6BA\\",
+                \\"height\\": 48,
+                \\"width\\": 650,
+              },
+              Object {
+                \\"borderRadius\\": 50,"
+`;
+
+exports[`edit methods Saves challenge when user updates detail 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -371,11 +371,11 @@
+                },
+              ]
+            }
+            testID=\\"detailInput\\"
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-           value=\\"New details for my challenge\\"
++           value=\\"\\"
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+    <Image"
+`;
+
+exports[`edit methods calls onComplete 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "marginRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              SAVE
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Edit Challenge"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 16,
+              "paddingHorizontal": 32,
+            },
+          ]
+        }
+        testID="titleInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Old Title"
+      />
+      <DatePicker
+        date={"2020-02-13T23:59:59.999Z"}
+        minDate={2020-02-13T00:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
+        testID="datePicker"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#ECEEF2",
+              "borderTopWidth": 1,
+              "paddingHorizontal": 32,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#939393",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#3CC8E6",
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            February 13, 2020
+          </Text>
+        </View>
+      </DatePicker>
+      <View
+        style={
+          Object {
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "paddingHorizontal": 32,
+            "paddingVertical": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#939393",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          Details
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          multiline={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Add details to your Challenge (optional)"
+          placeholderTextColor="#3CC8E6"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#52C5DC"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "marginBottom": 26,
+                "paddingBottom": 70,
+              },
+            ]
+          }
+          testID="detailInput"
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value="New details for my challenge"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`edit methods disables button if user deletes title 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -247,11 +247,11 @@
+              },
+            ]
+          }
+          testID=\\"titleInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"Old Title\\"
++         value=\\"\\"
+        />
+        <DatePicker
+          date={\\"2020-02-13T23:59:59.999Z\\"}
+          minDate={2020-02-13T00:00:00.000Z}
+          mode=\\"date\\""
+`;
+
 exports[`renders correctly 1`] = `
 <View
   style={
@@ -10,77 +1109,227 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "challenge",
-        "create",
-      ]
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
-  />
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    left={
-      <Connect(BackButton)
-        iconStyle={
+  >
+    <View
+      style={
+        Array [
           Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-          }
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
         }
       />
-    }
-  />
-  <View
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              Object {
+                "alignItems": "flex-end",
+                "alignSelf": "flex-end",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeButton.png",
+                  }
+                }
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <Input
-      autoCorrect={true}
-      autoFocus={false}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="New Challenge"
-      placeholderTextColor="#B4B6BA"
-      returnKeyType="done"
-      selectionColor="#52C5DC"
-      style={
-        Object {
-          "borderBottomWidth": 0,
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginBottom": 26,
-          "marginTop": 64,
-          "paddingHorizontal": 32,
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="New Challenge"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 16,
+              "paddingHorizontal": 32,
+            },
+          ]
         }
-      }
-      value=""
-    />
-    <withI18nextTranslation(MyDatePickerIOS)
-      customStyles={Object {}}
-      date=""
-      disabled={false}
-      duration={300}
-      height={259}
-      minDate={2018-09-01T00:00:00.000Z}
-      mode="date"
-      onDateChange={[Function]}
-    >
+        testID="titleInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+      <DatePicker
+        date=""
+        minDate={2020-02-13T00:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
+        testID="datePicker"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#ECEEF2",
+              "borderTopWidth": 1,
+              "paddingHorizontal": 32,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#939393",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#3CC8E6",
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            End Date (Required)
+          </Text>
+        </View>
+      </DatePicker>
       <View
         style={
           Object {
-            "borderBottomWidth": 1,
             "borderColor": "#ECEEF2",
             "borderTopWidth": 1,
             "paddingHorizontal": 32,
@@ -88,35 +1337,161 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        <MyText
+        <Text
           style={
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 10,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#939393",
+                "fontSize": 12,
+              },
+            ]
           }
         >
-          End Date
-        </MyText>
-        <MyText
+          Details
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          multiline={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Add details to your Challenge (optional)"
+          placeholderTextColor="#3CC8E6"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#52C5DC"
           style={
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 16,
-              "lineHeight": 22,
-            }
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "marginBottom": 26,
+                "paddingBottom": 70,
+              },
+            ]
           }
-        >
-          End Date (Required)
-        </MyText>
+          testID="detailInput"
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
       </View>
-    </withI18nextTranslation(MyDatePickerIOS)>
-  </View>
-  <BottomButton
-    disabled={true}
-    onPress={[Function]}
-    text="Create Challenge"
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
   />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            Object {
+              "opacity": 0.6,
+            },
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#B4B6BA",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          CREATE CHALLENGE
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -130,77 +1505,310 @@ exports[`renders edit challenge correctly 1`] = `
     }
   }
 >
-  <Analytics
-    screenName={
-      Array [
-        "challenge",
-        "edit",
-      ]
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
-  />
-  <StatusBar
-    animated={true}
-    backgroundColor="#006789"
-    barStyle="dark-content"
-    showHideTransition="fade"
-  />
-  <Header
-    left={
-      <Connect(BackButton)
-        iconStyle={
+  >
+    <View
+      style={
+        Array [
           Object {
-            "color": "#B4B6BA",
-            "fontSize": 16,
-          }
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
         }
-      />
-    }
-  />
-  <View
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="editButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "marginRight": 10,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 14,
+                    },
+                  ],
+                ]
+              }
+            >
+              SAVE
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
     style={
       Object {
         "flex": 1,
       }
     }
   >
-    <Input
-      autoCorrect={true}
-      autoFocus={false}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Edit Challenge"
-      placeholderTextColor="#B4B6BA"
-      returnKeyType="done"
-      selectionColor="#52C5DC"
-      style={
-        Object {
-          "borderBottomWidth": 0,
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "lineHeight": 38,
-          "marginBottom": 26,
-          "marginTop": 64,
-          "paddingHorizontal": 32,
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        multiline={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Edit Challenge"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "marginBottom": 16,
+              "paddingHorizontal": 32,
+            },
+          ]
         }
-      }
-      value="Test Title"
-    />
-    <withI18nextTranslation(MyDatePickerIOS)
-      customStyles={Object {}}
-      date="2018-09-30 23:59:59"
-      disabled={false}
-      duration={300}
-      height={259}
-      minDate={2018-09-01T00:00:00.000Z}
-      mode="date"
-      onDateChange={[Function]}
-    >
+        testID="titleInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Test Title"
+      />
+      <DatePicker
+        date={"2020-02-29T23:59:59.999Z"}
+        minDate={2020-02-13T00:00:00.000Z}
+        mode="date"
+        onDateChange={[Function]}
+        testID="datePicker"
+      >
+        <View
+          style={
+            Object {
+              "borderBottomWidth": 1,
+              "borderColor": "#ECEEF2",
+              "borderTopWidth": 1,
+              "paddingHorizontal": 32,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#939393",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Challenge Ends
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#3CC8E6",
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            February 29, 2020
+          </Text>
+        </View>
+      </DatePicker>
       <View
         style={
           Object {
-            "borderBottomWidth": 1,
             "borderColor": "#ECEEF2",
             "borderTopWidth": 1,
             "paddingHorizontal": 32,
@@ -208,34 +1816,79 @@ exports[`renders edit challenge correctly 1`] = `
           }
         }
       >
-        <MyText
+        <Text
           style={
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 10,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#939393",
+                "fontSize": 12,
+              },
+            ]
           }
         >
-          End Date
-        </MyText>
-        <MyText
+          Details
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          multiline={true}
+          onBlur={[Function]}
+          onChangeText={[Function]}
+          onFocus={[Function]}
+          placeholder="Add details to your Challenge (optional)"
+          placeholderTextColor="#3CC8E6"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#52C5DC"
           style={
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 16,
-              "lineHeight": 22,
-            }
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 24,
+                "marginBottom": 26,
+                "paddingBottom": 70,
+              },
+            ]
           }
-        >
-          September 30, 2018
-        </MyText>
+          testID="detailInput"
+          underlineColorAndroid="rgba(0,0,0,0)"
+        />
       </View>
-    </withI18nextTranslation(MyDatePickerIOS)>
-  </View>
-  <BottomButton
-    disabled={true}
-    onPress={[Function]}
-    text="Save Changes"
+    </View>
+  </RCTScrollView>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/challengeDetailsTarget.png",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "position": "absolute",
+        "right": 0,
+        "zIndex": -1,
+      }
+    }
   />
 </View>
 `;
