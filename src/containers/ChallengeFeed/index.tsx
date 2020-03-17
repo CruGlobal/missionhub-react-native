@@ -22,6 +22,7 @@ import NullStateComponent from '../../components/NullStateComponent';
 import TARGET from '../../../assets/images/challengeTarget.png';
 import { AuthState } from '../../reducers/auth';
 import { ChallengeItem as ChallengeItemInterface } from '../../components/ChallengeStats';
+import { SwipeState } from '../../reducers/swipe';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
@@ -63,6 +64,11 @@ const ChallengeFeed = ({
       },
     ),
   );
+
+  const isOnboardingCardVisible = useSelector(
+    ({ swipe }: { swipe: SwipeState }) => swipe.groupOnboarding.challenges,
+  );
+
   const adminOrOwner = isAdminOrOwner(orgPerm);
   const [isListScrolled, setListScrolled] = useState(false);
   const getAcceptedChallenge = ({
@@ -145,13 +151,16 @@ const ChallengeFeed = ({
   const renderNull = () => {
     return (
       <>
-        {renderHeader()}
-        <NullStateComponent
-          style={styles.nullContainer}
-          imageSource={TARGET}
-          headerText={t('nullTitle')}
-          descriptionText={adminOrOwner ? t('nullAdmins') : t('nullMembers')}
-        />
+        {isOnboardingCardVisible ? (
+          renderHeader()
+        ) : (
+          <NullStateComponent
+            style={styles.nullContainer}
+            imageSource={TARGET}
+            headerText={t('nullTitle')}
+            descriptionText={adminOrOwner ? t('nullAdmins') : t('nullMembers')}
+          />
+        )}
       </>
     );
   };

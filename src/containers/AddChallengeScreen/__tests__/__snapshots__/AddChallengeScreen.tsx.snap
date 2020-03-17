@@ -123,9 +123,16 @@ exports[`create methods calls onComplete 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
-    style={
+    contentContainerStyle={
       Object {
-        "flex": 1,
+        "alignItems": "stretch",
+        "justifyContent": "center",
+        "paddingTop": 10,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 96,
       }
     }
   >
@@ -267,7 +274,7 @@ exports[`create methods calls onComplete 1`] = `
           placeholder="Add details to your Challenge (optional)"
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
-          returnKeyType="done"
+          scrollEnabled={false}
           selectionColor="#52C5DC"
           style={
             Array [
@@ -398,7 +405,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -167,11 +167,11 @@
+@@ -174,11 +174,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -411,7 +418,7 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -219,11 +219,11 @@
+@@ -226,11 +226,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -431,7 +438,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -288,11 +288,11 @@
+@@ -295,11 +295,11 @@
                 },
               ]
             }
@@ -451,7 +458,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -164,11 +164,11 @@
+@@ -171,11 +171,11 @@
               },
             ]
           }
@@ -471,7 +478,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -167,11 +167,11 @@
+@@ -174,11 +174,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -484,7 +491,7 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -219,11 +219,11 @@
+@@ -226,11 +226,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -504,20 +511,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -135,11 +135,11 @@
-          multiline={true}
-          onBlur={[Function onBlur]}
-          onChangeText={[Function onChangeTitle]}
-          onFocus={[Function onFocus]}
-          placeholder=\\"New Challenge\\"
--         placeholderTextColor=\\"#3CC8E6\\"
-+         placeholderTextColor=\\"#B4B6BA\\"
-          rejectResponderTermination={true}
-          returnKeyType=\\"done\\"
-          selectionColor=\\"#52C5DC\\"
-          style={
-            Array [
-@@ -260,11 +260,11 @@
+@@ -267,11 +267,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -526,7 +520,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 -           placeholderTextColor=\\"#B4B6BA\\"
 +           placeholderTextColor=\\"#3CC8E6\\"
             rejectResponderTermination={true}
-            returnKeyType=\\"done\\"
+            scrollEnabled={false}
             selectionColor=\\"#52C5DC\\"
             style={
               Array ["
@@ -537,7 +531,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
 - First value
 + Second value
 
-@@ -135,11 +135,11 @@
+@@ -142,11 +142,11 @@
           multiline={true}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeTitle]}
@@ -549,20 +543,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
           returnKeyType=\\"done\\"
           selectionColor=\\"#52C5DC\\"
           style={
-            Array [
-@@ -260,11 +260,11 @@
-            multiline={true}
-            onBlur={[Function onBlur]}
-            onChangeText={[Function onChangeText]}
-            onFocus={[Function onFocus]}
-            placeholder=\\"Add details to your Challenge (optional)\\"
--           placeholderTextColor=\\"#3CC8E6\\"
-+           placeholderTextColor=\\"#B4B6BA\\"
-            rejectResponderTermination={true}
-            returnKeyType=\\"done\\"
-            selectionColor=\\"#52C5DC\\"
-            style={
-              Array ["
+            Array ["
 `;
 
 exports[`create methods focuses on press | detailInput 1`] = `
@@ -570,7 +551,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -260,11 +260,11 @@
+@@ -267,11 +267,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -579,7 +560,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 -           placeholderTextColor=\\"#3CC8E6\\"
 +           placeholderTextColor=\\"#B4B6BA\\"
             rejectResponderTermination={true}
-            returnKeyType=\\"done\\"
+            scrollEnabled={false}
             selectionColor=\\"#52C5DC\\"
             style={
               Array ["
@@ -590,7 +571,7 @@ exports[`create methods focuses on press | titleInput 1`] = `
 - First value
 + Second value
 
-@@ -135,11 +135,11 @@
+@@ -142,11 +142,11 @@
           multiline={true}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeTitle]}
@@ -610,7 +591,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -164,14 +164,14 @@
+@@ -171,14 +171,14 @@
               },
             ]
           }
@@ -627,7 +608,7 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -219,11 +219,11 @@
+@@ -226,11 +226,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -640,7 +621,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -345,16 +345,13 @@
+@@ -352,16 +352,13 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -665,7 +646,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -371,11 +371,11 @@
+@@ -378,11 +378,11 @@
                 },
               ]
             }
@@ -886,9 +867,16 @@ exports[`edit methods calls onComplete 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
-    style={
+    contentContainerStyle={
       Object {
-        "flex": 1,
+        "alignItems": "stretch",
+        "justifyContent": "center",
+        "paddingTop": 10,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 96,
       }
     }
   >
@@ -1030,7 +1018,7 @@ exports[`edit methods calls onComplete 1`] = `
           placeholder="Add details to your Challenge (optional)"
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
-          returnKeyType="done"
+          scrollEnabled={false}
           selectionColor="#52C5DC"
           style={
             Array [
@@ -1084,7 +1072,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -247,11 +247,11 @@
+@@ -254,11 +254,11 @@
               },
             ]
           }
@@ -1222,9 +1210,16 @@ exports[`renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
-    style={
+    contentContainerStyle={
       Object {
-        "flex": 1,
+        "alignItems": "stretch",
+        "justifyContent": "center",
+        "paddingTop": 10,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 96,
       }
     }
   >
@@ -1366,7 +1361,7 @@ exports[`renders correctly 1`] = `
           placeholder="Add details to your Challenge (optional)"
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
-          returnKeyType="done"
+          scrollEnabled={false}
           selectionColor="#52C5DC"
           style={
             Array [
@@ -1701,9 +1696,16 @@ exports[`renders edit challenge correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
-    style={
+    contentContainerStyle={
       Object {
-        "flex": 1,
+        "alignItems": "stretch",
+        "justifyContent": "center",
+        "paddingTop": 10,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 96,
       }
     }
   >
@@ -1845,7 +1847,7 @@ exports[`renders edit challenge correctly 1`] = `
           placeholder="Add details to your Challenge (optional)"
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
-          returnKeyType="done"
+          scrollEnabled={false}
           selectionColor="#52C5DC"
           style={
             Array [

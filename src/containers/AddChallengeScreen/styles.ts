@@ -8,6 +8,11 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
     flexDirection: 'column',
   },
+  fieldWrap: {
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    paddingTop: 10,
+  },
   textInput: {
     fontSize: 24,
     fontWeight: '300',
