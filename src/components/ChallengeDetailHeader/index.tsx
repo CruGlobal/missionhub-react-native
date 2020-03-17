@@ -1,65 +1,65 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import Markdown from 'react-native-markdown-renderer';
+import moment from 'moment';
 
-import { Flex, Button, Text, DateComponent } from '../common';
-import ChallengeStats from '../ChallengeStats';
+import { Flex, Text, DateComponent } from '../common';
+import ChallengeStats, { ChallengeItem } from '../ChallengeStats';
+import markdownStyles from '../../markdownStyles';
 
 import styles from './styles';
 
-type ChallengeType = {
-  isPast: boolean;
-  title: string;
-  end_date: string;
-};
-
 interface ChallengeDetailHeaderProps {
-  challenge: ChallengeType;
-  canEditChallenges?: boolean;
-  onEdit?: (arg1: ChallengeType) => void;
+  challenge: ChallengeItem;
+  isAdmin: boolean;
 }
 
 const ChallengeDetailHeader = ({
   challenge,
-  canEditChallenges,
-  onEdit,
+  isAdmin,
 }: ChallengeDetailHeaderProps) => {
   const { t } = useTranslation('challengeFeeds');
-
-  const handleEdit = () => {
-    onEdit && onEdit(challenge);
-  };
-  const { isPast, title, end_date } = challenge;
-  const canEdit = canEditChallenges && onEdit && !isPast;
+  const { title, end_date, details_markdown } = challenge;
+  const todaysDate = moment().endOf('day');
+  const isDateWithinWeek = todaysDate.isSame(
+    moment(end_date).endOf('day'),
+    'week',
+  );
 
   return (
-    <Flex direction="row" style={styles.wrap}>
-      <Flex value={5} direction="column" justify="start">
-        <Flex style={styles.section}>
-          {canEdit ? (
-            <Flex direction="row">
-              <Button
-                testID="ChallengeDetailHeaderEditButton"
-                type="transparent"
-                text={t('Edit')}
-                onPress={handleEdit}
-                buttonTextStyle={styles.editButtonText}
-              />
-            </Flex>
-          ) : null}
-          <Text style={styles.title}>{title}</Text>
-        </Flex>
-        <Flex style={styles.section}>
-          <Text style={styles.subHeader}>{t('endDate')}</Text>
-          <DateComponent
-            date={end_date}
-            format={'dddd, LL'}
-            style={styles.dateText}
+    <ScrollView>
+      <Flex direction="row" style={styles.wrap}>
+        <Flex value={5} direction="column" justify="start">
+          <Flex style={styles.section}>
+            <Text style={styles.title}>{title}</Text>
+          </Flex>
+          <ChallengeStats
+            challenge={challenge}
+            style={styles.section}
+            isDetailScreen={true}
           />
+          <Flex style={styles.section}>
+            <Text style={styles.subHeader}>{t('endDate')}</Text>
+            <DateComponent
+              date={end_date}
+              format={isDateWithinWeek ? 'dddd' : 'dddd, LL'}
+              style={styles.dateText}
+            />
+          </Flex>
+          <Flex style={styles.detailSection}>
+            <Text style={styles.subHeader}>{t('details')}</Text>
+            <Markdown style={markdownStyles}>
+              {details_markdown
+                ? details_markdown
+                : isAdmin
+                ? t('detailsPlaceholder')
+                : null}
+            </Markdown>
+          </Flex>
         </Flex>
-        <ChallengeStats challenge={challenge} style={styles.section} />
       </Flex>
-      <Flex value={1} />
-    </Flex>
+    </ScrollView>
   );
 };
 

@@ -12,9 +12,12 @@ exports[`renders correctly when me and no steps 1`] = `
   <View
     style={
       Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          undefined,
+        ],
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -43,17 +46,19 @@ exports[`renders correctly when me and no steps 1`] = `
             "color": "#505256",
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
+            "fontFamily": "SourceSansPro-Regular",
           },
           Object {
             "color": "#007398",
-            "fontSize": 42,
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontWeight": "300",
             "paddingTop": 10,
           },
         ]
       }
     >
-      steps of faith
+      STEPS OF FAITH
     </Text>
     <Text
       style={
@@ -67,7 +72,7 @@ exports[`renders correctly when me and no steps 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 80,
             "paddingVertical": 10,
             "textAlign": "center",
           },
@@ -174,9 +179,12 @@ exports[`renders correctly when no steps 1`] = `
   <View
     style={
       Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+          },
+          undefined,
+        ],
         Object {
           "alignItems": "center",
           "flex": 1,
@@ -205,17 +213,19 @@ exports[`renders correctly when no steps 1`] = `
             "color": "#505256",
           },
           Object {
-            "fontFamily": "AmaticSC-Bold",
+            "fontFamily": "SourceSansPro-Regular",
           },
           Object {
             "color": "#007398",
-            "fontSize": 42,
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 24,
+            "fontWeight": "300",
             "paddingTop": 10,
           },
         ]
       }
     >
-      steps of faith
+      STEPS OF FAITH
     </Text>
     <Text
       style={
@@ -229,7 +239,7 @@ exports[`renders correctly when no steps 1`] = `
           Object {
             "color": "#505256",
             "fontSize": 16,
-            "paddingHorizontal": 70,
+            "paddingHorizontal": 80,
             "paddingVertical": 10,
             "textAlign": "center",
           },
