@@ -68,6 +68,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to allow you to add a photo into your profile or community</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
