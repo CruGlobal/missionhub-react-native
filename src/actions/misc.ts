@@ -22,7 +22,7 @@ import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
-const GET_FEATURE_FLAGS = gql`
+export const GET_FEATURE_FLAGS = gql`
   query GetFeatureFlags {
     features
   }
