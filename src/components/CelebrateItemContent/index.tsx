@@ -6,12 +6,9 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { Text, Button } from '../../components/common';
-import {
-  INTERACTION_TYPES,
-  CELEBRATEABLE_TYPES,
-  GLOBAL_COMMUNITY_ID,
-} from '../../constants';
+import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
+import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
@@ -66,10 +63,11 @@ const CelebrateItemContent = ({
     ? subjectPersonName
     : t('aMissionHubUser');
 
-  const onPressChallengeLink = () => {
+  const onPressChallengeLink = async () => {
     const orgId = organization.id;
     const challengeId = adjectiveAttributeValue;
-    if (orgId && orgId !== GLOBAL_COMMUNITY_ID) {
+    if (orgId) {
+      await dispatch(reloadGroupChallengeFeed(orgId));
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
           challengeId,
