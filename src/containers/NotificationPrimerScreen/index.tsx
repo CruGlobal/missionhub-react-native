@@ -65,6 +65,7 @@ const NotificationPrimerScreen = ({
   const allow = async () => {
     let nativePermissionsEnabled = false;
     try {
+      dispatch(hasShownPrompt());
       const response = await dispatch(requestNativePermissions());
       nativePermissionsEnabled = response.nativePermissionsEnabled;
     } finally {

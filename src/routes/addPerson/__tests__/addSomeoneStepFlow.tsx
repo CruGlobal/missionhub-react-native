@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CREATE_STEP } from '../../../constants';
+import { CREATE_STEP, ACTIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
@@ -16,28 +16,41 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
-import { showReminderOnLoad } from '../../../actions/notifications';
-import { trackActionWithoutData } from '../../../actions/analytics';
-import { createCustomStep } from '../../../actions/steps';
+import {
+  trackActionWithoutData,
+  resetAppContext,
+} from '../../../actions/analytics';
+import { createCustomStep, getStepSuggestions } from '../../../actions/steps';
+import {
+  personSelector,
+  contactAssignmentSelector,
+} from '../../../selectors/people';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/steps');
+jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
 }));
-jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../../containers/StepsList');
+jest.mock('../../../utils/hooks/useAnalytics', () => ({
+  useAnalytics: jest.fn(),
+}));
+
+const mockMath = Object.create(global.Math);
+mockMath.random = () => 0;
+global.Math = mockMath;
 
 const myId = '123';
 const personId = '321';
 const personFirstName = 'Someone';
+const person = { id: personId, first_name: personFirstName };
 const stageId = '3';
-const stage = { id: stageId };
 const step = { id: '111' };
 const text = 'Step Text';
+const contactAssignment = { id: '4', pathway_stage_id: stageId };
 
 const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
@@ -45,69 +58,99 @@ const initialState = {
   people: {
     allByOrg: {
       personal: {
-        people: { [personId]: { id: personId, first_name: personFirstName } },
+        people: { [personId]: person },
       },
     },
   },
   organizations: { all: [] },
   stages: { stages: [] },
-  steps: { suggestedForOthers: { [stage.id]: [stage] } },
+  steps: { suggestedForOthers: { stageId: [] } },
 };
 
 beforeEach(() => {
-  // @ts-ignore
-  navigatePush.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  navigateToMainTabs.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  skipAddPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  resetPersonAndCompleteOnboarding.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  showReminderOnLoad.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  trackActionWithoutData.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  createCustomStep.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  setOnboardingPersonId.mockReturnValue(() => Promise.resolve());
+  (navigatePush as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (navigateToMainTabs as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (skipAddPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (resetPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
+    Promise.resolve(),
+  );
+  (resetAppContext as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (createCustomStep as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (getStepSuggestions as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (setOnboardingPersonId as jest.Mock).mockReturnValue(() => Promise.resolve());
+  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
+  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+    contactAssignment,
+  );
 });
 
-// @ts-ignore
-const buildAndCallNext = async (screen, navParams, nextProps) => {
-  // @ts-ignore
-  const Component = AddSomeoneStepFlowScreens[screen];
+type ScreenName =
+  | typeof ADD_SOMEONE_SCREEN
+  | typeof SETUP_PERSON_SCREEN
+  | typeof SELECT_STAGE_SCREEN
+  | typeof SELECT_STEP_SCREEN
+  | typeof SUGGESTED_STEP_DETAIL_SCREEN
+  | typeof ADD_STEP_SCREEN
+  | typeof CELEBRATION_SCREEN;
 
-  const { store, getByType } = renderWithContext(<Component />, {
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+const renderScreen = (screenName: ScreenName, navParams: any = {}) => {
+  const Component = AddSomeoneStepFlowScreens[screenName];
+
+  const { store, getByType, snapshot } = renderWithContext(<Component />, {
     initialState,
     navParams,
   });
 
-  // @ts-ignore
-  await store.dispatch(getByType(Component).children[0].props.next(nextProps));
+  const originalComponent = getByType(Component).children[0];
+
+  if (typeof originalComponent === 'string') {
+    throw "Can't access component props";
+  }
+
+  const next = originalComponent.props.next;
+
+  return { store, next, snapshot };
 };
 
 describe('AddSomeoneScreen next', () => {
-  it('should fire required next actions without skip', async () => {
-    await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: false });
+  it('renders without skip button correctly', () => {
+    renderScreen(ADD_SOMEONE_SCREEN).snapshot();
+  });
+
+  it('should fire required next actions without skip', () => {
+    const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
+
+    store.dispatch(next({ skip: false }));
 
     expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
   });
 
-  it('should fire required next actions with skip', async () => {
-    await buildAndCallNext(ADD_SOMEONE_SCREEN, undefined, { skip: true });
+  it('should fire required next actions with skip', () => {
+    const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
+
+    store.dispatch(next({ skip: true }));
 
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
 describe('SetupPersonScreen next', () => {
-  it('should fire required next actions without skip', async () => {
-    await buildAndCallNext(SETUP_PERSON_SCREEN, undefined, {
-      skip: false,
-      personId,
-    });
+  it('renders without skip button correctly', () => {
+    renderScreen(SETUP_PERSON_SCREEN).snapshot();
+  });
 
+  it('should fire required next actions without skip', () => {
+    const { store, next } = renderScreen(SETUP_PERSON_SCREEN);
+
+    store.dispatch(next({ skip: false, personId }));
+
+    expect(setOnboardingPersonId).toHaveBeenCalledWith(personId);
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
       section: 'onboarding',
       subsection: 'add person',
@@ -115,27 +158,33 @@ describe('SetupPersonScreen next', () => {
     });
   });
 
-  it('should fire required next actions with skip', async () => {
-    await buildAndCallNext(SETUP_PERSON_SCREEN, undefined, {
-      skip: true,
-    });
+  it('should fire required next actions with skip', () => {
+    const { store, next } = renderScreen(SETUP_PERSON_SCREEN);
 
+    store.dispatch(next({ skip: true }));
+
+    expect(setOnboardingPersonId).not.toHaveBeenCalled();
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
 describe('SelectStageScreen', () => {
-  it('should fire required next actions', async () => {
-    await buildAndCallNext(
-      SELECT_STAGE_SCREEN,
-      { personId },
-      {
-        stage: stage,
-        personId,
-        firstName: personFirstName,
-        isMe: false,
-      },
-    );
+  it('renders correctly', () => {
+    renderScreen(SELECT_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'add person',
+      personId,
+    }).snapshot();
+  });
+
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(SELECT_STAGE_SCREEN, {
+      section: 'onboarding',
+      subsection: 'add person',
+      personId,
+    });
+
+    store.dispatch(next({ isMe: false }));
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
       personId,
@@ -144,13 +193,20 @@ describe('SelectStageScreen', () => {
 });
 
 describe('PersonSelectStepScreen next', () => {
-  const navParams = {
-    personId,
-    orgId: 'personal',
-  };
+  it('renders correctly', () => {
+    renderScreen(SELECT_STEP_SCREEN, {
+      personId,
+      step,
+    }).snapshot();
+  });
 
-  it('should fire required next actions for suggested step', async () => {
-    await buildAndCallNext(SELECT_STEP_SCREEN, navParams, { personId, step });
+  it('should fire required next actions for suggested step', () => {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
+      personId,
+      step,
+    });
+
+    store.dispatch(next({ personId, step }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
       step,
@@ -158,11 +214,13 @@ describe('PersonSelectStepScreen next', () => {
     });
   });
 
-  it('should fire required next actions for create step', async () => {
-    await buildAndCallNext(SELECT_STEP_SCREEN, navParams, {
+  it('should fire required next actions for create step', () => {
+    const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
       step: undefined,
     });
+
+    store.dispatch(next({ personId, step: undefined }));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_STEP_SCREEN, {
       type: CREATE_STEP,
@@ -172,28 +230,40 @@ describe('PersonSelectStepScreen next', () => {
 });
 
 describe('SuggestedStepDetailScreen next', () => {
-  const navParams = {
-    step,
-    personId: myId,
-  };
+  it('renders correctly', () => {
+    renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step,
+      personId,
+    }).snapshot();
+  });
 
-  it('should fire required next actions for other person', async () => {
-    await buildAndCallNext(SUGGESTED_STEP_DETAIL_SCREEN, navParams, {
-      contactId: personId,
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
+      step,
+      personId,
     });
+
+    store.dispatch(next({ personId }));
 
     expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });
 
 describe('AddStepScreen next', () => {
-  const navParams = {
-    type: CREATE_STEP,
-    personId,
-  };
+  it('renders correctly', () => {
+    renderScreen(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      personId,
+    }).snapshot();
+  });
 
-  it('should fire required next actions for other person', async () => {
-    await buildAndCallNext(ADD_STEP_SCREEN, navParams, { text, personId });
+  it('should fire required next actions for other person', () => {
+    const { store, next } = renderScreen(ADD_STEP_SCREEN, {
+      type: CREATE_STEP,
+      personId,
+    });
+
+    store.dispatch(next({ text, personId }));
 
     expect(createCustomStep).toHaveBeenCalledWith(text, personId);
 
@@ -202,10 +272,19 @@ describe('AddStepScreen next', () => {
 });
 
 describe('CelebrationScreen next', () => {
-  it('should fire required next actions', async () => {
-    // @ts-ignore
-    await buildAndCallNext(CELEBRATION_SCREEN);
+  it('renders correctly', () => {
+    renderScreen(CELEBRATION_SCREEN).snapshot();
+  });
 
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(CELEBRATION_SCREEN);
+
+    store.dispatch(next());
+
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
+      ACTIONS.ONBOARDING_COMPLETE,
+    );
+    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigateToMainTabs).toHaveBeenCalledWith();
   });
 });
