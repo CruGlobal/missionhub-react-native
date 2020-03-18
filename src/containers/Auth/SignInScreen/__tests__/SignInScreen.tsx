@@ -32,8 +32,13 @@ jest.mock('../../../../actions/auth/facebook', () => ({
 }));
 let keyboardListeners: { [name: string]: () => void };
 jest.mock('../../../../utils/hooks/useKeyboardListeners', () => ({
-  useKeyboardListeners: (onShow: () => void, onHide: () => void) =>
-    (keyboardListeners = { onShow, onHide }),
+  useKeyboardListeners: ({
+    onShow,
+    onHide,
+  }: {
+    onShow: () => void;
+    onHide: () => void;
+  }) => (keyboardListeners = { onShow, onHide }),
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
 

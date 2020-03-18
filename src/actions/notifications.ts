@@ -1,27 +1,30 @@
-/* eslint complexity: 0 */
+/* eslint complexity: 0 max-lines: 0 */
 
 import { PushNotificationIOS } from 'react-native';
+import PushNotification, {
+  PushNotification as RNPushNotificationPayloadAndConstructor,
+} from 'react-native-push-notification';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import RNPushNotification, {
-  PushNotification,
-} from 'react-native-push-notification';
 
-import { GCM_SENDER_ID, NOTIFICATION_PROMPT_TYPES } from '../constants';
+import {
+  GCM_SENDER_ID,
+  GLOBAL_COMMUNITY_ID,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
+import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
-import { NotificationsState } from '../reducers/notifications';
 import { AuthState } from '../reducers/auth';
-import { OrganizationsState } from '../reducers/organizations';
+import { NotificationsState } from '../reducers/notifications';
 
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
-import { reloadGroupCelebrateFeed } from './celebration';
 import {
   navigatePush,
   navigateToMainTabs,
@@ -29,25 +32,74 @@ import {
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
+import { getCelebrateFeed } from './celebration';
 
-export interface MHPushNotification extends PushNotification {
+// react-native-push-notifications has the PushNotification type overloaded to be both the notification payload and the constructor so TS merges them. Here we just pick the payload keys.
+export type RNPushNotificationPayload = Pick<
+  RNPushNotificationPayloadAndConstructor,
+  | 'foreground'
+  | 'userInteraction'
+  | 'message'
+  | 'data'
+  | 'subText'
+  | 'badge'
+  | 'alert'
+  | 'sound'
+  | 'finish'
+>;
+
+export type PushNotificationPayloadIosOrAndroid =
+  | PushNotificationPayloadIos
+  | PushNotificationPayloadAndroid;
+
+export type PushNotificationPayloadIos = RNPushNotificationPayload & {
   data: {
-    link?: {
-      data?: {
-        screen: string;
-        person_id?: string;
-        organization_id?: string;
-        celebration_item_id?: string;
-        screen_extra_data?: string;
-      };
+    link: {
+      data: PushNotificationPayloadData;
     };
   };
-  screen?: string;
-  person_id?: string;
-  organization_id?: string;
-  celebration_item_id?: string;
-  screen_extra_data?: string;
-}
+};
+
+export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
+  PushNotificationPayloadData;
+
+export type PushNotificationPayloadData =
+  | { screen: 'home' }
+  | { screen: 'steps' }
+  | { screen: 'person_steps'; person_id: string; organization_id?: string }
+  | { screen: 'my_steps' }
+  | { screen: 'add_a_person'; organization_id?: string }
+  | { screen: 'celebrate_feed'; organization_id: string }
+  | {
+      screen: 'celebrate';
+      organization_id: string;
+      screen_extra_data: string | { celebration_item_id?: string };
+    }
+  | {
+      screen: 'celebrate_item';
+      organization_id: string;
+      screen_extra_data: string | { celebration_item_id: string };
+    }
+  | { screen: 'community_challenges'; organization_id: string };
+
+type ParsedNotificationData =
+  | { screen: 'home' }
+  | { screen: 'steps' }
+  | { screen: 'person_steps'; person_id: string; organization_id?: string }
+  | { screen: 'my_steps' }
+  | { screen: 'add_a_person'; organization_id?: string }
+  | { screen: 'celebrate_feed'; organization_id: string }
+  | {
+      screen: 'celebrate';
+      organization_id: string;
+      celebration_item_id?: string;
+    }
+  | {
+      screen: 'celebrate_item';
+      organization_id: string;
+      celebration_item_id: string;
+    }
+  | { screen: 'community_challenges'; organization_id: string };
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
@@ -154,7 +206,7 @@ export const requestNativePermissions = () => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   console.log('requestPermissions()');
-  const nativePermissions = await RNPushNotification.requestPermissions();
+  const nativePermissions = await PushNotification.requestPermissions();
 
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
@@ -166,156 +218,180 @@ export const requestNativePermissions = () => async (
   return { nativePermissionsEnabled };
 };
 
-export const configureNotificationHandler = () => (
-  dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
-  getState: () => { notifications: NotificationsState },
-) => {
-  RNPushNotification.configure({
-    onRegister(t) {
-      console.log('new Push Device Token');
-      const { pushDevice } = getState().notifications;
+export function configureNotificationHandler() {
+  return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dispatch: ThunkDispatch<{}, {}, any>,
+    getState: () => { notifications: NotificationsState },
+  ) => {
+    PushNotification.configure({
+      onRegister(t) {
+        console.log('new Push Device Token');
+        const { pushDevice } = getState().notifications;
 
-      if (pushDevice && pushDevice.token === t.token) {
-        console.log('same as before, skip');
-        return;
-      }
-      //make api call to register token with user
-      dispatch(setPushDevice(t.token));
-    },
-    async onNotification(notification) {
-      await dispatch(handleNotification(notification));
-
-      notification.finish(PushNotificationIOS.FetchResult.NoData);
-    },
-    // ANDROID ONLY: GCM Sender ID
-    senderID: GCM_SENDER_ID,
-
-    // we manually call this after to have access to a promise for the iOS prompt
-    requestPermissions: false,
-  });
-};
-
-const handleNotification = (notification: MHPushNotification) => async (
-  dispatch: ThunkDispatch<
-    { organizations: OrganizationsState },
-    null,
-    AnyAction
-  >,
-  getState: () => { auth: AuthState },
-) => {
-  if (isAndroid && !notification.userInteraction) {
-    return;
-  }
-
-  const { person: me } = getState().auth;
-
-  const notificationData = parseNotificationData(notification);
-  const {
-    screen,
-    person_id,
-    celebration_item_id,
-    organization_id,
-  } = notificationData;
-
-  switch (screen) {
-    case 'home':
-    case 'steps':
-      return dispatch(navigateToMainTabs());
-    case 'person_steps':
-      if (person_id) {
-        const { person } = await dispatch(
-          getPersonDetails(person_id, organization_id),
+        if (pushDevice && pushDevice.token === t.token) {
+          console.log('same as before, skip');
+          return;
+        }
+        //make api call to register token with user
+        dispatch(registerPushDevice(t.token));
+      },
+      async onNotification(notification) {
+        await dispatch(
+          handleNotification(
+            notification as PushNotificationPayloadIosOrAndroid,
+          ),
         );
-        return dispatch(navToPersonScreen(person, { id: organization_id }));
-      }
-      return;
-    case 'my_steps':
-      return dispatch(navToPersonScreen(me));
-    case 'add_a_person':
-      return dispatch(
-        navigatePush(ADD_PERSON_THEN_STEP_SCREEN_FLOW, {
-          organization: { id: organization_id },
-        }),
-      );
-    case 'celebrate':
-      if (organization_id) {
-        const community = await dispatch(refreshCommunity(organization_id));
-        await dispatch(reloadGroupCelebrateFeed(organization_id));
-        return dispatch(
-          celebration_item_id
-            ? navigateToCelebrateComments(community, celebration_item_id)
-            : navigateToCommunity(community),
-        );
-      }
-      return;
-    case 'community_challenges':
-      const community = await dispatch(refreshCommunity(organization_id));
-      await dispatch(reloadGroupChallengeFeed(organization_id));
-      return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
-  }
-};
+        notification.finish(PushNotificationIOS.FetchResult.NoData);
+      },
+      // ANDROID ONLY: GCM Sender ID
+      senderID: GCM_SENDER_ID,
 
-export function parseNotificationData(notification: MHPushNotification) {
-  const {
-    data: { link: { data: iosData = { screen_extra_data: '' } } = {} } = {},
-  } = notification;
-
-  const data = {
-    ...notification,
-    ...(typeof notification.screen_extra_data === 'string' &&
-    notification.screen_extra_data !== ''
-      ? JSON.parse(notification.screen_extra_data)
-      : notification.screen_extra_data),
-    ...iosData,
-    ...(typeof iosData.screen_extra_data === 'string' &&
-    iosData.screen_extra_data !== ''
-      ? JSON.parse(iosData.screen_extra_data)
-      : iosData.screen_extra_data),
-  } as {
-    screen: string;
-    person_id?: string;
-    organization_id?: string;
-    celebration_item_id?: string;
-  };
-
-  return {
-    screen: data.screen,
-    person_id: data.person_id,
-    organization_id: data.organization_id,
-    celebration_item_id: data.celebration_item_id,
+      // we manually call this after to have access to a promise for the iOS prompt
+      requestPermissions: false,
+    });
   };
 }
 
-const setPushDevice = (token: string) => (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
-) => {
-  console.log('Set Push Device Token');
-  const data = {
-    data: {
-      type: 'push_notification_device_token',
-      attributes: {
-        token,
-        platform: isAndroid ? 'GCM' : __DEV__ ? 'APNS_SANDBOX' : 'APNS',
-      },
-    },
+function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
+  return async (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dispatch: ThunkDispatch<{}, {}, any>,
+    getState: () => { auth: AuthState },
+  ) => {
+    if (isAndroid && !notification.userInteraction) {
+      return;
+    }
+
+    const { person: me } = getState().auth;
+
+    const notificationData = parseNotificationData(notification);
+
+    switch (notificationData.screen) {
+      case 'home':
+      case 'steps':
+        return dispatch(navigateToMainTabs());
+      case 'person_steps': {
+        const { person_id, organization_id } = notificationData;
+        if (person_id) {
+          // @ts-ignore
+          const { person } = await dispatch(
+            getPersonDetails(person_id, organization_id),
+          );
+          return dispatch(navToPersonScreen(person, { id: organization_id }));
+        }
+        return;
+      }
+      case 'my_steps':
+        // @ts-ignore
+        return dispatch(navToPersonScreen(me));
+      case 'add_a_person': {
+        const { organization_id } = notificationData;
+        return dispatch(
+          navigatePush(ADD_PERSON_THEN_STEP_SCREEN_FLOW, {
+            organization: { id: organization_id },
+          }),
+        );
+      }
+      case 'celebrate_feed': {
+        const { organization_id } = notificationData;
+        if (organization_id) {
+          const community = await dispatch(refreshCommunity(organization_id));
+          return dispatch(navigateToCommunity(community));
+        }
+        return;
+      }
+      case 'celebrate':
+      case 'celebrate_item': {
+        const { organization_id, celebration_item_id } = notificationData;
+        if (organization_id) {
+          dispatch(navigatePush(LOADING_SCREEN));
+          try {
+            const community = await dispatch(refreshCommunity(organization_id));
+            await getCelebrateFeed(organization_id);
+            return dispatch(
+              navigateToCelebrateComments(community, celebration_item_id),
+            );
+          } catch (error) {
+            dispatch(navigateToMainTabs());
+            throw error;
+          }
+        }
+        return;
+      }
+      case 'community_challenges': {
+        const { organization_id } = notificationData;
+        // IOS Global Community Challenges PN returns the organization_id as null
+        const orgId =
+          organization_id === null ? GLOBAL_COMMUNITY_ID : organization_id;
+        const community = await dispatch(refreshCommunity(orgId));
+        await dispatch(reloadGroupChallengeFeed(orgId));
+        return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+      }
+    }
   };
+}
 
-  return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
-};
+export function parseNotificationData(
+  notification: PushNotificationPayloadIosOrAndroid,
+): ParsedNotificationData {
+  const isIosPayload = (
+    notification: PushNotificationPayloadIosOrAndroid,
+  ): notification is PushNotificationPayloadIos =>
+    !!(notification as PushNotificationPayloadIos).data?.link;
 
-export const deletePushToken = () => (
-  dispatch: ThunkDispatch<{}, never, AnyAction>,
-  getState: () => { notifications: NotificationsState },
-) => {
-  console.log('Delete Push Device Token');
-  const { pushDevice } = getState().notifications;
-  if (!pushDevice) {
-    return;
+  const payloadData = isIosPayload(notification)
+    ? notification.data.link.data
+    : notification;
+
+  switch (payloadData.screen) {
+    case 'celebrate':
+    case 'celebrate_item': {
+      const { screen_extra_data, ...mainData } = payloadData;
+      return {
+        ...mainData,
+        ...(typeof screen_extra_data === 'string' && screen_extra_data !== ''
+          ? JSON.parse(screen_extra_data)
+          : screen_extra_data || {}),
+      };
+    }
+    default:
+      return payloadData;
   }
+}
 
-  const query = {
-    deviceId: pushDevice.id,
+function registerPushDevice(token: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (dispatch: ThunkDispatch<{}, {}, any>) => {
+    const data = {
+      data: {
+        type: 'push_notification_device_token',
+        attributes: {
+          token,
+          platform: isAndroid ? 'GCM' : __DEV__ ? 'APNS_SANDBOX' : 'APNS',
+        },
+      },
+    };
+
+    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
   };
+}
 
-  return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
-};
+export function deletePushToken() {
+  return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dispatch: ThunkDispatch<{}, {}, any>,
+    getState: () => { notifications: NotificationsState },
+  ) => {
+    const { pushDevice } = getState().notifications;
+    if (!pushDevice.id) {
+      return;
+    }
+
+    const query = {
+      deviceId: pushDevice.id,
+    };
+
+    return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
+  };
+}

@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 import { PeopleState, Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 import { Organization } from '../reducers/organizations';
+import { CelebrateItem_subjectPerson_communityPermissions_nodes as CommunityPermission } from '../components/CelebrateItem/__generated__/CelebrateItem';
 
 import { removeHiddenOrgs } from './selectorUtils';
 
@@ -154,8 +155,10 @@ export const contactAssignmentSelector = createSelector(
     } = person;
 
     return reverse_contact_assignments.find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (assignment: any) =>
+      (assignment: {
+        assigned_to?: { id: string };
+        organization?: { id: string };
+      }) =>
         assignment.assigned_to &&
         assignment.assigned_to.id === authUserId &&
         (!orgId || orgId === 'personal'
@@ -163,9 +166,9 @@ export const contactAssignmentSelector = createSelector(
           : assignment.organization &&
             orgId === assignment.organization.id &&
             organizational_permissions.some(
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (org_permission: any) =>
-                org_permission.organization_id === assignment.organization.id,
+              (org_permission: { organization_id: string }) =>
+                org_permission.organization_id ===
+                (assignment.organization && assignment.organization.id),
             )),
     );
   },
@@ -176,9 +179,17 @@ export const orgPermissionSelector = createSelector(
   (_: {}, { organization }: { person: Person; organization: Organization }) =>
     organization,
   (person, organization) =>
-    organization &&
-    (person.organizational_permissions || []).find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (orgPermission: any) => orgPermission.organization_id === organization.id,
-    ),
+    organization && person.organizational_permissions
+      ? (person.organizational_permissions || []).find(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (orgPermission: any) =>
+            orgPermission.organization_id === organization.id,
+        )
+      : (
+          (person.communityPermissions && person.communityPermissions.nodes) ||
+          []
+        ).find(
+          (orgPermission: CommunityPermission) =>
+            orgPermission.community.id === organization.id,
+        ),
 );

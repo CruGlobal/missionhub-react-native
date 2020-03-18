@@ -1,0 +1,1060 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="NameButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "paddingLeft": 10,
+                "paddingRight": 5,
+              },
+            ]
+          }
+        >
+          Roge Goers
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          hello roge
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders correctly as mine 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            Object {
+              "backgroundColor": "#52C5DC",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                Object {
+                  "color": "#ffffff",
+                },
+              ],
+            ]
+          }
+        >
+          hello roge
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders editing correctly 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="NameButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "paddingLeft": 10,
+                "paddingRight": 5,
+              },
+            ]
+          }
+        >
+          Roge Goers
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          hello roge
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders my reported comment 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "paddingLeft": 10,
+            "paddingRight": 5,
+          },
+        ]
+      }
+    >
+      Roge Goers
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          hello roge
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders reported comment 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "paddingLeft": 10,
+            "paddingRight": 5,
+          },
+        ]
+      }
+    >
+      Roge Goers
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          hello roge
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders reported story 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "paddingLeft": 10,
+            "paddingRight": 5,
+          },
+        ]
+      }
+    >
+      Roge Goers
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "marginVertical": 5,
+              "paddingHorizontal": 13,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "paddingVertical": 3,
+                },
+                null,
+              ],
+            ]
+          }
+        >
+          hello roge
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`renders without menu actions 1`] = `
+<View
+  collapsable={false}
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      },
+      null,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="NameButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "paddingLeft": 10,
+                "paddingRight": 5,
+              },
+            ]
+          }
+        >
+          Roge Goers
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#B2B0B2",
+            "fontSize": 12,
+          },
+        ]
+      }
+      testID="Text"
+    >
+      June 11, 2018 @ 12:00 PM
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "marginVertical": 5,
+            "paddingHorizontal": 13,
+            "paddingVertical": 8,
+          },
+          null,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "paddingVertical": 3,
+              },
+              null,
+            ],
+          ]
+        }
+      >
+        hello roge
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;

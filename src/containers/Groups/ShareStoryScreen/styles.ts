@@ -18,7 +18,6 @@ export default StyleSheet.create({
     lineHeight: 38,
     color: theme.lightGrey,
     borderBottomWidth: 0,
-    paddingBottom: 70,
     paddingHorizontal: 32,
   },
 });

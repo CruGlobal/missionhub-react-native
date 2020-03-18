@@ -1,0 +1,1372 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mounts with custom props passes in custom flatlist props 1`] = `
+<RCTScrollView
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "content": "some comment",
+        "created_at": "2004-04-04 00:00:00 UTC",
+        "id": "1",
+        "person": Object {
+          "first_name": "Will",
+          "id": "2",
+          "last_name": "Smith",
+        },
+        "updated_at": "2004-04-04 00:00:00 UTC",
+      },
+      Object {
+        "content": "some comment",
+        "created_at": "2004-04-04 00:00:00 UTC",
+        "id": "2",
+        "person": Object {
+          "first_name": "Will",
+          "id": "2",
+          "last_name": "Smith",
+        },
+        "updated_at": "2004-04-04 00:00:00 UTC",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  listHeaderComponent={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        collapsable={false}
+        style={
+          Array [
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "flex-end",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "paddingLeft": 10,
+                      "paddingRight": 5,
+                    },
+                  ]
+                }
+              >
+                Will Smith
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            April 4, 2004 @ 12:00 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="popupMenuButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderRadius": 8,
+                    "marginVertical": 5,
+                    "paddingHorizontal": 13,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "paddingVertical": 3,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                some comment
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        collapsable={false}
+        style={
+          Array [
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "flex-end",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "paddingLeft": 10,
+                      "paddingRight": 5,
+                    },
+                  ]
+                }
+              >
+                Will Smith
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            April 4, 2004 @ 12:00 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="popupMenuButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderRadius": 8,
+                    "marginVertical": 5,
+                    "paddingHorizontal": 13,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "paddingVertical": 3,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                some comment
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`with comments with next page renders correctly 1`] = `
+<RCTScrollView
+  ListFooterComponent={
+    <LoadMore
+      onPress={[Function]}
+      testID="LoadMore"
+    />
+  }
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "content": "some comment",
+        "created_at": "2004-04-04 00:00:00 UTC",
+        "id": "1",
+        "person": Object {
+          "first_name": "Will",
+          "id": "2",
+          "last_name": "Smith",
+        },
+        "updated_at": "2004-04-04 00:00:00 UTC",
+      },
+      Object {
+        "content": "some comment",
+        "created_at": "2004-04-04 00:00:00 UTC",
+        "id": "2",
+        "person": Object {
+          "first_name": "Will",
+          "id": "2",
+          "last_name": "Smith",
+        },
+        "updated_at": "2004-04-04 00:00:00 UTC",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        collapsable={false}
+        style={
+          Array [
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "flex-end",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "paddingLeft": 10,
+                      "paddingRight": 5,
+                    },
+                  ]
+                }
+              >
+                Will Smith
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            April 4, 2004 @ 12:00 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="popupMenuButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderRadius": 8,
+                    "marginVertical": 5,
+                    "paddingHorizontal": 13,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "paddingVertical": 3,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                some comment
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        collapsable={false}
+        style={
+          Array [
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "flex-end",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "paddingLeft": 10,
+                      "paddingRight": 5,
+                    },
+                  ]
+                }
+              >
+                Will Smith
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            April 4, 2004 @ 12:00 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="popupMenuButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderRadius": 8,
+                    "marginVertical": 5,
+                    "paddingHorizontal": 13,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "paddingVertical": 3,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                some comment
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="Button"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {
+                "alignSelf": "center",
+                "borderColor": "#B2B0B2",
+                "borderRadius": 25,
+                "borderWidth": 1,
+                "marginVertical": 20,
+                "paddingVertical": 7,
+                "width": 250,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 18,
+                  },
+                ],
+              ]
+            }
+          >
+            LOAD MORE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`with comments without next page renders correctly 1`] = `
+<RCTScrollView
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "content": "some comment",
+        "created_at": "2004-04-04 00:00:00 UTC",
+        "id": "1",
+        "person": Object {
+          "first_name": "Will",
+          "id": "2",
+          "last_name": "Smith",
+        },
+        "updated_at": "2004-04-04 00:00:00 UTC",
+      },
+      Object {
+        "content": "some comment",
+        "created_at": "2004-04-04 00:00:00 UTC",
+        "id": "2",
+        "person": Object {
+          "first_name": "Will",
+          "id": "2",
+          "last_name": "Smith",
+        },
+        "updated_at": "2004-04-04 00:00:00 UTC",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        collapsable={false}
+        style={
+          Array [
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "flex-end",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "paddingLeft": 10,
+                      "paddingRight": 5,
+                    },
+                  ]
+                }
+              >
+                Will Smith
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            April 4, 2004 @ 12:00 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="popupMenuButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderRadius": 8,
+                    "marginVertical": 5,
+                    "paddingHorizontal": 13,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "paddingVertical": 3,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                some comment
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        collapsable={false}
+        style={
+          Array [
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "flex-end",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "paddingLeft": 10,
+                      "paddingRight": 5,
+                    },
+                  ]
+                }
+              >
+                Will Smith
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            April 4, 2004 @ 12:00 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="popupMenuButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderRadius": 8,
+                    "marginVertical": 5,
+                    "paddingHorizontal": 13,
+                    "paddingVertical": 8,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "paddingVertical": 3,
+                      },
+                      null,
+                    ],
+                  ]
+                }
+              >
+                some comment
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`with no comments renders correctly 1`] = `
+<RCTScrollView
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 15,
+    }
+  }
+  data={Array []}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <View />
+</RCTScrollView>
+`;

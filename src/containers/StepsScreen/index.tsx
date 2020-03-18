@@ -1,24 +1,17 @@
-import React, { useState, useCallback } from 'react';
-import {
-  View,
-  Image,
-  FlatList,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
-} from 'react-native';
+import React, { useCallback } from 'react';
+import { View, Image, FlatList } from 'react-native';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/react-hooks';
 import { useFocusEffect } from 'react-navigation-hooks';
 
-import { getMySteps, getMyStepsNextPage } from '../../actions/steps';
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
-import { navToPersonScreen } from '../../actions/person';
-import { myStepsSelector } from '../../selectors/steps';
+import { navigateToMainTabs } from '../../actions/navigation';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -26,99 +19,80 @@ import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
-import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
-import { Step, StepsState } from '../../reducers/steps';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
+import {
+  StepsList,
+  StepsList_steps_nodes as Step,
+} from './__generated__/StepsList';
+import { STEPS_QUERY } from './queries';
 
 interface StepsScreenProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  steps: Step[] | null;
-  hasMoreSteps: boolean;
 }
 
-function isCloseToBottom({
-  layoutMeasurement,
-  contentOffset,
-  contentSize,
-}: NativeScrollEvent) {
-  const paddingToBottom = 20;
-  return (
-    layoutMeasurement.height + contentOffset.y >=
-    contentSize.height - paddingToBottom
-  );
-}
-
-const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
+const StepsScreen = ({ dispatch }: StepsScreenProps) => {
+  const { t } = useTranslation('stepsTab');
   useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
-  const { t } = useTranslation('stepsTab');
 
-  const [paging, setPaging] = useState(false);
-  const [pagingError, setPagingError] = useState(false);
+  const {
+    data: {
+      steps: {
+        nodes: steps = [],
+        pageInfo: { hasNextPage = false, endCursor = null } = {},
+      } = {},
+    } = {},
+    error,
+    loading,
+    fetchMore,
+    refetch,
+  } = useQuery<StepsList>(STEPS_QUERY);
 
-  const firstTimeLoading = !steps;
   const hasSteps = steps && steps.length > 0;
-
-  const handleOpenMainMenu = () => dispatch(openMainMenu());
-  const getSteps = () => dispatch(getMySteps());
 
   const handleRefresh = () => {
     dispatch(checkForUnreadComments());
-    getSteps();
+    refetch();
   };
 
   const { isRefreshing, refresh } = useRefreshing(handleRefresh);
-
-  const handleRowSelect = (step: Step) =>
-    dispatch(navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, { step }));
-
-  const handleNavToPerson = (step: Step) => {
-    const { receiver, organization } = step;
-    dispatch(navToPersonScreen(receiver, organization));
-  };
 
   const handleNavToPeopleTab = () => {
     dispatch(navigateToMainTabs(PEOPLE_TAB));
   };
 
   const handleNextPage = async () => {
-    if (paging || !hasMoreSteps || pagingError) {
+    if (loading || !hasNextPage) {
       return;
     }
 
-    setPaging(true);
-
-    try {
-      await dispatch(getMyStepsNextPage());
-    } catch (e) {
-      setPagingError(true);
-    } finally {
-      setPaging(false);
-    }
-  };
-
-  const handleScroll = ({
-    nativeEvent,
-  }: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const shouldPaginate = isCloseToBottom(nativeEvent);
-
-    // Reset pagingError once we are out of the isCloseToBottom zone
-    if (!shouldPaginate) {
-      if (pagingError) {
-        setPagingError(false);
-      }
-      return;
-    }
-
-    handleNextPage();
+    await fetchMore({
+      variables: { after: endCursor },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              steps: {
+                ...prev.steps,
+                ...fetchMoreResult.steps,
+                nodes: [
+                  ...(prev.steps.nodes || []),
+                  ...(fetchMoreResult.steps.nodes || []),
+                ],
+              },
+            }
+          : prev,
+    });
   };
 
   const renderNull = () => (
@@ -137,12 +111,7 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
   );
 
   const renderItem = ({ item }: { item: Step }) => (
-    <StepItem
-      testID={`stepItem${item.id}`}
-      step={item}
-      onSelect={handleRowSelect}
-      onPressName={handleNavToPerson}
-    />
+    <StepItem testID="stepItem" step={item} showCheckbox={false} />
   );
 
   const renderSteps = () => (
@@ -150,23 +119,21 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
       testID="stepsList"
       refreshing={isRefreshing}
       onRefresh={refresh}
-      onScroll={handleScroll}
-      scrollEventThrottle={16}
-      contentContainerStyle={[
-        styles.list,
-        hasMoreSteps ? styles.listExtraPadding : {},
-      ]}
+      onEndReached={handleNextPage}
+      onEndReachedThreshold={0.25}
+      contentContainerStyle={styles.list}
       data={steps}
       keyExtractor={keyExtractorId}
       renderItem={renderItem}
       showsVerticalScrollIndicator={false}
       initialNumToRender={10}
-      ListFooterComponent={paging ? <FooterLoading /> : null}
+      ListFooterComponent={loading ? <FooterLoading /> : null}
     />
   );
 
   return (
     <View style={styles.container}>
+      <AnnouncementsModal />
       <Header
         testID="header"
         left={
@@ -174,30 +141,24 @@ const StepsScreen = ({ dispatch, steps, hasMoreSteps }: StepsScreenProps) => {
             testID="menuIcon"
             name="menuIcon"
             type="MissionHub"
-            onPress={handleOpenMainMenu}
+            onPress={() => dispatch(openMainMenu())}
           />
         }
         title={t('title').toUpperCase()}
+      />
+      <ErrorNotice
+        error={error}
+        refetch={refetch}
+        message={t('errorLoadingSteps')}
       />
       <View style={styles.contentContainer}>
         {hasSteps ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
-        {firstTimeLoading ? (
-          <LoadingGuy />
-        ) : hasSteps ? (
-          renderSteps()
-        ) : (
-          renderNull()
-        )}
+        {hasSteps ? renderSteps() : loading ? <LoadingGuy /> : renderNull()}
       </View>
     </View>
   );
 };
 
-export const mapStateToProps = ({ steps }: { steps: StepsState }) => ({
-  steps: myStepsSelector({ steps }),
-  hasMoreSteps: steps.pagination.hasNextPage,
-});
-
-export default connect(mapStateToProps)(StepsScreen);
+export default connect()(StepsScreen);

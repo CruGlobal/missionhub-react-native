@@ -240,10 +240,12 @@ export default {
   acceptedStepDetail: {
     removeStep: 'Remove Step',
     iDidIt: 'I Did It!',
+    errorLoadingStepDetails: 'Error loading your step details',
   },
   completedStepDetail: {
     completedStep: 'Completed Step',
     completedOn: 'Completed {{date}}',
+    errorLoadingStepDetails: 'Error loading your step details',
   },
   selectStage: {
     meQuestion:
@@ -447,6 +449,7 @@ export default {
       part2: 'Choose a person and add some new steps.',
     },
     title: 'Steps of Faith',
+    errorLoadingSteps: 'Error loading your steps',
   },
   contactSideMenu: {
     edit: 'Edit',
@@ -473,6 +476,7 @@ export default {
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',
+    errorLoadingStepCounts: 'Error loading step counts for your people',
   },
   appRoutes: {
     steps: 'Steps',
@@ -520,6 +524,7 @@ export default {
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',
     globalCommunity: 'MissionHub Community',
+    errorLoadingCommunities: 'Error loading communities',
   },
   shareAStoryScreen: {
     shareStory: 'Share Story',
@@ -528,6 +533,9 @@ export default {
   editStoryScreen: {
     saveStory: 'Save Changes',
     inputPlaceholder: 'Share a Story...',
+  },
+  celebrateFeed: {
+    errorLoadingCelebrateFeed: 'Error loading celebrate feed',
   },
   celebrateFeeds: {
     title: '',
@@ -581,7 +589,12 @@ export default {
     joined: 'Joined',
     completed: 'Completed',
     iDidIt: 'I Did It',
-    endDate: 'End Date',
+    endDate: 'Challenge Ends',
+    details: 'Details',
+    detailsPlaceholder: 'Add details to your Challenge (optional)',
+    nullTitle: 'Our Challenges',
+    nullMembers: 'Join each other in a challenge created for your community.',
+    nullAdmins: 'Create a community challenge everyone can join.',
   },
   challengeStats: {
     days: 'Days',
@@ -593,9 +606,15 @@ export default {
     titlePlaceholderEdit: 'Edit Challenge',
     titlePlaceholderAdd: 'New Challenge',
     add: 'Create Challenge',
-    save: 'Save Changes',
+    save: 'Save',
     datePlaceholder: 'End Date (Required)',
-    dateLabel: 'End Date',
+    dateLabel: 'Challenge Ends',
+    detailsLabel: 'Details',
+    detailPlaceholder: 'Add details to your Challenge (optional)',
+  },
+  challengeMembers: {
+    joined: '{{count}} Member Joined',
+    joined_plural: '{{count}} Members Joined',
   },
   groupsChallenge: {
     create: 'Create Challenge',
@@ -604,8 +623,10 @@ export default {
     celebrateHeader: 'Celebrate One Another',
     celebrateDescription: "See and celebrate one another's Steps of Faith.",
     challengesHeader: 'Our Challenges',
-    challengesDescription:
-      'Join each other in a challenge created by your community.',
+    challengesAdminDescription:
+      'Create a community challenge everyone can join.',
+    challengesMemberDescription:
+      'Join each other in a challenge created for your community.',
     membersHeader: 'Journey Together',
     membersDescription: 'Take a Step of Faith with someone in your community.',
     impactHeader: 'See God at Work',
@@ -667,12 +688,16 @@ export default {
   groupsContacts: {
     title: '',
     searchPlaceholder: 'Search Contacts',
+    movingToWeb: 'We are moving Contacts to the web!',
+    findThemHere: 'Find them here',
   },
   memberContacts: {
     nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
   },
   groupsSurveys: {
     title: '',
+    movingToWeb: 'We are moving Surveys to the web!',
+    findThemHere: 'Find them here',
   },
   groupsSurveyContacts: {
     searchPlaceholder: 'Search Contacts',
@@ -806,8 +831,8 @@ export default {
       'This post will be deleted and you won’t be able to find it anymore.',
   },
   celebrateFeedHeader: {
-    reports: '{{count}} new reported comment',
-    reports_plural: '{{count}} new reported comments',
+    reports: '{{count}} New Reported Item',
+    reports_plural: '{{count}} New Reported Items',
     newComments: 'New Comment',
     newComments_plural: 'New Comments',
   },
@@ -819,15 +844,18 @@ export default {
     clearAll: 'Clear All',
   },
   groupsReport: {
-    title: 'Reported Comments',
-    header: 'No Reported Comments',
-    reportNull: 'No comments have been reported.',
+    title: 'Reported Items',
+    header: 'No Reported Items',
+    reportNull: 'No items have been reported.',
   },
   reportComment: {
     reportedBy: 'Reported By',
     commentBy: 'Comment By',
-    reportedBy: 'Reported By',
+    storyBy: 'Story By',
     deleteTitle:
       'Deleting this comment removes it completely and it will no longer be found.',
+  },
+  errorNotice: {
+    offline: 'Offline',
   },
 };

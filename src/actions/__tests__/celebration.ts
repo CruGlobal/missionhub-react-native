@@ -3,23 +3,19 @@
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import {
-  getGroupCelebrateFeed,
-  toggleLike,
-  getGroupCelebrateFeedUnread,
-  reloadGroupCelebrateFeed,
-} from '../celebration';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import { apolloClient } from '../../apolloClient';
+import { toggleLike, getCelebrateFeed } from '../celebration';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import {
-  DEFAULT_PAGE_LIMIT,
-  RESET_CELEBRATION_PAGINATION,
-} from '../../constants';
-import { GET_CELEBRATE_INCLUDE } from '../../utils/actions';
+import { GET_CELEBRATE_FEED } from '../../containers/CelebrateFeed/queries';
 
 jest.mock('../api');
 
+apolloClient.query = jest.fn();
+
 const orgId = '123';
+const personId = '333';
 
 const apiResult = { type: 'done' };
 
@@ -28,117 +24,48 @@ let store: MockStore;
 
 const currentPage = 0;
 
-describe('getGroupCelebrateFeed', () => {
-  beforeEach(() => {
-    store = createStore();
-    (callApi as jest.Mock).mockReturnValue(apiResult);
-  });
-
-  it('gets a page of celebrate feed', () => {
-    store = createStore({
-      organizations: {
-        all: [
-          {
-            id: orgId,
-            celebratePagination: {
-              hasNextPage: true,
-              page: currentPage,
-            },
-          },
-        ],
-      },
-    });
-
-    store.dispatch<any>(getGroupCelebrateFeed(orgId));
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CELEBRATE_FEED, {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * currentPage,
-      },
-      orgId,
-      include:
-        'subject_person.organizational_permissions,subject_person.contact_assignments',
-    });
-    expect(store.getActions()).toEqual([apiResult]);
-  });
-
-  it('does not get celebrate items if there is no next page', () => {
-    store = createStore({
-      organizations: {
-        all: [
-          {
-            id: orgId,
-            celebratePagination: {
-              hasNextPage: false,
-              page: currentPage,
-            },
-          },
-        ],
-      },
-    });
-
-    store.dispatch<any>(getGroupCelebrateFeed(orgId));
-
-    expect(callApi).not.toHaveBeenCalled();
-    expect(store.getActions()).toEqual([]);
-  });
+beforeEach(() => {
+  (callApi as jest.Mock).mockReturnValue(apiResult);
 });
 
-describe('reloadGroupCelebrateFeed', () => {
-  beforeEach(() => {
-    store = createStore({
-      organizations: {
-        all: [
-          {
-            id: orgId,
-            celebratePagination: {
-              hasNextPage: true,
-              page: currentPage,
-            },
-          },
-        ],
+describe('getCelebrateFeed', () => {
+  it('should get group celebrate feed', async () => {
+    await getCelebrateFeed(orgId);
+
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_CELEBRATE_FEED,
+      variables: {
+        communityId: orgId,
+        personIds: undefined,
+        hasUnreadComments: undefined,
       },
     });
-    (callApi as jest.Mock).mockReturnValue(apiResult);
   });
 
-  it('reloads feed', () => {
-    store.dispatch<any>(reloadGroupCelebrateFeed(orgId));
+  it('should get member celebrate feed', () => {
+    getCelebrateFeed(orgId, personId);
 
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_GROUP_CELEBRATE_FEED, {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * currentPage,
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_CELEBRATE_FEED,
+      variables: {
+        communityId: orgId,
+        personIds: personId,
+        hasUnreadComments: undefined,
       },
-      orgId,
-      include:
-        'subject_person.organizational_permissions,subject_person.contact_assignments',
     });
-    expect(store.getActions()).toEqual([
-      { type: RESET_CELEBRATION_PAGINATION, orgId },
-      apiResult,
-    ]);
-  });
-});
-
-describe('getGroupCelebrateFeedUnread', () => {
-  beforeEach(() => {
-    store = createStore({ organizations: { all: [{ id: orgId }] } });
   });
 
-  it('calls feed of unread items', () => {
-    store.dispatch<any>(getGroupCelebrateFeedUnread(orgId));
+  it('should get unread comments feed', () => {
+    getCelebrateFeed(orgId, undefined, true);
 
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_GROUP_CELEBRATE_FEED_UNREAD,
-      {
-        orgId,
-        filters: { has_unread_comments: true },
-        include: GET_CELEBRATE_INCLUDE,
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_CELEBRATE_FEED,
+      variables: {
+        communityId: orgId,
+        personIds: undefined,
+        hasUnreadComments: true,
       },
-    );
-    expect(store.getActions()).toEqual([apiResult]);
+    });
   });
 });
 
@@ -181,6 +108,29 @@ describe('toggleLike', () => {
   });
 
   it('toggles from unlike to like in global community', () => {
+    store.dispatch<any>(toggleLike(eventId, false, GLOBAL_COMMUNITY_ID));
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM, {
+      orgId: GLOBAL_COMMUNITY_ID,
+      eventId,
+    });
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from like to unlike in global community', () => {
+    store.dispatch<any>(toggleLike(eventId, true, GLOBAL_COMMUNITY_ID));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UNLIKE_GLOBAL_CELEBRATE_ITEM,
+      {
+        orgId: GLOBAL_COMMUNITY_ID,
+        eventId,
+      },
+    );
+    expect(store.getActions()).toEqual([apiResult]);
+  });
+
+  it('toggles from unlike to like in global community when orgId undefined', () => {
     store.dispatch<any>(toggleLike(eventId, false, undefined));
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.LIKE_GLOBAL_CELEBRATE_ITEM, {
@@ -190,7 +140,7 @@ describe('toggleLike', () => {
     expect(store.getActions()).toEqual([apiResult]);
   });
 
-  it('toggles from like to unlike in global community', () => {
+  it('toggles from like to unlike in global community when orgId undefined', () => {
     store.dispatch<any>(toggleLike(eventId, true, undefined));
 
     expect(callApi).toHaveBeenCalledWith(

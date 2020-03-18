@@ -9,15 +9,22 @@ import { REQUESTS } from '../api/routes';
 import { getPagination } from '../utils/common';
 
 import { PaginationObject } from './organizations';
+import { Person } from './people';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Event = any;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CelebrateComment = any;
+export interface CelebrateComment {
+  id: string;
+  updated_at?: string;
+  updatedAt?: string;
+  created_at?: string;
+  createdAt?: string;
+  content: string;
+  person?: Person;
+  author?: Person;
+}
 
 export interface CelebrateCommentsState {
   all: {
-    [key in string]: Event & {
+    [key in string]: {
       comments: CelebrateComment[];
       pagination: PaginationObject;
     };

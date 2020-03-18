@@ -1,0 +1,640 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders nothing with no subject person 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`with subject person onPress like button like -> unlike renders disabled heart button 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -80,11 +80,13 @@
+        style={
+          Array [
+            Object {
+              \\"backgroundColor\\": \\"transparent\\",
+            },
+-           null,
++           Object {
++             \\"opacity\\": 0.6,
++           },
+            Object {
+              \\"height\\": 24,
+              \\"width\\": 24,
+            },
+            null,"
+`;
+
+exports[`with subject person onPress like button unlike -> like renders disabled heart button 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -80,11 +80,13 @@
+        style={
+          Array [
+            Object {
+              \\"backgroundColor\\": \\"transparent\\",
+            },
+-           null,
++           Object {
++             \\"opacity\\": 0.6,
++           },
+            Object {
+              \\"height\\": 24,
+              \\"width\\": 24,
+            },
+            null,"
+`;
+
+exports[`with subject person renders 0 comments_count 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`with subject person renders 0 likes_count 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    45720
+  </Text>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`with subject person renders for me 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    45720
+  </Text>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    43069
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`with subject person renders for someone else 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    45720
+  </Text>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-blue.png",
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`with subject person renders when not liked 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  >
+    45720
+  </Text>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/comments.png",
+      }
+    }
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 12,
+          "lineHeight": 16,
+          "paddingRight": 6,
+          "textAlign": "right",
+          "width": 30,
+        },
+      ]
+    }
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="LikeIconButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          null,
+          Object {
+            "height": 24,
+            "width": 24,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/heart-grey.png",
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

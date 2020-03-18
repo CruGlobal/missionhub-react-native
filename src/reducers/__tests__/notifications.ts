@@ -4,6 +4,12 @@ import {
 } from '../../actions/notifications';
 import notifications, { PushDevice } from '../notifications';
 import { LOGOUT } from '../../constants';
+import {
+  LOGOUT,
+  DISABLE_WELCOME_NOTIFICATION,
+  REQUEST_NOTIFICATIONS,
+  LOAD_HOME_NOTIFICATION_REMINDER,
+} from '../../constants';
 import { REQUESTS } from '../../api/routes';
 
 const pushDevice: PushDevice = {
@@ -64,39 +70,32 @@ it('should set userHasAcceptedNotifications to true', () => {
   });
 });
 
-it('should set userHasAcceptedNotifications to false', () => {
-  const state = notifications(
-    {
-      pushDevice: null,
-      appHasShownPrompt: false,
-      userHasAcceptedNotifications: true,
-    },
-    {
-      type: UPDATE_ACCEPTED_NOTIFICATIONS,
-      acceptedNotifications: false,
-    },
-  );
-  expect(state).toEqual({
-    pushDevice: null,
-    appHasShownPrompt: false,
-    userHasAcceptedNotifications: false,
-  });
-});
-
 it('resets state on logout', () => {
+  const expectedState = {
+    pushDevice: {},
+    requestedNativePermissions: true,
+    showReminderOnLoad: true,
+    hasShownWelcomeNotification: false,
+  };
   const state = notifications(
+    // @ts-ignore
     {
-      pushDevice,
-      appHasShownPrompt: true,
-      userHasAcceptedNotifications: true,
+      requestedNativePermissions: true,
     },
     {
       type: LOGOUT,
     },
   );
-  expect(state).toEqual({
-    pushDevice: null,
-    appHasShownPrompt: true,
-    userHasAcceptedNotifications: true,
-  });
+  expect(state).toEqual(expectedState);
+});
+
+it('resets state on logout', () => {
+  const state = notifications(
+    // @ts-ignore
+    {},
+    {
+      type: null,
+    },
+  );
+  expect(state).toEqual({});
 });

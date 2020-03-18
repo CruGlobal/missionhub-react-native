@@ -5,19 +5,20 @@ import theme from '../../theme';
 export default StyleSheet.create({
   list: {
     backgroundColor: theme.extraLightGrey,
-    paddingBottom: 10,
-  },
-  listExtraPadding: {
-    paddingBottom: 90,
   },
   header: {
     alignItems: 'center',
     alignContent: 'center',
     backgroundColor: theme.extraLightGrey,
+    marginVertical: 8,
   },
   title: {
     fontSize: 12,
-    color: theme.textColor,
+    color: theme.lightGrey,
     textAlign: 'center',
+  },
+  nullContainer: {
+    marginTop: 5,
+    backgroundColor: theme.extraLightGrey,
   },
 });

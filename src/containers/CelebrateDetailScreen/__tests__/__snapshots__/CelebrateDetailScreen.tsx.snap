@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "celebrate item",
+        "comments",
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "padding": 14,
+          "paddingBottom": 5,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="NameButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+              >
+                Hayden Zieme
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+            testID="Text"
+          >
+            3:58 AM
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                  "paddingRight": 6,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <Image
+            source={
+              Object {
+                "testUri": "../../../assets/images/comments.png",
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                  "paddingRight": 6,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/heart-grey.png",
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              Object {
+                "marginLeft": 10,
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#000000",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
+        "flex": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/Trailss.png",
+        }
+      }
+      style={
+        Object {
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/TrailGrey.png",
+        }
+      }
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+        }
+      }
+    />
+    <RCTScrollView
+      ListHeaderComponent={[Function]}
+      bounces={false}
+      contentContainerStyle={
+        Object {
+          "paddingBottom": 15,
+        }
+      }
+      data={
+        Array [
+          Object {
+            "content": "some comment",
+            "created_at": "2019-04-11T13:51:49.888",
+            "id": "comment1",
+            "person": Object {
+              "first_name": "Person",
+              "last_name": "1",
+            },
+            "updated_at": "2019-04-11T13:51:49.888",
+          },
+          Object {
+            "content": "some comment",
+            "created_at": "2019-04-11T13:51:49.888",
+            "id": "comment2",
+            "person": Object {
+              "first_name": "Person",
+              "last_name": "2",
+            },
+            "updated_at": "2019-04-11T13:51:49.888",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      refreshControl={
+        <MyRefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+          testID="RefreshControl"
+        />
+      }
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          onLayout={[Function]}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "marginTop": 14,
+                },
+                Object {
+                  "backgroundColor": "white",
+                  "marginTop": 0,
+                  "padding": 14,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "justifyContent": "flex-start",
+                    "lineHeight": 18,
+                  },
+                ]
+              }
+            >
+              Roscoe J. joined Community! Now you can see and celebrate the steps of faith they are taking.
+            </Text>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <CommentItem
+            item={
+              Object {
+                "content": "some comment",
+                "created_at": "2019-04-11T13:51:49.888",
+                "id": "comment1",
+                "person": Object {
+                  "first_name": "Person",
+                  "last_name": "1",
+                },
+                "updated_at": "2019-04-11T13:51:49.888",
+              }
+            }
+            menuActions={
+              Array [
+                Object {
+                  "onPress": [Function],
+                  "text": "Report to Owner",
+                },
+              ]
+            }
+            organization={
+              Object {
+                "id": "24234234",
+                "name": "Community",
+              }
+            }
+            testID="CommentItem"
+          />
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <CommentItem
+            item={
+              Object {
+                "content": "some comment",
+                "created_at": "2019-04-11T13:51:49.888",
+                "id": "comment2",
+                "person": Object {
+                  "first_name": "Person",
+                  "last_name": "2",
+                },
+                "updated_at": "2019-04-11T13:51:49.888",
+              }
+            }
+            menuActions={
+              Array [
+                Object {
+                  "onPress": [Function],
+                  "text": "Report to Owner",
+                },
+              ]
+            }
+            organization={
+              Object {
+                "id": "24234234",
+                "name": "Community",
+              }
+            }
+            testID="CommentItem"
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderTopColor": "#B2B0B2",
+          "borderTopWidth": 1,
+          "flexDirection": "column",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+          "width": 750,
+        },
+        Object {
+          "backgroundColor": "#C5C7CB",
+        },
+      ]
+    }
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "marginBottom": 5,
+              "marginHorizontal": 10,
+              "paddingHorizontal": 5,
+            },
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#B2B0B2",
+                "borderRadius": 20,
+                "borderWidth": 1,
+              },
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingLeft": 13,
+                },
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={true}
+              autoFocus={false}
+              blurOnSubmit={true}
+              multiline={false}
+              onChangeText={[Function]}
+              placeholder="Write a comment..."
+              placeholderTextColor="#B2B0B2"
+              rejectResponderTermination={true}
+              returnKeyType="done"
+              selectionColor="#005A7F"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {
+                    "borderBottomWidth": 0,
+                    "color": "#4E4C4E",
+                    "flex": 1,
+                    "fontSize": 16,
+                    "paddingLeft": 5,
+                    "paddingVertical": 7,
+                  },
+                ]
+              }
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value=""
+            />
+          </View>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</View>
+`;

@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 
 // For Android to work with the Layout Animation
 // See https://facebook.github.io/react-native/docs/layoutanimation.html
@@ -20,52 +19,14 @@ import IconButton from '../IconButton';
 import PersonItem from '../../containers/PersonItem';
 import { Flex, Text, RefreshControl } from '../common';
 import { keyExtractorId } from '../../utils/common';
+import { ErrorNotice } from '../ErrorNotice/ErrorNotice';
 
-import { GetPeopleStepsCount } from './__generated__/GetPeopleStepsCount';
+import {
+  GetPeopleStepsCount,
+  GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount,
+} from './__generated__/GetPeopleStepsCount';
+import { GET_PEOPLE_STEPS_COUNT } from './queries';
 import styles from './styles';
-
-export const GET_PEOPLE_STEPS_COUNT = gql`
-  query GetPeopleStepsCount($myId: [ID!]) {
-    communities {
-      nodes {
-        people(assignedTos: $myId) {
-          nodes {
-            fullName
-            id
-            steps(completed: false) {
-              pageInfo {
-                totalCount
-              }
-            }
-          }
-        }
-      }
-    }
-    currentUser {
-      person {
-        id
-        steps(completed: false) {
-          pageInfo {
-            totalCount
-          }
-        }
-        contactAssignments(organizationIds: "") {
-          nodes {
-            person {
-              fullName
-              id
-              steps(completed: false) {
-                pageInfo {
-                  totalCount
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 interface PeopleListProps {
   items: any;
@@ -87,36 +48,46 @@ export default ({
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
   const [collapsedOrgs, setCollapsedOrgs] = useState(new Set<string>());
-  const { data, refetch: refetchCommunities, loading } = useQuery<
-    GetPeopleStepsCount
-  >(GET_PEOPLE_STEPS_COUNT, {
+  const {
+    data,
+    refetch: refetchPeopleStepsCount,
+    error: peopleStepsCountError,
+  } = useQuery<GetPeopleStepsCount>(GET_PEOPLE_STEPS_COUNT, {
     variables: {
       myId: [personId],
     },
   });
 
+  const peopleStepCounts: {
+    [key: string]: PersonStepCount;
+  } = !data
+    ? {}
+    : [
+        {
+          __typename: data.currentUser.person.__typename,
+          id: data.currentUser.person.id,
+          steps: data.currentUser.person.steps,
+        },
+        ...data.currentUser.person.contactAssignments.nodes.map(
+          node => node.person,
+        ),
+        ...data.communities.nodes.flatMap(node => node.people.nodes),
+      ].reduce(
+        (
+          accumulator: {
+            [key: string]: PersonStepCount;
+          },
+          currentValue,
+        ) => {
+          accumulator[currentValue.id] = currentValue;
+          return accumulator;
+        },
+        {},
+      );
+
   useEffect(() => {
-    refetchCommunities();
+    refetchPeopleStepsCount();
   }, [onRefresh]);
-
-  // Convert the data from graphQL into one big object of people data that can be indexed by the person id.
-  const convertData = () => {
-    if (loading || !data) {
-      return {};
-    }
-
-    const { communities, currentUser } = data;
-
-    const combinedData = [
-      { id: currentUser.person.id, steps: currentUser.person.steps },
-      ...currentUser.person.contactAssignments.nodes.map(node => node.person),
-      ...communities.nodes.flatMap(node => node.people.nodes),
-    ].reduce((accumulator: any, currentValue) => {
-      accumulator[currentValue.id] = currentValue;
-      return accumulator;
-    }, {});
-    return combinedData;
-  };
 
   const toggleSection = (id: string) => {
     collapsedOrgs.has(id) ? collapsedOrgs.delete(id) : collapsedOrgs.add(id);
@@ -125,12 +96,11 @@ export default ({
   };
 
   const renderItem = (organization: any) => ({ item }: { item: any }) => {
-    const personStepData = convertData();
     return (
       <PersonItem
         person={item}
         organization={organization}
-        stepsData={personStepData[item.id]}
+        stepsData={peopleStepCounts[item.id]}
       />
     );
   };
@@ -184,22 +154,30 @@ export default ({
     );
   };
 
-  if (sections) {
-    return (
-      <ScrollView
-        style={styles.sectionWrap}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
-        {items.map((org: any) => (
-          <Flex key={org.id}>
-            {renderSectionHeader(org)}
-            {collapsedOrgs.has(org.id) ? null : renderList(org.people, org)}
-          </Flex>
-        ))}
-      </ScrollView>
-    );
-  }
-  return <View style={styles.sectionWrap}>{renderList(items)}</View>;
+  return (
+    <>
+      <ErrorNotice
+        message={t('errorLoadingStepCounts')}
+        error={peopleStepsCountError}
+        refetch={refetchPeopleStepsCount}
+      />
+      {sections ? (
+        <ScrollView
+          style={styles.sectionWrap}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          {items.map((org: any) => (
+            <Flex key={org.id}>
+              {renderSectionHeader(org)}
+              {collapsedOrgs.has(org.id) ? null : renderList(org.people, org)}
+            </Flex>
+          ))}
+        </ScrollView>
+      ) : (
+        <View style={styles.sectionWrap}>{renderList(items)}</View>
+      )}
+    </>
+  );
 };

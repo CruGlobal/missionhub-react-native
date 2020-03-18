@@ -1,44 +1,45 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
+import { StepItem as Step } from '../__generated__/StepItem';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { STEP_ITEM_FRAGMENT } from '../queries';
+import { navigatePush } from '../../../actions/navigation';
+import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDetailScreen';
+import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
+import { navToPersonScreen } from '../../../actions/person';
+import { completeStep } from '../../../actions/steps';
+import { CONTACT_STEPS } from '../../../constants';
 
 import StepItem from '..';
 
-jest.mock('../../ReminderButton', () => 'ReminderButton');
-const owner = { id: '456' };
-const receiver = { id: '457', full_name: 'Receiver Name' };
-const mockDate = '2019-10-17 12:00:00 PM GMT+0';
-MockDate.set(mockDate);
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn().mockReturnValue({ type: 'navigatePush' }),
+}));
+jest.mock('../../../actions/person', () => ({
+  navToPersonScreen: jest.fn().mockReturnValue({ type: 'navToPersonScreen' }),
+}));
+jest.mock('../../../actions/steps', () => ({
+  completeStep: jest.fn().mockReturnValue({ type: 'completeStep' }),
+}));
+jest.mock('../../ReminderButton', () => ({
+  __esModule: true,
+  ...jest.requireActual('../../../components/ReminderButton'),
+  default: 'ReminderButton',
+}));
 
 const mockStep = {
-  id: '1',
-  title: 'Test Step',
-  accepted_at: mockDate,
-  completed_at: mockDate,
-  created_at: mockDate,
-  updated_at: mockDate,
-  notified_at: mockDate,
-  note: 'Note',
-  owner,
-  receiver,
+  ...mockFragment<Step>(STEP_ITEM_FRAGMENT),
+  completedAt: null,
 };
-const stepId = '1';
-const reminderId = '11';
-const reminder = { id: reminderId };
-const stepReminders = {
-  allByStep: {
-    [stepId]: reminder,
-  },
-};
+
 const initialState = {
   auth: {
     person: {
       id: '1',
     },
   },
-  stepReminders: stepReminders,
 };
 
 it('renders me correctly', () => {
@@ -57,63 +58,71 @@ it('renders not me correctly', () => {
   ).snapshot();
 });
 
-it('renders with pressable name correctly', () => {
+it('renders completed step', () => {
   renderWithContext(
-    <StepItem step={mockStep} type="swipeable" onPressName={jest.fn()} />,
+    <StepItem
+      step={{
+        ...mockStep,
+        completedAt: '2019-01-01',
+      }}
+    />,
     { initialState },
   ).snapshot();
 });
 
-describe('step item methods with no receiver', () => {
-  const mockSelect = jest.fn();
-  const mockPressName = jest.fn();
-  const step = { ...mockStep, receiver: undefined };
-  function getComponent() {
-    return renderWithContext(
-      <StepItem
-        step={step}
-        onSelect={mockSelect}
-        onPressName={mockPressName}
-      />,
-      { initialState },
-    );
-  }
-
-  it('handles select', () => {
-    const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemCard'));
-    expect(mockSelect).toHaveBeenCalledTimes(0);
-  });
-
-  it('handles press name', () => {
-    const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemPersonButton'));
-    expect(mockPressName).not.toHaveBeenCalled();
+it('renders hiding name', () => {
+  renderWithContext(<StepItem step={mockStep} showName={false} />, {
+    initialState,
   });
 });
 
-describe('step item methods receiver', () => {
-  const mockSelect = jest.fn();
-  const mockPressName = jest.fn();
-  function getComponent() {
-    return renderWithContext(
-      <StepItem
-        step={mockStep}
-        onSelect={mockSelect}
-        onPressName={mockPressName}
-      />,
-      { initialState },
-    );
-  }
+it('renders hiding checkbox', () => {
+  renderWithContext(<StepItem step={mockStep} showCheckbox={false} />, {
+    initialState,
+  });
+});
 
-  it('handles select', () => {
-    const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemCard'));
-    expect(mockSelect).toHaveBeenCalledWith(mockStep);
+it('should navigate to accepted step detail screen', () => {
+  const { getByTestId } = renderWithContext(
+    <StepItem step={{ ...mockStep, completedAt: null }} />,
+    {
+      initialState,
+    },
+  );
+  fireEvent.press(getByTestId('StepItemCard'));
+  expect(navigatePush).toHaveBeenCalledWith(ACCEPTED_STEP_DETAIL_SCREEN, {
+    stepId: mockStep.id,
   });
-  it('handles press name', () => {
-    const { getByTestId } = getComponent();
-    fireEvent.press(getByTestId('StepItemPersonButton'));
-    expect(mockPressName).toHaveBeenCalledWith(mockStep);
+});
+
+it('should navigate to completed step detail screen', () => {
+  const { getByTestId } = renderWithContext(
+    <StepItem step={{ ...mockStep, completedAt: '2019-01-01' }} />,
+    {
+      initialState,
+    },
+  );
+  fireEvent.press(getByTestId('StepItemCard'));
+  expect(navigatePush).toHaveBeenCalledWith(COMPLETED_STEP_DETAIL_SCREEN, {
+    stepId: mockStep.id,
   });
+});
+
+it('should navigate to person screen', () => {
+  const { getByTestId } = renderWithContext(<StepItem step={mockStep} />, {
+    initialState,
+  });
+  fireEvent.press(getByTestId('StepItemPersonButton'));
+  expect(navToPersonScreen).toHaveBeenCalledWith(
+    mockStep.receiver,
+    mockStep.community,
+  );
+});
+
+it('should complete steps with checkbox', () => {
+  const { getByTestId } = renderWithContext(<StepItem step={mockStep} />, {
+    initialState,
+  });
+  fireEvent.press(getByTestId('CompleteStepButton'));
+  expect(completeStep).toHaveBeenCalledWith(mockStep, CONTACT_STEPS);
 });

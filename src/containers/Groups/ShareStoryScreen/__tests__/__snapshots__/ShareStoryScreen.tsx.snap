@@ -143,56 +143,58 @@ exports[`Creating a story calls changeStory function when the user types a story
       />
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={false}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Share a Story..."
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#52C5DC"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "paddingBottom": 70,
-            "paddingHorizontal": 32,
-          },
-        ]
-      }
-      testID="StoryInput"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value="This is my cool story! 📘✏️"
-    />
-  </View>
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a Story..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "paddingHorizontal": 32,
+            },
+          ]
+        }
+        testID="StoryInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="This is my cool story! 📘✏️"
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -278,19 +280,19 @@ exports[`Creating a story user types a story 1`] = `
 - First value
 + Second value
 
-@@ -185,11 +185,11 @@
-            },
-          ]
-        }
-        testID=\\"StoryInput\\"
-        underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--       value=\\"\\"
-+       value=\\"This is my cool story! 📘✏️\\"
-      />
-    </View>
+@@ -186,11 +186,11 @@
+              },
+            ]
+          }
+          testID=\\"StoryInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"\\"
++         value=\\"This is my cool story! 📘✏️\\"
+        />
+      </View>
+    </RCTScrollView>
     <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={"
+      emulateUnlessSupported={true}"
 `;
 
 exports[`renders correctly 1`] = `
@@ -436,56 +438,58 @@ exports[`renders correctly 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
     style={
-      Array [
-        Object {},
-        Object {
-          "flex": 1,
-        },
-      ]
+      Object {
+        "flex": 1,
+      }
     }
   >
-    <TextInput
-      allowFontScaling={true}
-      autoCorrect={true}
-      autoFocus={false}
-      blurOnSubmit={true}
-      multiline={true}
-      onChangeText={[Function]}
-      placeholder="Share a Story..."
-      placeholderTextColor="#B4B6BA"
-      rejectResponderTermination={true}
-      returnKeyType="done"
-      selectionColor="#52C5DC"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
-            "borderBottomWidth": 1,
-            "color": "#ffffff",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 16,
-            "letterSpacing": 0.25,
-            "paddingVertical": 5,
-          },
-          Object {
-            "borderBottomWidth": 0,
-            "color": "#B4B6BA",
-            "fontSize": 32,
-            "fontWeight": "300",
-            "lineHeight": 38,
-            "paddingBottom": 70,
-            "paddingHorizontal": 32,
-          },
-        ]
-      }
-      testID="StoryInput"
-      underlineColorAndroid="rgba(0,0,0,0)"
-      value=""
-    />
-  </View>
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a Story..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "paddingHorizontal": 32,
+            },
+          ]
+        }
+        testID="StoryInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={

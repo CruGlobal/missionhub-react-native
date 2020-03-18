@@ -83,6 +83,7 @@ export function createMyPerson(firstName: string, lastName: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return async (dispatch: ThunkDispatch<{}, {}, any>) => {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
+    // @ts-ignore
     const me = ((await dispatch(getMe())) as unknown) as Person;
 
     rollbar.setPerson(me.id);

@@ -3,10 +3,7 @@ import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import {
-  NOTIFICATION_PROMPT_TYPES,
-  REMINDER_RECURRENCES_ENUM,
-} from '../../constants';
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
@@ -18,14 +15,13 @@ import {
 import { createStepReminder } from '../../actions/stepReminders';
 import { AuthState } from '../../reducers/auth';
 import { NotificationsState } from '../../reducers/notifications';
+import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
+
+import { ReminderButton as Reminder } from './__generated__/ReminderButton';
 
 export interface ReminderButtonProps {
   stepId: string;
-  reminder?: {
-    id?: string;
-    next_occurrence_at?: string;
-    reminder_type?: REMINDER_RECURRENCES_ENUM;
-  };
+  reminder: Reminder | null;
   children: ReactNode;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ThunkDispatch<
@@ -41,15 +37,15 @@ const ReminderButton = ({
   reminder,
   children,
 }: ReminderButtonProps) => {
-  const { next_occurrence_at, reminder_type } = reminder || {
-    next_occurrence_at: undefined,
-    reminder_type: undefined,
+  const { nextOccurrenceAt, reminderType } = reminder || {
+    nextOccurrenceAt: undefined,
+    reminderType: undefined,
   };
-  const [recurrence, setRecurrence] = useState(reminder_type);
+  const [recurrence, setRecurrence] = useState(reminderType);
   // for Android, request notifications, then navigate to step reminder screen
   const handlePressAndroid = () => {
     dispatch(requestNativePermissions());
-    dispatch(navigatePush(STEP_REMINDER_SCREEN, { stepId }));
+    dispatch(navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }));
   };
   // for iOS, ask for notifications, navigate to step reminder screen
   const handlePressIOS = ({ showPicker }: { showPicker: Function }) => {
@@ -66,14 +62,15 @@ const ReminderButton = ({
   const handleChangeDate = (date: Date) => {
     dispatch(createStepReminder(stepId, date, recurrence));
   };
-  const onRecurrenceChange = (rec: REMINDER_RECURRENCES_ENUM) => {
+  const onRecurrenceChange = (rec: ReminderTypeEnum) => {
     setRecurrence(rec);
   };
   const today = new Date();
   return (
     <DatePicker
+      // @ts-ignore
       testID="ReminderDatePicker"
-      date={next_occurrence_at}
+      date={nextOccurrenceAt}
       minDate={today}
       onPressAndroid={handlePressAndroid}
       onPressIOS={handlePressIOS}

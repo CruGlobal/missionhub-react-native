@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render items correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <Analytics
+    screenName={
+      Array [
+        "celebrate",
+        "new comment items",
+      ]
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          Object {
+            "elevation": 4,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#000000",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "fontWeight": "400",
+                },
+              ],
+            ]
+          }
+        >
+          0 New Comments
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="MarkAllButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "paddingRight": 5,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 10,
+                    },
+                  ],
+                ]
+              }
+            >
+              CLEAR ALL
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "flex": 1,
+      }
+    }
+  >
+    <CelebrateFeed
+      itemNamePressable={true}
+      noHeader={true}
+      onClearNotification={[Function]}
+      onRefetch={[Function]}
+      organization={
+        Object {
+          "id": "orgId",
+        }
+      }
+      showUnreadOnly={true}
+      testID="CelebrateFeed"
+    />
+  </View>
+</View>
+`;

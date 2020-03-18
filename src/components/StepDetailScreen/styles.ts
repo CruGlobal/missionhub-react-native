@@ -12,11 +12,7 @@ export default StyleSheet.create({
   },
   body: {
     paddingTop: 26,
-    paddingBottom: 32,
     paddingHorizontal: 32,
-  },
-  extraPadding: {
-    paddingBottom: 86,
   },
   stepTitleText: {
     fontSize: 32,

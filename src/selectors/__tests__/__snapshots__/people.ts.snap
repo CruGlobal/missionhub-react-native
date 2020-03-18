@@ -1,0 +1,528 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`allAssignedPeopleSelector should take the allByOrg object and transform it into a single array 1`] = `
+Array [
+  Object {
+    "first_name": "ME",
+    "id": "23",
+    "last_name": "Lname",
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname1",
+    "id": "22",
+    "last_name": "Lname1",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+      },
+    ],
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname1",
+    "id": "21",
+    "last_name": "Lname2",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+      },
+    ],
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname2",
+    "id": "20",
+    "last_name": "Lname",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+      },
+    ],
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname3",
+    "id": "32",
+    "last_name": "Lname1",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+        "organization": Object {
+          "id": "200",
+        },
+      },
+    ],
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname3",
+    "id": "30",
+    "last_name": "Lname2",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+        "organization": Object {
+          "id": "100",
+        },
+      },
+    ],
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname3",
+    "id": "31",
+    "last_name": "Lname3",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+        "organization": Object {
+          "id": "100",
+        },
+      },
+    ],
+    "type": "person",
+  },
+  Object {
+    "first_name": "Fname4",
+    "id": "33",
+    "reverse_contact_assignments": Array [
+      Object {
+        "assigned_to": Object {
+          "id": "23",
+          "user": Object {},
+        },
+        "organization": Object {
+          "id": "150",
+        },
+      },
+    ],
+    "type": "person",
+  },
+]
+`;
+
+exports[`contactAssignmentSelector orgId is "personal" should get a contactAssignment for a person that is assigned to the current user's personal ministry 1`] = `
+Object {
+  "assigned_to": Object {
+    "id": "23",
+  },
+  "organization": null,
+}
+`;
+
+exports[`contactAssignmentSelector orgId is undefined should get a contactAssignment for a person that is assigned to the current user's personal ministry 1`] = `
+Object {
+  "assigned_to": Object {
+    "id": "23",
+  },
+  "organization": null,
+}
+`;
+
+exports[`contactAssignmentSelector orgId passed in should get a contactAssignment for a person that is assigned to the current user's org ministry 1`] = `
+Object {
+  "assigned_to": Object {
+    "id": "23",
+  },
+  "organization": Object {
+    "id": "100",
+  },
+}
+`;
+
+exports[`orgPermissionSelector should get a person's organizationalPermission for the current org | GraphQL 1`] = `
+Object {
+  "community": Object {
+    "id": "200",
+  },
+  "permission": "owner",
+}
+`;
+
+exports[`orgPermissionSelector should get a person's organizationalPermission for the current org 1`] = `
+Object {
+  "organization_id": "200",
+}
+`;
+
+exports[`peopleByOrgSelector should sort by user order 1`] = `
+Array [
+  Object {
+    "id": "personal",
+    "people": Array [
+      Object {
+        "first_name": "ME",
+        "id": "23",
+        "last_name": "Lname",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname1",
+        "id": "22",
+        "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname1",
+        "id": "21",
+        "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname2",
+        "id": "20",
+        "last_name": "Lname",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "100",
+    "name": "Org2",
+    "people": Array [
+      Object {
+        "first_name": "Fname3",
+        "id": "32",
+        "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname3",
+        "id": "30",
+        "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname3",
+        "id": "31",
+        "last_name": "Lname3",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "150",
+    "people": Array [
+      Object {
+        "first_name": "Fname4",
+        "id": "33",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "150",
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "200",
+    "name": "Org1",
+    "people": Array [
+      Object {
+        "first_name": "Fname3",
+        "id": "32",
+        "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "200",
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+]
+`;
+
+exports[`peopleByOrgSelector should take the allByOrg object and transform it to sorted arrays 1`] = `
+Array [
+  Object {
+    "id": "personal",
+    "people": Array [
+      Object {
+        "first_name": "ME",
+        "id": "23",
+        "last_name": "Lname",
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname1",
+        "id": "22",
+        "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname1",
+        "id": "21",
+        "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname2",
+        "id": "20",
+        "last_name": "Lname",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "200",
+    "name": "Org1",
+    "people": Array [
+      Object {
+        "first_name": "Fname3",
+        "id": "32",
+        "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "200",
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "100",
+    "name": "Org2",
+    "people": Array [
+      Object {
+        "first_name": "Fname3",
+        "id": "32",
+        "last_name": "Lname1",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname3",
+        "id": "30",
+        "last_name": "Lname2",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
+        "type": "person",
+      },
+      Object {
+        "first_name": "Fname3",
+        "id": "31",
+        "last_name": "Lname3",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "100",
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+  Object {
+    "id": "150",
+    "people": Array [
+      Object {
+        "first_name": "Fname4",
+        "id": "33",
+        "reverse_contact_assignments": Array [
+          Object {
+            "assigned_to": Object {
+              "id": "23",
+              "user": Object {},
+            },
+            "organization": Object {
+              "id": "150",
+            },
+          },
+        ],
+        "type": "person",
+      },
+    ],
+    "type": "organization",
+  },
+]
+`;
+
+exports[`personSelector should get a person in another org 1`] = `
+Object {
+  "first_name": "Fname3",
+  "id": "31",
+  "last_name": "Lname3",
+  "reverse_contact_assignments": Array [
+    Object {
+      "assigned_to": Object {
+        "id": "23",
+        "user": Object {},
+      },
+      "organization": Object {
+        "id": "100",
+      },
+    },
+  ],
+  "type": "person",
+}
+`;
+
+exports[`personSelector should get a person in the personal org 1`] = `
+Object {
+  "first_name": "Fname1",
+  "id": "22",
+  "last_name": "Lname1",
+  "reverse_contact_assignments": Array [
+    Object {
+      "assigned_to": Object {
+        "id": "23",
+        "user": Object {},
+      },
+    },
+  ],
+  "type": "person",
+}
+`;

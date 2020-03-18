@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Linking, Image, View } from 'react-native';
+// @ts-ignore
+import PushNotification from 'react-native-push-notification';
 import { connect } from 'react-redux-legacy';
-import { useTranslation } from 'react-i18next';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
-import { useNavigationParam } from 'react-navigation-hooks';
+import { withTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import { Text, Button } from '../../components/common';
 import { isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { requestNativePermissions } from '../../actions/notifications';
-import { navigateBack } from '../../actions/navigation';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 
 import styles from './styles';
@@ -20,117 +19,128 @@ const {
   JOIN_CHALLENGE,
 } = NOTIFICATION_PROMPT_TYPES;
 
-interface NotificationOffScreenProps {
-  dispatch: ThunkDispatch<{}, null, never>;
-  next?: () => ThunkAction<void, {}, null, never>;
-}
-
-const NotificationOffScreen = ({
-  dispatch,
-  next,
-}: NotificationOffScreenProps) => {
-  const { t } = useTranslation('notificationOff');
-  const onComplete:
-    | (({
-        nativePermissionsEnabled,
-        showedPrompt,
-      }: {
-        nativePermissionsEnabled: boolean;
-        showedPrompt: boolean;
-      }) => void)
-    | undefined = useNavigationParam('onComplete');
-  const notificationType: NOTIFICATION_PROMPT_TYPES = useNavigationParam(
-    'notificationType',
-  );
-
-  const close = async () => {
-    let nativePermissionsEnabled = false;
-    try {
-      const response = await dispatch(requestNativePermissions());
-      nativePermissionsEnabled = response.nativePermissionsEnabled;
-    } finally {
-      console.log(
-        `COMPLETE: nativePermissions=${nativePermissionsEnabled} + showedPrompt=NOTIFICATION_OFF_SCREEN`,
-      );
-      next
-        ? dispatch(next())
-        : onComplete
-        ? onComplete({ nativePermissionsEnabled, showedPrompt: true })
-        : dispatch(navigateBack());
-    }
+// @ts-ignore
+@withTranslation('notificationOff')
+class NotificationOffScreen extends Component {
+  notNow = () => {
+    this.close();
+    // @ts-ignore
+    this.props.dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   };
 
-  const notNow = () => {
-    close();
-    dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
-  };
+  close() {
+    // @ts-ignore
+    const { onComplete } = this.props;
 
-  const goToSettings = async () => {
+    //check if permissions have been set since entering this screen
+    // @ts-ignore
+    PushNotification.checkPermissions(permission => {
+      onComplete(!!(permission && permission.alert));
+    });
+  }
+
+  goToSettings = async () => {
     if (!isAndroid) {
       const APP_SETTINGS_URL = 'app-settings:';
       const isSupported = await Linking.canOpenURL(APP_SETTINGS_URL);
 
       if (isSupported) {
         await Linking.openURL(APP_SETTINGS_URL);
-        return setTimeout(() => close(), 500);
+        return setTimeout(() => this.close(), 500);
       }
     }
 
-    close();
+    this.close();
   };
 
-  const descriptionText = t(
-    notificationType === JOIN_COMMUNITY
-      ? 'joinCommunity'
-      : notificationType === JOIN_CHALLENGE
-      ? 'joinChallenge'
-      : 'defaultDescription',
-  );
-  const notNowButtonText = t(
-    notificationType === SET_REMINDER ? 'noReminders' : 'notNow',
-  );
+  descriptionText = () => {
+    // @ts-ignore
+    const { t, notificationType } = this.props;
 
-  const {
-    container,
-    imageWrap,
-    title,
-    text,
-    buttonWrap,
-    button,
-    allowButton,
-    notNowButton,
-    buttonText,
-  } = styles;
+    switch (notificationType) {
+      case JOIN_COMMUNITY:
+        return t('joinCommunity');
+      case JOIN_CHALLENGE:
+        return t('joinChallenge');
+      default:
+        return t('defaultDescription');
+    }
+  };
 
-  return (
-    <View style={container}>
-      <View style={imageWrap}>
-        <Image source={require('../../../assets/images/notificationOff.png')} />
+  notNowButtonText = () => {
+    // @ts-ignore
+    const { t, notificationType } = this.props;
+
+    switch (notificationType) {
+      case SET_REMINDER:
+        return t('noReminders');
+      default:
+        return t('notNow');
+    }
+  };
+
+  render() {
+    // @ts-ignore
+    const { t } = this.props;
+    const {
+      container,
+      imageWrap,
+      title,
+      text,
+      buttonWrap,
+      button,
+      allowButton,
+      notNowButton,
+      buttonText,
+    } = styles;
+
+    return (
+      <View
+        // @ts-ignore
+        value={1}
+        alignItems="center"
+        justifyContent="center"
+        style={container}
+      >
+        <View style={imageWrap}>
+          <Image
+            source={require('../../../assets/images/notificationOff.png')}
+          />
+        </View>
+        <Text style={title}>{t('title')}</Text>
+        <Text style={text}>{this.descriptionText()}</Text>
+        <View style={buttonWrap}>
+          <Button
+            pill={true}
+            type="primary"
+            onPress={this.goToSettings}
+            text={t('settings').toUpperCase()}
+            style={[button, allowButton]}
+            buttonTextStyle={buttonText}
+          />
+          <Button
+            pill={true}
+            onPress={this.notNow}
+            text={this.notNowButtonText().toUpperCase()}
+            style={[button, notNowButton]}
+            buttonTextStyle={buttonText}
+          />
+        </View>
       </View>
-      <Text style={title}>{t('title')}</Text>
-      <Text style={text}>{descriptionText}</Text>
-      <View style={buttonWrap}>
-        <Button
-          testID="allowButton"
-          pill={true}
-          type="primary"
-          onPress={goToSettings}
-          text={t('settings').toUpperCase()}
-          style={[button, allowButton]}
-          buttonTextStyle={buttonText}
-        />
-        <Button
-          testID="notNowButton"
-          pill={true}
-          onPress={notNow}
-          text={notNowButtonText.toUpperCase()}
-          style={[button, notNowButton]}
-          buttonTextStyle={buttonText}
-        />
-      </View>
-    </View>
-  );
+    );
+  }
+}
+
+// @ts-ignore
+NotificationOffScreen.propTypes = {
+  onComplete: PropTypes.func.isRequired,
+  notificationType: PropTypes.string.isRequired,
 };
 
-export default connect()(NotificationOffScreen);
+// @ts-ignore
+const mapStateToProps = (state, { navigation }) => ({
+  ...(navigation.state.params || {}),
+});
+
+export default connect(mapStateToProps)(NotificationOffScreen);
 export const NOTIFICATION_OFF_SCREEN = 'nav/NOTIFICATION_OFF';

@@ -11,9 +11,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  redPageContainer: {
+  greyPageContainer: {
     flex: 1,
-    backgroundColor: theme.red,
+    backgroundColor: theme.extraLightGrey,
   },
   flatList: {
     flex: 1,
@@ -40,15 +40,10 @@ export default StyleSheet.create({
     marginHorizontal: 0,
     marginVertical: 0,
     marginBottom: 5,
-  },
-  onboardCardNoShadow: {
-    position: 'relative',
-    backgroundColor: theme.white,
-    borderRadius: 0,
-    marginHorizontal: 0,
-    marginVertical: 0,
-    borderBottomColor: theme.extraLightGrey,
-    borderBottomWidth: 1,
+    shadowColor: theme.lightGrey,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
   onboardingContainer: {
     paddingTop: 35,
@@ -58,7 +53,8 @@ export default StyleSheet.create({
     height: 60,
   },
   onboardingHeader: {
-    fontSize: 42,
+    fontSize: 24,
+    fontWeight: '300',
     color: theme.primaryColor,
     textAlign: 'center',
     paddingTop: 5,
@@ -66,7 +62,7 @@ export default StyleSheet.create({
   onboardingDescription: {
     fontSize: 16,
     color: theme.grey,
-    paddingHorizontal: 40,
+    paddingHorizontal: 50,
     textAlign: 'center',
     paddingVertical: 5,
   },
@@ -77,7 +73,7 @@ export default StyleSheet.create({
   },
   onboardingIcon: {
     fontSize: 12,
-    color: theme.primaryColor,
+    color: theme.lightGrey,
   },
   blockBtn: {
     alignSelf: 'stretch',
@@ -101,6 +97,9 @@ export default StyleSheet.create({
   },
   reportList: {
     paddingVertical: 15,
+  },
+  reportHeader: {
+    backgroundColor: theme.red,
   },
   backIcon: {
     color: theme.black,

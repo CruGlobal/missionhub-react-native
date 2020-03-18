@@ -6,6 +6,5 @@ export default StyleSheet.create({
   name: {
     color: theme.primaryColor,
     fontSize: 16,
-    lineHeight: 20,
   },
 });

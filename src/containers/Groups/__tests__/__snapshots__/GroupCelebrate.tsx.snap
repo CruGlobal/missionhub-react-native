@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+Array [
+  <Analytics
+    screenName={
+      Array [
+        "community",
+        "celebrate",
+      ]
+    }
+  />,
+  <CelebrateFeed
+    itemNamePressable={true}
+    onRefetch={[Function]}
+    organization={
+      Object {
+        "id": "1",
+        "user_created": false,
+      }
+    }
+    testID="CelebrateFeed"
+  />,
+]
+`;

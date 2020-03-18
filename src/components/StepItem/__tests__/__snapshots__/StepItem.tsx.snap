@@ -1,5 +1,180 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders completed step 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 4,
+      "opacity": 1,
+      "padding": 16,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="StepItemCard"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "opacity": 1,
+            "paddingRight": 8,
+          }
+        }
+        testID="StepItemPersonButton"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                },
+              ],
+            ]
+          }
+        >
+          Caesar Feest
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Repellat quisquam recusandae alias consequuntur corporis.
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="CompleteStepButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          Object {
+            "opacity": 0.6,
+          },
+          Object {
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
+          },
+          null,
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/checkIcon-grey.png",
+          }
+        }
+        style={
+          Object {
+            "height": 24,
+            "width": 24,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
 exports[`renders not me correctly 1`] = `
 <View
   accessible={true}
@@ -65,6 +240,7 @@ exports[`renders not me correctly 1`] = `
           Object {
             "alignSelf": "center",
             "opacity": 1,
+            "paddingRight": 8,
           }
         }
         testID="StepItemPersonButton"
@@ -82,7 +258,6 @@ exports[`renders not me correctly 1`] = `
                 Object {
                   "color": "#007398",
                   "fontSize": 16,
-                  "lineHeight": 20,
                 },
                 Object {
                   "fontSize": 16,
@@ -92,10 +267,17 @@ exports[`renders not me correctly 1`] = `
             ]
           }
         >
-          Receiver Name
+          Caesar Feest
         </Text>
       </View>
       <ReminderButton
+        reminder={
+          Object {
+            "id": "4",
+            "nextOccurrenceAt": "2016-02-28T03:01:08.353Z",
+            "reminderType": "once",
+          }
+        }
         stepId="2"
         testID="StepReminderButton"
       >
@@ -104,7 +286,7 @@ exports[`renders not me correctly 1`] = `
             Object {
               "flexDirection": "row",
               "justifyContent": "flex-start",
-              "padding": 4,
+              "paddingVertical": 4,
             }
           }
         >
@@ -126,7 +308,6 @@ exports[`renders not me correctly 1`] = `
                   Object {
                     "color": "#52C5DC",
                     "fontSize": 18,
-                    "paddingLeft": 8,
                     "paddingRight": 8,
                   },
                 ],
@@ -161,7 +342,7 @@ exports[`renders not me correctly 1`] = `
               ]
             }
           >
-            Set a Reminder
+            Sunday, Feb 28 @ 3:01 AM
           </Text>
         </View>
       </ReminderButton>
@@ -181,200 +362,64 @@ exports[`renders not me correctly 1`] = `
         ]
       }
     >
-      Test Step
+      Repellat quisquam recusandae alias consequuntur corporis.
     </Text>
   </View>
-</View>
-`;
-
-exports[`renders with pressable name correctly 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#ffffff",
-      "borderRadius": 8,
-      "elevation": 4,
-      "flex": 1,
-      "flexDirection": "row",
-      "marginHorizontal": 16,
-      "marginVertical": 4,
-      "opacity": 1,
-      "padding": 16,
-      "shadowColor": "#000000",
-      "shadowOffset": Object {
-        "height": 2,
-        "width": 0,
-      },
-      "shadowOpacity": 0.3,
-      "shadowRadius": 2,
-    }
-  }
-  testID="StepItemCard"
->
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "flex": 1,
+        "opacity": 1,
       }
     }
+    testID="CompleteStepButton"
   >
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignSelf": "center",
-            "opacity": 1,
-          }
-        }
-        testID="StepItemPersonButton"
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "lineHeight": 20,
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "normal",
-                },
-              ],
-            ]
-          }
-        >
-          Receiver Name
-        </Text>
-      </View>
-      <ReminderButton
-        reminder={
-          Object {
-            "id": "11",
-          }
-        }
-        stepId="1"
-        testID="StepReminderButton"
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "flex-start",
-              "padding": 4,
-            }
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 18,
-                    "paddingLeft": 8,
-                    "paddingRight": 8,
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            Set a Reminder
-          </Text>
-        </View>
-      </ReminderButton>
-    </View>
-    <Text
-      style={
         Array [
           Object {
-            "color": "#505256",
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
           },
+          null,
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
           },
-          Object {
-            "fontSize": 14,
-          },
+          null,
         ]
       }
     >
-      Test Step
-    </Text>
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/checkIcon-blue.png",
+          }
+        }
+        style={
+          Object {
+            "height": 24,
+            "width": 24,
+          }
+        }
+      />
+    </View>
   </View>
 </View>
 `;

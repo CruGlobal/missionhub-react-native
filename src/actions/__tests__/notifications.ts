@@ -2,12 +2,12 @@
 /* eslint max-lines: 0 */
 
 import { MockStore } from 'redux-mock-store';
-import RNPushNotification, {
+import thunk from 'redux-thunk';
+import PushNotification, {
   PushNotificationPermissions,
 } from 'react-native-push-notification';
 import { PushNotificationIOS } from 'react-native';
 
-import { createThunkStore } from '../../../testUtils';
 import {
   checkNotifications,
   deletePushToken,
@@ -15,7 +15,8 @@ import {
   requestNativePermissions,
   parseNotificationData,
   UPDATE_ACCEPTED_NOTIFICATIONS,
-  MHPushNotification,
+  PushNotificationPayloadIos,
+  PushNotificationPayloadIosOrAndroid,
 } from '../notifications';
 import {
   GCM_SENDER_ID,
@@ -35,12 +36,13 @@ import {
   navigateToCelebrateComments,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
-import { reloadGroupCelebrateFeed } from '../celebration';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
+import { getCelebrateFeed } from '../celebration';
+import { createThunkStore } from '../../../testUtils';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -70,7 +72,7 @@ beforeEach(() => {
   (callApi as jest.Mock).mockReturnValue(callApiResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
-  (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue(
+  (PushNotification.requestPermissions as jest.Mock).mockReturnValue(
     permission,
   );
 });
@@ -93,7 +95,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
+      expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([]);
     });
 
@@ -112,7 +114,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(PushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
       ]);
@@ -132,14 +134,14 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(PushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
       ]);
     });
 
     it('navigates to NotificationOffScreen if iOS user has already approved but native permissions are disabled', async () => {
-      (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
+      (PushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
         auth: { token: authToken },
@@ -161,7 +163,7 @@ describe('checkNotifications', () => {
         notificationType,
         onComplete: undefined,
       });
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(PushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: false },
         callApiResult,
@@ -186,7 +188,7 @@ describe('checkNotifications', () => {
         notificationType,
         onComplete: undefined,
       });
-      expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
+      expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([navigatePushResult]);
     });
 
@@ -204,7 +206,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
+      expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([]);
     });
   });
@@ -226,7 +228,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
+      expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(onComplete).toHaveBeenCalledWith({
         acceptedNotifications: false,
         showedPrompt: false,
@@ -251,7 +253,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(PushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(onComplete).toHaveBeenCalledWith({
         acceptedNotifications: true,
         showedPrompt: false,
@@ -277,7 +279,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(PushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(onComplete).toHaveBeenCalledWith({
         acceptedNotifications: true,
         showedPrompt: false,
@@ -288,7 +290,7 @@ describe('checkNotifications', () => {
     });
 
     it('navigates to NotificationOffScreen if iOS user has already approved but native permissions are disabled', async () => {
-      (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
+      (PushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
         auth: { token: authToken },
@@ -312,7 +314,7 @@ describe('checkNotifications', () => {
         notificationType,
         onComplete,
       });
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(PushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(onComplete).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: false },
@@ -340,7 +342,7 @@ describe('checkNotifications', () => {
         notificationType,
         onComplete,
       });
-      expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
+      expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(onComplete).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([navigatePushResult]);
     });
@@ -365,7 +367,7 @@ describe('checkNotifications', () => {
         acceptedNotifications: false,
         showedPrompt: false,
       });
-      expect(RNPushNotification.requestPermissions).not.toHaveBeenCalled();
+      expect(PushNotification.requestPermissions).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([]);
     });
   });
@@ -381,7 +383,7 @@ describe('configureNotificationHandler', () => {
   it('should configure notifications', () => {
     store.dispatch<any>(configureNotificationHandler());
 
-    expect(RNPushNotification.configure).toHaveBeenCalledWith({
+    expect(PushNotification.configure).toHaveBeenCalledWith({
       onRegister: expect.any(Function),
       onNotification: expect.any(Function),
       senderID: GCM_SENDER_ID,
@@ -392,7 +394,7 @@ describe('configureNotificationHandler', () => {
 
 describe('askNotificationPermissions', () => {
   beforeEach(() => {
-    (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({
+    (PushNotification.requestPermissions as jest.Mock).mockReturnValue({
       alert: 1,
     });
   });
@@ -410,7 +412,7 @@ describe('askNotificationPermissions', () => {
     });
 
     beforeEach(() => {
-      (RNPushNotification.configure as jest.Mock).mockImplementation(config =>
+      (PushNotification.configure as jest.Mock).mockImplementation(config =>
         config.onRegister({ token: newToken }),
       );
       (callApi as jest.Mock).mockReturnValue({
@@ -437,7 +439,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it("should do nothing if the token hasn't changed", async () => {
-      (RNPushNotification.configure as jest.Mock).mockImplementation(config =>
+      (PushNotification.configure as jest.Mock).mockImplementation(config =>
         config.onRegister({ token: oldToken }),
       );
       store.dispatch<any>(configureNotificationHandler());
@@ -455,33 +457,6 @@ describe('askNotificationPermissions', () => {
     };
     const celebration_item_id = '111';
 
-    const baseNotification: MHPushNotification = {
-      data: {},
-      foreground: false,
-      userInteraction: false,
-      message: '',
-      badge: 1,
-      alert: {},
-      sound: '',
-      finish: () => {},
-      configure: () => {},
-      unregister: () => {},
-      localNotification: () => {},
-      localNotificationSchedule: () => {},
-      requestPermissions: () => Promise.resolve({ alert: false }),
-      presentLocalNotification: () => {},
-      scheduleLocalNotification: () => {},
-      cancelAllLocalNotifications: () => {},
-      cancelLocalNotifications: () => {},
-      setApplicationIconBadgeNumber: () => {},
-      getApplicationIconBadgeNumber: () => {},
-      popInitialNotification: () => {},
-      abandonPermissions: () => {},
-      checkPermissions: () => {},
-      registerNotificationActions: () => {},
-      clearAllNotifications: () => {},
-    };
-
     const store = createThunkStore({
       auth: {
         isJean: true,
@@ -494,7 +469,6 @@ describe('askNotificationPermissions', () => {
     const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
     const refreshCommunityResult = organization;
-    const reloadGroupCelebrateFeedResult = { type: 'reload celebrate feed' };
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
     const navToCelebrateResult = { type: 'navigated to celebrate comments' };
     const navToCommunityResult = { type: 'navigated to community' };
@@ -507,9 +481,6 @@ describe('askNotificationPermissions', () => {
       (refreshCommunity as jest.Mock).mockReturnValue(
         () => refreshCommunityResult,
       );
-      (reloadGroupCelebrateFeed as jest.Mock).mockReturnValue(
-        reloadGroupCelebrateFeedResult,
-      );
       (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
         reloadGroupChallengeFeedResult,
       );
@@ -520,17 +491,17 @@ describe('askNotificationPermissions', () => {
       (navigateToMainTabs as jest.Mock).mockReturnValue(
         navigateToMainTabsResult,
       );
-      (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({
+      (PushNotification.requestPermissions as jest.Mock).mockReturnValue({
         alert: 1,
       });
     });
 
     async function testNotification(
-      notification: MHPushNotification,
+      notification: PushNotificationPayloadIosOrAndroid,
       userInteraction = true,
     ) {
       const deepLinkComplete = new Promise(resolve =>
-        (RNPushNotification.configure as jest.Mock).mockImplementation(
+        (PushNotification.configure as jest.Mock).mockImplementation(
           async config => {
             await store.dispatch<any>(requestNativePermissions());
             await config.onNotification({
@@ -548,7 +519,9 @@ describe('askNotificationPermissions', () => {
 
     describe('userInteraction = false', () => {
       it('on iOS, should call iOS finish', async () => {
-        await testNotification({ ...baseNotification, screen: 'home' }, false);
+        ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
+
+        await testNotification({ screen: 'home' }, false);
 
         expect(navigateToMainTabs).toHaveBeenCalled();
         expect(finish).toHaveBeenCalledWith(
@@ -563,7 +536,7 @@ describe('askNotificationPermissions', () => {
       it('on Android, should do nothing', async () => {
         ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
-        await testNotification({ ...baseNotification, screen: 'home' }, false);
+        await testNotification({ screen: 'home' }, false);
 
         expect(store.getActions()).toEqual([
           { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
@@ -572,7 +545,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to home screen', async () => {
-      await testNotification({ ...baseNotification, screen: 'home' });
+      await testNotification({ screen: 'home' });
 
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
@@ -582,7 +555,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to main steps tab screen', async () => {
-      await testNotification({ ...baseNotification, screen: 'steps' });
+      await testNotification({ screen: 'steps' });
 
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
@@ -593,7 +566,6 @@ describe('askNotificationPermissions', () => {
 
     it('should deep link to contact screen', async () => {
       await testNotification({
-        ...baseNotification,
         screen: 'person_steps',
         person_id: '1',
         organization_id: '2',
@@ -613,8 +585,10 @@ describe('askNotificationPermissions', () => {
         type: LOAD_PERSON_DETAILS,
         person,
       });
+
+      // @ts-ignore
+      getPersonDetails.mockReturnValue({ type: LOAD_PERSON_DETAILS, person });
       await testNotification({
-        ...baseNotification,
         data: {
           link: {
             data: {
@@ -636,7 +610,7 @@ describe('askNotificationPermissions', () => {
     });
 
     it("should deep link to ME user's contact screen", async () => {
-      await testNotification({ ...baseNotification, screen: 'my_steps' });
+      await testNotification({ screen: 'my_steps' });
 
       expect(navToPersonScreen).toHaveBeenCalledWith(person);
       expect(store.getActions()).toEqual([
@@ -649,7 +623,6 @@ describe('askNotificationPermissions', () => {
       (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 
       await testNotification({
-        ...baseNotification,
         screen: 'add_a_person',
         person_id: '1',
         organization_id: organization.id,
@@ -668,15 +641,13 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('parseNotificationData', () => {
-      const notification: MHPushNotification = {
-        ...baseNotification,
+      const notification: PushNotificationPayloadIosOrAndroid = {
         screen: 'celebrate',
         organization_id: organization.id,
         screen_extra_data,
       };
 
-      const iosNotification: MHPushNotification = {
-        ...baseNotification,
+      const iosNotification: PushNotificationPayloadIos = {
         data: {
           link: {
             data: {
@@ -708,17 +679,69 @@ describe('askNotificationPermissions', () => {
       });
     });
 
+    describe('celebrate_feed', () => {
+      it('should navigate to community celebrate feed', async () => {
+        await testNotification({
+          screen: 'celebrate_feed',
+          organization_id: organization.id,
+          screen_extra_data: {
+            celebration_item_id: undefined,
+          },
+        });
+
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCommunity).toHaveBeenCalledWith(organization);
+      });
+      it('should not navigate if no organization_id', async () => {
+        await testNotification({
+          screen: 'celebrate_feed',
+          organization_id: undefined,
+          screen_extra_data: {
+            celebration_item_id: undefined,
+          },
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(navigateToCommunity).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('celebrate_item', () => {
+      it('should navigate to CELEBRATION_DETAIL_SCREEN', async () => {
+        await testNotification({
+          screen: 'celebrate_item',
+          organization_id: organization.id,
+          screen_extra_data,
+        });
+
+        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+          organization,
+          celebration_item_id,
+        );
+      });
+      it('should not navigate if no organization_id', async () => {
+        await testNotification({
+          screen: 'celebrate_item',
+          organization_id: undefined,
+          screen_extra_data,
+        });
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+      });
+    });
+
     describe('celebrate', () => {
       it('should look for stored org', async () => {
         await testNotification({
-          ...baseNotification,
           screen: 'celebrate',
           organization_id: organization.id,
           screen_extra_data,
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(reloadGroupCelebrateFeed).toHaveBeenCalledWith(organization.id);
+        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToCelebrateComments).toHaveBeenCalledWith(
           organization,
           celebration_item_id,
@@ -727,14 +750,13 @@ describe('askNotificationPermissions', () => {
 
       it('should not navigate to org if no id passed', async () => {
         await testNotification({
-          ...baseNotification,
           screen: 'celebrate',
           organization_id: undefined,
           screen_extra_data,
         });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(reloadGroupCelebrateFeed).not.toHaveBeenCalled();
+        expect(getCelebrateFeed).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
       });
     });
@@ -742,7 +764,6 @@ describe('askNotificationPermissions', () => {
     describe('community_challenges', () => {
       it('should look for stored org', async () => {
         await testNotification({
-          ...baseNotification,
           screen: 'community_challenges',
           organization_id: organization.id,
         });
@@ -759,12 +780,27 @@ describe('askNotificationPermissions', () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
         (refreshCommunity as jest.Mock).mockReturnValue(() => global_community);
         await testNotification({
-          ...baseNotification,
           screen: 'community_challenges',
           organization_id: undefined,
         });
         expect(refreshCommunity).toHaveBeenCalledWith(undefined);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
+        expect(navigateToCommunity).toHaveBeenCalledWith(
+          global_community,
+          GROUP_CHALLENGES,
+        );
+      });
+      it('should navigate to global community if Id is null', async () => {
+        const global_community = { id: GLOBAL_COMMUNITY_ID };
+        (refreshCommunity as jest.Mock).mockReturnValue(() => global_community);
+        await testNotification({
+          screen: 'community_challenges',
+          organization_id: null,
+        });
+        expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
+          GLOBAL_COMMUNITY_ID,
+        );
         expect(navigateToCommunity).toHaveBeenCalledWith(
           global_community,
           GROUP_CHALLENGES,
@@ -776,30 +812,31 @@ describe('askNotificationPermissions', () => {
 
 describe('deletePushToken', () => {
   it('should not make an api request if there is nothing to delete', () => {
-    const store = createThunkStore({
+    const store = mockStore({
       notifications: {
-        pushDevice: null,
+        pushDevice: {},
       },
     });
 
-    store.dispatch<any>(deletePushToken());
+    // @ts-ignore
+    store.dispatch(deletePushToken());
 
     expect(callApi).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual([]);
   });
   it('should delete the push notification device token', () => {
-    const store = createThunkStore({
+    const store = mockStore({
       notifications: {
         pushDevice: {
           id: '1',
         },
       },
     });
-    (callApi as jest.Mock).mockReturnValue({
-      type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS,
-    });
+    // @ts-ignore
+    callApi.mockReturnValue({ type: REQUESTS.DELETE_PUSH_TOKEN.SUCCESS });
 
-    store.dispatch<any>(deletePushToken());
+    // @ts-ignore
+    store.dispatch(deletePushToken());
 
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.DELETE_PUSH_TOKEN,

@@ -170,6 +170,11 @@ exports[`with challenge suggestion renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 32,
+      }
+    }
     style={
       Object {
         "flex": 1,
@@ -197,7 +202,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
           ]
         }
       >
-        SCOTTY
+        Repellat quisquam recusandae alias consequuntur corporis.
       </Text>
       <View
         style={
@@ -229,7 +234,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
             ]
           }
         >
-          Completed Wednesday, January 3 2018
+          Completed Tuesday, January 19 2010
         </Text>
         <Image
           source={
@@ -248,14 +253,10 @@ exports[`with challenge suggestion renders correctly 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
-              "paddingBottom": 32,
-              "paddingHorizontal": 32,
-              "paddingTop": 26,
-            },
-            undefined,
-          ]
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       >
         <View
@@ -279,7 +280,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
               }
             >
               <Text>
-                roge rules
+                ratione ut sunt
               </Text>
             </Text>
           </View>
@@ -486,7 +487,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
         ]
       }
     >
-      SCOTTY
+      esse repellat quisquam
     </Text>
     <View
       style={
@@ -518,7 +519,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
           ]
         }
       >
-        Completed Wednesday, January 3 2018
+        Completed Sunday, September 19 2010
       </Text>
       <Image
         source={
@@ -537,14 +538,10 @@ exports[`without challenge suggestion renders correctly 1`] = `
     </View>
     <View
       style={
-        Array [
-          Object {
-            "paddingBottom": 32,
-            "paddingHorizontal": 32,
-            "paddingTop": 26,
-          },
-          undefined,
-        ]
+        Object {
+          "paddingHorizontal": 32,
+          "paddingTop": 26,
+        }
       }
     />
   </View>

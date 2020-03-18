@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberCelebrate renders correctly 1`] = `
+Array [
+  <Analytics
+    screenName={
+      Array [
+        "person",
+        "celebrate",
+      ]
+    }
+  />,
+  <CelebrateFeed
+    itemNamePressable={false}
+    organization={
+      Object {
+        "id": "123",
+      }
+    }
+    person={
+      Object {
+        "id": "1",
+      }
+    }
+  />,
+]
+`;

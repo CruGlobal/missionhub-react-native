@@ -4,31 +4,41 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   wrap: {
-    backgroundColor: theme.white,
+    backgroundColor: 'transparent',
     paddingVertical: 10,
-    paddingHorizontal: 40,
+    marginBottom: 80,
   },
   section: {
-    paddingVertical: 8,
+    paddingVertical: 14,
+    paddingHorizontal: 40,
+    borderBottomColor: theme.extraLightGrey,
+    borderBottomWidth: 1,
+  },
+  detailSection: {
+    paddingVertical: 14,
+    paddingHorizontal: 40,
   },
   editButtonText: {
-    color: theme.secondaryColor,
+    color: theme.challengeBlue,
     fontSize: 14,
     fontWeight: '300',
     letterSpacing: 1,
   },
   title: {
-    color: theme.primaryColor,
+    color: theme.grey,
     fontFamily: 'SourceSansPro-Light',
     fontSize: 24,
     lineHeight: 30,
   },
   subHeader: {
     color: theme.inactiveColor,
-    fontSize: 10,
+    fontSize: 12,
   },
   dateText: {
-    color: theme.primaryColor,
-    fontSize: 14,
+    color: theme.grey,
+    fontSize: 16,
+  },
+  detailText: {
+    fontSize: 16,
   },
 });

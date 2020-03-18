@@ -351,6 +351,10 @@ export const ACTIONS = {
     name: 'Delete Community',
     key: 'cru.communitydelete',
   },
+  SHARE_STORY: {
+    name: 'Share Story',
+    key: 'cru.sharestory',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
@@ -425,8 +429,6 @@ export const INTERACTION_TYPES = {
 export const DEFAULT_PAGE_LIMIT = 25;
 
 export const CELEBRATEABLE_TYPES = {
-  completedStep: 'accepted_challenge',
-  completedInteraction: 'interaction',
   validInteractionTypes: [
     INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
     INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
@@ -435,14 +437,10 @@ export const CELEBRATEABLE_TYPES = {
     INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
     INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
   ],
-  acceptedCommunityChallenge: 'accepted_community_challenge',
   challengeItemTypes: {
     accepted: 'accepted_at',
     completed: 'completed_at',
   },
-  createdCommunity: 'organization',
-  joinedCommunity: 'organizational_permission',
-  story: 'story',
 };
 
 export const DAYS_OF_THE_WEEK = [
@@ -454,19 +452,6 @@ export const DAYS_OF_THE_WEEK = [
   'friday',
   'saturday',
 ];
-
-export enum REMINDER_RECURRENCES_ENUM {
-  ONCE = 'once',
-  DAILY = 'daily',
-  WEEKLY = 'weekly',
-  MONTHLY = 'monthly',
-}
-export const REMINDER_RECURRENCES = {
-  ONCE: REMINDER_RECURRENCES_ENUM.ONCE,
-  DAILY: REMINDER_RECURRENCES_ENUM.DAILY,
-  WEEKLY: REMINDER_RECURRENCES_ENUM.WEEKLY,
-  MONTHLY: REMINDER_RECURRENCES_ENUM.MONTHLY,
-};
 
 export enum NOTIFICATION_PROMPT_TYPES {
   ONBOARDING,

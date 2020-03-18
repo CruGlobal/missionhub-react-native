@@ -3,6 +3,7 @@ import { View, StyleProp, ViewStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { Text, Button } from '../../components/common';
 import {
@@ -13,29 +14,21 @@ import {
 import { navigatePush } from '../../actions/navigation';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
+import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Event = any;
-
 export interface CelebrateItemContentProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
-  event: Event;
-  organization?: object;
-  fixedHeight?: boolean;
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  event: CelebrateItem;
+  organization: Organization;
   style?: StyleProp<ViewStyle>;
 }
 
 const {
   challengeItemTypes: { accepted, completed },
-  completedInteraction,
-  completedStep,
-  acceptedCommunityChallenge,
-  createdCommunity,
-  joinedCommunity,
-  story,
 } = CELEBRATEABLE_TYPES;
 const {
   MHInteractionTypePersonalDecision,
@@ -50,25 +43,32 @@ const CelebrateItemContent = ({
   dispatch,
   event,
   organization,
-  fixedHeight,
   style,
 }: CelebrateItemContentProps) => {
   const { t } = useTranslation('celebrateFeeds');
 
-  const org = organization || event.organization || {};
-  const { name: communityName = '' } = org || {};
+  const { name: communityName = '' } = organization || {};
   const {
-    adjective_attribute_value,
-    changed_attribute_name,
-    subject_person,
-    subject_person_name,
-    celebrateable_type,
-    object_description,
+    adjectiveAttributeValue,
+    changedAttributeName,
+    subjectPerson,
+    subjectPersonName,
+    celebrateableType,
+    objectDescription,
   } = event;
 
+  const personName = subjectPerson
+    ? `${getFirstNameAndLastInitial(
+        subjectPerson.firstName,
+        subjectPerson.lastName,
+      )}.`
+    : subjectPersonName
+    ? subjectPersonName
+    : t('aMissionHubUser');
+
   const onPressChallengeLink = () => {
-    const orgId = org.id;
-    const challengeId = adjective_attribute_value;
+    const orgId = organization.id;
+    const challengeId = adjectiveAttributeValue;
     if (orgId && orgId !== GLOBAL_COMMUNITY_ID) {
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
@@ -79,53 +79,53 @@ const CelebrateItemContent = ({
     }
   };
 
-  const buildJoinedCommunityMessage = (name: string) => {
-    return t('joinedCommunity', { initiator: name, communityName });
+  const buildJoinedCommunityMessage = () => {
+    return t('joinedCommunity', { initiator: personName, communityName });
   };
 
-  const buildCreateCommunityMessage = (name: string) => {
-    return t('communityCreated', { initiator: name, communityName });
+  const buildCreateCommunityMessage = () => {
+    return t('communityCreated', { initiator: personName, communityName });
   };
 
-  const buildChallengeMessage = (type: string, name: string) => {
-    switch (type) {
+  const buildChallengeMessage = () => {
+    switch (changedAttributeName) {
       case accepted:
-        return t('challengeAccepted', { initiator: name });
+        return t('challengeAccepted', { initiator: personName });
       case completed:
-        return t('challengeCompleted', { initiator: name });
+        return t('challengeCompleted', { initiator: personName });
     }
   };
 
-  const buildInteractionMessage = (type: string, name: string) => {
-    switch (`${type}`) {
+  const buildInteractionMessage = () => {
+    switch (adjectiveAttributeValue) {
       case MHInteractionTypePersonalDecision.id:
-        return t('interactionDecision', { initiator: name });
+        return t('interactionDecision', { initiator: personName });
       case MHInteractionTypeSomethingCoolHappened.id:
-        return t('somethingCoolHappened', { initiator: name });
+        return t('somethingCoolHappened', { initiator: personName });
       default:
-        return t(completedInteraction, {
-          initiator: name,
+        return t('interaction', {
+          initiator: personName,
           interactionName: renderInteraction(),
         });
     }
   };
 
-  const renderStepOfFaithMessage = (name: string) => {
+  const renderStepOfFaithMessage = () => {
     return t(
-      adjective_attribute_value
-        ? adjective_attribute_value === '6'
+      adjectiveAttributeValue
+        ? adjectiveAttributeValue === '6'
           ? 'stepOfFaithNotSureStage'
           : 'stepOfFaith'
         : 'stepOfFaithUnknownStage',
       {
-        initiator: name,
-        receiverStage: renderStage(adjective_attribute_value),
+        initiator: personName,
+        receiverStage: renderStage(),
       },
     );
   };
 
-  const renderStage = (stage: string) => {
-    switch (stage) {
+  const renderStage = () => {
+    switch (adjectiveAttributeValue) {
       case '1':
         return t('stages.uninterested.label');
       case '2':
@@ -142,7 +142,7 @@ const CelebrateItemContent = ({
   };
 
   const renderInteraction = () => {
-    switch (`${adjective_attribute_value}`) {
+    switch (adjectiveAttributeValue) {
       case MHInteractionTypeSpiritualConversation.id:
         return t('actions:interactionSpiritualConversation');
       case MHInteractionTypeGospelPresentation.id:
@@ -157,32 +157,25 @@ const CelebrateItemContent = ({
   };
 
   const renderMessage = () => {
-    const name = subject_person
-      ? `${getFirstNameAndLastInitial(
-          subject_person.first_name,
-          subject_person.last_name,
-        )}.`
-      : subject_person_name
-      ? subject_person_name
-      : t('aMissionHubUser');
-    switch (celebrateable_type) {
-      case completedStep:
-        return renderStepOfFaithMessage(name);
-      case completedInteraction:
-        return buildInteractionMessage(adjective_attribute_value, name);
-      case acceptedCommunityChallenge:
-        return buildChallengeMessage(changed_attribute_name, name);
-      case createdCommunity:
-        return buildCreateCommunityMessage(name);
-      case joinedCommunity:
-        return buildJoinedCommunityMessage(name);
-      case story:
-        return object_description;
+    switch (celebrateableType) {
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_STEP:
+        return renderStepOfFaithMessage();
+      case CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION:
+        return buildInteractionMessage();
+      case CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE:
+        return buildChallengeMessage();
+      case CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY:
+        return buildCreateCommunityMessage();
+      case CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY:
+        return buildJoinedCommunityMessage();
+      case CommunityCelebrationCelebrateableEnum.STORY:
+        return objectDescription;
     }
   };
 
   const renderChallengeLink = () => {
-    return celebrateable_type === acceptedCommunityChallenge ? (
+    return celebrateableType ===
+      CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE ? (
       <View style={styles.row}>
         <Button
           testID="ChallengeLinkButton"
@@ -191,7 +184,7 @@ const CelebrateItemContent = ({
           style={styles.challengeLinkButton}
         >
           <Text numberOfLines={2} style={styles.challengeLinkText}>
-            {object_description}
+            {objectDescription}
           </Text>
         </Button>
       </View>
@@ -199,16 +192,11 @@ const CelebrateItemContent = ({
   };
 
   return (
-    <View
-      style={[
-        styles.description,
-        fixedHeight ? styles.fixedHeightDescription : {},
-        style,
-      ]}
-    >
+    <View style={[styles.description, style]}>
       <Text style={styles.messageText}>{renderMessage()}</Text>
       {renderChallengeLink()}
     </View>
   );
 };
+
 export default connect()(CelebrateItemContent);

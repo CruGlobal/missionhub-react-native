@@ -9,22 +9,27 @@ import {
   resetCelebrateEditingComment,
   updateCelebrateComment,
 } from '../../actions/celebrateComments';
-import { celebrationItemSelector } from '../../selectors/celebration';
 import { celebrateCommentsCommentSelector } from '../../selectors/celebrateComments';
-import { OrganizationsState } from '../../reducers/organizations';
-import { CelebrateCommentsState } from '../../reducers/celebrateComments';
+import {
+  CelebrateCommentsState,
+  CelebrateComment,
+} from '../../reducers/celebrateComments';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
 interface CelebrateCommentBoxProps {
-  event: object;
-  editingComment?: object;
+  event: CelebrateItem;
+  organization: Organization;
+  editingComment?: CelebrateComment;
   onAddComplete?: () => void;
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
 }
 
 const CelebrateCommentBox = ({
   event,
+  organization,
   editingComment,
   onAddComplete,
   dispatch,
@@ -35,9 +40,18 @@ const CelebrateCommentBox = ({
   const submitComment = async (action: object, text: string) => {
     if (editingComment) {
       cancel();
-      return dispatch(updateCelebrateComment(editingComment, text));
+      return dispatch(
+        updateCelebrateComment(
+          event.id,
+          organization.id,
+          editingComment.id,
+          text,
+        ),
+      );
     }
-    const results = await dispatch(createCelebrateComment(event, text));
+    const results = await dispatch(
+      createCelebrateComment(event.id, organization.id, text),
+    );
     onAddComplete && onAddComplete();
     return results;
   };
@@ -48,6 +62,7 @@ const CelebrateCommentBox = ({
 
   return (
     <CommentBox
+      // @ts-ignore
       testID="CelebrateCommentBox"
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}
@@ -60,24 +75,16 @@ const CelebrateCommentBox = ({
 };
 const mapStateToProps = (
   {
-    organizations,
     celebrateComments,
   }: {
-    organizations: OrganizationsState;
     celebrateComments: CelebrateCommentsState;
   },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { event }: any,
+  { event }: { event: CelebrateItem },
 ) => ({
   editingComment: celebrateCommentsCommentSelector(
     { celebrateComments },
     { eventId: event.id, commentId: celebrateComments.editingCommentId },
   ),
-  event:
-    celebrationItemSelector(
-      { organizations },
-      { eventId: event.id, organizationId: event.organization.id },
-    ) || event,
 });
 
 export default connect(mapStateToProps)(CelebrateCommentBox);
