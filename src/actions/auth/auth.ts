@@ -1,13 +1,18 @@
-// @ts-ignore
 import PushNotification from 'react-native-push-notification';
 // @ts-ignore
 import { AccessToken } from 'react-native-fbsdk';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
-import { CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
+import {
+  CLEAR_UPGRADE_TOKEN,
+  LOGOUT,
+  NOTIFICATION_PROMPT_TYPES,
+} from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { rollbar } from '../../utils/rollbar.config';
 import { navigateReset } from '../navigation';
-import { deletePushToken } from '../notifications';
+import { deletePushToken, checkNotifications } from '../notifications';
 import {
   SIGN_IN_FLOW,
   ADD_SOMEONE_ONBOARDING_FLOW,
@@ -16,6 +21,8 @@ import {
 import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
 import { startOnboarding } from '../onboarding';
+import { AuthState } from '../../reducers/auth';
+import { NotificationsState } from '../../reducers/notifications';
 
 import { refreshAccessToken } from './key';
 import { refreshAnonymousLogin } from './anonymous';
@@ -67,7 +74,14 @@ export const retryIfInvalidatedClientToken = (
 };
 
 // @ts-ignore
-export const navigateToPostAuthScreen = () => (dispatch, getState) => {
+export const navigateToPostAuthScreen = () => (
+  dispatch: ThunkDispatch<
+    { auth: AuthState; notifications: NotificationsState },
+    {},
+    AnyAction
+  >,
+  getState: () => { auth: AuthState },
+) => {
   const { person } = getState().auth;
 
   if (!person.user.pathway_stage_id) {
@@ -75,6 +89,7 @@ export const navigateToPostAuthScreen = () => (dispatch, getState) => {
     dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
   } else if (hasPersonWithStageSelected(person)) {
     dispatch(navigateToMainTabs());
+    dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
   } else {
     dispatch(startOnboarding());
     dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));

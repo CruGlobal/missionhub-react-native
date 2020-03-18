@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { formatApiDate } from '../utils/common';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -10,7 +12,7 @@ import {
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
-import { showNotificationPrompt } from './notifications';
+import { checkNotifications } from './notifications';
 import { navigatePush, navigateBack } from './navigation';
 import { trackActionWithoutData } from './analytics';
 import { getCelebrateFeed } from './celebration';
@@ -59,8 +61,7 @@ export function completeChallenge(item, orgId) {
   };
 }
 
-// @ts-ignore
-export function joinChallenge(item, orgId) {
+export function joinChallenge(item: { id: string }, orgId: string) {
   const query = {
     challengeId: item.id,
   };
@@ -71,24 +72,29 @@ export function joinChallenge(item, orgId) {
       },
     },
   };
-  // @ts-ignore
-  return async dispatch => {
-    await dispatch(callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData));
-    await dispatch(
-      // @ts-ignore
-      showNotificationPrompt(NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE),
+
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    await dispatch<any>(
+      callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData),
     );
-    dispatch(
-      navigatePush(CELEBRATION_SCREEN, {
-        onComplete: () => {
-          dispatch(navigateBack());
-        },
-        gifId: 0,
-      }),
-    );
-    dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
+    dispatch<any>(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
     getCelebrateFeed(orgId);
+
+    await dispatch<any>(
+      checkNotifications(
+        NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE,
+        ({ showedPrompt }) =>
+          dispatch(
+            navigatePush(CELEBRATION_SCREEN, {
+              onComplete: () => {
+                dispatch(navigateBack(showedPrompt ? 2 : 1));
+              },
+              gifId: 0,
+            }),
+          ),
+      ),
+    );
   };
 }
 
