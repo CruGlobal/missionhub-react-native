@@ -14,14 +14,12 @@ import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
-import { navigatePush, navigateToCommunity } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
-import { CELEBRATION_SCREEN } from '../CelebrationScreen';
 import { ChallengeItem } from '../../components/ChallengeStats';
 
-import { GROUP_CHALLENGES } from './GroupScreen';
 import styles from './styles';
 
 // @ts-ignore
@@ -58,18 +56,11 @@ class GroupChallenges extends Component {
 
   create = () => {
     // @ts-ignore
-    const { dispatch, organization } = this.props;
+    const { dispatch } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        onComplete: (challenge: ChallengeItem) => {
-          this.createChallenge(challenge);
-          dispatch(
-            navigatePush(CELEBRATION_SCREEN, {
-              onComplete: () => {
-                dispatch(navigateToCommunity(organization, GROUP_CHALLENGES));
-              },
-            }),
-          );
+        onComplete: async (challenge: ChallengeItem) => {
+          await this.createChallenge(challenge);
         },
       }),
     );

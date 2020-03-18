@@ -241,12 +241,16 @@ describe('createChallenge', () => {
         },
       },
     );
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: expect.any(Function),
+    });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_CREATED,
     );
     // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
+      navigateResult,
       trackActionResult,
       resetResult,
       apiResult,
