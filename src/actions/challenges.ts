@@ -100,7 +100,7 @@ export function joinChallenge(item: { id: string }, orgId: string) {
 }
 
 export function createChallenge(
-  challenge: { title: string; date: string },
+  challenge: { title: string; date: string; details: string },
   orgId: string,
 ) {
   const query = {};
