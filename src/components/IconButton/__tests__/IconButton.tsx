@@ -34,6 +34,21 @@ it('renders correctly without onpress', () => {
   ).snapshot();
 });
 
+it('renders correctly with image', () => {
+  renderWithContext(
+    <IconButton
+      name="testImage"
+      type="MissionHub"
+      image={1234}
+      buttonStyle={{ margin: 20 }}
+      style={{ padding: 10 }}
+    />,
+    {
+      noWrappers: true,
+    },
+  ).snapshot();
+});
+
 it('renders correctly with button styles', () => {
   renderWithContext(
     <IconButton

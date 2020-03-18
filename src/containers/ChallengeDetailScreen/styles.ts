@@ -5,13 +5,19 @@ import theme from '../../theme';
 export default StyleSheet.create({
   pageContainer: {
     backgroundColor: theme.white,
+    height: '100%',
   },
   button: {
     paddingRight: 10,
   },
   buttonText: {
-    color: theme.primaryColor,
+    color: theme.challengeBlue,
     fontSize: 14,
-    fontWeight: '400',
+  },
+  challengeImage: {
+    position: 'absolute',
+    zIndex: -1,
+    bottom: 0,
+    right: 0,
   },
 });
