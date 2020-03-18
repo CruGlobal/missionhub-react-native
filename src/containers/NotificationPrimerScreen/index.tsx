@@ -1,12 +1,17 @@
 import React from 'react';
+import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch } from 'redux-thunk';
+import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Text, Button, Flex } from '../../components/common';
-import { requestNativePermissions } from '../../actions/notifications';
+import { navigateBack } from '../../actions/navigation';
+import {
+  hasShownPrompt,
+  requestNativePermissions,
+} from '../../actions/notifications';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -21,36 +26,51 @@ const {
 } = NOTIFICATION_PROMPT_TYPES;
 
 interface NotificationPrimerScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  next?: () => ThunkAction<void, {}, {}, never>;
 }
 
 const NotificationPrimerScreen = ({
   dispatch,
+  next,
 }: NotificationPrimerScreenProps) => {
   useAnalytics('allow notifications');
   const { t } = useTranslation('notificationPrimer');
+  const onComplete:
+    | (({
+        nativePermissionsEnabled,
+        showedPrompt,
+      }: {
+        nativePermissionsEnabled: boolean;
+        showedPrompt: boolean;
+      }) => void)
+    | undefined = useNavigationParam('onComplete');
+  const notificationType: NOTIFICATION_PROMPT_TYPES = useNavigationParam(
+    'notificationType',
+  );
 
-  const onComplete: (
-    acceptedNotifications: boolean,
-  ) => Promise<void> = useNavigationParam('onComplete');
-
-  const notificationType: string = useNavigationParam('notificationType');
+  const close = (nativePermissionsEnabled: boolean) => {
+    next
+      ? dispatch(next())
+      : onComplete
+      ? onComplete({ nativePermissionsEnabled, showedPrompt: true })
+      : dispatch(navigateBack());
+  };
 
   const notNow = () => {
-    onComplete(false);
+    close(false);
     dispatch(trackActionWithoutData(ACTIONS.NOT_NOW));
   };
 
   const allow = async () => {
-    let acceptedNotifications = false;
+    let nativePermissionsEnabled = false;
     try {
       const response = await dispatch(requestNativePermissions());
-      acceptedNotifications = response.acceptedNotifications;
+      nativePermissionsEnabled = response.nativePermissionsEnabled;
     } finally {
-      onComplete(acceptedNotifications);
+      close(nativePermissionsEnabled);
+      dispatch(trackActionWithoutData(ACTIONS.ALLOW));
     }
-    dispatch(trackActionWithoutData(ACTIONS.ALLOW));
   };
 
   const descriptionText = () => {
@@ -68,7 +88,7 @@ const NotificationPrimerScreen = ({
     }
   };
   const renderNotification = () => {
-    if (notificationType === 'onboarding') {
+    if (notificationType === NOTIFICATION_PROMPT_TYPES.ONBOARDING) {
       return (
         <Flex style={styles.container}>
           <Flex value={0.3} />
@@ -111,6 +131,7 @@ const NotificationPrimerScreen = ({
               style={styles.buttonContainer}
             >
               <Button
+                testID="AllowButton"
                 pill={true}
                 type="primary"
                 onPress={allow}
@@ -119,6 +140,7 @@ const NotificationPrimerScreen = ({
                 buttonTextStyle={styles.buttonText}
               />
               <Button
+                testID="NotNowButton"
                 pill={true}
                 onPress={notNow}
                 text={t('notNow').toUpperCase()}

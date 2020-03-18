@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint complexity: 0 */
 
 import { PushNotificationIOS } from 'react-native';
-// @ts-ignore
-import PushNotification from 'react-native-push-notification';
-import i18next from 'i18next';
+import PushNotification, {
+  PushNotification as PushNotificationPayloadAndConstructor,
+} from 'react-native-push-notification';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
-  LOAD_HOME_NOTIFICATION_REMINDER,
-  REQUEST_NOTIFICATIONS,
-  DISABLE_WELCOME_NOTIFICATION,
   GCM_SENDER_ID,
   GLOBAL_COMMUNITY_ID,
+  NOTIFICATION_PROMPT_TYPES,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
@@ -19,13 +20,15 @@ import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
 import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
+import { AuthState } from '../reducers/auth';
+import { NotificationsState } from '../reducers/notifications';
+import { OrganizationsState } from '../reducers/organizations';
 
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
 import {
   navigatePush,
-  navigateBack,
   navigateToMainTabs,
   navigateToCommunity,
   navigateToCelebrateComments,
@@ -33,92 +36,150 @@ import {
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
 
-export function showNotificationPrompt(
-  notificationType: string,
-  doNotNavigateBack = false,
-) {
-  // @ts-ignore
-  return (dispatch, getState) => {
-    if (isAndroid) {
-      return dispatch(requestNativePermissions());
-    }
-
-    return new Promise(resolve =>
-      // @ts-ignore
-      PushNotification.checkPermissions(permission => {
-        // Android does not need to ask user for notification permissions
-        if (permission && permission.alert) {
-          return resolve(dispatch(requestNativePermissions()));
-        }
-
-        const { requestedNativePermissions } = getState().notifications;
-
-        // @ts-ignore
-        const onComplete = acceptedNotifications => {
-          !doNotNavigateBack && dispatch(navigateBack());
-          resolve({ acceptedNotifications });
-        };
-
-        dispatch(
-          navigatePush(
-            requestedNativePermissions
-              ? NOTIFICATION_OFF_SCREEN
-              : NOTIFICATION_PRIMER_SCREEN,
-            {
-              onComplete,
-              notificationType,
-            },
-          ),
-        );
-      }),
-    );
+export interface MHPushNotification
+  extends PushNotificationPayloadAndConstructor {
+  data: {
+    link?: {
+      data?: {
+        screen: string;
+        person_id?: string;
+        organization_id?: string;
+        celebration_item_id?: string;
+        screen_extra_data?: string | { [key: string]: any };
+      };
+    };
   };
+  screen?: string;
+  person_id?: string;
+  organization_id?: string;
+  celebration_item_id?: string;
+  screen_extra_data?: string | { [key: string]: any };
 }
 
-export function showReminderOnLoad(
-  notificationType: string,
-  doNotNavigateBack = false,
-) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
-    if (getState().notifications.showReminderOnLoad) {
-      dispatch({ type: LOAD_HOME_NOTIFICATION_REMINDER });
-      await dispatch(
-        showNotificationPrompt(notificationType, doNotNavigateBack),
+export const HAS_SHOWN_NOTIFICATION_PROMPT =
+  'app/HAS_SHOWN_NOTIFICATION_PROMPT';
+export const UPDATE_ACCEPTED_NOTIFICATIONS =
+  'app/UPDATE_ACCEPTED_NOTIFICATIONS';
+
+export interface HasShownPromptAction {
+  type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
+}
+
+export interface UpdateAcceptedNotificationsAction {
+  type: typeof UPDATE_ACCEPTED_NOTIFICATIONS;
+  acceptedNotifications: boolean;
+}
+
+export const hasShownPrompt = (): HasShownPromptAction => ({
+  type: HAS_SHOWN_NOTIFICATION_PROMPT,
+});
+
+export const updateAcceptedNotifications = (
+  acceptedNotifications: boolean,
+): UpdateAcceptedNotificationsAction => ({
+  type: UPDATE_ACCEPTED_NOTIFICATIONS,
+  acceptedNotifications,
+});
+
+export const checkNotifications = (
+  notificationType: NOTIFICATION_PROMPT_TYPES,
+  onComplete?: ({
+    nativePermissionsEnabled,
+    showedPrompt,
+  }: {
+    nativePermissionsEnabled: boolean;
+    showedPrompt: boolean;
+  }) => void,
+) => async (
+  dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
+  getState: () => { auth: AuthState; notifications: NotificationsState },
+) => {
+  let nativePermissionsEnabled = false;
+  const {
+    auth: { token },
+    notifications: { appHasShownPrompt, userHasAcceptedNotifications },
+  } = getState();
+
+  //ONLY register if logged in
+  if (token) {
+    //if iOS, and notification prompt has not yet been shown,
+    //navigate to NotificationPrimerScreen
+    if (!isAndroid && !appHasShownPrompt) {
+      return dispatch(
+        navigatePush(NOTIFICATION_PRIMER_SCREEN, {
+          notificationType,
+          onComplete,
+        }),
       );
     }
-  };
-}
 
-export function requestNativePermissions() {
-  // @ts-ignore
-  return async dispatch => {
-    dispatch({ type: REQUEST_NOTIFICATIONS });
-    const permission = await PushNotification.requestPermissions();
-    return { acceptedNotifications: !!(permission && permission.alert) };
-  };
-}
+    //check Native Permissions status
+    nativePermissionsEnabled = (await dispatch(requestNativePermissions()))
+      .nativePermissionsEnabled;
+
+    //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
+    //delete push token from API and Redux, then navigate to NotificationOffScreen
+    if (
+      !isAndroid &&
+      userHasAcceptedNotifications &&
+      !nativePermissionsEnabled
+    ) {
+      dispatch(deletePushToken());
+      return dispatch(
+        navigatePush(NOTIFICATION_OFF_SCREEN, {
+          notificationType,
+          onComplete,
+        }),
+      );
+    }
+  }
+
+  //all other cases, return the result of the Native Permissions check
+  //NOTE: Android does not need permissions from the user to enable notifications
+  return (
+    onComplete && onComplete({ nativePermissionsEnabled, showedPrompt: false })
+  );
+};
+
+//RNPushNotification.requestPermissions() will do the following:
+// - display the modal asking the user to enable notifications (first time only)
+// - return current state of Native Notifications Permissions (we should update app state accordingly)
+// - refreshes Push Device Token (this gets handled by onRegister() callback)
+export const requestNativePermissions = () => async (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+) => {
+  const nativePermissions = await PushNotification.requestPermissions();
+
+  const nativePermissionsEnabled = !!(
+    nativePermissions && nativePermissions.alert
+  );
+
+  dispatch(updateAcceptedNotifications(nativePermissionsEnabled));
+  return { nativePermissionsEnabled };
+};
 
 export function configureNotificationHandler() {
-  // @ts-ignore
-  return (dispatch, getState) => {
+  return (
+    dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
+    getState: () => { notifications: NotificationsState },
+  ) => {
     PushNotification.configure({
-      // @ts-ignore
       onRegister(t) {
         const { pushDevice } = getState().notifications;
 
-        if (pushDevice.token === t.token) {
+        if (pushDevice && pushDevice.token === t.token) {
           return;
         }
         //make api call to register token with user
-        dispatch(registerPushDevice(t.token));
+        dispatch(setPushDevice(t.token));
       },
-      // @ts-ignore
-      async onNotification(notification = {}) {
+
+      async onNotification(notification) {
         await dispatch(handleNotification(notification));
-        // @ts-ignore
+
         notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
+
       // ANDROID ONLY: GCM Sender ID
       senderID: GCM_SENDER_ID,
 
@@ -128,10 +189,15 @@ export function configureNotificationHandler() {
   };
 }
 
-// @ts-ignore
-function handleNotification(notification) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
+function handleNotification(notification: MHPushNotification) {
+  return async (
+    dispatch: ThunkDispatch<
+      { organizations: OrganizationsState },
+      {},
+      AnyAction
+    >,
+    getState: () => { auth: AuthState },
+  ) => {
     if (isAndroid && !notification.userInteraction) {
       return;
     }
@@ -199,9 +265,10 @@ function handleNotification(notification) {
   };
 }
 
-// @ts-ignore
-export function parseNotificationData(notification) {
-  const { data: { link: { data: iosData = {} } = {} } = {} } = notification;
+export function parseNotificationData(notification: MHPushNotification) {
+  const {
+    data: { link: { data: iosData = { screen_extra_data: '' } } = {} } = {},
+  } = notification;
   const data = {
     ...notification,
     ...(typeof notification.screen_extra_data === 'string' &&
@@ -223,55 +290,33 @@ export function parseNotificationData(notification) {
   };
 }
 
-// @ts-ignore
-function registerPushDevice(token) {
-  // @ts-ignore
-  return dispatch => {
-    const data = {
-      data: {
-        type: 'push_notification_device_token',
-        attributes: {
-          token,
-          platform: isAndroid ? 'GCM' : __DEV__ ? 'APNS_SANDBOX' : 'APNS',
-        },
+const setPushDevice = (token: string) => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+) => {
+  const data = {
+    data: {
+      type: 'push_notification_device_token',
+      attributes: {
+        token,
+        platform: isAndroid ? 'GCM' : __DEV__ ? 'APNS_SANDBOX' : 'APNS',
       },
-    };
-
-    return dispatch(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
+    },
   };
-}
+  return dispatch<any>(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
+};
 
-export function deletePushToken() {
-  // @ts-ignore
-  return (dispatch, getState) => {
-    const { pushDevice } = getState().notifications;
-    if (!pushDevice.id) {
-      return;
-    }
+export const deletePushToken = () => (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => { notifications: NotificationsState },
+) => {
+  const { pushDevice } = getState().notifications;
+  if (!pushDevice) {
+    return;
+  }
 
-    const query = {
-      deviceId: pushDevice.id,
-    };
-
-    return dispatch(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
+  const query = {
+    deviceId: pushDevice.id,
   };
-}
 
-export function showWelcomeNotification() {
-  // @ts-ignore
-  return (dispatch, getState) => {
-    if (getState().notifications.hasShownWelcomeNotification) {
-      return;
-    }
-
-    PushNotification.localNotificationSchedule({
-      title: i18next.t('welcomeNotification:title'),
-      message: i18next.t('welcomeNotification:message'),
-      date: new Date(Date.now() + 1000 * 3), // in 3 secs
-    });
-
-    dispatch({
-      type: DISABLE_WELCOME_NOTIFICATION,
-    });
-  };
-}
+  return dispatch<any>(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
+};
