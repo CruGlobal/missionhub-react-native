@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
+import Analytics from '../Analytics';
 import ChallengeFeed from '../ChallengeFeed';
 import {
   getGroupChallengeFeed,
@@ -13,12 +14,14 @@ import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush, navigateToCommunity } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
-import Analytics from '../Analytics';
+import { CELEBRATION_SCREEN } from '../CelebrationScreen';
+import { ChallengeItem } from '../../components/ChallengeStats';
 
+import { GROUP_CHALLENGES } from './GroupScreen';
 import styles from './styles';
 
 // @ts-ignore
@@ -47,8 +50,7 @@ class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
-  // @ts-ignore
-  createChallenge = challenge => {
+  createChallenge = (challenge: ChallengeItem) => {
     // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(createChallenge(challenge, organization.id));
@@ -56,13 +58,18 @@ class GroupChallenges extends Component {
 
   create = () => {
     // @ts-ignore
-    const { dispatch } = this.props;
+    const { dispatch, organization } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        // @ts-ignore
-        onComplete: challenge => {
+        onComplete: (challenge: ChallengeItem) => {
           this.createChallenge(challenge);
-          dispatch(navigateBack());
+          dispatch(
+            navigatePush(CELEBRATION_SCREEN, {
+              onComplete: () => {
+                dispatch(navigateToCommunity(organization, GROUP_CHALLENGES));
+              },
+            }),
+          );
         },
       }),
     );
