@@ -6,11 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { Text, Button } from '../../components/common';
-import {
-  INTERACTION_TYPES,
-  CELEBRATEABLE_TYPES,
-  GLOBAL_COMMUNITY_ID,
-} from '../../constants';
+import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
