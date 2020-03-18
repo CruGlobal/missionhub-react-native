@@ -110,6 +110,7 @@ export function createChallenge(
         title: challenge.title,
         end_date: challenge.date,
         organization_id: orgId,
+        details_markdown: challenge.details,
       },
     },
   };
@@ -146,6 +147,9 @@ export function updateChallenge(challenge: {
   if (challenge.date) {
     attributes.end_date = challenge.date;
   }
+  // @ts-ignore
+  attributes.details_markdown = challenge.details;
+
   const bodyData = { data: { attributes } };
 
   return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
@@ -159,6 +163,7 @@ export function updateChallenge(challenge: {
         organization: response.organization,
         title: response.title,
         end_date: response.end_date,
+        details_markdown: response.details_markdown,
       },
     });
   };

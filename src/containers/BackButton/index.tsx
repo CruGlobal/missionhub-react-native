@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Keyboard, StyleProp, ViewStyle, TextStyle } from 'react-native';
+import {
+  View,
+  Keyboard,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+  ImageSourcePropType,
+} from 'react-native';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
@@ -13,6 +20,7 @@ interface BackButtonProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   style?: StyleProp<ViewStyle>;
   customIcon?: string;
+  image?: ImageSourcePropType;
   iconStyle?: StyleProp<TextStyle>;
   customNavigate?: () => void;
 }
@@ -21,6 +29,7 @@ const BackButton = ({
   dispatch,
   style,
   customIcon,
+  image,
   iconStyle,
   customNavigate,
 }: BackButtonProps) => {
@@ -36,6 +45,7 @@ const BackButton = ({
         type="MissionHub"
         onPress={onPress}
         style={iconStyle}
+        image={image}
         testID="BackButton"
       />
     </View>

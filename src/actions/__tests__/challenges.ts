@@ -266,6 +266,7 @@ describe('createChallenge', () => {
     organization_id: orgId,
     title: 'Challenge Title',
     date: fakeDate,
+    details: 'Challenge detail',
   };
 
   it('creates a challenge', async () => {
@@ -280,6 +281,7 @@ describe('createChallenge', () => {
             title: item.title,
             end_date: item.date,
             organization_id: orgId,
+            details_markdown: item.details,
           },
         },
       },
@@ -301,6 +303,7 @@ describe('updateChallenge', () => {
   const responseOrganization = { id: orgId };
   const responseTitle = 'response title';
   const responseDate = '2018-11-19T14:13:21Z';
+  const responseDetail = 'New details for challenge';
   const updateChallengeResult = {
     type: 'api response',
     response: {
@@ -309,6 +312,7 @@ describe('updateChallenge', () => {
       title: responseTitle,
       end_date: responseDate,
       accepted_community_challenges: [],
+      details_markdown: responseDetail,
     },
   };
 
@@ -323,6 +327,7 @@ describe('updateChallenge', () => {
       organization: responseOrganization,
       title: responseTitle,
       end_date: responseDate,
+      details_markdown: responseDetail,
     },
   };
 
@@ -367,12 +372,35 @@ describe('updateChallenge', () => {
     );
     expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
+  it('updates a challenge with a new detail', async () => {
+    const newDetail = 'Cool new detail';
+    const item = {
+      id: challenge_id,
+      details: newDetail,
+    };
+    // @ts-ignore
+    await store.dispatch(updateChallenge(item, orgId));
 
-  it('updates a challenge with a new title and date', async () => {
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_GROUP_CHALLENGE,
+      { challenge_id: item.id },
+      {
+        data: {
+          attributes: {
+            details_markdown: item.details,
+          },
+        },
+      },
+    );
+    // @ts-ignore
+    expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
+  });
+  it('updates a challenge with a new title, date, and detail', async () => {
     const item = {
       id: challenge_id,
       title: 'Challenge Title',
       date: fakeDate,
+      details: 'Cool new detail',
     };
     await store.dispatch<any>(updateChallenge(item));
 
@@ -384,6 +412,7 @@ describe('updateChallenge', () => {
           attributes: {
             title: item.title,
             end_date: fakeDate,
+            details_markdown: item.details,
           },
         },
       },

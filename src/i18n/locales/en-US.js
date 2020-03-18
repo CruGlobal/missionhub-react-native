@@ -589,7 +589,12 @@ export default {
     joined: 'Joined',
     completed: 'Completed',
     iDidIt: 'I Did It',
-    endDate: 'End Date',
+    endDate: 'Challenge Ends',
+    details: 'Details',
+    detailsPlaceholder: 'Add details to your Challenge (optional)',
+    nullTitle: 'Our Challenges',
+    nullMembers: 'Join each other in a challenge created for your community.',
+    nullAdmins: 'Create a community challenge everyone can join.',
   },
   challengeStats: {
     days: 'Days',
@@ -601,9 +606,15 @@ export default {
     titlePlaceholderEdit: 'Edit Challenge',
     titlePlaceholderAdd: 'New Challenge',
     add: 'Create Challenge',
-    save: 'Save Changes',
+    save: 'Save',
     datePlaceholder: 'End Date (Required)',
-    dateLabel: 'End Date',
+    dateLabel: 'Challenge Ends',
+    detailsLabel: 'Details',
+    detailPlaceholder: 'Add details to your Challenge (optional)',
+  },
+  challengeMembers: {
+    joined: '{{count}} Member Joined',
+    joined_plural: '{{count}} Members Joined',
   },
   groupsChallenge: {
     create: 'Create Challenge',
@@ -612,8 +623,10 @@ export default {
     celebrateHeader: 'Celebrate One Another',
     celebrateDescription: "See and celebrate one another's Steps of Faith.",
     challengesHeader: 'Our Challenges',
-    challengesDescription:
-      'Join each other in a challenge created by your community.',
+    challengesAdminDescription:
+      'Create a community challenge everyone can join.',
+    challengesMemberDescription:
+      'Join each other in a challenge created for your community.',
     membersHeader: 'Journey Together',
     membersDescription: 'Take a Step of Faith with someone in your community.',
     impactHeader: 'See God at Work',
