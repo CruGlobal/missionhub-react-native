@@ -70,7 +70,7 @@ const CelebrateItemContent = ({
   const onPressChallengeLink = async () => {
     const orgId = organization.id;
     const challengeId = adjectiveAttributeValue;
-    if (orgId && orgId !== GLOBAL_COMMUNITY_ID) {
+    if (orgId) {
       await dispatch(reloadGroupChallengeFeed(orgId));
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {

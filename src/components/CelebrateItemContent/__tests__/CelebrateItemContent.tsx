@@ -1,7 +1,11 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { CELEBRATEABLE_TYPES, INTERACTION_TYPES } from '../../../constants';
+import {
+  CELEBRATEABLE_TYPES,
+  INTERACTION_TYPES,
+  GLOBAL_COMMUNITY_ID,
+} from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -283,6 +287,31 @@ describe('onPressChallengeLink', () => {
       orgId: organization.id,
     });
     expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
+    expect(store.getActions()).toEqual([
+      reloadGroupChallengeFeedReponse,
+      navigateResponse,
+    ]);
+  });
+
+  it('navigates to challenge detail screen | Global Community Challenge', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <CelebrateItemContent
+        event={{
+          ...event,
+          celebrateableType:
+            CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
+        }}
+        organization={{ name: 'MissionHub Community', id: GLOBAL_COMMUNITY_ID }}
+      />,
+      { initialState },
+    );
+    await fireEvent.press(getByTestId('ChallengeLinkButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      challengeId: event.adjectiveAttributeValue,
+      orgId: GLOBAL_COMMUNITY_ID,
+    });
+    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
     expect(store.getActions()).toEqual([
       reloadGroupChallengeFeedReponse,
       navigateResponse,
