@@ -9,11 +9,14 @@ import BottomButton, { BottomButtonProps } from '../BottomButton/index';
 import { Text } from '../common';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
+import { StepTypeEnum } from '../../../__generated__/globalTypes';
+import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 
 import styles from './styles';
 
 interface StepDetailScreenProps {
   text?: string;
+  stepType?: StepTypeEnum;
   receiver?: {
     firstName: string;
   };
@@ -28,6 +31,7 @@ interface StepDetailScreenProps {
 const StepDetailScreen = ({
   text = '',
   markdown = '',
+  stepType,
   CenterHeader,
   RightHeader,
   CenterContent,
@@ -35,11 +39,18 @@ const StepDetailScreen = ({
   receiver = { firstName: '' },
   Banner = null,
 }: StepDetailScreenProps) => {
-  const { stepTitleText, body, backButton, pageContainer } = styles;
+  const {
+    stepTypeBadge,
+    stepTitleText,
+    body,
+    backButton,
+    pageContainer,
+  } = styles;
 
   const renderContent = () => (
     <>
       {Banner}
+      <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
       <Text style={stepTitleText}>{text}</Text>
       {CenterContent}
       <View style={body}>

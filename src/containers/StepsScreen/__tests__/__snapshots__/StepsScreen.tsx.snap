@@ -1053,7 +1053,7 @@ exports[`renders screen with steps correctly 1`] = `
             }
           }
         >
-          et eos itaque
+          itaque velit omnis
         </Text>
         <Text
           style={
@@ -1065,7 +1065,7 @@ exports[`renders screen with steps correctly 1`] = `
             }
           }
         >
-          esse blanditiis natus
+          natus et eos
         </Text>
         <View
           accessible={true}
@@ -1138,7 +1138,7 @@ exports[`renders screen with steps correctly 1`] = `
                 ]
               }
             >
-              VELIT OMNIS ET
+              ET PORRO UT
             </Text>
           </View>
         </View>
@@ -1213,7 +1213,7 @@ exports[`renders screen with steps correctly 1`] = `
                 ]
               }
             >
-              OCCAECATI DEBITIS ET
+              ET SAEPE EUM
             </Text>
           </View>
         </View>
@@ -1606,14 +1606,18 @@ exports[`renders screen with steps correctly 1`] = `
             "id": "1",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Roscoe Johnson",
+              "fullName": "Heather Hahn",
               "id": "2",
             },
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "4",
-              "nextOccurrenceAt": "2017-12-28T17:58:57.964Z",
+              "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
               "reminderType": "once",
+            },
+            "stepSuggestion": Object {
+              "__typename": "StepSuggestion",
+              "stepType": "relate",
             },
             "title": "Repellat quisquam recusandae alias consequuntur corporis.",
           },
@@ -1623,18 +1627,22 @@ exports[`renders screen with steps correctly 1`] = `
               "__typename": "Community",
               "id": "7",
             },
-            "completedAt": "2015-08-09T09:31:34.869Z",
+            "completedAt": "2011-04-05T20:54:44.943Z",
             "id": "5",
             "receiver": Object {
               "__typename": "Person",
-              "fullName": "Shad Farrell",
+              "fullName": "Alek Lesch",
               "id": "6",
             },
             "reminder": Object {
               "__typename": "StepReminder",
               "id": "8",
-              "nextOccurrenceAt": "2010-11-26T00:55:36.529Z",
+              "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
               "reminderType": "once",
+            },
+            "stepSuggestion": Object {
+              "__typename": "StepSuggestion",
+              "stepType": "bond",
             },
             "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
           },
@@ -1693,14 +1701,18 @@ exports[`renders screen with steps correctly 1`] = `
                 "id": "1",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Roscoe Johnson",
+                  "fullName": "Heather Hahn",
                   "id": "2",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "4",
-                  "nextOccurrenceAt": "2017-12-28T17:58:57.964Z",
+                  "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
                   "reminderType": "once",
+                },
+                "stepSuggestion": Object {
+                  "__typename": "StepSuggestion",
+                  "stepType": "relate",
                 },
                 "title": "Repellat quisquam recusandae alias consequuntur corporis.",
               }
@@ -1721,18 +1733,22 @@ exports[`renders screen with steps correctly 1`] = `
                   "__typename": "Community",
                   "id": "7",
                 },
-                "completedAt": "2015-08-09T09:31:34.869Z",
+                "completedAt": "2011-04-05T20:54:44.943Z",
                 "id": "5",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Shad Farrell",
+                  "fullName": "Alek Lesch",
                   "id": "6",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
                   "id": "8",
-                  "nextOccurrenceAt": "2010-11-26T00:55:36.529Z",
+                  "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                   "reminderType": "once",
+                },
+                "stepSuggestion": Object {
+                  "__typename": "StepSuggestion",
+                  "stepType": "bond",
                 },
                 "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
               }
@@ -1751,9 +1767,9 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -723,10 +723,52 @@
-                \\"nextOccurrenceAt\\": \\"2010-11-26T00:55:36.529Z\\",
-                \\"reminderType\\": \\"once\\",
+@@ -731,10 +731,60 @@
+                \\"__typename\\": \\"StepSuggestion\\",
+                \\"stepType\\": \\"bond\\",
               },
               \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
             },
@@ -1763,20 +1779,24 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"14\\",
 +             },
-+             \\"completedAt\\": \\"2017-02-20T20:26:34.826Z\\",
++             \\"completedAt\\": \\"2015-11-30T05:35:49.224Z\\",
 +             \\"id\\": \\"12\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Emerson Conroy\\",
++               \\"fullName\\": \\"Alexys Rohan\\",
 +               \\"id\\": \\"13\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"15\\",
-+               \\"nextOccurrenceAt\\": \\"2015-11-30T05:35:49.224Z\\",
++               \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"title\\": \\"Inventore debitis libero aspernatur.\\",
++             \\"stepSuggestion\\": Object {
++               \\"__typename\\": \\"StepSuggestion\\",
++               \\"stepType\\": \\"affirm\\",
++             },
++             \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
@@ -1784,27 +1804,31 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"18\\",
 +             },
-+             \\"completedAt\\": \\"2019-11-08T05:56:47.001Z\\",
++             \\"completedAt\\": \\"2017-01-19T11:48:41.969Z\\",
 +             \\"id\\": \\"16\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Alexys Rohan\\",
++               \\"fullName\\": \\"Isabell Schamberger\\",
 +               \\"id\\": \\"17\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"19\\",
-+               \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
++               \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"title\\": \\"Quam tempore a velit provident velit eligendi.\\",
++             \\"stepSuggestion\\": Object {
++               \\"__typename\\": \\"StepSuggestion\\",
++               \\"stepType\\": \\"bond\\",
++             },
++             \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -825,9 +867,80 @@
+@@ -841,9 +891,88 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1823,20 +1847,24 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"__typename\\": \\"Community\\",
 +                   \\"id\\": \\"14\\",
 +                 },
-+                 \\"completedAt\\": \\"2017-02-20T20:26:34.826Z\\",
++                 \\"completedAt\\": \\"2015-11-30T05:35:49.224Z\\",
 +                 \\"id\\": \\"12\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Emerson Conroy\\",
++                   \\"fullName\\": \\"Alexys Rohan\\",
 +                   \\"id\\": \\"13\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"15\\",
-+                   \\"nextOccurrenceAt\\": \\"2015-11-30T05:35:49.224Z\\",
++                   \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"title\\": \\"Inventore debitis libero aspernatur.\\",
++                 \\"stepSuggestion\\": Object {
++                   \\"__typename\\": \\"StepSuggestion\\",
++                   \\"stepType\\": \\"affirm\\",
++                 },
++                 \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1855,20 +1883,24 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"__typename\\": \\"Community\\",
 +                   \\"id\\": \\"18\\",
 +                 },
-+                 \\"completedAt\\": \\"2019-11-08T05:56:47.001Z\\",
++                 \\"completedAt\\": \\"2017-01-19T11:48:41.969Z\\",
 +                 \\"id\\": \\"16\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Alexys Rohan\\",
++                   \\"fullName\\": \\"Isabell Schamberger\\",
 +                   \\"id\\": \\"17\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
 +                   \\"id\\": \\"19\\",
-+                   \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
++                   \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"title\\": \\"Quam tempore a velit provident velit eligendi.\\",
++                 \\"stepSuggestion\\": Object {
++                   \\"__typename\\": \\"StepSuggestion\\",
++                   \\"stepType\\": \\"bond\\",
++                 },
++                 \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"

@@ -1,6 +1,5 @@
 import i18next from 'i18next';
 
-import { CUSTOM_STEP_TYPE } from '../../constants';
 import { buildCustomStep, insertName } from '../steps';
 
 jest.mock('i18next');
@@ -25,7 +24,7 @@ describe('buildCustomStep', () => {
     expect(buildCustomStep(text, self_step)).toEqual({
       body: text,
       locale,
-      challenge_type: CUSTOM_STEP_TYPE,
+      challenge_type: null,
       self_step,
     });
   });

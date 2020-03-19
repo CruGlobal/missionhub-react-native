@@ -14,7 +14,6 @@ import Config from 'react-native-config';
 import i18n from 'i18next';
 
 import {
-  CUSTOM_STEP_TYPE,
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
   INTERACTION_TYPES,
@@ -170,7 +169,7 @@ export const shouldQueryReportedComments = (org, orgPermission) =>
   (orgIsUserCreated(org) && isOwner(orgPermission));
 
 // @ts-ignore
-export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
+export const isCustomStep = step => step.challenge_type === null;
 
 // @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>

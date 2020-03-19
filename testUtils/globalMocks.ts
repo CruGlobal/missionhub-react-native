@@ -6,6 +6,7 @@ import {
   CommunityCelebrationCelebrateableEnum,
   PermissionEnum,
   ReminderTypeEnum,
+  StepTypeEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -36,6 +37,9 @@ export const globalMocks: IMocks = {
 
   Step: () => ({
     title: faker.lorem.sentence(),
+  }),
+  StepSuggestion: () => ({
+    stepType: faker.random.arrayElement(Object.values(StepTypeEnum)),
   }),
   Person: () => {
     const firstName = faker.name.firstName();
