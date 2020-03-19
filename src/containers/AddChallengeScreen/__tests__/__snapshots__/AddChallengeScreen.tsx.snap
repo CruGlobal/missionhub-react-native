@@ -626,7 +626,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -352,16 +352,13 @@
+@@ -352,22 +352,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -651,7 +651,7 @@ exports[`create methods sets disable false 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -383,13 +379,11 @@
+@@ -390,13 +386,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
