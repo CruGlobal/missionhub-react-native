@@ -33,6 +33,20 @@ import {
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
 
+export const SET_NOTIFICATION_ANALYTICS = 'app/SET_NOTIFICATION_ANALYTICS';
+
+export interface SetNotificationAnalyticsAction {
+  type: typeof SET_NOTIFICATION_ANALYTICS;
+  notificationName: string;
+}
+
+export const setNotificationAnalytics = (
+  notificationName: string,
+): SetNotificationAnalyticsAction => ({
+  type: SET_NOTIFICATION_ANALYTICS,
+  notificationName,
+});
+
 export function showNotificationPrompt(
   notificationType: string,
   doNotNavigateBack = false,
@@ -145,6 +159,8 @@ function handleNotification(notification) {
       celebration_item_id,
       organization_id,
     } = notificationData;
+
+    dispatch(setNotificationAnalytics(screen));
 
     switch (screen) {
       case 'home':

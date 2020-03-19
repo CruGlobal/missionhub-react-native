@@ -14,6 +14,10 @@ import {
   SET_APP_CONTEXT,
   SetAppContextAction,
 } from '../actions/analytics';
+import {
+  SET_NOTIFICATION_ANALYTICS,
+  SetNotificationAnalyticsAction,
+} from '../actions/notifications';
 
 export const initialAnalyticsState = {
   [ANALYTICS.MCID]: '',
@@ -44,6 +48,7 @@ type AnalyticsAction =
   | KeyLoginSuccessAction
   | SetAppContextAction
   | ResetAppContextAction
+  | SetNotificationAnalyticsAction
   | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
@@ -76,6 +81,11 @@ function analyticsReducer(
       return {
         ...state,
         [ANALYTICS.PREVIOUS_SCREEN_NAME]: '',
+      };
+    case SET_NOTIFICATION_ANALYTICS:
+      return {
+        ...state,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: `${action.notificationName}_ph`,
       };
     case LOGOUT:
       return {
