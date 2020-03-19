@@ -300,7 +300,7 @@ describe('createChallenge', () => {
       trackActionResult,
       resetResult,
       apiResult,
-      navigateBackResults,
+      navigateBackResult,
     ]);
   });
 });
