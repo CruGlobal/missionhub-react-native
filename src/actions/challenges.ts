@@ -118,6 +118,13 @@ export function createChallenge(challenge, orgId) {
   // @ts-ignore
   return async dispatch => {
     await dispatch(callApi(REQUESTS.CREATE_GROUP_CHALLENGE, query, bodyData));
+    await dispatch(
+      navigatePush(CELEBRATION_SCREEN, {
+        onComplete: () => {
+          dispatch(navigateBack(2));
+        },
+      }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_CREATED));
     return dispatch(reloadGroupChallengeFeed(orgId));
   };

@@ -286,14 +286,21 @@ describe('createChallenge', () => {
         },
       },
     );
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: expect.any(Function),
+    });
+    (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
+    expect(navigateBack).toHaveBeenCalledWith(2);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_CREATED,
     );
     expect(store.getActions()).toEqual([
       apiResult,
+      navigateResult,
       trackActionResult,
       resetResult,
       apiResult,
+      navigateBackResults,
     ]);
   });
 });
