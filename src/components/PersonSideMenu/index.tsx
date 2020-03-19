@@ -15,6 +15,7 @@ import { assignContactAndPickStage } from '../../actions/misc';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
+  personSelector,
 } from '../../selectors/people';
 import {
   showAssignButton,
@@ -144,7 +145,7 @@ const PersonSideMenu = ({
 };
 
 const mapStateToProps = (
-  { auth }: { auth: AuthState; people: PeopleState },
+  { auth, people }: { auth: AuthState; people: PeopleState },
   {
     navigation: {
       state: {
@@ -156,20 +157,28 @@ const mapStateToProps = (
       state: { params: { person: Person; organization: Organization } };
     };
   },
-) => ({
-  person,
-  organization,
-  contactAssignment: contactAssignmentSelector(
-    { auth },
-    { person, orgId: organization.id },
-  ),
-  orgPermission: orgPermissionSelector(
-    {},
-    {
-      person,
-      organization: { id: organization.id },
-    },
-  ),
-});
+) => {
+  const selectorPerson =
+    personSelector(
+      { people },
+      { personId: person.id, orgId: organization && organization.id },
+    ) || person;
+
+  return {
+    person: selectorPerson,
+    organization,
+    contactAssignment: contactAssignmentSelector(
+      { auth },
+      { person: selectorPerson, orgId: organization.id },
+    ),
+    orgPermission: orgPermissionSelector(
+      {},
+      {
+        person: selectorPerson,
+        organization: { id: organization.id },
+      },
+    ),
+  };
+};
 
 export default connect(mapStateToProps)(PersonSideMenu);
