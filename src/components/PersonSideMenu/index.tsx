@@ -1,13 +1,13 @@
 /* eslint max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux-legacy';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
-import PropTypes from 'prop-types';
 
 import { deleteContactAssignment } from '../../actions/person';
-import SideMenu from '../../components/SideMenu';
+import SideMenu, { MenuItemsType } from '../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { EDIT_PERSON_FLOW } from '../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../containers/StatusReasonScreen';
@@ -15,7 +15,6 @@ import { assignContactAndPickStage } from '../../actions/misc';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
-  personSelector,
 } from '../../selectors/people';
 import {
   showAssignButton,
@@ -24,17 +23,53 @@ import {
   orgIsCru,
   orgIsUserCreated,
 } from '../../utils/common';
+import { Person, PeopleState } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 
-// @ts-ignore
-@withTranslation('contactSideMenu')
-class PersonSideMenu extends Component {
-  // @ts-ignore
-  onSubmitReason = () => this.props.dispatch(navigateBack(2));
+interface PersonSideMenuProps {
+  person: Person;
+  contactAssignment: { id: string };
+  organization?: Organization;
+  personIsCurrentUser: boolean;
+  orgPermission: { id: string };
+}
 
-  deleteContact() {
+const PersonSideMenu = ({
+  person,
+  contactAssignment,
+  organization,
+  orgPermission,
+}: PersonSideMenuProps) => {
+  const { t } = useTranslation('contactSideMenu');
+  const dispatch = useDispatch();
+  const [deleteOnUnmount, setDeleteOnUnmount] = useState(false);
+  const isMe = useIsMe(person.id);
+
+  const isCruOrg = orgIsCru(organization);
+  const isUserCreated = orgIsUserCreated(organization);
+
+  const onUnmount = () => {
+    if (deleteOnUnmount) {
+      dispatch(
+        deleteContactAssignment(
+          contactAssignment.id,
+          person.id,
+          organization && organization.id,
+        ),
+      );
+    }
+  };
+
+  useEffect(() => {
+    return onUnmount();
+  }, []);
+
+  const onSubmitReason = () => dispatch(navigateBack(2));
+
+  const deleteContact = () => {
     return () => {
-      // @ts-ignore
-      const { t, dispatch, person } = this.props;
       Alert.alert(
         t('deleteQuestion', {
           name: person.first_name,
@@ -50,147 +85,91 @@ class PersonSideMenu extends Component {
             style: 'destructive',
             onPress: () => {
               // @ts-ignore
-              this.deleteOnUnmount = true;
+              setDeleteOnUnmount(true);
               dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
             },
           },
         ],
       );
     };
-  }
-
-  async componentWillUnmount() {
-    // @ts-ignore
-    if (this.deleteOnUnmount) {
-      // @ts-ignore
-      const { dispatch, person, contactAssignment, organization } = this.props;
-      await dispatch(
-        deleteContactAssignment(
-          contactAssignment.id,
-          person.id,
-          organization && organization.id,
-        ),
-      );
-    }
-  }
-
-  render() {
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      isCruOrg,
-      // @ts-ignore
-      isUserCreated,
-      // @ts-ignore
-      personIsCurrentUser,
-      // @ts-ignore
-      myId,
-      // @ts-ignore
-      person,
-      // @ts-ignore
-      orgPermission,
-      // @ts-ignore
-      contactAssignment,
-      // @ts-ignore
-      organization,
-    } = this.props;
-
-    const showAssign = showAssignButton(
-      isCruOrg,
-      personIsCurrentUser,
-      contactAssignment,
-    );
-    const showUnassign = showUnassignButton(isCruOrg, contactAssignment);
-    const showDelete = showDeleteButton(
-      personIsCurrentUser,
-      contactAssignment,
-      orgPermission,
-    );
-
-    const menuItems = [
-      !isUserCreated
-        ? {
-            label: t('edit'),
-            action: () =>
-              dispatch(
-                navigatePush(EDIT_PERSON_FLOW, {
-                  person,
-                  organization,
-                }),
-              ),
-          }
-        : null,
-      showDelete
-        ? {
-            label: t('delete'),
-            action: this.deleteContact(),
-          }
-        : null,
-      showAssign
-        ? {
-            label: t('assign'),
-            action: () =>
-              // @ts-ignore
-              dispatch(assignContactAndPickStage(person, organization, myId)),
-          }
-        : null,
-      showUnassign
-        ? {
-            label: t('unassign'),
-            action: () =>
-              dispatch(
-                navigatePush(STATUS_REASON_SCREEN, {
-                  person,
-                  organization,
-                  contactAssignment,
-                  onSubmit: this.onSubmitReason,
-                }),
-              ),
-          }
-        : null,
-    ].filter(Boolean);
-
-    // @ts-ignore
-    return <SideMenu menuItems={menuItems} />;
-  }
-}
-
-// @ts-ignore
-PersonSideMenu.propTypes = {
-  person: PropTypes.object.isRequired,
-  organization: PropTypes.object.isRequired,
-  isCruOrg: PropTypes.bool.isRequired,
-  isUserCreated: PropTypes.bool.isRequired,
-};
-
-// @ts-ignore
-const mapStateToProps = ({ auth, people }, { navigation }) => {
-  const navParams = navigation.state.params || {};
-  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
-  const orgId = navOrg.id;
-  const personId = navPerson.id;
-  const myId = auth.person.id;
-
-  const person = personSelector({ people }, { personId, orgId }) || navPerson;
-  // @ts-ignore
-  const orgPermission = orgPermissionSelector(null, {
-    person,
-    organization: { id: orgId },
-  });
-
-  return {
-    ...navParams,
-    person,
-    personIsCurrentUser: personId === myId,
-    myId,
-    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
-    orgPermission,
-    isCruOrg: orgIsCru(navOrg),
-    isUserCreated: orgIsUserCreated(navOrg),
   };
+
+  const showAssign = showAssignButton(isCruOrg, isMe, contactAssignment);
+  const showUnassign = showUnassignButton(isCruOrg, contactAssignment);
+  const showDelete = showDeleteButton(isMe, contactAssignment, orgPermission);
+
+  const menuItems = [
+    !isUserCreated
+      ? {
+          label: t('edit'),
+          action: () =>
+            dispatch(
+              navigatePush(EDIT_PERSON_FLOW, {
+                person,
+                organization,
+              }),
+            ),
+        }
+      : null,
+    showDelete
+      ? {
+          label: t('delete'),
+          action: deleteContact(),
+        }
+      : null,
+    showAssign
+      ? {
+          label: t('assign'),
+          action: () =>
+            dispatch(assignContactAndPickStage(person, organization)),
+        }
+      : null,
+    showUnassign
+      ? {
+          label: t('unassign'),
+          action: () =>
+            dispatch(
+              navigatePush(STATUS_REASON_SCREEN, {
+                person,
+                organization,
+                contactAssignment,
+                onSubmit: onSubmitReason,
+              }),
+            ),
+        }
+      : null,
+  ].filter(Boolean) as MenuItemsType[];
+
+  return <SideMenu menuItems={menuItems} />;
 };
+
+const mapStateToProps = (
+  { auth }: { auth: AuthState; people: PeopleState },
+  {
+    navigation: {
+      state: {
+        params: { person, organization },
+      },
+    },
+  }: {
+    navigation: {
+      state: { params: { person: Person; organization: Organization } };
+    };
+  },
+) => ({
+  person,
+  organization,
+  contactAssignment: contactAssignmentSelector(
+    { auth },
+    { person, orgId: organization.id },
+  ),
+  orgPermission: orgPermissionSelector(
+    {},
+    {
+      person,
+      organization: { id: organization.id },
+    },
+  ),
+});
 
 export default connect(mapStateToProps)(PersonSideMenu);
