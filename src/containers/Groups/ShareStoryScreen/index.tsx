@@ -69,7 +69,6 @@ const ShareStoryScreen = () => {
           autoFocus={true}
           autoCorrect={true}
           multiline={true}
-          returnKeyType="done"
           selectionColor={theme.secondaryColor}
           placeholderTextColor={theme.lightGrey}
           style={textInput}
