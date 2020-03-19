@@ -1,6 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders different gifs correctly renders arrow gif 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    onLoad={[Function]}
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../src/containers/CelebrationScreen/gifs/ArrowWhite.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": 1334,
+        "width": 750,
+      }
+    }
+    testID="gif"
+  />
+</View>
+`;
+
+exports[`renders different gifs correctly renders dino gif 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    onLoad={[Function]}
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../src/containers/CelebrationScreen/gifs/DinoWhite.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": 1334,
+        "width": 750,
+      }
+    }
+    testID="gif"
+  />
+</View>
+`;
+
+exports[`renders different gifs correctly renders fireworks gif 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    onLoad={[Function]}
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../src/containers/CelebrationScreen/gifs/FireworksWhite.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": 1334,
+        "width": 750,
+      }
+    }
+    testID="gif"
+  />
+</View>
+`;
+
+exports[`renders different gifs correctly renders narwhal gif 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    onLoad={[Function]}
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../src/containers/CelebrationScreen/gifs/NarwhalWhite.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": 1334,
+        "width": 750,
+      }
+    }
+    testID="gif"
+  />
+</View>
+`;
+
+exports[`renders different gifs correctly renders party gif 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#52C5DC",
+      },
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    onLoad={[Function]}
+    resizeMode="contain"
+    source={
+      Object {
+        "testUri": "../../../src/containers/CelebrationScreen/gifs/PartyWhite.gif",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": 1334,
+        "width": 750,
+      }
+    }
+    testID="gif"
+  />
+</View>
+`;
+
+exports[`renders random gif correctly 1`] = `
 <View
   style={
     Array [
