@@ -152,11 +152,12 @@ it('should call create', () => {
   );
 
   const instance = component.instance();
+  const challenge = { id: '1', title: 'Test Challenge' };
   // @ts-ignore
   instance.createChallenge = jest.fn();
-  // @ts-ignore
-  navigation.navigatePush = jest.fn(() => ({ type: 'push' }));
 
+  (navigation.navigatePush as jest.Mock) = jest.fn(() => ({ type: 'push' }));
+  (createChallenge as jest.Mock).mockReturnValue({ type: 'create' });
   component
     .childAt(2)
     .props()
@@ -165,6 +166,9 @@ it('should call create', () => {
   expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     onComplete: expect.any(Function),
   });
+  (navigation.navigatePush as jest.Mock).mock.calls[0][1].onComplete(challenge);
+  // @ts-ignore
+  expect(instance.createChallenge).toHaveBeenCalledWith(challenge);
 });
 
 it('should call API to create', () => {
