@@ -16,6 +16,7 @@ import {
   requestNativePermissions,
   showReminderOnLoad,
   parseNotificationData,
+  SET_NOTIFICATION_ANALYTICS,
 } from '../notifications';
 import {
   GCM_SENDER_ID,
@@ -633,6 +634,7 @@ describe('askNotificationPermissions', () => {
         );
         expect(store.getActions()).toEqual([
           { type: REQUEST_NOTIFICATIONS },
+          { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
           navigateToMainTabsResult,
         ]);
       });
@@ -653,6 +655,7 @@ describe('askNotificationPermissions', () => {
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
         navigateToMainTabsResult,
       ]);
     });
@@ -663,6 +666,7 @@ describe('askNotificationPermissions', () => {
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'steps' },
         navigateToMainTabsResult,
       ]);
     });
@@ -678,6 +682,7 @@ describe('askNotificationPermissions', () => {
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
         navToPersonScreenResult,
       ]);
@@ -705,6 +710,7 @@ describe('askNotificationPermissions', () => {
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
         navToPersonScreenResult,
       ]);
@@ -716,6 +722,7 @@ describe('askNotificationPermissions', () => {
       expect(navToPersonScreen).toHaveBeenCalledWith(person);
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'my_steps' },
         navToPersonScreenResult,
       ]);
     });
@@ -738,6 +745,7 @@ describe('askNotificationPermissions', () => {
       );
       expect(store.getActions()).toEqual([
         { type: REQUEST_NOTIFICATIONS },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'add_a_person' },
         navigatePushResult,
       ]);
     });

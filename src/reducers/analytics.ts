@@ -85,7 +85,7 @@ function analyticsReducer(
     case SET_NOTIFICATION_ANALYTICS:
       return {
         ...state,
-        [ANALYTICS.PREVIOUS_SCREEN_NAME]: `${action.notificationName}_ph`,
+        [ANALYTICS.PREVIOUS_SCREEN_NAME]: `${action.notificationName}_pn`,
       };
     case LOGOUT:
       return {

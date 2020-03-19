@@ -9,6 +9,7 @@ import {
 } from '../../constants';
 import { REQUESTS } from '../../api/routes';
 import { RESET_APP_CONTEXT, SET_APP_CONTEXT } from '../../actions/analytics';
+import { SET_NOTIFICATION_ANALYTICS } from '../../actions/notifications';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';
 
@@ -93,6 +94,20 @@ describe('reload app', () => {
     );
 
     expect(result).toEqual(initialAnalyticsState);
+  });
+});
+
+describe('SET_NOTIFICATION_ANALYTICS', () => {
+  it('should set previous screen name to push notification name', () => {
+    const result = analyticsReducer(initialAnalyticsState, {
+      type: SET_NOTIFICATION_ANALYTICS,
+      notificationName: 'steps',
+    });
+
+    expect(result).toEqual({
+      ...initialAnalyticsState,
+      [ANALYTICS.PREVIOUS_SCREEN_NAME]: 'steps_pn',
+    });
   });
 });
 
