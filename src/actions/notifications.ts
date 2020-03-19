@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint complexity: 0 */
-
 import { PushNotificationIOS } from 'react-native';
 import PushNotification, {
   PushNotification as PushNotificationPayloadAndConstructor,
@@ -45,7 +42,7 @@ export interface MHPushNotification
         person_id?: string;
         organization_id?: string;
         celebration_item_id?: string;
-        screen_extra_data?: string | { [key: string]: any };
+        screen_extra_data?: string | { celebration_item_id: string };
       };
     };
   };
@@ -53,7 +50,7 @@ export interface MHPushNotification
   person_id?: string;
   organization_id?: string;
   celebration_item_id?: string;
-  screen_extra_data?: string | { [key: string]: any };
+  screen_extra_data?: string | { celebration_item_id: string };
 }
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
@@ -302,6 +299,7 @@ const setPushDevice = (token: string) => (
       },
     },
   };
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   return dispatch<any>(callApi(REQUESTS.SET_PUSH_TOKEN, { include: '' }, data));
 };
 
@@ -318,5 +316,6 @@ export const deletePushToken = () => (
     deviceId: pushDevice.id,
   };
 
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   return dispatch<any>(callApi(REQUESTS.DELETE_PUSH_TOKEN, query, {}));
 };

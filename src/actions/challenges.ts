@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -77,13 +75,16 @@ export function joinChallenge(item: { id: string }, orgId: string) {
   };
 
   return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     await dispatch<any>(
       callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData),
     );
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch<any>(trackActionWithoutData(ACTIONS.CHALLENGE_JOINED));
     dispatch(reloadGroupChallengeFeed(orgId));
     getCelebrateFeed(orgId);
 
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     await dispatch<any>(
       checkNotifications(
         NOTIFICATION_PROMPT_TYPES.JOIN_CHALLENGE,

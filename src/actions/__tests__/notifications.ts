@@ -747,7 +747,7 @@ describe('askNotificationPermissions', () => {
           screen: 'celebrate_feed',
           organization_id: organization.id,
           screen_extra_data: {
-            celebration_item_id: undefined,
+            celebration_item_id: '111',
           },
         });
 
@@ -760,7 +760,7 @@ describe('askNotificationPermissions', () => {
           screen: 'celebrate_feed',
           organization_id: undefined,
           screen_extra_data: {
-            celebration_item_id: undefined,
+            celebration_item_id: '111',
           },
         });
 
