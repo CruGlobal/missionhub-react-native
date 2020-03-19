@@ -56,7 +56,9 @@ const AnnouncementsModal = () => {
   const { t } = useTranslation();
   const { data: { announcement = null } = {}, loading } = useQuery<
     GetAnnouncement
-  >(GET_ANNOUNCEMENT);
+  >(GET_ANNOUNCEMENT, {
+    pollInterval: 90000,
+  });
   const [handleAnnouncementAction] = useMutation<
     markAnnouncementAsRead,
     markAnnouncementAsReadVariables
