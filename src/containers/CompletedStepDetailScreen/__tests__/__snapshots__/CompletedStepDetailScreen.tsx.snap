@@ -208,13 +208,16 @@ exports[`with challenge suggestion renders correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
             ]
           }
         >
@@ -532,13 +535,16 @@ exports[`without challenge suggestion renders correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "letterSpacing": 1,
-              "paddingLeft": 4,
-            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
           ]
         }
       >

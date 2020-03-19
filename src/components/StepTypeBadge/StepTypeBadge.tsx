@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, StyleProp, ViewStyle } from 'react-native';
+import { View, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { SvgProps } from 'react-native-svg';
 
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { Text } from '../common';
@@ -16,7 +17,10 @@ interface StepTypeBadgeProps {
   displayVertically?: boolean;
   hideLabel?: boolean;
   hideIcon?: boolean;
+  labelUppercase?: boolean;
+  iconProps?: SvgProps;
   style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 export const StepTypeBadge = ({
@@ -24,6 +28,9 @@ export const StepTypeBadge = ({
   displayVertically = false,
   hideLabel = false,
   hideIcon = false,
+  labelUppercase = true,
+  iconProps = {},
+  textStyle,
   style,
 }: StepTypeBadgeProps) => {
   const { t } = useTranslation('stepTypes');
@@ -31,15 +38,19 @@ export const StepTypeBadge = ({
   const renderIcon = () => {
     switch (stepType) {
       case 'relate':
-        return <RelateIcon height={24} color={theme.lightGrey} />;
+        return (
+          <RelateIcon height={24} color={theme.lightGrey} {...iconProps} />
+        );
       case 'pray':
-        return <PrayIcon height={24} color={theme.lightGrey} />;
+        return <PrayIcon height={24} color={theme.lightGrey} {...iconProps} />;
       case 'care':
-        return <CareIcon height={24} color={theme.lightGrey} />;
+        return <CareIcon height={24} color={theme.lightGrey} {...iconProps} />;
       case 'share':
-        return <ShareIcon height={24} color={theme.lightGrey} />;
+        return <ShareIcon height={24} color={theme.lightGrey} {...iconProps} />;
       default:
-        return <GenericIcon height={24} color={theme.lightGrey} />;
+        return (
+          <GenericIcon height={24} color={theme.lightGrey} {...iconProps} />
+        );
     }
   };
 
@@ -62,15 +73,18 @@ export const StepTypeBadge = ({
       {hideIcon ? null : renderIcon()}
       {hideLabel ? null : (
         <Text
-          style={{
-            fontSize: 16,
-            fontWeight: 'bold',
-            color: theme.lightGrey,
-            letterSpacing: 1,
-            paddingLeft: hideIcon ? 0 : 4,
-          }}
+          style={[
+            {
+              fontSize: 16,
+              fontWeight: 'bold',
+              color: theme.lightGrey,
+              letterSpacing: 1,
+              paddingLeft: hideIcon ? 0 : 4,
+            },
+            textStyle,
+          ]}
         >
-          {renderText().toUpperCase()}
+          {labelUppercase ? renderText().toUpperCase() : renderText()}
         </Text>
       )}
     </View>

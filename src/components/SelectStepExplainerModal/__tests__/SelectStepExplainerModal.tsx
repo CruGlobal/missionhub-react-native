@@ -1,9 +1,9 @@
-import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 import i18next from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
+import { StepTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SelectStepExplainerModal, { AddStepExplainer } from '..';
 
@@ -39,32 +39,28 @@ describe('explainer data', () => {
     expect(AddStepExplainer[1]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part2'),
-      iconSource: expect.anything(),
-      title: i18next.t('stepTypes:relate'),
+      stepType: StepTypeEnum.relate,
     });
   });
   it('part 3', () => {
     expect(AddStepExplainer[2]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part3'),
-      iconSource: expect.anything(),
-      title: i18next.t('stepTypes:pray'),
+      stepType: StepTypeEnum.pray,
     });
   });
   it('part 4', () => {
     expect(AddStepExplainer[3]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part4'),
-      iconSource: expect.anything(),
-      title: i18next.t('stepTypes:care'),
+      stepType: StepTypeEnum.care,
     });
   });
   it('part 5', () => {
     expect(AddStepExplainer[4]).toEqual({
       source: expect.anything(),
       text: i18next.t('selectStepExplainer:part5'),
-      iconSource: expect.anything(),
-      title: i18next.t('stepTypes:share'),
+      stepType: StepTypeEnum.share,
     });
   });
 });

@@ -30,10 +30,6 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
   },
-  iconImage: {
-    height: 48,
-    width: 48,
-  },
   textWrap: {
     alignItems: 'center',
     justifyContent: 'center',

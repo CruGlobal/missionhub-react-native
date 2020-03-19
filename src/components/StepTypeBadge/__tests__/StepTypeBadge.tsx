@@ -43,4 +43,27 @@ describe('StepTypeBadge', () => {
       <StepTypeBadge stepType={undefined} hideIcon />,
     ).snapshot();
   });
+  it('should render text style', () => {
+    renderWithContext(
+      <StepTypeBadge stepType={undefined} textStyle={{ padding: 5 }} />,
+    ).snapshot();
+  });
+  it('should render view style', () => {
+    renderWithContext(
+      <StepTypeBadge stepType={undefined} style={{ padding: 5 }} />,
+    ).snapshot();
+  });
+  it('should render icon props', () => {
+    renderWithContext(
+      <StepTypeBadge
+        stepType={StepTypeEnum.share}
+        iconProps={{ color: 'blue' }}
+      />,
+    ).snapshot();
+  });
+  it('should render text not uppercase', () => {
+    renderWithContext(
+      <StepTypeBadge stepType={StepTypeEnum.share} labelUppercase={false} />,
+    ).snapshot();
+  });
 });

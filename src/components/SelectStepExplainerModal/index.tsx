@@ -5,37 +5,40 @@ import i18next from 'i18next';
 
 import { Text, IconButton } from '../../components/common';
 import theme from '../../theme';
+import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
+import { StepTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles, { sliderWidth, sliderHeight } from './styles';
 
-export const AddStepExplainer = [
+export const AddStepExplainer: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  source: any;
+  text: string;
+  stepType?: StepTypeEnum;
+}[] = [
   {
     source: require('../../../assets/images/explainerModal1.png'),
     text: i18next.t('selectStepExplainer:part1'),
   },
   {
     source: require('../../../assets/images/explainerModal2.png'),
+    stepType: StepTypeEnum.relate,
     text: i18next.t('selectStepExplainer:part2'),
-    iconSource: require('../../../assets/images/icon_step_relate.png'),
-    title: i18next.t('stepTypes:relate'),
   },
   {
     source: require('../../../assets/images/explainerModal3.png'),
+    stepType: StepTypeEnum.pray,
     text: i18next.t('selectStepExplainer:part3'),
-    iconSource: require('../../../assets/images/icon_step_pray.png'),
-    title: i18next.t('stepTypes:pray'),
   },
   {
     source: require('../../../assets/images/explainerModal4.png'),
+    stepType: StepTypeEnum.care,
     text: i18next.t('selectStepExplainer:part4'),
-    iconSource: require('../../../assets/images/icon_step_care.png'),
-    title: i18next.t('stepTypes:care'),
   },
   {
     source: require('../../../assets/images/explainerModal5.png'),
+    stepType: StepTypeEnum.share,
     text: i18next.t('selectStepExplainer:part5'),
-    iconSource: require('../../../assets/images/icon_step_share.png'),
-    title: i18next.t('stepTypes:share'),
   },
 ];
 
@@ -49,7 +52,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
           renderItem={({ item }) => {
-            const { source, text, iconSource, title } = item;
+            const { source, text, stepType } = item;
             return (
               <>
                 <View style={{ flex: 1 }}>
@@ -59,22 +62,30 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                     resizeMode="cover"
                   />
                 </View>
-                {iconSource && (
+                {stepType && (
                   <View style={styles.middleIconWrap}>
-                    <View style={styles.middleIconCircle}>
-                      <Image
-                        source={iconSource}
-                        style={styles.iconImage}
-                        resizeMode="cover"
-                      />
-                    </View>
+                    <StepTypeBadge
+                      stepType={stepType}
+                      hideLabel={true}
+                      style={styles.middleIconCircle}
+                      iconProps={{
+                        height: 48,
+                        width: 48,
+                        color: theme.impactBlue,
+                      }}
+                    />
                   </View>
                 )}
                 <View style={[{ flex: 0.9 }, styles.textWrap]}>
-                  {text && !title && <Text style={styles.text}>{text}</Text>}
-                  {title && text && (
+                  {text && !stepType && <Text style={styles.text}>{text}</Text>}
+                  {stepType && text && (
                     <>
-                      <Text style={[styles.text, styles.title]}>{title}</Text>
+                      <StepTypeBadge
+                        stepType={stepType}
+                        hideIcon={true}
+                        textStyle={[styles.text, styles.title]}
+                        labelUppercase={false}
+                      />
                       <Text style={[styles.text, styles.textWithTitle]}>
                         {text}
                       </Text>

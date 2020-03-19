@@ -61,44 +61,32 @@ exports[`renders correctly renders correctly 1`] = `
 see four ways to shine light in someone's life.",
           },
           Object {
-            "iconSource": Object {
-              "testUri": "../../../assets/images/icon_step_relate.png",
-            },
             "source": Object {
               "testUri": "../../../assets/images/explainerModal2.png",
             },
+            "stepType": "relate",
             "text": "Ideas to help you deepen this relationship and build trust.",
-            "title": "Relate",
           },
           Object {
-            "iconSource": Object {
-              "testUri": "../../../assets/images/icon_step_pray.png",
-            },
             "source": Object {
               "testUri": "../../../assets/images/explainerModal3.png",
             },
+            "stepType": "pray",
             "text": "Ways to invite God into your relationship with this person.",
-            "title": "Pray",
           },
           Object {
-            "iconSource": Object {
-              "testUri": "../../../assets/images/icon_step_care.png",
-            },
             "source": Object {
               "testUri": "../../../assets/images/explainerModal4.png",
             },
+            "stepType": "care",
             "text": "Ideas to help you demonstrate that you care about this person.",
-            "title": "Care",
           },
           Object {
-            "iconSource": Object {
-              "testUri": "../../../assets/images/icon_step_share.png",
-            },
             "source": Object {
               "testUri": "../../../assets/images/explainerModal5.png",
             },
+            "stepType": "share",
             "text": "Ways to help this person know the truth about God or talk about what they believe.",
-            "title": "Share",
           },
         ]
       }
@@ -311,39 +299,35 @@ see four ways to shine light in someone's life.
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 48,
-                    "elevation": 5,
-                    "height": 96,
-                    "justifyContent": "center",
-                    "position": "absolute",
-                    "shadowColor": "#505256",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "flexDirection": "row",
                     },
-                    "shadowOpacity": 0.3,
-                    "shadowRadius": 8,
-                    "top": -48,
-                    "width": 96,
-                  }
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 48,
+                      "elevation": 5,
+                      "height": 96,
+                      "justifyContent": "center",
+                      "position": "absolute",
+                      "shadowColor": "#505256",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.3,
+                      "shadowRadius": 8,
+                      "top": -48,
+                      "width": 96,
+                    },
+                  ]
                 }
               >
-                <Image
-                  resizeMode="cover"
-                  source={
-                    Object {
-                      "testUri": "../../../assets/images/icon_step_relate.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 48,
-                      "width": 48,
-                    }
-                  }
+                <SvgMock
+                  color="#3EB1C8"
+                  height={48}
+                  width={48}
                 />
               </View>
             </View>
@@ -361,35 +345,55 @@ see four ways to shine light in someone's life.
                 ]
               }
             >
-              <Text
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "flexDirection": "row",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                        "marginHorizontal": 20,
-                        "marginTop": 20,
-                      },
-                    ],
+                    undefined,
                   ]
                 }
               >
-                Relate
-              </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 0,
+                        },
+                        Array [
+                          Object {
+                            "color": "#505256",
+                            "fontSize": 24,
+                            "fontWeight": "300",
+                            "lineHeight": 30,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "fontSize": 32,
+                            "lineHeight": 38,
+                            "marginHorizontal": 20,
+                            "marginTop": 20,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  Relate
+                </Text>
+              </View>
               <Text
                 style={
                   Array [
@@ -480,39 +484,35 @@ see four ways to shine light in someone's life.
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 48,
-                    "elevation": 5,
-                    "height": 96,
-                    "justifyContent": "center",
-                    "position": "absolute",
-                    "shadowColor": "#505256",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "flexDirection": "row",
                     },
-                    "shadowOpacity": 0.3,
-                    "shadowRadius": 8,
-                    "top": -48,
-                    "width": 96,
-                  }
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 48,
+                      "elevation": 5,
+                      "height": 96,
+                      "justifyContent": "center",
+                      "position": "absolute",
+                      "shadowColor": "#505256",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.3,
+                      "shadowRadius": 8,
+                      "top": -48,
+                      "width": 96,
+                    },
+                  ]
                 }
               >
-                <Image
-                  resizeMode="cover"
-                  source={
-                    Object {
-                      "testUri": "../../../assets/images/icon_step_pray.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 48,
-                      "width": 48,
-                    }
-                  }
+                <SvgMock
+                  color="#3EB1C8"
+                  height={48}
+                  width={48}
                 />
               </View>
             </View>
@@ -530,35 +530,55 @@ see four ways to shine light in someone's life.
                 ]
               }
             >
-              <Text
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "flexDirection": "row",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                        "marginHorizontal": 20,
-                        "marginTop": 20,
-                      },
-                    ],
+                    undefined,
                   ]
                 }
               >
-                Pray
-              </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 0,
+                        },
+                        Array [
+                          Object {
+                            "color": "#505256",
+                            "fontSize": 24,
+                            "fontWeight": "300",
+                            "lineHeight": 30,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "fontSize": 32,
+                            "lineHeight": 38,
+                            "marginHorizontal": 20,
+                            "marginTop": 20,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  Pray
+                </Text>
+              </View>
               <Text
                 style={
                   Array [
@@ -649,39 +669,35 @@ see four ways to shine light in someone's life.
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 48,
-                    "elevation": 5,
-                    "height": 96,
-                    "justifyContent": "center",
-                    "position": "absolute",
-                    "shadowColor": "#505256",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "flexDirection": "row",
                     },
-                    "shadowOpacity": 0.3,
-                    "shadowRadius": 8,
-                    "top": -48,
-                    "width": 96,
-                  }
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 48,
+                      "elevation": 5,
+                      "height": 96,
+                      "justifyContent": "center",
+                      "position": "absolute",
+                      "shadowColor": "#505256",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.3,
+                      "shadowRadius": 8,
+                      "top": -48,
+                      "width": 96,
+                    },
+                  ]
                 }
               >
-                <Image
-                  resizeMode="cover"
-                  source={
-                    Object {
-                      "testUri": "../../../assets/images/icon_step_care.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 48,
-                      "width": 48,
-                    }
-                  }
+                <SvgMock
+                  color="#3EB1C8"
+                  height={48}
+                  width={48}
                 />
               </View>
             </View>
@@ -699,35 +715,55 @@ see four ways to shine light in someone's life.
                 ]
               }
             >
-              <Text
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "flexDirection": "row",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                        "marginHorizontal": 20,
-                        "marginTop": 20,
-                      },
-                    ],
+                    undefined,
                   ]
                 }
               >
-                Care
-              </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 0,
+                        },
+                        Array [
+                          Object {
+                            "color": "#505256",
+                            "fontSize": 24,
+                            "fontWeight": "300",
+                            "lineHeight": 30,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "fontSize": 32,
+                            "lineHeight": 38,
+                            "marginHorizontal": 20,
+                            "marginTop": 20,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  Care
+                </Text>
+              </View>
               <Text
                 style={
                   Array [
@@ -818,39 +854,35 @@ see four ways to shine light in someone's life.
             >
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "#ffffff",
-                    "borderRadius": 48,
-                    "elevation": 5,
-                    "height": 96,
-                    "justifyContent": "center",
-                    "position": "absolute",
-                    "shadowColor": "#505256",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
+                  Array [
+                    Object {
+                      "flexDirection": "row",
                     },
-                    "shadowOpacity": 0.3,
-                    "shadowRadius": 8,
-                    "top": -48,
-                    "width": 96,
-                  }
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#ffffff",
+                      "borderRadius": 48,
+                      "elevation": 5,
+                      "height": 96,
+                      "justifyContent": "center",
+                      "position": "absolute",
+                      "shadowColor": "#505256",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.3,
+                      "shadowRadius": 8,
+                      "top": -48,
+                      "width": 96,
+                    },
+                  ]
                 }
               >
-                <Image
-                  resizeMode="cover"
-                  source={
-                    Object {
-                      "testUri": "../../../assets/images/icon_step_share.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 48,
-                      "width": 48,
-                    }
-                  }
+                <SvgMock
+                  color="#3EB1C8"
+                  height={48}
+                  width={48}
                 />
               </View>
             </View>
@@ -868,35 +900,55 @@ see four ways to shine light in someone's life.
                 ]
               }
             >
-              <Text
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "flexDirection": "row",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 32,
-                        "lineHeight": 38,
-                        "marginHorizontal": 20,
-                        "marginTop": 20,
-                      },
-                    ],
+                    undefined,
                   ]
                 }
               >
-                Share
-              </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 0,
+                        },
+                        Array [
+                          Object {
+                            "color": "#505256",
+                            "fontSize": 24,
+                            "fontWeight": "300",
+                            "lineHeight": 30,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "fontSize": 32,
+                            "lineHeight": 38,
+                            "marginHorizontal": 20,
+                            "marginTop": 20,
+                          },
+                        ],
+                      ],
+                    ]
+                  }
+                >
+                  Share
+                </Text>
+              </View>
               <Text
                 style={
                   Array [
