@@ -11,24 +11,24 @@ import PersonCategoryScreen, {
 
 export const EditPersonFlowScreens = {
   [ADD_CONTACT_SCREEN]: buildTrackedScreen(
-    wrapNextAction(AddContactScreen, ({ person, orgId, isMe }) => dispatch => {
-      // If person exist and isMe, navigate back since we don't need to set our own category
-      if (person && isMe) {
-        dispatch(navigateBack());
-      }
-      // If the person exist, navigate to the category screen
-      if (person) {
-        dispatch(
-          navigatePush(PERSON_CATEGORY_SCREEN, {
-            person,
-            orgId,
-          }),
-        );
-      } else {
-        // If no person, user hit back button so just navigate back
-        dispatch(navigateBack());
-      }
-    }),
+    wrapNextAction(
+      AddContactScreen,
+      ({ personId, relationshipType, orgId, isMe }) => dispatch => {
+        // If the person exist, navigate to the category screen. Skip if isMe since we don't need to set our own category.
+        if (personId && !isMe) {
+          dispatch(
+            navigatePush(PERSON_CATEGORY_SCREEN, {
+              personId,
+              relationshipType,
+              orgId,
+            }),
+          );
+        } else {
+          // User hit back button or isMe so just navigate back
+          dispatch(navigateBack());
+        }
+      },
+    ),
   ),
   [PERSON_CATEGORY_SCREEN]: buildTrackedScreen(
     wrapNextAction(PersonCategoryScreen, () => dispatch => {

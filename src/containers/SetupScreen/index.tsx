@@ -23,6 +23,7 @@ import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { navigateBack } from '../../actions/navigation';
 
 import { CREATE_PERSON, UPDATE_PERSON } from './queries';
 import {
@@ -134,6 +135,8 @@ const SetupScreen = ({
         data?.createPerson?.person &&
           dispatch(next({ personId: data?.createPerson?.person.id }));
       }
+    } catch {
+      dispatch(navigateBack());
     } finally {
       setIsLoading(false);
     }

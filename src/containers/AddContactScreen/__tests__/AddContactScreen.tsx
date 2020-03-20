@@ -112,7 +112,8 @@ describe('completeWithoutSave', () => {
     );
     fireEvent.press(getByTestId('backIcon'));
     expect(next).toHaveBeenCalledWith({
-      person: undefined,
+      personId: undefined,
+      relationshipType: undefined,
       orgId: organization.id,
       didSavePerson: false,
       isMe: false,
@@ -154,7 +155,8 @@ describe('savePerson', () => {
           ACTIONS.PERSON_ADDED,
         );
         expect(next).toHaveBeenCalledWith({
-          person: addNewPersonResponse.response,
+          personId: addNewPersonResponse.response.id,
+          relationshipType: undefined,
           orgId: undefined,
           didSavePerson: true,
           isMe: false,
@@ -198,7 +200,8 @@ describe('savePerson', () => {
           ACTIONS.PERSON_ADDED,
         );
         expect(next).toHaveBeenCalledWith({
-          person: addNewPersonResponse.response,
+          personId: addNewPersonResponse.response.id,
+          relationshipType: undefined,
           orgId: organization.id,
           didSavePerson: true,
           isMe: false,
@@ -242,7 +245,8 @@ describe('savePerson', () => {
         expect(trackActionWithoutData).not.toHaveBeenCalled();
 
         expect(next).toHaveBeenCalledWith({
-          person: updatePersonResponse.response,
+          personId: updatePersonResponse.response.id,
+          relationshipType: undefined,
           orgId: undefined,
           didSavePerson: true,
           isMe: false,
@@ -284,7 +288,8 @@ describe('savePerson', () => {
         expect(trackActionWithoutData).not.toHaveBeenCalled();
 
         expect(next).toHaveBeenCalledWith({
-          person: updatePersonResponse.response,
+          personId: updatePersonResponse.response.id,
+          relationshipType: undefined,
           orgId: organization.id,
           didSavePerson: true,
           isMe: false,
@@ -327,7 +332,8 @@ describe('savePerson', () => {
         });
         expect(trackActionWithoutData).not.toHaveBeenCalled();
         expect(next).toHaveBeenCalledWith({
-          person: updatePersonResponse.response,
+          personId: updatePersonResponse.response.id,
+          relationshipType: undefined,
           orgId: undefined,
           didSavePerson: true,
           isMe: false,

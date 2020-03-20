@@ -13,6 +13,7 @@ import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'navigate push' })),
@@ -38,6 +39,7 @@ const orgId = '123';
 const stage = { id: '1234' };
 const contact = {
   id: personId,
+  relationship_type: RelationshipTypeEnum.family,
 };
 const stepText = 'Step';
 const step = { id: '567', title: stepText };
@@ -108,7 +110,12 @@ describe('AddContactScreen next', () => {
     ({ store } = await buildAndCallNext(
       ADD_CONTACT_SCREEN,
       {},
-      { person: contact, orgId, didSavePerson },
+      {
+        personId: contact.id,
+        relationshipType: contact.relationship_type,
+        orgId,
+        didSavePerson,
+      },
     ));
   });
 
@@ -120,7 +127,8 @@ describe('AddContactScreen next', () => {
 
     it('should fire required next actions', () => {
       expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN, {
-        person: contact,
+        personId: contact.id,
+        relationshipType: RelationshipTypeEnum.family,
         orgId,
       });
       // @ts-ignore

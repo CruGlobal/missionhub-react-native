@@ -13,7 +13,6 @@ import PersonCategoryButton from '../../components/PersonCategoryButton';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
-import { Person } from '../../reducers/people';
 import { UPDATE_PERSON } from '../../containers/SetupScreen/queries';
 import {
   UpdatePerson,
@@ -35,11 +34,12 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
   const { t } = useTranslation('categories');
   useAnalytics(['add person', 'select category']);
   const dispatch = useDispatch();
-  const person: Person = useNavigationParam('person');
+  const personId: string = useNavigationParam('personId');
+  const relationshipType: RelationshipTypeEnum = useNavigationParam(
+    'relationshipType',
+  );
   const orgId: string = useNavigationParam('orgId');
-  const personCategory = person?.relationship_type
-    ? person?.relationship_type
-    : null;
+  const personCategory = relationshipType || null;
   const [category, setCategory] = useState<RelationshipTypeEnum | null>(
     personCategory,
   );
@@ -50,11 +50,11 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
 
   const selectCategory = async (relationshipType: RelationshipTypeEnum) => {
     setCategory(relationshipType);
-    if (person) {
+    if (personId) {
       const { data } = await updatePerson({
         variables: {
           input: {
-            id: person.id,
+            id: personId,
             relationshipType,
           },
         },
@@ -67,37 +67,31 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
   };
 
   const getText = () => {
-    if (person) {
+    if (personId) {
       return (
-        <>
-          <Text style={styles.chooseCategoryText}>
-            {t('addPersonPrompt.part1')}
-          </Text>
-          <Text style={styles.chooseCategoryText}>
-            {t('addPersonPrompt.part2')}
-          </Text>
-        </>
+        <Text style={styles.chooseCategoryText}>{t('addPersonPrompt')}</Text>
       );
     } else {
       return (
-        <>
-          <Text style={styles.chooseCategoryText}>
-            {t('onboardingPrompt.part1')}
-          </Text>
-          <Text style={styles.chooseCategoryText}>
-            {t('onboardingPrompt.part2')}
-          </Text>
-          <Text style={styles.chooseCategoryText}>
-            {t('onboardingPrompt.part3')}
-          </Text>
-        </>
+        <Text
+          style={[
+            styles.chooseCategoryText,
+            styles.chooseCategoryTextOnboarding,
+          ]}
+        >
+          {t('onboardingPrompt')}
+        </Text>
       );
     }
   };
 
-  const relationshipTypeList = Object.values(RelationshipTypeEnum).slice(1, 4);
-  relationshipTypeList[3] = RelationshipTypeEnum.coworker;
-  relationshipTypeList[4] = RelationshipTypeEnum.other;
+  const relationshipTypeList = [
+    RelationshipTypeEnum.family,
+    RelationshipTypeEnum.friend,
+    RelationshipTypeEnum.neighbor,
+    RelationshipTypeEnum.coworker,
+    RelationshipTypeEnum.other,
+  ];
 
   return (
     <View style={styles.container}>
@@ -107,7 +101,7 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
         {Object.values(relationshipTypeList).map(type => (
           <PersonCategoryButton
             key={type}
-            currentCategory={category}
+            isSelected={category === type}
             category={type}
             onPress={() => selectCategory(type)}
           />

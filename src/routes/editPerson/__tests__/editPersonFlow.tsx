@@ -92,6 +92,7 @@ describe('AddContactScreen next', () => {
       ...updatePersonResponse,
       response: {
         id: '2',
+        relationship_type: RelationshipTypeEnum.family,
       },
     });
 
@@ -105,6 +106,7 @@ describe('AddContactScreen next', () => {
         navParams: {
           person: {
             id: '2',
+            relationship_type: RelationshipTypeEnum.family,
           },
         },
       },
@@ -112,9 +114,8 @@ describe('AddContactScreen next', () => {
 
     await fireEvent.press(getByTestId('continueButton'));
     expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN, {
-      person: {
-        id: '2',
-      },
+      personId: '2',
+      relationshipType: RelationshipTypeEnum.family,
       orgId: undefined,
     });
     expect(store.getActions()).toEqual([
@@ -122,6 +123,7 @@ describe('AddContactScreen next', () => {
         ...updatePersonResponse,
         response: {
           id: '2',
+          relationship_type: RelationshipTypeEnum.family,
         },
       },
       navigatePushResponse,
@@ -144,9 +146,8 @@ describe('PersonCategoryScreen next', () => {
           drawer: { isOpen: false },
         },
         navParams: {
-          person: {
-            id: '2',
-          },
+          personId: '2',
+          relationshipType: undefined,
         },
       },
     );

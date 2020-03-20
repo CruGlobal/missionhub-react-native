@@ -13,13 +13,13 @@ import theme from '../../theme';
 import styles from './styles';
 
 interface PersonCategoryButtonProps {
-  currentCategory: RelationshipTypeEnum | null;
+  isSelected: boolean;
   category: RelationshipTypeEnum | null;
   onPress: () => void;
 }
 
 const PersonCategoryButton = ({
-  currentCategory,
+  isSelected,
   category,
   onPress,
 }: PersonCategoryButtonProps) => {
@@ -28,33 +28,27 @@ const PersonCategoryButton = ({
     switch (category) {
       case RelationshipTypeEnum.family:
         return (
-          <FamilyIcon
-            color={currentCategory === category ? theme.white : '#3CC8E6'}
-          />
+          <FamilyIcon color={isSelected ? theme.white : theme.challengeBlue} />
         );
       case RelationshipTypeEnum.friend:
         return (
-          <FriendIcon
-            color={currentCategory === category ? theme.white : '#3CC8E6'}
-          />
+          <FriendIcon color={isSelected ? theme.white : theme.challengeBlue} />
         );
       case RelationshipTypeEnum.neighbor:
         return (
           <NeighborIcon
-            color={currentCategory === category ? theme.white : '#3CC8E6'}
+            color={isSelected ? theme.white : theme.challengeBlue}
           />
         );
       case RelationshipTypeEnum.coworker:
         return (
           <CoworkerIcon
-            color={currentCategory === category ? theme.white : '#3CC8E6'}
+            color={isSelected ? theme.white : theme.challengeBlue}
           />
         );
       case RelationshipTypeEnum.other:
         return (
-          <OtherIcon
-            color={currentCategory === category ? theme.white : '#3CC8E6'}
-          />
+          <OtherIcon color={isSelected ? theme.white : theme.challengeBlue} />
         );
     }
   };
@@ -79,10 +73,7 @@ const PersonCategoryButton = ({
       testID={`${category}Button`}
       onPress={onPress}
       pill={true}
-      style={[
-        styles.categoryButton,
-        currentCategory === category ? styles.categoryActive : null,
-      ]}
+      style={[styles.categoryButton, isSelected ? styles.categoryActive : null]}
       // eslint-disable-next-line
       children={getContent()}
     />

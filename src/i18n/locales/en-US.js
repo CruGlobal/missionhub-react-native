@@ -191,15 +191,9 @@ export default {
     },
   },
   categories: {
-    onboardingPrompt: {
-      part1: 'Think of someone you want',
-      part2: ' to help grow closer to God.',
-      part3: ' Who are they?',
-    },
-    addPersonPrompt: {
-      part1: 'How do you know',
-      part2: 'each other?',
-    },
+    onboardingPrompt:
+      'Think of someone you want to help grow closer to God. Who are they?',
+    addPersonPrompt: 'How do you know each other?',
     family: 'Family',
     friend: 'Friend',
     neighbor: 'Neighbor',

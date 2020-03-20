@@ -34,14 +34,15 @@ import PersonCategoryScreen, {
 export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
     AddContactScreen,
-    ({ person, orgId, didSavePerson }) => dispatch => {
+    ({ personId, relationshipType, orgId, didSavePerson }) => dispatch => {
       if (!didSavePerson) {
         return dispatch(navigateBack());
       }
 
       dispatch(
         navigatePush(PERSON_CATEGORY_SCREEN, {
-          person,
+          personId,
+          relationshipType,
           orgId,
         }),
       );

@@ -50,7 +50,7 @@ describe('Edit Person', () => {
   it('renders correctly | no relationship_type', () => {
     renderWithContext(<PersonCategoryScreen next={next} />, {
       navParams: {
-        person,
+        person: person.id,
       },
     }).snapshot();
     expect(useAnalytics).toHaveBeenCalledWith([
@@ -64,7 +64,7 @@ describe('Edit Person', () => {
       <PersonCategoryScreen next={next} />,
       {
         navParams: {
-          person,
+          personId: person.id,
         },
       },
     );
@@ -93,7 +93,7 @@ describe('Edit Person', () => {
       <PersonCategoryScreen next={next} />,
       {
         navParams: {
-          person,
+          personId: person.id,
           orgId,
         },
       },
@@ -122,10 +122,8 @@ describe('Edit Person', () => {
   it('renders correctly | relationship_type', () => {
     renderWithContext(<PersonCategoryScreen next={next} />, {
       navParams: {
-        person: {
-          ...person,
-          relationship_type: RelationshipTypeEnum.family,
-        },
+        personId: person.id,
+        relationshipType: RelationshipTypeEnum.family,
       },
     }).snapshot();
     expect(useAnalytics).toHaveBeenCalledWith([
@@ -139,10 +137,8 @@ describe('Edit Person', () => {
       <PersonCategoryScreen next={next} />,
       {
         navParams: {
-          person: {
-            ...person,
-            relationship_type: RelationshipTypeEnum.family,
-          },
+          personId: person.id,
+          relationshipType: RelationshipTypeEnum.family,
         },
       },
     );
@@ -171,10 +167,8 @@ describe('Edit Person', () => {
       <PersonCategoryScreen next={next} />,
       {
         navParams: {
-          person: {
-            ...person,
-            relationship_type: RelationshipTypeEnum.family,
-          },
+          personId: person.id,
+          relationshipType: RelationshipTypeEnum.family,
           orgId,
         },
       },

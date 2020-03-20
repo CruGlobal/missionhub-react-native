@@ -8,7 +8,7 @@ import PersonCategoryButton from '..';
 
 const onPress = jest.fn();
 const props = {
-  currentCategory: RelationshipTypeEnum.family,
+  isSelected: false,
   category: RelationshipTypeEnum.friend,
   onPress,
 };
@@ -21,7 +21,11 @@ it('render correctly | non-active', () => {
 
 it('render correctly | active', () => {
   renderWithContext(
-    <PersonCategoryButton {...props} category={RelationshipTypeEnum.family} />,
+    <PersonCategoryButton
+      {...props}
+      category={RelationshipTypeEnum.family}
+      isSelected={true}
+    />,
     {
       noWrappers: true,
     },

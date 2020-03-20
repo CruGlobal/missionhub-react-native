@@ -25,13 +25,15 @@ import BackIcon from '../../../assets/images/backIcon.svg';
 import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
 
 import styles from './styles';
 
 interface AddContactScreenProps {
   next: (props: {
-    person?: Person;
+    personId?: string;
+    relationshipType?: RelationshipTypeEnum;
     orgId: string;
     didSavePerson: boolean;
     isMe: boolean;
@@ -48,8 +50,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const personOrgPermission = useSelector(() =>
     orgPermissionSelector({}, { person, organization }),
   );
-
-  const auth = useSelector<{ auth: AuthState }, Person>(({ auth }) => auth);
+  const auth = useSelector<{ auth: AuthState }, AuthState>(({ auth }) => auth);
   const authPerson = auth.person;
   const isJean = auth.isJean;
   const authPersonId = authPerson.id;
@@ -62,7 +63,8 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const complete = (didSavePerson: boolean, person?: Person) => {
     dispatch(
       next({
-        person,
+        personId: person?.id,
+        relationshipType: person?.relationship_type,
         orgId: organization?.id,
         didSavePerson,
         isMe: isMe,
@@ -99,7 +101,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
           personOrgPermission &&
           saveData.orgPermission.permission_id ===
             personOrgPermission.permission_id) ||
-        !saveData?.orgPermission.permission_id
+        !saveData?.orgPermission?.permission_id
       ) {
         delete saveData.orgPermission;
       }

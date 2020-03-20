@@ -135,9 +135,7 @@ exports[`Different Categories renders correctly | family 1`] = `
             "marginVertical": 4,
             "width": 650,
           },
-          Object {
-            "backgroundColor": "#3CC8E6",
-          },
+          null,
         ],
         Object {
           "borderRadius": 50,
@@ -183,7 +181,7 @@ exports[`Different Categories renders correctly | family 1`] = `
         Family
       </Text>
       <SvgMock
-        color="#ffffff"
+        color="#3CC8E6"
       />
     </View>
   </View>

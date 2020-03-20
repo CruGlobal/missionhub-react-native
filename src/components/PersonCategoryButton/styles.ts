@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: theme.accentColor,
   },
   categoryActive: {
-    backgroundColor: '#3CC8E6',
+    backgroundColor: theme.challengeBlue,
   },
   categoryButtonText: {
     color: theme.white,

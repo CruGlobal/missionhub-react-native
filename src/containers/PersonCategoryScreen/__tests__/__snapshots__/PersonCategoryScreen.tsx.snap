@@ -5,7 +5,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
 - First value
 + Second value
 
-@@ -243,11 +243,13 @@
+@@ -222,11 +222,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -20,7 +20,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -289,11 +291,11 @@
+@@ -268,11 +270,11 @@
               }
             >
               Family
@@ -40,7 +40,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
 - First value
 + Second value
 
-@@ -243,13 +243,11 @@
+@@ -222,13 +222,11 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -55,7 +55,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -291,11 +289,11 @@
+@@ -270,11 +268,11 @@
               }
             >
               Family
@@ -68,7 +68,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
         </View>
       </View>
       <View
-@@ -335,12 +333,14 @@
+@@ -314,12 +312,14 @@
                 Object {
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
@@ -84,7 +84,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -382,11 +382,11 @@
+@@ -361,11 +361,11 @@
               }
             >
               Friend
@@ -104,7 +104,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
 - First value
 + Second value
 
-@@ -243,11 +243,13 @@
+@@ -222,11 +222,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -119,7 +119,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -289,11 +291,11 @@
+@@ -268,11 +270,11 @@
               }
             >
               Family
@@ -139,7 +139,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
 - First value
 + Second value
 
-@@ -243,13 +243,11 @@
+@@ -222,13 +222,11 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -154,7 +154,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -291,11 +289,11 @@
+@@ -270,11 +268,11 @@
               }
             >
               Family
@@ -167,7 +167,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
         </View>
       </View>
       <View
-@@ -335,12 +333,14 @@
+@@ -314,12 +312,14 @@
                 Object {
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
@@ -183,7 +183,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -382,11 +382,11 @@
+@@ -361,11 +361,11 @@
               }
             >
               Friend
@@ -370,40 +370,24 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "maxWidth": 200,
+                "textAlign": "center",
+              },
+              Object {
+                "maxWidth": 280,
+              },
+            ],
           ]
         }
       >
-        How do you know
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        each other?
+        Think of someone you want to help grow closer to God. Who are they?
       </Text>
     </View>
     <View
@@ -1043,34 +1027,13 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "maxWidth": 200,
               "textAlign": "center",
             },
           ]
         }
       >
-        How do you know
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        each other?
+        How do you know each other?
       </Text>
     </View>
     <View
@@ -1539,7 +1502,7 @@ exports[`Onboarding fires onPress 1`] = `
 - First value
 + Second value
 
-@@ -265,11 +265,13 @@
+@@ -227,11 +227,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -1554,7 +1517,7 @@ exports[`Onboarding fires onPress 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -311,11 +313,11 @@
+@@ -273,11 +275,11 @@
               }
             >
               Family
@@ -1741,62 +1704,24 @@ exports[`Onboarding renders correctly 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "maxWidth": 200,
+                "textAlign": "center",
+              },
+              Object {
+                "maxWidth": 280,
+              },
+            ],
           ]
         }
       >
-        Think of someone you want
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         to help grow closer to God.
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         Who are they?
+        Think of someone you want to help grow closer to God. Who are they?
       </Text>
     </View>
     <View
