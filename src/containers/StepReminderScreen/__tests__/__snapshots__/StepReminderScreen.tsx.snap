@@ -1803,6 +1803,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             },
             Object {
               "alignItems": "center",
+              "backgroundColor": "#B4B6BA",
               "height": 48,
               "width": 650,
             },
@@ -4874,6 +4875,7 @@ exports[`render no reminder in props renders correctly 1`] = `
             },
             Object {
               "alignItems": "center",
+              "backgroundColor": "#B4B6BA",
               "height": 48,
               "width": 650,
             },

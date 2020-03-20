@@ -7,14 +7,16 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   header: {
-    fontSize: 42,
+    fontSize: 24,
+    fontFamily: 'SourceSansPro-Regular',
+    fontWeight: '300',
     color: theme.primaryColor,
     paddingTop: 10,
   },
   description: {
     fontSize: 16,
     color: theme.textColor,
-    paddingHorizontal: 70,
+    paddingHorizontal: 80,
     textAlign: 'center',
     paddingVertical: 10,
   },

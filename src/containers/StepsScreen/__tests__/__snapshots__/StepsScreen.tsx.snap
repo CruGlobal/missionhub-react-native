@@ -1415,6 +1415,13 @@ exports[`renders screen with steps correctly 1`] = `
             "marginHorizontal": 0,
             "marginVertical": 0,
             "position": "relative",
+            "shadowColor": "#B4B6BA",
+            "shadowOffset": Object {
+              "height": 8,
+              "width": 0,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 4,
           },
         ]
       }
@@ -1454,18 +1461,19 @@ exports[`renders screen with steps correctly 1`] = `
                 "color": "#505256",
               },
               Object {
-                "fontFamily": "AmaticSC-Bold",
+                "fontFamily": "SourceSansPro-Regular",
               },
               Object {
                 "color": "#007398",
-                "fontSize": 42,
+                "fontSize": 24,
+                "fontWeight": "300",
                 "paddingTop": 5,
                 "textAlign": "center",
               },
             ]
           }
         >
-          steps of faith
+          Steps of Faith
         </Text>
         <Text
           style={
@@ -1479,7 +1487,7 @@ exports[`renders screen with steps correctly 1`] = `
               Object {
                 "color": "#505256",
                 "fontSize": 16,
-                "paddingHorizontal": 40,
+                "paddingHorizontal": 50,
                 "paddingVertical": 5,
                 "textAlign": "center",
               },
@@ -1547,42 +1555,18 @@ exports[`renders screen with steps correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 12,
-                      },
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/closeIcon.png",
+                }
               }
-            >
-              
-            </Text>
+              style={
+                Object {
+                  "margin": 10,
+                }
+              }
+            />
           </View>
         </View>
       </View>
@@ -1767,7 +1751,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -731,10 +731,60 @@
+@@ -715,10 +715,60 @@
                 \\"__typename\\": \\"StepSuggestion\\",
                 \\"stepType\\": \\"bond\\",
               },
@@ -1828,7 +1812,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -841,9 +891,88 @@
+@@ -825,9 +875,88 @@
                 }
               }
               testID=\\"stepItem\\"

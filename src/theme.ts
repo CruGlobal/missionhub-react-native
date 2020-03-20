@@ -128,6 +128,7 @@ export default {
   grey3: '#C5C7CB',
   lightGrey: COLORS.LIGHT_GREY,
   extraLightGrey: COLORS.EXTRA_LIGHT_GREY,
+  challengeBlue: '#3CC8E6',
   iosBlue: COLORS.IOS_BLUE,
 
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',

@@ -1,11 +1,11 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
-import {
-  createThunkStore,
-  testSnapshotShallow,
-  renderShallow,
-} from '../../../../testUtils';
-import OnboardingCard, { GROUP_ONBOARDING_TYPES } from '../OnboardingCard';
+import { renderWithContext } from '../../../../testUtils';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+  PermissionTypesEnum,
+} from '../OnboardingCard';
 import { removeGroupOnboardingCard } from '../../../actions/swipe';
 
 jest.mock('../../../actions/swipe');
@@ -20,216 +20,234 @@ const groupOnboarding = {
   [GROUP_ONBOARDING_TYPES.steps]: true,
 };
 
-// @ts-ignore
-removeGroupOnboardingCard.mockReturnValue({
+(removeGroupOnboardingCard as jest.Mock).mockReturnValue({
   type: 'removed group onboarding card',
 });
 
 describe('OnboardingCard', () => {
   it('render celebrate card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
+    renderWithContext(
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
-      store,
-    );
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding,
+          },
+        },
+      },
+    ).snapshot();
   });
 
   it('render celebrate card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.celebrate]: false,
+    renderWithContext(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding: {
+              ...groupOnboarding,
+              [GROUP_ONBOARDING_TYPES.celebrate]: false,
+            },
+          },
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
-      store,
-    );
+    ).snapshot();
   });
 
-  it('render challenges card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />,
-      store,
-    );
+  it('render challenges card | Admin', () => {
+    renderWithContext(
+      <OnboardingCard
+        type={GROUP_ONBOARDING_TYPES.challenges}
+        permissions={PermissionTypesEnum.admin}
+      />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding,
+          },
+        },
+      },
+    ).snapshot();
+  });
+
+  it('render challenges card | Member', () => {
+    renderWithContext(
+      <OnboardingCard
+        type={GROUP_ONBOARDING_TYPES.challenges}
+        permissions={PermissionTypesEnum.member}
+      />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding,
+          },
+        },
+      },
+    ).snapshot();
   });
 
   it('render challenges card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.challenges]: false,
+    renderWithContext(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding: {
+              ...groupOnboarding,
+              [GROUP_ONBOARDING_TYPES.challenges]: false,
+            },
+          },
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.challenges} />,
-      store,
-    );
+    ).snapshot();
   });
 
   it('render members card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
+    renderWithContext(
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
-      store,
-    );
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding,
+          },
+        },
+      },
+    ).snapshot();
   });
 
   it('render members card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.members]: false,
+    renderWithContext(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding: {
+              ...groupOnboarding,
+              [GROUP_ONBOARDING_TYPES.members]: false,
+            },
+          },
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
-      store,
-    );
+    ).snapshot();
   });
 
   it('render impact card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />,
-      store,
-    );
+    renderWithContext(<OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />, {
+      initialState: {
+        swipe: {
+          groupOnboarding,
+        },
+      },
+    }).snapshot();
   });
 
   it('render impact card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.impact]: false,
+    renderWithContext(<OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />, {
+      initialState: {
+        swipe: {
+          groupOnboarding: {
+            ...groupOnboarding,
+            [GROUP_ONBOARDING_TYPES.impact]: false,
+          },
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />,
-      store,
-    );
+    }).snapshot();
   });
 
   it('render contacts card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
+    renderWithContext(
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
-      store,
-    );
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding,
+          },
+        },
+      },
+    ).snapshot();
   });
 
   it('render contacts card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.contacts]: false,
+    renderWithContext(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding: {
+              ...groupOnboarding,
+              [GROUP_ONBOARDING_TYPES.contacts]: false,
+            },
+          },
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
-      store,
-    );
+    ).snapshot();
   });
 
   it('render surveys card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
+    renderWithContext(
       <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
-      store,
-    );
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding,
+          },
+        },
+      },
+    ).snapshot();
   });
 
   it('render surveys card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.surveys]: false,
+    renderWithContext(
+      <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
+      {
+        initialState: {
+          swipe: {
+            groupOnboarding: {
+              ...groupOnboarding,
+              [GROUP_ONBOARDING_TYPES.surveys]: false,
+            },
+          },
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
-      store,
-    );
+    ).snapshot();
   });
 
   it('render steps card', () => {
-    const store = createThunkStore({
-      swipe: { groupOnboarding },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />,
-      store,
-    );
-  });
-  it('render steps card hidden', () => {
-    const store = createThunkStore({
-      swipe: {
-        groupOnboarding: {
-          ...groupOnboarding,
-          [GROUP_ONBOARDING_TYPES.steps]: false,
+    renderWithContext(<OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />, {
+      initialState: {
+        swipe: {
+          groupOnboarding,
         },
       },
-    });
-    testSnapshotShallow(
-      // @ts-ignore
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />,
-      store,
-    );
+    }).snapshot();
+  });
+  it('render steps card hidden', () => {
+    renderWithContext(<OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />, {
+      initialState: {
+        swipe: {
+          groupOnboarding: {
+            ...groupOnboarding,
+            [GROUP_ONBOARDING_TYPES.steps]: false,
+          },
+        },
+      },
+    }).snapshot();
   });
 });
 
 it('handles press event from the close button', () => {
-  const store = createThunkStore({
-    swipe: { groupOnboarding },
-  });
-  const component = renderShallow(
-    // @ts-ignore
+  const { snapshot, getByTestId } = renderWithContext(
     <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />,
-    store,
+    {
+      initialState: {
+        swipe: {
+          groupOnboarding,
+        },
+      },
+    },
   );
-  component
-    .childAt(1)
-    .childAt(0)
-    .props()
-    .onPress();
-
+  snapshot();
+  fireEvent.press(getByTestId('IconButton'));
   expect(removeGroupOnboardingCard).toHaveBeenCalledWith(
     GROUP_ONBOARDING_TYPES.celebrate,
   );
