@@ -25,6 +25,21 @@ it('renders pill correctly', () => {
   }).snapshot();
 });
 
+it('renders with text correctly', () => {
+  renderWithContext(<Button text={'Button'} onPress={jest.fn()} />, {
+    noWrappers: true,
+  }).snapshot();
+});
+
+it('renders with image correctly', () => {
+  renderWithContext(
+    <Button image={1234} text={'Button'} onPress={jest.fn()} />,
+    {
+      noWrappers: true,
+    },
+  ).snapshot();
+});
+
 it('renders primary correctly', () => {
   renderWithContext(<Button type="primary" onPress={jest.fn()} />, {
     noWrappers: true,

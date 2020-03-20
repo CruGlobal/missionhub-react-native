@@ -22,6 +22,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { PermissionEnum } from '../../__generated__/globalTypes';
+import { StagesState } from '../reducers/stages';
 
 // @ts-ignore
 export const shuffleArray = arr => {
@@ -352,9 +353,7 @@ export function getPersonEmailAddress(person) {
     : null;
 }
 
-// @ts-ignore
-export function getStageIndex(stages, stageId) {
-  // @ts-ignore
+export function getStageIndex(stages: StagesState['stages'], stageId: string) {
   const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;

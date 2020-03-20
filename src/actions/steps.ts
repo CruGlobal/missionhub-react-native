@@ -261,31 +261,35 @@ const removeFromStepsList = (stepId: string, personId: string) => {
       },
     });
 
-  const personStepsVariables = { personId, completed: false };
+  try {
+    const personStepsVariables = { personId, completed: false };
 
-  const cachedPersonSteps = apolloClient.readQuery<
-    PersonStepsList,
-    PersonStepsListVariables
-  >({
-    query: PERSON_STEPS_QUERY,
-    variables: personStepsVariables,
-  });
-
-  cachedPersonSteps &&
-    apolloClient.writeQuery<PersonStepsList, PersonStepsListVariables>({
+    const cachedPersonSteps = apolloClient.readQuery<
+      PersonStepsList,
+      PersonStepsListVariables
+    >({
       query: PERSON_STEPS_QUERY,
       variables: personStepsVariables,
-      data: {
-        ...cachedPersonSteps,
-        person: {
-          ...cachedPersonSteps.person,
-          steps: {
-            ...cachedPersonSteps.person.steps,
-            nodes: cachedPersonSteps.person.steps.nodes.filter(
-              ({ id }) => id !== stepId,
-            ),
+    });
+
+    cachedPersonSteps &&
+      apolloClient.writeQuery<PersonStepsList, PersonStepsListVariables>({
+        query: PERSON_STEPS_QUERY,
+        variables: personStepsVariables,
+        data: {
+          ...cachedPersonSteps,
+          person: {
+            ...cachedPersonSteps.person,
+            steps: {
+              ...cachedPersonSteps.person.steps,
+              nodes: cachedPersonSteps.person.steps.nodes.filter(
+                ({ id }) => id !== stepId,
+              ),
+            },
           },
         },
-      },
-    });
+      });
+  } catch {
+    // This can fail if the query hasn't been run yet. We don't care about errors, there's nothing to remove if the query isn't cached.
+  }
 };

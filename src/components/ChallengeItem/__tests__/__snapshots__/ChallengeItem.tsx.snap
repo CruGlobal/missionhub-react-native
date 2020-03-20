@@ -121,6 +121,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -138,7 +139,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -157,8 +159,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
+                      "fontSize": 24,
+                      "lineHeight": 30,
                     },
                   ]
                 }
@@ -171,6 +173,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -188,7 +191,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -196,6 +200,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -204,14 +209,18 @@ exports[`render active and joined and completed challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -221,6 +230,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -238,7 +248,8 @@ exports[`render active and joined and completed challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -246,6 +257,7 @@ exports[`render active and joined and completed challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -254,14 +266,18 @@ exports[`render active and joined and completed challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -288,37 +304,13 @@ exports[`render active and joined and completed challenge item 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Object {
-                      "color": "#44E4AB",
-                      "fontSize": 20,
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/challengeCompleteGreen.png",
+                }
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -448,6 +440,7 @@ exports[`render active and joined challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -465,7 +458,8 @@ exports[`render active and joined challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -484,8 +478,8 @@ exports[`render active and joined challenge item 1`] = `
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
+                      "fontSize": 24,
+                      "lineHeight": 30,
                     },
                   ]
                 }
@@ -498,6 +492,7 @@ exports[`render active and joined challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -515,7 +510,8 @@ exports[`render active and joined challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -523,6 +519,7 @@ exports[`render active and joined challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -531,14 +528,18 @@ exports[`render active and joined challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -548,6 +549,7 @@ exports[`render active and joined challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -565,7 +567,8 @@ exports[`render active and joined challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -573,6 +576,7 @@ exports[`render active and joined challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -581,14 +585,18 @@ exports[`render active and joined challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -639,7 +647,7 @@ exports[`render active and joined challenge item 1`] = `
           },
           null,
           Object {
-            "backgroundColor": "#44E4AB",
+            "backgroundColor": "#3CC8E6",
             "borderBottomLeftRadius": 8,
             "borderBottomRightRadius": 8,
             "height": undefined,
@@ -649,33 +657,58 @@ exports[`render active and joined challenge item 1`] = `
         ]
       }
     >
-      <Text
+      <View
         style={
           Array [
+            Object {},
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-around",
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {
-                "fontSize": 14,
-              },
-            ],
           ]
         }
       >
-        I DID IT
-      </Text>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/challengeComplete.png",
+            }
+          }
+          style={
+            Object {
+              "marginHorizontal": 5,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "fontSize": 15,
+                },
+              ],
+            ]
+          }
+        >
+          I DID IT
+        </Text>
+      </View>
     </View>
   </View>
 </View>
@@ -802,6 +835,7 @@ exports[`render active challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -819,7 +853,8 @@ exports[`render active challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -838,8 +873,8 @@ exports[`render active challenge item 1`] = `
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
+                      "fontSize": 24,
+                      "lineHeight": 30,
                     },
                   ]
                 }
@@ -852,6 +887,7 @@ exports[`render active challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -869,7 +905,8 @@ exports[`render active challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -877,6 +914,7 @@ exports[`render active challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -885,14 +923,18 @@ exports[`render active challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -902,6 +944,7 @@ exports[`render active challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -919,7 +962,8 @@ exports[`render active challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -927,6 +971,7 @@ exports[`render active challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -935,14 +980,18 @@ exports[`render active challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -993,7 +1042,7 @@ exports[`render active challenge item 1`] = `
           },
           null,
           Object {
-            "backgroundColor": "#52C5DC",
+            "backgroundColor": "#3CC8E6",
             "borderBottomLeftRadius": 8,
             "borderBottomRightRadius": 8,
             "height": undefined,
@@ -1022,7 +1071,7 @@ exports[`render active challenge item 1`] = `
                 "textAlign": "center",
               },
               Object {
-                "fontSize": 14,
+                "fontSize": 15,
               },
             ],
           ]
@@ -1156,6 +1205,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1173,7 +1223,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1192,8 +1243,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
+                      "fontSize": 24,
+                      "lineHeight": 30,
                     },
                   ]
                 }
@@ -1206,6 +1257,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1223,7 +1275,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1231,6 +1284,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1239,14 +1293,18 @@ exports[`render past and joined and completed challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -1256,6 +1314,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1273,7 +1332,8 @@ exports[`render past and joined and completed challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1281,6 +1341,7 @@ exports[`render past and joined and completed challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1289,14 +1350,18 @@ exports[`render past and joined and completed challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -1323,37 +1388,13 @@ exports[`render past and joined and completed challenge item 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Object {
-                      "color": "#44E4AB",
-                      "fontSize": 20,
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../assets/images/challengeCompleteGreen.png",
+                }
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -1483,6 +1524,7 @@ exports[`render past and joined challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1500,7 +1542,8 @@ exports[`render past and joined challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1519,8 +1562,8 @@ exports[`render past and joined challenge item 1`] = `
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
+                      "fontSize": 24,
+                      "lineHeight": 30,
                     },
                   ]
                 }
@@ -1533,6 +1576,7 @@ exports[`render past and joined challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1550,7 +1594,8 @@ exports[`render past and joined challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1558,6 +1603,7 @@ exports[`render past and joined challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1566,14 +1612,18 @@ exports[`render past and joined challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -1583,6 +1633,7 @@ exports[`render past and joined challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1600,7 +1651,8 @@ exports[`render past and joined challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1608,6 +1660,7 @@ exports[`render past and joined challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1616,14 +1669,18 @@ exports[`render past and joined challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
@@ -1769,6 +1826,7 @@ exports[`render past challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1786,7 +1844,8 @@ exports[`render past challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1805,8 +1864,8 @@ exports[`render past challenge item 1`] = `
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
+                      "fontSize": 24,
+                      "lineHeight": 30,
                     },
                   ]
                 }
@@ -1819,6 +1878,7 @@ exports[`render past challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1836,7 +1896,8 @@ exports[`render past challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1844,6 +1905,7 @@ exports[`render past challenge item 1`] = `
                 Joined
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1852,14 +1914,18 @@ exports[`render past challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="joinedCount"
               >
                 5
               </Text>
@@ -1869,6 +1935,7 @@ exports[`render past challenge item 1`] = `
                 Array [
                   Object {},
                   Object {
+                    "flex": 1,
                     "flexDirection": "column",
                     "justifyContent": "flex-start",
                   },
@@ -1886,7 +1953,8 @@ exports[`render past challenge item 1`] = `
                     },
                     Object {
                       "color": "#A0A2A6",
-                      "fontSize": 10,
+                      "fontSize": 12,
+                      "lineHeight": 16,
                     },
                   ]
                 }
@@ -1894,6 +1962,7 @@ exports[`render past challenge item 1`] = `
                 Completed
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1902,14 +1971,18 @@ exports[`render past challenge item 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 32,
-                      "lineHeight": 32,
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-ExtraLight",
+                        "fontSize": 24,
+                        "lineHeight": 30,
+                      },
+                      null,
+                    ],
                   ]
                 }
+                testID="completedCount"
               >
                 3
               </Text>
