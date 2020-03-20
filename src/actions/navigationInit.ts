@@ -27,10 +27,10 @@ export const resetToInitialRoute = () => (
 ) => {
   dispatch({ type: RELOAD_APP });
 
-  getFeatureFlags();
-
   const { auth, onboarding, people } = getState();
   if (auth && isAuthenticated(auth)) {
+    getFeatureFlags();
+
     if (
       onboarding.skippedAddingPerson ||
       hasContactWithPathwayStage(auth.person.id, people)

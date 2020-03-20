@@ -2,10 +2,12 @@ import { navigateToMainTabs, navigateReset } from '../navigation';
 import { resetToInitialRoute } from '../navigationInit';
 import { createThunkStore } from '../../../testUtils';
 import { startOnboarding } from '../onboarding';
+import { getFeatureFlags } from '../misc';
 
 jest.mock('../navigation');
 jest.mock('../onboarding');
 jest.mock('../analytics');
+jest.mock('../misc');
 
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
@@ -38,6 +40,8 @@ describe('initialRoute', () => {
         },
       });
     });
+
+    expect(getFeatureFlags).not.toHaveBeenCalled();
   });
 
   describe('logged in user', () => {
@@ -73,6 +77,8 @@ describe('initialRoute', () => {
           },
         },
       });
+
+      expect(getFeatureFlags).toHaveBeenCalledWith();
     });
 
     it('has skipped adding person but does not have contact with pathway stage should go to MainTabs', () => {
@@ -82,6 +88,8 @@ describe('initialRoute', () => {
         },
         onboarding: { skippedAddingPerson: true },
       });
+
+      expect(getFeatureFlags).toHaveBeenCalledWith();
     });
 
     describe('has not completed onboarding and does not have a contact with pathway stage', () => {
@@ -117,6 +125,8 @@ describe('initialRoute', () => {
             },
           },
         });
+
+        expect(getFeatureFlags).toHaveBeenCalledWith();
       });
 
       it('does not have self stage should go to GetStarted', () => {
@@ -147,6 +157,8 @@ describe('initialRoute', () => {
             },
           },
         });
+
+        expect(getFeatureFlags).toHaveBeenCalledWith();
       });
 
       it('should not check my reverse contact assignments', () => {
@@ -177,6 +189,8 @@ describe('initialRoute', () => {
             },
           },
         });
+
+        expect(getFeatureFlags).toHaveBeenCalledWith();
       });
     });
   });

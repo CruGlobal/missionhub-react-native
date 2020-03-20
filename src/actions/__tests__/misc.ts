@@ -4,11 +4,13 @@ import configureStore from 'redux-mock-store';
 
 import { trackActionWithoutData } from '../analytics';
 import {
+  getFeatureFlags,
   openCommunicationLink,
   loadStepsAndJourney,
   navigateToStageScreen,
   assignContactAndPickStage,
   navigateToAddStepFlow,
+  GET_FEATURE_FLAGS,
 } from '../misc';
 import {
   createContactAssignment,
@@ -30,6 +32,7 @@ import {
   ADD_MY_STEP_FLOW,
   ADD_PERSON_STEP_FLOW,
 } from '../../routes/constants';
+import { apolloClient } from '../../apolloClient';
 
 jest.mock('../analytics');
 jest.mock('../steps');
@@ -38,6 +41,11 @@ jest.mock('../navigation');
 jest.mock('../person');
 jest.mock('../../selectors/people');
 jest.mock('../../utils/common');
+jest.mock('../../apolloClient', () => ({
+  apolloClient: {
+    query: jest.fn(),
+  },
+}));
 
 // @ts-ignore
 const mockStore = state => configureStore([thunk])(state);
@@ -76,6 +84,8 @@ const state = {
   auth: { person: mePerson },
 };
 
+const featureFlags = ['feature_1', 'feature_2'];
+
 beforeEach(() => {
   store = mockStore(state);
 
@@ -100,7 +110,6 @@ beforeEach(() => {
   hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
   // @ts-ignore
   buildTrackingObj.mockReturnValue(buildTrackingObjResult);
-
   // @ts-ignore
   navigatePush.mockImplementation((_, { onComplete }) => {
     onComplete && onComplete(stage);
@@ -108,6 +117,13 @@ beforeEach(() => {
   });
   // @ts-ignore
   navigateReplace.mockReturnValue(navigateReplaceResult);
+  (apolloClient.query as jest.Mock).mockReturnValue(featureFlags);
+});
+
+describe('getFeatureFlags', () => {
+  getFeatureFlags();
+
+  expect(apolloClient.query).toHaveBeenCalledWith({ query: GET_FEATURE_FLAGS });
 });
 
 describe('openCommunicationLink', () => {
