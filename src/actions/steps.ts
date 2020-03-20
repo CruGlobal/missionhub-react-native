@@ -33,35 +33,6 @@ import callApi from './api';
 import { trackAction, trackStepAdded } from './analytics';
 import { getCelebrateFeed } from './celebration';
 
-export function getStepSuggestions(isMe: boolean, contactStageId: string) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
-    const language = i18next.language;
-    const query = {
-      filters: {
-        locale: language,
-        self_step: isMe,
-        pathway_stage_id: contactStageId,
-      },
-    };
-
-    return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
-  };
-}
-
-export function getContactSteps(personId: string, orgId?: string) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
-    const query = {
-      filters: {
-        receiver_ids: personId,
-        organization_ids: orgId || 'personal',
-      },
-      include: 'receiver,challenge_suggestion,reminder',
-      page: { limit: 1000 },
-    };
-    return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
-  };
-}
-
 export function addStep(
   stepSuggestion: {
     id?: string;

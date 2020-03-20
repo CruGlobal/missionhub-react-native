@@ -14,7 +14,6 @@ import { buildTrackingObj } from '../utils/common';
 import { Person } from '../reducers/people';
 
 import { trackActionWithoutData } from './analytics';
-import { getContactSteps } from './steps';
 import { reloadJourney } from './journey';
 import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
@@ -45,15 +44,6 @@ export function openCommunicationLink(url, action) {
           });
       })
       .catch(err => WARN('An unexpected error happened', err));
-}
-
-// @ts-ignore
-export function loadStepsAndJourney(personId, organizationId) {
-  // @ts-ignore
-  return dispatch => {
-    dispatch(getContactSteps(personId, organizationId));
-    dispatch(reloadJourney(personId, organizationId));
-  };
 }
 
 // @ts-ignore

@@ -1,26 +1,26 @@
 import i18next from 'i18next';
+import gql from 'graphql-tag';
 
 import { personSelector } from '../../selectors/people';
-import { getStageIndex } from '../../utils/common';
+import { getStageIndex, getAnalyticsSubsection } from '../../utils/common';
+import { apolloClient } from '../../apolloClient';
 import { AuthState } from '../../reducers/auth';
 import { StagesState } from '../../reducers/stages';
-import { StepsState } from '../../reducers/steps';
 import { PeopleState, Person } from '../../reducers/people';
 
-export function paramsForStageNavigation(
+import {
+  StepCountWithPerson,
+  StepCountWithPersonVariables,
+} from './__generated__/StepCountWithPerson';
+
+export const paramsForStageNavigation = async (
   personId: string,
-  orgId: string | undefined,
-  getState: () => {
-    auth: AuthState;
-    stages: StagesState;
-    steps: StepsState;
-    people: PeopleState;
-  },
-) {
+  orgId: string,
+  getState: () => { auth: AuthState; stages: StagesState; people: PeopleState },
+) => {
   const {
     auth: { person: authPerson },
     stages: { stages, stagesObj },
-    steps,
     people,
   } = getState();
 
@@ -32,7 +32,7 @@ export function paramsForStageNavigation(
     ? null
     : getReverseContactAssignment(person, orgId, authPerson);
   const stageId = getStageId(isMe, assignment, authPerson);
-  const hasHitCount = hasHitThreeSteps(steps, personId);
+  const hasHitCount = await hasHitThreeSteps(personId);
   const isNotSure = hasNotSureStage(stagesObj, stageId);
   const firstItemIndex = getStageIndex(stages, stageId);
   const firstName = isMe ? authPerson.first_name : person.first_name;
@@ -44,7 +44,7 @@ export function paramsForStageNavigation(
     firstItemIndex,
     questionText,
   };
-}
+};
 
 function getReverseContactAssignment(
   person: Person,
@@ -77,9 +77,32 @@ function getStageId(
     : null;
 }
 
-function hasHitThreeSteps(steps: StepsState, personId: string) {
-  return steps.userStepCount[personId] % 3 === 0;
-}
+const STEP_COUNT_WITH_PERSON_QUERY = gql`
+  query StepCountWithPerson($personId: ID!) {
+    person(id: $personId) {
+      steps(completed: true) {
+        pageInfo {
+          totalCount
+        }
+      }
+    }
+  }
+`;
+
+const hasHitThreeSteps = async (personId: string) => {
+  try {
+    const { data } = await apolloClient.query<
+      StepCountWithPerson,
+      StepCountWithPersonVariables
+    >({
+      query: STEP_COUNT_WITH_PERSON_QUERY,
+      variables: { personId },
+    });
+    return data.person.steps.pageInfo.totalCount % 3 === 0;
+  } catch {
+    return false;
+  }
+};
 
 function hasNotSureStage(stagesObj: StagesState['stagesObj'], stageId: string) {
   return ((stagesObj && stagesObj[stageId]) || {}).name_i18n === 'notsure_name';
