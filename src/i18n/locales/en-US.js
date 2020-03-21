@@ -235,13 +235,12 @@ export default {
     stepsOfFaith: 'Add Steps of Faith',
   },
   selectStepExplainer: {
-    part1:
-      "MissionHub helps you\nsee four ways to shine light in someone's life.",
+    part1: 'MissionHub suggests four ways to draw someone closer to God.',
     part2: 'Ideas to help you deepen this relationship and build trust.',
     part3: 'Ways to invite God into your relationship with this person.',
     part4: 'Ideas to help you demonstrate that you care about this person.',
     part5:
-      'Ways to help this person know the truth about God or talk about what they believe.',
+      'Talk about what this person believes and ways you can help them know the truth about God.',
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',

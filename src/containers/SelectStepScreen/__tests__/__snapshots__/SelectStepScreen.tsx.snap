@@ -339,8 +339,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                             }
                           >
                             <SvgMock
-                              color="#000000"
-                              testID="SelectStepExplainerIconButton"
+                              color="#ffffff"
                             />
                           </View>
                         </View>
@@ -731,8 +730,7 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       }
                     >
                       <SvgMock
-                        color="#000000"
-                        testID="SelectStepExplainerIconButton"
+                        color="#ffffff"
                       />
                     </View>
                   </View>
@@ -1019,8 +1017,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                             }
                           >
                             <SvgMock
-                              color="#000000"
-                              testID="SelectStepExplainerIconButton"
+                              color="#ffffff"
                             />
                           </View>
                         </View>
@@ -1344,8 +1341,7 @@ exports[`without enableSkipButton renders correctly 1`] = `
                       }
                     >
                       <SvgMock
-                        color="#000000"
-                        testID="SelectStepExplainerIconButton"
+                        color="#ffffff"
                       />
                     </View>
                   </View>

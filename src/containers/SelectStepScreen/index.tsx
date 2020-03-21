@@ -13,7 +13,6 @@ import Skip from '../../components/Skip';
 import theme from '../../theme';
 import StepsList from '../StepsList';
 import Header from '../../components/Header';
-import IconButton from '../../components/IconButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   personSelector,
@@ -124,10 +123,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
             onPress={() => setIsExplainerOpen(true)}
             testID="SelectStepExplainerIconButton"
           >
-            <InfoIcon
-              color={theme.black}
-              testID="SelectStepExplainerIconButton"
-            />
+            <InfoIcon color={theme.white} />
           </Button>
         </View>
       }

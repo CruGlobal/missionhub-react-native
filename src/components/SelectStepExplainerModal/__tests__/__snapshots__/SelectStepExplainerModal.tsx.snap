@@ -57,8 +57,7 @@ exports[`renders correctly renders correctly 1`] = `
             "source": Object {
               "testUri": "../../../assets/images/explainerModal1.png",
             },
-            "text": "MissionHub helps you
-see four ways to shine light in someone's life.",
+            "text": "MissionHub suggests four ways to draw someone closer to God.",
           },
           Object {
             "source": Object {
@@ -86,7 +85,7 @@ see four ways to shine light in someone's life.",
               "testUri": "../../../assets/images/explainerModal5.png",
             },
             "stepType": "share",
-            "text": "Ways to help this person know the truth about God or talk about what they believe.",
+            "text": "Talk about what this person believes and ways you can help them know the truth about God.",
           },
         ]
       }
@@ -225,18 +224,22 @@ see four ways to shine light in someone's life.",
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 24,
-                      "fontWeight": "300",
-                      "lineHeight": 30,
-                      "textAlign": "center",
-                    },
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "textAlign": "center",
+                      },
+                      Object {
+                        "marginHorizontal": 15,
+                      },
+                    ],
                   ]
                 }
               >
-                MissionHub helps you
-see four ways to shine light in someone's life.
+                MissionHub suggests four ways to draw someone closer to God.
               </Text>
             </View>
           </View>
@@ -326,8 +329,8 @@ see four ways to shine light in someone's life.
               >
                 <SvgMock
                   color="#3EB1C8"
-                  height={48}
-                  width={48}
+                  height={56}
+                  width={56}
                 />
               </View>
             </View>
@@ -511,8 +514,8 @@ see four ways to shine light in someone's life.
               >
                 <SvgMock
                   color="#3EB1C8"
-                  height={48}
-                  width={48}
+                  height={56}
+                  width={56}
                 />
               </View>
             </View>
@@ -696,8 +699,8 @@ see four ways to shine light in someone's life.
               >
                 <SvgMock
                   color="#3EB1C8"
-                  height={48}
-                  width={48}
+                  height={56}
+                  width={56}
                 />
               </View>
             </View>
@@ -881,8 +884,8 @@ see four ways to shine light in someone's life.
               >
                 <SvgMock
                   color="#3EB1C8"
-                  height={48}
-                  width={48}
+                  height={56}
+                  width={56}
                 />
               </View>
             </View>
@@ -976,7 +979,7 @@ see four ways to shine light in someone's life.
                   ]
                 }
               >
-                Ways to help this person know the truth about God or talk about what they believe.
+                Talk about what this person believes and ways you can help them know the truth about God.
               </Text>
             </View>
           </View>

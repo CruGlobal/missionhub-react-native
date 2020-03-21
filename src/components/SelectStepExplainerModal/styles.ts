@@ -42,6 +42,9 @@ export default StyleSheet.create({
     fontWeight: '300',
     textAlign: 'center',
   },
+  textOnly: {
+    marginHorizontal: 15,
+  },
   title: {
     marginTop: 20,
     fontSize: 32,

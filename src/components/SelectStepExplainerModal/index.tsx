@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ImageSourcePropType } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import i18next from 'i18next';
 
@@ -11,8 +11,7 @@ import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import styles, { sliderWidth, sliderHeight } from './styles';
 
 export const AddStepExplainer: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  source: any;
+  source: ImageSourcePropType;
   text: string;
   stepType?: StepTypeEnum;
 }[] = [
@@ -69,15 +68,17 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                       hideLabel={true}
                       style={styles.middleIconCircle}
                       iconProps={{
-                        height: 48,
-                        width: 48,
+                        height: 56,
+                        width: 56,
                         color: theme.impactBlue,
                       }}
                     />
                   </View>
                 )}
                 <View style={[{ flex: 0.9 }, styles.textWrap]}>
-                  {text && !stepType && <Text style={styles.text}>{text}</Text>}
+                  {text && !stepType && (
+                    <Text style={[styles.text, styles.textOnly]}>{text}</Text>
+                  )}
                   {stepType && text && (
                     <>
                       <StepTypeBadge
