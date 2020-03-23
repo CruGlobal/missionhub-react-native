@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { StatusBar, View } from 'react-native';
 import i18next from 'i18next';
-import { connect, useDispatch } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
 
 import Header from '../../../components/Header';
@@ -252,6 +253,7 @@ export const AssignedPersonScreen = ({
     <View style={styles.container}>
       <StatusBar {...theme.statusBar.lightContent} />
       <Header
+        testID="Header"
         left={<BackButton />}
         right={
           <IconButton name="moreIcon" type="MissionHub" onPress={openDrawer} />
@@ -290,7 +292,7 @@ export const AssignedPersonScreen = ({
   );
 };
 
-export const mapStateToProps = (
+const mapStateToProps = (
   {
     people,
     auth,
@@ -308,11 +310,8 @@ export const mapStateToProps = (
         params: { person, organization },
       },
     },
-  }: {
-    navigation: {
-      state: { params: { person: Person; organization: Organization } };
-    };
-  },
+  }: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  any,
 ) => {
   const orgId = organization.id || 'personal';
   const personId = person.id;
@@ -343,7 +342,9 @@ export const mapStateToProps = (
   };
 };
 
-const connectedPersonScreen = connect(mapStateToProps)(AssignedPersonScreen);
+export const connectedPersonScreen = connect(mapStateToProps)(
+  AssignedPersonScreen,
+);
 
 //TODO find a way to not do this, even if it means switching to a different navigation library...
 // @ts-ignore

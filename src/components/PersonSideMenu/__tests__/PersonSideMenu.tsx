@@ -1,6 +1,5 @@
 import React from 'react';
 import { Alert } from 'react-native';
-import { useDispatch } from 'react-redux';
 
 import { renderWithContext } from '../../../../testUtils';
 import { EDIT_PERSON_FLOW } from '../../../routes/constants';
@@ -56,7 +55,6 @@ const initialState = {
 };
 
 beforeEach(() => {
-  (useDispatch as jest.Mock).mockReturnValue(jest.fn());
   ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigated push' });
@@ -151,7 +149,7 @@ describe('PersonSideMenu', () => {
       });
     });
 
-    it('renders assign correctly', () => {
+    describe('renders assign correctly', () => {
       beforeEach(() => {
         ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
           undefined,
