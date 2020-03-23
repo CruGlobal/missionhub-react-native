@@ -100,10 +100,9 @@ const PersonItem = ({
     );
 
   const handleAddStep = () =>
-    (contactAssignment && contactAssignment.pathway_stage_id) || isMe
+    contactAssignment.pathway_stage_id || isMe
       ? dispatch(navigateToAddStepFlow(isMe, person, organization))
-      : contactAssignment
-      ? dispatch(
+      : dispatch(
           navigateToStageScreen(
             isMe,
             person,
@@ -111,8 +110,7 @@ const PersonItem = ({
             organization,
             undefined,
           ),
-        )
-      : null;
+        );
 
   const renderStageIcon = () => {
     return (
