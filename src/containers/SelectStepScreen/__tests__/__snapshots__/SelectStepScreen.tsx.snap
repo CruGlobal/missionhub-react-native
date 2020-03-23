@@ -226,70 +226,122 @@ exports[`with enableSkipButton renders correctly 1`] = `
                       }
                     >
                       <View
-                        accessible={true}
-                        focusable={true}
-                        isTVSelectable={true}
-                        onClick={[Function]}
-                        onResponderGrant={[Function]}
-                        onResponderMove={[Function]}
-                        onResponderRelease={[Function]}
-                        onResponderTerminate={[Function]}
-                        onResponderTerminationRequest={[Function]}
-                        onStartShouldSetResponder={[Function]}
                         style={
                           Object {
-                            "opacity": 1,
+                            "alignItems": "center",
+                            "flexDirection": "row",
                           }
                         }
-                        testID="skipButton"
                       >
                         <View
+                          accessible={true}
+                          focusable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
                           style={
-                            Array [
-                              Object {
-                                "backgroundColor": "transparent",
-                              },
-                              null,
-                              Array [
-                                Object {
-                                  "padding": 15,
-                                },
-                                undefined,
-                              ],
-                              null,
-                            ]
+                            Object {
+                              "opacity": 1,
+                            }
                           }
+                          testID="skipButton"
                         >
-                          <Text
+                          <View
                             style={
                               Array [
                                 Object {
-                                  "color": "#505256",
+                                  "backgroundColor": "transparent",
                                 },
-                                Object {
-                                  "fontFamily": "SourceSansPro-Regular",
-                                },
+                                null,
                                 Array [
                                   Object {
-                                    "backgroundColor": "rgba(0,0,0,0)",
-                                    "color": "#ffffff",
-                                    "fontSize": 14,
-                                    "fontWeight": "500",
-                                    "letterSpacing": 1.5,
-                                    "textAlign": "center",
+                                    "padding": 15,
                                   },
-                                  Array [
-                                    Object {
-                                      "color": "#ffffff",
-                                    },
-                                    undefined,
-                                  ],
+                                  undefined,
                                 ],
+                                null,
                               ]
                             }
                           >
-                            SKIP
-                          </Text>
+                            <Text
+                              style={
+                                Array [
+                                  Object {
+                                    "color": "#505256",
+                                  },
+                                  Object {
+                                    "fontFamily": "SourceSansPro-Regular",
+                                  },
+                                  Array [
+                                    Object {
+                                      "backgroundColor": "rgba(0,0,0,0)",
+                                      "color": "#ffffff",
+                                      "fontSize": 14,
+                                      "fontWeight": "500",
+                                      "letterSpacing": 1.5,
+                                      "textAlign": "center",
+                                    },
+                                    Array [
+                                      Object {
+                                        "color": "#ffffff",
+                                      },
+                                      undefined,
+                                    ],
+                                  ],
+                                ]
+                              }
+                            >
+                              SKIP
+                            </Text>
+                          </View>
+                        </View>
+                        <View
+                          accessible={true}
+                          focusable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                          testID="SelectStepExplainerIconButton"
+                        >
+                          <View
+                            style={
+                              Array [
+                                Object {
+                                  "alignItems": "center",
+                                  "backgroundColor": "transparent",
+                                  "borderRadius": 0,
+                                  "borderWidth": 0,
+                                  "height": 60,
+                                  "justifyContent": "center",
+                                  "margin": 0,
+                                  "paddingHorizontal": 20,
+                                  "paddingVertical": 10,
+                                },
+                                null,
+                                Object {},
+                                null,
+                              ]
+                            }
+                          >
+                            <SvgMock
+                              color="#ffffff"
+                            />
+                          </View>
                         </View>
                       </View>
                     </View>
@@ -565,70 +617,122 @@ exports[`with enableSkipButton renders correctly 1`] = `
                 }
               >
                 <View
-                  accessible={true}
-                  focusable={true}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
                   style={
                     Object {
-                      "opacity": 1,
+                      "alignItems": "center",
+                      "flexDirection": "row",
                     }
                   }
-                  testID="skipButton"
                 >
                   <View
+                    accessible={true}
+                    focusable={true}
+                    isTVSelectable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
                     style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                        },
-                        null,
-                        Array [
-                          Object {
-                            "padding": 15,
-                          },
-                          undefined,
-                        ],
-                        null,
-                      ]
+                      Object {
+                        "opacity": 1,
+                      }
                     }
+                    testID="skipButton"
                   >
-                    <Text
+                    <View
                       style={
                         Array [
                           Object {
-                            "color": "#505256",
+                            "backgroundColor": "transparent",
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
+                          null,
                           Array [
                             Object {
-                              "backgroundColor": "rgba(0,0,0,0)",
-                              "color": "#ffffff",
-                              "fontSize": 14,
-                              "fontWeight": "500",
-                              "letterSpacing": 1.5,
-                              "textAlign": "center",
+                              "padding": 15,
                             },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              undefined,
-                            ],
+                            undefined,
                           ],
+                          null,
                         ]
                       }
                     >
-                      SKIP
-                    </Text>
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "backgroundColor": "rgba(0,0,0,0)",
+                                "color": "#ffffff",
+                                "fontSize": 14,
+                                "fontWeight": "500",
+                                "letterSpacing": 1.5,
+                                "textAlign": "center",
+                              },
+                              Array [
+                                Object {
+                                  "color": "#ffffff",
+                                },
+                                undefined,
+                              ],
+                            ],
+                          ]
+                        }
+                      >
+                        SKIP
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    isTVSelectable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                    testID="SelectStepExplainerIconButton"
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "borderRadius": 0,
+                            "borderWidth": 0,
+                            "height": 60,
+                            "justifyContent": "center",
+                            "margin": 0,
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 10,
+                          },
+                          null,
+                          Object {},
+                          null,
+                        ]
+                      }
+                    >
+                      <SvgMock
+                        color="#ffffff"
+                      />
+                    </View>
                   </View>
                 </View>
               </View>
@@ -865,7 +969,60 @@ exports[`without enableSkipButton renders correctly 1`] = `
                           },
                         ]
                       }
-                    />
+                    >
+                      <View
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "flexDirection": "row",
+                          }
+                        }
+                      >
+                        <View
+                          accessible={true}
+                          focusable={true}
+                          isTVSelectable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                          testID="SelectStepExplainerIconButton"
+                        >
+                          <View
+                            style={
+                              Array [
+                                Object {
+                                  "alignItems": "center",
+                                  "backgroundColor": "transparent",
+                                  "borderRadius": 0,
+                                  "borderWidth": 0,
+                                  "height": 60,
+                                  "justifyContent": "center",
+                                  "margin": 0,
+                                  "paddingHorizontal": 20,
+                                  "paddingVertical": 10,
+                                },
+                                null,
+                                Object {},
+                                null,
+                              ]
+                            }
+                          >
+                            <SvgMock
+                              color="#ffffff"
+                            />
+                          </View>
+                        </View>
+                      </View>
+                    </View>
                   </View>
                 </RCTSafeAreaView>
                 <View
@@ -1136,7 +1293,60 @@ exports[`without enableSkipButton renders correctly 1`] = `
                     },
                   ]
                 }
-              />
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    isTVSelectable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "opacity": 1,
+                      }
+                    }
+                    testID="SelectStepExplainerIconButton"
+                  >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "transparent",
+                            "borderRadius": 0,
+                            "borderWidth": 0,
+                            "height": 60,
+                            "justifyContent": "center",
+                            "margin": 0,
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 10,
+                          },
+                          null,
+                          Object {},
+                          null,
+                        ]
+                      }
+                    >
+                      <SvgMock
+                        color="#ffffff"
+                      />
+                    </View>
+                  </View>
+                </View>
+              </View>
             </View>
           </RCTSafeAreaView>
         </View>

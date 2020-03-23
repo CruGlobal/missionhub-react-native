@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
-import { Text } from '../../components/common';
+import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
@@ -21,6 +21,8 @@ import {
 import { AuthState } from '../../reducers/auth';
 import { PeopleState, Person } from '../../reducers/people';
 import { useIsMe } from '../../utils/hooks/useIsMe';
+import SelectStepExplainerModal from '../../components/SelectStepExplainerModal';
+import InfoIcon from '../../../assets/images/infoIcon.svg';
 
 import styles from './styles';
 
@@ -45,6 +47,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   useAnalytics('add step');
   const dispatch = useDispatch();
 
+  const [isExplainerOpen, setIsExplainerOpen] = useState(false);
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
   const enableSkipButton: boolean =
@@ -103,7 +106,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
           <Text style={styles.headerText}>
             {isMe
               ? t('meHeader.part2')
-              : t('personHeader.part2', { name: person.first_name })}
+              : t('personHeader.part2', { name: person && person.first_name })}
           </Text>
         </View>
       </View>
@@ -113,7 +116,17 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   const renderHeader = () => (
     <Header
       left={<BackButton />}
-      right={enableSkipButton && <Skip onSkip={handleSkip} />}
+      right={
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}
+          <Button
+            onPress={() => setIsExplainerOpen(true)}
+            testID="SelectStepExplainerIconButton"
+          >
+            <InfoIcon color={theme.white} />
+          </Button>
+        </View>
+      }
     />
   );
 
@@ -138,6 +151,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
           onPressStep={navToSuggestedStep}
         />
       </ParallaxScrollView>
+      {isExplainerOpen && (
+        <SelectStepExplainerModal onClose={() => setIsExplainerOpen(false)} />
+      )}
     </View>
   );
 };

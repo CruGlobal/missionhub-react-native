@@ -289,13 +289,16 @@ exports[`should render correctly while loading 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "letterSpacing": 1,
-              "paddingLeft": 4,
-            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -652,13 +655,16 @@ exports[`should render correctly without description and without reminder 1`] = 
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "letterSpacing": 1,
-              "paddingLeft": 4,
-            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
           ]
         }
       >
@@ -1105,13 +1111,16 @@ exports[`with description, with reminder should render correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
             ]
           }
         >
@@ -1681,13 +1690,16 @@ exports[`with description, without reminder should render correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 16,
-                "fontWeight": "bold",
-                "letterSpacing": 1,
-                "paddingLeft": 4,
-              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
             ]
           }
         >
