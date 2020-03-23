@@ -1,14 +1,11 @@
 import React from 'react';
 import { Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
 
-import {
-  renderShallow,
-  createThunkStore,
-  createMockNavState,
-  testSnapshotShallow,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { EDIT_PERSON_FLOW } from '../../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../../containers/StatusReasonScreen';
+import { MenuItemsType } from '../../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import {
   personSelector,
@@ -20,6 +17,7 @@ import { assignContactAndPickStage } from '../../../actions/misc';
 
 import PersonSideMenu from '..';
 
+jest.mock('react-redux');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/steps');
@@ -44,10 +42,8 @@ const orgPermission = {
 const contactAssignment = { id: '3', type: 'reverse_contact_assignment' };
 const organization = { id: '4', type: 'organization' };
 
-const store = createThunkStore({
-  auth: {
-    person: me,
-  },
+const initialState = {
+  auth: { person: me },
   people: {
     allByOrg: {
       [organization.id]: {
@@ -57,209 +53,214 @@ const store = createThunkStore({
       },
     },
   },
-});
-
-// @ts-ignore
-personSelector.mockReturnValue(person);
-// @ts-ignore
-navigateBack.mockReturnValue({ type: 'navigated back' });
-// @ts-ignore
-navigatePush.mockReturnValue({ type: 'navigated push' });
-// @ts-ignore
-assignContactAndPickStage.mockReturnValue({
-  type: 'assigned contact and picked stage',
-});
-
-// @ts-ignore
-let component;
-
-const createComponent = (extraProps = {}) => {
-  component = renderShallow(
-    <PersonSideMenu
-      navigation={createMockNavState({
-        person,
-        organization,
-        ...extraProps,
-      })}
-    />,
-    store,
-  );
 };
+
+beforeEach(() => {
+  (useDispatch as jest.Mock).mockReturnValue(jest.fn());
+  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
+  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigated push' });
+  (assignContactAndPickStage as jest.Mock).mockReturnValue({
+    type: 'assigned contact and picked stage',
+  });
+});
 
 describe('PersonSideMenu', () => {
   describe('person has org permission', () => {
-    // @ts-ignore
-    beforeEach(() => orgPermissionSelector.mockReturnValue(orgPermission));
+    beforeEach(() =>
+      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+        orgPermission,
+      ),
+    );
 
     describe('unassign', () => {
-      it('renders correctly', () => {
-        // @ts-ignore
-        contactAssignmentSelector.mockReturnValue(contactAssignment);
-        createComponent();
+      beforeEach(() => {
+        ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+          contactAssignment,
+        );
+      });
 
-        // @ts-ignore
-        expect(component).toMatchSnapshot();
+      it('renders correctly', () => {
+        renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        }).snapshot();
       });
 
       it('edit button works', () => {
-        // @ts-ignore
-        testEditClick(component);
+        const { getByTestId } = renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        });
+
+        const { menuItems } = getByTestId('SideMenu').props as {
+          menuItems: MenuItemsType[];
+        };
+        menuItems.filter(item => item.label === 'Edit')[0].action();
+        expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
+          person,
+          organization,
+        });
       });
 
       it('unassign button works', () => {
-        // @ts-ignore
-        testUnassignClick(component);
+        const { getByTestId } = renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        });
+
+        const { menuItems } = getByTestId('SideMenu').props as {
+          menuItems: MenuItemsType[];
+        };
+        menuItems.filter(item => item.label === 'Unassign')[0].action();
+        expect(navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
+          person,
+          organization,
+          contactAssignment,
+          onSubmit: expect.any(Function),
+        });
+      });
+
+      it('should navigate back 2 on submit reason', () => {
+        (navigatePush as jest.Mock).mockImplementation(
+          (_, { onSubmit }: { onSubmit: () => void }) => onSubmit(),
+        );
+
+        const { getByTestId } = renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        });
+
+        const { menuItems } = getByTestId('SideMenu').props as {
+          menuItems: MenuItemsType[];
+        };
+        menuItems.filter(item => item.label === 'Unassign')[0].action();
+        expect(navigateBack).toHaveBeenCalledWith(2);
       });
     });
 
     it('renders assign correctly', () => {
-      // @ts-ignore
-      contactAssignmentSelector.mockReturnValue(undefined);
-      createComponent();
+      beforeEach(() => {
+        ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+          undefined,
+        );
+      });
 
-      // @ts-ignore
-      expect(component).toMatchSnapshot();
-      // @ts-ignore
-      testEditClick(component);
-      // @ts-ignore
-      testAssignClick(component);
+      it('renders correctly', () => {
+        renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        }).snapshot();
+      });
+
+      it('edit button works', () => {
+        const { getByTestId } = renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        });
+
+        const { menuItems } = getByTestId('SideMenu').props as {
+          menuItems: MenuItemsType[];
+        };
+        menuItems.filter(item => item.label === 'Edit')[0].action();
+        expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
+          person,
+          organization,
+        });
+      });
+
+      it('assign button works', () => {
+        const { getByTestId } = renderWithContext(<PersonSideMenu />, {
+          initialState,
+          navParams: {
+            person,
+            organization,
+          },
+        });
+
+        const { menuItems } = getByTestId('SideMenu').props as {
+          menuItems: MenuItemsType[];
+        };
+        menuItems.filter(item => item.label === 'Assign')[0].action();
+        expect(assignContactAndPickStage).toHaveBeenCalledWith(
+          person,
+          organization,
+          me.id,
+        );
+      });
     });
 
     it('renders user-created correctly', () => {
       const newOrg = { ...organization, user_created: true };
-      createComponent({ organization: newOrg });
 
-      // @ts-ignore
-      expect(component).toMatchSnapshot();
-    });
-
-    it('should navigate back 2 on submit reason', () => {
-      createComponent();
-      // @ts-ignore
-      const instance = component.instance();
-      instance.onSubmitReason();
-      expect(navigateBack).toHaveBeenCalledWith(2);
+      renderWithContext(<PersonSideMenu />, {
+        initialState,
+        navParams: {
+          person,
+          organization: newOrg,
+        },
+      }).snapshot();
     });
   });
 
   describe('person does not have org permission', () => {
-    // @ts-ignore
-    beforeEach(() => orgPermissionSelector.mockReturnValue(null));
-
-    it('renders delete correctly', () => {
-      // @ts-ignore
-      contactAssignmentSelector.mockReturnValue(contactAssignment);
-
-      component = testSnapshotShallow(
-        <PersonSideMenu
-          navigation={createMockNavState({
-            person,
-          })}
-        />,
-        store,
+    beforeEach(() => {
+      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
+      ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
+        contactAssignment,
       );
     });
 
-    it('should set deleteOnUnmount when person confirms delete', () => {
-      // @ts-ignore
-      contactAssignmentSelector.mockReturnValue(contactAssignment);
-      component = renderShallow(
-        <PersonSideMenu
-          navigation={createMockNavState({
-            person,
-          })}
-        />,
-        store,
-      );
-      const props = component.props();
+    it('renders delete correctly', () => {
+      renderWithContext(<PersonSideMenu />, {
+        initialState,
+        navParams: { person },
+      }).snapshot();
+    });
+
+    it('should delete on unmount when person confirms delete', () => {
       Alert.alert = jest.fn();
 
-      // @ts-ignore
-      props.menuItems.find(item => item.label === 'Delete Person').action();
+      const { getByTestId, unmount } = renderWithContext(<PersonSideMenu />, {
+        initialState,
+        navParams: { person },
+      });
+
+      const { menuItems } = getByTestId('SideMenu').props as {
+        menuItems: MenuItemsType[];
+      };
+      menuItems.filter(item => item.label === 'Delete Person')[0].action();
 
       expect(Alert.alert).toHaveBeenCalledTimes(1);
       //Manually call onPress
-      // @ts-ignore
-      Alert.alert.mock.calls[0][2][1].onPress();
-      // @ts-ignore
-      expect(component.instance().deleteOnUnmount).toEqual(true);
+      (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
       expect(navigateBack).toHaveBeenCalledWith(2);
-    });
 
-    describe('componentWillUnmount', () => {
-      beforeEach(() =>
-        // @ts-ignore
-        deleteContactAssignment.mockImplementation(response => () =>
-          Promise.resolve(response),
-        ),
+      unmount();
+
+      expect(deleteContactAssignment).toHaveBeenCalledWith(
+        contactAssignment.id,
+        person.id,
+        organization.id,
       );
-
-      it('should delete person if deleteOnUnmount is set', async () => {
-        createComponent();
-        // @ts-ignore
-        const instance = component.instance();
-        instance.deleteOnUnmount = true;
-
-        await instance.componentWillUnmount();
-
-        expect(deleteContactAssignment).toHaveBeenCalledWith(
-          contactAssignment.id,
-          person.id,
-          organization.id,
-        );
-      });
-
-      it('should do nothing if deleteOnUnmount is not set', async () => {
-        // @ts-ignore
-        contactAssignmentSelector.mockReturnValue(contactAssignment);
-        createComponent();
-        // @ts-ignore
-        const instance = component.instance();
-
-        await instance.componentWillUnmount();
-
-        expect(deleteContactAssignment).not.toHaveBeenCalled();
-      });
     });
   });
 });
-
-// @ts-ignore
-function testEditClick(component, org = organization) {
-  const props = component.props();
-  // @ts-ignore
-  props.menuItems.filter(item => item.label === 'Edit')[0].action();
-  expect(navigatePush).toHaveBeenCalledTimes(1);
-  expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
-    person,
-    organization: org,
-  });
-}
-
-// @ts-ignore
-function testAssignClick(component) {
-  const props = component.props();
-  // @ts-ignore
-  props.menuItems.filter(item => item.label === 'Assign')[0].action();
-  expect(assignContactAndPickStage).toHaveBeenCalledWith(
-    person,
-    organization,
-    me.id,
-  );
-}
-
-// @ts-ignore
-function testUnassignClick(component) {
-  const props = component.props();
-  const onSubmit = component.instance().onSubmitReason;
-
-  // @ts-ignore
-  props.menuItems.filter(item => item.label === 'Unassign')[0].action();
-  expect(navigatePush).toHaveBeenCalledTimes(1);
-  expect(navigatePush).toHaveBeenCalledWith(STATUS_REASON_SCREEN, {
-    person,
-    organization,
-    contactAssignment,
-    onSubmit,
-  });
-}

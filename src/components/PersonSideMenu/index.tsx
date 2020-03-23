@@ -33,7 +33,6 @@ interface PersonSideMenuProps {
   person: Person;
   contactAssignment: { id: string };
   organization?: Organization;
-  personIsCurrentUser: boolean;
   orgPermission: { id: string };
 }
 
@@ -85,7 +84,6 @@ const PersonSideMenu = ({
             text: t('delete'),
             style: 'destructive',
             onPress: () => {
-              // @ts-ignore
               setDeleteOnUnmount(true);
               dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
             },
@@ -141,7 +139,7 @@ const PersonSideMenu = ({
       : null,
   ].filter(Boolean) as MenuItemsType[];
 
-  return <SideMenu menuItems={menuItems} />;
+  return <SideMenu testID="SideMenu" menuItems={menuItems} />;
 };
 
 const mapStateToProps = (
@@ -152,11 +150,8 @@ const mapStateToProps = (
         params: { person, organization },
       },
     },
-  }: {
-    navigation: {
-      state: { params: { person: Person; organization: Organization } };
-    };
-  },
+  }: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  any,
 ) => {
   const selectorPerson =
     personSelector(
