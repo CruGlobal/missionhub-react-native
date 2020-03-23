@@ -1,11 +1,10 @@
 /* eslint max-lines: 0 */
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { StatusBar, View } from 'react-native';
 import i18next from 'i18next';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
-import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
@@ -21,17 +20,24 @@ import { Flex, IconButton, Text } from '../../../components/common';
 import {
   contactAssignmentSelector,
   personSelector,
+  orgPermissionSelector,
 } from '../../../selectors/people';
 import GroupsPersonHeader from '../../../components/GroupsPersonHeader/index';
 import { organizationSelector } from '../../../selectors/organizations';
-import { getPersonDetails } from '../../../actions/person';
 import PathwayStageDisplay from '../../PathwayStageDisplay';
 import {
-  keyboardShow,
-  keyboardHide,
   buildTrackingObj,
   orgIsCru,
+  hasOrgPermissions,
 } from '../../../utils/common';
+import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
+import { Person, PeopleState } from '../../../reducers/people';
+import { Stage, StagesState } from '../../../reducers/stages';
+import { AuthState } from '../../../reducers/auth';
+import {
+  Organization,
+  OrganizationsState,
+} from '../../../reducers/organizations';
 import theme from '../../../theme';
 
 import styles from './styles';
@@ -75,10 +81,13 @@ const personSteps = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <ContactSteps organization={organization} person={person} />,
 };
 const personNotes = {
@@ -87,12 +96,14 @@ const personNotes = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
-        params: { organization, person },
+        params: { person },
       },
     },
-    // @ts-ignore
-  }) => <ContactNotes organization={organization} person={person} />,
+  }: {
+    navigation: {
+      state: { params: { person: Person } };
+    };
+  }) => <ContactNotes person={person} />,
 };
 const personJourney = {
   name: i18next.t('personTabs:ourJourney'),
@@ -100,10 +111,13 @@ const personJourney = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <ContactJourney organization={organization} person={person} />,
 };
 const memberImpact = {
@@ -112,10 +126,13 @@ const memberImpact = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <ImpactView orgId={organization.id} person={person} />,
 };
 const memberCelebrate = {
@@ -124,10 +141,13 @@ const memberCelebrate = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <MemberCelebrate organization={organization} person={person} />,
 };
 const assignedContacts = {
@@ -136,10 +156,13 @@ const assignedContacts = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <MemberContacts organization={organization} person={person} />,
 };
 const myJourney = {
@@ -148,10 +171,13 @@ const myJourney = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <ContactJourney organization={organization} person={person} />,
 };
 const myImpact = {
@@ -160,10 +186,13 @@ const myImpact = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
+  }: {
+    navigation: {
+      state: { params: { organization: Organization; person: Person } };
+    };
   }) => <ImpactView orgId={organization.id} person={person} />,
 };
 
@@ -183,159 +212,134 @@ const ME_PERSONAL_TABS = [personSteps, personNotes, myJourney, memberImpact];
 const IS_GROUPS_ME_COMMUNITY_TABS = [memberCelebrate, myImpact];
 const ME_COMMUNITY_TABS = [myImpact];
 
-export class AssignedPersonScreen extends Component {
-  state = { keyboardVisible: false };
-
-  componentDidMount() {
-    // @ts-ignore
-    const { person, organization = {} } = this.props;
-    // @ts-ignore
-    this.props.dispatch(getPersonDetails(person.id, organization.id));
-
-    // @ts-ignore
-    this.keyboardShowListener = keyboardShow(this.keyboardShow);
-    // @ts-ignore
-    this.keyboardHideListener = keyboardHide(this.keyboardHide);
-  }
-
-  componentWillUnmount() {
-    // @ts-ignore
-    this.keyboardShowListener.remove();
-    // @ts-ignore
-    this.keyboardHideListener.remove();
-  }
-
-  keyboardShow = () => {
-    this.setState({ keyboardVisible: true });
-  };
-
-  keyboardHide = () => {
-    this.setState({ keyboardVisible: false });
-  };
-
-  openDrawer = () => {
-    // @ts-ignore
-    this.props.dispatch(
-      DrawerActions.openDrawer({ drawer: PERSON_MENU_DRAWER }),
-    );
-  };
-
-  render() {
-    const { keyboardVisible } = this.state;
-    const {
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      person,
-      // @ts-ignore
-      organization,
-      // @ts-ignore
-      isMember,
-      // @ts-ignore
-      contactAssignment,
-      // @ts-ignore
-      myId,
-      // @ts-ignore
-      myStageId,
-      // @ts-ignore
-      stages,
-      // @ts-ignore
-      isCruOrg,
-    } = this.props;
-
-    // If the keyboard is up, show the person's name and the organization
-    const name = person.first_name || '';
-
-    return (
-      <View style={styles.container}>
-        <StatusBar {...theme.statusBar.lightContent} />
-        <Header
-          left={<BackButton />}
-          right={
-            <IconButton
-              name="moreIcon"
-              type="MissionHub"
-              onPress={this.openDrawer}
-            />
-          }
-          title={keyboardVisible ? name : organization.name}
-          title2={keyboardVisible ? organization.name : undefined}
-        />
-        <Flex
-          style={[
-            styles.wrap,
-            // Hide this whole section when the keyboard is up
-            keyboardVisible ? { height: 0, paddingVertical: 0 } : undefined,
-          ]}
-          align="center"
-          justify="center"
-          self="stretch"
-        >
-          <Text style={styles.name}>{name}</Text>
-          {isCruOrg ? (
-            <PathwayStageDisplay orgId={organization.id} person={person} />
-          ) : null}
-          <GroupsPersonHeader
-            // @ts-ignore
-            isVisible={!keyboardVisible}
-            isMember={isMember}
-            contactAssignment={contactAssignment}
-            person={person}
-            dispatch={dispatch}
-            organization={organization}
-            myId={myId}
-            myStageId={myStageId}
-            stages={stages}
-            isCruOrg={isCruOrg}
-          />
-        </Flex>
-      </View>
-    );
-  }
+interface AssignedPersonScreenProps {
+  person: Person;
+  organization: Organization;
+  contactAssignment: { id: string };
+  orgPermission: { id: string };
+  stages: Stage[];
+  myId: string;
+  myStageId: string;
 }
 
-// @ts-ignore
-AssignedPersonScreen.propTypes = {
-  person: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    first_name: PropTypes.string.isRequired,
-  }).isRequired,
-  organization: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  }),
+export const AssignedPersonScreen = ({
+  person,
+  organization,
+  contactAssignment,
+  orgPermission,
+  stages,
+  myId,
+  myStageId,
+}: AssignedPersonScreenProps) => {
+  const dispatch = useDispatch();
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+  useKeyboardListeners({
+    onShow: () => setKeyboardVisible(true),
+    onHide: () => setKeyboardVisible(false),
+  });
+
+  const openDrawer = () => {
+    dispatch(DrawerActions.openDrawer({ drawer: PERSON_MENU_DRAWER }));
+  };
+
+  // If the keyboard is up, show the person's name and the organization
+  const name = person.first_name || '';
+
+  const isCruOrg = orgIsCru(organization);
+  const isMember = hasOrgPermissions(orgPermission);
+
+  return (
+    <View style={styles.container}>
+      <StatusBar {...theme.statusBar.lightContent} />
+      <Header
+        left={<BackButton />}
+        right={
+          <IconButton name="moreIcon" type="MissionHub" onPress={openDrawer} />
+        }
+        title={keyboardVisible ? name : organization.name}
+        title2={keyboardVisible ? organization.name : undefined}
+      />
+      <Flex
+        style={[
+          styles.wrap,
+          // Hide this whole section when the keyboard is up
+          keyboardVisible ? { height: 0, paddingVertical: 0 } : undefined,
+        ]}
+        align="center"
+        justify="center"
+        self="stretch"
+      >
+        <Text style={styles.name}>{name}</Text>
+        {isCruOrg ? (
+          <PathwayStageDisplay orgId={organization.id} person={person} />
+        ) : null}
+        <GroupsPersonHeader
+          isVisible={!keyboardVisible}
+          isMember={isMember}
+          contactAssignment={contactAssignment}
+          person={person}
+          dispatch={dispatch}
+          organization={organization}
+          myId={myId}
+          myStageId={myStageId}
+          stages={stages}
+          isCruOrg={isCruOrg}
+        />
+      </Flex>
+    </View>
+  );
 };
 
 export const mapStateToProps = (
-  // @ts-ignore
-  { people, auth, stages, organizations },
-  // @ts-ignore
-  { navigation },
+  {
+    people,
+    auth,
+    stages,
+    organizations,
+  }: {
+    people: PeopleState;
+    auth: AuthState;
+    stages: StagesState;
+    organizations: OrganizationsState;
+  },
+  {
+    navigation: {
+      state: {
+        params: { person, organization },
+      },
+    },
+  }: {
+    navigation: {
+      state: { params: { person: Person; organization: Organization } };
+    };
+  },
 ) => {
-  const navParams = navigation.state.params || {};
-  const { person: navPerson = {}, organization: navOrg = {} } = navParams;
-  const orgId = navOrg.id || 'personal';
-  const personId = navPerson.id;
+  const orgId = organization.id || 'personal';
+  const personId = person.id;
 
-  const organization =
-    organizationSelector({ organizations }, { orgId }) || navOrg;
-  const person = personSelector({ people }, { orgId, personId }) || navPerson;
+  const selectorOrg =
+    organizationSelector({ organizations }, { orgId }) || organization;
+  const selectorPerson =
+    personSelector({ people }, { orgId, personId }) || person;
 
   const contactAssignment = contactAssignmentSelector(
     { auth },
     { person, orgId: organization.id },
   );
+  const orgPermission = orgPermissionSelector(
+    {},
+    { person: selectorPerson, organization: selectorOrg },
+  );
   const authPerson = auth.person;
 
   return {
-    ...navParams,
     contactAssignment,
+    orgPermission,
     person,
     organization,
     stages: stages.stages,
     myId: authPerson.id,
     myStageId: authPerson.user.pathway_stage_id,
-    isCruOrg: orgIsCru(organization),
   };
 };
 
@@ -378,7 +382,6 @@ export const IsGroupsMeCommunityPersonScreen = generateSwipeTabMenuNavigator(
   connectedPersonScreen,
   true,
 );
-// @ts-ignore
 export const MeCommunityPersonScreen = generateSwipeTabMenuNavigator(
   ME_COMMUNITY_TABS,
   connectedPersonScreen,
