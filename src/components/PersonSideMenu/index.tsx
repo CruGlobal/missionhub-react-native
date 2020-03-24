@@ -31,15 +31,15 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 
 interface PersonSideMenuProps {
   person: Person;
-  contactAssignment: { id: string };
   organization?: Organization;
-  orgPermission: { id: string };
+  contactAssignment: { id: string };
+  orgPermission?: { id: string };
 }
 
 const PersonSideMenu = ({
   person,
-  contactAssignment,
   organization,
+  contactAssignment,
   orgPermission,
 }: PersonSideMenuProps) => {
   const { t } = useTranslation('contactSideMenu');
@@ -63,7 +63,7 @@ const PersonSideMenu = ({
   };
 
   useEffect(() => {
-    return onUnmount();
+    return onUnmount;
   }, []);
 
   const onSubmitReason = () => dispatch(navigateBack(2));
@@ -166,13 +166,16 @@ const mapStateToProps = (
       { auth },
       { person: selectorPerson, orgId: organization.id },
     ),
-    orgPermission: orgPermissionSelector(
-      {},
-      {
-        person: selectorPerson,
-        organization: { id: organization.id },
-      },
-    ),
+    orgPermission:
+      (organization &&
+        orgPermissionSelector(
+          {},
+          {
+            person: selectorPerson,
+            organization,
+          },
+        )) ||
+      undefined,
   };
 };
 

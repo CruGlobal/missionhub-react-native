@@ -290,26 +290,22 @@ export function getPagination(action, currentLength) {
 
 //showing assign/unassign buttons on side menu
 export function showAssignButton(
-  // @ts-ignore
-  isCruOrg,
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  contactAssignment,
+  isCruOrg: boolean,
+  personIsCurrentUser: boolean,
+  contactAssignment: { id: string },
 ) {
   return isCruOrg && !personIsCurrentUser && !contactAssignment;
 }
-// @ts-ignore
-export function showUnassignButton(isCruOrg, contactAssignment) {
+export function showUnassignButton(
+  isCruOrg: boolean,
+  contactAssignment: { id: string },
+) {
   return isCruOrg && contactAssignment;
 }
 export function showDeleteButton(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  contactAssignment,
-  // @ts-ignore
-  orgPermission,
+  personIsCurrentUser: boolean,
+  contactAssignment: { id: string },
+  orgPermission?: { id: string },
 ) {
   return !personIsCurrentUser && contactAssignment && !orgPermission;
 }
