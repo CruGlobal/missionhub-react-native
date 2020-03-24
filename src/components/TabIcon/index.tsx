@@ -17,14 +17,14 @@ interface TabIconProps {
 }
 
 const TabIcon = ({ name, tintColor }: TabIconProps) => {
-  const { data: { communities: { nodes = [] } = {} } = {} } = useQuery<
+  const { data: { unreadCommentsCount = 0 } = {} } = useQuery<
     getUnreadCommentsCount
   >(GET_UNREAD_COMMENTS_COUNT, {
     skip: name != 'group',
     pollInterval: 30000,
   });
 
-  const showNotification = nodes.some(n => n.unreadCommentsCount > 0);
+  const showNotification = unreadCommentsCount > 0;
 
   const icon = (
     <Icon

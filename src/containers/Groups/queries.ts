@@ -1,7 +1,5 @@
 import gql from 'graphql-tag';
 
-import { COMMUNITY_UNREAD_COMMENTS_FRAGMENT } from '../../components/TabIcon/queries';
-
 export const GET_COMMUNITIES_QUERY = gql`
   query GetCommunities($communityCursor: String) {
     globalCommunity {
@@ -16,9 +14,9 @@ export const GET_COMMUNITIES_QUERY = gql`
       after: $communityCursor
     ) {
       nodes {
-        ...CommunityUnreadComments
         id
         name
+        unreadCommentsCount
         userCreated
         communityPhotoUrl
         owner: people(permissions: [owner]) {
@@ -39,5 +37,4 @@ export const GET_COMMUNITIES_QUERY = gql`
       }
     }
   }
-  ${COMMUNITY_UNREAD_COMMENTS_FRAGMENT}
 `;
