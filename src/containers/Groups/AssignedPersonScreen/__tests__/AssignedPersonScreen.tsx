@@ -1,27 +1,22 @@
 import React from 'react';
 import { DrawerActions } from 'react-navigation-drawer';
-import { useDispatch } from 'react-redux';
 // @ts-ignore
 import { shallow } from 'enzyme/build/index';
 
-import { renderWithContext } from '../../../../../testUtils';
+import { renderShallow, testSnapshotShallow } from '../../../../../testUtils';
 import { PERSON_MENU_DRAWER } from '../../../../constants';
-import {
-  contactAssignmentSelector,
-  orgPermissionSelector,
-} from '../../../../selectors/people';
+import { contactAssignmentSelector } from '../../../../selectors/people';
+import { organizationSelector } from '../../../../selectors/organizations';
 import * as common from '../../../../utils/common';
 
 import {
-  connectedPersonScreen as AssignedPersonScreen,
+  AssignedPersonScreen,
+  mapStateToProps,
   CONTACT_PERSON_TABS,
   IS_USER_CREATED_MEMBER_PERSON_TABS,
   IS_GROUPS_MEMBER_PERSON_TABS,
 } from '..';
 
-jest.mock('react-redux', () => ({
-  useDispatch: jest.fn().mockReturnValue(jest.fn()),
-}));
 jest.mock('../../../../selectors/people');
 jest.mock('../../../../selectors/organizations');
 jest.mock('../../../../actions/navigation', () => ({
@@ -42,6 +37,7 @@ const nav = {
   },
 };
 
+const dispatch = jest.fn(response => Promise.resolve(response));
 // @ts-ignore
 DrawerActions.openDrawer = jest.fn();
 
@@ -50,13 +46,10 @@ const contactAssignment = {
   id: 'assignment1',
   pathway_stage_id: pathwayStage.id,
 };
-const orgPermission = {
-  id: 'orgPermission1',
-};
 const myId = '1000';
 const stages = [pathwayStage];
 
-const initialState = {
+const store = {
   people: {
     allByOrg: {
       [organization.id]: {
@@ -88,33 +81,50 @@ const props = {
 };
 
 beforeEach(() => {
-  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
-    contactAssignment,
-  );
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    orgPermission,
-  );
+  // @ts-ignore
+  contactAssignmentSelector.mockReturnValue(contactAssignment);
 });
 
 describe('Contact', () => {
+  it('should provide necessary props', () => {
+    // @ts-ignore
+    organizationSelector.mockReturnValue(undefined);
+    // @ts-ignore
+    common.orgIsCru.mockReturnValue(true);
+
+    // @ts-ignore
+    expect(mapStateToProps(store, nav)).toEqual({
+      organization,
+      person,
+      contactAssignment,
+      myId,
+      stages,
+      myStageId: pathwayStage.id,
+      isCruOrg: true,
+    });
+    expect(common.orgIsCru).toHaveBeenCalledWith(organization);
+  });
+
   it('should render AssignedPersonScreen correctly without stage', () => {
-    renderWithContext(<AssignedPersonScreen />, {
-      initialState,
-      navParams: {
-        person,
-        organization,
-      },
-    }).snapshot();
+    testSnapshotShallow(<AssignedPersonScreen {...props} />);
+  });
+
+  it('should render AssignedPersonScreen correctly with stage for cru community', () => {
+    testSnapshotShallow(
+      // @ts-ignore
+      <AssignedPersonScreen {...props} pathwayStage={{ name: 'stage 4' }} />,
+    );
   });
 
   it('should render AssignedPersonScreen correctly with stage for User-Created Community', () => {
-    renderWithContext(<AssignedPersonScreen />, {
-      initialState,
-      navParams: {
-        person,
-        organization: { ...organization, userCreated: true },
-      },
-    });
+    testSnapshotShallow(
+      <AssignedPersonScreen
+        {...props}
+        // @ts-ignore
+        pathwayStage={{ name: 'stage 4' }}
+        isCruOrg={false}
+      />,
+    );
   });
 
   it('should render contact tabs correctly', () => {
@@ -130,15 +140,15 @@ describe('Contact', () => {
   });
 
   it('opens side menu when menu button is pressed', () => {
-    const { getByTestId } = renderWithContext(<AssignedPersonScreen />, {
-      initialState,
-      navParams: {
-        person,
-        organization,
-      },
-    });
-
-    getByTestId('Header').props.right.props.onPress();
+    const component = renderShallow(
+      // @ts-ignore
+      <AssignedPersonScreen {...props} dispatch={dispatch} />,
+    );
+    component
+      .find('Header')
+      .props()
+      // @ts-ignore
+      .right.props.onPress();
 
     expect(DrawerActions.openDrawer).toHaveBeenCalledWith({
       drawer: PERSON_MENU_DRAWER,
@@ -146,7 +156,7 @@ describe('Contact', () => {
   });
 
   it('hides the header when the keyboard is shown', () => {
-    const { component } = shallow(<AssignedPersonScreen {...props} />);
+    const component = shallow(<AssignedPersonScreen {...props} />);
 
     component.setState({ keyboardVisible: true });
     expect(component).toMatchSnapshot();
