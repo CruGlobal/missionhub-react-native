@@ -250,6 +250,27 @@ describe('calls methods', () => {
   }).instance();
   beforeEach(() => {
     instance.updateField = jest.fn();
+    instance.isCurrentField = jest.fn();
+  });
+
+  it('calls changeFocusedField | firstName', () => {
+    instance.changeFocusedField('firstName');
+    expect(instance.updateField).toHaveBeenCalledWith(
+      'currentInputField',
+      'firstName',
+    );
+    instance.isCurrentField('firstName');
+    expect(instance.isCurrentField).toHaveBeenCalledWith('firstName');
+  });
+
+  it('calls changeFocusedField | lastName', () => {
+    instance.changeFocusedField('lastName');
+    expect(instance.updateField).toHaveBeenCalledWith(
+      'currentInputField',
+      'lastName',
+    );
+    instance.isCurrentField('lastName');
+    expect(instance.isCurrentField).toHaveBeenCalledWith('lastName');
   });
 
   it('calls first name ref', () => {

@@ -80,17 +80,19 @@ exports[`renders casey view correctly 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      First Name (Required)
-    </MyText>
+    />
     <Input
+      autoFocus={true}
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="firstNameInput"
     />
   </Flex>
@@ -105,17 +107,18 @@ exports[`renders casey view correctly 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      Last Name
-    </MyText>
+    />
     <Input
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="lastNameInput"
     />
   </Flex>
@@ -202,17 +205,19 @@ exports[`renders jean invite with organization and user and admin radio buttons 
           "marginTop": 15,
         }
       }
-    >
-      First Name (Required)
-    </MyText>
+    />
     <Input
+      autoFocus={true}
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="firstNameInput"
     />
   </Flex>
@@ -227,17 +232,18 @@ exports[`renders jean invite with organization and user and admin radio buttons 
           "marginTop": 15,
         }
       }
-    >
-      Last Name
-    </MyText>
+    />
     <Input
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="lastNameInput"
     />
   </Flex>
@@ -372,17 +378,19 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      First Name (Required)
-    </MyText>
+    />
     <Input
+      autoFocus={true}
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="firstNameInput"
     />
   </Flex>
@@ -397,17 +405,18 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      Last Name
-    </MyText>
+    />
     <Input
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="lastNameInput"
     />
   </Flex>
@@ -626,17 +635,19 @@ exports[`renders jean with organization and user radio buttons 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      First Name (Required)
-    </MyText>
+    />
     <Input
+      autoFocus={true}
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="firstNameInput"
     />
   </Flex>
@@ -651,17 +662,18 @@ exports[`renders jean with organization and user radio buttons 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      Last Name
-    </MyText>
+    />
     <Input
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="lastNameInput"
     />
   </Flex>
@@ -880,17 +892,19 @@ exports[`renders jean with organization view correctly 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      First Name (Required)
-    </MyText>
+    />
     <Input
+      autoFocus={true}
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="firstNameInput"
     />
   </Flex>
@@ -905,17 +919,18 @@ exports[`renders jean with organization view correctly 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      Last Name
-    </MyText>
+    />
     <Input
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="lastNameInput"
     />
   </Flex>
@@ -1134,17 +1149,19 @@ exports[`renders jean without organization view correctly 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      First Name (Required)
-    </MyText>
+    />
     <Input
+      autoFocus={true}
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="First Name (Required)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="firstNameInput"
     />
   </Flex>
@@ -1159,17 +1176,18 @@ exports[`renders jean without organization view correctly 1`] = `
           "marginTop": 15,
         }
       }
-    >
-      Last Name
-    </MyText>
+    />
     <Input
       blurOnSubmit={false}
       editable={true}
+      onBlur={[Function]}
       onChangeText={[Function]}
+      onFocus={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Last Name (optional)"
       placeholderTextColor="#ffffff"
       returnKeyType="next"
+      selectionColor="#3CC8E6"
       testID="lastNameInput"
     />
   </Flex>

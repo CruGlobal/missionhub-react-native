@@ -78,6 +78,8 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
 
   const removeUneditedFields = () => {
     const saveData = person;
+    // Remove currentInputField from saveData
+    delete saveData.currentInputField;
 
     if (person) {
       // Remove the first name if it's the same as before so we don't try to update it with the API

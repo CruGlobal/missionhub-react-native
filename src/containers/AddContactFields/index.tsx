@@ -29,6 +29,7 @@ class AddContactFields extends Component {
     phone: '',
     gender: null,
     orgPermission: {},
+    currentInputField: '',
   };
 
   componentDidMount() {
@@ -87,8 +88,11 @@ class AddContactFields extends Component {
     }
   }
 
-  // @ts-ignore
-  updateOrgPermission = pId => {
+  changeFocusedField = (field: string) => {
+    this.updateField('currentInputField', field);
+  };
+
+  updateOrgPermission = (pId: string) => {
     this.updateField('orgPermission', {
       ...this.state.orgPermission,
       permission_id: pId,
@@ -159,12 +163,15 @@ class AddContactFields extends Component {
       phone,
       gender,
       orgPermission,
+      currentInputField,
     } = this.state;
 
     // @ts-ignore
     const selectedOrgPermId = `${orgPermission.permission_id}`;
     // Email is required if the new person is going to be a user or admin for an organization
     const isEmailRequired = hasOrgPermissions(orgPermission);
+    // Check if current field is the one the user is focused on in order to change style
+    const isCurrentField = (field: string) => currentInputField === field;
 
     // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
     const personHasOrgPermission = hasOrgPermissions(personOrgPermission);
@@ -180,34 +187,59 @@ class AddContactFields extends Component {
               </View>
             )}
           </Flex>
-          <Text style={styles.label}>
-            {t('profileLabels.firstNameRequired')}
-          </Text>
+          {firstName || isCurrentField('firstName') ? (
+            <Text style={styles.label}>
+              {t('profileLabels.firstNameNickname')}
+            </Text>
+          ) : (
+            <Text style={styles.label}>{}</Text>
+          )}
+
           <Input
             testID="firstNameInput"
             ref={this.firstNameRef}
             editable={!personHasOrgPermission}
+            selectionColor={theme.challengeBlue}
             onChangeText={this.updateFirstName}
             value={firstName}
-            placeholder={t('profileLabels.firstNameRequired')}
+            placeholder={
+              isCurrentField('firstName')
+                ? ''
+                : t('profileLabels.firstNameRequired')
+            }
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
+            autoFocus={true}
+            onFocus={() => this.changeFocusedField('firstName')}
+            onBlur={() => this.changeFocusedField('')}
             onSubmitEditing={this.lastNameFocus}
           />
         </Flex>
         <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
+          {lastName || isCurrentField('lastName') ? (
+            <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
+          ) : (
+            <Text style={styles.label}>{}</Text>
+          )}
+
           <Input
             testID="lastNameInput"
             ref={this.lastNameRef}
             editable={!personHasOrgPermission}
+            selectionColor={theme.challengeBlue}
             onChangeText={this.updateLastName}
             value={lastName}
-            placeholder={t('profileLabels.lastNameOptional')}
+            placeholder={
+              isCurrentField('lastName')
+                ? ''
+                : t('profileLabels.lastNameOptional')
+            }
             placeholderTextColor={theme.white}
             returnKeyType="next"
             blurOnSubmit={false}
+            onFocus={() => this.changeFocusedField('lastName')}
+            onBlur={() => this.changeFocusedField('')}
             onSubmitEditing={this.emailFocus}
           />
         </Flex>

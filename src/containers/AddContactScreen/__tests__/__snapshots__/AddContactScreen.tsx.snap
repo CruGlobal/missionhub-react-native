@@ -5,7 +5,7 @@ exports[`handleUpdateData should update the state 1`] = `
 - First value
 + Second value
 
-@@ -238,11 +238,11 @@
+@@ -240,11 +240,11 @@
                     Object {},
                   ]
                 }
@@ -235,17 +235,19 @@ exports[`renders correctly 1`] = `
             <TextInput
               allowFontScaling={true}
               autoCorrect={false}
-              autoFocus={false}
+              autoFocus={true}
               blurOnSubmit={false}
               editable={true}
               multiline={false}
+              onBlur={[Function]}
               onChangeText={[Function]}
+              onFocus={[Function]}
               onSubmitEditing={[Function]}
               placeholder="First Name (Required)"
               placeholderTextColor="#ffffff"
               rejectResponderTermination={true}
               returnKeyType="next"
-              selectionColor="#005A7F"
+              selectionColor="#3CC8E6"
               style={
                 Array [
                   Object {
@@ -292,9 +294,7 @@ exports[`renders correctly 1`] = `
                   },
                 ]
               }
-            >
-              Last Name
-            </Text>
+            />
             <TextInput
               allowFontScaling={true}
               autoCorrect={false}
@@ -302,13 +302,15 @@ exports[`renders correctly 1`] = `
               blurOnSubmit={false}
               editable={true}
               multiline={false}
+              onBlur={[Function]}
               onChangeText={[Function]}
+              onFocus={[Function]}
               onSubmitEditing={[Function]}
               placeholder="Last Name (optional)"
               placeholderTextColor="#ffffff"
               rejectResponderTermination={true}
               returnKeyType="next"
-              selectionColor="#005A7F"
+              selectionColor="#3CC8E6"
               style={
                 Array [
                   Object {
@@ -422,7 +424,22 @@ exports[`savePerson add new person with org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -238,10 +238,11 @@
+@@ -204,11 +204,13 @@
+                      \\"fontSize\\": 13,
+                      \\"marginTop\\": 15,
+                    },
+                  ]
+                }
+-             />
++             >
++               First Name (Required)
++             </Text>
+              <TextInput
+                allowFontScaling={true}
+                autoCorrect={false}
+                autoFocus={true}
+                blurOnSubmit={false}
+@@ -238,10 +240,11 @@
                     Object {},
                   ]
                 }
@@ -434,7 +451,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -350,14 +351,11 @@
+@@ -350,14 +353,11 @@
                 Object {
                   \\"alignItems\\": \\"center\\",
                   \\"height\\": 48,
@@ -450,7 +467,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -380,14 +378,11 @@
+@@ -380,14 +380,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -473,7 +490,22 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -238,10 +238,11 @@
+@@ -204,11 +204,13 @@
+                      \\"fontSize\\": 13,
+                      \\"marginTop\\": 15,
+                    },
+                  ]
+                }
+-             />
++             >
++               First Name (Required)
++             </Text>
+              <TextInput
+                allowFontScaling={true}
+                autoCorrect={false}
+                autoFocus={true}
+                blurOnSubmit={false}
+@@ -238,10 +240,11 @@
                     Object {},
                   ]
                 }
@@ -485,7 +517,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -350,14 +351,11 @@
+@@ -350,14 +353,11 @@
                 Object {
                   \\"alignItems\\": \\"center\\",
                   \\"height\\": 48,
@@ -501,7 +533,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -380,14 +378,11 @@
+@@ -380,14 +380,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -524,7 +556,22 @@ exports[`savePerson update existing person set last name to null should update p
 - First value
 + Second value
 
-@@ -301,11 +301,11 @@
+@@ -269,13 +269,11 @@
+                      \\"fontSize\\": 13,
+                      \\"marginTop\\": 15,
+                    },
+                  ]
+                }
+-             >
+-               Last Name
+-             </Text>
++             />
+              <TextInput
+                allowFontScaling={true}
+                autoCorrect={false}
+                autoFocus={false}
+                blurOnSubmit={false}
+@@ -305,11 +303,11 @@
                     Object {},
                   ]
                 }
@@ -537,7 +584,7 @@ exports[`savePerson update existing person set last name to null should update p
           </View>
         </View>
       </View>
-@@ -352,11 +352,14 @@
+@@ -356,11 +354,14 @@
                 Object {
                   \\"alignItems\\": \\"center\\",
                   \\"height\\": 48,
@@ -553,7 +600,7 @@ exports[`savePerson update existing person set last name to null should update p
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -379,11 +382,14 @@
+@@ -383,11 +384,14 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -576,7 +623,7 @@ exports[`savePerson update existing person with org should update person and nav
 - First value
 + Second value
 
-@@ -238,11 +238,11 @@
+@@ -240,11 +240,11 @@
                     Object {},
                   ]
                 }
@@ -596,7 +643,7 @@ exports[`savePerson update existing person without org should update person and 
 - First value
 + Second value
 
-@@ -238,11 +238,11 @@
+@@ -240,11 +240,11 @@
                     Object {},
                   ]
                 }
