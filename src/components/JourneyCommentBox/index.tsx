@@ -1,18 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 
-import CommentBox from '../CommentBox';
+import CommentBox, { ActionItem } from '../CommentBox';
 import { addNewInteraction } from '../../actions/interactions';
 import { INTERACTION_TYPES } from '../../constants';
+import { Person } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
 
-class JourneyCommentBox extends Component {
-  // @ts-ignore
-  submitInteraction = async (action, text) => {
-    // @ts-ignore
-    const { person, organization, dispatch, onSubmit } = this.props;
+interface JourneyCommentBoxProps {
+  person: Person;
+  organization: Organization | null;
+  onSubmit?: () => void;
+  showInteractions?: boolean;
+}
+
+const JourneyCommentBox = ({
+  person,
+  organization,
+  onSubmit,
+  showInteractions,
+}: JourneyCommentBoxProps) => {
+  const dispatch = useDispatch();
+
+  const submitInteraction = (action: ActionItem | null, text: string) => {
     const interaction = action || INTERACTION_TYPES.MHInteractionTypeNote;
 
-    await dispatch(
+    dispatch(
       addNewInteraction(
         person.id,
         interaction,
@@ -20,23 +34,16 @@ class JourneyCommentBox extends Component {
         organization ? organization.id : undefined,
       ),
     );
-
     onSubmit && onSubmit();
   };
 
-  render() {
-    // @ts-ignore
-    const { hideActions } = this.props;
-
-    return (
-      <CommentBox
-        // @ts-ignore
-        placeholderTextKey={'actions:commentBoxPlaceholder'}
-        onSubmit={this.submitInteraction}
-        hideActions={hideActions}
-      />
-    );
-  }
-}
+  return (
+    <CommentBox
+      placeholderTextKey={'actions:commentBoxPlaceholder'}
+      onSubmit={submitInteraction}
+      showInteractions={showInteractions}
+    />
+  );
+};
 
 export default connect()(JourneyCommentBox);

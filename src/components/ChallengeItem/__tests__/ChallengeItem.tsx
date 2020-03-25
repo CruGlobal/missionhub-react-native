@@ -18,8 +18,6 @@ MockDate.set(
 
 const organization = { id: '456' };
 const date = '2018-09-22';
-const acceptedChallenge = { id: 'a1', title: 'Accepted' };
-const completedChallenge = { ...acceptedChallenge, completed_at: date };
 const item = {
   id: '1',
   creator_id: 'person1',
@@ -31,6 +29,8 @@ const item = {
   isPast: false,
   created_at: '2018-09-01T12:00:00Z',
 };
+const acceptedChallenge = { ...item, id: 'a1', title: 'Accepted' };
+const completedChallenge = { ...acceptedChallenge, completed_at: date };
 const props = {
   item,
   onComplete: jest.fn(),
@@ -39,22 +39,18 @@ const props = {
 };
 
 it('render active challenge item', () => {
-  renderWithContext(<ChallengeItem {...props} />, {
-    noWrappers: true,
-  }).snapshot();
+  renderWithContext(<ChallengeItem {...props} />).snapshot();
 });
 
 it('render active and joined challenge item', () => {
   renderWithContext(
     <ChallengeItem {...props} acceptedChallenge={acceptedChallenge} />,
-    { noWrappers: true },
   ).snapshot();
 });
 
 it('render active and joined and completed challenge item', () => {
   renderWithContext(
     <ChallengeItem {...props} acceptedChallenge={completedChallenge} />,
-    { noWrappers: true },
   ).snapshot();
 });
 
@@ -72,7 +68,6 @@ it('render past challenge item', () => {
           .toString(),
       }}
     />,
-    { noWrappers: true },
   ).snapshot();
 });
 
@@ -83,7 +78,6 @@ it('render past and joined challenge item', () => {
       item={{ ...item, isPast: true }}
       acceptedChallenge={acceptedChallenge}
     />,
-    { noWrappers: true },
   ).snapshot();
 });
 
@@ -94,14 +88,12 @@ it('render past and joined and completed challenge item', () => {
       item={{ ...item, isPast: true }}
       acceptedChallenge={completedChallenge}
     />,
-    { noWrappers: true },
   ).snapshot();
 });
 
 it('should call onComplete from press', () => {
   const { getByTestId } = renderWithContext(
     <ChallengeItem {...props} acceptedChallenge={acceptedChallenge} />,
-    { noWrappers: true },
   );
 
   fireEvent.press(getByTestId('ChallengeItemActionButton'));
@@ -110,9 +102,7 @@ it('should call onComplete from press', () => {
 });
 
 it('should call onJoin from press', () => {
-  const { getByTestId } = renderWithContext(<ChallengeItem {...props} />, {
-    noWrappers: true,
-  });
+  const { getByTestId } = renderWithContext(<ChallengeItem {...props} />);
 
   fireEvent.press(getByTestId('ChallengeItemActionButton'));
 
@@ -120,9 +110,7 @@ it('should call onJoin from press', () => {
 });
 
 it('should call onSelect from press', () => {
-  const { getByTestId } = renderWithContext(<ChallengeItem {...props} />, {
-    noWrappers: true,
-  });
+  const { getByTestId } = renderWithContext(<ChallengeItem {...props} />);
 
   fireEvent.press(getByTestId('ChallengeItemSelectButton'));
 

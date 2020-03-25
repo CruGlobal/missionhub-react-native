@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
+import Analytics from '../Analytics';
 import ChallengeFeed from '../ChallengeFeed';
 import {
   getGroupChallengeFeed,
@@ -13,11 +14,11 @@ import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
 import { challengesSelector } from '../../selectors/challenges';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
-import Analytics from '../Analytics';
+import { ChallengeItem } from '../../components/ChallengeStats';
 
 import styles from './styles';
 
@@ -47,8 +48,7 @@ class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
-  // @ts-ignore
-  createChallenge = challenge => {
+  createChallenge = (challenge: ChallengeItem) => {
     // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(createChallenge(challenge, organization.id));
@@ -59,10 +59,8 @@ class GroupChallenges extends Component {
     const { dispatch } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        // @ts-ignore
-        onComplete: challenge => {
-          this.createChallenge(challenge);
-          dispatch(navigateBack());
+        onComplete: async (challenge: ChallengeItem) => {
+          await this.createChallenge(challenge);
         },
       }),
     );
@@ -81,7 +79,6 @@ class GroupChallenges extends Component {
         <Analytics screenName={['community', 'challenges']} />
         <View style={styles.cardList}>
           <ChallengeFeed
-            // @ts-ignore
             organization={organization}
             items={challengeItems}
             loadMoreItemsCallback={this.loadItems}

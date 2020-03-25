@@ -72,6 +72,10 @@ function authReducer(state = initialAuthState, action: any) {
         },
       };
     case REQUESTS.REFRESH_ANONYMOUS_LOGIN.SUCCESS:
+      // If an API call is slow and then FAILS, we refresh the anon login token. If a user logs out while that is happening, they could get stuck in an online state.
+      if (state.token === '') {
+        return state;
+      }
       return {
         ...state,
         token: results.token,
@@ -119,6 +123,10 @@ function authReducer(state = initialAuthState, action: any) {
         },
       };
     case UPDATE_TOKEN:
+      // If an API call is slow and then finishes after a user logs out, it would cause the user to be stuck in an online state. This will prevent that state from happening.
+      if (state.token === '') {
+        return state;
+      }
       return {
         ...state,
         token: action.token,
