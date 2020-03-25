@@ -1,12 +1,9 @@
 import React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 import moment, * as MomentTypes from 'moment';
-import { useTranslation } from 'react-i18next';
 
 import { momentUtc } from '../../utils/common';
 import Text from '../Text';
-import { TypeMap } from 'graphql/type/schema';
-import { types } from '@babel/core';
 
 function getMomentDate(date: string | Date) {
   if (typeof date === 'string' && date.indexOf('UTC') >= 0) {
@@ -49,7 +46,7 @@ const formats = {
   [dateFormat.dayTime]: 'ddd, lll',
 };
 
-const commentFormat = (date: moment.Moment, t: Function) =>
+const commentFormat = (date: moment.Moment) =>
   isToday(date)
     ? date.format(formats[dateFormat.timeOnly])
     : isYesterday(date)
@@ -77,6 +74,7 @@ interface DateComponentProps {
   date: string | Date;
   format?: dateFormat;
   relativeFormatting?: boolean;
+  commentFormatting?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
@@ -85,23 +83,15 @@ const DateComponent = ({
   date,
   format = dateFormat.dayTime,
   relativeFormatting = false,
+  commentFormatting = false,
   style,
 }: DateComponentProps) => {
-  const { t } = useTranslation();
-
   const momentDate = getMomentDate(date);
-  const finalFormat = relativeFormatting ? relativeFormat() : format;
-
-  //const text = ;
-
-  console.log(text);
-  /*if (format === relative) {
-    text = moment(getMomentDate(date)).calendar();
-  } else if (format === comment) {
-    text = formatComment(date, t);
-  } else {
-    text = getMomentDate(date).format(format);
-  }*/
+  const text = relativeFormatting
+    ? relativeFormat(momentDate)
+    : commentFormatting
+    ? commentFormat(momentDate)
+    : momentDate.format(formats[format]);
 
   return (
     <Text testID="Text" style={style}>
