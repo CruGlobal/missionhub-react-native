@@ -36,8 +36,9 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
     "@babel/runtime": "^7.7.4",
-    "@react-native-firebase/app": "^6.0.3",
-    "@react-native-firebase/dynamic-links": "^6.0.3",
+    "@react-native-firebase/app": "^6.3.4",
+    "@react-native-firebase/dynamic-links": "^6.3.4",
+    "@react-native-firebase/perf": "^6.3.4",
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
     "@types/qs": "^6.9.1",
     "@types/react-native-fbsdk": "^1.0.0",
