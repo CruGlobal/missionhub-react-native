@@ -39,7 +39,7 @@ const step = { id: '444', title: stepText };
 
 const initialState = {
   auth: { person: me },
-  onboarding: { personId: otherId },
+  onboarding: { personId: otherId, currentlyOnboarding: false },
   people: {
     allByOrg: {
       [orgId]: {

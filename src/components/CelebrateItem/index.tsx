@@ -99,6 +99,7 @@ const CelebrateItem = ({
       navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
         celebrationItem: event,
         onRefresh,
+        organization,
       }),
     );
 

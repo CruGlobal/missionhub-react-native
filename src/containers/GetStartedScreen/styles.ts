@@ -8,7 +8,10 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
   },
   content: {
+    paddingVertical: 36,
     paddingHorizontal: 60,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   headerTitle: {
     color: theme.secondaryColor,

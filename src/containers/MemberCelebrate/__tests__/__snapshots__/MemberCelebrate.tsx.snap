@@ -1,27 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberCelebrate renders correctly 1`] = `
-Array [
-  <Analytics
-    screenName={
-      Array [
-        "person",
-        "celebrate",
-      ]
+<CelebrateFeed
+  itemNamePressable={false}
+  organization={
+    Object {
+      "id": "123",
     }
-  />,
-  <CelebrateFeed
-    itemNamePressable={false}
-    organization={
-      Object {
-        "id": "123",
-      }
+  }
+  person={
+    Object {
+      "id": "1",
+      "organizational_permission": Array [
+        Object {
+          "organization_id": "123",
+          "permission_id": "3",
+        },
+      ],
     }
-    person={
-      Object {
-        "id": "1",
-      }
+  }
+/>
+`;
+
+exports[`MemberCelebrate renders correctly for me 1`] = `
+<CelebrateFeed
+  itemNamePressable={false}
+  organization={
+    Object {
+      "id": "123",
     }
-  />,
-]
+  }
+  person={
+    Object {
+      "id": "2",
+      "organizational_permission": Array [
+        Object {
+          "organization_id": "123",
+          "permission_id": "3",
+        },
+      ],
+    }
+  }
+/>
+`;
+
+exports[`MemberCelebrate renders correctly for me 2`] = `
+<CelebrateFeed
+  itemNamePressable={false}
+  organization={
+    Object {
+      "id": "123",
+    }
+  }
+  person={
+    Object {
+      "id": "1",
+      "organizational_permission": Array [
+        Object {
+          "organization_id": "123",
+          "permission_id": "3",
+        },
+      ],
+      "organizational_permissions": Array [
+        Object {
+          "organization_id": "123",
+          "permission_id": "3",
+        },
+      ],
+    }
+  }
+/>
 `;

@@ -143,14 +143,10 @@ exports[`renders isMe version correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "paddingVertical": 36,
+      }
     }
   >
     <Text
@@ -767,14 +763,10 @@ exports[`renders other person version correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "paddingVertical": 36,
+      }
     }
   >
     <View

@@ -69,6 +69,7 @@ const initialState = {
   organizations: { all: [] },
   stages: { stages: [] },
   steps: { suggestedForOthers: { '3': [{ id: '1' }] } },
+  onboarding: { currentlyOnboarding: false },
 };
 
 // @ts-ignore
