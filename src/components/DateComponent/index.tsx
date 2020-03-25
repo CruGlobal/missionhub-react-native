@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import { momentUtc } from '../../utils/common';
 import Text from '../Text';
+import { TypeMap } from 'graphql/type/schema';
+import { types } from '@babel/core';
 
 function getMomentDate(date: string | Date) {
   if (typeof date === 'string' && date.indexOf('UTC') >= 0) {
@@ -13,90 +15,85 @@ function getMomentDate(date: string | Date) {
   return moment(date);
 }
 
-function isYesterday(momentDate: MomentTypes.Moment) {
-  return momentDate.isSame(moment().subtract(1, 'days'), 'day');
+const isYesterday = (momentDate: MomentTypes.Moment) =>
+  momentDate.isSame(moment().subtract(1, 'days'), 'day');
+
+const isToday = (momentDate: moment.Moment) =>
+  momentDate.isSame(moment(), 'day');
+
+const inLastWeek = (momentDate: moment.Moment) =>
+  momentDate.isBetween(moment().subtract(7, 'days'), moment(), 'day', '[]');
+
+const inThisYear = (momentDate: moment.Moment) =>
+  momentDate.isSame(moment(), 'year');
+
+enum dateFormat {
+  dayOnly,
+  dayMonthDate,
+  fullDate,
+  monthDayYearAtTime,
+  monthDayAtTime,
+  dayAtTime,
+  timeOnly,
+  dayTime,
 }
 
-function isToday(momentDate: MomentTypes.Moment) {
-  return momentDate.isSame(moment(), 'day');
-}
+const formats = {
+  [dateFormat.dayOnly]: 'dddd',
+  [dateFormat.dayMonthDate]: 'dddd, MMMM D',
+  [dateFormat.fullDate]: 'dddd, MMMM D YYYY',
+  [dateFormat.monthDayYearAtTime]: 'MMMM D, YYYY @ h:mm A',
+  [dateFormat.monthDayAtTime]: 'MMMM D @ h:mm A',
+  [dateFormat.dayAtTime]: 'dddd @ h:mm A',
+  [dateFormat.timeOnly]: 'h:mm A',
+  [dateFormat.dayTime]: 'ddd, lll',
+};
 
-function inLastWeek(momentDate: MomentTypes.Moment) {
-  return momentDate.isBetween(
-    moment().subtract(7, 'days'),
-    moment(),
-    'day',
-    '[]',
-  );
-}
+const commentFormat = (date: moment.Moment, t: Function) =>
+  isToday(date)
+    ? date.format(formats[dateFormat.timeOnly])
+    : isYesterday(date)
+    ? `${date.calendar().split(' ')[0]} @ ${date.format(
+        formats[dateFormat.timeOnly],
+      )}`
+    : inLastWeek(date)
+    ? date.format(formats[dateFormat.dayAtTime])
+    : inThisYear(date)
+    ? date.format(formats[dateFormat.monthDayAtTime])
+    : date.format(formats[dateFormat.monthDayYearAtTime]);
 
-function formatComment(date: string | Date, t: Function) {
-  const momentDate = getMomentDate(date);
-  const now = moment();
-  if (isToday(momentDate)) {
-    return momentDate.format(DateConstants.Formats.timeOnly);
-  }
-  // Check if yesterday
-  if (isYesterday(momentDate)) {
-    return `${t('dates.yesterday')} @ ${momentDate.format(
-      DateConstants.Formats.timeOnly,
-    )}`;
-  }
-  // Check if within the last week
-  if (inLastWeek(momentDate)) {
-    return momentDate.format(DateConstants.Formats.dayAtTime);
-  }
-  if (momentDate.year() !== now.year()) {
-    return momentDate.format(DateConstants.Formats.monthDayYearAtTime);
-  }
-  return momentDate.format(DateConstants.Formats.monthDayAtTime);
-}
+const relativeFormat = (date: moment.Moment) =>
+  isToday(date)
+    ? date.calendar().split(' ')[0]
+    : isYesterday(date)
+    ? date.calendar().split(' ')[0]
+    : inLastWeek(date)
+    ? date.format(formats[dateFormat.dayOnly])
+    : inThisYear(date)
+    ? date.format(formats[dateFormat.dayMonthDate])
+    : date.format(formats[dateFormat.fullDate]);
 
 interface DateComponentProps {
   date: string | Date;
-  format?: string;
+  format?: dateFormat;
+  relativeFormatting?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
 
-const relativeFormat = (date: string | Date) => {
-  const today = moment();
-  const other = getMomentDate(date);
-  if (other.isSame(today, 'year')) {
-    if (inLastWeek(other)) {
-      if (isYesterday(other)) {
-        return DateConstants.yesterday;
-      }
-      if (isToday(other)) {
-        return DateConstants.today;
-      }
-      return DateConstants.Formats.dayOnly;
-    }
-    return DateConstants.Formats.dayMonthDate;
-  }
-  return DateConstants.Formats.fullDate;
-};
-
-const formats = {
-  dayOnly: 'dddd',
-  dayMonthDate: 'dddd, MMMM D',
-  fullDate: 'dddd, MMMM D YYYY',
-  monthDayYearAtTime: 'MMMM D, YYYY @ h:mm A',
-  monthDayAtTime: 'MMMM D @ h:mm A',
-  dayAtTime: 'dddd @ h:mm A',
-  timeOnly: 'h:mm A',
-};
-
 const DateComponent = ({
   date,
-  format = 'ddd, lll',
+  format = dateFormat.dayTime,
+  relativeFormatting = false,
   style,
 }: DateComponentProps) => {
   const { t } = useTranslation();
-  const { relative, yesterday, comment, today } = DateConstants;
 
-  let text;
-  text = moment(getMomentDate(date)).calendar();
+  const momentDate = getMomentDate(date);
+  const finalFormat = relativeFormatting ? relativeFormat() : format;
+
+  //const text = ;
+
   console.log(text);
   /*if (format === relative) {
     text = moment(getMomentDate(date)).calendar();
