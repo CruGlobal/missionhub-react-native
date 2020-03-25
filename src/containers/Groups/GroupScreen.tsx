@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
@@ -14,6 +15,7 @@ import { organizationSelector } from '../../selectors/organizations';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
 import theme from '../../theme';
+import { ParallaxTabMenu } from '../../components/ParallaxTabMenu';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -135,95 +137,111 @@ export const CRU_TABS = [
   {
     name: i18next.t('groupTabs:celebrate'),
     navigationAction: GROUP_CELEBRATE,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { orgId },
-        },
-      },
-    }) => <GroupCelebrate orgId={orgId} />,
+    render: ({ orgId }: { orgId: string }) => <GroupCelebrate orgId={orgId} />,
+    // component: ({
+    //   navigation: {
+    //     state: {
+    //       // @ts-ignore
+    //       params: { orgId },
+    //     },
+    //   },
+    // }) => <GroupCelebrate orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:challenges'),
     navigationAction: GROUP_CHALLENGES,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { orgId },
-        },
-      },
-    }) => <GroupChallenges orgId={orgId} />,
+    render: ({ orgId }: { orgId: string }) => <GroupChallenges orgId={orgId} />,
+    // component: ({
+    //   navigation: {
+    //     state: {
+    //       // @ts-ignore
+    //       params: { orgId },
+    //     },
+    //   },
+    // }) => <GroupChallenges orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:members'),
     navigationAction: GROUP_MEMBERS,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { orgId },
-        },
-      },
-    }) => <Members orgId={orgId} />,
+    render: ({ orgId }: { orgId: string }) => <Members orgId={orgId} />,
+    // component: ({
+    //   navigation: {
+    //     state: {
+    //       // @ts-ignore
+    //       params: { orgId },
+    //     },
+    //   },
+    // }) => <Members orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:impact'),
     navigationAction: GROUP_IMPACT,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { orgId },
-        },
-      },
-    }) => <ImpactView orgId={orgId} />,
+    render: ({ orgId }: { orgId: string }) => <ImpactView orgId={orgId} />,
+    // component: ({
+    //   navigation: {
+    //     state: {
+    //       // @ts-ignore
+    //       params: { orgId },
+    //     },
+    //   },
+    // }) => <ImpactView orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:contacts'),
     navigationAction: GROUP_CONTACTS,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { orgId },
-        },
-      },
-    }) => <Contacts orgId={orgId} />,
+    render: ({ orgId }: { orgId: string }) => <Contacts orgId={orgId} />,
+    // component: ({
+    //   navigation: {
+    //     state: {
+    //       // @ts-ignore
+    //       params: { orgId },
+    //     },
+    //   },
+    // }) => <Contacts orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:surveys'),
     navigationAction: GROUP_SURVEYS,
-    component: ({
-      navigation: {
-        state: {
-          // @ts-ignore
-          params: { orgId },
-        },
-      },
-    }) => <Surveys orgId={orgId} />,
+    render: ({ orgId }: { orgId: string }) => <Surveys orgId={orgId} />,
+
+    // component: ({
+    //   navigation: {
+    //     state: {
+    //       // @ts-ignore
+    //       params: { orgId },
+    //     },
+    //   },
+    // }) => <Surveys orgId={orgId} />,
   },
 ];
 export const USER_CREATED_TABS = CRU_TABS.slice(0, 4);
 export const GLOBAL_TABS = [CRU_TABS[0], CRU_TABS[1], CRU_TABS[3]];
 
 // @ts-ignore
-export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
-  CRU_TABS,
-  ConnectedGroupScreen,
+// export const groupScreenTabNavigator = generateSwipeTabMenuNavigator(
+//   CRU_TABS,
+//   ConnectedGroupScreen,
+// );
+// // @ts-ignore
+// export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
+//   USER_CREATED_TABS,
+//   ConnectedGroupScreen,
+// );
+// // @ts-ignore
+// export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
+//   GLOBAL_TABS,
+//   ConnectedGroupScreen,
+// );
+export const groupScreenTabNavigator = props => (
+  <ParallaxTabMenu {...props} tabs={CRU_TABS} />
 );
-// @ts-ignore
-export const userCreatedScreenTabNavigator = generateSwipeTabMenuNavigator(
-  USER_CREATED_TABS,
-  ConnectedGroupScreen,
+export const userCreatedScreenTabNavigator = (props: any) => (
+  <ParallaxTabMenu {...props} tabs={USER_CREATED_TABS} />
 );
-// @ts-ignore
-export const globalScreenTabNavigator = generateSwipeTabMenuNavigator(
-  GLOBAL_TABS,
-  ConnectedGroupScreen,
+// @ts-ignore	// @ts-ignore
+export const globalScreenTabNavigator = props => (
+  <ParallaxTabMenu {...props} tabs={GLOBAL_TABS} />
 );
-
 export const GROUP_SCREEN = 'nav/GROUP_SCREEN';
 export const USER_CREATED_GROUP_SCREEN = 'nav/USER_CREATED_GROUP_SCREEN';
 export const GLOBAL_GROUP_SCREEN = 'nav/GLOBAL_GROUP_SCREEN';

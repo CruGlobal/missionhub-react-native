@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { AppState, StatusBar } from 'react-native';
+import { AppState, StatusBar, AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
