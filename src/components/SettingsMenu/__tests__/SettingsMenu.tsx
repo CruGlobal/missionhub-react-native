@@ -25,10 +25,9 @@ it('renders correctly for authenticated user', () => {
     initialState: getState(false),
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    'menu',
-    ANALYTICS_SCREEN_TYPES.drawer,
-  );
+  expect(useAnalytics).toHaveBeenCalledWith('menu', {
+    screenType: ANALYTICS_SCREEN_TYPES.drawer,
+  });
 });
 
 it('renders correctly for try it now user', () => {
@@ -36,10 +35,9 @@ it('renders correctly for try it now user', () => {
     initialState: getState(true),
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(
-    'menu',
-    ANALYTICS_SCREEN_TYPES.drawer,
-  );
+  expect(useAnalytics).toHaveBeenCalledWith('menu', {
+    screenType: ANALYTICS_SCREEN_TYPES.drawer,
+  });
 });
 
 describe('menu items and links', () => {
