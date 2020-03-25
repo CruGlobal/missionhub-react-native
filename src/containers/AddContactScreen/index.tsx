@@ -78,9 +78,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
 
   const removeUneditedFields = () => {
     const saveData = person;
-    // Remove currentInputField from saveData
-    delete saveData.currentInputField;
-
     if (person) {
       // Remove the first name if it's the same as before so we don't try to update it with the API
       if (saveData.firstName === person.first_name) {
@@ -93,8 +90,8 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       ) {
         delete saveData.lastName;
       }
-      if (saveData.gender === person.gender) {
-        delete saveData.gender;
+      if (saveData.userGender === person.gender) {
+        delete saveData.userGender;
       }
 
       // Only remove the org permission if it's the same as the current persons org permission
@@ -179,6 +176,14 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     }
   };
 
+  const isDisabled = () => {
+    const saveData = person;
+    if (saveData.firstName === undefined) {
+      saveData.firstName = person.first_name;
+    }
+    return !saveData.firstName;
+  };
+
   return (
     <View style={styles.container}>
       <Header
@@ -195,7 +200,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         <AddContactFields
           // @ts-ignore
           testID="contactFields"
-          // @ts-ignore
           isMe={isMe}
           person={person}
           organization={organization}
@@ -206,7 +210,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       </ScrollView>
       <BottomButton
         testID="continueButton"
-        style={!person.firstName ? styles.disabledButton : null}
+        style={isDisabled() ? styles.disabledButton : null}
         onPress={savePerson}
         text={t('continue')}
       />

@@ -1,335 +1,477 @@
+/* eslint max-lines: 0 */
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { fireEvent } from 'react-native-testing-library';
 
+import { renderWithContext } from '../../../../testUtils';
 import { ORG_PERMISSIONS } from '../../../constants';
-import {
-  testSnapshotShallow,
-  renderShallow,
-  createThunkStore,
-} from '../../../../testUtils';
 import { orgPermissionSelector } from '../../../selectors/people';
 
 import AddContactFields from '..';
 
 jest.mock('../../../selectors/people');
 
-const mockStore = configureStore([thunk]);
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
-const state = { auth: { person: {} } };
-
-// @ts-ignore
-function buildScreen(props, builtStore) {
-  return renderShallow(
-    <AddContactFields onUpdateData={jest.fn()} {...props} />,
-    builtStore || createThunkStore(state),
-  );
-}
+const initialState = { auth: { person: {} } };
+const onUpdateData = jest.fn();
 
 beforeEach(() => {
-  // @ts-ignore
-  orgPermissionSelector.mockReturnValue(orgPermission);
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+    orgPermission,
+  );
 });
 
 it('renders casey view correctly', () => {
-  testSnapshotShallow(
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
       organization={null}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
     />,
-    mockStore(),
+    {
+      initialState,
+    },
   );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({});
 });
 
 it('renders jean without organization view correctly', () => {
-  testSnapshotShallow(
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
       isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
-      organization={{}}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
     />,
-    mockStore(),
+    {
+      initialState,
+    },
   );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: undefined,
+    emailId: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    orgPermission: {
+      permission_id: '',
+    },
+    phone: undefined,
+    phoneId: undefined,
+    userGender: undefined,
+  });
 });
 
 it('renders jean with organization view correctly', () => {
-  testSnapshotShallow(
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
       isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
       organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
     />,
-    mockStore({ auth: { person: {} } }),
+    {
+      initialState,
+    },
   );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: undefined,
+    emailId: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    orgPermission: {
+      permission_id: '',
+    },
+    phone: undefined,
+    phoneId: undefined,
+    userGender: undefined,
+  });
+});
+
+it('renders jean with organization view correctly | No person', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      isJean={true}
+      organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={undefined}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: '',
+    emailId: '',
+    firstName: '',
+    lastName: '',
+    orgPermission: {
+      permission_id: ORG_PERMISSIONS.CONTACT,
+    },
+    phone: '',
+    phoneId: '',
+    userGender: null,
+  });
+});
+
+it('renders jean with organization view correctly | No person and isGroupInvite', () => {
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+    permission_id: ORG_PERMISSIONS.ADMIN,
+  });
+
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      isJean={true}
+      isGroupInvite={true}
+      organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={undefined}
+    />,
+    {
+      initialState: {
+        auth: {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: '1',
+                permission_id: ORG_PERMISSIONS.ADMIN,
+              },
+            ],
+          },
+        },
+      },
+    },
+  );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: '',
+    emailId: '',
+    firstName: '',
+    lastName: '',
+    orgPermission: {
+      permission_id: ORG_PERMISSIONS.USER,
+    },
+    phone: '',
+    phoneId: '',
+    userGender: null,
+  });
 });
 
 it('renders jean with organization and user radio buttons', () => {
-  testSnapshotShallow(
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+    permission_id: ORG_PERMISSIONS.USER,
+  });
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
       isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
       organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
     />,
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.USER,
-            },
-          ],
+    {
+      initialState: {
+        auth: {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: '1',
+                permission_id: ORG_PERMISSIONS.USER,
+              },
+            ],
+          },
         },
       },
-    }),
+    },
   );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: undefined,
+    emailId: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    orgPermission: {
+      permission_id: '',
+    },
+    phone: undefined,
+    phoneId: undefined,
+    userGender: undefined,
+  });
 });
 
 it('renders jean with organization and user and admin radio buttons', () => {
-  testSnapshotShallow(
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+    permission_id: ORG_PERMISSIONS.ADMIN,
+  });
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
       isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
       organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
     />,
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
+    {
+      initialState: {
+        auth: {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: '1',
+                permission_id: ORG_PERMISSIONS.ADMIN,
+              },
+            ],
+          },
         },
       },
-    }),
+    },
   );
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: undefined,
+    emailId: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    orgPermission: {
+      permission_id: '',
+    },
+    phone: undefined,
+    phoneId: undefined,
+    userGender: undefined,
+  });
 });
 
 it('renders jean invite with organization and user and admin radio buttons', () => {
-  testSnapshotShallow(
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+    permission_id: ORG_PERMISSIONS.ADMIN,
+  });
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
       isJean={true}
       isGroupInvite={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
       organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
     />,
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
-        },
-      },
-    }),
-  );
-});
-
-it('mounts and calls update field', () => {
-  // @ts-ignore
-  const component = buildScreen({
-    isJean: true,
-    organization: { id: '1' },
-  });
-  const componentInstance = component.instance();
-  // @ts-ignore
-  componentInstance.updateField = jest.fn();
-  // @ts-ignore
-  componentInstance.componentDidMount();
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.CONTACT,
-  });
-});
-
-it('mounts invite from admin and calls update field', () => {
-  // @ts-ignore
-  orgPermissionSelector.mockReturnValue({
-    permission_id: ORG_PERMISSIONS.ADMIN,
-  });
-  const component = buildScreen(
     {
-      isJean: true,
-      isGroupInvite: true,
-      organization: { id: '1' },
-    },
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
+      initialState: {
+        auth: {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: '1',
+                permission_id: ORG_PERMISSIONS.ADMIN,
+              },
+            ],
+          },
         },
       },
-    }),
+    },
   );
-  const componentInstance = component.instance();
-  // @ts-ignore
-  componentInstance.updateField = jest.fn();
-  // @ts-ignore
-  componentInstance.componentDidMount();
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.USER,
+  snapshot();
+  expect(onUpdateData).toHaveBeenCalledWith({
+    email: undefined,
+    emailId: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    orgPermission: {
+      permission_id: '',
+    },
+    phone: undefined,
+    phoneId: undefined,
+    userGender: undefined,
   });
 });
 
-it('updates org permission', () => {
-  // @ts-ignore
-  const component = buildScreen({
-    isJean: true,
-    organization: { id: '1' },
-  });
-  const componentInstance = component.instance();
-  // @ts-ignore
-  componentInstance.updateField = jest.fn();
-  // @ts-ignore
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT);
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.CONTACT,
-  });
-  // @ts-ignore
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER);
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.USER,
-  });
-  // @ts-ignore
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN);
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
+it('updates org permission', async () => {
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
     permission_id: ORG_PERMISSIONS.ADMIN,
   });
+  const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+    <AddContactFields
+      isJean={true}
+      organization={{ id: '1' }}
+      onUpdateData={onUpdateData}
+      person={{ email_addresses: [], phone_numbers: [] }}
+    />,
+    {
+      initialState: {
+        auth: {
+          person: {
+            organizational_permissions: [
+              {
+                organization_id: '1',
+                permission_id: ORG_PERMISSIONS.ADMIN,
+              },
+            ],
+          },
+        },
+      },
+    },
+  );
+  recordSnapshot();
+  await fireEvent(getByTestId('userRadioButton'), 'onSelect');
+  diffSnapshot();
+  expect(onUpdateData).toHaveBeenCalled();
 });
 
 describe('calls methods', () => {
-  // @ts-ignore
-  const instance = buildScreen({
-    isJean: true,
-    organization: { id: '1' },
-  }).instance();
-  beforeEach(() => {
-    instance.updateField = jest.fn();
-    instance.isCurrentField = jest.fn();
-  });
-
-  it('calls changeFocusedField | firstName', () => {
-    instance.changeFocusedField('firstName');
-    expect(instance.updateField).toHaveBeenCalledWith(
-      'currentInputField',
-      'firstName',
+  it('calls update firstName and changeFocusedField', async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <AddContactFields
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{ email_addresses: [], phone_numbers: [] }}
+      />,
+      {
+        initialState,
+      },
     );
-    instance.isCurrentField('firstName');
-    expect(instance.isCurrentField).toHaveBeenCalledWith('firstName');
+    recordSnapshot();
+    await fireEvent(getByTestId('firstNameInput'), 'onFocus');
+    await fireEvent.changeText(getByTestId('firstNameInput'), 'Christian');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: 'Christian',
+      lastName: undefined,
+    });
   });
 
-  it('calls changeFocusedField | lastName', () => {
-    instance.changeFocusedField('lastName');
-    expect(instance.updateField).toHaveBeenCalledWith(
-      'currentInputField',
-      'lastName',
+  it('calls update lastName and changeFocusedField', async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <AddContactFields
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{ email_addresses: [], phone_numbers: [] }}
+      />,
+      {
+        initialState,
+      },
     );
-    instance.isCurrentField('lastName');
-    expect(instance.isCurrentField).toHaveBeenCalledWith('lastName');
+    recordSnapshot();
+    await fireEvent(getByTestId('lastNameInput'), 'onFocus');
+    await fireEvent.changeText(getByTestId('lastNameInput'), 'Huffman');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: undefined,
+      lastName: 'Huffman',
+    });
   });
 
-  it('calls first name ref', () => {
-    const ref = 'test';
-    instance.firstNameRef(ref);
-    expect(instance.firstName).toEqual(ref);
+  it('calls update email', async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <AddContactFields
+        isJean={true}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{ email_addresses: [], phone_numbers: [] }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    await fireEvent.changeText(getByTestId('emailInput'), 'test123@fake.com');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      email: 'test123@fake.com',
+      emailId: undefined,
+      firstName: undefined,
+      lastName: undefined,
+      orgPermission: {
+        permission_id: '',
+      },
+      phone: undefined,
+      phoneId: undefined,
+      userGender: undefined,
+    });
   });
-  it('calls last name ref', () => {
-    const ref = 'test';
-    instance.lastNameRef(ref);
-    expect(instance.lastName).toEqual(ref);
+
+  it('calls update phone', async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <AddContactFields
+        isJean={true}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{ email_addresses: [], phone_numbers: [] }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    await fireEvent.changeText(getByTestId('phoneInput'), '5555555555');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      email: undefined,
+      emailId: undefined,
+      firstName: undefined,
+      lastName: undefined,
+      orgPermission: {
+        permission_id: '',
+      },
+      phone: '5555555555',
+      phoneId: undefined,
+      userGender: undefined,
+    });
   });
-  it('calls email ref', () => {
-    const ref = 'test';
-    instance.emailRef(ref);
-    expect(instance.email).toEqual(ref);
+
+  it('calls update gender male', async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <AddContactFields
+        isJean={true}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{ email_addresses: [], phone_numbers: [] }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    await fireEvent(getByTestId('maleGenderButton'), 'onSelect');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      email: undefined,
+      emailId: undefined,
+      firstName: undefined,
+      lastName: undefined,
+      orgPermission: {
+        permission_id: '',
+      },
+      phone: undefined,
+      phoneId: undefined,
+      userGender: 'Male',
+    });
   });
-  it('calls phone ref', () => {
-    const ref = 'test';
-    instance.phoneRef(ref);
-    expect(instance.phone).toEqual(ref);
-  });
-  it('calls last name focus', () => {
-    instance.lastName = { focus: jest.fn() };
-    instance.lastNameFocus();
-    expect(instance.lastName.focus).toHaveBeenCalled();
-  });
-  it('calls email focus', () => {
-    instance.email = { focus: jest.fn() };
-    instance.emailFocus();
-    expect(instance.email.focus).toHaveBeenCalled();
-  });
-  it('calls phone focus', () => {
-    instance.phone = { focus: jest.fn() };
-    instance.phoneFocus();
-    expect(instance.phone.focus).toHaveBeenCalled();
-  });
-  it('calls update first name', () => {
-    instance.updateFirstName('test');
-    expect(instance.updateField).toHaveBeenCalledWith('firstName', 'test');
-  });
-  it('calls update last name', () => {
-    instance.updateLastName('test');
-    expect(instance.updateField).toHaveBeenCalledWith('lastName', 'test');
-  });
-  it('calls update email', () => {
-    instance.updateEmail('test');
-    expect(instance.updateField).toHaveBeenCalledWith('email', 'test');
-  });
-  it('calls update phone', () => {
-    instance.updatePhone('test');
-    expect(instance.updateField).toHaveBeenCalledWith('phone', 'test');
-  });
-  it('calls update gender male', () => {
-    instance.updateGenderMale();
-    expect(instance.updateField).toHaveBeenCalledWith('gender', 'Male');
-  });
-  it('calls update gender female', () => {
-    instance.updateGenderFemale();
-    expect(instance.updateField).toHaveBeenCalledWith('gender', 'Female');
+
+  it('calls update gender female', async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <AddContactFields
+        isJean={true}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{ email_addresses: [], phone_numbers: [] }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    await fireEvent(getByTestId('femaleGenderButton'), 'onSelect');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      email: undefined,
+      emailId: undefined,
+      firstName: undefined,
+      lastName: undefined,
+      orgPermission: {
+        permission_id: '',
+      },
+      phone: undefined,
+      phoneId: undefined,
+      userGender: 'Female',
+    });
   });
 });

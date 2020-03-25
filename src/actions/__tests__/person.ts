@@ -228,7 +228,7 @@ describe('updatePerson', () => {
       updatePerson({
         id: 1,
         firstName: 'Test Fname',
-        gender: 'Male',
+        userGender: 'Male',
       }),
     );
 

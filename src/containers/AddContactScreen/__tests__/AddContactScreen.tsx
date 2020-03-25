@@ -48,7 +48,6 @@ const trackScreenChangeResponse = { type: 'track screen change' };
 const nextResponse = { type: 'next' };
 const navigateBackResults = { type: 'navigate back' };
 const navigatePushResults = { type: 'navigate push' };
-
 const next = jest.fn();
 
 const initialState = {
@@ -325,7 +324,10 @@ describe('savePerson', () => {
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         expect(updatePerson).toHaveBeenCalledWith({
-          ...person,
+          id: contactId,
+          first_name: contactFName,
+          organization,
+          reverse_contact_assignments: [mockContactAssignment],
           assignToMe: true,
           lastName: '',
           last_name: 'someLastName',

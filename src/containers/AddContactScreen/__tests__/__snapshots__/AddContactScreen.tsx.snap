@@ -230,7 +230,7 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              First Name (Required)
+              First Name or Nickname
             </Text>
             <TextInput
               allowFontScaling={true}
@@ -432,7 +432,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 }
 -             />
 +             >
-+               First Name (Required)
++               First Name or Nickname
 +             </Text>
               <TextInput
                 allowFontScaling={true}
@@ -498,7 +498,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 }
 -             />
 +             >
-+               First Name (Required)
++               First Name or Nickname
 +             </Text>
               <TextInput
                 allowFontScaling={true}
@@ -583,39 +583,7 @@ exports[`savePerson update existing person set last name to null should update p
             </View>
           </View>
         </View>
-      </View>
-@@ -356,11 +354,14 @@
-                Object {
-                  \\"alignItems\\": \\"center\\",
-                  \\"height\\": 48,
-                  \\"width\\": 650,
-                },
--               null,
-+               Object {
-+                 \\"backgroundColor\\": \\"#005A7F\\",
-+                 \\"color\\": \\"#007398\\",
-+               },
-              ],
-              Object {
-                \\"borderRadius\\": 50,
-              },
-            ]
-@@ -383,11 +384,14 @@
-                    \\"fontWeight\\": \\"500\\",
-                    \\"letterSpacing\\": 1.5,
-                    \\"textAlign\\": \\"center\\",
-                  },
-                  Array [
--                   null,
-+                   Object {
-+                     \\"backgroundColor\\": \\"#005A7F\\",
-+                     \\"color\\": \\"#007398\\",
-+                   },
-                  ],
-                ],
-              ]
-            }
-          >"
+      </View>"
 `;
 
 exports[`savePerson update existing person with org should update person and navigate back 1`] = `
