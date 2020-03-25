@@ -21,9 +21,32 @@ navigateReset.mockReturnValue({ type: 'navigated reset' });
 // @ts-ignore
 navigateToMainTabs.mockReturnValue({ type: 'navigateToMainTabs' });
 
-it('renders correctly', () => {
+it('renders random gif correctly', () => {
   // @ts-ignore
   renderWithContext(<CelebrationScreen />).snapshot();
+});
+
+describe('renders different gifs correctly', () => {
+  it('renders arrow gif', () => {
+    // @ts-ignore
+    renderWithContext(<CelebrationScreen gifId={0} />).snapshot();
+  });
+  it('renders dino gif', () => {
+    // @ts-ignore
+    renderWithContext(<CelebrationScreen gifId={1} />).snapshot();
+  });
+  it('renders fireworks gif', () => {
+    // @ts-ignore
+    renderWithContext(<CelebrationScreen gifId={2} />).snapshot();
+  });
+  it('renders narwhal gif', () => {
+    // @ts-ignore
+    renderWithContext(<CelebrationScreen gifId={3} />).snapshot();
+  });
+  it('renders party gif', () => {
+    // @ts-ignore
+    renderWithContext(<CelebrationScreen gifId={4} />).snapshot();
+  });
 });
 
 describe('celebration screen methods', () => {

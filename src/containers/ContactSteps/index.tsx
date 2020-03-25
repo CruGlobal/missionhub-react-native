@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, SectionList, SectionListData } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+import { useQuery, useLazyQuery } from '@apollo/react-hooks';
+import { FetchMoreOptions } from 'apollo-client';
 
-import { getContactSteps } from '../../actions/steps';
 import { TrackStateContext } from '../../actions/analytics';
-import { Button } from '../../components/common';
+import { Button, RefreshControl } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import AcceptedStepItem from '../../components/AcceptedStepItem';
 import NULL from '../../../assets/images/footprints.png';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { orgIsCru, keyExtractorId } from '../../utils/common';
@@ -22,30 +22,29 @@ import {
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
 import { AuthState } from '../../reducers/auth';
-import { Step, StepsState } from '../../reducers/steps';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { StepsState } from '../../reducers/steps';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import StepItem from '../../components/StepItem';
+import { useIsMe } from '../../utils/hooks/useIsMe';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
+import { PERSON_STEPS_QUERY } from './queries';
+import {
+  PersonStepsList,
+  PersonStepsListVariables,
+  PersonStepsList_person_steps_nodes,
+} from './__generated__/PersonStepsList';
 
 interface ContactStepsProps {
-  showAssignPrompt: boolean;
-  steps: Step[];
-  completedSteps: Step[];
-  contactAssignment?: { pathway_stage_id: string };
-  myId: string;
   person: Person;
   organization: Organization;
   analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const ContactSteps = ({
-  showAssignPrompt,
-  steps,
-  completedSteps,
-  contactAssignment,
-  myId,
   person,
   organization,
   analyticsAssignmentType,
@@ -54,20 +53,83 @@ const ContactSteps = ({
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
   const { t } = useTranslation('contactSteps');
-  const dispatch = useDispatch();
   const [hideCompleted, setHideCompleted] = useState(true);
+  const dispatch = useDispatch();
+  const isMe = useIsMe(person.id);
+  const showAssignPrompt = orgIsCru(organization);
+  const contactAssignment = useSelector(({ auth }: { auth: AuthState }) =>
+    contactAssignmentSelector({ auth }, { person, orgId: organization.id }),
+  );
 
-  const isMe = myId === person.id;
+  const { data, loading, error, fetchMore, refetch } = useQuery<
+    PersonStepsList,
+    PersonStepsListVariables
+  >(PERSON_STEPS_QUERY, {
+    variables: { personId: person.id, completed: false },
+  });
 
-  const handleGetSteps = () =>
-    dispatch(getContactSteps(person.id, organization.id));
+  const steps = data?.person.steps.nodes ?? [];
+  const hasCompletedSteps = !!data?.person.completedSteps.pageInfo.totalCount;
+  const hasNextPage = data?.person.steps.pageInfo.hasNextPage;
+  const endCursor = data?.person.steps.pageInfo.endCursor;
 
-  useEffect(() => {
-    handleGetSteps();
-  }, []);
+  const [
+    loadCompletedSteps,
+    {
+      data: dataCompleted,
+      loading: loadingCompleted,
+      error: errorCompleted,
+      fetchMore: fetchMoreCompleted,
+      refetch: refetchCompleted,
+    },
+  ] = useLazyQuery<PersonStepsList, PersonStepsListVariables>(
+    PERSON_STEPS_QUERY,
+    { variables: { personId: person.id, completed: true } },
+  );
 
-  const handleComplete = () => {
-    handleGetSteps();
+  const stepsCompleted = dataCompleted?.person.steps.nodes ?? [];
+  const hasNextPageCompleted = dataCompleted?.person.steps.pageInfo.hasNextPage;
+  const endCursorCompleted = dataCompleted?.person.steps.pageInfo.endCursor;
+
+  const updateQuery: FetchMoreOptions<
+    PersonStepsList,
+    PersonStepsListVariables
+  >['updateQuery'] = (prev, { fetchMoreResult }) =>
+    fetchMoreResult
+      ? {
+          ...prev,
+          ...fetchMoreResult,
+          person: {
+            ...prev.person,
+            ...fetchMoreResult.person,
+            steps: {
+              ...prev.person.steps,
+              ...fetchMoreResult.person.steps,
+              nodes: [
+                ...prev.person.steps.nodes,
+                ...fetchMoreResult.person.steps.nodes,
+              ],
+            },
+          },
+        }
+      : prev;
+
+  const handleOnEndReached = () => {
+    if (loading || loadingCompleted) {
+      return;
+    }
+
+    if (hasNextPage) {
+      fetchMore({
+        variables: { after: endCursor },
+        updateQuery,
+      });
+    } else if (hasNextPageCompleted) {
+      fetchMoreCompleted({
+        variables: { after: endCursorCompleted },
+        updateQuery,
+      });
+    }
   };
 
   const handleAssign = async () => {
@@ -90,32 +152,34 @@ const ContactSteps = ({
             person,
             contactAssignment,
             organization,
-            null,
+            undefined,
           ),
         )
       : handleAssign();
   };
 
-  const toggleCompletedSteps = () => setHideCompleted(!hideCompleted);
+  const toggleCompletedSteps = () => {
+    // If they are currently hidden, load them
+    hideCompleted && loadCompletedSteps();
+    setHideCompleted(!hideCompleted);
+  };
 
   const stepListSections = [
     {
       key: 'active',
       data: steps,
     },
-    ...(hideCompleted ? [] : [{ key: 'completed', data: completedSteps }]),
+    ...(hideCompleted ? [] : [{ key: 'completed', data: stepsCompleted }]),
   ];
 
-  const renderItem = ({ item }: { item: Step }) => (
-    <AcceptedStepItem
-      testID="stepItem"
-      step={item}
-      onComplete={handleComplete}
-    />
-  );
+  const renderItem = ({
+    item,
+  }: {
+    item: PersonStepsList_person_steps_nodes;
+  }) => <StepItem testID="stepItem" step={item} showName={false} />;
 
   const renderCompletedStepsButton = () =>
-    completedSteps.length === 0 ? null : (
+    hasCompletedSteps ? (
       <Button
         testID="completedStepsButton"
         pill={true}
@@ -126,7 +190,7 @@ const ContactSteps = ({
         style={styles.completedStepsButton}
         buttonTextStyle={styles.completedStepsButtonText}
       />
-    );
+    ) : null;
 
   const renderSectionFooter = ({
     section: { key },
@@ -141,8 +205,13 @@ const ContactSteps = ({
       sections={stepListSections}
       keyExtractor={keyExtractorId}
       renderItem={renderItem}
+      onEndReachedThreshold={0.2}
+      onEndReached={handleOnEndReached}
       renderSectionFooter={renderSectionFooter}
       showsVerticalScrollIndicator={false}
+      refreshControl={
+        <RefreshControl refreshing={loading} onRefresh={refetch} />
+      }
     />
   );
 
@@ -159,6 +228,16 @@ const ContactSteps = ({
 
   return (
     <View style={styles.container}>
+      <ErrorNotice
+        message={t('errorLoadingStepsForThisPerson')}
+        error={error}
+        refetch={refetch}
+      />
+      <ErrorNotice
+        message={t('errorLoadingCompletedStepsForThisPerson')}
+        error={errorCompleted}
+        refetch={refetchCompleted}
+      />
       {steps.length > 0 || !hideCompleted ? renderSteps() : renderNull()}
       <BottomButton onPress={handleCreateStep} text={t('addStep')} />
     </View>

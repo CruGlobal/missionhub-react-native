@@ -82,8 +82,6 @@ const EditStoryScreen = ({ analyticsPermissionType }: EditStoryProps) => {
           autoFocus={true}
           autoCorrect={true}
           multiline={true}
-          returnKeyType="done"
-          blurOnSubmit={true}
           selectionColor={theme.secondaryColor}
           placeholderTextColor={theme.lightGrey}
           style={textInput}

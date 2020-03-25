@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import { Text, Flex, Input } from '../../components/common';
+import { Text, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { createMyPerson, createPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
@@ -111,7 +111,7 @@ const SetupScreen = ({
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
       />
-      <Flex value={2} justify="end" align="center">
+      <View style={styles.content}>
         {isMe ? (
           <Text header={true} style={styles.header}>
             {t('namePrompt')}
@@ -124,8 +124,7 @@ const SetupScreen = ({
             </View>
           </>
         )}
-      </Flex>
-
+      </View>
       <View style={styles.inputWrap}>
         <View>
           <Text style={styles.label}>

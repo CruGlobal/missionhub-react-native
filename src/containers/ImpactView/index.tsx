@@ -301,7 +301,6 @@ export class ImpactView extends Component {
           }}
         />
         {organization.id !== 'person' ? (
-          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
         <Flex style={styles.topSection}>

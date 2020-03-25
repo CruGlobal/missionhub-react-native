@@ -235,7 +235,7 @@ const SelectStageScreen = ({
               scrollEventThrottle={5}
               onSnapToItem={handleSnapToItem}
               removeClippedSubviews={false}
-              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+              containerCustomStyle={{ marginBottom: 200 }}
             />
           ) : null}
         </View>

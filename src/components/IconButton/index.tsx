@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleProp, TextStyle, Insets } from 'react-native';
+import {
+  StyleProp,
+  TextStyle,
+  Insets,
+  Image,
+  ImageSourcePropType,
+} from 'react-native';
 
 import { Button } from '../common';
 import Icon, { IconProps } from '../Icon';
@@ -11,6 +17,7 @@ interface IconButtonProps extends IconProps {
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
   buttonStyle?: StyleProp<TextStyle>;
   style?: StyleProp<TextStyle>;
+  image?: ImageSourcePropType;
   pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
   onPress?: Function;
   testID?: string;
@@ -25,6 +32,7 @@ const IconButton = ({
   style = {},
   onPress,
   pressProps = [],
+  image,
   ...rest
 }: IconButtonProps) => {
   const handlePress = () => {
@@ -41,12 +49,16 @@ const IconButton = ({
       onPress={handlePress}
       testID="IconButton"
     >
-      <Icon
-        name={name}
-        type={type}
-        style={[styles.iconWrap, style]}
-        {...rest}
-      />
+      {image ? (
+        <Image source={image} style={styles.iconWrap} />
+      ) : (
+        <Icon
+          name={name}
+          type={type}
+          style={[styles.iconWrap, style]}
+          {...rest}
+        />
+      )}
     </Button>
   );
 };

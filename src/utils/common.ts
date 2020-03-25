@@ -25,6 +25,7 @@ import {
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
+import { StagesState } from '../reducers/stages';
 
 // @ts-ignore
 export const shuffleArray = arr => {
@@ -381,9 +382,7 @@ export function getPersonEmailAddress(person) {
     : null;
 }
 
-// @ts-ignore
-export function getStageIndex(stages, stageId) {
-  // @ts-ignore
+export function getStageIndex(stages: StagesState['stages'], stageId: string) {
   const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;
@@ -433,5 +432,4 @@ export function copyText(string) {
   toast(i18n.t('copyMessage'));
 }
 
-// @ts-ignore
-export const keyExtractorId = item => item.id;
+export const keyExtractorId = ({ id }: { id: string }) => id;

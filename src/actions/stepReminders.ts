@@ -1,5 +1,6 @@
 import { ThunkDispatch } from 'redux-thunk';
 import gql from 'graphql-tag';
+import moment from 'moment';
 
 import { DAYS_OF_THE_WEEK } from '../constants';
 import { REQUESTS } from '../api/routes';
@@ -70,7 +71,7 @@ function createAt(reminder_at: Date, reminder_type: string) {
     case ReminderTypeEnum.once:
       return reminder_at.toISOString();
     default:
-      return reminder_at.toLocaleTimeString(undefined, { hour12: false });
+      return moment(reminder_at).format('HH:mm:ss');
   }
 }
 

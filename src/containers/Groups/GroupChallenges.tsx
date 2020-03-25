@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
 
+import Analytics from '../Analytics';
 import ChallengeFeed from '../ChallengeFeed';
 import {
   getGroupChallengeFeed,
@@ -19,7 +20,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
-import Analytics from '../Analytics';
+import { ChallengeItem } from '../../components/ChallengeStats';
 
 import styles from './styles';
 
@@ -49,8 +50,7 @@ class GroupChallenges extends Component {
     refresh(this, this.reloadItems);
   };
 
-  // @ts-ignore
-  createChallenge = challenge => {
+  createChallenge = (challenge: ChallengeItem) => {
     // @ts-ignore
     const { dispatch, organization } = this.props;
     dispatch(createChallenge(challenge, organization.id));
@@ -62,8 +62,7 @@ class GroupChallenges extends Component {
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
         organization,
-        // @ts-ignore
-        onComplete: challenge => {
+        onComplete: (challenge: ChallengeItem) => {
           this.createChallenge(challenge);
           dispatch(navigateBack());
         },
@@ -99,7 +98,6 @@ class GroupChallenges extends Component {
         />
         <View style={styles.cardList}>
           <ChallengeFeed
-            // @ts-ignore
             organization={organization}
             items={challengeItems}
             loadMoreItemsCallback={this.loadItems}

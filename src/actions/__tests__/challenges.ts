@@ -26,7 +26,7 @@ import {
 } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
 import * as common from '../../utils/common';
-import { navigatePush } from '../navigation';
+import { navigatePush, navigateBack } from '../navigation';
 
 jest.mock('../api');
 jest.mock('../notifications');
@@ -42,6 +42,7 @@ const orgId = '123';
 
 const apiResult = { type: 'done' };
 const navigateResult = { type: 'has navigated' };
+const navigateBackResults = { type: 'navigated back' };
 const resetResult = { type: RESET_CHALLENGE_PAGINATION, orgId };
 const trackActionResult = { type: 'track action' };
 const showNotificationResult = { type: 'show notification prompt' };
@@ -68,14 +69,11 @@ const defaultStore = {
 
 beforeEach(() => {
   store = createStore(defaultStore);
-  // @ts-ignore
-  callApi.mockReturnValue(apiResult);
-  // @ts-ignore
-  navigatePush.mockReturnValue(navigateResult);
-  // @ts-ignore
-  trackActionWithoutData.mockReturnValue(trackActionResult);
-  // @ts-ignore
-  showNotificationPrompt.mockReturnValue(showNotificationResult);
+  (callApi as jest.Mock).mockReturnValue(apiResult);
+  (navigatePush as jest.Mock).mockReturnValue(navigateResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
+  (showNotificationPrompt as jest.Mock).mockReturnValue(showNotificationResult);
 });
 
 describe('getGroupChallengeFeed', () => {
@@ -220,6 +218,7 @@ describe('createChallenge', () => {
     organization_id: orgId,
     title: 'Challenge Title',
     date: fakeDate,
+    details: 'Challenge detail',
   };
 
   it('creates a challenge', async () => {
@@ -235,19 +234,27 @@ describe('createChallenge', () => {
             title: item.title,
             end_date: item.date,
             organization_id: orgId,
+            details_markdown: item.details,
           },
         },
       },
     );
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+      onComplete: expect.any(Function),
+    });
+    (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
+    expect(navigateBack).toHaveBeenCalledWith(2);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.CHALLENGE_CREATED,
     );
     // @ts-ignore
     expect(store.getActions()).toEqual([
       apiResult,
+      navigateResult,
       trackActionResult,
       resetResult,
       apiResult,
+      navigateBackResults,
     ]);
   });
 });
@@ -257,6 +264,7 @@ describe('updateChallenge', () => {
   const responseOrganization = { id: orgId };
   const responseTitle = 'response title';
   const responseDate = '2018-11-19T14:13:21Z';
+  const responseDetail = 'New details for challenge';
   const updateChallengeResult = {
     type: 'api response',
     response: {
@@ -265,6 +273,7 @@ describe('updateChallenge', () => {
       title: responseTitle,
       end_date: responseDate,
       accepted_community_challenges: [],
+      details_markdown: responseDetail,
     },
   };
 
@@ -280,6 +289,7 @@ describe('updateChallenge', () => {
       organization: responseOrganization,
       title: responseTitle,
       end_date: responseDate,
+      details_markdown: responseDetail,
     },
   };
 
@@ -327,11 +337,35 @@ describe('updateChallenge', () => {
     // @ts-ignore
     expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
   });
-  it('updates a challenge with a new title and date', async () => {
+  it('updates a challenge with a new detail', async () => {
+    const newDetail = 'Cool new detail';
+    const item = {
+      id: challenge_id,
+      details: newDetail,
+    };
+    // @ts-ignore
+    await store.dispatch(updateChallenge(item, orgId));
+
+    expect(callApi).toHaveBeenCalledWith(
+      REQUESTS.UPDATE_GROUP_CHALLENGE,
+      { challenge_id: item.id },
+      {
+        data: {
+          attributes: {
+            details_markdown: item.details,
+          },
+        },
+      },
+    );
+    // @ts-ignore
+    expect(store.getActions()).toEqual([updateChallengeResult, updateAction]);
+  });
+  it('updates a challenge with a new title, date, and detail', async () => {
     const item = {
       id: challenge_id,
       title: 'Challenge Title',
       date: fakeDate,
+      details: 'Cool new detail',
     };
     // @ts-ignore
     await store.dispatch(updateChallenge(item, orgId));
@@ -344,6 +378,7 @@ describe('updateChallenge', () => {
           attributes: {
             title: item.title,
             end_date: fakeDate,
+            details_markdown: item.details,
           },
         },
       },

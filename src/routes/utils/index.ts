@@ -2,9 +2,21 @@ import i18next from 'i18next';
 
 import { personSelector } from '../../selectors/people';
 import { getStageIndex } from '../../utils/common';
+import { AuthState } from '../../reducers/auth';
+import { StagesState } from '../../reducers/stages';
+import { StepsState } from '../../reducers/steps';
+import { PeopleState, Person } from '../../reducers/people';
 
-// @ts-ignore
-export function paramsForStageNavigation(personId, orgId, getState) {
+export function paramsForStageNavigation(
+  personId: string,
+  orgId: string | undefined,
+  getState: () => {
+    auth: AuthState;
+    stages: StagesState;
+    steps: StepsState;
+    people: PeopleState;
+  },
+) {
   const {
     auth: { person: authPerson },
     stages: { stages, stagesObj },
@@ -34,8 +46,11 @@ export function paramsForStageNavigation(personId, orgId, getState) {
   };
 }
 
-// @ts-ignore
-function getReverseContactAssignment(person, orgId, authPerson) {
+function getReverseContactAssignment(
+  person: Person,
+  orgId: string | undefined,
+  authPerson: AuthState['person'],
+) {
   return (
     ((person && person.reverse_contact_assignments) || []).find(
       // @ts-ignore
@@ -49,8 +64,12 @@ function getReverseContactAssignment(person, orgId, authPerson) {
   );
 }
 
-// @ts-ignore
-function getStageId(isMe, assignment, authPerson) {
+function getStageId(
+  isMe: boolean,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  assignment: any,
+  authPerson: AuthState['person'],
+) {
   return isMe
     ? authPerson.user.pathway_stage_id
     : assignment && assignment.pathway_stage_id >= 0
@@ -58,18 +77,15 @@ function getStageId(isMe, assignment, authPerson) {
     : null;
 }
 
-// @ts-ignore
-function hasHitThreeSteps(steps, personId) {
+function hasHitThreeSteps(steps: StepsState, personId: string) {
   return steps.userStepCount[personId] % 3 === 0;
 }
 
-// @ts-ignore
-function hasNotSureStage(stagesObj, stageId) {
-  return (stagesObj[stageId] || {}).name_i18n === 'notsure_name';
+function hasNotSureStage(stagesObj: StagesState['stagesObj'], stageId: string) {
+  return ((stagesObj && stagesObj[stageId]) || {}).name_i18n === 'notsure_name';
 }
 
-// @ts-ignore
-function getQuestionText(isMe, isNotSure, name) {
+function getQuestionText(isMe: boolean, isNotSure: boolean, name: string) {
   return isMe
     ? isNotSure
       ? i18next.t('selectStage:meQuestion', {

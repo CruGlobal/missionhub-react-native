@@ -112,7 +112,6 @@ class Members extends Component {
     );
   };
 
-  // @ts-ignore
   renderHeader = () => <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />;
 
   render() {

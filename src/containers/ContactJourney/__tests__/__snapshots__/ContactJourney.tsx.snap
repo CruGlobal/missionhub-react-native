@@ -38,8 +38,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(JourneyCommentBox)
-      hideActions={true}
+    <JourneyCommentBox
       person={
         Object {
           "first_name": "ben",
@@ -103,8 +102,7 @@ exports[`ContactJourney renders null screen correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(JourneyCommentBox)
-      hideActions={true}
+    <JourneyCommentBox
       person={
         Object {
           "first_name": "ben",
@@ -192,8 +190,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(JourneyCommentBox)
-      hideActions={true}
+    <JourneyCommentBox
       organization={
         Object {
           "id": "personal",
@@ -211,6 +208,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
           ],
         }
       }
+      showInteractions={false}
     />
   </Flex>
 </View>
@@ -286,8 +284,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
   <Flex
     justify="end"
   >
-    <Connect(JourneyCommentBox)
-      hideActions={true}
+    <JourneyCommentBox
       person={
         Object {
           "first_name": "ben",
@@ -514,117 +511,26 @@ exports[`renders with an organization correctly 1`] = `
       ]
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderTopColor": "#B2B0B2",
-            "borderTopWidth": 1,
-            "flexDirection": "column",
-            "paddingBottom": 5,
-            "paddingTop": 5,
-            "width": 750,
-          },
-          undefined,
-        ]
+    <JourneyCommentBox
+      organization={
+        Object {
+          "id": 1,
+        }
       }
-    >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "marginBottom": 5,
-                "marginHorizontal": 10,
-                "paddingHorizontal": 5,
-              },
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#B2B0B2",
-                  "borderRadius": 20,
-                  "borderWidth": 1,
-                },
-                Object {
-                  "alignItems": "center",
-                  "alignSelf": "stretch",
-                  "flex": 1,
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                },
-              ]
-            }
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingLeft": 13,
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "alignSelf": "stretch",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                ]
-              }
-            >
-              <TextInput
-                allowFontScaling={true}
-                autoCorrect={true}
-                autoFocus={false}
-                blurOnSubmit={true}
-                multiline={false}
-                onChangeText={[Function]}
-                placeholder="Share something to be remembered..."
-                placeholderTextColor="#B2B0B2"
-                rejectResponderTermination={true}
-                returnKeyType="done"
-                selectionColor="#005A7F"
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomColor": "#52C5DC",
-                      "borderBottomWidth": 1,
-                      "color": "#ffffff",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "letterSpacing": 0.25,
-                      "paddingVertical": 5,
-                    },
-                    Object {
-                      "borderBottomWidth": 0,
-                      "color": "#4E4C4E",
-                      "flex": 1,
-                      "fontSize": 16,
-                      "paddingLeft": 5,
-                      "paddingVertical": 7,
-                    },
-                  ]
-                }
-                underlineColorAndroid="rgba(0,0,0,0)"
-                value=""
-              />
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
-    </View>
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+      showInteractions={true}
+    />
   </View>
 </View>
 `;

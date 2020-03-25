@@ -23,6 +23,7 @@ import {
 } from '../../constants';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { orgIsCru } from '../../utils/common';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -33,13 +34,6 @@ class ContactJourney extends Component {
   // @ts-ignore
   constructor(props) {
     super(props);
-
-    const org = props.organization || {};
-    const isPersonal = props.isCasey || !org.id || org.id === 'personal';
-
-    this.state = {
-      isPersonalMinistry: isPersonal,
-    };
 
     this.completeBump = this.completeBump.bind(this);
     this.renderRow = this.renderRow.bind(this);
@@ -171,8 +165,6 @@ class ContactJourney extends Component {
   }
 
   render() {
-    // @ts-ignore
-    const { isPersonalMinistry } = this.state;
     const {
       // @ts-ignore
       myId,
@@ -181,9 +173,9 @@ class ContactJourney extends Component {
       // @ts-ignore
       organization,
       // @ts-ignore
-      isUserCreatedOrg,
-      // @ts-ignore
       analyticsAssignmentType,
+      // @ts-ignore
+      isCruOrg,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -199,10 +191,9 @@ class ContactJourney extends Component {
         {this.renderContent()}
         <Flex justify="end">
           <JourneyCommentBox
-            // @ts-ignore
             person={person}
             organization={organization}
-            hideActions={isPersonalMinistry || isUserCreatedOrg}
+            showInteractions={isCruOrg}
           />
         </Flex>
       </View>
@@ -231,13 +222,12 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
-    // @ts-ignore
-    isUserCreatedOrg: organization && organization.user_created,
     analyticsAssignmentType: getAnalyticsAssignmentType(
       person,
       auth,
       organization,
     ),
+    isCruOrg: orgIsCru(organization),
   };
 };
 

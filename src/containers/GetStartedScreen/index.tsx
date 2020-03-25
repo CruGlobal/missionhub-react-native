@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 
 import { TrackStateContext } from '../../actions/analytics';
-import { Flex, Text } from '../../components/common';
+import { Text } from '../../components/common';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
@@ -54,17 +54,13 @@ const GetStartedScreen = ({
           enableBackButton ? <BackButton customNavigate={handleBack} /> : null
         }
       />
-      <Flex align="center" justify="center" value={1} style={styles.content}>
-        <Flex align="start" justify="center" value={4}>
-          <Text header={true} style={styles.headerTitle}>
-            {t('hi', { name: name.toLowerCase() })}
-          </Text>
-          <Text style={styles.text}>
-            {t('tagline', { returnObjects: true })}
-          </Text>
-        </Flex>
-        <BottomButton onPress={navigateNext} text={t('continue')} />
-      </Flex>
+      <View style={styles.content}>
+        <Text header={true} style={styles.headerTitle}>
+          {t('hi', { name: name.toLowerCase() })}
+        </Text>
+        <Text style={styles.text}>{t('tagline', { returnObjects: true })}</Text>
+      </View>
+      <BottomButton onPress={navigateNext} text={t('continue')} />
     </View>
   );
 };

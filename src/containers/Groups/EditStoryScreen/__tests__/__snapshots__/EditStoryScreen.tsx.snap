@@ -160,13 +160,11 @@ exports[`renders correctly 1`] = `
         allowFontScaling={true}
         autoCorrect={true}
         autoFocus={true}
-        blurOnSubmit={true}
         multiline={true}
         onChangeText={[Function]}
         placeholder="Share a Story..."
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
-        returnKeyType="done"
         scrollEnabled={false}
         selectionColor="#52C5DC"
         style={
@@ -437,13 +435,11 @@ exports[`renders empty text correctly 1`] = `
         allowFontScaling={true}
         autoCorrect={true}
         autoFocus={true}
-        blurOnSubmit={true}
         multiline={true}
         onChangeText={[Function]}
         placeholder="Share a Story..."
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
-        returnKeyType="done"
         scrollEnabled={false}
         selectionColor="#52C5DC"
         style={
@@ -558,7 +554,7 @@ exports[`saveStory user edits story 1`] = `
 - First value
 + Second value
 
-@@ -188,11 +188,11 @@
+@@ -186,11 +186,11 @@
               },
             ]
           }

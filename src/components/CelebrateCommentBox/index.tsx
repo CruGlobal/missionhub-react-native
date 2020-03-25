@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { useDispatch } from 'react-redux';
 
-import CommentBox from '../CommentBox';
+import CommentBox, { ActionItem } from '../CommentBox';
 import {
   createCelebrateComment,
   resetCelebrateEditingComment,
@@ -24,7 +23,6 @@ interface CelebrateCommentBoxProps {
   organization: Organization;
   editingComment?: CelebrateComment;
   onAddComplete?: () => void;
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
 }
 
 const CelebrateCommentBox = ({
@@ -32,12 +30,12 @@ const CelebrateCommentBox = ({
   organization,
   editingComment,
   onAddComplete,
-  dispatch,
 }: CelebrateCommentBoxProps) => {
+  const dispatch = useDispatch();
   // Make sure we run "cancel" when component unmounts
   useEffect(() => () => cancel(), []);
 
-  const submitComment = async (action: object, text: string) => {
+  const submitComment = async (_: ActionItem | null, text: string) => {
     if (editingComment) {
       cancel();
       return dispatch(
@@ -62,17 +60,16 @@ const CelebrateCommentBox = ({
 
   return (
     <CommentBox
-      // @ts-ignore
       testID="CelebrateCommentBox"
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}
-      hideActions={true}
       editingComment={editingComment}
       onCancel={cancel}
       containerStyle={styles.container}
     />
   );
 };
+
 const mapStateToProps = (
   {
     celebrateComments,

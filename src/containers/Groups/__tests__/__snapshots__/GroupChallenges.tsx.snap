@@ -25,7 +25,7 @@ exports[`should render correctly 1`] = `
       }
     }
   >
-    <Connect(ChallengeFeed)
+    <ChallengeFeed
       extraPadding={true}
       items={
         Array [
@@ -127,7 +127,7 @@ exports[`should render correctly for basic member 1`] = `
       }
     }
   >
-    <Connect(ChallengeFeed)
+    <ChallengeFeed
       extraPadding={false}
       items={
         Array [
@@ -225,7 +225,7 @@ exports[`should render empty correctly 1`] = `
       }
     }
   >
-    <Connect(ChallengeFeed)
+    <ChallengeFeed
       extraPadding={true}
       items={
         Array [

@@ -8,10 +8,10 @@ import { useQuery } from '@apollo/react-hooks';
 import { useFocusEffect } from 'react-navigation-hooks';
 
 import { checkForUnreadComments } from '../../actions/unreadComments';
-import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
-import { navToPersonScreen } from '../../actions/person';
+import { navigateToMainTabs } from '../../actions/navigation';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -19,7 +19,6 @@ import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
-import { ACCEPTED_STEP_DETAIL_SCREEN } from '../AcceptedStepDetailScreen';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
@@ -69,19 +68,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
 
   const { isRefreshing, refresh } = useRefreshing(handleRefresh);
 
-  const handleRowSelect = (step: Step) =>
-    dispatch(
-      navigatePush(ACCEPTED_STEP_DETAIL_SCREEN, {
-        stepId: step.id,
-        personId: step.receiver.id,
-      }),
-    );
-
-  const handleNavToPerson = (step: Step) => {
-    const { receiver, community } = step;
-    dispatch(navToPersonScreen(receiver, community));
-  };
-
   const handleNavToPeopleTab = () => {
     dispatch(navigateToMainTabs(PEOPLE_TAB));
   };
@@ -127,12 +113,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   );
 
   const renderItem = ({ item }: { item: Step }) => (
-    <StepItem
-      testID="stepItem"
-      step={item}
-      onSelect={handleRowSelect}
-      onPressName={handleNavToPerson}
-    />
+    <StepItem testID="stepItem" step={item} showCheckbox={false} />
   );
 
   const renderSteps = () => (
@@ -154,6 +135,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
+      <AnnouncementsModal />
       <Header
         testID="header"
         left={
@@ -173,7 +155,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
       />
       <View style={styles.contentContainer}>
         {hasSteps ? (
-          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
         {hasSteps ? renderSteps() : loading ? <LoadingGuy /> : renderNull()}
