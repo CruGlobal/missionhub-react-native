@@ -1033,7 +1033,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -346,11 +346,11 @@
+@@ -342,11 +342,11 @@
               Object {},
             ]
           }
@@ -1053,7 +1053,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -386,11 +386,11 @@
+@@ -382,11 +382,11 @@
               Object {},
             ]
           }

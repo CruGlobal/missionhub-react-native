@@ -229,11 +229,14 @@ Let's figure out where you are on your journey.
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -244,25 +247,8 @@ Let's figure out where you are on your journey.
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -275,28 +261,15 @@ Let's figure out where you are on your journey.
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            CONTINUE
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          CONTINUE
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -453,11 +426,14 @@ Let's figure out where you are on your journey.
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -468,25 +444,8 @@ Let's figure out where you are on your journey.
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "borderRadius": 0,
-                "borderWidth": 0,
-                "height": 60,
-                "justifyContent": "center",
-                "margin": 0,
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -499,28 +458,15 @@ Let's figure out where you are on your journey.
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            CONTINUE
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          CONTINUE
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>

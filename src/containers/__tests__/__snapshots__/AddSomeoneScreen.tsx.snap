@@ -293,11 +293,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -310,23 +313,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
               Object {
                 "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
-                "borderRadius": 50,
+                "fontFamily": "SourceSansPro-Regular",
               },
-            ]
-          }
-        >
-          <Text
-            style={
               Array [
                 Object {
                   "backgroundColor": "rgba(0,0,0,0)",
@@ -337,24 +326,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                   "textAlign": "center",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            ADD SOMEONE
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          ADD SOMEONE
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -575,11 +554,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -590,20 +572,8 @@ Take a moment and pray. Who do you want to take steps of faith with?
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -616,28 +586,15 @@ Take a moment and pray. Who do you want to take steps of faith with?
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            ADD SOMEONE
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          ADD SOMEONE
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -869,11 +826,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -884,20 +844,8 @@ Take a moment and pray. Who do you want to take steps of faith with?
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -910,28 +858,15 @@ Take a moment and pray. Who do you want to take steps of faith with?
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            ADD SOMEONE
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          ADD SOMEONE
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>

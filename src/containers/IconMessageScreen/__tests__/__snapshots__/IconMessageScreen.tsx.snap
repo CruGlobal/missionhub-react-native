@@ -223,11 +223,14 @@ exports[`renders back button correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -238,20 +241,8 @@ exports[`renders back button correctly 1`] = `
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -265,24 +256,14 @@ exports[`renders back button correctly 1`] = `
                   "textAlign": "center",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            CLICK ME
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          CLICK ME
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -433,11 +414,14 @@ exports[`renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -448,20 +432,8 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -475,24 +447,14 @@ exports[`renders correctly 1`] = `
                   "textAlign": "center",
                 },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            CLICK ME
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          CLICK ME
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -711,11 +673,14 @@ exports[`renders skip button correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -726,20 +691,8 @@ exports[`renders skip button correctly 1`] = `
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
+                "color": "#505256",
               },
-              null,
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
-                undefined,
-              ],
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
@@ -752,28 +705,15 @@ exports[`renders skip button correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
                 Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Array [
-                    undefined,
-                  ],
+                  undefined,
                 ],
-              ]
-            }
-          >
-            CLICK ME
-          </Text>
-        </View>
+              ],
+            ]
+          }
+        >
+          CLICK ME
+        </Text>
       </View>
     </View>
   </RCTSafeAreaView>
