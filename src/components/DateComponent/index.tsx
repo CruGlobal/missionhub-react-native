@@ -6,24 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { momentUtc } from '../../utils/common';
 import Text from '../Text';
 
-export const DateConstants = {
-  today: 'today',
-  yesterday: 'yesterday',
-  comment: 'comment',
-  relative: 'relative',
-  Formats: {
-    dayOnly: 'dddd',
-    dayMonthDate: 'dddd, MMMM D',
-    fullDate: 'dddd, MMMM D YYYY',
-    monthDayYearAtTime: 'MMMM D, YYYY @ h:mm A',
-    monthDayAtTime: 'MMMM D @ h:mm A',
-    dayAtTime: 'dddd @ h:mm A',
-    timeOnly: 'h:mm A',
-  },
-};
-
 function getMomentDate(date: string | Date) {
-  // This ts-ignore can be removed once the utils/common file is converted to typescript
   if (typeof date === 'string' && date.indexOf('UTC') >= 0) {
     return momentUtc(date).local();
   }
@@ -94,6 +77,16 @@ const relativeFormat = (date: string | Date) => {
   return DateConstants.Formats.fullDate;
 };
 
+const formats = {
+  dayOnly: 'dddd',
+  dayMonthDate: 'dddd, MMMM D',
+  fullDate: 'dddd, MMMM D YYYY',
+  monthDayYearAtTime: 'MMMM D, YYYY @ h:mm A',
+  monthDayAtTime: 'MMMM D @ h:mm A',
+  dayAtTime: 'dddd @ h:mm A',
+  timeOnly: 'h:mm A',
+};
+
 const DateComponent = ({
   date,
   format = 'ddd, lll',
@@ -101,20 +94,18 @@ const DateComponent = ({
 }: DateComponentProps) => {
   const { t } = useTranslation();
   const { relative, yesterday, comment, today } = DateConstants;
-  let dateFormat = format;
-  if (format === relative) {
-    dateFormat = relativeFormat(date);
-  }
+
   let text;
-  if (dateFormat === today) {
-    text = t('dates.today');
-  } else if (dateFormat === yesterday) {
-    text = t('dates.yesterday');
-  } else if (dateFormat === comment) {
+  text = moment(getMomentDate(date)).calendar();
+  console.log(text);
+  /*if (format === relative) {
+    text = moment(getMomentDate(date)).calendar();
+  } else if (format === comment) {
     text = formatComment(date, t);
   } else {
-    text = getMomentDate(date).format(dateFormat);
-  }
+    text = getMomentDate(date).format(format);
+  }*/
+
   return (
     <Text testID="Text" style={style}>
       {text}

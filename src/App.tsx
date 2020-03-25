@@ -12,6 +12,7 @@ import { Alert } from 'react-native';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import moment from 'moment';
 
 Icon.loadFont();
 
@@ -62,6 +63,7 @@ export default class App extends Component {
     store.dispatch(configureNotificationHandler());
     // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
+    moment.locale(i18n.language);
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
