@@ -40,6 +40,7 @@ const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
   people,
   stages: { stages: [stage] },
+  onboarding: { currentlyOnboarding: false },
 });
 
 // @ts-ignore

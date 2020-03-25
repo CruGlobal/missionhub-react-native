@@ -8,10 +8,9 @@ import thunk from 'redux-thunk';
 import callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
 import {
-  ANALYTICS,
-  ANALYTICS_CONTEXT_CHANGED,
   CLEAR_UPGRADE_TOKEN,
   FACEBOOK_CANCELED_ERROR,
+  ANALYTICS_FACEBOOK_ID,
 } from '../../../constants';
 import {
   facebookPromptLogin,
@@ -19,6 +18,7 @@ import {
   refreshMissionHubFacebookAccess,
 } from '../facebook';
 import { authSuccess } from '../userData';
+import { ANALYTICS_CONTEXT_CHANGED } from '../../analytics';
 
 jest.mock('react-native-fbsdk', () => ({
   LoginManager: { logInWithPermissions: jest.fn(), logOut: jest.fn() },
@@ -120,7 +120,7 @@ describe('facebookLoginWithAccessToken', () => {
         facebookLoginActionResult,
         { type: CLEAR_UPGRADE_TOKEN },
         {
-          analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
+          analyticsContext: { [ANALYTICS_FACEBOOK_ID]: facebookId },
           type: ANALYTICS_CONTEXT_CHANGED,
         },
         authSuccessResult,
@@ -151,7 +151,7 @@ describe('facebookLoginWithAccessToken', () => {
         facebookLoginActionResult,
         { type: CLEAR_UPGRADE_TOKEN },
         {
-          analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
+          analyticsContext: { [ANALYTICS_FACEBOOK_ID]: facebookId },
           type: ANALYTICS_CONTEXT_CHANGED,
         },
         { type: 'authSuccess' },
@@ -205,7 +205,7 @@ describe('facebookLoginWithAccessToken', () => {
         facebookLoginActionResult,
         { type: CLEAR_UPGRADE_TOKEN },
         {
-          analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
+          analyticsContext: { [ANALYTICS_FACEBOOK_ID]: facebookId },
           type: ANALYTICS_CONTEXT_CHANGED,
         },
         { type: 'authSuccess' },
@@ -256,7 +256,7 @@ describe('refreshMissionHubFacebookAccess', () => {
       facebookLoginActionResult,
       { type: CLEAR_UPGRADE_TOKEN },
       {
-        analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
+        analyticsContext: { [ANALYTICS_FACEBOOK_ID]: facebookId },
         type: ANALYTICS_CONTEXT_CHANGED,
       },
       authSuccessResult,
@@ -283,7 +283,7 @@ describe('refreshMissionHubFacebookAccess', () => {
       facebookLoginActionResult,
       { type: CLEAR_UPGRADE_TOKEN },
       {
-        analyticsContext: { [ANALYTICS.FACEBOOK_ID]: facebookId },
+        analyticsContext: { [ANALYTICS_FACEBOOK_ID]: facebookId },
         type: ANALYTICS_CONTEXT_CHANGED,
       },
       authSuccessResult,

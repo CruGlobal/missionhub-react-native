@@ -40,7 +40,10 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
 
     it('tracks screen change on focus with drawer already closed', () => {
@@ -53,7 +56,10 @@ describe('useAnalytics', () => {
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
 
     it('does not track screen change on drawer open', () => {
@@ -94,7 +100,10 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
   });
 
@@ -104,7 +113,9 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.screenWithDrawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+        }),
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
@@ -119,14 +130,19 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.screenWithDrawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+        }),
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
 
     it('does not track screen change on drawer open', () => {
@@ -134,7 +150,9 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.screenWithDrawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+        }),
       );
 
       fireFocus(true, rerender);
@@ -151,7 +169,9 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.screenWithDrawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+        }),
       );
 
       fireFocus(true, rerender);
@@ -160,7 +180,10 @@ describe('useAnalytics', () => {
 
       fireDrawer(false, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
 
     it('tracks screen change with callback', () => {
@@ -168,12 +191,17 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { result } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.screenWithDrawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+        }),
       );
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
   });
 
@@ -183,14 +211,19 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.drawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.drawer,
+        }),
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
 
       fireFocus(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
 
     it('does not track screen change on focus with drawer already closed', () => {
@@ -198,7 +231,9 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.drawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.drawer,
+        }),
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
@@ -213,7 +248,9 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.drawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.drawer,
+        }),
       );
 
       fireFocus(true, rerender);
@@ -222,7 +259,10 @@ describe('useAnalytics', () => {
 
       fireDrawer(true, rerender);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
 
     it('does not track screen change on drawer close', () => {
@@ -230,7 +270,9 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(true);
 
       const { rerender } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.drawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.drawer,
+        }),
       );
 
       fireFocus(true, rerender);
@@ -247,12 +289,17 @@ describe('useAnalytics', () => {
       (useSelector as jest.Mock).mockReturnValue(false);
 
       const { result } = renderHook(() =>
-        useAnalytics(screenFragments, ANALYTICS_SCREEN_TYPES.drawer),
+        useAnalytics(screenFragments, {
+          screenType: ANALYTICS_SCREEN_TYPES.drawer,
+        }),
       );
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments);
+      expect(trackScreenChange).toHaveBeenCalledWith(
+        screenFragments,
+        undefined,
+      );
     });
   });
 });

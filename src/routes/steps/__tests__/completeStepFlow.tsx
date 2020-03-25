@@ -82,6 +82,7 @@ describe('AddStepScreen next', () => {
   beforeEach(() => {
     store = configureStore([thunk])({
       auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
+      onboarding: { currentlyOnboarding: false },
     });
   });
 
@@ -91,7 +92,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: false,
-        subsection: 'self',
         firstItemIndex: 0,
         questionText,
       });
@@ -123,7 +123,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: true,
-        subsection: 'self',
         firstItemIndex: 1,
         questionText,
       });
@@ -142,8 +141,6 @@ describe('AddStepScreen next', () => {
         store.getState,
       );
       expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-        section: 'people',
-        subsection: 'self',
         selectedStageId: 1,
         enableBackButton: false,
         questionText,
@@ -163,7 +160,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: true,
         isNotSure: false,
-        subsection: 'self',
         firstItemIndex: 0,
         questionText,
       });
@@ -177,8 +173,6 @@ describe('AddStepScreen next', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-        section: 'people',
-        subsection: 'self',
         selectedStageId: 0,
         enableBackButton: false,
         questionText,
@@ -195,7 +189,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: false,
-        subsection: 'person',
         firstItemIndex: 0,
         questionText,
       });
@@ -222,7 +215,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: false,
         isNotSure: true,
-        subsection: 'person',
         firstItemIndex: 1,
         questionText,
       });
@@ -236,8 +228,6 @@ describe('AddStepScreen next', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-        section: 'people',
-        subsection: 'person',
         selectedStageId: 1,
         enableBackButton: false,
         questionText,
@@ -257,7 +247,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: true,
         isNotSure: false,
-        subsection: 'person',
         firstItemIndex: 0,
         questionText,
       });
@@ -271,8 +260,6 @@ describe('AddStepScreen next', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-        section: 'people',
-        subsection: 'person',
         selectedStageId: 0,
         enableBackButton: false,
         questionText,
@@ -291,7 +278,6 @@ describe('AddStepScreen next', () => {
       paramsForStageNavigation.mockReturnValue({
         hasHitCount: true,
         isNotSure: false,
-        subsection: 'person',
         firstItemIndex: 0,
         questionText,
       });

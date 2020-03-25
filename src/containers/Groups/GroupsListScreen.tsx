@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+/* eslint max-lines:0 */
+
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   FlatList,
   View,
@@ -94,7 +96,9 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics('communities', {
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
