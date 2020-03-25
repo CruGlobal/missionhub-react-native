@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
@@ -9,8 +10,6 @@ exports[`renders correctly 1`] = `
         "borderTopColor": "#B2B0B2",
         "borderTopWidth": 1,
         "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
         "width": 750,
       },
       Object {
@@ -19,105 +18,89 @@ exports[`renders correctly 1`] = `
     ]
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 10,
+      }
+    }
   >
     <View
       style={
-        Array [
-          Object {
-            "marginBottom": 5,
-            "marginHorizontal": 10,
-            "paddingHorizontal": 5,
-          },
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderColor": "#B2B0B2",
-              "borderRadius": 20,
-              "borderWidth": 1,
-            },
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flex": 1,
-              "flexDirection": "column",
-              "justifyContent": "center",
-            },
-          ]
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingLeft": 13,
+          }
         }
       >
-        <View
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Write a comment..."
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
           style={
             Array [
               Object {
-                "paddingLeft": 13,
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
               },
               Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "flexDirection": "row",
-                "justifyContent": "center",
+                "borderBottomWidth": 0,
+                "color": "#4E4C4E",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingLeft": 5,
+                "paddingVertical": 7,
               },
             ]
           }
-        >
-          <TextInput
-            allowFontScaling={true}
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            multiline={false}
-            onChangeText={[Function]}
-            placeholder="Write a comment..."
-            placeholderTextColor="#B2B0B2"
-            rejectResponderTermination={true}
-            returnKeyType="done"
-            selectionColor="#005A7F"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "#52C5DC",
-                  "borderBottomWidth": 1,
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "letterSpacing": 0.25,
-                  "paddingVertical": 5,
-                },
-                Object {
-                  "borderBottomWidth": 0,
-                  "color": "#4E4C4E",
-                  "flex": 1,
-                  "fontSize": 16,
-                  "paddingLeft": 5,
-                  "paddingVertical": 7,
-                },
-              ]
-            }
-            underlineColorAndroid="rgba(0,0,0,0)"
-            value=""
-          />
-        </View>
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
       </View>
     </View>
-  </RCTSafeAreaView>
-</View>
+  </View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders correctly without finding celebrate comment 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
@@ -125,8 +108,6 @@ exports[`renders correctly without finding celebrate comment 1`] = `
         "borderTopColor": "#B2B0B2",
         "borderTopWidth": 1,
         "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
         "width": 750,
       },
       Object {
@@ -135,153 +116,255 @@ exports[`renders correctly without finding celebrate comment 1`] = `
     ]
   }
 >
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 10,
+      }
+    }
   >
     <View
       style={
-        Array [
-          Object {
-            "marginBottom": 5,
-            "marginHorizontal": 10,
-            "paddingHorizontal": 5,
-          },
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderColor": "#B2B0B2",
-              "borderRadius": 20,
-              "borderWidth": 1,
-            },
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flex": 1,
-              "flexDirection": "column",
-              "justifyContent": "center",
-            },
-          ]
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingLeft": 13,
+          }
         }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Write a comment..."
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#4E4C4E",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingLeft": 5,
+                "paddingVertical": 7,
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders editing correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "flexDirection": "column",
+        "width": 750,
+      },
+      Object {
+        "backgroundColor": "#C5C7CB",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#505256",
+          "borderRadius": 25,
+          "marginRight": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
       >
         <View
           style={
             Array [
               Object {
-                "paddingLeft": 13,
+                "backgroundColor": "transparent",
               },
-              Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "flexDirection": "row",
-                "justifyContent": "center",
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          <TextInput
-            allowFontScaling={true}
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            multiline={false}
-            onChangeText={[Function]}
-            placeholder="Write a comment..."
-            placeholderTextColor="#B2B0B2"
-            rejectResponderTermination={true}
-            returnKeyType="done"
-            selectionColor="#005A7F"
+          <Text
+            allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "#52C5DC",
-                  "borderBottomWidth": 1,
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "letterSpacing": 0.25,
-                  "paddingVertical": 5,
+                  "color": undefined,
+                  "fontSize": 12,
                 },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "color": "#ffffff",
+                    },
+                  ],
+                ],
                 Object {
-                  "borderBottomWidth": 0,
-                  "color": "#4E4C4E",
-                  "flex": 1,
-                  "fontSize": 16,
-                  "paddingLeft": 5,
-                  "paddingVertical": 7,
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                 },
+                Object {},
               ]
             }
-            underlineColorAndroid="rgba(0,0,0,0)"
-            value=""
-          />
+          >
+            
+          </Text>
         </View>
       </View>
     </View>
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`renders editing correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      Object {
-        "backgroundColor": "#C5C7CB",
-      },
-    ]
-  }
->
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-  >
     <View
       style={
-        Array [
-          Object {
-            "marginBottom": 5,
-            "marginHorizontal": 10,
-            "paddingHorizontal": 5,
-          },
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
       }
     >
       <View
         style={
-          Array [
-            Object {
-              "backgroundColor": "#505256",
-              "borderRadius": 25,
-              "marginRight": 10,
-            },
-            Object {},
-          ]
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingLeft": 13,
+          }
         }
       >
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Write a comment..."
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#4E4C4E",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingLeft": 5,
+                "paddingVertical": 7,
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value="test"
+        />
         <View
           accessible={true}
           focusable={true}
@@ -325,14 +408,14 @@ exports[`renders editing correctly 1`] = `
                       "color": "#ffffff",
                     },
                     Object {
-                      "fontSize": 12,
+                      "fontSize": 22,
                     },
                     Array [
                       Object {
                         "margin": 10,
                       },
                       Object {
-                        "color": "#ffffff",
+                        "color": "#007398",
                       },
                     ],
                   ],
@@ -345,152 +428,12 @@ exports[`renders editing correctly 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
       </View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderColor": "#B2B0B2",
-              "borderRadius": 20,
-              "borderWidth": 1,
-            },
-            Object {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "flex": 1,
-              "flexDirection": "column",
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "paddingLeft": 13,
-              },
-              Object {
-                "alignItems": "center",
-                "alignSelf": "stretch",
-                "flexDirection": "row",
-                "justifyContent": "center",
-              },
-            ]
-          }
-        >
-          <TextInput
-            allowFontScaling={true}
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            multiline={false}
-            onChangeText={[Function]}
-            placeholder="Write a comment..."
-            placeholderTextColor="#B2B0B2"
-            rejectResponderTermination={true}
-            returnKeyType="done"
-            selectionColor="#005A7F"
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderBottomColor": "#52C5DC",
-                  "borderBottomWidth": 1,
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "letterSpacing": 0.25,
-                  "paddingVertical": 5,
-                },
-                Object {
-                  "borderBottomWidth": 0,
-                  "color": "#4E4C4E",
-                  "flex": 1,
-                  "fontSize": 16,
-                  "paddingLeft": 5,
-                  "paddingVertical": 7,
-                },
-              ]
-            }
-            underlineColorAndroid="rgba(0,0,0,0)"
-            value="test"
-          />
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 22,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#007398",
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
     </View>
-  </RCTSafeAreaView>
-</View>
+  </View>
+</RCTSafeAreaView>
 `;
