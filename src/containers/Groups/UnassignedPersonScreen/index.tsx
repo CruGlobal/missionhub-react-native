@@ -43,10 +43,10 @@ class UnassignedPersonScreen extends Component {
           onAssign={onAssign}
         />
         <JourneyCommentBox
-          // @ts-ignore
           onSubmit={this.loadFeed}
           person={person}
           organization={organization}
+          showInteractions={true}
         />
       </View>
     );
