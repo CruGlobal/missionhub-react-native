@@ -101,12 +101,20 @@ export function createChallenge(challenge, orgId) {
         title: challenge.title,
         end_date: challenge.date,
         organization_id: orgId,
+        details_markdown: challenge.details,
       },
     },
   };
   // @ts-ignore
   return async dispatch => {
     await dispatch(callApi(REQUESTS.CREATE_GROUP_CHALLENGE, query, bodyData));
+    await dispatch(
+      navigatePush(CELEBRATION_SCREEN, {
+        onComplete: () => {
+          dispatch(navigateBack(2));
+        },
+      }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.CHALLENGE_CREATED));
     return dispatch(reloadGroupChallengeFeed(orgId));
   };
@@ -134,6 +142,9 @@ export function updateChallenge(challenge) {
     // @ts-ignore
     attributes.end_date = challenge.date;
   }
+  // @ts-ignore
+  attributes.details_markdown = challenge.details;
+
   const bodyData = { data: { attributes } };
   // @ts-ignore
   return async dispatch => {
@@ -147,6 +158,7 @@ export function updateChallenge(challenge) {
         organization: response.organization,
         title: response.title,
         end_date: response.end_date,
+        details_markdown: response.details_markdown,
       },
     });
   };

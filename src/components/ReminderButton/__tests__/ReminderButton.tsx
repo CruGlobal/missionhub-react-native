@@ -76,7 +76,10 @@ describe('handlePressAndroid', () => {
     fireEvent(getByTestId('ReminderDatePicker'), 'onPressAndroid');
 
     expect(requestNativePermissions).toHaveBeenCalled();
-    expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, { stepId });
+    expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, {
+      reminder,
+      stepId,
+    });
   });
 });
 
