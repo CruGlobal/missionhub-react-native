@@ -9,25 +9,12 @@ import TabIcon from '..';
 
 describe('renders', () => {
   it('steps', () => {
-    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />, {
-      mocks: {
-        CommunityConnection: () => ({
-          nodes: () => [],
-        }),
-      },
-    }).snapshot();
+    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
   });
 
   it('steps different tint color', async () => {
     const { snapshot } = renderWithContext(
       <TabIcon name={'steps'} tintColor={'grey'} />,
-      {
-        mocks: {
-          CommunityConnection: () => ({
-            nodes: () => [],
-          }),
-        },
-      },
     );
 
     await flushMicrotasksQueue();
@@ -38,13 +25,6 @@ describe('renders', () => {
   it('people', async () => {
     const { snapshot } = renderWithContext(
       <TabIcon name={'people'} tintColor={'blue'} />,
-      {
-        mocks: {
-          CommunityConnection: () => ({
-            nodes: () => [],
-          }),
-        },
-      },
     );
 
     await flushMicrotasksQueue();
@@ -57,9 +37,7 @@ describe('renders', () => {
       <TabIcon name={'group'} tintColor={'blue'} />,
       {
         mocks: {
-          CommunityConnection: () => ({
-            nodes: () => [],
-          }),
+          Int: () => 0,
         },
       },
     );
@@ -72,13 +50,6 @@ describe('renders', () => {
   it('group with notification dot', async () => {
     const { snapshot } = renderWithContext(
       <TabIcon name={'group'} tintColor={'blue'} />,
-      {
-        mocks: {
-          CommunityConnection: () => ({
-            nodes: () => new MockList(10),
-          }),
-        },
-      },
     );
 
     await flushMicrotasksQueue();

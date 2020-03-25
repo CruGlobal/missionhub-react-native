@@ -24,9 +24,9 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
 
   const {
     name,
-    unreadCommentsCount,
     userCreated,
     communityPhotoUrl,
+    unreadCommentsCount,
     owner: {
       nodes: [owner],
     },

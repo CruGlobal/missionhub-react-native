@@ -1,14 +1,11 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import { useApolloClient } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { GetCommunities_communities_nodes } from '../../../containers/Groups/__generated__/GetCommunities';
 
 import GroupCardItem, { GroupCardItemProps } from '..';
-
-jest.mock('@apollo/react-hooks', () => ({ useApolloClient: jest.fn() }));
 
 const contactCount = 768;
 const unassignedCount = 13;
@@ -38,11 +35,6 @@ let props: GroupCardItemProps = {
   onPress: jest.fn(),
   onJoin: undefined,
 };
-
-beforeEach(() => {
-  const readFragment = jest.fn().mockReturnValue({ unreadCommentsCount: 0 });
-  (useApolloClient as jest.Mock).mockReturnValue({ readFragment });
-});
 
 const test = () => {
   renderWithContext(<GroupCardItem {...props} />, {
@@ -192,12 +184,12 @@ describe('GroupCardItem', () => {
   });
 
   it('renders with notification', () => {
-    const readFragment = jest.fn().mockReturnValue({ unreadCommentsCount: 11 });
-    (useApolloClient as jest.Mock).mockReturnValue({ readFragment });
-
     props = {
       ...props,
-      group,
+      group: {
+        ...group,
+        unreadCommentsCount: 11,
+      },
     };
 
     test();
