@@ -89,7 +89,7 @@ describe('create methods', () => {
     );
     await fireEvent(getByTestId('titleInput'), 'onFocus');
     recordSnapshot();
-    await fireEvent(getByTestId('detailInput'), 'onFocus');
+    await fireEvent(getByTestId('titleInput'), 'onBlur');
     diffSnapshot();
   });
 
@@ -106,7 +106,7 @@ describe('create methods', () => {
     );
     await fireEvent(getByTestId('detailInput'), 'onFocus');
     recordSnapshot();
-    await fireEvent(getByTestId('titleInput'), 'onFocus');
+    await fireEvent(getByTestId('detailInput'), 'onBlur');
     diffSnapshot();
   });
 
