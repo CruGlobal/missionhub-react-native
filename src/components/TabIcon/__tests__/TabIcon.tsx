@@ -1,6 +1,5 @@
 import 'react-native';
 import React from 'react';
-import { MockList } from 'graphql-tools';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
