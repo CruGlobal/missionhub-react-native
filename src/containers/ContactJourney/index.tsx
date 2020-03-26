@@ -14,11 +14,16 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { removeSwipeJourney } from '../../actions/swipe';
 import NullStateComponent from '../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../routes/constants';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
+  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
+import { Person } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
+import { orgIsCru } from '../../utils/common';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -29,13 +34,6 @@ class ContactJourney extends Component {
   // @ts-ignore
   constructor(props) {
     super(props);
-
-    const org = props.organization || {};
-    const isPersonal = props.isCasey || !org.id || org.id === 'personal';
-
-    this.state = {
-      isPersonalMinistry: isPersonal,
-    };
 
     this.completeBump = this.completeBump.bind(this);
     this.renderRow = this.renderRow.bind(this);
@@ -167,10 +165,18 @@ class ContactJourney extends Component {
   }
 
   render() {
-    // @ts-ignore
-    const { isPersonalMinistry } = this.state;
-    // @ts-ignore
-    const { myId, person, organization, isUserCreatedOrg } = this.props;
+    const {
+      // @ts-ignore
+      myId,
+      // @ts-ignore
+      person,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      analyticsAssignmentType,
+      // @ts-ignore
+      isCruOrg,
+    } = this.props;
     return (
       <View style={styles.container}>
         <Analytics
@@ -178,14 +184,16 @@ class ContactJourney extends Component {
             'person',
             person.id === myId ? 'my journey' : 'our journey',
           ]}
+          screenContext={{
+            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          }}
         />
         {this.renderContent()}
         <Flex justify="end">
           <JourneyCommentBox
-            // @ts-ignore
             person={person}
             organization={organization}
-            hideActions={isPersonalMinistry || isUserCreatedOrg}
+            showInteractions={isCruOrg}
           />
         </Flex>
       </View>
@@ -202,11 +210,9 @@ ContactJourney.propTypes = {
 const mapStateToProps = (
   // @ts-ignore
   { auth, swipe, journey },
-  { person = {}, organization = {} },
+  { person, organization }: { person: Person; organization: Organization },
 ) => {
-  // @ts-ignore
-  const orgId = organization.id || 'personal';
-  // @ts-ignore
+  const orgId = (organization && organization.id) || 'personal';
   const personId = person.id;
   const journeyOrg = journey[orgId];
   const journeyItems = (journeyOrg && journeyOrg[personId]) || undefined;
@@ -216,8 +222,12 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
-    // @ts-ignore
-    isUserCreatedOrg: organization && organization.user_created,
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      person,
+      auth,
+      organization,
+    ),
+    isCruOrg: orgIsCru(organization),
   };
 };
 
