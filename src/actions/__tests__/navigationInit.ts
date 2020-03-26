@@ -8,7 +8,6 @@ jest.mock('../notifications');
 jest.mock('../navigation');
 jest.mock('../onboarding');
 jest.mock('../analytics');
-jest.mock('../misc');
 
 const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
