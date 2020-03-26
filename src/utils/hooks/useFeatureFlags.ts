@@ -1,5 +1,9 @@
-import { useQuery } from '@apollo/react-hooks';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { useLazyQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+
+import { AuthState } from '../../reducers/auth';
 
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
@@ -10,12 +14,15 @@ export const GET_FEATURE_FLAGS = gql`
 `;
 
 export const useFeatureFlags = (): { [key: string]: boolean } => {
-  const { data: { features = [] } = {} } = useQuery<GetFeatureFlags>(
-    GET_FEATURE_FLAGS,
-    {
-      fetchPolicy: 'cache-and-network',
-    },
-  );
+  const [getFlags, { data: { features = [] } = {} }] = useLazyQuery<
+    GetFeatureFlags
+  >(GET_FEATURE_FLAGS, {
+    fetchPolicy: 'cache-and-network',
+  });
+
+  useMemo(() => {
+    getFlags();
+  }, []);
 
   return features.reduce(
     (acc, flag) => ({

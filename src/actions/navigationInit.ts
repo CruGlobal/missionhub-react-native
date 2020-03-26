@@ -15,7 +15,6 @@ import { RELOAD_APP } from '../constants';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 import { startOnboarding } from './onboarding';
-import { getFeatureFlags } from './misc';
 
 export const resetToInitialRoute = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
@@ -29,8 +28,6 @@ export const resetToInitialRoute = () => (
 
   const { auth, onboarding, people } = getState();
   if (auth && isAuthenticated(auth)) {
-    getFeatureFlags();
-
     if (
       onboarding.skippedAddingPerson ||
       hasContactWithPathwayStage(auth.person.id, people)
