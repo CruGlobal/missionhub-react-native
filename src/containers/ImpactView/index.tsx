@@ -11,7 +11,12 @@ import {
   getImpactSummary,
 } from '../../actions/impact';
 import { Flex, Text, Button, Icon } from '../../components/common';
-import { INTERACTION_TYPES, GLOBAL_COMMUNITY_ID } from '../../constants';
+import {
+  INTERACTION_TYPES,
+  GLOBAL_COMMUNITY_ID,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../constants';
 import {
   impactInteractionsSelector,
   impactSummarySelector,
@@ -21,6 +26,11 @@ import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
 import { orgIsPersonalMinistry } from '../../utils/common';
+import {
+  getAnalyticsAssignmentType,
+  getAnalyticsPermissionType,
+} from '../../utils/analytics';
+import { Person } from '../../reducers/people';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -262,6 +272,10 @@ export class ImpactView extends Component {
       organization,
       // @ts-ignore
       isGlobalCommunity,
+      // @ts-ignore
+      analyticsAssignmentType,
+      // @ts-ignore
+      analyticsPermissionType,
     } = this.props;
 
     const showGlobalImpact =
@@ -279,7 +293,13 @@ export class ImpactView extends Component {
 
     return (
       <ScrollView style={styles.container} bounces={false}>
-        <Analytics screenName={[screenSection, screenSubsection]} />
+        <Analytics
+          screenName={[screenSection, screenSubsection]}
+          screenContext={{
+            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          }}
+        />
         {organization.id !== 'person' ? (
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
         ) : null}
@@ -317,7 +337,7 @@ ImpactView.propTypes = {
 export const mapStateToProps = (
   // @ts-ignore
   { impact, auth, organizations },
-  { person = {}, orgId = 'personal' },
+  { person = {}, orgId = 'personal' }: { person?: Person; orgId?: string },
 ) => {
   // @ts-ignore
   const personId = person.id;
@@ -350,6 +370,12 @@ export const mapStateToProps = (
     isGlobalCommunity,
     myId,
     organization,
+    analyticsAssignmentType: person.id
+      ? getAnalyticsAssignmentType(person, auth, organization)
+      : '',
+    analyticsPermissionType: !personId
+      ? getAnalyticsPermissionType(auth, organization)
+      : '',
   };
 };
 

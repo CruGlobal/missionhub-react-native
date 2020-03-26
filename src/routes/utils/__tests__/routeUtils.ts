@@ -73,7 +73,6 @@ describe('is Me, not "Not Sure" stage, step count not complete', () => {
     expect(result).toEqual({
       hasHitCount: false,
       isNotSure: false,
-      subsection: 'self',
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
     });
@@ -98,7 +97,6 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
     expect(result).toEqual({
       hasHitCount: false,
       isNotSure: true,
-      subsection: 'self',
       firstItemIndex: 1,
       questionText: i18next.t('selectStage:meQuestion', {
         name: myName,
@@ -127,7 +125,6 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
     expect(result).toEqual({
       hasHitCount: true,
       isNotSure: false,
-      subsection: 'self',
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3StepsMe'),
     });
@@ -141,7 +138,6 @@ describe('is not Me, not "Not Sure" stage, step count not complete', () => {
     expect(result).toEqual({
       hasHitCount: false,
       isNotSure: false,
-      subsection: 'person',
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3Steps', {
         name: otherName,
@@ -169,7 +165,6 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
     expect(result).toEqual({
       hasHitCount: false,
       isNotSure: true,
-      subsection: 'person',
       firstItemIndex: 1,
       questionText: i18next.t('selectStage:completed1Step', {
         name: otherName,
@@ -198,7 +193,6 @@ describe('is not Me, not "Not Sure" stage, step count complete', () => {
     expect(result).toEqual({
       hasHitCount: true,
       isNotSure: false,
-      subsection: 'person',
       firstItemIndex: 0,
       questionText: i18next.t('selectStage:completed3Steps', {
         name: otherName,

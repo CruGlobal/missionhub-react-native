@@ -216,6 +216,7 @@ describe('long-press card', () => {
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_EDIT_STORY_SCREEN, {
         celebrationItem: myStoryEvent,
         onRefresh,
+        organization,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
     });

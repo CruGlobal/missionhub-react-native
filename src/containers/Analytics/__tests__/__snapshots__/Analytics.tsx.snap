@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders and calls useAnalytics hook 1`] = `null`;
+
+exports[`renders and calls useAnalytics hook with context 1`] = `null`;
