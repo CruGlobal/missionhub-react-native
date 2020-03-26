@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import uuidv4 from 'uuid/v4';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -18,7 +20,7 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
-import { showReminderOnLoad } from './notifications';
+import { checkNotifications } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
 
@@ -144,29 +146,26 @@ export const createPerson = (firstName: string, lastName: string) => async (
   return results;
 };
 
-const finalOnboardingActions = () => async (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
-) => {
-  await dispatch(
-    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-  );
-  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(navigatePush(CELEBRATION_SCREEN));
-  dispatch({ type: FINISH_ONBOARDING });
-};
-
 export const skipAddPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(skipOnboardingAddPerson());
-  dispatch(finalOnboardingActions());
+  dispatch<any>(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export const resetPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(setOnboardingPersonId(''));
-  dispatch(finalOnboardingActions());
+  dispatch<any>(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export function joinStashedCommunity() {
