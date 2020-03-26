@@ -13,6 +13,8 @@ import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
+import 'moment/src/locale/es';
+import 'moment/src/locale/tr';
 
 Icon.loadFont();
 

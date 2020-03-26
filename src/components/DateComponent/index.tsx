@@ -24,7 +24,7 @@ const inLastWeek = (momentDate: moment.Moment) =>
 const inThisYear = (momentDate: moment.Moment) =>
   momentDate.isSame(moment(), 'year');
 
-enum dateFormat {
+export enum dateFormat {
   dayOnly,
   dayMonthDate,
   fullDate,
