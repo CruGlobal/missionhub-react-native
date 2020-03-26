@@ -176,9 +176,7 @@ const AddContactFields = ({
         <Flex value={2} justify="end" align="center">
           {isMe ? null : (
             <View style={styles.textWrap}>
-              <Text style={styles.addPersonText}>{t('prompt.part1')}</Text>
-              <Text style={styles.addPersonText}>{t('prompt.part2')}</Text>
-              <Text style={styles.addPersonText}>{t('prompt.part3')}</Text>
+              <Text style={styles.addPersonText}>{t('prompt')}</Text>
             </View>
           )}
         </Flex>

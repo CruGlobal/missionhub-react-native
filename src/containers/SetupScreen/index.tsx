@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { View, Keyboard, TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useMutation } from '@apollo/react-hooks';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import { Text, Flex, Input } from '../../components/common';
+import { Text, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { createMyPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
@@ -18,12 +19,20 @@ import Header from '../../components/Header';
 import Skip from '../../components/Skip';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
+import { getAnalyticsSectionType } from '../../utils/analytics';
+import {
+  trackActionWithoutData,
+  TrackStateContext,
+} from '../../actions/analytics';
+import {
+  ACTIONS,
+  ANALYTICS_SECTION_TYPE,
+  LOAD_PERSON_DETAILS,
+} from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
-import { navigateBack } from '../../actions/navigation';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import { CREATE_PERSON, UPDATE_PERSON } from './queries';
 import {
@@ -37,13 +46,12 @@ import {
 import styles from './styles';
 
 interface SetupScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, any>;
   next: (props: {
     skip?: boolean;
     personId?: string;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
   isMe: boolean;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
   personId?: string;
   loadedFirstName?: string;
   loadedLastName?: string;
@@ -51,31 +59,36 @@ interface SetupScreenProps {
 }
 
 const SetupScreen = ({
-  dispatch,
   next,
   isMe,
+  analyticsSection,
   personId,
   loadedFirstName = '',
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
-  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`]);
+  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`], {
+    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
+  });
   const { t } = useTranslation('onboardingCreatePerson');
   const relationshipType: RelationshipTypeEnum = useNavigationParam(
     'relationshipType',
   );
+  const dispatch = useDispatch();
   const [firstName, setFirstName] = useState(loadedFirstName);
   const [lastName, setLastName] = useState(loadedLastName);
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
 
-  const [createPerson] = useMutation<CreatePerson, CreatePersonVariables>(
-    CREATE_PERSON,
-  );
+  const [createPerson, { error: createError }] = useMutation<
+    CreatePerson,
+    CreatePersonVariables
+  >(CREATE_PERSON);
 
-  const [updatePerson] = useMutation<UpdatePerson, UpdatePersonVariables>(
-    UPDATE_PERSON,
-  );
+  const [updatePerson, { error: updateError }] = useMutation<
+    UpdatePerson,
+    UpdatePersonVariables
+  >(UPDATE_PERSON);
 
   const handleBack = useLogoutOnBack(true, !!personId);
 
@@ -135,8 +148,6 @@ const SetupScreen = ({
         data?.createPerson?.person &&
           dispatch(next({ personId: data?.createPerson?.person.id }));
       }
-    } catch {
-      dispatch(navigateBack());
     } finally {
       setIsLoading(false);
     }
@@ -151,11 +162,21 @@ const SetupScreen = ({
 
   return (
     <View style={styles.container}>
+      <ErrorNotice
+        error={createError}
+        message={t('errorSavingPerson')}
+        refetch={saveAndNavigateNext}
+      />
+      <ErrorNotice
+        error={updateError}
+        message={t('errorSavingPerson')}
+        refetch={saveAndNavigateNext}
+      />
       <Header
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
       />
-      <Flex value={2} justify="end" align="center">
+      <View style={styles.content}>
         {isMe ? (
           <Text header={true} style={styles.header}>
             {t('namePrompt')}
@@ -163,14 +184,11 @@ const SetupScreen = ({
         ) : (
           <>
             <View style={styles.textWrap}>
-              <Text style={styles.addPersonText}>{t('addPerson.part1')}</Text>
-              <Text style={styles.addPersonText}>{t('addPerson.part2')}</Text>
-              <Text style={styles.addPersonText}>{t('addPerson.part3')}</Text>
+              <Text style={styles.addPersonText}>{t('addPerson')}</Text>
             </View>
           </>
         )}
-      </Flex>
-
+      </View>
       <View style={styles.inputWrap}>
         <View>
           <Text style={styles.label}>
@@ -218,10 +236,11 @@ const SetupScreen = ({
     </View>
   );
 };
+
 const mapStateToProps = (
   {
     auth,
-    onboarding: { personId },
+    onboarding,
     people,
   }: { auth: AuthState; onboarding: OnboardingState; people: PeopleState },
   {
@@ -229,22 +248,28 @@ const mapStateToProps = (
   }: {
     isMe: boolean;
   },
-) => ({
-  isMe,
-  ...(isMe
-    ? {
-        loadedFirstName: auth.person.first_name,
-        loadedLastName: auth.person.last_name,
-        personId: auth.person.id,
-      }
-    : {
-        loadedFirstName: (personSelector({ people }, { personId }) || {})
-          .first_name,
-        loadedLastName: (personSelector({ people }, { personId }) || {})
-          .last_name,
-        personId,
-      }),
-});
+) => {
+  const { personId } = onboarding;
+
+  return {
+    isMe,
+    analyticsSection: getAnalyticsSectionType(onboarding),
+    ...(isMe
+      ? {
+          loadedFirstName: auth.person.first_name,
+          loadedLastName: auth.person.last_name,
+          personId: auth.person.id,
+        }
+      : {
+          loadedFirstName: (personSelector({ people }, { personId }) || {})
+            .first_name,
+          loadedLastName: (personSelector({ people }, { personId }) || {})
+            .last_name,
+          personId,
+        }),
+  };
+};
+
 export default connect(mapStateToProps)(SetupScreen);
 export const SETUP_SCREEN = 'nav/SETUP';
 export const SETUP_PERSON_SCREEN = 'nav/SETUP_PERSON_SCREEN';

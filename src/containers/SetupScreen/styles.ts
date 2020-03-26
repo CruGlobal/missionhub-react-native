@@ -9,6 +9,10 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  content: {
+    paddingVertical: 36,
+    alignItems: 'center',
+  },
   textWrap: { alignItems: 'center', marginBottom: 30 },
   inputWrap: { flex: 3, padding: 30 },
   label: {
@@ -21,6 +25,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   addPersonText: {
+    maxWidth: 230,
     color: theme.white,
     fontSize: 24,
     fontWeight: '300',

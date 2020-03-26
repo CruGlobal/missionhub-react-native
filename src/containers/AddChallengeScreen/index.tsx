@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux-legacy';
 import { View, Keyboard, StatusBar, ScrollView, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import moment from 'moment';
 
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
+import { TrackStateContext } from '../../actions/analytics';
 import { Text, Input, Button } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
 import BackButton from '../BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
+import { AuthState } from '../../reducers/auth';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -24,7 +29,13 @@ interface ChallengeInterface {
   details_markdown?: string;
 }
 
-const AddChallengeScreen = () => {
+interface AddChallengeScreenProps {
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
+}
+
+const AddChallengeScreen = ({
+  analyticsPermissionType,
+}: AddChallengeScreenProps) => {
   const { t } = useTranslation('addChallenge');
   const isEdit: boolean = useNavigationParam('isEdit');
   const onComplete: (challenge: {
@@ -50,7 +61,9 @@ const AddChallengeScreen = () => {
       : changeDisableBtn(true);
   }, [date, title, detail]);
 
-  useAnalytics(['challenge', isEdit ? 'edit' : 'create']);
+  useAnalytics(['challenge', isEdit ? 'edit' : 'create'], {
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  });
 
   const {
     container,
@@ -212,5 +225,20 @@ const AddChallengeScreen = () => {
   );
 };
 
-export default AddChallengeScreen;
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  {
+    navigation,
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => {
+  const { organization } = navigation.state.params;
+
+  return {
+    ...(navigation.state.params || {}),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
+  };
+};
+
+export default connect(mapStateToProps)(AddChallengeScreen);
 export const ADD_CHALLENGE_SCREEN = 'nav/ADD_CHALLENGE';

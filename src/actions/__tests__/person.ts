@@ -29,7 +29,7 @@ import {
 } from '../person';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import * as analytics from '../analytics';
+import { trackActionWithoutData, setAnalyticsMinistryMode } from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
 import {
@@ -86,21 +86,25 @@ beforeEach(() => {
 
 describe('get me', () => {
   const action = { type: 'got me' };
+  const setMinistryModeResult = { type: 'set ministry mode' };
 
   beforeEach(() => {
-    // @ts-ignore
-    callApi.mockReturnValue(action);
+    (callApi as jest.Mock).mockReturnValue(action);
+    (setAnalyticsMinistryMode as jest.Mock).mockReturnValue(
+      setMinistryModeResult,
+    );
   });
 
-  it('should get me', () => {
+  it('should get me', async () => {
     // @ts-ignore
-    store.dispatch(getMe());
+    await store.dispatch(getMe());
 
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, {
       include: expectedInclude,
     });
+    expect(setAnalyticsMinistryMode).toHaveBeenCalledWith();
     // @ts-ignore
-    expect(store.getActions()[0]).toEqual(action);
+    expect(store.getActions()).toEqual([action, setMinistryModeResult]);
   });
 
   it('should add extra include', () => {
@@ -343,8 +347,9 @@ describe('makeAdmin', () => {
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', async () => {
-    // @ts-ignore
-    analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
+    (trackActionWithoutData as jest.Mock).mockReturnValue({
+      type: 'track action',
+    });
 
     // @ts-ignore
     await store.dispatch(makeAdmin(personId, orgPermissionId));
@@ -370,7 +375,7 @@ describe('makeAdmin', () => {
         ],
       },
     );
-    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.MANAGE_MAKE_ADMIN,
     );
   });
@@ -381,8 +386,9 @@ describe('removeAsAdmin', () => {
   const orgPermissionId = '78978998';
 
   it('sends a request with org permission level set', async () => {
-    // @ts-ignore
-    analytics.trackActionWithoutData.mockReturnValue({ type: 'track action' });
+    (trackActionWithoutData as jest.Mock).mockReturnValue({
+      type: 'track action',
+    });
 
     // @ts-ignore
     await store.dispatch(removeAsAdmin(personId, orgPermissionId));
@@ -408,7 +414,7 @@ describe('removeAsAdmin', () => {
         ],
       },
     );
-    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.MANAGE_REMOVE_ADMIN,
     );
   });
@@ -467,8 +473,7 @@ describe('archiveOrgPermission', () => {
 
     // @ts-ignore
     callApi.mockReturnValue(callApiResponse);
-    // @ts-ignore
-    analytics.trackActionWithoutData.mockReturnValue(trackActionResponse);
+    (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
     // @ts-ignore
     getMyCommunities.mockReturnValue(getCommunitiesResponse);
 
@@ -496,7 +501,7 @@ describe('archiveOrgPermission', () => {
         ],
       },
     );
-    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
+    expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.MANAGE_REMOVE_MEMBER,
     );
     expect(getMyCommunities).toHaveBeenCalledWith();
@@ -553,8 +558,8 @@ describe('updateFollowupStatus', () => {
   });
 
   it('should track action', async () => {
-    // @ts-ignore
-    analytics.trackActionWithoutData = jest.fn();
+    const trackActionResult = { type: 'track action' };
+    (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
 
     await updateFollowupStatus(
       { id: 1, type: 'person', organizational_permissions: [] },
@@ -562,9 +567,7 @@ describe('updateFollowupStatus', () => {
       'uncontacted',
     )(dispatch);
 
-    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.STATUS_CHANGED,
-    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STATUS_CHANGED);
   });
 });
 
@@ -588,9 +591,7 @@ describe('createContactAssignment', () => {
         ],
       },
     );
-    expect(analytics.trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ASSIGNED_TO_ME,
-    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ASSIGNED_TO_ME);
     expect(dispatch).toHaveBeenCalledTimes(3);
   });
 });

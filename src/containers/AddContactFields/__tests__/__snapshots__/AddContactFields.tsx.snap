@@ -264,78 +264,18 @@ exports[`renders casey view correctly 1`] = `
         <View
           style={
             Object {
-              "alignItems": "center",
-              "marginBottom": 30,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 230,
+              "textAlign": "center",
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Who would you like
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            to take steps of faith with
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            this week?
-          </Text>
-        </View>
+          Who would you like to take steps of faith with this week?
+        </MyText>
       </View>
       <Text
         style={
@@ -497,78 +437,18 @@ exports[`renders jean invite with organization and user and admin radio buttons 
         <View
           style={
             Object {
-              "alignItems": "center",
-              "marginBottom": 30,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 230,
+              "textAlign": "center",
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Who would you like
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            to take steps of faith with
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            this week?
-          </Text>
-        </View>
+          Who would you like to take steps of faith with this week?
+        </MyText>
       </View>
       <Text
         style={
@@ -799,128 +679,19 @@ exports[`renders jean invite with organization and user and admin radio buttons 
       >
         <View
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-              },
-              Object {
-                "paddingRight": 25,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 230,
+              "textAlign": "center",
+            }
           }
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "padding": 2,
-                },
-                null,
-                Object {
-                  "borderRadius": 12.5,
-                  "height": 25,
-                  "width": 25,
-                },
-              ]
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "marginLeft": 5,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            User
-          </Text>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-              },
-              Object {
-                "paddingRight": 25,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "padding": 2,
-                },
-                null,
-                Object {
-                  "borderRadius": 12.5,
-                  "height": 25,
-                  "width": 25,
-                },
-              ]
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "marginLeft": 5,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            Admin
-          </Text>
-        </View>
+          Who would you like to take steps of faith with this week?
+        </MyText>
       </View>
     </View>
   </View>
@@ -3917,128 +3688,19 @@ exports[`renders jean with organization view correctly 1`] = `
       >
         <View
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-              },
-              Object {
-                "paddingHorizontal": 15,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 230,
+              "textAlign": "center",
+            }
           }
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "padding": 2,
-                },
-                null,
-                Object {
-                  "borderRadius": 12.5,
-                  "height": 25,
-                  "width": 25,
-                },
-              ]
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "marginLeft": 5,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            Male
-          </Text>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-              },
-              Object {
-                "paddingHorizontal": 15,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "borderColor": "#52C5DC",
-                  "borderWidth": 1,
-                  "padding": 2,
-                },
-                null,
-                Object {
-                  "borderRadius": 12.5,
-                  "height": 25,
-                  "width": 25,
-                },
-              ]
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "marginLeft": 5,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            Female
-          </Text>
-        </View>
+          Who would you like to take steps of faith with this week?
+        </MyText>
       </View>
     </View>
     <View
@@ -4253,78 +3915,18 @@ exports[`renders jean without organization view correctly 1`] = `
         <View
           style={
             Object {
-              "alignItems": "center",
-              "marginBottom": 30,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "maxWidth": 230,
+              "textAlign": "center",
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Who would you like
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            to take steps of faith with
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            this week?
-          </Text>
-        </View>
+          Who would you like to take steps of faith with this week?
+        </MyText>
       </View>
       <Text
         style={

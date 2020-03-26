@@ -27,7 +27,6 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
       const {
         hasHitCount,
         isNotSure,
-        subsection,
         firstItemIndex,
         questionText,
       } = paramsForStageNavigation(personId, orgId, getState);
@@ -56,8 +55,6 @@ export const CompleteStepFlowScreens = onFlowComplete => ({
 
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
-          section: 'people',
-          subsection,
           selectedStageId: firstItemIndex,
           enableBackButton: false,
           questionText,

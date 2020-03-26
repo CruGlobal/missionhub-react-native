@@ -26,6 +26,7 @@ import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -51,11 +52,9 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     orgPermissionSelector({}, { person, organization }),
   );
   const auth = useSelector<{ auth: AuthState }, AuthState>(({ auth }) => auth);
-  const authPerson = auth.person;
   const isJean = auth.isJean;
-  const authPersonId = authPerson.id;
   const isEdit = !!currentPerson?.id;
-  const isMe = person.id === authPersonId;
+  const isMe = useIsMe(person.id);
   const handleUpdateData = (newData: Person) => {
     setPerson({ ...person, ...newData });
   };

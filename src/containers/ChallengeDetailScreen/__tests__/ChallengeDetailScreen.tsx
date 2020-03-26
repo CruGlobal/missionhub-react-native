@@ -52,6 +52,7 @@ const unjoinedProps = {
   onEdit: jest.fn(),
   canEditChallenges: true,
   acceptedChallenge: {},
+  analyticsPermissionType: 'owner',
 };
 const joinedProps = {
   ...unjoinedProps,
