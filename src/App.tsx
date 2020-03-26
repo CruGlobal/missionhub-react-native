@@ -21,6 +21,7 @@ import { store, persistor } from './store';
 import { LOG } from './utils/logging';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
+import AppHooks from './AppHooks';
 import { codeLogin } from './actions/auth/anonymous';
 import {
   EXPIRED_ACCESS_TOKEN,
@@ -36,7 +37,6 @@ import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { apolloClient } from './apolloClient';
-import { useFeatureFlags } from './utils/hooks/useFeatureFlags';
 
 @codePush({
   deploymentKey: isAndroid
@@ -220,9 +220,3 @@ export default class App extends Component {
     );
   }
 }
-
-const AppHooks = () => {
-  useFeatureFlags();
-
-  return null;
-};
