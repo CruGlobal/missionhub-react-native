@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import { useLazyQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-
-import { AuthState } from '../../reducers/auth';
 
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
