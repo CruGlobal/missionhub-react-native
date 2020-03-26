@@ -5,6 +5,11 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "owner",
+      }
+    }
     screenName={
       Array [
         "community",
@@ -434,6 +439,11 @@ exports[`GroupProfile edit screen stops editing 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "owner",
+      }
+    }
     screenName={
       Array [
         "community",
@@ -799,6 +809,11 @@ exports[`GroupProfile renders correctly 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "owner",
+      }
+    }
     screenName={
       Array [
         "community",
@@ -1164,6 +1179,11 @@ exports[`GroupProfile renders with image 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "owner",
+      }
+    }
     screenName={
       Array [
         "community",
@@ -1529,6 +1549,11 @@ exports[`GroupProfile renders without edit button 1`] = `
   flex={1}
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "member",
+      }
+    }
     screenName={
       Array [
         "community",

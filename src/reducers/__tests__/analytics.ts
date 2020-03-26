@@ -1,15 +1,22 @@
-import analyticsReducer, { initialAnalyticsState } from '../analytics';
+import analyticsReducer, {
+  initialAnalyticsState,
+  AnalyticsState,
+  AnalyticsContextChangedAction,
+} from '../analytics';
 import {
-  ANALYTICS,
-  ANALYTICS_CONTEXT_CHANGED,
+  ANALYTICS_PREVIOUS_SCREEN_NAME,
+  ANALYTICS_LOGGED_IN_STATUS,
+  ANALYTICS_SSO_GUID,
+  ANALYTICS_GR_MASTER_PERSON_ID,
+  ANALYTICS_FACEBOOK_ID,
+  ANALYTICS_CONTENT_LANGUAGE,
   LOGOUT,
   NOT_LOGGED_IN,
-  ANALYTICS_CONTEXT_ONBOARDING,
   RELOAD_APP,
 } from '../../constants';
 import { REQUESTS } from '../../api/routes';
-import { RESET_APP_CONTEXT, SET_APP_CONTEXT } from '../../actions/analytics';
 import { SET_NOTIFICATION_ANALYTICS } from '../../actions/notifications';
+import { ANALYTICS_CONTEXT_CHANGED } from '../../actions/analytics';
 
 const guid = '340ba6de-ff51-408c-ab54-9a512acb35ff';
 
@@ -20,7 +27,7 @@ jest.mock('i18next', () => ({
 
 describe('initial state', () => {
   it('should have language set', () => {
-    expect(initialAnalyticsState[ANALYTICS.CONTENT_LANGUAGE]).toEqual('fr-FR');
+    expect(initialAnalyticsState[ANALYTICS_CONTENT_LANGUAGE]).toEqual('fr-FR');
   });
 });
 
@@ -35,51 +42,23 @@ describe('key login success', () => {
 
     const result = analyticsReducer(undefined, action);
 
-    expect(result[ANALYTICS.SSO_GUID]).toBe(guid);
+    expect(result[ANALYTICS_SSO_GUID]).toBe(guid);
   });
 });
 
 describe('analytics context changed', () => {
   it('should save changes', () => {
     const screen = 'testScreen';
-    const action = {
+    const action: AnalyticsContextChangedAction = {
       analyticsContext: {
-        [ANALYTICS.SCREEN_NAME]: screen,
+        [ANALYTICS_PREVIOUS_SCREEN_NAME]: screen,
       },
-      type: ANALYTICS_CONTEXT_CHANGED as typeof ANALYTICS_CONTEXT_CHANGED,
+      type: ANALYTICS_CONTEXT_CHANGED,
     };
 
     const result = analyticsReducer(undefined, action);
 
-    expect(result[ANALYTICS.SCREEN_NAME]).toBe(screen);
-  });
-});
-
-describe('SET_APP_CONTEXT', () => {
-  it('should set app context to onboarding', () => {
-    expect(
-      analyticsReducer(undefined, {
-        type: SET_APP_CONTEXT,
-        context: ANALYTICS_CONTEXT_ONBOARDING,
-      }),
-    ).toEqual({
-      ...initialAnalyticsState,
-      [ANALYTICS.APP_CONTEXT]: ANALYTICS_CONTEXT_ONBOARDING,
-    });
-  });
-});
-
-describe('RESET_APP_CONTEXT', () => {
-  it('should reset app context', () => {
-    expect(
-      analyticsReducer(
-        {
-          ...initialAnalyticsState,
-          [ANALYTICS.APP_CONTEXT]: 'something',
-        },
-        { type: RESET_APP_CONTEXT },
-      ),
-    ).toEqual(initialAnalyticsState);
+    expect(result[ANALYTICS_PREVIOUS_SCREEN_NAME]).toBe(screen);
   });
 });
 
@@ -88,7 +67,7 @@ describe('reload app', () => {
     const result = analyticsReducer(
       {
         ...initialAnalyticsState,
-        [ANALYTICS.PREVIOUS_SCREEN_NAME]: 'some screen',
+        [ANALYTICS_PREVIOUS_SCREEN_NAME]: 'some screen',
       },
       { type: RELOAD_APP },
     );
@@ -106,30 +85,33 @@ describe('SET_NOTIFICATION_ANALYTICS', () => {
 
     expect(result).toEqual({
       ...initialAnalyticsState,
-      [ANALYTICS.PREVIOUS_SCREEN_NAME]: 'steps_pn',
+      [ANALYTICS_PREVIOUS_SCREEN_NAME]: 'steps_pn',
     });
   });
 });
 
 describe('logout', () => {
   it('should wipe IDs and update logged in status', () => {
-    const action = {
+    const action: AnalyticsContextChangedAction = {
       analyticsContext: {
-        [ANALYTICS.SCREEN_NAME]: 'hello world',
+        [ANALYTICS_PREVIOUS_SCREEN_NAME]: 'hello world',
       },
-      type: ANALYTICS_CONTEXT_CHANGED as typeof ANALYTICS_CONTEXT_CHANGED,
+      type: ANALYTICS_CONTEXT_CHANGED,
     };
 
-    const contextChangeResult = analyticsReducer(undefined, action);
+    const contextChangeResult = analyticsReducer(
+      undefined,
+      action,
+    ) as AnalyticsState;
 
     const result = analyticsReducer(contextChangeResult, { type: LOGOUT });
 
     expect(result).toEqual(
       expect.objectContaining({
-        [ANALYTICS.SSO_GUID]: '',
-        [ANALYTICS.GR_MASTER_PERSON_ID]: '',
-        [ANALYTICS.FACEBOOK_ID]: '',
-        [ANALYTICS.LOGGED_IN_STATUS]: NOT_LOGGED_IN,
+        [ANALYTICS_SSO_GUID]: '',
+        [ANALYTICS_GR_MASTER_PERSON_ID]: '',
+        [ANALYTICS_FACEBOOK_ID]: '',
+        [ANALYTICS_LOGGED_IN_STATUS]: NOT_LOGGED_IN,
       }),
     );
   });

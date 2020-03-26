@@ -1,3 +1,5 @@
+/* eslint max-lines:0 */
+
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import {
   FlatList,
@@ -103,7 +105,7 @@ const createGlobalCommunity = (t: TFunction, usersCount: number) =>
     unreadCommentsCount: 0,
     userCreated: true,
     communityPhotoUrl: null,
-    owner: { __typename: 'PersonConnection', nodes: [] },
+    owner: { __typename: 'CommunityPersonConnection', nodes: [] },
     report: {
       __typename: 'CommunitiesReport',
       contactCount: 0,
@@ -135,7 +137,9 @@ const GroupsListScreen = ({
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
-  useAnalytics('communities', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics('communities', {
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

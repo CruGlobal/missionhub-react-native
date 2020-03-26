@@ -8,16 +8,15 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
   },
   content: {
-    flex: 1,
+    paddingVertical: 36,
     paddingHorizontal: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   text: {
     fontSize: 24,
     textAlign: 'left',
-
-    paddingVertical: 10,
+    paddingVertical: 20,
     color: theme.white,
     lineHeight: 32,
   },

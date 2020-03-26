@@ -5,6 +5,8 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: theme.primaryColor,
     paddingHorizontal: 40,
   },

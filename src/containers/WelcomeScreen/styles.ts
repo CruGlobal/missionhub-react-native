@@ -8,7 +8,10 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
   },
   content: {
+    paddingVertical: 36,
     paddingHorizontal: 60,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   descriptionText: {
     color: theme.white,
@@ -41,5 +44,10 @@ export default StyleSheet.create({
     fontSize: 14,
     paddingTop: 2,
     letterSpacing: 1.5,
+  },
+  signInWrapper: {
+    position: 'absolute',
+    bottom: 20,
+    left: 32,
   },
 });
