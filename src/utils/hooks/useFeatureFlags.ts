@@ -1,7 +1,13 @@
 import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
-import { GET_FEATURE_FLAGS } from '../../actions/misc';
-import { GetFeatureFlags } from '../../actions/__generated__/GetFeatureFlags';
+import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
+
+export const GET_FEATURE_FLAGS = gql`
+  query GetFeatureFlags {
+    features
+  }
+`;
 
 export const useFeatureFlags = (): { [key: string]: boolean } => {
   const { data: { features = [] } = {} } = useQuery<GetFeatureFlags>(
