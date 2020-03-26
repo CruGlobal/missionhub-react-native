@@ -105,7 +105,7 @@ const createGlobalCommunity = (t: TFunction, usersCount: number) =>
     unreadCommentsCount: 0,
     userCreated: true,
     communityPhotoUrl: null,
-    owner: { __typename: 'PersonConnection', nodes: [] },
+    owner: { __typename: 'CommunityPersonConnection', nodes: [] },
     report: {
       __typename: 'CommunitiesReport',
       contactCount: 0,
