@@ -1,7 +1,1412 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders with actions 1`] = `
-<View
+exports[`click submit button calls onSubmit prop 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -83,78 +83,11 @@
+                  \\"paddingVertical\\": 7,
+                },
+              ]
+            }
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-           value=\\"test\\"
++           value=\\"\\"
+          />
+-         <View
+-           accessible={true}
+-           focusable={true}
+-           isTVSelectable={true}
+-           onClick={[Function bound touchableHandlePress]}
+-           onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-           onResponderMove={[Function bound touchableHandleResponderMove]}
+-           onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-           style={
+-             Object {
+-               \\"opacity\\": 1,
+-             }
+-           }
+-           testID=\\"IconButton\\"
+-         >
+-           <View
+-             style={
+-               Array [
+-                 Object {
+-                   \\"backgroundColor\\": \\"transparent\\",
+-                 },
+-                 null,
+-                 Object {},
+-                 null,
+-               ]
+-             }
+-           >
+-             <Text
+-               allowFontScaling={false}
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": undefined,
+-                     \\"fontSize\\": 12,
+-                   },
+-                   Array [
+-                     Object {
+-                       \\"color\\": \\"#ffffff\\",
+-                     },
+-                     Object {
+-                       \\"fontSize\\": 22,
+-                     },
+-                     Array [
+-                       Object {
+-                         \\"margin\\": 10,
+-                       },
+-                       Object {
+-                         \\"color\\": \\"#007398\\",
+-                       },
+-                     ],
+-                   ],
+-                   Object {
+-                     \\"fontFamily\\": \\"icomoon\\",
+-                     \\"fontStyle\\": \\"normal\\",
+-                     \\"fontWeight\\": \\"normal\\",
+-                   },
+-                   Object {},
+-                 ]
+-               }
+-             >
+-               
+-             </Text>
+-           </View>
+-         </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>"
+`;
+
+exports[`click submit button calls onSubmit prop fails 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`handles action press 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -32,11 +32,13 @@
+              \\"backgroundColor\\": \\"#007398\\",
+              \\"borderRadius\\": 25,
+              \\"justifyContent\\": \\"center\\",
+              \\"marginRight\\": 15,
+            },
+-           null,
++           Object {
++             \\"backgroundColor\\": \\"#B2B0B2\\",
++           },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+@@ -97,11 +99,11 @@
+                  },
+                  Object {},
+                ]
+              }
+            >
+-             
++             
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+@@ -165,9 +167,459 @@
+              ]
+            }
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+            value=\\"\\"
+          />
++       </View>
++     </View>
++   </View>
++   <View
++     style={
++       Array [
++         Object {
++           \\"justifyContent\\": \\"space-around\\",
++           \\"minHeight\\": 30,
++         },
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"flexDirection\\": \\"row\\",
++         },
++       ]
++     }
++   >
++     <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"flex\\": 1,
++           \\"marginBottom\\": 15,
++           \\"opacity\\": 1,
++           \\"padding\\": 0,
++         }
++       }
++       testID=\\"ActionButton\\"
++     >
++       <View
++         style={
++           Array [
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#4E4C4E\\",
++               \\"borderRadius\\": 25,
++               \\"height\\": 45,
++               \\"justifyContent\\": \\"center\\",
++               \\"width\\": 45,
++             },
++             null,
++           ]
++         }
++       >
++         <Text
++           allowFontScaling={false}
++           style={
++             Array [
++               Object {
++                 \\"color\\": undefined,
++                 \\"fontSize\\": 12,
++               },
++               Array [
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                 },
++                 Object {},
++               ],
++               Object {
++                 \\"fontFamily\\": \\"icomoon\\",
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"normal\\",
++               },
++               Object {},
++             ]
++           }
++         >
++           
++         </Text>
++       </View>
++       <Text
++         numberOfLines={2}
++         style={
++           Array [
++             Object {
++               \\"color\\": \\"#505256\\",
++             },
++             Object {
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++             },
++             Object {
++               \\"color\\": \\"#4E4C4E\\",
++               \\"fontSize\\": 12,
++               \\"textAlign\\": \\"center\\",
++             },
++           ]
++         }
++       >
++         Spiritual Conversation
++       </Text>
++     </View>
++     <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"flex\\": 1,
++           \\"marginBottom\\": 15,
++           \\"opacity\\": 1,
++           \\"padding\\": 0,
++         }
++       }
++       testID=\\"ActionButton\\"
++     >
++       <View
++         style={
++           Array [
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#4E4C4E\\",
++               \\"borderRadius\\": 25,
++               \\"height\\": 45,
++               \\"justifyContent\\": \\"center\\",
++               \\"width\\": 45,
++             },
++             null,
++           ]
++         }
++       >
++         <Text
++           allowFontScaling={false}
++           style={
++             Array [
++               Object {
++                 \\"color\\": undefined,
++                 \\"fontSize\\": 12,
++               },
++               Array [
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                 },
++                 Object {},
++               ],
++               Object {
++                 \\"fontFamily\\": \\"icomoon\\",
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"normal\\",
++               },
++               Object {},
++             ]
++           }
++         >
++           
++         </Text>
++       </View>
++       <Text
++         numberOfLines={2}
++         style={
++           Array [
++             Object {
++               \\"color\\": \\"#505256\\",
++             },
++             Object {
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++             },
++             Object {
++               \\"color\\": \\"#4E4C4E\\",
++               \\"fontSize\\": 12,
++               \\"textAlign\\": \\"center\\",
++             },
++           ]
++         }
++       >
++         Gospel Presentation
++       </Text>
++     </View>
++     <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"flex\\": 1,
++           \\"marginBottom\\": 15,
++           \\"opacity\\": 1,
++           \\"padding\\": 0,
++         }
++       }
++       testID=\\"ActionButton\\"
++     >
++       <View
++         style={
++           Array [
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#4E4C4E\\",
++               \\"borderRadius\\": 25,
++               \\"height\\": 45,
++               \\"justifyContent\\": \\"center\\",
++               \\"width\\": 45,
++             },
++             null,
++           ]
++         }
++       >
++         <Text
++           allowFontScaling={false}
++           style={
++             Array [
++               Object {
++                 \\"color\\": undefined,
++                 \\"fontSize\\": 12,
++               },
++               Array [
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                 },
++                 Object {},
++               ],
++               Object {
++                 \\"fontFamily\\": \\"icomoon\\",
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"normal\\",
++               },
++               Object {},
++             ]
++           }
++         >
++           
++         </Text>
+        </View>
++       <Text
++         numberOfLines={2}
++         style={
++           Array [
++             Object {
++               \\"color\\": \\"#505256\\",
++             },
++             Object {
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++             },
++             Object {
++               \\"color\\": \\"#4E4C4E\\",
++               \\"fontSize\\": 12,
++               \\"textAlign\\": \\"center\\",
++             },
++           ]
++         }
++       >
++         Personal Decision
++       </Text>
++     </View>
++     <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"flex\\": 1,
++           \\"marginBottom\\": 15,
++           \\"opacity\\": 1,
++           \\"padding\\": 0,
++         }
++       }
++       testID=\\"ActionButton\\"
++     >
++       <View
++         style={
++           Array [
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#4E4C4E\\",
++               \\"borderRadius\\": 25,
++               \\"height\\": 45,
++               \\"justifyContent\\": \\"center\\",
++               \\"width\\": 45,
++             },
++             null,
++           ]
++         }
++       >
++         <Text
++           allowFontScaling={false}
++           style={
++             Array [
++               Object {
++                 \\"color\\": undefined,
++                 \\"fontSize\\": 12,
++               },
++               Array [
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                 },
++                 Object {},
++               ],
++               Object {
++                 \\"fontFamily\\": \\"icomoon\\",
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"normal\\",
++               },
++               Object {},
++             ]
++           }
++         >
++           
++         </Text>
++       </View>
++       <Text
++         numberOfLines={2}
++         style={
++           Array [
++             Object {
++               \\"color\\": \\"#505256\\",
++             },
++             Object {
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++             },
++             Object {
++               \\"color\\": \\"#4E4C4E\\",
++               \\"fontSize\\": 12,
++               \\"textAlign\\": \\"center\\",
++             },
++           ]
++         }
++       >
++         Holy Spirit Presentation
++       </Text>
++     </View>
++     <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"flex\\": 1,
++           \\"marginBottom\\": 15,
++           \\"opacity\\": 1,
++           \\"padding\\": 0,
++         }
++       }
++       testID=\\"ActionButton\\"
++     >
++       <View
++         style={
++           Array [
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#4E4C4E\\",
++               \\"borderRadius\\": 25,
++               \\"height\\": 45,
++               \\"justifyContent\\": \\"center\\",
++               \\"width\\": 45,
++             },
++             null,
++           ]
++         }
++       >
++         <Text
++           allowFontScaling={false}
++           style={
++             Array [
++               Object {
++                 \\"color\\": undefined,
++                 \\"fontSize\\": 12,
++               },
++               Array [
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                 },
++                 Object {},
++               ],
++               Object {
++                 \\"fontFamily\\": \\"icomoon\\",
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"normal\\",
++               },
++               Object {},
++             ]
++           }
++         >
++           
++         </Text>
++       </View>
++       <Text
++         numberOfLines={2}
++         style={
++           Array [
++             Object {
++               \\"color\\": \\"#505256\\",
++             },
++             Object {
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++             },
++             Object {
++               \\"color\\": \\"#4E4C4E\\",
++               \\"fontSize\\": 12,
++               \\"textAlign\\": \\"center\\",
++             },
++           ]
++         }
++       >
++         Discipleship Conversation
++       </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>"
+`;
+
+exports[`handles select and clear action 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -24,25 +24,138 @@
+        }
+      }
+    >
+      <View
+        style={
+-         Array [
+          Object {
+            \\"alignItems\\": \\"center\\",
+-             \\"backgroundColor\\": \\"#007398\\",
+-             \\"borderRadius\\": 25,
++           \\"alignSelf\\": \\"stretch\\",
++           \\"backgroundColor\\": \\"#ffffff\\",
++           \\"borderColor\\": \\"#B2B0B2\\",
++           \\"borderRadius\\": 20,
++           \\"borderWidth\\": 1,
++           \\"flex\\": 1,
++           \\"flexDirection\\": \\"column\\",
+            \\"justifyContent\\": \\"center\\",
+-             \\"marginRight\\": 15,
++         }
++       }
++     >
++       <View
++         style={
++           Object {
++             \\"alignItems\\": \\"center\\",
++             \\"alignSelf\\": \\"stretch\\",
++             \\"borderBottomColor\\": \\"#B2B0B2\\",
++             \\"borderBottomWidth\\": 1,
++             \\"flexDirection\\": \\"row\\",
++             \\"paddingVertical\\": 13,
++             \\"position\\": \\"relative\\",
++           }
++         }
++       >
++         <View
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"flex\\": 1,
++             }
++           }
++         >
++           <Text
++             allowFontScaling={false}
++             style={
++               Array [
++                 Object {
++                   \\"color\\": undefined,
++                   \\"fontSize\\": 12,
+                  },
++                 Array [
+                    Object {
+-             \\"backgroundColor\\": \\"#B2B0B2\\",
++                     \\"color\\": \\"#ffffff\\",
++                   },
++                   Object {
++                     \\"fontSize\\": 24,
++                   },
++                   Object {
++                     \\"alignSelf\\": \\"center\\",
++                     \\"color\\": \\"#007398\\",
++                     \\"textAlign\\": \\"center\\",
++                   },
++                 ],
++                 Object {
++                   \\"fontFamily\\": \\"icomoon\\",
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
+                  },
++                 Object {},
+                ]
+              }
+            >
++             
++           </Text>
++         </View>
+          <View
++           style={
++             Object {
++               \\"borderLeftColor\\": \\"#ECEEF2\\",
++               \\"borderLeftWidth\\": 1,
++               \\"flex\\": 4,
++               \\"justifyContent\\": \\"center\\",
++               \\"paddingBottom\\": 5,
++               \\"paddingLeft\\": 20,
++             }
++           }
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"color\\": \\"#B2B0B2\\",
++                   \\"fontSize\\": 13,
++                   \\"marginBottom\\": 5,
++                 },
++               ]
++             }
++             testID=\\"Text\\"
++           >
++             June 18, 2017
++           </Text>
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"color\\": \\"#007398\\",
++                   \\"fontSize\\": 15,
++                 },
++               ]
++             }
++           >
++             Spiritual Conversation
++           </Text>
++         </View>
++         <View
++           style={
++             Object {
++               \\"position\\": \\"absolute\\",
++               \\"right\\": 8,
++               \\"top\\": 8,
++             }
++           }
++         >
++           <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function bound touchableHandlePress]}
+              onResponderGrant={[Function bound touchableHandleResponderGrant]}
+@@ -54,20 +167,24 @@
+              style={
+                Object {
+                  \\"opacity\\": 1,
+                }
+              }
+-         testID=\\"IconButton\\"
++             testID=\\"ClearActionButton\\"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      \\"backgroundColor\\": \\"transparent\\",
+                    },
+                    null,
+-               Object {},
++                   Object {
++                     \\"backgroundColor\\": \\"#B2B0B2\\",
++                     \\"borderRadius\\": 25,
++                     \\"padding\\": 8,
++                   },
+                    null,
+                  ]
+                }
+              >
+                <Text
+@@ -81,18 +198,13 @@
+                      Array [
+                        Object {
+                          \\"color\\": \\"#ffffff\\",
+                        },
+                        Object {
+-                     \\"fontSize\\": 13,
+-                   },
+-                   Array [
+-                     Object {
+-                       \\"margin\\": 10,
++                         \\"fontSize\\": 10,
+                        },
+                        Object {},
+-                   ],
+                      ],
+                      Object {
+                        \\"fontFamily\\": \\"icomoon\\",
+                        \\"fontStyle\\": \\"normal\\",
+                        \\"fontWeight\\": \\"normal\\",
+@@ -104,25 +216,11 @@
+                  
+                </Text>
+              </View>
+            </View>
+          </View>
+-     <View
+-       style={
+-         Object {
+-           \\"alignItems\\": \\"center\\",
+-           \\"alignSelf\\": \\"stretch\\",
+-           \\"backgroundColor\\": \\"#ffffff\\",
+-           \\"borderColor\\": \\"#B2B0B2\\",
+-           \\"borderRadius\\": 20,
+-           \\"borderWidth\\": 1,
+-           \\"flex\\": 1,
+-           \\"flexDirection\\": \\"column\\",
+-           \\"justifyContent\\": \\"center\\",
+-         }
+-       }
+-     >
++       </View>
+        <View
+          style={
+            Object {
+              \\"alignItems\\": \\"center\\",
+              \\"alignSelf\\": \\"stretch\\",
+@@ -167,13 +265,80 @@
+              ]
+            }
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+            value=\\"\\"
+          />
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"IconButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"backgroundColor\\": \\"transparent\\",
++                 },
++                 null,
++                 Object {},
++                 null,
++               ]
++             }
++           >
++             <Text
++               allowFontScaling={false}
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": undefined,
++                     \\"fontSize\\": 12,
++                   },
++                   Array [
++                     Object {
++                       \\"color\\": \\"#ffffff\\",
++                     },
++                     Object {
++                       \\"fontSize\\": 22,
++                     },
++                     Array [
++                       Object {
++                         \\"margin\\": 10,
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                       },
++                     ],
++                   ],
++                   Object {
++                     \\"fontFamily\\": \\"icomoon\\",
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                   },
++                   Object {},
++                 ]
++               }
++             >
++               
++             </Text>
+            </View>
+          </View>
+        </View>
++     </View>
++   </View>
+    <View
+      style={
+        Array [
+          Object {
+            \\"justifyContent\\": \\"space-around\\",
+@@ -217,11 +382,13 @@
+                \\"borderRadius\\": 25,
+                \\"height\\": 45,
+                \\"justifyContent\\": \\"center\\",
+                \\"width\\": 45,
+              },
+-             null,
++             Object {
++               \\"backgroundColor\\": \\"#B2B0B2\\",
++             },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}"
+`;
+
+exports[`handles select and clear action 2`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -24,138 +24,25 @@
+        }
+      }
+    >
+      <View
+        style={
++         Array [
+            Object {
+              \\"alignItems\\": \\"center\\",
+-           \\"alignSelf\\": \\"stretch\\",
+-           \\"backgroundColor\\": \\"#ffffff\\",
+-           \\"borderColor\\": \\"#B2B0B2\\",
+-           \\"borderRadius\\": 20,
+-           \\"borderWidth\\": 1,
+-           \\"flex\\": 1,
+-           \\"flexDirection\\": \\"column\\",
++             \\"backgroundColor\\": \\"#007398\\",
++             \\"borderRadius\\": 25,
+              \\"justifyContent\\": \\"center\\",
+-         }
+-       }
+-     >
+-       <View
+-         style={
+-           Object {
+-             \\"alignItems\\": \\"center\\",
+-             \\"alignSelf\\": \\"stretch\\",
+-             \\"borderBottomColor\\": \\"#B2B0B2\\",
+-             \\"borderBottomWidth\\": 1,
+-             \\"flexDirection\\": \\"row\\",
+-             \\"paddingVertical\\": 13,
+-             \\"position\\": \\"relative\\",
+-           }
+-         }
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"alignItems\\": \\"center\\",
+-               \\"flex\\": 1,
+-             }
+-           }
+-         >
+-           <Text
+-             allowFontScaling={false}
+-             style={
+-               Array [
+-                 Object {
+-                   \\"color\\": undefined,
+-                   \\"fontSize\\": 12,
++             \\"marginRight\\": 15,
+            },
+-                 Array [
+            Object {
+-                     \\"color\\": \\"#ffffff\\",
+-                   },
+-                   Object {
+-                     \\"fontSize\\": 24,
+-                   },
+-                   Object {
+-                     \\"alignSelf\\": \\"center\\",
+-                     \\"color\\": \\"#007398\\",
+-                     \\"textAlign\\": \\"center\\",
+-                   },
+-                 ],
+-                 Object {
+-                   \\"fontFamily\\": \\"icomoon\\",
+-                   \\"fontStyle\\": \\"normal\\",
+-                   \\"fontWeight\\": \\"normal\\",
++             \\"backgroundColor\\": \\"#B2B0B2\\",
+            },
+-                 Object {},
+          ]
+        }
+      >
+-             
+-           </Text>
+-         </View>
+        <View
+-           style={
+-             Object {
+-               \\"borderLeftColor\\": \\"#ECEEF2\\",
+-               \\"borderLeftWidth\\": 1,
+-               \\"flex\\": 4,
+-               \\"justifyContent\\": \\"center\\",
+-               \\"paddingBottom\\": 5,
+-               \\"paddingLeft\\": 20,
+-             }
+-           }
+-         >
+-           <Text
+-             style={
+-               Array [
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 },
+-                 Object {
+-                   \\"color\\": \\"#B2B0B2\\",
+-                   \\"fontSize\\": 13,
+-                   \\"marginBottom\\": 5,
+-                 },
+-               ]
+-             }
+-             testID=\\"Text\\"
+-           >
+-             June 18, 2017
+-           </Text>
+-           <Text
+-             style={
+-               Array [
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 },
+-                 Object {
+-                   \\"color\\": \\"#007398\\",
+-                   \\"fontSize\\": 15,
+-                 },
+-               ]
+-             }
+-           >
+-             Spiritual Conversation
+-           </Text>
+-         </View>
+-         <View
+-           style={
+-             Object {
+-               \\"position\\": \\"absolute\\",
+-               \\"right\\": 8,
+-               \\"top\\": 8,
+-             }
+-           }
+-         >
+-           <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function bound touchableHandlePress]}
+          onResponderGrant={[Function bound touchableHandleResponderGrant]}
+@@ -167,24 +54,20 @@
+          style={
+            Object {
+              \\"opacity\\": 1,
+            }
+          }
+-             testID=\\"ClearActionButton\\"
++         testID=\\"IconButton\\"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  \\"backgroundColor\\": \\"transparent\\",
+                },
+                null,
+-                   Object {
+-                     \\"backgroundColor\\": \\"#B2B0B2\\",
+-                     \\"borderRadius\\": 25,
+-                     \\"padding\\": 8,
+-                   },
++               Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+@@ -198,13 +81,18 @@
+                  Array [
+                    Object {
+                      \\"color\\": \\"#ffffff\\",
+                    },
+                    Object {
+-                         \\"fontSize\\": 10,
++                     \\"fontSize\\": 13,
++                   },
++                   Array [
++                     Object {
++                       \\"margin\\": 10,
+                      },
+                      Object {},
++                   ],
+                  ],
+                  Object {
+                    \\"fontFamily\\": \\"icomoon\\",
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"normal\\",
+@@ -216,11 +104,25 @@
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+-       </View>
++     <View
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"alignSelf\\": \\"stretch\\",
++           \\"backgroundColor\\": \\"#ffffff\\",
++           \\"borderColor\\": \\"#B2B0B2\\",
++           \\"borderRadius\\": 20,
++           \\"borderWidth\\": 1,
++           \\"flex\\": 1,
++           \\"flexDirection\\": \\"column\\",
++           \\"justifyContent\\": \\"center\\",
++         }
++       }
++     >
+        <View
+          style={
+            Object {
+              \\"alignItems\\": \\"center\\",
+              \\"alignSelf\\": \\"stretch\\",
+@@ -265,80 +167,13 @@
+              ]
+            }
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+            value=\\"\\"
+          />
+-         <View
+-           accessible={true}
+-           focusable={true}
+-           isTVSelectable={true}
+-           onClick={[Function bound touchableHandlePress]}
+-           onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-           onResponderMove={[Function bound touchableHandleResponderMove]}
+-           onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-           style={
+-             Object {
+-               \\"opacity\\": 1,
+-             }
+-           }
+-           testID=\\"IconButton\\"
+-         >
+-           <View
+-             style={
+-               Array [
+-                 Object {
+-                   \\"backgroundColor\\": \\"transparent\\",
+-                 },
+-                 null,
+-                 Object {},
+-                 null,
+-               ]
+-             }
+-           >
+-             <Text
+-               allowFontScaling={false}
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": undefined,
+-                     \\"fontSize\\": 12,
+-                   },
+-                   Array [
+-                     Object {
+-                       \\"color\\": \\"#ffffff\\",
+-                     },
+-                     Object {
+-                       \\"fontSize\\": 22,
+-                     },
+-                     Array [
+-                       Object {
+-                         \\"margin\\": 10,
+-                       },
+-                       Object {
+-                         \\"color\\": \\"#007398\\",
+-                       },
+-                     ],
+-                   ],
+-                   Object {
+-                     \\"fontFamily\\": \\"icomoon\\",
+-                     \\"fontStyle\\": \\"normal\\",
+-                     \\"fontWeight\\": \\"normal\\",
+-                   },
+-                   Object {},
+-                 ]
+-               }
+-             >
+-               
+-             </Text>
+        </View>
+      </View>
+    </View>
+-     </View>
+-   </View>
+    <View
+      style={
+        Array [
+          Object {
+            \\"justifyContent\\": \\"space-around\\",
+@@ -382,13 +217,11 @@
+                \\"borderRadius\\": 25,
+                \\"height\\": 45,
+                \\"justifyContent\\": \\"center\\",
+                \\"width\\": 45,
+              },
+-             Object {
+-               \\"backgroundColor\\": \\"#B2B0B2\\",
+-             },
++             null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}"
+`;
+
+exports[`handles start edit 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -25,10 +25,87 @@
+      }
+    >
+      <View
+        style={
+          Object {
++           \\"backgroundColor\\": \\"#505256\\",
++           \\"borderRadius\\": 25,
++           \\"marginRight\\": 10,
++         }
++       }
++     >
++       <View
++         accessible={true}
++         focusable={true}
++         isTVSelectable={true}
++         onClick={[Function bound touchableHandlePress]}
++         onResponderGrant={[Function bound touchableHandleResponderGrant]}
++         onResponderMove={[Function bound touchableHandleResponderMove]}
++         onResponderRelease={[Function bound touchableHandleResponderRelease]}
++         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++         style={
++           Object {
++             \\"opacity\\": 1,
++           }
++         }
++         testID=\\"IconButton\\"
++       >
++         <View
++           style={
++             Array [
++               Object {
++                 \\"backgroundColor\\": \\"transparent\\",
++               },
++               null,
++               Object {},
++               null,
++             ]
++           }
++         >
++           <Text
++             allowFontScaling={false}
++             style={
++               Array [
++                 Object {
++                   \\"color\\": undefined,
++                   \\"fontSize\\": 12,
++                 },
++                 Array [
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                   },
++                   Object {
++                     \\"fontSize\\": 12,
++                   },
++                   Array [
++                     Object {
++                       \\"margin\\": 10,
++                     },
++                     Object {
++                       \\"color\\": \\"#ffffff\\",
++                     },
++                   ],
++                 ],
++                 Object {
++                   \\"fontFamily\\": \\"icomoon\\",
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                 },
++                 Object {},
++               ]
++             }
++           >
++             
++           </Text>
++         </View>
++       </View>
++     </View>
++     <View
++       style={
++         Object {
+            \\"alignItems\\": \\"center\\",
+            \\"alignSelf\\": \\"stretch\\",
+            \\"backgroundColor\\": \\"#ffffff\\",
+            \\"borderColor\\": \\"#B2B0B2\\",
+            \\"borderRadius\\": 20,
+@@ -83,11 +160,78 @@
+                  \\"paddingVertical\\": 7,
+                },
+              ]
+            }
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-           value=\\"\\"
++           value=\\"test\\"
+          />
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"IconButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"backgroundColor\\": \\"transparent\\",
++                 },
++                 null,
++                 Object {},
++                 null,
++               ]
++             }
++           >
++             <Text
++               allowFontScaling={false}
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": undefined,
++                     \\"fontSize\\": 12,
++                   },
++                   Array [
++                     Object {
++                       \\"color\\": \\"#ffffff\\",
++                     },
++                     Object {
++                       \\"fontSize\\": 22,
++                     },
++                     Array [
++                       Object {
++                         \\"margin\\": 10,
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                       },
++                     ],
++                   ],
++                   Object {
++                     \\"fontFamily\\": \\"icomoon\\",
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                   },
++                   Object {},
++                 ]
++               }
++             >
++               
++             </Text>
++           </View>
++         </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>"
+`;
+
+exports[`renders with actions, hidden 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
@@ -9,1444 +1414,977 @@ exports[`renders with actions 1`] = `
         "borderTopColor": "#B2B0B2",
         "borderTopWidth": 1,
         "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
         "width": 750,
       },
       undefined,
     ]
   }
 >
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "justifyContent": "center",
+            "marginRight": 15,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
       style={
         Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
         }
       }
     >
-      <Flex
-        align="center"
-        justify="center"
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Placeholder"
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#4E4C4E",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingLeft": 5,
+                "paddingVertical": 7,
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders with actions, shown 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderTopColor": "#B2B0B2",
+        "borderTopWidth": 1,
+        "flexDirection": "column",
+        "width": 750,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#007398",
+            "borderRadius": 25,
+            "justifyContent": "center",
+            "marginRight": 15,
+          },
+          Object {
+            "backgroundColor": "#B2B0B2",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 13,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {},
+                  ],
+                ],
+                Object {
+                  "fontFamily": "icomoon",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingLeft": 13,
+          }
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Placeholder"
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
+              Object {
+                "borderBottomWidth": 0,
+                "color": "#4E4C4E",
+                "flex": 1,
+                "fontSize": 16,
+                "paddingLeft": 5,
+                "paddingVertical": 7,
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "justifyContent": "space-around",
+          "minHeight": 30,
+        },
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "opacity": 1,
+          "padding": 0,
+        }
+      }
+      testID="ActionButton"
+    >
+      <View
         style={
           Array [
             Object {
-              "backgroundColor": "#007398",
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
               "borderRadius": 25,
-              "marginRight": 15,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
             },
             null,
           ]
         }
       >
-        <IconButton
-          name="plusIcon"
-          onPress={[Function]}
-          size={13}
-          type="MissionHub"
-        />
-      </Flex>
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
+        <Text
+          allowFontScaling={false}
           style={
-            Object {
-              "paddingLeft": 13,
-            }
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
           }
         >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value=""
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
-`;
-
-exports[`renders with actions 2`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      undefined,
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        justify="center"
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={2}
         style={
           Array [
             Object {
-              "backgroundColor": "#007398",
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#4E4C4E",
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Spiritual Conversation
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "opacity": 1,
+          "padding": 0,
+        }
+      }
+      testID="ActionButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
               "borderRadius": 25,
-              "marginRight": 15,
-            },
-            Object {
-              "backgroundColor": "#B2B0B2",
-            },
-          ]
-        }
-      >
-        <IconButton
-          name="deleteIcon"
-          onPress={[Function]}
-          size={13}
-          type="MissionHub"
-        />
-      </Flex>
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
-            }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value=""
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "justifyContent": "space-around",
-          "minHeight": 30,
-        }
-      }
-    >
-      <TouchableIOS
-        key="2"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "spiritualConversationIcon",
-              "id": "2",
-              "isOnAction": true,
-              "tracking": "cru.initiatinggospelconversations",
-              "translationKey": "interactionSpiritualConversation",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="spiritualConversationIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Spiritual Conversation
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="3"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "gospelIcon",
-              "id": "3",
-              "isOnAction": true,
-              "tracking": "cru.presentingthegospel",
-              "translationKey": "interactionGospel",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="gospelIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Gospel Presentation
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="4"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "decisionIcon",
-              "id": "4",
-              "isOnAction": true,
-              "tracking": "cru.newprofessingbelievers",
-              "translationKey": "interactionDecision",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="decisionIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Personal Decision
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="5"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "spiritIcon",
-              "id": "5",
-              "isOnAction": true,
-              "tracking": "cru.presentingtheholyspirit",
-              "translationKey": "interactionSpirit",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="spiritIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Holy Spirit Presentation
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="9"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "discipleshipConversationIcon",
-              "id": "9",
-              "isOnAction": true,
-              "tracking": "cru.discipleshipconversation",
-              "translationKey": "interactionDiscipleshipConversation",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="discipleshipConversationIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Discipleship Conversation
-        </MyText>
-      </TouchableIOS>
-    </Flex>
-  </SafeAreaView>
-</View>
-`;
-
-exports[`renders with actions and selected action 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      undefined,
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          self="stretch"
-          style={
-            Object {
-              "borderBottomColor": "#B2B0B2",
-              "borderBottomWidth": 1,
-              "paddingVertical": 13,
-              "position": "relative",
-            }
-          }
-        >
-          <Flex
-            align="center"
-            value={1}
-          >
-            <Icon
-              name="spiritualConversationIcon"
-              size={24}
-              style={
-                Object {
-                  "alignSelf": "center",
-                  "color": "#007398",
-                  "textAlign": "center",
-                }
-              }
-              type="MissionHub"
-            />
-          </Flex>
-          <Flex
-            justify="center"
-            style={
-              Object {
-                "borderLeftColor": "#ECEEF2",
-                "borderLeftWidth": 1,
-                "paddingBottom": 5,
-                "paddingLeft": 20,
-              }
-            }
-            value={4}
-          >
-            <DateComponent
-              date={2017-06-18T00:00:00.000Z}
-              format="LL"
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 13,
-                  "marginBottom": 5,
-                }
-              }
-            />
-            <MyText
-              style={
-                Object {
-                  "color": "#007398",
-                  "fontSize": 15,
-                }
-              }
-            >
-              Spiritual Conversation
-            </MyText>
-          </Flex>
-          <Flex
-            style={
-              Object {
-                "position": "absolute",
-                "right": 8,
-                "top": 8,
-              }
-            }
-          >
-            <Button
-              onPress={[Function]}
-              style={
-                Object {
-                  "backgroundColor": "#B2B0B2",
-                  "borderRadius": 25,
-                  "padding": 8,
-                }
-              }
-              type="transparent"
-            >
-              <Icon
-                name="deleteIcon"
-                size={10}
-                type="MissionHub"
-              />
-            </Button>
-          </Flex>
-        </Flex>
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
-            }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value=""
-          />
-          <IconButton
-            disabled={false}
-            name="upArrow"
-            onPress={[Function]}
-            size={22}
-            style={
-              Object {
-                "color": "#007398",
-              }
-            }
-            type="MissionHub"
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-    <Flex
-      align="center"
-      direction="row"
-      style={
-        Object {
-          "justifyContent": "space-around",
-          "minHeight": 30,
-        }
-      }
-    >
-      <TouchableIOS
-        key="2"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "spiritualConversationIcon",
-              "id": "2",
-              "isOnAction": true,
-              "tracking": "cru.initiatinggospelconversations",
-              "translationKey": "interactionSpiritualConversation",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              Object {
-                "backgroundColor": "#B2B0B2",
-              },
-            ]
-          }
-        >
-          <Icon
-            name="spiritualConversationIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Spiritual Conversation
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="3"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "gospelIcon",
-              "id": "3",
-              "isOnAction": true,
-              "tracking": "cru.presentingthegospel",
-              "translationKey": "interactionGospel",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="gospelIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Gospel Presentation
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="4"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "decisionIcon",
-              "id": "4",
-              "isOnAction": true,
-              "tracking": "cru.newprofessingbelievers",
-              "translationKey": "interactionDecision",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="decisionIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Personal Decision
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="5"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "spiritIcon",
-              "id": "5",
-              "isOnAction": true,
-              "tracking": "cru.presentingtheholyspirit",
-              "translationKey": "interactionSpirit",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="spiritIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Holy Spirit Presentation
-        </MyText>
-      </TouchableIOS>
-      <TouchableIOS
-        key="9"
-        onPress={[Function]}
-        pressProps={
-          Array [
-            Object {
-              "iconName": "discipleshipConversationIcon",
-              "id": "9",
-              "isOnAction": true,
-              "tracking": "cru.discipleshipconversation",
-              "translationKey": "interactionDiscipleshipConversation",
-            },
-          ]
-        }
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "marginBottom": 15,
-            "padding": 0,
-          }
-        }
-      >
-        <Flex
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#4E4C4E",
-                "borderRadius": 25,
-                "height": 45,
-                "justifyContent": "center",
-                "width": 45,
-              },
-              null,
-            ]
-          }
-        >
-          <Icon
-            name="discipleshipConversationIcon"
-            size={16}
-            type="MissionHub"
-          />
-        </Flex>
-        <MyText
-          numberOfLines={2}
-          style={
-            Object {
-              "color": "#4E4C4E",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
-          }
-        >
-          Discipleship Conversation
-        </MyText>
-      </TouchableIOS>
-    </Flex>
-  </SafeAreaView>
-</View>
-`;
-
-exports[`renders with custom style 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      Object {
-        "backgroundColor": "green",
-      },
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        justify="center"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#007398",
-              "borderRadius": 25,
-              "marginRight": 15,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
             },
             null,
           ]
         }
       >
-        <IconButton
-          name="plusIcon"
-          onPress={[Function]}
-          size={13}
-          type="MissionHub"
-        />
-      </Flex>
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
+        <Text
+          allowFontScaling={false}
           style={
-            Object {
-              "paddingLeft": 13,
-            }
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
           }
         >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#4E4C4E",
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Gospel Presentation
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "opacity": 1,
+          "padding": 0,
+        }
+      }
+      testID="ActionButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
               Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value=""
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#4E4C4E",
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Personal Decision
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "opacity": 1,
+          "padding": 0,
+        }
+      }
+      testID="ActionButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#4E4C4E",
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Holy Spirit Presentation
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "marginBottom": 15,
+          "opacity": 1,
+          "padding": 0,
+        }
+      }
+      testID="ActionButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#4E4C4E",
+              "borderRadius": 25,
+              "height": 45,
+              "justifyContent": "center",
+              "width": 45,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+                Object {},
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <Text
+        numberOfLines={2}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#4E4C4E",
+              "fontSize": 12,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Discipleship Conversation
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;
 
 exports[`renders with disabled submit button 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      undefined,
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        justify="center"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#007398",
-              "borderRadius": 25,
-              "marginRight": 15,
-            },
-            null,
-          ]
-        }
-      >
-        <IconButton
-          name="plusIcon"
-          onPress={[Function]}
-          size={13}
-          type="MissionHub"
-        />
-      </Flex>
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
-            }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value="test"
-          />
-          <IconButton
-            disabled={true}
-            name="upArrow"
-            onPress={[Function]}
-            size={22}
-            style={
-              Object {
-                "color": "#007398",
-              }
-            }
-            type="MissionHub"
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
-`;
+"Snapshot Diff:
+- First value
++ Second value
 
-exports[`renders with text 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      undefined,
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        justify="center"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#007398",
-              "borderRadius": 25,
-              "marginRight": 15,
-            },
-            null,
-          ]
-        }
-      >
-        <IconButton
-          name="plusIcon"
-          onPress={[Function]}
-          size={13}
-          type="MissionHub"
-        />
-      </Flex>
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
+@@ -83,78 +83,11 @@
+                  \\"paddingVertical\\": 7,
+                },
+              ]
             }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value="test"
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-           value=\\"test\\"
++           value=\\"\\"
           />
-          <IconButton
-            disabled={false}
-            name="upArrow"
-            onPress={[Function]}
-            size={22}
-            style={
-              Object {
-                "color": "#007398",
-              }
-            }
-            type="MissionHub"
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
+-         <View
+-           accessible={true}
+-           focusable={true}
+-           isTVSelectable={true}
+-           onClick={[Function bound touchableHandlePress]}
+-           onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-           onResponderMove={[Function bound touchableHandleResponderMove]}
+-           onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-           style={
+-             Object {
+-               \\"opacity\\": 1,
+-             }
+-           }
+-           testID=\\"IconButton\\"
+-         >
+-           <View
+-             style={
+-               Array [
+-                 Object {
+-                   \\"backgroundColor\\": \\"transparent\\",
+-                 },
+-                 null,
+-                 Object {},
+-                 null,
+-               ]
+-             }
+-           >
+-             <Text
+-               allowFontScaling={false}
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": undefined,
+-                     \\"fontSize\\": 12,
+-                   },
+-                   Array [
+-                     Object {
+-                       \\"color\\": \\"#ffffff\\",
+-                     },
+-                     Object {
+-                       \\"fontSize\\": 22,
+-                     },
+-                     Array [
+-                       Object {
+-                         \\"margin\\": 10,
+-                       },
+-                       Object {
+-                         \\"color\\": \\"#007398\\",
+-                       },
+-                     ],
+-                   ],
+-                   Object {
+-                     \\"fontFamily\\": \\"icomoon\\",
+-                     \\"fontStyle\\": \\"normal\\",
+-                     \\"fontWeight\\": \\"normal\\",
+-                   },
+-                   Object {},
+-                 ]
+-               }
+-             >
+-               
+-             </Text>
+-           </View>
+-         </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>"
 `;
 
 exports[`renders with text entered 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      undefined,
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        justify="center"
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#007398",
-              "borderRadius": 25,
-              "marginRight": 15,
-            },
-            null,
-          ]
-        }
-      >
-        <IconButton
-          name="plusIcon"
-          onPress={[Function]}
-          size={13}
-          type="MissionHub"
-        />
-      </Flex>
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -83,11 +83,78 @@
+                  \\"paddingVertical\\": 7,
+                },
+              ]
             }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value="test"
+            underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-           value=\\"\\"
++           value=\\"test\\"
           />
-          <IconButton
-            disabled={false}
-            name="upArrow"
-            onPress={[Function]}
-            size={22}
-            style={
-              Object {
-                "color": "#007398",
-              }
-            }
-            type="MissionHub"
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"IconButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"backgroundColor\\": \\"transparent\\",
++                 },
++                 null,
++                 Object {},
++                 null,
++               ]
++             }
++           >
++             <Text
++               allowFontScaling={false}
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": undefined,
++                     \\"fontSize\\": 12,
++                   },
++                   Array [
++                     Object {
++                       \\"color\\": \\"#ffffff\\",
++                     },
++                     Object {
++                       \\"fontSize\\": 22,
++                     },
++                     Array [
++                       Object {
++                         \\"margin\\": 10,
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                       },
++                     ],
++                   ],
++                   Object {
++                     \\"fontFamily\\": \\"icomoon\\",
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                   },
++                   Object {},
++                 ]
++               }
++             >
++               
++             </Text>
++           </View>
++         </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>"
 `;
 
 exports[`renders without actions 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
@@ -1454,237 +2392,73 @@ exports[`renders without actions 1`] = `
         "borderTopColor": "#B2B0B2",
         "borderTopWidth": 1,
         "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
         "width": 750,
       },
       undefined,
     ]
   }
 >
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
-      style={
-        Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
-        style={
-          Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
-          }
-        }
-        value={1}
-      >
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
-            }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#4E4C4E",
-                "flex": 1,
-                "fontSize": 16,
-                "paddingLeft": 5,
-                "paddingVertical": 7,
-              }
-            }
-            value=""
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
-`;
-
-exports[`renders without actions and selected action 1`] = `
-<View
-  style={
-    Array [
+  <View
+    style={
       Object {
-        "backgroundColor": "#ffffff",
-        "borderTopColor": "#B2B0B2",
-        "borderTopWidth": 1,
-        "flexDirection": "column",
-        "paddingBottom": 5,
-        "paddingTop": 5,
-        "width": 750,
-      },
-      undefined,
-    ]
-  }
->
-  <SafeAreaView>
-    <Flex
-      align="center"
-      direction="row"
-      justify="center"
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 10,
+      }
+    }
+  >
+    <View
       style={
         Object {
-          "marginBottom": 5,
-          "marginHorizontal": 10,
-          "paddingHorizontal": 5,
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "backgroundColor": "#ffffff",
+          "borderColor": "#B2B0B2",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
         }
       }
     >
-      <Flex
-        align="center"
-        direction="column"
-        justify="center"
-        self="stretch"
+      <View
         style={
           Object {
-            "backgroundColor": "#ffffff",
-            "borderColor": "#B2B0B2",
-            "borderRadius": 20,
-            "borderWidth": 1,
+            "alignItems": "center",
+            "alignSelf": "stretch",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "paddingLeft": 13,
           }
         }
-        value={1}
       >
-        <Flex
-          align="center"
-          direction="row"
-          self="stretch"
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={true}
+          autoFocus={false}
+          blurOnSubmit={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Placeholder"
+          placeholderTextColor="#B2B0B2"
+          rejectResponderTermination={true}
+          returnKeyType="done"
+          selectionColor="#005A7F"
           style={
-            Object {
-              "borderBottomColor": "#B2B0B2",
-              "borderBottomWidth": 1,
-              "paddingVertical": 13,
-              "position": "relative",
-            }
-          }
-        >
-          <Flex
-            align="center"
-            value={1}
-          >
-            <Icon
-              name="spiritualConversationIcon"
-              size={24}
-              style={
-                Object {
-                  "alignSelf": "center",
-                  "color": "#007398",
-                  "textAlign": "center",
-                }
-              }
-              type="MissionHub"
-            />
-          </Flex>
-          <Flex
-            justify="center"
-            style={
+            Array [
               Object {
-                "borderLeftColor": "#ECEEF2",
-                "borderLeftWidth": 1,
-                "paddingBottom": 5,
-                "paddingLeft": 20,
-              }
-            }
-            value={4}
-          >
-            <DateComponent
-              date={2017-06-18T00:00:00.000Z}
-              format="LL"
-              style={
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 13,
-                  "marginBottom": 5,
-                }
-              }
-            />
-            <MyText
-              style={
-                Object {
-                  "color": "#007398",
-                  "fontSize": 15,
-                }
-              }
-            >
-              Spiritual Conversation
-            </MyText>
-          </Flex>
-          <Flex
-            style={
-              Object {
-                "position": "absolute",
-                "right": 8,
-                "top": 8,
-              }
-            }
-          >
-            <Button
-              onPress={[Function]}
-              style={
-                Object {
-                  "backgroundColor": "#B2B0B2",
-                  "borderRadius": 25,
-                  "padding": 8,
-                }
-              }
-              type="transparent"
-            >
-              <Icon
-                name="deleteIcon"
-                size={10}
-                type="MissionHub"
-              />
-            </Button>
-          </Flex>
-        </Flex>
-        <Flex
-          align="center"
-          direction="row"
-          justify="center"
-          self="stretch"
-          style={
-            Object {
-              "paddingLeft": 13,
-            }
-          }
-        >
-          <Input
-            autoCorrect={true}
-            autoFocus={false}
-            blurOnSubmit={true}
-            onChangeText={[Function]}
-            placeholder="Share something to be remembered..."
-            placeholderTextColor="#B2B0B2"
-            returnKeyType="done"
-            style={
+                "backgroundColor": "transparent",
+                "borderBottomColor": "#52C5DC",
+                "borderBottomWidth": 1,
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "letterSpacing": 0.25,
+                "paddingVertical": 5,
+              },
               Object {
                 "borderBottomWidth": 0,
                 "color": "#4E4C4E",
@@ -1692,25 +2466,14 @@ exports[`renders without actions and selected action 1`] = `
                 "fontSize": 16,
                 "paddingLeft": 5,
                 "paddingVertical": 7,
-              }
-            }
-            value=""
-          />
-          <IconButton
-            disabled={false}
-            name="upArrow"
-            onPress={[Function]}
-            size={22}
-            style={
-              Object {
-                "color": "#007398",
-              }
-            }
-            type="MissionHub"
-          />
-        </Flex>
-      </Flex>
-    </Flex>
-  </SafeAreaView>
-</View>
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value=""
+        />
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;

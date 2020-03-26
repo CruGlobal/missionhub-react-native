@@ -2,10 +2,12 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
 
 import AcceptedStepDetailScreen from '..';
 
@@ -24,12 +26,21 @@ jest.mock('../../../components/ReminderDateText', () => ({
 }));
 jest.mock('../../../utils/hooks/useAnalytics');
 
+const myId = '4';
+const otherId = '5';
+const person: AcceptedStepDetail_step_receiver = {
+  __typename: 'Person',
+  id: myId,
+  firstName: 'Christian',
+};
 const stepId = '234242';
 
 const completeStepResult = { type: 'completed step' };
 const deleteStepResult = { type: 'deleted step' };
 const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
+
+const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
   (completeStep as jest.Mock).mockReturnValue(completeStepResult);
@@ -40,31 +51,59 @@ beforeEach(() => {
 
 it('should render correctly while loading', () => {
   renderWithContext(<AcceptedStepDetailScreen />, {
-    navParams: { stepId },
+    initialState,
+    navParams: { stepId, personId: myId },
     mocks: {
-      Step: () => ({ reminder: null, stepSuggestion: null }),
+      Step: () => ({ receiver: person, reminder: null, stepSuggestion: null }),
     },
   }).snapshot();
 });
 
-it('should render correctly without description and without reminder', async () => {
+it('should render correctly without description and without reminder for me', async () => {
   const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-    navParams: { stepId },
+    initialState,
+    navParams: { stepId, personId: myId },
     mocks: {
-      Step: () => ({ reminder: null, stepSuggestion: null }),
+      Step: () => ({
+        receiver: { id: myId },
+        reminder: null,
+        stepSuggestion: null,
+      }),
     },
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step']);
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
+  });
+});
+
+it('should render correctly without description and without reminder for other', async () => {
+  const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
+    initialState,
+    navParams: { stepId, personId: otherId },
+    mocks: {
+      Step: () => ({
+        receiver: { id: otherId },
+        reminder: null,
+        stepSuggestion: null,
+      }),
+    },
+  });
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+  });
 });
 
 describe('with description, without reminder', () => {
   it('should render correctly', async () => {
     const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-      navParams: { stepId },
+      initialState,
+      navParams: { stepId, personId: otherId },
       mocks: {
-        Step: () => ({ reminder: null }),
+        Step: () => ({ receiver: { id: otherId }, reminder: null }),
       },
     });
     await flushMicrotasksQueue();
@@ -75,7 +114,8 @@ describe('with description, without reminder', () => {
 describe('with description, with reminder', () => {
   it('should render correctly', async () => {
     const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
-      navParams: { stepId },
+      initialState,
+      navParams: { stepId, personId: otherId },
     });
     await flushMicrotasksQueue();
     snapshot();
@@ -86,7 +126,8 @@ it('should complete step', async () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      navParams: { stepId },
+      initialState,
+      navParams: { stepId, personId: otherId },
     },
   );
 
@@ -101,7 +142,8 @@ it('should delete step', async () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      navParams: { stepId },
+      initialState,
+      navParams: { stepId, personId: otherId },
     },
   );
 
@@ -117,7 +159,8 @@ it('should delete reminder', async () => {
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
-      navParams: { stepId },
+      initialState,
+      navParams: { stepId, personId: otherId },
       mocks: {
         //eslint-disable-next-line @typescript-eslint/no-explicit-any
         Step: (_: any, context: any) => ({

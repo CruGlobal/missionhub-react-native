@@ -38,7 +38,7 @@ describe('initialRoute', () => {
     it('should go to Login screen', () => {
       test({
         auth: {
-          token: null,
+          token: '',
         },
       });
     });

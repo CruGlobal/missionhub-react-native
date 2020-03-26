@@ -44,7 +44,7 @@ exports[`renders for me renders correctly 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -53,11 +53,10 @@ exports[`renders for me renders correctly 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -78,9 +77,7 @@ exports[`renders for me renders correctly 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -182,10 +179,8 @@ exports[`renders for me renders correctly 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -225,7 +220,7 @@ exports[`renders for me renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -236,9 +231,10 @@ exports[`renders for me renders correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -254,7 +250,7 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -266,7 +262,7 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -311,7 +307,7 @@ exports[`renders for me renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -322,9 +318,10 @@ exports[`renders for me renders correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -340,7 +337,7 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -352,7 +349,7 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -397,7 +394,7 @@ exports[`renders for me renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -408,9 +405,10 @@ exports[`renders for me renders correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -426,7 +424,7 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -438,7 +436,7 @@ exports[`renders for me renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -507,7 +505,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -516,11 +514,10 @@ exports[`renders for me renders firstItem correctly 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -541,9 +538,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -645,10 +640,8 @@ exports[`renders for me renders firstItem correctly 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -688,7 +681,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -699,9 +692,10 @@ exports[`renders for me renders firstItem correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -717,7 +711,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -729,7 +723,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -774,7 +768,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -785,9 +779,10 @@ exports[`renders for me renders firstItem correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -803,7 +798,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -815,7 +810,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -860,7 +855,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -871,9 +866,10 @@ exports[`renders for me renders firstItem correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -889,7 +885,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -901,7 +897,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -970,7 +966,7 @@ exports[`renders for other renders correctly 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -979,11 +975,10 @@ exports[`renders for other renders correctly 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -1004,9 +999,7 @@ exports[`renders for other renders correctly 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -1108,10 +1101,8 @@ exports[`renders for other renders correctly 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -1151,7 +1142,7 @@ exports[`renders for other renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -1162,9 +1153,10 @@ exports[`renders for other renders correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -1180,7 +1172,7 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1192,7 +1184,7 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1237,7 +1229,7 @@ exports[`renders for other renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -1248,9 +1240,10 @@ exports[`renders for other renders correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -1266,7 +1259,7 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1278,7 +1271,7 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1323,7 +1316,7 @@ exports[`renders for other renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -1334,9 +1327,10 @@ exports[`renders for other renders correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -1352,7 +1346,7 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1364,7 +1358,7 @@ exports[`renders for other renders correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1433,7 +1427,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -1442,11 +1436,10 @@ exports[`renders for other renders firstItem correctly 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -1467,9 +1460,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -1571,10 +1562,8 @@ exports[`renders for other renders firstItem correctly 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -1614,7 +1603,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -1625,9 +1614,10 @@ exports[`renders for other renders firstItem correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -1643,7 +1633,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1655,7 +1645,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1700,7 +1690,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -1711,9 +1701,10 @@ exports[`renders for other renders firstItem correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -1729,7 +1720,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1741,7 +1732,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1786,7 +1777,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -1797,9 +1788,10 @@ exports[`renders for other renders firstItem correctly 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -1815,7 +1807,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1827,7 +1819,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -1896,7 +1888,7 @@ exports[`renders renders correctly with question text 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -1905,11 +1897,10 @@ exports[`renders renders correctly with question text 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -1930,9 +1921,7 @@ exports[`renders renders correctly with question text 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -2034,10 +2023,8 @@ exports[`renders renders correctly with question text 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -2077,7 +2064,7 @@ exports[`renders renders correctly with question text 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -2088,9 +2075,10 @@ exports[`renders renders correctly with question text 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -2106,7 +2094,7 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2118,7 +2106,7 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2163,7 +2151,7 @@ exports[`renders renders correctly with question text 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -2174,9 +2162,10 @@ exports[`renders renders correctly with question text 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -2192,7 +2181,7 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2204,7 +2193,7 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2249,7 +2238,7 @@ exports[`renders renders correctly with question text 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -2260,9 +2249,10 @@ exports[`renders renders correctly with question text 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -2278,7 +2268,7 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2290,7 +2280,7 @@ exports[`renders renders correctly with question text 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2359,7 +2349,7 @@ exports[`renders renders correctly without back button 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -2368,11 +2358,10 @@ exports[`renders renders correctly without back button 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -2393,9 +2382,7 @@ exports[`renders renders correctly without back button 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -2497,10 +2484,8 @@ exports[`renders renders correctly without back button 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -2540,7 +2525,7 @@ exports[`renders renders correctly without back button 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -2551,9 +2536,10 @@ exports[`renders renders correctly without back button 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -2569,7 +2555,7 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2581,7 +2567,7 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2626,7 +2612,7 @@ exports[`renders renders correctly without back button 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -2637,9 +2623,10 @@ exports[`renders renders correctly without back button 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -2655,7 +2642,7 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2667,7 +2654,7 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2712,7 +2699,7 @@ exports[`renders renders correctly without back button 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#ffffff",
-                    "height": 320,
+                    "flex": 1,
                     "justifyContent": "space-between",
                     "marginHorizontal": 25,
                     "width": 630,
@@ -2723,9 +2710,10 @@ exports[`renders renders correctly without back button 1`] = `
                   style={
                     Object {
                       "alignItems": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
                       "paddingLeft": 15,
                       "paddingRight": 15,
-                      "paddingTop": 30,
                     }
                   }
                 >
@@ -2741,7 +2729,7 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#007398",
-                        "fontSize": 42,
+                        "fontSize": 48,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2753,7 +2741,7 @@ exports[`renders renders correctly without back button 1`] = `
                     style={
                       Object {
                         "color": "#505256",
-                        "fontSize": 16,
+                        "fontSize": 20,
                         "padding": 5,
                         "textAlign": "center",
                       }
@@ -2822,7 +2810,7 @@ exports[`renders renders correctly without stages 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -2831,11 +2819,10 @@ exports[`renders renders correctly without stages 1`] = `
           Object {
             "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 18,
+            "fontSize": 24,
             "fontWeight": "500",
-            "paddingBottom": 25,
             "paddingHorizontal": 30,
-            "paddingTop": 45,
+            "paddingVertical": 24,
             "textAlign": "center",
             "width": 650,
           }
@@ -2856,9 +2843,7 @@ exports[`renders renders correctly without stages 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -2924,10 +2909,8 @@ exports[`renders renders correctly without stages 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }

@@ -32,7 +32,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"11\\",
 +           \\"name\\": \\"User-centric actuating hierarchy\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -61,7 +61,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"12\\",
 +           \\"name\\": \\"Grass-roots logistical task-force\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -90,7 +90,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"13\\",
 +           \\"name\\": \\"Intuitive exuding core\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -119,7 +119,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"14\\",
 +           \\"name\\": \\"Right-sized transitional product\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -148,7 +148,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"15\\",
 +           \\"name\\": \\"Organized disintermediate ability\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -177,7 +177,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"16\\",
 +           \\"name\\": \\"Robust mobile capability\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -206,7 +206,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"17\\",
 +           \\"name\\": \\"Function-based logistical interface\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -235,7 +235,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"18\\",
 +           \\"name\\": \\"Adaptive tangible orchestration\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -264,7 +264,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"19\\",
 +           \\"name\\": \\"Grass-roots holistic support\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -293,7 +293,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +           \\"id\\": \\"20\\",
 +           \\"name\\": \\"Right-sized mobile implementation\\",
 +           \\"owner\\": Object {
-+             \\"__typename\\": \\"PersonConnection\\",
++             \\"__typename\\": \\"CommunityPersonConnection\\",
 +             \\"nodes\\": Array [
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
@@ -738,7 +738,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "1",
           "name": "Vision-oriented non-volatile system engine",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -767,7 +767,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "2",
           "name": "Adaptive bandwidth-monitored encryption",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -796,7 +796,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "3",
           "name": "Vision-oriented bifurcated core",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -825,7 +825,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "4",
           "name": "Compatible foreground collaboration",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -854,7 +854,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "5",
           "name": "Innovative encompassing moratorium",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -883,7 +883,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "6",
           "name": "Integrated user-facing intranet",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -912,7 +912,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "7",
           "name": "Switchable full-range extranet",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -941,7 +941,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "8",
           "name": "Public-key incremental concept",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -970,7 +970,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "9",
           "name": "Monitored system-worthy contingency",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -999,7 +999,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "10",
           "name": "Ameliorated intangible moratorium",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [
               Object {
                 "__typename": "Person",
@@ -1105,7 +1105,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "1",
               "name": "Vision-oriented non-volatile system engine",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1144,7 +1144,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "2",
               "name": "Adaptive bandwidth-monitored encryption",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1183,7 +1183,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "3",
               "name": "Vision-oriented bifurcated core",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1222,7 +1222,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "4",
               "name": "Compatible foreground collaboration",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1261,7 +1261,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "5",
               "name": "Innovative encompassing moratorium",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1300,7 +1300,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "6",
               "name": "Integrated user-facing intranet",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1339,7 +1339,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "7",
               "name": "Switchable full-range extranet",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1378,7 +1378,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "8",
               "name": "Public-key incremental concept",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",
@@ -1417,7 +1417,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "9",
               "name": "Monitored system-worthy contingency",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [
                   Object {
                     "__typename": "Person",

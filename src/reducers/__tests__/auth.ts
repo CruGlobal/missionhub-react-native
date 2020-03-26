@@ -1,4 +1,4 @@
-import auth from '../auth';
+import auth, { AuthState } from '../auth';
 import { REQUESTS } from '../../api/routes';
 import {
   CLEAR_UPGRADE_TOKEN,
@@ -10,7 +10,7 @@ import * as common from '../../utils/common';
 
 const token = 'asdfasndfiosdc';
 const personId = '123456';
-const initialState = {
+const initialState: Partial<AuthState> = {
   person: {},
 };
 
@@ -74,6 +74,16 @@ it('sets new token after refreshing anonymous login', () => {
   });
 
   expect(state).toEqual({ ...initialState, token });
+});
+
+it('does not set new token after refreshing anonymous login if user is logged out', () => {
+  const state = auth(
+    // @ts-ignore
+    { ...initialState, token: '' },
+    { type: REQUESTS.REFRESH_ANONYMOUS_LOGIN.SUCCESS, results: { token } },
+  );
+
+  expect(state).toEqual({ ...initialState, token: '' });
 });
 
 it('sets isJean after loading me', () => {
@@ -166,6 +176,19 @@ it('updates a user token', () => {
   );
 
   expect(state).toEqual({ token });
+});
+
+it('does not update a user token if the user has already logged out', () => {
+  const state = auth(
+    // @ts-ignore
+    { token: '' },
+    {
+      token,
+      type: UPDATE_TOKEN,
+    },
+  );
+
+  expect(state).toEqual({ token: '' });
 });
 
 it("should clear the user's upgradeToken", () => {

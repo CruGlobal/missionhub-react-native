@@ -1,40 +1,47 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
 import Header from '../../components/Header';
 import { Button } from '../../components/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import BackButton from '../BackButton';
+import { TrackStateContext } from '../../actions/analytics';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
 import CelebrateFeed from '../CelebrateFeed';
 import theme from '../../theme';
 import { refreshCommunity } from '../../actions/organizations';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
 import {
   markCommentsRead,
   markCommentRead,
 } from '../../actions/unreadComments';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
-import Analytics from '../Analytics';
 
 import styles from './styles';
 
 export interface GroupUnreadFeedProps {
-  dispatch: ThunkDispatch<{ organizations: OrganizationsState }, {}, AnyAction>;
   organization: Organization;
   count: number;
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
 const GroupUnreadFeed = ({
-  dispatch,
   organization,
   count,
+  analyticsPermissionType,
 }: GroupUnreadFeedProps) => {
   const { t } = useTranslation('groupUnread');
+  const dispatch = useDispatch();
+  useAnalytics(['celebrate', 'new comment items'], {
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  });
 
   const back = () => dispatch(navigateBack());
 
@@ -51,7 +58,6 @@ const GroupUnreadFeed = ({
 
   return (
     <View style={styles.pageContainer}>
-      <Analytics screenName={['celebrate', 'new comment items']} />
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={<BackButton iconStyle={styles.backIcon} />}
@@ -85,7 +91,10 @@ const GroupUnreadFeed = ({
 };
 
 const mapStateToProps = (
-  { organizations }: { organizations: OrganizationsState },
+  {
+    auth,
+    organizations,
+  }: { auth: AuthState; organizations: OrganizationsState },
   {
     navigation: {
       state: {
@@ -95,13 +104,14 @@ const mapStateToProps = (
   }: /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   any,
 ) => {
-  const selectorOrg =
+  const selectorOrg: Organization =
     organizationSelector({ organizations }, { orgId: organization.id }) ||
     organization;
 
   return {
-    organization: selectorOrg as Organization,
+    organization: selectorOrg,
     count: (selectorOrg.unread_comments_count || 0) as number,
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

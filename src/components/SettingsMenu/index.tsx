@@ -24,7 +24,7 @@ interface SettingsMenuProps {
 
 const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
   const { t } = useTranslation('settingsMenu');
-  useAnalytics('menu', ANALYTICS_SCREEN_TYPES.drawer);
+  useAnalytics('menu', { screenType: ANALYTICS_SCREEN_TYPES.drawer });
 
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);
