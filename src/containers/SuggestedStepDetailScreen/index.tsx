@@ -1,33 +1,52 @@
 import React from 'react';
-import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import { TrackStateContext } from '../../actions/analytics';
 import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { SuggestedStep } from '../../reducers/steps';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/analytics';
+import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 
 import styles from './styles';
 
 interface SuggestedStepDetailScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   next: (props: {
     personId: string;
     orgId: string | undefined;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const SuggestedStepDetailScreen = ({
-  dispatch,
   next,
+  analyticsSection,
+  analyticsAssignmentType,
 }: SuggestedStepDetailScreenProps) => {
-  useAnalytics(['step detail', 'add step']);
+  useAnalytics(['step detail', 'add step'], {
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+    },
+  });
   const { t } = useTranslation('suggestedStepDetail');
+  const dispatch = useDispatch();
   const step: SuggestedStep = useNavigationParam('step');
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
@@ -55,5 +74,20 @@ const SuggestedStepDetailScreen = ({
   );
 };
 
-export default connect()(SuggestedStepDetailScreen);
+const mapStateToProps = (
+  { auth, onboarding }: { auth: AuthState; onboarding: OnboardingState },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
+  analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
+});
+
+export default connect(mapStateToProps)(SuggestedStepDetailScreen);
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

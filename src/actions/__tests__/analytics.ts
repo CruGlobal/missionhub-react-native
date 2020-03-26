@@ -13,14 +13,25 @@ import {
   logInAnalytics,
   trackActionWithoutData,
   trackSearchFilter,
-  resetAppContext,
-  RESET_APP_CONTEXT,
+  ANALYTICS_CONTEXT_CHANGED,
+  ScreenContext,
 } from '../analytics';
 import {
   ACTIONS,
-  ANALYTICS,
-  ANALYTICS_CONTEXT_CHANGED,
   LOGGED_IN,
+  ANALYTICS_MCID,
+  ANALYTICS_SSO_GUID,
+  ANALYTICS_GR_MASTER_PERSON_ID,
+  ANALYTICS_SCREEN_NAME,
+  ANALYTICS_SITE_SECTION,
+  ANALYTICS_SITE_SUBSECTION,
+  ANALYTICS_SITE_SUBSECTION_3,
+  ANALYTICS_PREVIOUS_SCREEN_NAME,
+  ANALYTICS_LOGGED_IN_STATUS,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_EDIT_MODE,
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
 import {
   initialAnalyticsState,
@@ -41,18 +52,25 @@ const mcId = '7892387873247893297847894978497823';
 const ssoGuid = '74ba3670-b624-429c-8223-919b94e668fb';
 const grMasterPersonId = '686fb90b-0ae8-4b0a-8e62-f7437f425c59';
 
-let context: AnalyticsState;
+let analyticsContext: AnalyticsState;
+let screenContext: ScreenContext;
 let store: MockStore;
 
 beforeEach(() => {
-  context = {
+  analyticsContext = {
     ...initialAnalyticsState,
-    [ANALYTICS.MCID]: mcId,
-    [ANALYTICS.SSO_GUID]: ssoGuid,
-    [ANALYTICS.GR_MASTER_PERSON_ID]: grMasterPersonId,
+    [ANALYTICS_MCID]: mcId,
+    [ANALYTICS_SSO_GUID]: ssoGuid,
+    [ANALYTICS_GR_MASTER_PERSON_ID]: grMasterPersonId,
+  } as AnalyticsState;
+  screenContext = {
+    [ANALYTICS_ASSIGNMENT_TYPE]: '',
+    [ANALYTICS_EDIT_MODE]: '',
+    [ANALYTICS_PERMISSION_TYPE]: '',
+    [ANALYTICS_SECTION_TYPE]: '',
   };
   store = mockStore({
-    analytics: context,
+    analytics: analyticsContext,
     auth: {
       person: { global_registry_mdm_id: grMasterPersonId },
     },
@@ -64,14 +82,6 @@ beforeEach(() => {
   );
 });
 
-describe('resetAppContext', () => {
-  it('sends reset action', () => {
-    store.dispatch<any>(resetAppContext());
-
-    expect(store.getActions()).toEqual([{ type: RESET_APP_CONTEXT }]);
-  });
-});
-
 describe('trackScreenChange', () => {
   const screenNameArray = ['section', 'subsection', 'subsection 3'];
   const screenName = `mh : ${screenNameArray[0]} : ${screenNameArray[1]} : ${screenNameArray[2]}`;
@@ -80,16 +90,17 @@ describe('trackScreenChange', () => {
     store.dispatch<any>(trackScreenChange(screenNameArray));
 
     expect(RNOmniture.trackState).toHaveBeenCalledWith(screenName, {
-      ...context,
-      [ANALYTICS.SCREEN_NAME]: screenName,
-      [ANALYTICS.SITE_SECTION]: screenNameArray[0],
-      [ANALYTICS.SITE_SUBSECTION]: screenNameArray[1],
-      [ANALYTICS.SITE_SUBSECTION_3]: screenNameArray[2],
+      ...analyticsContext,
+      ...screenContext,
+      [ANALYTICS_SCREEN_NAME]: screenName,
+      [ANALYTICS_SITE_SECTION]: screenNameArray[0],
+      [ANALYTICS_SITE_SUBSECTION]: screenNameArray[1],
+      [ANALYTICS_SITE_SUBSECTION_3]: screenNameArray[2],
     });
     expect(store.getActions()).toEqual([
       {
         type: ANALYTICS_CONTEXT_CHANGED,
-        analyticsContext: { [ANALYTICS.PREVIOUS_SCREEN_NAME]: screenName },
+        analyticsContext: { [ANALYTICS_PREVIOUS_SCREEN_NAME]: screenName },
       },
     ]);
   });
@@ -101,16 +112,47 @@ describe('trackScreenChange', () => {
     store.dispatch<any>(trackScreenChange(singleScreenString));
 
     expect(RNOmniture.trackState).toHaveBeenCalledWith(shortScreenName, {
-      ...context,
-      [ANALYTICS.SCREEN_NAME]: shortScreenName,
-      [ANALYTICS.SITE_SECTION]: singleScreenString,
-      [ANALYTICS.SITE_SUBSECTION]: undefined,
-      [ANALYTICS.SITE_SUBSECTION_3]: undefined,
+      ...analyticsContext,
+      ...screenContext,
+      [ANALYTICS_SCREEN_NAME]: shortScreenName,
+      [ANALYTICS_SITE_SECTION]: singleScreenString,
+      [ANALYTICS_SITE_SUBSECTION]: undefined,
+      [ANALYTICS_SITE_SUBSECTION_3]: undefined,
     });
     expect(store.getActions()).toEqual([
       {
         type: ANALYTICS_CONTEXT_CHANGED,
-        analyticsContext: { [ANALYTICS.PREVIOUS_SCREEN_NAME]: shortScreenName },
+        analyticsContext: { [ANALYTICS_PREVIOUS_SCREEN_NAME]: shortScreenName },
+      },
+    ]);
+  });
+
+  it('tracks screen change with string and screen context', () => {
+    const singleScreenString = 'section';
+    const shortScreenName = `mh : ${singleScreenString}`;
+    const extraContext: ScreenContext = {
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+      [ANALYTICS_EDIT_MODE]: 'update',
+      [ANALYTICS_PERMISSION_TYPE]: 'owner',
+      [ANALYTICS_SECTION_TYPE]: 'onboarding',
+    };
+
+    store.dispatch<any>(trackScreenChange(singleScreenString, extraContext));
+
+    expect(RNOmniture.trackState).toHaveBeenCalledWith(shortScreenName, {
+      ...analyticsContext,
+      ...extraContext,
+      [ANALYTICS_SCREEN_NAME]: shortScreenName,
+      [ANALYTICS_SITE_SECTION]: singleScreenString,
+      [ANALYTICS_SITE_SUBSECTION]: undefined,
+      [ANALYTICS_SITE_SUBSECTION_3]: undefined,
+    });
+    expect(store.getActions()).toEqual([
+      {
+        type: ANALYTICS_CONTEXT_CHANGED,
+        analyticsContext: {
+          [ANALYTICS_PREVIOUS_SCREEN_NAME]: shortScreenName,
+        },
       },
     ]);
   });
@@ -118,8 +160,9 @@ describe('trackScreenChange', () => {
   it('fetches new MCID, then tracks screen change', () => {
     store = mockStore({
       analytics: {
-        ...context,
-        [ANALYTICS.MCID]: '',
+        ...analyticsContext,
+        ...screenContext,
+        [ANALYTICS_MCID]: '',
       },
       auth: {
         person: { global_registry_mdm_id: grMasterPersonId },
@@ -130,16 +173,17 @@ describe('trackScreenChange', () => {
 
     expect(RNOmniture.loadMarketingCloudId).toHaveBeenCalledTimes(1);
     expect(RNOmniture.trackState).toHaveBeenCalledWith(screenName, {
-      ...context,
-      [ANALYTICS.SCREEN_NAME]: screenName,
-      [ANALYTICS.SITE_SECTION]: screenNameArray[0],
-      [ANALYTICS.SITE_SUBSECTION]: screenNameArray[1],
-      [ANALYTICS.SITE_SUBSECTION_3]: screenNameArray[2],
+      ...analyticsContext,
+      ...screenContext,
+      [ANALYTICS_SCREEN_NAME]: screenName,
+      [ANALYTICS_SITE_SECTION]: screenNameArray[0],
+      [ANALYTICS_SITE_SUBSECTION]: screenNameArray[1],
+      [ANALYTICS_SITE_SUBSECTION_3]: screenNameArray[2],
     });
     expect(store.getActions()).toEqual([
       {
         type: ANALYTICS_CONTEXT_CHANGED,
-        analyticsContext: { [ANALYTICS.PREVIOUS_SCREEN_NAME]: screenName },
+        analyticsContext: { [ANALYTICS_PREVIOUS_SCREEN_NAME]: screenName },
       },
     ]);
   });
@@ -147,12 +191,12 @@ describe('trackScreenChange', () => {
 
 describe('updateAnalyticsContext', () => {
   it('should create action', () => {
-    store.dispatch(updateAnalyticsContext(context));
+    store.dispatch(updateAnalyticsContext(analyticsContext));
 
     expect(store.getActions()).toEqual([
       {
         type: ANALYTICS_CONTEXT_CHANGED,
-        analyticsContext: context,
+        analyticsContext,
       },
     ]);
   });
@@ -293,7 +337,7 @@ describe('logInAnalytics', () => {
   it('should update analytics context', () => {
     const action = store.getActions()[0];
     expect(action.type).toBe(ANALYTICS_CONTEXT_CHANGED);
-    expect(action.analyticsContext[ANALYTICS.LOGGED_IN_STATUS]).toEqual(
+    expect(action.analyticsContext[ANALYTICS_LOGGED_IN_STATUS]).toEqual(
       LOGGED_IN,
     );
   });

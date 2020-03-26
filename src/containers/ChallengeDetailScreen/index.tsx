@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, StatusBar, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
@@ -13,14 +14,17 @@ import {
 } from '../../actions/challenges';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
-import { Button } from '../../components/common';
 import BackButton from '../BackButton';
+import { Button } from '../../components/common';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import { communityChallengeSelector } from '../../selectors/challenges';
+import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
+import { isAdminOrOwner } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
 import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
@@ -128,6 +132,48 @@ const ChallengeDetailScreen = () => {
   );
 };
 
-export default ChallengeDetailScreen;
+export const mapStateToProps = (
+  {
+    auth,
+    organizations,
+  }: { auth: AuthState; organizations: OrganizationsState },
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  { navigation }: any,
+) => {
+  const navParams = navigation.state.params || {};
+  const { challengeId, orgId } = navParams;
+  const myId = auth.person.id;
+
+  const challenge = communityChallengeSelector(
+    { organizations },
+    { orgId, challengeId },
+  );
+
+  const acceptedChallenge =
+    challenge.accepted_community_challenges &&
+    challenge.accepted_community_challenges.find(
+      (c: ChallengeItem) => c.person && c.person.id === myId,
+    );
+
+  const myOrgPerm = orgPermissionSelector(
+    {},
+    {
+      person: auth.person,
+      organization: { id: orgId },
+    },
+  );
+  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
+
+  return {
+    ...navParams,
+    myId,
+    challenge,
+    acceptedChallenge,
+    canEditChallenges,
+    analyticsPermissionType: getAnalyticsPermissionType(auth, { id: orgId }),
+  };
+};
+
+export default connect(mapStateToProps)(ChallengeDetailScreen);
 
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';

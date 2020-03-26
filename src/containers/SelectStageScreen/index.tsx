@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { View, Image } from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import i18next from 'i18next';
@@ -23,13 +24,29 @@ import {
   selectPersonStage,
   updateUserStage,
 } from '../../actions/selectStage';
-import { trackAction, trackScreenChange } from '../../actions/analytics';
-import { ACTIONS } from '../../constants';
+import {
+  trackAction,
+  trackScreenChange,
+  TrackStateContext,
+} from '../../actions/analytics';
+import {
+  ACTIONS,
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_EDIT_MODE,
+} from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
+import { exists } from '../../utils/common';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+  getAnalyticsEditMode,
+} from '../../utils/analytics';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
 import { AnalyticsState } from '../../reducers/analytics';
+import { OnboardingState } from '../../reducers/onboarding';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -48,8 +65,6 @@ import styles, {
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface SelectStageScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>;
   next: (props: {
     isMe: boolean;
     personId: string;
@@ -58,6 +73,8 @@ interface SelectStageScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
   myId: string;
   firstName: string;
   contactAssignmentId?: string;
@@ -71,14 +88,13 @@ export interface SelectStageNavParams {
   enableBackButton: boolean;
   personId: string;
   orgId?: string;
-  section: string;
-  subsection: string;
   questionText?: string;
 }
 
 const SelectStageScreen = ({
-  dispatch,
   next,
+  analyticsSection,
+  analyticsAssignmentType,
   myId,
   firstName,
   contactAssignmentId,
@@ -92,6 +108,9 @@ const SelectStageScreen = ({
     orgId,
     questionText,
   } = useNavigationState().params as SelectStageNavParams;
+  const dispatch = useDispatch<
+    ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>
+  >();
   useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -103,7 +122,14 @@ const SelectStageScreen = ({
     const stage =
       stages[stageIndex] || (await dispatch(getStages())).response[stageIndex];
 
-    stage && dispatch(trackScreenChange(['stage', stage.name.toLowerCase()]));
+    stage &&
+      dispatch(
+        trackScreenChange(['stage', stage.name.toLowerCase()], {
+          [ANALYTICS_SECTION_TYPE]: analyticsSection,
+          [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(exists(selectedStageId)),
+        }),
+      );
   };
 
   useFocusEffect(
@@ -209,7 +235,7 @@ const SelectStageScreen = ({
               scrollEventThrottle={5}
               onSnapToItem={handleSnapToItem}
               removeClippedSubviews={false}
-              containerCustomStyle={{ height: 400, flex: 0, flexGrow: 0 }}
+              containerCustomStyle={{ marginBottom: 200 }}
             />
           ) : null}
         </View>
@@ -223,7 +249,13 @@ const mapStateToProps = (
     auth,
     people,
     stages,
-  }: { auth: AuthState; people: PeopleState; stages: StagesState },
+    onboarding,
+  }: {
+    auth: AuthState;
+    people: PeopleState;
+    stages: StagesState;
+    onboarding: OnboardingState;
+  },
   {
     navigation: {
       state: {
@@ -244,6 +276,8 @@ const mapStateToProps = (
     contactAssignmentId: contactAssignment.id,
     isMe: personId === myId,
     stages: stages.stages,
+    analyticsSection: getAnalyticsSectionType(onboarding),
+    analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
   };
 };
 

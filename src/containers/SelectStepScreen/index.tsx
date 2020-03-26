@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View } from 'react-native';
+import { connect } from 'react-redux-legacy';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -7,6 +8,15 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/default
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
+import { TrackStateContext } from '../../actions/analytics';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/analytics';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../constants';
 import { Text, Button } from '../../components/common';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
@@ -19,6 +29,7 @@ import {
   contactAssignmentSelector,
 } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
+import { OnboardingState } from '../../reducers/onboarding';
 import { PeopleState, Person } from '../../reducers/people';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import SelectStepExplainerModal from '../../components/SelectStepExplainerModal';
@@ -40,11 +51,22 @@ interface SelectStepScreenProps {
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, null, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
-const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
+const SelectStepScreen = ({
+  next,
+  analyticsSection,
+  analyticsAssignmentType,
+}: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
-  useAnalytics('add step');
+  useAnalytics('add step', {
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+    },
+  });
   const dispatch = useDispatch();
 
   const [isExplainerOpen, setIsExplainerOpen] = useState(false);
@@ -158,5 +180,26 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   );
 };
 
-export default SelectStepScreen;
+const mapStateToProps = (
+  {
+    auth,
+    onboarding,
+  }: {
+    auth: AuthState;
+    onboarding: OnboardingState;
+  },
+  {
+    navigation: {
+      state: {
+        params: { personId },
+      },
+    },
+  }: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  any,
+) => ({
+  analyticsSection: getAnalyticsSectionType(onboarding),
+  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
+});
+
+export default connect(mapStateToProps)(SelectStepScreen);
 export const SELECT_STEP_SCREEN = 'nav/SELECT_STEP';
