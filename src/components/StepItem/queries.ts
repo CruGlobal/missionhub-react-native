@@ -8,9 +8,7 @@ export const STEP_ITEM_FRAGMENT = gql`
     id
     title
     completedAt
-    stepSuggestion {
-      stepType
-    }
+    stepType
     receiver {
       id
       fullName

@@ -1,15 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
-import { TrackStateContext } from '../../actions/analytics';
-import { addStep } from '../../actions/steps';
 import StepDetailScreen from '../../components/StepDetailScreen';
-import { SuggestedStep } from '../../reducers/steps';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import {
   getAnalyticsSectionType,
@@ -21,8 +18,24 @@ import {
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { STEPS_QUERY } from '../StepsScreen/queries';
+import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
+import { trackStepAdded } from '../../actions/analytics';
 
 import styles from './styles';
+import {
+  STEP_SUGGESTION_QUERY,
+  CREATE_STEP_FROM_SUGGESTION_MUTATION,
+} from './queries';
+import {
+  StepSuggestion,
+  StepSuggestionVariables,
+} from './__generated__/StepSuggestion';
+import {
+  CreateStepFromSuggestion,
+  CreateStepFromSuggestionVariables,
+} from './__generated__/CreateStepFromSuggestion';
 
 interface SuggestedStepDetailScreenProps {
   next: (props: {
@@ -30,31 +43,56 @@ interface SuggestedStepDetailScreenProps {
     orgId: string | undefined;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
-  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
-  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const SuggestedStepDetailScreen = ({
   next,
-  analyticsSection,
-  analyticsAssignmentType,
 }: SuggestedStepDetailScreenProps) => {
+  const { t } = useTranslation('suggestedStepDetail');
+  const dispatch = useDispatch();
+  const stepSuggestionId: string = useNavigationParam('stepSuggestionId');
+  const personId: string = useNavigationParam('personId');
+  const orgId: string | undefined = useNavigationParam('orgId');
+
+  const analyticsSection = useSelector(
+    ({ onboarding }: { onboarding: OnboardingState }) =>
+      getAnalyticsSectionType(onboarding),
+  );
+  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
+    getAnalyticsAssignmentType({ id: personId }, auth),
+  );
   useAnalytics(['step detail', 'add step'], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
       [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
-  const { t } = useTranslation('suggestedStepDetail');
-  const dispatch = useDispatch();
-  const step: SuggestedStep = useNavigationParam('step');
-  const personId: string = useNavigationParam('personId');
-  const orgId: string | undefined = useNavigationParam('orgId');
 
-  const { body, description_markdown, challenge_type } = step;
+  const { data, error, refetch } = useQuery<
+    StepSuggestion,
+    StepSuggestionVariables
+  >(STEP_SUGGESTION_QUERY, {
+    variables: { stepSuggestionId, personId },
+  });
 
-  const handleAddStep = () => {
-    dispatch(addStep(step, personId, orgId));
+  const [createSuggestedStep, { error: errorCreateStep }] = useMutation<
+    CreateStepFromSuggestion,
+    CreateStepFromSuggestionVariables
+  >(CREATE_STEP_FROM_SUGGESTION_MUTATION, {
+    onCompleted: data => dispatch(trackStepAdded(data.createStep?.step)),
+    refetchQueries: [
+      { query: STEPS_QUERY },
+      {
+        query: PERSON_STEPS_QUERY,
+        variables: { personId, completed: false },
+      },
+    ],
+  });
+
+  const handleAddStep = async () => {
+    await createSuggestedStep({
+      variables: { receiverId: personId, communityId: orgId, stepSuggestionId },
+    });
     dispatch(next({ personId, orgId }));
   };
 
@@ -63,9 +101,24 @@ const SuggestedStepDetailScreen = ({
       CenterHeader={null}
       RightHeader={null}
       CenterContent={<View style={styles.centerContent} />}
-      text={body}
-      stepType={challenge_type ?? undefined}
-      markdown={description_markdown}
+      Banner={
+        <>
+          <ErrorNotice
+            message={t('errorLoadingSuggestedStepDetails')}
+            error={error}
+            refetch={refetch}
+          />
+          <ErrorNotice
+            message={t('errorSavingStep')}
+            error={errorCreateStep}
+            refetch={handleAddStep}
+          />
+        </>
+      }
+      text={data?.stepSuggestion.body}
+      stepType={data?.stepSuggestion.stepType}
+      firstName={data?.person.firstName}
+      markdown={data?.stepSuggestion.descriptionMarkdown ?? undefined}
       bottomButtonProps={{
         onPress: handleAddStep,
         text: t('addStep'),
@@ -74,20 +127,5 @@ const SuggestedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = (
-  { auth, onboarding }: { auth: AuthState; onboarding: OnboardingState },
-  {
-    navigation: {
-      state: {
-        params: { personId },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
-  analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
-});
-
-export default connect(mapStateToProps)(SuggestedStepDetailScreen);
+export default SuggestedStepDetailScreen;
 export const SUGGESTED_STEP_DETAIL_SCREEN = 'nav/SUGGESTED_STEP_DETAIL_SCREEN';

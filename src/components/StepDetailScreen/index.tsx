@@ -11,15 +11,14 @@ import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
+import { insertName } from '../../utils/steps';
 
 import styles from './styles';
 
 interface StepDetailScreenProps {
   text?: string;
-  stepType?: StepTypeEnum;
-  receiver?: {
-    firstName: string;
-  };
+  stepType?: StepTypeEnum | null;
+  firstName?: string;
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
@@ -31,12 +30,12 @@ interface StepDetailScreenProps {
 const StepDetailScreen = ({
   text = '',
   markdown = '',
+  firstName = '',
   stepType,
   CenterHeader,
   RightHeader,
   CenterContent,
   bottomButtonProps,
-  receiver = { firstName: '' },
   Banner = null,
 }: StepDetailScreenProps) => {
   const {
@@ -51,12 +50,12 @@ const StepDetailScreen = ({
     <>
       {Banner}
       <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
-      <Text style={stepTitleText}>{text}</Text>
+      <Text style={stepTitleText}>{insertName(text, firstName)}</Text>
       {CenterContent}
       <View style={body}>
         {markdown ? (
           <Markdown style={markdownStyles}>
-            {markdown.replace(/<<name>>/g, receiver ? receiver.firstName : '')}
+            {insertName(markdown, firstName)}
           </Markdown>
         ) : null}
       </View>

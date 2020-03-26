@@ -13,12 +13,13 @@ import ShareIcon from '../../../assets/images/stepTypes/share.svg';
 import GenericIcon from '../../../assets/images/stepTypes/generic.svg';
 
 interface StepTypeBadgeProps {
-  stepType?: StepTypeEnum;
+  stepType?: StepTypeEnum | null;
   displayVertically?: boolean;
   hideLabel?: boolean;
   hideIcon?: boolean;
   labelUppercase?: boolean;
   iconProps?: SvgProps;
+  color?: string;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 }
@@ -31,6 +32,7 @@ export const StepTypeBadge = ({
   labelUppercase = true,
   iconProps = {},
   textStyle,
+  color = theme.lightGrey,
   style,
 }: StepTypeBadgeProps) => {
   const { t } = useTranslation('stepTypes');
@@ -38,19 +40,15 @@ export const StepTypeBadge = ({
   const renderIcon = () => {
     switch (stepType) {
       case 'relate':
-        return (
-          <RelateIcon height={24} color={theme.lightGrey} {...iconProps} />
-        );
+        return <RelateIcon height={24} color={color} {...iconProps} />;
       case 'pray':
-        return <PrayIcon height={24} color={theme.lightGrey} {...iconProps} />;
+        return <PrayIcon height={24} color={color} {...iconProps} />;
       case 'care':
-        return <CareIcon height={24} color={theme.lightGrey} {...iconProps} />;
+        return <CareIcon height={24} color={color} {...iconProps} />;
       case 'share':
-        return <ShareIcon height={24} color={theme.lightGrey} {...iconProps} />;
+        return <ShareIcon height={24} color={color} {...iconProps} />;
       default:
-        return (
-          <GenericIcon height={24} color={theme.lightGrey} {...iconProps} />
-        );
+        return <GenericIcon height={24} color={color} {...iconProps} />;
     }
   };
 
@@ -68,7 +66,13 @@ export const StepTypeBadge = ({
 
   return (
     <View
-      style={[{ flexDirection: displayVertically ? 'column' : 'row' }, style]}
+      style={[
+        {
+          flexDirection: displayVertically ? 'column' : 'row',
+          alignItems: 'center',
+        },
+        style,
+      ]}
     >
       {hideIcon ? null : renderIcon()}
       {hideLabel ? null : (
@@ -77,7 +81,7 @@ export const StepTypeBadge = ({
             {
               fontSize: 16,
               fontWeight: 'bold',
-              color: theme.lightGrey,
+              color,
               letterSpacing: 1,
               paddingLeft: hideIcon ? 0 : 4,
             },

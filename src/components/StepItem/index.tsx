@@ -79,7 +79,7 @@ const StepItem = ({
               <ItemHeaderText style={styles.stepUserName} text={ownerName} />
             </Touchable>
           ) : (
-            <StepTypeBadge stepType={step.stepSuggestion?.stepType} />
+            <StepTypeBadge stepType={step.stepType} />
           )}
         </View>
         <Text style={styles.description}>{step.title}</Text>

@@ -31,4 +31,8 @@ export default StyleSheet.create({
     fontFamily: 'SourceSansPro-Light',
     minHeight: 90.5,
   },
+  badge: {
+    paddingHorizontal: 45,
+    paddingBottom: 16,
+  },
 });

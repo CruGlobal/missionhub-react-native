@@ -14,7 +14,6 @@ import { buildTrackingObj } from '../utils/common';
 import { Person } from '../reducers/people';
 
 import { trackActionWithoutData } from './analytics';
-import { reloadJourney } from './journey';
 import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 

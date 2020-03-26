@@ -34,12 +34,10 @@ export const globalMocks: IMocks = {
     startCursor: null,
   }),
   ReminderTypeEnum: () => ReminderTypeEnum.once,
+  StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
 
   Step: () => ({
     title: faker.lorem.sentence(),
-  }),
-  StepSuggestion: () => ({
-    stepType: faker.random.arrayElement(Object.values(StepTypeEnum)),
   }),
   Person: () => {
     const firstName = faker.name.firstName();

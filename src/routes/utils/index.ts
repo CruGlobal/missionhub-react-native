@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import gql from 'graphql-tag';
 
 import { personSelector } from '../../selectors/people';
-import { getStageIndex, getAnalyticsSubsection } from '../../utils/common';
+import { getStageIndex } from '../../utils/common';
 import { apolloClient } from '../../apolloClient';
 import { AuthState } from '../../reducers/auth';
 import { StagesState } from '../../reducers/stages';
