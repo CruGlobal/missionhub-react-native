@@ -148,8 +148,6 @@ const SetupScreen = ({
         data?.createPerson?.person &&
           dispatch(next({ personId: data?.createPerson?.person.id }));
       }
-    } catch {
-      return;
     } finally {
       setIsLoading(false);
     }
