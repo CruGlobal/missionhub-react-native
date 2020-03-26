@@ -2,7 +2,9 @@ import { navigateToMainTabs, navigateReset } from '../navigation';
 import { resetToInitialRoute } from '../navigationInit';
 import { createThunkStore } from '../../../testUtils';
 import { startOnboarding } from '../onboarding';
+import { checkNotifications } from '../notifications';
 
+jest.mock('../notifications');
 jest.mock('../navigation');
 jest.mock('../onboarding');
 jest.mock('../analytics');
@@ -15,11 +17,13 @@ const myId = '1';
 const navigateToMainTabsResult = { type: 'nav to main tabs' };
 const navigateResetResult = { type: 'navigate refresh' };
 const startOnboardingResult = { type: 'start onboarding' };
+const checkNotificationsResult = { type: 'check notifications' };
 
 beforeEach(() => {
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
   (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResult);
+  (checkNotifications as jest.Mock).mockReturnValue(checkNotificationsResult);
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
