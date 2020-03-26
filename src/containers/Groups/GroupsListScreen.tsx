@@ -1,6 +1,6 @@
 /* eslint max-lines:0 */
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FlatList,
   View,
