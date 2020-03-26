@@ -1732,79 +1732,81 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-                height={24}
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                RELATE
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "marginTop": 20,
-                }
-              }
-            >
+            <View>
               <View
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
                         Object {
-                          "rotate": "0deg",
+                          "color": "#ffffff",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
                         },
+                        undefined,
                       ],
-                    },
-                  ]
+                    ]
+                  }
+                >
+                  Relate
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "marginTop": 20,
+                  }
                 }
-              />
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "borderBottomWidth": 9,
+                        "borderLeftColor": "transparent",
+                        "borderLeftWidth": 7,
+                        "borderRightColor": "transparent",
+                        "borderRightWidth": 7,
+                        "borderStyle": "solid",
+                        "height": 0,
+                        "width": 0,
+                      },
+                      Object {
+                        "borderBottomColor": "#ECEEF2",
+                        "transform": Array [
+                          Object {
+                            "rotate": "0deg",
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                />
+              </View>
             </View>
           </View>
           <View
@@ -1824,45 +1826,47 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#52C5DC"
-                height={24}
-              />
-              <Text
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ]
                 }
               >
-                PRAY
-              </Text>
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Pray
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -1882,45 +1886,47 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#52C5DC"
-                height={24}
-              />
-              <Text
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ]
                 }
               >
-                CARE
-              </Text>
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Care
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -1940,45 +1946,47 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#52C5DC"
-                height={24}
-              />
-              <Text
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ]
                 }
               >
-                SHARE
-              </Text>
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Share
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -2457,79 +2465,81 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-                height={24}
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                RELATE
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "marginTop": 20,
-                }
-              }
-            >
+            <View>
               <View
                 style={
                   Array [
                     Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
                         Object {
-                          "rotate": "0deg",
+                          "color": "#ffffff",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
                         },
+                        undefined,
                       ],
-                    },
-                  ]
+                    ]
+                  }
+                >
+                  Relate
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "marginTop": 20,
+                  }
                 }
-              />
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "borderBottomWidth": 9,
+                        "borderLeftColor": "transparent",
+                        "borderLeftWidth": 7,
+                        "borderRightColor": "transparent",
+                        "borderRightWidth": 7,
+                        "borderStyle": "solid",
+                        "height": 0,
+                        "width": 0,
+                      },
+                      Object {
+                        "borderBottomColor": "#ECEEF2",
+                        "transform": Array [
+                          Object {
+                            "rotate": "0deg",
+                          },
+                        ],
+                      },
+                    ]
+                  }
+                />
+              </View>
             </View>
           </View>
           <View
@@ -2549,45 +2559,47 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#52C5DC"
-                height={24}
-              />
-              <Text
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ]
                 }
               >
-                PRAY
-              </Text>
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Pray
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -2607,45 +2619,47 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#52C5DC"
-                height={24}
-              />
-              <Text
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ]
                 }
               >
-                CARE
-              </Text>
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Care
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -2665,45 +2679,47 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <SvgMock
-                color="#52C5DC"
-                height={24}
-              />
-              <Text
+            <View>
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#52C5DC",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "letterSpacing": 1,
-                        "paddingLeft": 4,
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ]
                 }
               >
-                SHARE
-              </Text>
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Share
+                </Text>
+              </View>
             </View>
           </View>
         </View>

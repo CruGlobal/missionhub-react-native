@@ -194,7 +194,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          CARE
+          CARE STEP
         </Text>
       </View>
       <Text
@@ -538,7 +538,7 @@ exports[`renders correctly for me 1`] = `
             ]
           }
         >
-          CARE
+          CARE STEP
         </Text>
       </View>
       <Text
@@ -882,7 +882,7 @@ exports[`renders correctly in onboarding 1`] = `
             ]
           }
         >
-          CARE
+          CARE STEP
         </Text>
       </View>
       <Text

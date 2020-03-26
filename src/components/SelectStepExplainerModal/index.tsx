@@ -86,6 +86,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                         hideIcon={true}
                         textStyle={[styles.text, styles.title]}
                         labelUppercase={false}
+                        includeStepInLabel={false}
                       />
                       <Text style={[styles.text, styles.textWithTitle]}>
                         {text}

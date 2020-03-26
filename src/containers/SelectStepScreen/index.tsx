@@ -180,16 +180,20 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     const isSelected = currentStepType === stepType;
     return (
       <Touchable onPress={() => setCurrentStepType(stepType)}>
-        <StepTypeBadge
-          displayVertically={true}
-          color={isSelected ? theme.white : theme.secondaryColor}
-          stepType={stepType}
-        />
-        {isSelected ? (
-          <View style={{ marginTop: 20, alignItems: 'center' }}>
-            <TriangleIndicator color={theme.extraLightGrey} />
-          </View>
-        ) : null}
+        <View>
+          <StepTypeBadge
+            displayVertically={true}
+            color={isSelected ? theme.white : theme.secondaryColor}
+            stepType={stepType}
+            labelUppercase={false}
+            includeStepInLabel={false}
+          />
+          {isSelected ? (
+            <View style={{ marginTop: 20, alignItems: 'center' }}>
+              <TriangleIndicator color={theme.extraLightGrey} />
+            </View>
+          ) : null}
+        </View>
       </Touchable>
     );
   };
@@ -224,9 +228,6 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
-      {isExplainerOpen && (
-        <SelectStepExplainerModal onClose={() => setIsExplainerOpen(false)} />
-      )}
       <Header
         left={<BackButton />}
         right={
@@ -269,6 +270,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
         onEndReached={handleOnEndReached}
         onEndReachedThreshold={0.2}
       />
+      {isExplainerOpen && (
+        <SelectStepExplainerModal onClose={() => setIsExplainerOpen(false)} />
+      )}
     </View>
   );
 };

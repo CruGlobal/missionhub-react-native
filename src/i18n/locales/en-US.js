@@ -876,5 +876,6 @@ export default {
     care: 'Care',
     share: 'Share',
     stepOfFaith: 'Step of Faith',
+    step: 'Step',
   },
 };

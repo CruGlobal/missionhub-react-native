@@ -670,7 +670,7 @@ exports[`should render correctly without description and without reminder for me
           ]
         }
       >
-        SHARE
+        SHARE STEP
       </Text>
     </View>
     <Text
@@ -1121,7 +1121,7 @@ exports[`should render correctly without description and without reminder for ot
           ]
         }
       >
-        SHARE
+        SHARE STEP
       </Text>
     </View>
     <Text
@@ -1578,7 +1578,7 @@ exports[`with description, with reminder should render correctly 1`] = `
             ]
           }
         >
-          SHARE
+          SHARE STEP
         </Text>
       </View>
       <Text
@@ -2158,7 +2158,7 @@ exports[`with description, without reminder should render correctly 1`] = `
             ]
           }
         >
-          SHARE
+          SHARE STEP
         </Text>
       </View>
       <Text

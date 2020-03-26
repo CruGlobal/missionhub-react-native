@@ -18,6 +18,7 @@ interface StepTypeBadgeProps {
   hideLabel?: boolean;
   hideIcon?: boolean;
   labelUppercase?: boolean;
+  includeStepInLabel?: boolean;
   iconProps?: SvgProps;
   color?: string;
   style?: StyleProp<ViewStyle>;
@@ -30,6 +31,7 @@ export const StepTypeBadge = ({
   hideLabel = false,
   hideIcon = false,
   labelUppercase = true,
+  includeStepInLabel = true,
   iconProps = {},
   textStyle,
   color = theme.lightGrey,
@@ -58,7 +60,7 @@ export const StepTypeBadge = ({
       case 'pray':
       case 'care':
       case 'share':
-        return t(stepType);
+        return `${t(stepType)}${includeStepInLabel ? ` ${t('step')}` : ''}`;
       default:
         return t('stepOfFaith');
     }

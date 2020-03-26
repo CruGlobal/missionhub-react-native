@@ -43,6 +43,15 @@ describe('StepTypeBadge', () => {
       <StepTypeBadge stepType={undefined} hideIcon />,
     ).snapshot();
   });
+  it('should hide "step"', () => {
+    renderWithContext(
+      <StepTypeBadge
+        stepType={StepTypeEnum.relate}
+        hideIcon
+        includeStepInLabel={false}
+      />,
+    ).snapshot();
+  });
   it('should render text style', () => {
     renderWithContext(
       <StepTypeBadge stepType={undefined} textStyle={{ padding: 5 }} />,
