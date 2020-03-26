@@ -5,6 +5,7 @@ exports[`StepTypeBadge should hide icon 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -43,6 +44,7 @@ exports[`StepTypeBadge should hide label 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -61,6 +63,7 @@ exports[`StepTypeBadge should render icon props 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -103,6 +106,7 @@ exports[`StepTypeBadge should render text not uppercase 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -145,6 +149,7 @@ exports[`StepTypeBadge should render text style 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -189,6 +194,7 @@ exports[`StepTypeBadge should render the care step type 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -231,6 +237,7 @@ exports[`StepTypeBadge should render the generic step type 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -273,6 +280,7 @@ exports[`StepTypeBadge should render the pray step type 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -315,6 +323,7 @@ exports[`StepTypeBadge should render the relate step type 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -357,6 +366,7 @@ exports[`StepTypeBadge should render the share step type 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       undefined,
@@ -399,6 +409,7 @@ exports[`StepTypeBadge should render vertically 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "column",
       },
       undefined,
@@ -441,6 +452,7 @@ exports[`StepTypeBadge should render view style 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "flexDirection": "row",
       },
       Object {

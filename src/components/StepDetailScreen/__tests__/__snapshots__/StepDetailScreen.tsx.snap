@@ -168,6 +168,7 @@ exports[`markdown is empty string renders correctly 1`] = `
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -417,6 +418,7 @@ exports[`markdown is not null renders correctly 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "flexDirection": "row",
             },
             Object {
@@ -688,6 +690,7 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -1008,6 +1011,7 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -1257,6 +1261,7 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "flexDirection": "row",
             },
             Object {

@@ -1599,10 +1599,7 @@ exports[`renders screen with steps correctly 1`] = `
               "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
               "reminderType": "once",
             },
-            "stepSuggestion": Object {
-              "__typename": "StepSuggestion",
-              "stepType": "relate",
-            },
+            "stepType": "relate",
             "title": "Repellat quisquam recusandae alias consequuntur corporis.",
           },
           Object {
@@ -1624,10 +1621,7 @@ exports[`renders screen with steps correctly 1`] = `
               "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
               "reminderType": "once",
             },
-            "stepSuggestion": Object {
-              "__typename": "StepSuggestion",
-              "stepType": "bond",
-            },
+            "stepType": "bond",
             "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
           },
         ]
@@ -1642,7 +1636,7 @@ exports[`renders screen with steps correctly 1`] = `
       numColumns={1}
       onContentSizeChange={[Function]}
       onEndReached={[Function]}
-      onEndReachedThreshold={0.25}
+      onEndReachedThreshold={0.2}
       onLayout={[Function]}
       onMomentumScrollEnd={[Function]}
       onRefresh={[Function]}
@@ -1694,10 +1688,7 @@ exports[`renders screen with steps correctly 1`] = `
                   "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
                   "reminderType": "once",
                 },
-                "stepSuggestion": Object {
-                  "__typename": "StepSuggestion",
-                  "stepType": "relate",
-                },
+                "stepType": "relate",
                 "title": "Repellat quisquam recusandae alias consequuntur corporis.",
               }
             }
@@ -1730,10 +1721,7 @@ exports[`renders screen with steps correctly 1`] = `
                   "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                   "reminderType": "once",
                 },
-                "stepSuggestion": Object {
-                  "__typename": "StepSuggestion",
-                  "stepType": "bond",
-                },
+                "stepType": "bond",
                 "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
               }
             }
@@ -1751,10 +1739,10 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -715,10 +715,60 @@
-                \\"__typename\\": \\"StepSuggestion\\",
-                \\"stepType\\": \\"bond\\",
+@@ -709,10 +709,54 @@
+                \\"reminderType\\": \\"once\\",
               },
+              \\"stepType\\": \\"bond\\",
               \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
             },
 +           Object {
@@ -1776,10 +1764,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepSuggestion\\": Object {
-+               \\"__typename\\": \\"StepSuggestion\\",
-+               \\"stepType\\": \\"affirm\\",
-+             },
++             \\"stepType\\": \\"affirm\\",
 +             \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
 +           },
 +           Object {
@@ -1801,10 +1786,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +               \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepSuggestion\\": Object {
-+               \\"__typename\\": \\"StepSuggestion\\",
-+               \\"stepType\\": \\"bond\\",
-+             },
++             \\"stepType\\": \\"bond\\",
 +             \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
 +           },
           ]
@@ -1812,7 +1794,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -825,9 +875,88 @@
+@@ -813,9 +857,82 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1844,10 +1826,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepSuggestion\\": Object {
-+                   \\"__typename\\": \\"StepSuggestion\\",
-+                   \\"stepType\\": \\"affirm\\",
-+                 },
++                 \\"stepType\\": \\"affirm\\",
 +                 \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
 +               }
 +             }
@@ -1880,10 +1859,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                   \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepSuggestion\\": Object {
-+                   \\"__typename\\": \\"StepSuggestion\\",
-+                   \\"stepType\\": \\"bond\\",
-+                 },
++                 \\"stepType\\": \\"bond\\",
 +                 \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
 +               }
 +             }

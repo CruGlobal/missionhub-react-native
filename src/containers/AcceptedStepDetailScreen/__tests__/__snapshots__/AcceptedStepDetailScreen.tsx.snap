@@ -42,8 +42,8 @@ Array [
     "stepSuggestion": Object {
       "__typename": "StepSuggestion",
       "descriptionMarkdown": "ratione ut sunt",
-      "stepType": "share",
     },
+    "stepType": "share",
     "title": "Repellat quisquam recusandae alias consequuntur corporis.",
   },
   "Step Detail",
@@ -267,6 +267,7 @@ exports[`should render correctly while loading 1`] = `
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -633,6 +634,7 @@ exports[`should render correctly without description and without reminder for me
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -668,7 +670,7 @@ exports[`should render correctly without description and without reminder for me
           ]
         }
       >
-        STEP OF FAITH
+        SHARE
       </Text>
     </View>
     <Text
@@ -1083,6 +1085,7 @@ exports[`should render correctly without description and without reminder for ot
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -1118,7 +1121,7 @@ exports[`should render correctly without description and without reminder for ot
           ]
         }
       >
-        STEP OF FAITH
+        SHARE
       </Text>
     </View>
     <Text
@@ -1539,6 +1542,7 @@ exports[`with description, with reminder should render correctly 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "flexDirection": "row",
             },
             Object {
@@ -2118,6 +2122,7 @@ exports[`with description, without reminder should render correctly 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "flexDirection": "row",
             },
             Object {

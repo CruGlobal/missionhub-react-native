@@ -14,7 +14,6 @@ import {
   isOwner,
   openMainMenu,
   getIconName,
-  shuffleArray,
   getPagination,
   showAssignButton,
   showUnassignButton,
@@ -448,20 +447,6 @@ describe('getIconName', () => {
     // @ts-ignore
     const result = getIconName(item.type);
     expect(result).toBe(null);
-  });
-});
-
-describe('shuffleArray', () => {
-  const inArray = ['Alpha', 'Bravo', 'Charlie', 'Delta'];
-  const expectedOutArray = ['Alpha', 'Delta', 'Bravo', 'Charlie'];
-
-  beforeEach(() => {
-    Math.random = jest.fn().mockReturnValue(0.5);
-  });
-
-  it('reorders array and calls random for each item', () => {
-    expect(shuffleArray(inArray)).toEqual(expectedOutArray);
-    expect(Math.random).toHaveBeenCalledTimes(inArray.length);
   });
 });
 
