@@ -209,149 +209,129 @@ exports[`AddSomeoneScreen next renders with back button correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "alignItems": "flex-start",
+        "justifyContent": "flex-start",
+        "paddingHorizontal": 60,
+        "paddingVertical": 36,
+      }
     }
   >
-    <View
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/add_someone.png",
+        }
+      }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
+    />
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "alignItems": "flex-start",
-            "flex": 4,
-            "justifyContent": "center",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 20,
+            "textAlign": "left",
           },
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/add_someone.png",
-          }
+      Growing closer to God involves helping others experience Him.
+
+Take a moment and pray. Who do you want to take steps of faith with?
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
         }
-        style={
-          Object {
-            "height": 80,
-            "resizeMode": "contain",
-            "width": 80,
-          }
-        }
-      />
-      <Text
+      }
+      testID="bottomButton"
+    >
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
+              "borderRadius": 50,
             },
           ]
         }
       >
-        Growing closer to God involves helping others experience Him.
-
-Take a moment and pray. Who do you want to take steps of faith with?
-      </Text>
-    </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={
-        Object {
-          "bottom": 20,
-          "left": 50,
-          "position": "absolute",
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="bottomButton"
-      >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
+                "color": "#505256",
               },
               Object {
-                "borderRadius": 50,
+                "fontFamily": "SourceSansPro-Regular",
               },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            ADD SOMEONE
-          </Text>
-        </View>
+          ADD SOMEONE
+        </Text>
       </View>
-    </RCTSafeAreaView>
-  </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -812,150 +792,133 @@ exports[`GetStartedScreen renders correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "alignItems": "flex-start",
+        "justifyContent": "flex-start",
+        "paddingHorizontal": 60,
+        "paddingVertical": 36,
+      }
     }
   >
-    <View
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "alignItems": "flex-start",
-            "flex": 4,
-            "justifyContent": "center",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "AmaticSC-Bold",
+          },
+          Object {
+            "color": "#52C5DC",
+            "fontSize": 48,
           },
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 48,
-            },
-          ]
-        }
-      >
-        hi !
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
-            },
-          ]
-        }
-      >
-        While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
-
-Let's figure out where you are on your journey.
-      </Text>
-    </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
+      hi !
+    </Text>
+    <Text
       style={
-        Object {
-          "bottom": 20,
-          "left": 50,
-          "position": "absolute",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 10,
+            "textAlign": "left",
+          },
+        ]
       }
     >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
+      While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
+
+Let's figure out where you are on your journey.
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
         }
-        testID="bottomButton"
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
       >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
+                "color": "#505256",
               },
               Object {
-                "borderRadius": 50,
+                "fontFamily": "SourceSansPro-Regular",
               },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            CONTINUE
-          </Text>
-        </View>
+          CONTINUE
+        </Text>
       </View>
-    </RCTSafeAreaView>
-  </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 
@@ -1130,7 +1093,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
         Object {
           "alignItems": "center",
           "flex": 1,
-          "justifyContent": "center",
+          "justifyContent": "flex-start",
         }
       }
     >
@@ -1146,11 +1109,10 @@ exports[`SelectStageScreen renders correctly 1`] = `
             Object {
               "color": "#007398",
               "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 18,
+              "fontSize": 24,
               "fontWeight": "500",
-              "paddingBottom": 25,
               "paddingHorizontal": 30,
-              "paddingTop": 45,
+              "paddingVertical": 24,
               "textAlign": "center",
               "width": 650,
             },
@@ -1172,9 +1134,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
         callbackOffsetMargin={5}
         containerCustomStyle={
           Object {
-            "flex": 0,
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
           }
         }
         contentContainerCustomStyle={Object {}}
@@ -1240,10 +1200,8 @@ exports[`SelectStageScreen renders correctly 1`] = `
         stickyHeaderIndices={Array []}
         style={
           Object {
-            "flex": 0,
             "flexDirection": "row",
-            "flexGrow": 0,
-            "height": 400,
+            "marginBottom": 200,
             "opacity": 0,
             "width": 825,
           }
@@ -2713,14 +2671,10 @@ exports[`SetupPersonScreen next renders correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "paddingVertical": 36,
+      }
     }
   >
     <View
@@ -3097,147 +3051,127 @@ exports[`StageSuccessScreen renders correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-          "paddingHorizontal": 60,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "alignItems": "flex-start",
+        "justifyContent": "flex-start",
+        "paddingHorizontal": 60,
+        "paddingVertical": 36,
+      }
     }
   >
-    <View
+    <Image
+      source={
+        Object {
+          "testUri": "../../../assets/images/pathFinder.png",
+        }
+      }
+      style={
+        Object {
+          "height": 80,
+          "resizeMode": "contain",
+          "width": 80,
+        }
+      }
+    />
+    <Text
       style={
         Array [
-          Object {},
           Object {
-            "alignItems": "flex-start",
-            "flex": 4,
-            "justifyContent": "center",
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "lineHeight": 32,
+            "paddingVertical": 20,
+            "textAlign": "left",
           },
         ]
       }
     >
-      <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/pathFinder.png",
-          }
+      We are glad you are here, Friend!
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
         }
-        style={
-          Object {
-            "height": 80,
-            "resizeMode": "contain",
-            "width": 80,
-          }
-        }
-      />
-      <Text
+      }
+      testID="bottomButton"
+    >
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "lineHeight": 32,
-              "paddingVertical": 10,
-              "textAlign": "left",
+              "borderRadius": 50,
             },
           ]
         }
       >
-        We are glad you are here, Friend!
-      </Text>
-    </View>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={
-        Object {
-          "bottom": 20,
-          "left": 50,
-          "position": "absolute",
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="bottomButton"
-      >
-        <View
+        <Text
           style={
             Array [
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
+                "color": "#505256",
               },
               Object {
-                "borderRadius": 50,
+                "fontFamily": "SourceSansPro-Regular",
               },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            CHOOSE MY STEPS
-          </Text>
-        </View>
+          CHOOSE MY STEPS
+        </Text>
       </View>
-    </RCTSafeAreaView>
-  </View>
+    </View>
+  </RCTSafeAreaView>
 </View>
 `;
 

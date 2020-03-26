@@ -23,10 +23,7 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
-import {
-  trackActionWithoutData,
-  resetAppContext,
-} from '../../../actions/analytics';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { createCustomStep, getStepSuggestions } from '../../../actions/steps';
 import {
   personSelector,
@@ -87,7 +84,6 @@ beforeEach(() => {
   (resetPersonAndCompleteOnboarding as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
-  (resetAppContext as jest.Mock).mockReturnValue(() => Promise.resolve());
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
@@ -423,7 +419,6 @@ describe('CelebrationScreen next', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.ONBOARDING_COMPLETE,
     );
-    expect(resetAppContext).toHaveBeenCalledWith();
     expect(navigateToMainTabs).toHaveBeenCalledWith();
   });
 });

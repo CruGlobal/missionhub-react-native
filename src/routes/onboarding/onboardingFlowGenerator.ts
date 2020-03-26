@@ -11,10 +11,7 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../actions/onboarding';
-import {
-  trackActionWithoutData,
-  resetAppContext,
-} from '../../actions/analytics';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { wrapNextAction, wrapNextScreen } from '../helpers';
 import { CREATE_STEP, ACTIONS } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
@@ -200,7 +197,6 @@ export const onboardingFlowGenerator = ({
     CelebrationScreen,
     () => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
       dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-      dispatch(resetAppContext());
       dispatch(navigateToMainTabs());
     },
   ),
