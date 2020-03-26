@@ -184,11 +184,8 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    addPerson: {
-      part1: 'Who would you like',
-      part2: ' to take steps of faith with',
-      part3: ' this week?',
-    },
+    addPerson: 'Who would you like to take steps of faith with this week?',
+    errorSavingPerson: 'Error saving your person. Please try again.',
   },
   categories: {
     onboardingPrompt:
@@ -212,11 +209,7 @@ export default {
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
-    prompt: {
-      part1: 'Who would you like',
-      part2: 'to take steps of faith with',
-      part3: 'this week?',
-    },
+    prompt: 'Who would you like to take steps of faith with this week?',
   },
   addStep: {
     header: 'Create your own step',

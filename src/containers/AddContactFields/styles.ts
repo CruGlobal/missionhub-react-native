@@ -10,6 +10,7 @@ export default StyleSheet.create({
   textWrap: { alignItems: 'center', marginBottom: 30 },
   addPersonText: {
     fontFamily: 'SourceSansPro-Light',
+    maxWidth: 230,
     color: theme.white,
     fontSize: 24,
     fontWeight: '300',

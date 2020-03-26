@@ -791,54 +791,13 @@ exports[`renders other person version correctly 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "maxWidth": 230,
               "textAlign": "center",
             },
           ]
         }
       >
-        Who would you like
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         to take steps of faith with
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         this week?
+        Who would you like to take steps of faith with this week?
       </Text>
     </View>
   </View>
@@ -1033,7 +992,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -342,11 +342,11 @@
+@@ -301,11 +301,11 @@
               Object {},
             ]
           }
@@ -1053,7 +1012,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -382,11 +382,11 @@
+@@ -341,11 +341,11 @@
               Object {},
             ]
           }

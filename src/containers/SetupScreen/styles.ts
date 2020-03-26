@@ -25,6 +25,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   addPersonText: {
+    maxWidth: 230,
     color: theme.white,
     fontSize: 24,
     fontWeight: '300',

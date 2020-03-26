@@ -7,6 +7,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { useIsMe } from '../../../utils/hooks/useIsMe';
 import { addNewPerson } from '../../../actions/organizations';
 import { updatePerson } from '../../../actions/person';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
@@ -28,6 +29,7 @@ jest.mock('../../../actions/person');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../utils/hooks/useIsMe');
 
 const me = { id: '99' };
 const contactId = '23';
@@ -63,6 +65,7 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
+  (useIsMe as jest.Mock).mockReturnValue(false);
   next.mockReturnValue(nextResponse);
   Alert.alert = jest.fn();
 });

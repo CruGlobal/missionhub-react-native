@@ -32,7 +32,7 @@ import {
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
-import { navigateBack } from '../../actions/navigation';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import { CREATE_PERSON, UPDATE_PERSON } from './queries';
 import {
@@ -80,13 +80,15 @@ const SetupScreen = ({
   const [isLoading, setIsLoading] = useState(false);
   const lastNameRef = useRef<TextInput>(null);
 
-  const [createPerson] = useMutation<CreatePerson, CreatePersonVariables>(
-    CREATE_PERSON,
-  );
+  const [createPerson, { error: createError }] = useMutation<
+    CreatePerson,
+    CreatePersonVariables
+  >(CREATE_PERSON);
 
-  const [updatePerson] = useMutation<UpdatePerson, UpdatePersonVariables>(
-    UPDATE_PERSON,
-  );
+  const [updatePerson, { error: updateError }] = useMutation<
+    UpdatePerson,
+    UpdatePersonVariables
+  >(UPDATE_PERSON);
 
   const handleBack = useLogoutOnBack(true, !!personId);
 
@@ -147,7 +149,7 @@ const SetupScreen = ({
           dispatch(next({ personId: data?.createPerson?.person.id }));
       }
     } catch {
-      dispatch(navigateBack());
+      return;
     } finally {
       setIsLoading(false);
     }
@@ -162,6 +164,16 @@ const SetupScreen = ({
 
   return (
     <View style={styles.container}>
+      <ErrorNotice
+        error={createError}
+        message={t('errorSavingPerson')}
+        refetch={saveAndNavigateNext}
+      />
+      <ErrorNotice
+        error={updateError}
+        message={t('errorSavingPerson')}
+        refetch={saveAndNavigateNext}
+      />
       <Header
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
@@ -174,9 +186,7 @@ const SetupScreen = ({
         ) : (
           <>
             <View style={styles.textWrap}>
-              <Text style={styles.addPersonText}>{t('addPerson.part1')}</Text>
-              <Text style={styles.addPersonText}>{t('addPerson.part2')}</Text>
-              <Text style={styles.addPersonText}>{t('addPerson.part3')}</Text>
+              <Text style={styles.addPersonText}>{t('addPerson')}</Text>
             </View>
           </>
         )}
