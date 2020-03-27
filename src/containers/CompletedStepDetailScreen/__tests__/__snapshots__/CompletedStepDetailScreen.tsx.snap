@@ -228,7 +228,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
           ]
         }
       >
-        Completed Thursday, March 26 2020
+        Completed Friday, March 27 2020
       </Text>
       <Image
         source={
@@ -485,7 +485,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
           ]
         }
       >
-        Completed Thursday, March 26 2020
+        Completed Friday, March 27 2020
       </Text>
       <Image
         source={
