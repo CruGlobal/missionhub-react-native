@@ -5,7 +5,9 @@ export const CREATE_PERSON = gql`
     createPerson(input: $input) {
       person {
         firstName
+        lastName
         id
+        relationshipType
       }
     }
   }
@@ -16,7 +18,9 @@ export const UPDATE_PERSON = gql`
     updatePerson(input: $input) {
       person {
         firstName
+        lastName
         id
+        relationshipType
       }
     }
   }

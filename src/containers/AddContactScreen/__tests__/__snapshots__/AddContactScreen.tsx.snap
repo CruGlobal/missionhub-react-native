@@ -262,11 +262,10 @@ exports[`renders correctly 1`] = `
               onBlur={[Function]}
               onChangeText={[Function]}
               onFocus={[Function]}
-              onSubmitEditing={[Function]}
               placeholder="Last Name (optional)"
               placeholderTextColor="#ffffff"
               rejectResponderTermination={true}
-              returnKeyType="next"
+              returnKeyType="done"
               selectionColor="#3CC8E6"
               style={
                 Array [
@@ -285,6 +284,7 @@ exports[`renders correctly 1`] = `
               }
               testID="lastNameInput"
               underlineColorAndroid="rgba(0,0,0,0)"
+              value=""
             />
           </View>
         </View>
@@ -396,19 +396,20 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -195,10 +197,11 @@
+@@ -195,11 +197,11 @@
                     Object {},
                   ]
                 }
                 testID=\\"firstNameInput\\"
                 underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-               value=\\"\\"
 +               value=\\"new name\\"
               />
             </View>
             <View
               style={
                 Array [
-@@ -307,14 +310,11 @@
+@@ -308,14 +310,11 @@
                 Object {
                   \\"alignItems\\": \\"center\\",
                   \\"height\\": 48,
@@ -424,7 +425,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -337,14 +337,11 @@
+@@ -338,14 +337,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -462,19 +463,20 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -195,10 +197,11 @@
+@@ -195,11 +197,11 @@
                     Object {},
                   ]
                 }
                 testID=\\"firstNameInput\\"
                 underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-               value=\\"\\"
 +               value=\\"new name\\"
               />
             </View>
             <View
               style={
                 Array [
-@@ -307,14 +310,11 @@
+@@ -308,14 +310,11 @@
                 Object {
                   \\"alignItems\\": \\"center\\",
                   \\"height\\": 48,
@@ -490,7 +492,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -337,14 +337,11 @@
+@@ -338,14 +337,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -528,7 +530,7 @@ exports[`savePerson update existing person set last name to null should update p
                 autoCorrect={false}
                 autoFocus={false}
                 blurOnSubmit={false}
-@@ -262,11 +260,11 @@
+@@ -261,11 +259,11 @@
                     Object {},
                   ]
                 }
