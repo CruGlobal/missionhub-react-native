@@ -74,18 +74,20 @@ const CompletedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  {
-    navigation: {
-      state: {
-        params: { step },
-      },
-    } = { state: { params: { step: {} as Step } } },
-  }: { navigation?: { state: { params: { step: Step } } } },
-) => ({
-  analyticsAssignmentType: getAnalyticsAssignmentType(step.receiver, auth),
-});
+const mapStateToProps = ({ auth }: { auth: AuthState }) =>
+  // {
+  //   navigation: {
+  //     state: {
+  //       params: { step },
+  //     },
+  //   } = { state: { params: { step: {} as Step } } },
+  // }: { navigation?: { state: { params: { step: Step } } } },
+  ({
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      /*step.receiver*/ { id: '' },
+      auth,
+    ),
+  });
 
 export default connect(mapStateToProps)(CompletedStepDetailScreen);
 export const COMPLETED_STEP_DETAIL_SCREEN = 'nav/COMPLETED_STEP_DETAIL_SCREEN';
