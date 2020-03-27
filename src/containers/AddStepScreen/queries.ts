@@ -6,16 +6,10 @@ export const CREATE_CUSTOM_STEP_MUTATION = gql`
   mutation CreateCustomStep(
     $title: String!
     $receiverId: ID!
-    $communityId: ID
     $stepType: StepTypeEnum
   ) {
-    createStep(
-      input: {
-        title: $title
-        receiverId: $receiverId
-        communityId: $communityId
-        stepType: $stepType
-      }
+    createCustomStep(
+      input: { title: $title, receiverId: $receiverId, stepType: $stepType }
     ) {
       step {
         ...StepAddedAnalytics

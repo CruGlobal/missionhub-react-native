@@ -150,7 +150,6 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
           title: finalText,
           stepType,
           receiverId: personId,
-          communityId: orgId,
         },
       }));
 

@@ -295,6 +295,7 @@ export default {
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
+    errorLoadingStepsForThisPerson: 'Error loading steps for this person',
   },
   contactJourney: {
     loading: 'Loading Journey Items',

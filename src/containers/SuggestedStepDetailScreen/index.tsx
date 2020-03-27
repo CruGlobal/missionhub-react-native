@@ -91,7 +91,7 @@ const SuggestedStepDetailScreen = ({
 
   const handleAddStep = async () => {
     await createSuggestedStep({
-      variables: { receiverId: personId, communityId: orgId, stepSuggestionId },
+      variables: { receiverId: personId, stepSuggestionId },
     });
     dispatch(next({ personId, orgId }));
   };

@@ -16,18 +16,9 @@ export const STEP_SUGGESTION_QUERY = gql`
 `;
 
 export const CREATE_STEP_FROM_SUGGESTION_MUTATION = gql`
-  mutation CreateStepFromSuggestion(
-    $receiverId: ID!
-    $communityId: ID
-    $stepSuggestionId: ID!
-  ) {
-    createStep(
-      input: {
-        title: "Title should be pulled from suggestion after MHP-3274"
-        receiverId: $receiverId
-        communityId: $communityId
-        stepSuggestionId: $stepSuggestionId
-      }
+  mutation CreateStepFromSuggestion($receiverId: ID!, $stepSuggestionId: ID!) {
+    createStepFromSuggestion(
+      input: { receiverId: $receiverId, stepSuggestionId: $stepSuggestionId }
     ) {
       step {
         ...StepAddedAnalytics
