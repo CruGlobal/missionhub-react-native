@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -10,8 +11,9 @@ import {
   resetPersonAndCompleteOnboarding,
   setOnboardingPersonId,
 } from '../../actions/onboarding';
+import { trackActionWithoutData } from '../../actions/analytics';
 import { wrapNextAction, wrapNextScreen } from '../helpers';
-import { CREATE_STEP } from '../../constants';
+import { CREATE_STEP, ACTIONS } from '../../constants';
 import WelcomeScreen, { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
 import SetupScreen, {
   SETUP_SCREEN,
@@ -39,6 +41,12 @@ import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
+import NotificationPrimerScreen, {
+  NOTIFICATION_PRIMER_SCREEN,
+} from '../../containers/NotificationPrimerScreen';
+import NotificationOffScreen, {
+  NOTIFICATION_OFF_SCREEN,
+} from '../../containers/NotificationOffScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -196,7 +204,19 @@ export const onboardingFlowGenerator = ({
       dispatch(resetPersonAndCompleteOnboarding());
     },
   ),
-  [CELEBRATION_SCREEN]: wrapNextAction(CelebrationScreen, () =>
-    navigateToMainTabs(),
+  [NOTIFICATION_PRIMER_SCREEN]: wrapNextScreen(
+    NotificationPrimerScreen,
+    CELEBRATION_SCREEN,
+  ),
+  [NOTIFICATION_OFF_SCREEN]: wrapNextScreen(
+    NotificationOffScreen,
+    CELEBRATION_SCREEN,
+  ),
+  [CELEBRATION_SCREEN]: wrapNextAction(
+    CelebrationScreen,
+    () => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+      dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
+      dispatch(navigateToMainTabs());
+    },
   ),
 });

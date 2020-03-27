@@ -1,132 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`notification types renders for FOCUS_STEP 1`] = `
-<View
-  alignItems="center"
-  justifyContent="center"
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-      "paddingHorizontal": 40,
-    }
-  }
-  value={1}
->
-  <View
-    style={
-      Object {
-        "paddingVertical": 50,
-      }
-    }
-  >
-    <Image
-      source={
-        Object {
-          "testUri": "../../../assets/images/notificationOff.png",
-        }
-      }
-    />
-  </View>
-  <MyText
-    style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 32,
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    Notifications are off
-  </MyText>
-  <MyText
-    style={
-      Object {
-        "color": "#ffffff",
-        "fontSize": 16,
-        "textAlign": "center",
-      }
-    }
-  >
-    To receive reminders to take steps of faith, please turn notifications on.
-  </MyText>
-  <View
-    style={
-      Object {
-        "paddingTop": 20,
-      }
-    }
-  >
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
-        }
-      }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
-      text="GO TO SETTINGS"
-      type="primary"
-    />
-    <Button
-      buttonTextStyle={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
-        }
-      }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-          },
-        ]
-      }
-      text="NOT NOW"
-    />
-  </View>
-</View>
-`;
-
 exports[`notification types renders for JOIN_CHALLENGE 1`] = `
 <View
-  alignItems="center"
-  justifyContent="center"
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#007398",
       "flex": 1,
+      "justifyContent": "center",
       "paddingHorizontal": 40,
     }
   }
-  value={1}
 >
   <View
     style={
@@ -143,29 +27,45 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
       }
     />
   </View>
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 32,
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 32,
+          "paddingBottom": 10,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     Notifications are off
-  </MyText>
-  <MyText
+  </Text>
+  <Text
     style={
-      Object {
-        "color": "#ffffff",
-        "fontSize": 16,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     To receive updates about community challenges, please turn notifications on.
-  </MyText>
+  </Text>
   <View
     style={
       Object {
@@ -173,75 +73,180 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
       }
     }
   >
-    <Button
-      buttonTextStyle={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
+      testID="allowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "#52C5DC",
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          GO TO SETTINGS
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
-      text="GO TO SETTINGS"
-      type="primary"
-    />
-    <Button
-      buttonTextStyle={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-          },
-        ]
-      }
-      text="NOT NOW"
-    />
+      testID="notNowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          NOT NOW
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;
 
 exports[`notification types renders for JOIN_COMMUNITY 1`] = `
 <View
-  alignItems="center"
-  justifyContent="center"
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#007398",
       "flex": 1,
+      "justifyContent": "center",
       "paddingHorizontal": 40,
     }
   }
-  value={1}
 >
   <View
     style={
@@ -258,29 +263,45 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
       }
     />
   </View>
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 32,
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 32,
+          "paddingBottom": 10,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     Notifications are off
-  </MyText>
-  <MyText
+  </Text>
+  <Text
     style={
-      Object {
-        "color": "#ffffff",
-        "fontSize": 16,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     To receive updates from your MissionHub community, please turn notifications on.
-  </MyText>
+  </Text>
   <View
     style={
       Object {
@@ -288,75 +309,180 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
       }
     }
   >
-    <Button
-      buttonTextStyle={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
+      testID="allowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "#52C5DC",
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          GO TO SETTINGS
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
-      text="GO TO SETTINGS"
-      type="primary"
-    />
-    <Button
-      buttonTextStyle={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-          },
-        ]
-      }
-      text="NOT NOW"
-    />
+      testID="notNowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          NOT NOW
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;
 
 exports[`notification types renders for LOGIN 1`] = `
 <View
-  alignItems="center"
-  justifyContent="center"
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#007398",
       "flex": 1,
+      "justifyContent": "center",
       "paddingHorizontal": 40,
     }
   }
-  value={1}
 >
   <View
     style={
@@ -373,29 +499,45 @@ exports[`notification types renders for LOGIN 1`] = `
       }
     />
   </View>
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 32,
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 32,
+          "paddingBottom": 10,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     Notifications are off
-  </MyText>
-  <MyText
+  </Text>
+  <Text
     style={
-      Object {
-        "color": "#ffffff",
-        "fontSize": 16,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
-  </MyText>
+  </Text>
   <View
     style={
       Object {
@@ -403,75 +545,180 @@ exports[`notification types renders for LOGIN 1`] = `
       }
     }
   >
-    <Button
-      buttonTextStyle={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
+      testID="allowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "#52C5DC",
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          GO TO SETTINGS
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
-      text="GO TO SETTINGS"
-      type="primary"
-    />
-    <Button
-      buttonTextStyle={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-          },
-        ]
-      }
-      text="NOT NOW"
-    />
+      testID="notNowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          NOT NOW
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;
 
 exports[`notification types renders for ONBOARDING 1`] = `
 <View
-  alignItems="center"
-  justifyContent="center"
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#007398",
       "flex": 1,
+      "justifyContent": "center",
       "paddingHorizontal": 40,
     }
   }
-  value={1}
 >
   <View
     style={
@@ -488,29 +735,45 @@ exports[`notification types renders for ONBOARDING 1`] = `
       }
     />
   </View>
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 32,
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 32,
+          "paddingBottom": 10,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     Notifications are off
-  </MyText>
-  <MyText
+  </Text>
+  <Text
     style={
-      Object {
-        "color": "#ffffff",
-        "fontSize": 16,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
-  </MyText>
+  </Text>
   <View
     style={
       Object {
@@ -518,75 +781,180 @@ exports[`notification types renders for ONBOARDING 1`] = `
       }
     }
   >
-    <Button
-      buttonTextStyle={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
+      testID="allowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "#52C5DC",
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          GO TO SETTINGS
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
-      text="GO TO SETTINGS"
-      type="primary"
-    />
-    <Button
-      buttonTextStyle={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-          },
-        ]
-      }
-      text="NOT NOW"
-    />
+      testID="notNowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          NOT NOW
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;
 
 exports[`notification types renders for SET_REMINDER 1`] = `
 <View
-  alignItems="center"
-  justifyContent="center"
   style={
     Object {
+      "alignItems": "center",
       "backgroundColor": "#007398",
       "flex": 1,
+      "justifyContent": "center",
       "paddingHorizontal": 40,
     }
   }
-  value={1}
 >
   <View
     style={
@@ -603,29 +971,45 @@ exports[`notification types renders for SET_REMINDER 1`] = `
       }
     />
   </View>
-  <MyText
+  <Text
     style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 32,
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#52C5DC",
+          "fontSize": 32,
+          "paddingBottom": 10,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     Notifications are off
-  </MyText>
-  <MyText
+  </Text>
+  <Text
     style={
-      Object {
-        "color": "#ffffff",
-        "fontSize": 16,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "textAlign": "center",
+        },
+      ]
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
-  </MyText>
+  </Text>
   <View
     style={
       Object {
@@ -633,59 +1017,165 @@ exports[`notification types renders for SET_REMINDER 1`] = `
       }
     }
   >
-    <Button
-      buttonTextStyle={
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
+      testID="allowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#007398",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "#52C5DC",
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          GO TO SETTINGS
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "#52C5DC",
-          },
-        ]
-      }
-      text="GO TO SETTINGS"
-      type="primary"
-    />
-    <Button
-      buttonTextStyle={
         Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "fontWeight": "500",
-          "letterSpacing": 1.5,
+          "opacity": 1,
         }
       }
-      onPress={[Function]}
-      pill={true}
-      style={
-        Array [
-          Object {
-            "height": 48,
-            "margin": 8,
-            "width": 680,
-          },
-          Object {
-            "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
-            "borderWidth": 1,
-          },
-        ]
-      }
-      text="I DON'T WANT REMINDERS"
-    />
+      testID="notNowButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "height": 48,
+                "margin": 8,
+                "width": 680,
+              },
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#52C5DC",
+                "borderWidth": 1,
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                },
+              ],
+            ]
+          }
+        >
+          I DON'T WANT REMINDERS
+        </Text>
+      </View>
+    </View>
   </View>
 </View>
 `;
