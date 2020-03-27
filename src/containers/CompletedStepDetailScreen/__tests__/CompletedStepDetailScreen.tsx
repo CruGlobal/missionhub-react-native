@@ -13,6 +13,21 @@ const myId = '1';
 const auth = { person: { id: myId } };
 const stepId = '5';
 
+it('renders loading state correctly', () => {
+  const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
+    initialState: { auth },
+    navParams: { stepId },
+  });
+
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'completed step'], {
+    screenContext: {
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    },
+  });
+});
+
 describe('with challenge suggestion', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
