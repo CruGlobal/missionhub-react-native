@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useApolloClient } from '@apollo/react-hooks';
 import moment from 'moment';
 import gql from 'graphql-tag';
 
@@ -15,8 +15,6 @@ import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { apolloClient } from '../../apolloClient';
-import { useIsMount } from '../../utils/hooks/useIsMount';
 
 import styles from './styles';
 import { COMPLETED_STEP_DETAIL_QUERY } from './queries';
@@ -27,6 +25,8 @@ import {
 
 const CompletedStepDetailScreen = () => {
   const stepId = useNavigationParam('stepId');
+
+  const apolloClient = useApolloClient();
 
   const analyticsAssignmentType = useSelector(
     ({ auth }: { auth: AuthState }) => {
