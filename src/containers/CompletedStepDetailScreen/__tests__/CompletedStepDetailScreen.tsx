@@ -1,4 +1,5 @@
 import React from 'react';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
@@ -9,25 +10,33 @@ import CompletedStepDetailScreen from '..';
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '1';
-const otherId = '2';
-const challenge_suggestion = { description_markdown: 'roge rules' };
 const auth = { person: { id: myId } };
-const step = {
-  title: 'SCOTTY',
-  challenge_suggestion,
-  completed_at: '2018-01-03',
-  receiver: {
-    id: otherId,
-    first_name: 'Christian',
-  },
-};
+const stepId = '5';
+
+it('renders loading state correctly', () => {
+  const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
+    initialState: { auth },
+    navParams: { stepId },
+  });
+
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'completed step'], {
+    screenContext: {
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    },
+  });
+});
 
 describe('with challenge suggestion', () => {
-  it('renders correctly', () => {
-    renderWithContext(<CompletedStepDetailScreen />, {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
       initialState: { auth },
-      navParams: { step },
-    }).snapshot();
+      navParams: { stepId },
+    });
+
+    await flushMicrotasksQueue();
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['step detail', 'completed step'],
@@ -41,11 +50,14 @@ describe('with challenge suggestion', () => {
 });
 
 describe('without challenge suggestion', () => {
-  it('renders correctly', () => {
-    renderWithContext(<CompletedStepDetailScreen />, {
+  it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
       initialState: { auth },
-      navParams: { step: { ...step, challenge_suggestion: {} } },
-    }).snapshot();
+      navParams: { stepId },
+    });
+
+    await flushMicrotasksQueue();
+    snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['step detail', 'completed step'],
