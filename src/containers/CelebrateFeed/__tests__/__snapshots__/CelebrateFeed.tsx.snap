@@ -941,7 +941,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       >
         <DateComponent
           date="2017-09-28T01:02:07.116Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -1030,7 +1030,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       >
         <DateComponent
           date="2016-01-27T11:31:41.601Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -1119,7 +1119,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       >
         <DateComponent
           date="2015-09-24T22:48:18.365Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -1208,7 +1208,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       >
         <DateComponent
           date="2014-10-17T09:34:50.933Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -2097,7 +2097,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       >
         <DateComponent
           date="2018-01-20T22:18:35.430Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -2186,7 +2186,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       >
         <DateComponent
           date="2017-01-05T11:40:00.737Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -2275,7 +2275,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       >
         <DateComponent
           date="2016-07-31T16:52:49.085Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -2364,7 +2364,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       >
         <DateComponent
           date="2014-08-26T07:39:14.970Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -3244,7 +3244,7 @@ exports[`renders for member renders correctly 1`] = `
       >
         <DateComponent
           date="2018-01-20T22:18:35.430Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -3333,7 +3333,7 @@ exports[`renders for member renders correctly 1`] = `
       >
         <DateComponent
           date="2017-01-05T11:40:00.737Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -3422,7 +3422,7 @@ exports[`renders for member renders correctly 1`] = `
       >
         <DateComponent
           date="2016-07-31T16:52:49.085Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -3511,7 +3511,7 @@ exports[`renders for member renders correctly 1`] = `
       >
         <DateComponent
           date="2014-08-26T07:39:14.970Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -4382,7 +4382,7 @@ exports[`renders for member renders without header 1`] = `
       >
         <DateComponent
           date="2018-01-20T22:18:35.430Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -4471,7 +4471,7 @@ exports[`renders for member renders without header 1`] = `
       >
         <DateComponent
           date="2017-01-05T11:40:00.737Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -4560,7 +4560,7 @@ exports[`renders for member renders without header 1`] = `
       >
         <DateComponent
           date="2016-07-31T16:52:49.085Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -4649,7 +4649,7 @@ exports[`renders for member renders without header 1`] = `
       >
         <DateComponent
           date="2014-08-26T07:39:14.970Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -5538,7 +5538,7 @@ exports[`renders with celebration items correctly 1`] = `
       >
         <DateComponent
           date="2018-01-20T22:18:35.430Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -5627,7 +5627,7 @@ exports[`renders with celebration items correctly 1`] = `
       >
         <DateComponent
           date="2017-01-05T11:40:00.737Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -5716,7 +5716,7 @@ exports[`renders with celebration items correctly 1`] = `
       >
         <DateComponent
           date="2016-07-31T16:52:49.085Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -5805,7 +5805,7 @@ exports[`renders with celebration items correctly 1`] = `
       >
         <DateComponent
           date="2014-08-26T07:39:14.970Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -6694,7 +6694,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       >
         <DateComponent
           date="2018-01-20T22:18:35.430Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -6784,7 +6784,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       >
         <DateComponent
           date="2017-01-05T11:40:00.737Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -6874,7 +6874,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       >
         <DateComponent
           date="2016-07-31T16:52:49.085Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",
@@ -6964,7 +6964,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       >
         <DateComponent
           date="2014-08-26T07:39:14.970Z"
-          format="relative"
+          relativeFormatting={true}
           style={
             Object {
               "color": "#505256",

@@ -1,5 +1,328 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`comment formatting renders date from last week 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Saturday @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders date from last week 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Thursday @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders date from last week 3`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Monday @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders from before this year 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  December 31, 2017 @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders from before this year 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  February 14, 2005 @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders from this year 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Jun 3 @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders from this year 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  May 23 @ 12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders today 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  12:00 PM
+</Text>
+`;
+
+exports[`comment formatting renders yesterday 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Yesterday @ 12:00 PM
+</Text>
+`;
+
+exports[`relative formatting renders date from last week 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Saturday
+</Text>
+`;
+
+exports[`relative formatting renders date from last week 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Monday
+</Text>
+`;
+
+exports[`relative formatting renders from before this year 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Sunday, December 31 2017
+</Text>
+`;
+
+exports[`relative formatting renders from before this year 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Monday, February 14 2005
+</Text>
+`;
+
+exports[`relative formatting renders from this year 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Sunday, June 3
+</Text>
+`;
+
+exports[`relative formatting renders from this year 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Wednesday, May 23
+</Text>
+`;
+
+exports[`relative formatting renders today 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Today
+</Text>
+`;
+
+exports[`relative formatting renders yesterday 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  Yesterday
+</Text>
+`;
+
 exports[`renders correctly 1`] = `
 <Text
   style={
@@ -16,5 +339,45 @@ exports[`renders correctly 1`] = `
   testID="Text"
 >
   Mon, Nov 20, 2017 12:00 AM
+</Text>
+`;
+
+exports[`renders with other format 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {},
+    ]
+  }
+  testID="Text"
+>
+  June 11, 2018 12:00 PM
+</Text>
+`;
+
+exports[`renders with style 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#505256",
+      },
+      Object {
+        "fontFamily": "SourceSansPro-Regular",
+      },
+      Object {
+        "color": "red",
+      },
+    ]
+  }
+  testID="Text"
+>
+  Mon, Jun 11, 2018 12:00 PM
 </Text>
 `;
