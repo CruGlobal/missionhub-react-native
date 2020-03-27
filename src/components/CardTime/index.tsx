@@ -14,6 +14,7 @@ const CardTime = ({ date, commentFormatting = false }: CardTimeProps) => (
   <DateComponent
     style={styles.time}
     date={date}
+    format="LT"
     commentFormatting={commentFormatting}
   />
 );
