@@ -24,40 +24,29 @@ const inLastWeek = (momentDate: moment.Moment) =>
 const inThisYear = (momentDate: moment.Moment) =>
   momentDate.isSame(moment(), 'year');
 
-export enum dateFormat {
-  dayOnly,
-  dayMonthDate,
-  fullDate,
-  monthDayYearAtTime,
-  monthDayAtTime,
-  dayAtTime,
-  timeOnly,
-  dayTime,
-}
-
-const formats = {
-  [dateFormat.dayOnly]: 'dddd',
-  [dateFormat.dayMonthDate]: 'dddd, MMMM D',
-  [dateFormat.fullDate]: 'dddd, MMMM D YYYY',
-  [dateFormat.monthDayYearAtTime]: 'MMMM D, YYYY @ h:mm A',
-  [dateFormat.monthDayAtTime]: 'MMMM D @ h:mm A',
-  [dateFormat.dayAtTime]: 'dddd @ h:mm A',
-  [dateFormat.timeOnly]: 'h:mm A',
-  [dateFormat.dayTime]: 'ddd, lll',
-};
+export type dateFormat =
+  | 'LT'
+  | 'LL'
+  | 'LLL'
+  | 'ddd, lll'
+  | 'dddd'
+  | 'dddd, LL'
+  | 'dddd @ LT'
+  | 'dddd, MMMM D'
+  | 'dddd, MMMM D YYYY'
+  | 'MMM D @ LT'
+  | 'LL @ LT';
 
 const commentFormat = (date: moment.Moment) =>
   isToday(date)
-    ? date.format(formats[dateFormat.timeOnly])
+    ? date.format('LT')
     : isYesterday(date)
-    ? `${date.calendar().split(' ')[0]} @ ${date.format(
-        formats[dateFormat.timeOnly],
-      )}`
+    ? `${date.calendar().split(' ')[0]} @ ${date.format('LT')}`
     : inLastWeek(date)
-    ? date.format(formats[dateFormat.dayAtTime])
+    ? date.format('dddd @ LT')
     : inThisYear(date)
-    ? date.format(formats[dateFormat.monthDayAtTime])
-    : date.format(formats[dateFormat.monthDayYearAtTime]);
+    ? date.format('MMM D @ LT')
+    : date.format('LL @ LT');
 
 const relativeFormat = (date: moment.Moment) =>
   isToday(date)
@@ -65,10 +54,10 @@ const relativeFormat = (date: moment.Moment) =>
     : isYesterday(date)
     ? date.calendar().split(' ')[0]
     : inLastWeek(date)
-    ? date.format(formats[dateFormat.dayOnly])
+    ? date.format('dddd')
     : inThisYear(date)
-    ? date.format(formats[dateFormat.dayMonthDate])
-    : date.format(formats[dateFormat.fullDate]);
+    ? date.format('dddd, MMMM D')
+    : date.format('dddd, MMMM D YYYY');
 
 interface DateComponentProps {
   date: string | Date;
@@ -81,7 +70,7 @@ interface DateComponentProps {
 
 const DateComponent = ({
   date,
-  format = dateFormat.dayTime,
+  format = 'ddd, lll',
   relativeFormatting = false,
   commentFormatting = false,
   style,
@@ -91,7 +80,7 @@ const DateComponent = ({
     ? relativeFormat(momentDate)
     : commentFormatting
     ? commentFormat(momentDate)
-    : momentDate.format(formats[format]);
+    : momentDate.format(format);
 
   return (
     <Text testID="Text" style={style}>

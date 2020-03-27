@@ -6,12 +6,16 @@ import styles from './styles';
 
 interface CardTimeProps {
   date: string;
-  format?: string;
+  commentFormatting?: boolean;
   testID?: string;
 }
 
-const CardTime = ({ date, format = 'LT' }: CardTimeProps) => (
-  <DateComponent style={styles.time} date={date} format={format} />
+const CardTime = ({ date, commentFormatting = false }: CardTimeProps) => (
+  <DateComponent
+    style={styles.time}
+    date={date}
+    commentFormatting={commentFormatting}
+  />
 );
 
 export default CardTime;
