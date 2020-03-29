@@ -21,6 +21,25 @@ export default StyleSheet.create({
     fontWeight: '300',
     lineHeight: 38,
     color: theme.white,
+    marginBottom: 5,
+  },
+  orgNameHeader: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: theme.textColor,
+  },
+  orgMembersButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 3,
+    borderRadius: 30,
+    borderColor: theme.white,
+    borderWidth: 1,
+  },
+  orgMembersText: {
+    fontWeight: 'normal',
+    fontSize: 14,
+    lineHeight: 20,
+    color: theme.white,
   },
   menuItem: {
     height: 50,
