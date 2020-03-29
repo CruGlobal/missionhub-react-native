@@ -360,10 +360,10 @@ class RNParallax extends Component {
     return (
       <View style={[styles.container, containerStyle]}>
         <StatusBar backgroundColor={statusBarColor || navbarColor} />
-        {this.renderScrollView()}
         {this.renderNavbarBackground()}
         {this.renderHeaderBackground()}
         {this.renderHeaderTitle()}
+        {this.renderScrollView()}
         {this.renderHeaderForeground()}
       </View>
     );

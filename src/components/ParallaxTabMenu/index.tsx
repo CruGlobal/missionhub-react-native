@@ -15,12 +15,12 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line import/named
-import { NavigationActions } from 'react-navigation';
-import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import {
-  CollapsibleHeaderScrollView,
-  CollapsibleHeaderProps,
-} from 'react-native-collapsible-header-views';
+// import { NavigationActions } from 'react-navigation';
+// import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+// import {
+//   CollapsibleHeaderScrollView,
+//   CollapsibleHeaderProps,
+// } from 'react-native-collapsible-header-views';
 // @ts-ignore
 import ViewOverflow from 'react-native-view-overflow';
 // eslint-disable-next-line import/default
@@ -45,114 +45,10 @@ import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.
 import styles from './styles';
 import ReactNativeParallaxHeader from './CustomParallax';
 // import ParallaxScrollView from './CustomParallax2';
-import ParallaxScrollView from './Custom';
-
-// TRY THIS: https://codeburst.io/react-native-parallax-scroll-with-tabs-721feec463c5
-const CurrentTab = React.memo(({ tabs, initialTab, params }: any) => {
-  const [currentIndex, setCurrentIndex] = useState(() => {
-    const initialIndex = tabs.findIndex(
-      (tab: any) => tab.navigationAction === initialTab,
-    );
-
-    if (initialIndex !== -1) {
-      return initialIndex;
-    }
-    return 0;
-  });
-
-  return (
-    <View style={{ position: 'relative' }}>
-      <ScrollView
-        horizontal={true}
-        contentContainerStyle={{
-          flex: 1,
-          height: 50,
-          // position: 'absolute',
-          // left: 0,
-          // right: 0,
-          // top: 100,
-        }}
-      >
-        {tabs.map((tab: any, index: number) => (
-          <Touchable
-            key={tab.navigationAction}
-            withoutFeedback={true}
-            pressProps={[index]}
-            onPress={() => setCurrentIndex(index)}
-          >
-            <View
-              style={[
-                styles.menuItem,
-                index === currentIndex ? styles.menuItemActive : null,
-              ]}
-            >
-              <Text
-                numberOfLines={1}
-                style={
-                  index === currentIndex
-                    ? styles.menuItemTextActiveLight
-                    : styles.menuItemTextLight
-                }
-              >
-                {tab.name}
-              </Text>
-            </View>
-          </Touchable>
-        ))}
-      </ScrollView>
-      {/* {tabs[currentIndex].render(params)} */}
-      <View style={{ height: 1000, backgroundColor: 'rgba(0, 0, 150, 0.3)' }} />
-    </View>
-  );
-});
+// import ParallaxScrollView from './Custom';
 
 const CurrentTabHeader = React.memo(({ tabs, currentIndex, onChange }: any) => {
   return (
-    // <>
-    //   <ScrollView
-    //     horizontal={true}
-    //     contentContainerStyle={{
-    //       flex: 1,
-    //       height: 50,
-    //       // position: 'absolute',
-    //       // left: 0,
-    //       // right: 0,
-    //       // top: 100,
-    //     }}
-    //   >
-    //     {tabs.map((tab: any, index: number) => (
-    //       <Touchable
-    //         key={tab.navigationAction}
-    //         withoutFeedback={true}
-    //         pressProps={[index]}
-    //         onPress={() => onChange(index)}
-    //       >
-    //         <View
-    //           style={[
-    //             styles.menuItem,
-    //             index === currentIndex ? styles.menuItemActive : null,
-    //           ]}
-    //         >
-    //           <Text
-    //             numberOfLines={1}
-    //             style={
-    //               index === currentIndex
-    //                 ? styles.menuItemTextActiveLight
-    //                 : styles.menuItemTextLight
-    //             }
-    //           >
-    //             {tab.name}
-    //           </Text>
-    //         </View>
-    //       </Touchable>
-    //     ))}
-    //   </ScrollView>
-    //   <ScrollView>
-    //     <View style={{ height: 1000 }}>
-    //       <Text>{tabs[currentIndex].name}</Text>
-    //     </View>
-    //   </ScrollView>
-    // </>
     <ScrollView
       horizontal={true}
       contentContainerStyle={{
@@ -168,7 +64,6 @@ const CurrentTabHeader = React.memo(({ tabs, currentIndex, onChange }: any) => {
       {tabs.map((tab: any, index: number) => (
         <Touchable
           key={tab.navigationAction}
-          withoutFeedback={true}
           pressProps={[index]}
           onPress={() => onChange(index)}
         >
@@ -231,36 +126,7 @@ export function ParallaxTabMenu(props: { tabs: any[] }) {
     <ViewOverflow style={styles.containerLight}>
       <StatusBar {...theme.statusBar.darkContent} />
       <SafeAreaView style={{ backgroundColor: theme.white }} />
-      {/* <CollapsibleHeaderScrollView
-        CollapsibleHeaderComponent={props => (
-          <SafeAreaView
-            style={{ flex: 1, backgroundColor: theme.primaryColor }}
-          >
-            <Header2 {...props} />
-          </SafeAreaView>
-        )}
-        stickyHeaderIndices={[1]}
-        headerHeight={theme.headerHeight}
-        disableHeaderSnap={false}
-        contentContainerStyle={{ paddingTop: theme.headerHeight }}
-        headerContainerBackgroundColor={'white'}
-      >
-        <View style={{ backgroundColor: theme.white }}>
-          <Image source={bgSource} style={{ width: '100%' }} />
-        </View>
-        <View style={{ backgroundColor: theme.white }}>
-          <CurrentTabHeader
-            currentIndex={currentIndex}
-            onChange={setCurrentIndex}
-            tabs={tabs}
-          />
-        </View>
 
-        <View style={{ height: 1000, backgroundColor: 'rgba(0, 0, 205, 0.2)' }}>
-          <Text>Current Tab: {tabs[currentIndex].name}</Text>
-        </View>
-      </CollapsibleHeaderScrollView> */}
-      {/* {tabs[currentIndex].render({ orgId })} */}
       <ReactNativeParallaxHeader
         headerMinHeight={theme.headerHeight}
         headerMaxHeight={225}
@@ -328,7 +194,8 @@ export function ParallaxTabMenu(props: { tabs: any[] }) {
                 flexDirection: 'row',
                 alignItems: 'center',
                 backgroundColor: theme.white,
-                // backgroundColor: bgColor,
+                borderBottomWidth: 1,
+                borderBottomColor: theme.grey1,
                 opacity,
               }}
             >
@@ -353,42 +220,12 @@ export function ParallaxTabMenu(props: { tabs: any[] }) {
             </Animated.View>
           </SafeAreaView>
         )}
+        scrollViewStyle={{ flex: 1, width: '100%' }}
         containerStyle={{ flex: 1 }}
         contentContainerStyle={{ flexGrow: 1 }}
-        innerContainerStyle={{ flex: 1 }}
-        scrollViewProps={{ stickyHeaderIndices: [1], style: { width: '100%' } }}
-        renderContent={() => (
-          <CurrentTabHeader
-            currentIndex={currentIndex}
-            onChange={setCurrentIndex}
-            tabs={tabs}
-          />
-        )}
+        scrollViewProps={{ stickyHeaderIndices: [1] }}
       >
-        <View style={[{ marginTop: 225 - theme.headerHeight }]}>
-          {/* <Flex
-            justify="end"
-            style={{
-              marginTop: 25,
-              marginLeft: 25,
-              marginRight: 100,
-            }}
-          >
-            <Text style={styles.orgName} numberOfLines={2}>
-              {(organization || {}).name || '-'}
-            </Text>
-            <Flex direction="row" align="start">
-              <Button
-                pill={true}
-                type="transparent"
-                onPress={() => {}}
-                style={styles.orgMembersButton}
-                buttonTextStyle={styles.orgMembersText}
-                text="24 Members"
-              />
-            </Flex>
-          </Flex> */}
-        </View>
+        <View style={[{ marginTop: 225 - theme.headerHeight }]} />
 
         <View style={{ paddingTop: theme.headerHeight }}>
           <CurrentTabHeader
@@ -397,11 +234,37 @@ export function ParallaxTabMenu(props: { tabs: any[] }) {
             tabs={tabs}
           />
         </View>
-        {/* <View style={{ height: 1000, backgroundColor: 'rgba(0, 0, 205, 0.2)' }}>
-          <Text>Current Tab: {tabs[currentIndex].name}</Text>
-        </View> */}
         {tabs[currentIndex].render({ orgId })}
       </ReactNativeParallaxHeader>
+      {/* <CollapsibleHeaderScrollView
+        CollapsibleHeaderComponent={props => (
+          <SafeAreaView
+            style={{ flex: 1, backgroundColor: theme.primaryColor }}
+          >
+            <Header2 {...props} />
+          </SafeAreaView>
+        )}
+        stickyHeaderIndices={[1]}
+        headerHeight={theme.headerHeight}
+        disableHeaderSnap={false}
+        contentContainerStyle={{ paddingTop: theme.headerHeight }}
+        headerContainerBackgroundColor={'white'}
+      >
+        <View style={{ backgroundColor: theme.white }}>
+          <Image source={bgSource} style={{ width: '100%' }} />
+        </View>
+        <View style={{ backgroundColor: theme.white }}>
+          <CurrentTabHeader
+            currentIndex={currentIndex}
+            onChange={setCurrentIndex}
+            tabs={tabs}
+          />
+        </View>
+
+        <View style={{ height: 1000, backgroundColor: 'rgba(0, 0, 205, 0.2)' }}>
+          <Text>Current Tab: {tabs[currentIndex].name}</Text>
+        </View>
+      </CollapsibleHeaderScrollView> */}
       {/* <ParallaxScrollView
         parallaxHeaderHeight={50}
         stickyHeaderHeight={10}

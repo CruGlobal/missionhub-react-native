@@ -174,6 +174,7 @@ const ChallengeFeed = ({
     return renderNull();
   }
 
+  // onEndReached={handleOnEndReached}
   return (
     <SectionList
       testID="ChallengeFeed"
@@ -184,7 +185,6 @@ const ChallengeFeed = ({
       renderItem={renderItem}
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
-      onEndReached={handleOnEndReached}
       onScrollEndDrag={handleEndDrag}
       onRefresh={handleRefreshing}
       refreshing={refreshing || false}
