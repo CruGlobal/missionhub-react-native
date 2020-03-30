@@ -74,7 +74,7 @@ export const commentDateFormat = (date: moment.Moment) =>
     : inLastWeek(date)
     ? date.format('dddd @ LT')
     : inThisYear(date)
-    ? date.format('MMM D @ LT')
+    ? date.format('MMMM D @ LT')
     : date.format('LL @ LT');
 
 export const relativeDateFormat = (date: moment.Moment) =>

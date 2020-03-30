@@ -1,4 +1,4 @@
-import { formatApiDate } from '../utils/common';
+import { formatApiDate } from '../utils/date';
 import { getFeed, reloadFeed, CHALLENGE } from '../utils/actions';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import {

@@ -110,7 +110,7 @@ exports[`comment formatting renders from this year 1`] = `
   }
   testID="Text"
 >
-  Jun 3 @ 12:00 PM
+  June 3 @ 12:00 PM
 </Text>
 `;
 

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { momentUtc } from '../utils/common';
+import { momentUtc } from '../utils/date';
 import { CELEBRATEABLE_TYPES } from '../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CommunityCelebrationCelebrateableEnum } from '../../__generated__/globalTypes';
