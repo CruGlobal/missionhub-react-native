@@ -65,7 +65,7 @@ export default class App extends Component {
     store.dispatch(configureNotificationHandler());
     // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
-    moment.locale(i18n.language);
+    moment.locale(i18n.language.split('-')[0]);
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
