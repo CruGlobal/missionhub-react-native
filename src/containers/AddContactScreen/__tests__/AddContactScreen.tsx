@@ -160,28 +160,28 @@ describe('savePerson', () => {
 
   describe('add new person', () => {
     describe('without org', () => {
-      const {
-        getByTestId,
-        recordSnapshot,
-        diffSnapshot,
-        store,
-      } = renderWithContext(<AddContactScreen next={next} />, {
-        initialState,
-        navParams: {
-          organization: undefined,
-          person: undefined,
-        },
-        mocks: {
-          Person: () => ({
-            firstName: newName,
-            lastName: '',
-            id: person.id,
-            relationshipType: null,
-          }),
-        },
-      });
-
       it('should add a new person', async () => {
+        const {
+          getByTestId,
+          recordSnapshot,
+          diffSnapshot,
+          store,
+        } = renderWithContext(<AddContactScreen next={next} />, {
+          initialState,
+          navParams: {
+            organization: undefined,
+            person: undefined,
+          },
+          mocks: {
+            Person: () => ({
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            }),
+          },
+        });
+        await flushMicrotasksQueue();
         recordSnapshot();
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -217,28 +217,28 @@ describe('savePerson', () => {
     });
 
     describe('with org', () => {
-      const {
-        getByTestId,
-        recordSnapshot,
-        diffSnapshot,
-        store,
-      } = renderWithContext(<AddContactScreen next={next} />, {
-        initialState,
-        navParams: {
-          organization,
-          person: undefined,
-        },
-        mocks: {
-          Person: () => ({
-            firstName: newName,
-            lastName: '',
-            id: person.id,
-            relationshipType: null,
-          }),
-        },
-      });
-
       it('should add a new person', async () => {
+        const {
+          getByTestId,
+          recordSnapshot,
+          diffSnapshot,
+          store,
+        } = renderWithContext(<AddContactScreen next={next} />, {
+          initialState,
+          navParams: {
+            organization,
+            person: undefined,
+          },
+          mocks: {
+            Person: () => ({
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            }),
+          },
+        });
+        await flushMicrotasksQueue();
         recordSnapshot();
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -275,28 +275,28 @@ describe('savePerson', () => {
 
   describe('update existing person', () => {
     describe('without org', () => {
-      const {
-        getByTestId,
-        recordSnapshot,
-        diffSnapshot,
-        store,
-      } = renderWithContext(<AddContactScreen next={next} />, {
-        initialState,
-        navParams: {
-          organization: undefined,
-          person,
-        },
-        mocks: {
-          Person: () => ({
-            firstName: newName,
-            lastName: '',
-            id: person.id,
-            relationshipType: null,
-          }),
-        },
-      });
-
       it('should update person and navigate back', async () => {
+        const {
+          getByTestId,
+          recordSnapshot,
+          diffSnapshot,
+          store,
+        } = renderWithContext(<AddContactScreen next={next} />, {
+          initialState,
+          navParams: {
+            organization: undefined,
+            person,
+          },
+          mocks: {
+            Person: () => ({
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            }),
+          },
+        });
+        await flushMicrotasksQueue();
         recordSnapshot();
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -327,28 +327,28 @@ describe('savePerson', () => {
     });
 
     describe('with org', () => {
-      const {
-        getByTestId,
-        recordSnapshot,
-        diffSnapshot,
-        store,
-      } = renderWithContext(<AddContactScreen next={next} />, {
-        initialState,
-        navParams: {
-          organization,
-          person,
-        },
-        mocks: {
-          Person: () => ({
-            firstName: newName,
-            lastName: '',
-            id: person.id,
-            relationshipType: null,
-          }),
-        },
-      });
-
       it('should update person and navigate back', async () => {
+        const {
+          getByTestId,
+          recordSnapshot,
+          diffSnapshot,
+          store,
+        } = renderWithContext(<AddContactScreen next={next} />, {
+          initialState,
+          navParams: {
+            organization,
+            person,
+          },
+          mocks: {
+            Person: () => ({
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            }),
+          },
+        });
+        await flushMicrotasksQueue();
         recordSnapshot();
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
@@ -380,30 +380,31 @@ describe('savePerson', () => {
     });
 
     describe('set last name to null', () => {
-      const {
-        getByTestId,
-        recordSnapshot,
-        diffSnapshot,
-        store,
-      } = renderWithContext(<AddContactScreen next={next} />, {
-        initialState,
-        navParams: {
-          organization: undefined,
-          person: {
-            ...person,
-            lastName: 'someLastName',
-          },
-        },
-        mocks: {
-          Person: () => ({
-            firstName: newName,
-            lastName: '',
-            id: person.id,
-            relationshipType: null,
-          }),
-        },
-      });
       it('should update person and navigate back', async () => {
+        const {
+          getByTestId,
+          recordSnapshot,
+          diffSnapshot,
+          store,
+        } = renderWithContext(<AddContactScreen next={next} />, {
+          initialState,
+          navParams: {
+            organization: undefined,
+            person: {
+              ...person,
+              lastName: 'someLastName',
+            },
+          },
+          mocks: {
+            Person: () => ({
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            }),
+          },
+        });
+        await flushMicrotasksQueue();
         recordSnapshot();
         await fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');

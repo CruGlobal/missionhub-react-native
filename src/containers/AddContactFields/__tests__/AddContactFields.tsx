@@ -44,7 +44,7 @@ it('render correctly | With Person', () => {
     <AddContactFields
       organization={null}
       onUpdateData={onUpdateData}
-      person={{ first_name: 'Christian', last_name: 'Huffman' }}
+      person={{ firstName: 'Christian', lastName: 'Huffman' }}
     />,
     {
       initialState,

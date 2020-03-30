@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
@@ -88,7 +88,7 @@ describe('AddContactScreen next', () => {
         },
       },
     );
-
+    await flushMicrotasksQueue();
     await fireEvent.press(getByTestId('continueButton'));
     expect(navigateBack).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([
