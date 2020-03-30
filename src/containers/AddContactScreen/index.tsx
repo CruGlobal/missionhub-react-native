@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
@@ -35,12 +36,18 @@ import {
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import theme from '../../theme';
 
+import { GET_PERSON } from './queries';
 import styles from './styles';
+import {
+  GetPerson,
+  GetPersonVariables,
+  GetPerson_person as PersonType,
+} from './__generated__/GetPerson';
 
 interface AddContactScreenProps {
   next: (props: {
     personId?: string;
-    relationshipType?: RelationshipTypeEnum;
+    relationshipType?: RelationshipTypeEnum | null;
     orgId: string;
     didSavePerson: boolean;
     isMe: boolean;
@@ -52,9 +59,24 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const dispatch = useDispatch();
   useAnalytics(['people', 'add']);
   const organization = useNavigationParam('organization');
-  const currentPerson = useNavigationParam('person') || {};
+  const personId = useNavigationParam<string>('person')?.id || '';
+
+  const {
+    data: { person: currentPerson } = {
+      person: {
+        id: '',
+        firstName: '',
+        lastName: '',
+        relationshipType: null,
+      },
+    },
+  } = useQuery<GetPerson, GetPersonVariables>(GET_PERSON, {
+    variables: { id: personId },
+  });
+
   const [person, setPerson] = useState(currentPerson);
-  const isEdit = !!currentPerson?.id;
+
+  const isEdit = !!personId;
   const isMe = useIsMe(person.id);
   const handleUpdateData = (newData: Person) => {
     setPerson({ ...person, ...newData });
@@ -70,7 +92,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     UpdatePersonVariables
   >(UPDATE_PERSON);
 
-  const complete = (didSavePerson: boolean, person?: Person) => {
+  const complete = (didSavePerson: boolean, person?: PersonType) => {
     dispatch(
       next({
         personId: person?.id,
@@ -105,7 +127,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const savePerson = async () => {
     const saveData = person;
     let results;
-    // debugger;
+
     try {
       if (isEdit) {
         const { data: updateData } = await updatePerson({
@@ -127,7 +149,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               id: updateData?.updatePerson?.person.id,
             },
           });
-        results = updateData?.updatePerson?.person;
+        results = updateData?.updatePerson?.person as PersonType;
       } else {
         const { data: createData } = await createPerson({
           variables: {
@@ -148,24 +170,16 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               id: createData?.createPerson?.person.id,
             },
           });
-        results = createData?.createPerson?.person;
+        results = createData?.createPerson?.person as PersonType;
       }
 
-      setPerson({ ...person, id: results?.id });
+      results && setPerson({ ...person, id: results.id });
       !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
 
       complete(true, results);
     } catch (error) {
       handleError(error);
     }
-  };
-
-  const isDisabled = () => {
-    const saveData = person;
-    if (saveData.firstName === undefined) {
-      saveData.firstName = person.first_name;
-    }
-    return !saveData.firstName;
   };
 
   return (
@@ -202,7 +216,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       </ScrollView>
       <BottomButton
         testID="continueButton"
-        style={isDisabled() ? styles.disabledButton : null}
+        style={!person.firstName ? styles.disabledButton : null}
         onPress={savePerson}
         text={t('continue')}
       />

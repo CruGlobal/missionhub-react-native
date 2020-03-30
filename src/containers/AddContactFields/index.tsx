@@ -14,18 +14,11 @@ import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
-interface PersonData {
-  firstName?: string;
-  lastName?: string;
-  first_name?: string;
-  last_name?: string;
-}
-
 interface AddContactFieldsProps {
   isMe?: boolean;
   person: Person;
   organization: Organization;
-  onUpdateData: (data: PersonData) => void;
+  onUpdateData: (data: Person) => void;
 }
 
 const AddContactFields = ({
@@ -35,13 +28,8 @@ const AddContactFields = ({
   onUpdateData,
 }: AddContactFieldsProps) => {
   const { t } = useTranslation('addContact');
-  const [firstName, changeFirstName] = useState(
-    person.first_name || person.firstName || '',
-  );
-  const [lastName, changeLastName] = useState(
-    person.last_name || person.lastName || '',
-  );
-
+  const [firstName, changeFirstName] = useState(person.firstName);
+  const [lastName, changeLastName] = useState(person.lastName);
   const [currentInputField, changeCurrentInputField] = useState('');
   const personOrgPermission = useSelector(() =>
     orgPermissionSelector({}, { person, organization }),
@@ -51,6 +39,8 @@ const AddContactFields = ({
     const newState = {
       firstName,
       lastName,
+      id: person.id,
+      relationshipType: person.relationshipType,
     };
     onUpdateData(newState);
   }, [firstName, lastName]);

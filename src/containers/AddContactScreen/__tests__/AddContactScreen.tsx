@@ -3,7 +3,7 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
-import { useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -18,6 +18,7 @@ import {
   UPDATE_PERSON,
 } from '../../../containers/SetupScreen/queries';
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
+import { GET_PERSON } from '../queries';
 
 import AddContactScreen from '..';
 
@@ -30,12 +31,10 @@ const me = { id: '99' };
 const contactId = '23';
 const contactFName = 'Christian';
 const organization = { id: '2' };
-const mockContactAssignment = { id: '123', assigned_to: me };
 const person = {
   id: contactId,
-  first_name: contactFName,
+  firstName: contactFName,
   organization,
-  reverse_contact_assignments: [mockContactAssignment],
 };
 
 const trackActionResponse = { type: 'track action' };
@@ -68,14 +67,31 @@ beforeEach(() => {
   Alert.alert = jest.fn();
 });
 
-it('renders correctly', () => {
-  renderWithContext(<AddContactScreen next={next} />, {
+it('renders correctly', async () => {
+  const { snapshot } = renderWithContext(<AddContactScreen next={next} />, {
     initialState,
     navParams: {
       organization,
       person,
     },
-  }).snapshot();
+    mocks: {
+      Person: () => ({
+        firstName: person.firstName,
+        lastName: '',
+        id: person.id,
+        relationshipType: null,
+      }),
+    },
+  });
+
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+    variables: {
+      id: person.id,
+    },
+  });
+
   expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
 });
 
@@ -89,9 +105,24 @@ describe('handleUpdateData', () => {
           organization,
           person,
         },
+        mocks: {
+          Person: () => ({
+            firstName: 'GreatGuy',
+            lastName: '',
+            id: person.id,
+            relationshipType: null,
+          }),
+        },
       },
     );
+    await flushMicrotasksQueue();
     recordSnapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+      variables: {
+        id: person.id,
+      },
+    });
     await fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
     await fireEvent(getByTestId('contactFields'), 'onUpdateData');
     diffSnapshot();
@@ -360,7 +391,7 @@ describe('savePerson', () => {
           organization: undefined,
           person: {
             ...person,
-            last_name: 'someLastName',
+            lastName: 'someLastName',
           },
         },
         mocks: {
@@ -382,7 +413,7 @@ describe('savePerson', () => {
         expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
           variables: {
             input: {
-              firstName: person.first_name,
+              firstName: person.firstName,
               lastName: '',
               id: person.id,
             },
