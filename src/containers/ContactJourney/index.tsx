@@ -14,11 +14,15 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { removeSwipeJourney } from '../../actions/swipe';
 import NullStateComponent from '../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../routes/constants';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
+  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
+import { Person } from '../../reducers/people';
+import { Organization } from '../../reducers/organizations';
 import { orgIsCru } from '../../utils/common';
 import Analytics from '../Analytics';
 
@@ -161,8 +165,18 @@ class ContactJourney extends Component {
   }
 
   render() {
-    // @ts-ignore
-    const { myId, person, organization, isCruOrg } = this.props;
+    const {
+      // @ts-ignore
+      myId,
+      // @ts-ignore
+      person,
+      // @ts-ignore
+      organization,
+      // @ts-ignore
+      analyticsAssignmentType,
+      // @ts-ignore
+      isCruOrg,
+    } = this.props;
     return (
       <View style={styles.container}>
         <Analytics
@@ -170,6 +184,9 @@ class ContactJourney extends Component {
             'person',
             person.id === myId ? 'my journey' : 'our journey',
           ]}
+          screenContext={{
+            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          }}
         />
         {this.renderContent()}
         <Flex justify="end">
@@ -193,11 +210,9 @@ ContactJourney.propTypes = {
 const mapStateToProps = (
   // @ts-ignore
   { auth, swipe, journey },
-  { person = {}, organization = {} },
+  { person, organization }: { person: Person; organization: Organization },
 ) => {
-  // @ts-ignore
-  const orgId = organization.id || 'personal';
-  // @ts-ignore
+  const orgId = (organization && organization.id) || 'personal';
   const personId = person.id;
   const journeyOrg = journey[orgId];
   const journeyItems = (journeyOrg && journeyOrg[personId]) || undefined;
@@ -207,6 +222,11 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
+    analyticsAssignmentType: getAnalyticsAssignmentType(
+      person,
+      auth,
+      organization,
+    ),
     isCruOrg: orgIsCru(organization),
   };
 };

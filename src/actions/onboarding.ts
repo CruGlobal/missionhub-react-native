@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import uuidv4 from 'uuid/v4';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -10,7 +12,6 @@ import {
   ACTIONS,
   NOTIFICATION_PROMPT_TYPES,
   LOAD_PERSON_DETAILS,
-  ANALYTICS_CONTEXT_ONBOARDING,
 } from '../constants';
 import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
@@ -19,17 +20,23 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 import { getMe } from './person';
 import { navigatePush, navigateToCommunity } from './navigation';
-import { showReminderOnLoad } from './notifications';
-import {
-  trackActionWithoutData,
-  resetAppContext,
-  setAppContext,
-} from './analytics';
+import { checkNotifications } from './notifications';
+import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
 
+export const START_ONBOARDING = 'START_ONBOARDING';
+export const FINISH_ONBOARDING = 'FINISH_ONBOARDING';
 export const SET_ONBOARDING_PERSON_ID = 'SET_ONBOARDING_PERSON_ID';
 export const SET_ONBOARDING_COMMUNITY = 'SET_ONBOARDING_COMMUNITY_ID';
 export const SKIP_ONBOARDING_ADD_PERSON = 'SKIP_ONBOARDING_ADD_PERSON';
+
+export interface StartOnboardingAction {
+  type: typeof START_ONBOARDING;
+}
+
+export interface FinishOnboardingAction {
+  type: typeof FINISH_ONBOARDING;
+}
 
 export interface SetOnboardingPersonIdAction {
   type: typeof SET_ONBOARDING_PERSON_ID;
@@ -72,8 +79,8 @@ export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
 export const startOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
-  dispatch(setAppContext(ANALYTICS_CONTEXT_ONBOARDING));
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
+  dispatch({ type: START_ONBOARDING });
 };
 
 export function createMyPerson(firstName: string, lastName: string) {
@@ -139,29 +146,26 @@ export const createPerson = (firstName: string, lastName: string) => async (
   return results;
 };
 
-const finalOnboardingActions = () => async (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
-) => {
-  await dispatch(
-    showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.ONBOARDING, true),
-  );
-  dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
-  dispatch(resetAppContext());
-  dispatch(navigatePush(CELEBRATION_SCREEN));
-};
-
 export const skipAddPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(skipOnboardingAddPerson());
-  dispatch(finalOnboardingActions());
+  dispatch<any>(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export const resetPersonAndCompleteOnboarding = () => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) => {
   dispatch(setOnboardingPersonId(''));
-  dispatch(finalOnboardingActions());
+  dispatch<any>(
+    checkNotifications(NOTIFICATION_PROMPT_TYPES.ONBOARDING, () =>
+      dispatch(navigatePush(CELEBRATION_SCREEN)),
+    ),
+  );
 };
 
 export function joinStashedCommunity() {

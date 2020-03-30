@@ -37,7 +37,10 @@ beforeEach(() => {
   editComment.mockReturnValue(editCommentResult);
   // @ts-ignore
   getJourney.mockReturnValue(getJourneyResult);
-  store = createThunkStore({ auth: { person: { id: personId } } });
+  store = createThunkStore({
+    auth: { person: { id: personId } },
+    onboarding: { currentlyOnboarding: false },
+  });
 });
 
 describe('AddStepScreen next', () => {

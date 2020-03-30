@@ -10,6 +10,11 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.assignment-type": "contact",
+      }
+    }
     screenName={
       Array [
         "person",
@@ -41,11 +46,11 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
           "organizational_permissions": Array [
             Object {
               "organization_id": "222",
+              "permission_id": "3",
             },
           ],
         }
       }
-      showInteractions={false}
     />
   </Flex>
 </View>
@@ -61,6 +66,11 @@ exports[`ContactJourney renders null screen correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.assignment-type": "self",
+      }
+    }
     screenName={
       Array [
         "person",
@@ -100,11 +110,11 @@ exports[`ContactJourney renders null screen correctly 1`] = `
           "organizational_permissions": Array [
             Object {
               "organization_id": "222",
+              "permission_id": "3",
             },
           ],
         }
       }
-      showInteractions={false}
     />
   </Flex>
 </View>
@@ -120,6 +130,11 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.assignment-type": "self",
+      }
+    }
     screenName={
       Array [
         "person",
@@ -188,6 +203,7 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
           "organizational_permissions": Array [
             Object {
               "organization_id": "222",
+              "permission_id": "3",
             },
           ],
         }
@@ -208,6 +224,11 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.assignment-type": "self",
+      }
+    }
     screenName={
       Array [
         "person",
@@ -271,11 +292,11 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
           "organizational_permissions": Array [
             Object {
               "organization_id": "222",
+              "permission_id": "3",
             },
           ],
         }
       }
-      showInteractions={false}
     />
   </Flex>
 </View>
@@ -503,6 +524,7 @@ exports[`renders with an organization correctly 1`] = `
           "organizational_permissions": Array [
             Object {
               "organization_id": "222",
+              "permission_id": "3",
             },
           ],
         }

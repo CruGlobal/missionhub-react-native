@@ -11,13 +11,19 @@ import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PeopleState, Person } from '../reducers/people';
 import { Organization } from '../reducers/organizations';
-import { RELOAD_APP } from '../constants';
+import { NotificationsState } from '../reducers/notifications';
+import { RELOAD_APP, NOTIFICATION_PROMPT_TYPES } from '../constants';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 import { startOnboarding } from './onboarding';
+import { checkNotifications } from './notifications';
 
 export const resetToInitialRoute = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<
+    { auth: AuthState; notifications: NotificationsState },
+    {},
+    AnyAction
+  >,
   getState: () => {
     auth: AuthState;
     onboarding: OnboardingState;
@@ -32,7 +38,8 @@ export const resetToInitialRoute = () => (
       onboarding.skippedAddingPerson ||
       hasContactWithPathwayStage(auth.person.id, people)
     ) {
-      return dispatch(navigateToMainTabs());
+      dispatch(navigateToMainTabs());
+      return dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
     }
 
     dispatch(startOnboarding());

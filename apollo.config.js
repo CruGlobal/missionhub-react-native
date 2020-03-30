@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 
-const result = dotenv.config({ path: process.env.ENVFILE || '.env' });
+const result = dotenv.config({
+  path: process.env.ENVFILE || `${__dirname}/.env`,
+});
 
 if (result.error) {
   throw result.error;

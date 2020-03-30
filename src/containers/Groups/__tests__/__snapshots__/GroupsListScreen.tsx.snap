@@ -720,7 +720,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
           "id": "_global_community_id",
           "name": "MissionHub Community",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [],
           },
           "report": Object {
@@ -1077,7 +1077,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
               "id": "_global_community_id",
               "name": "MissionHub Community",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [],
               },
               "report": Object {
@@ -1818,7 +1818,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
           "id": "_global_community_id",
           "name": "MissionHub Community",
           "owner": Object {
-            "__typename": "PersonConnection",
+            "__typename": "CommunityPersonConnection",
             "nodes": Array [],
           },
           "report": Object {
@@ -1885,7 +1885,7 @@ exports[`GroupsListScreen renders with only global community 1`] = `
               "id": "_global_community_id",
               "name": "MissionHub Community",
               "owner": Object {
-                "__typename": "PersonConnection",
+                "__typename": "CommunityPersonConnection",
                 "nodes": Array [],
               },
               "report": Object {
