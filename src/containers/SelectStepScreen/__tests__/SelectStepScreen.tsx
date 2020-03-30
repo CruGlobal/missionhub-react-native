@@ -49,6 +49,20 @@ describe('loading', () => {
     });
   });
 
+  it('should render for self steps correctly', () => {
+    renderWithContext(<SelectStepScreen next={next} />, {
+      initialState: state,
+      navParams: { personId: me.id, orgId, enableSkipButton },
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
+  });
+
   describe('skip button', () => {
     beforeAll(() => {
       enableSkipButton = true;
@@ -80,6 +94,7 @@ describe('loading', () => {
 
   it('should hide tabs when locale is not en', () => {
     screen.recordSnapshot();
+    const originalLanguage = i18next.language;
     i18next.language = 'es-419';
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
@@ -91,7 +106,7 @@ describe('loading', () => {
       },
     });
 
-    i18next.language = 'en-TEST';
+    i18next.language = originalLanguage;
   });
 });
 
