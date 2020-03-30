@@ -455,10 +455,10 @@ export const DAYS_OF_THE_WEEK = [
 ];
 
 export enum NOTIFICATION_PROMPT_TYPES {
-  ONBOARDING = 'onboarding',
-  FOCUS_STEP = 'focusStep',
-  LOGIN = 'login',
-  SET_REMINDER = 'setReminder',
-  JOIN_COMMUNITY = 'joinCommunity',
-  JOIN_CHALLENGE = 'joinChallenge',
+  ONBOARDING,
+  FOCUS_STEP,
+  LOGIN,
+  SET_REMINDER,
+  JOIN_COMMUNITY,
+  JOIN_CHALLENGE,
 }
