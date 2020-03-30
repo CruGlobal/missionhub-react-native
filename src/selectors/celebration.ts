@@ -25,14 +25,11 @@ export const celebrationSelector = createSelector(
     const dateSections: CelebrateFeedSection[] = [];
     sortByDate.forEach(item => {
       const length = dateSections.length;
-      const itemMoment = momentUtc(item.changedAttributeValue).local();
+      const itemMoment = momentUtc(item.changedAttributeValue);
 
       if (
         length > 0 &&
-        itemMoment.isSame(
-          momentUtc(dateSections[length - 1].date).local(),
-          'day',
-        )
+        itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
       ) {
         dateSections[length - 1].data.push(item);
       } else {

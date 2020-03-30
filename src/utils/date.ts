@@ -4,8 +4,6 @@ import i18n from 'i18next';
 import { ReminderTypeEnum } from '../../__generated__/globalTypes';
 import { ReminderDateText as Reminder } from '../components/ReminderDateText/__generated__/ReminderDateText';
 
-import { momentUtc } from './common';
-
 export type dateFormat =
   | 'LT'
   | 'LL'
@@ -19,8 +17,7 @@ export type dateFormat =
   | 'MMM D @ LT'
   | 'LL @ LT';
 
-// @ts-ignore
-export function getDate(date) {
+export const getDate = (date: string | Date) => {
   if (!date) {
     return new Date();
   }
@@ -30,19 +27,26 @@ export function getDate(date) {
   }
 
   return moment(date).toDate();
-}
+};
 
-// @ts-ignore
-export function modeIs24Hour(format) {
-  return !!format.match(/H|k/);
-}
+export const modeIs24Hour = (format: string) => !!format.match(/H|k/);
 
-export function getMomentDate(date: string | Date | undefined) {
+// Pull dates out of UTC format into a moment object
+export const momentUtc = (time: string | Date | undefined) =>
+  moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC').local();
+
+export const formatApiDate = () =>
+  moment()
+    .utc()
+    .local()
+    .format();
+
+export const getMomentDate = (date: string | Date | undefined) => {
   if (typeof date === 'string' && date.indexOf('UTC') >= 0) {
-    return momentUtc(date).local();
+    return momentUtc(date);
   }
   return moment(date);
-}
+};
 
 const isYesterday = (momentDate: moment.Moment) =>
   momentDate.isSame(moment().subtract(1, 'days'), 'day');
@@ -89,7 +93,7 @@ export const reminderFormat = ({
   nextOccurrenceAt,
 }: Reminder) => {
   const timeFormat = 'LT';
-  const momentDate = momentUtc(nextOccurrenceAt).local();
+  const momentDate = momentUtc(nextOccurrenceAt);
 
   switch (reminderType) {
     case ReminderTypeEnum.daily:
