@@ -9,7 +9,8 @@ import {
   ACTIONS,
   ACCEPTED_STEP,
 } from '../constants';
-import { formatApiDate, isCustomStep } from '../utils/date';
+import { isCustomStep } from '../utils/common';
+import { formatApiDate } from '../utils/date';
 import { buildCustomStep } from '../utils/steps';
 import {
   COMPLETE_STEP_FLOW,
