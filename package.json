@@ -42,7 +42,7 @@
     "@ringierag/snowplow-reactjs-native-tracker": "^0.0.4",
     "@types/qs": "^6.9.1",
     "@types/react-native-fbsdk": "^1.0.0",
-    "@types/react-native-push-notification": "^3.0.7",
+    "@types/react-native-push-notification": "^3.0.8",
     "@types/uuid": "^3.4.5",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-cache-persist": "^0.1.1",
