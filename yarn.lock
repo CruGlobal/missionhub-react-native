@@ -1982,10 +1982,10 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
-"@types/react-native-push-notification@^3.0.7":
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/@types/react-native-push-notification/-/react-native-push-notification-3.0.7.tgz#eeced67f709918c237698ce261f296f469236a4d"
-  integrity sha512-7UNlO635Lew05Os/Ex+wzMTDI7XpDYbuGNGwFDfIXvZOGUVoUcyKC6GNy28hfViM9iAT3rQ3K9fDTcW2fqVRnQ==
+"@types/react-native-push-notification@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@types/react-native-push-notification/-/react-native-push-notification-3.0.8.tgz#e7220ca260ee12ff85ea4887d9f2e7a924f2f638"
+  integrity sha512-OLF9GutwisJVM/K+7tBwmbfWRXf9AIt4r7SurUr1x97hVTObW7pmJyk2zbEWacmie2W1sP83Hcwiu8UJIA038w==
 
 "@types/react-native-snap-carousel@^3.7.4":
   version "3.7.4"
