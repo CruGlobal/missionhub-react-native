@@ -700,8 +700,8 @@ exports[`contact notes press bottom button saves and switches to not editing sta
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -130,11 +118,11 @@
-                  Object {},
+@@ -135,11 +123,11 @@
+                  ],
                 ],
               ]
             }
@@ -778,8 +778,8 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -118,11 +130,11 @@
-                  Object {},
+@@ -123,11 +135,11 @@
+                  ],
                 ],
               ]
             }
