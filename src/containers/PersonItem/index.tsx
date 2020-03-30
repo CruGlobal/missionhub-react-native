@@ -100,7 +100,7 @@ const PersonItem = ({
     );
 
   const handleAddStep = () =>
-    contactAssignment.pathway_stage_id || isMe
+    stage
       ? dispatch(navigateToAddStepFlow(isMe, person, organization))
       : dispatch(
           navigateToStageScreen(
