@@ -2,13 +2,9 @@ import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import { ThunkDispatch } from 'redux-thunk';
 
-import {
-  NOTIFICATION_PROMPT_TYPES,
-  LOAD_PERSON_DETAILS,
-} from '../../constants';
+import { LOAD_PERSON_DETAILS } from '../../constants';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
-import { showReminderOnLoad } from '../notifications';
 import { getStagesIfNotExists } from '../stages';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
@@ -78,6 +74,5 @@ export function loadHome() {
     dispatch(getMyCommunities());
     dispatch(getStagesIfNotExists());
     dispatch(updateLocaleAndTimezone());
-    dispatch(showReminderOnLoad(NOTIFICATION_PROMPT_TYPES.LOGIN));
   };
 }

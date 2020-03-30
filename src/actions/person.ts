@@ -1,4 +1,6 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   CONTACT_PERSON_SCREEN,
@@ -27,13 +29,16 @@ import { organizationSelector } from '../selectors/organizations';
 import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
+import { AuthState } from '../reducers/auth';
 
 import callApi from './api';
-import { trackActionWithoutData } from './analytics';
+import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 
-export function getMe(extraInclude?: string) {
+export const getMe = (extraInclude?: string) => async (
+  dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
+) => {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
@@ -41,14 +46,14 @@ export function getMe(extraInclude?: string) {
     ? `${personInclude},${extraInclude}`
     : personInclude;
 
-  // @ts-ignore
-  return async dispatch => {
-    const { response: person } = await dispatch(
-      callApi(REQUESTS.GET_ME, { include }),
-    );
-    return person;
-  };
-}
+  const { response: person } = await dispatch(
+    callApi(REQUESTS.GET_ME, { include }),
+  );
+
+  dispatch(setAnalyticsMinistryMode());
+
+  return person;
+};
 
 // @ts-ignore
 export function getPersonDetails(id, orgId) {

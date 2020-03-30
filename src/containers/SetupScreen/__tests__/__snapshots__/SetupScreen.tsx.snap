@@ -143,14 +143,10 @@ exports[`renders isMe version correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "paddingVertical": 36,
+      }
     }
   >
     <Text
@@ -762,14 +758,10 @@ exports[`renders other person version correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Array [
-        Object {},
-        Object {
-          "alignItems": "center",
-          "flex": 2,
-          "justifyContent": "flex-end",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "paddingVertical": 36,
+      }
     }
   >
     <View
@@ -1010,7 +1002,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -325,11 +325,11 @@
+@@ -321,11 +321,11 @@
               Object {},
             ]
           }
@@ -1030,7 +1022,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -365,11 +365,11 @@
+@@ -361,11 +361,11 @@
               Object {},
             ]
           }

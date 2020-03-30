@@ -21,7 +21,7 @@
 #import <React/RCTLinkingManager.h>
 
 #import "ADBMobile.h"
-@import Firebase;
+#import <Firebase.h>
 
 const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
 

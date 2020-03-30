@@ -1,44 +1,48 @@
 import React from 'react';
 import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { useDispatch } from 'react-redux';
 
 import CelebrateFeed from '../CelebrateFeed';
+import { TrackStateContext } from '../../actions/analytics';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
+import { getAnalyticsPermissionType } from '../../utils/analytics';
+import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
-import Analytics from '../Analytics';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 export interface GroupCelebrateProps {
-  dispatch: ThunkDispatch<{ organizations: OrganizationsState }, {}, AnyAction>;
   organization: Organization;
   shouldQueryReport: boolean;
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
 const GroupCelebrate = ({
-  dispatch,
   organization,
   shouldQueryReport,
+  analyticsPermissionType,
 }: GroupCelebrateProps) => {
+  const dispatch = useDispatch();
+  useAnalytics(['community', 'celebrate'], {
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  });
+
   const handleRefetch = () => {
     dispatch(refreshCommunity(organization.id));
     shouldQueryReport && dispatch(getReportedComments(organization.id));
   };
 
   return (
-    <>
-      <Analytics screenName={['community', 'celebrate']} />
-      <CelebrateFeed
-        testID="CelebrateFeed"
-        organization={organization}
-        onRefetch={handleRefetch}
-        itemNamePressable={!orgIsGlobal(organization)}
-      />
-    </>
+    <CelebrateFeed
+      testID="CelebrateFeed"
+      organization={organization}
+      onRefetch={handleRefetch}
+      itemNamePressable={!orgIsGlobal(organization)}
+    />
   );
 };
 
@@ -61,6 +65,7 @@ const mapStateToProps = (
       organization,
       myOrgPermission,
     ),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 
