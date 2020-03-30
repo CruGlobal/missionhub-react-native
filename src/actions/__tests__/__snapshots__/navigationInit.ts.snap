@@ -50,6 +50,9 @@ Array [
   Object {
     "type": "nav to main tabs",
   },
+  Object {
+    "type": "check notifications",
+  },
 ]
 `;
 
@@ -60,6 +63,9 @@ Array [
   },
   Object {
     "type": "nav to main tabs",
+  },
+  Object {
+    "type": "check notifications",
   },
 ]
 `;
