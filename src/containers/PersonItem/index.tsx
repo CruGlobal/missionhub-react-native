@@ -102,15 +102,7 @@ const PersonItem = ({
   const handleAddStep = () =>
     stage
       ? dispatch(navigateToAddStepFlow(isMe, person, organization))
-      : dispatch(
-          navigateToStageScreen(
-            isMe,
-            person,
-            contactAssignment,
-            organization,
-            undefined,
-          ),
-        );
+      : handleChangeStage();
 
   const renderStageIcon = () => {
     return (
