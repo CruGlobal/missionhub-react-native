@@ -3,13 +3,13 @@ import { Image, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
-import moment from 'moment';
 
 import { Text } from '../../components/common';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { getMomentDate } from '../../utils/date';
 
 import styles from './styles';
 import { COMPLETED_STEP_DETAIL_QUERY } from './queries';
@@ -46,7 +46,7 @@ const CompletedStepDetailScreen = () => {
         <View style={styles.reminderButton}>
           <Text style={styles.completedText}>
             {t('completedOn', {
-              date: moment(step?.completedAt ?? undefined).format(
+              date: getMomentDate(step?.completedAt ?? undefined).format(
                 'dddd, MMMM D YYYY',
               ),
             })}
