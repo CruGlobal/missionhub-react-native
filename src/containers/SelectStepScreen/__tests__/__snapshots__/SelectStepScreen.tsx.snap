@@ -2083,7 +2083,7 @@ exports[`loading should render for self steps correctly 1`] = `
         Array [
           undefined,
           Object {
-            "paddingTop": 203,
+            "paddingTop": 130,
           },
         ]
       }
@@ -2093,7 +2093,7 @@ exports[`loading should render for self steps correctly 1`] = `
             "action": [Function],
             "icon": true,
             "key": "custom",
-            "text": "Create your own Relate Step",
+            "text": "Create your own  Step",
           },
         ]
       }
@@ -2194,7 +2194,7 @@ exports[`loading should render for self steps correctly 1`] = `
                 ]
               }
             >
-              Create your own Relate Step
+              Create your own  Step
             </Text>
             <SvgMock />
           </View>
@@ -2229,7 +2229,7 @@ exports[`loading should render for self steps correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#ECEEF2",
-          "height": 203,
+          "height": 130,
           "left": 0,
           "paddingTop": 0,
           "position": "absolute",
@@ -2279,7 +2279,7 @@ exports[`loading should render for self steps correctly 1`] = `
               ]
             }
           >
-            Choose a step to take with 
+            Choose a step of faith to take
           </Text>
           <Text
             style={
@@ -2301,291 +2301,8 @@ exports[`loading should render for self steps correctly 1`] = `
               ]
             }
           >
-             this week...
+            on your journey this week...
           </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "space-around",
-            }
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Relate
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "marginTop": 20,
-                  }
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderBottomWidth": 9,
-                        "borderLeftColor": "transparent",
-                        "borderLeftWidth": 7,
-                        "borderRightColor": "transparent",
-                        "borderRightWidth": 7,
-                        "borderStyle": "solid",
-                        "height": 0,
-                        "width": 0,
-                      },
-                      Object {
-                        "borderBottomColor": "#ECEEF2",
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Pray
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Care
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Share
-                </Text>
-              </View>
-            </View>
-          </View>
         </View>
       </View>
     </View>
@@ -5548,7 +5265,7 @@ exports[`with explainer open opens explainer modal 1`] = `
                 "opacity": 0.5,
                 "transform": Array [
                   Object {
-                    "scale": 0.9,
+                    "scale": 0.9000132621729346,
                   },
                 ],
                 "width": 8,

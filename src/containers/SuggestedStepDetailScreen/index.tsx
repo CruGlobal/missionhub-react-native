@@ -79,7 +79,8 @@ const SuggestedStepDetailScreen = ({
     CreateStepFromSuggestion,
     CreateStepFromSuggestionVariables
   >(CREATE_STEP_FROM_SUGGESTION_MUTATION, {
-    onCompleted: data => dispatch(trackStepAdded(data.createStep?.step)),
+    onCompleted: data =>
+      dispatch(trackStepAdded(data.createStepFromSuggestion?.step)),
     refetchQueries: [
       { query: STEPS_QUERY },
       {

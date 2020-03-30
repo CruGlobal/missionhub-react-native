@@ -118,7 +118,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
         variables: { personId, completed: false },
       },
     ],
-    onCompleted: data => dispatch(trackStepAdded(data.createStep?.step)),
+    onCompleted: data => dispatch(trackStepAdded(data.createCustomStep?.step)),
   });
 
   const onChangeText = (newText: string) => {

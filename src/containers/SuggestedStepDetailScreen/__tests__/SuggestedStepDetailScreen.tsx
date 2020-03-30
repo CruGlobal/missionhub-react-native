@@ -121,7 +121,6 @@ describe('bottomButtonProps', () => {
       {
         variables: {
           receiverId: personId,
-          communityId: orgId,
           stepSuggestionId,
         },
       },
