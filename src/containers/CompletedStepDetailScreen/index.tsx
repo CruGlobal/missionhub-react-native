@@ -3,8 +3,9 @@ import { Image, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useApolloClient } from '@apollo/react-hooks';
 import moment from 'moment';
+import gql from 'graphql-tag';
 
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Text } from '../../components/common';
@@ -23,9 +24,27 @@ import {
 } from './__generated__/CompletedStepDetail';
 
 const CompletedStepDetailScreen = () => {
+  const stepId = useNavigationParam('stepId');
+
+  const apolloClient = useApolloClient();
+
   const analyticsAssignmentType = useSelector(
-    ({ auth }: { auth: AuthState }) =>
-      getAnalyticsAssignmentType({ id: '' }, auth), // TODO: What do we do when the person isn't loaded yet?
+    ({ auth }: { auth: AuthState }) => {
+      let stepReceiverId = '';
+      try {
+        const step = apolloClient.readFragment({
+          id: `Step:${stepId}`,
+          fragment: gql`
+            fragment stepReceiver on Step {
+              receiver {
+                id
+              }
+          `,
+        });
+        stepReceiverId = step.receiver.id;
+      } catch {}
+      return getAnalyticsAssignmentType({ id: stepReceiverId }, auth);
+    },
   );
   useAnalytics(['step detail', 'completed step'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
@@ -35,7 +54,7 @@ const CompletedStepDetailScreen = () => {
     CompletedStepDetail,
     CompletedStepDetailVariables
   >(COMPLETED_STEP_DETAIL_QUERY, {
-    variables: { id: useNavigationParam('stepId') },
+    variables: { id: stepId },
   });
 
   return (
@@ -53,11 +72,13 @@ const CompletedStepDetailScreen = () => {
       CenterContent={
         <View style={styles.reminderButton}>
           <Text style={styles.completedText}>
-            {t('completedOn', {
-              date: moment(data?.step.completedAt ?? undefined).format(
-                'dddd, MMMM D YYYY',
-              ),
-            })}
+            {data?.step.completedAt
+              ? t('completedOn', {
+                  date: moment(data.step.completedAt).format(
+                    'dddd, MMMM D YYYY',
+                  ),
+                })
+              : null}
           </Text>
           <Image source={GREY_CHECKBOX} style={styles.completedIcon} />
         </View>
