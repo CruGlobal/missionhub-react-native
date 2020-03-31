@@ -184,8 +184,8 @@ describe('savePerson', () => {
           },
         });
         recordSnapshot();
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         await flushMicrotasksQueue();

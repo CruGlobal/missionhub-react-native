@@ -39,9 +39,8 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
     'relationshipType',
   );
   const orgId: string = useNavigationParam('orgId');
-  const personCategory = relationshipType || null;
   const [category, setCategory] = useState<RelationshipTypeEnum | null>(
-    personCategory,
+    relationshipType || null,
   );
 
   const [updatePerson] = useMutation<UpdatePerson, UpdatePersonVariables>(
