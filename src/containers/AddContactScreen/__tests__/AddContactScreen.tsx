@@ -90,6 +90,8 @@ it('renders correctly', async () => {
     variables: {
       id: person.id,
     },
+    onCompleted: expect.any(Function),
+    skip: false,
   });
 
   expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
@@ -97,7 +99,7 @@ it('renders correctly', async () => {
 
 describe('handleUpdateData', () => {
   it('should update the state', async () => {
-    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+    const { getByTestId, snapshot } = renderWithContext(
       <AddContactScreen next={next} />,
       {
         initialState,
@@ -107,7 +109,7 @@ describe('handleUpdateData', () => {
         },
         mocks: {
           Person: () => ({
-            firstName: 'GreatGuy',
+            firstName: person.firstName,
             lastName: '',
             id: person.id,
             relationshipType: null,
@@ -116,16 +118,16 @@ describe('handleUpdateData', () => {
       },
     );
     await flushMicrotasksQueue();
-    recordSnapshot();
-
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+    -expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
       variables: {
         id: person.id,
       },
+      onCompleted: expect.any(Function),
+      skip: false,
     });
     await fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
     await fireEvent(getByTestId('contactFields'), 'onUpdateData');
-    diffSnapshot();
+    snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
   });
 });
@@ -181,12 +183,12 @@ describe('savePerson', () => {
             }),
           },
         });
-        await flushMicrotasksQueue();
         recordSnapshot();
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
+        await flushMicrotasksQueue();
         expect(useMutation).toHaveBeenMutatedWith(CREATE_PERSON, {
           variables: {
             input: {
@@ -218,32 +220,37 @@ describe('savePerson', () => {
 
     describe('with org', () => {
       it('should add a new person', async () => {
-        const {
-          getByTestId,
-          recordSnapshot,
-          diffSnapshot,
-          store,
-        } = renderWithContext(<AddContactScreen next={next} />, {
-          initialState,
-          navParams: {
-            organization,
-            person: undefined,
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization,
+              person: undefined,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+              }),
+            },
           },
-          mocks: {
-            Person: () => ({
-              firstName: newName,
-              lastName: '',
-              id: person.id,
-              relationshipType: null,
-            }),
-          },
-        });
+        );
         await flushMicrotasksQueue();
-        recordSnapshot();
+
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
-        diffSnapshot();
+        snapshot();
+        expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+          variables: {
+            id: '',
+          },
+          onCompleted: expect.any(Function),
+          skip: true,
+        });
         expect(useMutation).toHaveBeenMutatedWith(CREATE_PERSON, {
           variables: {
             input: {
@@ -276,33 +283,38 @@ describe('savePerson', () => {
   describe('update existing person', () => {
     describe('without org', () => {
       it('should update person and navigate back', async () => {
-        const {
-          getByTestId,
-          recordSnapshot,
-          diffSnapshot,
-          store,
-        } = renderWithContext(<AddContactScreen next={next} />, {
-          initialState,
-          navParams: {
-            organization: undefined,
-            person,
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization: undefined,
+              person,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+              }),
+            },
           },
-          mocks: {
-            Person: () => ({
-              firstName: newName,
-              lastName: '',
-              id: person.id,
-              relationshipType: null,
-            }),
-          },
-        });
+        );
         await flushMicrotasksQueue();
-        recordSnapshot();
+
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
-        diffSnapshot();
-        await flushMicrotasksQueue();
+
+        snapshot();
+        expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+          variables: {
+            id: person.id,
+          },
+          onCompleted: expect.any(Function),
+          skip: false,
+        });
         expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
           variables: {
             input: {
@@ -328,33 +340,29 @@ describe('savePerson', () => {
 
     describe('with org', () => {
       it('should update person and navigate back', async () => {
-        const {
-          getByTestId,
-          recordSnapshot,
-          diffSnapshot,
-          store,
-        } = renderWithContext(<AddContactScreen next={next} />, {
-          initialState,
-          navParams: {
-            organization,
-            person,
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization,
+              person,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+              }),
+            },
           },
-          mocks: {
-            Person: () => ({
-              firstName: newName,
-              lastName: '',
-              id: person.id,
-              relationshipType: null,
-            }),
-          },
-        });
+        );
         await flushMicrotasksQueue();
-        recordSnapshot();
+        snapshot();
         await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
-        diffSnapshot();
-        await flushMicrotasksQueue();
         expect(trackActionWithoutData).not.toHaveBeenCalled();
 
         expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
@@ -381,40 +389,38 @@ describe('savePerson', () => {
 
     describe('set last name to null', () => {
       it('should update person and navigate back', async () => {
-        const {
-          getByTestId,
-          recordSnapshot,
-          diffSnapshot,
-          store,
-        } = renderWithContext(<AddContactScreen next={next} />, {
-          initialState,
-          navParams: {
-            organization: undefined,
-            person: {
-              ...person,
-              lastName: 'someLastName',
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization: undefined,
+              person: {
+                ...person,
+                lastName: 'someLastName',
+              },
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+              }),
             },
           },
-          mocks: {
-            Person: () => ({
-              firstName: newName,
-              lastName: '',
-              id: person.id,
-              relationshipType: null,
-            }),
-          },
-        });
+        );
         await flushMicrotasksQueue();
-        recordSnapshot();
+
         await fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
         await fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
-        diffSnapshot();
+        snapshot();
 
         expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
           variables: {
             input: {
-              firstName: person.firstName,
+              firstName: newName,
               lastName: '',
               id: person.id,
             },

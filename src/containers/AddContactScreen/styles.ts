@@ -11,6 +11,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   disabledButton: {
+    opacity: 1,
     backgroundColor: theme.accentColor,
     color: '#007398',
   },

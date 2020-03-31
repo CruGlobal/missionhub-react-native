@@ -212,6 +212,7 @@ export default {
     prompt: 'Who would you like to take steps of faith with this week?',
     createError: 'Error creating your person. Please try again.',
     updateError: 'Error updating your person. Please try again.',
+    loadingError: 'Error loading your person. Please try again.',
   },
   addStep: {
     header: 'Create your own step',

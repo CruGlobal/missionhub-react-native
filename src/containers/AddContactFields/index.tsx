@@ -1,6 +1,6 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { KeyboardAvoidingView, View, TextInput } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -9,56 +9,44 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { Flex, Text, Input } from '../../components/common';
 import theme from '../../theme';
 import { hasOrgPermissions } from '../../utils/common';
-import { Person } from '../../reducers/people';
+import { PersonType } from '../AddContactScreen';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
 interface AddContactFieldsProps {
-  isMe?: boolean;
-  person: Person;
-  organization: Organization;
-  onUpdateData: (data: Person) => void;
+  person: PersonType;
+  organization?: Organization;
+  onUpdateData: (data: PersonType) => void;
 }
 
 const AddContactFields = ({
-  isMe = false,
   person,
   organization,
   onUpdateData,
 }: AddContactFieldsProps) => {
   const { t } = useTranslation('addContact');
-  const [firstName, changeFirstName] = useState(person.firstName);
-  const [lastName, changeLastName] = useState(person.lastName);
   const [currentInputField, changeCurrentInputField] = useState('');
+  const isMe = useIsMe(person.id);
   const personOrgPermission = useSelector(() =>
     orgPermissionSelector({}, { person, organization }),
   );
 
-  useEffect(() => {
-    const newState = {
-      firstName,
-      lastName,
-      id: person.id,
-      relationshipType: person.relationshipType,
-    };
-    onUpdateData(newState);
-  }, [firstName, lastName]);
-
   const updateField = (field: string, data: string) => {
     switch (field) {
       case 'firstName':
-        changeFirstName(data);
+        onUpdateData({ ...person, firstName: data });
         break;
       case 'lastName':
-        changeLastName(data);
+        onUpdateData({ ...person, lastName: data });
         break;
     }
   };
 
   const firstNameRef = useRef<TextInput>(null);
   const lastNameRef = useRef<TextInput>(null);
-  const lastNameFocus = () => lastNameRef?.current?.focus();
+  const lastNameFocus = () => lastNameRef.current?.focus();
   // Check if current field is the one the user is focused on in order to change style
   const isCurrentField = (field: string) => currentInputField === field;
   // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
@@ -73,7 +61,7 @@ const AddContactFields = ({
             </View>
           )}
         </Flex>
-        {firstName || isCurrentField('firstName') ? (
+        {person.firstName || isCurrentField('firstName') ? (
           <Text style={styles.label}>
             {t('profileLabels.firstNameNickname')}
           </Text>
@@ -89,7 +77,7 @@ const AddContactFields = ({
           onChangeText={(firstName: string) =>
             updateField('firstName', firstName)
           }
-          value={firstName}
+          value={person.firstName}
           placeholder={
             isCurrentField('firstName')
               ? ''
@@ -105,7 +93,7 @@ const AddContactFields = ({
         />
       </Flex>
       <Flex direction="column">
-        {lastName || isCurrentField('lastName') ? (
+        {person.lastName || isCurrentField('lastName') ? (
           <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
         ) : (
           <Text style={styles.label}>{}</Text>
@@ -117,7 +105,7 @@ const AddContactFields = ({
           editable={!personHasOrgPermission}
           selectionColor={theme.challengeBlue}
           onChangeText={(lastName: string) => updateField('lastName', lastName)}
-          value={lastName}
+          value={person.lastName}
           placeholder={
             isCurrentField('lastName')
               ? ''

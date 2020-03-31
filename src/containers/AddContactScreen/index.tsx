@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
 import React, { useState } from 'react';
-import { View, ScrollView, Alert } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -14,13 +14,8 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
-import {
-  ACTIONS,
-  CANNOT_EDIT_FIRST_NAME,
-  LOAD_PERSON_DETAILS,
-} from '../../constants';
+import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
 import BackIcon from '../../../assets/images/backIcon.svg';
-import { Person } from '../../reducers/people';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -34,6 +29,7 @@ import {
   UpdatePersonVariables,
 } from '../SetupScreen/__generated__/UpdatePerson';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { LoadingWheel } from '../../components/common';
 import theme from '../../theme';
 
 import { GET_PERSON } from './queries';
@@ -41,7 +37,7 @@ import styles from './styles';
 import {
   GetPerson,
   GetPersonVariables,
-  GetPerson_person as PersonType,
+  GetPerson_person,
 } from './__generated__/GetPerson';
 
 interface AddContactScreenProps {
@@ -54,6 +50,8 @@ interface AddContactScreenProps {
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
+export type PersonType = Omit<GetPerson_person, '__typename'>;
+
 const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const { t } = useTranslation('addContact');
   const dispatch = useDispatch();
@@ -61,24 +59,25 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const organization = useNavigationParam('organization');
   const personId = useNavigationParam<string>('person')?.id || '';
 
-  const {
-    data: { person: currentPerson } = {
-      person: {
-        id: '',
-        firstName: '',
-        lastName: '',
-        relationshipType: null,
-      },
-    },
-  } = useQuery<GetPerson, GetPersonVariables>(GET_PERSON, {
-    variables: { id: personId },
+  const [person, setPerson] = useState<PersonType>({
+    id: '',
+    firstName: '',
+    lastName: '',
+    relationshipType: null,
   });
 
-  const [person, setPerson] = useState(currentPerson);
+  const { loading, error: loadingError, refetch } = useQuery<
+    GetPerson,
+    GetPersonVariables
+  >(GET_PERSON, {
+    variables: { id: personId },
+    onCompleted: data => setPerson(data.person),
+    skip: !personId,
+  });
 
   const isEdit = !!personId;
   const isMe = useIsMe(person.id);
-  const handleUpdateData = (newData: Person) => {
+  const handleUpdateData = (newData: PersonType) => {
     setPerson({ ...person, ...newData });
   };
 
@@ -106,22 +105,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
 
   const completeWithoutSave = () => {
     complete(false);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleError = (error: any) => {
-    if (error && error.apiError) {
-      if (
-        error.apiError.errors &&
-        error.apiError.errors[0] &&
-        error.apiError.errors[0].detail
-      ) {
-        const errorDetail = error.apiError.errors[0].detail;
-        if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
-          Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
-        }
-      }
-    }
   };
 
   const savePerson = async () => {
@@ -177,9 +160,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
 
       complete(true, results);
-    } catch (error) {
-      handleError(error);
-    }
+    } catch {}
   };
 
   return (
@@ -204,20 +185,35 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         message={t('createError')}
         refetch={savePerson}
       />
+      <ErrorNotice
+        error={loadingError}
+        message={t('loadingError')}
+        refetch={refetch}
+      />
+      {/* <ErrorNotice
+        error={organization.id}
+        message={t('alertCannotEditFirstName')}
+        // @ts-ignore
+        refetch={completeWithoutSave}
+      /> */}
       <ScrollView style={styles.scrollView}>
-        <AddContactFields
-          // @ts-ignore
-          testID="contactFields"
-          isMe={isMe}
-          person={person}
-          organization={organization}
-          onUpdateData={handleUpdateData}
-        />
+        {loading ? (
+          <LoadingWheel />
+        ) : (
+          <AddContactFields
+            // @ts-ignore
+            testID="contactFields"
+            person={person}
+            organization={organization}
+            onUpdateData={handleUpdateData}
+          />
+        )}
       </ScrollView>
       <BottomButton
         testID="continueButton"
         style={!person.firstName ? styles.disabledButton : null}
         onPress={savePerson}
+        disabled={!person.firstName}
         text={t('continue')}
       />
     </View>

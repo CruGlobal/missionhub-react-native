@@ -14,6 +14,12 @@ const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 
 const initialState = { auth: { person: {} } };
 const onUpdateData = jest.fn();
+const emptyPerson = {
+  id: '',
+  firstName: '',
+  lastName: '',
+  relationshipType: null,
+};
 
 beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
@@ -26,17 +32,13 @@ it('renders correctly | No Person', () => {
     <AddContactFields
       organization={null}
       onUpdateData={onUpdateData}
-      person={{}}
+      person={emptyPerson}
     />,
     {
       initialState,
     },
   );
   snapshot();
-  expect(onUpdateData).toHaveBeenCalledWith({
-    firstName: '',
-    lastName: '',
-  });
 });
 
 it('render correctly | With Person', () => {
@@ -44,59 +46,64 @@ it('render correctly | With Person', () => {
     <AddContactFields
       organization={null}
       onUpdateData={onUpdateData}
-      person={{ firstName: 'Christian', lastName: 'Huffman' }}
+      person={{
+        id: '1',
+        relationshipType: null,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+      }}
     />,
     {
       initialState,
     },
   );
   snapshot();
-  expect(onUpdateData).toHaveBeenCalledWith({
-    firstName: 'Christian',
-    lastName: 'Huffman',
-  });
 });
 
 describe('calls methods', () => {
-  it('calls update firstName and changeFocusedField', async () => {
-    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+  it('calls update firstName and changeFocusedField', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactFields
         organization={null}
         onUpdateData={onUpdateData}
-        person={{}}
+        person={emptyPerson}
       />,
       {
         initialState,
       },
     );
     recordSnapshot();
-    await fireEvent(getByTestId('firstNameInput'), 'onFocus');
-    await fireEvent.changeText(getByTestId('firstNameInput'), 'Christian');
+    fireEvent(getByTestId('firstNameInput'), 'onFocus');
+    fireEvent.changeText(getByTestId('firstNameInput'), 'Christian');
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
       firstName: 'Christian',
+      id: '',
       lastName: '',
+      relationshipType: null,
     });
   });
 
-  it('calls update lastName and changeFocusedField', async () => {
-    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+  it('calls update lastName and changeFocusedField', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactFields
         organization={null}
         onUpdateData={onUpdateData}
-        person={{}}
+        person={emptyPerson}
       />,
       {
         initialState,
       },
     );
     recordSnapshot();
-    await fireEvent(getByTestId('lastNameInput'), 'onFocus');
-    await fireEvent.changeText(getByTestId('lastNameInput'), 'Huffman');
+    fireEvent(getByTestId('lastNameInput'), 'onFocus');
+    fireEvent.changeText(getByTestId('lastNameInput'), 'Huffman');
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
       firstName: '',
       lastName: 'Huffman',
+      id: '',
+      relationshipType: null,
     });
   });
 });

@@ -32,20 +32,7 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
           rejectResponderTermination={true}
           returnKeyType=\\"next\\"
           selectionColor=\\"#3CC8E6\\"
-          style={
-@@ -117,11 +119,11 @@
-              Object {},
-            ]
-          }
-          testID=\\"firstNameInput\\"
-          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"\\"
-+         value=\\"Christian\\"
-        />
-      </View>
-      <View
-        style={
-          Array ["
+          style={"
 `;
 
 exports[`calls methods calls update lastName and changeFocusedField 1`] = `
@@ -79,19 +66,7 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
           rejectResponderTermination={true}
           returnKeyType=\\"done\\"
           selectionColor=\\"#3CC8E6\\"
-          style={
-@@ -179,10 +181,10 @@
-              Object {},
-            ]
-          }
-          testID=\\"lastNameInput\\"
-          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"\\"
-+         value=\\"Huffman\\"
-        />
-      </View>
-    </View>
-  </View>"
+          style={"
 `;
 
 exports[`render correctly | With Person 1`] = `

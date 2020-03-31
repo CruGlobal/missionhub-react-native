@@ -10,6 +10,7 @@ import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
 import { LOAD_PERSON_DETAILS } from '../../../constants';
+import { useIsMe } from '../../../utils/hooks/useIsMe';
 import {
   trackScreenChange,
   trackActionWithoutData,
@@ -19,6 +20,7 @@ jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useIsMe');
 
 const me = { id: '1' };
 const navigateBackResponse = { type: 'navigate back' };
@@ -37,6 +39,7 @@ const trackScreenChangeResponse = { type: 'track screen change' };
 beforeEach(() => {
   (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResponse);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
+  (useIsMe as jest.Mock).mockReturnValue(false);
 });
 
 describe('AddContactScreen next', () => {
@@ -64,7 +67,7 @@ describe('AddContactScreen next', () => {
 
   it('navigates back if edited and current user is the one being edited', async () => {
     (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
-
+    (useIsMe as jest.Mock).mockReturnValue(true);
     const WrappedAddContactScreen =
       EditPersonFlowScreens[ADD_CONTACT_SCREEN].screen;
 
