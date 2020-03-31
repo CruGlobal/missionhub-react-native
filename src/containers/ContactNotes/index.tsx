@@ -19,6 +19,7 @@ import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
+import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
@@ -91,7 +92,12 @@ const ContactNotes = ({
   };
 
   const renderNotes = () => (
-    <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+    <ScrollView
+      style={{ flex: 1, marginBottom: isAndroid && editing ? 80 : undefined }}
+      contentInset={{ bottom: 90 }}
+      // @ts-ignore
+      persistentScrollbar={true}
+    >
       {editing ? (
         <Input
           ref={notesInput}
@@ -105,7 +111,11 @@ const ContactNotes = ({
           autoCorrect={true}
         />
       ) : (
-        <Text style={styles.notesText}>{text}</Text>
+        <Text
+          style={[styles.notesText, isAndroid ? { paddingBottom: 80 } : null]}
+        >
+          {text}
+        </Text>
       )}
     </ScrollView>
   );
