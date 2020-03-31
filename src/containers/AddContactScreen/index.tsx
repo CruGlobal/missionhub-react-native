@@ -190,12 +190,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         message={t('loadingError')}
         refetch={refetch}
       />
-      {/* <ErrorNotice
-        error={organization.id}
-        message={t('alertCannotEditFirstName')}
-        // @ts-ignore
-        refetch={completeWithoutSave}
-      /> */}
       <ScrollView style={styles.scrollView}>
         {loading ? (
           <LoadingWheel />

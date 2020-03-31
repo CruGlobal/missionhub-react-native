@@ -125,8 +125,8 @@ describe('handleUpdateData', () => {
       onCompleted: expect.any(Function),
       skip: false,
     });
-    await fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
-    await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+    fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
+    fireEvent(getByTestId('contactFields'), 'onUpdateData');
     snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
   });
@@ -240,8 +240,8 @@ describe('savePerson', () => {
         );
         await flushMicrotasksQueue();
 
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         snapshot();
         expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
@@ -303,8 +303,8 @@ describe('savePerson', () => {
         );
         await flushMicrotasksQueue();
 
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
 
         snapshot();
@@ -360,8 +360,8 @@ describe('savePerson', () => {
         );
         await flushMicrotasksQueue();
         snapshot();
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         expect(trackActionWithoutData).not.toHaveBeenCalled();
 
@@ -412,8 +412,8 @@ describe('savePerson', () => {
         );
         await flushMicrotasksQueue();
 
-        await fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         snapshot();
 
