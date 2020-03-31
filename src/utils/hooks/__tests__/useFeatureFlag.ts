@@ -1,19 +1,21 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useApolloClient } from '@apollo/react-hooks';
 
 import { useFeatureFlags } from '../useFeatureFlags';
 
 jest.mock('@apollo/react-hooks', () => ({
-  useLazyQuery: jest.fn(),
+  useApolloClient: jest.fn(),
 }));
 
 describe('useFeatureFlag', () => {
   it('returns booleans for flags', () => {
     const features = ['feature 1', 'feature 2'];
-    (useLazyQuery as jest.Mock).mockReturnValue([
-      jest.fn(),
-      { data: { features } },
-    ]);
+
+    const client = {
+      readQuery: jest.fn().mockReturnValue({ features }),
+    };
+
+    (useApolloClient as jest.Mock).mockReturnValue(client);
 
     const { result } = renderHook(() => useFeatureFlags());
 

@@ -27,7 +27,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
-import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import styles from './styles';
 import {

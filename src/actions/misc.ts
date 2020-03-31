@@ -32,7 +32,6 @@ export function getFeatureFlags() {
   apolloClient.query<GetFeatureFlags>({
     query: GET_FEATURE_FLAGS,
   });
-  console.log('fetched');
 }
 
 // @ts-ignore

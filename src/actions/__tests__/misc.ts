@@ -2,6 +2,7 @@ import ReactNative from 'react-native';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
+import { apolloClient } from '../../apolloClient';
 import { trackActionWithoutData } from '../analytics';
 import {
   openCommunicationLink,
@@ -9,6 +10,8 @@ import {
   navigateToStageScreen,
   assignContactAndPickStage,
   navigateToAddStepFlow,
+  GET_FEATURE_FLAGS,
+  getFeatureFlags,
 } from '../misc';
 import {
   createContactAssignment,
@@ -43,6 +46,8 @@ jest.mock('../../utils/common');
 const mockStore = state => configureStore([thunk])(state);
 // @ts-ignore
 let store;
+
+apolloClient.query = jest.fn();
 
 const trackActionResult = { type: 'tracked' };
 const getStepsResult = { type: 'got steps' };
@@ -108,6 +113,14 @@ beforeEach(() => {
   });
   // @ts-ignore
   navigateReplace.mockReturnValue(navigateReplaceResult);
+});
+
+describe('getFeatureFlags', () => {
+  getFeatureFlags();
+
+  expect(apolloClient.query).toHaveBeenCalledWith({
+    query: GET_FEATURE_FLAGS,
+  });
 });
 
 describe('openCommunicationLink', () => {

@@ -8,6 +8,7 @@ import * as RNOmniture from 'react-native-omniture';
 
 import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
+import { getFeatureFlags } from '../../misc';
 import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
@@ -22,6 +23,7 @@ const getStagesResult = { type: 'got stages' };
 const updateUserResult = { type: 'updated locale and TZ' };
 
 jest.mock('react-native-omniture');
+jest.mock('../../misc');
 jest.mock('../../notifications');
 jest.mock('../../onboarding');
 jest.mock('../../organizations');
@@ -119,6 +121,12 @@ describe('authSuccess', () => {
     expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(
       global_registry_mdm_id,
     );
+  });
+
+  it('should get feature flags', async () => {
+    await store.dispatch<any>(authSuccess());
+
+    expect(getFeatureFlags).toHaveBeenCalledWith();
   });
 });
 
