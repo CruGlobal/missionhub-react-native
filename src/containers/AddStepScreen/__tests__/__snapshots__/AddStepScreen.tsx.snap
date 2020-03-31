@@ -156,6 +156,11 @@ exports[`renders create step correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -436,6 +441,11 @@ exports[`renders create step in onboarding correctly 1`] = `
     contentInset={
       Object {
         "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": undefined,
       }
     }
   >
@@ -720,6 +730,11 @@ exports[`renders edit journey item correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -999,6 +1014,11 @@ exports[`renders edit journey item for me correctly 1`] = `
     contentInset={
       Object {
         "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": undefined,
       }
     }
   >
@@ -1282,6 +1302,11 @@ exports[`renders edit journey step correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -1561,6 +1586,11 @@ exports[`renders edit journey step for me correctly 1`] = `
     contentInset={
       Object {
         "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": undefined,
       }
     }
   >
@@ -1916,6 +1946,11 @@ exports[`renders step note correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -2269,6 +2304,11 @@ exports[`renders step note correctly for me 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -2399,7 +2439,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -264,11 +264,11 @@
+@@ -269,11 +269,11 @@
             ]
           }
           testID=\\"stepInput\\"

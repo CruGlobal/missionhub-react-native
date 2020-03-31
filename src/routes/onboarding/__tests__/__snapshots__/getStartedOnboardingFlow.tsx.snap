@@ -491,6 +491,11 @@ exports[`AddStepScreen next renders correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput

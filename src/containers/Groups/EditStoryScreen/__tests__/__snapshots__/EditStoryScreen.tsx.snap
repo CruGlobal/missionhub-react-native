@@ -152,6 +152,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "marginBottom": undefined,
       }
     }
   >
@@ -427,6 +428,7 @@ exports[`renders empty text correctly 1`] = `
     style={
       Object {
         "flex": 1,
+        "marginBottom": undefined,
       }
     }
   >
@@ -554,7 +556,7 @@ exports[`saveStory user edits story 1`] = `
 - First value
 + Second value
 
-@@ -186,11 +186,11 @@
+@@ -187,11 +187,11 @@
               },
             ]
           }
