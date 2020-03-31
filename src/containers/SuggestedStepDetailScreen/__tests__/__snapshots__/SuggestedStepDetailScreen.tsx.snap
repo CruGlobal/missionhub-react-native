@@ -217,7 +217,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        esse repellat quisquam
+        This step is for Zion
       </Text>
       <View
         style={
@@ -256,7 +256,7 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text>
-                recusandae alias consequuntur
+                This description is for Zion
               </Text>
             </Text>
           </View>

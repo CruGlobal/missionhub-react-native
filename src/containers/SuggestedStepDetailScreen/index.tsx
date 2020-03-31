@@ -22,6 +22,7 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
 import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
+import { insertName } from '../../utils/steps';
 
 import styles from './styles';
 import {
@@ -116,7 +117,9 @@ const SuggestedStepDetailScreen = ({
           />
         </>
       }
-      text={data?.stepSuggestion.body}
+      text={
+        data ? insertName(data.stepSuggestion.body, data.person.firstName) : ''
+      }
       stepType={data?.stepSuggestion.stepType}
       firstName={data?.person.firstName}
       markdown={data?.stepSuggestion.descriptionMarkdown ?? undefined}

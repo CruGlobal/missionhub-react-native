@@ -43,6 +43,12 @@ it('renders correctly', async () => {
     {
       initialState,
       navParams: { stepSuggestionId, personId, orgId },
+      mocks: {
+        StepSuggestion: () => ({
+          body: 'This step is for <<name>>',
+          descriptionMarkdown: 'This description is for <<name>>',
+        }),
+      },
     },
   );
 

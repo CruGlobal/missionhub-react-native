@@ -50,7 +50,7 @@ const StepDetailScreen = ({
     <>
       {Banner}
       <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
-      <Text style={stepTitleText}>{insertName(text, firstName)}</Text>
+      <Text style={stepTitleText}>{text}</Text>
       {CenterContent}
       <View style={body}>
         {markdown ? (
