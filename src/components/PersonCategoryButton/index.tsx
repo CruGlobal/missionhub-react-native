@@ -74,9 +74,9 @@ const PersonCategoryButton = ({
       onPress={onPress}
       pill={true}
       style={[styles.categoryButton, isSelected ? styles.categoryActive : null]}
-      // eslint-disable-next-line
-      children={getContent()}
-    />
+    >
+      {getContent()}
+    </Button>
   );
 };
 

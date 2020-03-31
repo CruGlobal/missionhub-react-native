@@ -82,7 +82,7 @@ it('renders correctly', () => {
 });
 
 describe('handleUpdateData', () => {
-  it('should update the state', async () => {
+  it('should update the state', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactScreen next={next} />,
       {
@@ -94,8 +94,8 @@ describe('handleUpdateData', () => {
       },
     );
     recordSnapshot();
-    await fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
-    await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+    fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
+    fireEvent(getByTestId('contactFields'), 'onUpdateData');
     diffSnapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
   });
@@ -146,8 +146,8 @@ describe('savePerson', () => {
 
       it('should add a new person', async () => {
         recordSnapshot();
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         expect(addNewPerson).toHaveBeenCalledWith({
@@ -190,8 +190,8 @@ describe('savePerson', () => {
 
       it('should add a new person', async () => {
         recordSnapshot();
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         expect(addNewPerson).toHaveBeenCalledWith({
@@ -236,8 +236,8 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', async () => {
         recordSnapshot();
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         expect(updatePerson).toHaveBeenCalledWith({
@@ -278,8 +278,8 @@ describe('savePerson', () => {
 
       it('should update person and navigate back', async () => {
         recordSnapshot();
-        await fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         expect(updatePerson).toHaveBeenCalledWith({
@@ -323,8 +323,8 @@ describe('savePerson', () => {
       });
       it('should update person and navigate back', async () => {
         recordSnapshot();
-        await fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
-        await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
         diffSnapshot();
         expect(updatePerson).toHaveBeenCalledWith({
@@ -479,13 +479,9 @@ describe('savePerson', () => {
             },
           );
 
-          await fireEvent(
-            getByTestId('firstNameInput'),
-            'onChangeText',
-            newName,
-          );
-          await fireEvent(getByTestId('emailInput'), 'onChangeText', 'test');
-          await fireEvent(getByTestId('contactFields'), 'onUpdateData');
+          fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+          fireEvent(getByTestId('emailInput'), 'onChangeText', 'test');
+          fireEvent(getByTestId('contactFields'), 'onUpdateData');
           await fireEvent.press(getByTestId('continueButton'));
           expect(Alert.alert).toHaveBeenCalledWith(
             i18next.t('addContact:alertSorry'),
