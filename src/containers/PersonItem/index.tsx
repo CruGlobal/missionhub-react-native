@@ -100,7 +100,9 @@ const PersonItem = ({
     );
 
   const handleAddStep = () =>
-    dispatch(navigateToAddStepFlow(isMe, person, organization));
+    stage
+      ? dispatch(navigateToAddStepFlow(isMe, person, organization))
+      : handleChangeStage();
 
   const renderStageIcon = () => {
     return (
