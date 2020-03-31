@@ -21,7 +21,6 @@ import { store, persistor } from './store';
 import { LOG } from './utils/logging';
 import LoadingScreen from './containers/LoadingScreen';
 import AppWithNavigationState from './AppNavigator';
-import AppHooks from './AppHooks';
 import { codeLogin } from './actions/auth/anonymous';
 import {
   EXPIRED_ACCESS_TOKEN,

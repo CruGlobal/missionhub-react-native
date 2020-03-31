@@ -18,6 +18,7 @@ import {
   ADD_SOMEONE_ONBOARDING_FLOW,
   GET_STARTED_ONBOARDING_FLOW,
 } from '../../routes/constants';
+import { getFeatureFlags } from '../misc';
 import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
 import { startOnboarding } from '../onboarding';
@@ -36,6 +37,7 @@ export function logout(forcedLogout = false) {
     } finally {
       dispatch({ type: LOGOUT });
       apolloClient.clearStore();
+      getFeatureFlags();
       dispatch(
         forcedLogout
           ? navigateReset(SIGN_IN_FLOW, { forcedLogout })

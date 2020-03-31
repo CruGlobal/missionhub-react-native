@@ -3,6 +3,7 @@ import * as RNOmniture from 'react-native-omniture';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { LOAD_PERSON_DETAILS } from '../../constants';
+import { getFeatureFlags } from '../misc';
 import { getMe } from '../person';
 import { getMyPeople } from '../people';
 import { getStagesIfNotExists } from '../stages';
@@ -52,6 +53,7 @@ export function authSuccess() {
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
 
+    getFeatureFlags();
     dispatch({
       type: LOAD_PERSON_DETAILS,
       person: mePerson,

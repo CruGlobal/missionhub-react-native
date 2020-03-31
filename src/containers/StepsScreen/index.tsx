@@ -46,8 +46,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
-  const flags = useFeatureFlags();
-  console.log(flags);
+
   const {
     data: {
       steps: {
