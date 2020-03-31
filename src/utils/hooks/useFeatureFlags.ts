@@ -1,25 +1,14 @@
-import { useMemo } from 'react';
-import { useLazyQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { useApolloClient } from '@apollo/react-hooks';
 
-import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
-
-export const GET_FEATURE_FLAGS = gql`
-  query GetFeatureFlags {
-    features
-  }
-`;
+import { GetFeatureFlags } from '../../actions/__generated__/GetFeatureFlags';
+import { GET_FEATURE_FLAGS } from '../../actions/misc';
 
 export const useFeatureFlags = (): { [key: string]: boolean } => {
-  const [getFlags, { data: { features = [] } = {} }] = useLazyQuery<
-    GetFeatureFlags
-  >(GET_FEATURE_FLAGS, {
-    fetchPolicy: 'cache-and-network',
-  });
+  const client = useApolloClient();
 
-  useMemo(() => {
-    getFlags();
-  }, []);
+  const { features = [] } = client.readQuery<GetFeatureFlags>({
+    query: GET_FEATURE_FLAGS,
+  }) || { features: [] };
 
   return features.reduce(
     (acc, flag) => ({

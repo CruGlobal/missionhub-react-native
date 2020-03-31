@@ -37,6 +37,7 @@ import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { apolloClient } from './apolloClient';
+import { getFeatureFlags } from './actions/misc';
 
 @codePush({
   deploymentKey: isAndroid
@@ -63,6 +64,7 @@ export default class App extends Component {
     store.dispatch(configureNotificationHandler());
     // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
+    getFeatureFlags();
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
@@ -209,7 +211,6 @@ export default class App extends Component {
               >
                 {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
                 <PlatformKeyboardAvoidingView>
-                  <AppHooks />
                   <AppWithNavigationState />
                 </PlatformKeyboardAvoidingView>
               </PersistGate>

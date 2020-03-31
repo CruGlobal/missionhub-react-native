@@ -27,6 +27,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
+import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import styles from './styles';
 import {
@@ -45,7 +46,8 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
-
+  const flags = useFeatureFlags();
+  console.log(flags);
   const {
     data: {
       steps: {

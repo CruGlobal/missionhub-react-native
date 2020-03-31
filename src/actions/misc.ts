@@ -1,6 +1,7 @@
 /* eslint max-params: 0, max-lines-per-function: 0 */
 
 import { Linking } from 'react-native';
+import gql from 'graphql-tag';
 
 import { contactAssignmentSelector } from '../selectors/people';
 import {
@@ -12,12 +13,27 @@ import {
 import { WARN } from '../utils/logging';
 import { buildTrackingObj } from '../utils/common';
 import { Person } from '../reducers/people';
+import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
 import { getContactSteps } from './steps';
 import { reloadJourney } from './journey';
 import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
+import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
+
+export const GET_FEATURE_FLAGS = gql`
+  query GetFeatureFlags {
+    features
+  }
+`;
+
+export function getFeatureFlags() {
+  apolloClient.query<GetFeatureFlags>({
+    query: GET_FEATURE_FLAGS,
+  });
+  console.log('fetched');
+}
 
 // @ts-ignore
 export function openCommunicationLink(url, action) {
