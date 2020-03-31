@@ -414,6 +414,49 @@ exports[`AddStepScreen next renders correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingBottom": 16,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
       <TextInput
         allowFontScaling={true}
         autoCorrect={true}
@@ -589,350 +632,274 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       }
     }
   />
-  <View
-    onLayout={[Function]}
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Array [
-        undefined,
-        Object {
-          "backgroundColor": "transparent",
-          "flex": 1,
-        },
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#007398",
-          "height": 180,
-          "opacity": 1,
-          "overflow": "hidden",
-          "position": "absolute",
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "scale": 1,
-            },
-          ],
-          "width": 750,
-        }
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          Object {
+            "backgroundColor": "#007398",
+          },
+          null,
+        ]
       }
     >
-      <View>
-        <View />
-      </View>
-    </View>
-    <RCTScrollView
-      onChangeHeaderVisibility={[Function]}
-      onScroll={[Function]}
-      scrollEventThrottle={1}
-      style={
-        Object {
-          "backgroundColor": "transparent",
-        }
-      }
-    >
-      <View>
-        <View
-          style={
+      <View
+        style={
+          Array [
             Object {
-              "backgroundColor": "transparent",
-              "overflow": "hidden",
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "backgroundColor": "transparent",
-                "height": 180,
-                "opacity": 1,
-                "overflow": "hidden",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "height": 180,
-                }
-              }
-            >
-              <View
-                style={
-                  Object {
-                    "flex": 1,
-                  }
-                }
-              >
-                <RCTSafeAreaView
-                  emulateUnlessSupported={true}
-                  style={
-                    Object {
-                      "backgroundColor": "transparent",
-                    }
-                  }
-                >
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "flexDirection": "row",
-                          "height": 56,
-                          "paddingTop": 0,
-                        },
-                        undefined,
-                        null,
-                      ]
-                    }
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "paddingLeft": 5,
-                          },
-                          Object {
-                            "alignItems": "flex-start",
-                            "flex": 1,
-                            "justifyContent": "center",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Array [
-                            Object {
-                              "alignItems": "flex-start",
-                              "alignSelf": "flex-start",
-                              "justifyContent": "center",
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        <View
-                          accessible={true}
-                          focusable={true}
-                          isTVSelectable={true}
-                          onClick={[Function]}
-                          onResponderGrant={[Function]}
-                          onResponderMove={[Function]}
-                          onResponderRelease={[Function]}
-                          onResponderTerminate={[Function]}
-                          onResponderTerminationRequest={[Function]}
-                          onStartShouldSetResponder={[Function]}
-                          style={
-                            Object {
-                              "opacity": 1,
-                            }
-                          }
-                          testID="IconButton"
-                        >
-                          <View
-                            style={
-                              Array [
-                                Object {
-                                  "backgroundColor": "transparent",
-                                },
-                                null,
-                                Object {},
-                                null,
-                              ]
-                            }
-                          >
-                            <Text
-                              allowFontScaling={false}
-                              style={
-                                Array [
-                                  Object {
-                                    "color": undefined,
-                                    "fontSize": 12,
-                                  },
-                                  Array [
-                                    Object {
-                                      "color": "#ffffff",
-                                    },
-                                    Object {
-                                      "fontSize": 18,
-                                    },
-                                    Array [
-                                      Object {
-                                        "margin": 10,
-                                      },
-                                      Object {},
-                                    ],
-                                  ],
-                                  Object {
-                                    "fontFamily": "icomoon",
-                                    "fontStyle": "normal",
-                                    "fontWeight": "normal",
-                                  },
-                                  Object {},
-                                ]
-                              }
-                            >
-                              
-                            </Text>
-                          </View>
-                        </View>
-                      </View>
-                    </View>
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "paddingRight": 5,
-                          },
-                          Object {
-                            "alignItems": "flex-end",
-                            "flex": 1,
-                            "justifyContent": "center",
-                          },
-                        ]
-                      }
-                    >
-                      <View
-                        style={
-                          Object {
-                            "alignItems": "center",
-                            "flexDirection": "row",
-                          }
-                        }
-                      >
-                        <View
-                          accessible={true}
-                          focusable={true}
-                          isTVSelectable={true}
-                          onClick={[Function]}
-                          onResponderGrant={[Function]}
-                          onResponderMove={[Function]}
-                          onResponderRelease={[Function]}
-                          onResponderTerminate={[Function]}
-                          onResponderTerminationRequest={[Function]}
-                          onStartShouldSetResponder={[Function]}
-                          style={
-                            Object {
-                              "opacity": 1,
-                            }
-                          }
-                          testID="SelectStepExplainerIconButton"
-                        >
-                          <View
-                            style={
-                              Array [
-                                Object {
-                                  "alignItems": "center",
-                                  "backgroundColor": "transparent",
-                                  "borderRadius": 0,
-                                  "borderWidth": 0,
-                                  "height": 60,
-                                  "justifyContent": "center",
-                                  "margin": 0,
-                                  "paddingHorizontal": 20,
-                                  "paddingVertical": 10,
-                                },
-                                null,
-                                Object {},
-                                null,
-                              ]
-                            }
-                          >
-                            <SvgMock
-                              color="#ffffff"
-                            />
-                          </View>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-                </RCTSafeAreaView>
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "flex": 1,
-                    }
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 24,
-                          "fontWeight": "300",
-                          "letterSpacing": 2,
-                          "lineHeight": 30,
-                          "paddingHorizontal": 60,
-                          "textAlign": "center",
-                        },
-                      ]
-                    }
-                  >
-                    Choose a step of faith
-                  </Text>
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 24,
-                          "fontWeight": "300",
-                          "letterSpacing": 2,
-                          "lineHeight": 30,
-                          "paddingHorizontal": 60,
-                          "textAlign": "center",
-                        },
-                      ]
-                    }
-                  >
-                     to take with Someone this week...
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
         <View
-          onLayout={[Function]}
           style={
             Array [
-              Array [
-                Object {
-                  "backgroundColor": "#ECEEF2",
-                },
-              ],
               Object {
-                "minHeight": 0,
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
               },
+              undefined,
             ]
           }
         >
           <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "display": "none",
+                "opacity": 1,
               }
             }
-          />
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="SelectStepExplainerIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#ffffff"
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <RCTScrollView
+      ListFooterComponent={<FooterLoading />}
+      ListHeaderComponent={
+        <ErrorNotice
+          message="Error loading step suggestions"
+          refetch={[Function]}
+        />
+      }
+      bounces={false}
+      contentContainerStyle={
+        Array [
+          undefined,
+          Object {
+            "paddingTop": 203,
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "action": [Function],
+            "icon": true,
+            "key": "custom",
+            "text": "Create your own Relate Step",
+          },
+        ]
+      }
+      disableHeaderMomentum={false}
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      headerMomentumDuration={350}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0.2}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      overScrollMode="never"
+      refreshControl={
+        <MyRefreshControl
+          onRefresh={[Function]}
+          refreshing={true}
+        />
+      }
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={1}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "paddingVertical": 12,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          onLayout={[Function]}
+        />
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
             accessible={true}
             focusable={true}
@@ -950,15 +917,12 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                 "backgroundColor": "#ffffff",
                 "borderRadius": 8,
                 "elevation": 4,
-                "flex": 1,
                 "flexDirection": "row",
                 "justifyContent": "space-between",
-                "marginBottom": 4,
                 "marginHorizontal": 20,
-                "marginTop": 16,
-                "marginVertical": 8,
+                "marginVertical": 6,
                 "opacity": 1,
-                "padding": 16,
+                "padding": 20,
                 "shadowColor": "#000000",
                 "shadowOffset": Object {
                   "height": 2,
@@ -979,107 +943,58 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                   },
                   Object {
-                    "color": "#66D9F0",
                     "fontSize": 16,
-                    "fontWeight": "normal",
+                    "lineHeight": 22,
                   },
                 ]
               }
             >
-              Create a Custom Step
+              Create your own Relate Step
             </Text>
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 10,
-                    },
-                    Object {
-                      "color": "#66D9F0",
-                      "fontSize": 25,
-                    },
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
+            <SvgMock />
           </View>
-          <RCTScrollView
-            ListFooterComponent={null}
-            data={Array []}
-            disableVirtualization={false}
-            getItem={[Function]}
-            getItemCount={[Function]}
-            horizontal={false}
-            initialNumToRender={10}
-            keyExtractor={[Function]}
-            maxToRenderPerBatch={10}
-            numColumns={1}
-            onContentSizeChange={[Function]}
-            onEndReachedThreshold={2}
-            onLayout={[Function]}
-            onMomentumScrollEnd={[Function]}
-            onScroll={[Function]}
-            onScrollBeginDrag={[Function]}
-            onScrollEndDrag={[Function]}
-            removeClippedSubviews={false}
-            renderItem={[Function]}
-            scrollEnabled={true}
-            scrollEventThrottle={50}
-            stickyHeaderIndices={Array []}
-            style={
-              Object {
-                "backgroundColor": "transparent",
-                "paddingBottom": 16,
-              }
-            }
-            updateCellsBatchingPeriod={50}
-            viewabilityConfigCallbackPairs={Array []}
-            windowSize={21}
-          >
-            <View />
-          </RCTScrollView>
         </View>
         <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
+          onLayout={[Function]}
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "padding": 10,
+                },
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+              ]
             }
-          }
-        />
+          >
+            <ActivityIndicator
+              animating={true}
+              color="rgba(0, 0, 0, 1)"
+              hidesWhenStopped={true}
+              size="small"
+            />
+          </View>
+        </View>
       </View>
     </RCTScrollView>
     <View
       style={
         Object {
-          "backgroundColor": "transparent",
-          "height": 56,
+          "backgroundColor": "#ECEEF2",
+          "height": 203,
           "left": 0,
-          "overflow": "hidden",
+          "paddingTop": 0,
           "position": "absolute",
+          "right": 0,
           "top": 0,
           "transform": Array [
             Object {
-              "translateY": -56,
+              "translateY": 0,
             },
           ],
-          "width": 750,
         }
       }
     >
@@ -1087,210 +1002,345 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
         style={
           Object {
             "backgroundColor": "#007398",
-            "height": 56,
-            "opacity": 0,
-            "transform": Array [
-              Object {
-                "translateY": -56,
-              },
-            ],
           }
         }
       >
         <View
           style={
             Object {
-              "transform": Array [
-                Object {
-                  "translateY": 56,
-                },
-              ],
+              "alignItems": "center",
+              "marginHorizontal": 30,
+              "marginVertical": 35,
             }
           }
         >
-          <RCTSafeAreaView
-            emulateUnlessSupported={true}
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "letterSpacing": 2,
+                  "lineHeight": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Choose a step to take with 
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "letterSpacing": 2,
+                  "lineHeight": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+             this week...
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "backgroundColor": "transparent",
+                "opacity": 1,
               }
             }
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "flexDirection": "row",
-                    "height": 56,
-                    "paddingTop": 0,
-                  },
-                  undefined,
-                  null,
-                ]
-              }
-            >
+            <View>
               <View
                 style={
                   Array [
                     Object {
-                      "paddingLeft": 5,
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "alignItems": "flex-start",
-                      "flex": 1,
-                      "justifyContent": "center",
-                    },
+                    undefined,
                   ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Relate
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "marginTop": 20,
+                  }
                 }
               >
                 <View
                   style={
                     Array [
                       Object {
-                        "alignItems": "flex-start",
-                        "alignSelf": "flex-start",
-                        "justifyContent": "center",
+                        "backgroundColor": "transparent",
+                        "borderBottomWidth": 9,
+                        "borderLeftColor": "transparent",
+                        "borderLeftWidth": 7,
+                        "borderRightColor": "transparent",
+                        "borderRightWidth": 7,
+                        "borderStyle": "solid",
+                        "height": 0,
+                        "width": 0,
                       },
-                      undefined,
+                      Object {
+                        "borderBottomColor": "#ECEEF2",
+                        "transform": Array [
+                          Object {
+                            "rotate": "0deg",
+                          },
+                        ],
+                      },
                     ]
                   }
-                >
-                  <View
-                    accessible={true}
-                    focusable={true}
-                    isTVSelectable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                    testID="IconButton"
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          null,
-                          Object {},
-                          null,
-                        ]
-                      }
-                    >
-                      <Text
-                        allowFontScaling={false}
-                        style={
-                          Array [
-                            Object {
-                              "color": undefined,
-                              "fontSize": 12,
-                            },
-                            Array [
-                              Object {
-                                "color": "#ffffff",
-                              },
-                              Object {
-                                "fontSize": 18,
-                              },
-                              Array [
-                                Object {
-                                  "margin": 10,
-                                },
-                                Object {},
-                              ],
-                            ],
-                            Object {
-                              "fontFamily": "icomoon",
-                              "fontStyle": "normal",
-                              "fontWeight": "normal",
-                            },
-                            Object {},
-                          ]
-                        }
-                      >
-                        
-                      </Text>
-                    </View>
-                  </View>
-                </View>
+                />
               </View>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View>
               <View
                 style={
                   Array [
                     Object {
-                      "paddingRight": 5,
+                      "alignItems": "center",
+                      "flexDirection": "column",
                     },
-                    Object {
-                      "alignItems": "flex-end",
-                      "flex": 1,
-                      "justifyContent": "center",
-                    },
+                    undefined,
                   ]
                 }
               >
-                <View
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
                   style={
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                    }
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
                   }
                 >
-                  <View
-                    accessible={true}
-                    focusable={true}
-                    isTVSelectable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                    testID="SelectStepExplainerIconButton"
-                  >
-                    <View
-                      style={
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "backgroundColor": "transparent",
-                            "borderRadius": 0,
-                            "borderWidth": 0,
-                            "height": 60,
-                            "justifyContent": "center",
-                            "margin": 0,
-                            "paddingHorizontal": 20,
-                            "paddingVertical": 10,
-                          },
-                          null,
-                          Object {},
-                          null,
-                        ]
-                      }
-                    >
-                      <SvgMock
-                        color="#ffffff"
-                      />
-                    </View>
-                  </View>
-                </View>
+                  Pray
+                </Text>
               </View>
             </View>
-          </RCTSafeAreaView>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Care
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Share
+                </Text>
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -1495,7 +1545,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
           ]
         }
       >
-        Which stage best describes where Someone is on their journey?
+        Which stage best describes where  is on their journey?
       </Text>
       <RCTScrollView
         activeAnimationOptions={null}
@@ -1748,6 +1798,7 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {

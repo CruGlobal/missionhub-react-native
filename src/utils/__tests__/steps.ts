@@ -1,51 +1,14 @@
-import i18next from 'i18next';
-
-import { buildCustomStep, insertName } from '../steps';
-
-jest.mock('i18next');
-
-const text = 'roge rules';
-const self_step = true;
-const locale = 'es';
-
-const step1 = { id: '1', body: 'blah <<name>> blah blah' };
-const step2 = {
-  id: '2',
-  body: '<<name>> hello world',
-  description_markdown: 'blah <<name>> is really cool',
-};
-
-const name = 'roge';
-
-i18next.language = locale;
-
-describe('buildCustomStep', () => {
-  it('creates a custom step', () => {
-    expect(buildCustomStep(text, self_step)).toEqual({
-      body: text,
-      locale,
-      challenge_type: null,
-      self_step,
-    });
-  });
-});
+import { insertName } from '../steps';
 
 describe('insertName', () => {
-  it('inserts name', () => {
-    expect(insertName([step1, step2], name)).toEqual([
-      {
-        ...step1,
-        body: step1.body.replace('<<name>>', name),
-        description_markdown: '',
-      },
-      {
-        ...step2,
-        body: step2.body.replace('<<name>>', name),
-        description_markdown: step2.description_markdown.replace(
-          '<<name>>',
-          name,
-        ),
-      },
-    ]);
+  it('should insert name', () => {
+    expect(insertName('blah <<name>> blah blah', 'roge')).toEqual(
+      'blah roge blah blah',
+    );
+  });
+  it('should insert name multiple times', () => {
+    expect(insertName('<<name>> <<name>> <<name>> <<name>>', 'roge')).toEqual(
+      'roge roge roge roge',
+    );
   });
 });

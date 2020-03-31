@@ -367,10 +367,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "care",
-              },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -397,10 +394,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "bond",
-              },
+              "stepType": "bond",
               "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
             },
           ],
@@ -455,10 +449,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "care",
-              },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -485,10 +476,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "bond",
-              },
+              "stepType": "bond",
               "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
             },
           ],
@@ -539,10 +527,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "care",
-              },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             }
           }
@@ -663,10 +648,7 @@ exports[`renders correctly with completed steps 1`] = `
                 "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "bond",
-              },
+              "stepType": "bond",
               "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
             }
           }
@@ -971,10 +953,7 @@ exports[`renders correctly with steps 1`] = `
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "care",
-              },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -1029,10 +1008,7 @@ exports[`renders correctly with steps 1`] = `
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "care",
-              },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -1082,10 +1058,7 @@ exports[`renders correctly with steps 1`] = `
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
-              "stepSuggestion": Object {
-                "__typename": "StepSuggestion",
-                "stepType": "care",
-              },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             }
           }
@@ -1183,10 +1156,10 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -44,10 +44,35 @@
-                  \\"__typename\\": \\"StepSuggestion\\",
-                  \\"stepType\\": \\"care\\",
+@@ -41,10 +41,32 @@
+                  \\"reminderType\\": \\"once\\",
                 },
+                \\"stepType\\": \\"care\\",
                 \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
               },
 +             Object {
@@ -1208,10 +1181,7 @@ exports[`should paginate 1`] = `
 +                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
-+               \\"stepSuggestion\\": Object {
-+                 \\"__typename\\": \\"StepSuggestion\\",
-+                 \\"stepType\\": \\"bond\\",
-+               },
++               \\"stepType\\": \\"bond\\",
 +               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
 +             },
             ],
@@ -1219,11 +1189,11 @@ exports[`should paginate 1`] = `
           },
         ]
       }
-@@ -101,11 +126,36 @@
-                \\"stepSuggestion\\": Object {
-                  \\"__typename\\": \\"StepSuggestion\\",
-                  \\"stepType\\": \\"care\\",
+@@ -95,10 +117,32 @@
+                  \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
+                  \\"reminderType\\": \\"once\\",
                 },
+                \\"stepType\\": \\"care\\",
                 \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
 +             },
 +             Object {
@@ -1244,32 +1214,20 @@ exports[`should paginate 1`] = `
 +                 \\"id\\": \\"8\\",
 +                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
-                },
-+               \\"stepSuggestion\\": Object {
-+                 \\"__typename\\": \\"StepSuggestion\\",
-+                 \\"stepType\\": \\"bond\\",
 +               },
++               \\"stepType\\": \\"bond\\",
 +               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
-+             },
+              },
             ],
             \\"key\\": \\"active\\",
           },
         ]
-      }
-@@ -154,18 +204,61 @@
-                \\"stepSuggestion\\": Object {
-                  \\"__typename\\": \\"StepSuggestion\\",
-                  \\"stepType\\": \\"care\\",
-                },
-                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
-+             }
-+           }
-+           testID=\\"stepItem\\"
-+         />
-+       </View>
-+       <View
-+         onLayout={[Function onLayout]}
-+         style={null}
+@@ -153,10 +197,50 @@
+          />
+        </View>
+        <View
+          onLayout={[Function onLayout]}
+          style={null}
 +       >
 +         <StepItem
 +           showName={false}
@@ -1293,19 +1251,16 @@ exports[`should paginate 1`] = `
 +                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
-+               \\"stepSuggestion\\": Object {
-+                 \\"__typename\\": \\"StepSuggestion\\",
-+                 \\"stepType\\": \\"bond\\",
-+               },
++               \\"stepType\\": \\"bond\\",
 +               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
-              }
-            }
-            testID=\\"stepItem\\"
-          />
-        </View>
-        <View
-          onLayout={[Function onLayout]}
-          style={null}
++             }
++           }
++           testID=\\"stepItem\\"
++         />
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
 +       />
 +       <View
 +         style={

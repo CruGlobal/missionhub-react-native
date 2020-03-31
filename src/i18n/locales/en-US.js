@@ -211,6 +211,7 @@ export default {
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+    errorSavingStep: 'Error saving step',
   },
   stepReminder: {
     setReminder: 'Set a Reminder',
@@ -222,17 +223,18 @@ export default {
   },
   selectStep: {
     meHeader: {
-      part1: 'Choose a step of faith',
-      part2: 'to take on your journey this week...',
+      part1: 'Choose a step of faith to take',
+      part2: 'on your journey this week...',
     },
     personHeader: {
-      part1: 'Choose a step of faith',
-      part2: ' to take with {{name}} this week...',
+      part1: 'Choose a step to take with ',
+      part2: '{{name}} this week...',
     },
     addStep: 'ADD TO MY STEPS',
-    createStep: 'Create a Custom Step',
+    createYourOwnStep: 'Create your own $t(stepTypes:{{type}}) Step',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
+    errorLoadingStepSuggestions: 'Error loading step suggestions',
   },
   selectStepExplainer: {
     part1: 'MissionHub suggests four ways to draw someone closer to God.',
@@ -244,6 +246,8 @@ export default {
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
+    errorLoadingSuggestedStepDetails: 'Error loading suggested step details',
+    errorSavingStep: 'Error saving step',
   },
   acceptedStepDetail: {
     removeStep: 'Remove Step',
@@ -291,6 +295,7 @@ export default {
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
+    errorLoadingStepsForThisPerson: 'Error loading steps for this person',
   },
   contactJourney: {
     loading: 'Loading Journey Items',
@@ -872,5 +877,6 @@ export default {
     care: 'Care',
     share: 'Share',
     stepOfFaith: 'Step of Faith',
+    step: 'Step',
   },
 };

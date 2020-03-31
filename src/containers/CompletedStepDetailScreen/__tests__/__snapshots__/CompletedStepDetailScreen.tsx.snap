@@ -180,6 +180,7 @@ exports[`renders loading state correctly 1`] = `
       style={
         Array [
           Object {
+            "alignItems": "center",
             "flexDirection": "row",
           },
           Object {
@@ -483,6 +484,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "flexDirection": "row",
             },
             Object {
@@ -816,6 +818,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
         style={
           Array [
             Object {
+              "alignItems": "center",
               "flexDirection": "row",
             },
             Object {

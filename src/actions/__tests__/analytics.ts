@@ -4,6 +4,7 @@
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as RNOmniture from 'react-native-omniture';
+import i18next from 'i18next';
 
 import {
   trackScreenChange,
@@ -16,6 +17,7 @@ import {
   ANALYTICS_CONTEXT_CHANGED,
   ScreenContext,
 } from '../analytics';
+import { STEP_ADDED_ANALYTICS_FRAGMENT } from '../analyticsQueries';
 import {
   ACTIONS,
   LOGGED_IN,
@@ -37,8 +39,9 @@ import {
   initialAnalyticsState,
   AnalyticsState,
 } from '../../reducers/analytics';
-import { SuggestedStep } from '../../reducers/steps';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
+import { mockFragment } from '../../../testUtils/apolloMockClient';
+import { StepAddedAnalytics } from '../__generated__/StepAddedAnalytics';
 
 jest.mock('react-native-omniture', () => ({
   trackState: jest.fn(),
@@ -48,6 +51,7 @@ jest.mock('react-native-omniture', () => ({
 
 const mockStore = configureStore([thunk]);
 
+const myId = '1';
 const mcId = '7892387873247893297847894978497823';
 const ssoGuid = '74ba3670-b624-429c-8223-919b94e668fb';
 const grMasterPersonId = '686fb90b-0ae8-4b0a-8e62-f7437f425c59';
@@ -72,7 +76,7 @@ beforeEach(() => {
   store = mockStore({
     analytics: analyticsContext,
     auth: {
-      person: { global_registry_mdm_id: grMasterPersonId },
+      person: { id: myId, global_registry_mdm_id: grMasterPersonId },
     },
   });
   (RNOmniture.trackState as jest.Mock) = jest.fn();
@@ -256,25 +260,18 @@ describe('trackAction', () => {
 
 describe('trackStepAdded', () => {
   it('should track suggested steps', async () => {
-    const step: SuggestedStep = {
-      challenge_type: StepTypeEnum.relate,
-      id: '1',
-      pathway_stage: {
-        id: '1',
-        name: 'name',
-        description: 'description',
-        self_followup_description: 'description',
-        position: 1,
-        name_i18n: 'name',
-        description_i18n: 'description',
-        icon_url: 'www.missionhub.com',
-        localized_pathway_stages: [],
-      },
-      self_step: false,
-      locale: 'en',
-      body: 'body',
-    };
-    await store.dispatch<any>(trackStepAdded(step));
+    await store.dispatch<any>(
+      trackStepAdded(
+        mockFragment<StepAddedAnalytics>(STEP_ADDED_ANALYTICS_FRAGMENT, {
+          mocks: {
+            Step: () => ({
+              stepType: () => StepTypeEnum.share,
+              receiver: () => ({ id: '2' }), // non me id
+            }),
+          },
+        }),
+      ),
+    );
 
     expect(store.getActions()).toEqual([]);
     expect(RNOmniture.trackAction).toHaveBeenCalledTimes(2);
@@ -282,7 +279,7 @@ describe('trackStepAdded', () => {
       ACTIONS.STEP_DETAIL.name,
       {
         [ACTIONS.STEP_DETAIL
-          .key]: `${step.challenge_type} | N | ${step.locale} | ${step.id} | ${step.pathway_stage.id}`,
+          .key]: `${StepTypeEnum.share} | N | ${i18next.language} | 1 | 2`,
       },
     );
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
@@ -292,25 +289,19 @@ describe('trackStepAdded', () => {
   });
 
   it('should track custom steps', async () => {
-    const step: SuggestedStep = {
-      challenge_type: null,
-      id: '2',
-      pathway_stage: {
-        id: '1',
-        name: 'name',
-        description: 'description',
-        self_followup_description: 'description',
-        position: 1,
-        name_i18n: 'name',
-        description_i18n: 'description',
-        icon_url: 'www.missionhub.com',
-        localized_pathway_stages: [],
-      },
-      self_step: true,
-      locale: 'es',
-      body: 'body',
-    };
-    await store.dispatch<any>(trackStepAdded(step));
+    await store.dispatch<any>(
+      trackStepAdded(
+        mockFragment<StepAddedAnalytics>(STEP_ADDED_ANALYTICS_FRAGMENT, {
+          mocks: {
+            Step: () => ({
+              stepType: () => StepTypeEnum.share,
+              stepSuggestion: () => null,
+              receiver: () => ({ id: myId }),
+            }),
+          },
+        }),
+      ),
+    );
 
     expect(store.getActions()).toEqual([]);
     expect(RNOmniture.trackAction).toHaveBeenCalledTimes(3);
@@ -321,7 +312,8 @@ describe('trackStepAdded', () => {
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
       ACTIONS.STEP_DETAIL.name,
       {
-        [ACTIONS.STEP_DETAIL.key]: `null | Y | ${step.locale}`,
+        [ACTIONS.STEP_DETAIL
+          .key]: `${StepTypeEnum.share} | Y | ${i18next.language}`,
       },
     );
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
