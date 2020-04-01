@@ -18,6 +18,7 @@ import { AuthState } from '../../reducers/auth';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
@@ -205,6 +206,7 @@ const AddChallengeScreen = ({
       />
       <ScrollView
         contentContainerStyle={styles.fieldWrap}
+        style={{ marginBottom: isAndroid ? 80 : undefined }}
         contentInset={{ bottom: 96 }}
       >
         {renderTitleInput()}
