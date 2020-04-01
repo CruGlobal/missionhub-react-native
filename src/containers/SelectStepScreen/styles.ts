@@ -35,4 +35,13 @@ export default StyleSheet.create({
     fontSize: 25,
     color: theme.backgroundColor,
   },
+  completedCountBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+    paddingVertical: 3,
+    paddingHorizontal: 14,
+    borderRadius: 30,
+  },
+  completedCountBadgeText: { color: theme.primaryColor, marginRight: 4 },
 });
