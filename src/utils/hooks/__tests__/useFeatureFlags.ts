@@ -1,23 +1,18 @@
-import { ReactNode } from 'react';
-import 'react-native';
 import { renderHook } from '@testing-library/react-hooks';
-import { ApolloProvider, useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
-import { createApolloMockClient } from '../../../../testUtils/apolloMockClient';
 import { GET_FEATURE_FLAGS } from '../../../actions/misc';
 import { useFeatureFlags } from '../useFeatureFlags';
 
+jest.mock('@apollo/react-hooks');
+
 describe('useFeatureFlag', () => {
   it('returns booleans for flags', () => {
-    const mockApolloClient = createApolloMockClient({});
+    const features = ['feature 1', 'feature 2'];
 
-    const wrapper = ({ children }: { children: ReactNode }): JSX.Element => (
-      <ApolloProvider client={mockApolloClient}>{children}</ApolloProvider>
-    );
+    (useQuery as jest.Mock).mockReturnValue({ data: { features } });
 
-    const { result } = renderHook(() => useFeatureFlags(), {
-      wrapper,
-    });
+    const { result } = renderHook(() => useFeatureFlags());
 
     expect(useQuery).toHaveBeenCalledWith(GET_FEATURE_FLAGS, {
       fetchPolicy: 'cache-only',
