@@ -1,37 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, ScrollView, Keyboard, TextInput } from 'react-native';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useIsFocused } from 'react-navigation-hooks';
 
 import { Text, Input } from '../../components/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
+import { TrackStateContext } from '../../actions/analytics';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
+import { Organization } from '../../reducers/organizations';
+import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
 export interface ContactNotesProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   person: Person;
   myPersonId: string;
   myUserId: string;
+  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const ContactNotes = ({
-  dispatch,
   person,
   myPersonId,
   myUserId,
+  analyticsAssignmentType,
 }: ContactNotesProps) => {
-  useAnalytics(['person', 'my notes']);
+  useAnalytics(['person', 'my notes'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
   const { t } = useTranslation('notes');
+  const dispatch = useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
   const [text, setText] = useState<string | undefined>(undefined);
   const [editing, setEditing] = useState(false);
   const [noteId, setNoteId] = useState<string | null>(null);
@@ -83,7 +92,12 @@ const ContactNotes = ({
   };
 
   const renderNotes = () => (
-    <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+    <ScrollView
+      style={{ flex: 1, marginBottom: isAndroid && editing ? 80 : undefined }}
+      contentInset={{ bottom: 90 }}
+      // @ts-ignore
+      persistentScrollbar={true}
+    >
       {editing ? (
         <Input
           ref={notesInput}
@@ -97,7 +111,11 @@ const ContactNotes = ({
           autoCorrect={true}
         />
       ) : (
-        <Text style={styles.notesText}>{text}</Text>
+        <Text
+          style={[styles.notesText, isAndroid ? { paddingBottom: 80 } : null]}
+        >
+          {text}
+        </Text>
       )}
     </ScrollView>
   );
@@ -125,9 +143,17 @@ const ContactNotes = ({
   );
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  { person, organization }: { person: Person; organization?: Organization },
+) => ({
   myPersonId: auth.person.id,
   myUserId: auth.person.user.id,
+  analyticsAssignmentType: getAnalyticsAssignmentType(
+    person,
+    auth,
+    organization,
+  ),
 });
 
 export default connect(mapStateToProps)(ContactNotes);

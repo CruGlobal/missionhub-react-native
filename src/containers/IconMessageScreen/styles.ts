@@ -16,7 +16,6 @@ export default StyleSheet.create({
   text: {
     fontSize: 24,
     textAlign: 'left',
-
     paddingVertical: 10,
     color: theme.white,
     lineHeight: 32,

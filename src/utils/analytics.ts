@@ -1,68 +1,67 @@
-// import { GoogleAnalyticsTracker, GoogleAnalyticsSettings } from 'react-native-google-analytics-bridge';
-// import CONSTANTS from '../constants';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_PERMISSION_TYPE,
+  ANALYTICS_EDIT_MODE,
+} from '../constants';
+import { TrackStateContext } from '../actions/analytics';
+import { AuthState } from '../reducers/auth';
+import { OnboardingState } from '../reducers/onboarding';
+import { orgPermissionSelector } from '../selectors/people';
 
-// let tracker = null;
+import {
+  personIsCurrentUser,
+  hasOrgPermissions,
+  isOnboarding,
+  isOwner,
+  isAdmin,
+} from './common';
 
-// function setup() {
-//   // The tracker must be constructed, and you can have multiple:
-//   tracker = new GoogleAnalyticsTracker(CONSTANTS.GA_TRACKER);
+export const getAnalyticsAssignmentType = (
+  person: {
+    id: string;
+    organizational_permissions?: {
+      organization_id: string;
+      permission_id: string;
+    }[];
+  } | null,
+  authState: AuthState,
+  organization?: { id: string },
+): TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE] => {
+  const orgPermission = orgPermissionSelector({}, { person, organization });
 
-//   // Setting dryRun to true lets you test tracking without sending data to GA
-//   if (__DEV__) {
-//     GoogleAnalyticsSettings.setDryRun(true);
-//   }
+  return person
+    ? personIsCurrentUser(person.id, authState)
+      ? 'self'
+      : orgPermission && hasOrgPermissions(orgPermission)
+      ? 'community member'
+      : 'contact'
+    : '';
+};
 
-//   // The GoogleAnalyticsSettings is static, and settings are applied across all trackers:
-//   GoogleAnalyticsSettings.setDispatchInterval(30);
-// }
+export const getAnalyticsSectionType = (
+  onboardingState: OnboardingState,
+): TrackStateContext[typeof ANALYTICS_SECTION_TYPE] =>
+  isOnboarding(onboardingState) ? 'onboarding' : '';
 
-// function screen(screen) {
-//   if (!screen || typeof screen !== 'string') {
-//     LOG('Screen must be passed in as a string');
-//     return;
-//   }
-//   tracker.trackScreenView(screen);
-// }
+export const getAnalyticsEditMode = (
+  isEdit: boolean,
+): TrackStateContext[typeof ANALYTICS_EDIT_MODE] => (isEdit ? 'update' : 'set');
 
-// function event(category, action, label = '', value = -1) {
+export const getAnalyticsPermissionType = (
+  auth: AuthState,
+  organization: { id: string },
+): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] => {
+  const orgPermission = orgPermissionSelector(
+    {},
+    { person: auth.person, organization },
+  );
 
-//   // Setup the optional values as an object of {label: String, value: Number}
-//   let optionalValues = {};
-//   if (typeof label !== 'string') {
-//     label = '';
-//   }
-//   if (typeof value !== 'number') {
-//     value = -1;
-//   }
-//   if (label) {
-//     optionalValues.label = label;
-//   }
-//   if (value >= 0) {
-//     optionalValues.value = value;
-//   }
-
-//   if (!category || typeof category !== 'string') {
-//     LOG('Category must be passed in as a string');
-//     return;
-//   }
-//   if (!action || typeof action !== 'string') {
-//     LOG('Action must be passed in as a string');
-//     return;
-//   }
-//   tracker.trackEvent(category, action, optionalValues);
-// }
-
-// function setUser(id = '') {
-//   if (!id || typeof id !== 'string') {
-//     LOG('Analytics: id must be a string in setUser', id);
-//     return;
-//   }
-//   tracker.setUser(id);
-// }
-
-// export default {
-//   setup,
-//   event,
-//   screen,
-//   setUser,
-// };
+  return hasOrgPermissions(orgPermission)
+    ? isOwner(orgPermission)
+      ? 'owner'
+      : isAdmin(orgPermission)
+      ? 'admin'
+      : 'member'
+    : '';
+};

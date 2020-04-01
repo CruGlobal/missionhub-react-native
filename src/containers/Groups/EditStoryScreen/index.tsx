@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { View, Keyboard, ScrollView } from 'react-native';
-import { AnyAction } from 'redux';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
+import { TrackStateContext } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { getAnalyticsPermissionType } from '../../../utils/analytics';
+import { AuthState } from '../../../reducers/auth';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
@@ -31,11 +34,14 @@ export const UPDATE_STORY = gql`
 `;
 
 interface EditStoryProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
-const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
-  useAnalytics(['story', 'edit']);
+const EditStoryScreen = ({ analyticsPermissionType }: EditStoryProps) => {
+  const dispatch = useDispatch();
+  useAnalytics(['story', 'edit'], {
+    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  });
   const { t } = useTranslation('editStoryScreen');
   const { container, backButton, textInput } = styles;
   const onRefresh: () => Promise<void> = useNavigationParam('onRefresh');
@@ -90,5 +96,19 @@ const EditStoryScreen = ({ dispatch }: EditStoryProps) => {
   );
 };
 
-export default connect()(EditStoryScreen);
+const mapStateToProps = (
+  { auth }: { auth: AuthState },
+  {
+    navigation: {
+      state: {
+        params: { organization },
+      },
+    },
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+) => ({
+  analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
+});
+
+export default connect(mapStateToProps)(EditStoryScreen);
 export const CELEBRATE_EDIT_STORY_SCREEN = 'nav/CELEBRATE_EDIT_STORY_SCREEN';

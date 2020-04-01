@@ -7,24 +7,36 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { trackActionWithoutData } from '../../actions/analytics';
+import {
+  trackActionWithoutData,
+  TrackStateContext,
+} from '../../actions/analytics';
+import { getAnalyticsSectionType } from '../../utils/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';
 import BackButton from '../BackButton';
+import { OnboardingState } from '../../reducers/onboarding';
 
 import styles from './styles';
+
+interface WelcomeScreenProps {
+  dispatch: ThunkDispatch<{}, null, never>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
+  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
+}
 
 const WelcomeScreen = ({
   dispatch,
   next,
-}: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
-}) => {
-  useAnalytics(['onboarding', 'welcome']);
+  analyticsSection,
+}: WelcomeScreenProps) => {
+  useAnalytics(['onboarding', 'welcome'], {
+    screenContext: {
+      [ANALYTICS_SECTION_TYPE]: analyticsSection,
+    },
+  });
 
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
@@ -83,5 +95,9 @@ const WelcomeScreen = ({
   );
 };
 
-export default connect()(WelcomeScreen);
+const mapStateToProps = ({ onboarding }: { onboarding: OnboardingState }) => ({
+  analyticsSection: getAnalyticsSectionType(onboarding),
+});
+
+export default connect(mapStateToProps)(WelcomeScreen);
 export const WELCOME_SCREEN = 'nav/WELCOME';
