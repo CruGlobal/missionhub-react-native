@@ -1533,7 +1533,7 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
         Array [
           undefined,
           Object {
-            "paddingTop": 203,
+            "paddingTop": 195,
           },
         ]
       }
@@ -1679,7 +1679,7 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#ECEEF2",
-          "height": 203,
+          "height": 195,
           "left": 0,
           "paddingTop": 0,
           "position": "absolute",
@@ -1779,7 +1779,13 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -1822,38 +1828,32 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               </View>
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "marginTop": 20,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": 9,
+                      "borderLeftColor": "transparent",
+                      "borderLeftWidth": 7,
+                      "borderRightColor": "transparent",
+                      "borderRightWidth": 7,
+                      "borderStyle": "solid",
+                      "height": 0,
+                      "width": 0,
+                    },
+                    Object {
+                      "borderBottomColor": "#ECEEF2",
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    Object {
+                      "marginTop": 12,
+                    },
+                  ]
                 }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderBottomWidth": 9,
-                        "borderLeftColor": "transparent",
-                        "borderLeftWidth": 7,
-                        "borderRightColor": "transparent",
-                        "borderRightWidth": 7,
-                        "borderStyle": "solid",
-                        "height": 0,
-                        "width": 0,
-                      },
-                      Object {
-                        "borderBottomColor": "#ECEEF2",
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      },
-                    ]
-                  }
-                />
-              </View>
+              />
             </View>
           </View>
           <View
@@ -1873,7 +1873,13 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -1933,7 +1939,13 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -1993,7 +2005,13 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -2266,7 +2284,7 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
         Array [
           undefined,
           Object {
-            "paddingTop": 203,
+            "paddingTop": 195,
           },
         ]
       }
@@ -2412,7 +2430,7 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#ECEEF2",
-          "height": 203,
+          "height": 195,
           "left": 0,
           "paddingTop": 0,
           "position": "absolute",
@@ -2512,7 +2530,13 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -2555,38 +2579,32 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               </View>
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "marginTop": 20,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": 9,
+                      "borderLeftColor": "transparent",
+                      "borderLeftWidth": 7,
+                      "borderRightColor": "transparent",
+                      "borderRightWidth": 7,
+                      "borderStyle": "solid",
+                      "height": 0,
+                      "width": 0,
+                    },
+                    Object {
+                      "borderBottomColor": "#ECEEF2",
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    Object {
+                      "marginTop": 12,
+                    },
+                  ]
                 }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderBottomWidth": 9,
-                        "borderLeftColor": "transparent",
-                        "borderLeftWidth": 7,
-                        "borderRightColor": "transparent",
-                        "borderRightWidth": 7,
-                        "borderStyle": "solid",
-                        "height": 0,
-                        "width": 0,
-                      },
-                      Object {
-                        "borderBottomColor": "#ECEEF2",
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      },
-                    ]
-                  }
-                />
-              </View>
+              />
             </View>
           </View>
           <View
@@ -2606,7 +2624,13 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -2666,7 +2690,13 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -2726,7 +2756,13 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
