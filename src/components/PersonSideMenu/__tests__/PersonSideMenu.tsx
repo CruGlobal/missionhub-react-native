@@ -16,7 +16,6 @@ import { assignContactAndPickStage } from '../../../actions/misc';
 
 import PersonSideMenu from '..';
 
-jest.mock('react-redux');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/steps');
@@ -43,6 +42,7 @@ const organization = { id: '4', type: 'organization' };
 
 const initialState = {
   auth: { person: me },
+  drawer: { isOpen: true },
   people: {
     allByOrg: {
       [organization.id]: {
@@ -201,7 +201,6 @@ describe('PersonSideMenu', () => {
         expect(assignContactAndPickStage).toHaveBeenCalledWith(
           person,
           organization,
-          me.id,
         );
       });
     });

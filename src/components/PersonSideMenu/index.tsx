@@ -138,7 +138,6 @@ const PersonSideMenu = ({
         }
       : null,
   ].filter(Boolean) as MenuItemsType[];
-
   return <SideMenu testID="SideMenu" menuItems={menuItems} />;
 };
 
@@ -164,7 +163,7 @@ const mapStateToProps = (
     organization,
     contactAssignment: contactAssignmentSelector(
       { auth },
-      { person: selectorPerson, orgId: organization.id },
+      { person: selectorPerson, orgId: organization && organization.id },
     ),
     orgPermission:
       (organization &&
