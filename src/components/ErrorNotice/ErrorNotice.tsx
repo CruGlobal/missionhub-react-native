@@ -11,15 +11,32 @@ interface ErrorNoticeProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   refetch: (variables?: any) => Promise<any>;
   message: string;
+  specificErrors?: {
+    condition: string;
+    message: string;
+  }[];
 }
 
-export const ErrorNotice = ({ error, refetch, message }: ErrorNoticeProps) => {
+export const ErrorNotice = ({
+  error,
+  refetch,
+  message,
+  specificErrors,
+}: ErrorNoticeProps) => {
   const { t } = useTranslation('errorNotice');
 
   return error ? (
     <Touchable style={styles.errorContainer} onPress={refetch}>
       {error.networkError ? (
         <Text style={styles.white}>{t('offline')}</Text>
+      ) : specificErrors ? (
+        specificErrors.map(specificError => {
+          return error.graphQLErrors.map(graphQLError => {
+            if (specificError.condition === graphQLError.message) {
+              return <Text style={styles.white}>{specificError.message}</Text>;
+            }
+          });
+        })
       ) : (
         <Text style={styles.white}>{message}</Text>
       )}

@@ -118,7 +118,7 @@ describe('handleUpdateData', () => {
       },
     );
     await flushMicrotasksQueue();
-    -expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+    expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
       variables: {
         id: person.id,
       },
