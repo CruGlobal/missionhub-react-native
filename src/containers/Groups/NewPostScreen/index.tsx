@@ -4,10 +4,13 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import {
+  ACTIONS,
+  ANALYTICS_PERMISSION_TYPE,
+  ANALYTICS_EDIT_MODE,
+} from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
@@ -38,38 +41,45 @@ export const CREATE_A_STORY = gql`
   }
 `;
 
-interface ShareStoryScreenProps {
-  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-}
+type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
-const ShareStoryScreen = ({
-  analyticsPermissionType,
-}: ShareStoryScreenProps) => {
-  useAnalytics(['story', 'share'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
-  });
+interface ShareStoryScreenProps {}
+
+export const NewPostScreen = ({}: ShareStoryScreenProps) => {
   const { t } = useTranslation('shareAStoryScreen');
   const { container, backButton, textInput } = styles;
   const dispatch = useDispatch();
-  const [story, changeStory] = useState('');
+  const [post, changePost] = useState('');
   const onComplete: () => void = useNavigationParam('onComplete');
   const organization: Organization = useNavigationParam('organization');
-  const [createStory] = useMutation<CreateAStory, CreateAStoryVariables>(
+  const analyticsPermissionType = useSelector<
+    { auth: AuthState },
+    permissionType
+  >(({ auth }) => getAnalyticsPermissionType(auth, organization));
+  useAnalytics(['post', 'share'], {
+    //TODO: post type
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+      [ANALYTICS_EDIT_MODE]: 'set',
+    },
+  });
+  const [createPost] = useMutation<CreateAStory, CreateAStoryVariables>(
     CREATE_A_STORY,
-  );
+  ); //TODO: New Mutation
 
-  const saveStory = async () => {
-    if (!story) {
+  const savePost = async () => {
+    if (!post) {
       return null;
     }
     Keyboard.dismiss();
-    await createStory({
-      variables: { input: { content: story, organizationId: organization.id } },
+    await createPost({
+      variables: { input: { content: post, organizationId: organization.id } },
     });
-    dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY));
+    dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
 
     onComplete();
   };
+
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
@@ -77,9 +87,9 @@ const ShareStoryScreen = ({
         <Input
           testID="StoryInput"
           scrollEnabled={false}
-          onChangeText={e => changeStory(e)}
+          onChangeText={e => changePost(e)}
           placeholder={t('inputPlaceholder')}
-          value={story}
+          value={post}
           autoFocus={true}
           autoCorrect={true}
           multiline={true}
@@ -90,26 +100,11 @@ const ShareStoryScreen = ({
       </ScrollView>
       <BottomButton
         text={t('shareStory')}
-        onPress={saveStory}
-        testID="SaveStoryButton"
+        onPress={savePost}
+        testID="SavePostButton"
       />
     </View>
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  {
-    navigation: {
-      state: {
-        params: { organization },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
-  analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
-});
-
-export default connect(mapStateToProps)(ShareStoryScreen);
 export const CELEBRATE_SHARE_STORY_SCREEN = 'nav/CELEBRATE_SHARE_STORY_SCREEN';
