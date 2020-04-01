@@ -9,7 +9,7 @@ export default StyleSheet.create({
     lineHeight: 16,
   },
   number: {
-    color: theme.challengeBlue,
+    color: theme.parakeetBlue,
     fontFamily: 'SourceSansPro-ExtraLight',
     fontSize: 32,
     lineHeight: 38,
