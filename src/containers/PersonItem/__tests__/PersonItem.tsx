@@ -80,6 +80,10 @@ const mockPersonWithSteps = {
   reverse_contact_assignments: [mockContactAssignment],
   totalCount: mockStepsCount,
 };
+const mockPersonWithNoStage = {
+  ...mockPerson,
+  reverse_contact_assignments: [mockContactAssignmentNoStage],
+};
 
 const totalStepCount: PersonStepCount = {
   __typename: 'Person',
@@ -197,12 +201,7 @@ it('renders cru org contact without stage correctly', () => {
 
   renderWithContext(
     <PersonItem
-      person={
-        ({
-          ...mockPerson,
-          reverse_contact_assignments: [mockContactAssignmentNoStage],
-        } as unknown) as PersonAttributes
-      }
+      person={(mockPersonWithNoStage as unknown) as PersonAttributes}
       organization={mockOrganization}
       stepsData={totalStepCount}
     />,
@@ -409,5 +408,27 @@ describe('handleAddStep', () => {
       mockOrganization,
     );
     expect(store.getActions()).toEqual([navigateToAddStepFlowResult]);
+  });
+
+  it('navigate to select stage for other person without stage', () => {
+    const { getByTestId, store } = renderWithContext(
+      <PersonItem
+        person={(mockPersonWithNoStage as unknown) as PersonAttributes}
+        organization={mockOrganization}
+        stepsData={noStepsCount}
+      />,
+      { initialState: mockState },
+    );
+
+    fireEvent.press(getByTestId('stepIcon'));
+
+    expect(navigateToStageScreen).toHaveBeenCalledWith(
+      false,
+      mockPersonWithNoStage,
+      mockContactAssignmentNoStage,
+      mockOrganization,
+      undefined,
+    );
+    expect(store.getActions()).toEqual([navigateToStageScreenResult]);
   });
 });

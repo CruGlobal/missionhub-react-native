@@ -37,6 +37,7 @@ import {
   getAnalyticsAssignmentType,
 } from '../../utils/analytics';
 import { useIsMe } from '../../utils/hooks/useIsMe';
+import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 import { CREATE_CUSTOM_STEP_MUTATION } from './queries';
@@ -194,6 +195,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
       />
       <ScrollView
         contentContainerStyle={styles.fieldWrap}
+        style={{ marginBottom: isAndroid ? 80 : undefined }}
         contentInset={{ bottom: 96 }}
       >
         {isCreateStep ? (
