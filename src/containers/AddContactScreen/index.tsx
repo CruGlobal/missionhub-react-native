@@ -14,7 +14,11 @@ import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
+import {
+  ACTIONS,
+  LOAD_PERSON_DETAILS,
+  CANNOT_EDIT_FIRST_NAME,
+} from '../../constants';
 import BackIcon from '../../../assets/images/backIcon.svg';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
@@ -179,6 +183,12 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         error={updateError}
         message={t('updateError')}
         refetch={savePerson}
+        specificErrors={[
+          {
+            condition: CANNOT_EDIT_FIRST_NAME,
+            message: t('alertCannotEditFirstName'),
+          },
+        ]}
       />
       <ErrorNotice
         error={createError}

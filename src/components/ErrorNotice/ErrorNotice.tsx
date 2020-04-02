@@ -21,7 +21,7 @@ export const ErrorNotice = ({
   error,
   refetch,
   message,
-  specificErrors,
+  specificErrors = [],
 }: ErrorNoticeProps) => {
   const { t } = useTranslation('errorNotice');
 
@@ -29,14 +29,17 @@ export const ErrorNotice = ({
     <Touchable style={styles.errorContainer} onPress={refetch}>
       {error.networkError ? (
         <Text style={styles.white}>{t('offline')}</Text>
-      ) : specificErrors ? (
-        specificErrors.map(specificError => {
-          return error.graphQLErrors.map(graphQLError => {
-            if (specificError.condition === graphQLError.message) {
-              return <Text style={styles.white}>{specificError.message}</Text>;
-            }
-          });
-        })
+      ) : specificErrors.length > 0 ? (
+        specificErrors.reduce((acc: any, specificError) => {
+          return error.graphQLErrors
+            .map(({ message }) => message)
+            .includes(specificError.condition)
+            ? [
+                ...acc,
+                <Text style={styles.white}>{specificError.message}</Text>,
+              ]
+            : acc;
+        }, [])
       ) : (
         <Text style={styles.white}>{message}</Text>
       )}
