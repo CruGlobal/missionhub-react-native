@@ -1,4 +1,6 @@
-import configureStore from 'redux-mock-store';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import i18next from 'i18next';
 import MockDate from 'mockdate';
@@ -7,15 +9,12 @@ import * as RNOmniture from 'react-native-omniture';
 import * as callApi from '../../api';
 import { REQUESTS } from '../../../api/routes';
 import { updateLocaleAndTimezone, authSuccess, loadHome } from '../userData';
-import { NOTIFICATION_PROMPT_TYPES } from '../../../constants';
-import { showReminderOnLoad } from '../../notifications';
 import { getMyPeople } from '../../people';
 import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
 import { getStagesIfNotExists } from '../../stages';
 import { rollbar } from '../../../utils/rollbar.config';
 
-const notificationsResult = { type: 'show notification reminder' };
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
 const getPeopleResult = { type: 'get my people' };
@@ -30,15 +29,16 @@ jest.mock('../../person');
 jest.mock('../../people');
 jest.mock('../../stages');
 jest.mock('../../steps');
-// @ts-ignore
-callApi.default = jest.fn().mockReturnValue({ type: 'test-action' });
+
+((callApi as unknown) as {
+  default: () => { type: string };
+}).default = jest.fn().mockReturnValue({ type: 'test-action' });
 
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
 const mockStore = configureStore([thunk]);
 
-// @ts-ignore
-let store;
+let store: MockStore;
 
 beforeEach(() => {
   store = mockStore({
@@ -78,8 +78,7 @@ describe('updateLocaleAndTimezone', () => {
       },
     };
 
-    // @ts-ignore
-    store.dispatch(updateLocaleAndTimezone());
+    store.dispatch<any>(updateLocaleAndTimezone());
     expect(callApi.default).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ME_USER,
       {},
@@ -101,8 +100,7 @@ describe('authSuccess', () => {
       },
     });
 
-    // @ts-ignore
-    getMe.mockReturnValue(() =>
+    (getMe as jest.Mock).mockReturnValue(() =>
       Promise.resolve({
         global_registry_mdm_id,
       }),
@@ -110,15 +108,13 @@ describe('authSuccess', () => {
   });
 
   it('should set Rollbar user id', async () => {
-    // @ts-ignore
-    await store.dispatch(authSuccess());
+    await store.dispatch<any>(authSuccess());
 
     expect(rollbar.setPerson).toHaveBeenCalledWith(`${personId}`);
   });
 
   it('should track global registry master person id', async () => {
-    // @ts-ignore
-    await store.dispatch(authSuccess());
+    await store.dispatch<any>(authSuccess());
 
     expect(RNOmniture.syncIdentifier).toHaveBeenCalledWith(
       global_registry_mdm_id,
@@ -141,29 +137,24 @@ describe('loadHome', () => {
     (getMyPeople as jest.Mock).mockReturnValue(getPeopleResult);
     (getMyCommunities as jest.Mock).mockReturnValue(getMyCommunitiesResult);
     (getStagesIfNotExists as jest.Mock).mockReturnValue(getStagesResult);
-    (showReminderOnLoad as jest.Mock).mockReturnValue(notificationsResult);
-    (callApi.default as jest.Mock).mockReturnValue(updateUserResult);
+    ((callApi as unknown) as {
+      default: jest.Mock;
+    }).default.mockReturnValue(updateUserResult);
 
-    // @ts-ignore
-    await store.dispatch(loadHome());
+    await store.dispatch<any>(loadHome());
 
     expect(callApi.default).toHaveBeenCalledWith(
       REQUESTS.UPDATE_ME_USER,
       {},
       userSettings,
     );
-    expect(showReminderOnLoad).toHaveBeenCalledWith(
-      NOTIFICATION_PROMPT_TYPES.LOGIN,
-    );
 
-    // @ts-ignore
     expect(store.getActions()).toEqual([
       getMeResult,
       getPeopleResult,
       getMyCommunitiesResult,
       getStagesResult,
       updateUserResult,
-      notificationsResult,
     ]);
   });
 
@@ -178,8 +169,8 @@ describe('loadHome', () => {
         },
       },
     });
-    // @ts-ignore
-    await store.dispatch(loadHome());
+
+    await store.dispatch<any>(loadHome());
 
     expect(store.getActions()).toEqual([]);
   });

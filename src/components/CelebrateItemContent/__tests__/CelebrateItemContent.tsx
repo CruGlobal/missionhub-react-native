@@ -1,7 +1,11 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { CELEBRATEABLE_TYPES, INTERACTION_TYPES } from '../../../constants';
+import {
+  CELEBRATEABLE_TYPES,
+  INTERACTION_TYPES,
+  GLOBAL_COMMUNITY_ID,
+} from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -17,11 +21,13 @@ import {
   COMMUNITY_PERMISSIONS_FRAGMENT,
 } from '../../../components/CelebrateItem/queries';
 import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
+import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 
 import CelebrateItemContent, { CelebrateItemContentProps } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/challenges');
 
 const myId = '123';
 const otherId = '456';
@@ -55,10 +61,14 @@ const initialState = { auth: { person: { id: myId } } };
 
 const navigateResponse = { type: 'navigate push' };
 const trackActionResult = { type: 'tracked plain action' };
+const reloadGroupChallengeFeedReponse = { type: 'reload group feed' };
 
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigateResponse);
+  (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
+    reloadGroupChallengeFeedReponse,
+  );
 });
 
 describe('CelebrateItemContent', () => {
@@ -258,7 +268,7 @@ describe('CelebrateItemContent', () => {
 });
 
 describe('onPressChallengeLink', () => {
-  it('navigates to challenge detail screen', () => {
+  it('navigates to challenge detail screen', async () => {
     const { getByTestId, store } = renderWithContext(
       <CelebrateItemContent
         event={{
@@ -270,12 +280,41 @@ describe('onPressChallengeLink', () => {
       />,
       { initialState },
     );
-    fireEvent.press(getByTestId('ChallengeLinkButton'));
+    await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
       challengeId: event.adjectiveAttributeValue,
       orgId: organization.id,
     });
-    expect(store.getActions()).toEqual([navigateResponse]);
+    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
+    expect(store.getActions()).toEqual([
+      reloadGroupChallengeFeedReponse,
+      navigateResponse,
+    ]);
+  });
+
+  it('navigates to challenge detail screen | Global Community Challenge', async () => {
+    const { getByTestId, store } = renderWithContext(
+      <CelebrateItemContent
+        event={{
+          ...event,
+          celebrateableType:
+            CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
+        }}
+        organization={{ name: 'MissionHub Community', id: GLOBAL_COMMUNITY_ID }}
+      />,
+      { initialState },
+    );
+    await fireEvent.press(getByTestId('ChallengeLinkButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      challengeId: event.adjectiveAttributeValue,
+      orgId: GLOBAL_COMMUNITY_ID,
+    });
+    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+    expect(store.getActions()).toEqual([
+      reloadGroupChallengeFeedReponse,
+      navigateResponse,
+    ]);
   });
 });

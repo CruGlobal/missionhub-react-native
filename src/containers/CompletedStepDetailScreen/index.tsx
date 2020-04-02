@@ -1,13 +1,18 @@
 import React from 'react';
 import { Image, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useApolloClient } from '@apollo/react-hooks';
 import moment from 'moment';
+import gql from 'graphql-tag';
 
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Text } from '../../components/common';
+import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
+import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
@@ -19,13 +24,39 @@ import {
 } from './__generated__/CompletedStepDetail';
 
 const CompletedStepDetailScreen = () => {
-  useAnalytics(['step detail', 'completed step']);
+  const stepId = useNavigationParam('stepId');
+
+  const apolloClient = useApolloClient();
+
+  const analyticsAssignmentType = useSelector(
+    ({ auth }: { auth: AuthState }) => {
+      let stepReceiverId = '';
+      try {
+        const step = apolloClient.readFragment({
+          id: `Step:${stepId}`,
+          fragment: gql`
+            fragment stepReceiver on Step {
+              receiver {
+                id
+              }
+            }
+          `,
+        });
+        stepReceiverId = step.receiver.id;
+      } catch {}
+
+      return getAnalyticsAssignmentType({ id: stepReceiverId }, auth);
+    },
+  );
+  useAnalytics(['step detail', 'completed step'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
   const { t } = useTranslation('completedStepDetail');
   const { data, error, refetch } = useQuery<
     CompletedStepDetail,
     CompletedStepDetailVariables
   >(COMPLETED_STEP_DETAIL_QUERY, {
-    variables: { id: useNavigationParam('stepId') },
+    variables: { id: stepId },
   });
 
   const step = data?.step;
@@ -45,11 +76,11 @@ const CompletedStepDetailScreen = () => {
       CenterContent={
         <View style={styles.reminderButton}>
           <Text style={styles.completedText}>
-            {t('completedOn', {
-              date: moment(step?.completedAt ?? undefined).format(
-                'dddd, MMMM D YYYY',
-              ),
-            })}
+            {step?.completedAt
+              ? t('completedOn', {
+                  date: moment(step.completedAt).format('dddd, MMMM D YYYY'),
+                })
+              : null}
           </Text>
           <Image source={GREY_CHECKBOX} style={styles.completedIcon} />
         </View>
