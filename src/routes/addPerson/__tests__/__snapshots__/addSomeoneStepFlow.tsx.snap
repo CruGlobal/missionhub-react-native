@@ -991,29 +991,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
               ]
             }
           >
-            Choose a step to take with 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-             this week...
+            Choose a step to take with them this week...
           </Text>
         </View>
         <View

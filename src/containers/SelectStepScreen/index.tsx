@@ -121,6 +121,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     variables: {
       personId,
     },
+    skip: !enableStepTypeFilters,
   });
 
   const stepTypeCounts = (stepsReport?.completedStepsReport || []).reduce(
@@ -254,12 +255,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     >
       <View style={styles.headerTextContainer}>
         <Text style={styles.headerText}>
-          {isMe ? t('meHeader.part1') : t('personHeader.part1')}
-        </Text>
-        <Text style={styles.headerText}>
           {isMe
-            ? t('meHeader.part2')
-            : t('personHeader.part2', { name: data?.person.firstName })}
+            ? t('meHeader')
+            : t('personHeader', { name: data?.person.firstName || '$t(them)' })}
         </Text>
       </View>
       {enableStepTypeFilters ? (
