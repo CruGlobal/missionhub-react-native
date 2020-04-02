@@ -256,15 +256,9 @@ exports[`AddSomeoneScreen next renders with back button correctly 1`] = `
             Object {
               "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#ffffff",
               "fontSize": 24,
@@ -318,27 +312,17 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
             ]
           }
         >
@@ -360,7 +344,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -889,15 +875,9 @@ exports[`GetStartedScreen renders correctly 1`] = `
             Object {
               "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#ffffff",
               "fontSize": 24,
@@ -951,27 +931,17 @@ Let's figure out where you are on your journey.
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
             ]
           }
         >
@@ -993,7 +963,9 @@ Let's figure out where you are on your journey.
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -3109,15 +3081,9 @@ exports[`StageSuccessScreen renders correctly 1`] = `
             Object {
               "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#ffffff",
               "fontSize": 24,
@@ -3169,27 +3135,17 @@ exports[`StageSuccessScreen renders correctly 1`] = `
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
             ]
           }
         >
@@ -3211,7 +3167,9 @@ exports[`StageSuccessScreen renders correctly 1`] = `
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }

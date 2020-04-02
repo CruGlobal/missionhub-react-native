@@ -177,15 +177,9 @@ exports[`AddSomeoneScreen next renders with skip botton correctly 1`] = `
             Object {
               "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#ffffff",
               "fontSize": 24,
@@ -239,27 +233,17 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
             ]
           }
         >
@@ -281,7 +265,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -404,15 +390,9 @@ exports[`AddSomeoneScreen next renders without skip botton correctly 1`] = `
             Object {
               "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#ffffff",
               "fontSize": 24,
@@ -466,27 +446,17 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
             ]
           }
         >
@@ -508,7 +478,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }

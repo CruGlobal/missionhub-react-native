@@ -631,7 +631,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -352,22 +352,18 @@
+@@ -357,22 +357,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -656,7 +656,7 @@ exports[`create methods sets disable false 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -390,13 +386,11 @@
+@@ -395,13 +391,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -1489,12 +1489,16 @@ exports[`renders correctly 1`] = `
             Object {
               "opacity": 0.6,
             },
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#B4B6BA",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "backgroundColor": "#B4B6BA",
+              },
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1519,7 +1523,11 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  Object {
+                    "backgroundColor": "#B4B6BA",
+                  },
+                ],
               ],
             ]
           }
