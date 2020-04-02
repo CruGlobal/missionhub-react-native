@@ -15,6 +15,7 @@ import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
+import { isAndroid } from '../../../utils/common';
 import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
@@ -73,7 +74,10 @@ const ShareStoryScreen = ({
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
-      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+      <ScrollView
+        style={{ flex: 1, marginBottom: isAndroid ? 80 : undefined }}
+        contentInset={{ bottom: 90 }}
+      >
         <Input
           testID="StoryInput"
           scrollEnabled={false}

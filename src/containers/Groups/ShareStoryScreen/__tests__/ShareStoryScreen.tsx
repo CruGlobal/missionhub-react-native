@@ -11,6 +11,7 @@ import { navigatePush } from '../../../../actions/navigation';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import * as common from '../../../../utils/common';
 
 import ShareStoryScreen, { CREATE_A_STORY } from '..';
 
@@ -36,6 +37,7 @@ const initialState = {
 };
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
@@ -45,10 +47,7 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<ShareStoryScreen />, {
     initialState,
-    navParams: {
-      onComplete,
-      organization,
-    },
+    navParams: { onComplete, organization },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['story', 'share'], {
@@ -56,6 +55,14 @@ it('renders correctly', () => {
       [ANALYTICS_PERMISSION_TYPE]: 'owner',
     },
   });
+});
+
+it('renders correctly on android', () => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+  renderWithContext(<ShareStoryScreen />, {
+    initialState,
+    navParams: { onComplete, organization },
+  }).snapshot();
 });
 
 it('should find the saveStoryButton', () => {

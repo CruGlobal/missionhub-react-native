@@ -59,7 +59,7 @@ matrix:
         - ENVFILE=.env.production
       before_install:
         - brew update
-        - brew install yarn
+        - brew install yarn watchman
       install:
         - yarn
         - echo -e "machine github.com\n login $CI_USER_TOKEN" >> ~/.netrc

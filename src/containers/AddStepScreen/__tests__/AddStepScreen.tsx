@@ -14,6 +14,7 @@ import {
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import * as common from '../../../utils/common';
 
 import AddStepScreen from '..';
 
@@ -37,6 +38,7 @@ const personId = '2221';
 const orgId = '333';
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   next.mockReturnValue(nextResult);
 });
 
@@ -83,6 +85,14 @@ it('renders create step correctly', () => {
       [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
     },
   });
+});
+
+it('renders create step correctly on android', () => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+  renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth, onboarding },
+    navParams: createStepParams,
+  }).snapshot();
 });
 
 it('renders create step in onboarding correctly', () => {
