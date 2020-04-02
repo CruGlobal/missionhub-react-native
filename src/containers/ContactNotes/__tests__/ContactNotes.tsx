@@ -6,6 +6,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { ORG_PERMISSIONS, ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { getPersonNote, savePersonNote } from '../../../actions/person';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import * as common from '../../../utils/common';
 
 import ContactNotes from '..';
 
@@ -32,6 +33,7 @@ const initialState = {
 };
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (useIsFocused as jest.Mock).mockReturnValue(true);
   (getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve(note));
   (savePersonNote as jest.Mock).mockReturnValue(() => Promise.resolve());
@@ -96,6 +98,23 @@ describe('contact notes', () => {
 
   describe('press bottom button', () => {
     it('switches to editing state', async () => {
+      const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+        <ContactNotes person={person} />,
+        {
+          initialState,
+        },
+      );
+
+      await flushMicrotasksQueue();
+      recordSnapshot();
+
+      fireEvent.press(getByTestId('bottomButton'));
+
+      diffSnapshot();
+    });
+
+    it('switches to editing state on android', async () => {
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
         <ContactNotes person={person} />,
         {

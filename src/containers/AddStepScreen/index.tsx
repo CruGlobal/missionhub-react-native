@@ -31,6 +31,7 @@ import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
@@ -151,6 +152,7 @@ const AddStepScreen = ({
       <StatusBar {...theme.statusBar.darkContent} />
       <ScrollView
         contentContainerStyle={styles.fieldWrap}
+        style={{ marginBottom: isAndroid ? 80 : undefined }}
         contentInset={{ bottom: 96 }}
       >
         <Input

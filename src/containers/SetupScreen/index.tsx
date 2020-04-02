@@ -8,7 +8,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import { Text, Input } from '../../components/common';
+import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { createMyPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
@@ -176,7 +176,7 @@ const SetupScreen = ({
         left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
       />
-      <View style={styles.content}>
+      <Flex value={2} justify="end" align="center">
         {isMe ? (
           <Text header={true} style={styles.header}>
             {t('namePrompt')}
@@ -188,7 +188,7 @@ const SetupScreen = ({
             </View>
           </>
         )}
-      </View>
+      </Flex>
       <View style={styles.inputWrap}>
         <View>
           <Text style={styles.label}>
