@@ -205,9 +205,10 @@ import GroupUnreadFeed, {
   GROUP_UNREAD_FEED_SCREEN,
 } from './containers/Groups/GroupUnreadFeed';
 import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFlow';
-import ShareStoryScreen, {
+import {
+  NewPostScreen,
   CELEBRATE_SHARE_STORY_SCREEN,
-} from './containers/Groups/ShareStoryScreen';
+} from './containers/Groups/NewPostScreen';
 import EditStoryScreen, {
   CELEBRATE_EDIT_STORY_SCREEN,
 } from './containers/Groups/EditStoryScreen';
@@ -506,7 +507,7 @@ const screens = {
     { gesturesEnabled: true },
   ),
   [CELEBRATE_SHARE_STORY_SCREEN]: buildTrackedScreen(
-    ShareStoryScreen,
+    NewPostScreen,
     // @ts-ignore
     buildTrackingObj(
       'communities : celebration : sharestory',

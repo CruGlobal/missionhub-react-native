@@ -12,7 +12,7 @@ import { trackActionWithoutData } from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
-import ShareStoryScreen, { CREATE_A_STORY } from '..';
+import { CREATE_A_STORY, NewPostScreen } from '..';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
@@ -43,7 +43,7 @@ beforeEach(() => {
 });
 
 it('renders correctly', () => {
-  renderWithContext(<ShareStoryScreen />, {
+  renderWithContext(<NewPostScreen />, {
     initialState,
     navParams: {
       onComplete,
@@ -59,7 +59,7 @@ it('renders correctly', () => {
 });
 
 it('should find the saveStoryButton', () => {
-  const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
+  const { getByTestId } = renderWithContext(<NewPostScreen />, {
     initialState,
     navParams: {
       onComplete,
@@ -71,7 +71,7 @@ it('should find the saveStoryButton', () => {
 
 describe('Creating a story', () => {
   it('should not call onComplete if the user has not typed anything', () => {
-    const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
+    const { getByTestId } = renderWithContext(<NewPostScreen />, {
       initialState,
       navParams: {
         onComplete,
@@ -84,7 +84,7 @@ describe('Creating a story', () => {
 
   it('user types a story', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-      <ShareStoryScreen />,
+      <NewPostScreen />,
       {
         initialState,
         navParams: {
@@ -99,7 +99,7 @@ describe('Creating a story', () => {
   });
   it('calls changeStory function when the user types a story and input value changes', async () => {
     const changeStory = jest.spyOn(React, 'useState');
-    const { getByTestId, snapshot } = renderWithContext(<ShareStoryScreen />, {
+    const { getByTestId, snapshot } = renderWithContext(<NewPostScreen />, {
       initialState,
       navParams: {
         onComplete,
@@ -113,7 +113,7 @@ describe('Creating a story', () => {
     snapshot();
   });
   it('calls saveStory function when the user clicks the share story button', async () => {
-    const { getByTestId } = renderWithContext(<ShareStoryScreen />, {
+    const { getByTestId } = renderWithContext(<NewPostScreen />, {
       initialState,
       navParams: {
         onComplete,

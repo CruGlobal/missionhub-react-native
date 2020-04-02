@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { View, Keyboard, ScrollView } from 'react-native';
+import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
+import ADD_PHOTO_ICON from '../../../../assets/images/addPhotoIcon.png';
 import {
   ACTIONS,
   ANALYTICS_PERMISSION_TYPE,
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
-import { Input } from '../../../components/common';
+import { Input, Text, Button } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import BackButton from '../../BackButton';
@@ -47,7 +48,16 @@ interface ShareStoryScreenProps {}
 
 export const NewPostScreen = ({}: ShareStoryScreenProps) => {
   const { t } = useTranslation('shareAStoryScreen');
-  const { container, backButton, textInput } = styles;
+  const {
+    container,
+    headerText,
+    lineBreak,
+    addPhotoButton,
+    addPhotoIcon,
+    addPhotoText,
+    backButton,
+    textInput,
+  } = styles;
   const dispatch = useDispatch();
   const [post, changePost] = useState('');
   const onComplete: () => void = useNavigationParam('onComplete');
@@ -80,9 +90,42 @@ export const NewPostScreen = ({}: ShareStoryScreenProps) => {
     onComplete();
   };
 
+  const handlePressAddPhoto = () => {};
+
+  const renderHeader = () => (
+    <Header
+      left={<BackButton iconStyle={backButton} />}
+      center={<Text style={headerText}>God Story</Text>}
+    />
+  );
+
+  const renderAddPhotoButton = () => (
+    <>
+      <View style={lineBreak} />
+      <Button onPress={handlePressAddPhoto} style={addPhotoButton}>
+        <Image
+          source={ADD_PHOTO_ICON}
+          resizeMode="contain"
+          style={addPhotoIcon}
+        />
+        <Text style={addPhotoText}>Add a Photo</Text>
+      </Button>
+      <View style={lineBreak} />
+    </>
+  );
+
   return (
     <View style={container}>
-      <Header left={<BackButton iconStyle={backButton} />} />
+      {renderHeader()}
+      <View
+        style={{
+          backgroundColor: 'blue',
+          height: 20,
+          width: 20,
+          marginHorizontal: 35,
+          marginVertical: 20,
+        }}
+      />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
           testID="StoryInput"
@@ -97,6 +140,7 @@ export const NewPostScreen = ({}: ShareStoryScreenProps) => {
           placeholderTextColor={theme.lightGrey}
           style={textInput}
         />
+        {renderAddPhotoButton()}
       </ScrollView>
       <BottomButton
         text={t('shareStory')}

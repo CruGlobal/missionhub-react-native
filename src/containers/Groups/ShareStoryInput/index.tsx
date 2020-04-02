@@ -5,7 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
+import { CELEBRATE_SHARE_STORY_SCREEN } from '../NewPostScreen';
 import { Organization } from '../../../reducers/organizations';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 

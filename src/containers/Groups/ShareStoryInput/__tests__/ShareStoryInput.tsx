@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
+import { CELEBRATE_SHARE_STORY_SCREEN } from '../../NewPostScreen';
 import { renderWithContext } from '../../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
@@ -35,7 +35,7 @@ it('does not render for Global Community', () => {
   renderWithContext(<ShareStoryInput {...globalCommunityProps} />).snapshot();
 });
 
-it('onPress switches to ShareStoryScreen', () => {
+it('onPress switches to NewPostScreen', () => {
   const { getByTestId } = renderWithContext(<ShareStoryInput {...props} />);
   fireEvent.press(getByTestId('ShareStoryInput'));
   expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
