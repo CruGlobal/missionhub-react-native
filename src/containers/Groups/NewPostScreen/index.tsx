@@ -16,6 +16,7 @@ import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
+import ImagePicker from '../../../components/ImagePicker';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
@@ -44,9 +45,7 @@ export const CREATE_A_STORY = gql`
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
-interface ShareStoryScreenProps {}
-
-export const NewPostScreen = ({}: ShareStoryScreenProps) => {
+export const NewPostScreen = () => {
   const { t } = useTranslation('shareAStoryScreen');
   const {
     container,
@@ -60,6 +59,7 @@ export const NewPostScreen = ({}: ShareStoryScreenProps) => {
   } = styles;
   const dispatch = useDispatch();
   const [post, changePost] = useState('');
+  const [image, changeImage] = useState<null>(null);
   const onComplete: () => void = useNavigationParam('onComplete');
   const organization: Organization = useNavigationParam('organization');
   const analyticsPermissionType = useSelector<
@@ -90,7 +90,9 @@ export const NewPostScreen = ({}: ShareStoryScreenProps) => {
     onComplete();
   };
 
-  const handlePressAddPhoto = () => {};
+  const handleSavePhoto = image => {
+    changeImage(image);
+  };
 
   const renderHeader = () => (
     <Header
@@ -113,6 +115,8 @@ export const NewPostScreen = ({}: ShareStoryScreenProps) => {
       <View style={lineBreak} />
     </>
   );
+
+  const renderImage = () => <Image source={image} />;
 
   return (
     <View style={container}>
@@ -140,7 +144,7 @@ export const NewPostScreen = ({}: ShareStoryScreenProps) => {
           placeholderTextColor={theme.lightGrey}
           style={textInput}
         />
-        {renderAddPhotoButton()}
+        <ImagePicker>{renderAddPhotoButton()}</ImagePicker>
       </ScrollView>
       <BottomButton
         text={t('shareStory')}
