@@ -1,8 +1,8 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import * as RNOmniture from 'react-native-omniture';
+import appsFlyer from 'react-native-appsflyer';
 //import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
-//import Config from 'react-native-config';
 
 import {
   ACTIONS,
@@ -119,6 +119,7 @@ export const trackScreenChange = (
   } else {
     RNOmniture.loadMarketingCloudId(result => {
       sendScreenChange(result);
+      appsFlyer.setAdditionalData({ ECID: result });
     });
   }
 };

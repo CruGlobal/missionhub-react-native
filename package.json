@@ -68,6 +68,7 @@
     "react-i18next": "^10.12.2",
     "react-native": "^0.61.2",
     "react-native-animatable": "^1.3.2",
+    "react-native-appsflyer": "^5.1.3",
     "react-native-code-push": "^5.7.0",
     "react-native-config": "^0.11.7",
     "react-native-default-preference": "^1.4.1",
@@ -169,6 +170,7 @@
     "setupFiles": [
       "<rootDir>/__mock__/react-native.ts",
       "<rootDir>/__mock__/react-native-device-info.ts",
+      "<rootDir>/__mock__/react-native-appsflyer.ts",
       "<rootDir>/__mock__/react-native-code-push.js",
       "<rootDir>/__mock__/react-native-firebase.ts",
       "<rootDir>/__mock__/react-native-localize.ts",
