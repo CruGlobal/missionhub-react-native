@@ -26,6 +26,23 @@ describe('ErrorNotice', () => {
       />,
     ).snapshot();
   });
+  it('should show general error if no specific errors are matched', () => {
+    renderWithContext(
+      <ErrorNotice
+        message="A test error was fired."
+        error={
+          new ApolloError({ graphQLErrors: [new GraphQLError('test error')] })
+        }
+        specificErrors={[
+          {
+            condition: 'CANNOT_EDIT_FIRST_NAME',
+            message: 'A specific error was fired',
+          },
+        ]}
+        refetch={() => Promise.resolve()}
+      />,
+    ).snapshot();
+  });
   it('should render an a specificError', () => {
     renderWithContext(
       <ErrorNotice

@@ -24,25 +24,28 @@ export const ErrorNotice = ({
   specificErrors = [],
 }: ErrorNoticeProps) => {
   const { t } = useTranslation('errorNotice');
+  const matchedErrors =
+    error &&
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    specificErrors.reduce((acc: any, specificError) => {
+      return error.graphQLErrors
+        .map(({ message }) => message)
+        .includes(specificError.condition)
+        ? [
+            ...acc,
+            <Text key={message} style={styles.white}>
+              {specificError.message}
+            </Text>,
+          ]
+        : acc;
+    }, []);
 
   return error ? (
     <Touchable style={styles.errorContainer} onPress={refetch}>
       {error.networkError ? (
         <Text style={styles.white}>{t('offline')}</Text>
-      ) : specificErrors.length > 0 ? (
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        specificErrors.reduce((acc: any, specificError) => {
-          return error.graphQLErrors
-            .map(({ message }) => message)
-            .includes(specificError.condition)
-            ? [
-                ...acc,
-                <Text key={message} style={styles.white}>
-                  {specificError.message}
-                </Text>,
-              ]
-            : acc;
-        }, [])
+      ) : matchedErrors.length > 0 ? (
+        matchedErrors
       ) : (
         <Text style={styles.white}>{message}</Text>
       )}
