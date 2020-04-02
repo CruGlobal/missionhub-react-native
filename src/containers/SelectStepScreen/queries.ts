@@ -31,27 +31,9 @@ export const STEP_SUGGESTIONS_QUERY = gql`
 
 export const STEP_TYPE_COUNTS_QUERY = gql`
   query StepTypeCounts($personId: ID!) {
-    person(id: $personId) {
-      relateSteps: steps(completed: true, types: relate) {
-        pageInfo {
-          totalCount
-        }
-      }
-      praySteps: steps(completed: true, types: pray) {
-        pageInfo {
-          totalCount
-        }
-      }
-      careSteps: steps(completed: true, types: care) {
-        pageInfo {
-          totalCount
-        }
-      }
-      shareSteps: steps(completed: true, types: share) {
-        pageInfo {
-          totalCount
-        }
-      }
+    completedStepsReport(personId: $personId, period: "P1Y") {
+      count
+      stepType
     }
   }
 `;

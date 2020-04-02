@@ -3422,13 +3422,13 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
             "action": [Function],
             "icon": false,
             "key": "3",
-            "text": "qui recusandae ut",
+            "text": "ut libero qui",
           },
           Object {
             "action": [Function],
             "icon": false,
             "key": "4",
-            "text": "nulla quam ipsam",
+            "text": "recusandae ut nulla",
           },
         ]
       }
@@ -3587,7 +3587,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 ]
               }
             >
-              qui recusandae ut
+              ut libero qui
             </Text>
           </View>
         </View>
@@ -3644,7 +3644,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 ]
               }
             >
-              nulla quam ipsam
+              recusandae ut nulla
             </Text>
           </View>
         </View>
@@ -3733,7 +3733,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               ]
             }
           >
-            Ezequiel this week...
+            Chyna this week...
           </Text>
         </View>
         <View
@@ -4084,13 +4084,13 @@ exports[`should load step suggestions 1`] = `
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"3\\",
-+             \\"text\\": \\"qui recusandae ut\\",
++             \\"text\\": \\"ut libero qui\\",
             },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"4\\",
-+             \\"text\\": \\"nulla quam ipsam\\",
++             \\"text\\": \\"recusandae ut nulla\\",
 +           },
           ]
         }
@@ -4170,7 +4170,7 @@ exports[`should load step suggestions 1`] = `
 +                 ]
 +               }
 +             >
-+               qui recusandae ut
++               ut libero qui
 +             </Text>
 +           </View>
 +         </View>
@@ -4234,7 +4234,7 @@ exports[`should load step suggestions 1`] = `
 -               hidesWhenStopped={true}
 -               size=\\"small\\"
 -             />
-+               nulla quam ipsam
++               recusandae ut nulla
 +             </Text>
             </View>
           </View>
@@ -4265,7 +4265,7 @@ exports[`should load step suggestions 1`] = `
               }
             >
 -              this week...
-+             Ezequiel this week...
++             Chyna this week...
             </Text>
           </View>
           <View
@@ -4306,7 +4306,7 @@ exports[`should load step suggestions 1`] = `
 +                     ]
 +                   }
 +                 >
-+                   20445
++                   0
 +                 </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
@@ -4360,7 +4360,7 @@ exports[`should load step suggestions 1`] = `
 +                     ]
 +                   }
 +                 >
-+                   44345
++                   0
 +                 </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
@@ -4412,7 +4412,7 @@ exports[`should load step suggestions 1`] = `
 +                     ]
 +                   }
 +                 >
-+                   87811
++                   41919
                   </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
@@ -4463,7 +4463,7 @@ exports[`should load step suggestions 1`] = `
 +                     ]
 +                   }
 +                 >
-+                   22957
++                   0
                   </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
@@ -4484,19 +4484,19 @@ exports[`should paginate 1`] = `
               \\"action\\": [Function action],
               \\"icon\\": false,
               \\"key\\": \\"4\\",
-              \\"text\\": \\"nulla quam ipsam\\",
+              \\"text\\": \\"recusandae ut nulla\\",
             },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"5\\",
-+             \\"text\\": \\"libero repudiandae esse\\",
++             \\"text\\": \\"debitis incidunt accusantium\\",
 +           },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"6\\",
-+             \\"text\\": \\"blanditiis natus et\\",
++             \\"text\\": \\"sed libero repudiandae\\",
 +           },
           ]
         }
@@ -4508,7 +4508,7 @@ exports[`should paginate 1`] = `
                   ]
                 }
               >
-                nulla quam ipsam
+                recusandae ut nulla
 +             </Text>
 +           </View>
 +         </View>
@@ -4565,7 +4565,7 @@ exports[`should paginate 1`] = `
 +                 ]
 +               }
 +             >
-+               libero repudiandae esse
++               debitis incidunt accusantium
               </Text>
             </View>
           </View>
@@ -4622,7 +4622,7 @@ exports[`should paginate 1`] = `
 +                 ]
 +               }
 +             >
-+               blanditiis natus et
++               sed libero repudiandae
 +             </Text>
 +           </View>
 +         </View>
@@ -4640,8 +4640,8 @@ exports[`should paginate 1`] = `
                 ]
               }
             >
--             Ezequiel this week...
-+             Alek this week...
+-             Chyna this week...
++             Connor this week...
             </Text>
           </View>
           <View

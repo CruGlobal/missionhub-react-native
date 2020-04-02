@@ -114,7 +114,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     },
   });
 
-  const { data: stepTypeCounts } = useQuery<
+  const { data: stepsReport } = useQuery<
     StepTypeCounts,
     StepTypeCountsVariables
   >(STEP_TYPE_COUNTS_QUERY, {
@@ -123,11 +123,21 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     },
   });
 
+  const stepTypeCounts = (stepsReport?.completedStepsReport || []).reduce(
+    (acc, { stepType, count }) => ({ ...acc, [stepType]: count }),
+    {
+      [StepTypeEnum.relate]: 0,
+      [StepTypeEnum.pray]: 0,
+      [StepTypeEnum.care]: 0,
+      [StepTypeEnum.share]: 0,
+    },
+  );
+
   const showCounts =
-    !!stepTypeCounts?.person.relateSteps.pageInfo.totalCount ||
-    !!stepTypeCounts?.person.praySteps.pageInfo.totalCount ||
-    !!stepTypeCounts?.person.careSteps.pageInfo.totalCount ||
-    !!stepTypeCounts?.person.shareSteps.pageInfo.totalCount;
+    !!stepTypeCounts.relate ||
+    !!stepTypeCounts.pray ||
+    !!stepTypeCounts.care ||
+    !!stepTypeCounts.share;
 
   const handleOnEndReached = () => {
     if (loading || !data?.person.stepSuggestions.pageInfo.hasNextPage) {
@@ -254,22 +264,10 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       </View>
       {enableStepTypeFilters ? (
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          {renderTab(
-            StepTypeEnum.relate,
-            stepTypeCounts?.person.relateSteps.pageInfo.totalCount,
-          )}
-          {renderTab(
-            StepTypeEnum.pray,
-            stepTypeCounts?.person.praySteps.pageInfo.totalCount,
-          )}
-          {renderTab(
-            StepTypeEnum.care,
-            stepTypeCounts?.person.careSteps.pageInfo.totalCount,
-          )}
-          {renderTab(
-            StepTypeEnum.share,
-            stepTypeCounts?.person.shareSteps.pageInfo.totalCount,
-          )}
+          {renderTab(StepTypeEnum.relate, stepTypeCounts.relate)}
+          {renderTab(StepTypeEnum.pray, stepTypeCounts.pray)}
+          {renderTab(StepTypeEnum.care, stepTypeCounts.care)}
+          {renderTab(StepTypeEnum.share, stepTypeCounts.share)}
         </View>
       ) : null}
     </View>

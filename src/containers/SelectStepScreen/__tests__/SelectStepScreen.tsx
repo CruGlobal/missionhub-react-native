@@ -161,7 +161,16 @@ it('should hide step count badges when there are no completed steps', async () =
   const { snapshot } = renderWithContext(<SelectStepScreen next={next} />, {
     initialState: state,
     navParams: { personId, orgId, enableSkipButton },
-    mocks: { StepConnection: () => ({ pageInfo: { totalCount: 0 } }) },
+    mocks: {
+      Query: () => ({
+        completedStepsReport: () => [
+          { count: 0, stepType: StepTypeEnum.relate },
+          { count: 0, stepType: StepTypeEnum.pray },
+          { count: 0, stepType: StepTypeEnum.care },
+          { count: 0, stepType: StepTypeEnum.share },
+        ],
+      }),
+    },
   });
 
   await flushMicrotasksQueue();
