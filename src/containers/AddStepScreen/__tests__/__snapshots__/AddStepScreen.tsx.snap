@@ -156,6 +156,341 @@ exports[`renders create step correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingBottom": 16,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        blurOnSubmit={true}
+        maxLength={255}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Create your own step"
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        scrollEnabled={false}
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "transparent",
+              "color": "#B4B6BA",
+              "flex": 1,
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "minHeight": 90.5,
+              "paddingHorizontal": 45,
+            },
+          ]
+        }
+        testID="stepInput"
+        textAlignVertical="top"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Object {
+              "alignItems": "center",
+              "height": 48,
+              "width": 650,
+            },
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Object {},
+              ],
+            ]
+          }
+        >
+          ADD TO MY STEPS
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders create step correctly on android 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "alignItems": "stretch",
+        "justifyContent": "center",
+        "paddingTop": 10,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": 80,
+      }
+    }
   >
     <View>
       <View
@@ -479,6 +814,11 @@ exports[`renders create step in onboarding correctly 1`] = `
     contentInset={
       Object {
         "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": undefined,
       }
     }
   >
@@ -806,6 +1146,11 @@ exports[`renders edit journey item correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -1085,6 +1430,11 @@ exports[`renders edit journey item for me correctly 1`] = `
     contentInset={
       Object {
         "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": undefined,
       }
     }
   >
@@ -1368,6 +1718,11 @@ exports[`renders edit journey step correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -1647,6 +2002,11 @@ exports[`renders edit journey step for me correctly 1`] = `
     contentInset={
       Object {
         "bottom": 96,
+      }
+    }
+    style={
+      Object {
+        "marginBottom": undefined,
       }
     }
   >
@@ -2002,6 +2362,11 @@ exports[`renders step note correctly 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -2355,6 +2720,11 @@ exports[`renders step note correctly for me 1`] = `
         "bottom": 96,
       }
     }
+    style={
+      Object {
+        "marginBottom": undefined,
+      }
+    }
   >
     <View>
       <TextInput
@@ -2485,7 +2855,7 @@ exports[`updates text 1`] = `
 - First value
 + Second value
 
-@@ -264,11 +264,11 @@
+@@ -269,11 +269,11 @@
             ]
           }
           testID=\\"stepInput\\"

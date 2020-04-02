@@ -290,7 +290,7 @@ exports[`in onboarding renders correctly 1`] = `
         Array [
           undefined,
           Object {
-            "paddingTop": 203,
+            "paddingTop": 195,
           },
         ]
       }
@@ -436,7 +436,7 @@ exports[`in onboarding renders correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#ECEEF2",
-          "height": 203,
+          "height": 195,
           "left": 0,
           "paddingTop": 0,
           "position": "absolute",
@@ -536,7 +536,13 @@ exports[`in onboarding renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -579,38 +585,32 @@ exports[`in onboarding renders correctly 1`] = `
               </View>
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "marginTop": 20,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": 9,
+                      "borderLeftColor": "transparent",
+                      "borderLeftWidth": 7,
+                      "borderRightColor": "transparent",
+                      "borderRightWidth": 7,
+                      "borderStyle": "solid",
+                      "height": 0,
+                      "width": 0,
+                    },
+                    Object {
+                      "borderBottomColor": "#ECEEF2",
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    Object {
+                      "marginTop": 12,
+                    },
+                  ]
                 }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderBottomWidth": 9,
-                        "borderLeftColor": "transparent",
-                        "borderLeftWidth": 7,
-                        "borderRightColor": "transparent",
-                        "borderRightWidth": 7,
-                        "borderStyle": "solid",
-                        "height": 0,
-                        "width": 0,
-                      },
-                      Object {
-                        "borderBottomColor": "#ECEEF2",
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      },
-                    ]
-                  }
-                />
-              </View>
+              />
             </View>
           </View>
           <View
@@ -630,7 +630,13 @@ exports[`in onboarding renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -690,7 +696,13 @@ exports[`in onboarding renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -750,7 +762,13 @@ exports[`in onboarding renders correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -811,7 +829,7 @@ exports[`loading should hide tabs when locale is not en 1`] = `
           Array [
             undefined,
             Object {
--             \\"paddingTop\\": 203,
+-             \\"paddingTop\\": 195,
 +             \\"paddingTop\\": 130,
             },
           ]
@@ -824,19 +842,20 @@ exports[`loading should hide tabs when locale is not en 1`] = `
         style={
           Object {
             \\"backgroundColor\\": \\"#ECEEF2\\",
--           \\"height\\": 203,
+-           \\"height\\": 195,
 +           \\"height\\": 130,
             \\"left\\": 0,
             \\"paddingTop\\": 0,
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -505,293 +505,10 @@
+@@ -504,312 +504,11 @@
+                  },
                 ]
               }
             >
                this week...
-            </Text>
+-           </Text>
 -         </View>
 -         <View
 -           style={
@@ -863,7 +882,13 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -               }
 -             }
 -           >
--             <View>
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
 -               <View
 -                 style={
 -                   Array [
@@ -902,42 +927,36 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -                   }
 -                 >
 -                   Relate
--                 </Text>
+            </Text>
 -               </View>
 -               <View
 -                 style={
--                   Object {
--                     \\"alignItems\\": \\"center\\",
--                     \\"marginTop\\": 20,
--                   }
+-                   Array [
+-                     Object {
+-                       \\"backgroundColor\\": \\"transparent\\",
+-                       \\"borderBottomWidth\\": 9,
+-                       \\"borderLeftColor\\": \\"transparent\\",
+-                       \\"borderLeftWidth\\": 7,
+-                       \\"borderRightColor\\": \\"transparent\\",
+-                       \\"borderRightWidth\\": 7,
+-                       \\"borderStyle\\": \\"solid\\",
+-                       \\"height\\": 0,
+-                       \\"width\\": 0,
+-                     },
+-                     Object {
+-                       \\"borderBottomColor\\": \\"#ECEEF2\\",
+-                       \\"transform\\": Array [
+-                         Object {
+-                           \\"rotate\\": \\"0deg\\",
+-                         },
+-                       ],
+-                     },
+-                     Object {
+-                       \\"marginTop\\": 12,
+-                     },
+-                   ]
 -                 }
--               >
--                 <View
--                   style={
--                     Array [
--                       Object {
--                         \\"backgroundColor\\": \\"transparent\\",
--                         \\"borderBottomWidth\\": 9,
--                         \\"borderLeftColor\\": \\"transparent\\",
--                         \\"borderLeftWidth\\": 7,
--                         \\"borderRightColor\\": \\"transparent\\",
--                         \\"borderRightWidth\\": 7,
--                         \\"borderStyle\\": \\"solid\\",
--                         \\"height\\": 0,
--                         \\"width\\": 0,
--                       },
--                       Object {
--                         \\"borderBottomColor\\": \\"#ECEEF2\\",
--                         \\"transform\\": Array [
--                           Object {
--                             \\"rotate\\": \\"0deg\\",
--                           },
--                         ],
--                       },
--                     ]
--                   }
--                 />
--               </View>
+-               />
 -             </View>
 -           </View>
 -           <View
@@ -957,7 +976,13 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -               }
 -             }
 -           >
--             <View>
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
 -               <View
 -                 style={
 -                   Array [
@@ -1017,7 +1042,13 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -               }
 -             }
 -           >
--             <View>
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
 -               <View
 -                 style={
 -                   Array [
@@ -1077,7 +1108,13 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -               }
 -             }
 -           >
--             <View>
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
 -               <View
 -                 style={
 -                   Array [
@@ -1350,7 +1387,7 @@ exports[`loading should render correctly 1`] = `
         Array [
           undefined,
           Object {
-            "paddingTop": 203,
+            "paddingTop": 195,
           },
         ]
       }
@@ -1496,7 +1533,7 @@ exports[`loading should render correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#ECEEF2",
-          "height": 203,
+          "height": 195,
           "left": 0,
           "paddingTop": 0,
           "position": "absolute",
@@ -1596,7 +1633,13 @@ exports[`loading should render correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -1639,38 +1682,32 @@ exports[`loading should render correctly 1`] = `
               </View>
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "marginTop": 20,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": 9,
+                      "borderLeftColor": "transparent",
+                      "borderLeftWidth": 7,
+                      "borderRightColor": "transparent",
+                      "borderRightWidth": 7,
+                      "borderStyle": "solid",
+                      "height": 0,
+                      "width": 0,
+                    },
+                    Object {
+                      "borderBottomColor": "#ECEEF2",
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    Object {
+                      "marginTop": 12,
+                    },
+                  ]
                 }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderBottomWidth": 9,
-                        "borderLeftColor": "transparent",
-                        "borderLeftWidth": 7,
-                        "borderRightColor": "transparent",
-                        "borderRightWidth": 7,
-                        "borderStyle": "solid",
-                        "height": 0,
-                        "width": 0,
-                      },
-                      Object {
-                        "borderBottomColor": "#ECEEF2",
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      },
-                    ]
-                  }
-                />
-              </View>
+              />
             </View>
           </View>
           <View
@@ -1690,7 +1727,13 @@ exports[`loading should render correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -1750,7 +1793,13 @@ exports[`loading should render correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -1810,7 +1859,13 @@ exports[`loading should render correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -2600,7 +2655,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
         Array [
           undefined,
           Object {
-            "paddingTop": 203,
+            "paddingTop": 195,
           },
         ]
       }
@@ -2746,7 +2801,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
       style={
         Object {
           "backgroundColor": "#ECEEF2",
-          "height": 203,
+          "height": 195,
           "left": 0,
           "paddingTop": 0,
           "position": "absolute",
@@ -2846,7 +2901,13 @@ exports[`loading skip button should render skip button correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -2889,38 +2950,32 @@ exports[`loading skip button should render skip button correctly 1`] = `
               </View>
               <View
                 style={
-                  Object {
-                    "alignItems": "center",
-                    "marginTop": 20,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": 9,
+                      "borderLeftColor": "transparent",
+                      "borderLeftWidth": 7,
+                      "borderRightColor": "transparent",
+                      "borderRightWidth": 7,
+                      "borderStyle": "solid",
+                      "height": 0,
+                      "width": 0,
+                    },
+                    Object {
+                      "borderBottomColor": "#ECEEF2",
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    Object {
+                      "marginTop": 12,
+                    },
+                  ]
                 }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderBottomWidth": 9,
-                        "borderLeftColor": "transparent",
-                        "borderLeftWidth": 7,
-                        "borderRightColor": "transparent",
-                        "borderRightWidth": 7,
-                        "borderStyle": "solid",
-                        "height": 0,
-                        "width": 0,
-                      },
-                      Object {
-                        "borderBottomColor": "#ECEEF2",
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      },
-                    ]
-                  }
-                />
-              </View>
+              />
             </View>
           </View>
           <View
@@ -2940,7 +2995,13 @@ exports[`loading skip button should render skip button correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -3000,7 +3061,13 @@ exports[`loading skip button should render skip button correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -3060,7 +3127,873 @@ exports[`loading skip button should render skip button correctly 1`] = `
               }
             }
           >
-            <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Share
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`should hide step count badges when there are no completed steps 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          Object {
+            "backgroundColor": "#007398",
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="SelectStepExplainerIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#ffffff"
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <RCTScrollView
+      ListFooterComponent={null}
+      ListHeaderComponent={
+        <ErrorNotice
+          message="Error loading step suggestions"
+          refetch={[Function]}
+        />
+      }
+      bounces={false}
+      contentContainerStyle={
+        Array [
+          undefined,
+          Object {
+            "paddingTop": 195,
+          },
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "action": [Function],
+            "icon": true,
+            "key": "custom",
+            "text": "Create your own Relate Step",
+          },
+          Object {
+            "action": [Function],
+            "icon": false,
+            "key": "3",
+            "text": "ut libero qui",
+          },
+          Object {
+            "action": [Function],
+            "icon": false,
+            "key": "4",
+            "text": "recusandae ut nulla",
+          },
+        ]
+      }
+      disableHeaderMomentum={false}
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      headerMomentumDuration={350}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0.2}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      overScrollMode="never"
+      refreshControl={
+        <MyRefreshControl
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={1}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "paddingVertical": 12,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          onLayout={[Function]}
+        />
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 20,
+                "marginVertical": 6,
+                "opacity": 1,
+                "padding": 20,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                    "lineHeight": 22,
+                  },
+                ]
+              }
+            >
+              Create your own Relate Step
+            </Text>
+            <SvgMock />
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 20,
+                "marginVertical": 6,
+                "opacity": 1,
+                "padding": 20,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                    "lineHeight": 22,
+                  },
+                ]
+              }
+            >
+              ut libero qui
+            </Text>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderRadius": 8,
+                "elevation": 4,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginHorizontal": 20,
+                "marginVertical": 6,
+                "opacity": 1,
+                "padding": 20,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.3,
+                "shadowRadius": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                    "lineHeight": 22,
+                  },
+                ]
+              }
+            >
+              recusandae ut nulla
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "height": 0,
+            }
+          }
+        />
+      </View>
+    </RCTScrollView>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 195,
+          "left": 0,
+          "paddingTop": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#007398",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "marginHorizontal": 30,
+              "marginVertical": 35,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "letterSpacing": 2,
+                  "lineHeight": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Choose a step to take with 
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "letterSpacing": 2,
+                  "lineHeight": 30,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Chyna this week...
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Relate
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderBottomWidth": 9,
+                      "borderLeftColor": "transparent",
+                      "borderLeftWidth": 7,
+                      "borderRightColor": "transparent",
+                      "borderRightWidth": 7,
+                      "borderStyle": "solid",
+                      "height": 0,
+                      "width": 0,
+                    },
+                    Object {
+                      "borderBottomColor": "#ECEEF2",
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    Object {
+                      "marginTop": 12,
+                    },
+                  ]
+                }
+              />
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Pray
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#52C5DC"
+                  height={24}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Array [
+                        Object {
+                          "color": "#52C5DC",
+                          "fontSize": 16,
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "paddingLeft": 4,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  Care
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                }
+              }
+            >
               <View
                 style={
                   Array [
@@ -3128,7 +4061,19 @@ exports[`should load step suggestions 1`] = `
             message=\\"Error loading step suggestions\\"
             refetch={[Function anonymous]}
           />
-@@ -229,10 +229,22 @@
+@@ -218,22 +218,34 @@
+        bounces={false}
+        contentContainerStyle={
+          Array [
+            undefined,
+            Object {
+-             \\"paddingTop\\": 195,
++             \\"paddingTop\\": 239,
+            },
+          ]
+        }
+        data={
+          Array [
             Object {
               \\"action\\": [Function action],
               \\"icon\\": true,
@@ -3139,18 +4084,19 @@ exports[`should load step suggestions 1`] = `
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"3\\",
-+             \\"text\\": \\"sunt qui amet\\",
-+           },
++             \\"text\\": \\"ut libero qui\\",
+            },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"4\\",
-+             \\"text\\": \\"iure ut libero\\",
-            },
++             \\"text\\": \\"recusandae ut nulla\\",
++           },
           ]
         }
         disableHeaderMomentum={false}
         disableVirtualization={false}
+        getItem={[Function anonymous]}
 @@ -255,11 +267,11 @@
         onScrollEndDrag={[Function anonymous]}
         overScrollMode=\\"never\\"
@@ -3164,7 +4110,7 @@ exports[`should load step suggestions 1`] = `
         removeClippedSubviews={false}
         renderItem={[Function anonymous]}
         scrollEventThrottle={1}
-@@ -335,33 +347,130 @@
+@@ -335,40 +347,137 @@
               </Text>
               <SvgMock />
             </View>
@@ -3185,7 +4131,7 @@ exports[`should load step suggestions 1`] = `
 +             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
 +             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
 +             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+             style={
+              style={
 +               Object {
 +                 \\"alignItems\\": \\"center\\",
 +                 \\"backgroundColor\\": \\"#ffffff\\",
@@ -3208,23 +4154,23 @@ exports[`should load step suggestions 1`] = `
 +             }
 +           >
 +             <Text
-                style={
++               style={
                   Array [
                     Object {
 -                   \\"padding\\": 10,
 +                     \\"color\\": \\"#505256\\",
-+                   },
+                    },
 +                   Object {
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                    },
-                    Object {
++                   },
++                   Object {
 +                     \\"fontSize\\": 16,
 +                     \\"lineHeight\\": 22,
 +                   },
 +                 ]
 +               }
 +             >
-+               sunt qui amet
++               ut libero qui
 +             </Text>
 +           </View>
 +         </View>
@@ -3244,7 +4190,7 @@ exports[`should load step suggestions 1`] = `
 +             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
 +             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +             style={
-+               Object {
+                Object {
                   \\"alignItems\\": \\"center\\",
 -                   \\"justifyContent\\": \\"center\\",
 +                 \\"backgroundColor\\": \\"#ffffff\\",
@@ -3271,10 +4217,10 @@ exports[`should load step suggestions 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"color\\": \\"#505256\\",
-+                   },
+                    },
 +                   Object {
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                    },
++                   },
 +                   Object {
 +                     \\"fontSize\\": 16,
 +                     \\"lineHeight\\": 22,
@@ -3288,7 +4234,7 @@ exports[`should load step suggestions 1`] = `
 -               hidesWhenStopped={true}
 -               size=\\"small\\"
 -             />
-+               iure ut libero
++               recusandae ut nulla
 +             </Text>
             </View>
           </View>
@@ -3304,6 +4250,14 @@ exports[`should load step suggestions 1`] = `
       <View
         style={
           Object {
+            \\"backgroundColor\\": \\"#ECEEF2\\",
+-           \\"height\\": 195,
++           \\"height\\": 239,
+            \\"left\\": 0,
+            \\"paddingTop\\": 0,
+            \\"position\\": \\"absolute\\",
+            \\"right\\": 0,
+            \\"top\\": 0,
 @@ -436,11 +545,11 @@
                     \\"textAlign\\": \\"center\\",
                   },
@@ -3311,12 +4265,214 @@ exports[`should load step suggestions 1`] = `
               }
             >
 -              this week...
-+             Caesar this week...
++             Chyna this week...
             </Text>
           </View>
           <View
             style={
-              Object {"
+              Object {
+@@ -515,10 +624,49 @@
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"borderRadius\\": 30,
++                       \\"flexDirection\\": \\"row\\",
++                       \\"marginTop\\": 20,
++                       \\"paddingHorizontal\\": 14,
++                       \\"paddingVertical\\": 3,
++                     },
++                     Object {
++                       \\"backgroundColor\\": \\"#ffffff\\",
++                     },
++                   ]
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                         \\"marginRight\\": 4,
++                       },
++                     ]
++                   }
++                 >
++                   0
++                 </Text>
++                 <SvgMock
++                   color=\\"#007398\\"
++                 />
++               </View>
++               <View
++                 style={
++                   Array [
++                     Object {
+                        \\"backgroundColor\\": \\"transparent\\",
+                        \\"borderBottomWidth\\": 9,
+                        \\"borderLeftColor\\": \\"transparent\\",
+                        \\"borderLeftWidth\\": 7,
+                        \\"borderRightColor\\": \\"transparent\\",
+@@ -605,10 +753,49 @@
+                    }
+                  >
+                    Pray
+                  </Text>
+                </View>
++               <View
++                 style={
++                   Array [
++                     Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"borderRadius\\": 30,
++                       \\"flexDirection\\": \\"row\\",
++                       \\"marginTop\\": 20,
++                       \\"paddingHorizontal\\": 14,
++                       \\"paddingVertical\\": 3,
++                     },
++                     Object {
++                       \\"backgroundColor\\": \\"#3CC8E6\\",
++                     },
++                   ]
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                         \\"marginRight\\": 4,
++                       },
++                     ]
++                   }
++                 >
++                   0
++                 </Text>
++                 <SvgMock
++                   color=\\"#007398\\"
++                 />
++               </View>
+              </View>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+@@ -669,11 +856,50 @@
+                        ],
+                      ]
+                    }
+                  >
+                    Care
++                 </Text>
++               </View>
++               <View
++                 style={
++                   Array [
++                     Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"borderRadius\\": 30,
++                       \\"flexDirection\\": \\"row\\",
++                       \\"marginTop\\": 20,
++                       \\"paddingHorizontal\\": 14,
++                       \\"paddingVertical\\": 3,
++                     },
++                     Object {
++                       \\"backgroundColor\\": \\"#3CC8E6\\",
++                     },
++                   ]
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                         \\"marginRight\\": 4,
++                       },
++                     ]
++                   }
++                 >
++                   41919
+                  </Text>
++                 <SvgMock
++                   color=\\"#007398\\"
++                 />
+                </View>
+              </View>
+            </View>
+            <View
+              accessible={true}
+@@ -735,11 +961,50 @@
+                        ],
+                      ]
+                    }
+                  >
+                    Share
++                 </Text>
++               </View>
++               <View
++                 style={
++                   Array [
++                     Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"borderRadius\\": 30,
++                       \\"flexDirection\\": \\"row\\",
++                       \\"marginTop\\": 20,
++                       \\"paddingHorizontal\\": 14,
++                       \\"paddingVertical\\": 3,
++                     },
++                     Object {
++                       \\"backgroundColor\\": \\"#3CC8E6\\",
++                     },
++                   ]
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                         \\"marginRight\\": 4,
++                       },
++                     ]
++                   }
++                 >
++                   0
+                  </Text>
++                 <SvgMock
++                   color=\\"#007398\\"
++                 />
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>"
 `;
 
 exports[`should paginate 1`] = `
@@ -3328,19 +4484,19 @@ exports[`should paginate 1`] = `
               \\"action\\": [Function action],
               \\"icon\\": false,
               \\"key\\": \\"4\\",
-              \\"text\\": \\"iure ut libero\\",
+              \\"text\\": \\"recusandae ut nulla\\",
             },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"5\\",
-+             \\"text\\": \\"ut nulla quam\\",
++             \\"text\\": \\"debitis incidunt accusantium\\",
 +           },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"6\\",
-+             \\"text\\": \\"ipsam nobis cupiditate\\",
++             \\"text\\": \\"sed libero repudiandae\\",
 +           },
           ]
         }
@@ -3352,7 +4508,7 @@ exports[`should paginate 1`] = `
                   ]
                 }
               >
-                iure ut libero
+                recusandae ut nulla
 +             </Text>
 +           </View>
 +         </View>
@@ -3409,7 +4565,7 @@ exports[`should paginate 1`] = `
 +                 ]
 +               }
 +             >
-+               ut nulla quam
++               debitis incidunt accusantium
               </Text>
             </View>
           </View>
@@ -3466,7 +4622,7 @@ exports[`should paginate 1`] = `
 +                 ]
 +               }
 +             >
-+               ipsam nobis cupiditate
++               sed libero repudiandae
 +             </Text>
 +           </View>
 +         </View>
@@ -3484,8 +4640,8 @@ exports[`should paginate 1`] = `
                 ]
               }
             >
--             Caesar this week...
-+             Gracie this week...
+-             Chyna this week...
++             Connor this week...
             </Text>
           </View>
           <View
@@ -3498,7 +4654,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -834,6 +834,9 @@
+@@ -1008,6 +1008,9 @@
             </View>
           </View>
         </View>

@@ -164,6 +164,26 @@ it('should load step suggestions', async () => {
   });
 });
 
+it('should hide step count badges when there are no completed steps', async () => {
+  const { snapshot } = renderWithContext(<SelectStepScreen next={next} />, {
+    initialState: state,
+    navParams: { personId, orgId, enableSkipButton },
+    mocks: {
+      Query: () => ({
+        completedStepsReport: () => [
+          { count: 0, stepType: StepTypeEnum.relate },
+          { count: 0, stepType: StepTypeEnum.pray },
+          { count: 0, stepType: StepTypeEnum.care },
+          { count: 0, stepType: StepTypeEnum.share },
+        ],
+      }),
+    },
+  });
+
+  await flushMicrotasksQueue();
+  snapshot();
+});
+
 it('should paginate', async () => {
   const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
     <SelectStepScreen next={next} />,

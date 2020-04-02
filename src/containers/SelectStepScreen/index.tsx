@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 import React, { useState } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
@@ -41,12 +43,17 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { FooterLoading } from '../../components/FooterLoading';
 
 import styles from './styles';
-import { STEP_SUGGESTIONS_QUERY } from './queries';
+import Checkmark from './checkmark.svg';
+import { STEP_SUGGESTIONS_QUERY, STEP_TYPE_COUNTS_QUERY } from './queries';
 import {
   StepSuggestions,
   StepSuggestionsVariables,
 } from './__generated__/StepSuggestions';
 import CreateCustomStepIcon from './createCustomStepIcon.svg';
+import {
+  StepTypeCounts,
+  StepTypeCountsVariables,
+} from './__generated__/StepTypeCounts';
 
 export interface SelectStepScreenNextProps {
   personId: string;
@@ -106,6 +113,31 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       seed: randomStepOrderSeed,
     },
   });
+
+  const { data: stepsReport } = useQuery<
+    StepTypeCounts,
+    StepTypeCountsVariables
+  >(STEP_TYPE_COUNTS_QUERY, {
+    variables: {
+      personId,
+    },
+  });
+
+  const stepTypeCounts = (stepsReport?.completedStepsReport || []).reduce(
+    (acc, { stepType, count }) => ({ ...acc, [stepType]: count }),
+    {
+      [StepTypeEnum.relate]: 0,
+      [StepTypeEnum.pray]: 0,
+      [StepTypeEnum.care]: 0,
+      [StepTypeEnum.share]: 0,
+    },
+  );
+
+  const showCounts =
+    !!stepTypeCounts.relate ||
+    !!stepTypeCounts.pray ||
+    !!stepTypeCounts.care ||
+    !!stepTypeCounts.share;
 
   const handleOnEndReached = () => {
     if (loading || !data?.person.stepSuggestions.pageInfo.hasNextPage) {
@@ -176,11 +208,11 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     navigateNext({ skip: true });
   };
 
-  const renderTab = (stepType: StepTypeEnum) => {
+  const renderTab = (stepType: StepTypeEnum, count = 0) => {
     const isSelected = currentStepType === stepType;
     return (
       <Touchable onPress={() => setCurrentStepType(stepType)}>
-        <View>
+        <View style={{ alignItems: 'center' }}>
           <StepTypeBadge
             displayVertically={true}
             color={isSelected ? theme.white : theme.secondaryColor}
@@ -188,10 +220,26 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
             labelUppercase={false}
             includeStepInLabel={false}
           />
-          {isSelected ? (
-            <View style={{ marginTop: 20, alignItems: 'center' }}>
-              <TriangleIndicator color={theme.extraLightGrey} />
+          {showCounts ? (
+            <View
+              style={[
+                styles.completedCountBadge,
+                {
+                  backgroundColor: isSelected
+                    ? theme.white
+                    : theme.parakeetBlue,
+                },
+              ]}
+            >
+              <Text style={styles.completedCountBadgeText}>{count}</Text>
+              <Checkmark color={theme.primaryColor} />
             </View>
+          ) : null}
+          {isSelected ? (
+            <TriangleIndicator
+              color={theme.extraLightGrey}
+              style={{ marginTop: 12 }}
+            />
           ) : null}
         </View>
       </Touchable>
@@ -216,10 +264,10 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       </View>
       {enableStepTypeFilters ? (
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          {renderTab(StepTypeEnum.relate)}
-          {renderTab(StepTypeEnum.pray)}
-          {renderTab(StepTypeEnum.care)}
-          {renderTab(StepTypeEnum.share)}
+          {renderTab(StepTypeEnum.relate, stepTypeCounts.relate)}
+          {renderTab(StepTypeEnum.pray, stepTypeCounts.pray)}
+          {renderTab(StepTypeEnum.care, stepTypeCounts.care)}
+          {renderTab(StepTypeEnum.share, stepTypeCounts.share)}
         </View>
       ) : null}
     </View>
@@ -244,7 +292,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
         style={{ backgroundColor: theme.primaryColor }}
       />
       <CollapsibleHeaderFlatList
-        headerHeight={enableStepTypeFilters ? 203 : 130}
+        headerHeight={enableStepTypeFilters ? (showCounts ? 239 : 195) : 130}
         clipHeader={true}
         headerContainerBackgroundColor={theme.extraLightGrey}
         style={{ paddingVertical: 12 }}

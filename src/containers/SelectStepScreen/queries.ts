@@ -28,3 +28,12 @@ export const STEP_SUGGESTIONS_QUERY = gql`
     }
   }
 `;
+
+export const STEP_TYPE_COUNTS_QUERY = gql`
+  query StepTypeCounts($personId: ID!) {
+    completedStepsReport(personId: $personId, period: "P99Y") {
+      count
+      stepType
+    }
+  }
+`;

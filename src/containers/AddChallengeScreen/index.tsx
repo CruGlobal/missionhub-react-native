@@ -18,6 +18,7 @@ import { AuthState } from '../../reducers/auth';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
@@ -128,7 +129,7 @@ const AddChallengeScreen = ({
         selectionColor={theme.secondaryColor}
         placeholder={t(isEdit ? 'titlePlaceholderEdit' : 'titlePlaceholderAdd')}
         placeholderTextColor={
-          isEditing === 'title' ? theme.lightGrey : theme.challengeBlue
+          isEditing === 'title' ? theme.lightGrey : theme.parakeetBlue
         }
         style={textInput}
       />
@@ -173,7 +174,7 @@ const AddChallengeScreen = ({
           selectionColor={theme.secondaryColor}
           placeholder={t('detailPlaceholder')}
           placeholderTextColor={
-            isEditing === 'detail' ? theme.lightGrey : theme.challengeBlue
+            isEditing === 'detail' ? theme.lightGrey : theme.parakeetBlue
           }
           style={detailInput}
         />
@@ -195,7 +196,7 @@ const AddChallengeScreen = ({
               testID="editButton"
               text={t('save').toUpperCase()}
               onPress={saveChallenge}
-              buttonTextStyle={{ color: theme.challengeBlue, fontSize: 14 }}
+              buttonTextStyle={{ color: theme.parakeetBlue, fontSize: 14 }}
               style={{ marginRight: 10 }}
             />
           ) : (
@@ -205,6 +206,7 @@ const AddChallengeScreen = ({
       />
       <ScrollView
         contentContainerStyle={styles.fieldWrap}
+        style={{ marginBottom: isAndroid ? 80 : undefined }}
         contentInset={{ bottom: 96 }}
       >
         {renderTitleInput()}
