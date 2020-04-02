@@ -11,6 +11,7 @@ import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../../../components/CelebrateItem/queries';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import * as common from '../../../../utils/common';
 
 import EditStoryScreen from '..';
 
@@ -36,6 +37,7 @@ const initialState = {
 };
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
 });
 
@@ -52,6 +54,18 @@ it('renders correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['story', 'edit'], {
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
   });
+});
+
+it('renders correctly on android', () => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+  renderWithContext(<EditStoryScreen />, {
+    initialState,
+    navParams: {
+      celebrationItem,
+      onRefresh,
+      organization,
+    },
+  }).snapshot();
 });
 
 it('renders empty text correctly', () => {

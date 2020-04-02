@@ -141,138 +141,155 @@ exports[`renders correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Object {
-        "alignItems": "flex-start",
-        "justifyContent": "flex-start",
-        "paddingHorizontal": 60,
-        "paddingVertical": 36,
-      }
-    }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "AmaticSC-Bold",
-          },
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 48,
-          },
-        ]
-      }
-    >
-      hi roger!
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          },
-        ]
-      }
-    >
-      While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
-
-Let's figure out where you are on your journey.
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
-      }
+      Array [
+        Object {
+          "paddingHorizontal": 60,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "flex-start",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
       }
-      testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
             Object {
-              "borderRadius": 50,
+              "fontFamily": "AmaticSC-Bold",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 48,
             },
           ]
         }
       >
-        <Text
+        hi roger!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "lineHeight": 32,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            },
+          ]
+        }
+      >
+        While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
+
+Let's figure out where you are on your journey.
+      </Text>
+    </View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bottomButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
+              null,
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
                 },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
+              Object {
+                "borderRadius": 50,
+              },
             ]
           }
         >
-          CONTINUE
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Array [
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            CONTINUE
+          </Text>
+        </View>
       </View>
-    </View>
-  </RCTSafeAreaView>
+    </RCTSafeAreaView>
+  </View>
 </View>
 `;
 
@@ -338,137 +355,154 @@ exports[`renders without back button correctly 1`] = `
   </RCTSafeAreaView>
   <View
     style={
-      Object {
-        "alignItems": "flex-start",
-        "justifyContent": "flex-start",
-        "paddingHorizontal": 60,
-        "paddingVertical": 36,
-      }
-    }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "AmaticSC-Bold",
-          },
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 48,
-          },
-        ]
-      }
-    >
-      hi roger!
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "lineHeight": 32,
-            "paddingVertical": 10,
-            "textAlign": "left",
-          },
-        ]
-      }
-    >
-      While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
-
-Let's figure out where you are on your journey.
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
-      }
+      Array [
+        Object {
+          "paddingHorizontal": 60,
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+      ]
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {},
+          Object {
+            "alignItems": "flex-start",
+            "flex": 4,
+            "justifyContent": "center",
+          },
+        ]
       }
-      testID="bottomButton"
     >
-      <View
+      <Text
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
+              "color": "#505256",
             },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
             Object {
-              "borderRadius": 50,
+              "fontFamily": "AmaticSC-Bold",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 48,
             },
           ]
         }
       >
-        <Text
+        hi roger!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "lineHeight": 32,
+              "paddingVertical": 10,
+              "textAlign": "left",
+            },
+          ]
+        }
+      >
+        While everyone's spiritual journey is unique, many people progress through a five stage journey toward God.
+
+Let's figure out where you are on your journey.
+      </Text>
+    </View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "bottom": 20,
+          "left": 50,
+          "position": "absolute",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bottomButton"
+      >
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
+              null,
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
                 },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
+              Object {
+                "borderRadius": 50,
+              },
             ]
           }
         >
-          CONTINUE
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Array [
+                    undefined,
+                  ],
+                ],
+              ]
+            }
+          >
+            CONTINUE
+          </Text>
+        </View>
       </View>
-    </View>
-  </RCTSafeAreaView>
+    </RCTSafeAreaView>
+  </View>
 </View>
 `;

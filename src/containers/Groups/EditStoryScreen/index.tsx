@@ -19,6 +19,7 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { AuthState } from '../../../reducers/auth';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { isAndroid } from '../../../utils/common';
 
 import styles from './styles';
 import { UpdateStory, UpdateStoryVariables } from './__generated__/UpdateStory';
@@ -72,7 +73,10 @@ const EditStoryScreen = ({ analyticsPermissionType }: EditStoryProps) => {
   return (
     <View style={container}>
       <Header left={<BackButton iconStyle={backButton} />} />
-      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+      <ScrollView
+        style={{ flex: 1, marginBottom: isAndroid ? 80 : undefined }}
+        contentInset={{ bottom: 90 }}
+      >
         <Input
           testID="EditInput"
           scrollEnabled={false}

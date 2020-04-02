@@ -9,6 +9,7 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
+import * as common from '../../../utils/common';
 
 import AddChallengeScreen from '..';
 
@@ -35,6 +36,7 @@ const initialState = {
 };
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
     id: '2',
     permission_id: ORG_PERMISSIONS.OWNER,
@@ -53,6 +55,18 @@ it('renders correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'create'], {
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
   });
+});
+
+it('renders correctly on android', () => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+  renderWithContext(<AddChallengeScreen />, {
+    initialState,
+    navParams: {
+      organization,
+      onComplete,
+      isEdit: false,
+    },
+  }).snapshot();
 });
 
 it('renders edit challenge correctly', () => {

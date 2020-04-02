@@ -74,10 +74,13 @@ describe('buildTrackingObj', () => {
 describe('isAuthenticated', () => {
   it('returns true', () => {
     expect(isAuthenticated({ token: 'abcd' } as AuthState)).toEqual(true);
+    expect(isAuthenticated({ token: 'undefined' } as AuthState)).toEqual(true);
+    expect(isAuthenticated({ token: 'null' } as AuthState)).toEqual(true);
   });
 
   it('returns false', () => {
     expect(isAuthenticated({ token: '' } as AuthState)).toEqual(false);
+    expect(isAuthenticated({ token: undefined } as AuthState)).toEqual(false);
   });
 });
 
