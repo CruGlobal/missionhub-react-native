@@ -11,6 +11,7 @@ import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigateToMainTabs } from '../../actions/navigation';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 import FooterLoading from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
@@ -40,7 +41,9 @@ interface StepsScreenProps {
 
 const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const { t } = useTranslation('stepsTab');
-  useAnalytics('steps', ANALYTICS_SCREEN_TYPES.screenWithDrawer);
+  useAnalytics('steps', {
+    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+  });
   useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
 
   const {
@@ -132,6 +135,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
+      <AnnouncementsModal />
       <Header
         testID="header"
         left={
@@ -151,7 +155,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
       />
       <View style={styles.contentContainer}>
         {hasSteps ? (
-          // @ts-ignore
           <OnboardingCard type={GROUP_ONBOARDING_TYPES.steps} />
         ) : null}
         {hasSteps ? renderSteps() : loading ? <LoadingGuy /> : renderNull()}

@@ -3,6 +3,10 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 
 import SelectStepScreen from '..';
@@ -42,6 +46,7 @@ const state = {
     },
   },
   steps: { suggestedForOthers: {} },
+  onboarding: { currentlyOnboarding: false },
 };
 
 let screen: ReturnType<typeof renderWithContext>;
@@ -62,7 +67,12 @@ describe('without enableSkipButton', () => {
   it('renders correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step');
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
   });
 });
 
@@ -74,7 +84,28 @@ describe('with enableSkipButton', () => {
   it('renders correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step');
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
+  });
+});
+
+describe('in onboarding', () => {
+  it('renders correctly', () => {
+    renderWithContext(<SelectStepScreen next={next} />, {
+      initialState: { ...state, onboarding: { currentlyOnboarding: true } },
+      navParams: { personId, orgId, enableSkipButton },
+    }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: 'onboarding',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
   });
 });
 

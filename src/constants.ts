@@ -10,7 +10,6 @@ export const PERSON_FIRST_NAME_CHANGED = 'app/PERSON_FIRST_NAME_CHANGED';
 export const PERSON_LAST_NAME_CHANGED = 'app/PERSON_LAST_NAME_CHANGED';
 export const ADD_STEP_REMINDER = 'app/ADD_STEP_REMINDER';
 export const REMOVE_STEP_REMINDER = 'app/REMOVE_STEP_REMINDER';
-export const DISABLE_WELCOME_NOTIFICATION = 'app/DISABLE_WELCOME_NOTIFICATION';
 export const PEOPLE_WITH_ORG_SECTIONS = 'app/PEOPLE_WITH_ORG_SECTIONS';
 export const SWIPE_REMINDER_JOURNEY = 'app/SWIPE_REMINDER_JOURNEY';
 export const GROUP_INVITE_INFO = 'app/GROUP_INVITE_INFO';
@@ -33,9 +32,6 @@ export const UPDATE_ONBOARDING_PERSON = 'app/UPDATE_ONBOARDING_PERSON';
 export const RESET_ONBOARDING_PERSON = 'app/RESET_ONBOARDING_PERSON';
 export const FILTERED_CHALLENGES = 'app/FILTERED_CHALLENGES';
 export const UPDATE_CHALLENGE = 'app/UPDATE_CHALLENGE';
-export const REQUEST_NOTIFICATIONS = 'app/REQUEST_NOTIFICATIONS';
-export const LOAD_HOME_NOTIFICATION_REMINDER =
-  'app/LOAD_HOME_NOTIFICATION_REMINDER';
 export const GET_ORGANIZATION_MEMBERS = 'app/GET_ORGANIZATION_MEMBERS';
 export const GET_ORGANIZATION_PEOPLE = 'app/GET_ORGANIZATION_PEOPLE';
 export const GET_ORGANIZATION_SURVEYS = 'app/GET_ORGANIZATION_SURVEYS';
@@ -100,9 +96,6 @@ export const LINKS = {
   privacy: 'https://get.missionhub.com/privacy',
 };
 
-export const ANALYTICS_CONTEXT_CHANGED = 'app/ANALYTICS_CONTEXT_CHANGED';
-export const ANALYTICS_CONTEXT_ONBOARDING = 'onboarding';
-
 export const ORG_PERMISSIONS = {
   ADMIN: '1',
   USER: '4',
@@ -111,21 +104,25 @@ export const ORG_PERMISSIONS = {
 };
 export const GCM_SENDER_ID = Config.GCM_SENDER_ID;
 
-export const ANALYTICS = {
-  MCID: 'cru.mcid',
-  SCREEN_NAME: 'cru.screenname',
-  SITE_SECTION: 'cru.sitesection',
-  SITE_SUBSECTION: 'cru.sitesubsection',
-  SITE_SUBSECTION_3: 'cru.subsectionlevel3',
-  PREVIOUS_SCREEN_NAME: 'cru.previousscreenname',
-  APP_NAME: 'cru.appname',
-  LOGGED_IN_STATUS: 'cru.loggedinstatus',
-  SSO_GUID: 'cru.ssoguid',
-  GR_MASTER_PERSON_ID: 'cru.grmasterpersonid',
-  FACEBOOK_ID: 'cru.facebookid',
-  CONTENT_LANGUAGE: 'cru.contentlanguage',
-  APP_CONTEXT: 'cru.appcontext',
-};
+//parameter names for the data we send to Analytics
+export const ANALYTICS_MCID = 'cru.mcid';
+export const ANALYTICS_SCREEN_NAME = 'cru.screenname';
+export const ANALYTICS_SITE_SECTION = 'cru.sitesection';
+export const ANALYTICS_SITE_SUBSECTION = 'cru.sitesubsection';
+export const ANALYTICS_SITE_SUBSECTION_3 = 'cru.subsectionlevel3';
+export const ANALYTICS_PREVIOUS_SCREEN_NAME = 'cru.previousscreenname';
+export const ANALYTICS_APP_NAME = 'cru.appname';
+export const ANALYTICS_LOGGED_IN_STATUS = 'cru.loggedinstatus';
+export const ANALYTICS_SSO_GUID = 'cru.ssoguid';
+export const ANALYTICS_GR_MASTER_PERSON_ID = 'cru.grmasterpersonid';
+export const ANALYTICS_FACEBOOK_ID = 'cru.facebookid';
+export const ANALYTICS_CONTENT_LANGUAGE = 'cru.contentlanguage';
+export const ANALYTICS_SECTION_TYPE = 'cru.section-type';
+export const ANALYTICS_ASSIGNMENT_TYPE = 'cru.assignment-type';
+export const ANALYTICS_EDIT_MODE = 'cru.edit-mode';
+export const ANALYTICS_PERMISSION_TYPE = 'cru.permission-type';
+export const ANALYTICS_MINISTRY_MODE = 'cru.ministry-mode';
+
 export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';
 export const NOT_LOGGED_IN = 'not logged in';
@@ -457,11 +454,11 @@ export const DAYS_OF_THE_WEEK = [
   'saturday',
 ];
 
-export const NOTIFICATION_PROMPT_TYPES = {
-  ONBOARDING: 'onboarding',
-  FOCUS_STEP: 'focusStep',
-  LOGIN: 'login',
-  SET_REMINDER: 'setReminder',
-  JOIN_COMMUNITY: 'joinCommunity',
-  JOIN_CHALLENGE: 'joinChallenge',
-};
+export enum NOTIFICATION_PROMPT_TYPES {
+  ONBOARDING,
+  FOCUS_STEP,
+  LOGIN,
+  SET_REMINDER,
+  JOIN_COMMUNITY,
+  JOIN_CHALLENGE,
+}

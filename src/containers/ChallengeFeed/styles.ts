@@ -10,10 +10,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     alignContent: 'center',
     backgroundColor: theme.extraLightGrey,
+    marginVertical: 8,
   },
   title: {
     fontSize: 12,
-    color: theme.textColor,
+    color: theme.lightGrey,
     textAlign: 'center',
+  },
+  nullContainer: {
+    marginTop: 5,
+    backgroundColor: theme.extraLightGrey,
   },
 });

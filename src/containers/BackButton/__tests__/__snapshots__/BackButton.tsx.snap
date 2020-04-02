@@ -21,3 +21,26 @@ exports[`back button renders normally 1`] = `
   />
 </View>
 `;
+
+exports[`back button renders with image 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "alignSelf": "flex-start",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <IconButton
+    image={12345}
+    name="backIcon"
+    onPress={[Function]}
+    testID="BackButton"
+    type="MissionHub"
+  />
+</View>
+`;

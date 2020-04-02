@@ -22,7 +22,10 @@ import {
   ACCEPTED_STEP,
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
+import { AuthState } from '../reducers/auth';
+import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
+import { StagesState } from '../reducers/stages';
 
 // @ts-ignore
 export const shuffleArray = arr => {
@@ -41,9 +44,6 @@ export const shuffleArray = arr => {
 
 export const isAndroid = Platform.OS === 'android';
 
-// @ts-ignore
-export const getAnalyticsSubsection = (personId, myId) =>
-  personId === myId ? 'self' : 'person';
 export const openMainMenu = () => {
   // @ts-ignore
   return dispatch => {
@@ -100,14 +100,19 @@ export const refresh = (obj, method) => {
     });
 };
 
-// @ts-ignore
-export const isAuthenticated = authState => authState.token;
+export const isAuthenticated = (authState: AuthState): boolean =>
+  !!authState.token;
+
+export const personIsCurrentUser = (personId: string, authState: AuthState) =>
+  personId === authState.person.id;
+
+export const isOnboarding = (onboardingState: OnboardingState) =>
+  onboardingState.currentlyOnboarding;
 
 //If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
-// @ts-ignore
-export const userIsJean = orgPermissions =>
-  // @ts-ignore
-  orgPermissions.some(p => !p.organization.user_created);
+export const userIsJean = (
+  orgPermissions: { organization: { user_created: boolean } }[],
+) => orgPermissions.some(p => !p.organization.user_created);
 
 // @ts-ignore
 export const orgIsPersonalMinistry = org =>
@@ -133,35 +138,60 @@ const MHUB_PERMISSIONS = [
   PermissionEnum.user,
 ];
 
-// @ts-ignore
-export const hasOrgPermissions = orgPermission => {
+export const hasOrgPermissions = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) => {
   return (
     (!!orgPermission &&
       MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`)) ||
-    (!!orgPermission && MHUB_PERMISSIONS.includes(orgPermission.permission))
+    (!!orgPermission &&
+      !!orgPermission.permission &&
+      MHUB_PERMISSIONS.includes(orgPermission.permission))
   );
 };
 
-// @ts-ignore
-export const isAdminOrOwner = orgPermission =>
+export const isAdminOrOwner = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
       `${orgPermission.permission_id}`,
     )) ||
   (!!orgPermission &&
+    !!orgPermission.permission &&
     [PermissionEnum.admin, PermissionEnum.owner].includes(
       orgPermission.permission,
     ));
-// @ts-ignore
-export const isOwner = orgPermission =>
+
+export const isOwner = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||
-  (!!orgPermission && orgPermission.permission === PermissionEnum.owner);
-// @ts-ignore
-export const isAdmin = orgPermission =>
+  (!!orgPermission &&
+    !!orgPermission.permission &&
+    orgPermission.permission === PermissionEnum.owner);
+
+export const isAdmin = (
+  orgPermission: {
+    permission_id?: string;
+    permission?: PermissionEnum;
+  } | null,
+) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN) ||
-  (!!orgPermission && orgPermission.permission === PermissionEnum.admin);
+  (!!orgPermission &&
+    !!orgPermission.permission &&
+    orgPermission.permission === PermissionEnum.admin);
 
 // @ts-ignore
 export const shouldQueryReportedComments = (org, orgPermission) =>
@@ -317,7 +347,7 @@ export function showDeleteButton(
 export function getAssignedToName(myId, item) {
   const assigned_to = item.assigned_to;
 
-  return myId === assigned_to.id ? 'You' : assigned_to.first_name;
+  return myId === assigned_to.id ? i18n.t('you') : assigned_to.first_name;
 }
 
 // @ts-ignore
@@ -326,8 +356,8 @@ export function getAssignedByName(myId, item) {
 
   return assigned_by
     ? myId === assigned_by.id
-      ? ' by You'
-      : ` by ${assigned_by.first_name}`
+      ? ` ${i18n.t('by')} ${i18n.t('you')}`
+      : ` ${i18n.t('by')} ${assigned_by.first_name}`
     : '';
 }
 
@@ -353,9 +383,7 @@ export function getPersonEmailAddress(person) {
     : null;
 }
 
-// @ts-ignore
-export function getStageIndex(stages, stageId) {
-  // @ts-ignore
+export function getStageIndex(stages: StagesState['stages'], stageId: string) {
   const index = (stages || []).findIndex(s => s && `${s.id}` === `${stageId}`);
 
   return index === -1 ? undefined : index;

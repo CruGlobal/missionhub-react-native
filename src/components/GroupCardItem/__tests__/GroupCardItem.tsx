@@ -17,7 +17,7 @@ const group: GetCommunities_communities_nodes = {
   communityPhotoUrl: null,
   name: 'Group Name',
   owner: {
-    __typename: 'PersonConnection',
+    __typename: 'CommunityPersonConnection',
     nodes: [],
   },
   report: {

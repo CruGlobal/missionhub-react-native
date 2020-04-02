@@ -3,8 +3,10 @@ import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useIsFocused } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
+import { ORG_PERMISSIONS, ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { getPersonNote, savePersonNote } from '../../../actions/person';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import * as common from '../../../utils/common';
 
 import ContactNotes from '..';
 
@@ -13,7 +15,15 @@ jest.mock('react-navigation-hooks');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 
-const person = { id: '141234', first_name: 'Roger' };
+const personId = '141234';
+const orgId = '234';
+const person = {
+  id: personId,
+  first_name: 'Roger',
+  organizational_permissions: [
+    { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
+  ],
+};
 const myPersonId = '123';
 const myUserId = '1';
 const note = { id: '988998', content: 'Roge rules' };
@@ -23,6 +33,7 @@ const initialState = {
 };
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (useIsFocused as jest.Mock).mockReturnValue(true);
   (getPersonNote as jest.Mock).mockReturnValue(() => Promise.resolve(note));
   (savePersonNote as jest.Mock).mockReturnValue(() => Promise.resolve());
@@ -34,7 +45,9 @@ describe('contact notes', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
+      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+    });
   });
 
   it('icon and prompt are shown if no notes as me', () => {
@@ -42,7 +55,30 @@ describe('contact notes', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
+      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
+    });
+  });
+
+  it('icon and prompt are shown if no notes as community member', () => {
+    renderWithContext(
+      <ContactNotes
+        person={{
+          ...person,
+          organizational_permissions: [
+            { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
+          ],
+        }}
+        organization={{ id: orgId }}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
+      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'community member' },
+    });
   });
 
   it('notes are shown', async () => {
@@ -54,12 +90,31 @@ describe('contact notes', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes']);
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
+      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+    });
     expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
   });
 
   describe('press bottom button', () => {
     it('switches to editing state', async () => {
+      const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+        <ContactNotes person={person} />,
+        {
+          initialState,
+        },
+      );
+
+      await flushMicrotasksQueue();
+      recordSnapshot();
+
+      fireEvent.press(getByTestId('bottomButton'));
+
+      diffSnapshot();
+    });
+
+    it('switches to editing state on android', async () => {
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
         <ContactNotes person={person} />,
         {

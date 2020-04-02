@@ -5,6 +5,11 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import {
+  ANALYTICS_SECTION_TYPE,
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ANALYTICS_EDIT_MODE,
+} from '../../../constants';
 import { getStages } from '../../../actions/stages';
 import { trackAction, trackScreenChange } from '../../../actions/analytics';
 import {
@@ -61,8 +66,6 @@ const stages: Stage[] = [
   },
 ];
 
-const section = 'section';
-const subsection = 'subsection';
 const myId = '111';
 const myName = 'Me';
 const assignedPersonId = '123';
@@ -115,11 +118,10 @@ const state = {
     },
   },
   stages: { stages },
+  onboarding: { currentlyOnboarding: false },
 };
 
 const baseParams = {
-  section,
-  subsection,
   personId: assignedPersonId,
   orgId,
   enableBackButton: true,
@@ -188,6 +190,12 @@ describe('renders for me', () => {
       initialState: state,
       navParams: myNavParams,
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+      [ANALYTICS_EDIT_MODE]: 'set',
+    });
   });
 
   it('renders firstItem correctly', () => {
@@ -195,6 +203,12 @@ describe('renders for me', () => {
       initialState: state,
       navParams: { ...myNavParams, selectedStageId: 1 },
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    });
   });
 });
 
@@ -209,6 +223,12 @@ describe('renders for other', () => {
       initialState: state,
       navParams: otherNavParams,
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      [ANALYTICS_EDIT_MODE]: 'set',
+    });
   });
 
   it('renders firstItem correctly', () => {
@@ -216,6 +236,12 @@ describe('renders for other', () => {
       initialState: state,
       navParams: { ...otherNavParams, selectedStageId: 1 },
     }).snapshot();
+
+    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
+      [ANALYTICS_SECTION_TYPE]: '',
+      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    });
   });
 });
 
@@ -254,7 +280,37 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+        [ANALYTICS_EDIT_MODE]: 'update',
+      });
+      expect(store.getActions()).toEqual([
+        getStagesResult,
+        trackScreenChangeResult,
+      ]);
+    });
+
+    it('gets stages and snaps to first item on mount in onboarding', async () => {
+      const { store } = await buildAndTestMount(
+        {
+          ...state,
+          stages: { stages: [] },
+          onboarding: { currentlyOnboarding: true },
+        },
+        {
+          ...baseParams,
+          personId: myId,
+          selectedStageId: stageId,
+        },
+      );
+
+      expect(getStages).toHaveBeenCalledWith();
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: 'onboarding',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+        [ANALYTICS_EDIT_MODE]: 'update',
+      });
       expect(store.getActions()).toEqual([
         getStagesResult,
         trackScreenChangeResult,
@@ -277,7 +333,11 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+        [ANALYTICS_EDIT_MODE]: 'update',
+      });
       expect(store.getActions()).toEqual([
         getStagesResult,
         trackScreenChangeResult,
@@ -294,7 +354,11 @@ describe('actions on mount', () => {
       });
 
       expect(getStages).not.toHaveBeenCalled();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+        [ANALYTICS_EDIT_MODE]: 'update',
+      });
       expect(store.getActions()).toEqual([trackScreenChangeResult]);
     });
   });

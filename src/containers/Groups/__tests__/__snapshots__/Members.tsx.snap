@@ -44,7 +44,7 @@ exports[`Members calls render item 1`] = `
 `;
 
 exports[`Members renderHeader match snapshot 1`] = `
-<Connect(withI18nextTranslation(OnboardingCard))
+<OnboardingCard
   type="members"
 />
 `;
@@ -59,6 +59,11 @@ exports[`Members should render correctly 1`] = `
   }
 >
   <Analytics
+    screenContext={
+      Object {
+        "cru.permission-type": "member",
+      }
+    }
     screenName={
       Array [
         "community",
