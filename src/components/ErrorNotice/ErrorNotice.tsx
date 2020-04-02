@@ -30,13 +30,16 @@ export const ErrorNotice = ({
       {error.networkError ? (
         <Text style={styles.white}>{t('offline')}</Text>
       ) : specificErrors.length > 0 ? (
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         specificErrors.reduce((acc: any, specificError) => {
           return error.graphQLErrors
             .map(({ message }) => message)
             .includes(specificError.condition)
             ? [
                 ...acc,
-                <Text style={styles.white}>{specificError.message}</Text>,
+                <Text key={message} style={styles.white}>
+                  {specificError.message}
+                </Text>,
               ]
             : acc;
         }, [])
