@@ -100,7 +100,8 @@ export const refresh = (obj, method) => {
     });
 };
 
-export const isAuthenticated = (authState: AuthState) => authState.token != '';
+export const isAuthenticated = (authState: AuthState): boolean =>
+  !!authState.token;
 
 export const personIsCurrentUser = (personId: string, authState: AuthState) =>
   personId === authState.person.id;
@@ -346,7 +347,7 @@ export function showDeleteButton(
 export function getAssignedToName(myId, item) {
   const assigned_to = item.assigned_to;
 
-  return myId === assigned_to.id ? 'You' : assigned_to.first_name;
+  return myId === assigned_to.id ? i18n.t('you') : assigned_to.first_name;
 }
 
 // @ts-ignore
@@ -355,8 +356,8 @@ export function getAssignedByName(myId, item) {
 
   return assigned_by
     ? myId === assigned_by.id
-      ? ' by You'
-      : ` by ${assigned_by.first_name}`
+      ? ` ${i18n.t('by')} ${i18n.t('you')}`
+      : ` ${i18n.t('by')} ${assigned_by.first_name}`
     : '';
 }
 

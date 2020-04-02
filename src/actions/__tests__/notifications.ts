@@ -16,7 +16,11 @@ import {
   parseNotificationData,
   SET_NOTIFICATION_ANALYTICS,
   UPDATE_ACCEPTED_NOTIFICATIONS,
-  MHPushNotification,
+  RNPushNotificationPayload,
+  PushNotificationPayloadData,
+  PushNotificationPayloadIosOrAndroid,
+  PushNotificationPayloadAndroid,
+  PushNotificationPayloadIos,
 } from '../notifications';
 import {
   GCM_SENDER_ID,
@@ -65,6 +69,20 @@ const navigatePushResult = { type: 'nagivate push' };
 const navigateResetResult = { type: 'navigate reset' };
 const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
 const screen_extra_data = JSON.stringify({ celebration_item_id: '111' });
+
+(navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
+
+const baseNotification: RNPushNotificationPayload = {
+  foreground: true,
+  userInteraction: true,
+  message: '',
+  data: {},
+  subText: undefined,
+  badge: 0,
+  alert: {},
+  sound: '',
+  finish: () => {},
+};
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
@@ -492,33 +510,6 @@ describe('askNotificationPermissions', () => {
     };
     const celebration_item_id = '111';
 
-    const baseNotification: MHPushNotification = {
-      data: {},
-      foreground: false,
-      userInteraction: false,
-      message: '',
-      badge: 1,
-      alert: {},
-      sound: '',
-      finish: () => {},
-      configure: () => {},
-      unregister: () => {},
-      localNotification: () => {},
-      localNotificationSchedule: () => {},
-      requestPermissions: () => Promise.resolve({ alert: false }),
-      presentLocalNotification: () => {},
-      scheduleLocalNotification: () => {},
-      cancelAllLocalNotifications: () => {},
-      cancelLocalNotifications: () => {},
-      setApplicationIconBadgeNumber: () => {},
-      getApplicationIconBadgeNumber: () => {},
-      popInitialNotification: () => {},
-      abandonPermissions: () => {},
-      checkPermissions: () => {},
-      registerNotificationActions: () => {},
-      clearAllNotifications: () => {},
-    };
-
     const store = createThunkStore({
       auth: {
         isJean: true,
@@ -559,7 +550,9 @@ describe('askNotificationPermissions', () => {
     });
 
     async function testNotification(
-      notification: MHPushNotification,
+      notification:
+        | PushNotificationPayloadData
+        | PushNotificationPayloadIosOrAndroid,
       userInteraction = true,
     ) {
       const deepLinkComplete = new Promise(resolve =>
@@ -708,14 +701,14 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('parseNotificationData', () => {
-      const notification: MHPushNotification = {
+      const notification = {
         ...baseNotification,
         screen: 'celebrate',
         organization_id: organization.id,
         screen_extra_data,
-      };
+      } as PushNotificationPayloadAndroid;
 
-      const iosNotification: MHPushNotification = {
+      const iosNotification = {
         ...baseNotification,
         data: {
           link: {
@@ -726,13 +719,12 @@ describe('askNotificationPermissions', () => {
             },
           },
         },
-      };
+      } as PushNotificationPayloadIos;
 
       it('should parse the notification data', () => {
         const parsedData = parseNotificationData(notification);
-        expect(parsedData).toEqual({
+        expect(parsedData).toMatchObject({
           screen: 'celebrate',
-          person_id: undefined,
           organization_id: '234234',
           celebration_item_id: '111',
         });
@@ -763,14 +755,14 @@ describe('askNotificationPermissions', () => {
         expect(navigateToCommunity).toHaveBeenCalledWith(organization);
       });
       it('should not navigate if no organization_id', async () => {
-        await testNotification({
+        await testNotification(({
           ...baseNotification,
           screen: 'celebrate_feed',
           organization_id: undefined,
           screen_extra_data: {
             celebration_item_id: '111',
           },
-        });
+        } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(navigateToCommunity).not.toHaveBeenCalled();
@@ -793,12 +785,12 @@ describe('askNotificationPermissions', () => {
         );
       });
       it('should not navigate if no organization_id', async () => {
-        await testNotification({
+        await testNotification(({
           ...baseNotification,
           screen: 'celebrate_item',
           organization_id: undefined,
           screen_extra_data,
-        });
+        } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(navigateToCelebrateComments).not.toHaveBeenCalled();
@@ -823,12 +815,12 @@ describe('askNotificationPermissions', () => {
       });
 
       it('should not navigate to org if no id passed', async () => {
-        await testNotification({
+        await testNotification(({
           ...baseNotification,
           screen: 'celebrate',
           organization_id: undefined,
           screen_extra_data,
-        });
+        } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalled();
@@ -855,11 +847,11 @@ describe('askNotificationPermissions', () => {
       it('should navigate to global community if no id passed', async () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
         (refreshCommunity as jest.Mock).mockReturnValue(() => global_community);
-        await testNotification({
+        await testNotification(({
           ...baseNotification,
           screen: 'community_challenges',
           organization_id: undefined,
-        });
+        } as unknown) as PushNotificationPayloadData);
         expect(refreshCommunity).toHaveBeenCalledWith(undefined);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
         expect(navigateToCommunity).toHaveBeenCalledWith(
