@@ -1,36 +1,45 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
 import { EditPersonFlowScreens } from '../editPersonFlow';
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
-import { updatePerson } from '../../../actions/person';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
+import { LOAD_PERSON_DETAILS } from '../../../constants';
+import { useIsMe } from '../../../utils/hooks/useIsMe';
 import {
   trackScreenChange,
   trackActionWithoutData,
 } from '../../../actions/analytics';
 
 jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../../actions/person');
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useIsMe');
 
 const me = { id: '1' };
 const navigateBackResponse = { type: 'navigate back' };
 const navigatePushResponse = { type: 'navigate push' };
-const updatePersonResponse = { type: 'update person', response: me };
+const loadPersonResults = {
+  person: {
+    first_name: 'Christian',
+    last_name: '',
+    id: '2',
+  },
+  type: LOAD_PERSON_DETAILS,
+};
 const trackActionResponse = { type: 'track action' };
 const trackScreenChangeResponse = { type: 'track screen change' };
 
 beforeEach(() => {
   (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResponse);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
+  (useIsMe as jest.Mock).mockReturnValue(false);
 });
 
 describe('AddContactScreen next', () => {
@@ -58,8 +67,7 @@ describe('AddContactScreen next', () => {
 
   it('navigates back if edited and current user is the one being edited', async () => {
     (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
-    (updatePerson as jest.Mock).mockReturnValue(updatePersonResponse);
-
+    (useIsMe as jest.Mock).mockReturnValue(true);
     const WrappedAddContactScreen =
       EditPersonFlowScreens[ADD_CONTACT_SCREEN].screen;
 
@@ -73,13 +81,27 @@ describe('AddContactScreen next', () => {
         navParams: {
           person: me,
         },
+        mocks: {
+          Person: () => ({
+            id: me.id,
+            firstName: 'Christian',
+            lastName: '',
+            relationshipType: RelationshipTypeEnum.family,
+          }),
+        },
       },
     );
-
+    await flushMicrotasksQueue();
     await fireEvent.press(getByTestId('continueButton'));
     expect(navigateBack).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([
-      updatePersonResponse,
+      {
+        ...loadPersonResults,
+        person: {
+          ...loadPersonResults.person,
+          id: me.id,
+        },
+      },
       navigateBackResponse,
     ]);
   });
@@ -88,13 +110,6 @@ describe('AddContactScreen next', () => {
     const WrappedAddContactScreen =
       EditPersonFlowScreens[ADD_CONTACT_SCREEN].screen;
     (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
-    (updatePerson as jest.Mock).mockReturnValue({
-      ...updatePersonResponse,
-      response: {
-        id: '2',
-        relationship_type: RelationshipTypeEnum.family,
-      },
-    });
 
     const { store, getByTestId } = renderWithContext(
       <WrappedAddContactScreen />,
@@ -109,6 +124,14 @@ describe('AddContactScreen next', () => {
             relationship_type: RelationshipTypeEnum.family,
           },
         },
+        mocks: {
+          Person: () => ({
+            id: '2',
+            firstName: 'Christian',
+            lastName: '',
+            relationshipType: RelationshipTypeEnum.family,
+          }),
+        },
       },
     );
 
@@ -119,13 +142,7 @@ describe('AddContactScreen next', () => {
       orgId: undefined,
     });
     expect(store.getActions()).toEqual([
-      {
-        ...updatePersonResponse,
-        response: {
-          id: '2',
-          relationship_type: RelationshipTypeEnum.family,
-        },
-      },
+      loadPersonResults,
       navigatePushResponse,
     ]);
   });
