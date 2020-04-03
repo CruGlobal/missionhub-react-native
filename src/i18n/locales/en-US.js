@@ -224,14 +224,9 @@ export default {
     monthly: 'Monthly',
   },
   selectStep: {
-    meHeader: {
-      part1: 'Choose a step of faith to take',
-      part2: 'on your journey this week...',
-    },
-    personHeader: {
-      part1: 'Choose a step to take with ',
-      part2: '{{name}} this week...',
-    },
+    meHeader: 'Choose a step of faith to take on your journey this week...',
+    personHeader: 'Choose a step to take with {{name}} this week...',
+    them: 'them',
     addStep: 'ADD TO MY STEPS',
     createYourOwnStep: 'Create your own $t(stepTypes:{{type}}) Step',
     loadMoreSteps: 'SHOW MORE STEPS',

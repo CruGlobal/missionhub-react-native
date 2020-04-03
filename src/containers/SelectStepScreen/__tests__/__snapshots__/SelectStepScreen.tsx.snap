@@ -486,29 +486,7 @@ exports[`in onboarding renders correctly 1`] = `
               ]
             }
           >
-            Choose a step to take with 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-             this week...
+            Choose a step to take with them this week...
           </Text>
         </View>
         <View
@@ -849,12 +827,12 @@ exports[`loading should hide tabs when locale is not en 1`] = `
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -504,312 +504,11 @@
+@@ -482,312 +482,11 @@
                   },
                 ]
               }
             >
-               this week...
+              Choose a step to take with them this week...
 -           </Text>
 -         </View>
 -         <View
@@ -1583,29 +1561,7 @@ exports[`loading should render correctly 1`] = `
               ]
             }
           >
-            Choose a step to take with 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-             this week...
+            Choose a step to take with them this week...
           </Text>
         </View>
         <View
@@ -2334,29 +2290,7 @@ exports[`loading should render for self steps correctly 1`] = `
               ]
             }
           >
-            Choose a step of faith to take
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            on your journey this week...
+            Choose a step of faith to take on your journey this week...
           </Text>
         </View>
       </View>
@@ -2851,29 +2785,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
               ]
             }
           >
-            Choose a step to take with 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-             this week...
+            Choose a step to take with them this week...
           </Text>
         </View>
         <View
@@ -3711,29 +3623,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               ]
             }
           >
-            Choose a step to take with 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Chyna this week...
+            Choose a step to take with Chyna this week...
           </Text>
         </View>
         <View
@@ -4258,20 +4148,20 @@ exports[`should load step suggestions 1`] = `
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -436,11 +545,11 @@
+@@ -414,11 +523,11 @@
                     \\"textAlign\\": \\"center\\",
                   },
                 ]
               }
             >
--              this week...
-+             Chyna this week...
+-             Choose a step to take with them this week...
++             Choose a step to take with Chyna this week...
             </Text>
           </View>
           <View
             style={
               Object {
-@@ -515,10 +624,49 @@
+@@ -493,10 +602,49 @@
                 </View>
                 <View
                   style={
@@ -4321,7 +4211,7 @@ exports[`should load step suggestions 1`] = `
                         \\"borderLeftColor\\": \\"transparent\\",
                         \\"borderLeftWidth\\": 7,
                         \\"borderRightColor\\": \\"transparent\\",
-@@ -605,10 +753,49 @@
+@@ -583,10 +731,49 @@
                     }
                   >
                     Pray
@@ -4371,7 +4261,7 @@ exports[`should load step suggestions 1`] = `
             <View
               accessible={true}
               focusable={true}
-@@ -669,11 +856,50 @@
+@@ -647,11 +834,50 @@
                         ],
                       ]
                     }
@@ -4422,7 +4312,7 @@ exports[`should load step suggestions 1`] = `
             </View>
             <View
               accessible={true}
-@@ -735,11 +961,50 @@
+@@ -713,11 +939,50 @@
                         ],
                       ]
                     }
@@ -4634,14 +4524,14 @@ exports[`should paginate 1`] = `
             }
           />
         </View>
-@@ -545,11 +671,11 @@
+@@ -523,11 +649,11 @@
                     \\"textAlign\\": \\"center\\",
                   },
                 ]
               }
             >
--             Chyna this week...
-+             Connor this week...
+-             Choose a step to take with Chyna this week...
++             Choose a step to take with Connor this week...
             </Text>
           </View>
           <View
@@ -4654,7 +4544,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -1008,6 +1008,9 @@
+@@ -986,6 +986,9 @@
             </View>
           </View>
         </View>
