@@ -1,85 +1,78 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
-import debounce from 'lodash.debounce';
 
 import { renderWithContext } from '../../../../testUtils';
+import { personSelector } from '../../../selectors/people';
 
-import Button, { ButtonProps } from '..';
+import Avatar, { AvatarProps } from '..';
 
-// Tell jest to mock this import
-jest.mock('lodash.debounce');
+jest.mock('../../../selectors/people');
 
-beforeAll(() => {
-  (debounce as jest.Mock).mockImplementation(fn => fn); // Assign the import a new implementation, in this case it's execute the function given to you
+const person = { id: '123', full_name: 'Person One' };
+const personImage = { ...person, picture: '123' };
+
+beforeEach(() => {
+  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
 });
 
-it('renders correctly', () => {
-  renderWithContext(<Button onPress={jest.fn()} />, {
+function renders(props: AvatarProps) {
+  renderWithContext(<Avatar {...props} />, {
     noWrappers: true,
   }).snapshot();
+}
+
+it('renders text small', () => {
+  renders({ person, size: 'small' });
 });
 
-it('renders pill correctly', () => {
-  renderWithContext(<Button pill={true} onPress={jest.fn()} />, {
-    noWrappers: true,
-  }).snapshot();
+it('renders text medium', () => {
+  renders({ person, size: 'medium' });
 });
 
-it('renders with text correctly', () => {
-  renderWithContext(<Button text={'Button'} onPress={jest.fn()} />, {
-    noWrappers: true,
-  }).snapshot();
+it('renders text large', () => {
+  renders({ person, size: 'large' });
 });
 
-it('renders with image correctly', () => {
-  renderWithContext(
-    <Button image={1234} text={'Button'} onPress={jest.fn()} />,
-    {
-      noWrappers: true,
-    },
-  ).snapshot();
+it('renders image small', () => {
+  renders({ person: personImage, size: 'small' });
 });
 
-it('renders primary correctly', () => {
-  renderWithContext(<Button type="primary" onPress={jest.fn()} />, {
-    noWrappers: true,
-  }).snapshot();
+it('renders image medium', () => {
+  renders({ person: personImage, size: 'medium' });
 });
 
-it('renders secondary correctly', () => {
-  renderWithContext(<Button type="secondary" onPress={jest.fn()} />, {
-    noWrappers: true,
-  }).snapshot();
+it('renders image large', () => {
+  renders({ person: personImage, size: 'large' });
 });
 
-it('renders transparent correctly', () => {
-  renderWithContext(<Button type="transparent" onPress={jest.fn()} />, {
-    noWrappers: true,
-  }).snapshot();
+it('renders person firstName', () => {
+  renders({ person: { id: '123', firstName: 'test' }, size: 'small' });
 });
 
-it('calls on press with press props', () => {
-  const pressProps = ['test'];
-  const props: ButtonProps = {
-    type: 'transparent',
-    onPress: jest.fn(),
-    pressProps,
+it('renders person first_name', () => {
+  renders({ person: { id: '123', first_name: 'test' }, size: 'small' });
+});
+
+it('renders person fullName', () => {
+  renders({ person: { id: '123', fullName: 'test' }, size: 'small' });
+});
+
+it('renders person full_name', () => {
+  renders({ person: { id: '123', full_name: 'test' }, size: 'small' });
+});
+
+describe('lookup person by id', () => {
+  const initialState = {
+    people: { allByOrg: { personal: { people: { [person.id]: person } } } },
   };
-  const { getByTestId } = renderWithContext(<Button {...props} />, {
-    noWrappers: true,
+  it('renders person lookup by id', () => {
+    renderWithContext(<Avatar personId={person.id} size="small" />, {
+      initialState,
+    }).snapshot();
   });
-  fireEvent.press(getByTestId('Button'));
-  expect(props.onPress).toHaveBeenCalledWith(pressProps[0]);
-});
-
-it('calls on press without press props', () => {
-  const props: ButtonProps = {
-    type: 'transparent',
-    onPress: jest.fn(),
-  };
-  const { getByTestId } = renderWithContext(<Button {...props} />, {
-    noWrappers: true,
+  it('renders empty when cant find person', () => {
+    ((personSelector as unknown) as jest.Mock).mockReturnValue(undefined);
+    renderWithContext(<Avatar personId={'noperson'} size="small" />, {
+      initialState,
+    }).snapshot();
   });
-  fireEvent.press(getByTestId('Button'));
-  expect(props.onPress).toHaveBeenCalledWith();
 });
