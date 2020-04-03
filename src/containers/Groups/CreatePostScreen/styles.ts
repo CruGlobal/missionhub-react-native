@@ -30,7 +30,7 @@ export default StyleSheet.create({
     lineHeight: 24,
     paddingHorizontal: 10,
   },
-  postImage: {
+  image: {
     width: theme.fullWidth,
   },
   backButton: {

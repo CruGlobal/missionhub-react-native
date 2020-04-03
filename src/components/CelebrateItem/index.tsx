@@ -15,7 +15,7 @@ import CelebrateItemContent from '../CelebrateItemContent';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
 import CelebrateItemName from '../../containers/CelebrateItemName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
-import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
+import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
@@ -96,10 +96,10 @@ const CelebrateItem = ({
 
   const handleEdit = () =>
     dispatch(
-      navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
-        celebrationItem: event,
-        onRefresh,
-        organization,
+      navigatePush(CREATE_POST_SCREEN, {
+        post: event,
+        onComplete: onRefresh,
+        orgId: organization.id,
       }),
     );
 

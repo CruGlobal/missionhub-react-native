@@ -11,7 +11,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
-import { CELEBRATE_EDIT_STORY_SCREEN } from '../../../containers/Groups/EditStoryScreen';
+import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { Organization } from '../../../reducers/organizations';
 import {
   GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData,
@@ -213,7 +213,7 @@ describe('long-press card', () => {
         0,
       );
 
-      expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_EDIT_STORY_SCREEN, {
+      expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
         celebrationItem: myStoryEvent,
         onRefresh,
         organization,

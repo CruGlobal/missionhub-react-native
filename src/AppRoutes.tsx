@@ -206,12 +206,9 @@ import GroupUnreadFeed, {
 } from './containers/Groups/GroupUnreadFeed';
 import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFlow';
 import {
-  NewPostScreen,
-  CELEBRATE_SHARE_STORY_SCREEN,
-} from './containers/Groups/NewPostScreen';
-import EditStoryScreen, {
-  CELEBRATE_EDIT_STORY_SCREEN,
-} from './containers/Groups/EditStoryScreen';
+  CreatePostScreen,
+  CREATE_POST_SCREEN,
+} from './containers/Groups/CreatePostScreen';
 import LoadingScreen, { LOADING_SCREEN } from './containers/LoadingScreen';
 import ChallengeMembers, {
   CHALLENGE_MEMBERS_SCREEN,
@@ -506,20 +503,11 @@ const screens = {
     ),
     { gesturesEnabled: true },
   ),
-  [CELEBRATE_SHARE_STORY_SCREEN]: buildTrackedScreen(
-    NewPostScreen,
+  [CREATE_POST_SCREEN]: buildTrackedScreen(
+    CreatePostScreen,
     // @ts-ignore
     buildTrackingObj(
       'communities : celebration : sharestory',
-      'communities',
-      'celebration',
-    ),
-  ),
-  [CELEBRATE_EDIT_STORY_SCREEN]: buildTrackedScreen(
-    EditStoryScreen,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : celebration : editstory',
       'communities',
       'celebration',
     ),
@@ -556,11 +544,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [
-  CELEBRATE_DETAIL_SCREEN,
-  GROUPS_REPORT_SCREEN,
-  CELEBRATE_SHARE_STORY_SCREEN,
-];
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

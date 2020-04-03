@@ -5,7 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../NewPostScreen';
+import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import { Organization } from '../../../reducers/organizations';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
@@ -29,7 +29,7 @@ const ShareStoryInput = ({
 
   const onPress = () => {
     return dispatch(
-      navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
+      navigatePush(CREATE_POST_SCREEN, {
         organization,
         onComplete: () => {
           refreshItems();

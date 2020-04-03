@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,32 +19,21 @@ import ImagePicker, { imagePayload } from '../../../components/ImagePicker';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
-import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../../actions/analytics';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
+import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
-import {
-  CreateAStory,
-  CreateAStoryVariables,
-} from './__generated__/CreateAStory';
-
-export const CREATE_A_STORY = gql`
-  mutation CreateAStory($input: CreateStoryInput!) {
-    createStory(input: $input) {
-      story {
-        id
-      }
-    }
-  }
-`;
+import { CreatePost, CreatePostVariables } from './__generated__/CreateAStory';
+import { UpdatePost, UpdatePostVariables } from './__generated__/UpdateStory';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
-export const NewPostScreen = () => {
+export const CreatePostScreen = () => {
   const { t } = useTranslation('shareAStoryScreen');
   const {
     container,
@@ -54,45 +42,64 @@ export const NewPostScreen = () => {
     addPhotoButton,
     addPhotoIcon,
     addPhotoText,
-    postImage,
+    image,
     backButton,
     textInput,
   } = styles;
-  const dispatch = useDispatch();
-  const [post, changePost] = useState('');
-  const [image, changeImage] = useState<imagePayload | null>(null);
   const onComplete: () => void = useNavigationParam('onComplete');
-  const organization: Organization = useNavigationParam('organization');
+  const orgId: string = useNavigationParam('orgId');
+  const post:
+    | GetCelebrateFeed_community_celebrationItems_nodes
+    | undefined = useNavigationParam('post'); //TODO: use post type
+  const dispatch = useDispatch();
+  const [postText, changePostText] = useState(
+    post?.objectDescription || undefined,
+  );
+  const [postImage, changePostImage] = useState<imagePayload | null>(null); //preload post image if exists
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
     permissionType
-  >(({ auth }) => getAnalyticsPermissionType(auth, organization));
-  useAnalytics(['post', 'share'], {
+  >(({ auth }) => getAnalyticsPermissionType(auth, { id: orgId }));
+  useAnalytics(['post', 'god story'], {
     //TODO: post type
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-      [ANALYTICS_EDIT_MODE]: 'set',
+      [ANALYTICS_EDIT_MODE]: post ? 'update' : 'set',
     },
   });
-  const [createPost] = useMutation<CreateAStory, CreateAStoryVariables>(
-    CREATE_A_STORY,
+  const [createPost] = useMutation<CreatePost, CreatePostVariables>(
+    CREATE_POST,
+  ); //TODO: New Mutation
+  const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
+    UPDATE_POST,
   ); //TODO: New Mutation
 
+  const isEdit = !!post;
+
   const savePost = async () => {
-    if (!post) {
+    if (!postText) {
       return null;
     }
+
     Keyboard.dismiss();
-    await createPost({
-      variables: { input: { content: post, organizationId: organization.id } },
-    });
+
+    if (isEdit) {
+      await updatePost({
+        variables: { input: { id: post?.id, content: postText } },
+      });
+    } else {
+      await createPost({
+        variables: { input: { content: postText, organizationId: orgId } },
+      });
+    }
+
     dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
 
     onComplete();
   };
 
   const handleSavePhoto = (image: imagePayload) => {
-    changeImage(image);
+    changePostImage(image);
   };
 
   const renderHeader = () => (
@@ -136,9 +143,9 @@ export const NewPostScreen = () => {
         <Input
           testID="StoryInput"
           scrollEnabled={false}
-          onChangeText={e => changePost(e)}
+          onChangeText={e => changePostText(e)}
           placeholder={t('inputPlaceholder')}
-          value={post}
+          value={postText}
           autoFocus={true}
           autoCorrect={true}
           multiline={true}
@@ -159,4 +166,4 @@ export const NewPostScreen = () => {
   );
 };
 
-export const CELEBRATE_SHARE_STORY_SCREEN = 'nav/CELEBRATE_SHARE_STORY_SCREEN';
+export const CREATE_POST_SCREEN = 'nav/CREATE_POST_SCREEN';

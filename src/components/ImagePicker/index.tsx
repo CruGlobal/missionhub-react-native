@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import ImageCropPicker, { Image } from 'react-native-image-crop-picker';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 import PopupMenu from '../../components/PopupMenu';
 // @ts-ignore
@@ -24,6 +24,15 @@ function getType(response: Image) {
   }
   return 'image/jpeg';
 }
+
+export type imageCropPickerResponse = {
+  filename: string;
+  path: string;
+  size: number;
+  mime: string;
+  width: number;
+  height: number;
+};
 
 export type imagePayload = {
   fileSize: number;
@@ -55,7 +64,9 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
     try {
       const response = (await (takePhoto
         ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
-        : ImageCropPicker.openPicker(DEFAULT_OPTIONS))) as Image;
+        : ImageCropPicker.openPicker(
+            DEFAULT_OPTIONS,
+          ))) as imageCropPickerResponse;
 
       let fileName = response.filename || '';
       const { path: uri, size: fileSize, mime, width, height } = response;
