@@ -110,7 +110,7 @@ const ChallengeDetailScreen = () => {
             <Button
               testID="editButton"
               type="transparent"
-              text={t('Edit').toUpperCase()}
+              text={t('edit').toUpperCase()}
               onPress={() => handleEdit(challenge)}
               style={styles.button}
               buttonTextStyle={styles.buttonText}

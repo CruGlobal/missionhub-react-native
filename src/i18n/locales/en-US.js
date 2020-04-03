@@ -100,6 +100,8 @@ export default {
     cancel: 'Cancel',
     continue: 'Continue',
     your: 'your',
+    you: 'You',
+    by: 'by',
     view: 'View',
     contactAssignment:
       '{{assignedContactName}} was assigned to {{assignedToName}}{{assignedByName}}',
