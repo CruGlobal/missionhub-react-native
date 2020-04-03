@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ApolloError } from 'apollo-client';
 
@@ -26,8 +26,7 @@ export const ErrorNotice = ({
   const { t } = useTranslation('errorNotice');
   const matchedErrors =
     error &&
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    specificErrors.reduce((acc: any, specificError) => {
+    specificErrors.reduce((acc: ReactNode[], specificError) => {
       return error.graphQLErrors
         .map(({ message }) => message)
         .includes(specificError.condition)
@@ -44,7 +43,7 @@ export const ErrorNotice = ({
     <Touchable style={styles.errorContainer} onPress={refetch}>
       {error.networkError ? (
         <Text style={styles.white}>{t('offline')}</Text>
-      ) : matchedErrors.length > 0 ? (
+      ) : matchedErrors && matchedErrors.length > 0 ? (
         matchedErrors
       ) : (
         <Text style={styles.white}>{message}</Text>
