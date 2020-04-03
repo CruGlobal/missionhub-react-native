@@ -28,24 +28,13 @@ import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../Celebra
 
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
-import { CreatePost, CreatePostVariables } from './__generated__/CreateAStory';
-import { UpdatePost, UpdatePostVariables } from './__generated__/UpdateStory';
+import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
+import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
 export const CreatePostScreen = () => {
   const { t } = useTranslation('shareAStoryScreen');
-  const {
-    container,
-    headerText,
-    lineBreak,
-    addPhotoButton,
-    addPhotoIcon,
-    addPhotoText,
-    image,
-    backButton,
-    textInput,
-  } = styles;
   const onComplete: () => void = useNavigationParam('onComplete');
   const orgId: string = useNavigationParam('orgId');
   const post:
@@ -74,8 +63,6 @@ export const CreatePostScreen = () => {
     UPDATE_POST,
   ); //TODO: New Mutation
 
-  const isEdit = !!post;
-
   const savePost = async () => {
     if (!postText) {
       return null;
@@ -83,9 +70,9 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
-    if (isEdit) {
+    if (post) {
       await updatePost({
-        variables: { input: { id: post?.id, content: postText } },
+        variables: { input: { id: post.id, content: postText } },
       });
     } else {
       await createPost({
@@ -104,31 +91,31 @@ export const CreatePostScreen = () => {
 
   const renderHeader = () => (
     <Header
-      left={<BackButton iconStyle={backButton} />}
-      center={<Text style={headerText}>God Story</Text>}
+      left={<BackButton iconStyle={styles.backButton} />}
+      center={<Text style={styles.headerText}>God Story</Text>}
     />
   );
 
-  const renderAddPhotoButton = () => (
-    <>
-      <View style={lineBreak} />
-      <View style={addPhotoButton}>
-        <Image
-          source={ADD_PHOTO_ICON}
-          resizeMode="contain"
-          style={addPhotoIcon}
-        />
-        <Text style={addPhotoText}>Add a Photo</Text>
-      </View>
-      <View style={lineBreak} />
-    </>
-  );
-
-  const renderImage = () =>
-    image && <Image resizeMode="cover" source={image} style={postImage} />;
+  const renderAddPhotoButton = () =>
+    postImage ? (
+      <Image resizeMode="cover" source={postImage} style={styles.image} />
+    ) : (
+      <>
+        <View style={styles.lineBreak} />
+        <View style={styles.addPhotoButton}>
+          <Image
+            source={ADD_PHOTO_ICON}
+            resizeMode="contain"
+            style={styles.addPhotoIcon}
+          />
+          <Text style={styles.addPhotoText}>Add a Photo</Text>
+        </View>
+        <View style={styles.lineBreak} />
+      </>
+    );
 
   return (
-    <View style={container}>
+    <View style={styles.container}>
       {renderHeader()}
       <View
         style={{
@@ -151,10 +138,10 @@ export const CreatePostScreen = () => {
           multiline={true}
           selectionColor={theme.secondaryColor}
           placeholderTextColor={theme.lightGrey}
-          style={textInput}
+          style={styles.textInput}
         />
         <ImagePicker onSelectImage={handleSavePhoto}>
-          {image ? renderImage() : renderAddPhotoButton()}
+          {renderAddPhotoButton()}
         </ImagePicker>
       </ScrollView>
       <BottomButton

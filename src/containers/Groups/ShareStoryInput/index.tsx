@@ -30,7 +30,7 @@ const ShareStoryInput = ({
   const onPress = () => {
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        organization,
+        orgId: organization.id,
         onComplete: () => {
           refreshItems();
           dispatch(navigateBack());
