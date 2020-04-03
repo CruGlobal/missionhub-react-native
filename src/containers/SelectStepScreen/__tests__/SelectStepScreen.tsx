@@ -17,6 +17,10 @@ import SelectStepScreen from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock(
+  '../../../components/SelectStepExplainerModal',
+  () => 'SelectStepExplainerModal',
+);
 
 const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
@@ -130,9 +134,12 @@ describe('with explainer open', () => {
   beforeAll(() => {
     enableSkipButton = false;
   });
-  it('opens explainer modal', () => {
+  it('opens explainer modal', async () => {
+    await flushMicrotasksQueue();
+
+    screen.recordSnapshot();
     fireEvent.press(screen.getByTestId('SelectStepExplainerIconButton'));
-    screen.snapshot();
+    screen.diffSnapshot();
   });
 });
 

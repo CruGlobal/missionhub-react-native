@@ -994,212 +994,30 @@ exports[`renders correctly renders correctly 1`] = `
         </View>
       </View>
     </RCTScrollView>
-    <View
-      accessible={false}
-      pointerEvents="box-none"
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "paddingHorizontal": 20,
-            "paddingVertical": 30,
-          },
-          Object {
-            "flexDirection": "row",
-          },
-          Object {
-            "marginBottom": 10,
-          },
-        ]
+    <Pagination
+      activeDotIndex={0}
+      containerStyle={
+        Object {
+          "marginBottom": 10,
+        }
       }
-    >
-      <View
-        accessible={false}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "marginHorizontal": 4,
-            "opacity": 1,
-          }
+      dotColor="#3EB1C8"
+      dotContainerStyle={
+        Object {
+          "marginHorizontal": 4,
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "rgba(197, 199, 203, 1)",
-              "borderRadius": 4,
-              "height": 8,
-              "opacity": 0.5,
-              "transform": Array [
-                Object {
-                  "scale": 0.9,
-                },
-              ],
-              "width": 8,
-            }
-          }
-        />
-      </View>
-      <View
-        accessible={false}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "marginHorizontal": 4,
-            "opacity": 1,
-          }
+      }
+      dotStyle={
+        Object {
+          "borderRadius": 4,
+          "height": 8,
+          "width": 8,
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "rgba(197, 199, 203, 1)",
-              "borderRadius": 4,
-              "height": 8,
-              "opacity": 0.5,
-              "transform": Array [
-                Object {
-                  "scale": 0.9,
-                },
-              ],
-              "width": 8,
-            }
-          }
-        />
-      </View>
-      <View
-        accessible={false}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "marginHorizontal": 4,
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "rgba(197, 199, 203, 1)",
-              "borderRadius": 4,
-              "height": 8,
-              "opacity": 0.5,
-              "transform": Array [
-                Object {
-                  "scale": 0.9,
-                },
-              ],
-              "width": 8,
-            }
-          }
-        />
-      </View>
-      <View
-        accessible={false}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "marginHorizontal": 4,
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "rgba(197, 199, 203, 1)",
-              "borderRadius": 4,
-              "height": 8,
-              "opacity": 0.5,
-              "transform": Array [
-                Object {
-                  "scale": 0.9,
-                },
-              ],
-              "width": 8,
-            }
-          }
-        />
-      </View>
-      <View
-        accessible={false}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "marginHorizontal": 4,
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "rgba(197, 199, 203, 1)",
-              "borderRadius": 4,
-              "height": 8,
-              "opacity": 0.5,
-              "transform": Array [
-                Object {
-                  "scale": 0.9,
-                },
-              ],
-              "width": 8,
-            }
-          }
-        />
-      </View>
-    </View>
+      }
+      dotsLength={5}
+      inactiveDotColor="#C5C7CB"
+      inactiveDotScale={0.9}
+    />
     <View
       style={
         Object {
