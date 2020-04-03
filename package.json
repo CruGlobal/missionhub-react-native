@@ -85,7 +85,7 @@
     "react-native-push-notification": "https://github.com/CruGlobal/react-native-push-notification",
     "react-native-reanimated": "^1.4.0",
     "react-native-scrollable-tab-view": "^0.10.0",
-    "react-native-snap-carousel": "^3.8.0",
+    "react-native-snap-carousel": "^3.8.4",
     "react-native-svg": "^12.0.0",
     "react-native-vector-icons": "^6.6.0",
     "react-native-view-overflow": "^0.0.4",
