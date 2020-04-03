@@ -7,6 +7,12 @@ import { StepTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SelectStepExplainerModal, { AddStepExplainer } from '..';
 
+jest.mock('react-native-snap-carousel', () => ({
+  ...jest.requireActual('react-native-snap-carousel'),
+  __esModule: true,
+  Pagination: 'Pagination',
+}));
+
 const onClose = jest.fn();
 
 let screen: ReturnType<typeof renderWithContext>;
