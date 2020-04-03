@@ -100,7 +100,8 @@ export const refresh = (obj, method) => {
     });
 };
 
-export const isAuthenticated = (authState: AuthState) => authState.token != '';
+export const isAuthenticated = (authState: AuthState): boolean =>
+  !!authState.token;
 
 export const personIsCurrentUser = (personId: string, authState: AuthState) =>
   personId === authState.person.id;
