@@ -30,6 +30,9 @@ export default StyleSheet.create({
     lineHeight: 24,
     paddingHorizontal: 10,
   },
+  postImage: {
+    width: theme.fullWidth,
+  },
   backButton: {
     fontSize: 16,
     color: theme.lightGrey,

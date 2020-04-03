@@ -13,10 +13,10 @@ import {
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
-import { Input, Text, Button } from '../../../components/common';
+import { Input, Text } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
-import ImagePicker from '../../../components/ImagePicker';
+import ImagePicker, { imagePayload } from '../../../components/ImagePicker';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
@@ -54,12 +54,13 @@ export const NewPostScreen = () => {
     addPhotoButton,
     addPhotoIcon,
     addPhotoText,
+    postImage,
     backButton,
     textInput,
   } = styles;
   const dispatch = useDispatch();
   const [post, changePost] = useState('');
-  const [image, changeImage] = useState<null>(null);
+  const [image, changeImage] = useState<imagePayload | null>(null);
   const onComplete: () => void = useNavigationParam('onComplete');
   const organization: Organization = useNavigationParam('organization');
   const analyticsPermissionType = useSelector<
@@ -90,7 +91,7 @@ export const NewPostScreen = () => {
     onComplete();
   };
 
-  const handleSavePhoto = image => {
+  const handleSavePhoto = (image: imagePayload) => {
     changeImage(image);
   };
 
@@ -104,19 +105,20 @@ export const NewPostScreen = () => {
   const renderAddPhotoButton = () => (
     <>
       <View style={lineBreak} />
-      <Button onPress={handlePressAddPhoto} style={addPhotoButton}>
+      <View style={addPhotoButton}>
         <Image
           source={ADD_PHOTO_ICON}
           resizeMode="contain"
           style={addPhotoIcon}
         />
         <Text style={addPhotoText}>Add a Photo</Text>
-      </Button>
+      </View>
       <View style={lineBreak} />
     </>
   );
 
-  const renderImage = () => <Image source={image} />;
+  const renderImage = () =>
+    image && <Image resizeMode="cover" source={image} style={postImage} />;
 
   return (
     <View style={container}>
@@ -144,7 +146,9 @@ export const NewPostScreen = () => {
           placeholderTextColor={theme.lightGrey}
           style={textInput}
         />
-        <ImagePicker>{renderAddPhotoButton()}</ImagePicker>
+        <ImagePicker onSelectImage={handleSavePhoto}>
+          {image ? renderImage() : renderAddPhotoButton()}
+        </ImagePicker>
       </ScrollView>
       <BottomButton
         text={t('shareStory')}
