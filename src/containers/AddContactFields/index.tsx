@@ -2,16 +2,24 @@
 
 import React, { useState, useRef } from 'react';
 import { KeyboardAvoidingView, View, TextInput } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { orgPermissionSelector } from '../../selectors/people';
 import { Flex, Text, Input } from '../../components/common';
+import PopupMenu from '../../components/PopupMenu';
 import theme from '../../theme';
 import { hasOrgPermissions } from '../../utils/common';
 import { PersonType } from '../AddContactScreen';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { Organization } from '../../reducers/organizations';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { relationshipTypeList } from '../PersonCategoryScreen';
+import { navigatePush } from '../../actions/navigation';
+import { getPersonDetails } from '../../actions/person';
+import DropdownIcon from '../../../assets/images/dropdownIcon.svg';
+import { SELECT_STAGE_SCREEN } from '../SelectStageScreen';
+import { GetPerson_person_stage as StageType } from '../AddContactScreen/__generated__/GetPerson';
 
 import styles from './styles';
 
@@ -28,7 +36,9 @@ const AddContactFields = ({
 }: AddContactFieldsProps) => {
   const { t } = useTranslation('addContact');
   const [currentInputField, changeCurrentInputField] = useState('');
+  const dispatch = useDispatch();
   const isMe = useIsMe(person.id);
+  const isEdit = !!person.id && person.stage; // Person in onboarding won't have a stage by the time they are at this screen
   const personOrgPermission = useSelector(() =>
     orgPermissionSelector({}, { person, organization }),
   );
@@ -41,7 +51,39 @@ const AddContactFields = ({
       case 'lastName':
         onUpdateData({ ...person, lastName: data });
         break;
+      case 'relationshipType':
+        onUpdateData({
+          ...person,
+          relationshipType: data as RelationshipTypeEnum,
+        });
+        break;
     }
+  };
+
+  const categoryOptions = relationshipTypeList.map(type => {
+    return {
+      text: t(`categories.${type}`),
+      onPress: () => {
+        updateField('relationshipType', type);
+      },
+    };
+  });
+
+  const handleStageSelect = () => {
+    dispatch(
+      navigatePush(SELECT_STAGE_SCREEN, {
+        enableBackButton: false,
+        personId: person.id,
+        section: 'people',
+        subsection: 'person',
+        orgId: organization?.id,
+        isEdit: true,
+        onComplete: (stage: StageType) => {
+          onUpdateData({ ...person, stage });
+          dispatch(getPersonDetails(person.id, organization?.id));
+        },
+      }),
+    );
   };
 
   const firstNameRef = useRef<TextInput>(null);
@@ -54,24 +96,35 @@ const AddContactFields = ({
   return (
     <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
       <Flex direction="column">
-        <Flex value={2} justify="end" align="center">
-          {isMe ? null : (
-            <View style={styles.textWrap}>
-              <Text style={styles.addPersonText}>{t('prompt')}</Text>
-            </View>
-          )}
-        </Flex>
+        {isEdit ? null : (
+          <Flex value={2} justify="end" align="center">
+            {isMe ? null : (
+              <View style={styles.textWrap}>
+                <Text style={styles.addPersonText}>{t('prompt')}</Text>
+              </View>
+            )}
+          </Flex>
+        )}
+
         {person.firstName || isCurrentField('firstName') ? (
-          <Text style={styles.label}>
-            {t('profileLabels.firstNameNickname')}
+          <Text style={isEdit ? styles.editLabel : styles.label}>
+            {isEdit
+              ? t('profileLabels.firstName')
+              : t('profileLabels.firstNameNickname')}
           </Text>
         ) : (
-          <Text style={styles.label}>{}</Text>
+          <Text style={isEdit ? styles.editLabel : styles.label}>{}</Text>
         )}
 
         <Input
           testID="firstNameInput"
           ref={firstNameRef}
+          style={{
+            color: isEdit ? theme.challengeBlue : theme.white,
+            borderBottomColor: isEdit
+              ? theme.extraLightGrey
+              : theme.challengeBlue,
+          }}
           editable={!personHasOrgPermission}
           selectionColor={theme.challengeBlue}
           onChangeText={(firstName: string) =>
@@ -83,7 +136,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.firstNameRequired')
           }
-          placeholderTextColor={theme.white}
+          placeholderTextColor={isEdit ? theme.challengeBlue : theme.white}
           returnKeyType="next"
           blurOnSubmit={false}
           autoFocus={true}
@@ -94,14 +147,22 @@ const AddContactFields = ({
       </Flex>
       <Flex direction="column">
         {person.lastName || isCurrentField('lastName') ? (
-          <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
+          <Text style={isEdit ? styles.editLabel : styles.label}>
+            {t('profileLabels.lastName')}
+          </Text>
         ) : (
-          <Text style={styles.label}>{}</Text>
+          <Text style={isEdit ? styles.editLabel : styles.label}>{}</Text>
         )}
 
         <Input
           testID="lastNameInput"
           ref={lastNameRef}
+          style={{
+            color: isEdit ? theme.challengeBlue : theme.white,
+            borderBottomColor: isEdit
+              ? theme.extraLightGrey
+              : theme.challengeBlue,
+          }}
           editable={!personHasOrgPermission}
           selectionColor={theme.challengeBlue}
           onChangeText={(lastName: string) => updateField('lastName', lastName)}
@@ -111,13 +172,55 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.lastNameOptional')
           }
-          placeholderTextColor={theme.white}
+          placeholderTextColor={isEdit ? theme.challengeBlue : theme.white}
           returnKeyType="done"
           blurOnSubmit={false}
           onFocus={() => changeCurrentInputField('lastName')}
           onBlur={() => changeCurrentInputField('')}
         />
       </Flex>
+      {isEdit ? (
+        <>
+          <Flex direction="column">
+            <Text style={isEdit ? styles.editLabel : styles.label}>
+              {t('stage')}
+            </Text>
+
+            <View style={styles.buttonContainer}>
+              <Text
+                testID="stageSelectButton"
+                onPress={() => handleStageSelect()}
+                style={styles.categoryText}
+              >
+                {t(`stages.${person.stage?.name.toLowerCase()}.label`)}
+              </Text>
+            </View>
+          </Flex>
+
+          {!isMe ? (
+            <Flex direction="column">
+              <Text style={isEdit ? styles.editLabel : styles.label}>
+                {t('categoryPrompt')}
+              </Text>
+
+              <PopupMenu
+                // @ts-ignore
+                actions={categoryOptions}
+                triggerOnLongPress={false}
+              >
+                <View style={styles.buttonContainer}>
+                  <Text style={styles.categoryText}>
+                    {person.relationshipType
+                      ? t(`categories.${person.relationshipType}`)
+                      : t('categoryNull')}
+                  </Text>
+                  <DropdownIcon color={theme.lightGrey} />
+                </View>
+              </PopupMenu>
+            </Flex>
+          ) : null}
+        </>
+      ) : null}
     </KeyboardAvoidingView>
   );
 };

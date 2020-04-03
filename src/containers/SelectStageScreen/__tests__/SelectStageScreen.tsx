@@ -19,6 +19,7 @@ import {
 } from '../../../actions/selectStage';
 import { Stage } from '../../../reducers/stages';
 import { ACTIONS } from '../../../constants';
+import { navigateBack } from '../../../actions/navigation';
 
 import SelectStageScreen, { SelectStageNavParams } from '..';
 
@@ -26,6 +27,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../../actions/stages');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/selectStage');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
@@ -128,6 +130,7 @@ const baseParams = {
 };
 
 const next = jest.fn();
+const onComplete = jest.fn();
 
 const trackActionResult = { type: 'track action' };
 const trackScreenChangeResult = { type: 'track screen change' };
@@ -136,6 +139,7 @@ const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
 const updateUserStageResult = { type: 'update user stage' };
 const nextResult = { type: 'next' };
+const navigateBackResults = { type: 'navigate back' };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResult);
@@ -490,6 +494,38 @@ describe('setStage', () => {
       expect(store.getActions()).toEqual([
         trackScreenChangeResult,
         nextResult,
+        trackActionResult,
+      ]);
+    });
+
+    it('selects new stage for edit screen', async () => {
+      (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
+      const navParams = {
+        ...baseParams,
+        personId: assignedPersonId,
+        isEdit: true,
+        onComplete,
+      };
+      const { store, getAllByTestId } = await buildAndTestMount(
+        state,
+        navParams,
+      );
+
+      await fireEvent.press(
+        getAllByTestId('stageSelectButton')[selectedStageId],
+      );
+
+      expect(next).not.toHaveBeenCalled();
+      expect(trackAction).toHaveBeenCalledWith(selectAction.name, {
+        [selectAction.key]: stage.id,
+        [ACTIONS.STAGE_SELECTED.key]: null,
+      });
+
+      expect(updateUserStage).toHaveBeenCalled();
+      expect(store.getActions()).toEqual([
+        trackScreenChangeResult,
+        updateUserStageResult,
+        navigateBackResults,
         trackActionResult,
       ]);
     });
