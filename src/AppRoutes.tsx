@@ -77,7 +77,7 @@ import {
   MEMBER_PERSON_SCREEN,
 } from './containers/Groups/AssignedPersonScreen/constants';
 import SettingsMenu from './components/SettingsMenu';
-import PersonSideMenu from './components/PersonSideMenu';
+import { PersonSideMenu } from './components/PersonSideMenu';
 import theme from './theme';
 import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';

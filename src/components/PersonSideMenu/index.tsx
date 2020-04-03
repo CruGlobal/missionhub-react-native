@@ -1,10 +1,10 @@
 /* eslint max-lines-per-function: 0 */
 
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { connect } from 'react-redux-legacy';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import { deleteContactAssignment } from '../../actions/person';
 import SideMenu, { MenuItemsType } from '../../components/SideMenu';
@@ -13,9 +13,8 @@ import { EDIT_PERSON_FLOW } from '../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../containers/StatusReasonScreen';
 import { assignContactAndPickStage } from '../../actions/misc';
 import {
-  contactAssignmentSelector,
-  orgPermissionSelector,
-  personSelector,
+  selectContactAssignment,
+  selectOrgPermission,
 } from '../../selectors/people';
 import {
   showAssignButton,
@@ -24,47 +23,28 @@ import {
   orgIsCru,
   orgIsUserCreated,
 } from '../../utils/common';
-import { Person, PeopleState } from '../../reducers/people';
+import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 
-interface PersonSideMenuProps {
-  person: Person;
-  organization?: Organization;
-  contactAssignment: { id: string };
-  orgPermission?: { id: string };
-}
-
-const PersonSideMenu = ({
-  person,
-  organization,
-  contactAssignment,
-  orgPermission,
-}: PersonSideMenuProps) => {
+export const PersonSideMenu = () => {
   const { t } = useTranslation('contactSideMenu');
   const dispatch = useDispatch();
-  const [deleteOnUnmount, setDeleteOnUnmount] = useState(false);
+  const person: Person = useNavigationParam('person');
+  const organization: Organization | undefined = useNavigationParam(
+    'organization',
+  );
   const isMe = useIsMe(person.id);
+  const contactAssignment: {
+    id: string;
+  } = useSelector(({ auth }: { auth: AuthState }) =>
+    selectContactAssignment(person, organization.id, auth.person.id),
+  );
+  const orgPermission = selectOrgPermission(person, organization);
 
   const isCruOrg = orgIsCru(organization);
   const isUserCreated = orgIsUserCreated(organization);
-
-  const onUnmount = () => {
-    if (deleteOnUnmount) {
-      dispatch(
-        deleteContactAssignment(
-          contactAssignment.id,
-          person.id,
-          organization && organization.id,
-        ),
-      );
-    }
-  };
-
-  useEffect(() => {
-    return onUnmount;
-  }, []);
 
   const onSubmitReason = () => dispatch(navigateBack(2));
 
@@ -84,7 +64,13 @@ const PersonSideMenu = ({
             text: t('delete'),
             style: 'destructive',
             onPress: () => {
-              setDeleteOnUnmount(true);
+              dispatch(
+                deleteContactAssignment(
+                  contactAssignment.id,
+                  person.id,
+                  organization && organization.id,
+                ),
+              );
               dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
             },
           },
@@ -140,42 +126,3 @@ const PersonSideMenu = ({
   ].filter(Boolean) as MenuItemsType[];
   return <SideMenu testID="SideMenu" menuItems={menuItems} />;
 };
-
-const mapStateToProps = (
-  { auth, people }: { auth: AuthState; people: PeopleState },
-  {
-    navigation: {
-      state: {
-        params: { person, organization },
-      },
-    },
-  }: // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-  any,
-) => {
-  const selectorPerson =
-    personSelector(
-      { people },
-      { personId: person.id, orgId: organization && organization.id },
-    ) || person;
-
-  return {
-    person: selectorPerson,
-    organization,
-    contactAssignment: contactAssignmentSelector(
-      { auth },
-      { person: selectorPerson, orgId: organization && organization.id },
-    ),
-    orgPermission:
-      (organization &&
-        orgPermissionSelector(
-          {},
-          {
-            person: selectorPerson,
-            organization,
-          },
-        )) ||
-      undefined,
-  };
-};
-
-export default connect(mapStateToProps)(PersonSideMenu);
