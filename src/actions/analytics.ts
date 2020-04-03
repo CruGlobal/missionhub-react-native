@@ -119,7 +119,7 @@ export const trackScreenChange = (
   } else {
     RNOmniture.loadMarketingCloudId(result => {
       sendScreenChange(result);
-      appsFlyer.setAdditionalData({ ECID: result });
+      appsFlyer.setAdditionalData({ ECID: result }, () => {});
     });
   }
 };
