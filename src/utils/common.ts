@@ -205,12 +205,6 @@ export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   jsonApiResponse.findAll(type).filter(element => !element._placeHolder);
 
 // @ts-ignore
-export const getInitials = initials =>
-  (initials || '')
-    .trim()
-    .substr(0, 2)
-    .trim();
-// @ts-ignore
 export const getFirstNameAndLastInitial = (f, l) =>
   `${f || ''} ${(l || '').charAt(0)}`.trim();
 // @ts-ignore
