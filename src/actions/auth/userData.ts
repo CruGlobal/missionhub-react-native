@@ -52,7 +52,7 @@ export function authSuccess() {
 
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
-    appsFlyer.setCustomerUserId(mePerson.global_registry_mdm_id);
+    appsFlyer.setCustomerUserId(mePerson.global_registry_mdm_id, () => {});
 
     dispatch({
       type: LOAD_PERSON_DETAILS,
