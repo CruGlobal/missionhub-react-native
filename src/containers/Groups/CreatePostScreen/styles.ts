@@ -12,6 +12,7 @@ export default StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
+  icon: { height: 24, width: 24 },
   lineBreak: {
     height: 1,
     width: theme.fullWidth,
@@ -24,7 +25,6 @@ export default StyleSheet.create({
     paddingHorizontal: 35,
     paddingVertical: 20,
   },
-  addPhotoIcon: { height: 22, width: 22 },
   addPhotoText: {
     fontSize: 16,
     lineHeight: 24,

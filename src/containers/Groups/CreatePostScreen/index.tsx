@@ -6,6 +6,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ADD_PHOTO_ICON from '../../../../assets/images/addPhotoIcon.png';
+import SEND_ICON from '../../../../assets/images/sendIcon.png';
 import {
   ACTIONS,
   ANALYTICS_PERMISSION_TYPE,
@@ -93,6 +94,7 @@ export const CreatePostScreen = () => {
     <Header
       left={<BackButton iconStyle={styles.backButton} />}
       center={<Text style={styles.headerText}>God Story</Text>}
+      right={postText ? <Image source={SEND_ICON} style={styles.icon} /> : null}
     />
   );
 
@@ -106,7 +108,7 @@ export const CreatePostScreen = () => {
           <Image
             source={ADD_PHOTO_ICON}
             resizeMode="contain"
-            style={styles.addPhotoIcon}
+            style={styles.icon}
           />
           <Text style={styles.addPhotoText}>Add a Photo</Text>
         </View>
