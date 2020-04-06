@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
 import 'moment/locale/es';
 import 'moment/locale/tr';
+import appsFlyer from 'react-native-appsflyer';
 
 Icon.loadFont();
 
@@ -39,6 +40,12 @@ import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { apolloClient } from './apolloClient';
+
+appsFlyer.initSdk({
+  devKey: 'QdbVaVHi9bHRchUTWtoaij',
+  isDebug: __DEV__,
+  appId: '447869440',
+});
 
 @codePush({
   deploymentKey: isAndroid
@@ -189,6 +196,10 @@ export default class App extends Component {
       nextAppState === 'active'
     ) {
       this.collectLifecycleData();
+      // https://github.com/AppsFlyerSDK/react-native-appsflyer/blob/master/Docs/API.md#trackAppLaunch
+      if (!isAndroid) {
+        appsFlyer.trackAppLaunch();
+      }
     }
 
     this.setState({ appState: nextAppState });

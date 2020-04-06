@@ -1,6 +1,7 @@
 import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import { ThunkDispatch } from 'redux-thunk';
+import appsFlyer from 'react-native-appsflyer';
 
 import { LOAD_PERSON_DETAILS } from '../../constants';
 import { getMe } from '../person';
@@ -51,6 +52,7 @@ export function authSuccess() {
 
     const mePerson = await dispatch(getMe('contact_assignments'));
     RNOmniture.syncIdentifier(mePerson.global_registry_mdm_id);
+    appsFlyer.setCustomerUserId(mePerson.global_registry_mdm_id);
 
     dispatch({
       type: LOAD_PERSON_DETAILS,
