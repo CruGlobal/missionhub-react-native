@@ -12,6 +12,7 @@ import { Alert } from 'react-native';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import appsFlyer from 'react-native-appsflyer';
 
 Icon.loadFont();
 
@@ -37,6 +38,12 @@ import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { apolloClient } from './apolloClient';
 import { getFeatureFlags } from './actions/misc';
+
+appsFlyer.initSdk({
+  devKey: 'QdbVaVHi9bHRchUTWtoaij',
+  isDebug: __DEV__,
+  appId: '447869440',
+});
 
 @codePush({
   deploymentKey: isAndroid
@@ -187,6 +194,10 @@ export default class App extends Component {
       nextAppState === 'active'
     ) {
       this.collectLifecycleData();
+      // https://github.com/AppsFlyerSDK/react-native-appsflyer/blob/master/Docs/API.md#trackAppLaunch
+      if (!isAndroid) {
+        appsFlyer.trackAppLaunch();
+      }
     }
 
     this.setState({ appState: nextAppState });
