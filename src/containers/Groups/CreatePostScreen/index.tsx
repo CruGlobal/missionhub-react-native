@@ -13,8 +13,7 @@ import {
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
-import { Input, Text } from '../../../components/common';
-import BottomButton from '../../../components/BottomButton';
+import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, { imagePayload } from '../../../components/ImagePicker';
 import BackButton from '../../BackButton';
@@ -90,13 +89,25 @@ export const CreatePostScreen = () => {
     changePostImage(image);
   };
 
-  const renderHeader = () => (
-    <Header
-      left={<BackButton iconStyle={styles.backButton} />}
-      center={<Text style={styles.headerText}>God Story</Text>}
-      right={postText ? <Image source={SEND_ICON} style={styles.icon} /> : null}
-    />
-  );
+  const renderHeader = () => {
+    return (
+      <Header
+        left={<BackButton iconStyle={styles.backButton} />}
+        center={<Text style={styles.headerText}>God Story</Text>}
+        right={
+          postText ? (
+            <Button onPress={savePost} testID="SavePostButton">
+              <Image
+                source={SEND_ICON}
+                style={styles.icon}
+                resizeMode="contain"
+              />
+            </Button>
+          ) : null
+        }
+      />
+    );
+  };
 
   const renderAddPhotoButton = () =>
     postImage ? (
@@ -146,11 +157,6 @@ export const CreatePostScreen = () => {
           {renderAddPhotoButton()}
         </ImagePicker>
       </ScrollView>
-      <BottomButton
-        text={t('shareStory')}
-        onPress={savePost}
-        testID="SavePostButton"
-      />
     </View>
   );
 };
