@@ -39,7 +39,11 @@ export const PersonSideMenu = () => {
   const contactAssignment: {
     id: string;
   } = useSelector(({ auth }: { auth: AuthState }) =>
-    selectContactAssignment(person, organization.id, auth.person.id),
+    selectContactAssignment(
+      person,
+      organization && organization.id,
+      auth.person.id,
+    ),
   );
   const orgPermission = selectOrgPermission(person, organization);
 

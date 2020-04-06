@@ -6,20 +6,14 @@ import { EDIT_PERSON_FLOW } from '../../../routes/constants';
 import { STATUS_REASON_SCREEN } from '../../../containers/StatusReasonScreen';
 import { MenuItemsType } from '../../../components/SideMenu';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
-import {
-  personSelector,
-  orgPermissionSelector,
-  contactAssignmentSelector,
-} from '../../../selectors/people';
 import { deleteContactAssignment } from '../../../actions/person';
 import { assignContactAndPickStage } from '../../../actions/misc';
 
-import PersonSideMenu from '..';
+import { PersonSideMenu } from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/steps');
-jest.mock('../../../selectors/people');
 jest.mock('../../../actions/misc');
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -31,14 +25,26 @@ jest.mock('react-navigation-tabs', () => ({
 }));
 
 const me = { id: '1' };
-const person = { id: '2', type: 'person', first_name: 'Test Fname' };
+const organization = { id: '4', type: 'organization' };
 const orgPermission = {
-  id: 4,
+  id: '5',
+  organization_id: organization.id,
   type: 'organizational_permission',
   followup_status: 'uncontacted',
 };
-const contactAssignment = { id: '3', type: 'reverse_contact_assignment' };
-const organization = { id: '4', type: 'organization' };
+const contactAssignment = {
+  id: '3',
+  type: 'reverse_contact_assignment',
+  assigned_to: me,
+  organization,
+};
+const person = {
+  id: '2',
+  type: 'person',
+  first_name: 'Test Fname',
+  reverse_contact_assignments: [contactAssignment],
+  organizational_permissions: [orgPermission],
+};
 
 const initialState = {
   auth: { person: me },
@@ -55,29 +61,19 @@ const initialState = {
 };
 
 beforeEach(() => {
-  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigated push' });
   (assignContactAndPickStage as jest.Mock).mockReturnValue({
     type: 'assigned contact and picked stage',
   });
+  (deleteContactAssignment as jest.Mock).mockReturnValue({
+    type: 'delete contact assignment',
+  });
 });
 
 describe('PersonSideMenu', () => {
   describe('person has org permission', () => {
-    beforeEach(() =>
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-        orgPermission,
-      ),
-    );
-
     describe('unassign', () => {
-      beforeEach(() => {
-        ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
-          contactAssignment,
-        );
-      });
-
       it('renders correctly', () => {
         renderWithContext(<PersonSideMenu />, {
           initialState,
@@ -150,17 +146,13 @@ describe('PersonSideMenu', () => {
     });
 
     describe('renders assign correctly', () => {
-      beforeEach(() => {
-        ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
-          undefined,
-        );
-      });
+      const unassignedPerson = { ...person, reverse_contact_assignments: [] };
 
       it('renders correctly', () => {
         renderWithContext(<PersonSideMenu />, {
           initialState,
           navParams: {
-            person,
+            person: unassignedPerson,
             organization,
           },
         }).snapshot();
@@ -170,7 +162,7 @@ describe('PersonSideMenu', () => {
         const { getByTestId } = renderWithContext(<PersonSideMenu />, {
           initialState,
           navParams: {
-            person,
+            person: unassignedPerson,
             organization,
           },
         });
@@ -180,7 +172,7 @@ describe('PersonSideMenu', () => {
         };
         menuItems.filter(item => item.label === 'Edit')[0].action();
         expect(navigatePush).toHaveBeenCalledWith(EDIT_PERSON_FLOW, {
-          person,
+          person: unassignedPerson,
           organization,
         });
       });
@@ -189,7 +181,7 @@ describe('PersonSideMenu', () => {
         const { getByTestId } = renderWithContext(<PersonSideMenu />, {
           initialState,
           navParams: {
-            person,
+            person: unassignedPerson,
             organization,
           },
         });
@@ -199,7 +191,7 @@ describe('PersonSideMenu', () => {
         };
         menuItems.filter(item => item.label === 'Assign')[0].action();
         expect(assignContactAndPickStage).toHaveBeenCalledWith(
-          person,
+          unassignedPerson,
           organization,
         );
       });
@@ -219,26 +211,27 @@ describe('PersonSideMenu', () => {
   });
 
   describe('person does not have org permission', () => {
-    beforeEach(() => {
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
-      ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
-        contactAssignment,
-      );
-    });
+    const personWithoutOrgPermission = {
+      ...person,
+      reverse_contact_assignments: [
+        { ...contactAssignment, organization: undefined },
+      ],
+      organizational_permissions: [],
+    };
 
     it('renders delete correctly', () => {
       renderWithContext(<PersonSideMenu />, {
         initialState,
-        navParams: { person },
+        navParams: { person: personWithoutOrgPermission },
       }).snapshot();
     });
 
     it('should delete on unmount when person confirms delete', () => {
       Alert.alert = jest.fn();
 
-      const { getByTestId, unmount } = renderWithContext(<PersonSideMenu />, {
+      const { getByTestId } = renderWithContext(<PersonSideMenu />, {
         initialState,
-        navParams: { person },
+        navParams: { person: personWithoutOrgPermission },
       });
 
       const { menuItems } = getByTestId('SideMenu').props as {
@@ -250,13 +243,10 @@ describe('PersonSideMenu', () => {
       //Manually call onPress
       (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
       expect(navigateBack).toHaveBeenCalledWith(2);
-
-      unmount();
-
       expect(deleteContactAssignment).toHaveBeenCalledWith(
         contactAssignment.id,
         person.id,
-        organization.id,
+        undefined,
       );
     });
   });
