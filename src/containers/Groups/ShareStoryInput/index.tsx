@@ -31,10 +31,7 @@ const ShareStoryInput = ({
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         orgId: organization.id,
-        onComplete: () => {
-          refreshItems();
-          dispatch(navigateBack());
-        },
+        onComplete: () => refreshItems(),
       }),
     );
   };

@@ -24,6 +24,7 @@ import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../../actions/analytics';
+import { navigateBack } from '../../../actions/navigation';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import { CREATE_POST, UPDATE_POST } from './queries';
@@ -72,17 +73,17 @@ export const CreatePostScreen = () => {
 
     if (post) {
       await updatePost({
-        variables: { input: { id: post.id, content: postText } },
+        variables: { input: { id: post.celebrateableId, content: postText } },
       });
     } else {
       await createPost({
         variables: { input: { content: postText, organizationId: orgId } },
       });
+      dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
-    dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
-
     onComplete();
+    dispatch(navigateBack());
   };
 
   const handleSavePhoto = (image: imagePayload) => {
