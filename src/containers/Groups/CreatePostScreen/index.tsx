@@ -35,7 +35,7 @@ import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
 export const CreatePostScreen = () => {
-  const { t } = useTranslation('shareAStoryScreen');
+  const { t } = useTranslation('communityPost');
   const onComplete: () => void = useNavigationParam('onComplete');
   const orgId: string = useNavigationParam('orgId');
   const post:
@@ -74,11 +74,11 @@ export const CreatePostScreen = () => {
     if (post) {
       await updatePost({
         variables: { input: { id: post.celebrateableId, content: postText } },
-      });
+      }); //use new mutation, include image
     } else {
       await createPost({
         variables: { input: { content: postText, organizationId: orgId } },
-      });
+      }); //use new mutation, include image
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
@@ -90,11 +90,12 @@ export const CreatePostScreen = () => {
     changePostImage(image);
   };
 
+  //TODO: use post type as screen title
   const renderHeader = () => {
     return (
       <Header
         left={<BackButton iconStyle={styles.backButton} />}
-        center={<Text style={styles.headerText}>God Story</Text>}
+        center={<Text style={styles.headerText}>{t('godStory.label')}</Text>}
         right={
           postText ? (
             <Button onPress={savePost} testID="SavePostButton">
@@ -122,12 +123,13 @@ export const CreatePostScreen = () => {
             resizeMode="contain"
             style={styles.icon}
           />
-          <Text style={styles.addPhotoText}>Add a Photo</Text>
+          <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
         </View>
         <View style={styles.lineBreak} />
       </>
     );
 
+  //TODO: use unique placeholder text for each post type
   return (
     <View style={styles.container}>
       {renderHeader()}
@@ -145,7 +147,7 @@ export const CreatePostScreen = () => {
           testID="StoryInput"
           scrollEnabled={false}
           onChangeText={e => changePostText(e)}
-          placeholder={t('inputPlaceholder')}
+          placeholder={t('godStory.placeholder')}
           value={postText}
           autoFocus={true}
           autoCorrect={true}
