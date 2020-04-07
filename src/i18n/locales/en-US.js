@@ -860,4 +860,14 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
+  postTypes: {
+    godStory: 'God Story',
+    prayerRequest: 'Prayer Request',
+    spiritualQuestion: 'Spiritual Question',
+    careRequest: 'Care Request',
+    onYourMind: "What's on Your Mind",
+    challenge: 'Challenge',
+    announcement: 'Announcement',
+    stepOfFaith: 'Step of Faith',
+  },
 };
