@@ -13,7 +13,7 @@ import { Organization } from '../../../reducers/organizations';
 import {
   CELEBRATE_ITEM_FRAGMENT,
   CELEBRATE_ITEM_PERSON_FRAGMENT,
-} from '../../../components/CelebrateItem/queries';
+} from '../../../components/CommunityFeedItem/queries';
 import {
   GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
   GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,

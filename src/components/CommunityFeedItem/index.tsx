@@ -9,7 +9,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
-import { Card, Separator, Touchable, Icon, Text } from '../common';
+import { Card, Separator, Touchable, Icon } from '../common';
 import CardTime from '../CardTime';
 import { PersonAvatar } from '../PersonAvatar';
 import CelebrateItemContent from '../CelebrateItemContent';
@@ -18,9 +18,8 @@ import CelebrateItemName from '../../containers/CelebrateItemName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
 import { orgIsGlobal } from '../../utils/common';
-import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
@@ -59,27 +58,24 @@ enum postTypes {
   whatsOnYourMind,
 }
 
-export interface CelebrateItemProps {
+export interface CommunityFeedItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   event: CelebrateItemData;
   organization: Organization;
   namePressable: boolean;
   onClearNotification?: (event: CelebrateItemData) => void;
   onRefresh: () => void;
-  me: Person;
 }
 
-const CelebrateItem = ({
+export const CommunityFeedItem = ({
   dispatch,
   event,
   organization,
   namePressable,
   onClearNotification,
   onRefresh,
-  me,
-}: CelebrateItemProps) => {
+}: CommunityFeedItemProps) => {
   const { t } = useTranslation('celebrateItems');
-  let postType: postTypes;
 
   const {
     celebrateableId,
@@ -88,6 +84,9 @@ const CelebrateItem = ({
     subjectPersonName,
     celebrateableType,
   } = event;
+
+  const isMe = useIsMe(subjectPerson.id);
+  let postType: postTypes;
 
   const addToSteps = postType === postTypes.careRequest;
   const usePrayerIcon = postType === postTypes.prayerRequest;
@@ -269,9 +268,3 @@ const CelebrateItem = ({
     ? renderStoryCard()
     : renderCelebrateCard();
 };
-
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  me: auth.person,
-});
-
-export default connect(mapStateToProps)(CelebrateItem);

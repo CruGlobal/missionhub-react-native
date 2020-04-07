@@ -24,7 +24,7 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
 import { mockFragment } from '../../../testUtils/apolloMockClient';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Person } from '../../reducers/people';
 

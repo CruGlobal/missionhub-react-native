@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 
 export const GET_CELEBRATE_FEED = gql`
   query GetCelebrateFeed(

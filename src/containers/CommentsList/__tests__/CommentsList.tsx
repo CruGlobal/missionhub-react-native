@@ -22,7 +22,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { Person } from '../../../reducers/people';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentsList from '..';

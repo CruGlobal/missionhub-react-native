@@ -19,7 +19,7 @@ import { Organization } from '../../../reducers/organizations';
 import {
   CELEBRATE_ITEM_FRAGMENT,
   COMMUNITY_PERMISSIONS_FRAGMENT,
-} from '../../../components/CelebrateItem/queries';
+} from '../../CommunityFeedItem/queries';
 import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 

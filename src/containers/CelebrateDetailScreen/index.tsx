@@ -26,7 +26,7 @@ import {
   ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import {
   CelebrateCommentsState,

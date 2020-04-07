@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
-import CelebrateItem from '../../components/CelebrateItem';
+import CelebrateItem from '../../components/CommunityFeedItem';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';

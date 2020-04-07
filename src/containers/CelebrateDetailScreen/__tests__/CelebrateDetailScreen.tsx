@@ -21,7 +21,7 @@ import CommentsList from '../../CommentsList';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 

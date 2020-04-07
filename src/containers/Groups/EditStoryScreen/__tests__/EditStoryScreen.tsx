@@ -9,7 +9,7 @@ import { navigateBack } from '../../../../actions/navigation';
 import { renderWithContext } from '../../../../../testUtils';
 import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../../components/CelebrateItem/queries';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../../components/CommunityFeedItem/queries';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../CelebrateFeed/__generated__/GetCelebrateFeed';
 import * as common from '../../../../utils/common';
 
