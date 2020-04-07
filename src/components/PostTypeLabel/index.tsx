@@ -50,125 +50,85 @@ const PostTypeLabel = ({
   // IconSize differs if it is inside the create post modal component
   const iconSize = isModal ? 24 : 20;
 
-  const renderContent = () => {
+  const renderIcon = () => {
     switch (type) {
       case PostTypeEnum.godStory:
         return (
-          <>
-            <GodStoryIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('godStory')}</Text>
-            ) : null}
-          </>
+          <GodStoryIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
       case PostTypeEnum.prayerRequest:
         return (
-          <>
-            <PrayerRequestIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('prayerRequest')}</Text>
-            ) : null}
-          </>
+          <PrayerRequestIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
 
       case PostTypeEnum.spiritualQuestion:
         return (
-          <>
-            <SpiritualQuestionIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('spiritualQuestion')}</Text>
-            ) : null}
-          </>
+          <SpiritualQuestionIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
 
       case PostTypeEnum.careRequest:
         return (
-          <>
-            <CareRequestIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('careRequest')}</Text>
-            ) : null}
-          </>
+          <CareRequestIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
 
       case PostTypeEnum.onYourMind:
         return (
-          <>
-            <OnYourMindIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('onYourMind')}</Text>
-            ) : null}
-          </>
+          <OnYourMindIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
 
       case PostTypeEnum.challenge:
         return (
-          <>
-            <ChallengesIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('challenge')}</Text>
-            ) : null}
-          </>
+          <ChallengesIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
 
       case PostTypeEnum.announcement:
         return (
-          <>
-            <AnnouncementIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('announcement')}</Text>
-            ) : null}
-          </>
+          <AnnouncementIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
 
       case PostTypeEnum.stepOfFatih:
         return (
-          <>
-            <StepsOfFaithIcon
-              color={theme.white}
-              style={styles.icon}
-              width={iconSize}
-              height={iconSize}
-            />
-            {showText ? (
-              <Text style={styles.buttonText}>{t('stepOfFaith')}</Text>
-            ) : null}
-          </>
+          <StepsOfFaithIcon
+            color={theme.white}
+            style={styles.icon}
+            width={iconSize}
+            height={iconSize}
+          />
         );
     }
   };
@@ -185,7 +145,8 @@ const PostTypeLabel = ({
         showText ? null : styles.noText,
       ]}
     >
-      {renderContent()}
+      {renderIcon()}
+      {showText ? <Text style={styles.buttonText}>{t(`${type}`)}</Text> : null}
     </Button>
   );
 };

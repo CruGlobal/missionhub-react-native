@@ -757,7 +757,7 @@ exports[`post types renders Step Of Faith Label 1`] = `
       height={20}
       style={
         Object {
-          "marginLeft": -5,
+          "marginLeft": -10,
           "marginRight": 10,
         }
       }
