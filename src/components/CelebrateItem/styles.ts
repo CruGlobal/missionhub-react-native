@@ -6,15 +6,40 @@ export default StyleSheet.create({
   cardContent: {
     flex: 1,
   },
-  content: {
-    padding: 14,
+  headerWrap: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    paddingVertical: 8,
+  },
+  headerNameWrapper: {
+    flexDirection: 'column',
+    paddingHorizontal: 8,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  headerTime: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: theme.lightGrey,
+  },
+  postText: {
+    fontSize: 16,
+    lineHeight: 24,
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
+  postImage: {
+    paddingVertical: 12,
+    width: 40,
   },
   commentLikeWrap: {
     justifyContent: 'flex-end',
-  },
-  top: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    paddingVertical: 8,
+    paddingHorizontal: 20,
   },
   topLeft: {
     justifyContent: 'flex-start',

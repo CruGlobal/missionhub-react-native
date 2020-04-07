@@ -9,8 +9,9 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
-import { Card, Separator, Touchable, Icon } from '../common';
+import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
+import { PersonAvatar } from '../PersonAvatar';
 import CelebrateItemContent from '../CelebrateItemContent';
 import CommentLikeComponent from '../../containers/CommentLikeComponent';
 import CelebrateItemName from '../../containers/CelebrateItemName';
@@ -47,6 +48,17 @@ export const REPORT_STORY = gql`
   }
 `;
 
+//TODO:Replace with actual types
+enum postTypes {
+  prayerRequest,
+  stepOfFaith,
+  spiritualQuestion,
+  godStory,
+  careRequest,
+  announcement,
+  whatsOnYourMind,
+}
+
 export interface CelebrateItemProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   event: CelebrateItemData;
@@ -66,6 +78,9 @@ const CelebrateItem = ({
   onRefresh,
   me,
 }: CelebrateItemProps) => {
+  const { t } = useTranslation('celebrateItems');
+  let postType: postTypes;
+
   const {
     celebrateableId,
     changedAttributeValue,
@@ -74,7 +89,9 @@ const CelebrateItem = ({
     celebrateableType,
   } = event;
 
-  const { t } = useTranslation('celebrateItems');
+  const addToSteps = postType === postTypes.careRequest;
+  const usePrayerIcon = postType === postTypes.prayerRequest;
+
   const [deleteStory] = useMutation<DeleteStory, DeleteStoryVariables>(
     DELETE_STORY,
   );
@@ -153,24 +170,39 @@ const CelebrateItem = ({
           ]
       : null;
 
+  // TODO: insert actual post type label
+  const renderHeader = () => (
+    <View style={styles.headerWrap}>
+      <View style={styles.headerRow}>
+        <View
+          style={{
+            backgroundColor: 'blue',
+            height: 20,
+            width: 20,
+          }}
+        />
+      </View>
+      <View style={styles.headerRow}>
+        <PersonAvatar size={48} />
+        <View style={styles.headerNameWrapper}>
+          <CelebrateItemName
+            name={subjectPersonName}
+            person={subjectPerson}
+            organization={organization}
+            pressable={namePressable}
+          />
+          <CardTime date={changedAttributeValue} style={styles.headerTime} />
+        </View>
+      </View>
+    </View>
+  );
+
   const renderContent = () => (
     <View style={styles.cardContent}>
-      <View style={styles.content}>
-        <View style={styles.top}>
-          <View style={styles.topLeft}>
-            <CelebrateItemName
-              name={subjectPersonName}
-              person={subjectPerson}
-              organization={organization}
-              pressable={namePressable}
-            />
-            <CardTime date={changedAttributeValue} />
-          </View>
-        </View>
-        <CelebrateItemContent event={event} organization={organization} />
-      </View>
+      {renderHeader()}
+      <CelebrateItemContent event={event} organization={organization} />
       <Separator />
-      <View style={[styles.content, styles.commentLikeWrap]}>
+      <View style={[styles.commentLikeWrap]}>
         <CommentLikeComponent
           event={event}
           organization={organization}

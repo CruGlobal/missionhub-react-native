@@ -11,6 +11,8 @@ import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson } from 
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 
+import styles from './styles';
+
 export interface CelebrateItemNameProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   name: string | null;
@@ -37,7 +39,10 @@ const CelebrateItemName = ({
     person && dispatch(navToPersonScreen(person, organization));
 
   const content = customContent || (
-    <ItemHeaderText text={name || t('missionHubUser')} />
+    <ItemHeaderText
+      text={name || t('missionHubUser')}
+      style={styles.nameText}
+    />
   );
 
   if (!name || !pressable) {
