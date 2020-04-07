@@ -860,4 +860,32 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
+  communityPost: {
+    godStory: {
+      label: 'God Story',
+      placeholder: 'Share an inspiring God story...',
+    },
+    prayerRequest: {
+      label: 'Prayer Request',
+      placeholder: 'Share a prayer need...',
+    },
+    spiritualQuestion: {
+      label: 'Spiritual Question',
+      placeholder: 'Ask a spiritual question...',
+    },
+    careRequest: {
+      label: 'Care Request',
+      placeholder: 'Ask for help...',
+    },
+    onYourMind: {
+      label: "What's On Your Mind",
+      placeholder: "What's on your mind?...",
+    },
+    announcement: {
+      label: 'Announcement',
+      placeholder: 'Make an announcement...',
+    },
+    addAPhoto: 'Add a Photo',
+    buttonPlaceholder: 'Post to community...',
+  },
 };

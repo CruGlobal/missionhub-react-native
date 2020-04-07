@@ -11,7 +11,7 @@ import CelebrateItem from '../../components/CelebrateItem';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
-import ShareStoryInput from '../Groups/ShareStoryInput';
+import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
   CelebrateFeedSection,
@@ -222,10 +222,10 @@ const CelebrateFeed = ({
             organization={organization}
           />
           {!person ? (
-            <ShareStoryInput
+            <CreatePostButton
               dispatch={dispatch}
               refreshItems={handleRefreshing}
-              organization={organization}
+              orgId={organization.id}
             />
           ) : null}
         </>
