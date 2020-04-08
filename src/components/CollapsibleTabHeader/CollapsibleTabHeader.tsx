@@ -20,12 +20,14 @@ interface CollapsibleTabHeaderProps {
 
 const TabHeader = () => <Text style={{ padding: 30 }}>Test</Text>;
 
-export const CollapsibleTabHeader = () => {
+export const CollapsibleTabHeader = ({ children }) => {
   const {
     collapsibleHeaderProps,
     collapsibleScrollViewProps,
   } = useCollapsibleHeader({
-    headerHeight: 300,
+    headerHeight: 150,
+    statusBarHeight: 100,
+    // disableHeaderSnap: true,
   });
 
   const {
@@ -40,34 +42,32 @@ export const CollapsibleTabHeader = () => {
     [collapsibleScrollViewProps],
   );
 
-  debugger;
   return (
     <Animated.View
       {...collapsibleHeaderProps}
-      style={[
-        ...collapsibleHeaderProps.style,
-        { backgroundColor: 'tan', zIndex: 100 },
-      ]}
+      style={[...collapsibleHeaderProps.style, { zIndex: 1 }]}
     >
-      <TabHeader />
+      {children}
     </Animated.View>
   );
 };
 
-export const TestCollapsibleTabContent = () => {
+export const CollapsibleTabContent = ({ children }) => {
   const { collapsibleScrollViewProps } = useContext(CollapsibleHeaderContext);
-  const [numbers] = useState([...Array(100).keys()]);
-  debugger;
 
   return (
-    <Animated.ScrollView {...collapsibleScrollViewProps}>
-      <ScrollView>
+    <Animated.ScrollView
+      {...collapsibleScrollViewProps}
+      style={[collapsibleScrollViewProps?.style, { flex: 1 }]}
+    >
+      {children}
+      {/* <ScrollView>
         {numbers.map(num => (
           <Text key={num} style={{ backgroundColor: 'yellow', padding: 20 }}>
             {num}
           </Text>
         ))}
-      </ScrollView>
+      </ScrollView> */}
     </Animated.ScrollView>
   );
 };

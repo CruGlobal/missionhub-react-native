@@ -15,6 +15,7 @@ import { TriangleIndicator } from '../TriangleIndicator/TriangleIndicator';
 import theme from '../../theme';
 
 import styles from './styles';
+import { CollapsibleTabHeader } from '../CollapsibleTabHeader/CollapsibleTabHeader';
 
 // @ts-ignore
 @connect()
@@ -234,18 +235,19 @@ export const generateSwipeTabMenuNavigator = (
       swipeEnabled: false,
       lazy: true,
       // zIndex keeps SwipeTabMenu blue arrow on top of tab view
-      tabBarComponent: ({ navigation }) =>
-        null && (
-          <ViewOverflow style={{ zIndex: 100 }}>
-            <HeaderComponent navigation={navigation} isMember={isMember} />
-            {/* 
+      tabBarComponent: ({ navigation }) => (
+        <>
+          <HeaderComponent navigation={navigation} isMember={isMember} />
+          <CollapsibleTabHeader>
+            {/*
           // @ts-ignore */}
             <SwipeTabMenu
               navigation={navigation}
               tabs={tabs}
               isLight={isLight}
             />
-          </ViewOverflow>
-        ),
+          </CollapsibleTabHeader>
+        </>
+      ),
     },
   );

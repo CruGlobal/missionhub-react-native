@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import memoize from 'fast-memoize';
 import {
   ScrollView,
@@ -195,36 +195,38 @@ export const useCollapsibleHeader = ({
     }
   };
 
-  const styles = style(headerHeight, statusBarHeight, clipHeader);
+  return useMemo(() => {
+    const styles = style(headerHeight, statusBarHeight, clipHeader);
 
-  const headerProps = {
-    interpolatedHeaderTranslation: interpolatedHeaderTranslation,
-    showHeader: showHeader,
-    hideHeader: hideHeader,
-    style: [
-      styles.header,
-      [{ transform: [{ translateY: headerTranslation.current }] }],
-    ],
-  };
+    const headerProps = {
+      interpolatedHeaderTranslation: interpolatedHeaderTranslation,
+      showHeader: showHeader,
+      hideHeader: hideHeader,
+      style: [
+        styles.header,
+        [{ transform: [{ translateY: headerTranslation.current }] }],
+      ],
+    };
 
-  const collapsibleScrollViewProps = {
-    bounces: false,
-    overScrollMode: 'never' as ScrollViewProps[keyof ScrollViewProps['overScrollMode']],
-    scrollEventThrottle: 1,
-    contentContainerStyle: styles.container,
-    onMomentumScrollBegin: onMomentumScrollBegin,
-    onMomentumScrollEnd: onMomentumScrollEnd,
-    onScrollEndDrag: onScrollEndDrag,
-    onScroll: Animated.event(
-      [{ nativeEvent: { contentOffset: { y: scrollAnim.current } } }],
-      { useNativeDriver: true },
-    ),
-  };
+    const collapsibleScrollViewProps = {
+      bounces: false,
+      overScrollMode: 'never' as ScrollViewProps[keyof ScrollViewProps['overScrollMode']],
+      scrollEventThrottle: 1,
+      contentContainerStyle: styles.container,
+      onMomentumScrollBegin: onMomentumScrollBegin,
+      onMomentumScrollEnd: onMomentumScrollEnd,
+      onScrollEndDrag: onScrollEndDrag,
+      onScroll: Animated.event(
+        [{ nativeEvent: { contentOffset: { y: scrollAnim.current } } }],
+        { useNativeDriver: true },
+      ),
+    };
 
-  return {
-    collapsibleHeaderProps: headerProps,
-    collapsibleScrollViewProps,
-  };
+    return {
+      collapsibleHeaderProps: headerProps,
+      collapsibleScrollViewProps,
+    };
+  }, [headerHeight, statusBarHeight, clipHeader, disableHeaderSnap]);
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -526,6 +528,11 @@ const style = memoize((
     },
   }),
 );
+
+export const CollapsibleHeaderContext = React.createContext({
+  collapsibleScrollViewProps: null,
+  setCollapsibleScrollViewProps: () => {},
+});
 
 export const TestUseCollapsibleHeader = () => {
   const {

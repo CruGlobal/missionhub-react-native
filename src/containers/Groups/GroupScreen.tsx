@@ -22,6 +22,7 @@ import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
 import { GROUP_PROFILE } from './GroupProfile';
 import { TestUseCollapsibleHeader } from '../../components/CollapsibleTabHeader/useCollapsibleHeader';
+import { CollapsibleTabContent } from '../../components/CollapsibleTabHeader/CollapsibleTabHeader';
 
 class GroupScreen extends Component {
   componentDidMount() {
@@ -143,7 +144,11 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <TestUseCollapsibleHeader /> || <GroupCelebrate orgId={orgId} />,
+    }) => (
+      <CollapsibleTabContent>
+        <GroupCelebrate orgId={orgId} />
+      </CollapsibleTabContent>
+    ),
   },
   {
     name: i18next.t('groupTabs:challenges'),
@@ -155,7 +160,11 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <GroupChallenges orgId={orgId} />,
+    }) => (
+      <CollapsibleTabContent>
+        <GroupChallenges orgId={orgId} />
+      </CollapsibleTabContent>
+    ),
   },
   {
     name: i18next.t('groupTabs:members'),
@@ -167,7 +176,17 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <Members orgId={orgId} />,
+    }) =>
+      (
+        <CollapsibleTabContent>
+          <ImpactView orgId={orgId} />
+          <ImpactView orgId={orgId} />
+        </CollapsibleTabContent>
+      ) || (
+        <CollapsibleTabContent>
+          <Members orgId={orgId} />
+        </CollapsibleTabContent>
+      ),
   },
   {
     name: i18next.t('groupTabs:impact'),
@@ -179,7 +198,12 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <ImpactView orgId={orgId} />,
+    }) => (
+      <CollapsibleTabContent>
+        <ImpactView orgId={orgId} />
+        <ImpactView orgId={orgId} />
+      </CollapsibleTabContent>
+    ),
   },
   {
     name: i18next.t('groupTabs:contacts'),
@@ -191,7 +215,11 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <Contacts orgId={orgId} />,
+    }) => (
+      <CollapsibleTabContent>
+        <Contacts orgId={orgId} />
+      </CollapsibleTabContent>
+    ),
   },
   {
     name: i18next.t('groupTabs:surveys'),
@@ -203,7 +231,11 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <Surveys orgId={orgId} />,
+    }) => (
+      <CollapsibleTabContent>
+        <Surveys orgId={orgId} />
+      </CollapsibleTabContent>
+    ),
   },
 ];
 export const USER_CREATED_TABS = CRU_TABS.slice(0, 4);
