@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginRight: 10,
     marginLeft: -10,
   },
-  modalSize: {
+  largeSize: {
     height: 48,
   },
   noText: {

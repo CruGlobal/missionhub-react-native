@@ -3,7 +3,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 
-import PostTypeLabel, { PostTypeEnum } from '..';
+import PostTypeLabel, { PostTypeEnum, LabelSizeEnum } from '..';
 
 it('renders correctly', () => {
   renderWithContext(<PostTypeLabel type={PostTypeEnum.godStory} />, {
@@ -50,9 +50,9 @@ describe('post types', () => {
 });
 
 describe('label variations', () => {
-  it('renders label while in create post modal', () => {
+  it('renders large label', () => {
     renderWithContext(
-      <PostTypeLabel type={PostTypeEnum.godStory} isModal={true} />,
+      <PostTypeLabel type={PostTypeEnum.godStory} size={LabelSizeEnum.large} />,
       {
         noWrappers: true,
       },
