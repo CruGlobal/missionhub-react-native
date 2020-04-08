@@ -12,6 +12,8 @@ import OnYourMindIcon from '../../../assets/images/onYourMindIcon.svg';
 import PrayerRequestIcon from '../../../assets/images/prayerRequestIcon.svg';
 import SpiritualQuestionIcon from '../../../assets/images/spiritualQuestionIcon.svg';
 import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
+import { Card, Flex } from '../common';
+import BackButton from '../../containers/BackButton';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -30,6 +32,7 @@ export enum PostTypeEnum {
 export enum LabelSizeEnum {
   normal = 'normal',
   large = 'large',
+  extraLarge = 'extraLarge',
 }
 
 interface PostTypeLabelProps {
@@ -50,7 +53,12 @@ const PostTypeLabel = ({
   const handlePress = () => onPress && onPress();
 
   // IconSize differs if it is inside the create post modal component
-  const iconSize = size === LabelSizeEnum.large ? 24 : 20;
+  const iconSize =
+    size === LabelSizeEnum.extraLarge
+      ? 72
+      : size === LabelSizeEnum.large
+      ? 24
+      : 20;
 
   const renderIcon = () => {
     switch (type) {
@@ -135,22 +143,47 @@ const PostTypeLabel = ({
     }
   };
 
-  return (
-    <Button
-      onPress={handlePress}
-      testID={`${type}Button`}
-      pill={true}
-      style={[
-        styles.button,
-        styles[type],
-        size === LabelSizeEnum.large ? styles.largeSize : null,
-        showText ? null : styles.noText,
-      ]}
-    >
-      {renderIcon()}
-      {showText ? <Text style={styles.buttonText}>{t(`${type}`)}</Text> : null}
-    </Button>
-  );
+  const renderContent = () => {
+    if (size === LabelSizeEnum.extraLarge) {
+      return (
+        <Card style={[styles.headerCard, styles[type]]}>
+          <Flex
+            value={1}
+            align="center"
+            justify="center"
+            style={styles.headerContainer}
+          >
+            {renderIcon()}
+            <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
+          </Flex>
+          <Flex style={styles.headerBackButtonWrap}>
+            <BackButton />
+          </Flex>
+        </Card>
+      );
+    } else {
+      return (
+        <Button
+          onPress={handlePress}
+          testID={`${type}Button`}
+          pill={true}
+          style={[
+            styles.button,
+            styles[type],
+            size === LabelSizeEnum.large ? styles.largeSize : null,
+            showText ? null : styles.noText,
+          ]}
+        >
+          {renderIcon()}
+          {showText ? (
+            <Text style={styles.buttonText}>{t(`${type}`)}</Text>
+          ) : null}
+        </Button>
+      );
+    }
+  };
+
+  return renderContent();
 };
 
 export default PostTypeLabel;

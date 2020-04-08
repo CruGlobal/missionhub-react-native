@@ -869,5 +869,13 @@ export default {
     challenge: 'Challenge',
     announcement: 'Announcement',
     stepOfFaith: 'Step of Faith',
+    header: {
+      godStory: 'Read a God Story',
+      prayerRequest: 'Answer a Prayer Request',
+      spiritualQuestion: 'Answer a Question',
+      careRequest: 'Provide Help',
+      announcement: 'Announcements',
+      stepOfFaith: 'Celebrate Others',
+    },
   },
 };

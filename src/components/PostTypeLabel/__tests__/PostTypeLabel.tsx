@@ -59,6 +59,15 @@ describe('label variations', () => {
     ).snapshot();
   });
 
+  it('render extra large label', () => {
+    renderWithContext(
+      <PostTypeLabel
+        type={PostTypeEnum.godStory}
+        size={LabelSizeEnum.extraLarge}
+      />,
+    ).snapshot();
+  });
+
   it('renders label with no text', () => {
     renderWithContext(
       <PostTypeLabel type={PostTypeEnum.godStory} showText={false} />,
