@@ -5,9 +5,9 @@ import theme from '../../theme';
 export default StyleSheet.create({
   cardContent: {
     flex: 1,
+    paddingVertical: 12,
   },
   headerWrap: {
-    paddingVertical: 8,
     paddingHorizontal: 20,
   },
   headerRow: {

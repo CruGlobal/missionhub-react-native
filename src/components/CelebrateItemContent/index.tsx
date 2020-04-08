@@ -190,7 +190,7 @@ const CelebrateItemContent = ({
   };
 
   return (
-    <View style={[styles.description, style]}>
+    <View style={style}>
       <Text style={styles.messageText}>{renderMessage()}</Text>
       {renderChallengeLink()}
     </View>

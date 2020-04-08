@@ -6,7 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useApolloClient } from '@apollo/react-hooks';
 
-import CommentLikeComponent from '../CommentLikeComponent';
+import { CommentLikeComponent } from '../CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';

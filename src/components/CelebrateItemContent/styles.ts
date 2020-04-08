@@ -6,9 +6,6 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
-  description: {
-    marginTop: 14,
-  },
   messageText: {
     fontSize: 14,
     lineHeight: 18,
