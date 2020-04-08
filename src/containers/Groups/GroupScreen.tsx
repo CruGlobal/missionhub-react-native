@@ -21,6 +21,7 @@ import Contacts from './Contacts';
 import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
 import { GROUP_PROFILE } from './GroupProfile';
+import { TestUseCollapsibleHeader } from '../../components/CollapsibleTabHeader/useCollapsibleHeader';
 
 class GroupScreen extends Component {
   componentDidMount() {
@@ -142,7 +143,7 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => <GroupCelebrate orgId={orgId} />,
+    }) => <TestUseCollapsibleHeader /> || <GroupCelebrate orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:challenges'),
