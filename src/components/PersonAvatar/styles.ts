@@ -9,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   placeholderText: {
-    fontSize: 12,
+    fontWeight: '300',
     color: theme.white,
   },
 });

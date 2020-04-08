@@ -21,7 +21,7 @@ export const CreatePostButton = ({
   refreshItems,
   orgId,
 }: CreatePostButton) => {
-  const { t } = useTranslation('communityPost');
+  const { t } = useTranslation('createPost');
   const {
     container,
     inputButton,

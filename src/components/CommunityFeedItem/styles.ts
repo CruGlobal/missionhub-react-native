@@ -5,9 +5,9 @@ import theme from '../../theme';
 export default StyleSheet.create({
   cardContent: {
     flex: 1,
-    paddingVertical: 12,
   },
   headerWrap: {
+    paddingTop: 12,
     paddingHorizontal: 20,
   },
   headerRow: {
@@ -38,10 +38,40 @@ export default StyleSheet.create({
     paddingVertical: 12,
     width: 40,
   },
-  commentLikeWrap: {
-    justifyContent: 'flex-end',
+  footerWrap: {
+    flexDirection: 'row',
     paddingVertical: 16,
     paddingHorizontal: 20,
+  },
+  addStepWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+  commentLikeWrap: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+
+  stepIcon: {
+    height: 24,
+    width: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  plusIcon: {
+    position: 'absolute',
+    top: 16,
+    left: 16,
+    height: 11,
+    width: 11,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addStepText: {
+    paddingLeft: 12,
+    fontSize: 14,
+    lineHeight: 20,
   },
   topLeft: {
     justifyContent: 'flex-start',

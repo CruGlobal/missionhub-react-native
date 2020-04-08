@@ -17,7 +17,11 @@ export const PersonAvatar = ({ size }: PersonAvatarProps) => {
         { height: size, width: size, borderRadius: Math.ceil(size / 2.0) },
       ]}
     >
-      <Text style={styles.placeholderText}>C</Text>
+      <Text
+        style={[styles.placeholderText, { fontSize: Math.ceil(size / 2.0) }]}
+      >
+        C
+      </Text>
     </View>
   );
 };

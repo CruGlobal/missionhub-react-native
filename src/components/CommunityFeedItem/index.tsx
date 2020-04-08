@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
+import STEP_ICON from '../../../assets/images/stepIcon.png';
+import PLUS_ICON from '../../../assets/images/plusIcon.png';
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
-import { Card, Separator, Touchable, Icon } from '../common';
+import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
 import { PersonAvatar } from '../PersonAvatar';
 import CelebrateItemContent from '../CelebrateItemContent';
@@ -71,7 +73,7 @@ export const CommunityFeedItem = ({
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
-  const { t } = useTranslation('celebrateItems');
+  const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
   const {
@@ -85,7 +87,11 @@ export const CommunityFeedItem = ({
   const isMe = useIsMe(subjectPerson?.id || '');
   let postType: postTypes = postTypes.prayerRequest; //TODO: use actual post type from event object
 
-  const addToSteps = postType === postTypes.careRequest;
+  const addToSteps = [
+    postTypes.careRequest,
+    postTypes.prayerRequest,
+    postTypes.spiritualQuestion,
+  ].includes(postType);
   const isPrayer = postType === postTypes.prayerRequest;
 
   const [deleteStory] = useMutation<DeleteStory, DeleteStoryVariables>(
@@ -144,6 +150,8 @@ export const CommunityFeedItem = ({
       },
     ]);
 
+  const handleAddToMySteps = () => {};
+
   const menuActions =
     !orgIsGlobal(organization) &&
     celebrateableType === CommunityCelebrationCelebrateableEnum.STORY
@@ -193,6 +201,20 @@ export const CommunityFeedItem = ({
     </View>
   );
 
+  const renderFooter = () => (
+    <View style={[styles.footerWrap]}>
+      {addToSteps ? renderAddToStepsButton() : null}
+      <View style={styles.commentLikeWrap}>
+        <CommentLikeComponent
+          isPrayer={isPrayer}
+          event={event}
+          organization={organization}
+          onRefresh={onRefresh}
+        />
+      </View>
+    </View>
+  );
+
   const renderContent = () => (
     <View style={styles.cardContent}>
       {renderHeader()}
@@ -202,15 +224,16 @@ export const CommunityFeedItem = ({
         style={styles.postTextWrap}
       />
       <Separator />
-      <View style={[styles.commentLikeWrap]}>
-        <CommentLikeComponent
-          isPrayer={isPrayer}
-          event={event}
-          organization={organization}
-          onRefresh={onRefresh}
-        />
-      </View>
+      {renderFooter()}
     </View>
+  );
+
+  const renderAddToStepsButton = () => (
+    <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
+      <Image source={STEP_ICON} style={styles.stepIcon} />
+      <Image source={PLUS_ICON} style={styles.plusIcon} />
+      <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
+    </Touchable>
   );
 
   const renderClearNotificationButton = () => (

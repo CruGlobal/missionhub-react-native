@@ -563,7 +563,7 @@ export default {
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
   },
-  celebrateItems: {
+  communityFeedItems: {
     edit: {
       buttonText: 'Edit Post',
     },
@@ -580,6 +580,7 @@ export default {
         'Are you sure you want to report this comment to the community owner?',
       confirmButtonText: 'Report Post',
     },
+    addToMySteps: 'Add to My Steps',
   },
   challengeFeeds: {
     past: 'Past Challenges',
@@ -860,7 +861,7 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
-  communityPost: {
+  createPost: {
     godStory: {
       label: 'God Story',
       placeholder: 'Share an inspiring God story...',
@@ -879,7 +880,7 @@ export default {
     },
     onYourMind: {
       label: "What's On Your Mind",
-      placeholder: "What's on your mind?...",
+      placeholder: "What's on your mind?",
     },
     announcement: {
       label: 'Announcement',
