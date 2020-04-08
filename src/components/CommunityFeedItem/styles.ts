@@ -26,11 +26,13 @@ export default StyleSheet.create({
     lineHeight: 16,
     color: theme.lightGrey,
   },
+  postTextWrap: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
   postText: {
     fontSize: 16,
     lineHeight: 24,
-    paddingVertical: 8,
-    paddingHorizontal: 20,
   },
   postImage: {
     paddingVertical: 12,
@@ -38,7 +40,7 @@ export default StyleSheet.create({
   },
   commentLikeWrap: {
     justifyContent: 'flex-end',
-    paddingVertical: 8,
+    paddingVertical: 16,
     paddingHorizontal: 20,
   },
   topLeft: {

@@ -1,40 +1,41 @@
 import React, { useState } from 'react';
 import { Image, View } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { useDispatch } from 'react-redux';
 
+import HEART_ACTIVE_ICON from '../../../assets/images/heartActiveIcon.png';
+import HEART_INACTIVE_ICON from '../../../assets/images/heartInactiveIcon.png';
+import PRAYER_ACTIVE_ICON from '../../../assets/images/prayerActiveIcon.png';
+import PRAYER_INACTIVE_ICON from '../../../assets/images/prayerInactiveIcon.png';
+import COMMENT_ICON from '../../../assets/images/commentIcon.png';
 import { Text, Button } from '../../components/common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import GREY_HEART from '../../../assets/images/heart-grey.png';
-import BLUE_HEART from '../../../assets/images/heart-blue.png';
-import COMMENTS from '../../../assets/images/comments.png';
 import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
-import { AuthState } from '../../reducers/auth';
 import { Organization } from '../../reducers/organizations';
+import { useIsMe } from '../../utils/hooks/useIsMe';
+import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import styles from './styles';
 
 export interface CommentLikeComponentProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   event: GetCelebrateFeed_community_celebrationItems_nodes;
-  myId: string;
   onRefresh: () => void;
+  isPrayer: boolean;
 }
 
-const CommentLikeComponent = ({
-  dispatch,
+export const CommentLikeComponent = ({
   organization,
   event,
-  myId,
   onRefresh,
+  isPrayer,
 }: CommentLikeComponentProps) => {
+  const dispatch = useDispatch();
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
   const { id, liked, likesCount, commentsCount, subjectPerson } = event;
+
+  const isMe = useIsMe(subjectPerson?.id || '');
 
   const onPressLikeIcon = async () => {
     try {
@@ -51,21 +52,20 @@ const CommentLikeComponent = ({
     const displayCommentCount = commentsCount > 0;
 
     return (
-      <>
+      <View style={styles.iconAndCountWrap}>
         <Text style={styles.likeCount}>
           {displayCommentCount ? commentsCount : null}
         </Text>
-        <Image source={COMMENTS} />
-      </>
+        <Image source={COMMENT_ICON} />
+      </View>
     );
   };
 
   const renderLikeIcon = () => {
-    const displayLikeCount =
-      likesCount > 0 && subjectPerson && subjectPerson.id === myId;
+    const displayLikeCount = likesCount > 0 && isMe;
 
     return (
-      <>
+      <View style={styles.iconAndCountWrap}>
         <Text style={styles.likeCount}>
           {displayLikeCount ? likesCount : null}
         </Text>
@@ -76,22 +76,26 @@ const CommentLikeComponent = ({
           onPress={onPressLikeIcon}
           style={styles.icon}
         >
-          <Image source={liked ? BLUE_HEART : GREY_HEART} />
+          <Image
+            source={
+              isPrayer
+                ? liked
+                  ? PRAYER_ACTIVE_ICON
+                  : PRAYER_INACTIVE_ICON
+                : liked
+                ? HEART_ACTIVE_ICON
+                : HEART_INACTIVE_ICON
+            }
+          />
         </Button>
-      </>
+      </View>
     );
   };
 
   return (
     <View style={styles.container}>
-      {subjectPerson && renderCommentIcon()}
       {renderLikeIcon()}
+      {subjectPerson && renderCommentIcon()}
     </View>
   );
 };
-
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  myId: auth.person.id,
-});
-
-export default connect(mapStateToProps)(CommentLikeComponent);

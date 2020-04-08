@@ -1,8 +1,6 @@
 import React from 'react';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { View, Alert } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -13,7 +11,7 @@ import { Card, Separator, Touchable, Icon } from '../common';
 import CardTime from '../CardTime';
 import { PersonAvatar } from '../PersonAvatar';
 import CelebrateItemContent from '../CelebrateItemContent';
-import CommentLikeComponent from '../../containers/CommentLikeComponent';
+import { CommentLikeComponent } from '../../containers/CommentLikeComponent';
 import CelebrateItemName from '../../containers/CelebrateItemName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
@@ -59,8 +57,7 @@ enum postTypes {
 }
 
 export interface CommunityFeedItemProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: CelebrateItemData;
+  event: CelebrateItemData; //TODO: use new Post type
   organization: Organization;
   namePressable: boolean;
   onClearNotification?: (event: CelebrateItemData) => void;
@@ -68,7 +65,6 @@ export interface CommunityFeedItemProps {
 }
 
 export const CommunityFeedItem = ({
-  dispatch,
   event,
   organization,
   namePressable,
@@ -76,6 +72,7 @@ export const CommunityFeedItem = ({
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { t } = useTranslation('celebrateItems');
+  const dispatch = useDispatch();
 
   const {
     celebrateableId,
@@ -85,11 +82,11 @@ export const CommunityFeedItem = ({
     celebrateableType,
   } = event;
 
-  const isMe = useIsMe(subjectPerson.id);
-  let postType: postTypes;
+  const isMe = useIsMe(subjectPerson?.id || '');
+  let postType: postTypes = postTypes.prayerRequest; //TODO: use actual post type from event object
 
   const addToSteps = postType === postTypes.careRequest;
-  const usePrayerIcon = postType === postTypes.prayerRequest;
+  const isPrayer = postType === postTypes.prayerRequest;
 
   const [deleteStory] = useMutation<DeleteStory, DeleteStoryVariables>(
     DELETE_STORY,
@@ -150,7 +147,7 @@ export const CommunityFeedItem = ({
   const menuActions =
     !orgIsGlobal(organization) &&
     celebrateableType === CommunityCelebrationCelebrateableEnum.STORY
-      ? subjectPerson && me.id === subjectPerson.id
+      ? isMe
         ? [
             {
               text: t('edit.buttonText'),
@@ -199,10 +196,15 @@ export const CommunityFeedItem = ({
   const renderContent = () => (
     <View style={styles.cardContent}>
       {renderHeader()}
-      <CelebrateItemContent event={event} organization={organization} />
+      <CelebrateItemContent
+        event={event}
+        organization={organization}
+        style={styles.postTextWrap}
+      />
       <Separator />
       <View style={[styles.commentLikeWrap]}>
         <CommentLikeComponent
+          isPrayer={isPrayer}
           event={event}
           organization={organization}
           onRefresh={onRefresh}
