@@ -149,13 +149,13 @@ export const contactAssignmentSelector = createSelector(
     orgId,
   ({ auth }: { auth: AuthState }) => auth.person.id,
   (person, orgId, authUserId) =>
-    selectContactAssignment(person, orgId, authUserId),
+    selectContactAssignment(person, authUserId, orgId),
 );
 
 export const selectContactAssignment = (
   person: Person,
-  orgId: string | undefined,
   authUserId: string,
+  orgId?: string,
 ) => {
   const {
     reverse_contact_assignments = [],
@@ -167,16 +167,13 @@ export const selectContactAssignment = (
       assigned_to?: { id: string };
       organization?: { id: string };
     }) =>
-      assignment.assigned_to &&
-      assignment.assigned_to.id === authUserId &&
+      assignment.assigned_to?.id === authUserId &&
       (!orgId || orgId === 'personal'
         ? !assignment.organization
-        : assignment.organization &&
-          orgId === assignment.organization.id &&
+        : orgId === assignment.organization?.id &&
           organizational_permissions.some(
             (org_permission: { organization_id: string }) =>
-              org_permission.organization_id ===
-              (assignment.organization && assignment.organization.id),
+              org_permission.organization_id === assignment.organization?.id,
           )),
   );
 };

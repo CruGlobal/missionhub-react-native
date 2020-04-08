@@ -32,18 +32,13 @@ export const PersonSideMenu = () => {
   const { t } = useTranslation('contactSideMenu');
   const dispatch = useDispatch();
   const person: Person = useNavigationParam('person');
-  const organization: Organization | undefined = useNavigationParam(
-    'organization',
-  );
+  const organization: Organization | null =
+    useNavigationParam('organization') || null;
   const isMe = useIsMe(person.id);
   const contactAssignment: {
     id: string;
   } = useSelector(({ auth }: { auth: AuthState }) =>
-    selectContactAssignment(
-      person,
-      organization && organization.id,
-      auth.person.id,
-    ),
+    selectContactAssignment(person, auth.person.id, organization?.id),
   );
   const orgPermission = selectOrgPermission(person, organization);
 
@@ -72,7 +67,7 @@ export const PersonSideMenu = () => {
                 deleteContactAssignment(
                   contactAssignment.id,
                   person.id,
-                  organization && organization.id,
+                  organization?.id,
                 ),
               );
               dispatch(navigateBack(2)); // Navigate back since the contact is no longer in our list
