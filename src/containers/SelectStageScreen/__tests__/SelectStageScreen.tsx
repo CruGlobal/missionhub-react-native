@@ -19,7 +19,6 @@ import {
 } from '../../../actions/selectStage';
 import { Stage } from '../../../reducers/stages';
 import { ACTIONS } from '../../../constants';
-import { navigateBack } from '../../../actions/navigation';
 
 import SelectStageScreen, { SelectStageNavParams } from '..';
 
@@ -139,7 +138,6 @@ const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
 const updateUserStageResult = { type: 'update user stage' };
 const nextResult = { type: 'next' };
-const navigateBackResults = { type: 'navigate back' };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResult);
@@ -499,11 +497,9 @@ describe('setStage', () => {
     });
 
     it('selects new stage for edit screen', async () => {
-      (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
       const navParams = {
         ...baseParams,
         personId: assignedPersonId,
-        isEdit: true,
         onComplete,
       };
       const { store, getAllByTestId } = await buildAndTestMount(
@@ -515,7 +511,8 @@ describe('setStage', () => {
         getAllByTestId('stageSelectButton')[selectedStageId],
       );
 
-      expect(next).not.toHaveBeenCalled();
+      expect(next).toHaveBeenCalled();
+      expect(onComplete).toHaveBeenCalledWith(stages[selectedStageId]);
       expect(trackAction).toHaveBeenCalledWith(selectAction.name, {
         [selectAction.key]: stage.id,
         [ACTIONS.STAGE_SELECTED.key]: null,
@@ -525,7 +522,7 @@ describe('setStage', () => {
       expect(store.getActions()).toEqual([
         trackScreenChangeResult,
         updateUserStageResult,
-        navigateBackResults,
+        nextResult,
         trackActionResult,
       ]);
     });

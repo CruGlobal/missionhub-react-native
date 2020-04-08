@@ -69,11 +69,6 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
           style={"
 `;
 
-exports[`calls methods updates Stage 1`] = `
-"Snapshot Diff:
-Compared values have no visual difference."
-`;
-
 exports[`calls methods updates relationshipType 1`] = `
 "Snapshot Diff:
 Compared values have no visual difference."

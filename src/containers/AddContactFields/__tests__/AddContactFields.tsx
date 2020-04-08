@@ -9,7 +9,6 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import { getPersonDetails } from '../../../actions/person';
 import { navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 
 import AddContactFields from '..';
 
@@ -30,6 +29,7 @@ const emptyPerson = {
   relationshipType: null,
   stage: null,
 };
+const next = jest.fn();
 
 beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
@@ -37,11 +37,13 @@ beforeEach(() => {
   );
   (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResults);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
+  next.mockReturnValue({ type: 'next' });
 });
 
 it('renders correctly | No Person', () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
+      next={next}
       organization={null}
       onUpdateData={onUpdateData}
       person={emptyPerson}
@@ -56,6 +58,7 @@ it('renders correctly | No Person', () => {
 it('render correctly | With Person', () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
+      next={next}
       organization={null}
       onUpdateData={onUpdateData}
       person={{
@@ -80,6 +83,7 @@ describe('calls methods', () => {
   it('calls update firstName and changeFocusedField', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactFields
+        next={next}
         organization={null}
         onUpdateData={onUpdateData}
         person={emptyPerson}
@@ -104,6 +108,7 @@ describe('calls methods', () => {
   it('calls update lastName and changeFocusedField', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactFields
+        next={next}
         organization={null}
         onUpdateData={onUpdateData}
         person={emptyPerson}
@@ -129,6 +134,7 @@ describe('calls methods', () => {
     ActionSheetIOS.showActionSheetWithOptions = jest.fn();
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactFields
+        next={next}
         organization={null}
         onUpdateData={onUpdateData}
         person={{
@@ -165,9 +171,9 @@ describe('calls methods', () => {
   });
 
   it('updates Stage', () => {
-    ActionSheetIOS.showActionSheetWithOptions = jest.fn();
-    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+    const { getByTestId } = renderWithContext(
       <AddContactFields
+        next={next}
         organization={null}
         onUpdateData={onUpdateData}
         person={{
@@ -185,29 +191,21 @@ describe('calls methods', () => {
         initialState,
       },
     );
-    recordSnapshot();
     fireEvent.press(getByTestId('stageSelectButton'));
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-      enableBackButton: false,
-      personId: '1',
-      section: 'people',
-      subsection: 'person',
+    expect(next).toHaveBeenCalledWith({
       orgId: undefined,
-      isEdit: true,
-      onComplete: expect.any(Function),
-    });
-    (navigatePush as jest.Mock).mock.calls[0][1].onComplete({
-      name: 'Growing',
-    });
-    diffSnapshot();
-    expect(onUpdateData).toHaveBeenLastCalledWith({
-      firstName: 'Christian',
-      lastName: 'Huffman',
-      id: '1',
-      relationshipType: RelationshipTypeEnum.family,
-      stage: {
-        name: 'Growing',
+      person: {
+        id: '1',
+        relationshipType: RelationshipTypeEnum.family,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        stage: {
+          __typename: 'Stage',
+          name: 'Forgiven',
+        },
       },
+      selectStage: true,
+      updatePerson: onUpdateData,
     });
   });
 });

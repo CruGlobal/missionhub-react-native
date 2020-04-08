@@ -4,6 +4,8 @@ import React, { useState, useRef } from 'react';
 import { KeyboardAvoidingView, View, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { orgPermissionSelector } from '../../selectors/people';
 import { Flex, Text, Input } from '../../components/common';
@@ -15,11 +17,7 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 import { Organization } from '../../reducers/organizations';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { relationshipTypeList } from '../PersonCategoryScreen';
-import { navigatePush } from '../../actions/navigation';
-import { getPersonDetails } from '../../actions/person';
 import DropdownIcon from '../../../assets/images/dropdownIcon.svg';
-import { SELECT_STAGE_SCREEN } from '../SelectStageScreen';
-import { GetPerson_person_stage as StageType } from '../AddContactScreen/__generated__/GetPerson';
 
 import styles from './styles';
 
@@ -27,12 +25,19 @@ interface AddContactFieldsProps {
   person: PersonType;
   organization?: Organization;
   onUpdateData: (data: PersonType) => void;
+  next: (props: {
+    orgId: string;
+    selectStage: boolean;
+    person: PersonType;
+    updatePerson: (person: PersonType) => void;
+  }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
 const AddContactFields = ({
   person,
   organization,
   onUpdateData,
+  next,
 }: AddContactFieldsProps) => {
   const { t } = useTranslation('addContact');
   const [currentInputField, changeCurrentInputField] = useState('');
@@ -71,17 +76,11 @@ const AddContactFields = ({
 
   const handleStageSelect = () => {
     dispatch(
-      navigatePush(SELECT_STAGE_SCREEN, {
-        enableBackButton: false,
-        personId: person.id,
-        section: 'people',
-        subsection: 'person',
+      next({
         orgId: organization?.id,
-        isEdit: true,
-        onComplete: (stage: StageType) => {
-          onUpdateData({ ...person, stage });
-          dispatch(getPersonDetails(person.id, organization?.id));
-        },
+        selectStage: true,
+        person,
+        updatePerson: onUpdateData,
       }),
     );
   };

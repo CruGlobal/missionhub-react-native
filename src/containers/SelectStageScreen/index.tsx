@@ -52,7 +52,6 @@ import {
   contactAssignmentSelector,
 } from '../../selectors/people';
 import { localizedStageSelector } from '../../selectors/stages';
-import { navigateBack } from '../../actions/navigation';
 import Header from '../../components/Header';
 
 import styles, {
@@ -90,7 +89,6 @@ export interface SelectStageNavParams {
   personId: string;
   orgId?: string;
   questionText?: string;
-  isEdit?: boolean;
   onComplete?: (stage: Stage) => void;
 }
 
@@ -110,7 +108,6 @@ const SelectStageScreen = ({
     personId,
     orgId,
     questionText,
-    isEdit,
     onComplete,
   } = useNavigationState().params as SelectStageNavParams;
   const dispatch = useDispatch<
@@ -142,7 +139,6 @@ const SelectStageScreen = ({
       trackPanelChange();
     }, [stageIndex]),
   );
-
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     !isAlreadySelected &&
       (await dispatch(
@@ -152,21 +148,19 @@ const SelectStageScreen = ({
           ? updateUserStage(contactAssignmentId, stage.id)
           : selectPersonStage(personId, myId, stage.id, orgId),
       ));
-
-    if (isEdit && onComplete) {
-      await onComplete(stage);
-      dispatch(navigateBack());
-    } else {
-      dispatch(
-        next({
-          isMe,
-          personId,
-          stage,
-          isAlreadySelected,
-          orgId,
-        }),
-      );
+    if (onComplete) {
+      onComplete(stage);
     }
+
+    dispatch(
+      next({
+        isMe,
+        personId,
+        stage,
+        isAlreadySelected,
+        orgId,
+      }),
+    );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const action: any = isMe
@@ -269,7 +263,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { personId, orgId, isEdit, onComplete },
+        params: { personId, orgId, onComplete },
       },
     },
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -285,7 +279,6 @@ const mapStateToProps = (
     firstName: person.first_name,
     contactAssignmentId: contactAssignment.id,
     isMe: personId === myId,
-    isEdit,
     onComplete,
     stages: stages.stages,
     analyticsSection: getAnalyticsSectionType(onboarding),

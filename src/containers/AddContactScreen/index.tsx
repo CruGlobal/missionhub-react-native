@@ -51,8 +51,8 @@ interface AddContactScreenProps {
     personId?: string;
     relationshipType?: RelationshipTypeEnum | null;
     orgId: string;
-    didSavePerson: boolean;
-    isMe: boolean;
+    didSavePerson?: boolean;
+    isMe?: boolean;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
@@ -224,6 +224,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
             // @ts-ignore
             testID="contactFields"
             person={person}
+            next={next}
             organization={organization}
             onUpdateData={handleUpdateData}
           />

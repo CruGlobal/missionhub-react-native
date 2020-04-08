@@ -21,7 +21,6 @@ import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
 import { GET_PERSON } from '../queries';
 import { getPersonDetails } from '../../../actions/person';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 
 import AddContactScreen from '..';
 
@@ -420,6 +419,7 @@ describe('savePerson', () => {
         ]);
       });
       it('should navigate to select a stage', async () => {
+        const handleUpdateData = expect.any(Function);
         const { getByTestId, store } = renderWithContext(
           <AddContactScreen next={next} />,
           {
@@ -444,16 +444,23 @@ describe('savePerson', () => {
         await flushMicrotasksQueue();
         fireEvent.press(getByTestId('stageSelectButton'));
 
-        expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-          enableBackButton: false,
-          personId: person.id,
-          section: 'people',
-          subsection: 'person',
-          orgId: organization.id,
-          isEdit: true,
-          onComplete: expect.any(Function),
+        expect(next).toHaveBeenCalledWith({
+          orgId: organization?.id,
+          selectStage: true,
+          person: {
+            firstName: newName,
+            __typename: 'Person',
+            lastName: '',
+            id: person.id,
+            relationshipType: null,
+            stage: {
+              __typename: 'Stage',
+              name: 'Forgiven',
+            },
+          },
+          updatePerson: handleUpdateData,
         });
-        expect(store.getActions()).toEqual([navigatePushResults]);
+        expect(store.getActions()).toEqual([nextResponse]);
       });
     });
 
