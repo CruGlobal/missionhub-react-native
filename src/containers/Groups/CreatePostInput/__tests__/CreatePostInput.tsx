@@ -6,7 +6,7 @@ import { renderWithContext } from '../../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 
-import ShareStoryInput from '..';
+import CreatePostInput from '..';
 
 jest.mock('../../../../actions/navigation');
 
@@ -28,15 +28,15 @@ const globalCommunityProps = {
 };
 
 it('renders correctly', () => {
-  renderWithContext(<ShareStoryInput {...props} />).snapshot();
+  renderWithContext(<CreatePostInput {...props} />).snapshot();
 });
 
 it('does not render for Global Community', () => {
-  renderWithContext(<ShareStoryInput {...globalCommunityProps} />).snapshot();
+  renderWithContext(<CreatePostInput {...globalCommunityProps} />).snapshot();
 });
 
 it('onPress switches to ShareStoryScreen', () => {
-  const { getByTestId } = renderWithContext(<ShareStoryInput {...props} />);
+  const { getByTestId } = renderWithContext(<CreatePostInput {...props} />);
   fireEvent.press(getByTestId('ShareStoryInput'));
   expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
     organization: mockOrganization,

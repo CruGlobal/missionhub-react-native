@@ -528,9 +528,14 @@ export default {
     globalCommunity: 'MissionHub Community',
     errorLoadingCommunities: 'Error loading communities',
   },
-  shareAStoryScreen: {
+  createPostScreen: {
     shareStory: 'Share Story',
-    inputPlaceholder: 'Share a Story...',
+    inputPlaceholder: 'Post to community...',
+    prayerRequest: 'Ask for Prayer',
+    spiritualQuestion: 'Ask a Spiritual Question',
+    godStory: 'Share a God Story',
+    careRequest: 'Ask for Help',
+    announcement: 'Make an Announcement',
   },
   editStoryScreen: {
     saveStory: 'Save Changes',
