@@ -34,10 +34,6 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
   },
-  postImage: {
-    paddingVertical: 12,
-    width: 40,
-  },
   footerWrap: {
     flexDirection: 'row',
     paddingVertical: 16,

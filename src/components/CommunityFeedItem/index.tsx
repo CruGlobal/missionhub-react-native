@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Alert, Image } from 'react-native';
+import {
+  View,
+  Alert,
+  Image,
+  Dimensions,
+  ImageSourcePropType,
+} from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import gql from 'graphql-tag';
@@ -7,6 +13,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import STEP_ICON from '../../../assets/images/stepIcon.png';
 import PLUS_ICON from '../../../assets/images/plusIcon.png';
+import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
@@ -20,12 +27,15 @@ import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStorySc
 import { orgIsGlobal } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
 import { useIsMe } from '../../utils/hooks/useIsMe';
+import theme from '../../theme';
 import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
 import { ReportStory, ReportStoryVariables } from './__generated__/ReportStory';
+
+const { fullWidth } = theme;
 
 export const DELETE_STORY = gql`
   mutation DeleteStory($input: DeleteStoryInput!) {
@@ -215,18 +225,27 @@ export const CommunityFeedItem = ({
     </View>
   );
 
-  const renderContent = () => (
-    <View style={styles.cardContent}>
-      {renderHeader()}
-      <CelebrateItemContent
-        event={event}
-        organization={organization}
-        style={styles.postTextWrap}
-      />
-      <Separator />
-      {renderFooter()}
-    </View>
-  );
+  const renderContent = () => {
+    const {} = GLOBAL_COMMUNITY_IMAGE as ImageSourcePropType;
+
+    return (
+      <View style={styles.cardContent}>
+        {renderHeader()}
+        <CelebrateItemContent
+          event={event}
+          organization={organization}
+          style={styles.postTextWrap}
+        />
+        <Image
+          source={GLOBAL_COMMUNITY_IMAGE}
+          style={{ width: '100%' }}
+          resizeMode="contain"
+        />
+        <Separator />
+        {renderFooter()}
+      </View>
+    );
+  };
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
