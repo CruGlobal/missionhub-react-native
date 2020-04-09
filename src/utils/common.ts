@@ -12,7 +12,6 @@ import Config from 'react-native-config';
 import i18n from 'i18next';
 
 import {
-  CUSTOM_STEP_TYPE,
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
   INTERACTION_TYPES,
@@ -24,21 +23,6 @@ import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
 import { StagesState } from '../reducers/stages';
-
-// @ts-ignore
-export const shuffleArray = arr => {
-  let i, temporaryValue, randomIndex;
-
-  for (i = arr.length; i > 0; i -= 1) {
-    randomIndex = Math.floor(Math.random() * i);
-
-    temporaryValue = arr[i - 1];
-    arr[i - 1] = arr[randomIndex];
-    arr[randomIndex] = temporaryValue;
-  }
-
-  return arr;
-};
 
 export const isAndroid = Platform.OS === 'android';
 
@@ -195,9 +179,6 @@ export const isAdmin = (
 export const shouldQueryReportedComments = (org, orgPermission) =>
   (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||
   (orgIsUserCreated(org) && isOwner(orgPermission));
-
-// @ts-ignore
-export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
 
 // @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>

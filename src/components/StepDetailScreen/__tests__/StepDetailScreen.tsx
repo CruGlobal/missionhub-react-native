@@ -4,14 +4,12 @@ import { Text, View } from 'react-native';
 import { renderWithContext } from '../../../../testUtils';
 import StepDetailScreen from '../index';
 
-const receiver = {
-  firstName: 'Christian',
-};
+const firstName = 'Christian';
 
 const snapshot = (props = {}) => {
   renderWithContext(
     <StepDetailScreen
-      receiver={receiver}
+      firstName={firstName}
       text="Roge is well behaved"
       CenterHeader={<View />}
       RightHeader={<View />}

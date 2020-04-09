@@ -5,6 +5,7 @@ export const COMPLETED_STEP_DETAIL_QUERY = gql`
     step(id: $id) {
       title
       completedAt
+      stepType
       stepSuggestion {
         descriptionMarkdown
       }

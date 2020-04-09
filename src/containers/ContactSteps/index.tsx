@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { View, SectionList, SectionListData } from 'react-native';
-import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { FetchMoreOptions } from 'apollo-client';
 
-import { TrackStateContext } from '../../actions/analytics';
 import { Button, RefreshControl } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import NULL from '../../../assets/images/footprints.png';
@@ -24,7 +22,6 @@ import NullStateComponent from '../../components/NullStateComponent';
 import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
-import { StepsState } from '../../reducers/steps';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import StepItem from '../../components/StepItem';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -41,14 +38,12 @@ import {
 interface ContactStepsProps {
   person: Person;
   organization: Organization;
-  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
-const ContactSteps = ({
-  person,
-  organization,
-  analyticsAssignmentType,
-}: ContactStepsProps) => {
+const ContactSteps = ({ person, organization }: ContactStepsProps) => {
+  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
+    getAnalyticsAssignmentType(person, auth, organization),
+  );
   useAnalytics(['person', 'my steps'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
@@ -244,28 +239,4 @@ const ContactSteps = ({
   );
 };
 
-const mapStateToProps = (
-  { auth, steps }: { auth: AuthState; steps: StepsState },
-  { person, organization }: { person: Person; organization: Organization },
-) => {
-  const allSteps =
-    steps.contactSteps[`${person.id}-${organization.id || 'personal'}`] || {};
-
-  return {
-    showAssignPrompt: orgIsCru(organization),
-    steps: allSteps.steps || [],
-    completedSteps: allSteps.completedSteps || [],
-    contactAssignment: contactAssignmentSelector(
-      { auth },
-      { person, orgId: organization.id },
-    ),
-    myId: auth.person.id,
-    analyticsAssignmentType: getAnalyticsAssignmentType(
-      person,
-      auth,
-      organization,
-    ),
-  };
-};
-
-export default connect(mapStateToProps)(ContactSteps);
+export default ContactSteps;
