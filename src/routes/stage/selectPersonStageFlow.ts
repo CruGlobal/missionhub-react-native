@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { wrapNextAction } from '../helpers';
 import { navigatePush } from '../../actions/navigation';
 import { updatePersonAttributes, getPersonDetails } from '../../actions/person';
-import { loadStepsAndJourney } from '../../actions/misc';
+import { reloadJourney } from '../../actions/journey';
 import { personSelector } from '../../selectors/people';
 import SelectStageScreen, {
   SELECT_STAGE_SCREEN,
@@ -36,7 +36,7 @@ export const SelectPersonStageFlowScreens = {
             })
           : getPersonDetails(personId, orgId),
       );
-      dispatch(loadStepsAndJourney(personId, orgId));
+      dispatch(reloadJourney(personId, orgId));
 
       dispatch(
         isAlreadySelected

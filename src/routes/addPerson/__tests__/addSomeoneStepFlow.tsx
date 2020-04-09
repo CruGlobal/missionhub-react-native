@@ -17,11 +17,6 @@ import {
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { createCustomStep, getStepSuggestions } from '../../../actions/steps';
-import {
-  personSelector,
-  contactAssignmentSelector,
-} from '../../../selectors/people';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -45,9 +40,8 @@ const personId = '321';
 const personFirstName = 'Someone';
 const person = { id: personId, first_name: personFirstName };
 const stageId = '3';
-const step = { id: '111' };
+const stepSuggestionId = '111';
 const text = 'Step Text';
-const contactAssignment = { id: '4', pathway_stage_id: stageId };
 
 const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
@@ -76,13 +70,7 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
-  (createCustomStep as jest.Mock).mockReturnValue(() => Promise.resolve());
-  (getStepSuggestions as jest.Mock).mockReturnValue(() => Promise.resolve());
   (setOnboardingPersonId as jest.Mock).mockReturnValue(() => Promise.resolve());
-  ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
-  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
-    contactAssignment,
-  );
 });
 
 type ScreenName =
@@ -192,20 +180,20 @@ describe('PersonSelectStepScreen next', () => {
   it('renders correctly', () => {
     renderScreen(SELECT_STEP_SCREEN, {
       personId,
-      step,
+      stepSuggestionId,
     }).snapshot();
   });
 
   it('should fire required next actions for suggested step', () => {
     const { store, next } = renderScreen(SELECT_STEP_SCREEN, {
       personId,
-      step,
+      stepSuggestionId,
     });
 
-    store.dispatch(next({ personId, step }));
+    store.dispatch(next({ personId, stepSuggestionId }));
 
     expect(navigatePush).toHaveBeenCalledWith(SUGGESTED_STEP_DETAIL_SCREEN, {
-      step,
+      stepSuggestionId,
       personId,
     });
   });
@@ -228,14 +216,14 @@ describe('PersonSelectStepScreen next', () => {
 describe('SuggestedStepDetailScreen next', () => {
   it('renders correctly', () => {
     renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
-      step,
+      stepSuggestionId,
       personId,
     }).snapshot();
   });
 
   it('should fire required next actions', () => {
     const { store, next } = renderScreen(SUGGESTED_STEP_DETAIL_SCREEN, {
-      step,
+      stepSuggestionId,
       personId,
     });
 
@@ -260,8 +248,6 @@ describe('AddStepScreen next', () => {
     });
 
     store.dispatch(next({ text, personId }));
-
-    expect(createCustomStep).toHaveBeenCalledWith(text, personId);
 
     expect(resetPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });

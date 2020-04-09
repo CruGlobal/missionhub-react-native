@@ -1,6 +1,7 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import * as RNOmniture from 'react-native-omniture';
+import i18next from 'i18next';
 import appsFlyer from 'react-native-appsflyer';
 //import { Tracker } from '@ringierag/snowplow-reactjs-native-tracker';
 
@@ -28,9 +29,10 @@ import {
   //ID_SCHEMA,
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
-import { SuggestedStep } from '../reducers/steps';
 import { AuthState } from '../reducers/auth';
-import { isCustomStep, userIsJean } from '../utils/common';
+import { userIsJean } from '../utils/common';
+
+import { StepAddedAnalytics } from './__generated__/StepAddedAnalytics';
 
 export interface TrackStateContext {
   [ANALYTICS_MCID]: string;
@@ -133,16 +135,26 @@ export function updateAnalyticsContext(
   };
 }
 
-export function trackStepAdded(step: SuggestedStep) {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-    let trackedStep = `${step.challenge_type} | ${
-      step.self_step ? 'Y' : 'N'
-    } | ${step.locale}`;
+export function trackStepAdded(step?: StepAddedAnalytics | null) {
+  return (
+    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    getState: () => { auth: AuthState },
+  ) => {
+    if (!step) {
+      return;
+    }
+    const {
+      person: { id: myId },
+    } = getState().auth;
 
-    if (isCustomStep(step)) {
+    let trackedStep = `${step.stepType} | ${
+      step.receiver.id === myId ? 'Y' : 'N' // Is self step?
+    } | ${i18next.language}`;
+
+    if (!step.stepSuggestion) {
       dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
     } else {
-      trackedStep = `${trackedStep} | ${step.id} | ${step.pathway_stage.id}`;
+      trackedStep = `${trackedStep} | ${step.stepSuggestion.id} | ${step.stepSuggestion.stage.id}`;
     }
 
     dispatch(

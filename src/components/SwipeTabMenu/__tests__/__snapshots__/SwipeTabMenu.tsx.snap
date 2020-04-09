@@ -154,41 +154,21 @@ exports[`should render correctly 1`] = `
       </View>
     </TouchableIOS>
   </ScrollViewMock>
-  <Flex
-    align="center"
+  <View
     style={
       Object {
+        "alignItems": "center",
         "position": "absolute",
         "top": 48,
         "width": "100%",
       }
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#005A7F",
-            "borderBottomWidth": 9,
-            "borderLeftColor": "transparent",
-            "borderLeftWidth": 7,
-            "borderRightColor": "transparent",
-            "borderRightWidth": 7,
-            "borderStyle": "solid",
-            "height": 0,
-            "transform": Array [
-              Object {
-                "rotate": "180deg",
-              },
-            ],
-            "width": 0,
-          },
-          undefined,
-        ]
-      }
+    <TriangleIndicator
+      color="#005A7F"
+      rotation={180}
     />
-  </Flex>
+  </View>
 </ViewWithoutOverflow>
 `;
 
@@ -305,41 +285,21 @@ exports[`should render correctly 2`] = `
       </View>
     </TouchableIOS>
   </ScrollViewMock>
-  <Flex
-    align="center"
+  <View
     style={
       Object {
+        "alignItems": "center",
         "position": "absolute",
         "top": 48,
         "width": "100%",
       }
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#005A7F",
-            "borderBottomWidth": 9,
-            "borderLeftColor": "transparent",
-            "borderLeftWidth": 7,
-            "borderRightColor": "transparent",
-            "borderRightWidth": 7,
-            "borderStyle": "solid",
-            "height": 0,
-            "transform": Array [
-              Object {
-                "rotate": "180deg",
-              },
-            ],
-            "width": 0,
-          },
-          undefined,
-        ]
-      }
+    <TriangleIndicator
+      color="#005A7F"
+      rotation={180}
     />
-  </Flex>
+  </View>
 </ViewWithoutOverflow>
 `;
 
@@ -452,43 +412,21 @@ exports[`should render light version correctly 1`] = `
       </View>
     </TouchableIOS>
   </ScrollViewMock>
-  <Flex
-    align="center"
+  <View
     style={
       Object {
+        "alignItems": "center",
         "position": "absolute",
         "top": 48,
         "width": "100%",
       }
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#005A7F",
-            "borderBottomWidth": 9,
-            "borderLeftColor": "transparent",
-            "borderLeftWidth": 7,
-            "borderRightColor": "transparent",
-            "borderRightWidth": 7,
-            "borderStyle": "solid",
-            "height": 0,
-            "transform": Array [
-              Object {
-                "rotate": "180deg",
-              },
-            ],
-            "width": 0,
-          },
-          Object {
-            "borderBottomColor": "#ECEEF2",
-          },
-        ]
-      }
+    <TriangleIndicator
+      color="#ECEEF2"
+      rotation={180}
     />
-  </Flex>
+  </View>
 </ViewWithoutOverflow>
 `;
 
@@ -605,43 +543,21 @@ exports[`should render light version correctly 2`] = `
       </View>
     </TouchableIOS>
   </ScrollViewMock>
-  <Flex
-    align="center"
+  <View
     style={
       Object {
+        "alignItems": "center",
         "position": "absolute",
         "top": 48,
         "width": "100%",
       }
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#005A7F",
-            "borderBottomWidth": 9,
-            "borderLeftColor": "transparent",
-            "borderLeftWidth": 7,
-            "borderRightColor": "transparent",
-            "borderRightWidth": 7,
-            "borderStyle": "solid",
-            "height": 0,
-            "transform": Array [
-              Object {
-                "rotate": "180deg",
-              },
-            ],
-            "width": 0,
-          },
-          Object {
-            "borderBottomColor": "#ECEEF2",
-          },
-        ]
-      }
+    <TriangleIndicator
+      color="#ECEEF2"
+      rotation={180}
     />
-  </Flex>
+  </View>
 </ViewWithoutOverflow>
 `;
 
@@ -758,40 +674,20 @@ exports[`should render second tab based off of previousIndex 1`] = `
       </View>
     </TouchableIOS>
   </ScrollViewMock>
-  <Flex
-    align="center"
+  <View
     style={
       Object {
+        "alignItems": "center",
         "position": "absolute",
         "top": 48,
         "width": "100%",
       }
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "transparent",
-            "borderBottomColor": "#005A7F",
-            "borderBottomWidth": 9,
-            "borderLeftColor": "transparent",
-            "borderLeftWidth": 7,
-            "borderRightColor": "transparent",
-            "borderRightWidth": 7,
-            "borderStyle": "solid",
-            "height": 0,
-            "transform": Array [
-              Object {
-                "rotate": "180deg",
-              },
-            ],
-            "width": 0,
-          },
-          undefined,
-        ]
-      }
+    <TriangleIndicator
+      color="#005A7F"
+      rotation={180}
     />
-  </Flex>
+  </View>
 </ViewWithoutOverflow>
 `;

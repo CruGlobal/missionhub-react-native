@@ -39,12 +39,10 @@ const CompletedStepDetailScreen = () => {
               receiver {
                 id
               }
-            }
           `,
         });
         stepReceiverId = step.receiver.id;
       } catch {}
-
       return getAnalyticsAssignmentType({ id: stepReceiverId }, auth);
     },
   );
@@ -59,11 +57,9 @@ const CompletedStepDetailScreen = () => {
     variables: { id: stepId },
   });
 
-  const step = data?.step;
-
   return (
     <StepDetailScreen
-      receiver={step?.receiver}
+      firstName={data?.step.receiver.firstName}
       Banner={
         <ErrorNotice
           message={t('errorLoadingStepDetails')}
@@ -76,7 +72,7 @@ const CompletedStepDetailScreen = () => {
       CenterContent={
         <View style={styles.reminderButton}>
           <Text style={styles.completedText}>
-            {step?.completedAt
+            {data?.step.completedAt
               ? t('completedOn', {
                   date: getMomentDate(step.completedAt).format(
                     'dddd, MMMM D YYYY',
@@ -87,8 +83,9 @@ const CompletedStepDetailScreen = () => {
           <Image source={GREY_CHECKBOX} style={styles.completedIcon} />
         </View>
       }
-      markdown={step?.stepSuggestion?.descriptionMarkdown ?? undefined}
-      text={step?.title}
+      markdown={data?.step.stepSuggestion?.descriptionMarkdown ?? undefined}
+      text={data?.step.title}
+      stepType={data?.step.stepType}
     />
   );
 };

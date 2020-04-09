@@ -2,8 +2,14 @@ import i18next from 'i18next';
 
 import { paramsForStageNavigation } from '../';
 import { personSelector } from '../../../selectors/people';
+import { apolloClient } from '../../../apolloClient';
 
 jest.mock('../../../selectors/people');
+jest.mock('../../../apolloClient', () => ({
+  apolloClient: {
+    query: jest.fn(),
+  },
+}));
 
 const myId = '111';
 const otherId = '222';
@@ -64,11 +70,16 @@ beforeEach(() => {
   // @ts-ignore
   personSelector.mockReturnValue(otherPerson);
   getState.mockReturnValue(baseState);
+  (apolloClient.query as jest.Mock).mockReturnValue({
+    data: {
+      person: { steps: { pageInfo: { totalCount: 1 } } },
+    },
+  });
 });
 
 describe('is Me, not "Not Sure" stage, step count not complete', () => {
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(myId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       hasHitCount: false,
@@ -91,8 +102,8 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
     getState.mockReturnValue(newState);
   });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(myId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       hasHitCount: false,
@@ -106,21 +117,14 @@ describe('is Me, "Not Sure" stage, step count not complete', () => {
 });
 
 describe('is Me, not "Not Sure" stage, step count complete', () => {
-  beforeEach(() => {
-    const newState = {
-      ...baseState,
-      steps: {
-        userStepCount: {
-          ...baseState.steps.userStepCount,
-          [myId]: 3,
-        },
+  it('returns correct params', async () => {
+    (apolloClient.query as jest.Mock).mockReturnValue({
+      data: {
+        person: { steps: { pageInfo: { totalCount: 3 } } },
       },
-    };
-    getState.mockReturnValue(newState);
-  });
+    });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(myId, orgId, getState);
+    const result = await paramsForStageNavigation(myId, orgId, getState);
 
     expect(result).toEqual({
       hasHitCount: true,
@@ -132,8 +136,8 @@ describe('is Me, not "Not Sure" stage, step count complete', () => {
 });
 
 describe('is not Me, not "Not Sure" stage, step count not complete', () => {
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(otherId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
       hasHitCount: false,
@@ -159,8 +163,8 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
     getState.mockReturnValue(newState);
   });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(otherId, orgId, getState);
+  it('returns correct params', async () => {
+    const result = await paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
       hasHitCount: false,
@@ -174,21 +178,14 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
 });
 
 describe('is not Me, not "Not Sure" stage, step count complete', () => {
-  beforeEach(() => {
-    const newState = {
-      ...baseState,
-      steps: {
-        userStepCount: {
-          ...baseState.steps.userStepCount,
-          [otherId]: 3,
-        },
+  it('returns correct params', async () => {
+    (apolloClient.query as jest.Mock).mockReturnValue({
+      data: {
+        person: { steps: { pageInfo: { totalCount: 3 } } },
       },
-    };
-    getState.mockReturnValue(newState);
-  });
+    });
 
-  it('returns correct params', () => {
-    const result = paramsForStageNavigation(otherId, orgId, getState);
+    const result = await paramsForStageNavigation(otherId, orgId, getState);
 
     expect(result).toEqual({
       hasHitCount: true,
