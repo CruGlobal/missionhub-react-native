@@ -1,42 +1,33 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { useDispatch } from 'react-redux-legacy';
 
 import { Button } from '../../components/common';
 import ItemHeaderText from '../../components/ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
-import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
-import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
-export interface CelebrateItemNameProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+export interface CommunityFeedItemNameProps {
   name: string | null;
-  person:
-    | GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson
-    | Person
-    | null;
-  organization: Organization;
+  personId: string | null;
+  orgId: string;
   pressable: boolean;
   customContent?: JSX.Element;
 }
 
-const CelebrateItemName = ({
-  dispatch,
+export const CommunityFeedItemName = ({
   name,
-  person,
-  organization,
+  personId,
+  orgId,
   pressable,
   customContent,
-}: CelebrateItemNameProps) => {
+}: CommunityFeedItemNameProps) => {
   const { t } = useTranslation('celebrateFeeds');
+  const dispatch = useDispatch();
 
   const onPressNameLink = () =>
-    person && dispatch(navToPersonScreen(person, organization));
+    personId && dispatch(navToPersonScreen({ id: personId }, { id: orgId }));
 
   const content = customContent || (
     <ItemHeaderText
@@ -55,5 +46,3 @@ const CelebrateItemName = ({
     </Button>
   );
 };
-
-export default connect()(CelebrateItemName);

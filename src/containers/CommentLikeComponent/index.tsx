@@ -11,36 +11,35 @@ import { Text, Button } from '../../components/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
-import { Organization } from '../../reducers/organizations';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityPostItem } from '../../components/CommunityFeedItem/__generated__/CommunityPostItem';
 
 import styles from './styles';
 
 export interface CommentLikeComponentProps {
-  organization: Organization;
-  event: GetCelebrateFeed_community_celebrationItems_nodes;
+  orgId: string;
+  post: CommunityPostItem;
   onRefresh: () => void;
   isPrayer: boolean;
 }
 
 export const CommentLikeComponent = ({
-  organization,
-  event,
+  orgId,
+  post,
   onRefresh,
   isPrayer,
 }: CommentLikeComponentProps) => {
   const dispatch = useDispatch();
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);
 
-  const { id, liked, likesCount, commentsCount, subjectPerson } = event;
+  const { id, liked, likesCount, commentsCount, author } = post;
 
-  const isMe = useIsMe(subjectPerson?.id || '');
+  const isMe = useIsMe(author.id);
 
   const onPressLikeIcon = async () => {
     try {
       setIsLikeDisabled(true);
-      await dispatch(toggleLike(id, liked, organization && organization.id));
+      await dispatch(toggleLike(id, liked, orgId));
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       setIsLikeDisabled(false);
@@ -95,7 +94,7 @@ export const CommentLikeComponent = ({
   return (
     <View style={styles.container}>
       {renderLikeIcon()}
-      {subjectPerson && renderCommentIcon()}
+      {renderCommentIcon()}
     </View>
   );
 };

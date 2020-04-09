@@ -14,6 +14,7 @@ export const CELEBRATE_ITEM_PERSON_FRAGMENT = gql`
     id
     firstName
     lastName
+    fullName
     communityPermissions {
       nodes {
         ...CommunityPermissions

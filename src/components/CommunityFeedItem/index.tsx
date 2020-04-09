@@ -20,11 +20,9 @@ import CardTime from '../CardTime';
 import { PersonAvatar } from '../PersonAvatar';
 import CelebrateItemContent from '../CelebrateItemContent';
 import { CommentLikeComponent } from '../../containers/CommentLikeComponent';
-import CelebrateItemName from '../../containers/CelebrateItemName';
+import { CommunityFeedItemName } from '../../containers/CelebrateItemName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
-import { orgIsGlobal } from '../../utils/common';
-import { Organization } from '../../reducers/organizations';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import theme from '../../theme';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
@@ -38,16 +36,16 @@ import { DELETE_POST, REPORT_POST } from './queries';
 const { fullWidth } = theme;
 
 export interface CommunityFeedItemProps {
-  event: CommunityPostItem;
-  organization: Organization;
+  post: CommunityPostItem;
+  orgId: string;
   namePressable: boolean;
-  onClearNotification?: (event: CommunityPostItem) => void;
+  onClearNotification?: (post: CommunityPostItem) => void;
   onRefresh: () => void;
 }
 
 export const CommunityFeedItem = ({
-  event,
-  organization,
+  post,
+  orgId,
   namePressable,
   onClearNotification,
   onRefresh,
@@ -55,7 +53,7 @@ export const CommunityFeedItem = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const { id, postType, author, createdAt } = event;
+  const { id, postType, author, createdAt } = post;
 
   const isMe = useIsMe(author.id || '');
 
@@ -76,21 +74,21 @@ export const CommunityFeedItem = ({
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        event,
-        orgId: organization.id,
-        onRefreshCelebrateItem: onRefresh,
+        post,
+        orgId,
+        onRefresh,
       }),
     );
 
   const clearNotification = () =>
-    onClearNotification && onClearNotification(event);
+    onClearNotification && onClearNotification(post);
 
   const handleEdit = () =>
     dispatch(
       navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
-        celebrationItem: event,
+        post,
+        orgId,
         onRefresh,
-        organization,
       }),
     );
 
@@ -122,29 +120,27 @@ export const CommunityFeedItem = ({
       },
     ]);
 
-  const handleAddToMySteps = () => {};
+  const handleAddToMySteps = () => {
+    //TODO: add to my steps
+  };
 
-  const menuActions =
-    !orgIsGlobal(organization) &&
-    celebrateableType === CommunityCelebrationCelebrateableEnum.STORY
-      ? isMe
-        ? [
-            {
-              text: t('edit.buttonText'),
-              onPress: () => handleEdit(),
-            },
-            {
-              text: t('delete.buttonText'),
-              onPress: () => handleDelete(),
-            },
-          ]
-        : [
-            {
-              text: t('report.buttonText'),
-              onPress: () => handleReport(),
-            },
-          ]
-      : null;
+  const menuActions = isMe
+    ? [
+        {
+          text: t('edit.buttonText'),
+          onPress: () => handleEdit(),
+        },
+        {
+          text: t('delete.buttonText'),
+          onPress: () => handleDelete(),
+        },
+      ]
+    : [
+        {
+          text: t('report.buttonText'),
+          onPress: () => handleReport(),
+        },
+      ];
 
   // TODO: insert actual post type label
   const renderHeader = () => (
@@ -161,13 +157,13 @@ export const CommunityFeedItem = ({
       <View style={styles.headerRow}>
         <PersonAvatar size={48} />
         <View style={styles.headerNameWrapper}>
-          <CelebrateItemName
-            name={subjectPersonName}
-            person={subjectPerson}
-            organization={organization}
+          <CommunityFeedItemName
+            name={author.fullName}
+            personId={author.id}
+            orgId={orgId}
             pressable={namePressable}
           />
-          <CardTime date={changedAttributeValue} style={styles.headerTime} />
+          <CardTime date={createdAt} style={styles.headerTime} />
         </View>
       </View>
     </View>
@@ -179,8 +175,8 @@ export const CommunityFeedItem = ({
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent
           isPrayer={isPrayer}
-          event={event}
-          organization={organization}
+          post={post}
+          orgId={orgId}
           onRefresh={onRefresh}
         />
       </View>
@@ -194,8 +190,8 @@ export const CommunityFeedItem = ({
       <View style={styles.cardContent}>
         {renderHeader()}
         <CelebrateItemContent
-          event={event}
-          organization={organization}
+          post={post}
+          orgId={orgId}
           style={styles.postTextWrap}
         />
         <Image
@@ -234,14 +230,7 @@ export const CommunityFeedItem = ({
     </View>
   );
 
-  const renderGlobalOrgCard = () => (
-    <Card testID="CelebrateItemPressable">
-      {renderContent()}
-      {onClearNotification ? renderClearNotificationButton() : null}
-    </Card>
-  );
-
-  const renderStoryCard = () => (
+  return (
     <Card>
       <View style={{ flex: 1 }}>
         <PopupMenu
@@ -260,17 +249,4 @@ export const CommunityFeedItem = ({
       </View>
     </Card>
   );
-
-  const renderCelebrateCard = () => (
-    <Card testID="CelebrateItemPressable" onPress={handlePress}>
-      {renderContent()}
-      {onClearNotification ? renderClearNotificationButton() : null}
-    </Card>
-  );
-
-  return orgIsGlobal(organization)
-    ? renderGlobalOrgCard()
-    : menuActions
-    ? renderStoryCard()
-    : renderCelebrateCard();
 };

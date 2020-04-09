@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { connect, useDispatch } from 'react-redux-legacy';
 
 import { Text, Button } from '../../components/common';
 import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
@@ -11,16 +9,14 @@ import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityPostItem } from '../CommunityFeedItem/__generated__/CommunityPostItem';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
-import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
 
-export interface CelebrateItemContentProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: CelebrateItem;
-  organization: Organization;
+export interface CommunityFeedItemContentProps {
+  post: CommunityPostItem;
+  orgId: string;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -36,31 +32,21 @@ const {
   MHInteractionTypeDiscipleshipConversation,
 } = INTERACTION_TYPES;
 
-const CelebrateItemContent = ({
-  dispatch,
-  event,
-  organization,
+const CommunityFeedItemContent = ({
+  post,
+  orgId,
   style,
-}: CelebrateItemContentProps) => {
+}: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('celebrateFeeds');
+  const dispatch = useDispatch();
 
   const { name: communityName = '' } = organization || {};
-  const {
-    adjectiveAttributeValue,
-    changedAttributeName,
-    subjectPerson,
-    subjectPersonName,
-    celebrateableType,
-    objectDescription,
-  } = event;
+  const { author, createdAt, postType, content } = post;
 
-  const personName = subjectPerson
-    ? `${getFirstNameAndLastInitial(
-        subjectPerson.firstName,
-        subjectPerson.lastName,
-      )}.`
-    : subjectPersonName
-    ? subjectPersonName
+  const personName = author
+    ? `${getFirstNameAndLastInitial(author.firstName, author.lastName)}.`
+    : author.fullName
+    ? author.fullName
     : t('aMissionHubUser');
 
   const onPressChallengeLink = async () => {
