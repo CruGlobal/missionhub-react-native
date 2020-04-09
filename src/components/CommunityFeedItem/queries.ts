@@ -23,6 +23,20 @@ export const CELEBRATE_ITEM_PERSON_FRAGMENT = gql`
   ${COMMUNITY_PERMISSIONS_FRAGMENT}
 `;
 
+export const COMMUNTIY_POST_PERSON = gql`
+  fragment CommunityPostPerson on Person {
+    id
+    firstName
+    lastName
+    communityPermissions {
+      nodes {
+        ...CommunityPermissions
+      }
+    }
+  }
+  ${COMMUNITY_PERMISSIONS_FRAGMENT}
+`;
+
 export const CELEBRATE_ITEM_FRAGMENT = gql`
   fragment CelebrateItem on CommunityCelebrationItem {
     id
@@ -42,4 +56,42 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
     subjectPersonName
   }
   ${CELEBRATE_ITEM_PERSON_FRAGMENT}
+`;
+
+export const COMMUNITY_POST_FRAGMENT = gql`
+  fragment CommunityPostItem on Post {
+    id
+    author {
+      ...CelebrateItemPerson
+    }
+    community {
+      id
+      name
+    }
+    content
+    createdAt
+    postType
+    updatedAt
+  }
+  ${COMMUNTIY_POST_PERSON}
+`;
+
+export const DELETE_POST = gql`
+  mutation DeletePost($input: DeletePostInput!) {
+    deletePost(input: $input) {
+      id
+    }
+  }
+`;
+
+export const REPORT_POST = gql`
+  mutation ReportPost($subjectId: ID!) {
+    createContentComplaint(
+      input: { subjectId: $subjectId, subjectType: Post }
+    ) {
+      contentComplaint {
+        id
+      }
+    }
+  }
 `;

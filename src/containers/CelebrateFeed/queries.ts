@@ -1,6 +1,9 @@
 import gql from 'graphql-tag';
 
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  COMMUNITY_POST_FRAGMENT,
+} from '../../components/CommunityFeedItem/queries';
 
 export const GET_CELEBRATE_FEED = gql`
   query GetCelebrateFeed(
@@ -49,4 +52,15 @@ export const GET_GLOBAL_CELEBRATE_FEED = gql`
     }
   }
   ${CELEBRATE_ITEM_FRAGMENT}
+`;
+
+export const GET_COMMUNITY_FEED = gql`
+  query GetCommunityFeed {
+    posts {
+      nodes {
+        ...CommunityPostItem
+      }
+    }
+  }
+  ${COMMUNITY_POST_FRAGMENT}
 `;

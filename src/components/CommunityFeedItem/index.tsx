@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
 import STEP_ICON from '../../../assets/images/stepIcon.png';
@@ -28,51 +27,21 @@ import { orgIsGlobal } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import theme from '../../theme';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
-import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
+import { PostTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
-import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
-import { ReportStory, ReportStoryVariables } from './__generated__/ReportStory';
+import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
+import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
+import { CommunityPostItem } from './__generated__/CommunityPostItem';
+import { DELETE_POST, REPORT_POST } from './queries';
 
 const { fullWidth } = theme;
 
-export const DELETE_STORY = gql`
-  mutation DeleteStory($input: DeleteStoryInput!) {
-    deleteStory(input: $input) {
-      id
-    }
-  }
-`;
-
-export const REPORT_STORY = gql`
-  mutation ReportStory($subjectId: ID!) {
-    createContentComplaint(
-      input: { subjectId: $subjectId, subjectType: Story }
-    ) {
-      contentComplaint {
-        id
-      }
-    }
-  }
-`;
-
-//TODO:Replace with actual types
-enum postTypes {
-  prayerRequest,
-  stepOfFaith,
-  spiritualQuestion,
-  godStory,
-  careRequest,
-  announcement,
-  whatsOnYourMind,
-}
-
 export interface CommunityFeedItemProps {
-  event: CelebrateItemData; //TODO: use new Post type
+  event: CommunityPostItem;
   organization: Organization;
   namePressable: boolean;
-  onClearNotification?: (event: CelebrateItemData) => void;
+  onClearNotification?: (event: CommunityPostItem) => void;
   onRefresh: () => void;
 }
 
@@ -86,29 +55,22 @@ export const CommunityFeedItem = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const {
-    celebrateableId,
-    changedAttributeValue,
-    subjectPerson,
-    subjectPersonName,
-    celebrateableType,
-  } = event;
+  const { id, postType, author, createdAt } = event;
 
-  const isMe = useIsMe(subjectPerson?.id || '');
-  let postType: postTypes = postTypes.prayerRequest; //TODO: use actual post type from event object
+  const isMe = useIsMe(author.id || '');
 
   const addToSteps = [
-    postTypes.careRequest,
-    postTypes.prayerRequest,
-    postTypes.spiritualQuestion,
+    PostTypeEnum.help_request,
+    PostTypeEnum.prayer_request,
+    PostTypeEnum.question,
   ].includes(postType);
-  const isPrayer = postType === postTypes.prayerRequest;
+  const isPrayer = postType === PostTypeEnum.prayer_request;
 
-  const [deleteStory] = useMutation<DeleteStory, DeleteStoryVariables>(
-    DELETE_STORY,
+  const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
+    DELETE_POST,
   );
-  const [reportStory] = useMutation<ReportStory, ReportStoryVariables>(
-    REPORT_STORY,
+  const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
+    REPORT_POST,
   );
 
   const handlePress = () =>
@@ -138,8 +100,8 @@ export const CommunityFeedItem = ({
       {
         text: t('delete.buttonText'),
         onPress: async () => {
-          await deleteStory({
-            variables: { input: { id: celebrateableId } },
+          await deletePost({
+            variables: { input: { id } },
           });
           onRefresh();
         },
@@ -152,9 +114,9 @@ export const CommunityFeedItem = ({
       {
         text: t('report.confirmButtonText'),
         onPress: () =>
-          reportStory({
+          reportPost({
             variables: {
-              subjectId: celebrateableId,
+              subjectId: id,
             },
           }),
       },
