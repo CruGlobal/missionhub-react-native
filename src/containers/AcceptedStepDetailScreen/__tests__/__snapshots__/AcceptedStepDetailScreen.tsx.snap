@@ -1396,6 +1396,11 @@ exports[`with description, with reminder should render correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,
@@ -1933,6 +1938,11 @@ exports[`with description, without reminder should render correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,

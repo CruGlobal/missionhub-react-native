@@ -142,6 +142,11 @@ exports[`renders correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,
@@ -443,6 +448,11 @@ exports[`renders correctly for me 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,
@@ -744,6 +754,11 @@ exports[`renders correctly in oboarding 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,
