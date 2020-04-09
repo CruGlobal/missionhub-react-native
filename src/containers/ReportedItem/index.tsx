@@ -93,7 +93,7 @@ const ReportedItem = ({
 
   const reportedBy = person.fullName;
   const commentBy =
-    subject.__typename === 'Story'
+    subject.__typename === 'Story' || subject.__typename === 'Post'
       ? subject.author.fullName
       : subject.person.fullName;
   const { card, users, comment, buttonLeft, buttonRight } = styles;
