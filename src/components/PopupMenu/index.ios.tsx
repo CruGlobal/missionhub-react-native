@@ -92,7 +92,10 @@ PopupMenu.propTypes = {
       destructive: PropTypes.bool,
     }),
   ).isRequired,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
   disabled: PropTypes.bool,
   triggerOnLongPress: PropTypes.bool,
   title: PropTypes.string,
