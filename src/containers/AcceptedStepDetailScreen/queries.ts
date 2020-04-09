@@ -8,6 +8,7 @@ export const ACCEPTED_STEP_DETAIL_QUERY = gql`
     step(id: $id) {
       id
       title
+      stepType
       stepSuggestion {
         descriptionMarkdown
       }

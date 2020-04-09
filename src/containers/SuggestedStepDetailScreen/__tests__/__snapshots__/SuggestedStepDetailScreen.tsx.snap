@@ -154,6 +154,49 @@ exports[`renders correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          CARE STEP
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -174,7 +217,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        do this step
+        This step is for Zion
       </Text>
       <View
         style={
@@ -213,7 +256,7 @@ exports[`renders correctly 1`] = `
               }
             >
               <Text>
-                some markdown
+                This description is for Zion
               </Text>
             </Text>
           </View>
@@ -455,6 +498,49 @@ exports[`renders correctly for me 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          CARE STEP
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -475,7 +561,7 @@ exports[`renders correctly for me 1`] = `
           ]
         }
       >
-        do this step
+        esse repellat quisquam
       </Text>
       <View
         style={
@@ -514,7 +600,7 @@ exports[`renders correctly for me 1`] = `
               }
             >
               <Text>
-                some markdown
+                recusandae alias consequuntur
               </Text>
             </Text>
           </View>
@@ -602,7 +688,7 @@ exports[`renders correctly for me 1`] = `
 </View>
 `;
 
-exports[`renders correctly in oboarding 1`] = `
+exports[`renders correctly in onboarding 1`] = `
 <View
   style={
     Object {
@@ -756,6 +842,49 @@ exports[`renders correctly in oboarding 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          CARE STEP
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -776,7 +905,7 @@ exports[`renders correctly in oboarding 1`] = `
           ]
         }
       >
-        do this step
+        esse repellat quisquam
       </Text>
       <View
         style={
@@ -815,7 +944,7 @@ exports[`renders correctly in oboarding 1`] = `
               }
             >
               <Text>
-                some markdown
+                recusandae alias consequuntur
               </Text>
             </Text>
           </View>

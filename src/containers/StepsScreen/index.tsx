@@ -10,7 +10,7 @@ import { navigateToMainTabs } from '../../actions/navigation';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import AnnouncementsModal from '../../components/AnnouncementsModal';
-import FooterLoading from '../../components/FooterLoading';
+import { FooterLoading } from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
@@ -68,12 +68,12 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
     dispatch(navigateToMainTabs(PEOPLE_TAB));
   };
 
-  const handleNextPage = async () => {
+  const handleNextPage = () => {
     if (loading || !hasNextPage) {
       return;
     }
 
-    await fetchMore({
+    fetchMore({
       variables: { after: endCursor },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
@@ -118,7 +118,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
       refreshing={isRefreshing}
       onRefresh={refresh}
       onEndReached={handleNextPage}
-      onEndReachedThreshold={0.25}
+      onEndReachedThreshold={0.2}
       contentContainerStyle={styles.list}
       data={steps}
       keyExtractor={keyExtractorId}
