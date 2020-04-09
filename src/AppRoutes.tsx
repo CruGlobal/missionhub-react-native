@@ -11,7 +11,6 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
 } from './containers/AddChallengeScreen';
@@ -566,7 +565,6 @@ export const MainStackRoutes = createStackNavigator(
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
-    [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [SELECT_STAGE_SCREEN]: {

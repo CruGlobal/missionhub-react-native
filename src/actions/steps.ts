@@ -1,6 +1,3 @@
-/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
-
-import i18next from 'i18next';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
@@ -9,14 +6,12 @@ import {
   ACTIONS,
   ACCEPTED_STEP,
 } from '../constants';
-import { formatApiDate, isCustomStep } from '../utils/common';
-import { buildCustomStep } from '../utils/steps';
+import { formatApiDate } from '../utils/common';
 import {
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
 } from '../routes/constants';
 import { REQUESTS } from '../api/routes';
-import { AuthState } from '../reducers/auth';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { StepsList } from '../containers/StepsScreen/__generated__/StepsList';
@@ -29,113 +24,15 @@ import {
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
 import callApi from './api';
-import { trackAction, trackStepAdded } from './analytics';
+import { trackAction } from './analytics';
 import { getCelebrateFeed } from './celebration';
-
-export function getStepSuggestions(isMe: boolean, contactStageId: string) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
-    const language = i18next.language;
-    const query = {
-      filters: {
-        locale: language,
-        self_step: isMe,
-        pathway_stage_id: contactStageId,
-      },
-    };
-
-    return dispatch(callApi(REQUESTS.GET_CHALLENGE_SUGGESTIONS, query));
-  };
-}
-
-export function getContactSteps(personId: string, orgId?: string) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
-    const query = {
-      filters: {
-        receiver_ids: personId,
-        organization_ids: orgId || 'personal',
-      },
-      include: 'receiver,challenge_suggestion,reminder',
-      page: { limit: 1000 },
-    };
-    return dispatch(callApi(REQUESTS.GET_CHALLENGES_BY_FILTER, query));
-  };
-}
-
-export function addStep(
-  stepSuggestion: { id?: string; body: string; challenge_type?: string },
-  personId: string,
-  orgId?: string,
-) {
-  return async (dispatch: ThunkDispatch<never, never, never>) => {
-    const payload = {
-      data: {
-        type: ACCEPTED_STEP,
-        attributes: {
-          title: stepSuggestion.body,
-        },
-        relationships: {
-          receiver: {
-            data: {
-              type: 'person',
-              id: personId,
-            },
-          },
-          challenge_suggestion: {
-            data: {
-              type: 'challenge_suggestion',
-              id:
-                stepSuggestion && isCustomStep(stepSuggestion)
-                  ? null
-                  : (stepSuggestion || {}).id,
-            },
-          },
-          ...(orgId && orgId !== 'personal'
-            ? {
-                organization: {
-                  data: {
-                    type: 'organization',
-                    id: orgId,
-                  },
-                },
-              }
-            : {}),
-        },
-      },
-    };
-
-    await dispatch(callApi(REQUESTS.ADD_CHALLENGE, {}, payload));
-    // @ts-ignore
-    dispatch(trackStepAdded(stepSuggestion));
-    apolloClient.query<StepsList>({ query: STEPS_QUERY });
-    apolloClient.query<PersonStepsList, PersonStepsListVariables>({
-      query: PERSON_STEPS_QUERY,
-      variables: { personId, completed: false },
-    });
-  };
-}
-
-export function createCustomStep(
-  stepText: string,
-  personId: string,
-  orgId?: string,
-) {
-  return (
-    dispatch: ThunkDispatch<never, never, never>,
-    getState: () => { auth: AuthState },
-  ) => {
-    const {
-      auth: {
-        person: { id: myId },
-      },
-    } = getState();
-    const isMe = personId === myId;
-
-    dispatch(addStep(buildCustomStep(stepText, isMe), personId, orgId));
-  };
-}
 
 export function updateChallengeNote(stepId: string, note: string) {
   return (dispatch: ThunkDispatch<never, never, never>) => {
+    if (!stepId) {
+      return;
+    }
+
     const query = { challenge_id: stepId };
     const data = buildChallengeData({ note });
 

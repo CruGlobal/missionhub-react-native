@@ -10,14 +10,16 @@ import { Text } from '../common';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
 import { isAndroid } from '../../utils/common';
+import { StepTypeEnum } from '../../../__generated__/globalTypes';
+import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
+import { insertName } from '../../utils/steps';
 
 import styles from './styles';
 
 interface StepDetailScreenProps {
   text?: string;
-  receiver?: {
-    firstName: string;
-  };
+  stepType?: StepTypeEnum | null;
+  firstName?: string;
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
@@ -29,24 +31,32 @@ interface StepDetailScreenProps {
 const StepDetailScreen = ({
   text = '',
   markdown = '',
+  firstName = '',
+  stepType,
   CenterHeader,
   RightHeader,
   CenterContent,
   bottomButtonProps,
-  receiver = { firstName: '' },
   Banner = null,
 }: StepDetailScreenProps) => {
-  const { stepTitleText, body, backButton, pageContainer } = styles;
+  const {
+    stepTypeBadge,
+    stepTitleText,
+    body,
+    backButton,
+    pageContainer,
+  } = styles;
 
   const renderContent = () => (
     <>
       {Banner}
+      <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
       <Text style={stepTitleText}>{text}</Text>
       {CenterContent}
       <View style={body}>
         {markdown ? (
           <Markdown style={markdownStyles}>
-            {markdown.replace(/<<name>>/g, receiver ? receiver.firstName : '')}
+            {insertName(markdown, firstName)}
           </Markdown>
         ) : null}
       </View>

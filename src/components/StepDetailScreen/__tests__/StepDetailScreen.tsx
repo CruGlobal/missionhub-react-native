@@ -5,9 +5,7 @@ import { renderWithContext } from '../../../../testUtils';
 import StepDetailScreen from '../index';
 import * as common from '../../../utils/common';
 
-const receiver = {
-  firstName: 'Christian',
-};
+const firstName = 'Christian';
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
@@ -16,7 +14,7 @@ beforeEach(() => {
 const snapshot = (props = {}) => {
   renderWithContext(
     <StepDetailScreen
-      receiver={receiver}
+      firstName={firstName}
       text="Roge is well behaved"
       CenterHeader={<View />}
       RightHeader={<View />}
