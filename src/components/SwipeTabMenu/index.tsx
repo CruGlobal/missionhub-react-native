@@ -13,9 +13,9 @@ import { Touchable } from '../common';
 import { isAndroid } from '../../utils/common';
 import { TriangleIndicator } from '../TriangleIndicator/TriangleIndicator';
 import theme from '../../theme';
+import { CommunitiesHeader } from '../../containers/Communities/CommunitiesHeader/CommunitiesHeader';
 
 import styles from './styles';
-import { CollapsibleTabHeader } from '../CollapsibleTabHeader/CollapsibleTabHeader';
 
 // @ts-ignore
 @connect()
@@ -235,10 +235,10 @@ export const generateSwipeTabMenuNavigator = (
       swipeEnabled: false,
       lazy: true,
       // zIndex keeps SwipeTabMenu blue arrow on top of tab view
-      tabBarComponent: ({ navigation }) => (
-        <>
-          <HeaderComponent navigation={navigation} isMember={isMember} />
-          <CollapsibleTabHeader>
+      tabBarComponent: ({ navigation }) =>
+        <CommunitiesHeader /> || (
+          <>
+            <HeaderComponent navigation={navigation} isMember={isMember} />
             {/*
           // @ts-ignore */}
             <SwipeTabMenu
@@ -246,8 +246,7 @@ export const generateSwipeTabMenuNavigator = (
               tabs={tabs}
               isLight={isLight}
             />
-          </CollapsibleTabHeader>
-        </>
-      ),
+          </>
+        ),
     },
   );

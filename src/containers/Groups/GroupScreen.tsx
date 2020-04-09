@@ -14,6 +14,8 @@ import { organizationSelector } from '../../selectors/organizations';
 import { buildTrackingObj, disableBack } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
 import theme from '../../theme';
+import { CollapsibleViewContent } from '../../components/CollapsibleView/CollapsibleView';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunitiesHeader/CommunitiesHeader';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -21,8 +23,6 @@ import Contacts from './Contacts';
 import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
 import { GROUP_PROFILE } from './GroupProfile';
-import { TestUseCollapsibleHeader } from '../../components/CollapsibleTabHeader/useCollapsibleHeader';
-import { CollapsibleTabContent } from '../../components/CollapsibleTabHeader/CollapsibleTabHeader';
 
 class GroupScreen extends Component {
   componentDidMount() {
@@ -145,9 +145,9 @@ export const CRU_TABS = [
         },
       },
     }) => (
-      <CollapsibleTabContent>
+      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
         <GroupCelebrate orgId={orgId} />
-      </CollapsibleTabContent>
+      </CollapsibleViewContent>
     ),
   },
   {
@@ -161,9 +161,9 @@ export const CRU_TABS = [
         },
       },
     }) => (
-      <CollapsibleTabContent>
+      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
         <GroupChallenges orgId={orgId} />
-      </CollapsibleTabContent>
+      </CollapsibleViewContent>
     ),
   },
   {
@@ -178,14 +178,14 @@ export const CRU_TABS = [
       },
     }) =>
       (
-        <CollapsibleTabContent>
+        <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
           <ImpactView orgId={orgId} />
           <ImpactView orgId={orgId} />
-        </CollapsibleTabContent>
+        </CollapsibleViewContent>
       ) || (
-        <CollapsibleTabContent>
+        <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
           <Members orgId={orgId} />
-        </CollapsibleTabContent>
+        </CollapsibleViewContent>
       ),
   },
   {
@@ -199,10 +199,10 @@ export const CRU_TABS = [
         },
       },
     }) => (
-      <CollapsibleTabContent>
+      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
         <ImpactView orgId={orgId} />
         <ImpactView orgId={orgId} />
-      </CollapsibleTabContent>
+      </CollapsibleViewContent>
     ),
   },
   {
@@ -216,9 +216,9 @@ export const CRU_TABS = [
         },
       },
     }) => (
-      <CollapsibleTabContent>
+      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
         <Contacts orgId={orgId} />
-      </CollapsibleTabContent>
+      </CollapsibleViewContent>
     ),
   },
   {
@@ -232,9 +232,9 @@ export const CRU_TABS = [
         },
       },
     }) => (
-      <CollapsibleTabContent>
+      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
         <Surveys orgId={orgId} />
-      </CollapsibleTabContent>
+      </CollapsibleViewContent>
     ),
   },
 ];
