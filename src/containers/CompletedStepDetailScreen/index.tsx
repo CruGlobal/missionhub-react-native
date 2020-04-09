@@ -74,7 +74,7 @@ const CompletedStepDetailScreen = () => {
           <Text style={styles.completedText}>
             {data?.step.completedAt
               ? t('completedOn', {
-                  date: getMomentDate(step.completedAt).format(
+                  date: getMomentDate(data.step.completedAt).format(
                     'dddd, MMMM D YYYY',
                   ),
                 })
