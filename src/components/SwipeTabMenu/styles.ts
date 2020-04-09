@@ -30,25 +30,10 @@ export default StyleSheet.create({
   menuItemTextActiveLight: {
     color: theme.primaryColor,
   },
-  triangleContainer: {
+  triangleIndicatorContainer: {
     width: '100%',
     position: 'absolute',
     top: 48,
-  },
-  triangle: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 7,
-    borderRightWidth: 7,
-    borderBottomWidth: 9,
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: theme.accentColor,
-    transform: [{ rotate: '180deg' }],
-  },
-  triangleLight: {
-    borderBottomColor: theme.extraLightGrey,
+    alignItems: 'center',
   },
 });
