@@ -43,3 +43,23 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
   }
   ${CELEBRATE_ITEM_PERSON_FRAGMENT}
 `;
+
+export const DELETE_POST = gql`
+  mutation DeletePost($input: DeleteStoryInput!) {
+    deletePost(input: $input) {
+      id
+    }
+  }
+`;
+
+export const REPORT_POST = gql`
+  mutation ReportPost($subjectId: ID!) {
+    createContentComplaint(
+      input: { subjectId: $subjectId, subjectType: Post }
+    ) {
+      contentComplaint {
+        id
+      }
+    }
+  }
+`;

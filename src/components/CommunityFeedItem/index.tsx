@@ -1,10 +1,7 @@
 import React from 'react';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { View, Alert } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../actions/navigation';
@@ -17,87 +14,65 @@ import CelebrateItemName from '../../containers/CelebrateItemName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
 import { orgIsGlobal } from '../../utils/common';
-import { AuthState } from '../../reducers/auth';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
-import { DeleteStory, DeleteStoryVariables } from './__generated__/DeleteStory';
-import { ReportStory, ReportStoryVariables } from './__generated__/ReportStory';
+import { CelebrateItem } from './__generated__/CelebrateItem';
+import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
+import { DELETE_POST, REPORT_POST } from './queries';
+import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 
-export const DELETE_STORY = gql`
-  mutation DeleteStory($input: DeleteStoryInput!) {
-    deleteStory(input: $input) {
-      id
-    }
-  }
-`;
-
-export const REPORT_STORY = gql`
-  mutation ReportStory($subjectId: ID!) {
-    createContentComplaint(
-      input: { subjectId: $subjectId, subjectType: Story }
-    ) {
-      contentComplaint {
-        id
-      }
-    }
-  }
-`;
-
-export interface CelebrateItemProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: CelebrateItemData;
+export interface CommunityFeedItemProps {
+  item: CelebrateItem;
   organization: Organization;
   namePressable: boolean;
-  onClearNotification?: (event: CelebrateItemData) => void;
+  onClearNotification?: (item: CelebrateItem) => void;
   onRefresh: () => void;
-  me: Person;
 }
 
-const CelebrateItem = ({
-  dispatch,
-  event,
+export const CommunityFeedItem = ({
+  item,
   organization,
   namePressable,
   onClearNotification,
   onRefresh,
-  me,
-}: CelebrateItemProps) => {
+}: CommunityFeedItemProps) => {
   const {
     celebrateableId,
     changedAttributeValue,
     subjectPerson,
     subjectPersonName,
     celebrateableType,
-  } = event;
+  } = item;
 
   const { t } = useTranslation('celebrateItems');
-  const [deleteStory] = useMutation<DeleteStory, DeleteStoryVariables>(
-    DELETE_STORY,
+  const dispatch = useDispatch();
+  const isMe = useIsMe(subjectPerson?.id || '');
+  const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
+    DELETE_POST,
   );
-  const [reportStory] = useMutation<ReportStory, ReportStoryVariables>(
-    REPORT_STORY,
+  const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
+    REPORT_POST,
   );
 
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        event,
+        event: item,
         orgId: organization.id,
         onRefreshCelebrateItem: onRefresh,
       }),
     );
 
   const clearNotification = () =>
-    onClearNotification && onClearNotification(event);
+    onClearNotification && onClearNotification(item);
 
   const handleEdit = () =>
     dispatch(
       navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
-        celebrationItem: event,
+        celebrationItem: item,
         onRefresh,
         organization,
       }),
@@ -109,7 +84,7 @@ const CelebrateItem = ({
       {
         text: t('delete.buttonText'),
         onPress: async () => {
-          await deleteStory({
+          await deletePost({
             variables: { input: { id: celebrateableId } },
           });
           onRefresh();
@@ -123,7 +98,7 @@ const CelebrateItem = ({
       {
         text: t('report.confirmButtonText'),
         onPress: () =>
-          reportStory({
+          reportPost({
             variables: {
               subjectId: celebrateableId,
             },
@@ -134,7 +109,7 @@ const CelebrateItem = ({
   const menuActions =
     !orgIsGlobal(organization) &&
     celebrateableType === CommunityCelebrationCelebrateableEnum.STORY
-      ? subjectPerson && me.id === subjectPerson.id
+      ? isMe
         ? [
             {
               text: t('edit.buttonText'),
@@ -167,12 +142,12 @@ const CelebrateItem = ({
             <CardTime date={changedAttributeValue} />
           </View>
         </View>
-        <CelebrateItemContent event={event} organization={organization} />
+        <CelebrateItemContent event={item} organization={organization} />
       </View>
       <Separator />
       <View style={[styles.content, styles.commentLikeWrap]}>
         <CommentLikeComponent
-          event={event}
+          event={item}
           organization={organization}
           onRefresh={onRefresh}
         />
@@ -237,9 +212,3 @@ const CelebrateItem = ({
     ? renderStoryCard()
     : renderCelebrateCard();
 };
-
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  me: auth.person,
-});
-
-export default connect(mapStateToProps)(CelebrateItem);
