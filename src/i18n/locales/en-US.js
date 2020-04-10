@@ -876,4 +876,11 @@ export default {
     stepOfFaith: 'Step of Faith',
     step: 'Step',
   },
+  communitiesHeader: {
+    feed: 'Feed',
+    challenges: 'Challenges',
+    impact: 'Impact',
+    memberCount: '{{count}} Member',
+    memberCount_plural: '{{count}} Members',
+  },
 };

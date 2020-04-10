@@ -13,7 +13,7 @@ import { Touchable } from '../common';
 import { isAndroid } from '../../utils/common';
 import { TriangleIndicator } from '../TriangleIndicator/TriangleIndicator';
 import theme from '../../theme';
-import { CommunitiesHeader } from '../../containers/Communities/CommunitiesHeader/CommunitiesHeader';
+import { CommunityHeader } from '../../containers/Communities/CommunityHeader/CommunityHeader';
 
 import styles from './styles';
 
@@ -236,7 +236,7 @@ export const generateSwipeTabMenuNavigator = (
       lazy: true,
       // zIndex keeps SwipeTabMenu blue arrow on top of tab view
       tabBarComponent: ({ navigation }) =>
-        <CommunitiesHeader /> || (
+        <CommunityHeader communityId={navigation.state.params.orgId} /> || (
           <>
             <HeaderComponent navigation={navigation} isMember={isMember} />
             {/*

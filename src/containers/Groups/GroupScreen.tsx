@@ -15,7 +15,7 @@ import { buildTrackingObj, disableBack } from '../../utils/common';
 import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
 import theme from '../../theme';
 import { CollapsibleViewContent } from '../../components/CollapsibleView/CollapsibleView';
-import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunitiesHeader/CommunitiesHeader';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
@@ -126,10 +126,10 @@ const mapStateToProps = (
 
 export const ConnectedGroupScreen = connect(mapStateToProps)(GroupScreen);
 
-const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
+export const GROUP_CELEBRATE = 'nav/GROUP_CELEBRATE';
 export const GROUP_CHALLENGES = 'nav/GROUP_CHALLENGES';
 export const GROUP_MEMBERS = 'nav/GROUP_MEMBERS';
-const GROUP_IMPACT = 'nav/GROUP_IMPACT';
+export const GROUP_IMPACT = 'nav/GROUP_IMPACT';
 const GROUP_CONTACTS = 'nav/GROUP_CONTACTS';
 const GROUP_SURVEYS = 'nav/GROUP_SURVEYS';
 
