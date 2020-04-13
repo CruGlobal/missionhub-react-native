@@ -6,7 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useApolloClient } from '@apollo/react-hooks';
 
-import CommentLikeComponent from '../../components/CommentLikeComponent';
+import { CommentLikeComponent } from '../../components/CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
@@ -18,8 +18,8 @@ import { reloadCelebrateComments } from '../../actions/celebrateComments';
 import { TrackStateContext } from '../../actions/analytics';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import CardTime from '../../components/CardTime';
-import CelebrateItemName from '../CommunityFeedName';
-import CelebrateItemContent from '../../components/CommunityPostContent';
+import { CommunityPostName } from '../../components/CommunityPostName';
+import { CommunityPostContent } from '../../components/CommunityPostContent';
 import { RefreshControl } from '../../components/common';
 import {
   ANALYTICS_ASSIGNMENT_TYPE,
@@ -111,17 +111,18 @@ const CelebrateDetailScreen = ({
       <View style={styles.header}>
         <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
-            <CelebrateItemName
+            <CommunityPostName
               name={event.subjectPersonName}
-              person={event.subjectPerson}
-              organization={organization}
+              personId={event.subjectPerson?.id}
+              orgId={organization.id}
               pressable={true}
             />
             <CardTime date={event.changedAttributeValue} />
           </View>
           <CommentLikeComponent
-            event={event}
-            organization={organization}
+            //@ts-ignore
+            post={event}
+            orgId={organization.id}
             onRefresh={onRefreshCelebrateItem}
           />
           <BackButton
@@ -151,8 +152,9 @@ const CelebrateDetailScreen = ({
             />
           ),
           ListHeaderComponent: () => (
-            <CelebrateItemContent
-              event={event}
+            <CommunityPostContent
+              //@ts-ignore
+              post={event}
               organization={organization}
               style={styles.itemContent}
             />

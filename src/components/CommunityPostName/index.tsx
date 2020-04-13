@@ -10,7 +10,7 @@ import styles from './styles';
 
 export interface CommunityPostNameProps {
   name: string | null;
-  personId: string | null;
+  personId?: string;
   orgId: string;
   pressable: boolean;
   customContent?: JSX.Element;

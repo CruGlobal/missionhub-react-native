@@ -66,6 +66,13 @@ export const COMMUNITY_POST_FRAGMENT = gql`
   ${COMMUNITY_POST_PERSON_FRAGMENT}
 `;
 
+export const POST_FRAGMENT = gql`
+  fragment Post on Post {
+    id
+    postType
+  }
+`;
+
 export const DELETE_POST = gql`
   mutation DeletePost($id: ID!) {
     deletePost(input: { id: $id }) {

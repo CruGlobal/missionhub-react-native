@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { Text, Button } from '../common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import GREY_HEART from '../../../assets/images/heart-grey.png';
-import BLUE_HEART from '../../../assets/images/heart-blue.png';
-import COMMENTS from '../../../assets/images/comments.png';
 import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityPost } from '../CommunityFeedItem/__generated__/CommunityPost';
 
+import CommentIcon from './commentIcon.svg';
+import HeartActiveIcon from './heartActiveIcon.svg';
+import HeartInactiveIcon from './heartInactiveIcon.svg';
+import PrayerActionIcon from './prayerActiveIcon.svg';
+import PrayerInactiveIcon from './prayerInactiveIcon.svg';
 import styles from './styles';
 
 export interface CommentLikeComponentProps {
@@ -52,7 +54,7 @@ export const CommentLikeComponent = ({
         <Text style={styles.likeCount}>
           {displayCommentCount ? commentsCount : null}
         </Text>
-        <Image source={COMMENT_ICON} />
+        <CommentIcon />
       </View>
     );
   };
@@ -72,17 +74,17 @@ export const CommentLikeComponent = ({
           onPress={onPressLikeIcon}
           style={styles.icon}
         >
-          <Image
-            source={
-              isPrayer
-                ? liked
-                  ? PRAYER_ACTIVE_ICON
-                  : PRAYER_INACTIVE_ICON
-                : liked
-                ? HEART_ACTIVE_ICON
-                : HEART_INACTIVE_ICON
-            }
-          />{' '}
+          {isPrayer ? (
+            liked ? (
+              <PrayerActionIcon />
+            ) : (
+              <PrayerInactiveIcon />
+            )
+          ) : liked ? (
+            <HeartActiveIcon />
+          ) : (
+            <HeartInactiveIcon />
+          )}
         </Button>
       </View>
     );

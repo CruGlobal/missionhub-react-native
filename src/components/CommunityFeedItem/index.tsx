@@ -11,19 +11,17 @@ import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
 import { CommunityPostContent } from '../CommunityPostContent';
 import { PersonAvatar } from '../PersonAvatar';
-import CommentLikeComponent from '../CommentLikeComponent';
-import CelebrateItemName from '../../containers/CommunityFeedName';
+import { CommentLikeComponent } from '../CommentLikeComponent';
+import { CommunityPostName } from '../CommunityPostName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { Organization } from '../../reducers/organizations';
-import {
-  CommunityCelebrationCelebrateableEnum,
-  PostTypeEnum,
-} from '../../../__generated__/globalTypes';
+import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
+import PlusIcon from './plusIcon.svg';
+import StepIcon from './stepIcon.svg';
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
@@ -50,9 +48,8 @@ export const CommunityFeedItem = ({
     changedAttributeValue,
     subjectPerson,
     subjectPersonName,
-    celebrateableType,
   } = post;
-  const postType = PostTypeEnum.prayer; //TODO: get postType from post
+  const postType = PostTypeEnum.prayer_request; //TODO: get postType from post
 
   const { t } = useTranslation('celebrateItems');
   const dispatch = useDispatch();
@@ -140,8 +137,8 @@ export const CommunityFeedItem = ({
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
-      <Image source={STEP_ICON} style={styles.stepIcon} />
-      <Image source={PLUS_ICON} style={styles.plusIcon} />
+      <StepIcon />
+      <PlusIcon />
       <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
     </Touchable>
   );
@@ -178,10 +175,10 @@ export const CommunityFeedItem = ({
       <View style={styles.headerRow}>
         <PersonAvatar size={48} />
         <View style={styles.headerNameWrapper}>
-          <CommunityFeedItemName
-            name={subjectPerson?.fullName}
+          <CommunityPostName
+            name={subjectPersonName}
             personId={subjectPerson?.id}
-            orgId={orgId}
+            orgId={organization.id}
             pressable={namePressable}
           />
           <CardTime date={changedAttributeValue} style={styles.headerTime} />
@@ -197,7 +194,7 @@ export const CommunityFeedItem = ({
         <CommentLikeComponent
           isPrayer={isPrayer}
           post={post}
-          orgId={orgId}
+          orgId={organization.id}
           onRefresh={onRefresh}
         />
       </View>
