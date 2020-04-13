@@ -13,13 +13,13 @@ import { REQUESTS } from '../../api/routes';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
-import { formatApiDate } from '../../utils/common';
+import { formatApiDate } from '../../utils/date';
 import { CelebrateComment } from '../../reducers/celebrateComments';
 
 jest.mock('../api');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
-jest.mock('../../utils/common');
+jest.mock('../../utils/date');
 
 const orgId = '645654';
 const comment = { pagination: { page: 2, hasNextPage: true } };

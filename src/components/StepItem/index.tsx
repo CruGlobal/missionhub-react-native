@@ -16,6 +16,7 @@ import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDeta
 import { navToPersonScreen } from '../../actions/person';
 import { completeStep } from '../../actions/steps';
 import { CONTACT_STEPS } from '../../constants';
+import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 
 import { StepItem as Step } from './__generated__/StepItem';
 import styles from './styles';
@@ -58,11 +59,17 @@ const StepItem = ({
   const ownerName = isMe
     ? t('me')
     : (step.receiver && step.receiver.fullName) || '';
-  const { bellIcon, reminderButton, iconButton, checkIcon } = styles;
+  const {
+    cardHeader,
+    bellIcon,
+    reminderButton,
+    iconButton,
+    checkIcon,
+  } = styles;
   return (
     <Card testID="StepItemCard" onPress={onPressCard} style={styles.card}>
       <View style={styles.flex1}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={cardHeader}>
           {showName ? (
             <Touchable
               testID="StepItemPersonButton"
@@ -71,21 +78,25 @@ const StepItem = ({
             >
               <ItemHeaderText style={styles.stepUserName} text={ownerName} />
             </Touchable>
-          ) : null}
-          {step.completedAt ? null : (
-            <ReminderButton
-              testID="StepReminderButton"
-              stepId={step.id}
-              reminder={step.reminder}
-            >
-              <View style={reminderButton}>
-                <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-                <ReminderDateText reminder={step.reminder} />
-              </View>
-            </ReminderButton>
+          ) : (
+            <StepTypeBadge stepType={step.stepType} />
           )}
         </View>
         <Text style={styles.description}>{step.title}</Text>
+        {step.completedAt ? null : (
+          <ReminderButton
+            testID="StepReminderButton"
+            stepId={step.id}
+            reminder={step.reminder}
+          >
+            <View style={reminderButton}>
+              {step.reminder ? (
+                <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+              ) : null}
+              <ReminderDateText reminder={step.reminder} />
+            </View>
+          </ReminderButton>
+        )}
       </View>
       {showCheckbox ? (
         <Button

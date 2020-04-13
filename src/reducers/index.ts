@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 import auth from './auth';
 import nav from './nav';
 import stages from './stages';
-import steps from './steps';
 import { onboardingReducer as onboarding } from './onboarding';
 import organizations from './organizations';
 import people from './people';
@@ -35,7 +34,6 @@ export default combineReducers({
   people,
   stages,
   stepReminders,
-  steps,
   surveys,
   swipe,
   celebrateComments,

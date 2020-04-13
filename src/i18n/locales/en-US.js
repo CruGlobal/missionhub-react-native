@@ -225,6 +225,7 @@ export default {
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+    errorSavingStep: 'Error saving step',
   },
   stepReminder: {
     setReminder: 'Set a Reminder',
@@ -235,21 +236,27 @@ export default {
     monthly: 'Monthly',
   },
   selectStep: {
-    meHeader: {
-      part1: 'Choose a step of faith',
-      part2: 'to take on your journey this week...',
-    },
-    personHeader: {
-      part1: 'Choose a step of faith',
-      part2: ' to take with {{name}} this week...',
-    },
+    meHeader: 'Choose a step of faith to take on your journey this week...',
+    personHeader: 'Choose a step to take with {{name}} this week...',
+    them: 'them',
     addStep: 'ADD TO MY STEPS',
-    createStep: 'Create a Custom Step',
+    createYourOwnStep: 'Create your own $t(stepTypes:{{type}}) Step',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
+    errorLoadingStepSuggestions: 'Error loading step suggestions',
+  },
+  selectStepExplainer: {
+    part1: 'MissionHub suggests four ways to draw someone closer to God.',
+    part2: 'Ideas to help you deepen this relationship and build trust.',
+    part3: 'Ways to invite God into your relationship with this person.',
+    part4: 'Ideas to help you demonstrate that you care about this person.',
+    part5:
+      'Talk about what this person believes and ways you can help them know the truth about God.',
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
+    errorLoadingSuggestedStepDetails: 'Error loading suggested step details',
+    errorSavingStep: 'Error saving step',
   },
   acceptedStepDetail: {
     removeStep: 'Remove Step',
@@ -297,6 +304,7 @@ export default {
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
+    errorLoadingStepsForThisPerson: 'Error loading steps for this person',
   },
   contactJourney: {
     loading: 'Loading Journey Items',
@@ -871,5 +879,13 @@ export default {
   },
   errorNotice: {
     offline: 'Offline',
+  },
+  stepTypes: {
+    relate: 'Relate',
+    pray: 'Pray',
+    care: 'Care',
+    share: 'Share',
+    stepOfFaith: 'Step of Faith',
+    step: 'Step',
   },
 };
