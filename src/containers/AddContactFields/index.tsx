@@ -73,7 +73,7 @@ const AddContactFields = ({
           testID="firstNameInput"
           ref={firstNameRef}
           editable={!personHasOrgPermission}
-          selectionColor={theme.challengeBlue}
+          selectionColor={theme.parakeetBlue}
           onChangeText={(firstName: string) =>
             updateField('firstName', firstName)
           }
@@ -103,7 +103,7 @@ const AddContactFields = ({
           testID="lastNameInput"
           ref={lastNameRef}
           editable={!personHasOrgPermission}
-          selectionColor={theme.challengeBlue}
+          selectionColor={theme.parakeetBlue}
           onChangeText={(lastName: string) => updateField('lastName', lastName)}
           value={person.lastName}
           placeholder={
