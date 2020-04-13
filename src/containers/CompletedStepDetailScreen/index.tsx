@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery, useApolloClient } from '@apollo/react-hooks';
-import moment from 'moment';
 import gql from 'graphql-tag';
 
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
@@ -15,6 +14,7 @@ import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { getMomentDate } from '../../utils/date';
 
 import styles from './styles';
 import { COMPLETED_STEP_DETAIL_QUERY } from './queries';
@@ -74,7 +74,7 @@ const CompletedStepDetailScreen = () => {
           <Text style={styles.completedText}>
             {data?.step.completedAt
               ? t('completedOn', {
-                  date: moment(data.step.completedAt).format(
+                  date: getMomentDate(data.step.completedAt).format(
                     'dddd, MMMM D YYYY',
                   ),
                 })
