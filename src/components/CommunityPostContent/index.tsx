@@ -1,26 +1,23 @@
 import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+import { useDispatch } from 'react-redux';
 
-import { Text, Button } from '../../components/common';
+import { Text, Button } from '../common';
 import { INTERACTION_TYPES, CELEBRATEABLE_TYPES } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { getFirstNameAndLastInitial } from '../../utils/common';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
-import { Organization } from '../../reducers/organizations';
+import { CommunityPost } from '../CommunityFeedItem/__generated__/CommunityPost';
+import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
 import styles from './styles';
 
-export interface CelebrateItemContentProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  event: CelebrateItem;
-  organization: Organization;
+export interface CommunityPostContentProps {
+  post: CommunityPost;
+  organization: GetCommunities_communities_nodes;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -36,15 +33,15 @@ const {
   MHInteractionTypeDiscipleshipConversation,
 } = INTERACTION_TYPES;
 
-const CelebrateItemContent = ({
-  dispatch,
-  event,
+export const CommunityPostContent = ({
+  post,
   organization,
   style,
-}: CelebrateItemContentProps) => {
+}: CommunityPostContentProps) => {
   const { t } = useTranslation('celebrateFeeds');
+  const dispatch = useDispatch();
 
-  const { name: communityName = '' } = organization || {};
+  const { name: communityName = '' } = organization;
   const {
     adjectiveAttributeValue,
     changedAttributeName,
@@ -52,7 +49,7 @@ const CelebrateItemContent = ({
     subjectPersonName,
     celebrateableType,
     objectDescription,
-  } = event;
+  } = post;
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(
@@ -190,11 +187,9 @@ const CelebrateItemContent = ({
   };
 
   return (
-    <View style={[styles.description, style]}>
+    <View style={style}>
       <Text style={styles.messageText}>{renderMessage()}</Text>
       {renderChallengeLink()}
     </View>
   );
 };
-
-export default connect()(CelebrateItemContent);

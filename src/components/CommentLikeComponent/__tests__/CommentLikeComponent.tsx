@@ -13,11 +13,11 @@ import { Organization } from '../../../reducers/organizations';
 import {
   CELEBRATE_ITEM_FRAGMENT,
   CELEBRATE_ITEM_PERSON_FRAGMENT,
-} from '../../../components/CommunityFeedItem/queries';
+} from '../../CommunityFeedItem/queries';
 import {
   GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
   GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
-} from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentLikeComponent from '..';
 

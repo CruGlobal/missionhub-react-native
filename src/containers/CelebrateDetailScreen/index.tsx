@@ -6,7 +6,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useApolloClient } from '@apollo/react-hooks';
 
-import CommentLikeComponent from '../CommentLikeComponent';
+import CommentLikeComponent from '../../components/CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
 import BackButton from '../BackButton';
@@ -18,8 +18,8 @@ import { reloadCelebrateComments } from '../../actions/celebrateComments';
 import { TrackStateContext } from '../../actions/analytics';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import CardTime from '../../components/CardTime';
-import CelebrateItemName from '../CelebrateItemName';
-import CelebrateItemContent from '../../components/CelebrateItemContent';
+import CelebrateItemName from '../CommunityFeedName';
+import CelebrateItemContent from '../../components/CommunityPostContent';
 import { RefreshControl } from '../../components/common';
 import {
   ANALYTICS_ASSIGNMENT_TYPE,

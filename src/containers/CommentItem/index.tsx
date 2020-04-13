@@ -5,7 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { Text, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
-import CelebrateItemName from '../../containers/CelebrateItemName';
+import CelebrateItemName from '../CommunityFeedName';
 import { DateConstants } from '../../components/DateComponent';
 import { AuthState } from '../../reducers/auth';
 import {

@@ -9,9 +9,10 @@ import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
-import CelebrateItemContent from '../CelebrateItemContent';
-import CommentLikeComponent from '../../containers/CommentLikeComponent';
-import CelebrateItemName from '../../containers/CelebrateItemName';
+import { CommunityPostContent } from '../CommunityPostContent';
+import { PersonAvatar } from '../PersonAvatar';
+import CommentLikeComponent from '../CommentLikeComponent';
+import CelebrateItemName from '../../containers/CommunityFeedName';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
 import { orgIsGlobal } from '../../utils/common';
@@ -21,6 +22,7 @@ import {
   CommunityCelebrationCelebrateableEnum,
   PostTypeEnum,
 } from '../../../__generated__/globalTypes';
+import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -30,7 +32,7 @@ import { CommunityPost } from './__generated__/CommunityPost';
 
 export interface CommunityFeedItemProps {
   post: CommunityPost;
-  orgId: string;
+  organization: GetCommunities_communities_nodes;
   namePressable: boolean;
   onClearNotification?: (item: CommunityPost) => void;
   onRefresh: () => void;
@@ -38,7 +40,7 @@ export interface CommunityFeedItemProps {
 
 export const CommunityFeedItem = ({
   post,
-  orgId,
+  organization,
   namePressable,
   onClearNotification,
   onRefresh,
@@ -68,13 +70,13 @@ export const CommunityFeedItem = ({
     PostTypeEnum.question,
   ].includes(postType);
   const isPrayer = postType === PostTypeEnum.prayer_request;
-  const isGlobal = orgIsGlobal({ id: orgId });
+  const isGlobal = orgIsGlobal(organization);
 
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
         event: post,
-        orgId,
+        orgId: organization.id,
         onRefreshCelebrateItem: onRefresh,
       }),
     );
@@ -87,7 +89,7 @@ export const CommunityFeedItem = ({
       navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
         celebrationItem: post,
         onRefresh,
-        organization: { id: orgId },
+        organization,
       }),
     );
 
@@ -205,9 +207,9 @@ export const CommunityFeedItem = ({
   const renderContent = () => (
     <View style={styles.cardContent}>
       {renderHeader()}
-      <CelebrateItemContent
+      <CommunityPostContent
         post={post}
-        orgId={orgId}
+        organization={organization}
         style={styles.postTextWrap}
       />
       <Image

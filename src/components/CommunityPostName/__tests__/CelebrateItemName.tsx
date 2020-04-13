@@ -6,7 +6,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
 import { Organization } from '../../../reducers/organizations';
-import { CELEBRATE_ITEM_PERSON_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
+import { CELEBRATE_ITEM_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
 import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
 
 jest.mock('../../../actions/person');
