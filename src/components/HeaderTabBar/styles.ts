@@ -4,13 +4,12 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   tabContainer: {
-    flex: 1,
+    minWidth: '100%',
     height: 50,
     backgroundColor: theme.white,
   },
   tab: {
-    height: 50,
-    flex: 1,
+    flexGrow: 1,
     paddingHorizontal: 12,
     alignItems: 'center',
     justifyContent: 'center',

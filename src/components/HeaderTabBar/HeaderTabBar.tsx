@@ -29,29 +29,31 @@ export const HeaderTabBar = ({ tabs }: HeaderTabBarProps) => {
   };
 
   return (
-    <ScrollView horizontal={true} contentContainerStyle={styles.tabContainer}>
+    <ScrollView
+      horizontal={true}
+      contentContainerStyle={styles.tabContainer}
+      showsHorizontalScrollIndicator={false}
+      bounces={false}
+    >
       {tabs.map((tab, index: number) => (
         <Touchable
           key={tab.navigationAction}
           onPress={() => navigateToTab(index)}
+          style={[
+            styles.tab,
+            index === navState.index ? styles.tabActive : null,
+          ]}
         >
-          <View
-            style={[
-              styles.tab,
-              index === navState.index ? styles.tabActive : null,
-            ]}
+          <Text
+            numberOfLines={1}
+            style={
+              index === navState.index
+                ? styles.tabTextActiveLight
+                : styles.tabTextLight
+            }
           >
-            <Text
-              numberOfLines={1}
-              style={
-                index === navState.index
-                  ? styles.tabTextActiveLight
-                  : styles.tabTextLight
-              }
-            >
-              {tab.name}
-            </Text>
-          </View>
+            {tab.name}
+          </Text>
         </Touchable>
       ))}
     </ScrollView>
