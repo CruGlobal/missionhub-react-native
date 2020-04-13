@@ -125,7 +125,7 @@ const AddContactFields = ({
               : theme.challengeBlue,
           }}
           editable={!personHasOrgPermission}
-          selectionColor={theme.challengeBlue}
+          selectionColor={theme.parakeetBlue}
           onChangeText={(firstName: string) =>
             updateField('firstName', firstName)
           }
@@ -163,7 +163,7 @@ const AddContactFields = ({
               : theme.challengeBlue,
           }}
           editable={!personHasOrgPermission}
-          selectionColor={theme.challengeBlue}
+          selectionColor={theme.parakeetBlue}
           onChangeText={(lastName: string) => updateField('lastName', lastName)}
           value={person.lastName}
           placeholder={

@@ -26,7 +26,7 @@ import {
 } from '../reducers/organizations';
 import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
-import { GET_COMMUNITIES_QUERY } from '../containers/Groups/GroupsListScreen';
+import { GET_COMMUNITIES_QUERY } from '../containers/Groups/queries';
 
 import { getMe, getPersonDetails } from './person';
 import callApi from './api';
