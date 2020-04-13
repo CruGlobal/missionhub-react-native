@@ -537,6 +537,7 @@ export default {
     errorLoadingCommunities: 'Error loading communities',
   },
   createPostScreen: {
+    choosePostType: 'Choose a Post Type',
     shareStory: 'Share Story',
     inputPlaceholder: 'Post to community...',
     prayerRequest: 'Ask for Prayer',

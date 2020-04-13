@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
 import { AuthState } from '../../../reducers/auth';
 import { PostTypeEnum } from '../../../components/PostTypeLabel';
+import CreatePostModal from '../CreatePostModal';
 
 import styles from './styles';
 
@@ -36,6 +37,8 @@ const CreatePostInput = ({ type, organization }: CreatePostInputProps) => {
 
   return id !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
+      {isModalOpen ? <CreatePostModal closeModal={closeModal} /> : null}
+
       <Button style={inputButton} onPress={openModal} testID="CreatePostInput">
         <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />
         <Text style={inputText}>
