@@ -119,10 +119,10 @@ const AddContactFields = ({
           testID="firstNameInput"
           ref={firstNameRef}
           style={{
-            color: isEdit ? theme.challengeBlue : theme.white,
+            color: isEdit ? theme.parakeetBlue : theme.white,
             borderBottomColor: isEdit
               ? theme.extraLightGrey
-              : theme.challengeBlue,
+              : theme.parakeetBlue,
           }}
           editable={!personHasOrgPermission}
           selectionColor={theme.parakeetBlue}
@@ -135,7 +135,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.firstNameRequired')
           }
-          placeholderTextColor={isEdit ? theme.challengeBlue : theme.white}
+          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
           returnKeyType="next"
           blurOnSubmit={false}
           autoFocus={true}
@@ -157,10 +157,10 @@ const AddContactFields = ({
           testID="lastNameInput"
           ref={lastNameRef}
           style={{
-            color: isEdit ? theme.challengeBlue : theme.white,
+            color: isEdit ? theme.parakeetBlue : theme.white,
             borderBottomColor: isEdit
               ? theme.extraLightGrey
-              : theme.challengeBlue,
+              : theme.parakeetBlue,
           }}
           editable={!personHasOrgPermission}
           selectionColor={theme.parakeetBlue}
@@ -171,7 +171,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.lastNameOptional')
           }
-          placeholderTextColor={isEdit ? theme.challengeBlue : theme.white}
+          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
           returnKeyType="done"
           blurOnSubmit={false}
           onFocus={() => changeCurrentInputField('lastName')}
