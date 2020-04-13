@@ -239,7 +239,7 @@ describe('AddContactScreen next', () => {
 });
 
 describe('SelectStageScreen next', () => {
-  it('navigates back after stage is selected', async () => {
+  it('navigates back after stage is selected', () => {
     jest.useFakeTimers();
     const onComplete = jest.fn();
     const WrappedSelectStageScreen =
