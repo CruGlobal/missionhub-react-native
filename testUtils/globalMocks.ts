@@ -6,6 +6,7 @@ import {
   CommunityCelebrationCelebrateableEnum,
   PermissionEnum,
   ReminderTypeEnum,
+  StepTypeEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -33,6 +34,7 @@ export const globalMocks: IMocks = {
     startCursor: null,
   }),
   ReminderTypeEnum: () => ReminderTypeEnum.once,
+  StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
 
   Step: () => ({
     title: faker.lorem.sentence(),

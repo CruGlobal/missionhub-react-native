@@ -164,6 +164,49 @@ exports[`markdown is empty string renders correctly 1`] = `
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        STEP OF FAITH
+      </Text>
+    </View>
     <Text
       style={
         Array [
@@ -371,6 +414,49 @@ exports[`markdown is not null renders correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -600,6 +686,49 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        STEP OF FAITH
+      </Text>
+    </View>
     <Text
       style={
         Array [
@@ -878,6 +1007,49 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        STEP OF FAITH
+      </Text>
+    </View>
     <Text
       style={
         Array [
@@ -1085,6 +1257,49 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
       <Text
         style={
           Array [

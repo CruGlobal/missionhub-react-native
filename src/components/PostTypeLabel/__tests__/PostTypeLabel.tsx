@@ -3,7 +3,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 
-import PostTypeLabel, { PostTypeEnum, LabelSizeEnum } from '..';
+import PostTypeLabel, { PostTypeEnum, PostLabelSizeEnum } from '..';
 
 it('renders correctly', () => {
   renderWithContext(<PostTypeLabel type={PostTypeEnum.godStory} />, {
@@ -52,7 +52,10 @@ describe('post types', () => {
 describe('label variations', () => {
   it('renders large label', () => {
     renderWithContext(
-      <PostTypeLabel type={PostTypeEnum.godStory} size={LabelSizeEnum.large} />,
+      <PostTypeLabel
+        type={PostTypeEnum.godStory}
+        size={PostLabelSizeEnum.large}
+      />,
       {
         noWrappers: true,
       },
@@ -63,7 +66,7 @@ describe('label variations', () => {
     renderWithContext(
       <PostTypeLabel
         type={PostTypeEnum.godStory}
-        size={LabelSizeEnum.extraLarge}
+        size={PostLabelSizeEnum.extraLarge}
       />,
     ).snapshot();
   });

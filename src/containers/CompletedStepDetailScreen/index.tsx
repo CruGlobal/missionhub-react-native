@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery, useApolloClient } from '@apollo/react-hooks';
-import moment from 'moment';
 import gql from 'graphql-tag';
 
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
@@ -15,6 +14,7 @@ import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { getMomentDate } from '../../utils/date';
 
 import styles from './styles';
 import { COMPLETED_STEP_DETAIL_QUERY } from './queries';
@@ -39,12 +39,10 @@ const CompletedStepDetailScreen = () => {
               receiver {
                 id
               }
-            }
           `,
         });
         stepReceiverId = step.receiver.id;
       } catch {}
-
       return getAnalyticsAssignmentType({ id: stepReceiverId }, auth);
     },
   );
@@ -59,11 +57,9 @@ const CompletedStepDetailScreen = () => {
     variables: { id: stepId },
   });
 
-  const step = data?.step;
-
   return (
     <StepDetailScreen
-      receiver={step?.receiver}
+      firstName={data?.step.receiver.firstName}
       Banner={
         <ErrorNotice
           message={t('errorLoadingStepDetails')}
@@ -76,17 +72,20 @@ const CompletedStepDetailScreen = () => {
       CenterContent={
         <View style={styles.reminderButton}>
           <Text style={styles.completedText}>
-            {step?.completedAt
+            {data?.step.completedAt
               ? t('completedOn', {
-                  date: moment(step.completedAt).format('dddd, MMMM D YYYY'),
+                  date: getMomentDate(data.step.completedAt).format(
+                    'dddd, MMMM D YYYY',
+                  ),
                 })
               : null}
           </Text>
           <Image source={GREY_CHECKBOX} style={styles.completedIcon} />
         </View>
       }
-      markdown={step?.stepSuggestion?.descriptionMarkdown ?? undefined}
-      text={step?.title}
+      markdown={data?.step.stepSuggestion?.descriptionMarkdown ?? undefined}
+      text={data?.step.title}
+      stepType={data?.step.stepType}
     />
   );
 };
