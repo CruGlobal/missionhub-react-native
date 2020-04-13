@@ -9,11 +9,12 @@ export const COMMUNITY_PERMISSIONS_FRAGMENT = gql`
   }
 `;
 
-export const CELEBRATE_ITEM_PERSON_FRAGMENT = gql`
-  fragment CelebrateItemPerson on Person {
+export const COMMUNITY_POST_PERSON_FRAGMENT = gql`
+  fragment CommunityPostPerson on Person {
     id
     firstName
     lastName
+    fullName
     communityPermissions {
       nodes {
         ...CommunityPermissions
@@ -37,26 +38,45 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
     likesCount
     objectDescription
     subjectPerson {
-      ...CelebrateItemPerson
+      ...CommunityPostPerson
     }
     subjectPersonName
   }
-  ${CELEBRATE_ITEM_PERSON_FRAGMENT}
+  ${COMMUNITY_POST_PERSON_FRAGMENT}
+`;
+
+export const COMMUNITY_POST_FRAGMENT = gql`
+  fragment CommunityPost on CommunityCelebrationItem {
+    id
+    adjectiveAttributeName
+    adjectiveAttributeValue
+    celebrateableId
+    celebrateableType
+    changedAttributeName
+    changedAttributeValue
+    commentsCount
+    liked
+    likesCount
+    objectDescription
+    subjectPerson {
+      ...CommunityPostPerson
+    }
+    subjectPersonName
+  }
+  ${COMMUNITY_POST_PERSON_FRAGMENT}
 `;
 
 export const DELETE_POST = gql`
-  mutation DeletePost($input: DeleteStoryInput!) {
-    deletePost(input: $input) {
+  mutation DeletePost($id: ID!) {
+    deletePost(input: { id: $id }) {
       id
     }
   }
 `;
 
 export const REPORT_POST = gql`
-  mutation ReportPost($subjectId: ID!) {
-    createContentComplaint(
-      input: { subjectId: $subjectId, subjectType: Post }
-    ) {
+  mutation ReportPost($id: ID!) {
+    createContentComplaint(input: { subjectId: $id, subjectType: Post }) {
       contentComplaint {
         id
       }
