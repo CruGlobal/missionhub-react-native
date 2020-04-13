@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
-import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import ShareStoryInput from '../Groups/ShareStoryInput';
@@ -183,7 +182,7 @@ const CelebrateFeed = ({
     <View style={styles.header}>
       <DateComponent
         date={date}
-        format={DateConstants.relative}
+        relativeFormatting={true}
         style={styles.title}
       />
     </View>
