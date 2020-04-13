@@ -848,7 +848,7 @@ exports[`SetupPersonScreen next renders with skip botton correctly 1`] = `
         }
         testID="InputFirstName"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="Someone"
+        value=""
       />
     </View>
     <View
@@ -1234,7 +1234,7 @@ exports[`SetupPersonScreen next renders without skip botton correctly 1`] = `
         }
         testID="InputFirstName"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="Someone"
+        value=""
       />
     </View>
     <View

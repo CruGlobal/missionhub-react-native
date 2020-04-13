@@ -6,7 +6,6 @@ import { apolloClient } from '../../apolloClient';
 import { trackActionWithoutData } from '../analytics';
 import {
   openCommunicationLink,
-  loadStepsAndJourney,
   navigateToStageScreen,
   assignContactAndPickStage,
   navigateToAddStepFlow,
@@ -18,7 +17,6 @@ import {
   updatePersonAttributes,
   getPersonScreenRoute,
 } from '../person';
-import { getContactSteps } from '../steps';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
 import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen/constants';
@@ -50,7 +48,6 @@ let store;
 apolloClient.query = jest.fn();
 
 const trackActionResult = { type: 'tracked' };
-const getStepsResult = { type: 'got steps' };
 const reloadJourneyResult = { type: 'reloaded journey' };
 const navigatePushResult = { type: 'navigated forward' };
 const navigateReplaceResult = { type: 'route replaced' };
@@ -86,8 +83,6 @@ beforeEach(() => {
 
   // @ts-ignore
   trackActionWithoutData.mockReturnValue(trackActionResult);
-  // @ts-ignore
-  getContactSteps.mockReturnValue(getStepsResult);
   // @ts-ignore
   reloadJourney.mockReturnValue(reloadJourneyResult);
   // @ts-ignore
@@ -152,18 +147,6 @@ describe('openCommunicationLink', () => {
     expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
     expect(ReactNative.Linking.openURL).not.toHaveBeenCalled();
     expect(trackActionWithoutData).not.toHaveBeenCalled();
-  });
-});
-
-describe('loadStepsAndJourney', () => {
-  it('should load steps and reload journey', () => {
-    // @ts-ignore
-    store.dispatch(loadStepsAndJourney(person.id, organization.id));
-
-    // @ts-ignore
-    expect(store.getActions()).toEqual([getStepsResult, reloadJourneyResult]);
-    expect(getContactSteps).toHaveBeenCalledWith(person.id, organization.id);
-    expect(reloadJourney).toHaveBeenCalledWith(person.id, organization.id);
   });
 });
 

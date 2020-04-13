@@ -5,7 +5,6 @@ import { AnyAction } from 'redux';
 
 import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
-import { createCustomStep } from '../../actions/steps';
 import {
   skipAddPersonAndCompleteOnboarding,
   resetPersonAndCompleteOnboarding,
@@ -30,6 +29,7 @@ import StageSuccessScreen, {
 } from '../../containers/StageSuccessScreen';
 import SelectStepScreen, {
   SELECT_STEP_SCREEN,
+  SelectStepScreenNextProps,
 } from '../../containers/SelectStepScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
@@ -37,13 +37,16 @@ import AddSomeoneScreen, {
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from '../../containers/NotificationPrimerScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from '../../containers/NotificationOffScreen';
+import AddStepScreen, {
+  ADD_STEP_SCREEN,
+  AddStepScreenNextProps,
+} from '../../containers/AddStepScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
@@ -143,14 +146,15 @@ export const onboardingFlowGenerator = ({
   ),
   [SELECT_STEP_SCREEN]: wrapNextAction(
     SelectStepScreen,
-    ({ personId, step }: { personId: string; step: object }) =>
-      step
+    ({ personId, stepSuggestionId, stepType }: SelectStepScreenNextProps) =>
+      stepSuggestionId
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-            step,
+            stepSuggestionId,
             personId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
             type: CREATE_STEP,
+            stepType,
             personId,
           }),
   ),
@@ -170,14 +174,11 @@ export const onboardingFlowGenerator = ({
   ),
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, personId }: { text: string; personId: string }) => (
+    ({ personId }: AddStepScreenNextProps) => (
       dispatch: ThunkDispatch<any, null, any>,
       getState: () => any,
     ) => {
       const isMe = personId === getState().auth.person.id;
-
-      // @ts-ignore
-      dispatch(createCustomStep(text, personId));
 
       if (isMe) {
         return dispatch(navigatePush(ADD_SOMEONE_SCREEN));

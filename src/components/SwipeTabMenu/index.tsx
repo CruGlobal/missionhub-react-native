@@ -9,8 +9,10 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 // @ts-ignore
 import ViewOverflow from 'react-native-view-overflow';
 
-import { Flex, Touchable } from '../common';
+import { Touchable } from '../common';
 import { isAndroid } from '../../utils/common';
+import { TriangleIndicator } from '../TriangleIndicator/TriangleIndicator';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -197,9 +199,12 @@ export class SwipeTabMenu extends Component {
             </Touchable>
           ))}
         </ScrollView>
-        <Flex align={'center'} style={styles.triangleContainer}>
-          <View style={[styles.triangle, isLight && styles.triangleLight]} />
-        </Flex>
+        <View style={styles.triangleIndicatorContainer}>
+          <TriangleIndicator
+            color={isLight ? theme.extraLightGrey : theme.accentColor}
+            rotation={180}
+          />
+        </View>
       </ViewOverflow>
     );
   }

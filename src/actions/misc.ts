@@ -16,8 +16,6 @@ import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
-import { getContactSteps } from './steps';
-import { reloadJourney } from './journey';
 import { createContactAssignment, getPersonScreenRoute } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
@@ -60,15 +58,6 @@ export function openCommunicationLink(url, action) {
           });
       })
       .catch(err => WARN('An unexpected error happened', err));
-}
-
-// @ts-ignore
-export function loadStepsAndJourney(personId, organizationId) {
-  // @ts-ignore
-  return dispatch => {
-    dispatch(getContactSteps(personId, organizationId));
-    dispatch(reloadJourney(personId, organizationId));
-  };
 }
 
 // @ts-ignore

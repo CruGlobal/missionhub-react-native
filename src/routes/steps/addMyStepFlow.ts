@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
 import { CREATE_STEP } from '../../constants';
-import { createCustomStep } from '../../actions/steps';
 import { navigatePush } from '../../actions/navigation';
 import { wrapNextScreen, wrapNextAction } from '../helpers';
 import SelectStepScreen, {
   SELECT_STEP_SCREEN,
+  SelectStepScreenNextProps,
 } from '../../containers/SelectStepScreen';
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
@@ -17,15 +17,21 @@ import { GifCompleteFlowScreens } from '../flowCompleted/gifCompleteFlow';
 export const AddMyStepFlowScreens = {
   [SELECT_STEP_SCREEN]: wrapNextAction(
     SelectStepScreen,
-    ({ personId, step, orgId }) =>
-      step
+    ({
+      personId,
+      stepSuggestionId,
+      stepType,
+      orgId,
+    }: SelectStepScreenNextProps) =>
+      stepSuggestionId
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-            step,
+            stepSuggestionId,
             personId,
             orgId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
             type: CREATE_STEP,
+            stepType,
             personId,
             orgId,
           }),
@@ -34,13 +40,9 @@ export const AddMyStepFlowScreens = {
     SuggestedStepDetailScreen,
     CELEBRATION_SCREEN,
   ),
-  [ADD_STEP_SCREEN]: wrapNextAction(
-    AddStepScreen,
-    ({ text, personId, orgId }) => dispatch => {
-      dispatch(createCustomStep(text, personId, orgId));
-      dispatch(navigatePush(CELEBRATION_SCREEN));
-    },
-  ),
+  [ADD_STEP_SCREEN]: wrapNextAction(AddStepScreen, () => dispatch => {
+    dispatch(navigatePush(CELEBRATION_SCREEN));
+  }),
   ...GifCompleteFlowScreens,
 };
 

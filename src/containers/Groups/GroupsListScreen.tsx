@@ -1,6 +1,6 @@
 /* eslint max-lines:0 */
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FlatList,
   View,
@@ -12,9 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 import { TFunction } from 'i18next';
-import { useFocusEffect } from 'react-navigation-hooks';
 
 import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
@@ -38,7 +36,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
-import { checkForUnreadComments } from '../../actions/unreadComments';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
@@ -47,45 +44,7 @@ import {
   GetCommunities,
   GetCommunities_communities_nodes,
 } from './__generated__/GetCommunities';
-
-export const GET_COMMUNITIES_QUERY = gql`
-  query GetCommunities($communityCursor: String) {
-    globalCommunity {
-      usersReport {
-        usersCount
-      }
-    }
-    communities(
-      ministryActivitiesOnly: true
-      sortBy: name_ASC
-      first: 10
-      after: $communityCursor
-    ) {
-      nodes {
-        id
-        name
-        unreadCommentsCount
-        userCreated
-        communityPhotoUrl
-        owner: people(permissions: [owner]) {
-          nodes {
-            firstName
-            lastName
-          }
-        }
-        report(period: "P1W") {
-          contactCount
-          memberCount
-          unassignedCount
-        }
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-`;
+import { GET_COMMUNITIES_QUERY } from './queries';
 
 interface GroupsListScreenProps {
   dispatch: ThunkDispatch<
@@ -140,7 +99,6 @@ const GroupsListScreen = ({
   useAnalytics('communities', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
-  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
