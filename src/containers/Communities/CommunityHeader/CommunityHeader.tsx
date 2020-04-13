@@ -23,6 +23,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { GROUP_PROFILE } from '../../Groups/GroupProfile';
 import InfoIcon from '../../../../assets/images/infoIcon.svg';
 import EditIcon from '../../../../assets/images/editIcon.svg';
+import { useMyId } from '../../../utils/hooks/useIsMe';
 
 import styles from './styles';
 import { COMMUNITY_HEADER_QUERY } from './queries';
@@ -40,12 +41,13 @@ interface CommunityHeaderProps {
 export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
   const { t } = useTranslation('communitiesHeader');
   const dispatch = useDispatch();
+  const myId = useMyId();
 
   const { data, error, refetch } = useQuery<
     CommunityHeaderQuery,
     CommunityHeaderVariables
   >(COMMUNITY_HEADER_QUERY, {
-    variables: { id: communityId },
+    variables: { id: communityId, myId },
   });
 
   return (
@@ -69,8 +71,8 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
                   dispatch(navigatePush(GROUP_PROFILE, { communityId }))
                 }
               >
-                {// TODO: use community permission to figure out if editable
-                false ? (
+                {data?.community.people.edges[0].communityPermission
+                  .permission ? (
                   <EditIcon color={theme.white} />
                 ) : (
                   <InfoIcon color={theme.white} />
