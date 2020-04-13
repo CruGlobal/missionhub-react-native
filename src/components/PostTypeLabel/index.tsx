@@ -29,7 +29,7 @@ export enum PostTypeEnum {
   stepOfFatih = 'stepOfFaith',
 }
 
-export enum LabelSizeEnum {
+export enum PostLabelSizeEnum {
   normal = 'normal',
   large = 'large',
   extraLarge = 'extraLarge',
@@ -39,24 +39,23 @@ interface PostTypeLabelProps {
   type: PostTypeEnum;
   onPress?: TouchablePress;
   showText?: boolean;
-  size?: LabelSizeEnum;
+  size?: PostLabelSizeEnum;
 }
 
 const PostTypeLabel = ({
   type,
   onPress,
-  size = LabelSizeEnum.normal,
+  size = PostLabelSizeEnum.normal,
   showText = true,
 }: PostTypeLabelProps) => {
   const { t } = useTranslation('postTypes');
 
   const handlePress = () => onPress && onPress();
 
-  // IconSize differs if it is inside the create post modal component
   const iconSize =
-    size === LabelSizeEnum.extraLarge
+    size === PostLabelSizeEnum.extraLarge
       ? 72
-      : size === LabelSizeEnum.large
+      : size === PostLabelSizeEnum.large
       ? 24
       : 20;
 
@@ -144,7 +143,7 @@ const PostTypeLabel = ({
   };
 
   const renderContent = () => {
-    if (size === LabelSizeEnum.extraLarge) {
+    if (size === PostLabelSizeEnum.extraLarge) {
       return (
         <Card style={[styles.headerCard, styles[type]]}>
           <Flex
@@ -170,7 +169,7 @@ const PostTypeLabel = ({
           style={[
             styles.button,
             styles[type],
-            size === LabelSizeEnum.large ? styles.largeSize : null,
+            size === PostLabelSizeEnum.large ? styles.largeSize : null,
             showText ? null : styles.noText,
           ]}
         >
