@@ -240,6 +240,7 @@ describe('AddContactScreen next', () => {
 
 describe('SelectStageScreen next', () => {
   it('navigates back after stage is selected', async () => {
+    jest.useFakeTimers();
     const onComplete = jest.fn();
     const WrappedSelectStageScreen =
       EditPersonFlowScreens[SELECT_STAGE_SCREEN].screen;
@@ -265,14 +266,20 @@ describe('SelectStageScreen next', () => {
       },
     );
 
-    await fireEvent.press(getAllByTestId('stageSelectButton')[1]);
-    await flushMicrotasksQueue();
-    // expect(selectPersonStage).toHaveBeenCalledWith(stages[1]);
-    // expect(onComplete).toHaveBeenCalledWith(stages[1]);
+    fireEvent.press(getAllByTestId('stageSelectButton')[1]);
+    jest.runAllTimers();
+    expect(selectPersonStage).toHaveBeenCalledWith(
+      '2',
+      me.id,
+      stages[1].id,
+      undefined,
+    );
+    expect(onComplete).toHaveBeenCalledWith(stages[1]);
     expect(store.getActions()).toEqual([
       trackScreenChangeResponse,
-      // selectPersonStageResult,
-      // navigateBackResponse,
+      selectPersonStageResult,
+      navigateBackResponse,
+      trackActionResponse,
     ]);
   });
 });
