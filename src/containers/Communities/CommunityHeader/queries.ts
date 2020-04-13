@@ -5,6 +5,7 @@ export const COMMUNITY_HEADER_QUERY = gql`
     community(id: $id) {
       name
       communityPhotoUrl
+      userCreated
       report(period: "P99Y") {
         memberCount
       }

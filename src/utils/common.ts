@@ -98,16 +98,22 @@ export const userIsJean = (
   orgPermissions: { organization: { user_created: boolean } }[],
 ) => orgPermissions.some(p => !p.organization.user_created);
 
-// @ts-ignore
-export const orgIsPersonalMinistry = org =>
+export const orgIsPersonalMinistry = (org?: { id?: string }) =>
   org && (!org.id || org.id === 'personal');
-// @ts-ignore
-export const orgIsUserCreated = org =>
-  !!(org && (org.user_created || org.userCreated));
-// @ts-ignore
-export const orgIsGlobal = org => org && org.id === GLOBAL_COMMUNITY_ID;
-// @ts-ignore
-export const orgIsCru = org =>
+
+export const orgIsUserCreated = (org?: {
+  user_created?: boolean;
+  userCreated?: boolean;
+}) => !!(org && (org.user_created || org.userCreated));
+
+export const orgIsGlobal = (org?: { id?: string }) =>
+  org && org.id === GLOBAL_COMMUNITY_ID;
+
+export const orgIsCru = (org?: {
+  id?: string;
+  user_created?: boolean;
+  userCreated?: boolean;
+}) =>
   org &&
   !orgIsPersonalMinistry(org) &&
   !orgIsUserCreated(org) &&

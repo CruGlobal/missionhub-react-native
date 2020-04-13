@@ -24,6 +24,7 @@ import { GROUP_PROFILE } from '../../Groups/GroupProfile';
 import InfoIcon from '../../../../assets/images/infoIcon.svg';
 import EditIcon from '../../../../assets/images/editIcon.svg';
 import { useMyId } from '../../../utils/hooks/useIsMe';
+import { useCommunityPhoto } from '../hooks/useCommunityPhoto';
 
 import styles from './styles';
 import { COMMUNITY_HEADER_QUERY } from './queries';
@@ -50,18 +51,19 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
     variables: { id: communityId, myId },
   });
 
+  const communityPhotoSource = useCommunityPhoto(
+    communityId,
+    data?.community.communityPhotoUrl,
+    data?.community.userCreated,
+  );
+
   return (
     <CollapsibleViewHeader
       context={CommunitiesCollapsibleHeaderContext}
       headerHeight={260}
     >
       <View style={styles.container}>
-        <ImageBackground
-          source={{
-            uri: data?.community.communityPhotoUrl ?? undefined,
-          }}
-          style={styles.image}
-        >
+        <ImageBackground source={communityPhotoSource} style={styles.image}>
           <View style={styles.imageOverlay} />
           <Header
             left={<BackButton />}
