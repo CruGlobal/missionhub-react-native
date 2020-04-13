@@ -446,7 +446,7 @@ describe('savePerson', () => {
 
         expect(next).toHaveBeenCalledWith({
           orgId: organization?.id,
-          selectStage: true,
+          navigateToStageSelection: true,
           person: {
             firstName: newName,
             __typename: 'Person',

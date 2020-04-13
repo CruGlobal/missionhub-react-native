@@ -204,7 +204,7 @@ describe('calls methods', () => {
           name: 'Forgiven',
         },
       },
-      selectStage: true,
+      navigateToStageSelection: true,
       updatePerson: onUpdateData,
     });
   });

@@ -27,7 +27,7 @@ interface AddContactFieldsProps {
   onUpdateData: (data: PersonType) => void;
   next: (props: {
     orgId: string;
-    selectStage: boolean;
+    navigateToStageSelection: boolean;
     person: PersonType;
     updatePerson: (person: PersonType) => void;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
@@ -78,7 +78,7 @@ const AddContactFields = ({
     dispatch(
       next({
         orgId: organization?.id,
-        selectStage: true,
+        navigateToStageSelection: true,
         person,
         updatePerson: onUpdateData,
       }),

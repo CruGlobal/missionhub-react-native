@@ -17,16 +17,16 @@ export const EditPersonFlowScreens = {
       AddContactScreen,
       ({
         orgId,
-        selectStage,
+        navigateToStageSelection,
         person,
         updatePerson,
       }: {
         orgId: string;
-        selectStage: boolean;
+        navigateToStageSelection: boolean;
         person: PersonType;
         updatePerson: (person: PersonType) => void;
       }) => dispatch => {
-        if (selectStage) {
+        if (navigateToStageSelection) {
           dispatch(
             navigatePush(SELECT_STAGE_SCREEN, {
               enableBackButton: false,

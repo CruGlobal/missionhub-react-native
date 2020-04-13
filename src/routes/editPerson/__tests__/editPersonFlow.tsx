@@ -266,10 +266,12 @@ describe('SelectStageScreen next', () => {
     );
 
     await fireEvent.press(getAllByTestId('stageSelectButton')[1]);
-
+    await flushMicrotasksQueue();
+    // expect(selectPersonStage).toHaveBeenCalledWith(stages[1]);
     // expect(onComplete).toHaveBeenCalledWith(stages[1]);
     expect(store.getActions()).toEqual([
       trackScreenChangeResponse,
+      // selectPersonStageResult,
       // navigateBackResponse,
     ]);
   });
