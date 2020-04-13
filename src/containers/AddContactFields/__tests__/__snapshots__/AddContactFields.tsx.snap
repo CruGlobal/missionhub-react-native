@@ -40,7 +40,7 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -146,22 +146,24 @@
+@@ -149,22 +149,24 @@
                 \\"fontSize\\": 13,
                 \\"marginTop\\": 15,
               },
@@ -67,6 +67,11 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
           returnKeyType=\\"done\\"
           selectionColor=\\"#3CC8E6\\"
           style={"
+`;
+
+exports[`calls methods updates relationshipType 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
 
 exports[`render correctly | With Person 1`] = `
@@ -96,51 +101,6 @@ exports[`render correctly | With Person 1`] = `
         ]
       }
     >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "flex": 2,
-              "justifyContent": "flex-end",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "marginBottom": 30,
-            }
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "maxWidth": 230,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Who would you like to take steps of faith with this week?
-          </Text>
-        </View>
-      </View>
       <Text
         style={
           Array [
@@ -151,14 +111,14 @@ exports[`render correctly | With Person 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#52C5DC",
+              "color": "#B4B6BA",
               "fontSize": 13,
               "marginTop": 15,
             },
           ]
         }
       >
-        First Name or Nickname
+        First Name
       </Text>
       <TextInput
         allowFontScaling={true}
@@ -172,7 +132,7 @@ exports[`render correctly | With Person 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="First Name (Required)"
-        placeholderTextColor="#ffffff"
+        placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="next"
         selectionColor="#3CC8E6"
@@ -188,7 +148,10 @@ exports[`render correctly | With Person 1`] = `
               "letterSpacing": 0.25,
               "paddingVertical": 5,
             },
-            Object {},
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
           ]
         }
         testID="firstNameInput"
@@ -216,7 +179,7 @@ exports[`render correctly | With Person 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#52C5DC",
+              "color": "#B4B6BA",
               "fontSize": 13,
               "marginTop": 15,
             },
@@ -236,7 +199,7 @@ exports[`render correctly | With Person 1`] = `
         onChangeText={[Function]}
         onFocus={[Function]}
         placeholder="Last Name (optional)"
-        placeholderTextColor="#ffffff"
+        placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#3CC8E6"
@@ -252,13 +215,166 @@ exports[`render correctly | With Person 1`] = `
               "letterSpacing": 0.25,
               "paddingVertical": 5,
             },
-            Object {},
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
           ]
         }
         testID="lastNameInput"
         underlineColorAndroid="rgba(0,0,0,0)"
         value="Huffman"
       />
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        Stage
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "alignItems": "flex-start",
+                "color": "#3CC8E6",
+                "fontSize": 16,
+                "marginVertical": 10,
+              },
+            ]
+          }
+          testID="stageSelectButton"
+        >
+          Forgiven
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        How do you know each other?
+      </Text>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="popupMenuButton"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "borderBottomWidth": 1,
+              "borderColor": "#ECEEF2",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "alignItems": "flex-start",
+                  "color": "#3CC8E6",
+                  "fontSize": 16,
+                  "marginVertical": 10,
+                },
+              ]
+            }
+          >
+            Choose a category
+          </Text>
+          <SvgMock
+            color="#B4B6BA"
+          />
+        </View>
+      </View>
     </View>
   </View>
 </View>
@@ -381,7 +497,10 @@ exports[`renders correctly | No Person 1`] = `
               "letterSpacing": 0.25,
               "paddingVertical": 5,
             },
-            Object {},
+            Object {
+              "borderBottomColor": "#3CC8E6",
+              "color": "#ffffff",
+            },
           ]
         }
         testID="firstNameInput"
@@ -443,7 +562,10 @@ exports[`renders correctly | No Person 1`] = `
               "letterSpacing": 0.25,
               "paddingVertical": 5,
             },
-            Object {},
+            Object {
+              "borderBottomColor": "#3CC8E6",
+              "color": "#ffffff",
+            },
           ]
         }
         testID="lastNameInput"

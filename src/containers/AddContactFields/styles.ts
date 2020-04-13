@@ -22,22 +22,30 @@ export default StyleSheet.create({
     marginTop: 15,
     color: theme.secondaryColor,
   },
-  genderRow: {
-    paddingVertical: 15,
+  editLabel: {
+    fontSize: 13,
+    marginTop: 15,
+    color: theme.lightGrey,
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    borderColor: theme.extraLightGrey,
     borderBottomWidth: 1,
-    borderBottomColor: theme.secondaryColor,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
-  genderText: {
-    color: theme.white,
+  stageButton: {
+    borderColor: theme.lightGrey,
+    borderWidth: 1,
+    color: theme.parakeetBlue,
+    alignItems: 'flex-start',
+  },
+
+  categoryText: {
+    color: theme.parakeetBlue,
     fontSize: 16,
-  },
-  permissionsRow: {
-    paddingVertical: 15,
-  },
-  genderRadioButton: {
-    paddingHorizontal: 15,
-  },
-  radioButton: {
-    paddingRight: 25,
+    alignItems: 'flex-start',
+    marginVertical: 10,
   },
 });

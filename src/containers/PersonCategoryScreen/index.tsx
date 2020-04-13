@@ -30,6 +30,14 @@ interface PersonCategoryScreenProps {
 }
 RelationshipTypeEnum;
 
+export const relationshipTypeList = [
+  RelationshipTypeEnum.family,
+  RelationshipTypeEnum.friend,
+  RelationshipTypeEnum.neighbor,
+  RelationshipTypeEnum.coworker,
+  RelationshipTypeEnum.other,
+];
+
 const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
   const { t } = useTranslation('categories');
   useAnalytics(['add person', 'select category']);
@@ -83,14 +91,6 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
       );
     }
   };
-
-  const relationshipTypeList = [
-    RelationshipTypeEnum.family,
-    RelationshipTypeEnum.friend,
-    RelationshipTypeEnum.neighbor,
-    RelationshipTypeEnum.coworker,
-    RelationshipTypeEnum.other,
-  ];
 
   return (
     <View style={styles.container}>

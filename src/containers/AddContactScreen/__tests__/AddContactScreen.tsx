@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert, ActionSheetIOS } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
@@ -19,11 +19,14 @@ import {
 } from '../../../containers/SetupScreen/queries';
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
 import { GET_PERSON } from '../queries';
+import { getPersonDetails } from '../../../actions/person';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 import AddContactScreen from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useIsMe');
 
@@ -50,6 +53,7 @@ const loadPersonResults = {
   },
   type: LOAD_PERSON_DETAILS,
 };
+const getPersonDetailsResults = { type: 'get person details' };
 const next = jest.fn();
 
 const initialState = {
@@ -63,6 +67,7 @@ beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
   (useIsMe as jest.Mock).mockReturnValue(false);
+  (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResults);
   next.mockReturnValue(nextResponse);
   Alert.alert = jest.fn();
 });
@@ -80,6 +85,9 @@ it('renders correctly', async () => {
         lastName: '',
         id: person.id,
         relationshipType: null,
+        stage: {
+          name: 'Forgiven',
+        },
       }),
     },
   });
@@ -113,6 +121,9 @@ describe('handleUpdateData', () => {
             lastName: '',
             id: person.id,
             relationshipType: null,
+            stage: {
+              name: 'Forgiven',
+            },
           }),
         },
       },
@@ -144,7 +155,7 @@ describe('completeWithoutSave', () => {
         },
       },
     );
-    fireEvent.press(getByTestId('backIcon'));
+    fireEvent.press(getByTestId('closeIcon'));
     expect(next).toHaveBeenCalledWith({
       personId: undefined,
       relationshipType: undefined,
@@ -180,6 +191,7 @@ describe('savePerson', () => {
               lastName: '',
               id: person.id,
               relationshipType: null,
+              stage: null,
             }),
           },
         });
@@ -234,6 +246,7 @@ describe('savePerson', () => {
                 lastName: '',
                 id: person.id,
                 relationshipType: null,
+                stage: null,
               }),
             },
           },
@@ -283,6 +296,8 @@ describe('savePerson', () => {
   describe('update existing person', () => {
     describe('without org', () => {
       it('should update person and navigate back', async () => {
+        ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+
         const { getByTestId, snapshot, store } = renderWithContext(
           <AddContactScreen next={next} />,
           {
@@ -297,6 +312,9 @@ describe('savePerson', () => {
                 lastName: '',
                 id: person.id,
                 relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
               }),
             },
           },
@@ -304,6 +322,10 @@ describe('savePerson', () => {
         await flushMicrotasksQueue();
 
         fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('popupMenuButton'), 'onPress');
+        (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+          1,
+        );
         fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
 
@@ -321,6 +343,7 @@ describe('savePerson', () => {
               firstName: newName,
               lastName: '',
               id: person.id,
+              relationshipType: RelationshipTypeEnum.friend,
             },
           },
         });
@@ -334,7 +357,10 @@ describe('savePerson', () => {
           isMe: false,
         });
 
-        expect(store.getActions()).toEqual([loadPersonResults, nextResponse]);
+        expect(store.getActions()).toEqual([
+          getPersonDetailsResults,
+          nextResponse,
+        ]);
       });
     });
 
@@ -354,6 +380,9 @@ describe('savePerson', () => {
                 lastName: '',
                 id: person.id,
                 relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
               }),
             },
           },
@@ -371,6 +400,7 @@ describe('savePerson', () => {
               firstName: newName,
               lastName: '',
               id: person.id,
+              relationshipType: null,
             },
           },
         });
@@ -383,7 +413,54 @@ describe('savePerson', () => {
           isMe: false,
         });
 
-        expect(store.getActions()).toEqual([loadPersonResults, nextResponse]);
+        expect(store.getActions()).toEqual([
+          getPersonDetailsResults,
+          nextResponse,
+        ]);
+      });
+      it('should navigate to select a stage', async () => {
+        const handleUpdateData = expect.any(Function);
+        const { getByTestId, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization,
+              person,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
+        fireEvent.press(getByTestId('stageSelectButton'));
+
+        expect(next).toHaveBeenCalledWith({
+          orgId: organization?.id,
+          navigateToStageSelection: true,
+          person: {
+            firstName: newName,
+            __typename: 'Person',
+            lastName: '',
+            id: person.id,
+            relationshipType: null,
+            stage: {
+              __typename: 'Stage',
+              name: 'Forgiven',
+            },
+          },
+          updatePerson: handleUpdateData,
+        });
+        expect(store.getActions()).toEqual([nextResponse]);
       });
     });
 
@@ -406,6 +483,9 @@ describe('savePerson', () => {
                 lastName: '',
                 id: person.id,
                 relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
               }),
             },
           },
@@ -423,6 +503,7 @@ describe('savePerson', () => {
               firstName: newName,
               lastName: '',
               id: person.id,
+              relationshipType: null,
             },
           },
         });
@@ -435,7 +516,10 @@ describe('savePerson', () => {
           isMe: false,
         });
 
-        expect(store.getActions()).toEqual([loadPersonResults, nextResponse]);
+        expect(store.getActions()).toEqual([
+          getPersonDetailsResults,
+          nextResponse,
+        ]);
       });
     });
   });

@@ -203,6 +203,16 @@ export default {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
+    categoryPrompt: 'How do you know each other?',
+    stage: 'Stage',
+    categories: {
+      family: 'Family',
+      friend: 'Friend',
+      neighbor: 'Neighbor',
+      coworker: 'Coworker',
+      other: 'Other',
+    },
+    categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
     alertBlankEmail: 'Email is blank',

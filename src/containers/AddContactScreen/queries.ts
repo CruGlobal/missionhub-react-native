@@ -5,6 +5,9 @@ export const GET_PERSON = gql`
     person(id: $id) {
       firstName
       lastName
+      stage {
+        name
+      }
       id
       relationshipType
     }

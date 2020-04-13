@@ -34,7 +34,9 @@ import {
 } from '../SetupScreen/__generated__/UpdatePerson';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { LoadingWheel } from '../../components/common';
+import CloseIcon from '../../../assets/images/closeButton.svg';
 import theme from '../../theme';
+import { getPersonDetails } from '../../actions/person';
 
 import { GET_PERSON } from './queries';
 import styles from './styles';
@@ -49,8 +51,8 @@ interface AddContactScreenProps {
     personId?: string;
     relationshipType?: RelationshipTypeEnum | null;
     orgId: string;
-    didSavePerson: boolean;
-    isMe: boolean;
+    didSavePerson?: boolean;
+    isMe?: boolean;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
@@ -67,6 +69,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     id: '',
     firstName: '',
     lastName: '',
+    stage: null,
     relationshipType: null,
   });
 
@@ -123,19 +126,18 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               id: saveData.id,
               firstName: saveData.firstName,
               lastName: saveData.lastName,
+              relationshipType: saveData.relationshipType,
             },
           },
         });
         // Update person's data in redux
         updateData?.updatePerson?.person &&
-          dispatch({
-            type: LOAD_PERSON_DETAILS,
-            person: {
-              first_name: updateData?.updatePerson?.person.firstName,
-              last_name: updateData?.updatePerson?.person.lastName,
-              id: updateData?.updatePerson?.person.id,
-            },
-          });
+          dispatch(
+            getPersonDetails(
+              updateData?.updatePerson?.person?.id,
+              organization?.id,
+            ),
+          );
         results = updateData?.updatePerson?.person as PersonType;
       } else {
         const { data: createData } = await createPerson({
@@ -168,16 +170,30 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={isEdit ? styles.editContainer : styles.container}>
       <Header
         left={
-          <BackIcon
-            testID="backIcon"
-            style={{ marginLeft: 10 }}
-            onPress={completeWithoutSave}
-            color={theme.white}
-          />
+          isEdit ? null : (
+            <BackIcon
+              testID="backIcon"
+              style={{ marginLeft: 10 }}
+              onPress={completeWithoutSave}
+              color={theme.white}
+            />
+          )
         }
+        right={
+          isEdit ? (
+            <CloseIcon
+              testID="closeIcon"
+              style={{ marginRight: 10 }}
+              color={theme.extraLightGrey}
+              onPress={completeWithoutSave}
+            />
+          ) : null
+        }
+        title={isEdit ? t('editPerson') : ''}
+        titleStyle={styles.headerTitle}
       />
       <ErrorNotice
         error={updateError}
@@ -208,6 +224,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
             // @ts-ignore
             testID="contactFields"
             person={person}
+            next={next}
             organization={organization}
             onUpdateData={handleUpdateData}
           />
@@ -218,7 +235,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         style={!person.firstName ? styles.disabledButton : null}
         onPress={savePerson}
         disabled={!person.firstName}
-        text={t('continue')}
+        text={isEdit ? t('done') : t('continue')}
       />
     </View>
   );
