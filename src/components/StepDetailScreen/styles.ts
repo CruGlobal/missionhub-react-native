@@ -14,6 +14,10 @@ export default StyleSheet.create({
     paddingTop: 26,
     paddingHorizontal: 32,
   },
+  stepTypeBadge: {
+    paddingTop: 13,
+    paddingHorizontal: 32,
+  },
   stepTitleText: {
     fontSize: 32,
     lineHeight: 38,

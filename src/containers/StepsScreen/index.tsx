@@ -1,18 +1,16 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View, Image, FlatList } from 'react-native';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
-import { useFocusEffect } from 'react-navigation-hooks';
 
-import { checkForUnreadComments } from '../../actions/unreadComments';
 import { navigateToMainTabs } from '../../actions/navigation';
 import { Text, IconButton, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import AnnouncementsModal from '../../components/AnnouncementsModal';
-import FooterLoading from '../../components/FooterLoading';
+import { FooterLoading } from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
@@ -44,7 +42,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   useAnalytics('steps', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
-  useFocusEffect(useCallback(() => dispatch(checkForUnreadComments()), []));
 
   const {
     data: {
@@ -62,7 +59,6 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   const hasSteps = steps && steps.length > 0;
 
   const handleRefresh = () => {
-    dispatch(checkForUnreadComments());
     refetch();
   };
 
@@ -72,12 +68,12 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
     dispatch(navigateToMainTabs(PEOPLE_TAB));
   };
 
-  const handleNextPage = async () => {
+  const handleNextPage = () => {
     if (loading || !hasNextPage) {
       return;
     }
 
-    await fetchMore({
+    fetchMore({
       variables: { after: endCursor },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
@@ -122,7 +118,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
       refreshing={isRefreshing}
       onRefresh={refresh}
       onEndReached={handleNextPage}
-      onEndReachedThreshold={0.25}
+      onEndReachedThreshold={0.2}
       contentContainerStyle={styles.list}
       data={steps}
       keyExtractor={keyExtractorId}

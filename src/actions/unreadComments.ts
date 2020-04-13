@@ -6,7 +6,7 @@ import { OrganizationsState } from '../reducers/organizations';
 
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
-import { refreshCommunity, getMyCommunities } from './organizations';
+import { refreshCommunity } from './organizations';
 
 export function markCommentsRead(orgId: string) {
   return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
@@ -42,20 +42,5 @@ function refreshUnreadComments(orgId: string) {
     dispatch(refreshCommunity(orgId));
     //refresh this org's unread comments feed
     getCelebrateFeed(orgId, undefined, true);
-  };
-}
-
-export function checkForUnreadComments() {
-  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
-    const query = {
-      include:
-        'organizational_permissions,organizational_permissions.organization',
-      'fields[person]': 'organizational_permissions,unread_comments_count',
-      'fields[organizational_permissions]': 'organization',
-      'fields[organization]': 'unread_comments_count',
-    };
-
-    dispatch(callApi(REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION, query));
-    dispatch(getMyCommunities());
   };
 }

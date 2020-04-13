@@ -47,6 +47,7 @@ exports[`renders completed step 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
+          "paddingBottom": 8,
         }
       }
     >
@@ -92,7 +93,7 @@ exports[`renders completed step 1`] = `
             ]
           }
         >
-          Caesar Feest
+          Darwin Bosco
         </Text>
       </View>
     </View>
@@ -222,6 +223,7 @@ exports[`renders not me correctly 1`] = `
         Object {
           "alignItems": "center",
           "flexDirection": "row",
+          "paddingBottom": 8,
         }
       }
     >
@@ -267,85 +269,9 @@ exports[`renders not me correctly 1`] = `
             ]
           }
         >
-          Caesar Feest
+          Darwin Bosco
         </Text>
       </View>
-      <ReminderButton
-        reminder={
-          Object {
-            "id": "4",
-            "nextOccurrenceAt": "2016-02-28T03:01:08.353Z",
-            "reminderType": "once",
-          }
-        }
-        stepId="2"
-        testID="StepReminderButton"
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "flex-start",
-              "paddingVertical": 4,
-            }
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 18,
-                    "paddingRight": 8,
-                  },
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "color": "#52C5DC",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  },
-                  undefined,
-                ],
-              ]
-            }
-          >
-            Sunday, Feb 28 @ 3:01 AM
-          </Text>
-        </View>
-      </ReminderButton>
     </View>
     <Text
       style={
@@ -364,6 +290,82 @@ exports[`renders not me correctly 1`] = `
     >
       Repellat quisquam recusandae alias consequuntur corporis.
     </Text>
+    <ReminderButton
+      reminder={
+        Object {
+          "id": "4",
+          "nextOccurrenceAt": "2016-07-31T16:52:49.085Z",
+          "reminderType": "once",
+        }
+      }
+      stepId="2"
+      testID="StepReminderButton"
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "paddingTop": 8,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Object {
+                  "color": "#52C5DC",
+                  "fontSize": 18,
+                  "paddingRight": 8,
+                },
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#52C5DC",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Sunday, Jul 31 @ 4:52 PM
+        </Text>
+      </View>
+    </ReminderButton>
   </View>
   <View
     accessible={true}

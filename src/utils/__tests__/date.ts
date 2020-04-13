@@ -1,7 +1,7 @@
 import moment from 'moment';
 import MockDate from 'mockdate';
 
-import { getDate, modeIs24Hour } from '../date';
+import { getDate, modeIs24Hour, formatApiDate } from '../date';
 
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
@@ -29,4 +29,9 @@ describe('modeIs24Hour', () => {
   it('format has neither h nor a', () => {
     expect(modeIs24Hour('HH:mm')).toEqual(true);
   });
+});
+
+describe('formatAPIDate', () => {
+  // eslint-disable-next-line
+  expect(formatApiDate()).toMatchInlineSnapshot(`"2018-09-12T12:00:00+00:00"`);
 });

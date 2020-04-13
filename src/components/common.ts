@@ -15,7 +15,6 @@ import RadioButton from './RadioButton';
 import RefreshControl from './RefreshControl';
 import Separator from './Separator';
 import Text from './Text';
-// eslint-disable-next-line import/no-unresolved
 // @ts-ignore
 import Touchable from './Touchable';
 
