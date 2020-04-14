@@ -1,234 +1,248 @@
 /* eslint complexity: 0, max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
-import { View, ScrollView, Alert } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import React, { useState } from 'react';
+import { View, ScrollView } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { useQuery } from '@apollo/react-hooks';
+import { useNavigationParam } from 'react-navigation-hooks';
+import { useTranslation } from 'react-i18next';
+import { useMutation } from '@apollo/react-hooks';
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { DrawerActions } from 'react-navigation-drawer';
 
-import { addNewPerson } from '../../actions/organizations';
-import { updatePerson } from '../../actions/person';
-import { IconButton } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import AddContactFields from '../AddContactFields';
-import Analytics from '../Analytics';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { ACTIONS, CANNOT_EDIT_FIRST_NAME } from '../../constants';
-import { orgPermissionSelector } from '../../selectors/people';
 import {
-  getPersonEmailAddress,
-  getPersonPhoneNumber,
-  hasOrgPermissions,
-} from '../../utils/common';
+  ACTIONS,
+  LOAD_PERSON_DETAILS,
+  CANNOT_EDIT_FIRST_NAME,
+} from '../../constants';
+import BackIcon from '../../../assets/images/backIcon.svg';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { useIsMe } from '../../utils/hooks/useIsMe';
+import { CREATE_PERSON, UPDATE_PERSON } from '../SetupScreen/queries';
+import {
+  CreatePerson,
+  CreatePersonVariables,
+} from '../SetupScreen/__generated__/CreatePerson';
+import {
+  UpdatePerson,
+  UpdatePersonVariables,
+} from '../SetupScreen/__generated__/UpdatePerson';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { LoadingWheel } from '../../components/common';
+import CloseIcon from '../../../assets/images/closeButton.svg';
+import theme from '../../theme';
+import { getPersonDetails } from '../../actions/person';
 
+import { GET_PERSON } from './queries';
 import styles from './styles';
+import {
+  GetPerson,
+  GetPersonVariables,
+  GetPerson_person,
+} from './__generated__/GetPerson';
 
-// @ts-ignore
-@withTranslation('addContact')
-class AddContactScreen extends Component {
-  state = {
-    // @ts-ignore
-    person: this.props.person || {},
-  };
-
-  // @ts-ignore
-  handleUpdateData = newData => {
-    this.setState({ person: { ...this.state.person, ...newData } });
-  };
-
-  // @ts-ignore
-  complete = (didSavePerson, person) => {
-    // @ts-ignore
-    const { dispatch, organization, next } = this.props;
-
-    dispatch(
-      next({ person, orgId: organization && organization.id, didSavePerson }),
-    );
-  };
-
-  completeWithoutSave = () => {
-    // @ts-ignore
-    this.complete(false);
-  };
-
-  removeUneditedFields() {
-    // @ts-ignore
-    const { person, personOrgPermission, organization } = this.props;
-    const saveData = { ...this.state.person };
-
-    if (person) {
-      // Remove the first name if it's the same as before so we don't try to update it with the API
-      if (saveData.firstName === person.first_name) {
-        delete saveData.firstName;
-      }
-      // Remove the lastname if it's the same as before or it didn't exist before and a blank string is passed in
-      if (
-        (saveData.lastName === '' && !person.last_name) ||
-        saveData.lastName === person.last_name
-      ) {
-        delete saveData.lastName;
-      }
-      if (saveData.gender === person.gender) {
-        delete saveData.gender;
-      }
-
-      // Only remove the org permission if it's the same as the current persons org permission
-      if (
-        saveData.orgPermission &&
-        personOrgPermission &&
-        saveData.orgPermission.permission_id ===
-          personOrgPermission.permission_id
-      ) {
-        delete saveData.orgPermission;
-      }
-
-      const personEmail = (getPersonEmailAddress(person) || {}).email;
-      if (saveData.email === personEmail) {
-        delete saveData.email;
-      }
-      const personPhone = (getPersonPhoneNumber(person) || {}).number;
-      if (saveData.phone === personPhone) {
-        delete saveData.phone;
-      }
-    }
-
-    if (organization) {
-      saveData.orgId = organization.id;
-    }
-    saveData.assignToMe = true;
-
-    return saveData;
-  }
-
-  checkEmailAndName() {
-    // @ts-ignore
-    const { t } = this.props;
-    const saveData = { ...this.state.person };
-
-    // For new User/Admin people, the name, email, and permissions are required fields
-    if (
-      (!saveData.email || !saveData.firstName) &&
-      hasOrgPermissions(saveData.orgPermission)
-    ) {
-      Alert.alert(t('alertBlankEmail'), t('alertPermissionsMustHaveEmail'));
-      return false;
-    }
-
-    return true;
-  }
-
-  // @ts-ignore
-  handleError(error) {
-    // @ts-ignore
-    const { t } = this.props;
-
-    if (error && error.apiError) {
-      if (
-        error.apiError.errors &&
-        error.apiError.errors[0] &&
-        error.apiError.errors[0].detail
-      ) {
-        const errorDetail = error.apiError.errors[0].detail;
-        if (errorDetail === CANNOT_EDIT_FIRST_NAME) {
-          Alert.alert(t('alertSorry'), t('alertCannotEditFirstName'));
-        }
-      }
-    }
-  }
-
-  savePerson = async () => {
-    // @ts-ignore
-    const { dispatch, isEdit } = this.props;
-
-    if (!this.checkEmailAndName()) {
-      return;
-    }
-
-    const saveData = this.removeUneditedFields();
-
-    try {
-      const results = await dispatch(
-        isEdit ? updatePerson(saveData) : addNewPerson(saveData),
-      );
-
-      this.setState({
-        person: { ...this.state.person, id: results.response.id },
-      });
-
-      !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
-
-      this.complete(true, results.response);
-    } catch (error) {
-      this.handleError(error);
-    }
-  };
-
-  render() {
-    // @ts-ignore
-    const { t, organization, person, isJean } = this.props;
-    const orgName = organization ? organization.name : undefined;
-
-    return (
-      <View style={styles.container}>
-        <Analytics screenName={['people', 'add']} />
-        <Header
-          right={
-            <IconButton
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={this.completeWithoutSave}
-            />
-          }
-          title={
-            person
-              ? t('editPerson').toUpperCase()
-              : orgName
-              ? t('addToOrg', { orgName })
-              : t('addSomeone').toUpperCase()
-          }
-        />
-        <ScrollView style={styles.scrollView}>
-          <AddContactFields
-            person={person}
-            organization={organization}
-            // @ts-ignore
-            isJean={isJean}
-            isGroupInvite={false}
-            onUpdateData={this.handleUpdateData}
-          />
-        </ScrollView>
-        <BottomButton onPress={this.savePerson} text={t('done')} />
-      </View>
-    );
-  }
+interface AddContactScreenProps {
+  next: (props: {
+    personId?: string;
+    relationshipType?: RelationshipTypeEnum | null;
+    orgId: string;
+    didSavePerson?: boolean;
+    isMe?: boolean;
+  }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
-// @ts-ignore
-AddContactScreen.propTypes = {
-  person: PropTypes.object,
-  organization: PropTypes.object,
-  next: PropTypes.func.isRequired,
-};
+export type PersonType = Omit<GetPerson_person, '__typename'>;
 
-// @ts-ignore
-const mapStateToProps = ({ auth }, { navigation }) => {
-  const navProps = navigation.state.params || {};
-  const { person, organization = {} } = navProps;
-  return {
-    me: auth.person,
-    isJean: auth.isJean,
-    personOrgPermission:
-      organization.id &&
-      // @ts-ignore
-      orgPermissionSelector(null, {
-        person: person || {},
-        organization: { id: organization.id },
-      }),
-    isEdit: !!person,
-    ...navProps,
+const AddContactScreen = ({ next }: AddContactScreenProps) => {
+  const { t } = useTranslation('addContact');
+  const dispatch = useDispatch();
+  useAnalytics(['people', 'add']);
+  const organization = useNavigationParam('organization');
+  const personId = useNavigationParam<string>('person')?.id || '';
+
+  const [person, setPerson] = useState<PersonType>({
+    id: '',
+    firstName: '',
+    lastName: '',
+    stage: null,
+    relationshipType: null,
+  });
+
+  const { loading, error: loadingError, refetch } = useQuery<
+    GetPerson,
+    GetPersonVariables
+  >(GET_PERSON, {
+    variables: { id: personId },
+    onCompleted: data => setPerson(data.person),
+    skip: !personId,
+  });
+
+  const isEdit = !!personId;
+  const isMe = useIsMe(person.id);
+  const handleUpdateData = (newData: PersonType) => {
+    setPerson({ ...person, ...newData });
   };
+
+  const [createPerson, { error: createError }] = useMutation<
+    CreatePerson,
+    CreatePersonVariables
+  >(CREATE_PERSON);
+
+  const [updatePerson, { error: updateError }] = useMutation<
+    UpdatePerson,
+    UpdatePersonVariables
+  >(UPDATE_PERSON);
+
+  const complete = (didSavePerson: boolean, person?: PersonType) => {
+    // Close sidemenu so we land on person screen with it not opened
+    dispatch(DrawerActions.closeDrawer());
+    dispatch(
+      next({
+        personId: person?.id,
+        relationshipType: person?.relationshipType,
+        orgId: organization?.id,
+        didSavePerson,
+        isMe: isMe,
+      }),
+    );
+  };
+
+  const completeWithoutSave = () => {
+    complete(false);
+  };
+
+  const savePerson = async () => {
+    const saveData = person;
+    let results;
+
+    try {
+      if (isEdit) {
+        const { data: updateData } = await updatePerson({
+          variables: {
+            input: {
+              id: saveData.id,
+              firstName: saveData.firstName,
+              lastName: saveData.lastName,
+              relationshipType: saveData.relationshipType,
+            },
+          },
+        });
+        // Update person's data in redux
+        updateData?.updatePerson?.person &&
+          dispatch(
+            getPersonDetails(
+              updateData?.updatePerson?.person?.id,
+              organization?.id,
+            ),
+          );
+        results = updateData?.updatePerson?.person as PersonType;
+      } else {
+        const { data: createData } = await createPerson({
+          variables: {
+            input: {
+              firstName: saveData.firstName,
+              lastName: saveData.lastName,
+              assignToMe: true,
+            },
+          },
+        });
+        // Load person's data in redux
+        createData?.createPerson?.person &&
+          dispatch({
+            type: LOAD_PERSON_DETAILS,
+            person: {
+              first_name: createData?.createPerson?.person.firstName,
+              last_name: createData?.createPerson?.person.lastName,
+              id: createData?.createPerson?.person.id,
+            },
+          });
+        results = createData?.createPerson?.person as PersonType;
+      }
+
+      results && setPerson({ ...person, id: results.id });
+      !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+
+      complete(true, results);
+    } catch {}
+  };
+
+  return (
+    <View style={isEdit ? styles.editContainer : styles.container}>
+      <Header
+        left={
+          isEdit ? null : (
+            <BackIcon
+              testID="backIcon"
+              style={{ marginLeft: 10 }}
+              onPress={completeWithoutSave}
+              color={theme.white}
+            />
+          )
+        }
+        right={
+          isEdit ? (
+            <CloseIcon
+              testID="closeIcon"
+              style={{ marginRight: 10 }}
+              color={theme.extraLightGrey}
+              onPress={completeWithoutSave}
+            />
+          ) : null
+        }
+        title={isEdit ? t('editPerson') : ''}
+        titleStyle={styles.headerTitle}
+      />
+      <ErrorNotice
+        error={updateError}
+        message={t('updateError')}
+        refetch={savePerson}
+        specificErrors={[
+          {
+            condition: CANNOT_EDIT_FIRST_NAME,
+            message: t('alertCannotEditFirstName'),
+          },
+        ]}
+      />
+      <ErrorNotice
+        error={createError}
+        message={t('createError')}
+        refetch={savePerson}
+      />
+      <ErrorNotice
+        error={loadingError}
+        message={t('loadingError')}
+        refetch={refetch}
+      />
+      <ScrollView style={styles.scrollView}>
+        {loading ? (
+          <LoadingWheel />
+        ) : (
+          <AddContactFields
+            // @ts-ignore
+            testID="contactFields"
+            person={person}
+            next={next}
+            organization={organization}
+            onUpdateData={handleUpdateData}
+          />
+        )}
+      </ScrollView>
+      <BottomButton
+        testID="continueButton"
+        style={!person.firstName ? styles.disabledButton : null}
+        onPress={savePerson}
+        disabled={!person.firstName}
+        text={isEdit ? t('done') : t('continue')}
+      />
+    </View>
+  );
 };
 
-export default connect(mapStateToProps)(AddContactScreen);
+export default AddContactScreen;
 export const ADD_CONTACT_SCREEN = 'nav/ADD_CONTACT';
