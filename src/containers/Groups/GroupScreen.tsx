@@ -144,11 +144,7 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => (
-      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
-        <GroupCelebrate orgId={orgId} />
-      </CollapsibleViewContent>
-    ),
+    }) => <GroupCelebrate orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:challenges'),
@@ -160,11 +156,7 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) => (
-      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
-        <GroupChallenges orgId={orgId} />
-      </CollapsibleViewContent>
-    ),
+    }) => <GroupChallenges orgId={orgId} />,
   },
   {
     name: i18next.t('groupTabs:members'),
@@ -176,17 +168,11 @@ export const CRU_TABS = [
           params: { orgId },
         },
       },
-    }) =>
-      (
-        <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
-          <ImpactView orgId={orgId} />
-          <ImpactView orgId={orgId} />
-        </CollapsibleViewContent>
-      ) || (
-        <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
-          <Members orgId={orgId} />
-        </CollapsibleViewContent>
-      ),
+    }) => (
+      <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
+        <Members orgId={orgId} />
+      </CollapsibleViewContent>
+    ),
   },
   {
     name: i18next.t('groupTabs:impact'),
@@ -200,7 +186,6 @@ export const CRU_TABS = [
       },
     }) => (
       <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
-        <ImpactView orgId={orgId} />
         <ImpactView orgId={orgId} />
       </CollapsibleViewContent>
     ),

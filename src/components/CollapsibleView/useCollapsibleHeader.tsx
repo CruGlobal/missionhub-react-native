@@ -213,7 +213,6 @@ export const useCollapsibleHeader = ({
     };
 
     const collapsibleScrollViewProps = {
-      bounces: false,
       overScrollMode: 'never' as ScrollViewProps[keyof ScrollViewProps['overScrollMode']],
       scrollEventThrottle: 1,
       contentContainerStyle: styles.container,

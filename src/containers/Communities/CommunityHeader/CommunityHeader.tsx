@@ -40,7 +40,7 @@ interface CommunityHeaderProps {
 }
 
 export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
-  const { t } = useTranslation('communitiesHeader');
+  const { t } = useTranslation('communityHeader');
   const dispatch = useDispatch();
   const myId = useMyId();
 

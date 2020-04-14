@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionList, View, SectionListData } from 'react-native';
+import { Animated, SafeAreaView, SectionListData } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -19,6 +19,7 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 
 import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
 import {
@@ -41,6 +42,7 @@ export interface CelebrateFeedProps {
     event: GetCelebrateFeed_community_celebrationItems_nodes,
   ) => void;
   testID?: string;
+  collapsibleScrollViewProps: CollapsibleScrollViewProps;
 }
 
 const CelebrateFeed = ({
@@ -53,6 +55,7 @@ const CelebrateFeed = ({
   onRefetch,
   onFetchMore,
   onClearNotification,
+  collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
   const isGlobal = orgIsGlobal(organization);
@@ -234,7 +237,8 @@ const CelebrateFeed = ({
   );
 
   return (
-    <SectionList
+    <Animated.SectionList
+      {...collapsibleScrollViewProps}
       sections={celebrationItems}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
@@ -245,7 +249,10 @@ const CelebrateFeed = ({
       onRefresh={handleRefreshing}
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
-      contentContainerStyle={styles.listContent}
+      contentContainerStyle={[
+        collapsibleScrollViewProps.contentContainerStyle,
+        styles.listContent,
+      ]}
     />
   );
 };

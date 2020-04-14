@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { withTranslation } from 'react-i18next';
@@ -23,6 +23,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { ChallengeItem } from '../../components/ChallengeStats';
 
 import styles from './styles';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
 
 // @ts-ignore
 @withTranslation('groupsChallenge')
@@ -88,8 +89,7 @@ class GroupChallenges extends Component {
     const canCreate = isAdminOrOwner(myOrgPermissions);
 
     return (
-      // @ts-ignore
-      <View flex={1}>
+      <>
         <Analytics
           screenName={['community', 'challenges']}
           screenContext={{
@@ -97,19 +97,26 @@ class GroupChallenges extends Component {
           }}
         />
         <View style={styles.cardList}>
-          <ChallengeFeed
-            organization={organization}
-            items={challengeItems}
-            loadMoreItemsCallback={this.loadItems}
-            refreshCallback={this.refreshItems}
-            refreshing={refreshing}
-            extraPadding={canCreate}
-          />
+          <CommunitiesCollapsibleHeaderContext.Consumer>
+            {({ collapsibleScrollViewProps }) =>
+              collapsibleScrollViewProps ? (
+                <ChallengeFeed
+                  organization={organization}
+                  items={challengeItems}
+                  loadMoreItemsCallback={this.loadItems}
+                  refreshCallback={this.refreshItems}
+                  refreshing={refreshing}
+                  extraPadding={canCreate}
+                  collapsibleScrollViewProps={collapsibleScrollViewProps}
+                />
+              ) : null
+            }
+          </CommunitiesCollapsibleHeaderContext.Consumer>
         </View>
         {canCreate ? (
           <BottomButton onPress={this.create} text={t('create')} />
         ) : null}
-      </View>
+      </>
     );
   }
 }

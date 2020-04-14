@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 
@@ -14,6 +14,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
 
 export interface GroupCelebrateProps {
   organization: Organization;
@@ -36,14 +37,19 @@ const GroupCelebrate = ({
     shouldQueryReport && dispatch(getReportedComments(organization.id));
   };
 
-  return (
+  const { collapsibleScrollViewProps } = useContext(
+    CommunitiesCollapsibleHeaderContext,
+  );
+
+  return collapsibleScrollViewProps ? (
     <CelebrateFeed
       testID="CelebrateFeed"
       organization={organization}
       onRefetch={handleRefetch}
       itemNamePressable={!orgIsGlobal(organization)}
+      collapsibleScrollViewProps={collapsibleScrollViewProps}
     />
-  );
+  ) : null;
 };
 
 const mapStateToProps = (

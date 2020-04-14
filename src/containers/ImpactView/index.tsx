@@ -1,7 +1,7 @@
 /* eslint complexity: 0, max-lines: 0 */
 
 import React, { Component } from 'react';
-import { ScrollView, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
@@ -292,7 +292,7 @@ export class ImpactView extends Component {
       : 'impact';
 
     return (
-      <ScrollView style={styles.container} bounces={false}>
+      <View style={styles.container}>
         <Analytics
           screenName={[screenSection, screenSubsection]}
           screenContext={{
@@ -323,7 +323,7 @@ export class ImpactView extends Component {
             this.renderContactReport()
           ) : null}
         </Flex>
-      </ScrollView>
+      </View>
     );
   }
 }

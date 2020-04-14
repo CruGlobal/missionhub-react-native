@@ -3,7 +3,7 @@ import { Animated } from 'react-native';
 
 import { useCollapsibleHeader } from './useCollapsibleHeader';
 
-type CollapsibleScrollViewProps = ReturnType<
+export type CollapsibleScrollViewProps = ReturnType<
   typeof useCollapsibleHeader
 >['collapsibleScrollViewProps'];
 
@@ -100,7 +100,7 @@ export const CollapsibleViewContent = ({
   const { collapsibleScrollViewProps } = useContext(context);
 
   return (
-    <Animated.ScrollView {...collapsibleScrollViewProps} style={{ flex: 1 }}>
+    <Animated.ScrollView {...collapsibleScrollViewProps}>
       {children}
     </Animated.ScrollView>
   );
