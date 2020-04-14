@@ -20,7 +20,7 @@ export const CreatePostButton = ({
   refreshItems,
   orgId,
 }: CreatePostButtonProps) => {
-  const { t } = useTranslation('shareAStoryScreen');
+  const { t } = useTranslation('communityPost');
   const dispatch = useDispatch();
   const {
     container,

@@ -117,7 +117,7 @@ export const CreatePostScreen = () => {
     } else {
       await createPost({
         variables: {
-          input: { content: postText, organizationId: orgId, postType },
+          input: { content: postText, communityId: orgId, postType },
         },
       }); //use new mutation, include image
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action

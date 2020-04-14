@@ -16,7 +16,11 @@ import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
-import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
+import {
+  GET_CELEBRATE_FEED,
+  GET_GLOBAL_CELEBRATE_GET_GLOBAL_CELEBRATE_FEED,
+  GET_GLOBAL_CELEBRATE_FEED,
+} from './queries';
 import {
   GetCelebrateFeed,
   GetCelebrateFeed_community_celebrationItems_nodes,
@@ -69,7 +73,7 @@ export const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCelebrateFeed>(GET_COMMUNITY_FEED, {
+  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
     skip: isGlobal,
@@ -91,7 +95,7 @@ export const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_COMMUNITY_FEED, {
+  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
     pollInterval: 30000,
     skip: !isGlobal,
   });

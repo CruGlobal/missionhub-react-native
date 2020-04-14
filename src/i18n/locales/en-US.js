@@ -893,6 +893,7 @@ export default {
       placeholder: 'Make an announcement...',
     },
     addAPhoto: 'Add a Photo',
+    buttonPlaceholder: 'Post to community...',
   },
   stepTypes: {
     relate: 'Relate',
