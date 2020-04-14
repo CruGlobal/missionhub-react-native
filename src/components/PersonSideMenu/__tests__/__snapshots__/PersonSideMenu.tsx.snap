@@ -1,58 +1,909 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PersonSideMenu person does not have org permission renders delete correctly 1`] = `
-<Connect(SideMenu)
-  menuItems={
-    Array [
-      Object {
-        "action": [Function],
-        "label": "Edit",
-      },
-      Object {
-        "action": [Function],
-        "label": "Delete Person",
-      },
-    ]
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#505256",
+      "flex": 1,
+    }
   }
-/>
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 20,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "alignItems": "flex-start",
+                    "margin": 0,
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 16,
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          EDIT
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          DELETE PERSON
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;
 
-exports[`PersonSideMenu person has org permission renders assign correctly 1`] = `
-<Connect(SideMenu)
-  menuItems={
-    Array [
-      Object {
-        "action": [Function],
-        "label": "Edit",
-      },
-      Object {
-        "action": [Function],
-        "label": "Assign",
-      },
-    ]
+exports[`PersonSideMenu person has org permission renders assign correctly renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#505256",
+      "flex": 1,
+    }
   }
-/>
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 20,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "alignItems": "flex-start",
+                    "margin": 0,
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 16,
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          EDIT
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ASSIGN
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;
 
 exports[`PersonSideMenu person has org permission renders user-created correctly 1`] = `
-<Connect(SideMenu)
-  menuItems={Array []}
-/>
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#505256",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 20,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "alignItems": "flex-start",
+                    "margin": 0,
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 16,
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;
 
 exports[`PersonSideMenu person has org permission unassign renders correctly 1`] = `
-<Connect(SideMenu)
-  menuItems={
-    Array [
-      Object {
-        "action": [Function],
-        "label": "Edit",
-      },
-      Object {
-        "action": [Function],
-        "label": "Unassign",
-      },
-    ]
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#505256",
+      "flex": 1,
+    }
   }
-/>
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 20,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "alignItems": "flex-start",
+                    "margin": 0,
+                    "paddingHorizontal": 24,
+                    "paddingVertical": 16,
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          EDIT
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="Button"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Object {
+              "alignItems": "flex-start",
+              "margin": 0,
+              "paddingHorizontal": 24,
+              "paddingVertical": 16,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          UNASSIGN
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTSafeAreaView>
 `;

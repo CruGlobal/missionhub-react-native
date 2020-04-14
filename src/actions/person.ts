@@ -199,8 +199,8 @@ export function updatePerson(data) {
     if (exists(data.lastName)) {
       attributes = { ...(attributes || {}), last_name: data.lastName };
     }
-    if (exists(data.gender)) {
-      attributes = { ...(attributes || {}), gender: data.gender };
+    if (exists(data.userGender)) {
+      attributes = { ...(attributes || {}), gender: data.userGender };
     }
     if (attributes) {
       // @ts-ignore

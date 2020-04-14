@@ -597,11 +597,14 @@ exports[`renders empty screen correctly 1`] = `
                   "paddingVertical": 10,
                 },
                 null,
-                Object {
-                  "alignItems": "center",
-                  "height": 48,
-                  "width": 650,
-                },
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "height": 48,
+                    "width": 650,
+                  },
+                  undefined,
+                ],
                 Object {
                   "borderRadius": 50,
                 },
@@ -626,7 +629,9 @@ exports[`renders empty screen correctly 1`] = `
                       "letterSpacing": 1.5,
                       "textAlign": "center",
                     },
-                    Object {},
+                    Array [
+                      undefined,
+                    ],
                   ],
                 ]
               }

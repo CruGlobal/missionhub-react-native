@@ -13,7 +13,7 @@ import OnboardingCard, {
 import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
-import { isAdminOrOwner } from '../../utils/common';
+import { isAdminOrOwner, isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { ACTIONS } from '../../constants';
@@ -189,7 +189,10 @@ const ChallengeFeed = ({
       onRefresh={handleRefreshing}
       refreshing={refreshing || false}
       extraData={isListScrolled}
-      contentContainerStyle={styles.list}
+      contentContainerStyle={[
+        styles.list,
+        isAndroid ? { paddingBottom: extraPadding ? 90 : 10 } : {},
+      ]}
       contentInset={{ bottom: extraPadding ? 90 : 10 }}
     />
   );
