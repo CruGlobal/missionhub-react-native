@@ -59,7 +59,6 @@ function colorConvert({
 export const COLORS = {
   LIGHT_BLUE: '#66D9F0',
   BLUE: '#52C5DC',
-  PRIMARY_FADE: 'rgba(68, 200, 232, 0.3)',
   DARK_BLUE: '#007398',
   ACCENT_BLUE: '#005A7F',
   WHITE: '#ffffff',
@@ -69,7 +68,6 @@ export const COLORS = {
   NARWHAL: '#B4B6BA',
   EXTRA_LIGHT_GREY: '#ECEEF2',
   TRANSPARENT: 'transparent',
-  BLUE_GREEN: '#50DCC8',
   IMPACT_BLUE: '#3EB1C8',
   RED: '#FF5532',
   DARK_RED: '#260C06',
@@ -94,8 +92,6 @@ const statusBar = {
 };
 
 export default {
-  // base theme
-  loadingColor: COLORS.WHITE,
   primaryColor: COLORS.DARK_BLUE,
   secondaryColor: COLORS.BLUE,
   accentColor: COLORS.ACCENT_BLUE,
@@ -107,15 +103,12 @@ export default {
   transparent: COLORS.TRANSPARENT,
   buttonHeight: 60,
   buttonBackgroundColor: COLORS.TRANSPARENT,
-  buttonBorderColor: COLORS.WHITE,
   buttonBorderWidth: 1,
   buttonTextColor: COLORS.WHITE,
-  buttonIconColor: COLORS.WHITE,
   separatorColor: COLORS.EXTRA_LIGHT_GREY,
   separatorHeight: 1,
   headerTextColor: COLORS.WHITE,
   inactiveColor: COLORS.INACTIVE_GREY,
-  checkBackgroundColor: COLORS.BLUE_GREEN,
   red: COLORS.RED,
   darkRed: COLORS.DARK_RED,
   green: COLORS.GREEN,
