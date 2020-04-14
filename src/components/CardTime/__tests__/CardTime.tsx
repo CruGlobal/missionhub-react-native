@@ -12,6 +12,6 @@ it('renders correctly', () => {
   testSnapshotShallow(<CardTime date={date} />);
 });
 
-it('renders correctly with format', () => {
-  testSnapshotShallow(<CardTime date={date} format={'comment'} />);
+it('renders correctly with comment formatting', () => {
+  testSnapshotShallow(<CardTime date={date} commentFormatting={true} />);
 });

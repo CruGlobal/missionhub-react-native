@@ -3,15 +3,18 @@ import { Text, View } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
 import StepDetailScreen from '../index';
+import * as common from '../../../utils/common';
 
-const receiver = {
-  firstName: 'Christian',
-};
+const firstName = 'Christian';
+
+beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
+});
 
 const snapshot = (props = {}) => {
   renderWithContext(
     <StepDetailScreen
-      receiver={receiver}
+      firstName={firstName}
       text="Roge is well behaved"
       CenterHeader={<View />}
       RightHeader={<View />}
@@ -24,6 +27,26 @@ const snapshot = (props = {}) => {
 describe('markdown is not null', () => {
   it('renders correctly', () => {
     snapshot({ markdown: 'ROBERT ROBERT ROBERT' });
+  });
+
+  it('renders correctly on android', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    snapshot({ markdown: 'ROBERT ROBERT ROBERT' });
+  });
+
+  it('renders correctly with bottom button props', () => {
+    snapshot({
+      markdown: 'ROBERT ROBERT ROBERT',
+      bottomButtonProps: { text: 'bottom button props', onPress: () => {} },
+    });
+  });
+
+  it('renders correctly on android with bottom button props', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    snapshot({
+      markdown: 'ROBERT ROBERT ROBERT',
+      bottomButtonProps: { text: 'bottom button props', onPress: () => {} },
+    });
   });
 });
 

@@ -21,9 +21,9 @@ import { navigatePush } from '../../../actions/navigation';
 import { STATUS_SELECT_SCREEN } from '../../../containers/StatusSelectScreen';
 import {
   openCommunicationLink,
-  loadStepsAndJourney,
   navigateToStageScreen,
 } from '../../../actions/misc';
+import { reloadJourney } from '../../../actions/journey';
 
 import GroupsPersonHeader from '..';
 
@@ -31,6 +31,7 @@ jest.mock('uuid/v4');
 jest.mock('../../../utils/common');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/misc');
+jest.mock('../../../actions/journey');
 jest.mock('../../../actions/navigation');
 
 const store = configureStore([thunk])();
@@ -67,7 +68,7 @@ const openLinkResult = { type: 'opened link' };
 const navigatePushResult = { type: 'navigated' };
 const updatePersonResult = { type: 'update person attributes' };
 const getPersonResult = { type: 'get person details' };
-const loadStepsJourneyResult = { type: 'load steps and journey' };
+const reloadJourneyResult = { type: 'load steps and journey' };
 const navigateToStageResult = { type: 'navigate to stage screen ' };
 
 beforeEach(() => {
@@ -86,7 +87,7 @@ beforeEach(() => {
   // @ts-ignore
   getPersonDetails.mockReturnValue(getPersonResult);
   // @ts-ignore
-  loadStepsAndJourney.mockReturnValue(loadStepsJourneyResult);
+  reloadJourney.mockReturnValue(reloadJourneyResult);
   // @ts-ignore
   navigateToStageScreen.mockReturnValue(navigateToStageResult);
   store.clearActions();

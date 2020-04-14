@@ -1,36 +1,23 @@
-/* eslint max-lines: 0 */
-
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import i18next from 'i18next';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import {
-  completeStep,
-  getStepSuggestions,
-  getContactSteps,
-  addStep,
-  createCustomStep,
-  deleteStepWithTracking,
-} from '../steps';
+import { completeStep, deleteStepWithTracking } from '../steps';
 import { refreshImpact } from '../impact';
-import { trackStepAdded, trackAction } from '../analytics';
+import { trackAction } from '../analytics';
 import * as navigation from '../navigation';
-import * as common from '../../utils/common';
+import * as date from '../../utils/date';
 import {
   ACTIONS,
   COMPLETED_STEP_COUNT,
   NAVIGATE_FORWARD,
   STEP_NOTE,
-  CUSTOM_STEP_TYPE,
   ACCEPTED_STEP,
 } from '../../constants';
 import { COMPLETE_STEP_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
-import { PERSON_STEPS_QUERY } from '../../containers/ContactSteps/queries';
 import { apolloClient } from '../../apolloClient';
-import { STEPS_QUERY } from '../../containers/StepsScreen/queries';
 
 apolloClient.query = jest.fn();
 apolloClient.readQuery = jest.fn();
@@ -44,360 +31,16 @@ const personId = '2123';
 const receiverId = '983547';
 const orgId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
-// @ts-ignore
-common.formatApiDate = jest.fn().mockReturnValue(mockDate);
+
+(date.formatApiDate as jest.Mock) = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../api');
 jest.mock('../impact');
 jest.mock('../celebration');
 jest.mock('../analytics');
 
-const getChallengesByFilterIncludes = 'receiver,challenge_suggestion,reminder';
-
 beforeEach(() => {
   store = mockStore();
-});
-
-describe('get step suggestions', () => {
-  const locale = 'de';
-  const stepSuggestionsQuery = { filters: { locale: locale } };
-  const apiResult = { type: 'done' };
-
-  it('should filter by language', () => {
-    i18next.language = locale;
-    // @ts-ignore
-    callApi.mockReturnValue(apiResult);
-
-    // @ts-ignore
-    store.dispatch(getStepSuggestions());
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_CHALLENGE_SUGGESTIONS,
-      stepSuggestionsQuery,
-    );
-    // @ts-ignore
-    expect(store.getActions()).toEqual([apiResult]);
-  });
-});
-
-describe('getContactSteps', () => {
-  it('should get filtered steps for a person', () => {
-    const apiResult = { type: 'done' };
-
-    // @ts-ignore
-    callApi.mockReturnValue(apiResult);
-
-    // @ts-ignore
-    store.dispatch(getContactSteps(personId, orgId));
-
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_CHALLENGES_BY_FILTER, {
-      filters: {
-        receiver_ids: personId,
-        organization_ids: orgId,
-      },
-      page: { limit: 1000 },
-      include: getChallengesByFilterIncludes,
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([apiResult]);
-  });
-});
-
-describe('addStep', () => {
-  const stepSuggestion = {
-    id: '100',
-    body: 'System generated step',
-  };
-  const customStepSuggestion = {
-    id: 'f53836fd-c6e3-4c69-bcd3-362928c5c924',
-    body: 'Hello world',
-    challenge_type: CUSTOM_STEP_TYPE,
-  };
-
-  const callApiResult = { type: 'call API' };
-  const stepAddedResult = { type: 'added steps tracked' };
-
-  beforeEach(() => {
-    // @ts-ignore
-    callApi.mockReturnValue(callApiResult);
-    // @ts-ignore
-    trackStepAdded.mockReturnValue(stepAddedResult);
-  });
-
-  it('creates step without org', async () => {
-    // @ts-ignore
-    await store.dispatch(addStep(stepSuggestion, receiverId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGE,
-      {},
-      {
-        data: {
-          type: ACCEPTED_STEP,
-          attributes: {
-            title: stepSuggestion.body,
-          },
-          relationships: {
-            receiver: {
-              data: {
-                type: 'person',
-                id: receiverId,
-              },
-            },
-            challenge_suggestion: {
-              data: {
-                type: 'challenge_suggestion',
-                id: stepSuggestion.id,
-              },
-            },
-          },
-        },
-      },
-    );
-    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
-      query: STEPS_QUERY,
-    });
-    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: receiverId, completed: false },
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
-  });
-
-  it('creates step with org', async () => {
-    // @ts-ignore
-    await store.dispatch(addStep(stepSuggestion, receiverId, orgId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGE,
-      {},
-      {
-        data: {
-          type: ACCEPTED_STEP,
-          attributes: {
-            title: stepSuggestion.body,
-          },
-          relationships: {
-            receiver: {
-              data: {
-                type: 'person',
-                id: receiverId,
-              },
-            },
-            challenge_suggestion: {
-              data: {
-                type: 'challenge_suggestion',
-                id: stepSuggestion.id,
-              },
-            },
-            organization: {
-              data: {
-                type: 'organization',
-                id: orgId,
-              },
-            },
-          },
-        },
-      },
-    );
-    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
-      query: STEPS_QUERY,
-    });
-    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: receiverId, completed: false },
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
-  });
-
-  it('creates step with custom step suggestion', async () => {
-    // @ts-ignore
-    await store.dispatch(addStep(customStepSuggestion, receiverId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGE,
-      {},
-      {
-        data: {
-          type: ACCEPTED_STEP,
-          attributes: {
-            title: customStepSuggestion.body,
-          },
-          relationships: {
-            receiver: {
-              data: {
-                type: 'person',
-                id: receiverId,
-              },
-            },
-            challenge_suggestion: {
-              data: {
-                type: 'challenge_suggestion',
-                id: null,
-              },
-            },
-          },
-        },
-      },
-    );
-    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
-      query: STEPS_QUERY,
-    });
-    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: receiverId, completed: false },
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
-  });
-});
-
-describe('create custom step', () => {
-  const stepText = 'Custom Step';
-  const myId = '111';
-
-  const callApiResult = { type: 'call API' };
-  const stepAddedResult = { type: 'added steps tracked' };
-
-  beforeEach(() => {
-    store = mockStore({ auth: { person: { id: myId } } });
-
-    // @ts-ignore
-    callApi.mockReturnValue(callApiResult);
-    // @ts-ignore
-    trackStepAdded.mockReturnValue(stepAddedResult);
-  });
-
-  it('creates custom step for other person', async () => {
-    // @ts-ignore
-    await store.dispatch(createCustomStep(stepText, receiverId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGE,
-      {},
-      {
-        data: {
-          type: ACCEPTED_STEP,
-          attributes: {
-            title: stepText,
-          },
-          relationships: {
-            receiver: {
-              data: {
-                type: 'person',
-                id: receiverId,
-              },
-            },
-            challenge_suggestion: {
-              data: {
-                type: 'challenge_suggestion',
-                id: null,
-              },
-            },
-          },
-        },
-      },
-    );
-    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
-      query: STEPS_QUERY,
-    });
-    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: receiverId, completed: false },
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
-  });
-
-  it('creates custom step for me', async () => {
-    // @ts-ignore
-    await store.dispatch(createCustomStep(stepText, myId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGE,
-      {},
-      {
-        data: {
-          type: ACCEPTED_STEP,
-          attributes: {
-            title: stepText,
-          },
-          relationships: {
-            receiver: {
-              data: {
-                type: 'person',
-                id: myId,
-              },
-            },
-            challenge_suggestion: {
-              data: {
-                type: 'challenge_suggestion',
-                id: null,
-              },
-            },
-          },
-        },
-      },
-    );
-    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
-      query: STEPS_QUERY,
-    });
-    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: myId, completed: false },
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
-  });
-
-  it('creates custom step for other person in org', async () => {
-    // @ts-ignore
-    await store.dispatch(createCustomStep(stepText, receiverId, orgId));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.ADD_CHALLENGE,
-      {},
-      {
-        data: {
-          type: ACCEPTED_STEP,
-          attributes: {
-            title: stepText,
-          },
-          relationships: {
-            receiver: {
-              data: {
-                type: 'person',
-                id: receiverId,
-              },
-            },
-            challenge_suggestion: {
-              data: {
-                type: 'challenge_suggestion',
-                id: null,
-              },
-            },
-            organization: {
-              data: {
-                type: 'organization',
-                id: orgId,
-              },
-            },
-          },
-        },
-      },
-    );
-    expect(apolloClient.query).toHaveBeenNthCalledWith(1, {
-      query: STEPS_QUERY,
-    });
-    expect(apolloClient.query).toHaveBeenNthCalledWith(2, {
-      query: PERSON_STEPS_QUERY,
-      variables: { personId: receiverId, completed: false },
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([callApiResult, stepAddedResult]);
-  });
 });
 
 describe('completeStep', () => {

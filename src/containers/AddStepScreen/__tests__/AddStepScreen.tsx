@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import {
@@ -14,6 +14,7 @@ import {
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { trackStepAdded } from '../../../actions/analytics';
 import * as common from '../../../utils/common';
 
 import AddStepScreen from '..';
@@ -29,6 +30,7 @@ jest.mock('../../../utils/hooks/useAnalytics');
 
 const next = jest.fn();
 const nextResult = { type: 'next' };
+const trackStepAddedResponse = { type: 'trackStepAdded' };
 const auth = { person: { id: '123123' } };
 const onboarding = { currentlyOnboarding: false };
 
@@ -40,6 +42,7 @@ const orgId = '333';
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   next.mockReturnValue(nextResult);
+  (trackStepAdded as jest.Mock).mockReturnValue(trackStepAddedResponse);
 });
 
 const baseParams = { id, personId, orgId };
@@ -208,26 +211,43 @@ it('updates text', () => {
   diffSnapshot();
 });
 
-it('saves step', () => {
+it('saves step', async () => {
   const { getByTestId, store } = renderWithContext(
     <AddStepScreen next={next} />,
     {
       initialState: { auth, onboarding },
-      navParams: stepNoteParams,
+      navParams: createStepParams,
     },
   );
 
   fireEvent.changeText(getByTestId('stepInput'), text);
-
+  debugger;
   fireEvent.press(getByTestId('bottomButton'));
+  await flushMicrotasksQueue();
 
-  expect(store.getActions()).toEqual([nextResult]);
+  expect(store.getActions()).toEqual([trackStepAddedResponse, nextResult]);
   expect(next).toHaveBeenCalledWith({
     text,
     id,
-    type: STEP_NOTE,
+    type: CREATE_STEP,
     personId,
     orgId,
+  });
+  expect(trackStepAdded).toHaveBeenCalledWith({
+    __typename: 'Step',
+    receiver: {
+      __typename: 'Person',
+      id: '1',
+    },
+    stepSuggestion: {
+      __typename: 'StepSuggestion',
+      id: '2',
+      stage: {
+        __typename: 'Stage',
+        id: '3',
+      },
+    },
+    stepType: 'bond',
   });
 });
 

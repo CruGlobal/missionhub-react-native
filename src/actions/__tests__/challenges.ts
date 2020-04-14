@@ -26,7 +26,7 @@ import {
   NOTIFICATION_PROMPT_TYPES,
 } from '../../constants';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
-import * as common from '../../utils/common';
+import * as date from '../../utils/date';
 import { navigatePush, navigateBack } from '../navigation';
 
 jest.mock('../api');
@@ -36,7 +36,7 @@ jest.mock('../celebration');
 jest.mock('../analytics');
 
 const fakeDate = '2018-09-06T14:13:21Z';
-((common as unknown) as { formatApiDate: () => void }).formatApiDate = jest.fn(
+((date as unknown) as { formatApiDate: () => void }).formatApiDate = jest.fn(
   () => fakeDate,
 );
 

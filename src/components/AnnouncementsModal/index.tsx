@@ -92,11 +92,7 @@ const AnnouncementsModal = () => {
     <Modal transparent animationType={'slide'} visible={true}>
       <View style={modalStyle}>
         <View style={containerStyle}>
-          <Flex
-            direction="row"
-            justify="end"
-            style={{ width: '100%', marginTop: -60 }}
-          >
+          <Flex direction="row" justify="end" style={{ width: '100%' }}>
             <IconButton
               testID="CloseButton"
               style={closeButton}

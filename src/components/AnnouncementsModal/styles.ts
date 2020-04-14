@@ -31,6 +31,9 @@ export default StyleSheet.create({
   },
   closeButton: {
     color: theme.lightGrey,
+    position: 'absolute',
+    top: -40,
+    right: -5,
     margin: 0,
     justifyContent: 'flex-end',
   },
