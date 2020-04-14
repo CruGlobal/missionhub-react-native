@@ -25,14 +25,18 @@ import InfoIcon from '../../../../assets/images/infoIcon.svg';
 import EditIcon from '../../../../assets/images/editIcon.svg';
 import { useMyId } from '../../../utils/hooks/useIsMe';
 import { useCommunityPhoto } from '../hooks/useCommunityPhoto';
-import { canEditCommunity } from '../../../utils/common';
+import { canEditCommunity, orgIsGlobal } from '../../../utils/common';
 
 import styles from './styles';
-import { COMMUNITY_HEADER_QUERY } from './queries';
+import {
+  COMMUNITY_HEADER_QUERY,
+  COMMUNITY_HEADER_GLOBAL_QUERY,
+} from './queries';
 import {
   CommunityHeader as CommunityHeaderQuery,
   CommunityHeaderVariables,
 } from './__generated__/CommunityHeader';
+import { CommunityHeaderGlobal } from './__generated__/CommunityHeaderGlobal';
 
 export const CommunitiesCollapsibleHeaderContext = createCollapsibleViewContext();
 
@@ -44,12 +48,21 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
   const { t } = useTranslation('communityHeader');
   const dispatch = useDispatch();
   const myId = useMyId();
+  const isGlobalCommunity = orgIsGlobal({ id: communityId });
 
-  const { data, error, refetch } = useQuery<
-    CommunityHeaderQuery,
-    CommunityHeaderVariables
-  >(COMMUNITY_HEADER_QUERY, {
-    variables: { id: communityId, myId },
+  const { data, error, refetch } = useQuery<CommunityHeaderQuery>(
+    COMMUNITY_HEADER_QUERY,
+    {
+      variables: { id: communityId, myId },
+      skip: isGlobalCommunity,
+    },
+  );
+  const {
+    data: globalData,
+    error: globalError,
+    refetch: globalRefetch,
+  } = useQuery<CommunityHeaderGlobal>(COMMUNITY_HEADER_GLOBAL_QUERY, {
+    skip: !isGlobalCommunity,
   });
 
   const communityPhotoSource = useCommunityPhoto(
@@ -69,22 +82,24 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
           <Header
             left={<BackButton />}
             right={
-              <Button
-                onPress={() =>
-                  dispatch(navigatePush(COMMUNITY_PROFILE, { communityId }))
-                }
-              >
-                {data?.community.userCreated &&
-                canEditCommunity(
-                  data?.community.people.edges[0].communityPermission
-                    .permission,
-                  data?.community.userCreated,
-                ) ? (
-                  <EditIcon color={theme.white} />
-                ) : (
-                  <InfoIcon color={theme.white} />
-                )}
-              </Button>
+              isGlobalCommunity ? null : (
+                <Button
+                  onPress={() =>
+                    dispatch(navigatePush(COMMUNITY_PROFILE, { communityId }))
+                  }
+                >
+                  {data?.community.userCreated &&
+                  canEditCommunity(
+                    data?.community.people.edges[0].communityPermission
+                      .permission,
+                    data?.community.userCreated,
+                  ) ? (
+                    <EditIcon color={theme.white} />
+                  ) : (
+                    <InfoIcon color={theme.white} />
+                  )}
+                </Button>
+              )
             }
           />
           <Flex
@@ -96,7 +111,9 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
             }}
           >
             <Text style={styles.communityName} numberOfLines={2}>
-              {data?.community.name ?? '-'}
+              {isGlobalCommunity
+                ? t('globalCommunity')
+                : data?.community.name ?? '-'}
             </Text>
             <Flex direction="row" align="start">
               <Button
@@ -108,7 +125,9 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
                 style={styles.communityMembersButton}
                 buttonTextStyle={styles.communityMembersText}
                 text={t('memberCount', {
-                  count: data?.community.report.memberCount ?? 0,
+                  count: isGlobalCommunity
+                    ? globalData?.globalCommunity.usersReport.usersCount
+                    : data?.community.report.memberCount ?? 0,
                 })}
               />
             </Flex>

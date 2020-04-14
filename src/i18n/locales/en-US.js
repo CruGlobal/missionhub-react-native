@@ -884,5 +884,6 @@ export default {
     memberCount: '{{count}} Member',
     memberCount_plural: '{{count}} Members',
     errorLoadingCommunityDetails: 'Error loading community details',
+    globalCommunity: 'MissionHub Community',
   },
 };

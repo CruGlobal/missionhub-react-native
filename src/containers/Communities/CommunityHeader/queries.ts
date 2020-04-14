@@ -19,3 +19,13 @@ export const COMMUNITY_HEADER_QUERY = gql`
     }
   }
 `;
+
+export const COMMUNITY_HEADER_GLOBAL_QUERY = gql`
+  query CommunityHeaderGlobal {
+    globalCommunity {
+      usersReport {
+        usersCount
+      }
+    }
+  }
+`;
