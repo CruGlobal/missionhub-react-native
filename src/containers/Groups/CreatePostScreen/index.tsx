@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
-import ADD_PHOTO_ICON from '../../../../assets/images/addPhotoIcon.png';
-import SEND_ICON from '../../../../assets/images/sendIcon.png';
 import {
   ACTIONS,
   ANALYTICS_PERMISSION_TYPE,

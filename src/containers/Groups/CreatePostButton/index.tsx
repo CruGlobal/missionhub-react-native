@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { Button, Text } from '../../../components/common';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import styles from './styles';
 
@@ -34,6 +35,7 @@ export const CreatePostButton = ({
       navigatePush(CREATE_POST_SCREEN, {
         orgId,
         onComplete: () => refreshItems(),
+        postType: PostTypeEnum.prayer_request,
       }),
     );
   };
