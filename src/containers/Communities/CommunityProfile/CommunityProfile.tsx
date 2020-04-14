@@ -202,7 +202,9 @@ export const CommunityProfile = () => {
   const permission =
     data?.community.people.edges[0].communityPermission.permission;
 
-  const canEdit = canEditCommunity(permission, data?.community.userCreated);
+  const canEdit =
+    data?.community.userCreated &&
+    canEditCommunity(permission, data?.community.userCreated);
 
   const owner = data?.community.owners.nodes[0];
 

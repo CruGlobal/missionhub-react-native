@@ -74,7 +74,8 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
                   dispatch(navigatePush(COMMUNITY_PROFILE, { communityId }))
                 }
               >
-                {canEditCommunity(
+                {data?.community.userCreated &&
+                canEditCommunity(
                   data?.community.people.edges[0].communityPermission
                     .permission,
                   data?.community.userCreated,
