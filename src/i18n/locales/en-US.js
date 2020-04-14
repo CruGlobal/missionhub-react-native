@@ -868,23 +868,23 @@ export default {
     offline: 'Offline',
   },
   communityPost: {
-    godStory: {
+    story: {
       label: 'God Story',
       placeholder: 'Share an inspiring God story...',
     },
-    prayerRequest: {
+    prayer_request: {
       label: 'Prayer Request',
       placeholder: 'Share a prayer need...',
     },
-    spiritualQuestion: {
+    question: {
       label: 'Spiritual Question',
       placeholder: 'Ask a spiritual question...',
     },
-    careRequest: {
+    help_request: {
       label: 'Care Request',
       placeholder: 'Ask for help...',
     },
-    onYourMind: {
+    thought: {
       label: "What's On Your Mind",
       placeholder: "What's on your mind?",
     },

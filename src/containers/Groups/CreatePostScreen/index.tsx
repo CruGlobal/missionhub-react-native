@@ -25,7 +25,8 @@ import {
   TrackStateContext,
 } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityPost } from '../../../components/CommunityFeedItem/__generated__/CommunityPost';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
@@ -34,39 +35,77 @@ import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
+interface CreatePostNavParams {
+  postType: PostTypeEnum;
+  onComplete: () => void;
+  orgId: string;
+}
+
+interface UpdatePostNavParams {
+  post: CommunityPost;
+  onComplete: () => void;
+  orgId: string;
+}
+
+type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
+
+const getPostTypeAnalytics = (postType: PostTypeEnum) => {
+  switch (postType) {
+    case PostTypeEnum.story:
+      return 'god story';
+    case PostTypeEnum.prayer_request:
+      return 'prayer request';
+    case PostTypeEnum.question:
+      return 'spritual question';
+    case PostTypeEnum.help_request:
+      return 'care request';
+    case PostTypeEnum.thought:
+      return 'whats on your mind';
+    case PostTypeEnum.announcement:
+      return 'announcement';
+    default:
+      return '';
+  }
+};
+
 export const CreatePostScreen = () => {
   const { t } = useTranslation('communityPost');
+  const dispatch = useDispatch();
+
   const onComplete: () => void = useNavigationParam('onComplete');
   const orgId: string = useNavigationParam('orgId');
-  const post:
-    | GetCelebrateFeed_community_celebrationItems_nodes
-    | undefined = useNavigationParam('post'); //TODO: use post type
-  const dispatch = useDispatch();
+  const post: CommunityPost | undefined = useNavigationParam('post');
+  const navPostType: PostTypeEnum | undefined = useNavigationParam('postType');
+
+  const [postType, changePostType] = useState<PostTypeEnum>(
+    post?.celebrateableType || navPostType,
+  );
   const [postText, changePostText] = useState(
     post?.objectDescription || undefined,
   );
   const [postImage, changePostImage] = useState<imagePayload | null>(null); //preload post image if exists
+
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
     permissionType
   >(({ auth }) => getAnalyticsPermissionType(auth, { id: orgId }));
-  useAnalytics(['post', 'god story'], {
-    //TODO: post type
+  useAnalytics(['post', getPostTypeAnalytics(postType)], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
       [ANALYTICS_EDIT_MODE]: post ? 'update' : 'set',
     },
   });
+
   const [createPost] = useMutation<CreatePost, CreatePostVariables>(
     CREATE_POST,
-  ); //TODO: New Mutation
+  );
   const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
     UPDATE_POST,
-  ); //TODO: New Mutation
+  );
 
   const savePost = async () => {
     if (!postText) {
-      return null;
+      return;
     }
 
     Keyboard.dismiss();
@@ -74,10 +113,12 @@ export const CreatePostScreen = () => {
     if (post) {
       await updatePost({
         variables: { input: { id: post.celebrateableId, content: postText } },
-      }); //use new mutation, include image
+      });
     } else {
       await createPost({
-        variables: { input: { content: postText, organizationId: orgId } },
+        variables: {
+          input: { content: postText, organizationId: orgId, postType },
+        },
       }); //use new mutation, include image
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
@@ -90,12 +131,11 @@ export const CreatePostScreen = () => {
     changePostImage(image);
   };
 
-  //TODO: use post type as screen title
   const renderHeader = () => {
     return (
       <Header
         left={<BackButton iconStyle={styles.backButton} />}
-        center={<Text style={styles.headerText}>{t('godStory.label')}</Text>}
+        center={<Text style={styles.headerText}>{t(`${postType}.label`)}</Text>}
         right={
           postText ? (
             <Button onPress={savePost} testID="SavePostButton">
@@ -129,7 +169,6 @@ export const CreatePostScreen = () => {
       </>
     );
 
-  //TODO: use unique placeholder text for each post type
   return (
     <View style={styles.container}>
       {renderHeader()}
@@ -147,7 +186,7 @@ export const CreatePostScreen = () => {
           testID="StoryInput"
           scrollEnabled={false}
           onChangeText={e => changePostText(e)}
-          placeholder={t('godStory.placeholder')}
+          placeholder={t(`${postType}.placeholder`)}
           value={postText}
           autoFocus={true}
           autoCorrect={true}
