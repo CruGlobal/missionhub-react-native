@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
 
-import { renderShallow, createThunkStore } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import { EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM } from '../../../constants';
 import { JourneyEditFlowScreens } from '../journeyEditFlow';
 import { navigateBack } from '../../../actions/navigation';
@@ -25,8 +25,12 @@ const updateChallengeNoteResult = { type: 'update challenge note' };
 const editCommentResult = { type: 'edit comment' };
 const getJourneyResult = { type: 'get journey' };
 
-// @ts-ignore
-let store;
+const initialState = {
+  auth: { person: { id: personId } },
+  drawer: {},
+  analytics: {},
+  onboarding: { currentlyOnboarding: false },
+};
 
 beforeEach(() => {
   // @ts-ignore
@@ -37,15 +41,11 @@ beforeEach(() => {
   editComment.mockReturnValue(editCommentResult);
   // @ts-ignore
   getJourney.mockReturnValue(getJourneyResult);
-  store = createThunkStore({
-    auth: { person: { id: personId } },
-    onboarding: { currentlyOnboarding: false },
-  });
 });
 
 describe('AddStepScreen next', () => {
   it('updates step and navigates back', async () => {
-    const stepParams = {
+    const nextProps = {
       type: EDIT_JOURNEY_STEP,
       id: interationId,
       text,
@@ -56,22 +56,14 @@ describe('AddStepScreen next', () => {
 
     const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
 
-    // @ts-ignore
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+      navParams: nextProps,
+    });
+
     await store.dispatch(
-      renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: stepParams,
-            },
-          }}
-        />,
-        // @ts-ignore
-        store,
-      )
-        .instance()
-        // @ts-ignore
-        .props.next(stepParams),
+      // @ts-ignore
+      getByType(Component).children[0].props.next(nextProps),
     );
 
     expect(updateChallengeNote).toHaveBeenCalledWith(interationId, text);
@@ -80,7 +72,7 @@ describe('AddStepScreen next', () => {
   });
 
   it('updates interaction and navigates back', async () => {
-    const interactionParams = {
+    const nextProps = {
       type: EDIT_JOURNEY_ITEM,
       id: interationId,
       text,
@@ -91,22 +83,14 @@ describe('AddStepScreen next', () => {
 
     const Component = JourneyEditFlowScreens[ADD_STEP_SCREEN];
 
-    // @ts-ignore
+    const { store, getByType } = renderWithContext(<Component />, {
+      initialState,
+      navParams: nextProps,
+    });
+
     await store.dispatch(
-      renderShallow(
-        <Component
-          navigation={{
-            state: {
-              params: interactionParams,
-            },
-          }}
-        />,
-        // @ts-ignore
-        store,
-      )
-        .instance()
-        // @ts-ignore
-        .props.next(interactionParams),
+      // @ts-ignore
+      getByType(Component).children[0].props.next(nextProps),
     );
 
     expect(editComment).toHaveBeenCalledWith(interationId, text);

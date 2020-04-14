@@ -1,6 +1,8 @@
-import 'react-native';
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { FlatList } from 'react-native';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import i18next from 'i18next';
+import { useQuery } from '@apollo/react-hooks';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
@@ -8,44 +10,24 @@ import {
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
+import { STEP_SUGGESTIONS_QUERY } from '../queries';
+import { StepTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SelectStepScreen from '..';
 
-jest.mock('../../StepsList', () => 'StepsList');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock(
+  '../../../components/SelectStepExplainerModal',
+  () => 'SelectStepExplainerModal',
+);
 
 const next = jest.fn(() => () => ({}));
 const orgId = '4234234';
 const me = { id: '89123', first_name: 'roger' };
 const personId = '252342354234';
-const person = {
-  id: personId,
-  first_name: 'Test',
-  reverse_contact_assignments: [
-    {
-      assigned_to: { id: me.id },
-      organization: { id: orgId },
-      pathway_stage_id: '3',
-    },
-  ],
-  organizational_permissions: [{ organization_id: orgId }],
-};
 const state = {
   auth: { person: me },
-  people: {
-    allByOrg: {
-      personal: {
-        id: 'personal',
-        people: { [me.id]: me },
-      },
-      [orgId]: {
-        id: orgId,
-        people: { [person.id]: person },
-      },
-    },
-  },
-  steps: { suggestedForOthers: {} },
   onboarding: { currentlyOnboarding: false },
 };
 
@@ -59,12 +41,8 @@ beforeEach(() => {
   });
 });
 
-describe('without enableSkipButton', () => {
-  beforeAll(() => {
-    enableSkipButton = false;
-  });
-
-  it('renders correctly', () => {
+describe('loading', () => {
+  it('should render correctly', () => {
     screen.snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
@@ -74,15 +52,12 @@ describe('without enableSkipButton', () => {
       },
     });
   });
-});
 
-describe('with enableSkipButton', () => {
-  beforeAll(() => {
-    enableSkipButton = true;
-  });
-
-  it('renders correctly', () => {
-    screen.snapshot();
+  it('should render for self steps correctly', () => {
+    renderWithContext(<SelectStepScreen next={next} />, {
+      initialState: state,
+      navParams: { personId: me.id, orgId, enableSkipButton },
+    }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
       screenContext: {
@@ -90,6 +65,52 @@ describe('with enableSkipButton', () => {
         [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
       },
     });
+  });
+
+  describe('skip button', () => {
+    beforeAll(() => {
+      enableSkipButton = true;
+    });
+
+    it('should render skip button correctly', () => {
+      screen.snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith('add step', {
+        screenContext: {
+          [ANALYTICS_SECTION_TYPE]: '',
+          [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+        },
+      });
+    });
+
+    it('should call next when pressed', () => {
+      fireEvent.press(screen.getByTestId('skipButton'));
+
+      expect(next).toHaveBeenCalledWith({
+        personId,
+        stepSuggestionId: undefined,
+        stepType: undefined,
+        skip: true,
+        orgId,
+      });
+    });
+  });
+
+  it('should hide tabs when locale is not en', () => {
+    screen.recordSnapshot();
+    const originalLanguage = i18next.language;
+    i18next.language = 'es-419';
+    screen.rerender(<SelectStepScreen next={next} />);
+    screen.diffSnapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
+
+    i18next.language = originalLanguage;
   });
 });
 
@@ -109,31 +130,84 @@ describe('in onboarding', () => {
   });
 });
 
-xdescribe('skip button', () => {
-  // Note there are 2 skip buttons (and 2 headers) because of the parallax view
+describe('with explainer open', () => {
   beforeAll(() => {
-    enableSkipButton = true;
+    enableSkipButton = false;
+  });
+  it('opens explainer modal', async () => {
+    await flushMicrotasksQueue();
+
+    screen.recordSnapshot();
+    fireEvent.press(screen.getByTestId('SelectStepExplainerIconButton'));
+    screen.diffSnapshot();
+  });
+});
+
+it('should load step suggestions', async () => {
+  const { recordSnapshot, diffSnapshot } = renderWithContext(
+    <SelectStepScreen next={next} />,
+    {
+      initialState: state,
+      navParams: { personId, orgId, enableSkipButton },
+    },
+  );
+  recordSnapshot();
+  await flushMicrotasksQueue();
+  diffSnapshot();
+
+  expect(useQuery).toHaveBeenCalledWith(STEP_SUGGESTIONS_QUERY, {
+    variables: {
+      personId,
+      stepType: StepTypeEnum.relate,
+      seed: expect.any(Number),
+    },
+  });
+});
+
+it('should hide step count badges when there are no completed steps', async () => {
+  const { snapshot } = renderWithContext(<SelectStepScreen next={next} />, {
+    initialState: state,
+    navParams: { personId, orgId, enableSkipButton },
+    mocks: {
+      Query: () => ({
+        completedStepsReport: () => [
+          { count: 0, stepType: StepTypeEnum.relate },
+          { count: 0, stepType: StepTypeEnum.pray },
+          { count: 0, stepType: StepTypeEnum.care },
+          { count: 0, stepType: StepTypeEnum.share },
+        ],
+      }),
+    },
   });
 
-  it('first button should call next', () => {
-    fireEvent.press(screen.getAllByTestId('skipButton')[0]);
+  await flushMicrotasksQueue();
+  snapshot();
+});
 
-    expect(next).toHaveBeenCalledWith({
-      receiverId: personId,
-      step: undefined,
-      skip: true,
-      orgId,
-    });
-  });
+it('should paginate', async () => {
+  const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
+    <SelectStepScreen next={next} />,
+    {
+      initialState: state,
+      navParams: { personId, orgId, enableSkipButton },
+      mocks: {
+        Query: () => ({
+          person: () => ({
+            stepSuggestions: () => ({
+              pageInfo: () => ({ hasNextPage: true }),
+            }),
+          }),
+        }),
+      },
+    },
+  );
 
-  it('second button should call next', () => {
-    fireEvent.press(screen.getAllByTestId('skipButton')[1]);
+  await flushMicrotasksQueue();
 
-    expect(next).toHaveBeenCalledWith({
-      receiverId: personId,
-      step: undefined,
-      skip: true,
-      orgId,
-    });
-  });
+  recordSnapshot();
+
+  fireEvent(getByType(FlatList), 'onEndReached');
+
+  await flushMicrotasksQueue();
+  diffSnapshot();
 });

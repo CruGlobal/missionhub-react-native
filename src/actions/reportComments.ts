@@ -3,7 +3,7 @@
 import { ThunkDispatch } from 'redux-thunk';
 
 import { ACTIONS } from '../constants';
-import { formatApiDate } from '../utils/common';
+import { formatApiDate } from '../utils/date';
 import { REQUESTS } from '../api/routes';
 import { CelebrateComment } from '../reducers/celebrateComments';
 import { AuthState } from '../reducers/auth';

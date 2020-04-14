@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { renderShallow } from '../../../../testUtils';
 import { SelectMyStageFlowScreens } from '../selectMyStageFlow';
 import { updatePersonAttributes } from '../../../actions/person';
-import { loadStepsAndJourney } from '../../../actions/misc';
+import { reloadJourney } from '../../../actions/journey';
 import { navigatePush } from '../../../actions/navigation';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
@@ -13,7 +13,7 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
-jest.mock('../../../actions/misc');
+jest.mock('../../../actions/journey');
 
 const myId = '111';
 const myName = 'Me';
@@ -57,7 +57,7 @@ const buildAndCallNext = async (screen, navParams, nextProps) => {
 };
 
 const updatePersonResponse = { type: 'update person attributes' };
-const loadStepsJourneyResponse = { type: 'load steps and journey' };
+const reloadJourneyResponse = { type: 'reloadJourney' };
 const navigatePushResponse = { type: 'navigate push' };
 
 beforeEach(() => {
@@ -65,7 +65,7 @@ beforeEach(() => {
   // @ts-ignore
   updatePersonAttributes.mockReturnValue(updatePersonResponse);
   // @ts-ignore
-  loadStepsAndJourney.mockReturnValue(loadStepsJourneyResponse);
+  reloadJourney.mockReturnValue(reloadJourneyResponse);
   // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
 });
@@ -94,8 +94,8 @@ describe('SelectStageScreen next', () => {
       });
     });
 
-    it('should load steps and journey', () => {
-      expect(loadStepsAndJourney).toHaveBeenCalledWith(myId, orgId);
+    it('should reload journey', () => {
+      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
     });
 
     it('should navigate to CelebrationScreen', () => {
@@ -108,7 +108,7 @@ describe('SelectStageScreen next', () => {
     it('fires correct actions', () => {
       expect(store.getActions()).toEqual([
         updatePersonResponse,
-        loadStepsJourneyResponse,
+        reloadJourneyResponse,
         navigatePushResponse,
       ]);
     });
@@ -137,8 +137,8 @@ describe('SelectStageScreen next', () => {
       });
     });
 
-    it('should load steps and journey', () => {
-      expect(loadStepsAndJourney).toHaveBeenCalledWith(myId, orgId);
+    it('should reload journey', () => {
+      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
     });
 
     it('should navigate to SelectStepScreen', () => {
@@ -151,7 +151,7 @@ describe('SelectStageScreen next', () => {
     it('fires correct actions', () => {
       expect(store.getActions()).toEqual([
         updatePersonResponse,
-        loadStepsJourneyResponse,
+        reloadJourneyResponse,
         navigatePushResponse,
       ]);
     });

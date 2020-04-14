@@ -3,11 +3,7 @@ import thunk from 'redux-thunk';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import {
-  markCommentsRead,
-  checkForUnreadComments,
-  markCommentRead,
-} from '../unreadComments';
+import { markCommentsRead, markCommentRead } from '../unreadComments';
 import { getMe } from '../person';
 import { getCelebrateFeed } from '../celebration';
 import { refreshCommunity, getMyCommunities } from '../organizations';
@@ -34,12 +30,6 @@ jest.mock('../organizations');
 
 const orgId = '4';
 
-const unreadCommentsQuery = {
-  include: 'organizational_permissions,organizational_permissions.organization',
-  'fields[person]': 'organizational_permissions,unread_comments_count',
-  'fields[organizational_permissions]': 'organization',
-  'fields[organization]': 'unread_comments_count',
-};
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let store: any;
 
@@ -86,18 +76,5 @@ describe('markCommentRead', () => {
 
   it('should refresh community unread comments feed', () => {
     expect(getCelebrateFeed).toHaveBeenCalledWith(orgId, undefined, true);
-  });
-});
-
-describe('updateCommentNotification', () => {
-  beforeEach(() => {
-    store.dispatch(checkForUnreadComments());
-  });
-
-  it('makes API request GET_UNREAD_COMMENTS_NOTIFICATION', () => {
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION,
-      unreadCommentsQuery,
-    );
   });
 });

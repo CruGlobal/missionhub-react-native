@@ -1,7 +1,5 @@
 /* eslint max-lines: 0, max-params: 0 */
 
-// eslint-disable-next-line import/named
-import moment, { MomentInput } from 'moment';
 import {
   ToastAndroid,
   BackHandler,
@@ -14,7 +12,6 @@ import Config from 'react-native-config';
 import i18n from 'i18next';
 
 import {
-  CUSTOM_STEP_TYPE,
   MAIN_MENU_DRAWER,
   ORG_PERMISSIONS,
   INTERACTION_TYPES,
@@ -26,21 +23,6 @@ import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PermissionEnum } from '../../__generated__/globalTypes';
 import { StagesState } from '../reducers/stages';
-
-// @ts-ignore
-export const shuffleArray = arr => {
-  let i, temporaryValue, randomIndex;
-
-  for (i = arr.length; i > 0; i -= 1) {
-    randomIndex = Math.floor(Math.random() * i);
-
-    temporaryValue = arr[i - 1];
-    arr[i - 1] = arr[randomIndex];
-    arr[randomIndex] = temporaryValue;
-  }
-
-  return arr;
-};
 
 export const isAndroid = Platform.OS === 'android';
 
@@ -199,27 +181,10 @@ export const shouldQueryReportedComments = (org, orgPermission) =>
   (orgIsUserCreated(org) && isOwner(orgPermission));
 
 // @ts-ignore
-export const isCustomStep = step => step.challenge_type === CUSTOM_STEP_TYPE;
-
-// @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   // @ts-ignore
   jsonApiResponse.findAll(type).filter(element => !element._placeHolder);
 
-// Pull dates out of UTC format into a moment object
-export const momentUtc = (time: MomentInput) =>
-  moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
-export const formatApiDate = (date: MomentInput) =>
-  moment(date)
-    .utc()
-    .format();
-
-// @ts-ignore
-export const getInitials = initials =>
-  (initials || '')
-    .trim()
-    .substr(0, 2)
-    .trim();
 // @ts-ignore
 export const getFirstNameAndLastInitial = (f, l) =>
   `${f || ''} ${(l || '').charAt(0)}`.trim();
@@ -319,26 +284,22 @@ export function getPagination(action, currentLength) {
 
 //showing assign/unassign buttons on side menu
 export function showAssignButton(
-  // @ts-ignore
-  isCruOrg,
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  contactAssignment,
+  isCruOrg: boolean,
+  personIsCurrentUser: boolean,
+  contactAssignment: { id: string },
 ) {
   return isCruOrg && !personIsCurrentUser && !contactAssignment;
 }
-// @ts-ignore
-export function showUnassignButton(isCruOrg, contactAssignment) {
+export function showUnassignButton(
+  isCruOrg: boolean,
+  contactAssignment: { id: string },
+) {
   return isCruOrg && contactAssignment;
 }
 export function showDeleteButton(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  contactAssignment,
-  // @ts-ignore
-  orgPermission,
+  personIsCurrentUser: boolean,
+  contactAssignment: { id: string },
+  orgPermission?: { id: string },
 ) {
   return !personIsCurrentUser && contactAssignment && !orgPermission;
 }

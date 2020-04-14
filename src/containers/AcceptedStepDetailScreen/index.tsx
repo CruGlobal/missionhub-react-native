@@ -104,7 +104,7 @@ const AcceptedStepDetailScreen = ({
 
   return (
     <StepDetailScreen
-      receiver={step?.receiver}
+      firstName={step?.receiver.firstName}
       Banner={
         <ErrorNotice
           message={t('errorLoadingStepDetails')}
@@ -129,6 +129,7 @@ const AcceptedStepDetailScreen = ({
         undefined
       }
       text={step?.title}
+      stepType={step?.stepType}
       bottomButtonProps={{
         onPress: handleCompleteStep,
         text: t('iDidIt'),
