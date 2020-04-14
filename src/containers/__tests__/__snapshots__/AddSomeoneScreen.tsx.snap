@@ -312,11 +312,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -341,7 +344,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -588,11 +593,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -617,7 +625,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -875,11 +885,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -904,7 +917,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }

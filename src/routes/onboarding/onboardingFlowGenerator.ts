@@ -18,6 +18,9 @@ import SetupScreen, {
   SETUP_SCREEN,
   SETUP_PERSON_SCREEN,
 } from '../../containers/SetupScreen';
+import PersonCategoryScreen, {
+  PERSON_CATEGORY_SCREEN,
+} from '../../containers/PersonCategoryScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from '../../containers/GetStartedScreen';
@@ -51,6 +54,7 @@ import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
 import { OnboardingState } from '../../reducers/onboarding';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
@@ -105,11 +109,26 @@ export const onboardingFlowGenerator = ({
     ({ skip }: { skip: boolean }) =>
       skip
         ? skipAddPersonAndCompleteOnboarding()
-        : navigatePush(SETUP_PERSON_SCREEN),
+        : navigatePush(PERSON_CATEGORY_SCREEN),
     {
       hideSkipBtn,
       logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
     },
+  ),
+  [PERSON_CATEGORY_SCREEN]: wrapNextAction(
+    PersonCategoryScreen,
+    ({
+      skip,
+      relationshipType,
+    }: {
+      skip: boolean;
+      relationshipType: RelationshipTypeEnum;
+    }) =>
+      skip
+        ? skipAddPersonAndCompleteOnboarding()
+        : navigatePush(SETUP_PERSON_SCREEN, {
+            relationshipType,
+          }),
   ),
   [SETUP_PERSON_SCREEN]: wrapNextAction(
     SetupScreen,
@@ -128,7 +147,7 @@ export const onboardingFlowGenerator = ({
             }),
       );
     },
-    { isMe: false, hideSkipBtn },
+    { isMe: false, hideSkipBtn: true },
   ),
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
