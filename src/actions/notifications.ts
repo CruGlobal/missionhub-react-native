@@ -35,6 +35,20 @@ import {
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
 
+export const SET_NOTIFICATION_ANALYTICS = 'app/SET_NOTIFICATION_ANALYTICS';
+
+export interface SetNotificationAnalyticsAction {
+  type: typeof SET_NOTIFICATION_ANALYTICS;
+  notificationName: string;
+}
+
+export const setNotificationAnalytics = (
+  notificationName: string,
+): SetNotificationAnalyticsAction => ({
+  type: SET_NOTIFICATION_ANALYTICS,
+  notificationName,
+});
+
 // react-native-push-notifications has the PushNotification type overloaded to be both the notification payload and the constructor so TS merges them. Here we just pick the payload keys.
 export type RNPushNotificationPayload = Pick<
   RNPushNotificationPayloadAndConstructor,
@@ -255,6 +269,8 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
     const { person: me } = getState().auth;
 
     const notificationData = parseNotificationData(notification);
+
+    dispatch(setNotificationAnalytics(notificationData.screen));
 
     switch (notificationData.screen) {
       case 'home':
