@@ -28,6 +28,8 @@ import { navigateBack } from '../../../actions/navigation';
 import { CommunityPost } from '../../../components/CommunityFeedItem/__generated__/CommunityPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
+import SendIcon from './sendIcon.svg';
+import CameraIcon from './cameraIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
@@ -139,11 +141,7 @@ export const CreatePostScreen = () => {
         right={
           postText ? (
             <Button onPress={savePost} testID="SavePostButton">
-              <Image
-                source={SEND_ICON}
-                style={styles.icon}
-                resizeMode="contain"
-              />
+              <SendIcon style={styles.icon} />
             </Button>
           ) : null
         }
@@ -158,11 +156,7 @@ export const CreatePostScreen = () => {
       <>
         <View style={styles.lineBreak} />
         <View style={styles.addPhotoButton}>
-          <Image
-            source={ADD_PHOTO_ICON}
-            resizeMode="contain"
-            style={styles.icon}
-          />
+          <CameraIcon style={styles.icon} />
           <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
         </View>
         <View style={styles.lineBreak} />
