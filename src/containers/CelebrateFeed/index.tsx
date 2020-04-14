@@ -1,8 +1,5 @@
 import React from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
@@ -10,7 +7,7 @@ import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
-import ShareStoryInput from '../Groups/ShareStoryInput';
+import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
   CelebrateFeedSection,
@@ -19,7 +16,7 @@ import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
-import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
+import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import {
   GetCelebrateFeed,
   GetCelebrateFeed_community_celebrationItems_nodes,
@@ -28,7 +25,6 @@ import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   person?: Person;
   itemNamePressable: boolean;
@@ -42,8 +38,7 @@ export interface CelebrateFeedProps {
   testID?: string;
 }
 
-const CelebrateFeed = ({
-  dispatch,
+export const CelebrateFeed = ({
   organization,
   person,
   itemNamePressable,
@@ -74,7 +69,7 @@ const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
+  } = useQuery<GetCelebrateFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
     skip: isGlobal,
@@ -96,7 +91,7 @@ const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
+  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_COMMUNITY_FEED, {
     pollInterval: 30000,
     skip: !isGlobal,
   });
@@ -221,10 +216,9 @@ const CelebrateFeed = ({
             organization={organization}
           />
           {!person ? (
-            <ShareStoryInput
-              dispatch={dispatch}
+            <CreatePostButton
               refreshItems={handleRefreshing}
-              organization={organization}
+              orgId={organization.id}
             />
           ) : null}
         </>
@@ -248,5 +242,3 @@ const CelebrateFeed = ({
     />
   );
 };
-
-export default connect()(CelebrateFeed);

@@ -1,48 +1,55 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
+import { useDispatch } from 'react-redux';
 
 import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
-import { Organization } from '../../../reducers/organizations';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import styles from './styles';
 
-interface ShareStoryInputProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+interface CreatePostButtonProps {
   refreshItems: () => void;
-  organization: Organization;
+  orgId: string;
 }
 
-const ShareStoryInput = ({
-  dispatch,
+export const CreatePostButton = ({
   refreshItems,
-  organization,
-}: ShareStoryInputProps) => {
+  orgId,
+}: CreatePostButtonProps) => {
   const { t } = useTranslation('shareAStoryScreen');
-  const { container, inputButton, inputText } = styles;
-  const { id } = organization;
+  const dispatch = useDispatch();
+  const {
+    container,
+    inputButton,
+    inputText,
+    profileWrapper,
+    profileText,
+  } = styles;
 
   const onPress = () => {
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        orgId: organization.id,
+        orgId,
         onComplete: () => refreshItems(),
       }),
     );
   };
 
-  return id !== GLOBAL_COMMUNITY_ID ? (
+  const renderProfile = () => (
+    <View style={profileWrapper}>
+      <Text style={profileText}>C</Text>
+    </View>
+  );
+
+  return orgId !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
       <Button style={inputButton} onPress={onPress} testID="ShareStoryInput">
-        <Text style={inputText}>{t('inputPlaceholder')}</Text>
+        {renderProfile()}
+        <Text style={inputText}>{t('buttonPlaceholder')}</Text>
       </Button>
     </View>
   ) : null;
 };
-
-export default ShareStoryInput;
