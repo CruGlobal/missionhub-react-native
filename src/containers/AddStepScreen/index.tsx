@@ -1,14 +1,13 @@
 /* eslint complexity: 0 */
 
 import React, { useState } from 'react';
-import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StatusBar, Keyboard, Alert, View, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
-import { TrackStateContext } from '../../actions/analytics';
 import { Input } from '../../components/common';
 import theme from '../../theme';
 import {
@@ -19,10 +18,6 @@ import {
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
-import {
-  getAnalyticsSectionType,
-  getAnalyticsAssignmentType,
-} from '../../utils/analytics';
 import BackButton from '../BackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
@@ -31,36 +26,49 @@ import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { StepTypeEnum } from '../../../__generated__/globalTypes';
+import { StepTypeBadge } from '../../components/StepTypeBadge/StepTypeBadge';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { STEPS_QUERY } from '../StepsScreen/queries';
+import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
+import { trackStepAdded } from '../../actions/analytics';
+import {
+  getAnalyticsSectionType,
+  getAnalyticsAssignmentType,
+} from '../../utils/analytics';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
+import { CREATE_CUSTOM_STEP_MUTATION } from './queries';
+import {
+  CreateCustomStep,
+  CreateCustomStepVariables,
+} from './__generated__/CreateCustomStep';
 
 const characterLimit = 255;
 
-interface AddStepScreenProps {
-  next: (props: {
-    text?: string;
-    id?: string;
-    type: string;
-    personId: string;
-    orgId?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, {}, never>;
-  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
-  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
-  myId: string;
+export interface AddStepScreenNextProps {
+  text?: string;
+  id?: string;
+  type: string;
+  personId: string;
+  orgId?: string;
 }
 
-const AddStepScreen = ({
-  next,
-  analyticsSection,
-  analyticsAssignmentType,
-  myId,
-}: AddStepScreenProps) => {
+interface AddStepScreenProps {
+  next: (
+    props: AddStepScreenNextProps,
+  ) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ThunkAction<void, any, {}, never>;
+}
+
+const AddStepScreen = ({ next }: AddStepScreenProps) => {
   const { t } = useTranslation('addStep');
   const dispatch = useDispatch();
   useAndroidBackButton();
   const type: string = useNavigationParam('type');
+  const stepType: StepTypeEnum | undefined = useNavigationParam('stepType');
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
   const id: string | undefined = useNavigationParam('id');
@@ -69,7 +77,7 @@ const AddStepScreen = ({
     'onSetComplete',
   );
 
-  const isMe = myId === personId;
+  const isMe = useIsMe(personId);
   const isStepNote = type === STEP_NOTE;
   const isCreateStep = type === CREATE_STEP;
   const isEdit = [EDIT_JOURNEY_STEP, EDIT_JOURNEY_ITEM].includes(type);
@@ -84,6 +92,13 @@ const AddStepScreen = ({
       : 'our journey'
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
+  const analyticsSection = useSelector(
+    ({ onboarding }: { onboarding: OnboardingState }) =>
+      getAnalyticsSectionType(onboarding),
+  );
+  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
+    getAnalyticsAssignmentType({ id: personId }, auth),
+  );
   useAnalytics([screenSection, screenSubsection], {
     screenContext: {
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
@@ -92,6 +107,20 @@ const AddStepScreen = ({
   });
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
+
+  const [createCustomStep, { error: errorCreateCustomStep }] = useMutation<
+    CreateCustomStep,
+    CreateCustomStepVariables
+  >(CREATE_CUSTOM_STEP_MUTATION, {
+    refetchQueries: [
+      { query: STEPS_QUERY },
+      {
+        query: PERSON_STEPS_QUERY,
+        variables: { personId, completed: false },
+      },
+    ],
+    onCompleted: data => dispatch(trackStepAdded(data.createCustomStep?.step)),
+  });
 
   const onChangeText = (newText: string) => {
     setSavedText(newText);
@@ -107,7 +136,7 @@ const AddStepScreen = ({
     dispatch(next({ text, id, type, personId, orgId }));
   };
 
-  const handleSaveStep = () => {
+  const handleSaveStep = async () => {
     Keyboard.dismiss();
 
     const finalText = savedText.trim();
@@ -115,6 +144,15 @@ const AddStepScreen = ({
     if (!finalText) {
       return;
     }
+
+    isCreateStep &&
+      (await createCustomStep({
+        variables: {
+          title: finalText,
+          stepType,
+          receiverId: personId,
+        },
+      }));
 
     navigateNext(finalText);
   };
@@ -150,11 +188,19 @@ const AddStepScreen = ({
         }
       />
       <StatusBar {...theme.statusBar.darkContent} />
+      <ErrorNotice
+        message={t('errorSavingStep')}
+        error={errorCreateCustomStep}
+        refetch={handleSaveStep}
+      />
       <ScrollView
         contentContainerStyle={styles.fieldWrap}
         style={{ marginBottom: isAndroid ? 80 : undefined }}
         contentInset={{ bottom: 96 }}
       >
+        {isCreateStep ? (
+          <StepTypeBadge stepType={stepType} style={styles.badge} />
+        ) : null}
         <Input
           testID="stepInput"
           scrollEnabled={false}
@@ -181,28 +227,6 @@ const AddStepScreen = ({
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    onboarding,
-  }: {
-    auth: AuthState;
-    onboarding: OnboardingState;
-  },
-  {
-    navigation: {
-      state: {
-        params: { personId },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
-  myId: auth.person.id,
-  analyticsSection: getAnalyticsSectionType(onboarding),
-  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
-});
-
-export default connect(mapStateToProps)(AddStepScreen);
+export default AddStepScreen;
 export const ADD_STEP_SCREEN = 'nav/ADD_STEP';
 export const COMPLETE_STEP_SCREEN = 'nav/COMPLETE_STEP';

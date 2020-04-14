@@ -3,9 +3,9 @@ import { FlatList } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 import { useQuery } from '@apollo/react-hooks';
-import { useFocusEffect } from 'react-navigation-hooks';
 
-import GroupsListScreen, { GET_COMMUNITIES_QUERY } from '../GroupsListScreen';
+import GroupsListScreen from '../GroupsListScreen';
+import { GET_COMMUNITIES_QUERY } from '../queries';
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush, navigateToCommunity } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
@@ -65,7 +65,6 @@ describe('GroupsListScreen', () => {
     expect(useAnalytics).toHaveBeenCalledWith('communities', {
       screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
     });
-    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('renders with communities', async () => {
@@ -83,7 +82,6 @@ describe('GroupsListScreen', () => {
     expect(useAnalytics).toHaveBeenCalledWith('communities', {
       screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
     });
-    expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
   });
 
   describe('card item press', () => {

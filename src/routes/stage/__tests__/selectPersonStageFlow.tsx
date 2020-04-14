@@ -10,7 +10,7 @@ import {
   updatePersonAttributes,
   getPersonDetails,
 } from '../../../actions/person';
-import { loadStepsAndJourney } from '../../../actions/misc';
+import { reloadJourney } from '../../../actions/journey';
 import { navigatePush } from '../../../actions/navigation';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
@@ -19,6 +19,7 @@ import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen/index'
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/person');
 jest.mock('../../../actions/misc');
+jest.mock('../../../actions/journey');
 jest.mock('../../../actions/navigation');
 
 const myId = '111';
@@ -79,7 +80,7 @@ beforeEach(() => {
   // @ts-ignore
   getPersonDetails.mockReturnValue(getPersonDetailsResponse);
   // @ts-ignore
-  loadStepsAndJourney.mockReturnValue(loadStepsJourneyResponse);
+  reloadJourney.mockReturnValue(loadStepsJourneyResponse);
   // @ts-ignore
   navigatePush.mockReturnValue(navigatePushResponse);
 });
@@ -126,7 +127,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should load steps and journey', () => {
-        expect(loadStepsAndJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
       });
 
       it('should navigate to CelebrationScreen', () => {
@@ -180,7 +181,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should load steps and journey', () => {
-        expect(loadStepsAndJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
       });
 
       it('should navigate to CelebrationScreen', () => {
@@ -241,7 +242,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should load steps and journey', () => {
-        expect(loadStepsAndJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
       });
 
       it('should navigate to PersonSelectStepScreen', () => {
@@ -295,7 +296,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should load steps and journey', () => {
-        expect(loadStepsAndJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
       });
 
       it('should navigate to PersonSelectStepScreen', () => {

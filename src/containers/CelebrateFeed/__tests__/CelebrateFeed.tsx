@@ -15,9 +15,6 @@ import CelebrateFeed from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../components/common', () => ({
-  DateComponent: 'DateComponent',
-}));
 jest.mock('../../../components/CelebrateItem', () => 'CelebrateItem');
 jest.mock('../../Groups/ShareStoryInput', () => 'ShareStoryInput');
 jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
