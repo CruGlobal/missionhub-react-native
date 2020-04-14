@@ -25,6 +25,7 @@ import InfoIcon from '../../../../assets/images/infoIcon.svg';
 import EditIcon from '../../../../assets/images/editIcon.svg';
 import { useMyId } from '../../../utils/hooks/useIsMe';
 import { useCommunityPhoto } from '../hooks/useCommunityPhoto';
+import { canEditCommunity } from '../../../utils/common';
 
 import styles from './styles';
 import { COMMUNITY_HEADER_QUERY } from './queries';
@@ -32,7 +33,6 @@ import {
   CommunityHeader as CommunityHeaderQuery,
   CommunityHeaderVariables,
 } from './__generated__/CommunityHeader';
-import { canEditCommunity } from '../../../utils/common';
 
 export const CommunitiesCollapsibleHeaderContext = createCollapsibleViewContext();
 

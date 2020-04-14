@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 // eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { useNavigationState } from 'react-navigation-hooks';

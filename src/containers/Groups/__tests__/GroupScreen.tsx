@@ -15,7 +15,7 @@ import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
-import { GROUP_PROFILE } from '../../Communities/GroupProfile';
+import { COMMUNITY_PROFILE } from '../../Communities/CommunityProfile/CommunityProfile';
 
 jest.mock('../../../actions/navigation');
 
@@ -111,8 +111,8 @@ describe('GroupScreen', () => {
       .props()
       .right.props.onPress();
 
-    expect(navigatePush).toHaveBeenCalledWith(GROUP_PROFILE, {
-      organization: userOrg,
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_PROFILE, {
+      communityId: userOrg.id,
     });
   });
 

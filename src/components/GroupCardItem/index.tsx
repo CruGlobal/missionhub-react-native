@@ -3,8 +3,6 @@ import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text, Flex, Card, Button, Icon } from '../common';
-import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
-import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 import { TouchablePress } from '../Touchable/index.ios';
