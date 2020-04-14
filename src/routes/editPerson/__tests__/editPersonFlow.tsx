@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { DrawerActions } from 'react-navigation-drawer';
 
 import { ADD_CONTACT_SCREEN } from '../../../containers/AddContactScreen';
 import { EditPersonFlowScreens } from '../editPersonFlow';
@@ -25,6 +26,7 @@ jest.mock('../../../utils/hooks/useIsMe');
 jest.mock('../../../actions/selectStage');
 jest.mock('../../../actions/stages');
 jest.mock('react-native-device-info');
+jest.mock('react-navigation-drawer');
 
 const me = { id: '1' };
 const next = jest.fn();
@@ -34,6 +36,7 @@ const getPersonDetailsResponse = { type: 'get person details' };
 const trackActionResponse = { type: 'track action' };
 const trackScreenChangeResponse = { type: 'track screen change' };
 const selectPersonStageResult = { type: 'update select person stage' };
+const closeDrawerResults = { type: 'drawer closed' };
 
 const baseStage: Stage = {
   id: '1',
@@ -79,6 +82,7 @@ beforeEach(() => {
   (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResponse);
   (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResult);
   (next as jest.Mock).mockReturnValue({ type: 'next' });
+  (DrawerActions.closeDrawer as jest.Mock).mockReturnValue(closeDrawerResults);
 });
 
 describe('AddContactScreen next', () => {
@@ -99,7 +103,10 @@ describe('AddContactScreen next', () => {
 
     await fireEvent.press(getByTestId('backIcon'));
     expect(navigateBack).toHaveBeenCalledWith();
-    expect(store.getActions()).toEqual([navigateBackResponse]);
+    expect(store.getActions()).toEqual([
+      closeDrawerResults,
+      navigateBackResponse,
+    ]);
   });
 
   it('navigates back if edited and current user is the one being edited', async () => {
@@ -147,6 +154,7 @@ describe('AddContactScreen next', () => {
     expect(navigateBack).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([
       getPersonDetailsResponse,
+      closeDrawerResults,
       navigateBackResponse,
     ]);
   });
@@ -193,6 +201,7 @@ describe('AddContactScreen next', () => {
     expect(navigateBack).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([
       getPersonDetailsResponse,
+      closeDrawerResults,
       navigateBackResponse,
     ]);
   });

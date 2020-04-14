@@ -4,6 +4,7 @@ import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { DrawerActions } from 'react-navigation-drawer';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -29,6 +30,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useIsMe');
+jest.mock('react-navigation-drawer');
 
 const me = { id: '99' };
 const contactId = '23';
@@ -54,6 +56,7 @@ const loadPersonResults = {
   type: LOAD_PERSON_DETAILS,
 };
 const getPersonDetailsResults = { type: 'get person details' };
+const closeDrawerResults = { type: 'drawer closed' };
 const next = jest.fn();
 
 const initialState = {
@@ -69,6 +72,7 @@ beforeEach(() => {
   (useIsMe as jest.Mock).mockReturnValue(false);
   (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResults);
   next.mockReturnValue(nextResponse);
+  (DrawerActions.closeDrawer as jest.Mock).mockReturnValue(closeDrawerResults);
   Alert.alert = jest.fn();
 });
 
@@ -220,10 +224,12 @@ describe('savePerson', () => {
           didSavePerson: true,
           isMe: false,
         });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
 
         expect(store.getActions()).toEqual([
           loadPersonResults,
           trackActionResponse,
+          closeDrawerResults,
           nextResponse,
         ]);
         expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
@@ -283,10 +289,12 @@ describe('savePerson', () => {
           didSavePerson: true,
           isMe: false,
         });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
 
         expect(store.getActions()).toEqual([
           loadPersonResults,
           trackActionResponse,
+          closeDrawerResults,
           nextResponse,
         ]);
       });
@@ -356,9 +364,11 @@ describe('savePerson', () => {
           didSavePerson: true,
           isMe: false,
         });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
 
         expect(store.getActions()).toEqual([
           getPersonDetailsResults,
+          closeDrawerResults,
           nextResponse,
         ]);
       });
@@ -412,9 +422,11 @@ describe('savePerson', () => {
           didSavePerson: true,
           isMe: false,
         });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
 
         expect(store.getActions()).toEqual([
           getPersonDetailsResults,
+          closeDrawerResults,
           nextResponse,
         ]);
       });
@@ -515,9 +527,11 @@ describe('savePerson', () => {
           didSavePerson: true,
           isMe: false,
         });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
 
         expect(store.getActions()).toEqual([
           getPersonDetailsResults,
+          closeDrawerResults,
           nextResponse,
         ]);
       });

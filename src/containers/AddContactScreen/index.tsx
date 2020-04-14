@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { DrawerActions } from 'react-navigation-drawer';
 
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
@@ -99,6 +100,8 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   >(UPDATE_PERSON);
 
   const complete = (didSavePerson: boolean, person?: PersonType) => {
+    // Close sidemenu so we land on person screen with it not opened
+    dispatch(DrawerActions.closeDrawer());
     dispatch(
       next({
         personId: person?.id,
