@@ -12,6 +12,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { GROUP_ONBOARDING_TYPES } from '../../../containers/Groups/OnboardingCard';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
+import * as common from '../../../utils/common';
 
 import ChallengeFeed from '..';
 
@@ -96,6 +97,7 @@ const challengeItems = [
 ];
 
 beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(
     trackActionWithoutDataResult,
@@ -135,6 +137,20 @@ describe('Challenge Feed rendering', () => {
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
   });
 
+  it('renders correctly on android', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    renderWithContext(
+      <ChallengeFeed
+        {...props}
+        items={challengeItems}
+        organization={organization}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
+  });
+
   it('renders with extra padding', () => {
     renderWithContext(
       <ChallengeFeed
@@ -148,6 +164,21 @@ describe('Challenge Feed rendering', () => {
       },
     ).snapshot();
     expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
+  });
+
+  it('renders with extra padding on android', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    renderWithContext(
+      <ChallengeFeed
+        {...props}
+        items={challengeItems}
+        organization={organization}
+        extraPadding={true}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 
   it('renders null component | Member', () => {
