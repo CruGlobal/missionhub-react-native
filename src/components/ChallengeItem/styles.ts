@@ -22,7 +22,7 @@ export default StyleSheet.create({
     paddingTop: 8,
   },
   joinCompleteButton: {
-    backgroundColor: theme.parakeetBlue,
+    backgroundColor: theme.communityBlue,
     paddingVertical: 8,
     height: undefined, // Need this to override the normal button styles
     borderBottomLeftRadius: 8,

@@ -137,8 +137,8 @@ export const CommunityFeedItem = ({
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
-      <StepIcon />
-      <PlusIcon />
+      <StepIcon style={styles.stepIcon} />
+      <PlusIcon style={styles.plusIcon} />
       <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
     </Touchable>
   );
@@ -209,11 +209,11 @@ export const CommunityFeedItem = ({
         organization={organization}
         style={styles.postTextWrap}
       />
-      <Image
+      {/*<Image
         source={GLOBAL_COMMUNITY_IMAGE}
         style={{ width: '100%' }}
         resizeMode="contain"
-      />
+      />*/}
       <Separator />
       {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}

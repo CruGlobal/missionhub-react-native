@@ -7,11 +7,11 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
-import CelebrateItem from '../../components/CommunityFeedItem';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
-import ShareStoryInput from '../Groups/ShareStoryInput';
+import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
   CelebrateFeedSection,
@@ -19,13 +19,11 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { CommunityPost } from '../../components/CommunityFeedItem/__generated__/CommunityPost';
 
-import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
-import {
-  GetCelebrateFeed,
-  GetCelebrateFeed_community_celebrationItems_nodes,
-} from './__generated__/GetCelebrateFeed';
-import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
+import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
+import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
+import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
@@ -37,9 +35,7 @@ export interface CelebrateFeedProps {
   showUnreadOnly?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
-  onClearNotification?: (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => void;
+  onClearNotification?: (post: CommunityPost) => void;
   testID?: string;
 }
 
@@ -189,14 +185,10 @@ const CelebrateFeed = ({
     </View>
   );
 
-  const renderItem = ({
-    item,
-  }: {
-    item: GetCelebrateFeed_community_celebrationItems_nodes;
-  }) => (
-    <CelebrateItem
+  const renderItem = ({ item }: { item: CommunityPost }) => (
+    <CommunityFeedItem
       onClearNotification={onClearNotification}
-      event={item}
+      post={item}
       organization={organization}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
@@ -222,10 +214,9 @@ const CelebrateFeed = ({
             organization={organization}
           />
           {!person ? (
-            <ShareStoryInput
-              dispatch={dispatch}
+            <CreatePostButton
               refreshItems={handleRefreshing}
-              organization={organization}
+              orgId={organization.id}
             />
           ) : null}
         </>

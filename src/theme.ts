@@ -64,9 +64,9 @@ export const COLORS = {
   ACCENT_BLUE: '#005A7F',
   WHITE: '#ffffff',
   BLACK: '#000000',
-  GREY: '#505256',
+  CAVERN: '#505256',
   INACTIVE_GREY: '#A0A2A6',
-  LIGHT_GREY: '#B4B6BA',
+  NARWHAL: '#B4B6BA',
   EXTRA_LIGHT_GREY: '#ECEEF2',
   TRANSPARENT: 'transparent',
   BLUE_GREEN: '#50DCC8',
@@ -75,13 +75,14 @@ export const COLORS = {
   DARK_RED: '#260C06',
   IOS_BLUE: '#007AFF',
   GREEN: '#44E4AB',
+  PARAKEET: '#3CC8E6',
+  SPEARMINT: '#00CA99',
+  BLUE_PURPLE: '#7076B5',
+  LIGHT_ORANGE: '#FFA178',
+  LIGHT_RED: '#FD726D',
+  RED_PURPLE: '#A97398',
   convert: colorConvert,
 };
-
-const PRIMARY = COLORS.DARK_BLUE;
-const SECONDARY = COLORS.BLUE;
-const BACKGROUND = COLORS.LIGHT_BLUE;
-const ACCENT = COLORS.ACCENT_BLUE;
 
 const statusBar = {
   backgroundColor: colorConvert({
@@ -95,13 +96,13 @@ const statusBar = {
 export default {
   // base theme
   loadingColor: COLORS.WHITE,
-  primaryColor: PRIMARY,
-  secondaryColor: SECONDARY,
-  accentColor: ACCENT,
+  primaryColor: COLORS.DARK_BLUE,
+  secondaryColor: COLORS.BLUE,
+  accentColor: COLORS.ACCENT_BLUE,
   white: COLORS.WHITE,
   black: COLORS.BLACK,
-  backgroundColor: BACKGROUND,
-  textColor: COLORS.GREY,
+  backgroundColor: COLORS.LIGHT_BLUE,
+  textColor: COLORS.CAVERN,
   iconColor: COLORS.WHITE,
   transparent: COLORS.TRANSPARENT,
   buttonHeight: 60,
@@ -122,14 +123,21 @@ export default {
   fullHeight: deviceHeight,
   convert: colorConvert,
   impactBlue: COLORS.IMPACT_BLUE,
-  grey: COLORS.GREY,
+  grey: COLORS.CAVERN,
   grey1: '#B2B0B2',
   grey2: '#4E4C4E',
   grey3: '#C5C7CB',
-  lightGrey: COLORS.LIGHT_GREY,
+  lightGrey: COLORS.NARWHAL,
   extraLightGrey: COLORS.EXTRA_LIGHT_GREY,
-  parakeetBlue: '#3CC8E6',
   iosBlue: COLORS.IOS_BLUE,
+  communityProfileGreen: COLORS.SPEARMINT,
+  communityBlue: COLORS.PARAKEET,
+  communityPrayerRequestPurple: COLORS.RED_PURPLE,
+  communityQuestionOrange: COLORS.LIGHT_ORANGE,
+  communityGodStoryPurple: COLORS.BLUE_PURPLE,
+  communityCareRequestRed: COLORS.LIGHT_RED,
+  communityThoughtGrey: COLORS.NARWHAL,
+  communityAnnouncementGrey: COLORS.CAVERN,
 
   contactHeaderIconActiveColor: 'rgba(255,255,255,1)',
   contactHeaderIconInactiveColor: 'rgba(255,255,255,0.4)',

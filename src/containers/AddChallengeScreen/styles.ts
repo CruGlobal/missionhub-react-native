@@ -36,7 +36,7 @@ export default StyleSheet.create({
   dateInput: {
     fontSize: 16,
     lineHeight: 22,
-    color: theme.parakeetBlue,
+    color: theme.communityBlue,
   },
   detailWrap: {
     borderColor: theme.extraLightGrey,

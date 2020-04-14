@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { PeopleState, Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 import { Organization } from '../reducers/organizations';
-import { CelebrateItem_subjectPerson_communityPermissions_nodes as CommunityPermission } from '../components/CommunityFeedItem/__generated__/CelebrateItem';
+import { CommunityPermissions } from '../components/CommunityFeedItem/__generated__/CommunityPermissions';
 
 import { removeHiddenOrgs } from './selectorUtils';
 
@@ -189,7 +189,7 @@ export const orgPermissionSelector = createSelector(
           (person.communityPermissions && person.communityPermissions.nodes) ||
           []
         ).find(
-          (orgPermission: CommunityPermission) =>
+          (orgPermission: CommunityPermissions) =>
             orgPermission.community.id === organization.id,
         ),
 );

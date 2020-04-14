@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
+import { COMMUNITY_POST_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 
-export const GET_CELEBRATE_FEED = gql`
-  query GetCelebrateFeed(
+export const GET_COMMUNITY_FEED = gql`
+  query GetCommunityFeed(
     $communityId: ID!
     $personIds: [ID!] = null
     $hasUnreadComments: Boolean = false
@@ -18,7 +18,7 @@ export const GET_CELEBRATE_FEED = gql`
         hasUnreadComments: $hasUnreadComments
       ) {
         nodes {
-          ...CelebrateItem
+          ...CommunityPost
         }
         pageInfo {
           endCursor
@@ -27,11 +27,11 @@ export const GET_CELEBRATE_FEED = gql`
       }
     }
   }
-  ${CELEBRATE_ITEM_FRAGMENT}
+  ${COMMUNITY_POST_FRAGMENT}
 `;
 
-export const GET_GLOBAL_CELEBRATE_FEED = gql`
-  query GetGlobalCelebrateFeed($celebrateCursor: String) {
+export const GET_GLOBAL_COMMUNITY_FEED = gql`
+  query GetGlobalCommunityFeed($celebrateCursor: String) {
     globalCommunity {
       celebrationItems(
         sortBy: createdAt_DESC
@@ -39,7 +39,7 @@ export const GET_GLOBAL_CELEBRATE_FEED = gql`
         after: $celebrateCursor
       ) {
         nodes {
-          ...CelebrateItem
+          ...CommunityPost
         }
         pageInfo {
           endCursor
@@ -48,5 +48,5 @@ export const GET_GLOBAL_CELEBRATE_FEED = gql`
       }
     }
   }
-  ${CELEBRATE_ITEM_FRAGMENT}
+  ${COMMUNITY_POST_FRAGMENT}
 `;

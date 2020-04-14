@@ -571,7 +571,7 @@ export default {
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
   },
-  celebrateItems: {
+  communityFeedItems: {
     edit: {
       buttonText: 'Edit Post',
     },
@@ -588,6 +588,7 @@ export default {
         'Are you sure you want to report this comment to the community owner?',
       confirmButtonText: 'Report Post',
     },
+    addToMySteps: 'Add to My Steps',
   },
   challengeFeeds: {
     past: 'Past Challenges',
@@ -875,5 +876,33 @@ export default {
     share: 'Share',
     stepOfFaith: 'Step of Faith',
     step: 'Step',
+  },
+  createPost: {
+    godStory: {
+      label: 'God Story',
+      placeholder: 'Share an inspiring God story...',
+    },
+    prayerRequest: {
+      label: 'Prayer Request',
+      placeholder: 'Share a prayer need...',
+    },
+    spiritualQuestion: {
+      label: 'Spiritual Question',
+      placeholder: 'Ask a spiritual question...',
+    },
+    careRequest: {
+      label: 'Care Request',
+      placeholder: 'Ask for help...',
+    },
+    onYourMind: {
+      label: "What's On Your Mind",
+      placeholder: "What's on your mind?",
+    },
+    announcement: {
+      label: 'Announcement',
+      placeholder: 'Make an announcement...',
+    },
+    addAPhoto: 'Add a Photo',
+    buttonPlaceholder: 'Post to community...',
   },
 };
