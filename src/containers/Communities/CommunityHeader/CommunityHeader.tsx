@@ -20,7 +20,7 @@ import theme from '../../../theme';
 import Header from '../../../components/Header';
 import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
 import { navigatePush } from '../../../actions/navigation';
-import { GROUP_PROFILE } from '../../Groups/GroupProfile';
+import { COMMUNITY_PROFILE } from '../CommunityProfile/CommunityProfile';
 import InfoIcon from '../../../../assets/images/infoIcon.svg';
 import EditIcon from '../../../../assets/images/editIcon.svg';
 import { useMyId } from '../../../utils/hooks/useIsMe';
@@ -32,6 +32,7 @@ import {
   CommunityHeader as CommunityHeaderQuery,
   CommunityHeaderVariables,
 } from './__generated__/CommunityHeader';
+import { canEditCommunity } from '../../../utils/common';
 
 export const CommunitiesCollapsibleHeaderContext = createCollapsibleViewContext();
 
@@ -70,11 +71,14 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
             right={
               <Button
                 onPress={() =>
-                  dispatch(navigatePush(GROUP_PROFILE, { communityId }))
+                  dispatch(navigatePush(COMMUNITY_PROFILE, { communityId }))
                 }
               >
-                {data?.community.people.edges[0].communityPermission
-                  .permission ? (
+                {canEditCommunity(
+                  data?.community.people.edges[0].communityPermission
+                    .permission,
+                  data?.community.userCreated,
+                ) ? (
                   <EditIcon color={theme.white} />
                 ) : (
                   <InfoIcon color={theme.white} />

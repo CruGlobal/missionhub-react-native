@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, SafeAreaView, SectionListData } from 'react-native';
+import { Animated, View, SectionListData } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';

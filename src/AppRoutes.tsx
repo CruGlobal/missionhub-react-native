@@ -120,7 +120,10 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
-import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
+import {
+  CommunityProfile,
+  COMMUNITY_PROFILE,
+} from './containers/Communities/CommunityProfile/CommunityProfile';
 import { buildTrackedScreen } from './routes/helpers';
 import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,
@@ -592,7 +595,7 @@ export const MainStackRoutes = createStackNavigator(
       // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
-    [GROUP_PROFILE]: { screen: GroupProfile },
+    [COMMUNITY_PROFILE]: { screen: CommunityProfile },
   },
   {
     initialRouteName: MAIN_TABS,

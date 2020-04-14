@@ -8,6 +8,7 @@ import PopupMenu from '../../components/PopupMenu';
 // @ts-ignore
 import theme from '../../theme.ts';
 import { LOG } from '../../utils/logging';
+import { ImageData } from '../../actions/organizations';
 
 // See all options: https://github.com/ivpusic/react-native-image-crop-picker
 const DEFAULT_OPTIONS = {
@@ -26,9 +27,13 @@ function getType(response) {
   return 'image/jpeg';
 }
 
+interface ImagePickerProps {
+  onSelectImage: (data: ImageData) => void;
+}
+
 // @ts-ignore
 @withTranslation('imagePicker')
-class ImagePicker extends Component {
+class ImagePicker extends Component<ImagePickerProps> {
   takePhoto = () => {
     this.selectImage(true);
   };
@@ -37,8 +42,7 @@ class ImagePicker extends Component {
     this.selectImage(false);
   };
 
-  // @ts-ignore
-  async selectImage(takePhoto) {
+  async selectImage(takePhoto: boolean) {
     // @ts-ignore
     const { t, onSelectImage } = this.props;
 
@@ -47,10 +51,10 @@ class ImagePicker extends Component {
         ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
         : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
 
-      // @ts-ignore
-      let fileName = response.filename || '';
-      // @ts-ignore
-      const { path: uri, size: fileSize, mime, width, height } = response;
+      const image = Array.isArray(response) ? response[0] : response;
+
+      let fileName = image.filename || '';
+      const { path: uri, size: fileSize, mime, width, height } = image;
 
       // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
       // create a new file name with the right extension
@@ -89,7 +93,6 @@ class ImagePicker extends Component {
 
     return (
       <PopupMenu
-        // @ts-ignore
         actions={[
           { text: t('takePhoto'), onPress: this.takePhoto },
           { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },

@@ -29,8 +29,7 @@ import {
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../constants';
 import * as common from '../../../../utils/common';
-
-import GroupProfile from '..';
+import GroupProfile from '../CommunityProfile';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),

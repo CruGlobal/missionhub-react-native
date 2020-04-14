@@ -808,7 +808,7 @@ export default {
     errorBody:
       'There was an error processing your request. Please try again later.',
   },
-  groupProfile: {
+  communityProfile: {
     created: 'Created',
     members: 'Members',
     code: 'Community Code',
@@ -822,6 +822,7 @@ export default {
     cannotBeUndone: 'This cannot be undone',
     codeCopyText:
       'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
+    errorLoadingCommunityDetails: 'Error loading community details',
   },
   landing: {
     getStarted: 'Get Started',

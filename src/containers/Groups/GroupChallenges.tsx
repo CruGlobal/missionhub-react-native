@@ -21,9 +21,9 @@ import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ChallengeItem } from '../../components/ChallengeStats';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
 
 import styles from './styles';
-import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
 
 // @ts-ignore
 @withTranslation('groupsChallenge')

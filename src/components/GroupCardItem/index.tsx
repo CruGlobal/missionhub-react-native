@@ -9,9 +9,9 @@ import Dot from '../Dot';
 import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 import { TouchablePress } from '../Touchable/index.ios';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
+import { useCommunityPhoto } from '../../containers/Communities/hooks/useCommunityPhoto';
 
 import styles from './styles';
-import { useCommunityPhoto } from '../../containers/Communities/hooks/useCommunityPhoto';
 
 export interface GroupCardItemProps {
   group: GetCommunities_communities_nodes;

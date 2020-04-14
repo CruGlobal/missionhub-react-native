@@ -183,6 +183,13 @@ export const isAdmin = (
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.admin);
 
+export const canEditCommunity = (
+  permission?: PermissionEnum,
+  userCreated?: boolean,
+) =>
+  permission === PermissionEnum.owner ||
+  (!userCreated && permission === PermissionEnum.admin);
+
 // @ts-ignore
 export const shouldQueryReportedComments = (org, orgPermission) =>
   (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||

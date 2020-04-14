@@ -16,13 +16,13 @@ import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
 import theme from '../../theme';
 import { CollapsibleViewContent } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
+import { COMMUNITY_PROFILE } from '../Communities/CommunityProfile/CommunityProfile';
 
 import GroupCelebrate from './GroupCelebrate';
 import Members from './Members';
 import Contacts from './Contacts';
 import Surveys from './Surveys';
 import GroupChallenges from './GroupChallenges';
-import { GROUP_PROFILE } from './GroupProfile';
 
 class GroupScreen extends Component {
   componentDidMount() {
@@ -52,7 +52,7 @@ class GroupScreen extends Component {
     // @ts-ignore
     const { dispatch, organization } = this.props;
 
-    dispatch(navigatePush(GROUP_PROFILE, { organization }));
+    dispatch(navigatePush(COMMUNITY_PROFILE, { communityId: organization.id }));
   };
 
   back = () => {

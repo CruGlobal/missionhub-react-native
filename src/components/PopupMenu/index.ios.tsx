@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { ActionSheetIOS } from 'react-native';
+import { ActionSheetIOS, ViewStyle, StyleProp } from 'react-native';
+import i18next from 'i18next';
 
 import { IconButton, Touchable } from '../common';
 import { isFunction } from '../../utils/common';
+import { IconProps } from '../Icon';
+import { ButtonProps } from '../Button';
 
 import styles from './styles';
 
+interface PopupMenuProps {
+  title?: string;
+  actions: {
+    text: string;
+    onPress: () => void;
+    destructive?: boolean;
+  }[];
+  iconProps?: Omit<IconProps, 'name' | 'type'> & StyleProp<ViewStyle>;
+  buttonProps?: ButtonProps & StyleProp<ViewStyle>;
+  disabled?: boolean;
+  triggerOnLongPress?: boolean;
+}
+
 // iOS only component
-// @ts-ignore
+//@ts-ignore
 @withTranslation()
-class PopupMenu extends Component {
+class PopupMenu extends Component<PopupMenuProps & Partial<i18next.WithT>> {
   showMenu = () => {
-    // @ts-ignore
     const { actions, t, title } = this.props;
 
-    // @ts-ignore
     const options = actions.map(a => a.text).concat(t('cancel'));
-    // @ts-ignore
-    const select = i =>
+    const select = (i: number) =>
       actions[i] && isFunction(actions[i].onPress) && actions[i].onPress();
 
-    // @ts-ignore
-    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
+    let destructiveButtonIndex: number | undefined = actions.findIndex(
+      o => o.destructive,
+    );
     if (destructiveButtonIndex < 0) {
       destructiveButtonIndex = undefined;
     }
@@ -43,14 +57,10 @@ class PopupMenu extends Component {
   render() {
     const {
       children,
-      // @ts-ignore
       disabled,
-      // @ts-ignore
       triggerOnLongPress,
-      // @ts-ignore
-      buttonProps = {},
-      // @ts-ignore
-      iconProps = {},
+      buttonProps = { style: undefined },
+      iconProps = { style: undefined },
     } = this.props;
 
     return children ? (
