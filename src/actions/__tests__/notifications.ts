@@ -14,6 +14,7 @@ import {
   configureNotificationHandler,
   requestNativePermissions,
   parseNotificationData,
+  SET_NOTIFICATION_ANALYTICS,
   UPDATE_ACCEPTED_NOTIFICATIONS,
   RNPushNotificationPayload,
   PushNotificationPayloadData,
@@ -581,6 +582,7 @@ describe('askNotificationPermissions', () => {
         );
         expect(store.getActions()).toEqual([
           { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+          { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
           navigateToMainTabsResult,
         ]);
       });
@@ -602,6 +604,7 @@ describe('askNotificationPermissions', () => {
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
         navigateToMainTabsResult,
       ]);
     });
@@ -612,6 +615,7 @@ describe('askNotificationPermissions', () => {
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'steps' },
         navigateToMainTabsResult,
       ]);
     });
@@ -628,6 +632,7 @@ describe('askNotificationPermissions', () => {
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
         navToPersonScreenResult,
       ]);
@@ -655,6 +660,7 @@ describe('askNotificationPermissions', () => {
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
         navToPersonScreenResult,
       ]);
@@ -666,6 +672,7 @@ describe('askNotificationPermissions', () => {
       expect(navToPersonScreen).toHaveBeenCalledWith(person);
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'my_steps' },
         navToPersonScreenResult,
       ]);
     });
@@ -688,6 +695,7 @@ describe('askNotificationPermissions', () => {
       );
       expect(store.getActions()).toEqual([
         { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
+        { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'add_a_person' },
         navigatePushResult,
       ]);
     });
