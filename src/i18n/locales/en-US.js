@@ -7,7 +7,7 @@ export default {
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
       firstNameNickname: '$t(profileLabels.firstName) or Nickname',
       lastName: 'Last Name',
-      lastNameOptional: '$t(profileLabels.lastName) (if you want)',
+      lastNameOptional: '$t(profileLabels.lastName) (optional)',
       email: 'Email',
       emailRequired: '$t(profileLabels.email) (Required)',
       phone: 'Phone',
@@ -186,15 +186,33 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    addPerson: {
-      part1: 'Who do you want to take',
-      part2: ' a step of faith with?',
-    },
+    addPerson: 'Who would you like to take steps of faith with this week?',
+    errorSavingPerson: 'Error saving your person. Please try again.',
+  },
+  categories: {
+    onboardingPrompt:
+      'Think of someone you want to help grow closer to God. Who are they?',
+    addPersonPrompt: 'How do you know each other?',
+    family: 'Family',
+    friend: 'Friend',
+    neighbor: 'Neighbor',
+    coworker: 'Coworker',
+    other: 'Other',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
+    categoryPrompt: 'How do you know each other?',
+    stage: 'Stage',
+    categories: {
+      family: 'Family',
+      friend: 'Friend',
+      neighbor: 'Neighbor',
+      coworker: 'Coworker',
+      other: 'Other',
+    },
+    categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
     alertBlankEmail: 'Email is blank',
@@ -203,6 +221,10 @@ export default {
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
+    prompt: 'Who would you like to take steps of faith with this week?',
+    createError: 'Error creating your person. Please try again.',
+    updateError: 'Error updating your person. Please try again.',
+    loadingError: 'Error loading your person. Please try again.',
   },
   addStep: {
     header: 'Create your own step',

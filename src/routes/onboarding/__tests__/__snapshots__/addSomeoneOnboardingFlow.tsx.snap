@@ -233,11 +233,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -262,7 +265,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -564,11 +569,14 @@ exports[`AddStepScreen next renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -593,7 +601,9 @@ exports[`AddStepScreen next renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1940,11 +1950,14 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1969,7 +1982,9 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
