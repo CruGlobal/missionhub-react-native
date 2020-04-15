@@ -567,6 +567,12 @@ export default {
     godStory: 'Share a God Story',
     careRequest: 'Ask for Help',
     announcement: 'Make an Announcement',
+    everyone: 'Everyone',
+    ownersAndAdmins: 'Owners and Admins',
+  },
+  shareAStoryScreen: {
+    shareStory: 'Share Story',
+    inputPlaceholder: 'Share a Story...',
   },
   editStoryScreen: {
     saveStory: 'Save Changes',

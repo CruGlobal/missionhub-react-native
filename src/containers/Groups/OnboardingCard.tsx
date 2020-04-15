@@ -10,8 +10,8 @@ import JOURNEY from '../../../assets/images/ourJourney.png';
 import CONTACTS from '../../../assets/images/MemberContacts.png';
 import SURVEY from '../../../assets/images/curiousIcon.png';
 import STEPS from '../../../assets/images/footprints.png';
-import CLOSE_ICON from '../../../assets/images/closeIcon.png';
-import { Flex, Text, Card, IconButton } from '../../components/common';
+import CloseIcon from '../../../assets/images/closeIcon.svg';
+import { Flex, Text, Card } from '../../components/common';
 import { removeGroupOnboardingCard } from '../../actions/swipe';
 import { SwipeState } from '../../reducers/swipe';
 import theme from '../../theme';
@@ -91,13 +91,10 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
         <Text style={styles.onboardingDescription}>{getText()}</Text>
       </Flex>
       <Flex style={styles.onboardingIconWrap}>
-        <IconButton
-          style={styles.onboardingIcon}
-          name="deleteIcon"
-          type="MissionHub"
-          image={CLOSE_ICON}
+        <CloseIcon
+          testID="CloseIcon"
           onPress={handlePress}
-          hitSlop={theme.hitSlop(10)}
+          color={theme.lightGrey}
         />
       </Flex>
     </Card>

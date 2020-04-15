@@ -1,8 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
@@ -28,7 +25,6 @@ import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   person?: Person;
   itemNamePressable: boolean;
@@ -43,7 +39,6 @@ export interface CelebrateFeedProps {
 }
 
 const CelebrateFeed = ({
-  dispatch,
   organization,
   person,
   itemNamePressable,
@@ -174,18 +169,29 @@ const CelebrateFeed = ({
     }
   };
 
-  const renderSectionHeader = ({
-    section: { date },
-  }: {
-    section: SectionListData<CelebrateFeedSection>;
-  }) => (
-    <View style={styles.header}>
-      <DateComponent
-        date={date}
-        relativeFormatting={true}
-        style={styles.title}
-      />
-    </View>
+  const renderSectionHeader = useCallback(
+    ({
+      section: { date },
+    }: {
+      section: SectionListData<CelebrateFeedSection>;
+    }) => (
+      <View style={styles.header}>
+        <DateComponent
+          date={date}
+          relativeFormatting={true}
+          style={styles.title}
+        />
+      </View>
+    ),
+    [
+      error,
+      refetch,
+      globalError,
+      globalRefetch,
+      noHeader,
+      person,
+      organization,
+    ],
   );
 
   const renderItem = ({
@@ -202,28 +208,39 @@ const CelebrateFeed = ({
     />
   );
 
-  const renderHeader = () => (
-    <>
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={error}
-        refetch={refetch}
-      />
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={globalError}
-        refetch={globalRefetch}
-      />
-      {noHeader ? null : (
-        <>
-          <CelebrateFeedHeader
-            isMember={!!person}
-            organization={organization}
-          />
-          {!person ? <CreatePostInput organization={organization} /> : null}
-        </>
-      )}
-    </>
+  const renderHeader = useCallback(
+    () => (
+      <>
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={error}
+          refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={globalError}
+          refetch={globalRefetch}
+        />
+        {noHeader ? null : (
+          <>
+            <CelebrateFeedHeader
+              isMember={!!person}
+              organization={organization}
+            />
+            {!person ? <CreatePostInput organization={organization} /> : null}
+          </>
+        )}
+      </>
+    ),
+    [
+      error,
+      refetch,
+      globalError,
+      globalRefetch,
+      noHeader,
+      person,
+      organization,
+    ],
   );
 
   return (
@@ -243,4 +260,4 @@ const CelebrateFeed = ({
   );
 };
 
-export default connect()(CelebrateFeed);
+export default CelebrateFeed;

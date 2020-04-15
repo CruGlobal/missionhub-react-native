@@ -11,14 +11,13 @@ export default StyleSheet.create({
   },
 
   containerStyle: {
-    flex: 0.5,
     width: '80%',
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: theme.white,
     borderRadius: 14,
     padding: 14,
-    paddingVertical: 40,
+    paddingVertical: 50,
   },
   modalButton: {
     width: theme.fullWidth - 150,
@@ -39,13 +38,19 @@ export default StyleSheet.create({
   },
   titleText: {
     marginTop: -40,
-    marginBottom: 20,
+    paddingBottom: 20,
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 14,
-    lineHeight: 30,
+    lineHeight: 20,
     textAlign: 'center',
-    fontWeight: '300',
     color: theme.grey,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontFamily: 'SourceSansPro-Regular',
+    lineHeight: 24,
+    color: theme.lightGrey,
+    paddingHorizontal: 10,
   },
   bodyText: {
     fontSize: 16,

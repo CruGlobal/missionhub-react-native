@@ -60,14 +60,12 @@ exports[`renders empty correctly 1`] = `
           }
         }
       />
-      <ShareStoryInput
-        dispatch={[Function]}
+      <CreatePostInput
         organization={
           Object {
             "id": "456",
           }
         }
-        refreshItems={[Function]}
       />
     </View>
   </View>
@@ -915,14 +913,12 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
       />
-      <ShareStoryInput
-        dispatch={[Function]}
+      <CreatePostInput
         organization={
           Object {
             "id": "_global_community_id",
           }
         }
-        refreshItems={[Function]}
       />
     </View>
     <View
@@ -2107,14 +2103,12 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
       />
-      <ShareStoryInput
-        dispatch={[Function]}
+      <CreatePostInput
         organization={
           Object {
             "id": "456",
           }
         }
-        refreshItems={[Function]}
       />
     </View>
     <View
@@ -5656,14 +5650,12 @@ exports[`renders with celebration items correctly 1`] = `
           }
         }
       />
-      <ShareStoryInput
-        dispatch={[Function]}
+      <CreatePostInput
         organization={
           Object {
             "id": "456",
           }
         }
-        refreshItems={[Function]}
       />
     </View>
     <View
@@ -6848,14 +6840,12 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
       />
-      <ShareStoryInput
-        dispatch={[Function]}
+      <CreatePostInput
         organization={
           Object {
             "id": "456",
           }
         }
-        refreshItems={[Function]}
       />
     </View>
     <View

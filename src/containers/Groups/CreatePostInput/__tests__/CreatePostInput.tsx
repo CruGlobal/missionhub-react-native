@@ -1,22 +1,20 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
 import { renderWithContext } from '../../../../../testUtils';
-import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
+import { PostTypeEnum } from '../../../../components/PostTypeLabel';
 
 import CreatePostInput from '..';
 
 jest.mock('../../../../actions/navigation');
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const mockOrganization = {
   id: '1234',
 };
 
 const props = {
-  dispatch: jest.fn(response => Promise.resolve(response)),
-  refreshItems: jest.fn(),
   organization: mockOrganization,
 };
 
@@ -26,23 +24,42 @@ const globalCommunityProps = {
     id: GLOBAL_COMMUNITY_ID,
   },
 };
+const initialState = {
+  auth: {
+    person: {
+      id: '1',
+    },
+  },
+  people: { allByOrg: {} },
+  drawer: { isOpen: false },
+};
 
 it('renders correctly', () => {
-  renderWithContext(<CreatePostInput {...props} />).snapshot();
+  renderWithContext(<CreatePostInput {...props} />, {
+    initialState,
+  }).snapshot();
+});
+
+it('renders correctly with type', () => {
+  renderWithContext(
+    <CreatePostInput {...props} type={PostTypeEnum.godStory} />,
+    { initialState },
+  ).snapshot();
 });
 
 it('does not render for Global Community', () => {
-  renderWithContext(<CreatePostInput {...globalCommunityProps} />).snapshot();
+  renderWithContext(<CreatePostInput {...globalCommunityProps} />, {
+    initialState,
+  }).snapshot();
 });
 
-it('onPress switches to ShareStoryScreen', () => {
-  const { getByTestId } = renderWithContext(<CreatePostInput {...props} />);
-  fireEvent.press(getByTestId('ShareStoryInput'));
-  expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
-    organization: mockOrganization,
-    onComplete: expect.any(Function),
-  });
-  (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
-  expect(props.refreshItems).toHaveBeenCalled();
-  expect(navigateBack).toHaveBeenCalled();
+it('onPress opens modal', () => {
+  const {
+    getByTestId,
+    recordSnapshot,
+    diffSnapshot,
+  } = renderWithContext(<CreatePostInput {...props} />, { initialState });
+  recordSnapshot();
+  fireEvent.press(getByTestId('CreatePostInput'));
+  diffSnapshot();
 });
