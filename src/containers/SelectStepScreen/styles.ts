@@ -7,18 +7,22 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.extraLightGrey,
   },
-  headerTextContainer: {
+  headerText: {
     marginHorizontal: 30,
     marginVertical: 35,
-    alignItems: 'center',
-  },
-  headerText: {
     fontSize: 24,
     lineHeight: 30,
     fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
     letterSpacing: 2,
+  },
+  collapsibleView: {
+    flex: 1,
+  },
+  contentContainerStyle: {
+    marginTop: 12,
+    paddingBottom: 24,
   },
   card: {
     marginHorizontal: 20,

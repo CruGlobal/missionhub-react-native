@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
@@ -209,66 +209,74 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     navigateNext({ skip: true });
   };
 
-  const renderTab = (stepType: StepTypeEnum, count = 0) => {
-    const isSelected = currentStepType === stepType;
-    return (
-      <Touchable onPress={() => setCurrentStepType(stepType)}>
-        <View style={{ alignItems: 'center' }}>
-          <StepTypeBadge
-            displayVertically={true}
-            color={isSelected ? theme.white : theme.secondaryColor}
-            stepType={stepType}
-            labelUppercase={false}
-            includeStepInLabel={false}
-          />
-          {showCounts ? (
-            <View
-              style={[
-                styles.completedCountBadge,
-                {
-                  backgroundColor: isSelected
-                    ? theme.white
-                    : theme.parakeetBlue,
-                },
-              ]}
-            >
-              <Text style={styles.completedCountBadgeText}>{count}</Text>
-              <Checkmark color={theme.primaryColor} />
-            </View>
-          ) : null}
-          {isSelected ? (
-            <TriangleIndicator
-              color={theme.extraLightGrey}
-              style={{ marginTop: 12 }}
+  const renderTab = useCallback(
+    (stepType: StepTypeEnum, count = 0) => {
+      const isSelected = currentStepType === stepType;
+      return (
+        <Touchable onPress={() => setCurrentStepType(stepType)}>
+          <View style={{ alignItems: 'center' }}>
+            <StepTypeBadge
+              displayVertically={true}
+              color={isSelected ? theme.white : theme.secondaryColor}
+              stepType={stepType}
+              labelUppercase={false}
+              includeStepInLabel={false}
             />
-          ) : null}
-        </View>
-      </Touchable>
-    );
-  };
+            {showCounts ? (
+              <View
+                style={[
+                  styles.completedCountBadge,
+                  {
+                    backgroundColor: isSelected
+                      ? theme.white
+                      : theme.parakeetBlue,
+                  },
+                ]}
+              >
+                <Text style={styles.completedCountBadgeText}>{count}</Text>
+                <Checkmark color={theme.primaryColor} />
+              </View>
+            ) : null}
+            {isSelected ? (
+              <TriangleIndicator
+                color={theme.extraLightGrey}
+                style={{ marginTop: 12 }}
+              />
+            ) : null}
+          </View>
+        </Touchable>
+      );
+    },
+    [currentStepType, showCounts],
+  );
 
-  const renderCollapsibleHeader = () => (
-    <View
-      style={{
-        backgroundColor: theme.primaryColor,
-      }}
-    >
-      <View style={styles.headerTextContainer}>
-        <Text style={styles.headerText}>
+  const renderCollapsibleHeader = useCallback(
+    () => (
+      <View
+        style={{
+          backgroundColor: theme.primaryColor,
+        }}
+      >
+        <Text style={styles.headerText} numberOfLines={2}>
           {isMe
             ? t('meHeader')
-            : t('personHeader', { name: data?.person.firstName || '$t(them)' })}
+            : t('personHeader', {
+                name: data?.person.firstName || '$t(them)',
+              })}
         </Text>
+        {enableStepTypeFilters ? (
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-around' }}
+          >
+            {renderTab(StepTypeEnum.relate, stepTypeCounts.relate)}
+            {renderTab(StepTypeEnum.pray, stepTypeCounts.pray)}
+            {renderTab(StepTypeEnum.care, stepTypeCounts.care)}
+            {renderTab(StepTypeEnum.share, stepTypeCounts.share)}
+          </View>
+        ) : null}
       </View>
-      {enableStepTypeFilters ? (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          {renderTab(StepTypeEnum.relate, stepTypeCounts.relate)}
-          {renderTab(StepTypeEnum.pray, stepTypeCounts.pray)}
-          {renderTab(StepTypeEnum.care, stepTypeCounts.care)}
-          {renderTab(StepTypeEnum.share, stepTypeCounts.share)}
-        </View>
-      ) : null}
-    </View>
+    ),
+    [isMe, data, enableStepTypeFilters, stepTypeCounts, renderTab],
   );
 
   return (
@@ -290,11 +298,13 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
         style={{ backgroundColor: theme.primaryColor }}
       />
       <CollapsibleHeaderFlatList
-        headerHeight={enableStepTypeFilters ? (showCounts ? 239 : 195) : 130}
+        headerHeight={enableStepTypeFilters ? (showCounts ? 240 : 195) : 130}
         clipHeader={true}
         headerContainerBackgroundColor={theme.extraLightGrey}
-        style={{ paddingVertical: 12 }}
         CollapsibleHeaderComponent={renderCollapsibleHeader()}
+        style={styles.collapsibleView}
+        contentContainerStyle={styles.contentContainerStyle}
+        bounces={true}
         data={cardData}
         renderItem={({ item }) => (
           <Card style={styles.card} onPress={item.action}>
@@ -312,7 +322,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
             refetch={refetch}
           />
         }
-        ListFooterComponent={loading ? <FooterLoading /> : null}
+        ListFooterComponent={
+          <SafeAreaView>{loading ? <FooterLoading /> : null}</SafeAreaView>
+        }
         onEndReached={handleOnEndReached}
         onEndReachedThreshold={0.2}
       />
