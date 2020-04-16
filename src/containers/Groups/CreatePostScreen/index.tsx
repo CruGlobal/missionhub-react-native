@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { View, Keyboard, ScrollView, Image } from 'react-native';
+import {
+  View,
+  Keyboard,
+  ScrollView,
+  Image,
+  ImageSourcePropType,
+} from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -13,7 +19,7 @@ import {
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
-import ImagePicker, { imagePayload } from '../../../components/ImagePicker';
+import ImagePicker from '../../../components/ImagePicker';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
@@ -23,7 +29,7 @@ import {
   TrackStateContext,
 } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
-import { CommunityPost } from '../../../components/CommunityFeedItem/__generated__/CommunityPost';
+import { CommunityPost } from '../../../components/CelebrateItem/__generated__/CommunityPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SendIcon from './sendIcon.svg';
@@ -83,7 +89,9 @@ export const CreatePostScreen = () => {
   const [postText, changePostText] = useState(
     post?.objectDescription || undefined,
   );
-  const [postImage, changePostImage] = useState<imagePayload | null>(null); //preload post image if exists
+  const [postImage, changePostImage] = useState<ImageSourcePropType | null>(
+    null,
+  ); //preload post image if exists
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -127,39 +135,39 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = (image: imagePayload) => {
+  const handleSavePhoto = (image: ImageSourcePropType) =>
     changePostImage(image);
-  };
 
-  const renderHeader = () => {
-    return (
-      <Header
-        left={<BackButton iconStyle={styles.backButton} />}
-        center={<Text style={styles.headerText}>{t(`${postType}.label`)}</Text>}
-        right={
-          postText ? (
-            <Button onPress={savePost} testID="SavePostButton">
-              <SendIcon style={styles.icon} />
-            </Button>
-          ) : null
-        }
-      />
-    );
-  };
+  const renderHeader = () => (
+    <Header
+      left={<BackButton iconStyle={styles.backButton} />}
+      center={<Text style={styles.headerText}>{t(`${postType}.label`)}</Text>}
+      right={
+        postText ? (
+          <Button onPress={savePost} testID="SavePostButton">
+            <SendIcon style={styles.icon} />
+          </Button>
+        ) : null
+      }
+    />
+  );
 
-  const renderAddPhotoButton = () =>
-    postImage ? (
-      <Image resizeMode="cover" source={postImage} style={styles.image} />
-    ) : (
-      <>
-        <View style={styles.lineBreak} />
-        <View style={styles.addPhotoButton}>
-          <CameraIcon style={styles.icon} />
-          <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
-        </View>
-        <View style={styles.lineBreak} />
-      </>
-    );
+  const renderAddPhotoButton = () => (
+    <ImagePicker onSelectImage={handleSavePhoto}>
+      {postImage ? (
+        <Image resizeMode="cover" source={postImage} style={styles.image} />
+      ) : (
+        <>
+          <View style={styles.lineBreak} />
+          <View style={styles.addPhotoButton}>
+            <CameraIcon style={styles.icon} />
+            <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
+          </View>
+          <View style={styles.lineBreak} />
+        </>
+      )}
+    </ImagePicker>
+  );
 
   return (
     <View style={styles.container}>
@@ -187,9 +195,7 @@ export const CreatePostScreen = () => {
           placeholderTextColor={theme.lightGrey}
           style={styles.textInput}
         />
-        <ImagePicker onSelectImage={handleSavePhoto}>
-          {renderAddPhotoButton()}
-        </ImagePicker>
+        {renderAddPhotoButton()}
       </ScrollView>
     </View>
   );

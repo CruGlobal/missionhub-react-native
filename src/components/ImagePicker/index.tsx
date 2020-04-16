@@ -17,15 +17,7 @@ const DEFAULT_OPTIONS = {
   cropping: true,
 };
 
-// @ts-ignore
-function getType(response: Image) {
-  if (response.path.toLowerCase().includes('.png')) {
-    return 'image/png';
-  }
-  return 'image/jpeg';
-}
-
-export type imageCropPickerResponse = {
+export type ImageCropPickerResponse = {
   filename: string;
   path: string;
   size: number;
@@ -34,7 +26,7 @@ export type imageCropPickerResponse = {
   height: number;
 };
 
-export type imagePayload = {
+export type SelectImageParams = {
   fileSize: number;
   fileName: string;
   fileType: string;
@@ -45,8 +37,15 @@ export type imagePayload = {
 };
 
 interface ImagePickerProps {
-  onSelectImage: (image: imagePayload) => void;
+  onSelectImage: (image: SelectImageParams) => void;
   children: JSX.Element;
+}
+
+function getType(response: ImageCropPickerResponse) {
+  if (response.path.toLowerCase().includes('.png')) {
+    return 'image/png';
+  }
+  return 'image/jpeg';
 }
 
 export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
@@ -66,7 +65,7 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
         ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
         : ImageCropPicker.openPicker(
             DEFAULT_OPTIONS,
-          ))) as imageCropPickerResponse;
+          ))) as ImageCropPickerResponse;
 
       let fileName = response.filename || '';
       const { path: uri, size: fileSize, mime, width, height } = response;
@@ -77,7 +76,7 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
         fileName = `${new Date().valueOf()}.jpg`;
       }
 
-      const payload = {
+      const payload: SelectImageParams = {
         fileSize,
         fileName,
         fileType: mime || getType(response),

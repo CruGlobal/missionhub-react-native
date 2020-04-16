@@ -16,11 +16,7 @@ import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 
-import {
-  GET_CELEBRATE_FEED,
-  GET_GLOBAL_CELEBRATE_GET_GLOBAL_CELEBRATE_FEED,
-  GET_GLOBAL_CELEBRATE_FEED,
-} from './queries';
+import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
 import {
   GetCelebrateFeed,
   GetCelebrateFeed_community_celebrationItems_nodes,

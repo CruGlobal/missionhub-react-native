@@ -14,6 +14,7 @@ export const CELEBRATE_ITEM_PERSON_FRAGMENT = gql`
     id
     firstName
     lastName
+    fullName
     communityPermissions {
       nodes {
         ...CommunityPermissions
@@ -42,4 +43,32 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
     subjectPersonName
   }
   ${CELEBRATE_ITEM_PERSON_FRAGMENT}
+`;
+
+export const COMMUNITY_POST_FRAGMENT = gql`
+  fragment CommunityPost on CommunityCelebrationItem {
+    id
+    adjectiveAttributeName
+    adjectiveAttributeValue
+    celebrateableId
+    celebrateableType
+    changedAttributeName
+    changedAttributeValue
+    commentsCount
+    liked
+    likesCount
+    objectDescription
+    subjectPerson {
+      ...CelebrateItemPerson
+    }
+    subjectPersonName
+  }
+  ${CELEBRATE_ITEM_PERSON_FRAGMENT}
+`;
+
+export const POST_FRAGMENT = gql`
+  fragment Post on Post {
+    id
+    postType
+  }
 `;
