@@ -939,17 +939,26 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2017-09-28T01:02:07.116Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, September 28 2017
+        </Text>
       </View>
     </View>
     <View
@@ -1028,17 +1037,26 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2016-01-27T11:31:41.601Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Wednesday, January 27 2016
+        </Text>
       </View>
     </View>
     <View
@@ -1117,17 +1135,26 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2015-09-24T22:48:18.365Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, September 24 2015
+        </Text>
       </View>
     </View>
     <View
@@ -1206,17 +1233,26 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2014-10-17T09:34:50.933Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Friday, October 17 2014
+        </Text>
       </View>
     </View>
     <View
@@ -2095,17 +2131,26 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2018-01-20T22:18:35.430Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Saturday, January 20 2018
+        </Text>
       </View>
     </View>
     <View
@@ -2184,17 +2229,26 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2017-01-05T11:40:00.737Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, January 5 2017
+        </Text>
       </View>
     </View>
     <View
@@ -2273,17 +2327,26 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2016-07-31T16:52:49.085Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Sunday, July 31 2016
+        </Text>
       </View>
     </View>
     <View
@@ -2362,17 +2425,26 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2014-08-26T07:39:14.970Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Tuesday, August 26 2014
+        </Text>
       </View>
     </View>
     <View
@@ -3242,17 +3314,26 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2018-01-20T22:18:35.430Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Saturday, January 20 2018
+        </Text>
       </View>
     </View>
     <View
@@ -3331,17 +3412,26 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2017-01-05T11:40:00.737Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, January 5 2017
+        </Text>
       </View>
     </View>
     <View
@@ -3420,17 +3510,26 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2016-07-31T16:52:49.085Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Sunday, July 31 2016
+        </Text>
       </View>
     </View>
     <View
@@ -3509,17 +3608,26 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2014-08-26T07:39:14.970Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Tuesday, August 26 2014
+        </Text>
       </View>
     </View>
     <View
@@ -4380,17 +4488,26 @@ exports[`renders for member renders without header 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2018-01-20T22:18:35.430Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Saturday, January 20 2018
+        </Text>
       </View>
     </View>
     <View
@@ -4469,17 +4586,26 @@ exports[`renders for member renders without header 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2017-01-05T11:40:00.737Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, January 5 2017
+        </Text>
       </View>
     </View>
     <View
@@ -4558,17 +4684,26 @@ exports[`renders for member renders without header 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2016-07-31T16:52:49.085Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Sunday, July 31 2016
+        </Text>
       </View>
     </View>
     <View
@@ -4647,17 +4782,26 @@ exports[`renders for member renders without header 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2014-08-26T07:39:14.970Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Tuesday, August 26 2014
+        </Text>
       </View>
     </View>
     <View
@@ -5536,17 +5680,26 @@ exports[`renders with celebration items correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2018-01-20T22:18:35.430Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Saturday, January 20 2018
+        </Text>
       </View>
     </View>
     <View
@@ -5625,17 +5778,26 @@ exports[`renders with celebration items correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2017-01-05T11:40:00.737Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, January 5 2017
+        </Text>
       </View>
     </View>
     <View
@@ -5714,17 +5876,26 @@ exports[`renders with celebration items correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2016-07-31T16:52:49.085Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Sunday, July 31 2016
+        </Text>
       </View>
     </View>
     <View
@@ -5803,17 +5974,26 @@ exports[`renders with celebration items correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2014-08-26T07:39:14.970Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Tuesday, August 26 2014
+        </Text>
       </View>
     </View>
     <View
@@ -6692,17 +6872,26 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2018-01-20T22:18:35.430Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Saturday, January 20 2018
+        </Text>
       </View>
     </View>
     <View
@@ -6782,17 +6971,26 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2017-01-05T11:40:00.737Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Thursday, January 5 2017
+        </Text>
       </View>
     </View>
     <View
@@ -6872,17 +7070,26 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2016-07-31T16:52:49.085Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Sunday, July 31 2016
+        </Text>
       </View>
     </View>
     <View
@@ -6962,17 +7169,26 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
       >
-        <DateComponent
-          date="2014-08-26T07:39:14.970Z"
-          format="relative"
+        <Text
           style={
-            Object {
-              "color": "#505256",
-              "fontSize": 12,
-              "textAlign": "center",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
           }
-        />
+          testID="Text"
+        >
+          Tuesday, August 26 2014
+        </Text>
       </View>
     </View>
     <View

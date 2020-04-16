@@ -194,14 +194,22 @@ exports[`renders empty correctly 1`] = `
     }
   >
     <Button
+      buttonTextStyle={
+        Array [
+          undefined,
+        ]
+      }
       onPress={[Function]}
       pill={true}
       style={
-        Object {
-          "alignItems": "center",
-          "height": 48,
-          "width": 650,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "height": 48,
+            "width": 650,
+          },
+          undefined,
+        ]
       }
       testID="bottomButton"
       text="TAKE A STEP WITH SOMEONE"

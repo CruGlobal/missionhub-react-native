@@ -14,6 +14,7 @@ import { NOTIFICATION_OFF_SCREEN } from '../../../containers/NotificationOffScre
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
 import { GetStartedOnboardingFlowScreens } from '../getStartedOnboardingFlow';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
 import {
@@ -22,6 +23,7 @@ import {
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -91,7 +93,8 @@ type ScreenName =
   | typeof ADD_STEP_SCREEN
   | typeof NOTIFICATION_PRIMER_SCREEN
   | typeof NOTIFICATION_OFF_SCREEN
-  | typeof CELEBRATION_SCREEN;
+  | typeof CELEBRATION_SCREEN
+  | typeof PERSON_CATEGORY_SCREEN;
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
 const renderScreen = (screenName: ScreenName, navParams: any = {}) => {
@@ -190,7 +193,7 @@ describe('AddSomeoneScreen next', () => {
 
     store.dispatch(next({ skip: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', () => {
@@ -198,6 +201,33 @@ describe('AddSomeoneScreen next', () => {
 
     store.dispatch(next({ skip: true }));
 
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  it('should fire required next actions without skip', async () => {
+    const { store, next } = await renderScreen(PERSON_CATEGORY_SCREEN, {
+      skip: false,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+    store.dispatch(
+      next({ skip: false, relationshipType: RelationshipTypeEnum.family }),
+    );
+
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      relationshipType: RelationshipTypeEnum.family,
+    });
+  });
+
+  it('should fire required next actions with skip', async () => {
+    const { store, next } = await renderScreen(PERSON_CATEGORY_SCREEN, {
+      skip: true,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+    store.dispatch(
+      next({ skip: true, relationshipType: RelationshipTypeEnum.family }),
+    );
     expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
   });
 });

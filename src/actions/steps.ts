@@ -6,7 +6,7 @@ import {
   ACTIONS,
   ACCEPTED_STEP,
 } from '../constants';
-import { formatApiDate } from '../utils/common';
+import { formatApiDate } from '../utils/date';
 import {
   COMPLETE_STEP_FLOW,
   COMPLETE_STEP_FLOW_NAVIGATE_BACK,
@@ -75,6 +75,11 @@ function completeChallengeAPI(step: {
     dispatch(refreshImpact(orgId));
 
     removeFromStepsList(stepId, receiverId);
+
+    apolloClient.query({
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: true },
+    });
 
     orgId && getCelebrateFeed(orgId);
   };

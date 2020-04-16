@@ -6,7 +6,6 @@ import { Text, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
 import { CommunityPostName } from '../../components/CommunityPostName';
-import { DateConstants } from '../../components/DateComponent';
 import { AuthState } from '../../reducers/auth';
 import {
   CelebrateCommentsState,
@@ -85,7 +84,7 @@ const CommentItem = ({
             customContent={<Text style={nameStyle}>{name}</Text>}
           />
         )}
-        <CardTime date={itemDate} format={DateConstants.comment} />
+        <CardTime date={itemDate} commentFormatting={true} />
       </Flex>
       <Flex direction="row">
         {isMineNotReported ? <Flex value={1} /> : null}

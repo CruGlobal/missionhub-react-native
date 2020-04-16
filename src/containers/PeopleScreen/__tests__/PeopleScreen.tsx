@@ -1,13 +1,11 @@
 import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import { useFocusEffect } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyPeople } from '../../../actions/people';
-import { checkForUnreadComments } from '../../../actions/unreadComments';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
 import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
 import {
@@ -123,7 +121,6 @@ it('renders empty correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
-  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('renders correctly as Casey', () => {
@@ -134,7 +131,6 @@ it('renders correctly as Casey', () => {
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
-  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('renders correctly as Jean', () => {
@@ -145,7 +141,6 @@ it('renders correctly as Jean', () => {
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
-  expect(useFocusEffect).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('should open main menu', () => {
@@ -247,18 +242,11 @@ describe('handleRefresh', () => {
     (getMyPeople as jest.Mock).mockReturnValue({
       type: 'get people',
     });
-    (checkForUnreadComments as jest.Mock).mockReturnValue({
-      type: 'check for unread comments',
-    });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (common as any).refresh = jest.fn((_, refreshMethod) => refreshMethod());
 
     const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
     fireEvent(getByTestId('peopleList'), 'refresh');
-  });
-
-  it('should get me', () => {
-    expect(checkForUnreadComments).toHaveBeenCalled();
   });
 
   it('should get people', () => {

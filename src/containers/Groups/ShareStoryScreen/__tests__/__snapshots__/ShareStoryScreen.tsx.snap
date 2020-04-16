@@ -234,11 +234,14 @@ exports[`Creating a story calls changeStory function when the user types a story
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -263,7 +266,9 @@ exports[`Creating a story calls changeStory function when the user types a story
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -530,11 +535,14 @@ exports[`renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -559,7 +567,9 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -806,11 +816,14 @@ exports[`renders correctly on android 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -835,7 +848,9 @@ exports[`renders correctly on android 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
