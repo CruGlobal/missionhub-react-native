@@ -7,7 +7,7 @@ export default {
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
       firstNameNickname: '$t(profileLabels.firstName) or Nickname',
       lastName: 'Last Name',
-      lastNameOptional: '$t(profileLabels.lastName) (if you want)',
+      lastNameOptional: '$t(profileLabels.lastName) (optional)',
       email: 'Email',
       emailRequired: '$t(profileLabels.email) (Required)',
       phone: 'Phone',
@@ -186,15 +186,33 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    addPerson: {
-      part1: 'Who do you want to take',
-      part2: ' a step of faith with?',
-    },
+    addPerson: 'Who would you like to take steps of faith with this week?',
+    errorSavingPerson: 'Error saving your person. Please try again.',
+  },
+  categories: {
+    onboardingPrompt:
+      'Think of someone you want to help grow closer to God. Who are they?',
+    addPersonPrompt: 'How do you know each other?',
+    family: 'Family',
+    friend: 'Friend',
+    neighbor: 'Neighbor',
+    coworker: 'Coworker',
+    other: 'Other',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
+    categoryPrompt: 'How do you know each other?',
+    stage: 'Stage',
+    categories: {
+      family: 'Family',
+      friend: 'Friend',
+      neighbor: 'Neighbor',
+      coworker: 'Coworker',
+      other: 'Other',
+    },
+    categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
     alertBlankEmail: 'Email is blank',
@@ -203,6 +221,10 @@ export default {
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
+    prompt: 'Who would you like to take steps of faith with this week?',
+    createError: 'Error creating your person. Please try again.',
+    updateError: 'Error updating your person. Please try again.',
+    loadingError: 'Error loading your person. Please try again.',
   },
   addStep: {
     header: 'Create your own step',
@@ -213,6 +235,7 @@ export default {
     editJourneyButton: 'Save',
     makeShorter:
       'Thanks for creating a step! But we need you to make it a little shorter so it can fit.',
+    errorSavingStep: 'Error saving step',
   },
   stepReminder: {
     setReminder: 'Set a Reminder',
@@ -223,21 +246,27 @@ export default {
     monthly: 'Monthly',
   },
   selectStep: {
-    meHeader: {
-      part1: 'Choose a step of faith',
-      part2: 'to take on your journey this week...',
-    },
-    personHeader: {
-      part1: 'Choose a step of faith',
-      part2: ' to take with {{name}} this week...',
-    },
+    meHeader: 'Choose a step of faith to take on your journey this week...',
+    personHeader: 'Choose a step to take with {{name}} this week...',
+    them: 'them',
     addStep: 'ADD TO MY STEPS',
-    createStep: 'Create a Custom Step',
+    createYourOwnStep: 'Create your own $t(stepTypes:{{type}}) Step',
     loadMoreSteps: 'SHOW MORE STEPS',
     stepsOfFaith: 'Add Steps of Faith',
+    errorLoadingStepSuggestions: 'Error loading step suggestions',
+  },
+  selectStepExplainer: {
+    part1: 'MissionHub suggests four ways to draw someone closer to God.',
+    part2: 'Ideas to help you deepen this relationship and build trust.',
+    part3: 'Ways to invite God into your relationship with this person.',
+    part4: 'Ideas to help you demonstrate that you care about this person.',
+    part5:
+      'Talk about what this person believes and ways you can help them know the truth about God.',
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
+    errorLoadingSuggestedStepDetails: 'Error loading suggested step details',
+    errorSavingStep: 'Error saving step',
   },
   acceptedStepDetail: {
     removeStep: 'Remove Step',
@@ -285,6 +314,7 @@ export default {
     showCompletedSteps: 'SHOW COMPLETED STEPS',
     hideCompletedSteps: 'HIDE COMPLETED STEPS',
     addStep: 'Add a step of faith',
+    errorLoadingStepsForThisPerson: 'Error loading steps for this person',
   },
   contactJourney: {
     loading: 'Loading Journey Items',
@@ -888,5 +918,13 @@ export default {
     },
     addAPhoto: 'Add a Photo',
     buttonPlaceholder: 'Post to community...',
+  },
+  stepTypes: {
+    relate: 'Relate',
+    pray: 'Pray',
+    care: 'Care',
+    share: 'Share',
+    stepOfFaith: 'Step of Faith',
+    step: 'Step',
   },
 };

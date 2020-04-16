@@ -23,13 +23,13 @@ import { paramsForStageNavigation } from '../utils';
 export const CompleteStepFlowScreens = onFlowComplete => ({
   [COMPLETE_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, id, personId, orgId }) => (dispatch, getState) => {
+    ({ text, id, personId, orgId }) => async (dispatch, getState) => {
       const {
         hasHitCount,
         isNotSure,
         firstItemIndex,
         questionText,
-      } = paramsForStageNavigation(personId, orgId, getState);
+      } = await paramsForStageNavigation(personId, orgId, getState);
 
       if (text) {
         dispatch(updateChallengeNote(id, text));

@@ -120,11 +120,14 @@ exports[`renders correctly when me and no steps 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -149,7 +152,9 @@ exports[`renders correctly when me and no steps 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -282,11 +287,14 @@ exports[`renders correctly when no steps 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -311,7 +319,9 @@ exports[`renders correctly when no steps 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -358,15 +368,16 @@ exports[`renders correctly with completed steps 1`] = `
               "id": "1",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Grace Dibbert",
+                "fullName": "Chyna Howe",
                 "id": "2",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "4",
-                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -384,16 +395,17 @@ exports[`renders correctly with completed steps 1`] = `
               "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Kaden Ortiz",
+                "fullName": "Alek Lesch",
                 "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "8",
-                "nextOccurrenceAt": "2014-06-14T18:46:15.611Z",
+                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
-              "title": "Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.",
+              "stepType": "bond",
+              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
             },
           ],
           "key": "completed",
@@ -438,15 +450,16 @@ exports[`renders correctly with completed steps 1`] = `
               "id": "1",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Grace Dibbert",
+                "fullName": "Chyna Howe",
                 "id": "2",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "4",
-                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -464,16 +477,17 @@ exports[`renders correctly with completed steps 1`] = `
               "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Kaden Ortiz",
+                "fullName": "Alek Lesch",
                 "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "8",
-                "nextOccurrenceAt": "2014-06-14T18:46:15.611Z",
+                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
-              "title": "Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.",
+              "stepType": "bond",
+              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
             },
           ],
           "key": "completed",
@@ -514,15 +528,16 @@ exports[`renders correctly with completed steps 1`] = `
               "id": "1",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Grace Dibbert",
+                "fullName": "Chyna Howe",
                 "id": "2",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "4",
-                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             }
           }
@@ -634,16 +649,17 @@ exports[`renders correctly with completed steps 1`] = `
               "id": "5",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Kaden Ortiz",
+                "fullName": "Alek Lesch",
                 "id": "6",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "8",
-                "nextOccurrenceAt": "2014-06-14T18:46:15.611Z",
+                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
-              "title": "Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.",
+              "stepType": "bond",
+              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
             }
           }
           testID="stepItem"
@@ -700,11 +716,14 @@ exports[`renders correctly with completed steps 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -729,7 +748,9 @@ exports[`renders correctly with completed steps 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -862,11 +883,14 @@ exports[`renders correctly with org 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -891,7 +915,9 @@ exports[`renders correctly with org 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -938,15 +964,16 @@ exports[`renders correctly with steps 1`] = `
               "id": "1",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Grace Dibbert",
+                "fullName": "Chyna Howe",
                 "id": "2",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "4",
-                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -992,15 +1019,16 @@ exports[`renders correctly with steps 1`] = `
               "id": "1",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Grace Dibbert",
+                "fullName": "Chyna Howe",
                 "id": "2",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "4",
-                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             },
           ],
@@ -1041,15 +1069,16 @@ exports[`renders correctly with steps 1`] = `
               "id": "1",
               "receiver": Object {
                 "__typename": "Person",
-                "fullName": "Grace Dibbert",
+                "fullName": "Chyna Howe",
                 "id": "2",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
                 "id": "4",
-                "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
+              "stepType": "care",
               "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
             }
           }
@@ -1100,11 +1129,14 @@ exports[`renders correctly with steps 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1129,7 +1161,9 @@ exports[`renders correctly with steps 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1147,10 +1181,10 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -40,10 +40,31 @@
-                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+@@ -41,10 +41,32 @@
                   \\"reminderType\\": \\"once\\",
                 },
+                \\"stepType\\": \\"care\\",
                 \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
               },
 +             Object {
@@ -1163,27 +1197,28 @@ exports[`should paginate 1`] = `
 +               \\"id\\": \\"5\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"fullName\\": \\"Alek Lesch\\",
 +                 \\"id\\": \\"6\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
 +                 \\"id\\": \\"8\\",
-+                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
-+               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
++               \\"stepType\\": \\"bond\\",
++               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
 +             },
             ],
             \\"key\\": \\"active\\",
           },
         ]
       }
-@@ -93,11 +114,32 @@
-                  \\"id\\": \\"4\\",
-                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
+@@ -95,10 +117,32 @@
+                  \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
                   \\"reminderType\\": \\"once\\",
                 },
+                \\"stepType\\": \\"care\\",
                 \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
 +             },
 +             Object {
@@ -1196,36 +1231,28 @@ exports[`should paginate 1`] = `
 +               \\"id\\": \\"5\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"fullName\\": \\"Alek Lesch\\",
 +                 \\"id\\": \\"6\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
 +                 \\"id\\": \\"8\\",
-+                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
-                },
-+               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
-+             },
++               },
++               \\"stepType\\": \\"bond\\",
++               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
+              },
             ],
             \\"key\\": \\"active\\",
           },
         ]
-      }
-@@ -142,18 +184,57 @@
-                  \\"id\\": \\"4\\",
-                  \\"nextOccurrenceAt\\": \\"2016-01-26T19:10:10.481Z\\",
-                  \\"reminderType\\": \\"once\\",
-                },
-                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
-+             }
-+           }
-+           testID=\\"stepItem\\"
-+         />
-+       </View>
-+       <View
-+         onLayout={[Function onLayout]}
-+         style={null}
+@@ -153,10 +197,50 @@
+          />
+        </View>
+        <View
+          onLayout={[Function onLayout]}
+          style={null}
 +       >
 +         <StepItem
 +           showName={false}
@@ -1240,24 +1267,25 @@ exports[`should paginate 1`] = `
 +               \\"id\\": \\"5\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kaden Ortiz\\",
++                 \\"fullName\\": \\"Alek Lesch\\",
 +                 \\"id\\": \\"6\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
 +                 \\"id\\": \\"8\\",
-+                 \\"nextOccurrenceAt\\": \\"2014-06-14T18:46:15.611Z\\",
++                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
-+               \\"title\\": \\"Quam ipsam nobis cupiditate sed dignissimos debitis incidunt accusantium.\\",
-              }
-            }
-            testID=\\"stepItem\\"
-          />
-        </View>
-        <View
-          onLayout={[Function onLayout]}
-          style={null}
++               \\"stepType\\": \\"bond\\",
++               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
++             }
++           }
++           testID=\\"stepItem\\"
++         />
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
 +       />
 +       <View
 +         style={

@@ -42,7 +42,7 @@ import {
 } from '../organizations';
 import { getMe, getPersonDetails } from '../person';
 import { apolloClient } from '../../apolloClient';
-import { GET_COMMUNITIES_QUERY } from '../../containers/Groups/GroupsListScreen';
+import { GET_COMMUNITIES_QUERY } from '../../containers/Groups/queries';
 
 jest.mock('../analytics');
 jest.mock('../api');

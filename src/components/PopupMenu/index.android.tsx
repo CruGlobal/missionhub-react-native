@@ -90,7 +90,10 @@ PopupMenu.propTypes = {
       onPress: PropTypes.func.isRequired,
     }),
   ).isRequired,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
   disabled: PropTypes.bool,
   triggerOnLongPress: PropTypes.bool,
   buttonProps: PropTypes.object,

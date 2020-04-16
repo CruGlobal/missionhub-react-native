@@ -11,7 +11,6 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
 import PeopleScreen from './containers/PeopleScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from './containers/AddStepScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
 } from './containers/AddChallengeScreen';
@@ -77,7 +76,7 @@ import {
   MEMBER_PERSON_SCREEN,
 } from './containers/Groups/AssignedPersonScreen/constants';
 import SettingsMenu from './components/SettingsMenu';
-import PersonSideMenu from './components/PersonSideMenu';
+import { PersonSideMenu } from './components/PersonSideMenu';
 import theme from './theme';
 import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
@@ -200,7 +199,7 @@ import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
 import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
-import TabIcon from './containers/TabIcon';
+import TabIcon from './components/TabIcon';
 import GroupUnreadFeed, {
   GROUP_UNREAD_FEED_SCREEN,
 } from './containers/Groups/GroupUnreadFeed';
@@ -566,7 +565,6 @@ export const MainStackRoutes = createStackNavigator(
     ...screens,
     [LANDING_SCREEN]: { screen: LandingScreen },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
-    [ADD_STEP_SCREEN]: { screen: AddStepScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [SELECT_STAGE_SCREEN]: {

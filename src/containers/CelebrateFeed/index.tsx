@@ -1,14 +1,10 @@
 import React from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
-import { DateConstants } from '../../components/DateComponent';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import { CreatePostButton } from '../Groups/CreatePostButton';
@@ -29,7 +25,6 @@ import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   person?: Person;
   itemNamePressable: boolean;
@@ -43,8 +38,7 @@ export interface CelebrateFeedProps {
   testID?: string;
 }
 
-const CelebrateFeed = ({
-  dispatch,
+export const CelebrateFeed = ({
   organization,
   person,
   itemNamePressable,
@@ -183,7 +177,7 @@ const CelebrateFeed = ({
     <View style={styles.header}>
       <DateComponent
         date={date}
-        format={DateConstants.relative}
+        relativeFormatting={true}
         style={styles.title}
       />
     </View>
@@ -196,8 +190,8 @@ const CelebrateFeed = ({
   }) => (
     <CommunityFeedItem
       onClearNotification={onClearNotification}
-      event={item}
-      organization={organization}
+      post={item}
+      orgId={organization.id}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />
@@ -223,7 +217,6 @@ const CelebrateFeed = ({
           />
           {!person ? (
             <CreatePostButton
-              dispatch={dispatch}
               refreshItems={handleRefreshing}
               orgId={organization.id}
             />
@@ -249,5 +242,3 @@ const CelebrateFeed = ({
     />
   );
 };
-
-export default connect()(CelebrateFeed);

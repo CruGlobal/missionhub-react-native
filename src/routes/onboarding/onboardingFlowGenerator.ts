@@ -5,7 +5,6 @@ import { AnyAction } from 'redux';
 
 import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
-import { createCustomStep } from '../../actions/steps';
 import {
   skipAddPersonAndCompleteOnboarding,
   resetPersonAndCompleteOnboarding,
@@ -19,6 +18,9 @@ import SetupScreen, {
   SETUP_SCREEN,
   SETUP_PERSON_SCREEN,
 } from '../../containers/SetupScreen';
+import PersonCategoryScreen, {
+  PERSON_CATEGORY_SCREEN,
+} from '../../containers/PersonCategoryScreen';
 import GetStartedScreen, {
   GET_STARTED_SCREEN,
 } from '../../containers/GetStartedScreen';
@@ -30,6 +32,7 @@ import StageSuccessScreen, {
 } from '../../containers/StageSuccessScreen';
 import SelectStepScreen, {
   SELECT_STEP_SCREEN,
+  SelectStepScreenNextProps,
 } from '../../containers/SelectStepScreen';
 import AddSomeoneScreen, {
   ADD_SOMEONE_SCREEN,
@@ -37,17 +40,21 @@ import AddSomeoneScreen, {
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
-import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import NotificationPrimerScreen, {
   NOTIFICATION_PRIMER_SCREEN,
 } from '../../containers/NotificationPrimerScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from '../../containers/NotificationOffScreen';
+import AddStepScreen, {
+  ADD_STEP_SCREEN,
+  AddStepScreenNextProps,
+} from '../../containers/AddStepScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
 import { OnboardingState } from '../../reducers/onboarding';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
@@ -102,11 +109,26 @@ export const onboardingFlowGenerator = ({
     ({ skip }: { skip: boolean }) =>
       skip
         ? skipAddPersonAndCompleteOnboarding()
-        : navigatePush(SETUP_PERSON_SCREEN),
+        : navigatePush(PERSON_CATEGORY_SCREEN),
     {
       hideSkipBtn,
       logoutOnBack: startScreen === ADD_SOMEONE_SCREEN,
     },
+  ),
+  [PERSON_CATEGORY_SCREEN]: wrapNextAction(
+    PersonCategoryScreen,
+    ({
+      skip,
+      relationshipType,
+    }: {
+      skip: boolean;
+      relationshipType: RelationshipTypeEnum;
+    }) =>
+      skip
+        ? skipAddPersonAndCompleteOnboarding()
+        : navigatePush(SETUP_PERSON_SCREEN, {
+            relationshipType,
+          }),
   ),
   [SETUP_PERSON_SCREEN]: wrapNextAction(
     SetupScreen,
@@ -125,7 +147,7 @@ export const onboardingFlowGenerator = ({
             }),
       );
     },
-    { isMe: false, hideSkipBtn },
+    { isMe: false, hideSkipBtn: true },
   ),
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
@@ -143,14 +165,15 @@ export const onboardingFlowGenerator = ({
   ),
   [SELECT_STEP_SCREEN]: wrapNextAction(
     SelectStepScreen,
-    ({ personId, step }: { personId: string; step: object }) =>
-      step
+    ({ personId, stepSuggestionId, stepType }: SelectStepScreenNextProps) =>
+      stepSuggestionId
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
-            step,
+            stepSuggestionId,
             personId,
           })
         : navigatePush(ADD_STEP_SCREEN, {
             type: CREATE_STEP,
+            stepType,
             personId,
           }),
   ),
@@ -170,14 +193,11 @@ export const onboardingFlowGenerator = ({
   ),
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, personId }: { text: string; personId: string }) => (
+    ({ personId }: AddStepScreenNextProps) => (
       dispatch: ThunkDispatch<any, null, any>,
       getState: () => any,
     ) => {
       const isMe = personId === getState().auth.person.id;
-
-      // @ts-ignore
-      dispatch(createCustomStep(text, personId));
 
       if (isMe) {
         return dispatch(navigatePush(ADD_SOMEONE_SCREEN));

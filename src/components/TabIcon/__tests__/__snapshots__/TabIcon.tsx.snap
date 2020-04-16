@@ -1,0 +1,370 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders group 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+      ]
+    }
+  >
+    Communities
+  </Text>
+</View>
+`;
+
+exports[`renders group with notification dot 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "position": "relative",
+        },
+        Object {},
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#ffffff",
+            },
+            Object {
+              "fontSize": 24,
+            },
+            Object {
+              "color": "blue",
+            },
+          ],
+          Object {
+            "fontFamily": "icomoon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF5532",
+            "borderColor": "#ffffff",
+            "borderRadius": 8,
+            "borderWidth": 2,
+            "height": 16,
+            "position": "absolute",
+            "right": -10,
+            "top": -3,
+            "width": 16,
+          },
+          Object {},
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+      ]
+    }
+  >
+    Communities
+  </Text>
+</View>
+`;
+
+exports[`renders people 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+      ]
+    }
+  >
+    People
+  </Text>
+</View>
+`;
+
+exports[`renders steps 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "blue",
+          },
+        ],
+      ]
+    }
+  >
+    Steps
+  </Text>
+</View>
+`;
+
+exports[`renders steps different tint color 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 24,
+          },
+          Object {
+            "color": "grey",
+          },
+        ],
+        Object {
+          "fontFamily": "icomoon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "fontSize": 14,
+          },
+          Object {
+            "color": "grey",
+          },
+        ],
+      ]
+    }
+  >
+    Steps
+  </Text>
+</View>
+`;

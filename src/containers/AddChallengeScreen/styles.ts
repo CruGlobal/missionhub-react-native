@@ -36,7 +36,7 @@ export default StyleSheet.create({
   dateInput: {
     fontSize: 16,
     lineHeight: 22,
-    color: theme.challengeBlue,
+    color: theme.parakeetBlue,
   },
   detailWrap: {
     borderColor: theme.extraLightGrey,
@@ -65,5 +65,8 @@ export default StyleSheet.create({
   backButton: {
     alignItems: 'flex-end',
     alignSelf: 'flex-end',
+  },
+  disabledButton: {
+    backgroundColor: theme.lightGrey,
   },
 });

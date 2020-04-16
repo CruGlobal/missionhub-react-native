@@ -10,7 +10,7 @@ Array [
     },
     "receiver": Object {
       "__typename": "Person",
-      "firstName": "Audrey",
+      "firstName": "Grace",
       "id": "2",
     },
   },
@@ -30,19 +30,20 @@ Array [
     "id": "1",
     "receiver": Object {
       "__typename": "Person",
-      "firstName": "Audrey",
+      "firstName": "Grace",
       "id": "2",
     },
     "reminder": Object {
       "__typename": "StepReminder",
       "id": "4",
-      "nextOccurrenceAt": "2013-05-05T10:14:48.380Z",
+      "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
       "reminderType": "once",
     },
     "stepSuggestion": Object {
       "__typename": "StepSuggestion",
-      "descriptionMarkdown": "repellat ratione ut",
+      "descriptionMarkdown": "ratione ut sunt",
     },
+    "stepType": "share",
     "title": "Repellat quisquam recusandae alias consequuntur corporis.",
   },
   "Step Detail",
@@ -262,6 +263,49 @@ exports[`should render correctly while loading 1`] = `
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        STEP OF FAITH
+      </Text>
+    </View>
     <Text
       style={
         Array [
@@ -331,11 +375,14 @@ exports[`should render correctly while loading 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -360,7 +407,9 @@ exports[`should render correctly while loading 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -586,6 +635,49 @@ exports[`should render correctly without description and without reminder for me
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        SHARE STEP
+      </Text>
+    </View>
     <Text
       style={
         Array [
@@ -739,11 +831,14 @@ exports[`should render correctly without description and without reminder for me
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -768,7 +863,9 @@ exports[`should render correctly without description and without reminder for me
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -994,6 +1091,49 @@ exports[`should render correctly without description and without reminder for ot
       }
     }
   >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          },
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 13,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#B4B6BA"
+        height={24}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "paddingLeft": 4,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        SHARE STEP
+      </Text>
+    </View>
     <Text
       style={
         Array [
@@ -1147,11 +1287,14 @@ exports[`should render correctly without description and without reminder for ot
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1176,7 +1319,9 @@ exports[`should render correctly without description and without reminder for ot
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1396,6 +1541,11 @@ exports[`with description, with reminder should render correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,
@@ -1408,6 +1558,49 @@ exports[`with description, with reminder should render correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          SHARE STEP
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -1435,7 +1628,7 @@ exports[`with description, with reminder should render correctly 1`] = `
           Object {
             "__typename": "StepReminder",
             "id": "4",
-            "nextOccurrenceAt": "2013-05-05T10:14:48.380Z",
+            "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
             "reminderType": "once",
           }
         }
@@ -1515,7 +1708,7 @@ exports[`with description, with reminder should render correctly 1`] = `
                 Object {
                   "__typename": "StepReminder",
                   "id": "4",
-                  "nextOccurrenceAt": "2013-05-05T10:14:48.380Z",
+                  "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
                   "reminderType": "once",
                 }
               }
@@ -1638,7 +1831,7 @@ exports[`with description, with reminder should render correctly 1`] = `
               }
             >
               <Text>
-                repellat ratione ut
+                ratione ut sunt
               </Text>
             </Text>
           </View>
@@ -1684,11 +1877,14 @@ exports[`with description, with reminder should render correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1713,7 +1909,9 @@ exports[`with description, with reminder should render correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1933,6 +2131,11 @@ exports[`with description, without reminder should render correctly 1`] = `
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
     contentInset={
       Object {
         "bottom": 90,
@@ -1945,6 +2148,49 @@ exports[`with description, without reminder should render correctly 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          SHARE STEP
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -2080,7 +2326,7 @@ exports[`with description, without reminder should render correctly 1`] = `
               }
             >
               <Text>
-                recusandae alias consequuntur
+                alias consequuntur corporis
               </Text>
             </Text>
           </View>
@@ -2126,11 +2372,14 @@ exports[`with description, without reminder should render correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -2155,7 +2404,9 @@ exports[`with description, without reminder should render correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }

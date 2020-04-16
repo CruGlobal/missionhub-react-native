@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
+import { useDispatch } from 'react-redux';
 
 import { Button, Text } from '../../../components/common';
 import { navigatePush, navigateBack } from '../../../actions/navigation';
@@ -11,17 +11,13 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import styles from './styles';
 
 interface CreatePostButton {
-  dispatch: ThunkDispatch<{}, null, never>;
   refreshItems: () => void;
   orgId: string;
 }
 
-export const CreatePostButton = ({
-  dispatch,
-  refreshItems,
-  orgId,
-}: CreatePostButton) => {
+export const CreatePostButton = ({ refreshItems, orgId }: CreatePostButton) => {
   const { t } = useTranslation('createPost');
+  const dispatch = useDispatch();
   const {
     container,
     inputButton,

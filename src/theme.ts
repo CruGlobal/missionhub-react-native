@@ -134,7 +134,7 @@ export default {
   grey3: '#C5C7CB',
   lightGrey: COLORS.NARWHAL,
   extraLightGrey: COLORS.EXTRA_LIGHT_GREY,
-  challengeBlue: '#3CC8E6',
+  parakeetBlue: '#3CC8E6',
   iosBlue: COLORS.IOS_BLUE,
   communityProfile: COLORS.SPEARMINT,
   communityCelebrate: COLORS.PARAKEET,

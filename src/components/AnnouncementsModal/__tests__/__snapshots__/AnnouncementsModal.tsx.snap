@@ -37,7 +37,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         style={
           Array [
             Object {
-              "marginTop": -60,
               "width": "100%",
             },
             Object {
@@ -100,6 +99,9 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
                         "color": "#B4B6BA",
                         "justifyContent": "flex-end",
                         "margin": 0,
+                        "position": "absolute",
+                        "right": -5,
+                        "top": -40,
                       },
                     ],
                   ],
@@ -258,7 +260,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         style={
           Array [
             Object {
-              "marginTop": -60,
               "width": "100%",
             },
             Object {
@@ -321,6 +322,9 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
                         "color": "#B4B6BA",
                         "justifyContent": "flex-end",
                         "margin": 0,
+                        "position": "absolute",
+                        "right": -5,
+                        "top": -40,
                       },
                     ],
                   ],
@@ -479,7 +483,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         style={
           Array [
             Object {
-              "marginTop": -60,
               "width": "100%",
             },
             Object {
@@ -542,6 +545,9 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
                         "color": "#B4B6BA",
                         "justifyContent": "flex-end",
                         "margin": 0,
+                        "position": "absolute",
+                        "right": -5,
+                        "top": -40,
                       },
                     ],
                   ],
@@ -700,7 +706,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
         style={
           Array [
             Object {
-              "marginTop": -60,
               "width": "100%",
             },
             Object {
@@ -763,6 +768,9 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
                         "color": "#B4B6BA",
                         "justifyContent": "flex-end",
                         "margin": 0,
+                        "position": "absolute",
+                        "right": -5,
+                        "top": -40,
                       },
                     ],
                   ],
