@@ -1,11 +1,13 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 import { PostTypeEnum } from '../../../../components/PostTypeLabel';
 
 import CreatePostInput from '..';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../utils/hooks/useAnalytics');
@@ -15,14 +17,11 @@ const mockOrganization = {
 };
 
 const props = {
-  organization: mockOrganization,
+  orgId: mockOrganization.id,
 };
 
 const globalCommunityProps = {
-  ...props,
-  organization: {
-    id: GLOBAL_COMMUNITY_ID,
-  },
+  orgId: GLOBAL_COMMUNITY_ID,
 };
 const initialState = {
   auth: {
@@ -34,32 +33,70 @@ const initialState = {
   drawer: { isOpen: false },
 };
 
-it('renders correctly', () => {
-  renderWithContext(<CreatePostInput {...props} />, {
+it('renders correctly', async () => {
+  const { snapshot } = renderWithContext(<CreatePostInput {...props} />, {
     initialState,
-  }).snapshot();
+  });
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.orgId,
+      myId: '1',
+    },
+    skip: false,
+  });
 });
 
-it('renders correctly with type', () => {
-  renderWithContext(
+it('renders correctly with type', async () => {
+  const { snapshot } = renderWithContext(
     <CreatePostInput {...props} type={PostTypeEnum.godStory} />,
     { initialState },
-  ).snapshot();
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.orgId,
+      myId: '1',
+    },
+    skip: false,
+  });
 });
 
-it('does not render for Global Community', () => {
-  renderWithContext(<CreatePostInput {...globalCommunityProps} />, {
-    initialState,
-  }).snapshot();
+it('does not render for Global Community', async () => {
+  const { snapshot } = renderWithContext(
+    <CreatePostInput {...globalCommunityProps} />,
+    {
+      initialState,
+    },
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: globalCommunityProps.orgId,
+      myId: '1',
+    },
+    skip: true,
+  });
 });
 
-it('onPress opens modal', () => {
+it('onPress opens modal', async () => {
   const {
     getByTestId,
     recordSnapshot,
     diffSnapshot,
   } = renderWithContext(<CreatePostInput {...props} />, { initialState });
+  await flushMicrotasksQueue;
   recordSnapshot();
   fireEvent.press(getByTestId('CreatePostInput'));
   diffSnapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.orgId,
+      myId: '1',
+    },
+    skip: false,
+  });
 });

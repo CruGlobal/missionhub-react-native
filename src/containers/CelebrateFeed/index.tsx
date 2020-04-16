@@ -183,15 +183,7 @@ const CelebrateFeed = ({
         />
       </View>
     ),
-    [
-      error,
-      refetch,
-      globalError,
-      globalRefetch,
-      noHeader,
-      person,
-      organization,
-    ],
+    [],
   );
 
   const renderItem = ({
@@ -227,7 +219,7 @@ const CelebrateFeed = ({
               isMember={!!person}
               organization={organization}
             />
-            {!person ? <CreatePostInput organization={organization} /> : null}
+            {!person ? <CreatePostInput orgId={organization.id} /> : null}
           </>
         )}
       </>

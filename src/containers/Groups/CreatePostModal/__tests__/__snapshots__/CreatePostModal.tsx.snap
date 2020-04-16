@@ -54,7 +54,6 @@ exports[`renders correctly 1`] = `
             Object {
               "color": "#B4B6BA",
               "justifyContent": "flex-end",
-              "margin": 0,
               "position": "absolute",
               "right": -5,
               "top": -40,
@@ -70,7 +69,6 @@ exports[`renders correctly 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
             "lineHeight": 20,
-            "marginTop": -40,
             "paddingBottom": 20,
             "textAlign": "center",
           }
@@ -572,7 +570,6 @@ exports[`renders correctly for admin 1`] = `
             Object {
               "color": "#B4B6BA",
               "justifyContent": "flex-end",
-              "margin": 0,
               "position": "absolute",
               "right": -5,
               "top": -40,
@@ -588,7 +585,6 @@ exports[`renders correctly for admin 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
             "lineHeight": 20,
-            "marginTop": -40,
             "paddingBottom": 20,
             "textAlign": "center",
           }
@@ -1245,7 +1241,6 @@ exports[`renders correctly for owner 1`] = `
             Object {
               "color": "#B4B6BA",
               "justifyContent": "flex-end",
-              "margin": 0,
               "position": "absolute",
               "right": -5,
               "top": -40,
@@ -1261,7 +1256,6 @@ exports[`renders correctly for owner 1`] = `
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
             "lineHeight": 20,
-            "marginTop": -40,
             "paddingBottom": 20,
             "textAlign": "center",
           }

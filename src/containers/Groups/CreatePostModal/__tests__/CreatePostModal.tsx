@@ -12,6 +12,8 @@ import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
+import { PermissionEnum } from '../../../../../__generated__/globalTypes';
+import { getMyCommunityPermission_community as CommunityType } from '../../CreatePostInput/__generated__/getMyCommunityPermission';
 
 import CreatePostModal from '..';
 
@@ -20,26 +22,76 @@ jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/analytics');
 jest.mock('../../../../selectors/people');
 
-const orgPermission = { id: '111' };
-const memberPermissions = {
-  ...orgPermission,
-  permission_id: ORG_PERMISSIONS.USER,
+const orgPermission = {
+  people: {
+    edges: [{ communityPermissions: ORG_PERMISSIONS.USER }],
+  },
 };
+
 const adminPermissions = {
   ...orgPermission,
-  permission_id: ORG_PERMISSIONS.ADMIN,
+  people: {
+    edges: [{ communityPermissions: ORG_PERMISSIONS.ADMIN }],
+  },
 };
 const ownerPermissions = {
   ...orgPermission,
-  permission_id: ORG_PERMISSIONS.OWNER,
+  people: {
+    edges: [{ communityPermissions: ORG_PERMISSIONS.OWNER }],
+  },
 };
-const mockOrganization = {
+const mockCommunity: CommunityType = {
   id: '1234',
+  __typename: 'Community',
+  people: {
+    __typename: 'CommunityPersonConnection',
+    edges: [
+      {
+        communityPermission: {
+          __typename: 'CommunityPermission',
+          permission: PermissionEnum.user,
+        },
+        __typename: 'CommunityPersonEdge',
+      },
+    ],
+  },
+};
+
+const ownerMockCommunity: CommunityType = {
+  ...mockCommunity,
+  people: {
+    __typename: 'CommunityPersonConnection',
+    edges: [
+      {
+        communityPermission: {
+          __typename: 'CommunityPermission',
+          permission: PermissionEnum.owner,
+        },
+        __typename: 'CommunityPersonEdge',
+      },
+    ],
+  },
+};
+
+const adminMockCommunity: CommunityType = {
+  ...mockCommunity,
+  people: {
+    __typename: 'CommunityPersonConnection',
+    edges: [
+      {
+        communityPermission: {
+          __typename: 'CommunityPermission',
+          permission: PermissionEnum.admin,
+        },
+        __typename: 'CommunityPersonEdge',
+      },
+    ],
+  },
 };
 const closeModal = jest.fn();
 
 const props = {
-  organization: mockOrganization,
+  community: mockCommunity,
   closeModal,
 };
 const initialState = {
@@ -52,9 +104,6 @@ const initialState = {
 const navigatePushResults = { type: 'navigate push' };
 
 beforeEach(() => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    memberPermissions,
-  );
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('member');
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
 });
@@ -71,13 +120,13 @@ it('renders correctly', () => {
 });
 
 it('renders correctly for admin', () => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    adminPermissions,
-  );
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
-  renderWithContext(<CreatePostModal {...props} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <CreatePostModal {...props} community={adminMockCommunity} />,
+    {
+      initialState,
+    },
+  ).snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: 'admin',
@@ -86,13 +135,13 @@ it('renders correctly for admin', () => {
 });
 
 it('renders correctly for owner', () => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    ownerPermissions,
-  );
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('owner');
-  renderWithContext(<CreatePostModal {...props} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <CreatePostModal {...props} community={ownerMockCommunity} />,
+    {
+      initialState,
+    },
+  ).snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: 'owner',
@@ -108,7 +157,7 @@ it('fires onPress and navigates | member', () => {
   fireEvent.press(getByTestId('godStoryButton'));
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
-    organization: mockOrganization,
+    community: mockCommunity,
     type: PostTypeEnum.godStory,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
@@ -119,18 +168,18 @@ it('fires onPress and navigates | member', () => {
 });
 
 it('fires onPress and navigates | owner', () => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    ownerPermissions,
-  );
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('owner');
-  const { getByTestId } = renderWithContext(<CreatePostModal {...props} />, {
-    initialState,
-  });
+  const { getByTestId } = renderWithContext(
+    <CreatePostModal {...props} community={ownerMockCommunity} />,
+    {
+      initialState,
+    },
+  );
 
   fireEvent.press(getByTestId('announcementButton'));
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
-    organization: mockOrganization,
+    community: ownerMockCommunity,
     type: PostTypeEnum.announcement,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {

@@ -2,30 +2,45 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/react-hooks';
 
 import { Button, Text } from '../../../components/common';
-import { Organization } from '../../../reducers/organizations';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
 import { AuthState } from '../../../reducers/auth';
 import { PostTypeEnum } from '../../../components/PostTypeLabel';
 import CreatePostModal from '../CreatePostModal';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './queries';
+import {
+  getMyCommunityPermission,
+  getMyCommunityPermissionVariables,
+} from './__generated__/getMyCommunityPermission';
 
 import styles from './styles';
 
 interface CreatePostInputProps {
   type?: PostTypeEnum;
-  organization: Organization;
+  orgId: string;
 }
 
-const CreatePostInput = ({ type, organization }: CreatePostInputProps) => {
+const CreatePostInput = ({ type, orgId }: CreatePostInputProps) => {
   const { t } = useTranslation('createPostScreen');
   const { container, inputButton, inputText } = styles;
-  const { id } = organization;
   const personId = useSelector(
     ({ auth }: { auth: AuthState }) => auth.person.id,
   );
   const [isModalOpen, changeModalVisibility] = useState(false);
+
+  const { data: { community } = {} } = useQuery<
+    getMyCommunityPermission,
+    getMyCommunityPermissionVariables
+  >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: orgId,
+      myId: personId,
+    },
+    skip: orgId === GLOBAL_COMMUNITY_ID,
+  });
 
   const openModal = () => {
     changeModalVisibility(true);
@@ -34,10 +49,10 @@ const CreatePostInput = ({ type, organization }: CreatePostInputProps) => {
     changeModalVisibility(false);
   };
 
-  return id !== GLOBAL_COMMUNITY_ID ? (
+  return community && community?.id !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
       {isModalOpen ? (
-        <CreatePostModal closeModal={closeModal} organization={organization} />
+        <CreatePostModal closeModal={closeModal} community={community} />
       ) : null}
       <Button style={inputButton} onPress={openModal} testID="CreatePostInput">
         <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />

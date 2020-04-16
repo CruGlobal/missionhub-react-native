@@ -20,18 +20,16 @@ import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
 import theme from '../../../theme';
+import { getMyCommunityPermission_community as CommunityType } from '../CreatePostInput/__generated__/getMyCommunityPermission';
 
 import styles from './styles';
 
 interface CreatePostModalProps {
   closeModal: () => void;
-  organization: Organization;
+  community: CommunityType;
 }
 
-const CreatePostModal = ({
-  closeModal,
-  organization,
-}: CreatePostModalProps) => {
+const CreatePostModal = ({ closeModal, community }: CreatePostModalProps) => {
   const {
     modalStyle,
     containerStyle,
@@ -42,18 +40,12 @@ const CreatePostModal = ({
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
-  const person = auth.person;
-  const orgPermission = useSelector(() =>
-    orgPermissionSelector({}, { person, organization }),
-  );
+  const orgPermission = community.people.edges[0].communityPermission;
 
   const adminOrOwner = isAdminOrOwner(orgPermission);
   useAnalytics(['post', 'choose type'], {
     screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
-        auth,
-        organization,
-      ),
+      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(auth, community),
     },
   });
 
@@ -61,7 +53,7 @@ const CreatePostModal = ({
     closeModal();
     return dispatch(
       navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
-        organization,
+        community,
         type,
       }),
     );
