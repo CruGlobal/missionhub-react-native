@@ -278,17 +278,24 @@ exports[`in onboarding renders correctly 1`] = `
     }
   >
     <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
+      ListFooterComponent={
+        <ForwardRef(_SafeAreaView)>
+          <FooterLoading />
+        </ForwardRef(_SafeAreaView)>
+      }
       ListHeaderComponent={
         <ErrorNotice
           message="Error loading step suggestions"
           refetch={[Function]}
         />
       }
-      bounces={false}
+      bounces={true}
       contentContainerStyle={
         Array [
-          undefined,
+          Object {
+            "marginTop": 12,
+            "paddingBottom": 24,
+          },
           Object {
             "paddingTop": 195,
           },
@@ -336,7 +343,7 @@ exports[`in onboarding renders correctly 1`] = `
       stickyHeaderIndices={Array []}
       style={
         Object {
-          "paddingVertical": 12,
+          "flex": 1,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -409,26 +416,30 @@ exports[`in onboarding renders correctly 1`] = `
         <View
           onLayout={[Function]}
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "padding": 10,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
           >
-            <ActivityIndicator
-              animating={true}
-              color="rgba(0, 0, 0, 1)"
-              hidesWhenStopped={true}
-              size="small"
-            />
-          </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "padding": 10,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <ActivityIndicator
+                animating={true}
+                color="rgba(0, 0, 0, 1)"
+                hidesWhenStopped={true}
+                size="small"
+              />
+            </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </RCTScrollView>
@@ -457,38 +468,31 @@ exports[`in onboarding renders correctly 1`] = `
           }
         }
       >
-        <View
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "letterSpacing": 2,
+                "lineHeight": 30,
+                "marginHorizontal": 30,
+                "marginVertical": 35,
+                "textAlign": "center",
+              },
+            ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
+          Choose a step to take with them this week...
+        </Text>
         <View
           style={
             Object {
@@ -801,11 +805,11 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 - First value
 + Second value
 
-@@ -285,11 +285,11 @@
-        bounces={false}
-        contentContainerStyle={
-          Array [
-            undefined,
+@@ -292,11 +292,11 @@
+            Object {
+              \\"marginTop\\": 12,
+              \\"paddingBottom\\": 24,
+            },
             Object {
 -             \\"paddingTop\\": 195,
 +             \\"paddingTop\\": 130,
@@ -814,7 +818,7 @@ exports[`loading should hide tabs when locale is not en 1`] = `
         }
         data={
           Array [
-@@ -431,11 +431,11 @@
+@@ -442,11 +442,11 @@
       </RCTScrollView>
       <View
         style={
@@ -827,14 +831,13 @@ exports[`loading should hide tabs when locale is not en 1`] = `
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -482,312 +482,11 @@
-                  },
-                ]
-              }
-            >
-              Choose a step to take with them this week...
--           </Text>
--         </View>
+@@ -487,311 +487,10 @@
+                },
+              ]
+            }
+          >
+            Choose a step to take with them this week...
+-         </Text>
 -         <View
 -           style={
 -             Object {
@@ -905,7 +908,7 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -                   }
 -                 >
 -                   Relate
-            </Text>
+          </Text>
 -               </View>
 -               <View
 -                 style={
@@ -1135,7 +1138,7 @@ exports[`loading should hide tabs when locale is not en 1`] = `
 -               </View>
 -             </View>
 -           </View>
-          </View>
+-         </View>
         </View>
       </View>
     </View>
@@ -1353,17 +1356,24 @@ exports[`loading should render correctly 1`] = `
     }
   >
     <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
+      ListFooterComponent={
+        <ForwardRef(_SafeAreaView)>
+          <FooterLoading />
+        </ForwardRef(_SafeAreaView)>
+      }
       ListHeaderComponent={
         <ErrorNotice
           message="Error loading step suggestions"
           refetch={[Function]}
         />
       }
-      bounces={false}
+      bounces={true}
       contentContainerStyle={
         Array [
-          undefined,
+          Object {
+            "marginTop": 12,
+            "paddingBottom": 24,
+          },
           Object {
             "paddingTop": 195,
           },
@@ -1411,7 +1421,7 @@ exports[`loading should render correctly 1`] = `
       stickyHeaderIndices={Array []}
       style={
         Object {
-          "paddingVertical": 12,
+          "flex": 1,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -1484,26 +1494,30 @@ exports[`loading should render correctly 1`] = `
         <View
           onLayout={[Function]}
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "padding": 10,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
           >
-            <ActivityIndicator
-              animating={true}
-              color="rgba(0, 0, 0, 1)"
-              hidesWhenStopped={true}
-              size="small"
-            />
-          </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "padding": 10,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <ActivityIndicator
+                animating={true}
+                color="rgba(0, 0, 0, 1)"
+                hidesWhenStopped={true}
+                size="small"
+              />
+            </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </RCTScrollView>
@@ -1532,38 +1546,31 @@ exports[`loading should render correctly 1`] = `
           }
         }
       >
-        <View
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "letterSpacing": 2,
+                "lineHeight": 30,
+                "marginHorizontal": 30,
+                "marginVertical": 35,
+                "textAlign": "center",
+              },
+            ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
+          Choose a step to take with them this week...
+        </Text>
         <View
           style={
             Object {
@@ -2082,17 +2089,24 @@ exports[`loading should render for self steps correctly 1`] = `
     }
   >
     <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
+      ListFooterComponent={
+        <ForwardRef(_SafeAreaView)>
+          <FooterLoading />
+        </ForwardRef(_SafeAreaView)>
+      }
       ListHeaderComponent={
         <ErrorNotice
           message="Error loading step suggestions"
           refetch={[Function]}
         />
       }
-      bounces={false}
+      bounces={true}
       contentContainerStyle={
         Array [
-          undefined,
+          Object {
+            "marginTop": 12,
+            "paddingBottom": 24,
+          },
           Object {
             "paddingTop": 130,
           },
@@ -2140,7 +2154,7 @@ exports[`loading should render for self steps correctly 1`] = `
       stickyHeaderIndices={Array []}
       style={
         Object {
-          "paddingVertical": 12,
+          "flex": 1,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -2213,26 +2227,30 @@ exports[`loading should render for self steps correctly 1`] = `
         <View
           onLayout={[Function]}
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "padding": 10,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
           >
-            <ActivityIndicator
-              animating={true}
-              color="rgba(0, 0, 0, 1)"
-              hidesWhenStopped={true}
-              size="small"
-            />
-          </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "padding": 10,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <ActivityIndicator
+                animating={true}
+                color="rgba(0, 0, 0, 1)"
+                hidesWhenStopped={true}
+                size="small"
+              />
+            </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </RCTScrollView>
@@ -2261,38 +2279,31 @@ exports[`loading should render for self steps correctly 1`] = `
           }
         }
       >
-        <View
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "letterSpacing": 2,
+                "lineHeight": 30,
+                "marginHorizontal": 30,
+                "marginVertical": 35,
+                "textAlign": "center",
+              },
+            ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step of faith to take on your journey this week...
-          </Text>
-        </View>
+          Choose a step of faith to take on your journey this week...
+        </Text>
       </View>
     </View>
   </View>
@@ -2577,17 +2588,24 @@ exports[`loading skip button should render skip button correctly 1`] = `
     }
   >
     <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
+      ListFooterComponent={
+        <ForwardRef(_SafeAreaView)>
+          <FooterLoading />
+        </ForwardRef(_SafeAreaView)>
+      }
       ListHeaderComponent={
         <ErrorNotice
           message="Error loading step suggestions"
           refetch={[Function]}
         />
       }
-      bounces={false}
+      bounces={true}
       contentContainerStyle={
         Array [
-          undefined,
+          Object {
+            "marginTop": 12,
+            "paddingBottom": 24,
+          },
           Object {
             "paddingTop": 195,
           },
@@ -2635,7 +2653,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
       stickyHeaderIndices={Array []}
       style={
         Object {
-          "paddingVertical": 12,
+          "flex": 1,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -2708,26 +2726,30 @@ exports[`loading skip button should render skip button correctly 1`] = `
         <View
           onLayout={[Function]}
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "padding": 10,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
           >
-            <ActivityIndicator
-              animating={true}
-              color="rgba(0, 0, 0, 1)"
-              hidesWhenStopped={true}
-              size="small"
-            />
-          </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "padding": 10,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <ActivityIndicator
+                animating={true}
+                color="rgba(0, 0, 0, 1)"
+                hidesWhenStopped={true}
+                size="small"
+              />
+            </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </RCTScrollView>
@@ -2756,38 +2778,31 @@ exports[`loading skip button should render skip button correctly 1`] = `
           }
         }
       >
-        <View
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "letterSpacing": 2,
+                "lineHeight": 30,
+                "marginHorizontal": 30,
+                "marginVertical": 35,
+                "textAlign": "center",
+              },
+            ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
+          Choose a step to take with them this week...
+        </Text>
         <View
           style={
             Object {
@@ -3306,17 +3321,20 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
     }
   >
     <RCTScrollView
-      ListFooterComponent={null}
+      ListFooterComponent={<ForwardRef(_SafeAreaView) />}
       ListHeaderComponent={
         <ErrorNotice
           message="Error loading step suggestions"
           refetch={[Function]}
         />
       }
-      bounces={false}
+      bounces={true}
       contentContainerStyle={
         Array [
-          undefined,
+          Object {
+            "marginTop": 12,
+            "paddingBottom": 24,
+          },
           Object {
             "paddingTop": 195,
           },
@@ -3376,7 +3394,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
       stickyHeaderIndices={Array []}
       style={
         Object {
-          "paddingVertical": 12,
+          "flex": 1,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -3567,6 +3585,13 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
             }
           }
         />
+        <View
+          onLayout={[Function]}
+        >
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
+          />
+        </View>
       </View>
     </RCTScrollView>
     <View
@@ -3594,38 +3619,31 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
           }
         }
       >
-        <View
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "letterSpacing": 2,
+                "lineHeight": 30,
+                "marginHorizontal": 30,
+                "marginVertical": 35,
+                "textAlign": "center",
+              },
+            ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with Chyna this week...
-          </Text>
-        </View>
+          Choose a step to take with Chyna this week...
+        </Text>
         <View
           style={
             Object {
@@ -3938,27 +3956,31 @@ exports[`should load step suggestions 1`] = `
 - First value
 + Second value
 
-@@ -206,11 +206,11 @@
+@@ -206,15 +206,11 @@
           \\"overflow\\": \\"hidden\\",
         }
       }
     >
       <RCTScrollView
--       ListFooterComponent={<FooterLoading />}
-+       ListFooterComponent={null}
+-       ListFooterComponent={
+-         <ForwardRef(_SafeAreaView)>
+-           <FooterLoading />
+-         </ForwardRef(_SafeAreaView)>
+-       }
++       ListFooterComponent={<ForwardRef(_SafeAreaView) />}
         ListHeaderComponent={
           <ErrorNotice
             message=\\"Error loading step suggestions\\"
             refetch={[Function anonymous]}
           />
-@@ -218,22 +218,34 @@
-        bounces={false}
-        contentContainerStyle={
-          Array [
-            undefined,
+@@ -225,21 +221,33 @@
+            Object {
+              \\"marginTop\\": 12,
+              \\"paddingBottom\\": 24,
+            },
             Object {
 -             \\"paddingTop\\": 195,
-+             \\"paddingTop\\": 239,
++             \\"paddingTop\\": 240,
             },
           ]
         }
@@ -3975,19 +3997,18 @@ exports[`should load step suggestions 1`] = `
 +             \\"icon\\": false,
 +             \\"key\\": \\"3\\",
 +             \\"text\\": \\"ut libero qui\\",
-            },
++           },
 +           Object {
 +             \\"action\\": [Function action],
 +             \\"icon\\": false,
 +             \\"key\\": \\"4\\",
 +             \\"text\\": \\"recusandae ut nulla\\",
-+           },
+            },
           ]
         }
         disableHeaderMomentum={false}
         disableVirtualization={false}
-        getItem={[Function anonymous]}
-@@ -255,11 +267,11 @@
+@@ -262,11 +270,11 @@
         onScrollEndDrag={[Function anonymous]}
         overScrollMode=\\"never\\"
         refreshControl={
@@ -4000,7 +4021,7 @@ exports[`should load step suggestions 1`] = `
         removeClippedSubviews={false}
         renderItem={[Function anonymous]}
         scrollEventThrottle={1}
-@@ -335,40 +347,137 @@
+@@ -342,44 +350,144 @@
               </Text>
               <SvgMock />
             </View>
@@ -4010,7 +4031,9 @@ exports[`should load step suggestions 1`] = `
 +           onLayout={[Function onLayout]}
 +           style={null}
           >
-            <View
+-           <RCTSafeAreaView
+-             emulateUnlessSupported={true}
++           <View
 +             accessible={true}
 +             focusable={true}
 +             isTVSelectable={true}
@@ -4021,7 +4044,7 @@ exports[`should load step suggestions 1`] = `
 +             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
 +             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
 +             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-              style={
++             style={
 +               Object {
 +                 \\"alignItems\\": \\"center\\",
 +                 \\"backgroundColor\\": \\"#ffffff\\",
@@ -4042,21 +4065,22 @@ exports[`should load step suggestions 1`] = `
 +                 \\"shadowRadius\\": 2,
 +               }
 +             }
-+           >
+            >
+-             <View
 +             <Text
-+               style={
+                style={
                   Array [
                     Object {
--                   \\"padding\\": 10,
+-                     \\"padding\\": 10,
 +                     \\"color\\": \\"#505256\\",
-                    },
++                   },
 +                   Object {
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   },
 +                   Object {
 +                     \\"fontSize\\": 16,
 +                     \\"lineHeight\\": 22,
-+                   },
+                    },
 +                 ]
 +               }
 +             >
@@ -4082,7 +4106,7 @@ exports[`should load step suggestions 1`] = `
 +             style={
                 Object {
                   \\"alignItems\\": \\"center\\",
--                   \\"justifyContent\\": \\"center\\",
+-                     \\"justifyContent\\": \\"center\\",
 +                 \\"backgroundColor\\": \\"#ffffff\\",
 +                 \\"borderRadius\\": 8,
 +                 \\"elevation\\": 4,
@@ -4107,10 +4131,10 @@ exports[`should load step suggestions 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"color\\": \\"#505256\\",
-                    },
++                   },
 +                   Object {
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
+                    },
 +                   Object {
 +                     \\"fontSize\\": 16,
 +                     \\"lineHeight\\": 22,
@@ -4118,16 +4142,15 @@ exports[`should load step suggestions 1`] = `
                   ]
                 }
               >
--             <ActivityIndicator
--               animating={true}
--               color=\\"rgba(0, 0, 0, 1)\\"
--               hidesWhenStopped={true}
--               size=\\"small\\"
--             />
+-               <ActivityIndicator
+-                 animating={true}
+-                 color=\\"rgba(0, 0, 0, 1)\\"
+-                 hidesWhenStopped={true}
+-                 size=\\"small\\"
 +               recusandae ut nulla
 +             </Text>
-            </View>
-          </View>
++           </View>
++         </View>
 +         <View
 +           style={
 +             Object {
@@ -4135,6 +4158,15 @@ exports[`should load step suggestions 1`] = `
 +             }
 +           }
 +         />
++         <View
++           onLayout={[Function anonymous]}
++         >
++           <RCTSafeAreaView
++             emulateUnlessSupported={true}
+            />
+          </View>
+-           </RCTSafeAreaView>
+-         </View>
         </View>
       </RCTScrollView>
       <View
@@ -4142,31 +4174,37 @@ exports[`should load step suggestions 1`] = `
           Object {
             \\"backgroundColor\\": \\"#ECEEF2\\",
 -           \\"height\\": 195,
-+           \\"height\\": 239,
++           \\"height\\": 240,
             \\"left\\": 0,
             \\"paddingTop\\": 0,
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -414,11 +523,11 @@
-                    \\"textAlign\\": \\"center\\",
-                  },
-                ]
-              }
-            >
--             Choose a step to take with them this week...
-+             Choose a step to take with Chyna this week...
-            </Text>
-          </View>
+@@ -419,11 +527,11 @@
+                  \\"textAlign\\": \\"center\\",
+                },
+              ]
+            }
+          >
+-           Choose a step to take with them this week...
++           Choose a step to take with Chyna this week...
+          </Text>
           <View
             style={
               Object {
-@@ -493,10 +602,49 @@
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
+                \\"flexDirection\\": \\"row\\",
+@@ -491,11 +599,50 @@
+                        ],
+                      ]
+                    }
+                  >
+                    Relate
++                 </Text>
++               </View>
++               <View
++                 style={
++                   Array [
++                     Object {
 +                       \\"alignItems\\": \\"center\\",
 +                       \\"borderRadius\\": 30,
 +                       \\"flexDirection\\": \\"row\\",
@@ -4197,26 +4235,23 @@ exports[`should load step suggestions 1`] = `
 +                   }
 +                 >
 +                   0
-+                 </Text>
+                  </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
 +                 />
-+               </View>
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-                        \\"backgroundColor\\": \\"transparent\\",
-                        \\"borderBottomWidth\\": 9,
-                        \\"borderLeftColor\\": \\"transparent\\",
-                        \\"borderLeftWidth\\": 7,
-                        \\"borderRightColor\\": \\"transparent\\",
-@@ -583,10 +731,49 @@
+                </View>
+                <View
+                  style={
+                    Array [
+                      Object {
+@@ -585,11 +732,50 @@
+                        ],
+                      ]
                     }
                   >
                     Pray
-                  </Text>
-                </View>
++                 </Text>
++               </View>
 +               <View
 +                 style={
 +                   Array [
@@ -4251,24 +4286,21 @@ exports[`should load step suggestions 1`] = `
 +                   }
 +                 >
 +                   0
-+                 </Text>
+                  </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
 +                 />
-+               </View>
+                </View>
               </View>
             </View>
             <View
               accessible={true}
-              focusable={true}
-@@ -647,11 +834,50 @@
-                        ],
-                      ]
+@@ -653,12 +839,51 @@
                     }
                   >
                     Care
-+                 </Text>
-+               </View>
+                  </Text>
+                </View>
 +               <View
 +                 style={
 +                   Array [
@@ -4303,16 +4335,19 @@ exports[`should load step suggestions 1`] = `
 +                   }
 +                 >
 +                   41919
-                  </Text>
++                 </Text>
 +                 <SvgMock
 +                   color=\\"#007398\\"
 +                 />
                 </View>
               </View>
-            </View>
++           </View>
             <View
               accessible={true}
-@@ -713,11 +939,50 @@
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function bound touchableHandlePress]}
+@@ -717,11 +942,50 @@
                         ],
                       ]
                     }
@@ -4370,7 +4405,7 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -242,10 +242,22 @@
+@@ -245,10 +245,22 @@
               \\"action\\": [Function action],
               \\"icon\\": false,
               \\"key\\": \\"4\\",
@@ -4393,7 +4428,7 @@ exports[`should paginate 1`] = `
         disableHeaderMomentum={false}
         disableVirtualization={false}
         getItem={[Function anonymous]}
-@@ -457,16 +469,130 @@
+@@ -460,16 +472,130 @@
                     },
                   ]
                 }
@@ -4523,20 +4558,20 @@ exports[`should paginate 1`] = `
               }
             }
           />
-        </View>
-@@ -523,11 +649,11 @@
-                    \\"textAlign\\": \\"center\\",
-                  },
-                ]
-              }
-            >
--             Choose a step to take with Chyna this week...
-+             Choose a step to take with Connor this week...
-            </Text>
-          </View>
+          <View
+@@ -527,11 +653,11 @@
+                  \\"textAlign\\": \\"center\\",
+                },
+              ]
+            }
+          >
+-           Choose a step to take with Chyna this week...
++           Choose a step to take with Connor this week...
+          </Text>
           <View
             style={
-              Object {"
+              Object {
+                \\"flexDirection\\": \\"row\\","
 `;
 
 exports[`with explainer open opens explainer modal 1`] = `
@@ -4544,7 +4579,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -986,6 +986,9 @@
+@@ -989,6 +989,9 @@
             </View>
           </View>
         </View>
