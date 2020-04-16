@@ -155,7 +155,7 @@ export const CreatePostScreen = () => {
   const renderAddPhotoButton = () => (
     <ImagePicker onSelectImage={handleSavePhoto}>
       {postImage ? (
-        <Image resizeMode="cover" source={postImage} style={styles.image} />
+        <Image resizeMode="contain" source={postImage} style={styles.image} />
       ) : (
         <>
           <View style={styles.lineBreak} />

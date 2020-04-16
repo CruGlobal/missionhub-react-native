@@ -51,13 +51,9 @@ function getType(response: ImageCropPickerResponse) {
 export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
   const { t } = useTranslation('imagePicker');
 
-  const takePhoto = () => {
-    selectImage(true);
-  };
+  const takePhoto = () => selectImage(true);
 
-  const chooseFromLibrary = () => {
-    selectImage(false);
-  };
+  const chooseFromLibrary = () => selectImage(false);
 
   const selectImage = async (takePhoto: boolean) => {
     try {
