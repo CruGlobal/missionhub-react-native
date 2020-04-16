@@ -76,6 +76,11 @@ function completeChallengeAPI(step: {
 
     removeFromStepsList(stepId, receiverId);
 
+    apolloClient.query({
+      query: PERSON_STEPS_QUERY,
+      variables: { personId: receiverId, completed: true },
+    });
+
     orgId && getCelebrateFeed(orgId);
   };
 }
