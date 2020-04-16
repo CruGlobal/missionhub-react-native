@@ -20,7 +20,7 @@ describe('useMyId', () => {
     expect(result.current).toEqual(true);
   });
 
-  it("should return true if the id matches the current user's person id", () => {
+  it("should return false if the id does not match the current user's person id", () => {
     const { result } = renderHookWithContext(() => useIsMe('1'), {
       initialState,
     });
