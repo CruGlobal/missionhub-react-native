@@ -2,12 +2,8 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import {
-  ORG_PERMISSIONS,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../constants';
+import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
 import { PostTypeEnum } from '../../../../components/PostTypeLabel';
-import { orgPermissionSelector } from '../../../../selectors/people';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../../actions/navigation';
@@ -22,24 +18,6 @@ jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/analytics');
 jest.mock('../../../../selectors/people');
 
-const orgPermission = {
-  people: {
-    edges: [{ communityPermissions: ORG_PERMISSIONS.USER }],
-  },
-};
-
-const adminPermissions = {
-  ...orgPermission,
-  people: {
-    edges: [{ communityPermissions: ORG_PERMISSIONS.ADMIN }],
-  },
-};
-const ownerPermissions = {
-  ...orgPermission,
-  people: {
-    edges: [{ communityPermissions: ORG_PERMISSIONS.OWNER }],
-  },
-};
 const mockCommunity: CommunityType = {
   id: '1234',
   __typename: 'Community',

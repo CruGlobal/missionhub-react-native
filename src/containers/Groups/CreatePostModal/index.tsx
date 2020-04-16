@@ -3,7 +3,6 @@ import { View, Modal, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { orgPermissionSelector } from '../../../selectors/people';
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
   PostTypeEnum,
@@ -12,15 +11,14 @@ import PostTypeLabel, {
 import CloseIcon from '../../../../assets/images/closeIcon.svg';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
-import { Organization } from '../../../reducers/organizations';
 import { isAdminOrOwner } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
-import theme from '../../../theme';
 import { getMyCommunityPermission_community as CommunityType } from '../CreatePostInput/__generated__/getMyCommunityPermission';
+import theme from '../../../theme';
 
 import styles from './styles';
 

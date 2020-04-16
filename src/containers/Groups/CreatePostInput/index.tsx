@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 
+import { useMyId } from '../../../utils/hooks/useIsMe';
 import { Button, Text } from '../../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
-import { AuthState } from '../../../reducers/auth';
 import { PostTypeEnum } from '../../../components/PostTypeLabel';
 import CreatePostModal from '../CreatePostModal';
+
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './queries';
 import {
   getMyCommunityPermission,
   getMyCommunityPermissionVariables,
 } from './__generated__/getMyCommunityPermission';
-
 import styles from './styles';
 
 interface CreatePostInputProps {
@@ -26,12 +25,10 @@ interface CreatePostInputProps {
 const CreatePostInput = ({ type, orgId }: CreatePostInputProps) => {
   const { t } = useTranslation('createPostScreen');
   const { container, inputButton, inputText } = styles;
-  const personId = useSelector(
-    ({ auth }: { auth: AuthState }) => auth.person.id,
-  );
+  const personId = useMyId();
   const [isModalOpen, changeModalVisibility] = useState(false);
 
-  const { data: { community } = {} } = useQuery<
+  const { data: { community } = { community: undefined } } = useQuery<
     getMyCommunityPermission,
     getMyCommunityPermissionVariables
   >(GET_MY_COMMUNITY_PERMISSION_QUERY, {

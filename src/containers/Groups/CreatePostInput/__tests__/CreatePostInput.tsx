@@ -1,13 +1,13 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 import { PostTypeEnum } from '../../../../components/PostTypeLabel';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 
 import CreatePostInput from '..';
-import { useQuery } from '@apollo/react-hooks';
-import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../utils/hooks/useAnalytics');
