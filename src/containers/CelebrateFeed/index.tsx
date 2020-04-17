@@ -219,7 +219,7 @@ const CelebrateFeed = ({
               isMember={!!person}
               organization={organization}
             />
-            {!person ? <CreatePostInput orgId={organization.id} /> : null}
+            {!person ? <CreatePostInput communityId={organization.id} /> : null}
           </>
         )}
       </>

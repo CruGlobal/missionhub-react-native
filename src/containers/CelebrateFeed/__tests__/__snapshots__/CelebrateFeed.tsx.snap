@@ -61,7 +61,7 @@ exports[`renders empty correctly 1`] = `
         }
       />
       <CreatePostInput
-        orgId="456"
+        communityId="456"
       />
     </View>
   </View>
@@ -910,7 +910,7 @@ exports[`renders for Global Community renders correctly 1`] = `
         }
       />
       <CreatePostInput
-        orgId="_global_community_id"
+        communityId="_global_community_id"
       />
     </View>
     <View
@@ -2096,7 +2096,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         }
       />
       <CreatePostInput
-        orgId="456"
+        communityId="456"
       />
     </View>
     <View
@@ -5639,7 +5639,7 @@ exports[`renders with celebration items correctly 1`] = `
         }
       />
       <CreatePostInput
-        orgId="456"
+        communityId="456"
       />
     </View>
     <View
@@ -6825,7 +6825,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
       />
       <CreatePostInput
-        orgId="456"
+        communityId="456"
       />
     </View>
     <View

@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
@@ -9,7 +10,7 @@ import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
 import { PermissionEnum } from '../../../../../__generated__/globalTypes';
-import { getMyCommunityPermission_community as CommunityType } from '../../CreatePostInput/__generated__/getMyCommunityPermission';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 
 import CreatePostModal from '..';
 
@@ -18,58 +19,10 @@ jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/analytics');
 jest.mock('../../../../selectors/people');
 
-const mockCommunity: CommunityType = {
-  id: '1234',
-  __typename: 'Community',
-  people: {
-    __typename: 'CommunityPersonConnection',
-    edges: [
-      {
-        communityPermission: {
-          __typename: 'CommunityPermission',
-          permission: PermissionEnum.user,
-        },
-        __typename: 'CommunityPersonEdge',
-      },
-    ],
-  },
-};
-
-const ownerMockCommunity: CommunityType = {
-  ...mockCommunity,
-  people: {
-    __typename: 'CommunityPersonConnection',
-    edges: [
-      {
-        communityPermission: {
-          __typename: 'CommunityPermission',
-          permission: PermissionEnum.owner,
-        },
-        __typename: 'CommunityPersonEdge',
-      },
-    ],
-  },
-};
-
-const adminMockCommunity: CommunityType = {
-  ...mockCommunity,
-  people: {
-    __typename: 'CommunityPersonConnection',
-    edges: [
-      {
-        communityPermission: {
-          __typename: 'CommunityPermission',
-          permission: PermissionEnum.admin,
-        },
-        __typename: 'CommunityPersonEdge',
-      },
-    ],
-  },
-};
 const closeModal = jest.fn();
-
+const mockCommunityId = '1';
 const props = {
-  community: mockCommunity,
+  communityId: mockCommunityId,
   closeModal,
 };
 const initialState = {
@@ -86,10 +39,18 @@ beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
 });
 
-it('renders correctly', () => {
-  renderWithContext(<CreatePostModal {...props} />, {
+it('renders correctly', async () => {
+  const { snapshot } = renderWithContext(<CreatePostModal {...props} />, {
     initialState,
-  }).snapshot();
+  });
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.communityId,
+      myId: '1',
+    },
+  });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: 'member',
@@ -97,14 +58,22 @@ it('renders correctly', () => {
   });
 });
 
-it('renders correctly for admin', () => {
+it('renders correctly for admin', async () => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
-  renderWithContext(
-    <CreatePostModal {...props} community={adminMockCommunity} />,
-    {
-      initialState,
+  const { snapshot } = renderWithContext(<CreatePostModal {...props} />, {
+    initialState,
+    mocks: {
+      CommunityPermission: () => ({ permission: PermissionEnum.admin }),
     },
-  ).snapshot();
+  });
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.communityId,
+      myId: '1',
+    },
+  });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: 'admin',
@@ -112,14 +81,22 @@ it('renders correctly for admin', () => {
   });
 });
 
-it('renders correctly for owner', () => {
+it('renders correctly for owner', async () => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('owner');
-  renderWithContext(
-    <CreatePostModal {...props} community={ownerMockCommunity} />,
-    {
-      initialState,
+  const { snapshot } = renderWithContext(<CreatePostModal {...props} />, {
+    initialState,
+    mocks: {
+      CommunityPermission: () => ({ permission: PermissionEnum.owner }),
     },
-  ).snapshot();
+  });
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.communityId,
+      myId: '1',
+    },
+  });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: 'owner',
@@ -127,15 +104,22 @@ it('renders correctly for owner', () => {
   });
 });
 
-it('fires onPress and navigates | member', () => {
+it('fires onPress and navigates | member', async () => {
   const { getByTestId } = renderWithContext(<CreatePostModal {...props} />, {
     initialState,
   });
+  await flushMicrotasksQueue();
 
   fireEvent.press(getByTestId('godStoryButton'));
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.communityId,
+      myId: '1',
+    },
+  });
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
-    community: mockCommunity,
+    communityId: mockCommunityId,
     type: PostTypeEnum.godStory,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
@@ -145,19 +129,26 @@ it('fires onPress and navigates | member', () => {
   });
 });
 
-it('fires onPress and navigates | owner', () => {
+it('fires onPress and navigates | owner', async () => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('owner');
-  const { getByTestId } = renderWithContext(
-    <CreatePostModal {...props} community={ownerMockCommunity} />,
-    {
-      initialState,
+  const { getByTestId } = renderWithContext(<CreatePostModal {...props} />, {
+    initialState,
+    mocks: {
+      CommunityPermission: () => ({ permission: PermissionEnum.owner }),
     },
-  );
+  });
+  await flushMicrotasksQueue();
 
   fireEvent.press(getByTestId('announcementButton'));
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.communityId,
+      myId: '1',
+    },
+  });
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
-    community: ownerMockCommunity,
+    communityId: mockCommunityId,
     type: PostTypeEnum.announcement,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
@@ -167,12 +158,19 @@ it('fires onPress and navigates | owner', () => {
   });
 });
 
-it('closes modal when close button is pressed', () => {
+it('closes modal when close button is pressed', async () => {
   const { getByTestId } = renderWithContext(<CreatePostModal {...props} />, {
     initialState,
   });
-  fireEvent.press(getByTestId('CloseButton'));
+  await flushMicrotasksQueue();
 
+  fireEvent.press(getByTestId('CloseButton'));
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: props.communityId,
+      myId: '1',
+    },
+  });
   expect(closeModal).toHaveBeenCalledWith();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {

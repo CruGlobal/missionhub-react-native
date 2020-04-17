@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Modal, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
+import { useQuery } from '@apollo/react-hooks';
 
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
@@ -13,21 +14,26 @@ import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
 import { isAdminOrOwner } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { useMyId } from '../../../utils/hooks/useIsMe';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
-import { getMyCommunityPermission_community as CommunityType } from '../CreatePostInput/__generated__/getMyCommunityPermission';
 import theme from '../../../theme';
 
+import {
+  getMyCommunityPermission,
+  getMyCommunityPermissionVariables,
+} from './__generated__/getMyCommunityPermission';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './queries';
 import styles from './styles';
 
 interface CreatePostModalProps {
   closeModal: () => void;
-  community: CommunityType;
+  communityId: string;
 }
 
-const CreatePostModal = ({ closeModal, community }: CreatePostModalProps) => {
+const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
   const {
     modalStyle,
     containerStyle,
@@ -37,21 +43,36 @@ const CreatePostModal = ({ closeModal, community }: CreatePostModalProps) => {
   } = styles;
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
+  const personId = useMyId();
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
-  const orgPermission = community.people.edges[0].communityPermission;
 
-  const adminOrOwner = isAdminOrOwner(orgPermission);
-  useAnalytics(['post', 'choose type'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(auth, community),
+  const { data: { community } = { community: undefined } } = useQuery<
+    getMyCommunityPermission,
+    getMyCommunityPermissionVariables
+  >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: communityId,
+      myId: personId,
     },
   });
+  const orgPermission = community?.people.edges[0].communityPermission;
+
+  const adminOrOwner = orgPermission && isAdminOrOwner(orgPermission);
+  community &&
+    useAnalytics(['post', 'choose type'], {
+      screenContext: {
+        [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
+          auth,
+          community,
+        ),
+      },
+    });
 
   const navigateToCreatePostScreen = (type: PostTypeEnum) => {
     closeModal();
     return dispatch(
       navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
-        community,
+        communityId: community?.id,
         type,
       }),
     );

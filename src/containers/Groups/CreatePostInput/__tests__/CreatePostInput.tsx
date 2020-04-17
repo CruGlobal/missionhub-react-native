@@ -5,7 +5,7 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 import { PostTypeEnum } from '../../../../components/PostTypeLabel';
-import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../CreatePostModal/queries';
 
 import CreatePostInput from '..';
 
@@ -17,11 +17,11 @@ const mockOrganization = {
 };
 
 const props = {
-  orgId: mockOrganization.id,
+  communityId: mockOrganization.id,
 };
 
 const globalCommunityProps = {
-  orgId: GLOBAL_COMMUNITY_ID,
+  communityId: GLOBAL_COMMUNITY_ID,
 };
 const initialState = {
   auth: {
@@ -33,53 +33,29 @@ const initialState = {
   drawer: { isOpen: false },
 };
 
-it('renders correctly', async () => {
+it('renders correctly', () => {
   const { snapshot } = renderWithContext(<CreatePostInput {...props} />, {
     initialState,
   });
-  await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
-    variables: {
-      id: props.orgId,
-      myId: '1',
-    },
-    skip: false,
-  });
 });
 
-it('renders correctly with type', async () => {
+it('renders correctly with type', () => {
   const { snapshot } = renderWithContext(
     <CreatePostInput {...props} type={PostTypeEnum.godStory} />,
     { initialState },
   );
-  await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
-    variables: {
-      id: props.orgId,
-      myId: '1',
-    },
-    skip: false,
-  });
 });
 
-it('does not render for Global Community', async () => {
+it('does not render for Global Community', () => {
   const { snapshot } = renderWithContext(
     <CreatePostInput {...globalCommunityProps} />,
     {
       initialState,
     },
   );
-  await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
-    variables: {
-      id: globalCommunityProps.orgId,
-      myId: '1',
-    },
-    skip: true,
-  });
 });
 
 it('onPress opens modal', async () => {
@@ -94,9 +70,8 @@ it('onPress opens modal', async () => {
   diffSnapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
-      id: props.orgId,
+      id: props.communityId,
       myId: '1',
     },
-    skip: false,
   });
 });
