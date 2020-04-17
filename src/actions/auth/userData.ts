@@ -2,6 +2,7 @@ import i18next from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import { ThunkDispatch } from 'redux-thunk';
 import appsFlyer from 'react-native-appsflyer';
+import { AnyAction } from 'redux';
 
 import { LOAD_PERSON_DETAILS } from '../../constants';
 import { getMe } from '../person';
@@ -13,6 +14,9 @@ import { getMyCommunities } from '../organizations';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
 import { AuthState } from '../../reducers/auth';
+import { requestNativePermissions } from '../notifications';
+import { isAndroid } from '../../utils/common';
+import { AnalyticsState } from '../../reducers/analytics';
 
 function getTimezoneString() {
   return `${(new Date().getTimezoneOffset() / 60) * -1}`;
@@ -41,8 +45,14 @@ export function updateLocaleAndTimezone() {
 }
 
 export function authSuccess() {
-  // @ts-ignore
-  return async (dispatch, getState) => {
+  return async (
+    dispatch: ThunkDispatch<
+      { auth: AuthState; analytics: AnalyticsState },
+      null,
+      AnyAction
+    >,
+    getState: () => { auth: AuthState },
+  ) => {
     dispatch(logInAnalytics());
 
     const {
@@ -58,6 +68,8 @@ export function authSuccess() {
       type: LOAD_PERSON_DETAILS,
       person: mePerson,
     });
+
+    isAndroid && dispatch(requestNativePermissions());
   };
 }
 

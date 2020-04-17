@@ -961,16 +961,49 @@ exports[`savePerson add new person with org should add a new person 1`] = `
           ]
         }
       >
-        <SvgMock
-          color="#ffffff"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginLeft": 10,
+              "opacity": 1,
             }
           }
           testID="backIcon"
-        />
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
       </View>
       <View
         style={
@@ -1284,7 +1317,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -161,11 +161,13 @@
+@@ -194,11 +194,13 @@
                       \\"fontSize\\": 13,
                       \\"marginTop\\": 15,
                     },
@@ -1299,7 +1332,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -198,11 +200,11 @@
+@@ -231,11 +233,11 @@
                     },
                   ]
                 }
@@ -1312,7 +1345,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -307,24 +309,18 @@
+@@ -340,24 +342,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -1339,7 +1372,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -347,15 +343,11 @@
+@@ -380,15 +376,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",

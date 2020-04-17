@@ -119,10 +119,11 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           <IconButton
             name="close"
             type="Material"
-            size={32}
+            size={22}
             onPress={onClose}
-            hitSlop={theme.hitSlop(10)}
-            style={styles.closeButton}
+            hitSlop={theme.hitSlop(15)}
+            style={styles.closeButtonIcon}
+            buttonStyle={styles.closeButton}
             testID="SelectStepExplainerCloseButton"
           />
         </View>
