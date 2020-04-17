@@ -13,7 +13,7 @@ import { Touchable } from '../common';
 import { isAndroid } from '../../utils/common';
 import { TriangleIndicator } from '../TriangleIndicator/TriangleIndicator';
 import theme from '../../theme';
-import { CommunityHeader } from '../../containers/Communities/CommunityHeader/CommunityHeader';
+import { CommunityHeader } from '../../containers/Communities/Community/CommunityHeader/CommunityHeader';
 
 import styles from './styles';
 

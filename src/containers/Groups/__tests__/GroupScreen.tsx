@@ -15,7 +15,7 @@ import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
-import { COMMUNITY_PROFILE } from '../../Communities/CommunityProfile/CommunityProfile';
+import { COMMUNITY_PROFILE } from '../../Communities/Community/CommunityProfile/CommunityProfile';
 
 jest.mock('../../../actions/navigation');
 

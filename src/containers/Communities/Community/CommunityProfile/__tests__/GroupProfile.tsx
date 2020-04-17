@@ -10,25 +10,25 @@ import {
   createMockNavState,
   testSnapshotShallow,
   createThunkStore,
-} from '../../../../../testUtils';
+} from '../../../../../../testUtils';
 import {
   navigateBack,
   navigateToMainTabs,
-} from '../../../../actions/navigation';
+} from '../../../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
   deleteOrganization,
   generateNewCode,
   generateNewLink,
-} from '../../../../actions/organizations';
+} from '../../../../../actions/organizations';
 import {
   trackActionWithoutData,
   trackScreenChange,
-} from '../../../../actions/analytics';
-import { organizationSelector } from '../../../../selectors/organizations';
-import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../constants';
-import * as common from '../../../../utils/common';
+} from '../../../../../actions/analytics';
+import { organizationSelector } from '../../../../../selectors/organizations';
+import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../../constants';
+import * as common from '../../../../../utils/common';
 import GroupProfile from '../CommunityProfile';
 
 jest.mock('../../../../actions/navigation', () => ({

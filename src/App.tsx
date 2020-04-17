@@ -38,7 +38,7 @@ import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { apolloClient } from './apolloClient';
 import { CollapsibleViewProvider } from './components/CollapsibleView/CollapsibleView';
-import { CommunitiesCollapsibleHeaderContext } from './containers/Communities/CommunityHeader/CommunityHeader';
+import { CommunitiesCollapsibleHeaderContext } from './containers/Communities/Community/CommunityHeader/CommunityHeader';
 
 appsFlyer.initSdk({
   devKey: 'QdbVaVHi9bHRchUTWtoaij',

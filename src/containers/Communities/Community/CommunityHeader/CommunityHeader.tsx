@@ -7,25 +7,25 @@ import { useDispatch } from 'react-redux';
 import {
   createCollapsibleViewContext,
   CollapsibleViewHeader,
-} from '../../../components/CollapsibleView/CollapsibleView';
-import { Text, Flex, Button } from '../../../components/common';
-import { HeaderTabBar } from '../../../components/HeaderTabBar/HeaderTabBar';
+} from '../../../../components/CollapsibleView/CollapsibleView';
+import { Text, Flex, Button } from '../../../../components/common';
+import { HeaderTabBar } from '../../../../components/HeaderTabBar/HeaderTabBar';
 import {
   GROUP_CELEBRATE,
   GROUP_CHALLENGES,
   GROUP_IMPACT,
-} from '../../Groups/GroupScreen';
-import BackButton from '../../BackButton';
-import theme from '../../../theme';
-import Header from '../../../components/Header';
-import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
-import { navigatePush } from '../../../actions/navigation';
+} from '../../../Groups/GroupScreen';
+import BackButton from '../../../BackButton';
+import theme from '../../../../theme';
+import Header from '../../../../components/Header';
+import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
+import { navigatePush } from '../../../../actions/navigation';
 import { COMMUNITY_PROFILE } from '../CommunityProfile/CommunityProfile';
-import InfoIcon from '../../../../assets/images/infoIcon.svg';
-import EditIcon from '../../../../assets/images/editIcon.svg';
-import { useMyId } from '../../../utils/hooks/useIsMe';
-import { useCommunityPhoto } from '../hooks/useCommunityPhoto';
-import { canEditCommunity, orgIsGlobal } from '../../../utils/common';
+import InfoIcon from '../../../../../assets/images/infoIcon.svg';
+import EditIcon from '../../../../../assets/images/editIcon.svg';
+import { useMyId } from '../../../../utils/hooks/useIsMe';
+import { useCommunityPhoto } from '../../hooks/useCommunityPhoto';
+import { canEditCommunity, orgIsGlobal } from '../../../../utils/common';
 
 import styles from './styles';
 import {
@@ -50,13 +50,13 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
   const myId = useMyId();
   const isGlobalCommunity = orgIsGlobal({ id: communityId });
 
-  const { data, error, refetch } = useQuery<CommunityHeaderQuery>(
-    COMMUNITY_HEADER_QUERY,
-    {
-      variables: { id: communityId, myId },
-      skip: isGlobalCommunity,
-    },
-  );
+  const { data, error, refetch } = useQuery<
+    CommunityHeaderQuery,
+    CommunityHeaderVariables
+  >(COMMUNITY_HEADER_QUERY, {
+    variables: { id: communityId, myId },
+    skip: isGlobalCommunity,
+  });
   const {
     data: globalData,
     error: globalError,
@@ -137,6 +137,11 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
           message={t('errorLoadingCommunityDetails')}
           error={error}
           refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCommunityDetails')}
+          error={globalError}
+          refetch={globalRefetch}
         />
         <HeaderTabBar
           tabs={[

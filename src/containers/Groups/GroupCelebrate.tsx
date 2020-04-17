@@ -14,7 +14,7 @@ import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { CommunitiesCollapsibleHeaderContext } from '../Communities/CommunityHeader/CommunityHeader';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
 
 export interface GroupCelebrateProps {
   organization: Organization;

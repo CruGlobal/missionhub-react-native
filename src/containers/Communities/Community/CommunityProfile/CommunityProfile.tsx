@@ -15,17 +15,20 @@ import {
   Separator,
   IconButton,
   DateComponent,
-} from '../../../components/common';
-import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
-import ImagePicker from '../../../components/ImagePicker';
-import theme from '../../../theme';
+} from '../../../../components/common';
+import CAMERA_ICON from '../../../../../assets/images/cameraIcon.png';
+import ImagePicker from '../../../../components/ImagePicker';
+import theme from '../../../../theme';
 import {
   copyText,
   getCommunityUrl,
   canEditCommunity,
-} from '../../../utils/common';
-import { getAnalyticsPermissionTypeGraphQL } from '../../../utils/analytics';
-import { navigateBack, navigateToMainTabs } from '../../../actions/navigation';
+} from '../../../../utils/common';
+import { getAnalyticsPermissionTypeGraphQL } from '../../../../utils/analytics';
+import {
+  navigateBack,
+  navigateToMainTabs,
+} from '../../../../actions/navigation';
 import {
   updateOrganization,
   updateOrganizationImage,
@@ -33,22 +36,22 @@ import {
   generateNewCode,
   generateNewLink,
   ImageData,
-} from '../../../actions/organizations';
+} from '../../../../actions/organizations';
 import {
   trackActionWithoutData,
   trackScreenChange,
-} from '../../../actions/analytics';
+} from '../../../../actions/analytics';
 import {
   ACTIONS,
   GROUPS_TAB,
   ANALYTICS_PERMISSION_TYPE,
-} from '../../../constants';
-import PopupMenu from '../../../components/PopupMenu';
-import Header from '../../../components/Header';
-import Analytics from '../../Analytics';
-import { useMyId } from '../../../utils/hooks/useIsMe';
-import { useCommunityPhoto } from '../hooks/useCommunityPhoto';
-import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
+} from '../../../../constants';
+import PopupMenu from '../../../../components/PopupMenu';
+import Header from '../../../../components/Header';
+import Analytics from '../../../Analytics';
+import { useMyId } from '../../../../utils/hooks/useIsMe';
+import { useCommunityPhoto } from '../../hooks/useCommunityPhoto';
+import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
 
 import styles from './styles';
 import {
