@@ -21,7 +21,7 @@ import GroupCardItem from '../../components/GroupCardItem';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
 import { IconButton, Button } from '../../components/common';
-import { navigatePush, navigateToCommunity } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
 import { resetScrollGroups } from '../../actions/swipe';
@@ -40,6 +40,7 @@ import {
 } from '../../utils/hooks/useAnalytics';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { COMMUNITY_TABS } from '../Communities/Community/CommunityTabs';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -224,7 +225,11 @@ const GroupsListScreen = ({
   }, [communities, scrollToId, flatList]);
 
   const handlePress = (community: Organization) => {
-    dispatch(navigateToCommunity(community));
+    dispatch(
+      navigatePush(COMMUNITY_TABS, {
+        communityId: community.id,
+      }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 

@@ -2,13 +2,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { buildTrackedScreen, wrapNextAction } from '../helpers';
 import { buildTrackingObj } from '../../utils/common';
-import { navigateToCommunity } from '../../actions/navigation';
 import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
 import { loadHome } from '../../actions/auth/userData';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/CommunityTabs';
+import { navigatePush } from '../../actions/navigation';
 
 export const DeepLinkJoinCommunityAuthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -20,7 +21,11 @@ export const DeepLinkJoinCommunityAuthenticatedScreens = {
         await dispatch(joinCommunity(id, null, community_url));
         await dispatch(loadHome());
         dispatch(setScrollGroups(id));
-        dispatch(navigateToCommunity(community));
+        dispatch(
+          navigatePush(COMMUNITY_TABS, {
+            communityId: community.id,
+          }),
+        );
       },
     ),
     // @ts-ignore

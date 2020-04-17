@@ -22,12 +22,12 @@ import ImagePicker from '../../../components/ImagePicker';
 import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
 
 import styles from './styles';
+import { COMMUNITY_TABS } from '../../Communities/Community/CommunityTabs';
 
 // @ts-ignore
 @withTranslation('groupsCreateGroup')
@@ -77,9 +77,9 @@ class CreateGroupScreen extends Component {
 
       if (organization) {
         dispatch(
-          navigatePush(USER_CREATED_GROUP_SCREEN, {
-            orgId,
-            initialTab: GROUP_MEMBERS,
+          // TODO: navigate to Community members screen instead
+          navigatePush(COMMUNITY_TABS, {
+            communityId: orgId,
           }),
         );
         return dispatch(
