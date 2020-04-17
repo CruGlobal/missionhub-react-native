@@ -6,43 +6,44 @@ import { renderWithContext } from '../../../../../testUtils';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 
-import ShareStoryInput from '..';
+import { CreatePostButton } from '..';
 
 jest.mock('../../../../actions/navigation');
 
-const mockOrganization = {
-  id: '1234',
-};
+const orgId = '1234';
 
-const props = {
-  dispatch: jest.fn(response => Promise.resolve(response)),
-  refreshItems: jest.fn(),
-  organization: mockOrganization,
-};
+const refreshItems = jest.fn();
 
-const globalCommunityProps = {
-  ...props,
-  organization: {
-    id: GLOBAL_COMMUNITY_ID,
-  },
-};
+beforeEach(() => {
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+});
 
 it('renders correctly', () => {
-  renderWithContext(<ShareStoryInput {...props} />).snapshot();
+  renderWithContext(
+    <CreatePostButton refreshItems={refreshItems} orgId={orgId} />,
+  ).snapshot();
 });
 
 it('does not render for Global Community', () => {
-  renderWithContext(<ShareStoryInput {...globalCommunityProps} />).snapshot();
+  renderWithContext(
+    <CreatePostButton
+      refreshItems={refreshItems}
+      orgId={GLOBAL_COMMUNITY_ID}
+    />,
+  ).snapshot();
 });
 
 it('onPress switches to NewPostScreen', () => {
-  const { getByTestId } = renderWithContext(<ShareStoryInput {...props} />);
-  fireEvent.press(getByTestId('ShareStoryInput'));
+  const { getByTestId } = renderWithContext(
+    <CreatePostButton refreshItems={refreshItems} orgId={orgId} />,
+  );
+
+  fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-    organization: mockOrganization,
+    orgId,
     onComplete: expect.any(Function),
   });
   (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
-  expect(props.refreshItems).toHaveBeenCalled();
+  expect(refreshItems).toHaveBeenCalled();
   expect(navigateBack).toHaveBeenCalled();
 });

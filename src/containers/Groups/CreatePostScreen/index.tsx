@@ -144,7 +144,7 @@ export const CreatePostScreen = () => {
       center={<Text style={styles.headerText}>{t(`${postType}.label`)}</Text>}
       right={
         postText ? (
-          <Button onPress={savePost} testID="SavePostButton">
+          <Button onPress={savePost} testID="CreatePostButton">
             <SendIcon style={styles.icon} />
           </Button>
         ) : null
@@ -183,7 +183,7 @@ export const CreatePostScreen = () => {
       />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
-          testID="StoryInput"
+          testID="PostInput"
           scrollEnabled={false}
           onChangeText={e => changePostText(e)}
           placeholder={t(`${postType}.placeholder`)}

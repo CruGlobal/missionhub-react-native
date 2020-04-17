@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Alert } from 'react-native';
+import * as ReactNative from 'react-native';
 import MockDate from 'mockdate';
 import ImageCropPicker from 'react-native-image-crop-picker';
 import i18next from 'i18next';
+import { fireEvent } from 'react-native-testing-library';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 
 import ImagePicker from '..';
 
@@ -16,16 +18,14 @@ jest.mock('../../../utils/common');
 
 MockDate.set('2018-11-08');
 
-const onSelectImage = jest.fn();
+let onSelectImage = jest.fn();
 
 beforeEach(() => {
-  // @ts-ignore
-  onSelectImage.mockReturnValue();
+  onSelectImage = jest.fn();
 });
 
 it('renders image picker', () => {
-  testSnapshotShallow(
-    // @ts-ignore
+  renderWithContext(
     <ImagePicker onSelectImage={onSelectImage}>
       <View />
     </ImagePicker>,
@@ -35,24 +35,18 @@ it('renders image picker', () => {
 describe('press image picker', () => {
   let mockResponse = {};
   let mockFinalData = {};
-  let component;
 
-  // @ts-ignore
-  const buildAndPressPicker = actionIndex => {
-    // @ts-ignore
-    ImageCropPicker.openCamera.mockReturnValue(mockResponse);
-    // @ts-ignore
-    ImageCropPicker.openPicker.mockReturnValue(mockResponse);
+  const buildAndPressPicker = (actionIndex: number) => {
+    (ImageCropPicker.openCamera as jest.Mock).mockReturnValue(mockResponse);
+    (ImageCropPicker.openPicker as jest.Mock).mockReturnValue(mockResponse);
 
-    component = renderShallow(
-      // @ts-ignore
+    const { getAllByTestId } = renderWithContext(
       <ImagePicker onSelectImage={onSelectImage}>
         <View />
       </ImagePicker>,
     );
 
-    // @ts-ignore
-    component.props().actions[actionIndex].onPress();
+    fireEvent(getAllByTestId('popupMenuButton')[actionIndex], 'onPress');
   };
 
   describe('openCamera', () => {
@@ -61,7 +55,7 @@ describe('press image picker', () => {
       expect(onSelectImage).toHaveBeenCalledWith(mockFinalData);
     };
 
-    it('selects .jpg image', async () => {
+    it('selects .jpg image', () => {
       mockResponse = {
         size: 1,
         filename: 'test.jpg',
@@ -80,11 +74,11 @@ describe('press image picker', () => {
         uri: 'testuri.jpg',
       };
 
-      await buildAndPressPicker(0);
+      buildAndPressPicker(0);
       openCameraTests();
     });
 
-    it('selects image without type and parses out png', async () => {
+    it('selects image without type and parses out png', () => {
       mockResponse = {
         size: 1,
         filename: 'test.png',
@@ -102,11 +96,11 @@ describe('press image picker', () => {
         uri: 'testuri.png',
       };
 
-      await buildAndPressPicker(0);
+      buildAndPressPicker(0);
       openCameraTests();
     });
 
-    it('selects image without type and parses out jpg', async () => {
+    it('selects image without type and parses out jpg', () => {
       mockResponse = {
         size: 1,
         filename: 'test.jpg',
@@ -124,11 +118,11 @@ describe('press image picker', () => {
         uri: 'testuri.jpg',
       };
 
-      await buildAndPressPicker(0);
+      buildAndPressPicker(0);
       openCameraTests();
     });
 
-    it('selects image without type and parses out heic and puts in jpg', async () => {
+    it('selects image without type and parses out heic and puts in jpg', () => {
       mockResponse = {
         size: 1,
         filename: 'test.heic',
@@ -146,7 +140,7 @@ describe('press image picker', () => {
         uri: 'testuri.jpg',
       };
 
-      await buildAndPressPicker(0);
+      buildAndPressPicker(0);
       openCameraTests();
     });
   });
@@ -157,7 +151,7 @@ describe('press image picker', () => {
       expect(onSelectImage).toHaveBeenCalledWith(mockFinalData);
     };
 
-    it('selects .jpg image', async () => {
+    it('selects .jpg image', () => {
       mockResponse = {
         size: 1,
         filename: 'test.jpg',
@@ -176,11 +170,11 @@ describe('press image picker', () => {
         uri: 'testuri.jpg',
       };
 
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
       openPickerTests();
     });
 
-    it('selects image without type and parses out png', async () => {
+    it('selects image without type and parses out png', () => {
       mockResponse = {
         size: 1,
         filename: 'test.png',
@@ -198,11 +192,11 @@ describe('press image picker', () => {
         uri: 'testuri.png',
       };
 
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
       openPickerTests();
     });
 
-    it('selects image without type and parses out jpg', async () => {
+    it('selects image without type and parses out jpg', () => {
       mockResponse = {
         size: 1,
         filename: 'test.jpg',
@@ -220,11 +214,11 @@ describe('press image picker', () => {
         uri: 'testuri.jpg',
       };
 
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
       openPickerTests();
     });
 
-    it('selects image without type and parses out heic and puts in jpg', async () => {
+    it('selects image without type and parses out heic and puts in jpg', () => {
       mockResponse = {
         size: 1,
         filename: 'test.heic',
@@ -242,7 +236,7 @@ describe('press image picker', () => {
         uri: 'testuri.jpg',
       };
 
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
       openPickerTests();
     });
   });
@@ -252,23 +246,23 @@ describe('press image picker', () => {
       Alert.alert = jest.fn();
     });
 
-    it('User does not give permission, not error', async () => {
+    it('User does not give permission, not error', () => {
       mockResponse = Promise.reject({ code: 'E_PERMISSION_MISSING' });
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
 
       expect(Alert.alert).not.toHaveBeenCalled();
     });
 
-    it('User canceled image picker, not error', async () => {
+    it('User canceled image picker, not error', () => {
       mockResponse = Promise.reject({ code: 'E_PICKER_CANCELLED' });
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
 
       expect(Alert.alert).not.toHaveBeenCalled();
     });
 
-    it('error selecting image', async () => {
+    it('error selecting image', () => {
       mockResponse = Promise.reject({ code: 'OTHER_ERROR' });
-      await buildAndPressPicker(1);
+      buildAndPressPicker(1);
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('imagePicker:errorHeader'),

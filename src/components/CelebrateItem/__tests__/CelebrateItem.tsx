@@ -214,9 +214,9 @@ describe('long-press card', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-        celebrationItem: myStoryEvent,
-        onRefresh,
-        organization,
+        post: myStoryEvent,
+        onComplete: onRefresh,
+        orgId: organization.id,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
     });

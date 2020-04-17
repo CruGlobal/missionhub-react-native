@@ -39,7 +39,7 @@ exports[`renders correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID="ShareStoryInput"
+    testID="CreatePostButton"
   >
     <View
       style={
@@ -57,18 +57,50 @@ exports[`renders correctly 1`] = `
           },
           null,
           Object {
-            "alignItems": "flex-start",
-            "borderColor": "#B4B6BA",
-            "borderRadius": 20,
-            "borderWidth": 1,
-            "height": 32,
+            "backgroundColor": "#ECEEF2",
+            "borderRadius": 18,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "flex-start",
             "marginHorizontal": 20,
-            "marginVertical": 12,
+            "marginVertical": 16,
+            "paddingHorizontal": 6,
           },
           null,
         ]
       }
     >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": undefined,
+            "borderRadius": 12,
+            "height": 24,
+            "justifyContent": "center",
+            "width": 24,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          C
+        </Text>
+      </View>
       <Text
         style={
           Array [
@@ -79,14 +111,14 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#B4B6BA",
               "fontSize": 14,
               "height": 18,
+              "paddingHorizontal": 8,
             },
           ]
         }
       >
-        Share a Story...
+        Post to community...
       </Text>
     </View>
   </View>

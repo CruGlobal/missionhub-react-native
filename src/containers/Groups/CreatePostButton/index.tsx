@@ -48,7 +48,7 @@ export const CreatePostButton = ({
 
   return orgId !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
-      <Button style={inputButton} onPress={onPress} testID="ShareStoryInput">
+      <Button style={inputButton} onPress={onPress} testID="CreatePostButton">
         {renderProfile()}
         <Text style={inputText}>{t('buttonPlaceholder')}</Text>
       </Button>
