@@ -1,4 +1,4 @@
-/* eslint complexity: 0, max-lines: 0 */
+/* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
@@ -32,9 +32,11 @@ import {
 } from '../../utils/analytics';
 import { Person } from '../../reducers/people';
 import Analytics from '../Analytics';
+import { Organization, OrganizationsState } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
+import { ImpactState } from '../../reducers/impact';
 
 import styles from './styles';
-import { Organization } from '../../reducers/organizations';
 
 const reportPeriods = [
   {
@@ -228,30 +230,39 @@ export class ImpactView extends Component<{
             );
           })}
         </Flex>
-        {/* 
-        // @ts-ignore */}
-        {interactionsReport.map(i => {
-          return (
-            <Flex
-              align="center"
-              style={styles.interactionRow}
-              key={i.id}
-              direction="row"
-            >
-              <Flex value={1}>
-                <Icon type="MissionHub" style={styles.icon} name={i.iconName} />
+        {interactionsReport.map(
+          (i: {
+            id: string;
+            iconName: string;
+            translationKey: string;
+            num: number;
+          }) => {
+            return (
+              <Flex
+                align="center"
+                style={styles.interactionRow}
+                key={i.id}
+                direction="row"
+              >
+                <Flex value={1}>
+                  <Icon
+                    type="MissionHub"
+                    style={styles.icon}
+                    name={i.iconName}
+                  />
+                </Flex>
+                <Flex value={4}>
+                  <Text style={styles.interactionText}>
+                    {t(i.translationKey)}
+                  </Text>
+                </Flex>
+                <Flex value={1} justify="center" align="end">
+                  <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
+                </Flex>
               </Flex>
-              <Flex value={4}>
-                <Text style={styles.interactionText}>
-                  {t(i.translationKey)}
-                </Text>
-              </Flex>
-              <Flex value={1} justify="center" align="end">
-                <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
-              </Flex>
-            </Flex>
-          );
-        })}
+            );
+          },
+        )}
       </Flex>
     );
   }
@@ -337,11 +348,17 @@ ImpactView.propTypes = {
 };
 
 export const mapStateToProps = (
-  // @ts-ignore
-  { impact, auth, organizations },
+  {
+    impact,
+    auth,
+    organizations,
+  }: {
+    impact: ImpactState;
+    auth: AuthState;
+    organizations: OrganizationsState;
+  },
   { person = {}, orgId = 'personal' }: { person?: Person; orgId?: string },
 ) => {
-  // @ts-ignore
   const personId = person.id;
   const myId = auth.person.id;
   const isMe = personId === myId;
@@ -357,7 +374,6 @@ export const mapStateToProps = (
     // Impact summary isn't scoped by org unless showing org summary. See above comment
     impact: impactSummarySelector(
       { impact },
-      // @ts-ignore
       {
         person: isGlobalCommunity ? { id: myId } : person,
         organization: personId || isGlobalCommunity ? undefined : organization,
@@ -365,10 +381,9 @@ export const mapStateToProps = (
     ),
     interactions: impactInteractionsSelector(
       { impact },
-      // @ts-ignore
       { person, organization },
     ),
-    globalImpact: impactSummarySelector({ impact }),
+    globalImpact: impactSummarySelector({ impact }, {}),
     isGlobalCommunity,
     myId,
     organization,

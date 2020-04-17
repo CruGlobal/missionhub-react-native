@@ -40,7 +40,7 @@ interface ChallengeFeedProps {
   items: ItemsInterface[];
   extraPadding: boolean;
   loadMoreItemsCallback: () => void;
-  collapsibleScrollViewProps: CollapsibleScrollViewProps;
+  collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
 const ChallengeFeed = ({
@@ -143,20 +143,20 @@ const ChallengeFeed = ({
   const handleRefreshing = () => {
     refreshCallback();
   };
-  const renderHeader = () => (
-    <OnboardingCard
-      type={GROUP_ONBOARDING_TYPES.challenges}
-      permissions={
-        adminOrOwner ? PermissionTypesEnum.admin : PermissionTypesEnum.member
-      }
-    />
-  );
+  const renderHeader = () => {
+    return (
+      <OnboardingCard
+        type={GROUP_ONBOARDING_TYPES.challenges}
+        permissions={
+          adminOrOwner ? PermissionTypesEnum.admin : PermissionTypesEnum.member
+        }
+      />
+    );
+  };
   const renderNull = () => {
     return (
       <>
-        {isOnboardingCardVisible ? (
-          renderHeader()
-        ) : (
+        {isOnboardingCardVisible || (
           <NullStateComponent
             style={styles.nullContainer}
             imageSource={TARGET}
@@ -168,36 +168,27 @@ const ChallengeFeed = ({
     );
   };
 
-  const itemCount: number = items.reduce(
-    (count, element) => count + element.data.length,
-    0,
-  );
-
-  if (itemCount === 0) {
-    return renderNull();
-  }
-
   return (
     <Animated.SectionList
       {...collapsibleScrollViewProps}
       testID="ChallengeFeed"
       sections={items}
       ListHeaderComponent={renderHeader}
-      // @ts-ignore
+      ListEmptyComponent={renderNull}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
       onEndReached={handleOnEndReached}
       onScrollEndDrag={() => {
-        collapsibleScrollViewProps.onScrollEndDrag();
+        collapsibleScrollViewProps?.onScrollEndDrag();
         handleEndDrag();
       }}
       onRefresh={handleRefreshing}
       refreshing={refreshing || false}
       extraData={isListScrolled}
       contentContainerStyle={[
-        collapsibleScrollViewProps.contentContainerStyle,
+        collapsibleScrollViewProps?.contentContainerStyle,
         styles.list,
       ]}
       contentInset={{ bottom: extraPadding ? 90 : 10 }}

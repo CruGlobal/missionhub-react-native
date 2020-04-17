@@ -9,12 +9,12 @@ export type CollapsibleScrollViewProps = ReturnType<
 
 export const createCollapsibleViewContext = () =>
   React.createContext<{
-    collapsibleScrollViewProps: CollapsibleScrollViewProps | null;
+    collapsibleScrollViewProps?: CollapsibleScrollViewProps;
     setCollapsibleScrollViewProps: (
       collapsibleScrollViewProps: CollapsibleScrollViewProps,
     ) => void;
   }>({
-    collapsibleScrollViewProps: null,
+    collapsibleScrollViewProps: undefined,
     setCollapsibleScrollViewProps: () => {},
   });
 
@@ -29,10 +29,9 @@ export const CollapsibleViewProvider = ({
   context,
   children,
 }: CollapsibleViewProviderProps) => {
-  const [
-    collapsibleScrollViewProps,
-    setCollapsibleScrollViewProps,
-  ] = useState<CollapsibleScrollViewProps | null>(null);
+  const [collapsibleScrollViewProps, setCollapsibleScrollViewProps] = useState<
+    CollapsibleScrollViewProps
+  >();
 
   return (
     <context.Provider

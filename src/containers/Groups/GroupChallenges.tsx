@@ -22,6 +22,8 @@ import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
+import { AuthState } from '../../reducers/auth';
+import { OrganizationsState } from '../../reducers/organizations';
 
 import styles from './styles';
 
@@ -98,19 +100,17 @@ class GroupChallenges extends Component {
         />
         <View style={styles.cardList}>
           <CommunitiesCollapsibleHeaderContext.Consumer>
-            {({ collapsibleScrollViewProps }) =>
-              collapsibleScrollViewProps ? (
-                <ChallengeFeed
-                  organization={organization}
-                  items={challengeItems}
-                  loadMoreItemsCallback={this.loadItems}
-                  refreshCallback={this.refreshItems}
-                  refreshing={refreshing}
-                  extraPadding={canCreate}
-                  collapsibleScrollViewProps={collapsibleScrollViewProps}
-                />
-              ) : null
-            }
+            {({ collapsibleScrollViewProps }) => (
+              <ChallengeFeed
+                organization={organization}
+                items={challengeItems}
+                loadMoreItemsCallback={this.loadItems}
+                refreshCallback={this.refreshItems}
+                refreshing={refreshing}
+                extraPadding={canCreate}
+                collapsibleScrollViewProps={collapsibleScrollViewProps}
+              />
+            )}
           </CommunitiesCollapsibleHeaderContext.Consumer>
         </View>
         {canCreate ? (
@@ -121,9 +121,23 @@ class GroupChallenges extends Component {
   }
 }
 
-// @ts-ignore
-const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
-  const organization = organizationSelector({ organizations }, { orgId });
+const mapStateToProps = (
+  {
+    auth,
+    organizations,
+  }: { auth: AuthState; organizations: OrganizationsState },
+  {
+    navigation: {
+      state: {
+        params: { communityId = 'personal' },
+      },
+    },
+  }: { navigation: { state: { params: { communityId?: string } } } },
+) => {
+  const organization = organizationSelector(
+    { organizations },
+    { orgId: communityId },
+  );
 
   return {
     organization,

@@ -42,7 +42,7 @@ export interface CelebrateFeedProps {
     event: GetCelebrateFeed_community_celebrationItems_nodes,
   ) => void;
   testID?: string;
-  collapsibleScrollViewProps: CollapsibleScrollViewProps;
+  collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
 const CelebrateFeed = ({
@@ -250,7 +250,7 @@ const CelebrateFeed = ({
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
       contentContainerStyle={[
-        collapsibleScrollViewProps.contentContainerStyle,
+        collapsibleScrollViewProps?.contentContainerStyle,
         styles.listContent,
       ]}
     />

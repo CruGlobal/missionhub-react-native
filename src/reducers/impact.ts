@@ -5,13 +5,23 @@ import {
   INTERACTION_TYPES,
 } from '../constants';
 
+export interface ImpactState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  summary: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  interactions: any;
+}
+
 const initialState = {
   summary: {},
   interactions: {},
 };
 
 // @ts-ignore
-export default function impactReducer(state = initialState, action) {
+export default function impactReducer(
+  state: ImpactState = initialState,
+  action,
+) {
   switch (action.type) {
     case REQUESTS.GET_IMPACT_SUMMARY.SUCCESS:
       const impact = action.results.response;
@@ -28,7 +38,6 @@ export default function impactReducer(state = initialState, action) {
       const report = action.personId
         ? action.report
         : action.report.filter(
-            // @ts-ignore
             type =>
               type.id !==
                 INTERACTION_TYPES.MHInteractionTypeAssignedContacts.id &&
@@ -40,7 +49,6 @@ export default function impactReducer(state = initialState, action) {
         interactions: {
           ...state.interactions,
           [key]: {
-            // @ts-ignore
             ...state.interactions[key],
             [action.period]: report,
           },
@@ -53,5 +61,5 @@ export default function impactReducer(state = initialState, action) {
   }
 }
 
-// @ts-ignore
-const storageKey = (personId, orgId) => `${personId || ''}-${orgId || ''}`;
+const storageKey = (personId?: string, orgId?: string) =>
+  `${personId || ''}-${orgId || ''}`;

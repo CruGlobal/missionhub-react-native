@@ -41,8 +41,7 @@ export const CommunityTabs = createMaterialTopTabNavigator(
     {},
   ),
   {
-    // backBehavior: 'none',
-    // swipeEnabled: false,
+    backBehavior: 'none',
     lazy: true,
     tabBarComponent: CommunityTabsHeader,
   },

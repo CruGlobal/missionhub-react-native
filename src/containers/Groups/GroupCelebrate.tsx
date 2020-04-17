@@ -50,7 +50,7 @@ const GroupCelebrate = () => {
     CommunitiesCollapsibleHeaderContext,
   );
 
-  return collapsibleScrollViewProps ? (
+  return (
     <CelebrateFeed
       testID="CelebrateFeed"
       organization={organization}
@@ -58,7 +58,7 @@ const GroupCelebrate = () => {
       itemNamePressable={!orgIsGlobal(organization)}
       collapsibleScrollViewProps={collapsibleScrollViewProps}
     />
-  ) : null;
+  );
 };
 
 export default GroupCelebrate;
