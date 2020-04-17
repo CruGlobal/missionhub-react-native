@@ -800,7 +800,7 @@ exports[`in onboarding renders correctly 1`] = `
 </View>
 `;
 
-exports[`loading should hide tabs when locale is not en 1`] = `
+exports[`loading should hide tabs when locale is not en or es 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
@@ -2308,6 +2308,351 @@ exports[`loading should render for self steps correctly 1`] = `
     </View>
   </View>
 </View>
+`;
+
+exports[`loading should show tabs when locale is es 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -292,11 +292,11 @@
+            Object {
+              \\"marginTop\\": 12,
+              \\"paddingBottom\\": 24,
+            },
+            Object {
+-             \\"paddingTop\\": 195,
++             \\"paddingTop\\": 130,
+            },
+          ]
+        }
+        data={
+          Array [
+@@ -442,11 +442,11 @@
+      </RCTScrollView>
+      <View
+        style={
+          Object {
+            \\"backgroundColor\\": \\"#ECEEF2\\",
+-           \\"height\\": 195,
++           \\"height\\": 130,
+            \\"left\\": 0,
+            \\"paddingTop\\": 0,
+            \\"position\\": \\"absolute\\",
+            \\"right\\": 0,
+            \\"top\\": 0,
+@@ -487,311 +487,10 @@
+                },
+              ]
+            }
+          >
+            Choose a step to take with them this week...
+-         </Text>
+-         <View
+-           style={
+-             Object {
+-               \\"flexDirection\\": \\"row\\",
+-               \\"justifyContent\\": \\"space-around\\",
+-             }
+-           }
+-         >
+-           <View
+-             accessible={true}
+-             focusable={true}
+-             isTVSelectable={true}
+-             onClick={[Function bound touchableHandlePress]}
+-             onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-             onResponderMove={[Function bound touchableHandleResponderMove]}
+-             onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             style={
+-               Object {
+-                 \\"opacity\\": 1,
+-               }
+-             }
+-           >
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
+-               <View
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"alignItems\\": \\"center\\",
+-                       \\"flexDirection\\": \\"column\\",
+-                     },
+-                     undefined,
+-                   ]
+-                 }
+-               >
+-                 <SvgMock
+-                   color=\\"#ffffff\\"
+-                   height={24}
+-                 />
+-                 <Text
+-                   style={
+-                     Array [
+-                       Object {
+-                         \\"color\\": \\"#505256\\",
+-                       },
+-                       Object {
+-                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                       },
+-                       Array [
+-                         Object {
+-                           \\"color\\": \\"#ffffff\\",
+-                           \\"fontSize\\": 16,
+-                           \\"fontWeight\\": \\"bold\\",
+-                           \\"letterSpacing\\": 1,
+-                           \\"paddingLeft\\": 4,
+-                         },
+-                         undefined,
+-                       ],
+-                     ]
+-                   }
+-                 >
+-                   Relate
+          </Text>
+-               </View>
+-               <View
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"backgroundColor\\": \\"transparent\\",
+-                       \\"borderBottomWidth\\": 9,
+-                       \\"borderLeftColor\\": \\"transparent\\",
+-                       \\"borderLeftWidth\\": 7,
+-                       \\"borderRightColor\\": \\"transparent\\",
+-                       \\"borderRightWidth\\": 7,
+-                       \\"borderStyle\\": \\"solid\\",
+-                       \\"height\\": 0,
+-                       \\"width\\": 0,
+-                     },
+-                     Object {
+-                       \\"borderBottomColor\\": \\"#ECEEF2\\",
+-                       \\"transform\\": Array [
+-                         Object {
+-                           \\"rotate\\": \\"0deg\\",
+-                         },
+-                       ],
+-                     },
+-                     Object {
+-                       \\"marginTop\\": 12,
+-                     },
+-                   ]
+-                 }
+-               />
+-             </View>
+-           </View>
+-           <View
+-             accessible={true}
+-             focusable={true}
+-             isTVSelectable={true}
+-             onClick={[Function bound touchableHandlePress]}
+-             onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-             onResponderMove={[Function bound touchableHandleResponderMove]}
+-             onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             style={
+-               Object {
+-                 \\"opacity\\": 1,
+-               }
+-             }
+-           >
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
+-               <View
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"alignItems\\": \\"center\\",
+-                       \\"flexDirection\\": \\"column\\",
+-                     },
+-                     undefined,
+-                   ]
+-                 }
+-               >
+-                 <SvgMock
+-                   color=\\"#52C5DC\\"
+-                   height={24}
+-                 />
+-                 <Text
+-                   style={
+-                     Array [
+-                       Object {
+-                         \\"color\\": \\"#505256\\",
+-                       },
+-                       Object {
+-                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                       },
+-                       Array [
+-                         Object {
+-                           \\"color\\": \\"#52C5DC\\",
+-                           \\"fontSize\\": 16,
+-                           \\"fontWeight\\": \\"bold\\",
+-                           \\"letterSpacing\\": 1,
+-                           \\"paddingLeft\\": 4,
+-                         },
+-                         undefined,
+-                       ],
+-                     ]
+-                   }
+-                 >
+-                   Pray
+-                 </Text>
+-               </View>
+-             </View>
+-           </View>
+-           <View
+-             accessible={true}
+-             focusable={true}
+-             isTVSelectable={true}
+-             onClick={[Function bound touchableHandlePress]}
+-             onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-             onResponderMove={[Function bound touchableHandleResponderMove]}
+-             onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             style={
+-               Object {
+-                 \\"opacity\\": 1,
+-               }
+-             }
+-           >
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
+-               <View
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"alignItems\\": \\"center\\",
+-                       \\"flexDirection\\": \\"column\\",
+-                     },
+-                     undefined,
+-                   ]
+-                 }
+-               >
+-                 <SvgMock
+-                   color=\\"#52C5DC\\"
+-                   height={24}
+-                 />
+-                 <Text
+-                   style={
+-                     Array [
+-                       Object {
+-                         \\"color\\": \\"#505256\\",
+-                       },
+-                       Object {
+-                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                       },
+-                       Array [
+-                         Object {
+-                           \\"color\\": \\"#52C5DC\\",
+-                           \\"fontSize\\": 16,
+-                           \\"fontWeight\\": \\"bold\\",
+-                           \\"letterSpacing\\": 1,
+-                           \\"paddingLeft\\": 4,
+-                         },
+-                         undefined,
+-                       ],
+-                     ]
+-                   }
+-                 >
+-                   Care
+-                 </Text>
+-               </View>
+-             </View>
+-           </View>
+-           <View
+-             accessible={true}
+-             focusable={true}
+-             isTVSelectable={true}
+-             onClick={[Function bound touchableHandlePress]}
+-             onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-             onResponderMove={[Function bound touchableHandleResponderMove]}
+-             onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             style={
+-               Object {
+-                 \\"opacity\\": 1,
+-               }
+-             }
+-           >
+-             <View
+-               style={
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                 }
+-               }
+-             >
+-               <View
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"alignItems\\": \\"center\\",
+-                       \\"flexDirection\\": \\"column\\",
+-                     },
+-                     undefined,
+-                   ]
+-                 }
+-               >
+-                 <SvgMock
+-                   color=\\"#52C5DC\\"
+-                   height={24}
+-                 />
+-                 <Text
+-                   style={
+-                     Array [
+-                       Object {
+-                         \\"color\\": \\"#505256\\",
+-                       },
+-                       Object {
+-                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                       },
+-                       Array [
+-                         Object {
+-                           \\"color\\": \\"#52C5DC\\",
+-                           \\"fontSize\\": 16,
+-                           \\"fontWeight\\": \\"bold\\",
+-                           \\"letterSpacing\\": 1,
+-                           \\"paddingLeft\\": 4,
+-                         },
+-                         undefined,
+-                       ],
+-                     ]
+-                   }
+-                 >
+-                   Share
+-                 </Text>
+-               </View>
+-             </View>
+-           </View>
+-         </View>
+        </View>
+      </View>
+    </View>
+  </View>"
 `;
 
 exports[`loading skip button should render skip button correctly 1`] = `
