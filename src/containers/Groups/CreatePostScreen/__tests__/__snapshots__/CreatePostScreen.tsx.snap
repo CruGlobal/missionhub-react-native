@@ -572,7 +572,7 @@ exports[`renders correctly for update post 1`] = `
             ]
           }
         >
-          JOINED_COMMUNITY.label
+          Prayer Request
         </Text>
       </View>
       <View
@@ -670,7 +670,7 @@ exports[`renders correctly for update post 1`] = `
         autoFocus={true}
         multiline={true}
         onChangeText={[Function]}
-        placeholder="JOINED_COMMUNITY.placeholder"
+        placeholder="Share a prayer need..."
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
@@ -938,7 +938,7 @@ exports[`renders correctly on android 1`] = `
             ]
           }
         >
-          JOINED_COMMUNITY.label
+          Prayer Request
         </Text>
       </View>
       <View
@@ -1036,7 +1036,7 @@ exports[`renders correctly on android 1`] = `
         autoFocus={true}
         multiline={true}
         onChangeText={[Function]}
-        placeholder="JOINED_COMMUNITY.placeholder"
+        placeholder="Share a prayer need..."
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}

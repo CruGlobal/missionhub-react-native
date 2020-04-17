@@ -8,7 +8,7 @@ import {
   ANALYTICS_PERMISSION_TYPE,
   ANALYTICS_EDIT_MODE,
 } from '../../../../constants';
-import { navigatePush } from '../../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
 import { mockFragment } from '../../../../../testUtils/apolloMockClient';
@@ -28,16 +28,20 @@ jest.mock('../../../../utils/hooks/useAnalytics');
 const myId = '5';
 const onComplete = jest.fn();
 const navigatePushResult = { type: 'navigated push' };
+const navigateBackResult = { type: 'navigated back' };
 const orgId = '1234';
 const organization = {
-  id: '1234',
+  id: orgId,
 };
 const orgPermission = {
   organization_id: organization.id,
   permission_id: ORG_PERMISSIONS.OWNER,
 };
 const postType = PostTypeEnum.prayer_request;
-const post = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const post = {
+  ...mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT),
+  celebrateableType: PostTypeEnum.prayer_request,
+};
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
 
@@ -48,6 +52,7 @@ const initialState = {
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
@@ -90,19 +95,6 @@ it('renders correctly on android', () => {
 });
 
 describe('Creating a post', () => {
-  it('button does not appear when there is no text', () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
-      initialState,
-      navParams: {
-        onComplete,
-        orgId,
-        postType,
-      },
-    });
-
-    expect(getByTestId('CreatePostButton')).toBeFalsy();
-  });
-
   it('user types a post', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <CreatePostScreen />,
@@ -139,8 +131,9 @@ describe('Creating a post', () => {
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
-          content: 'This is my cool story! 📘✏️',
-          organizationId: '1234',
+          content: MOCK_POST,
+          communityId: orgId,
+          postType: PostTypeEnum.prayer_request,
         },
       },
     });
@@ -148,19 +141,6 @@ describe('Creating a post', () => {
 });
 
 describe('Updating a post', () => {
-  it('button appears on mount', () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
-      initialState,
-      navParams: {
-        onComplete,
-        orgId,
-        post,
-      },
-    });
-
-    expect(getByTestId('CreatePostButton')).toBeTruthy();
-  });
-
   it('user types a post', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <CreatePostScreen />,
@@ -185,20 +165,20 @@ describe('Updating a post', () => {
       navParams: {
         onComplete,
         orgId,
-        postType,
+        post,
       },
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackActionWithoutData).not.toHaveBeenCalled();
     expect(onComplete).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
-          content: 'This is my cool story! 📘✏️',
-          id: '1234',
+          content: MOCK_POST,
+          id: post.celebrateableId,
         },
       },
     });

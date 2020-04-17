@@ -3,8 +3,9 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
 import { renderWithContext } from '../../../../../testUtils';
-import { navigatePush, navigateBack } from '../../../../actions/navigation';
+import { navigatePush } from '../../../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
+import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 
 import { CreatePostButton } from '..';
 
@@ -42,8 +43,8 @@ it('onPress switches to NewPostScreen', () => {
   expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
     orgId,
     onComplete: expect.any(Function),
+    postType: PostTypeEnum.prayer_request,
   });
   (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
   expect(refreshItems).toHaveBeenCalled();
-  expect(navigateBack).toHaveBeenCalled();
 });

@@ -71,7 +71,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
       }
     }
   >
-    <withI18nextTranslation(ImagePicker)
+    <ImagePicker
       onSelectImage={[Function]}
     >
       <Flex
@@ -107,7 +107,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           />
         </Flex>
       </Flex>
-    </withI18nextTranslation(ImagePicker)>
+    </ImagePicker>
     <ScrollViewMock
       keyboardShouldPersistTaps="handled"
       style={
