@@ -4,7 +4,6 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   button: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

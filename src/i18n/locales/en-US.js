@@ -558,6 +558,18 @@ export default {
     globalCommunity: 'MissionHub Community',
     errorLoadingCommunities: 'Error loading communities',
   },
+  createPostScreen: {
+    choosePostType: 'Choose a Post Type',
+    shareStory: 'Share Story',
+    inputPlaceholder: 'Post to community...',
+    prayerRequest: 'Ask for Prayer',
+    spiritualQuestion: 'Ask a Spiritual Question',
+    godStory: 'Share a God Story',
+    careRequest: 'Ask for Help',
+    announcement: 'Make an Announcement',
+    everyone: 'Everyone',
+    ownersAndAdmins: 'Owners and Admins',
+  },
   shareAStoryScreen: {
     shareStory: 'Share Story',
     inputPlaceholder: 'Share a Story...',
