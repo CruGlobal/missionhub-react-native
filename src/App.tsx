@@ -37,8 +37,6 @@ import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { apolloClient } from './apolloClient';
-import { CollapsibleViewProvider } from './components/CollapsibleView/CollapsibleView';
-import { CommunitiesCollapsibleHeaderContext } from './containers/Communities/Community/CommunityHeader/CommunityHeader';
 
 appsFlyer.initSdk({
   devKey: 'QdbVaVHi9bHRchUTWtoaij',
@@ -220,14 +218,10 @@ export default class App extends Component {
                 onBeforeLift={this.onBeforeLift}
                 persistor={persistor}
               >
-                <CollapsibleViewProvider
-                  context={CommunitiesCollapsibleHeaderContext}
-                >
-                  {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-                  <PlatformKeyboardAvoidingView>
-                    <AppWithNavigationState />
-                  </PlatformKeyboardAvoidingView>
-                </CollapsibleViewProvider>
+                {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+                <PlatformKeyboardAvoidingView>
+                  <AppWithNavigationState />
+                </PlatformKeyboardAvoidingView>
               </PersistGate>
             </Provider>
           </ProviderLegacy>
