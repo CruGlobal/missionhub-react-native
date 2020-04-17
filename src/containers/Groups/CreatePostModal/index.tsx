@@ -58,15 +58,13 @@ const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
   const orgPermission = community?.people.edges[0].communityPermission;
 
   const adminOrOwner = orgPermission && isAdminOrOwner(orgPermission);
-  community &&
-    useAnalytics(['post', 'choose type'], {
-      screenContext: {
-        [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
-          auth,
-          community,
-        ),
-      },
-    });
+
+  useAnalytics(['post', 'choose type'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]:
+        community && getAnalyticsPermissionType(auth, community),
+    },
+  });
 
   const navigateToCreatePostScreen = (type: PostTypeEnum) => {
     closeModal();
