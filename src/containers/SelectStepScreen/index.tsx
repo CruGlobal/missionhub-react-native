@@ -95,7 +95,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
 
   const isMe = useIsMe(personId);
 
-  const enableStepTypeFilters = !isMe && i18next.language.includes('en');
+  const enableStepTypeFilters =
+    !isMe &&
+    (i18next.language.includes('en') || i18next.language.includes('es'));
 
   const [currentStepType, setCurrentStepType] = useState<
     StepTypeEnum | undefined

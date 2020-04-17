@@ -96,10 +96,27 @@ describe('loading', () => {
     });
   });
 
-  it('should hide tabs when locale is not en', () => {
+  it('should show tabs when locale is es', () => {
     screen.recordSnapshot();
     const originalLanguage = i18next.language;
-    i18next.language = 'es-419';
+    i18next.language = 'no';
+    screen.rerender(<SelectStepScreen next={next} />);
+    screen.diffSnapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
+
+    i18next.language = originalLanguage;
+  });
+
+  it('should hide tabs when locale is not en or es', () => {
+    screen.recordSnapshot();
+    const originalLanguage = i18next.language;
+    i18next.language = 'no';
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
