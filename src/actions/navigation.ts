@@ -16,6 +16,7 @@ import { MAIN_TABS, STEPS_TAB, GLOBAL_COMMUNITY_ID } from '../constants';
 import { Organization } from '../reducers/organizations';
 
 import { loadHome } from './auth/userData';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/CommunityTabs';
 
 export function navigatePush(screen: string, props = {}) {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
@@ -95,18 +96,17 @@ export const navigateToMainTabs = (tab = STEPS_TAB) => (
   dispatch(navigateResetTab(MAIN_TABS, tab));
 };
 
+// TODO: delete
 export function navigateToCommunity(
   community: Organization = { id: GLOBAL_COMMUNITY_ID },
-  initialTab?: string,
 ) {
   return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const orgId = community.id;
-    const userCreated = orgIsUserCreated(community);
+    const communityId = community.id;
 
     return dispatch(
-      navigatePush(getScreenForOrg(orgId, userCreated), {
-        orgId,
-        initialTab,
+      navigatePush(COMMUNITY_TABS, {
+        communityId,
+        // initialTab,
       }),
     );
   };

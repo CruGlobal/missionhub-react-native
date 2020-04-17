@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import CelebrateFeed from '../CelebrateFeed';
 import { TrackStateContext } from '../../actions/analytics';
@@ -12,22 +12,31 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
-import { Organization, OrganizationsState } from '../../reducers/organizations';
+import { OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
 
-export interface GroupCelebrateProps {
-  organization: Organization;
-  shouldQueryReport: boolean;
-  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-}
-
-const GroupCelebrate = ({
-  organization,
-  shouldQueryReport,
-  analyticsPermissionType,
-}: GroupCelebrateProps) => {
+const GroupCelebrate = () => {
   const dispatch = useDispatch();
+
+  const communityId: string = useNavigationParam('communityId');
+
+  const organization = useSelector(
+    ({ organizations }: { organizations: OrganizationsState }) =>
+      organizationSelector({ organizations }, { orgId: communityId }),
+  );
+  const myOrgPermission = useSelector(({ auth }: { auth: AuthState }) =>
+    orgPermissionSelector({}, { person: auth.person, organization }),
+  );
+
+  const shouldQueryReport = shouldQueryReportedComments(
+    organization,
+    myOrgPermission,
+  );
+  const analyticsPermissionType = useSelector(({ auth }: { auth: AuthState }) =>
+    getAnalyticsPermissionType(auth, organization),
+  );
+
   useAnalytics(['community', 'celebrate'], {
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
   });
@@ -52,27 +61,4 @@ const GroupCelebrate = ({
   ) : null;
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    organizations,
-  }: { auth: AuthState; organizations: OrganizationsState },
-  { orgId }: { orgId: string },
-) => {
-  const organization = organizationSelector({ organizations }, { orgId });
-  const myOrgPermission = orgPermissionSelector(
-    {},
-    { person: auth.person, organization },
-  );
-
-  return {
-    organization,
-    shouldQueryReport: shouldQueryReportedComments(
-      organization,
-      myOrgPermission,
-    ),
-    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
-  };
-};
-
-export default connect(mapStateToProps)(GroupCelebrate);
+export default GroupCelebrate;

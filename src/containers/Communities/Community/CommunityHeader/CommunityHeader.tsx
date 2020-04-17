@@ -3,6 +3,7 @@ import { View, ImageBackground } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
+import { useNavigationParam } from 'react-navigation-hooks';
 
 import {
   createCollapsibleViewContext,
@@ -10,11 +11,6 @@ import {
 } from '../../../../components/CollapsibleView/CollapsibleView';
 import { Text, Flex, Button } from '../../../../components/common';
 import { HeaderTabBar } from '../../../../components/HeaderTabBar/HeaderTabBar';
-import {
-  GROUP_CELEBRATE,
-  GROUP_CHALLENGES,
-  GROUP_IMPACT,
-} from '../../../Groups/GroupScreen';
 import BackButton from '../../../BackButton';
 import theme from '../../../../theme';
 import Header from '../../../../components/Header';
@@ -41,12 +37,14 @@ import { CommunityHeaderGlobal } from './__generated__/CommunityHeaderGlobal';
 export const CommunitiesCollapsibleHeaderContext = createCollapsibleViewContext();
 
 interface CommunityHeaderProps {
-  communityId: string;
+  tabs: { name: string; navigationAction: string }[];
 }
 
-export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
+export const CommunityHeader = ({ tabs }: CommunityHeaderProps) => {
   const { t } = useTranslation('communityHeader');
   const dispatch = useDispatch();
+  const communityId: string = useNavigationParam('communityId');
+
   const myId = useMyId();
   const isGlobalCommunity = orgIsGlobal({ id: communityId });
 
@@ -143,16 +141,7 @@ export const CommunityHeader = ({ communityId }: CommunityHeaderProps) => {
           error={globalError}
           refetch={globalRefetch}
         />
-        <HeaderTabBar
-          tabs={[
-            { name: t('feed'), navigationAction: GROUP_CELEBRATE },
-            {
-              name: t('challenges'),
-              navigationAction: GROUP_CHALLENGES,
-            },
-            { name: t('impact'), navigationAction: GROUP_IMPACT },
-          ]}
-        />
+        <HeaderTabBar tabs={tabs} />
       </View>
     </CollapsibleViewHeader>
   );

@@ -494,13 +494,10 @@ export default {
     impact: 'Impact',
     group: 'Communities',
   },
-  groupTabs: {
+  communityTabs: {
     celebrate: 'Celebrate',
     challenges: 'Challenges',
-    members: 'Members',
     impact: 'Impact',
-    contacts: 'Contacts',
-    surveys: 'Surveys',
   },
   personTabs: {
     celebrate: 'Celebrate',

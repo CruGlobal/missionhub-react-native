@@ -34,6 +34,7 @@ import { Person } from '../../reducers/people';
 import Analytics from '../Analytics';
 
 import styles from './styles';
+import { Organization } from '../../reducers/organizations';
 
 const reportPeriods = [
   {
@@ -65,7 +66,10 @@ const reportPeriods = [
 
 // @ts-ignore
 @withTranslation('impact')
-export class ImpactView extends Component {
+export class ImpactView extends Component<{
+  organization: Organization;
+  person?: Person;
+}> {
   state = {
     period: 'P1W',
   };
@@ -74,9 +78,7 @@ export class ImpactView extends Component {
     const {
       // @ts-ignore
       dispatch,
-      // @ts-ignore
       person = {},
-      // @ts-ignore
       organization,
       // @ts-ignore
       isPersonalMinistryMe,
