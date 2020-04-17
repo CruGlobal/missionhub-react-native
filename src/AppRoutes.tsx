@@ -81,17 +81,6 @@ import theme from './theme';
 import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import // groupScreenTabNavigator,
-// userCreatedScreenTabNavigator,
-// globalScreenTabNavigator,
-// GROUP_SCREEN,
-// USER_CREATED_GROUP_SCREEN,
-// GLOBAL_GROUP_SCREEN,
-// GROUP_TABS,
-'./containers/Groups/GroupScreen';
-import SurveyContacts, {
-  GROUPS_SURVEY_CONTACTS,
-} from './containers/Groups/SurveyContacts';
 import GroupReport, {
   GROUPS_REPORT_SCREEN,
 } from './containers/Groups/GroupReport';
@@ -380,36 +369,6 @@ const screens = {
     SearchPeopleFilterScreen,
     // @ts-ignore
     buildTrackingObj('search : refine', 'search', 'refine'),
-    { gesturesEnabled: true },
-  ),
-  // [GROUP_SCREEN]: buildTrackedScreen(
-  //   groupScreenTabNavigator,
-  //   // @ts-ignore
-  //   buildTrackingObj('communities : community', 'communities', 'community'),
-  // ),
-  // [USER_CREATED_GROUP_SCREEN]: buildTrackedScreen(
-  //   userCreatedScreenTabNavigator,
-  //   // @ts-ignore
-  //   buildTrackingObj('communities : community', 'communities', 'community'),
-  // ),
-  // [GLOBAL_GROUP_SCREEN]: buildTrackedScreen(
-  //   globalScreenTabNavigator,
-  //   // @ts-ignore
-  //   buildTrackingObj(
-  //     'communities : global community',
-  //     'communities',
-  //     'global community',
-  //   ),
-  // ),
-  [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
-    SurveyContacts,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : surveys : respondants',
-      'communities',
-      'surveys',
-      'respondants',
-    ),
     { gesturesEnabled: true },
   ),
   [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
