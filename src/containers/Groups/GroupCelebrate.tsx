@@ -61,3 +61,5 @@ const GroupCelebrate = () => {
 };
 
 export default GroupCelebrate;
+
+export const COMMUNITY_CELEBRATE = 'nav/COMMUNITY_CELEBRATE';

@@ -33,7 +33,7 @@ import { REQUESTS } from '../../api/routes';
 import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
-import { COMMUNITY_TABS } from '../../containers/Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
 jest.mock('../api');
 jest.mock('../notifications');

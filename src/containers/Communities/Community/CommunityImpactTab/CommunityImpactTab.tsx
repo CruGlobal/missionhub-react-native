@@ -14,3 +14,5 @@ export const CommunityImpactTab = () => {
     </CollapsibleViewContent>
   );
 };
+
+export const COMMUNITY_IMPACT = 'nav/COMMUNITY_IMPACT';

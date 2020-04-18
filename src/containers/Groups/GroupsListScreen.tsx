@@ -40,7 +40,7 @@ import {
 } from '../../utils/hooks/useAnalytics';
 import { checkForUnreadComments } from '../../actions/unreadComments';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { COMMUNITY_TABS } from '../Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../Communities/Community/constants';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';

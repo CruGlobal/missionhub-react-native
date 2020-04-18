@@ -158,3 +158,5 @@ const mapStateToProps = (
 };
 
 export default connect(mapStateToProps)(GroupChallenges);
+
+export const COMMUNITY_CHALLENGES = 'nav/COMMUNITY_CHALLENGES';

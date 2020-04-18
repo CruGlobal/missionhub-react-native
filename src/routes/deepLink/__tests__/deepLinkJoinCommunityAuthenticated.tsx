@@ -10,7 +10,7 @@ import { joinCommunity } from '../../../actions/organizations';
 import { setScrollGroups } from '../../../actions/swipe';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
 import { navigatePush } from '../../../actions/navigation';
-import { COMMUNITY_TABS } from '../../../containers/Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../../../containers/Communities/Community/constants';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');

@@ -4,19 +4,22 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 // eslint-disable-next-line import/named
 import { NavigationProp, NavigationState } from 'react-navigation';
 
-import GroupCelebrate from '../../Groups/GroupCelebrate';
-import GroupChallenges from '../../Groups/GroupChallenges';
+import GroupCelebrate, {
+  COMMUNITY_CELEBRATE,
+} from '../../Groups/GroupCelebrate';
+import GroupChallenges, {
+  COMMUNITY_CHALLENGES,
+} from '../../Groups/GroupChallenges';
 import { CollapsibleViewProvider } from '../../../components/CollapsibleView/CollapsibleView';
 
 import {
   CommunityHeader,
   CommunitiesCollapsibleHeaderContext,
 } from './CommunityHeader/CommunityHeader';
-import { CommunityImpactTab } from './CommunityImpactTab/CommunityImpactTab';
-
-export const COMMUNITY_CELEBRATE = 'nav/COMMUNITY_CELEBRATE';
-export const COMMUNITY_CHALLENGES = 'nav/COMMUNITY_CHALLENGES';
-export const COMMUNITY_IMPACT = 'nav/COMMUNITY_IMPACT';
+import {
+  CommunityImpactTab,
+  COMMUNITY_IMPACT,
+} from './CommunityImpactTab/CommunityImpactTab';
 
 const communityTabs = [
   {
@@ -63,5 +66,3 @@ export const CommunityTabs = ({
   </CollapsibleViewProvider>
 );
 CommunityTabs.router = CommunityTabsNavigator.router;
-
-export const COMMUNITY_TABS = 'nav/COMMUNITY_TABS';

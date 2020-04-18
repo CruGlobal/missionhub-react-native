@@ -21,7 +21,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-import { COMMUNITY_TABS } from '../../Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../../Communities/Community/constants';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');

@@ -25,7 +25,7 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
-import { COMMUNITY_TABS } from '../../Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../../Communities/Community/constants';
 
 import styles from './styles';
 

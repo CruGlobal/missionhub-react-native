@@ -20,7 +20,7 @@ import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
 import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
-import { COMMUNITY_TABS } from '../../containers/Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
 jest.mock('../auth/userData');
 

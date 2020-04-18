@@ -21,10 +21,8 @@ import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import { NotificationsState } from '../reducers/notifications';
 import { OrganizationsState } from '../reducers/organizations';
-import {
-  COMMUNITY_TABS,
-  COMMUNITY_CHALLENGES,
-} from '../containers/Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
+import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';

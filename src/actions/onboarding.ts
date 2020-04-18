@@ -16,7 +16,7 @@ import {
 import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { REQUESTS } from '../api/routes';
-import { COMMUNITY_TABS } from '../containers/Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
 import callApi from './api';
 import { getMe } from './person';

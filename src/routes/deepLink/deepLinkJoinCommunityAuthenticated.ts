@@ -8,7 +8,7 @@ import { loadHome } from '../../actions/auth/userData';
 import DeepLinkConfirmJoinGroupScreen, {
   DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN,
 } from '../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
-import { COMMUNITY_TABS } from '../../containers/Communities/Community/CommunityTabs';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 import { navigatePush } from '../../actions/navigation';
 
 export const DeepLinkJoinCommunityAuthenticatedScreens = {
