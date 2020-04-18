@@ -25,9 +25,9 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
+import { COMMUNITY_TABS } from '../../Communities/Community/CommunityTabs';
 
 import styles from './styles';
-import { COMMUNITY_TABS } from '../../Communities/Community/CommunityTabs';
 
 // @ts-ignore
 @withTranslation('groupsCreateGroup')

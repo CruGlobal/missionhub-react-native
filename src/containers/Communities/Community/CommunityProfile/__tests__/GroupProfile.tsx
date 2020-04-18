@@ -8,8 +8,8 @@ import Config from 'react-native-config';
 import {
   renderShallow,
   createMockNavState,
-  testSnapshotShallow,
   createThunkStore,
+  renderWithContext,
 } from '../../../../../../testUtils';
 import {
   navigateBack,
@@ -29,7 +29,7 @@ import {
 import { organizationSelector } from '../../../../../selectors/organizations';
 import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../../constants';
 import * as common from '../../../../../utils/common';
-import GroupProfile from '../CommunityProfile';
+import { CommunityProfile } from '../CommunityProfile';
 
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
@@ -100,7 +100,7 @@ const orgWithImage = {
   community_photo_url:
     'https://vignette.wikia.nocookie.net/edain-mod/images/6/6e/Mordor_Submod_Banner.jpg',
 };
-const storeObj = {
+const initialState = {
   organizations: {
     all: [organization],
   },
@@ -113,7 +113,6 @@ const storeObj = {
     },
   },
 };
-const store = createThunkStore(storeObj);
 
 // @ts-ignore
 common.copyText = jest.fn();
@@ -123,11 +122,11 @@ organizationSelector.mockReturnValue(organization);
 // @ts-ignore
 function buildScreen(props) {
   return renderShallow(
-    <GroupProfile
+    <CommunityProfile
       navigation={createMockNavState({ organization })}
       {...props}
     />,
-    store,
+    createThunkStore(initialState),
   );
 }
 
@@ -136,39 +135,37 @@ function buildScreenInstance(props) {
   return buildScreen(props).instance();
 }
 
-describe('GroupProfile', () => {
+describe('CommunityProfile', () => {
   it('renders correctly', () => {
-    testSnapshotShallow(
-      <GroupProfile navigation={createMockNavState({ organization })} />,
-      store,
-    );
+    renderWithContext(<CommunityProfile />, {
+      initialState,
+      navParams: { communityId: organization.id },
+    }).snapshot();
   });
 
   it('renders with image', () => {
-    testSnapshotShallow(
-      <GroupProfile
-        navigation={createMockNavState({ organization: orgWithImage })}
-      />,
-      store,
-    );
+    renderWithContext(<CommunityProfile />, {
+      initialState,
+      navParams: { communityId: orgWithImage.id },
+    }).snapshot();
   });
 
   it('renders without edit button', () => {
-    const store2 = createThunkStore({
-      ...storeObj,
+    const initialState2 = createThunkStore({
+      ...initialState,
       auth: {
         person: {
-          ...storeObj.auth.person,
+          ...initialState.auth.person,
           organizational_permissions: [
             { organization_id: orgId, permission_id: ORG_PERMISSIONS.USER },
           ],
         },
       },
     });
-    testSnapshotShallow(
-      <GroupProfile navigation={createMockNavState({ organization })} />,
-      store2,
-    );
+    renderWithContext(<CommunityProfile />, {
+      initialState: initialState2,
+      navParams: { communityId: organization.id },
+    }).snapshot();
   });
 
   describe('edit screen', () => {
@@ -332,7 +329,7 @@ describe('GroupProfile', () => {
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.COPY_CODE);
     expect(common.copyText).toHaveBeenCalledWith(
-      i18next.t('groupProfile:codeCopyText', {
+      i18next.t('communityProfile:codeCopyText', {
         code: organization.community_code,
       }),
     );

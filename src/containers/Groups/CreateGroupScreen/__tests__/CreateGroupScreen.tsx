@@ -17,7 +17,7 @@ import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../../constants';
-import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../../GroupScreen';
+import { COMMUNITY_TABS } from '../../../Communities/Community/CommunityTabs';
 
 import CreateGroupScreen from '..';
 
@@ -185,9 +185,8 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      orgId: mockNewId,
-      initialTab: GROUP_MEMBERS,
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+      communityId: mockNewId,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_CREATED_COMMUNITY,
@@ -215,9 +214,8 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
-    expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      orgId: mockNewId,
-      initialTab: GROUP_MEMBERS,
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+      communityId: mockNewId,
     });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_CREATED_COMMUNITY,

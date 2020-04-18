@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
 import CelebrateFeed from '../CelebrateFeed';
-import { TrackStateContext } from '../../actions/analytics';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';

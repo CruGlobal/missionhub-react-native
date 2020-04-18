@@ -20,7 +20,7 @@ import {
   START_ONBOARDING,
 } from '../onboarding';
 import { checkNotifications } from '../notifications';
-import { navigatePush, navigateBack, navigateToCommunity } from '../navigation';
+import { navigatePush, navigateBack } from '../navigation';
 import { joinCommunity } from '../organizations';
 import { trackActionWithoutData } from '../analytics';
 import {
@@ -33,6 +33,7 @@ import { REQUESTS } from '../../api/routes';
 import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/CommunityTabs';
 
 jest.mock('../api');
 jest.mock('../notifications');
@@ -49,7 +50,6 @@ let store = configureStore([thunk])({
 
 const navigatePushResponse = { type: 'navigate push' };
 const navigateBackResponse = { type: 'navigate back' };
-const navigateToCommunityResponse = { type: 'navigate to community' };
 const checkNotificationsResponse = { type: 'check notifications' };
 const trackActionWithoutDataResult = { type: 'track action' };
 
@@ -57,9 +57,6 @@ beforeEach(() => {
   store.clearActions();
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
-  (navigateToCommunity as jest.Mock).mockReturnValue(
-    navigateToCommunityResponse,
-  );
   (checkNotifications as jest.Mock).mockImplementation(
     (_, callback: () => void) => {
       callback();
@@ -274,12 +271,6 @@ describe('join stashed community', () => {
 });
 
 describe('land on stashed community screen', () => {
-  beforeEach(() => {
-    (navigateToCommunity as jest.Mock).mockReturnValue({
-      type: 'navigate to org',
-    });
-  });
-
   it('landOnStashedCommunityScreen navigates to GroupScreen', async () => {
     const community = {
       id: '1',
@@ -297,7 +288,9 @@ describe('land on stashed community screen', () => {
 
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateToCommunity).toHaveBeenCalledWith(community);
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+      communityId: community.id,
+    });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );
@@ -322,7 +315,9 @@ describe('land on stashed community screen', () => {
 
     await store.dispatch<any>(landOnStashedCommunityScreen());
 
-    expect(navigateToCommunity).toHaveBeenCalledWith(community);
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+      communityId: community.id,
+    });
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_JOINED_COMMUNITY,
     );

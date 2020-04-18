@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { ActionSheetIOS, ViewStyle, StyleProp } from 'react-native';
-import i18next from 'i18next';
 
 import { IconButton, Touchable } from '../common';
 import { isFunction } from '../../utils/common';
@@ -19,17 +18,23 @@ interface PopupMenuProps {
     destructive?: boolean;
   }[];
   iconProps?: Omit<IconProps, 'name' | 'type'> & StyleProp<ViewStyle>;
-  buttonProps?: ButtonProps & StyleProp<ViewStyle>;
+  buttonProps?: Partial<ButtonProps> & StyleProp<ViewStyle>;
   disabled?: boolean;
   triggerOnLongPress?: boolean;
+  testID?: string;
 }
 
 // iOS only component
 //@ts-ignore
 @withTranslation()
-class PopupMenu extends Component<PopupMenuProps & Partial<i18next.WithT>> {
+class PopupMenu extends Component<PopupMenuProps> {
   showMenu = () => {
-    const { actions, t, title } = this.props;
+    const {
+      actions,
+      // @ts-ignore
+      t,
+      title,
+    } = this.props;
 
     const options = actions.map(a => a.text).concat(t('cancel'));
     const select = (i: number) =>

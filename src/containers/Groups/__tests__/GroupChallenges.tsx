@@ -6,6 +6,7 @@ import {
   renderShallow,
   testSnapshotShallow,
   createThunkStore,
+  createMockNavState,
 } from '../../../../testUtils';
 import {
   getGroupChallengeFeed,
@@ -75,15 +76,18 @@ getGroupChallengeFeed.mockReturnValue({ type: 'got group challenge feed' });
 
 it('should render correctly', () => {
   testSnapshotShallow(
-    // @ts-ignore
-    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    <GroupChallenges
+      navigation={createMockNavState({ communityId: orgId })}
+      // @ts-ignore
+      store={createThunkStore(store)}
+    />,
   );
 });
 
 it('should render correctly for basic member', () => {
   testSnapshotShallow(
     <GroupChallenges
-      orgId={orgId}
+      navigation={createMockNavState({ communityId: orgId })}
       // @ts-ignore
       store={createThunkStore({
         ...store,
@@ -105,7 +109,7 @@ it('should render correctly for basic member', () => {
 it('should render empty correctly', () => {
   testSnapshotShallow(
     <GroupChallenges
-      orgId={orgId}
+      navigation={createMockNavState({ communityId: orgId })}
       // @ts-ignore
       store={createThunkStore({
         ...store,
@@ -124,8 +128,11 @@ it('should render empty correctly', () => {
 
 it('should refresh items properly', () => {
   const component = renderShallow(
-    // @ts-ignore
-    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    <GroupChallenges
+      navigation={createMockNavState({ communityId: orgId })}
+      // @ts-ignore
+      store={createThunkStore(store)}
+    />,
     // @ts-ignore
     store,
   );
@@ -145,8 +152,11 @@ it('should refresh items properly', () => {
 
 it('should call create', () => {
   const component = renderShallow(
-    // @ts-ignore
-    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    <GroupChallenges
+      navigation={createMockNavState({ communityId: orgId })}
+      // @ts-ignore
+      store={createThunkStore(store)}
+    />,
     // @ts-ignore
     store,
   );
@@ -174,8 +184,11 @@ it('should call create', () => {
 
 it('should call API to create', () => {
   const instance = renderShallow(
-    // @ts-ignore
-    <GroupChallenges orgId={orgId} store={createThunkStore(store)} />,
+    <GroupChallenges
+      navigation={createMockNavState({ communityId: orgId })}
+      // @ts-ignore
+      store={createThunkStore(store)}
+    />,
     // @ts-ignore
     store,
   ).instance();
@@ -183,6 +196,7 @@ it('should call API to create', () => {
   createChallenge.mockReturnValue({ type: 'create' });
 
   const challenge = { id: '1', title: 'Test Challenge' };
+  // @ts-ignore
   instance.createChallenge(challenge);
 
   expect(createChallenge).toHaveBeenCalledWith(challenge, org.id);

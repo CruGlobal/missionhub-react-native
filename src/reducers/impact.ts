@@ -1,3 +1,5 @@
+import { AnyAction } from 'redux';
+
 import { REQUESTS } from '../api/routes';
 import {
   LOGOUT,
@@ -17,10 +19,9 @@ const initialState = {
   interactions: {},
 };
 
-// @ts-ignore
 export default function impactReducer(
   state: ImpactState = initialState,
-  action,
+  action: AnyAction,
 ) {
   switch (action.type) {
     case REQUESTS.GET_IMPACT_SUMMARY.SUCCESS:
@@ -38,7 +39,7 @@ export default function impactReducer(
       const report = action.personId
         ? action.report
         : action.report.filter(
-            type =>
+            (type: { id: string }) =>
               type.id !==
                 INTERACTION_TYPES.MHInteractionTypeAssignedContacts.id &&
               type.id !== INTERACTION_TYPES.MHInteractionTypeUncontacted.id,
