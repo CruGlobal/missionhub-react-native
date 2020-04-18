@@ -245,10 +245,10 @@ export const generateSwipeTabMenuNavigator = (
       lazy: true,
       // zIndex keeps SwipeTabMenu blue arrow on top of tab view
       tabBarComponent: ({ navigation }) => (
-        <>
+        <ViewOverflow style={{ zIndex: 100 }}>
           <HeaderComponent navigation={navigation} isMember={isMember} />
           <SwipeTabMenu navigation={navigation} tabs={tabs} isLight={isLight} />
-        </>
+        </ViewOverflow>
       ),
     },
   );
