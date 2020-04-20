@@ -18,7 +18,7 @@ import { useMyId } from '../../../utils/hooks/useIsMe';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
+import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import theme from '../../../theme';
 
 import {
@@ -31,9 +31,14 @@ import styles from './styles';
 interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
+  refreshItems: () => void;
 }
 
-const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
+const CreatePostModal = ({
+  closeModal,
+  communityId,
+  refreshItems,
+}: CreatePostModalProps) => {
   const {
     modalStyle,
     containerStyle,
@@ -69,7 +74,8 @@ const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
   const navigateToCreatePostScreen = (type: PostTypeEnum) => {
     closeModal();
     return dispatch(
-      navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
+      navigatePush(CREATE_POST_SCREEN, {
+        refreshItems,
         communityId: community?.id,
         type,
       }),

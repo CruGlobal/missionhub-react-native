@@ -48,28 +48,28 @@ export default StyleSheet.create({
     color: theme.white,
     lineHeight: 20,
   },
-  godStory: {
-    backgroundColor: '#7076B5',
+  story: {
+    backgroundColor: theme.communityGodStoryPurple,
   },
-  prayerRequest: {
-    backgroundColor: '#A97398',
+  prayer_request: {
+    backgroundColor: theme.communityPrayerRequestPurple,
   },
-  spiritualQuestion: {
-    backgroundColor: '#FFA178',
+  question: {
+    backgroundColor: theme.communityQuestionOrange,
   },
-  careRequest: {
-    backgroundColor: '#FD726D',
+  help_request: {
+    backgroundColor: theme.communityCareRequestRed,
   },
-  onYourMind: {
-    backgroundColor: '#B4B6BA',
+  thought: {
+    backgroundColor: theme.communityThoughtGrey,
   },
   challenge: {
-    backgroundColor: '#00CA99',
+    backgroundColor: theme.communityChallengeGreen,
   },
   announcement: {
-    backgroundColor: '#505256',
+    backgroundColor: theme.communityAnnouncementGrey,
   },
   stepOfFaith: {
-    backgroundColor: '#3CC8E6',
+    backgroundColor: theme.communityBlue,
   },
 });

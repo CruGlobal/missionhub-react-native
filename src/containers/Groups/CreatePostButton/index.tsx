@@ -37,7 +37,11 @@ export const CreatePostButton = ({
   return communityId !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
       {isModalOpen ? (
-        <CreatePostModal closeModal={closeModal} communityId={communityId} />
+        <CreatePostModal
+          closeModal={closeModal}
+          communityId={communityId}
+          refreshItems={refreshItems}
+        />
       ) : null}
       <Button style={button} onPress={openModal} testID="CreatePostInput">
         <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />

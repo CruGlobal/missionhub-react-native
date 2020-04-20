@@ -20,6 +20,7 @@ import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker from '../../../components/ImagePicker';
+import PostTypeLabel from '../../../components/PostTypeLabel';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
@@ -83,15 +84,15 @@ export const CreatePostScreen = () => {
   const post: CommunityPost | undefined = useNavigationParam('post');
   const navPostType: PostTypeEnum | undefined = useNavigationParam('postType');
 
-  const [postType, changePostType] = useState<PostTypeEnum>(
-    post?.celebrateableType || navPostType,
-  );
+  const [postType] = useState<PostTypeEnum>(
+    navPostType || PostTypeEnum.prayer_request,
+  ); //TODO: load postType from post if editing
   const [postText, changePostText] = useState(
     post?.objectDescription || undefined,
   );
   const [postImage, changePostImage] = useState<ImageSourcePropType | null>(
     null,
-  ); //preload post image if exists
+  ); //TODO: preload post image if exists
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -127,7 +128,7 @@ export const CreatePostScreen = () => {
         variables: {
           input: { content: postText, communityId: orgId, postType },
         },
-      }); //use new mutation, include image
+      });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
@@ -172,15 +173,7 @@ export const CreatePostScreen = () => {
   return (
     <View style={styles.container}>
       {renderHeader()}
-      <View
-        style={{
-          backgroundColor: 'blue',
-          height: 20,
-          width: 20,
-          marginHorizontal: 35,
-          marginVertical: 20,
-        }}
-      />
+      <PostTypeLabel type={postType} />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
           testID="PostInput"

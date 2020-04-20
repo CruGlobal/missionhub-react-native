@@ -8,7 +8,7 @@ import { PostTypeEnum } from '../../../../components/PostTypeLabel';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
+import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
 import { PermissionEnum } from '../../../../../__generated__/globalTypes';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 
@@ -20,8 +20,10 @@ jest.mock('../../../../utils/analytics');
 jest.mock('../../../../selectors/people');
 
 const closeModal = jest.fn();
+const refreshItems = jest.fn();
 const mockCommunityId = '1';
 const props = {
+  refreshItems,
   communityId: mockCommunityId,
   closeModal,
 };
@@ -118,7 +120,8 @@ it('fires onPress and navigates | member', async () => {
     },
   });
   expect(closeModal).toHaveBeenCalledWith();
-  expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
+  expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
+    refreshItems,
     communityId: mockCommunityId,
     type: PostTypeEnum.godStory,
   });
@@ -147,7 +150,8 @@ it('fires onPress and navigates | owner', async () => {
     },
   });
   expect(closeModal).toHaveBeenCalledWith();
-  expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
+  expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
+    refreshItems,
     communityId: mockCommunityId,
     type: PostTypeEnum.announcement,
   });
