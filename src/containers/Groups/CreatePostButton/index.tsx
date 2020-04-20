@@ -1,56 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 
 import { Button, Text } from '../../../components/common';
-import { navigatePush } from '../../../actions/navigation';
-import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import Avatar from '../../../components/Avatar';
+import CreatePostModal from '../CreatePostModal';
+import { useMyId } from '../../../utils/hooks/useIsMe';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import styles from './styles';
 
 interface CreatePostButtonProps {
   refreshItems: () => void;
-  orgId: string;
+  type?: PostTypeEnum;
+  communityId: string;
 }
 
 export const CreatePostButton = ({
   refreshItems,
-  orgId,
+  type,
+  communityId,
 }: CreatePostButtonProps) => {
-  const { t } = useTranslation('communityPost');
-  const dispatch = useDispatch();
-  const {
-    container,
-    inputButton,
-    inputText,
-    profileWrapper,
-    profileText,
-  } = styles;
+  const { t } = useTranslation('createPostScreen');
+  const { container, button, buttonText } = styles;
+  const personId = useMyId();
+  const [isModalOpen, changeModalVisibility] = useState(false);
 
-  const onPress = () => {
-    return dispatch(
-      navigatePush(CREATE_POST_SCREEN, {
-        orgId,
-        onComplete: () => refreshItems(),
-        postType: PostTypeEnum.prayer_request,
-      }),
-    );
+  const openModal = () => {
+    changeModalVisibility(true);
+  };
+  const closeModal = () => {
+    changeModalVisibility(false);
   };
 
-  const renderProfile = () => (
-    <View style={profileWrapper}>
-      <Text style={profileText}>C</Text>
-    </View>
-  );
-
-  return orgId !== GLOBAL_COMMUNITY_ID ? (
+  return communityId !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
-      <Button style={inputButton} onPress={onPress} testID="CreatePostButton">
-        {renderProfile()}
-        <Text style={inputText}>{t('buttonPlaceholder')}</Text>
+      {isModalOpen ? (
+        <CreatePostModal closeModal={closeModal} communityId={communityId} />
+      ) : null}
+      <Button style={button} onPress={openModal} testID="CreatePostInput">
+        <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />
+        <Text style={buttonText}>
+          {type ? t(`${type}`) : t('inputPlaceholder')}
+        </Text>
       </Button>
     </View>
   ) : null;

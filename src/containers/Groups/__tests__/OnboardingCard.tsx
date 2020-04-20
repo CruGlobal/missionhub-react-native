@@ -247,7 +247,7 @@ it('handles press event from the close button', () => {
     },
   );
   snapshot();
-  fireEvent.press(getByTestId('IconButton'));
+  fireEvent.press(getByTestId('CloseIcon'));
   expect(removeGroupOnboardingCard).toHaveBeenCalledWith(
     GROUP_ONBOARDING_TYPES.celebrate,
   );

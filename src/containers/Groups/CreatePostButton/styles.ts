@@ -16,7 +16,7 @@ export default StyleSheet.create({
     marginTop: -5,
     paddingTop: 5,
   },
-  inputButton: {
+  button: {
     backgroundColor: theme.extraLightGrey,
     borderRadius: 18,
     marginVertical: 16,
@@ -26,19 +26,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'row',
   },
-  profileWrapper: {
-    height: 24,
-    width: 24,
-    borderRadius: 12,
-    backgroundColor: theme.communityProfileGreen,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profileText: {
-    fontSize: 12,
-    color: theme.white,
-  },
-  inputText: {
+  buttonText: {
     paddingHorizontal: 8,
     fontSize: 14,
     height: 18,

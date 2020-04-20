@@ -26,6 +26,7 @@ jest.mock('react-native-device-info');
 jest.mock('../../../actions/stages');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/selectStage');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
@@ -128,6 +129,7 @@ const baseParams = {
 };
 
 const next = jest.fn();
+const onComplete = jest.fn();
 
 const trackActionResult = { type: 'track action' };
 const trackScreenChangeResult = { type: 'track screen change' };
@@ -489,6 +491,37 @@ describe('setStage', () => {
       expect(updateUserStage).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([
         trackScreenChangeResult,
+        nextResult,
+        trackActionResult,
+      ]);
+    });
+
+    it('selects new stage for edit screen', async () => {
+      const navParams = {
+        ...baseParams,
+        personId: assignedPersonId,
+        onComplete,
+      };
+      const { store, getAllByTestId } = await buildAndTestMount(
+        state,
+        navParams,
+      );
+
+      await fireEvent.press(
+        getAllByTestId('stageSelectButton')[selectedStageId],
+      );
+
+      expect(next).toHaveBeenCalled();
+      expect(onComplete).toHaveBeenCalledWith(stages[selectedStageId]);
+      expect(trackAction).toHaveBeenCalledWith(selectAction.name, {
+        [selectAction.key]: stage.id,
+        [ACTIONS.STAGE_SELECTED.key]: null,
+      });
+
+      expect(updateUserStage).toHaveBeenCalled();
+      expect(store.getActions()).toEqual([
+        trackScreenChangeResult,
+        updateUserStageResult,
         nextResult,
         trackActionResult,
       ]);

@@ -363,11 +363,14 @@ exports[`create methods calls onComplete 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              null,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -392,7 +395,9 @@ exports[`create methods calls onComplete 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  null,
+                ],
               ],
             ]
           }
@@ -626,7 +631,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -357,16 +357,13 @@
+@@ -357,22 +357,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -636,14 +641,36 @@ exports[`create methods sets disable false 1`] = `
 -               \\"opacity\\": 0.6,
 -             },
 +             null,
+              Array [
+                Object {
+                  \\"alignItems\\": \\"center\\",
+                  \\"height\\": 48,
+                  \\"width\\": 650,
+                },
+-               Object {
+-                 \\"backgroundColor\\": \\"#B4B6BA\\",
+-               },
++               null,
+              ],
               Object {
-                \\"alignItems\\": \\"center\\",
--               \\"backgroundColor\\": \\"#B4B6BA\\",
-                \\"height\\": 48,
-                \\"width\\": 650,
+                \\"borderRadius\\": 50,
               },
-              Object {
-                \\"borderRadius\\": 50,"
+            ]
+@@ -395,13 +391,11 @@
+                    \\"fontWeight\\": \\"500\\",
+                    \\"letterSpacing\\": 1.5,
+                    \\"textAlign\\": \\"center\\",
+                  },
+                  Array [
+-                   Object {
+-                     \\"backgroundColor\\": \\"#B4B6BA\\",
+-                   },
++                   null,
+                  ],
+                ],
+              ]
+            }
+          >"
 `;
 
 exports[`edit methods Saves challenge when user updates detail 1`] = `
@@ -1462,12 +1489,16 @@ exports[`renders correctly 1`] = `
             Object {
               "opacity": 0.6,
             },
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#B4B6BA",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "backgroundColor": "#B4B6BA",
+              },
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1492,7 +1523,11 @@ exports[`renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  Object {
+                    "backgroundColor": "#B4B6BA",
+                  },
+                ],
               ],
             ]
           }
@@ -1870,12 +1905,16 @@ exports[`renders correctly on android 1`] = `
             Object {
               "opacity": 0.6,
             },
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#B4B6BA",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "backgroundColor": "#B4B6BA",
+              },
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1900,7 +1939,11 @@ exports[`renders correctly on android 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  Object {
+                    "backgroundColor": "#B4B6BA",
+                  },
+                ],
               ],
             ]
           }

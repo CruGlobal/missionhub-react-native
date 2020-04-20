@@ -245,11 +245,14 @@ Let's figure out where you are on your journey.
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -274,7 +277,9 @@ Let's figure out where you are on your journey.
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -454,11 +459,14 @@ Let's figure out where you are on your journey.
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -483,7 +491,9 @@ Let's figure out where you are on your journey.
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }

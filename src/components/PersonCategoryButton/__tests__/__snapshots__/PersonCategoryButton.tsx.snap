@@ -1,0 +1,755 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Different Categories renders correctly | coworker 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="coworkerButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Coworker
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Different Categories renders correctly | family 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="familyButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Family
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Different Categories renders correctly | friend 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="friendButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Friend
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Different Categories renders correctly | neighbor 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="neighborButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Neighbor
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Different Categories renders correctly | other 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="otherButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Other
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`onPress fires onPress when clicked 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="friendButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Friend
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`render correctly | active 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="familyButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          Object {
+            "backgroundColor": "#3CC8E6",
+          },
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Family
+      </Text>
+      <SvgMock
+        color="#ffffff"
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`render correctly | non-active 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="friendButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "height": 72,
+            "marginVertical": 4,
+            "width": 650,
+          },
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+            },
+          ]
+        }
+      >
+        Friend
+      </Text>
+      <SvgMock
+        color="#3CC8E6"
+      />
+    </View>
+  </View>
+</View>
+`;

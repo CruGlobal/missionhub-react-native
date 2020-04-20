@@ -7,7 +7,7 @@ export default {
       firstNameRequired: '$t(profileLabels.firstName) (Required)',
       firstNameNickname: '$t(profileLabels.firstName) or Nickname',
       lastName: 'Last Name',
-      lastNameOptional: '$t(profileLabels.lastName) (if you want)',
+      lastNameOptional: '$t(profileLabels.lastName) (optional)',
       email: 'Email',
       emailRequired: '$t(profileLabels.email) (Required)',
       phone: 'Phone',
@@ -185,15 +185,33 @@ export default {
   onboardingCreatePerson: {
     firstThing: '-first things first-',
     namePrompt: 'what is your name?',
-    addPerson: {
-      part1: 'Who do you want to take',
-      part2: ' a step of faith with?',
-    },
+    addPerson: 'Who would you like to take steps of faith with this week?',
+    errorSavingPerson: 'Error saving your person. Please try again.',
+  },
+  categories: {
+    onboardingPrompt:
+      'Think of someone you want to help grow closer to God. Who are they?',
+    addPersonPrompt: 'How do you know each other?',
+    family: 'Family',
+    friend: 'Friend',
+    neighbor: 'Neighbor',
+    coworker: 'Coworker',
+    other: 'Other',
   },
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
+    categoryPrompt: 'How do you know each other?',
+    stage: 'Stage',
+    categories: {
+      family: 'Family',
+      friend: 'Friend',
+      neighbor: 'Neighbor',
+      coworker: 'Coworker',
+      other: 'Other',
+    },
+    categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
     alertBlankEmail: 'Email is blank',
@@ -202,6 +220,10 @@ export default {
     alertSorry: 'Sorry',
     alertCannotEditFirstName:
       'You are not allowed to edit first names of other MissionHub users',
+    prompt: 'Who would you like to take steps of faith with this week?',
+    createError: 'Error creating your person. Please try again.',
+    updateError: 'Error updating your person. Please try again.',
+    loadingError: 'Error loading your person. Please try again.',
   },
   addStep: {
     header: 'Create your own step',
@@ -535,6 +557,18 @@ export default {
     globalCommunity: 'MissionHub Community',
     errorLoadingCommunities: 'Error loading communities',
   },
+  createPostScreen: {
+    choosePostType: 'Choose a Post Type',
+    shareStory: 'Share Story',
+    inputPlaceholder: 'Post to community...',
+    prayerRequest: 'Ask for Prayer',
+    spiritualQuestion: 'Ask a Spiritual Question',
+    godStory: 'Share a God Story',
+    careRequest: 'Ask for Help',
+    announcement: 'Make an Announcement',
+    everyone: 'Everyone',
+    ownersAndAdmins: 'Owners and Admins',
+  },
   shareAStoryScreen: {
     shareStory: 'Share Story',
     inputPlaceholder: 'Share a Story...',
@@ -867,33 +901,33 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
-  communityPost: {
-    story: {
-      label: 'God Story',
-      placeholder: 'Share an inspiring God story...',
+  postTypes: {
+    godStory: 'God Story',
+    prayerRequest: 'Prayer Request',
+    spiritualQuestion: 'Spiritual Question',
+    careRequest: 'Care Request',
+    onYourMind: "What's on Your Mind",
+    challenge: 'Challenge',
+    announcement: 'Announcement',
+    stepOfFaith: 'Step of Faith',
+    header: {
+      godStory: 'Read a God Story',
+      prayerRequest: 'Answer a Prayer Request',
+      spiritualQuestion: 'Answer a Question',
+      careRequest: 'Provide Help',
+      announcement: 'Announcements',
+      stepOfFaith: 'Celebrate Others',
     },
-    prayer_request: {
-      label: 'Prayer Request',
-      placeholder: 'Share a prayer need...',
-    },
-    question: {
-      label: 'Spiritual Question',
-      placeholder: 'Ask a spiritual question...',
-    },
-    help_request: {
-      label: 'Care Request',
-      placeholder: 'Ask for help...',
-    },
-    thought: {
-      label: "What's On Your Mind",
-      placeholder: "What's on your mind?",
-    },
-    announcement: {
-      label: 'Announcement',
-      placeholder: 'Make an announcement...',
+    placeholder: {
+      godStory: 'Share an inspiring God story...',
+      prayerRequest: 'Share a prayer need...',
+      spiritualQuestion: 'Ask a spiritual question...',
+      careRequest: 'Ask for help...',
+      onYourMind: "What's on your mind?",
+      announcement: 'Make an announcement...',
     },
     addAPhoto: 'Add a Photo',
-    buttonPlaceholder: 'Post to community...',
+    createButtonPlaceholder: 'Post to community...',
   },
   stepTypes: {
     relate: 'Relate',

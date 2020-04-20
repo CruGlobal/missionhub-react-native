@@ -233,11 +233,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -262,7 +265,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -441,11 +446,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -470,7 +478,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -656,75 +666,7 @@ exports[`SetupPersonScreen next renders with skip botton correctly 1`] = `
             },
           ]
         }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="skipButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Array [
-                  Object {
-                    "padding": 15,
-                  },
-                  undefined,
-                ],
-                null,
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      undefined,
-                    ],
-                  ],
-                ]
-              }
-            >
-              SKIP
-            </Text>
-          </View>
-        </View>
-      </View>
+      />
     </View>
   </RCTSafeAreaView>
   <View
@@ -761,33 +703,13 @@ exports[`SetupPersonScreen next renders with skip botton correctly 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "maxWidth": 230,
               "textAlign": "center",
             },
           ]
         }
       >
-        Who do you want to take
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         a step of faith with?
+        Who would you like to take steps of faith with this week?
       </Text>
     </View>
   </View>
@@ -866,7 +788,7 @@ exports[`SetupPersonScreen next renders with skip botton correctly 1`] = `
         multiline={false}
         onChangeText={[Function]}
         onSubmitEditing={[Function]}
-        placeholder="Last Name (if you want)"
+        placeholder="Last Name (optional)"
         placeholderTextColor="white"
         rejectResponderTermination={true}
         returnKeyType="done"
@@ -930,11 +852,14 @@ exports[`SetupPersonScreen next renders with skip botton correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -959,7 +884,9 @@ exports[`SetupPersonScreen next renders with skip botton correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1147,33 +1074,13 @@ exports[`SetupPersonScreen next renders without skip botton correctly 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "maxWidth": 230,
               "textAlign": "center",
             },
           ]
         }
       >
-        Who do you want to take
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         a step of faith with?
+        Who would you like to take steps of faith with this week?
       </Text>
     </View>
   </View>
@@ -1252,7 +1159,7 @@ exports[`SetupPersonScreen next renders without skip botton correctly 1`] = `
         multiline={false}
         onChangeText={[Function]}
         onSubmitEditing={[Function]}
-        placeholder="Last Name (if you want)"
+        placeholder="Last Name (optional)"
         placeholderTextColor="white"
         rejectResponderTermination={true}
         returnKeyType="done"
@@ -1316,11 +1223,14 @@ exports[`SetupPersonScreen next renders without skip botton correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1345,7 +1255,9 @@ exports[`SetupPersonScreen next renders without skip botton correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
