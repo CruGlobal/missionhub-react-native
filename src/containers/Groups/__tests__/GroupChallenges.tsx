@@ -4,9 +4,9 @@ import MockDate from 'mockdate';
 import GroupChallenges from '../GroupChallenges';
 import {
   renderShallow,
-  testSnapshotShallow,
   createThunkStore,
   createMockNavState,
+  renderWithContext,
 } from '../../../../testUtils';
 import {
   getGroupChallengeFeed,
@@ -16,7 +16,9 @@ import * as common from '../../../utils/common';
 import * as navigation from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { ORG_PERMISSIONS } from '../../../constants';
+import ChallengeFeed from '../../ChallengeFeed';
 
+jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/challenges');
 
 const mockDate = '2018-09-01';
@@ -55,7 +57,7 @@ const org = {
   challengePagination: challengePagination,
 };
 
-const store = {
+const initialState = {
   auth: {
     person: {
       organizational_permissions: [
@@ -69,28 +71,32 @@ const store = {
   organizations: {
     all: [org],
   },
+  swipe: { groupOnboarding: {} },
 };
 
-// @ts-ignore
-getGroupChallengeFeed.mockReturnValue({ type: 'got group challenge feed' });
+(getGroupChallengeFeed as jest.Mock).mockReturnValue({
+  type: 'got group challenge feed',
+});
 
 it('should render correctly', () => {
-  testSnapshotShallow(
-    <GroupChallenges
-      navigation={createMockNavState({ communityId: orgId })}
-      // @ts-ignore
-      store={createThunkStore(store)}
-    />,
-  );
+  renderWithContext(
+    // @ts-ignore
+    <GroupChallenges />,
+    {
+      navParams: { communityId: orgId },
+      initialState,
+    },
+  ).snapshot;
 });
 
 it('should render correctly for basic member', () => {
-  testSnapshotShallow(
-    <GroupChallenges
-      navigation={createMockNavState({ communityId: orgId })}
-      // @ts-ignore
-      store={createThunkStore({
-        ...store,
+  renderWithContext(
+    // @ts-ignore
+    <GroupChallenges />,
+    {
+      navParams: { communityId: orgId },
+      initialState: {
+        ...initialState,
         auth: {
           person: {
             organizational_permissions: [
@@ -101,18 +107,19 @@ it('should render correctly for basic member', () => {
             ],
           },
         },
-      })}
-    />,
-  );
+      },
+    },
+  ).snapshot();
 });
 
 it('should render empty correctly', () => {
-  testSnapshotShallow(
-    <GroupChallenges
-      navigation={createMockNavState({ communityId: orgId })}
-      // @ts-ignore
-      store={createThunkStore({
-        ...store,
+  renderWithContext(
+    // @ts-ignore
+    <GroupChallenges />,
+    {
+      navParams: { communityId: orgId },
+      initialState: {
+        ...initialState,
         organizations: {
           all: [
             {
@@ -121,33 +128,30 @@ it('should render empty correctly', () => {
             },
           ],
         },
-      })}
-    />,
-  );
+      },
+    },
+  ).snapshot();
 });
 
 it('should refresh items properly', () => {
-  const component = renderShallow(
-    <GroupChallenges
-      navigation={createMockNavState({ communityId: orgId })}
-      // @ts-ignore
-      store={createThunkStore(store)}
-    />,
+  const { getByType } = renderWithContext(
     // @ts-ignore
-    store,
+    <GroupChallenges />,
+    {
+      navParams: { communityId: orgId },
+      initialState,
+    },
   );
 
-  const instance = component.instance();
   // @ts-ignore
   common.refresh = jest.fn();
-  component
-    .childAt(1)
-    .childAt(0)
-    .props()
-    .refreshCallback();
+  getByType(ChallengeFeed).props.refreshCallback();
 
   // @ts-ignore
-  expect(common.refresh).toHaveBeenCalledWith(instance, instance.reloadItems);
+  expect(common.refresh).toHaveBeenCalledWith(
+    expect.any(Object),
+    expect.any(Function),
+  );
 });
 
 it('should call create', () => {
@@ -155,10 +159,10 @@ it('should call create', () => {
     <GroupChallenges
       navigation={createMockNavState({ communityId: orgId })}
       // @ts-ignore
-      store={createThunkStore(store)}
+      store={createThunkStore(initialState)}
     />,
     // @ts-ignore
-    store,
+    initialState,
   );
 
   const instance = component.instance();
@@ -187,10 +191,10 @@ it('should call API to create', () => {
     <GroupChallenges
       navigation={createMockNavState({ communityId: orgId })}
       // @ts-ignore
-      store={createThunkStore(store)}
+      store={createThunkStore(initialState)}
     />,
     // @ts-ignore
-    store,
+    initialState,
   ).instance();
   // @ts-ignore
   createChallenge.mockReturnValue({ type: 'create' });
