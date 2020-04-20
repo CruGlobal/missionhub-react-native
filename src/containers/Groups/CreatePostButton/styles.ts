@@ -30,7 +30,7 @@ export default StyleSheet.create({
     height: 24,
     width: 24,
     borderRadius: 12,
-    backgroundColor: theme.communityProfile,
+    backgroundColor: theme.communityProfileGreen,
     alignItems: 'center',
     justifyContent: 'center',
   },

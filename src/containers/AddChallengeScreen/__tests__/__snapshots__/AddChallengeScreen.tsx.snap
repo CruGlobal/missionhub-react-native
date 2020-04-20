@@ -229,7 +229,7 @@ exports[`create methods calls onComplete 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                 },
                 Object {
-                  "color": "#3CC8E6",
+                  "color": undefined,
                   "fontSize": 16,
                   "lineHeight": 22,
                 },
@@ -978,7 +978,7 @@ exports[`edit methods calls onComplete 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                 },
                 Object {
-                  "color": "#3CC8E6",
+                  "color": undefined,
                   "fontSize": 16,
                   "lineHeight": 22,
                 },
@@ -1326,7 +1326,7 @@ exports[`renders correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                 },
                 Object {
-                  "color": "#3CC8E6",
+                  "color": undefined,
                   "fontSize": 16,
                   "lineHeight": 22,
                 },
@@ -1734,7 +1734,7 @@ exports[`renders correctly on android 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                 },
                 Object {
-                  "color": "#3CC8E6",
+                  "color": undefined,
                   "fontSize": 16,
                   "lineHeight": 22,
                 },
@@ -2225,7 +2225,7 @@ exports[`renders edit challenge correctly 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                 },
                 Object {
-                  "color": "#3CC8E6",
+                  "color": undefined,
                   "fontSize": 16,
                   "lineHeight": 22,
                 },

@@ -19,7 +19,7 @@ export default StyleSheet.create({
     paddingHorizontal: 40,
   },
   editButtonText: {
-    color: theme.parakeetBlue,
+    color: theme.communityBlue,
     fontSize: 14,
     fontWeight: '300',
     letterSpacing: 1,

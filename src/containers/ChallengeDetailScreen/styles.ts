@@ -11,7 +11,7 @@ export default StyleSheet.create({
     paddingRight: 10,
   },
   buttonText: {
-    color: theme.parakeetBlue,
+    color: theme.communityBlue,
     fontSize: 14,
   },
   challengeImage: {

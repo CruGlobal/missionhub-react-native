@@ -228,7 +228,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
                 {
                   backgroundColor: isSelected
                     ? theme.white
-                    : theme.parakeetBlue,
+                    : theme.communityBlue,
                 },
               ]}
             >
