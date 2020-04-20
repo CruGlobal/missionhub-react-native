@@ -225,6 +225,7 @@ export const CommunityProfile = () => {
         <Header
           left={
             <IconButton
+              testID="backButton"
               name="deleteIcon"
               type="MissionHub"
               style={styles.closeButton}
@@ -234,6 +235,7 @@ export const CommunityProfile = () => {
           right={
             !canEdit ? null : (
               <Button
+                testID="editButton"
                 style={styles.editBtn}
                 buttonTextStyle={styles.btnText}
                 onPress={handleEdit}
@@ -255,6 +257,7 @@ export const CommunityProfile = () => {
           {editing ? (
             <Flex direction="row" align="center" style={styles.rowWrap}>
               <Input
+                testID="nameInput"
                 onChangeText={handleChangeName}
                 value={name}
                 autoFocus={true}
@@ -315,6 +318,7 @@ export const CommunityProfile = () => {
             </Flex>
             {editing ? (
               <Button
+                testID="newCodeButton"
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
                 onPress={handleNewCode}
@@ -323,6 +327,7 @@ export const CommunityProfile = () => {
               />
             ) : (
               <Button
+                testID="copyCodeButton"
                 style={styles.btn}
                 buttonTextStyle={styles.btnText}
                 onPress={copyCode}
@@ -341,6 +346,7 @@ export const CommunityProfile = () => {
             </Flex>
             {editing ? (
               <Button
+                testID="newUrlButton"
                 style={[styles.btn, styles.newBtn]}
                 buttonTextStyle={styles.btnText}
                 onPress={handleNewLink}
@@ -349,6 +355,7 @@ export const CommunityProfile = () => {
               />
             ) : (
               <Button
+                testID="copyUrlButton"
                 style={styles.btn}
                 buttonTextStyle={styles.btnText}
                 onPress={copyUrl}
