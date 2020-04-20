@@ -2,11 +2,15 @@
 
 exports[`Challenge Feed rendering renders challenges without header 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "backgroundColor": "#ECEEF2",
-    }
+    Array [
+      undefined,
+      Object {
+        "backgroundColor": "#ECEEF2",
+      },
+    ]
   }
   contentInset={
     Object {
@@ -118,7 +122,7 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -1852,11 +1856,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
 
 exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "backgroundColor": "#ECEEF2",
-    }
+    Array [
+      undefined,
+      Object {
+        "backgroundColor": "#ECEEF2",
+      },
+    ]
   }
   contentInset={
     Object {
@@ -1968,7 +1976,7 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -3701,426 +3709,663 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
 `;
 
 exports[`Challenge Feed rendering renders null component | Admin 1`] = `
-<View
-  style={
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "marginTop": 5,
-        },
-      ],
+      undefined,
       Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
+        "backgroundColor": "#ECEEF2",
       },
     ]
   }
+  contentInset={
+    Object {
+      "bottom": 10,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  extraData={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  testID="ChallengeFeed"
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/challengeTarget.png",
-      }
-    }
-    style={
-      Object {
-        "flexShrink": 1,
-      }
-    }
-  />
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "paddingTop": 10,
-        },
-      ]
-    }
-  >
-    Our Challenges
-  </Text>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "paddingHorizontal": 80,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        },
-      ]
-    }
-  >
-    Create a community challenge everyone can join.
-  </Text>
-</View>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+  </View>
+</RCTScrollView>
 `;
 
 exports[`Challenge Feed rendering renders null component | Member 1`] = `
-<View
-  style={
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "marginTop": 5,
-        },
-      ],
+      undefined,
       Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
+        "backgroundColor": "#ECEEF2",
       },
     ]
   }
+  contentInset={
+    Object {
+      "bottom": 10,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  extraData={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  testID="ChallengeFeed"
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/challengeTarget.png",
-      }
-    }
-    style={
-      Object {
-        "flexShrink": 1,
-      }
-    }
-  />
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "paddingTop": 10,
-        },
-      ]
-    }
-  >
-    Our Challenges
-  </Text>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "paddingHorizontal": 80,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        },
-      ]
-    }
-  >
-    Join each other in a challenge created for your community.
-  </Text>
-</View>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+  </View>
+</RCTScrollView>
 `;
 
 exports[`Challenge Feed rendering renders null with header 1`] = `
-<View
-  style={
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
     Array [
+      undefined,
       Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      Object {
-        "backgroundColor": "#ffffff",
-        "borderRadius": 0,
-        "marginBottom": 5,
-        "marginHorizontal": 0,
-        "marginVertical": 0,
-        "position": "relative",
-        "shadowColor": "#B4B6BA",
-        "shadowOffset": Object {
-          "height": 8,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 4,
+        "backgroundColor": "#ECEEF2",
       },
     ]
   }
->
-  <View
-    style={
-      Array [
-        Object {
-          "padding": 25,
-          "paddingTop": 35,
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+  contentInset={
+    Object {
+      "bottom": 10,
     }
-  >
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/challengeTarget.png",
-        }
-      }
-      style={
-        Object {
-          "height": 60,
-        }
-      }
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  extraData={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
     />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 5,
-            "textAlign": "center",
-          },
-        ]
-      }
-    >
-      Our Challenges
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 50,
-            "paddingVertical": 5,
-            "textAlign": "center",
-          },
-        ]
-      }
-    >
-      Create a community challenge everyone can join.
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "position": "absolute",
-          "right": 10,
-          "top": 10,
-        },
-        Object {},
-      ]
-    }
-  >
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  testID="ChallengeFeed"
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
     <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
+      onLayout={[Function]}
     >
       <View
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "marginHorizontal": 16,
+              "marginVertical": 8,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
             },
-            null,
-            Object {},
-            null,
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 0,
+              "marginBottom": 5,
+              "marginHorizontal": 0,
+              "marginVertical": 0,
+              "position": "relative",
+              "shadowColor": "#B4B6BA",
+              "shadowOffset": Object {
+                "height": 8,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 4,
+            },
           ]
         }
       >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
+        <View
           style={
-            Object {
-              "margin": 10,
-            }
+            Array [
+              Object {
+                "padding": 25,
+                "paddingTop": 35,
+              },
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
           }
-        />
+        >
+          <Image
+            resizeMode="contain"
+            source={
+              Object {
+                "testUri": "../../../assets/images/challengeTarget.png",
+              }
+            }
+            style={
+              Object {
+                "height": 60,
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#007398",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "paddingTop": 5,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Our Challenges
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "paddingHorizontal": 50,
+                  "paddingVertical": 5,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Create a community challenge everyone can join.
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "position": "absolute",
+                "right": 10,
+                "top": 10,
+              },
+              Object {},
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            hitSlop={
+              Object {
+                "bottom": 10,
+                "left": 10,
+                "right": 10,
+                "top": 10,
+              }
+            }
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../assets/images/closeIcon.png",
+                  }
+                }
+                style={
+                  Object {
+                    "margin": 10,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
       </View>
     </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
   </View>
-</View>
+</RCTScrollView>
 `;
 
 exports[`Challenge Feed rendering renders null without header 1`] = `
-<View
-  style={
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
     Array [
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-        },
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "marginTop": 5,
-        },
-      ],
+      undefined,
       Object {
-        "alignItems": "center",
-        "flex": 1,
-        "justifyContent": "center",
+        "backgroundColor": "#ECEEF2",
       },
     ]
   }
+  contentInset={
+    Object {
+      "bottom": 10,
+    }
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  extraData={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={
+    Array [
+      Object {
+        "data": Array [],
+        "title": "",
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  testID="ChallengeFeed"
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
 >
-  <Image
-    resizeMode="contain"
-    source={
-      Object {
-        "testUri": "../../../assets/images/challengeTarget.png",
-      }
-    }
-    style={
-      Object {
-        "flexShrink": 1,
-      }
-    }
-  />
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#007398",
-          "fontFamily": "SourceSansPro-Regular",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "paddingTop": 10,
-        },
-      ]
-    }
-  >
-    Our Challenges
-  </Text>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "paddingHorizontal": 80,
-          "paddingVertical": 10,
-          "textAlign": "center",
-        },
-      ]
-    }
-  >
-    Create a community challenge everyone can join.
-  </Text>
-</View>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "marginVertical": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#B4B6BA",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+  </View>
+</RCTScrollView>
 `;
 
 exports[`Challenge Feed rendering renders with extra padding 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "backgroundColor": "#ECEEF2",
-    }
+    Array [
+      undefined,
+      Object {
+        "backgroundColor": "#ECEEF2",
+      },
+    ]
   }
   contentInset={
     Object {
@@ -4232,7 +4477,7 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
