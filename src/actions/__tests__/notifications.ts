@@ -741,7 +741,6 @@ describe('askNotificationPermissions', () => {
           },
         });
 
-        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
           communityId: organization.id,
         });
@@ -846,7 +845,7 @@ describe('askNotificationPermissions', () => {
         expect(refreshCommunity).toHaveBeenCalledWith(undefined);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
         expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_CHALLENGES, {
-          communityId: organization.id,
+          communityId: undefined,
         });
       });
     });
