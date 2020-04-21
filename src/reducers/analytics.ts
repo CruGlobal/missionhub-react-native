@@ -19,6 +19,10 @@ import {
   TrackStateContext,
   ANALYTICS_CONTEXT_CHANGED,
 } from '../actions/analytics';
+import {
+  SET_NOTIFICATION_ANALYTICS,
+  SetNotificationAnalyticsAction,
+} from '../actions/notifications';
 
 export interface AnalyticsState {
   [ANALYTICS_MCID]: TrackStateContext[typeof ANALYTICS_MCID];
@@ -57,6 +61,7 @@ interface KeyLoginSuccessAction {
 type AnalyticsAction =
   | AnalyticsContextChangedAction
   | KeyLoginSuccessAction
+  | SetNotificationAnalyticsAction
   | { type: typeof RELOAD_APP }
   | { type: typeof LOGOUT };
 
@@ -79,6 +84,11 @@ function analyticsReducer(
       return {
         ...state,
         [ANALYTICS_PREVIOUS_SCREEN_NAME]: '',
+      };
+    case SET_NOTIFICATION_ANALYTICS:
+      return {
+        ...state,
+        [ANALYTICS_PREVIOUS_SCREEN_NAME]: `${action.notificationName}_pn`,
       };
     case LOGOUT:
       return {

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as reactNavigation from 'react-navigation';
+import { Store } from 'redux';
 
 import { CREATE_STEP } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
@@ -10,6 +11,8 @@ import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'navigate push' })),
@@ -35,6 +38,7 @@ const orgId = '123';
 const stage = { id: '1234' };
 const contact = {
   id: personId,
+  relationship_type: RelationshipTypeEnum.family,
 };
 const stepText = 'Step';
 const stepSuggestionId = '567';
@@ -97,17 +101,20 @@ beforeEach(() => {
 });
 
 describe('AddContactScreen next', () => {
-  // @ts-ignore
-  let didSavePerson;
-  // @ts-ignore
-  let store;
+  let didSavePerson: boolean;
+
+  let store: Store;
 
   beforeEach(async () => {
     ({ store } = await buildAndCallNext(
       ADD_CONTACT_SCREEN,
       {},
-      // @ts-ignore
-      { person: contact, orgId, didSavePerson },
+      {
+        personId: contact.id,
+        relationshipType: contact.relationship_type,
+        orgId,
+        didSavePerson,
+      },
     ));
   });
 
@@ -117,11 +124,9 @@ describe('AddContactScreen next', () => {
     });
 
     it('should fire required next actions', () => {
-      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
-        enableBackButton: false,
-        personId,
-        section: 'people',
-        subsection: 'person',
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN, {
+        personId: contact.id,
+        relationshipType: RelationshipTypeEnum.family,
         orgId,
       });
       // @ts-ignore
@@ -139,6 +144,36 @@ describe('AddContactScreen next', () => {
       expect(navigateBack).toHaveBeenCalledWith();
       // @ts-ignore
       expect(store.getActions()).toEqual([navigateBackResponse]);
+    });
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  let store: Store;
+
+  beforeEach(async () => {
+    ({ store } = await buildAndCallNext(
+      PERSON_CATEGORY_SCREEN,
+      {},
+      { personId: contact.id, orgId },
+    ));
+  });
+
+  describe('did save person', () => {
+    beforeAll(() => {
+      onFlowComplete.mockReturnValue(flowCompleteResponse);
+    });
+
+    it('should fire required next actions', () => {
+      expect(navigatePush).toHaveBeenCalledWith(SELECT_STAGE_SCREEN, {
+        enableBackButton: false,
+        personId,
+        section: 'people',
+        subsection: 'person',
+        orgId,
+      });
+      // @ts-ignore
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 });

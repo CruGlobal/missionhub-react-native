@@ -29,18 +29,31 @@ import AddStepScreen, {
   AddStepScreenNextProps,
 } from '../../containers/AddStepScreen';
 import { wrapNextAction } from '../helpers';
+import PersonCategoryScreen, {
+  PERSON_CATEGORY_SCREEN,
+} from '../../containers/PersonCategoryScreen';
 
 // @ts-ignore
 export const AddPersonFlowScreens = onFlowComplete => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
     AddContactScreen,
-    ({ person, orgId, didSavePerson }) => dispatch => {
+    ({ personId, relationshipType, orgId, didSavePerson }) => dispatch => {
       if (!didSavePerson) {
         return dispatch(navigateBack());
       }
 
-      const { id: personId } = person;
-
+      dispatch(
+        navigatePush(PERSON_CATEGORY_SCREEN, {
+          personId,
+          relationshipType,
+          orgId,
+        }),
+      );
+    },
+  ),
+  [PERSON_CATEGORY_SCREEN]: wrapNextAction(
+    PersonCategoryScreen,
+    ({ personId, orgId }: { personId: string; orgId: string }) => dispatch => {
       dispatch(
         navigatePush(SELECT_STAGE_SCREEN, {
           enableBackButton: false,

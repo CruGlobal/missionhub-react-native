@@ -9,6 +9,7 @@ import BottomButton, { BottomButtonProps } from '../BottomButton/index';
 import { Text } from '../common';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
+import { isAndroid } from '../../utils/common';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
@@ -73,6 +74,13 @@ const StepDetailScreen = ({
       {markdown ? (
         <ScrollView
           style={{ flex: 1 }}
+          contentContainerStyle={{
+            paddingBottom: isAndroid
+              ? bottomButtonProps
+                ? 90
+                : 32
+              : undefined,
+          }}
           contentInset={{ bottom: bottomButtonProps ? 90 : 32 }}
         >
           {renderContent()}

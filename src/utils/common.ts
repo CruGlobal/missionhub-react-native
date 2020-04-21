@@ -1,7 +1,5 @@
 /* eslint max-lines: 0, max-params: 0 */
 
-// eslint-disable-next-line import/named
-import moment, { MomentInput } from 'moment';
 import {
   ToastAndroid,
   BackHandler,
@@ -200,20 +198,6 @@ export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
   // @ts-ignore
   jsonApiResponse.findAll(type).filter(element => !element._placeHolder);
 
-// Pull dates out of UTC format into a moment object
-export const momentUtc = (time: MomentInput) =>
-  moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC');
-export const formatApiDate = (date: MomentInput) =>
-  moment(date)
-    .utc()
-    .format();
-
-// @ts-ignore
-export const getInitials = initials =>
-  (initials || '')
-    .trim()
-    .substr(0, 2)
-    .trim();
 // @ts-ignore
 export const getFirstNameAndLastInitial = (f, l) =>
   `${f || ''} ${(l || '').charAt(0)}`.trim();
@@ -313,26 +297,22 @@ export function getPagination(action, currentLength) {
 
 //showing assign/unassign buttons on side menu
 export function showAssignButton(
-  // @ts-ignore
-  isCruOrg,
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  contactAssignment,
+  isCruOrg: boolean,
+  personIsCurrentUser: boolean,
+  contactAssignment: { id: string },
 ) {
   return isCruOrg && !personIsCurrentUser && !contactAssignment;
 }
-// @ts-ignore
-export function showUnassignButton(isCruOrg, contactAssignment) {
+export function showUnassignButton(
+  isCruOrg: boolean,
+  contactAssignment: { id: string },
+) {
   return isCruOrg && contactAssignment;
 }
 export function showDeleteButton(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  contactAssignment,
-  // @ts-ignore
-  orgPermission,
+  personIsCurrentUser: boolean,
+  contactAssignment: { id: string },
+  orgPermission?: { id: string },
 ) {
   return !personIsCurrentUser && contactAssignment && !orgPermission;
 }

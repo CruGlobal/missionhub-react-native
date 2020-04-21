@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { momentUtc } from '../utils/common';
+import { momentUtc } from '../utils/date';
 import { CELEBRATEABLE_TYPES } from '../constants';
 import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { CommunityCelebrationCelebrateableEnum } from '../../__generated__/globalTypes';
@@ -25,14 +25,11 @@ export const celebrationSelector = createSelector(
     const dateSections: CelebrateFeedSection[] = [];
     sortByDate.forEach(item => {
       const length = dateSections.length;
-      const itemMoment = momentUtc(item.changedAttributeValue).local();
+      const itemMoment = momentUtc(item.changedAttributeValue);
 
       if (
         length > 0 &&
-        itemMoment.isSame(
-          momentUtc(dateSections[length - 1].date).local(),
-          'day',
-        )
+        itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
       ) {
         dateSections[length - 1].data.push(item);
       } else {

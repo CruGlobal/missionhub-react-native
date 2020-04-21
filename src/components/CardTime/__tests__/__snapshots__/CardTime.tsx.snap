@@ -14,7 +14,7 @@ exports[`renders correctly 1`] = `
 </MyText>
 `;
 
-exports[`renders correctly with format 1`] = `
+exports[`renders correctly with comment formatting 1`] = `
 <MyText
   style={
     Object {

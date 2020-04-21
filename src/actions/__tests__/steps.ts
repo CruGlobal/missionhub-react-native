@@ -7,7 +7,7 @@ import { completeStep, deleteStepWithTracking } from '../steps';
 import { refreshImpact } from '../impact';
 import { trackAction } from '../analytics';
 import * as navigation from '../navigation';
-import * as common from '../../utils/common';
+import * as date from '../../utils/date';
 import {
   ACTIONS,
   COMPLETED_STEP_COUNT,
@@ -31,8 +31,8 @@ const personId = '2123';
 const receiverId = '983547';
 const orgId = '123';
 const mockDate = '2018-02-14 11:30:00 UTC';
-// @ts-ignore
-common.formatApiDate = jest.fn().mockReturnValue(mockDate);
+
+(date.formatApiDate as jest.Mock) = jest.fn().mockReturnValue(mockDate);
 
 jest.mock('../api');
 jest.mock('../impact');
