@@ -300,39 +300,6 @@ describe('navigateToCelebrateComments', () => {
     });
   });
 
-  describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(navigateToCelebrateComments(cruOrg, celebrateItemId));
-    });
-
-    it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/RESET',
-          index: 2,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: COMMUNITY_TABS,
-              params: { communityId: cruOrgId },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_UNREAD_FEED_SCREEN,
-              params: { organization: cruOrg },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: CELEBRATE_DETAIL_SCREEN,
-              params: { event: { id: celebrateItemId }, orgId: cruOrgId },
-            },
-          ],
-        },
-      ]);
-    });
-  });
-
   describe('user-created org', () => {
     beforeEach(() => {
       store.dispatch<any>(
