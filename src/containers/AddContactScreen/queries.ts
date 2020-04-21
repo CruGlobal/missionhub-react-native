@@ -10,6 +10,7 @@ export const GET_PERSON = gql`
       }
       id
       relationshipType
+      picture
     }
   }
 `;

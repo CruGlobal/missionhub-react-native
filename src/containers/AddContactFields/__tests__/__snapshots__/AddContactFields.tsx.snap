@@ -69,12 +69,17 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
           style={"
 `;
 
+exports[`calls methods updates profile picture 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
 exports[`calls methods updates relationshipType 1`] = `
 "Snapshot Diff:
 Compared values have no visual difference."
 `;
 
-exports[`render correctly | With Person 1`] = `
+exports[`render correctly | With Person | No Picture 1`] = `
 <View
   onLayout={[Function]}
   style={
@@ -101,6 +106,100 @@ exports[`render correctly | With Person 1`] = `
         ]
       }
     >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                Array [
+                  Object {
+                    "borderRadius": 48,
+                    "height": 96,
+                    "width": 96,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(55, 161, 152)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 64,
+                      "fontWeight": "300",
+                    },
+                  ],
+                ]
+              }
+            >
+              C
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#3CC8E6",
+                "borderRadius": 50,
+                "height": 32,
+                "justifyContent": "center",
+                "left": 65,
+                "position": "absolute",
+                "top": 60,
+                "width": 32,
+              }
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
       <Text
         style={
           Array [
@@ -291,6 +390,167 @@ exports[`render correctly | With Person 1`] = `
         </Text>
       </View>
     </View>
+  </View>
+</View>
+`;
+
+exports[`render correctly | With Person | With Picture 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "paddingHorizontal": 25,
+      "paddingVertical": 50,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "base64image.jpeg",
+              }
+            }
+            style={
+              Array [
+                Array [
+                  Object {
+                    "borderRadius": 48,
+                    "height": 96,
+                    "width": 96,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(55, 161, 152)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#3CC8E6",
+                "borderRadius": 50,
+                "height": 32,
+                "justifyContent": "center",
+                "left": 65,
+                "position": "absolute",
+                "top": 60,
+                "width": 32,
+              }
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        First Name
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={true}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="First Name (Required)"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="next"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
+          ]
+        }
+        testID="firstNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Christian"
+      />
+    </View>
     <View
       style={
         Array [
@@ -318,62 +578,109 @@ exports[`render correctly | With Person 1`] = `
           ]
         }
       >
-        How do you know each other?
+        Last Name
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={false}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Last Name (optional)"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
+          ]
+        }
+        testID="lastNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Huffman"
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        Stage
       </Text>
       <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
           }
         }
-        testID="popupMenuButton"
       >
-        <View
+        <Text
+          onPress={[Function]}
           style={
-            Object {
-              "alignItems": "center",
-              "borderBottomWidth": 1,
-              "borderColor": "#ECEEF2",
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "alignItems": "flex-start",
+                "color": "#3CC8E6",
+                "fontSize": 16,
+                "marginVertical": 10,
+              },
+            ]
           }
+          testID="stageSelectButton"
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "alignItems": "flex-start",
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "marginVertical": 10,
-                },
-              ]
-            }
-          >
-            Choose a category
-          </Text>
-          <SvgMock
-            color="#B4B6BA"
-          />
-        </View>
+          Forgiven
+        </Text>
       </View>
     </View>
   </View>
