@@ -86,6 +86,7 @@ describe('owner', () => {
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
@@ -101,6 +102,7 @@ describe('owner', () => {
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
@@ -120,6 +122,7 @@ describe('owner', () => {
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       expect(queryByTestId('ReportItemCard')).toBeTruthy();
       expect(queryByTestId('UnreadCommentsCard')).toBeNull();
@@ -149,6 +152,7 @@ describe('owner', () => {
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       expect(queryByTestId('ReportItemCard')).toBeTruthy();
     });
@@ -197,6 +201,7 @@ describe('owner', () => {
     await flushMicrotasksQueue();
     expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
       variables: { id: '1' },
+      skip: false,
     });
     snapshot();
     expect(queryByTestId('ReportItemCard')).toBeNull();
@@ -229,6 +234,7 @@ describe('admin', () => {
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       expect(queryByTestId('ReportItemCard')).toBeNull();
     });
@@ -318,6 +324,7 @@ describe('admin', () => {
       snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       expect(queryByTestId('ReportItemCard')).toBeNull();
     });
@@ -350,6 +357,7 @@ describe('members', () => {
       await flushMicrotasksQueue();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       snapshot();
       expect(queryByTestId('ReportItemCard')).toBeNull();
@@ -365,6 +373,7 @@ describe('members', () => {
       await flushMicrotasksQueue();
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
       snapshot();
       expect(queryByTestId('ReportItemCard')).toBeNull();
@@ -395,6 +404,7 @@ describe('members', () => {
 
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
 
       expect(queryByTestId('ReportItemCard')).toBeNull();
@@ -416,6 +426,7 @@ describe('members', () => {
 
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: '1' },
+        skip: false,
       });
 
       expect(queryByTestId('ReportItemCard')).toBeNull();
@@ -447,6 +458,7 @@ describe('members', () => {
 
       expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
         variables: { id: GLOBAL_COMMUNITY_ID },
+        skip: true,
       });
 
       expect(queryByTestId('ReportItemCard')).toBeNull();
@@ -466,6 +478,7 @@ describe('unread comments card', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
       variables: { id: '1' },
+      skip: false,
     });
     expect(queryByTestId('ReportItemCard')).toBeTruthy();
     expect(queryByTestId('UnreadCommentsCard')).toBeTruthy();
@@ -484,7 +497,7 @@ describe('unread comments card', () => {
     );
     await flushMicrotasksQueue();
     snapshot();
-    expect(queryByTestId('ReportItemCard')).toBeTruthy();
+    expect(queryByTestId('ReportItemCard')).toBeNull();
     expect(queryByTestId('UnreadCommentsCard')).toBeNull();
   });
 
@@ -503,6 +516,7 @@ describe('unread comments card', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
       variables: { id: '1' },
+      skip: false,
     });
     expect(queryByTestId('ReportItemCard')).toBeTruthy();
     expect(queryByTestId('UnreadCommentsCard')).toBeNull();
@@ -520,6 +534,7 @@ it('navigates to unread comments screen', async () => {
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
     variables: { id: '1' },
+    skip: false,
   });
 
   fireEvent.press(getByTestId('UnreadCommentsCard'));
@@ -540,6 +555,7 @@ it('closes comment card', async () => {
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
     variables: { id: '1' },
+    skip: false,
   });
 
   fireEvent(getByTestId('UnreadCommentsCard'), 'onClose');
@@ -558,6 +574,7 @@ it('navigates to group report screen', async () => {
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
     variables: { id: '1' },
+    skip: false,
   });
 
   fireEvent.press(getByTestId('ReportItemCard'));
@@ -578,5 +595,6 @@ it('renders nothing if isMember is true', async () => {
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_REPORTED_CONTENT, {
     variables: { id: '1' },
+    skip: false,
   });
 });
