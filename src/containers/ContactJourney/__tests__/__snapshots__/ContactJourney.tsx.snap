@@ -51,6 +51,7 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
           ],
         }
       }
+      showInteractions={false}
     />
   </Flex>
 </View>
@@ -115,6 +116,7 @@ exports[`ContactJourney renders null screen correctly 1`] = `
           ],
         }
       }
+      showInteractions={false}
     />
   </Flex>
 </View>
@@ -297,6 +299,7 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
           ],
         }
       }
+      showInteractions={false}
     />
   </Flex>
 </View>
