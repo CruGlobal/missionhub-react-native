@@ -69,7 +69,7 @@ const AddContactFields = ({
   };
 
   const handleImageChange = (data: { data: string }) => {
-    onUpdateData({ ...person, picture: `data:image/jpeg;base64,${data.data}` });
+    onUpdateData({ ...person, picture: data.data });
   };
 
   const categoryOptions = relationshipTypeList.map(type => {

@@ -426,7 +426,7 @@ describe('savePerson', () => {
         await flushMicrotasksQueue();
         snapshot();
         await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
-          data: mockImage,
+          data: `data:image/jpeg;base64,${mockImage}`,
         });
         fireEvent(getByTestId('contactFields'), 'onUpdateData');
         await fireEvent.press(getByTestId('continueButton'));
@@ -441,6 +441,9 @@ describe('savePerson', () => {
           variables: {
             input: {
               id: me.id,
+              firstName: newName,
+              lastName: '',
+              relationshipType: null,
               picture: `data:image/jpeg;base64,${mockImage}`,
             },
           },

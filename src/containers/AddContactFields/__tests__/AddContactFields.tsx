@@ -226,7 +226,7 @@ describe('calls methods', () => {
     );
     recordSnapshot();
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
-      data: mockImage,
+      data: `data:image/jpeg;base64,${mockImage}`,
     });
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({

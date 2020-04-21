@@ -125,7 +125,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const savePerson = async () => {
     const saveData = person;
     let results;
-
     try {
       if (isEdit) {
         const { data: updateData } = await updatePerson({
@@ -135,20 +134,11 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               firstName: saveData.firstName,
               lastName: saveData.lastName,
               relationshipType: saveData.relationshipType,
+              picture:
+                saveData.picture !== personImage ? saveData.picture : undefined,
             },
           },
         });
-        // Only update profile picture if it has changed
-        if (saveData.picture !== personImage) {
-          await updatePerson({
-            variables: {
-              input: {
-                id: saveData.id,
-                picture: saveData.picture,
-              },
-            },
-          });
-        }
         // Update person's data in redux
         updateData?.updatePerson?.person &&
           dispatch(

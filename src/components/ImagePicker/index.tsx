@@ -67,7 +67,7 @@ class ImagePicker extends Component {
         height,
         isVertical: height > width,
         uri,
-        data,
+        data: `data:${mime || getType(response)};base64,${data}`,
       };
       onSelectImage(payload);
     } catch (error) {
