@@ -800,7 +800,7 @@ exports[`in onboarding renders correctly 1`] = `
 </View>
 `;
 
-exports[`loading should hide tabs when locale is not en 1`] = `
+exports[`loading should hide tabs when locale is not en or es 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
@@ -2308,6 +2308,16 @@ exports[`loading should render for self steps correctly 1`] = `
     </View>
   </View>
 </View>
+`;
+
+exports[`loading should show tabs when locale is es 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`loading should show tabs when locale is pt 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
 
 exports[`loading skip button should render skip button correctly 1`] = `
