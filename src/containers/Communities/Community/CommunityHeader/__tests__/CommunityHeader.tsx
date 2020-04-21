@@ -23,7 +23,7 @@ describe('CommunityHeader', () => {
     }).snapshot();
   });
 
-  it('should render global community', () => {
+  it('should render global community loading', () => {
     renderWithContext(<CommunityHeader />, {
       initialState,
       navParams: { communityId: GLOBAL_COMMUNITY_ID },
@@ -36,6 +36,20 @@ describe('CommunityHeader', () => {
       {
         initialState,
         navParams: { communityId },
+      },
+    );
+
+    recordSnapshot();
+    await flushMicrotasksQueue();
+    diffSnapshot();
+  });
+
+  it('should render global community details', async () => {
+    const { recordSnapshot, diffSnapshot } = renderWithContext(
+      <CommunityHeader />,
+      {
+        initialState,
+        navParams: { communityId: GLOBAL_COMMUNITY_ID },
       },
     );
 

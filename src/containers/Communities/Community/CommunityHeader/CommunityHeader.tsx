@@ -121,9 +121,10 @@ export const CommunityHeader = () => {
                 style={styles.communityMembersButton}
                 buttonTextStyle={styles.communityMembersText}
                 text={t('memberCount', {
-                  count: isGlobalCommunity
-                    ? globalData?.globalCommunity.usersReport.usersCount
-                    : data?.community.report.memberCount ?? 0,
+                  count:
+                    (isGlobalCommunity
+                      ? globalData?.globalCommunity.usersReport.usersCount
+                      : data?.community.report.memberCount) ?? 0,
                 })}
               />
             </Flex>

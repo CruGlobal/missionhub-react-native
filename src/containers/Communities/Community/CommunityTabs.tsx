@@ -11,8 +11,6 @@ import {
 } from './CommunityHeader/CommunityHeader';
 import { communityTabs } from './constants';
 
-const CommunityTabsHeader = () => <CommunityHeader />;
-
 const CommunityTabsNavigator = createMaterialTopTabNavigator(
   communityTabs.reduce(
     (acc, tab) => ({
@@ -24,7 +22,7 @@ const CommunityTabsNavigator = createMaterialTopTabNavigator(
   {
     backBehavior: 'none',
     lazy: true,
-    tabBarComponent: CommunityTabsHeader,
+    tabBarComponent: CommunityHeader,
   },
 );
 

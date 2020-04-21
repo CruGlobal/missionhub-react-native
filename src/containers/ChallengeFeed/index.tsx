@@ -143,16 +143,16 @@ const ChallengeFeed = ({
   const handleRefreshing = () => {
     refreshCallback();
   };
-  const renderHeader = () => {
-    return (
-      <OnboardingCard
-        type={GROUP_ONBOARDING_TYPES.challenges}
-        permissions={
-          adminOrOwner ? PermissionTypesEnum.admin : PermissionTypesEnum.member
-        }
-      />
-    );
-  };
+
+  const renderHeader = () => (
+    <OnboardingCard
+      type={GROUP_ONBOARDING_TYPES.challenges}
+      permissions={
+        adminOrOwner ? PermissionTypesEnum.admin : PermissionTypesEnum.member
+      }
+    />
+  );
+
   const renderNull = () => {
     return (
       <>

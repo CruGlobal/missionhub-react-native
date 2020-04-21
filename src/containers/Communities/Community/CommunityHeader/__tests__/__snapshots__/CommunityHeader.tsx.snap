@@ -46,7 +46,27 @@ exports[`CommunityHeader should render community details 1`] = `
         </View>"
 `;
 
-exports[`CommunityHeader should render global community 1`] = `
+exports[`CommunityHeader should render global community details 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -318,11 +318,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 0 Members
++                 41702 Members
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>"
+`;
+
+exports[`CommunityHeader should render global community loading 1`] = `
 <View
   hideHeader={[Function]}
   interpolatedHeaderTranslation={[Function]}
@@ -369,7 +389,7 @@ exports[`CommunityHeader should render global community 1`] = `
                   ]
                 }
               >
-                 Member
+                0 Members
               </Text>
             </View>
           </View>
