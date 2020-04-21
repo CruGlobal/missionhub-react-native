@@ -16,7 +16,7 @@ import CelebrateFeed from '..';
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../components/CelebrateItem', () => 'CelebrateItem');
-jest.mock('../../Groups/ShareStoryInput', () => 'ShareStoryInput');
+jest.mock('../../Groups/CreatePostInput', () => 'CreatePostInput');
 jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
 
 const myId = '123';

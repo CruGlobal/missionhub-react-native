@@ -376,4 +376,18 @@ describe('orgPermissionSelector', () => {
       ),
     ).toMatchSnapshot();
   });
+
+  it('should handle an undefined person', () => {
+    expect(
+      orgPermissionSelector(
+        {},
+        {
+          person: undefined,
+          organization: {
+            id: organizationTwo.id,
+          },
+        },
+      ),
+    ).toEqual(undefined);
+  });
 });

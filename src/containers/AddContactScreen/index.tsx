@@ -34,7 +34,7 @@ import {
   UpdatePersonVariables,
 } from '../SetupScreen/__generated__/UpdatePerson';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { LoadingWheel } from '../../components/common';
+import { LoadingWheel, Button } from '../../components/common';
 import CloseIcon from '../../../assets/images/closeButton.svg';
 import theme from '../../theme';
 import { getPersonDetails } from '../../actions/person';
@@ -193,12 +193,9 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       <Header
         left={
           isEdit ? null : (
-            <BackIcon
-              testID="backIcon"
-              style={{ marginLeft: 10 }}
-              onPress={completeWithoutSave}
-              color={theme.white}
-            />
+            <Button testID="backIcon" onPress={completeWithoutSave}>
+              <BackIcon color={theme.white} />
+            </Button>
           )
         }
         right={
