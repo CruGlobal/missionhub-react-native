@@ -501,7 +501,6 @@ const screens = {
 export const trackableScreens = {
   ...screens,
   ...tabs,
-  // ...GROUP_TABS,
   ...ALL_PERSON_TAB_ROUTES,
   ...JoinByCodeFlowScreens,
   ...JoinByCodeOnboardingFlowScreens,
@@ -555,7 +554,6 @@ export const MainStackRoutes = createStackNavigator(
       // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
-    [COMMUNITY_PROFILE]: { screen: CommunityProfile },
   },
   {
     initialRouteName: MAIN_TABS,
