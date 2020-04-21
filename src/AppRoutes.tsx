@@ -108,10 +108,6 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
-import {
-  CommunityProfile,
-  COMMUNITY_PROFILE,
-} from './containers/Communities/Community/CommunityProfile/CommunityProfile';
 import { buildTrackedScreen } from './routes/helpers';
 import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,

@@ -15,7 +15,6 @@ import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import {
   navigateBack,
-  navigatePush,
   navigateToMainTabs,
   navigateNestedReset,
 } from '../../../actions/navigation';
@@ -27,9 +26,9 @@ import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
+import { COMMUNITY_MEMBERS } from '../Members';
 
 import styles from './styles';
-import { COMMUNITY_MEMBERS } from '../Members';
 
 // @ts-ignore
 @withTranslation('groupsCreateGroup')

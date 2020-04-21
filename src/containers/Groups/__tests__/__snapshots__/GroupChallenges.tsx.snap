@@ -18,6 +18,7 @@ exports[`should render correctly for basic member 1`] = `
         Object {
           "backgroundColor": "#ECEEF2",
         },
+        Object {},
       ]
     }
     contentInset={
@@ -914,6 +915,7 @@ Array [
           Object {
             "backgroundColor": "#ECEEF2",
           },
+          Object {},
         ]
       }
       contentInset={
@@ -1078,11 +1080,14 @@ Array [
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1107,7 +1112,9 @@ Array [
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
