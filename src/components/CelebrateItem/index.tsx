@@ -232,7 +232,7 @@ const CelebrateItem = ({
 
   return orgIsGlobal(organization)
     ? renderGlobalOrgCard()
-    : menuActions
+    : menuActions.length
     ? renderStoryCard()
     : renderCelebrateCard();
 };
