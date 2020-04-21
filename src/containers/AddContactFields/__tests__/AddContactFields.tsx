@@ -202,7 +202,7 @@ describe('calls methods', () => {
     });
   });
 
-  fit('updates profile picture', async () => {
+  it('updates profile picture', async () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddContactFields
         next={next}
