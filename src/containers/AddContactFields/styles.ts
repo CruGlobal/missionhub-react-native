@@ -47,6 +47,7 @@ export default StyleSheet.create({
     fontSize: 16,
     alignItems: 'flex-start',
     marginVertical: 10,
+    width: '100%',
   },
   changeAvatarButton: {
     width: 32,
