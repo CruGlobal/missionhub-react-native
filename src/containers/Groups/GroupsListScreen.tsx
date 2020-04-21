@@ -206,7 +206,7 @@ const GroupsListScreen = ({
   };
 
   const join = () => {
-    dispatch(navigatePush(COMMUNITY_MEMBERS, { orgId: communities[1].id }));
+    dispatch(navigatePush(COMMUNITY_MEMBERS, { orgId: communities[3].id }));
     // dispatch(navigatePush(JOIN_BY_CODE_FLOW));
   };
 

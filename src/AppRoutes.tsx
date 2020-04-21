@@ -273,6 +273,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
     },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
+    // @ts-ignore
     indicatorStyle: { backgroundColor: 'transparent' },
     upperCaseLabel: false,
     // Android
@@ -484,7 +485,10 @@ const screens = {
     IsGroupsMeCommunityPersonScreen,
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
-  [COMMUNITY_MEMBERS]: CommunityMembers,
+  [COMMUNITY_MEMBERS]: {
+    screen: CommunityMembers,
+    defaultNavigationOptions: { gesturesEnabled: true },
+  },
   [MAIN_TABS]: MAIN_TABS_SCREEN,
   [SIGN_IN_FLOW]: SignInFlowNavigator,
   [SIGN_UP_FLOW]: SignUpFlowNavigator,

@@ -5,7 +5,7 @@ import { ORG_PERMISSIONS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { renderWithContext } from '../../../../testUtils';
 
-import GroupMemberItem from '..';
+import CommunityMemberItem from '..';
 
 jest.mock('../../../selectors/people');
 
@@ -80,14 +80,14 @@ describe('render contacts count', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
 
       renderWithContext(
-        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
         { initialState },
       );
     });
 
     it('should render no stage, member permissions', () => {
       renderWithContext(
-        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
         { initialState },
       ).snapshot();
     });
@@ -97,7 +97,7 @@ describe('render contacts count', () => {
         adminPermissions,
       );
       renderWithContext(
-        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
         { initialState },
       ).snapshot();
     });
@@ -107,7 +107,7 @@ describe('render contacts count', () => {
         ownerPermissions,
       );
       renderWithContext(
-        <GroupMemberItem {...{ ...props, organization: newOrg }} />,
+        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
         { initialState },
       ).snapshot();
     });
@@ -118,7 +118,7 @@ describe('render contacts count', () => {
         reverse_contact_assignments,
       };
       renderWithContext(
-        <GroupMemberItem
+        <CommunityMemberItem
           {...{ ...props, organization: newOrg, person: newMember }}
         />,
         { initialState },
@@ -134,7 +134,7 @@ describe('render contacts count', () => {
         adminPermissions,
       );
       renderWithContext(
-        <GroupMemberItem
+        <CommunityMemberItem
           {...{ ...props, organization: newOrg, person: newMember }}
         />,
         { initialState },
@@ -150,7 +150,7 @@ describe('render contacts count', () => {
         ownerPermissions,
       );
       renderWithContext(
-        <GroupMemberItem
+        <CommunityMemberItem
           {...{ ...props, organization: newOrg, person: newMember }}
         />,
         { initialState },
@@ -160,7 +160,7 @@ describe('render contacts count', () => {
 
   describe('cru org', () => {
     it('should render assigned and uncontacted', () => {
-      renderWithContext(<GroupMemberItem {...props} />, {
+      renderWithContext(<CommunityMemberItem {...props} />, {
         initialState,
       }).snapshot();
     });
@@ -168,7 +168,7 @@ describe('render contacts count', () => {
     it('should render 0 assigned', () => {
       const newMember = { ...member, contact_count: 0 };
       renderWithContext(
-        <GroupMemberItem {...{ ...props, person: newMember }} />,
+        <CommunityMemberItem {...{ ...props, person: newMember }} />,
         { initialState },
       ).snapshot();
     });
@@ -176,7 +176,7 @@ describe('render contacts count', () => {
     it('should render 0 uncontacted', () => {
       const newMember = { ...member, uncontacted_count: 0 };
       renderWithContext(
-        <GroupMemberItem {...{ ...props, person: newMember }} />,
+        <CommunityMemberItem {...{ ...props, person: newMember }} />,
         { initialState },
       ).snapshot();
     });
@@ -190,7 +190,7 @@ describe('render MemberOptionsMenu', () => {
     );
     const newMember = { ...member, id: myId };
     renderWithContext(
-      <GroupMemberItem {...{ ...props, person: newMember }} />,
+      <CommunityMemberItem {...{ ...props, person: newMember }} />,
       { initialState },
     ).snapshot();
   });
@@ -200,7 +200,9 @@ describe('render MemberOptionsMenu', () => {
       memberPermissions,
     );
     renderWithContext(
-      <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
+      <CommunityMemberItem
+        {...{ ...props, myOrgPermission: adminPermissions }}
+      />,
       { initialState },
     ).snapshot();
   });
@@ -210,7 +212,9 @@ describe('render MemberOptionsMenu', () => {
       ownerPermissions,
     );
     renderWithContext(
-      <GroupMemberItem {...{ ...props, myOrgPermission: adminPermissions }} />,
+      <CommunityMemberItem
+        {...{ ...props, myOrgPermission: adminPermissions }}
+      />,
       { initialState },
     ).snapshot();
   });
@@ -219,7 +223,7 @@ describe('render MemberOptionsMenu', () => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
       memberPermissions,
     );
-    renderWithContext(<GroupMemberItem {...props} />, {
+    renderWithContext(<CommunityMemberItem {...props} />, {
       initialState,
     }).snapshot();
   });
@@ -229,10 +233,10 @@ describe('onSelect', () => {
   it('calls onSelect prop', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderWithContext(
-      <GroupMemberItem {...{ ...props, onSelect }} />,
+      <CommunityMemberItem {...{ ...props, onSelect }} />,
       { initialState },
     );
-    fireEvent.press(getByTestId('GroupMemberItem'));
+    fireEvent.press(getByTestId('CommunityMemberItem'));
 
     expect(onSelect).toHaveBeenCalled();
   });

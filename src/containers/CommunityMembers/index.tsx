@@ -25,15 +25,11 @@ import {
   getPagination,
 } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
-import GroupMemberItem from '../../components/GroupMemberItem';
+import CommunityMemberItem from '../../components/CommunityMemberItem';
 import LoadMore from '../../components/LoadMore';
-import {
-  getOrganizationMembers,
-  refreshCommunity,
-} from '../../actions/organizations';
+import { getOrganizationMembers } from '../../actions/organizations';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgPermissionSelector } from '../../selectors/people';
 import { removeGroupInviteInfo } from '../../actions/swipe';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { navigatePush, navigateBack } from '../../actions/navigation';
@@ -62,12 +58,11 @@ export const CommunityMembers = () => {
     { organizations: OrganizationsState },
     Organization
   >(({ organizations }) => organizationSelector({ organizations }, { orgId }));
-  const myOrgPermission = useSelector(({ auth }: { auth: AuthState }) =>
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  );
+
   const groupInviteInfo = useSelector(
     ({ swipe }: { swipe: SwipeState }) => swipe.groupInviteInfo,
   );
+
   const analyticsPermissionType = useSelector(({ auth }: { auth: AuthState }) =>
     getAnalyticsPermissionType(auth, organization),
   );
@@ -80,33 +75,33 @@ export const CommunityMembers = () => {
 
   async function load() {
     setPagination({ hasNextPage: true, page: 1 });
-    // dispatch(refreshCommunity(organization.id));
+    // TODO: Get org members sorted alphabetically
     await dispatch(getOrganizationMembers(organization.id));
+    setPagination(
+      getPagination(
+        { meta: { total: 100 }, query: { page: { offset: 0 } } },
+        members.length,
+      ),
+    );
   }
   async function loadNextPage() {
-    if (!pagination.hasNextPage) {
-      // Does not have more data
-      return Promise.resolve();
-    }
-    // dispatch(refreshCommunity(organization.id));
     const query = {
       page: {
         limit: DEFAULT_PAGE_LIMIT,
         offset: DEFAULT_PAGE_LIMIT * pagination.page,
       },
     };
-    // const { meta, members } = await dispatch(
-    //   getOrganizationMembers(orgId, query),
-    // );
-    // setPagination(getPagination({ meta, query }));
+    const members = await dispatch(getOrganizationMembers(orgId, query));
+    // TODO: Get the correct total number of members
+    setPagination(
+      getPagination({ meta: { total: 100 }, query }, members.length),
+    );
   }
   useEffect(() => {
     load();
   }, []);
 
   async function handleInvite() {
-    // @ts-ignore
-
     if (orgIsUserCreated(organization)) {
       const url = getCommunityUrl(organization.community_url);
       const code = organization.community_code;
@@ -145,21 +140,22 @@ export const CommunityMembers = () => {
                 fontSize: 24,
                 fontWeight: '300',
                 lineHeight: 30,
+                color: theme.grey,
               }}
             >
+              {/* TODO: Get the correct total number of members */}
               24 members
             </Text>
           </SafeAreaView>
         )}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 90 }}
         renderItem={({ item }) => (
-          <GroupMemberItem
+          <CommunityMemberItem
             organization={organization}
             person={item}
-            myOrgPermission={myOrgPermission}
-            onSelect={person => {
-              dispatch(navToPersonScreen(person, organization));
-            }}
+            onSelect={person =>
+              dispatch(navToPersonScreen(person, organization))
+            }
           />
         )}
         refreshControl={
@@ -169,8 +165,7 @@ export const CommunityMembers = () => {
               try {
                 setRefreshing(true);
                 await load();
-                setRefreshing(false);
-              } catch (error) {
+              } finally {
                 setRefreshing(false);
               }
             }}

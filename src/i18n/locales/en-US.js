@@ -767,6 +767,7 @@ export default {
     join: 'Join',
     selectStage: 'Select Stage',
     privateGroup: 'Private Group',
+    memberSince: 'Member since',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',

@@ -14,7 +14,7 @@ import {
   orgIsUserCreated,
 } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
-import GroupMemberItem from '../../components/GroupMemberItem';
+import CommunityMemberItem from '../../components/CommunityMemberItem';
 import LoadMore from '../../components/LoadMore';
 import {
   getOrganizationMembers,
@@ -103,7 +103,7 @@ class Members extends Component {
     // @ts-ignore
     const { organization, myOrgPermission } = this.props;
     return (
-      <GroupMemberItem
+      <CommunityMemberItem
         organization={organization}
         person={item}
         myOrgPermission={myOrgPermission}

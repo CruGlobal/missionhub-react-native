@@ -80,7 +80,7 @@ const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
     return (
       <Image
         source={{ uri: person.picture }}
-        style={[wrapStyle as StyleProp<ImageStyle>]}
+        style={wrapStyle as StyleProp<ImageStyle>}
         resizeMode="cover"
       />
     );
