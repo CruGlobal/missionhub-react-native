@@ -54,7 +54,6 @@ export default class App extends Component {
   showingErrorModal = false;
   state = {
     appState: AppState.currentState,
-    collapsibleScrollViewProps: null,
   };
 
   constructor(props: Readonly<{}>) {
