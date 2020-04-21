@@ -26,6 +26,7 @@ interface CollapsibleHeaderViewStyle {
   readonly container: ViewStyle;
 }
 
+// Converted into a hook from https://github.com/iyegoroff/react-native-collapsible-header-views/blob/master/src/with-collapsible-header.tsx
 export const useCollapsibleHeader = ({
   headerHeight,
   statusBarHeight = 0,
