@@ -381,6 +381,7 @@ exports[`render correctly | With Person | No Picture 1`] = `
                 "color": "#3CC8E6",
                 "fontSize": 16,
                 "marginVertical": 10,
+                "width": "100%",
               },
             ]
           }
@@ -674,6 +675,7 @@ exports[`render correctly | With Person | With Picture 1`] = `
                 "color": "#3CC8E6",
                 "fontSize": 16,
                 "marginVertical": 10,
+                "width": "100%",
               },
             ]
           }

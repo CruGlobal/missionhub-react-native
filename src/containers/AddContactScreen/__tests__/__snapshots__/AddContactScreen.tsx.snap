@@ -334,6 +334,7 @@ exports[`handleUpdateData should update the state 1`] = `
                       "color": "#3CC8E6",
                       "fontSize": 16,
                       "marginVertical": 10,
+                      "width": "100%",
                     },
                   ]
                 }
@@ -416,6 +417,7 @@ exports[`handleUpdateData should update the state 1`] = `
                         "color": "#3CC8E6",
                         "fontSize": 16,
                         "marginVertical": 10,
+                        "width": "100%",
                       },
                     ]
                   }
@@ -2138,6 +2140,7 @@ exports[`savePerson update existing person set last name to null should update p
                       "color": "#3CC8E6",
                       "fontSize": 16,
                       "marginVertical": 10,
+                      "width": "100%",
                     },
                   ]
                 }
@@ -2220,6 +2223,7 @@ exports[`savePerson update existing person set last name to null should update p
                         "color": "#3CC8E6",
                         "fontSize": 16,
                         "marginVertical": 10,
+                        "width": "100%",
                       },
                     ]
                   }
@@ -2655,6 +2659,7 @@ exports[`savePerson update existing person with org should update person and nav
                       "color": "#3CC8E6",
                       "fontSize": 16,
                       "marginVertical": 10,
+                      "width": "100%",
                     },
                   ]
                 }
@@ -2737,6 +2742,7 @@ exports[`savePerson update existing person with org should update person and nav
                         "color": "#3CC8E6",
                         "fontSize": 16,
                         "marginVertical": 10,
+                        "width": "100%",
                       },
                     ]
                   }
@@ -3172,6 +3178,7 @@ exports[`savePerson update existing person without org should update person and 
                       "color": "#3CC8E6",
                       "fontSize": 16,
                       "marginVertical": 10,
+                      "width": "100%",
                     },
                   ]
                 }
@@ -3254,6 +3261,7 @@ exports[`savePerson update existing person without org should update person and 
                         "color": "#3CC8E6",
                         "fontSize": 16,
                         "marginVertical": 10,
+                        "width": "100%",
                       },
                     ]
                   }
@@ -3759,6 +3767,7 @@ exports[`savePerson update existing person without org updates users profile pic
                       "color": "#3CC8E6",
                       "fontSize": 16,
                       "marginVertical": 10,
+                      "width": "100%",
                     },
                   ]
                 }
