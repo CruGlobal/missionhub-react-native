@@ -266,8 +266,10 @@ export const getIconName = (type, interaction_type_id) => {
   return null;
 };
 
-// @ts-ignore
-export function getPagination(action, currentLength) {
+export function getPagination(
+  action: { meta?: { total?: number }; query?: { page?: { offset?: number } } },
+  currentLength: number,
+) {
   const offset =
     action.query && action.query.page && action.query.page.offset
       ? action.query.page.offset

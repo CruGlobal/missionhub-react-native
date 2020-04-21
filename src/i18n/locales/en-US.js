@@ -672,7 +672,7 @@ export default {
     stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
-    invite: 'Send Invite',
+    invite: 'Invite Member',
     sendInviteMessage:
       'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
     invited:

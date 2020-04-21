@@ -14,6 +14,7 @@ import { AuthState } from '../../reducers/auth';
 import { StagesState, StagesObj } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import Avatar from '../Avatar';
 
 import styles from './styles';
 
@@ -132,14 +133,18 @@ const GroupMemberItem = ({
   const showOptionsMenu = isMe || (iAmAdmin && !personIsOwner);
 
   return (
-    <Card onPress={handleSelect} testID="GroupMemberItem">
-      <Flex
-        value={1}
-        justify="center"
-        align="center"
-        direction="row"
-        style={styles.content}
-      >
+    <Card
+      onPress={handleSelect}
+      testID="GroupMemberItem"
+      style={{
+        marginHorizontal: 0,
+        marginVertical: 4,
+        paddingVertical: 14,
+        paddingLeft: 14,
+      }}
+    >
+      <Flex value={1} justify="center" align="center" direction="row">
+        <Avatar size="small" person={person} style={{ marginRight: 8 }} />
         <Flex value={1} direction="column">
           <ItemHeaderText text={person.full_name} />
           <Flex align="center" direction="row">

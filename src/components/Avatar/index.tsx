@@ -26,21 +26,23 @@ type PersonType = {
   picture?: string;
 };
 
-type AvatarSize = 'small' | 'medium' | 'large';
+type AvatarSize = 'extrasmall' | 'small' | 'medium' | 'large';
 
 const wrapStyles: { [key in AvatarSize]: StyleProp<ViewStyle> } = {
-  small: {
+  extrasmall: {
     width: 24,
     height: 24,
     borderRadius: 12,
     borderWidth: 1,
     borderColor: theme.white,
   },
+  small: { width: 36, height: 36, borderRadius: 18 },
   medium: { width: 48, height: 48, borderRadius: 24 },
   large: { width: 96, height: 96, borderRadius: 48 },
 };
 const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
-  small: { fontSize: 12 },
+  extrasmall: { fontSize: 12 },
+  small: { fontSize: 20, fontWeight: '300' },
   medium: { fontSize: 26, fontWeight: '300' },
   large: { fontSize: 64, fontWeight: '300' },
 };
