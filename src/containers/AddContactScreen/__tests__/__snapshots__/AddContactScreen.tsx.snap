@@ -145,6 +145,16 @@ exports[`handleUpdateData should update the state 1`] = `
               ]
             }
           >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            />
             <Text
               style={
                 Array [
@@ -507,7 +517,377 @@ exports[`handleUpdateData should update the state 1`] = `
 </View>
 `;
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly | No Person 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ffffff"
+          onPress={[Function]}
+          style={
+            Object {
+              "marginLeft": 10,
+            }
+          }
+          testID="backIcon"
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "paddingHorizontal": 25,
+            "paddingVertical": 50,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "bottom": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flex": 2,
+                    "justifyContent": "flex-end",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "marginBottom": 30,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontFamily": "SourceSansPro-Light",
+                        "fontSize": 24,
+                        "fontWeight": "300",
+                        "lineHeight": 30,
+                        "maxWidth": 230,
+                        "textAlign": "center",
+                      },
+                    ]
+                  }
+                >
+                  Who would you like to take steps of faith with this week?
+                </Text>
+              </View>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              autoFocus={true}
+              blurOnSubmit={false}
+              editable={true}
+              multiline={false}
+              onBlur={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              onSubmitEditing={[Function]}
+              placeholder="First Name (Required)"
+              placeholderTextColor="#ffffff"
+              rejectResponderTermination={true}
+              returnKeyType="next"
+              selectionColor="#3CC8E6"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {
+                    "borderBottomColor": "#3CC8E6",
+                    "color": "#ffffff",
+                  },
+                ]
+              }
+              testID="firstNameInput"
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value=""
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#52C5DC",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              autoFocus={false}
+              blurOnSubmit={false}
+              editable={true}
+              multiline={false}
+              onBlur={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              placeholder="Last Name (optional)"
+              placeholderTextColor="#ffffff"
+              rejectResponderTermination={true}
+              returnKeyType="done"
+              selectionColor="#3CC8E6"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {
+                    "borderBottomColor": "#3CC8E6",
+                    "color": "#ffffff",
+                  },
+                ]
+              }
+              testID="lastNameInput"
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value=""
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            Object {
+              "opacity": 0.6,
+            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              Object {
+                "backgroundColor": "#005A7F",
+                "color": "#007398",
+                "opacity": 1,
+              },
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "#005A7F",
+                    "color": "#007398",
+                    "opacity": 1,
+                  },
+                ],
+              ],
+            ]
+          }
+        >
+          CONTINUE
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders correctly | With Person 1`] = `
 <View
   style={
     Object {
@@ -1503,6 +1883,16 @@ exports[`savePerson update existing person set last name to null should update p
               ]
             }
           >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            />
             <Text
               style={
                 Array [
@@ -2010,6 +2400,16 @@ exports[`savePerson update existing person with org should update person and nav
               ]
             }
           >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            />
             <Text
               style={
                 Array [
@@ -2517,6 +2917,16 @@ exports[`savePerson update existing person without org should update person and 
               ]
             }
           >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            />
             <Text
               style={
                 Array [
@@ -2788,6 +3198,508 @@ exports[`savePerson update existing person without org should update person and 
                   color="#B4B6BA"
                 />
               </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              null,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  null,
+                ],
+              ],
+            ]
+          }
+        >
+          DONE
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`savePerson update existing person without org updates users profile picture 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontWeight": "400",
+                },
+              ],
+            ]
+          }
+        >
+          Edit Profile
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ECEEF2"
+          onPress={[Function]}
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+          testID="closeIcon"
+        />
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "paddingHorizontal": 25,
+            "paddingVertical": 50,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "bottom": 0,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                  },
+                ]
+              }
+            >
+              <ImagePicker
+                onSelectImage={[Function]}
+                testID="ImagePicker"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                      },
+                      Array [
+                        Object {
+                          "borderRadius": 48,
+                          "height": 96,
+                          "width": 96,
+                        },
+                        Object {
+                          "backgroundColor": "rgb(192, 115, 216)",
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Array [
+                          Object {
+                            "color": "#ffffff",
+                          },
+                          Object {
+                            "fontSize": 64,
+                            "fontWeight": "300",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    n
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#3CC8E6",
+                      "borderRadius": 50,
+                      "height": 32,
+                      "justifyContent": "center",
+                      "left": 65,
+                      "position": "absolute",
+                      "top": 60,
+                      "width": 32,
+                    }
+                  }
+                >
+                  <SvgMock
+                    color="#ffffff"
+                  />
+                </View>
+              </ImagePicker>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            >
+              First Name
+            </Text>
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              autoFocus={true}
+              blurOnSubmit={false}
+              editable={true}
+              multiline={false}
+              onBlur={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              onSubmitEditing={[Function]}
+              placeholder="First Name (Required)"
+              placeholderTextColor="#3CC8E6"
+              rejectResponderTermination={true}
+              returnKeyType="next"
+              selectionColor="#3CC8E6"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {
+                    "borderBottomColor": "#ECEEF2",
+                    "color": "#3CC8E6",
+                  },
+                ]
+              }
+              testID="firstNameInput"
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value="new name"
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            />
+            <TextInput
+              allowFontScaling={true}
+              autoCorrect={false}
+              autoFocus={false}
+              blurOnSubmit={false}
+              editable={true}
+              multiline={false}
+              onBlur={[Function]}
+              onChangeText={[Function]}
+              onFocus={[Function]}
+              placeholder="Last Name (optional)"
+              placeholderTextColor="#3CC8E6"
+              rejectResponderTermination={true}
+              returnKeyType="done"
+              selectionColor="#3CC8E6"
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderBottomColor": "#52C5DC",
+                    "borderBottomWidth": 1,
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "letterSpacing": 0.25,
+                    "paddingVertical": 5,
+                  },
+                  Object {
+                    "borderBottomColor": "#ECEEF2",
+                    "color": "#3CC8E6",
+                  },
+                ]
+              }
+              testID="lastNameInput"
+              underlineColorAndroid="rgba(0,0,0,0)"
+              value=""
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            >
+              Stage
+            </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 1,
+                  "borderColor": "#ECEEF2",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontSize": 16,
+                      "marginVertical": 10,
+                    },
+                  ]
+                }
+                testID="stageSelectButton"
+              >
+                Forgiven
+              </Text>
             </View>
           </View>
         </View>

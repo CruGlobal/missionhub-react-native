@@ -202,6 +202,7 @@ export default {
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
+    editProfile: 'Edit Profile',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     categoryPrompt: 'How do you know each other?',
     stage: 'Stage',

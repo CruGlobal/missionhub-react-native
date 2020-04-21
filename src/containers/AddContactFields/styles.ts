@@ -48,4 +48,15 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     marginVertical: 10,
   },
+  changeAvatarButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 50,
+    position: 'absolute',
+    top: 60,
+    left: 65,
+    backgroundColor: theme.parakeetBlue,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

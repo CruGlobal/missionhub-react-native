@@ -72,14 +72,19 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     lastName: '',
     stage: null,
     relationshipType: null,
+    picture: null,
   });
+  const [personImage, setPersonImage] = useState<string | null>(null);
 
   const { loading, error: loadingError, refetch } = useQuery<
     GetPerson,
     GetPersonVariables
   >(GET_PERSON, {
     variables: { id: personId },
-    onCompleted: data => setPerson(data.person),
+    onCompleted: data => {
+      setPerson(data.person);
+      setPersonImage(data.person.picture);
+    },
     skip: !personId,
   });
 
@@ -133,6 +138,17 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
             },
           },
         });
+        // Only update profile picture if it has changed
+        if (saveData.picture !== personImage) {
+          await updatePerson({
+            variables: {
+              input: {
+                id: saveData.id,
+                picture: saveData.picture,
+              },
+            },
+          });
+        }
         // Update person's data in redux
         updateData?.updatePerson?.person &&
           dispatch(
@@ -195,7 +211,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
             />
           ) : null
         }
-        title={isEdit ? t('editPerson') : ''}
+        title={isEdit ? (isMe ? t('editProfile') : t('editPerson')) : ''}
         titleStyle={styles.headerTitle}
       />
       <ErrorNotice
