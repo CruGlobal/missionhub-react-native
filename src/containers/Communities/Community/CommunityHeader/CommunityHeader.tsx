@@ -22,6 +22,7 @@ import EditIcon from '../../../../../assets/images/editIcon.svg';
 import { useMyId } from '../../../../utils/hooks/useIsMe';
 import { useCommunityPhoto } from '../../hooks/useCommunityPhoto';
 import { canEditCommunity, orgIsGlobal } from '../../../../utils/common';
+import { communityTabs } from '../constants';
 
 import styles from './styles';
 import {
@@ -36,11 +37,7 @@ import { CommunityHeaderGlobal } from './__generated__/CommunityHeaderGlobal';
 
 export const CommunitiesCollapsibleHeaderContext = createCollapsibleViewContext();
 
-interface CommunityHeaderProps {
-  tabs: { name: string; navigationAction: string }[];
-}
-
-export const CommunityHeader = ({ tabs }: CommunityHeaderProps) => {
+export const CommunityHeader = () => {
   const { t } = useTranslation('communityHeader');
   const dispatch = useDispatch();
   const communityId: string = useNavigationParam('communityId');
@@ -82,6 +79,7 @@ export const CommunityHeader = ({ tabs }: CommunityHeaderProps) => {
             right={
               isGlobalCommunity ? null : (
                 <Button
+                  testID="communityProfileButton"
                   onPress={() =>
                     dispatch(navigatePush(COMMUNITY_PROFILE, { communityId }))
                   }
@@ -141,7 +139,7 @@ export const CommunityHeader = ({ tabs }: CommunityHeaderProps) => {
           error={globalError}
           refetch={globalRefetch}
         />
-        <HeaderTabBar tabs={tabs} />
+        <HeaderTabBar tabs={communityTabs} />
       </View>
     </CollapsibleViewHeader>
   );
