@@ -4,9 +4,12 @@ exports[`renders empty correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={Array []}
   disableVirtualization={false}
@@ -34,7 +37,7 @@ exports[`renders empty correctly 1`] = `
   refreshing={true}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={Array []}
   stickyHeaderIndices={Array []}
   stickySectionHeadersEnabled={true}
@@ -78,9 +81,12 @@ exports[`renders for Global Community renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={
     Array [
@@ -495,7 +501,7 @@ exports[`renders for Global Community renders correctly 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -935,6 +941,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -1024,6 +1031,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -1113,6 +1121,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -1202,6 +1211,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -1234,9 +1244,12 @@ exports[`renders for Unread Comments renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={
     Array [
@@ -1651,7 +1664,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -2091,6 +2104,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -2180,6 +2194,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -2269,6 +2284,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -2358,6 +2374,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -2390,9 +2407,12 @@ exports[`renders for member renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={
     Array [
@@ -2807,7 +2827,7 @@ exports[`renders for member renders correctly 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -3238,6 +3258,7 @@ exports[`renders for member renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -3327,6 +3348,7 @@ exports[`renders for member renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -3416,6 +3438,7 @@ exports[`renders for member renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -3505,6 +3528,7 @@ exports[`renders for member renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -3537,9 +3561,12 @@ exports[`renders for member renders without header 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={
     Array [
@@ -3954,7 +3981,7 @@ exports[`renders for member renders without header 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -4376,6 +4403,7 @@ exports[`renders for member renders without header 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -4465,6 +4493,7 @@ exports[`renders for member renders without header 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -4554,6 +4583,7 @@ exports[`renders for member renders without header 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -4643,6 +4673,7 @@ exports[`renders for member renders without header 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -4675,9 +4706,12 @@ exports[`renders with celebration items correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={
     Array [
@@ -5092,7 +5126,7 @@ exports[`renders with celebration items correctly 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -5532,6 +5566,7 @@ exports[`renders with celebration items correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -5621,6 +5656,7 @@ exports[`renders with celebration items correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -5710,6 +5746,7 @@ exports[`renders with celebration items correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -5799,6 +5836,7 @@ exports[`renders with celebration items correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -5831,9 +5869,12 @@ exports[`renders with clear notification renders correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
   contentContainerStyle={
-    Object {
-      "paddingBottom": 10,
-    }
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
   }
   data={
     Array [
@@ -6248,7 +6289,7 @@ exports[`renders with clear notification renders correctly 1`] = `
   refreshing={false}
   renderItem={[Function]}
   renderSectionHeader={[Function]}
-  scrollEventThrottle={50}
+  scrollEventThrottle={0.0001}
   sections={
     Array [
       Object {
@@ -6688,6 +6729,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -6778,6 +6820,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -6868,6 +6911,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
@@ -6958,6 +7002,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "alignContent": "center",
             "alignItems": "center",
             "backgroundColor": "#ECEEF2",
+            "flex": 1,
             "paddingVertical": 10,
           }
         }
