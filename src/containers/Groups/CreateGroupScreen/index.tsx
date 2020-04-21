@@ -17,6 +17,7 @@ import {
   navigateBack,
   navigatePush,
   navigateToMainTabs,
+  navigateNestedReset,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
 import { addNewOrganization } from '../../../actions/organizations';
@@ -28,6 +29,7 @@ import Analytics from '../../Analytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
 
 import styles from './styles';
+import { COMMUNITY_MEMBERS } from '../Members';
 
 // @ts-ignore
 @withTranslation('groupsCreateGroup')
@@ -77,10 +79,21 @@ class CreateGroupScreen extends Component {
 
       if (organization) {
         dispatch(
-          // TODO: navigate to Community members screen instead
-          navigatePush(COMMUNITY_TABS, {
-            communityId: orgId,
-          }),
+          // TODO: make sure this works with new community members screen
+          navigateNestedReset([
+            {
+              routeName: COMMUNITY_TABS,
+              params: {
+                communityId: orgId,
+              },
+            },
+            {
+              routeName: COMMUNITY_MEMBERS,
+              params: {
+                communityId: orgId,
+              },
+            },
+          ]),
         );
         return dispatch(
           trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY),

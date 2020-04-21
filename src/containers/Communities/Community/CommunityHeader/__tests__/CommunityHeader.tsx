@@ -6,6 +6,7 @@ import { CommunityHeader } from '../CommunityHeader';
 import { GLOBAL_COMMUNITY_ID } from '../../../../../constants';
 import { COMMUNITY_PROFILE } from '../../CommunityProfile/CommunityProfile';
 import { navigatePush } from '../../../../../actions/navigation';
+import { COMMUNITY_MEMBERS } from '../../../../Groups/Members';
 
 jest.mock('../../../../../actions/navigation');
 
@@ -65,6 +66,17 @@ describe('CommunityHeader', () => {
 
     fireEvent.press(getByTestId('communityProfileButton'));
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_PROFILE, {
+      communityId,
+    });
+  });
+  it('should navigate to the community members screen', () => {
+    const { getByTestId } = renderWithContext(<CommunityHeader />, {
+      initialState,
+      navParams: { communityId },
+    });
+
+    fireEvent.press(getByTestId('communityMembersButton'));
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_MEMBERS, {
       communityId,
     });
   });

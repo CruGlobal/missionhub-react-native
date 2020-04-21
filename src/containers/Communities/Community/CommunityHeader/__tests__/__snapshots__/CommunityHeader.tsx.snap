@@ -338,7 +338,7 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 "opacity": 1,
               }
             }
-            testID="Button"
+            testID="communityMembersButton"
           >
             <View
               style={
@@ -854,7 +854,7 @@ exports[`CommunityHeader should render loading state 1`] = `
                 "opacity": 1,
               }
             }
-            testID="Button"
+            testID="communityMembersButton"
           >
             <View
               style={

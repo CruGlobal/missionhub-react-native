@@ -1,3 +1,5 @@
+import CommunityMembers, { COMMUNITY_MEMBERS } from '../Groups/Members';
+
 import { CommunityTabs } from './Community/CommunityTabs';
 import { COMMUNITY_TABS } from './Community/constants';
 import {
@@ -8,4 +10,5 @@ import {
 export const CommunitiesRoutes = {
   [COMMUNITY_TABS]: CommunityTabs,
   [COMMUNITY_PROFILE]: CommunityProfile,
+  [COMMUNITY_MEMBERS]: CommunityMembers,
 };
