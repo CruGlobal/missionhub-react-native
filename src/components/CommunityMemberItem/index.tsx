@@ -4,31 +4,17 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { ORG_PERMISSIONS } from '../../constants';
 import { Flex, Text, DateComponent, Dot, Touchable } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
-import { orgIsUserCreated, isAdminOrOwner, isOwner } from '../../utils/common';
-import ItemHeaderText from '../ItemHeaderText';
+import { isAdminOrOwner, isOwner } from '../../utils/common';
 import { AuthState } from '../../reducers/auth';
-import { StagesState, StagesObj } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import Avatar from '../Avatar';
-import theme from '../../theme';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
-
-interface PersonOrgPermissionInterface {
-  archive_date: string | null;
-  cru_status: string;
-  followup_status: string | null;
-  id: string;
-  organization: Organization;
-  organization_id: string;
-  permission_id: number;
-}
 
 interface CommunityMemberItemProps {
   onSelect: (person: Person) => void;
@@ -59,50 +45,23 @@ const CommunityMemberItem = ({
     <Touchable
       onPress={() => onSelect(person)}
       testID="CommunityMemberItem"
-      style={{
-        shadowColor: theme.black,
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 6,
-        elevation: 4,
-        borderRadius: 8,
-        backgroundColor: theme.white,
-        marginHorizontal: 0,
-        marginVertical: 4,
-        paddingVertical: 14,
-        paddingLeft: 14,
-      }}
+      style={styles.card}
     >
       <Flex value={1} justify="center" align="center" direction="row">
-        <Avatar size="small" person={person} style={{ marginRight: 8 }} />
+        <Avatar size="small" person={person} style={styles.avatar} />
         <Flex value={1} direction="column">
-          <Text
-            style={{
-              color: theme.grey,
-              fontSize: 16,
-            }}
-          >
-            {person.first_name}
-          </Text>
+          <Text style={styles.name}>{person.first_name}</Text>
           <Flex align="center" direction="row">
-            <Text
-              style={{
-                color: theme.lightGrey,
-                fontSize: 12,
-              }}
-            >
+            <Text style={styles.info}>
               {personIsOwner ? (
                 <>
-                  ${t('profileLabels.owner')}
+                  {t('profileLabels.owner')}
                   <Dot />
                 </>
               ) : null}
               {t('memberSince')}{' '}
               <DateComponent
-                style={{
-                  color: theme.lightGrey,
-                  fontSize: 12,
-                }}
+                style={styles.info}
                 date={person.created_at}
                 format="MMMM YYYY"
               />
