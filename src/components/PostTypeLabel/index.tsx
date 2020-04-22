@@ -15,20 +15,9 @@ import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
 import { Card, Flex } from '../common';
 import BackButton from '../../containers/BackButton';
 import theme from '../../theme';
-import { PostTypeEnum } from '../../../__generated__/globalTypes';
+import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
-
-export enum communityFeedTypeEnum {
-  story = 'story',
-  prayer_request = 'prayer_request',
-  question = 'question',
-  help_request = 'help_request',
-  thought = 'thought',
-  challenge = 'challenge',
-  announcement = 'announcement',
-  stepOfFatih = 'stepOfFaith',
-}
 
 export enum PostLabelSizeEnum {
   normal = 'normal',
@@ -37,7 +26,7 @@ export enum PostLabelSizeEnum {
 }
 
 interface PostTypeLabelProps {
-  type: communityFeedTypeEnum | PostTypeEnum;
+  type: FeedItemSubjectTypeEnum;
   onPress?: TouchablePress;
   showText?: boolean;
   size?: PostLabelSizeEnum;
@@ -62,7 +51,7 @@ const PostTypeLabel = ({
 
   const renderIcon = () => {
     switch (type) {
-      case communityFeedTypeEnum.story:
+      case FeedItemSubjectTypeEnum.STORY:
         return (
           <GodStoryIcon
             color={theme.white}
@@ -71,7 +60,7 @@ const PostTypeLabel = ({
             height={iconSize}
           />
         );
-      case communityFeedTypeEnum.prayer_request:
+      case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
         return (
           <PrayerRequestIcon
             color={theme.white}
@@ -81,7 +70,7 @@ const PostTypeLabel = ({
           />
         );
 
-      case communityFeedTypeEnum.question:
+      case FeedItemSubjectTypeEnum.QUESTION:
         return (
           <SpiritualQuestionIcon
             color={theme.white}
@@ -91,7 +80,7 @@ const PostTypeLabel = ({
           />
         );
 
-      case communityFeedTypeEnum.help_request:
+      case FeedItemSubjectTypeEnum.HELP_REQUEST:
         return (
           <CareRequestIcon
             color={theme.white}
@@ -101,7 +90,7 @@ const PostTypeLabel = ({
           />
         );
 
-      case communityFeedTypeEnum.thought:
+      case FeedItemSubjectTypeEnum.THOUGHT:
         return (
           <OnYourMindIcon
             color={theme.white}
@@ -111,7 +100,7 @@ const PostTypeLabel = ({
           />
         );
 
-      case communityFeedTypeEnum.challenge:
+      case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
         return (
           <ChallengesIcon
             color={theme.white}
@@ -121,7 +110,7 @@ const PostTypeLabel = ({
           />
         );
 
-      case communityFeedTypeEnum.announcement:
+      case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
         return (
           <AnnouncementIcon
             color={theme.white}
@@ -131,7 +120,7 @@ const PostTypeLabel = ({
           />
         );
 
-      case communityFeedTypeEnum.stepOfFatih:
+      case FeedItemSubjectTypeEnum.STEP:
         return (
           <StepsOfFaithIcon
             color={theme.white}

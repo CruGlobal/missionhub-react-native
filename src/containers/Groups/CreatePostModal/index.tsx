@@ -6,7 +6,6 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
-  PostTypeEnum,
   PostLabelSizeEnum,
 } from '../../../components/PostTypeLabel';
 import CloseIcon from '../../../../assets/images/closeIcon.svg';
@@ -19,6 +18,7 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import theme from '../../../theme';
 
 import {
@@ -83,11 +83,11 @@ const CreatePostModal = ({
   };
 
   const postTypeArray = [
-    PostTypeEnum.godStory,
-    PostTypeEnum.prayerRequest,
-    PostTypeEnum.spiritualQuestion,
-    PostTypeEnum.careRequest,
-    PostTypeEnum.onYourMind,
+    PostTypeEnum.story,
+    PostTypeEnum.prayer_request,
+    PostTypeEnum.question,
+    PostTypeEnum.help_request,
+    PostTypeEnum.thought,
   ];
 
   return (

@@ -30,8 +30,11 @@ import {
   TrackStateContext,
 } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
-import { CommunityPost } from '../../../components/CelebrateItem/__generated__/CommunityPost';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import { CommunityFeedPost } from '../../../components/CelebrateItem/__generated__/CommunityFeedPost';
+import {
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../../__generated__/globalTypes';
 
 import SendIcon from './sendIcon.svg';
 import CameraIcon from './cameraIcon.svg';
@@ -45,16 +48,14 @@ type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 interface CreatePostNavParams {
   postType: PostTypeEnum;
   onComplete: () => void;
-  orgId: string;
+  communityId: string;
 }
 
 interface UpdatePostNavParams {
-  post: CommunityPost;
+  post: CommunityFeedPost;
   onComplete: () => void;
-  orgId: string;
+  communityId: string;
 }
-
-type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
 
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
@@ -70,8 +71,23 @@ const getPostTypeAnalytics = (postType: PostTypeEnum) => {
       return 'whats on your mind';
     case PostTypeEnum.announcement:
       return 'announcement';
-    default:
-      return '';
+  }
+};
+
+const mapPostTypeToFeedType = (postType: PostTypeEnum) => {
+  switch (postType) {
+    case PostTypeEnum.story:
+      return FeedItemSubjectTypeEnum.STORY;
+    case PostTypeEnum.prayer_request:
+      return FeedItemSubjectTypeEnum.PRAYER_REQUEST;
+    case PostTypeEnum.question:
+      return FeedItemSubjectTypeEnum.QUESTION;
+    case PostTypeEnum.help_request:
+      return FeedItemSubjectTypeEnum.HELP_REQUEST;
+    case PostTypeEnum.thought:
+      return FeedItemSubjectTypeEnum.THOUGHT;
+    case PostTypeEnum.announcement:
+      return FeedItemSubjectTypeEnum.ANNOUNCEMENT;
   }
 };
 
@@ -80,24 +96,24 @@ export const CreatePostScreen = () => {
   const dispatch = useDispatch();
 
   const onComplete: () => void = useNavigationParam('onComplete');
-  const orgId: string = useNavigationParam('orgId');
-  const post: CommunityPost | undefined = useNavigationParam('post');
+  const communityId: string = useNavigationParam('communityId');
+  const post: CommunityFeedPost | undefined = useNavigationParam('post');
   const navPostType: PostTypeEnum | undefined = useNavigationParam('postType');
 
   const [postType] = useState<PostTypeEnum>(
-    navPostType || PostTypeEnum.prayer_request,
-  ); //TODO: load postType from post if editing
-  const [postText, changePostText] = useState(
-    post?.objectDescription || undefined,
+    post?.postType || navPostType || PostTypeEnum.story,
   );
-  const [postImage, changePostImage] = useState<ImageSourcePropType | null>(
-    null,
-  ); //TODO: preload post image if exists
+  const [postText, changePostText] = useState<string | undefined>(
+    post?.content || undefined,
+  );
+  const [postImage, changePostImage] = useState<
+    ImageSourcePropType | undefined
+  >(undefined); //TODO: use image from post
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
     permissionType
-  >(({ auth }) => getAnalyticsPermissionType(auth, { id: orgId }));
+  >(({ auth }) => getAnalyticsPermissionType(auth, { id: communityId }));
   useAnalytics(['post', getPostTypeAnalytics(postType)], {
     screenContext: {
       [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
@@ -121,12 +137,12 @@ export const CreatePostScreen = () => {
 
     if (post) {
       await updatePost({
-        variables: { input: { id: post.celebrateableId, content: postText } },
+        variables: { input: { id: post.id, content: postText } },
       });
     } else {
       await createPost({
         variables: {
-          input: { content: postText, communityId: orgId, postType },
+          input: { content: postText, communityId, postType },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -173,7 +189,7 @@ export const CreatePostScreen = () => {
   return (
     <View style={styles.container}>
       {renderHeader()}
-      <PostTypeLabel type={postType} />
+      <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <Input
           testID="PostInput"

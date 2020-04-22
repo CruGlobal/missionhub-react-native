@@ -48,28 +48,28 @@ export default StyleSheet.create({
     color: theme.white,
     lineHeight: 20,
   },
-  story: {
+  STORY: {
     backgroundColor: theme.communityGodStoryPurple,
   },
-  prayer_request: {
+  PRAYER_REQUEST: {
     backgroundColor: theme.communityPrayerRequestPurple,
   },
-  question: {
+  QUESTION: {
     backgroundColor: theme.communityQuestionOrange,
   },
-  help_request: {
+  HELP_REQUEST: {
     backgroundColor: theme.communityCareRequestRed,
   },
-  thought: {
+  THOUGHT: {
     backgroundColor: theme.communityThoughtGrey,
   },
-  challenge: {
+  COMMUNITY_CHALLENGE: {
     backgroundColor: theme.communityChallengeGreen,
   },
-  announcement: {
+  ANNOUNCEMENT: {
     backgroundColor: theme.communityAnnouncementGrey,
   },
-  stepOfFaith: {
+  STEP: {
     backgroundColor: theme.communityBlue,
   },
 });

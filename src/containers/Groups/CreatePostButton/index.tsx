@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import { useMyId } from '../../../utils/hooks/useIsMe';
 import { Button, Text } from '../../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
-import CreatePostModal from '../CreatePostModal';
-import { useMyId } from '../../../utils/hooks/useIsMe';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import CreatePostModal from '../CreatePostModal';
 
 import styles from './styles';
 

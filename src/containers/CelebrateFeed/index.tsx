@@ -222,7 +222,7 @@ export const CelebrateFeed = ({
             {!person ? (
               <CreatePostButton
                 refreshItems={handleRefreshing}
-                orgId={organization.id}
+                communityId={organization.id}
               />
             ) : null}
           </>

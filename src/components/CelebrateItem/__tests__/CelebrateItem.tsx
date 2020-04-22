@@ -17,10 +17,7 @@ import {
   GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData,
   GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
 } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
-import {
-  CELEBRATE_ITEM_FRAGMENT,
-  CELEBRATE_ITEM_PERSON_FRAGMENT,
-} from '../queries';
+import { CELEBRATE_ITEM_FRAGMENT, COMMUNITY_PERSON_FRAGMENT } from '../queries';
 import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
 
 import CelebrateItem, { DELETE_STORY, REPORT_STORY } from '..';
@@ -32,9 +29,7 @@ const globalOrg: Organization = { id: GLOBAL_COMMUNITY_ID };
 const organization: Organization = { id: '3', name: 'Communidad' };
 
 const event = mockFragment<CelebrateItemData>(CELEBRATE_ITEM_FRAGMENT);
-const mePerson = mockFragment<CelebrateItemPerson>(
-  CELEBRATE_ITEM_PERSON_FRAGMENT,
-);
+const mePerson = mockFragment<CelebrateItemPerson>(COMMUNITY_PERSON_FRAGMENT);
 const myId = mePerson.id;
 
 MockDate.set('2019-08-21 12:00:00', 300);
