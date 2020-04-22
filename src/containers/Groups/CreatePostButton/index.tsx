@@ -43,10 +43,10 @@ export const CreatePostButton = ({
           refreshItems={refreshItems}
         />
       ) : null}
-      <Button style={button} onPress={openModal} testID="CreatePostInput">
+      <Button style={button} onPress={openModal} testID="CreatePostButton">
         <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />
         <Text style={buttonText}>
-          {type ? t(`${type}`) : t('inputPlaceholder')}
+          {type ? t(`createPostButton.${type}`) : t('inputPlaceholder')}
         </Text>
       </Button>
     </View>

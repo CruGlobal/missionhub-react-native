@@ -16,6 +16,7 @@ import {
   ANALYTICS_PERMISSION_TYPE,
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
+import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
@@ -31,10 +32,7 @@ import {
 } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import { CommunityFeedPost } from '../../../components/CelebrateItem/__generated__/CommunityFeedPost';
-import {
-  PostTypeEnum,
-  FeedItemSubjectTypeEnum,
-} from '../../../../__generated__/globalTypes';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SendIcon from './sendIcon.svg';
 import CameraIcon from './cameraIcon.svg';
@@ -74,25 +72,8 @@ const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   }
 };
 
-const mapPostTypeToFeedType = (postType: PostTypeEnum) => {
-  switch (postType) {
-    case PostTypeEnum.story:
-      return FeedItemSubjectTypeEnum.STORY;
-    case PostTypeEnum.prayer_request:
-      return FeedItemSubjectTypeEnum.PRAYER_REQUEST;
-    case PostTypeEnum.question:
-      return FeedItemSubjectTypeEnum.QUESTION;
-    case PostTypeEnum.help_request:
-      return FeedItemSubjectTypeEnum.HELP_REQUEST;
-    case PostTypeEnum.thought:
-      return FeedItemSubjectTypeEnum.THOUGHT;
-    case PostTypeEnum.announcement:
-      return FeedItemSubjectTypeEnum.ANNOUNCEMENT;
-  }
-};
-
 export const CreatePostScreen = () => {
-  const { t } = useTranslation('communityPost');
+  const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
 
   const onComplete: () => void = useNavigationParam('onComplete');
@@ -158,7 +139,11 @@ export const CreatePostScreen = () => {
   const renderHeader = () => (
     <Header
       left={<BackButton iconStyle={styles.backButton} />}
-      center={<Text style={styles.headerText}>{t(`${postType}.label`)}</Text>}
+      center={
+        <Text style={styles.headerText}>
+          {t(`postTypes:${mapPostTypeToFeedType(postType)}`)}
+        </Text>
+      }
       right={
         postText ? (
           <Button onPress={savePost} testID="CreatePostButton">
@@ -195,7 +180,7 @@ export const CreatePostScreen = () => {
           testID="PostInput"
           scrollEnabled={false}
           onChangeText={e => changePostText(e)}
-          placeholder={t(`${postType}.placeholder`)}
+          placeholder={t(`placeholder.${postType}`)}
           value={postText}
           autoFocus={true}
           autoCorrect={true}

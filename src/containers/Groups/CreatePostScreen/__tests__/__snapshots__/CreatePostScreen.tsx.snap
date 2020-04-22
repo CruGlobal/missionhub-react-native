@@ -64,10 +64,10 @@ exports[`Creating a post user types a post 1`] = `
 +     </View>
     </RCTSafeAreaView>
     <View
-      style={
-        Object {
-          \\"backgroundColor\\": \\"blue\\",
-@@ -229,10 +278,11 @@
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+@@ -303,10 +352,11 @@
               },
             ]
           }
@@ -86,13 +86,13 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -278,11 +278,11 @@
+@@ -352,11 +352,11 @@
               },
             ]
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"qui recusandae ut\\"
+-         value=\\"esse repellat quisquam\\"
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
@@ -276,16 +276,90 @@ exports[`renders correctly for new post 1`] = `
     </View>
   </RCTSafeAreaView>
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "blue",
-        "height": 20,
-        "marginHorizontal": 35,
-        "marginVertical": 20,
-        "width": 20,
+        "opacity": 1,
       }
     }
-  />
+    testID="PRAYER_REQUESTButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            null,
+            null,
+          ],
+          Object {
+            "borderRadius": 50,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={20}
+        style={
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          }
+        }
+        width={20}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Prayer Request
+      </Text>
+    </View>
+  </View>
   <RCTScrollView
     contentInset={
       Object {
@@ -348,32 +422,9 @@ exports[`renders correctly for new post 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-<<<<<<< HEAD:src/containers/Groups/CreatePostScreen/__tests__/__snapshots__/CreatePostScreen.tsx.snap
           Object {
             "opacity": 1,
           }
-=======
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
-            },
-          ]
->>>>>>> origin/Communities-Update-Feature-Branch:src/containers/Groups/EditStoryScreen/__tests__/__snapshots__/EditStoryScreen.tsx.snap
         }
         testID="popupMenuButton"
       >
@@ -411,7 +462,6 @@ exports[`renders correctly for new post 1`] = `
                 Object {
                   "color": "#505256",
                 },
-<<<<<<< HEAD:src/containers/Groups/CreatePostScreen/__tests__/__snapshots__/CreatePostScreen.tsx.snap
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
@@ -433,13 +483,6 @@ exports[`renders correctly for new post 1`] = `
               "height": 1,
               "width": 750,
             }
-=======
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
->>>>>>> origin/Communities-Update-Feature-Branch:src/containers/Groups/EditStoryScreen/__tests__/__snapshots__/EditStoryScreen.tsx.snap
           }
         />
       </View>
@@ -672,16 +715,90 @@ exports[`renders correctly for update post 1`] = `
     </View>
   </RCTSafeAreaView>
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "blue",
-        "height": 20,
-        "marginHorizontal": 35,
-        "marginVertical": 20,
-        "width": 20,
+        "opacity": 1,
       }
     }
-  />
+    testID="PRAYER_REQUESTButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            null,
+            null,
+          ],
+          Object {
+            "borderRadius": 50,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={20}
+        style={
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          }
+        }
+        width={20}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Prayer Request
+      </Text>
+    </View>
+  </View>
   <RCTScrollView
     contentInset={
       Object {
@@ -731,7 +848,7 @@ exports[`renders correctly for update post 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="qui recusandae ut"
+        value="esse repellat quisquam"
       />
       <View
         accessible={true}
@@ -745,32 +862,9 @@ exports[`renders correctly for update post 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-<<<<<<< HEAD:src/containers/Groups/CreatePostScreen/__tests__/__snapshots__/CreatePostScreen.tsx.snap
           Object {
             "opacity": 1,
           }
-=======
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
-            },
-          ]
->>>>>>> origin/Communities-Update-Feature-Branch:src/containers/Groups/EditStoryScreen/__tests__/__snapshots__/EditStoryScreen.tsx.snap
         }
         testID="popupMenuButton"
       >
@@ -808,7 +902,6 @@ exports[`renders correctly for update post 1`] = `
                 Object {
                   "color": "#505256",
                 },
-<<<<<<< HEAD:src/containers/Groups/CreatePostScreen/__tests__/__snapshots__/CreatePostScreen.tsx.snap
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
@@ -830,13 +923,6 @@ exports[`renders correctly for update post 1`] = `
               "height": 1,
               "width": 750,
             }
-=======
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
->>>>>>> origin/Communities-Update-Feature-Branch:src/containers/Groups/EditStoryScreen/__tests__/__snapshots__/EditStoryScreen.tsx.snap
           }
         />
       </View>
@@ -1069,16 +1155,90 @@ exports[`renders correctly on android 1`] = `
     </View>
   </RCTSafeAreaView>
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "blue",
-        "height": 20,
-        "marginHorizontal": 35,
-        "marginVertical": 20,
-        "width": 20,
+        "opacity": 1,
       }
     }
-  />
+    testID="PRAYER_REQUESTButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            null,
+            null,
+          ],
+          Object {
+            "borderRadius": 50,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={20}
+        style={
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          }
+        }
+        width={20}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Prayer Request
+      </Text>
+    </View>
+  </View>
   <RCTScrollView
     contentInset={
       Object {
@@ -1128,7 +1288,7 @@ exports[`renders correctly on android 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="qui recusandae ut"
+        value="esse repellat quisquam"
       />
       <View
         accessible={true}
@@ -1142,32 +1302,9 @@ exports[`renders correctly on android 1`] = `
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
         style={
-<<<<<<< HEAD:src/containers/Groups/CreatePostScreen/__tests__/__snapshots__/CreatePostScreen.tsx.snap
           Object {
             "opacity": 1,
           }
-=======
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
-            Array [
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
-              undefined,
-            ],
-            Object {
-              "borderRadius": 50,
-            },
-          ]
->>>>>>> origin/Communities-Update-Feature-Branch:src/containers/Groups/EditStoryScreen/__tests__/__snapshots__/EditStoryScreen.tsx.snap
         }
         testID="popupMenuButton"
       >
@@ -1205,7 +1342,6 @@ exports[`renders correctly on android 1`] = `
                 Object {
                   "color": "#505256",
                 },
-<<<<<<< HEAD:src/containers/Groups/CreatePostScreen/__tests__/__snapshots__/CreatePostScreen.tsx.snap
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
@@ -1227,13 +1363,6 @@ exports[`renders correctly on android 1`] = `
               "height": 1,
               "width": 750,
             }
-=======
-                Array [
-                  undefined,
-                ],
-              ],
-            ]
->>>>>>> origin/Communities-Update-Feature-Branch:src/containers/Groups/EditStoryScreen/__tests__/__snapshots__/EditStoryScreen.tsx.snap
           }
         />
       </View>

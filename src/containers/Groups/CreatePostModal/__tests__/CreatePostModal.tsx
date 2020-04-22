@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
-import { PostTypeEnum } from '../../../../components/PostTypeLabel';
+import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../../actions/navigation';
@@ -112,7 +112,7 @@ it('fires onPress and navigates | member', async () => {
   });
   await flushMicrotasksQueue();
 
-  fireEvent.press(getByTestId('godStoryButton'));
+  fireEvent.press(getByTestId('STORYButton'));
   expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
       id: props.communityId,
@@ -123,7 +123,7 @@ it('fires onPress and navigates | member', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     refreshItems,
     communityId: mockCommunityId,
-    type: PostTypeEnum.godStory,
+    type: PostTypeEnum.story,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
@@ -142,7 +142,7 @@ it('fires onPress and navigates | owner', async () => {
   });
   await flushMicrotasksQueue();
 
-  fireEvent.press(getByTestId('announcementButton'));
+  fireEvent.press(getByTestId('ANNOUNCEMENTButton'));
   expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
       id: props.communityId,

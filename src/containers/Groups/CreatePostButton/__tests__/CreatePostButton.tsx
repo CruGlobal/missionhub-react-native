@@ -1,50 +1,95 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { useQuery } from '@apollo/react-hooks';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
-import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
 import { renderWithContext } from '../../../../../testUtils';
-import { navigatePush } from '../../../../actions/navigation';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
+import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../CreatePostModal/queries';
 
 import { CreatePostButton } from '..';
 
 jest.mock('../../../../actions/navigation');
+jest.mock('../../../../utils/hooks/useAnalytics');
 
-const orgId = '1234';
+const communityId = '1234';
 
 const refreshItems = jest.fn();
 
-beforeEach(() => {
-  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
-});
+const initialState = {
+  auth: {
+    person: {
+      id: '1',
+    },
+  },
+  people: { allByOrg: {} },
+  drawer: { isOpen: false },
+};
 
 it('renders correctly', () => {
-  renderWithContext(
-    <CreatePostButton refreshItems={refreshItems} orgId={orgId} />,
-  ).snapshot();
+  const { snapshot } = renderWithContext(
+    <CreatePostButton
+      refreshItems={refreshItems}
+      type={PostTypeEnum.story}
+      communityId={communityId}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+});
+
+it('renders correctly with type', () => {
+  const { snapshot } = renderWithContext(
+    <CreatePostButton
+      refreshItems={refreshItems}
+      type={PostTypeEnum.story}
+      communityId={communityId}
+    />,
+    { initialState },
+  );
+  snapshot();
 });
 
 it('does not render for Global Community', () => {
-  renderWithContext(
+  const { snapshot } = renderWithContext(
     <CreatePostButton
       refreshItems={refreshItems}
-      orgId={GLOBAL_COMMUNITY_ID}
+      type={PostTypeEnum.story}
+      communityId={GLOBAL_COMMUNITY_ID}
     />,
-  ).snapshot();
+    {
+      initialState,
+    },
+  );
+  snapshot();
 });
 
-it('onPress switches to NewPostScreen', () => {
-  const { getByTestId } = renderWithContext(
-    <CreatePostButton refreshItems={refreshItems} orgId={orgId} />,
+it('onPress opens modal', async () => {
+  const {
+    getByTestId,
+    recordSnapshot,
+    diffSnapshot,
+  } = renderWithContext(
+    <CreatePostButton
+      refreshItems={refreshItems}
+      type={PostTypeEnum.story}
+      communityId={communityId}
+    />,
+    { initialState },
   );
 
+  await flushMicrotasksQueue();
+  recordSnapshot();
+
   fireEvent.press(getByTestId('CreatePostButton'));
-  expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-    orgId,
-    onComplete: expect.any(Function),
-    postType: PostTypeEnum.prayer_request,
+  diffSnapshot();
+
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: communityId,
+      myId: '1',
+    },
   });
-  (navigatePush as jest.Mock).mock.calls[0][1].onComplete();
-  expect(refreshItems).toHaveBeenCalled();
 });

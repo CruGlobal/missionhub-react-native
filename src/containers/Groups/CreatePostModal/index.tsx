@@ -11,14 +11,17 @@ import PostTypeLabel, {
 import CloseIcon from '../../../../assets/images/closeIcon.svg';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
-import { isAdminOrOwner } from '../../../utils/common';
+import { isAdminOrOwner, mapPostTypeToFeedType } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { useMyId } from '../../../utils/hooks/useIsMe';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import {
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../../__generated__/globalTypes';
 import theme from '../../../theme';
 
 import {
@@ -112,7 +115,7 @@ const CreatePostModal = ({
           {postTypeArray.map(type => (
             <PostTypeLabel
               key={type}
-              type={type}
+              type={mapPostTypeToFeedType(type)}
               size={PostLabelSizeEnum.large}
               onPress={() => navigateToCreatePostScreen(type)}
             />
@@ -130,7 +133,7 @@ const CreatePostModal = ({
                 <LineIcon width="21" color={theme.grey} />
               </Flex>
               <PostTypeLabel
-                type={PostTypeEnum.announcement}
+                type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
                 size={PostLabelSizeEnum.large}
                 onPress={() =>
                   navigateToCreatePostScreen(PostTypeEnum.announcement)
