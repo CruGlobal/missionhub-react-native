@@ -9,7 +9,9 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import MemberCelebrate from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../CelebrateFeed', () => 'CelebrateFeed');
+jest.mock('../../CelebrateFeed', () => ({
+  CelebrateFeed: 'CelebrateFeed',
+}));
 
 const myId = '2';
 const organization: Organization = { id: '123' };

@@ -1,55 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 
+import { useMyId } from '../../../utils/hooks/useIsMe';
 import { Button, Text } from '../../../components/common';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import Avatar from '../../../components/Avatar';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import CreatePostModal from '../CreatePostModal';
 
 import styles from './styles';
 
-interface CreatePostButton {
+interface CreatePostButtonProps {
   refreshItems: () => void;
-  orgId: string;
+  type?: PostTypeEnum;
+  communityId: string;
 }
 
-export const CreatePostButton = ({ refreshItems, orgId }: CreatePostButton) => {
-  const { t } = useTranslation('createPost');
-  const dispatch = useDispatch();
-  const {
-    container,
-    inputButton,
-    inputText,
-    profileWrapper,
-    profileText,
-  } = styles;
+export const CreatePostButton = ({
+  refreshItems,
+  type,
+  communityId,
+}: CreatePostButtonProps) => {
+  const { t } = useTranslation('createPostScreen');
+  const { container, button, buttonText } = styles;
+  const personId = useMyId();
+  const [isModalOpen, changeModalVisibility] = useState(false);
 
-  const onPress = () => {
-    return dispatch(
-      navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
-        //TODO: link to new CreatePostScreen
-        organization: { id: orgId },
-        onComplete: () => {
-          refreshItems();
-          dispatch(navigateBack());
-        },
-      }),
-    );
+  const openModal = () => {
+    changeModalVisibility(true);
+  };
+  const closeModal = () => {
+    changeModalVisibility(false);
   };
 
-  const renderProfile = () => (
-    <View style={profileWrapper}>
-      <Text style={profileText}>C</Text>
-    </View>
-  );
-
-  return orgId !== GLOBAL_COMMUNITY_ID ? (
+  return communityId !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
-      <Button style={inputButton} onPress={onPress} testID="ShareStoryInput">
-        {renderProfile()}
-        <Text style={inputText}>{t('buttonPlaceholder')}</Text>
+      {isModalOpen ? (
+        <CreatePostModal
+          closeModal={closeModal}
+          communityId={communityId}
+          refreshItems={refreshItems}
+        />
+      ) : null}
+      <Button style={button} onPress={openModal} testID="CreatePostButton">
+        <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />
+        <Text style={buttonText}>
+          {type ? t(`createPostButton.${type}`) : t('inputPlaceholder')}
+        </Text>
       </Button>
     </View>
   ) : null;

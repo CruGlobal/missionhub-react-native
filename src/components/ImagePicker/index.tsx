@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Alert } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import ImageCropPicker from 'react-native-image-crop-picker';
 
 import PopupMenu from '../../components/PopupMenu';
@@ -19,38 +18,53 @@ const DEFAULT_OPTIONS = {
   includeBase64: true,
 };
 
-// @ts-ignore
-function getType(response) {
+export type ImageCropPickerResponse = {
+  filename: string;
+  path: string;
+  size: number;
+  mime: string;
+  width: number;
+  height: number;
+};
+
+export type SelectImageParams = {
+  fileSize: number;
+  fileName: string;
+  fileType: string;
+  width: number;
+  height: number;
+  isVertical: boolean;
+  uri: string;
+};
+
+interface ImagePickerProps {
+  onSelectImage: (image: SelectImageParams) => void;
+  children: JSX.Element;
+}
+
+function getType(response: ImageCropPickerResponse) {
   if (response.path.toLowerCase().includes('.png')) {
     return 'image/png';
   }
   return 'image/jpeg';
 }
 
-// @ts-ignore
-@withTranslation('imagePicker')
-class ImagePicker extends Component {
-  takePhoto = () => {
-    this.selectImage(true);
-  };
+export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
+  const { t } = useTranslation('imagePicker');
 
-  chooseFromLibrary = () => {
-    this.selectImage(false);
-  };
+  const takePhoto = () => selectImage(true);
 
-  // @ts-ignore
-  async selectImage(takePhoto) {
-    // @ts-ignore
-    const { t, onSelectImage } = this.props;
+  const chooseFromLibrary = () => selectImage(false);
 
+  const selectImage = async (takePhoto: boolean) => {
     try {
-      const response = await (takePhoto
+      const response = (await (takePhoto
         ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
-        : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
+        : ImageCropPicker.openPicker(
+            DEFAULT_OPTIONS,
+          ))) as ImageCropPickerResponse;
 
-      // @ts-ignore
       let fileName = response.filename || '';
-      // @ts-ignore
       const { path: uri, size: fileSize, mime, width, height, data } = response;
 
       // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
@@ -59,7 +73,7 @@ class ImagePicker extends Component {
         fileName = `${new Date().valueOf()}.jpg`;
       }
 
-      const payload = {
+      const payload: SelectImageParams = {
         fileSize,
         fileName,
         fileType: mime || getType(response),
@@ -69,9 +83,11 @@ class ImagePicker extends Component {
         uri,
         data: `data:${mime || getType(response)};base64,${data}`,
       };
+
       onSelectImage(payload);
     } catch (error) {
       const errorCode = error && error.code;
+
       if (
         errorCode === 'E_PERMISSION_MISSING' ||
         errorCode === 'E_PICKER_CANCELLED'
@@ -83,32 +99,21 @@ class ImagePicker extends Component {
       LOG('RNImagePicker Error: ', error);
       Alert.alert(t('errorHeader'), t('errorBody'));
     }
-  }
+  };
 
-  render() {
-    // @ts-ignore
-    const { t } = this.props;
-
-    return (
-      <PopupMenu
-        // @ts-ignore
-        actions={[
-          { text: t('takePhoto'), onPress: this.takePhoto },
-          { text: t('chooseFromLibrary'), onPress: this.chooseFromLibrary },
-        ]}
-        buttonProps={{ isAndroidOpacity: true, activeOpacity: 0.75 }}
-        title={t('selectImage')}
-      >
-        {this.props.children}
-      </PopupMenu>
-    );
-  }
-}
-
-// @ts-ignore
-ImagePicker.propTypes = {
-  onSelectImage: PropTypes.func.isRequired, // func with args: (data, callback)
-  children: PropTypes.element.isRequired,
+  return (
+    <PopupMenu
+      //@ts-ignore
+      actions={[
+        { text: t('takePhoto'), onPress: takePhoto },
+        { text: t('chooseFromLibrary'), onPress: chooseFromLibrary },
+      ]}
+      buttonProps={{ isAndroidOpacity: true, activeOpacity: 0.75 }}
+      title={t('selectImage')}
+    >
+      {children}
+    </PopupMenu>
+  );
 };
 
 export default ImagePicker;
