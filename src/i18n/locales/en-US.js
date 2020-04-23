@@ -512,10 +512,10 @@ export default {
     errorLoadingStepCounts: 'Error loading step counts for your people',
   },
   appRoutes: {
-    steps: 'Steps',
+    steps: 'Steps of Faith',
     people: 'People',
-    impact: 'Impact',
-    group: 'Communities',
+    notifications: 'Notifications',
+    communities: 'Communities',
   },
   groupTabs: {
     celebrate: 'Celebrate',

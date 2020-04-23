@@ -6,6 +6,10 @@ import Flex from '../Flex';
 import Icon from '../Icon';
 import { Text } from '../common';
 import { isAndroid } from '../../utils/common';
+import PeopleIcon from '../../../assets/images/mainNav/peopleIcon.svg';
+import StepsIcon from '../../../assets/images/mainNav/stepsIcon.svg';
+import CommunitiesIcon from '../../../assets/images/mainNav/communitiesIcon.svg';
+import NotificationsIcon from '../../../assets/images/mainNav/notificationsIcon.svg';
 
 import styles from './styles';
 import { GET_UNREAD_COMMENTS_COUNT } from './queries';
@@ -20,30 +24,34 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
   const { data: { unreadCommentsCount = 0 } = {} } = useQuery<
     getUnreadCommentsCount
   >(GET_UNREAD_COMMENTS_COUNT, {
-    skip: name != 'group',
+    skip: name != 'notifications' && name != 'communities',
     pollInterval: 30000,
   });
 
   const showNotification = unreadCommentsCount > 0;
 
-  const icon = (
-    <Icon
-      type="MissionHub"
-      name={`${name}Icon`}
-      size={isAndroid ? 22 : 24}
-      style={{ color: tintColor }}
-    />
-  );
+  const icon = () => {
+    switch (name) {
+      case 'people':
+        return <PeopleIcon color={tintColor} />;
+      case 'steps':
+        return <StepsIcon color={tintColor} />;
+      case 'communities':
+        return <CommunitiesIcon color={tintColor} />;
+      case 'notifications':
+        return <NotificationsIcon color={tintColor} />;
+    }
+  };
 
   return (
     <Flex value={1} align="center" justify="center">
       {showNotification ? (
         <Flex style={{ position: 'relative' }}>
-          {icon}
+          {icon()}
           <Flex style={styles.badge} />
         </Flex>
       ) : (
-        icon
+        icon()
       )}
       <Text style={[styles.text, { color: tintColor }]}>
         {i18next.t(`appRoutes:${name}`)}

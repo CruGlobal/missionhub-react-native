@@ -78,7 +78,13 @@ import {
 import SettingsMenu from './components/SettingsMenu';
 import { PersonSideMenu } from './components/PersonSideMenu';
 import theme from './theme';
-import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
+import {
+  MAIN_TABS,
+  PEOPLE_TAB,
+  STEPS_TAB,
+  COMMUNITIES_TAB,
+  NOTIFICATIONS_TAB,
+} from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import {
@@ -228,18 +234,13 @@ import ChallengeMembers, {
 //   },
 // });
 
-// @ts-ignore
-export const navItem = name => ({ tintColor }) => (
-  <TabIcon name={name} tintColor={tintColor} />
-);
+export const navItem = (name: string) => ({
+  tintColor,
+}: {
+  tintColor: string;
+}) => <TabIcon name={name} tintColor={tintColor} />;
 
-// @ts-ignore
-export const stepsTab = buildTrackingObj('steps', 'steps');
 const tabs = {
-  [STEPS_TAB]: buildTrackedScreen(StepsScreen, stepsTab, {
-    // @ts-ignore
-    tabBarLabel: navItem('steps'),
-  }),
   [PEOPLE_TAB]: buildTrackedScreen(
     PeopleScreen,
     // @ts-ignore
@@ -249,13 +250,32 @@ const tabs = {
       tabBarLabel: navItem('people'),
     },
   ),
-  [GROUPS_TAB]: buildTrackedScreen(
+  [STEPS_TAB]: buildTrackedScreen(
+    StepsScreen,
+    // @ts-ignore
+    buildTrackingObj('steps', 'steps'),
+    {
+      // @ts-ignore
+      tabBarLabel: navItem('steps'),
+    },
+  ),
+  [COMMUNITIES_TAB]: buildTrackedScreen(
     GroupsListScreen,
     // @ts-ignore
     buildTrackingObj('communities', 'communities'),
     {
       // @ts-ignore
-      tabBarLabel: navItem('group'),
+      tabBarLabel: navItem('communities'),
+    },
+  ),
+  // TODO Make a seperate screen for this, update any test, etc
+  [NOTIFICATIONS_TAB]: buildTrackedScreen(
+    GroupsListScreen,
+    // @ts-ignore
+    buildTrackingObj('communities', 'communities'),
+    {
+      // @ts-ignore
+      tabBarLabel: navItem('notifications'),
     },
   ),
 };
@@ -266,7 +286,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
     showLabel: true,
     style: {
       backgroundColor: theme.white,
-      paddingTop: 4,
+      paddingTop: 15,
     },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
@@ -280,9 +300,10 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
   animationEnabled: false,
   lazy: true,
   paths: {
-    [STEPS_TAB]: '/steps',
     [PEOPLE_TAB]: '/people',
-    [GROUPS_TAB]: '/groups',
+    [STEPS_TAB]: '/steps',
+    [COMMUNITIES_TAB]: '/communities',
+    [NOTIFICATIONS_TAB]: '/notifications',
   },
 });
 

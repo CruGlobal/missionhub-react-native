@@ -12,7 +12,7 @@ import { orgIsUserCreated } from '../utils/common';
 import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
-import { MAIN_TABS, STEPS_TAB, GLOBAL_COMMUNITY_ID } from '../constants';
+import { MAIN_TABS, PEOPLE_TAB, GLOBAL_COMMUNITY_ID } from '../constants';
 import { Organization } from '../reducers/organizations';
 
 import { loadHome } from './auth/userData';
@@ -88,7 +88,7 @@ export function navigateReplace(screen: string, props = {}) {
   };
 }
 
-export const navigateToMainTabs = (tab = STEPS_TAB) => (
+export const navigateToMainTabs = (tab = PEOPLE_TAB) => (
   dispatch: ThunkDispatch<never, {}, AnyAction>,
 ) => {
   dispatch(loadHome());
