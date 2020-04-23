@@ -28,27 +28,23 @@ const PersonCategoryButton = ({
     switch (category) {
       case RelationshipTypeEnum.family:
         return (
-          <FamilyIcon color={isSelected ? theme.white : theme.communityBlue} />
+          <FamilyIcon color={isSelected ? theme.white : theme.parakeetBlue} />
         );
       case RelationshipTypeEnum.friend:
         return (
-          <FriendIcon color={isSelected ? theme.white : theme.communityBlue} />
+          <FriendIcon color={isSelected ? theme.white : theme.parakeetBlue} />
         );
       case RelationshipTypeEnum.neighbor:
         return (
-          <NeighborIcon
-            color={isSelected ? theme.white : theme.communityBlue}
-          />
+          <NeighborIcon color={isSelected ? theme.white : theme.parakeetBlue} />
         );
       case RelationshipTypeEnum.coworker:
         return (
-          <CoworkerIcon
-            color={isSelected ? theme.white : theme.communityBlue}
-          />
+          <CoworkerIcon color={isSelected ? theme.white : theme.parakeetBlue} />
         );
       case RelationshipTypeEnum.other:
         return (
-          <OtherIcon color={isSelected ? theme.white : theme.communityBlue} />
+          <OtherIcon color={isSelected ? theme.white : theme.parakeetBlue} />
         );
     }
   };

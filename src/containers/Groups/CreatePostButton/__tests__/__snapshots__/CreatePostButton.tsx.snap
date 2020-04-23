@@ -666,7 +666,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Share a God Story
+        Post to community...
       </Text>
     </View>
   </View>

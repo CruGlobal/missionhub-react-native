@@ -99,7 +99,7 @@ const CelebrateItem = ({
       navigatePush(CREATE_POST_SCREEN, {
         post: event,
         onComplete: onRefresh,
-        orgId: organization.id,
+        communityId: organization.id,
       }),
     );
 

@@ -28,11 +28,7 @@ const initialState = {
 
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(
-    <CreatePostButton
-      refreshItems={refreshItems}
-      type={PostTypeEnum.story}
-      communityId={communityId}
-    />,
+    <CreatePostButton refreshItems={refreshItems} communityId={communityId} />,
     {
       initialState,
     },

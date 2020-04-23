@@ -115,7 +115,7 @@ describe('Creating a post', () => {
     diffSnapshot();
   });
 
-  it('calls saveStory function when the user clicks the share story button', async () => {
+  it('calls savePost function when the user clicks the share post button', async () => {
     const { getByTestId } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
@@ -161,7 +161,7 @@ describe('Updating a post', () => {
     diffSnapshot();
   });
 
-  it('calls saveStory function when the user clicks the share story button', async () => {
+  it('calls savePost function when the user clicks the share post button', async () => {
     const { getByTestId } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {

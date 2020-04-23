@@ -119,13 +119,13 @@ const AddContactFields = ({
           testID="firstNameInput"
           ref={firstNameRef}
           style={{
-            color: isEdit ? theme.communityBlue : theme.white,
+            color: isEdit ? theme.parakeetBlue : theme.white,
             borderBottomColor: isEdit
               ? theme.extraLightGrey
-              : theme.communityBlue,
+              : theme.parakeetBlue,
           }}
           editable={!personHasOrgPermission}
-          selectionColor={theme.communityBlue}
+          selectionColor={theme.parakeetBlue}
           onChangeText={(firstName: string) =>
             updateField('firstName', firstName)
           }
@@ -135,7 +135,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.firstNameRequired')
           }
-          placeholderTextColor={isEdit ? theme.communityBlue : theme.white}
+          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
           returnKeyType="next"
           blurOnSubmit={false}
           autoFocus={true}
@@ -157,13 +157,13 @@ const AddContactFields = ({
           testID="lastNameInput"
           ref={lastNameRef}
           style={{
-            color: isEdit ? theme.communityBlue : theme.white,
+            color: isEdit ? theme.parakeetBlue : theme.white,
             borderBottomColor: isEdit
               ? theme.extraLightGrey
-              : theme.communityBlue,
+              : theme.parakeetBlue,
           }}
           editable={!personHasOrgPermission}
-          selectionColor={theme.communityBlue}
+          selectionColor={theme.parakeetBlue}
           onChangeText={(lastName: string) => updateField('lastName', lastName)}
           value={person.lastName}
           placeholder={
@@ -171,7 +171,7 @@ const AddContactFields = ({
               ? ''
               : t('profileLabels.lastNameOptional')
           }
-          placeholderTextColor={isEdit ? theme.communityBlue : theme.white}
+          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
           returnKeyType="done"
           blurOnSubmit={false}
           onFocus={() => changeCurrentInputField('lastName')}

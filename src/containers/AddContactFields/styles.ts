@@ -38,12 +38,12 @@ export default StyleSheet.create({
   stageButton: {
     borderColor: theme.lightGrey,
     borderWidth: 1,
-    color: theme.communityBlue,
+    color: theme.parakeetBlue,
     alignItems: 'flex-start',
   },
 
   categoryText: {
-    color: theme.communityBlue,
+    color: theme.parakeetBlue,
     fontSize: 16,
     alignItems: 'flex-start',
     marginVertical: 10,

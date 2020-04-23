@@ -70,6 +70,6 @@ export default StyleSheet.create({
     backgroundColor: theme.communityAnnouncementGrey,
   },
   STEP: {
-    backgroundColor: theme.communityBlue,
+    backgroundColor: theme.parakeetBlue,
   },
 });
