@@ -25,6 +25,7 @@ export type ImageCropPickerResponse = {
   mime: string;
   width: number;
   height: number;
+  data: string;
 };
 
 export type SelectImageParams = {
@@ -35,11 +36,12 @@ export type SelectImageParams = {
   height: number;
   isVertical: boolean;
   uri: string;
+  data: string;
 };
 
 interface ImagePickerProps {
   onSelectImage: (image: SelectImageParams) => void;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 function getType(response: ImageCropPickerResponse) {

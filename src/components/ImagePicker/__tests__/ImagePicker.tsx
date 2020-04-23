@@ -19,10 +19,6 @@ MockDate.set('2018-11-08');
 const onSelectImage = jest.fn();
 const mockBase64String = 'superLongBase64EncodedString';
 
-beforeEach(() => {
-  onSelectImage = jest.fn();
-});
-
 it('renders image picker', () => {
   renderWithContext(
     <ImagePicker onSelectImage={onSelectImage}>
