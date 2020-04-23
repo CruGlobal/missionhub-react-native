@@ -154,10 +154,13 @@ export const checkNotifications = (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
+  const skipNotificationOff =
+    notificationType === NOTIFICATION_PROMPT_TYPES.LOGIN;
+
   let nativePermissionsEnabled = false;
   const {
     auth: { token },
-    notifications: { appHasShownPrompt, userHasAcceptedNotifications },
+    notifications: { appHasShownPrompt },
   } = getState();
 
   //ONLY register if logged in
@@ -179,11 +182,7 @@ export const checkNotifications = (
 
     //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
     //delete push token from API and Redux, then navigate to NotificationOffScreen
-    if (
-      !isAndroid &&
-      userHasAcceptedNotifications &&
-      !nativePermissionsEnabled
-    ) {
+    if (!isAndroid && !nativePermissionsEnabled && !skipNotificationOff) {
       dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
