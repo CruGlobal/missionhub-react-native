@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -169,18 +169,21 @@ export const CelebrateFeed = ({
     }
   };
 
-  const renderSectionHeader = ({
-    section: { date },
-  }: {
-    section: SectionListData<CelebrateFeedSection>;
-  }) => (
-    <View style={styles.header}>
-      <DateComponent
-        date={date}
-        relativeFormatting={true}
-        style={styles.title}
-      />
-    </View>
+  const renderSectionHeader = useCallback(
+    ({
+      section: { date },
+    }: {
+      section: SectionListData<CelebrateFeedSection>;
+    }) => (
+      <View style={styles.header}>
+        <DateComponent
+          date={date}
+          relativeFormatting={true}
+          style={styles.title}
+        />
+      </View>
+    ),
+    [],
   );
 
   const renderItem = ({
@@ -197,33 +200,44 @@ export const CelebrateFeed = ({
     />
   );
 
-  const renderHeader = () => (
-    <>
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={error}
-        refetch={refetch}
-      />
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={globalError}
-        refetch={globalRefetch}
-      />
-      {noHeader ? null : (
-        <>
-          <CelebrateFeedHeader
-            isMember={!!person}
-            organization={organization}
-          />
-          {!person ? (
-            <CreatePostButton
-              refreshItems={handleRefreshing}
-              orgId={organization.id}
+  const renderHeader = useCallback(
+    () => (
+      <>
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={error}
+          refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={globalError}
+          refetch={globalRefetch}
+        />
+        {noHeader ? null : (
+          <>
+            <CelebrateFeedHeader
+              isMember={!!person}
+              organization={organization}
             />
-          ) : null}
-        </>
-      )}
-    </>
+            {!person ? (
+              <CreatePostButton
+                refreshItems={handleRefreshing}
+                orgId={organization.id}
+              />
+            ) : null}
+          </>
+        )}
+      </>
+    ),
+    [
+      error,
+      refetch,
+      globalError,
+      globalRefetch,
+      noHeader,
+      person,
+      organization,
+    ],
   );
 
   return (
