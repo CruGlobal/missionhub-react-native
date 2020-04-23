@@ -21,7 +21,11 @@ import {
 } from '../constants';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
-import { PermissionEnum } from '../../__generated__/globalTypes';
+import {
+  PermissionEnum,
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../__generated__/globalTypes';
 import { StagesState } from '../reducers/stages';
 
 export const isAndroid = Platform.OS === 'android';
@@ -395,3 +399,20 @@ export function copyText(string) {
 }
 
 export const keyExtractorId = ({ id }: { id: string }) => id;
+
+export const mapPostTypeToFeedType = (postType: PostTypeEnum) => {
+  switch (postType) {
+    case PostTypeEnum.story:
+      return FeedItemSubjectTypeEnum.STORY;
+    case PostTypeEnum.prayer_request:
+      return FeedItemSubjectTypeEnum.PRAYER_REQUEST;
+    case PostTypeEnum.question:
+      return FeedItemSubjectTypeEnum.QUESTION;
+    case PostTypeEnum.help_request:
+      return FeedItemSubjectTypeEnum.HELP_REQUEST;
+    case PostTypeEnum.thought:
+      return FeedItemSubjectTypeEnum.THOUGHT;
+    case PostTypeEnum.announcement:
+      return FeedItemSubjectTypeEnum.ANNOUNCEMENT;
+  }
+};

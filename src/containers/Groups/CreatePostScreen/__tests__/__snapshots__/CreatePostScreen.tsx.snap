@@ -1,0 +1,1372 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Creating a post user types a post 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -166,12 +166,61 @@
+                \\"flex\\": 1,
+                \\"justifyContent\\": \\"center\\",
+              },
+            ]
+          }
++       >
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"CreatePostButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderRadius\\": 0,
++                   \\"borderWidth\\": 0,
++                   \\"height\\": 60,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"margin\\": 0,
++                   \\"paddingHorizontal\\": 20,
++                   \\"paddingVertical\\": 10,
++                 },
++                 null,
++                 Object {},
++                 null,
++               ]
++             }
++           >
++             <SvgMock
++               style={
++                 Object {
++                   \\"height\\": 24,
++                   \\"width\\": 24,
++                 }
++               }
+              />
++           </View>
+          </View>
++       </View>
++     </View>
+    </RCTSafeAreaView>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+@@ -303,10 +352,11 @@
+              },
+            ]
+          }
+          testID=\\"PostInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
++         value=\\"This is my cool story! 📘✏️\\"
+        />
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}"
+`;
+
+exports[`Updating a post user types a post 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -352,11 +352,11 @@
+              },
+            ]
+          }
+          testID=\\"PostInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"esse repellat quisquam\\"
++         value=\\"This is my cool story! 📘✏️\\"
+        />
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}"
+`;
+
+exports[`renders correctly for new post 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 5,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+              },
+            ]
+          }
+        >
+          Prayer Request
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="PRAYER_REQUESTButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            null,
+            null,
+          ],
+          Object {
+            "borderRadius": 50,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={20}
+        style={
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          }
+        }
+        width={20}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Prayer Request
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a prayer need..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
+            },
+          ]
+        }
+        testID="PostInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="popupMenuButton"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "height": 1,
+              "width": 750,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingHorizontal": 10,
+                },
+              ]
+            }
+          >
+            Add a Photo
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "height": 1,
+              "width": 750,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders correctly for update post 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 5,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+              },
+            ]
+          }
+        >
+          Prayer Request
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="CreatePostButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "height": 24,
+                  "width": 24,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="PRAYER_REQUESTButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            null,
+            null,
+          ],
+          Object {
+            "borderRadius": 50,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={20}
+        style={
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          }
+        }
+        width={20}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Prayer Request
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a prayer need..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
+            },
+          ]
+        }
+        testID="PostInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="esse repellat quisquam"
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="popupMenuButton"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "height": 1,
+              "width": 750,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingHorizontal": 10,
+                },
+              ]
+            }
+          >
+            Add a Photo
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "height": 1,
+              "width": 750,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders correctly on android 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 16,
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 5,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+              },
+            ]
+          }
+        >
+          Prayer Request
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="CreatePostButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              style={
+                Object {
+                  "height": 24,
+                  "width": 24,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="PRAYER_REQUESTButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            null,
+            null,
+          ],
+          Object {
+            "borderRadius": 50,
+          },
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={20}
+        style={
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          }
+        }
+        width={20}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        Prayer Request
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a prayer need..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
+            },
+          ]
+        }
+        testID="PostInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="esse repellat quisquam"
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="popupMenuButton"
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "height": 1,
+              "width": 750,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <SvgMock
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingHorizontal": 10,
+                },
+              ]
+            }
+          >
+            Add a Photo
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "height": 1,
+              "width": 750,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

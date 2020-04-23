@@ -104,7 +104,7 @@ exports[`onPress opens modal 1`] = `
 +               \\"opacity\\": 1,
 +             }
 +           }
-+           testID=\\"godStoryButton\\"
++           testID=\\"STORYButton\\"
 +         >
 +           <View
 +             style={
@@ -191,7 +191,7 @@ exports[`onPress opens modal 1`] = `
 +               \\"opacity\\": 1,
 +             }
 +           }
-+           testID=\\"prayerRequestButton\\"
++           testID=\\"PRAYER_REQUESTButton\\"
 +         >
 +           <View
 +             style={
@@ -278,7 +278,7 @@ exports[`onPress opens modal 1`] = `
 +               \\"opacity\\": 1,
 +             }
 +           }
-+           testID=\\"spiritualQuestionButton\\"
++           testID=\\"QUESTIONButton\\"
 +         >
 +           <View
 +             style={
@@ -365,7 +365,7 @@ exports[`onPress opens modal 1`] = `
 +               \\"opacity\\": 1,
 +             }
 +           }
-+           testID=\\"careRequestButton\\"
++           testID=\\"HELP_REQUESTButton\\"
 +         >
 +           <View
 +             style={
@@ -452,7 +452,7 @@ exports[`onPress opens modal 1`] = `
 +               \\"opacity\\": 1,
 +             }
 +           }
-+           testID=\\"onYourMindButton\\"
++           testID=\\"THOUGHTButton\\"
 +         >
 +           <View
 +             style={
@@ -570,7 +570,7 @@ exports[`renders correctly 1`] = `
         "opacity": 1,
       }
     }
-    testID="CreatePostInput"
+    testID="CreatePostButton"
   >
     <View
       style={
@@ -659,7 +659,6 @@ exports[`renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#505256",
               "fontSize": 14,
               "height": 18,
               "paddingLeft": 10,
@@ -711,7 +710,7 @@ exports[`renders correctly with type 1`] = `
         "opacity": 1,
       }
     }
-    testID="CreatePostInput"
+    testID="CreatePostButton"
   >
     <View
       style={
@@ -800,7 +799,6 @@ exports[`renders correctly with type 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#505256",
               "fontSize": 14,
               "height": 18,
               "paddingLeft": 10,

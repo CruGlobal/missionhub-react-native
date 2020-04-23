@@ -16,31 +16,19 @@ export default StyleSheet.create({
     marginTop: -5,
     paddingTop: 5,
   },
-  inputButton: {
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     backgroundColor: theme.extraLightGrey,
-    borderRadius: 18,
-    marginVertical: 16,
+    borderRadius: 20,
+    marginVertical: 20,
     height: 36,
     marginHorizontal: 20,
-    paddingHorizontal: 6,
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
   },
-  profileWrapper: {
-    height: 24,
-    width: 24,
-    borderRadius: 12,
-    backgroundColor: theme.communityProfile,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profileText: {
-    fontSize: 12,
-    color: theme.white,
-  },
-  inputText: {
-    paddingHorizontal: 8,
+  buttonText: {
     fontSize: 14,
     height: 18,
+    paddingLeft: 10,
   },
 });

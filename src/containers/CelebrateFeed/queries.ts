@@ -51,3 +51,19 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
   }
   ${COMMUNITY_POST_FRAGMENT}
 `;
+
+export const GET_COMMUNITY_FEED = gql`
+  query GetCommunityFeed(
+    $communityId: ID!
+    $subjectType: FeedItemSubjectTypeEnum = null
+  ) {
+    community(id: $communityId) {
+      feedItems(subjectType: $subjectType) {
+        nodes {
+          id
+        }
+      }
+    }
+  }
+  ${CELEBRATE_ITEM_FRAGMENT}
+`;

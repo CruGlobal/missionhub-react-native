@@ -4,11 +4,11 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
-import { PostTypeEnum } from '../../../../components/PostTypeLabel';
+import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../../ShareStoryScreen';
+import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
 import { PermissionEnum } from '../../../../../__generated__/globalTypes';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 
@@ -20,8 +20,10 @@ jest.mock('../../../../utils/analytics');
 jest.mock('../../../../selectors/people');
 
 const closeModal = jest.fn();
+const refreshItems = jest.fn();
 const mockCommunityId = '1';
 const props = {
+  refreshItems,
   communityId: mockCommunityId,
   closeModal,
 };
@@ -110,7 +112,7 @@ it('fires onPress and navigates | member', async () => {
   });
   await flushMicrotasksQueue();
 
-  fireEvent.press(getByTestId('godStoryButton'));
+  fireEvent.press(getByTestId('STORYButton'));
   expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
       id: props.communityId,
@@ -118,9 +120,10 @@ it('fires onPress and navigates | member', async () => {
     },
   });
   expect(closeModal).toHaveBeenCalledWith();
-  expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
+  expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
+    refreshItems,
     communityId: mockCommunityId,
-    type: PostTypeEnum.godStory,
+    type: PostTypeEnum.story,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
@@ -139,7 +142,7 @@ it('fires onPress and navigates | owner', async () => {
   });
   await flushMicrotasksQueue();
 
-  fireEvent.press(getByTestId('announcementButton'));
+  fireEvent.press(getByTestId('ANNOUNCEMENTButton'));
   expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
       id: props.communityId,
@@ -147,7 +150,8 @@ it('fires onPress and navigates | owner', async () => {
     },
   });
   expect(closeModal).toHaveBeenCalledWith();
-  expect(navigatePush).toHaveBeenLastCalledWith(CELEBRATE_SHARE_STORY_SCREEN, {
+  expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
+    refreshItems,
     communityId: mockCommunityId,
     type: PostTypeEnum.announcement,
   });

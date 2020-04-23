@@ -4,25 +4,18 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../../constants';
-import { PostTypeEnum } from '../../../../components/PostTypeLabel';
+import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../CreatePostModal/queries';
 
-import CreatePostInput from '..';
+import { CreatePostButton } from '..';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../utils/hooks/useAnalytics');
 
-const mockOrganization = {
-  id: '1234',
-};
+const communityId = '1234';
 
-const props = {
-  communityId: mockOrganization.id,
-};
+const refreshItems = jest.fn();
 
-const globalCommunityProps = {
-  communityId: GLOBAL_COMMUNITY_ID,
-};
 const initialState = {
   auth: {
     person: {
@@ -34,15 +27,22 @@ const initialState = {
 };
 
 it('renders correctly', () => {
-  const { snapshot } = renderWithContext(<CreatePostInput {...props} />, {
-    initialState,
-  });
+  const { snapshot } = renderWithContext(
+    <CreatePostButton refreshItems={refreshItems} communityId={communityId} />,
+    {
+      initialState,
+    },
+  );
   snapshot();
 });
 
 it('renders correctly with type', () => {
   const { snapshot } = renderWithContext(
-    <CreatePostInput {...props} type={PostTypeEnum.godStory} />,
+    <CreatePostButton
+      refreshItems={refreshItems}
+      type={PostTypeEnum.story}
+      communityId={communityId}
+    />,
     { initialState },
   );
   snapshot();
@@ -50,7 +50,11 @@ it('renders correctly with type', () => {
 
 it('does not render for Global Community', () => {
   const { snapshot } = renderWithContext(
-    <CreatePostInput {...globalCommunityProps} />,
+    <CreatePostButton
+      refreshItems={refreshItems}
+      type={PostTypeEnum.story}
+      communityId={GLOBAL_COMMUNITY_ID}
+    />,
     {
       initialState,
     },
@@ -63,14 +67,24 @@ it('onPress opens modal', async () => {
     getByTestId,
     recordSnapshot,
     diffSnapshot,
-  } = renderWithContext(<CreatePostInput {...props} />, { initialState });
-  await flushMicrotasksQueue;
+  } = renderWithContext(
+    <CreatePostButton
+      refreshItems={refreshItems}
+      type={PostTypeEnum.story}
+      communityId={communityId}
+    />,
+    { initialState },
+  );
+
+  await flushMicrotasksQueue();
   recordSnapshot();
-  fireEvent.press(getByTestId('CreatePostInput'));
+
+  fireEvent.press(getByTestId('CreatePostButton'));
   diffSnapshot();
+
   expect(useQuery).toHaveBeenCalledWith(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
-      id: props.communityId,
+      id: communityId,
       myId: '1',
     },
   });

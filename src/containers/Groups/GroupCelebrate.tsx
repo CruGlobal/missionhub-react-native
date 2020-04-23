@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 
-import CelebrateFeed from '../CelebrateFeed';
+import { CelebrateFeed } from '../CelebrateFeed';
 import { TrackStateContext } from '../../actions/analytics';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';

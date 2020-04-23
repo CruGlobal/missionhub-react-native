@@ -12,8 +12,8 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { Organization } from '../../../reducers/organizations';
 import {
   CELEBRATE_ITEM_FRAGMENT,
-  CELEBRATE_ITEM_PERSON_FRAGMENT,
-} from '../../CommunityFeedItem/queries';
+  COMMUNITY_PERSON_FRAGMENT,
+} from '../../../components/CelebrateItem/queries';
 import {
   GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
   GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
@@ -24,11 +24,9 @@ import CommentLikeComponent from '..';
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');
 
-const mePerson = mockFragment<CelebrateItemPerson>(
-  CELEBRATE_ITEM_PERSON_FRAGMENT,
-);
+const mePerson = mockFragment<CelebrateItemPerson>(COMMUNITY_PERSON_FRAGMENT);
 const otherPerson = mockFragment<CelebrateItemPerson>(
-  CELEBRATE_ITEM_PERSON_FRAGMENT,
+  COMMUNITY_PERSON_FRAGMENT,
 );
 const myId = mePerson.id;
 const organization: Organization = { id: '567' };

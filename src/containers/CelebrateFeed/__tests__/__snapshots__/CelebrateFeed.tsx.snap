@@ -60,8 +60,9 @@ exports[`renders empty correctly 1`] = `
           }
         }
       />
-      <CreatePostInput
+      <CreatePostButton
         communityId="456"
+        refreshItems={[Function]}
       />
     </View>
   </View>
@@ -909,8 +910,9 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
       />
-      <CreatePostInput
+      <CreatePostButton
         communityId="_global_community_id"
+        refreshItems={[Function]}
       />
     </View>
     <View
@@ -2095,8 +2097,9 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
       />
-      <CreatePostInput
+      <CreatePostButton
         communityId="456"
+        refreshItems={[Function]}
       />
     </View>
     <View
@@ -5638,8 +5641,9 @@ exports[`renders with celebration items correctly 1`] = `
           }
         }
       />
-      <CreatePostInput
+      <CreatePostButton
         communityId="456"
+        refreshItems={[Function]}
       />
     </View>
     <View
@@ -6824,8 +6828,9 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
       />
-      <CreatePostInput
+      <CreatePostButton
         communityId="456"
+        refreshItems={[Function]}
       />
     </View>
     <View
