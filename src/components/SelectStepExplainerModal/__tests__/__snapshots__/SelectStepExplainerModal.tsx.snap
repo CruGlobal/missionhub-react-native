@@ -1022,8 +1022,8 @@ exports[`renders correctly renders correctly 1`] = `
       style={
         Object {
           "position": "absolute",
-          "right": 5,
-          "top": 5,
+          "right": 20,
+          "top": 20,
         }
       }
     >
@@ -1032,10 +1032,10 @@ exports[`renders correctly renders correctly 1`] = `
         focusable={true}
         hitSlop={
           Object {
-            "bottom": 10,
-            "left": 10,
-            "right": 10,
-            "top": 10,
+            "bottom": 15,
+            "left": 15,
+            "right": 15,
+            "top": 15,
           }
         }
         isTVSelectable={true}
@@ -1060,7 +1060,10 @@ exports[`renders correctly renders correctly 1`] = `
                 "backgroundColor": "transparent",
               },
               null,
-              Object {},
+              Object {
+                "backgroundColor": "rgba(0,0,0,0.25)",
+                "borderRadius": 30,
+              },
               null,
             ]
           }
@@ -1078,7 +1081,7 @@ exports[`renders correctly renders correctly 1`] = `
                     "color": "#ffffff",
                   },
                   Object {
-                    "fontSize": 32,
+                    "fontSize": 22,
                   },
                   Array [
                     Object {
@@ -1086,6 +1089,7 @@ exports[`renders correctly renders correctly 1`] = `
                     },
                     Object {
                       "color": "#ffffff",
+                      "margin": 4,
                     },
                   ],
                 ],

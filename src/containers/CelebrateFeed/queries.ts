@@ -10,6 +10,7 @@ export const GET_COMMUNITY_FEED = gql`
     $celebrateCursor: String
   ) {
     community(id: $communityId) {
+      id
       celebrationItems(
         sortBy: createdAt_DESC
         first: 25

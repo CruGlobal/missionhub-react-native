@@ -202,6 +202,7 @@ export default {
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
+    editProfile: 'Edit Profile',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     categoryPrompt: 'How do you know each other?',
     stage: 'Stage',
@@ -558,6 +559,18 @@ export default {
     globalCommunity: 'MissionHub Community',
     errorLoadingCommunities: 'Error loading communities',
   },
+  createPostScreen: {
+    choosePostType: 'Choose a Post Type',
+    shareStory: 'Share Story',
+    inputPlaceholder: 'Post to community...',
+    prayerRequest: 'Ask for Prayer',
+    spiritualQuestion: 'Ask a Spiritual Question',
+    godStory: 'Share a God Story',
+    careRequest: 'Ask for Help',
+    announcement: 'Make an Announcement',
+    everyone: 'Everyone',
+    ownersAndAdmins: 'Owners and Admins',
+  },
   shareAStoryScreen: {
     shareStory: 'Share Story',
     inputPlaceholder: 'Share a Story...',
@@ -890,6 +903,24 @@ export default {
   },
   errorNotice: {
     offline: 'Offline',
+  },
+  postTypes: {
+    godStory: 'God Story',
+    prayerRequest: 'Prayer Request',
+    spiritualQuestion: 'Spiritual Question',
+    careRequest: 'Care Request',
+    onYourMind: "What's on Your Mind",
+    challenge: 'Challenge',
+    announcement: 'Announcement',
+    stepOfFaith: 'Step of Faith',
+    header: {
+      godStory: 'Read a God Story',
+      prayerRequest: 'Answer a Prayer Request',
+      spiritualQuestion: 'Answer a Question',
+      careRequest: 'Provide Help',
+      announcement: 'Announcements',
+      stepOfFaith: 'Celebrate Others',
+    },
   },
   stepTypes: {
     relate: 'Relate',

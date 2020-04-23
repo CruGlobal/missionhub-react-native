@@ -16,6 +16,7 @@ const DEFAULT_OPTIONS = {
   height: theme.fullWidth * theme.communityImageAspectRatio,
   compressImageQuality: 0.75, // 0 to 1
   cropping: true,
+  includeBase64: true,
 };
 
 // @ts-ignore
@@ -50,7 +51,7 @@ class ImagePicker extends Component {
       // @ts-ignore
       let fileName = response.filename || '';
       // @ts-ignore
-      const { path: uri, size: fileSize, mime, width, height } = response;
+      const { path: uri, size: fileSize, mime, width, height, data } = response;
 
       // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
       // create a new file name with the right extension
@@ -66,6 +67,7 @@ class ImagePicker extends Component {
         height,
         isVertical: height > width,
         uri,
+        data: `data:${mime || getType(response)};base64,${data}`,
       };
       onSelectImage(payload);
     } catch (error) {

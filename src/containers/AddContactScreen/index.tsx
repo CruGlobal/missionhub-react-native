@@ -34,7 +34,7 @@ import {
   UpdatePersonVariables,
 } from '../SetupScreen/__generated__/UpdatePerson';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { LoadingWheel } from '../../components/common';
+import { LoadingWheel, Button } from '../../components/common';
 import CloseIcon from '../../../assets/images/closeButton.svg';
 import theme from '../../theme';
 import { getPersonDetails } from '../../actions/person';
@@ -72,14 +72,19 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     lastName: '',
     stage: null,
     relationshipType: null,
+    picture: null,
   });
+  const [personImage, setPersonImage] = useState<string | null>(null);
 
   const { loading, error: loadingError, refetch } = useQuery<
     GetPerson,
     GetPersonVariables
   >(GET_PERSON, {
     variables: { id: personId },
-    onCompleted: data => setPerson(data.person),
+    onCompleted: data => {
+      setPerson(data.person);
+      setPersonImage(data.person.picture);
+    },
     skip: !personId,
   });
 
@@ -120,7 +125,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const savePerson = async () => {
     const saveData = person;
     let results;
-
     try {
       if (isEdit) {
         const { data: updateData } = await updatePerson({
@@ -130,6 +134,8 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               firstName: saveData.firstName,
               lastName: saveData.lastName,
               relationshipType: saveData.relationshipType,
+              picture:
+                saveData.picture !== personImage ? saveData.picture : undefined,
             },
           },
         });
@@ -177,12 +183,9 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       <Header
         left={
           isEdit ? null : (
-            <BackIcon
-              testID="backIcon"
-              style={{ marginLeft: 10 }}
-              onPress={completeWithoutSave}
-              color={theme.white}
-            />
+            <Button testID="backIcon" onPress={completeWithoutSave}>
+              <BackIcon color={theme.white} />
+            </Button>
           )
         }
         right={
@@ -195,7 +198,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
             />
           ) : null
         }
-        title={isEdit ? t('editPerson') : ''}
+        title={isEdit ? (isMe ? t('editProfile') : t('editPerson')) : ''}
         titleStyle={styles.headerTitle}
       />
       <ErrorNotice

@@ -861,17 +861,24 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     }
   >
     <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
+      ListFooterComponent={
+        <ForwardRef(_SafeAreaView)>
+          <FooterLoading />
+        </ForwardRef(_SafeAreaView)>
+      }
       ListHeaderComponent={
         <ErrorNotice
           message="Error loading step suggestions"
           refetch={[Function]}
         />
       }
-      bounces={false}
+      bounces={true}
       contentContainerStyle={
         Array [
-          undefined,
+          Object {
+            "marginTop": 12,
+            "paddingBottom": 24,
+          },
           Object {
             "paddingTop": 195,
           },
@@ -919,7 +926,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       stickyHeaderIndices={Array []}
       style={
         Object {
-          "paddingVertical": 12,
+          "flex": 1,
         }
       }
       updateCellsBatchingPeriod={50}
@@ -992,26 +999,30 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
         <View
           onLayout={[Function]}
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "padding": 10,
-                },
-                Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-              ]
-            }
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
           >
-            <ActivityIndicator
-              animating={true}
-              color="rgba(0, 0, 0, 1)"
-              hidesWhenStopped={true}
-              size="small"
-            />
-          </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "padding": 10,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <ActivityIndicator
+                animating={true}
+                color="rgba(0, 0, 0, 1)"
+                hidesWhenStopped={true}
+                size="small"
+              />
+            </View>
+          </RCTSafeAreaView>
         </View>
       </View>
     </RCTScrollView>
@@ -1040,38 +1051,31 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
           }
         }
       >
-        <View
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "letterSpacing": 2,
+                "lineHeight": 30,
+                "marginHorizontal": 30,
+                "marginVertical": 35,
+                "textAlign": "center",
+              },
+            ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
+          Choose a step to take with them this week...
+        </Text>
         <View
           style={
             Object {

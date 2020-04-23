@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,7 @@ import { CommunityPost } from '../../components/CommunityFeedItem/__generated__/
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
-import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCommunityFeed';
+import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
@@ -65,7 +65,7 @@ export const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
+  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
     skip: isGlobal,
@@ -87,7 +87,7 @@ export const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
+  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
     pollInterval: 30000,
     skip: !isGlobal,
   });
@@ -165,18 +165,21 @@ export const CelebrateFeed = ({
     }
   };
 
-  const renderSectionHeader = ({
-    section: { date },
-  }: {
-    section: SectionListData<CelebrateFeedSection>;
-  }) => (
-    <View style={styles.header}>
-      <DateComponent
-        date={date}
-        relativeFormatting={true}
-        style={styles.title}
-      />
-    </View>
+  const renderSectionHeader = useCallback(
+    ({
+      section: { date },
+    }: {
+      section: SectionListData<CelebrateFeedSection>;
+    }) => (
+      <View style={styles.header}>
+        <DateComponent
+          date={date}
+          relativeFormatting={true}
+          style={styles.title}
+        />
+      </View>
+    ),
+    [],
   );
 
   const renderItem = ({ item }: { item: CommunityPost }) => (
@@ -189,33 +192,44 @@ export const CelebrateFeed = ({
     />
   );
 
-  const renderHeader = () => (
-    <>
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={error}
-        refetch={refetch}
-      />
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={globalError}
-        refetch={globalRefetch}
-      />
-      {noHeader ? null : (
-        <>
-          <CelebrateFeedHeader
-            isMember={!!person}
-            organization={organization}
-          />
-          {!person ? (
-            <CreatePostButton
-              refreshItems={handleRefreshing}
-              orgId={organization.id}
+  const renderHeader = useCallback(
+    () => (
+      <>
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={error}
+          refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={globalError}
+          refetch={globalRefetch}
+        />
+        {noHeader ? null : (
+          <>
+            <CelebrateFeedHeader
+              isMember={!!person}
+              organization={organization}
             />
-          ) : null}
-        </>
-      )}
-    </>
+            {!person ? (
+              <CreatePostButton
+                refreshItems={handleRefreshing}
+                communityId={organization.id}
+              />
+            ) : null}
+          </>
+        )}
+      </>
+    ),
+    [
+      error,
+      refetch,
+      globalError,
+      globalRefetch,
+      noHeader,
+      person,
+      organization,
+    ],
   );
 
   return (

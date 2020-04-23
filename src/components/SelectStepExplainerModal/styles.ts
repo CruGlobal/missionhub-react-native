@@ -59,11 +59,16 @@ export default StyleSheet.create({
   },
   closeButtonWrap: {
     position: 'absolute',
-    top: 5,
-    right: 5,
+    top: 20,
+    right: 20,
+  },
+  closeButtonIcon: {
+    color: theme.white,
+    margin: 4,
   },
   closeButton: {
-    color: theme.white,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    borderRadius: 30,
   },
   middleIconWrap: {
     position: 'relative',

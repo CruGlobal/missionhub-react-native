@@ -23,7 +23,7 @@ type PersonType = {
   firstName?: string;
   fullName?: string;
   full_name?: string;
-  picture?: string;
+  picture?: string | null;
 };
 
 type AvatarSize = 'small' | 'medium' | 'large';

@@ -186,19 +186,16 @@ export const orgPermissionSelector = createSelector(
 );
 
 export const selectOrgPermission = (
-  person: Person,
-  organization: Organization,
+  person?: Person,
+  organization?: Organization,
 ) =>
-  organization && person.organizational_permissions
+  organization && person?.organizational_permissions
     ? (person.organizational_permissions || []).find(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (orgPermission: any) =>
           orgPermission.organization_id === organization.id,
       )
-    : (
-        (person.communityPermissions && person.communityPermissions.nodes) ||
-        []
-      ).find(
-        (orgPermission: CommunityPermissions) =>
+    : (person?.communityPermissions?.nodes || []).find(
+        (orgPermission: CommunityPermission) =>
           orgPermission.community.id === organization.id,
       );
