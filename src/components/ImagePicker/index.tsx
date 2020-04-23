@@ -15,6 +15,7 @@ const DEFAULT_OPTIONS = {
   height: theme.fullWidth * theme.communityImageAspectRatio,
   compressImageQuality: 0.75, // 0 to 1
   cropping: true,
+  includeBase64: true,
 };
 
 export type ImageCropPickerResponse = {
@@ -64,7 +65,7 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
           ))) as ImageCropPickerResponse;
 
       let fileName = response.filename || '';
-      const { path: uri, size: fileSize, mime, width, height } = response;
+      const { path: uri, size: fileSize, mime, width, height, data } = response;
 
       // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
       // create a new file name with the right extension
@@ -80,6 +81,7 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
         height,
         isVertical: height > width,
         uri,
+        data: `data:${mime || getType(response)};base64,${data}`,
       };
 
       onSelectImage(payload);

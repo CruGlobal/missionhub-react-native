@@ -16,7 +16,8 @@ jest.mock('react-native-image-crop-picker', () => ({
 
 MockDate.set('2018-11-08');
 
-let onSelectImage = jest.fn();
+const onSelectImage = jest.fn();
+const mockBase64String = 'superLongBase64EncodedString';
 
 beforeEach(() => {
   onSelectImage = jest.fn();
@@ -64,6 +65,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.jpg',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -73,6 +75,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.jpg',
+        data: `data:image/jpeg;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(0);
@@ -86,6 +89,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.png',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -95,6 +99,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.png',
+        data: `data:image/png;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(0);
@@ -108,6 +113,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.jpg',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -117,6 +123,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.jpg',
+        data: `data:image/jpeg;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(0);
@@ -130,6 +137,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.jpg',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -139,6 +147,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.jpg',
+        data: `data:image/jpeg;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(0);
@@ -160,6 +169,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.jpg',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -169,6 +179,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.jpg',
+        data: `data:image/jpeg;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(1);
@@ -182,6 +193,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.png',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -191,6 +203,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.png',
+        data: `data:image/png;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(1);
@@ -204,6 +217,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.jpg',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -213,6 +227,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.jpg',
+        data: `data:image/jpeg;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(1);
@@ -226,6 +241,7 @@ describe('press image picker', () => {
         width: 700,
         height: 500,
         path: 'testuri.jpg',
+        data: mockBase64String,
       };
       mockFinalData = {
         fileSize: 1,
@@ -235,6 +251,7 @@ describe('press image picker', () => {
         height: 500,
         isVertical: false,
         uri: 'testuri.jpg',
+        data: `data:image/jpeg;base64,${mockBase64String}`,
       };
 
       await buildAndPressPicker(1);
