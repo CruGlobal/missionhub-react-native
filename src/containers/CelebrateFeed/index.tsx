@@ -15,7 +15,7 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { CommunityPost } from '../../components/CommunityFeedItem/__generated__/CommunityPost';
+import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
@@ -30,7 +30,7 @@ export interface CelebrateFeedProps {
   showUnreadOnly?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
-  onClearNotification?: (post: CommunityPost) => void;
+  onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
 }
 
@@ -182,11 +182,11 @@ export const CelebrateFeed = ({
     [],
   );
 
-  const renderItem = ({ item }: { item: CommunityPost }) => (
+  const renderItem = ({ item }: { item: FeedItemFragment }) => (
     <CommunityFeedItem
       onClearNotification={onClearNotification}
-      post={item}
-      orgId={organization.id}
+      item={item}
+      organization={organization}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />

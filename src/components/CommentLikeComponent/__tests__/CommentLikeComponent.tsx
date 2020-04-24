@@ -19,7 +19,7 @@ import {
   GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
 } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
-import CommentLikeComponent from '..';
+import { CommentLikeComponent } from '..';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');

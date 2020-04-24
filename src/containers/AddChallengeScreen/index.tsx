@@ -129,7 +129,7 @@ const AddChallengeScreen = ({
         selectionColor={theme.secondaryColor}
         placeholder={t(isEdit ? 'titlePlaceholderEdit' : 'titlePlaceholderAdd')}
         placeholderTextColor={
-          isEditing === 'title' ? theme.lightGrey : theme.communityBlue
+          isEditing === 'title' ? theme.lightGrey : theme.parakeetBlue
         }
         style={textInput}
       />
@@ -174,7 +174,7 @@ const AddChallengeScreen = ({
           selectionColor={theme.secondaryColor}
           placeholder={t('detailPlaceholder')}
           placeholderTextColor={
-            isEditing === 'detail' ? theme.lightGrey : theme.communityBlue
+            isEditing === 'detail' ? theme.lightGrey : theme.parakeetBlue
           }
           style={detailInput}
         />
@@ -197,7 +197,7 @@ const AddChallengeScreen = ({
               text={t('save').toUpperCase()}
               onPress={saveChallenge}
               buttonTextStyle={{
-                color: theme.communityBlue,
+                color: theme.parakeetBlue,
                 fontSize: 14,
               }}
               style={{ marginRight: 10 }}

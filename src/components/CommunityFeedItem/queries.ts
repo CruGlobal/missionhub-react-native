@@ -9,12 +9,11 @@ export const COMMUNITY_PERMISSIONS_FRAGMENT = gql`
   }
 `;
 
-export const COMMUNITY_POST_PERSON_FRAGMENT = gql`
-  fragment CommunityPostPerson on Person {
+export const COMMUNITY_FEED_PERSON_FRAGMENT = gql`
+  fragment CommunityFeedPerson on Person {
     id
     firstName
     lastName
-    fullName
     communityPermissions {
       nodes {
         ...CommunityPermissions
@@ -22,6 +21,33 @@ export const COMMUNITY_POST_PERSON_FRAGMENT = gql`
     }
   }
   ${COMMUNITY_PERMISSIONS_FRAGMENT}
+`;
+
+export const COMMUNITY_FEED_CHALLENGE_FRAGMENT = gql`
+  fragment CommunityFeedChallenge on CommunityChallenge {
+    id
+    title
+  }
+`;
+
+export const COMMUNITY_FEED_STEP_FRAGMENT = gql`
+  fragment CommunityFeedStep on Step {
+    id
+    title
+    receiverStageAtCompletion {
+      id
+    }
+  }
+`;
+
+export const COMMUNITY_FEED_POST_FRAGMENT = gql`
+  fragment CommunityFeedPost on Post {
+    id
+    content
+    mediaContentType
+    mediaExpiringUrl
+    postType
+  }
 `;
 
 export const CELEBRATE_ITEM_FRAGMENT = gql`
@@ -38,39 +64,45 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
     likesCount
     objectDescription
     subjectPerson {
-      ...CommunityPostPerson
+      ...CommunityFeedPerson
     }
     subjectPersonName
   }
-  ${COMMUNITY_POST_PERSON_FRAGMENT}
+  ${COMMUNITY_FEED_PERSON_FRAGMENT}
 `;
 
-export const COMMUNITY_POST_FRAGMENT = gql`
-  fragment CommunityPost on CommunityCelebrationItem {
+export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
+  fragment CommunityFeedItem on FeedItem {
     id
-    adjectiveAttributeName
-    adjectiveAttributeValue
-    celebrateableId
-    celebrateableType
-    changedAttributeName
-    changedAttributeValue
-    commentsCount
+    comments {
+      pageInfo {
+        totalCount
+      }
+    }
+    createdAt
     liked
     likesCount
-    objectDescription
+    read
+    subject {
+      ... on CommunityChallenge {
+        ...CommunityFeedChallenge
+      }
+      ... on Step {
+        ...CommunityFeedStep
+      }
+      ... on Post {
+        ...CommunityFeedPost
+      }
+    }
     subjectPerson {
-      ...CommunityPostPerson
+      ...CommunityFeedPerson
     }
     subjectPersonName
   }
-  ${COMMUNITY_POST_PERSON_FRAGMENT}
-`;
-
-export const POST_FRAGMENT = gql`
-  fragment Post on Post {
-    id
-    postType
-  }
+  ${COMMUNITY_FEED_CHALLENGE_FRAGMENT}
+  ${COMMUNITY_FEED_STEP_FRAGMENT}
+  ${COMMUNITY_FEED_POST_FRAGMENT}
+  ${COMMUNITY_FEED_PERSON_FRAGMENT}
 `;
 
 export const DELETE_POST = gql`

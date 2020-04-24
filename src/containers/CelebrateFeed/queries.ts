@@ -1,35 +1,9 @@
 import gql from 'graphql-tag';
 
-import { COMMUNITY_POST_FRAGMENT } from '../../components/CommunityFeedItem/queries';
-
-export const GET_COMMUNITY_FEED = gql`
-  query GetCommunityFeed(
-    $communityId: ID!
-    $personIds: [ID!] = null
-    $hasUnreadComments: Boolean = false
-    $celebrateCursor: String
-  ) {
-    community(id: $communityId) {
-      id
-      celebrationItems(
-        sortBy: createdAt_DESC
-        first: 25
-        after: $celebrateCursor
-        subjectPersonIds: $personIds
-        hasUnreadComments: $hasUnreadComments
-      ) {
-        nodes {
-          ...CommunityPost
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
-    }
-  }
-  ${COMMUNITY_POST_FRAGMENT}
-`;
+import {
+  CELEBRATE_ITEM_FRAGMENT,
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+} from '../../components/CommunityFeedItem/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
   query GetGlobalCommunityFeed($celebrateCursor: String) {
@@ -40,7 +14,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
         after: $celebrateCursor
       ) {
         nodes {
-          ...CommunityPost
+          ...CelebrateItem
         }
         pageInfo {
           endCursor
@@ -49,7 +23,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
       }
     }
   }
-  ${COMMUNITY_POST_FRAGMENT}
+  ${CELEBRATE_ITEM_FRAGMENT}
 `;
 
 export const GET_COMMUNITY_FEED = gql`
@@ -60,10 +34,10 @@ export const GET_COMMUNITY_FEED = gql`
     community(id: $communityId) {
       feedItems(subjectType: $subjectType) {
         nodes {
-          id
+          ...CommunityFeedItem
         }
       }
     }
   }
-  ${CELEBRATE_ITEM_FRAGMENT}
+  ${COMMUNITY_FEED_ITEM_FRAGMENT}
 `;

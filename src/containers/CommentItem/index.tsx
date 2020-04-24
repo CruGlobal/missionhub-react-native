@@ -5,7 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { Text, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
-import { CommunityPostName } from '../../components/CommunityPostName';
+import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
 import { AuthState } from '../../reducers/auth';
 import {
   CelebrateCommentsState,
@@ -76,7 +76,7 @@ const CommentItem = ({
         {isMineNotReported ? (
           <Flex value={1} />
         ) : (
-          <CommunityPostName
+          <CommunityFeedItemName
             name={name}
             personId={person.id}
             orgId={organization.id}

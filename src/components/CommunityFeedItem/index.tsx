@@ -9,15 +9,18 @@ import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
-import { CommunityPostContent } from '../CommunityPostContent';
+import { CommunityPostContent } from '../CommunityFeedItemContent';
 import { PersonAvatar } from '../PersonAvatar';
 import { CommentLikeComponent } from '../CommentLikeComponent';
-import { CommunityPostName } from '../CommunityPostName';
+import { CommunityPostName } from '../CommunityFeedItemName';
+import PostTypeLabel from '../PostTypeLabel';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
-import { CELEBRATE_EDIT_STORY_SCREEN } from '../../containers/Groups/EditStoryScreen';
-import { orgIsGlobal } from '../../utils/common';
+import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
+import { orgIsGlobal, mapPostTypeToFeedType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { PostTypeEnum } from '../../../__generated__/globalTypes';
+import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
+import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
 import PlusIcon from './plusIcon.svg';
@@ -26,30 +29,23 @@ import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
-import { CommunityPost } from './__generated__/CommunityPost';
 
 export interface CommunityFeedItemProps {
-  post: CommunityPost;
+  item: FeedItemFragment;
   organization: GetCommunities_communities_nodes;
   namePressable: boolean;
-  onClearNotification?: (item: CommunityPost) => void;
+  onClearNotification?: (item: FeedItemFragment) => void;
   onRefresh: () => void;
 }
 
 export const CommunityFeedItem = ({
-  post,
+  item,
   organization,
   namePressable,
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
-  const {
-    celebrateableId,
-    changedAttributeValue,
-    subjectPerson,
-    subjectPersonName,
-  } = post;
-  const postType = PostTypeEnum.prayer_request; //TODO: get postType from post
+  const { createdAt, subject, subjectPerson, subjectPersonName } = item;
 
   const { t } = useTranslation('celebrateItems');
   const dispatch = useDispatch();
@@ -61,30 +57,45 @@ export const CommunityFeedItem = ({
     REPORT_POST,
   );
 
+  const getFeedItemType = (subjectType: string) => {
+    switch (subjectType) {
+      case 'CommunityChallenge':
+        return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
+      case 'Step':
+        return FeedItemSubjectTypeEnum.STEP;
+      case 'Post':
+        return mapPostTypeToFeedType((subject as CommunityFeedPost).postType);
+      default:
+        return FeedItemSubjectTypeEnum.STORY;
+    }
+  };
+  const FeedItemType = getFeedItemType(subject.__typename);
+
+  const isPost = subject.__typename === 'Post';
   const addToSteps = [
-    PostTypeEnum.help_request,
-    PostTypeEnum.prayer_request,
-    PostTypeEnum.question,
-  ].includes(postType);
-  const isPrayer = postType === PostTypeEnum.prayer_request;
+    FeedItemSubjectTypeEnum.HELP_REQUEST,
+    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    FeedItemSubjectTypeEnum.QUESTION,
+  ].includes(FeedItemType);
+  const isPrayer = FeedItemType === FeedItemSubjectTypeEnum.PRAYER_REQUEST;
   const isGlobal = orgIsGlobal(organization);
 
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        event: post,
+        event: item,
         orgId: organization.id,
         onRefreshCelebrateItem: onRefresh,
       }),
     );
 
   const clearNotification = () =>
-    onClearNotification && onClearNotification(post);
+    onClearNotification && onClearNotification(item);
 
   const handleEdit = () =>
     dispatch(
-      navigatePush(CELEBRATE_EDIT_STORY_SCREEN, {
-        celebrationItem: post,
+      navigatePush(CREATE_POST_SCREEN, {
+        celebrationItem: item,
         onRefresh,
         organization,
       }),
@@ -96,7 +107,7 @@ export const CommunityFeedItem = ({
       {
         text: t('delete.buttonText'),
         onPress: async () => {
-          await deletePost({ variables: { id: celebrateableId } });
+          await deletePost({ variables: { id: subject.id } });
           onRefresh();
         },
       },
@@ -107,7 +118,7 @@ export const CommunityFeedItem = ({
       { text: t('cancel') },
       {
         text: t('report.confirmButtonText'),
-        onPress: () => reportPost({ variables: { id: celebrateableId } }),
+        onPress: () => reportPost({ variables: { id: subject.id } }),
       },
     ]);
 
@@ -115,25 +126,26 @@ export const CommunityFeedItem = ({
     //TODO: add to my steps
   };
 
-  const menuActions = !isGlobal
-    ? isMe
-      ? [
-          {
-            text: t('edit.buttonText'),
-            onPress: () => handleEdit(),
-          },
-          {
-            text: t('delete.buttonText'),
-            onPress: () => handleDelete(),
-          },
-        ]
-      : [
-          {
-            text: t('report.buttonText'),
-            onPress: () => handleReport(),
-          },
-        ]
-    : null;
+  const menuActions =
+    !isGlobal && isPost
+      ? isMe
+        ? [
+            {
+              text: t('edit.buttonText'),
+              onPress: () => handleEdit(),
+            },
+            {
+              text: t('delete.buttonText'),
+              onPress: () => handleDelete(),
+            },
+          ]
+        : [
+            {
+              text: t('report.buttonText'),
+              onPress: () => handleReport(),
+            },
+          ]
+      : null;
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
@@ -160,17 +172,10 @@ export const CommunityFeedItem = ({
     </View>
   );
 
-  // TODO: insert actual post type label
   const renderHeader = () => (
     <View style={styles.headerWrap}>
       <View style={styles.headerRow}>
-        <View
-          style={{
-            backgroundColor: 'blue',
-            height: 20,
-            width: 20,
-          }}
-        />
+        <PostTypeLabel type={FeedItemType} />
       </View>
       <View style={styles.headerRow}>
         <PersonAvatar size={48} />
@@ -181,7 +186,7 @@ export const CommunityFeedItem = ({
             orgId={organization.id}
             pressable={namePressable}
           />
-          <CardTime date={changedAttributeValue} style={styles.headerTime} />
+          <CardTime date={createdAt} style={styles.headerTime} />
         </View>
       </View>
     </View>
@@ -193,7 +198,7 @@ export const CommunityFeedItem = ({
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent
           isPrayer={isPrayer}
-          post={post}
+          item={item}
           orgId={organization.id}
           onRefresh={onRefresh}
         />
@@ -205,7 +210,8 @@ export const CommunityFeedItem = ({
     <View style={styles.cardContent}>
       {renderHeader()}
       <CommunityPostContent
-        post={post}
+        item={item}
+        itemType={FeedItemType}
         organization={organization}
         style={styles.postTextWrap}
       />

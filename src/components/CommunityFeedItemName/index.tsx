@@ -8,7 +8,7 @@ import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
 
-export interface CommunityPostNameProps {
+export interface CommunityFeedItemNameProps {
   name: string | null;
   personId?: string;
   orgId: string;
@@ -16,13 +16,13 @@ export interface CommunityPostNameProps {
   customContent?: JSX.Element;
 }
 
-export const CommunityPostName = ({
+export const CommunityFeedItemName = ({
   name,
   personId,
   orgId,
   pressable,
   customContent,
-}: CommunityPostNameProps) => {
+}: CommunityFeedItemNameProps) => {
   const { t } = useTranslation('celebrateFeeds');
   const dispatch = useDispatch();
 

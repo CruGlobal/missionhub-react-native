@@ -7,7 +7,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { CommunityPost } from '../CommunityFeedItem/__generated__/CommunityPost';
+import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import CommentIcon from './commentIcon.svg';
 import HeartActiveIcon from './heartActiveIcon.svg';
@@ -18,18 +18,26 @@ import styles from './styles';
 
 export interface CommentLikeComponentProps {
   orgId: string;
-  post: CommunityPost;
+  item: CommunityFeedItem;
   onRefresh: () => void;
   isPrayer: boolean;
 }
 
 export const CommentLikeComponent = ({
   orgId,
-  post,
+  item,
   onRefresh,
   isPrayer,
 }: CommentLikeComponentProps) => {
-  const { id, liked, likesCount, commentsCount, subjectPerson } = post;
+  const {
+    id,
+    comments: {
+      pageInfo: { totalCount: commentsCount },
+    },
+    liked,
+    likesCount,
+    subjectPerson,
+  } = item;
 
   const dispatch = useDispatch();
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);
