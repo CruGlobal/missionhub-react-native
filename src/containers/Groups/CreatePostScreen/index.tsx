@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Keyboard,
-  ScrollView,
-  Image,
-  ImageSourcePropType,
-} from 'react-native';
+import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -20,7 +14,9 @@ import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
-import ImagePicker from '../../../components/ImagePicker';
+import ImagePicker, {
+  SelectImageParams,
+} from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
@@ -84,12 +80,8 @@ export const CreatePostScreen = () => {
   const [postType] = useState<PostTypeEnum>(
     post?.postType || navPostType || PostTypeEnum.story,
   );
-  const [postText, changePostText] = useState<string | undefined>(
-    post?.content || undefined,
-  );
-  const [postImage, changePostImage] = useState<
-    ImageSourcePropType | undefined
-  >(undefined); //TODO: use image from post
+  const [postText, changePostText] = useState<string>(post?.content || '');
+  const [postImage, changePostImage] = useState<string | undefined>(undefined); //TODO: use image from post
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -133,8 +125,8 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = (image: ImageSourcePropType) =>
-    changePostImage(image);
+  const handleSavePhoto = (image: SelectImageParams) =>
+    changePostImage(image.data);
 
   const renderHeader = () => (
     <Header
@@ -157,7 +149,11 @@ export const CreatePostScreen = () => {
   const renderAddPhotoButton = () => (
     <ImagePicker onSelectImage={handleSavePhoto}>
       {postImage ? (
-        <Image resizeMode="contain" source={postImage} style={styles.image} />
+        <Image
+          resizeMode="contain"
+          source={{ uri: postImage }}
+          style={styles.image}
+        />
       ) : (
         <>
           <View style={styles.lineBreak} />
@@ -174,8 +170,10 @@ export const CreatePostScreen = () => {
   return (
     <View style={styles.container}>
       {renderHeader()}
-      <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+        <View style={styles.postLabelRow}>
+          <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
+        </View>
         <Input
           testID="PostInput"
           scrollEnabled={false}

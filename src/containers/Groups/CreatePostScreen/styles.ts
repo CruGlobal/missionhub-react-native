@@ -13,6 +13,12 @@ export default StyleSheet.create({
     lineHeight: 20,
   },
   icon: { height: 24, width: 24 },
+  postLabelRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    paddingHorizontal: 35,
+    marginTop: 26,
+  },
   lineBreak: {
     height: 1,
     width: theme.fullWidth,
@@ -44,6 +50,7 @@ export default StyleSheet.create({
     color: theme.lightGrey,
     borderBottomWidth: 0,
     paddingHorizontal: 35,
-    paddingVertical: 20,
+    paddingTop: 20,
+    paddingBottom: 28,
   },
 });

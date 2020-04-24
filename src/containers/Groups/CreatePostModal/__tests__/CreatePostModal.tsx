@@ -123,7 +123,7 @@ it('fires onPress and navigates | member', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     refreshItems,
     communityId: mockCommunityId,
-    type: PostTypeEnum.story,
+    postType: PostTypeEnum.story,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {
@@ -153,7 +153,7 @@ it('fires onPress and navigates | owner', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     refreshItems,
     communityId: mockCommunityId,
-    type: PostTypeEnum.announcement,
+    postType: PostTypeEnum.announcement,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     screenContext: {

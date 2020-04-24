@@ -74,13 +74,13 @@ const CreatePostModal = ({
     },
   });
 
-  const navigateToCreatePostScreen = (type: PostTypeEnum) => {
+  const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         refreshItems,
         communityId: community?.id,
-        type,
+        postType,
       }),
     );
   };
