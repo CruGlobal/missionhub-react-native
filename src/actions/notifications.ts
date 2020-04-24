@@ -118,27 +118,13 @@ type ParsedNotificationData =
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
-export const UPDATE_ACCEPTED_NOTIFICATIONS =
-  'app/UPDATE_ACCEPTED_NOTIFICATIONS';
 
 export interface HasShownPromptAction {
   type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
 }
 
-export interface UpdateAcceptedNotificationsAction {
-  type: typeof UPDATE_ACCEPTED_NOTIFICATIONS;
-  acceptedNotifications: boolean;
-}
-
 export const hasShownPrompt = (): HasShownPromptAction => ({
   type: HAS_SHOWN_NOTIFICATION_PROMPT,
-});
-
-export const updateAcceptedNotifications = (
-  acceptedNotifications: boolean,
-): UpdateAcceptedNotificationsAction => ({
-  type: UPDATE_ACCEPTED_NOTIFICATIONS,
-  acceptedNotifications,
 });
 
 export const checkNotifications = (
@@ -154,10 +140,13 @@ export const checkNotifications = (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
+  const skipNotificationOff =
+    notificationType === NOTIFICATION_PROMPT_TYPES.LOGIN;
+
   let nativePermissionsEnabled = false;
   const {
     auth: { token },
-    notifications: { appHasShownPrompt, userHasAcceptedNotifications },
+    notifications: { appHasShownPrompt },
   } = getState();
 
   //ONLY register if logged in
@@ -179,11 +168,7 @@ export const checkNotifications = (
 
     //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
     //delete push token from API and Redux, then navigate to NotificationOffScreen
-    if (
-      !isAndroid &&
-      userHasAcceptedNotifications &&
-      !nativePermissionsEnabled
-    ) {
+    if (!isAndroid && !nativePermissionsEnabled && !skipNotificationOff) {
       dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
@@ -205,16 +190,13 @@ export const checkNotifications = (
 // - display the modal asking the user to enable notifications (first time only)
 // - return current state of Native Notifications Permissions (we should update app state accordingly)
 // - refreshes Push Device Token (this gets handled by onRegister() callback)
-export const requestNativePermissions = () => async (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-) => {
+export const requestNativePermissions = () => async () => {
   const nativePermissions = await PushNotification.requestPermissions();
 
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
   );
 
-  dispatch(updateAcceptedNotifications(nativePermissionsEnabled));
   return { nativePermissionsEnabled };
 };
 

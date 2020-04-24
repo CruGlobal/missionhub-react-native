@@ -1,7 +1,4 @@
-import {
-  HAS_SHOWN_NOTIFICATION_PROMPT,
-  UPDATE_ACCEPTED_NOTIFICATIONS,
-} from '../../actions/notifications';
+import { HAS_SHOWN_NOTIFICATION_PROMPT } from '../../actions/notifications';
 import notifications, { PushDevice } from '../notifications';
 import { LOGOUT } from '../../constants';
 import { REQUESTS } from '../../api/routes';
@@ -27,7 +24,6 @@ it('should update push device', () => {
   expect(state).toEqual({
     pushDevice,
     appHasShownPrompt: false,
-    userHasAcceptedNotifications: false,
   });
 });
 
@@ -38,7 +34,6 @@ it('should delete push device', () => {
   expect(state).toEqual({
     pushDevice: null,
     appHasShownPrompt: false,
-    userHasAcceptedNotifications: false,
   });
 });
 
@@ -49,38 +44,6 @@ it('should set appHasShownPrompt', () => {
   expect(state).toEqual({
     pushDevice: null,
     appHasShownPrompt: true,
-    userHasAcceptedNotifications: false,
-  });
-});
-
-it('should set userHasAcceptedNotifications to true', () => {
-  const state = notifications(undefined, {
-    type: UPDATE_ACCEPTED_NOTIFICATIONS,
-    acceptedNotifications: true,
-  });
-  expect(state).toEqual({
-    pushDevice: null,
-    appHasShownPrompt: false,
-    userHasAcceptedNotifications: true,
-  });
-});
-
-it('should set userHasAcceptedNotifications to false', () => {
-  const state = notifications(
-    {
-      pushDevice: null,
-      appHasShownPrompt: false,
-      userHasAcceptedNotifications: true,
-    },
-    {
-      type: UPDATE_ACCEPTED_NOTIFICATIONS,
-      acceptedNotifications: false,
-    },
-  );
-  expect(state).toEqual({
-    pushDevice: null,
-    appHasShownPrompt: false,
-    userHasAcceptedNotifications: false,
   });
 });
 
@@ -89,7 +52,6 @@ it('resets state on logout', () => {
     {
       pushDevice,
       appHasShownPrompt: true,
-      userHasAcceptedNotifications: true,
     },
     {
       type: LOGOUT,
@@ -98,6 +60,5 @@ it('resets state on logout', () => {
   expect(state).toEqual({
     pushDevice: null,
     appHasShownPrompt: true,
-    userHasAcceptedNotifications: true,
   });
 });
