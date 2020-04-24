@@ -929,4 +929,7 @@ export default {
     stepOfFaith: 'Step of Faith',
     step: 'Step',
   },
+  notificationsCenter: {
+    title: 'Notifications',
+  },
 };

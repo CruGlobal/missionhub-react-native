@@ -220,6 +220,7 @@ import LoadingScreen, { LOADING_SCREEN } from './containers/LoadingScreen';
 import ChallengeMembers, {
   CHALLENGE_MEMBERS_SCREEN,
 } from './containers/ChallengeMembers';
+import NotificationCenterScreen from './containers/NotificationCenterScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -268,11 +269,10 @@ const tabs = {
       tabBarLabel: navItem('communities'),
     },
   ),
-  // TODO Make a seperate screen for this, update any test, etc
   [NOTIFICATIONS_TAB]: buildTrackedScreen(
-    GroupsListScreen,
+    NotificationCenterScreen,
     // @ts-ignore
-    buildTrackingObj('communities', 'communities'),
+    buildTrackingObj('notifications', 'notifications'),
     {
       // @ts-ignore
       tabBarLabel: navItem('notifications'),

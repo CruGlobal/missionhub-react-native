@@ -31,9 +31,9 @@ describe('renders', () => {
     snapshot();
   });
 
-  it('group', async () => {
+  it('communities', async () => {
     const { snapshot } = renderWithContext(
-      <TabIcon name={'group'} tintColor={'blue'} />,
+      <TabIcon name={'communities'} tintColor={'blue'} />,
       {
         mocks: {
           Int: () => 0,
@@ -46,9 +46,34 @@ describe('renders', () => {
     snapshot();
   });
 
-  it('group with notification dot', async () => {
+  it('communities with notification dot', async () => {
     const { snapshot } = renderWithContext(
-      <TabIcon name={'group'} tintColor={'blue'} />,
+      <TabIcon name={'communities'} tintColor={'blue'} />,
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
+  });
+
+  it('notifications', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name="notifications" tintColor={'blue'} />,
+      {
+        mocks: {
+          Int: () => 0,
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
+  });
+
+  it('notifications with notification dot', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name="notifications" tintColor={'blue'} />,
     );
 
     await flushMicrotasksQueue();

@@ -3,9 +3,7 @@ import i18next from 'i18next';
 import { useQuery } from '@apollo/react-hooks';
 
 import Flex from '../Flex';
-import Icon from '../Icon';
 import { Text } from '../common';
-import { isAndroid } from '../../utils/common';
 import PeopleIcon from '../../../assets/images/mainNav/peopleIcon.svg';
 import StepsIcon from '../../../assets/images/mainNav/stepsIcon.svg';
 import CommunitiesIcon from '../../../assets/images/mainNav/communitiesIcon.svg';

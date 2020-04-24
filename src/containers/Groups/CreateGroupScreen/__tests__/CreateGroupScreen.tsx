@@ -16,7 +16,7 @@ import { addNewOrganization } from '../../../../actions/organizations';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ACTIONS, GROUPS_TAB } from '../../../../constants';
+import { ACTIONS, COMMUNITIES_TAB } from '../../../../constants';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../../GroupScreen';
 
 import CreateGroupScreen from '..';
@@ -164,7 +164,7 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
+    expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
   });
 
   it('should call create community with org added to redux', async () => {
