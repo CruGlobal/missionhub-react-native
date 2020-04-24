@@ -58,6 +58,7 @@ export const GET_COMMUNITY_FEED = gql`
     $subjectType: FeedItemSubjectTypeEnum = null
   ) {
     community(id: $communityId) {
+      id
       feedItems(subjectType: $subjectType) {
         nodes {
           id

@@ -18,7 +18,7 @@ const DEFAULT_OPTIONS = {
   includeBase64: true,
 };
 
-export type ImageCropPickerResponse = {
+export type PickerImage = {
   filename: string;
   path: string;
   size: number;
@@ -27,6 +27,8 @@ export type ImageCropPickerResponse = {
   height: number;
   data: string;
 };
+
+export type ImageCropPickerResponse = PickerImage | PickerImage[];
 
 export type SelectImageParams = {
   fileSize: number;
@@ -44,8 +46,8 @@ interface ImagePickerProps {
   children: JSX.Element | JSX.Element[];
 }
 
-function getType(response: ImageCropPickerResponse) {
-  if (response.path.toLowerCase().includes('.png')) {
+function getType(image: PickerImage) {
+  if (image.path.toLowerCase().includes('.png')) {
     return 'image/png';
   }
   return 'image/jpeg';
@@ -66,8 +68,10 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
             DEFAULT_OPTIONS,
           ))) as ImageCropPickerResponse;
 
-      let fileName = response.filename || '';
-      const { path: uri, size: fileSize, mime, width, height, data } = response;
+      const image = Array.isArray(response) ? response[0] : response;
+
+      let fileName = image.filename || '';
+      const { path: uri, size: fileSize, mime, width, height, data } = image;
 
       // Handle strange iOS files "HEIC" format. If the file name is not a jpeg, but the uri is a jpg
       // create a new file name with the right extension
@@ -78,12 +82,12 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
       const payload: SelectImageParams = {
         fileSize,
         fileName,
-        fileType: mime || getType(response),
+        fileType: mime || getType(image),
         width,
         height,
         isVertical: height > width,
         uri,
-        data: `data:${mime || getType(response)};base64,${data}`,
+        data: `data:${mime || getType(image)};base64,${data}`,
       };
 
       onSelectImage(payload);

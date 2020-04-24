@@ -70,6 +70,7 @@ export const COMMUNITY_FEED_POST_FRAGMENT = gql`
 
 export const COMMUNITY_FEED_FRAGMENT = gql`
   fragment CommunityFeedItem on FeedItem {
+    id
     createdAt
     liked
     likesCount
