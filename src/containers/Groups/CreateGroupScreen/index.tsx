@@ -15,17 +15,18 @@ import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import {
   navigateBack,
-  navigatePush,
   navigateToMainTabs,
+  navigateNestedReset,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
 import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
 import { ACTIONS, GROUPS_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
+import { COMMUNITY_TABS } from '../../Communities/Community/constants';
+import { COMMUNITY_MEMBERS } from '../Members';
 
 import styles from './styles';
 
@@ -77,10 +78,21 @@ class CreateGroupScreen extends Component {
 
       if (organization) {
         dispatch(
-          navigatePush(USER_CREATED_GROUP_SCREEN, {
-            orgId,
-            initialTab: GROUP_MEMBERS,
-          }),
+          // TODO: make sure this works with new community members screen
+          navigateNestedReset([
+            {
+              routeName: COMMUNITY_TABS,
+              params: {
+                communityId: orgId,
+              },
+            },
+            {
+              routeName: COMMUNITY_MEMBERS,
+              params: {
+                communityId: orgId,
+              },
+            },
+          ]),
         );
         return dispatch(
           trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY),

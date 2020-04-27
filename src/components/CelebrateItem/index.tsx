@@ -151,7 +151,7 @@ const CelebrateItem = ({
               onPress: () => handleReport(),
             },
           ]
-      : null;
+      : [];
 
   const renderContent = () => (
     <View style={styles.cardContent}>
@@ -208,7 +208,6 @@ const CelebrateItem = ({
     <Card>
       <View style={{ flex: 1 }}>
         <PopupMenu
-          // @ts-ignore
           testID="CelebrateItemPressable"
           actions={menuActions}
           buttonProps={{
@@ -233,7 +232,7 @@ const CelebrateItem = ({
 
   return orgIsGlobal(organization)
     ? renderGlobalOrgCard()
-    : menuActions
+    : menuActions.length
     ? renderStoryCard()
     : renderCelebrateCard();
 };

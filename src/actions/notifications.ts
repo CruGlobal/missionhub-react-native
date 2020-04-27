@@ -16,12 +16,13 @@ import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
-import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import { NotificationsState } from '../reducers/notifications';
 import { OrganizationsState } from '../reducers/organizations';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
+import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
@@ -29,7 +30,6 @@ import { reloadGroupChallengeFeed } from './challenges';
 import {
   navigatePush,
   navigateToMainTabs,
-  navigateToCommunity,
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
@@ -301,8 +301,11 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       case 'celebrate_feed': {
         const { organization_id } = notificationData;
         if (organization_id) {
-          const community = await dispatch(refreshCommunity(organization_id));
-          return dispatch(navigateToCommunity(community));
+          return dispatch(
+            navigatePush(COMMUNITY_TABS, {
+              communityId: organization_id,
+            }),
+          );
         }
         return;
       }
@@ -329,9 +332,13 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         // IOS Global Community Challenges PN returns the organization_id as null
         const orgId =
           organization_id === null ? GLOBAL_COMMUNITY_ID : organization_id;
-        const community = await dispatch(refreshCommunity(orgId));
+        await dispatch(refreshCommunity(orgId));
         await dispatch(reloadGroupChallengeFeed(orgId));
-        return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+        return dispatch(
+          navigatePush(COMMUNITY_CHALLENGES, {
+            communityId: orgId,
+          }),
+        );
       }
     }
   };

@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, ScrollView } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
@@ -116,7 +116,11 @@ const memberImpact = {
         params: { organization, person },
       },
     },
-  }) => <ImpactView orgId={organization.id} person={person} />,
+  }) => (
+    <ScrollView>
+      <ImpactView orgId={organization.id} person={person} />
+    </ScrollView>
+  ),
 };
 const memberCelebrate = {
   name: i18next.t('personTabs:celebrate'),
@@ -164,7 +168,11 @@ const myImpact = {
         params: { organization, person },
       },
     },
-  }) => <ImpactView orgId={organization.id} person={person} />,
+  }) => (
+    <ScrollView>
+      <ImpactView orgId={organization.id} person={person} />
+    </ScrollView>
+  ),
 };
 
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];

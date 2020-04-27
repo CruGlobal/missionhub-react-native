@@ -516,13 +516,10 @@ export default {
     impact: 'Impact',
     group: 'Communities',
   },
-  groupTabs: {
+  communityTabs: {
     celebrate: 'Celebrate',
     challenges: 'Challenges',
-    members: 'Members',
     impact: 'Impact',
-    contacts: 'Contacts',
-    surveys: 'Surveys',
   },
   personTabs: {
     celebrate: 'Celebrate',
@@ -831,7 +828,7 @@ export default {
     errorBody:
       'There was an error processing your request. Please try again later.',
   },
-  groupProfile: {
+  communityProfile: {
     created: 'Created',
     members: 'Members',
     code: 'Community Code',
@@ -845,6 +842,7 @@ export default {
     cannotBeUndone: 'This cannot be undone',
     codeCopyText:
       'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
+    errorLoadingCommunityDetails: 'Error loading community details',
   },
   landing: {
     getStarted: 'Get Started',
@@ -898,5 +896,14 @@ export default {
     share: 'Share',
     stepOfFaith: 'Step of Faith',
     step: 'Step',
+  },
+  communityHeader: {
+    feed: 'Feed',
+    challenges: 'Challenges',
+    impact: 'Impact',
+    memberCount: '{{count}} Member',
+    memberCount_plural: '{{count}} Members',
+    errorLoadingCommunityDetails: 'Error loading community details',
+    globalCommunity: 'MissionHub Community',
   },
 };
