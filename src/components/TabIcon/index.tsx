@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import Flex from '../Flex';
 import { Text } from '../common';
+import { isAndroid } from '../../utils/common';
 import PeopleIcon from '../../../assets/images/mainNav/peopleIcon.svg';
 import StepsIcon from '../../../assets/images/mainNav/stepsIcon.svg';
 import CommunitiesIcon from '../../../assets/images/mainNav/communitiesIcon.svg';
@@ -25,19 +26,35 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
     skip: name != 'notifications' && name != 'communities',
     pollInterval: 30000,
   });
-
+  const iconSize = isAndroid ? 22 : 24;
   const showNotification = unreadCommentsCount > 0;
 
   const icon = () => {
     switch (name) {
       case 'people':
-        return <PeopleIcon color={tintColor} />;
+        return (
+          <PeopleIcon color={tintColor} width={iconSize} height={iconSize} />
+        );
       case 'steps':
-        return <StepsIcon color={tintColor} />;
+        return (
+          <StepsIcon color={tintColor} width={iconSize} height={iconSize} />
+        );
       case 'communities':
-        return <CommunitiesIcon color={tintColor} />;
+        return (
+          <CommunitiesIcon
+            color={tintColor}
+            width={iconSize}
+            height={iconSize}
+          />
+        );
       case 'notifications':
-        return <NotificationsIcon color={tintColor} />;
+        return (
+          <NotificationsIcon
+            color={tintColor}
+            width={iconSize}
+            height={iconSize}
+          />
+        );
     }
   };
 

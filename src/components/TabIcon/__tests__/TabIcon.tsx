@@ -2,11 +2,25 @@ import 'react-native';
 import React from 'react';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 
+import * as common from '../../../utils/common';
 import { renderWithContext } from '../../../../testUtils';
 
 import TabIcon from '..';
 
+beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
+});
+
 describe('renders', () => {
+  it('correctly | NonAndroid', () => {
+    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
+  });
+
+  it('correctly | Android', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
+  });
+
   it('steps', () => {
     renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
   });

@@ -286,7 +286,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
     showLabel: true,
     style: {
       backgroundColor: theme.white,
-      paddingTop: 15,
+      paddingTop: 4,
     },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
