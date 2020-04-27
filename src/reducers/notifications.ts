@@ -2,10 +2,7 @@ import Config from 'react-native-config';
 
 import { REQUESTS } from '../api/routes';
 import { LOGOUT } from '../constants';
-import {
-  HAS_SHOWN_NOTIFICATION_PROMPT,
-  UPDATE_ACCEPTED_NOTIFICATIONS,
-} from '../actions/notifications';
+import { HAS_SHOWN_NOTIFICATION_PROMPT } from '../actions/notifications';
 
 import { User } from './auth';
 
@@ -19,13 +16,11 @@ export interface PushDevice {
 export interface NotificationsState {
   pushDevice: PushDevice | null;
   appHasShownPrompt: boolean;
-  userHasAcceptedNotifications: boolean;
 }
 
 const initialState: NotificationsState = {
   pushDevice: null,
   appHasShownPrompt: false,
-  userHasAcceptedNotifications: false,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,18 +41,12 @@ function notificationReducer(state = initialState, action: any) {
         ...state,
         appHasShownPrompt: true,
       };
-    case UPDATE_ACCEPTED_NOTIFICATIONS:
-      return {
-        ...state,
-        userHasAcceptedNotifications: action.acceptedNotifications,
-      };
     case LOGOUT:
-      //persist appHasShownPrompt and userHasAcceptedNotifications on logout
+      //persist appHasShownPrompt on logout
       //because notifications will remain enabled/disabled on device      return {
       return {
         ...initialState,
         appHasShownPrompt: state.appHasShownPrompt,
-        userHasAcceptedNotifications: state.userHasAcceptedNotifications,
       };
     default:
       return state;
