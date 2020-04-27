@@ -997,7 +997,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
-                "letterSpacing": 2,
                 "lineHeight": 30,
                 "marginHorizontal": 30,
                 "marginVertical": 35,

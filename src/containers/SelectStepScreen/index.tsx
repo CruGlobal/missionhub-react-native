@@ -292,12 +292,14 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
         right={
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}
-            <Button
-              onPress={() => setIsExplainerOpen(true)}
-              testID="SelectStepExplainerIconButton"
-            >
-              <InfoIcon color={theme.white} />
-            </Button>
+            {isMe ? null : (
+              <Button
+                onPress={() => setIsExplainerOpen(true)}
+                testID="SelectStepExplainerIconButton"
+              >
+                <InfoIcon color={theme.white} />
+              </Button>
+            )}
           </View>
         }
         style={{ backgroundColor: theme.primaryColor }}
