@@ -9,10 +9,10 @@ import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
-import { CommunityPostContent } from '../CommunityFeedItemContent';
-import { PersonAvatar } from '../PersonAvatar';
+import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
+import Avatar from '../Avatar';
 import { CommentLikeComponent } from '../CommentLikeComponent';
-import { CommunityPostName } from '../CommunityFeedItemName';
+import { CommunityFeedItemName } from '../CommunityFeedItemName';
 import PostTypeLabel from '../PostTypeLabel';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
@@ -46,10 +46,12 @@ export const CommunityFeedItem = ({
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { createdAt, subject, subjectPerson, subjectPersonName } = item;
+  const personId = subjectPerson?.id;
+  const orgId = organization.id;
 
   const { t } = useTranslation('celebrateItems');
   const dispatch = useDispatch();
-  const isMe = useIsMe(subjectPerson?.id || '');
+  const isMe = useIsMe(personId || '');
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
   );
@@ -83,8 +85,8 @@ export const CommunityFeedItem = ({
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        event: item,
-        orgId: organization.id,
+        item,
+        orgId,
         onRefreshCelebrateItem: onRefresh,
       }),
     );
@@ -178,12 +180,14 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} />
       </View>
       <View style={styles.headerRow}>
-        <PersonAvatar size={48} />
+        {personId ? (
+          <Avatar size={'medium'} personId={personId} orgId={orgId} />
+        ) : null}
         <View style={styles.headerNameWrapper}>
-          <CommunityPostName
+          <CommunityFeedItemName
             name={subjectPersonName}
-            personId={subjectPerson?.id}
-            orgId={organization.id}
+            personId={personId}
+            orgId={orgId}
             pressable={namePressable}
           />
           <CardTime date={createdAt} style={styles.headerTime} />
@@ -209,7 +213,7 @@ export const CommunityFeedItem = ({
   const renderContent = () => (
     <View style={styles.cardContent}>
       {renderHeader()}
-      <CommunityPostContent
+      <CommunityFeedItemContent
         item={item}
         itemType={FeedItemType}
         organization={organization}

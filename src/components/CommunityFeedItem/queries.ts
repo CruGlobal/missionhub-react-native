@@ -27,6 +27,11 @@ export const COMMUNITY_FEED_CHALLENGE_FRAGMENT = gql`
   fragment CommunityFeedChallenge on CommunityChallenge {
     id
     title
+    acceptedCommunityChallengesList {
+      id
+      acceptedAt
+      completedAt
+    }
   }
 `;
 
@@ -48,27 +53,6 @@ export const COMMUNITY_FEED_POST_FRAGMENT = gql`
     mediaExpiringUrl
     postType
   }
-`;
-
-export const CELEBRATE_ITEM_FRAGMENT = gql`
-  fragment CelebrateItem on CommunityCelebrationItem {
-    id
-    adjectiveAttributeName
-    adjectiveAttributeValue
-    celebrateableId
-    celebrateableType
-    changedAttributeName
-    changedAttributeValue
-    commentsCount
-    liked
-    likesCount
-    objectDescription
-    subjectPerson {
-      ...CommunityFeedPerson
-    }
-    subjectPersonName
-  }
-  ${COMMUNITY_FEED_PERSON_FRAGMENT}
 `;
 
 export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`

@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { Text, Button } from '../common';
-import { CELEBRATEABLE_TYPES } from '../../constants';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
@@ -27,10 +26,6 @@ export interface CommunityFeedItemContentProps {
   organization: GetCommunities_communities_nodes;
   style?: StyleProp<ViewStyle>;
 }
-
-const {
-  challengeItemTypes: { accepted, completed },
-} = CELEBRATEABLE_TYPES;
 
 export const CommunityFeedItemContent = ({
   item,
@@ -66,14 +61,14 @@ export const CommunityFeedItemContent = ({
     }
   };
 
-  //TODO: New way to determine completed/accepted, etc.
   const buildChallengeMessage = () => {
-    switch (changedAttributeName) {
-      case accepted:
-        return t('challengeAccepted', { initiator: personName });
-      case completed:
-        return t('challengeCompleted', { initiator: personName });
-    }
+    const isCompleted = (subject as CommunityFeedChallenge).acceptedCommunityChallengesList.some(
+      acceptedChallege => !!acceptedChallege.completedAt,
+    );
+
+    return t(isCompleted ? 'challengeCompleted' : 'challengeAccepted', {
+      initiator: personName,
+    });
   };
 
   const renderStepOfFaithMessage = () => {

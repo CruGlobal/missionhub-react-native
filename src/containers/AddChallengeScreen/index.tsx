@@ -196,10 +196,7 @@ const AddChallengeScreen = ({
               testID="editButton"
               text={t('save').toUpperCase()}
               onPress={saveChallenge}
-              buttonTextStyle={{
-                color: theme.parakeetBlue,
-                fontSize: 14,
-              }}
+              buttonTextStyle={{ color: theme.parakeetBlue, fontSize: 14 }}
               style={{ marginRight: 10 }}
             />
           ) : (

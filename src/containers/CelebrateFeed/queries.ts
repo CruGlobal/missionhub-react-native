@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 import {
-  CELEBRATE_ITEM_FRAGMENT,
+  COMMUNITY_FEED_PERSON_FRAGMENT,
   COMMUNITY_FEED_ITEM_FRAGMENT,
 } from '../../components/CommunityFeedItem/queries';
 
@@ -14,7 +14,21 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
         after: $celebrateCursor
       ) {
         nodes {
-          ...CelebrateItem
+          id
+          adjectiveAttributeName
+          adjectiveAttributeValue
+          celebrateableId
+          celebrateableType
+          changedAttributeName
+          changedAttributeValue
+          commentsCount
+          liked
+          likesCount
+          objectDescription
+          subjectPerson {
+            ...CommunityFeedPerson
+          }
+          subjectPersonName
         }
         pageInfo {
           endCursor
@@ -23,7 +37,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
       }
     }
   }
-  ${CELEBRATE_ITEM_FRAGMENT}
+  ${COMMUNITY_FEED_PERSON_FRAGMENT}
 `;
 
 export const GET_COMMUNITY_FEED = gql`
