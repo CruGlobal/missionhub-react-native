@@ -223,6 +223,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
               displayVertically={true}
               color={isSelected ? theme.white : theme.secondaryColor}
               stepType={stepType}
+              largeIcon
               labelUppercase={false}
               includeStepInLabel={false}
             />

@@ -1053,7 +1053,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
               >
                 <SvgMock
                   color="#ffffff"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1067,9 +1067,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -1147,7 +1147,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1161,9 +1161,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -1213,7 +1213,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1227,9 +1227,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -1279,7 +1279,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1293,9 +1293,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
