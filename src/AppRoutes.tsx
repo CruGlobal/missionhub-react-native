@@ -194,9 +194,6 @@ import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFl
 import ShareStoryScreen, {
   CELEBRATE_SHARE_STORY_SCREEN,
 } from './containers/Groups/ShareStoryScreen';
-import CommunityMembers, {
-  COMMUNITY_MEMBERS,
-} from './containers/CommunityMembers';
 import EditStoryScreen, {
   CELEBRATE_EDIT_STORY_SCREEN,
 } from './containers/Groups/EditStoryScreen';
@@ -443,10 +440,6 @@ const screens = {
     IsGroupsMeCommunityPersonScreen,
   ),
   [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
-  [COMMUNITY_MEMBERS]: {
-    screen: CommunityMembers,
-    defaultNavigationOptions: { gesturesEnabled: true },
-  },
   [MAIN_TABS]: MAIN_TABS_SCREEN,
   [SIGN_IN_FLOW]: SignInFlowNavigator,
   [SIGN_UP_FLOW]: SignUpFlowNavigator,
@@ -523,7 +516,6 @@ const MODAL_SCREENS = [
   CELEBRATE_DETAIL_SCREEN,
   GROUPS_REPORT_SCREEN,
   CELEBRATE_SHARE_STORY_SCREEN,
-  COMMUNITY_MEMBERS,
 ];
 
 export const MainStackRoutes = createStackNavigator(

@@ -10,6 +10,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import {
   ACTIONS,
@@ -43,132 +44,170 @@ import theme from '../../theme';
 import { RootState } from '../../reducers';
 
 import styles from './styles';
+import { COMMUNITY_MEMBERS_QUERY } from './queries';
+import { CommunityMembers } from './__generated__/CommunityMembers';
 
-export const CommunityMembers = () => {
-  const orgId = useNavigationParam('orgId');
-  const [pagination, setPagination] = useState<PaginationObject>({
-    hasNextPage: true,
-    page: 1,
-  });
-  const [refreshing, setRefreshing] = useState(false);
+export const CommunityMembersScreen = () => {
   const dispatch = useDispatch();
-  const organization: Organization = useSelector(
-    ({ organizations }: RootState) =>
-      organizationSelector({ organizations }, { orgId }),
-  );
+  const communityId: string = useNavigationParam('communityId');
 
-  const groupInviteInfo = useSelector(
-    ({ swipe }: RootState) => swipe.groupInviteInfo,
-  );
-
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, organization),
-  );
-  useAnalytics(['community', 'members'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  const {
+    data: {
+      community: {
+        userCreated,
+        people: {
+          nodes = [],
+          pageInfo: { endCursor = null, hasNextPage = false } = {},
+        } = {},
+        report: { memberCount } = {},
+      } = {},
+    } = {},
+    loading,
+    error,
+    fetchMore,
+    refetch,
+  } = useQuery<CommunityMembers>(COMMUNITY_MEMBERS_QUERY, {
+    variables: { id: communityId },
   });
-  const members = organization.members || [];
+  console.log('nodes', nodes);
 
+  // const organization: Organization = useSelector(
+  //   ({ organizations }: RootState) =>
+  //     organizationSelector({ organizations }, { orgId }),
+  // );
+
+  // const groupInviteInfo = useSelector(
+  //   ({ swipe }: RootState) => swipe.groupInviteInfo,
+  // );
+
+  // const analyticsPermissionType = useSelector(({ auth }: RootState) =>
+  //   getAnalyticsPermissionType(auth, organization),
+  // );
+  // useAnalytics(['community', 'members'], {
+  //   screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+  // });
   const { t } = useTranslation('groupsMembers');
 
-  async function load() {
-    setPagination({ hasNextPage: true, page: 1 });
-    // TODO: Get org members sorted alphabetically
-    await dispatch(getOrganizationMembers(organization.id));
-    setPagination(
-      getPagination(
-        { meta: { total: 100 }, query: { page: { offset: 0 } } },
-        members.length,
-      ),
-    );
-  }
-  async function loadNextPage() {
-    const query = {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * pagination.page,
-      },
-    };
-    const members = await dispatch(getOrganizationMembers(orgId, query));
-    // TODO: Get the correct total number of members
-    setPagination(
-      getPagination({ meta: { total: 100 }, query }, members.length),
-    );
-  }
-  useEffect(() => {
-    load();
-  }, []);
-
-  async function handleInvite() {
-    if (orgIsUserCreated(organization)) {
-      const url = getCommunityUrl(organization.community_url);
-      const code = organization.community_code;
-
-      const { action } = await Share.share({
-        message: t('sendInviteMessage', { url, code }),
+  // async function load() {
+  // setPagination({ hasNextPage: true, page: 1 });
+  // // TODO: Get org members sorted alphabetically
+  // await dispatch(getOrganizationMembers(organization.id));
+  // setPagination(
+  //   getPagination(
+  //     { meta: { total: 100 }, query: { page: { offset: 0 } } },
+  //     members.length,
+  //   ),
+  // );
+  // }
+  const handleOnEndReached = async () => {
+    // setPaging(true);
+    console.log('paging...');
+    try {
+      await fetchMore({
+        variables: { after: endCursor },
+        updateQuery: (prev, { fetchMoreResult }) =>
+          fetchMoreResult
+            ? {
+                ...prev,
+                ...fetchMoreResult,
+                community: {
+                  ...prev.community,
+                  ...fetchMoreResult.community,
+                  people: {
+                    ...prev.community.people,
+                    ...fetchMoreResult.community.people,
+                    nodes: [
+                      ...(prev.community.people.nodes || []),
+                      ...(fetchMoreResult.community.people.nodes || []),
+                    ],
+                  },
+                },
+              }
+            : prev,
       });
-      if (action === Share.sharedAction) {
-        dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
-        if (groupInviteInfo) {
-          Alert.alert('', t('invited', { orgName: organization.name }));
-          dispatch(removeGroupInviteInfo());
-        }
-      }
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
-          organization: organization.id ? organization : undefined,
-        }),
-      );
+    } catch (e) {
+      // setPagingError(true);
+    } finally {
+      // setPaging(false);
     }
-  }
+  };
+  // useEffect(() => {
+  //   load();
+  // }, []);
+
+  // async function handleInvite() {
+  //   if (orgIsUserCreated(organization)) {
+  //     const url = getCommunityUrl(organization.community_url);
+  //     const code = organization.community_code;
+
+  //     const { action } = await Share.share({
+  //       message: t('sendInviteMessage', { url, code }),
+  //     });
+  //     if (action === Share.sharedAction) {
+  //       dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
+  //       if (groupInviteInfo) {
+  //         Alert.alert('', t('invited', { orgName: organization.name }));
+  //         dispatch(removeGroupInviteInfo());
+  //       }
+  //     }
+  //   } else {
+  //     dispatch(
+  //       navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
+  //         organization: organization.id ? organization : undefined,
+  //       }),
+  //     );
+  //   }
+  // }
 
   return (
     <View style={styles.container}>
       <StatusBar {...theme.statusBar.darkContent} />
       <FlatList
-        data={members}
+        data={[]}
         keyExtractor={keyExtractorId}
         ListHeaderComponent={() => (
           <SafeAreaView>
-            <Text style={}>
+            <Text style={{}}>
               {/* TODO: Get the correct total number of members */}
-              24 members
+              {memberCount} 24 members
             </Text>
           </SafeAreaView>
         )}
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
-          <CommunityMemberItem
-            organization={organization}
-            person={item}
-            onSelect={person =>
-              dispatch(navToPersonScreen(person, organization))
-            }
-          />
+          <></>
+          // <CommunityMemberItem
+          //   organization={organization}
+          //   person={item}
+          //   onSelect={person =>
+          //     dispatch(navToPersonScreen(person, organization))
+          //   }
+          // />
         )}
         refreshControl={
           <RefreshControl
-            refreshing={refreshing}
+            refreshing={false}
             onRefresh={async () => {
-              try {
-                setRefreshing(true);
-                await load();
-              } finally {
-                setRefreshing(false);
-              }
+              // try {
+              //   setRefreshing(true);
+              //   await load();
+              // } finally {
+              //   setRefreshing(false);
+              // }
             }}
           />
         }
-        ListFooterComponent={
-          pagination.hasNextPage ? (
-            <LoadMore onPress={loadNextPage} />
-          ) : (
-            undefined
-          )
-        }
+        // ListFooterComponent={
+        // pagination.hasNextPage ? (
+        //   <LoadMore onPress={loadNextPage} />
+        // ) : (
+        //   undefined
+        // )
+        // }
+        onEndReachedThreshold={0.2}
+        onEndReached={handleOnEndReached}
       />
-      <BottomButton onPress={handleInvite} text={t('invite')} />
+      {/* <BottomButton onPress={handleInvite} text={t('invite')} /> */}
       <SafeAreaView style={styles.closeSafe}>
         <View style={styles.closeWrap}>
           <IconButton
@@ -187,5 +226,5 @@ export const CommunityMembers = () => {
   );
 };
 
-export default CommunityMembers;
+export default CommunityMembersScreen;
 export const COMMUNITY_MEMBERS = 'nav/COMMUNITY_MEMBERS';
