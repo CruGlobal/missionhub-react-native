@@ -79,7 +79,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     GetPersonVariables
   >(GET_PERSON, {
     variables: { id: personId },
-    onCompleted: data => setPerson(data.person),
+    onCompleted: data => data && setPerson(data.person),
     skip: !personId,
   });
 

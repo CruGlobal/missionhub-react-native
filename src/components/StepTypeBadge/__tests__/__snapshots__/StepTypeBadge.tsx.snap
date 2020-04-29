@@ -140,6 +140,49 @@ exports[`StepTypeBadge should render icon props 1`] = `
 </View>
 `;
 
+exports[`StepTypeBadge should render large icons 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+      undefined,
+    ]
+  }
+>
+  <SvgMock
+    color="#B4B6BA"
+    height={32}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#B4B6BA",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "paddingLeft": 4,
+          },
+          undefined,
+        ],
+      ]
+    }
+  >
+    SHARE STEP
+  </Text>
+</View>
+`;
+
 exports[`StepTypeBadge should render text not uppercase 1`] = `
 <View
   style={
@@ -168,9 +211,8 @@ exports[`StepTypeBadge should render text not uppercase 1`] = `
         Array [
           Object {
             "color": "#B4B6BA",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "letterSpacing": 1,
+            "fontSize": 14,
+            "fontWeight": "normal",
             "paddingLeft": 4,
           },
           undefined,
@@ -474,6 +516,7 @@ exports[`StepTypeBadge should render vertically 1`] = `
             "fontSize": 16,
             "fontWeight": "bold",
             "letterSpacing": 1,
+            "marginTop": 7,
             "paddingLeft": 4,
           },
           undefined,

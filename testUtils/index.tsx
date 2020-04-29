@@ -27,6 +27,7 @@ interface ContextParams {
   store?: MockStore;
   navParams?: NavigationParams;
   mocks?: IMocks;
+  initialApolloState?: unknown;
   noWrappers?: boolean;
 }
 
@@ -34,10 +35,11 @@ export const createTestContext = ({
   initialState,
   store = createThunkStore(initialState),
   navParams,
-  mocks: mocks = {},
+  mocks,
+  initialApolloState,
   noWrappers = false,
 }: ContextParams = {}) => {
-  const mockApolloClient = createApolloMockClient(mocks);
+  const mockApolloClient = createApolloMockClient(mocks, initialApolloState);
 
   const navigation = createNavigationProp(navParams);
 

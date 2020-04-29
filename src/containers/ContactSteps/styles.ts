@@ -10,15 +10,24 @@ export default StyleSheet.create({
   list: {
     paddingTop: 16,
   },
+  completedStepsButtonWrap: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   completedStepsButton: {
     backgroundColor: theme.transparent,
     height: 36,
     borderColor: theme.inactiveColor,
     borderWidth: theme.buttonBorderWidth,
-    marginHorizontal: 68,
+    minWidth: 250,
+    marginHorizontal: 20,
     marginVertical: 15,
   },
   completedStepsButtonText: {
+    textAlign: 'center',
+    fontWeight: '500',
+    backgroundColor: 'rgba(0,0,0,0)',
     color: theme.inactiveColor,
     fontSize: 14,
     letterSpacing: 1,
