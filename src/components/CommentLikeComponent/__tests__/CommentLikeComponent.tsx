@@ -9,28 +9,27 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { toggleLike } from '../../../actions/celebration';
 import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import { Organization } from '../../../reducers/organizations';
 import {
-  CELEBRATE_ITEM_FRAGMENT,
-  COMMUNITY_PERSON_FRAGMENT,
-} from '../../../components/CelebrateItem/queries';
-import {
-  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
-  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
-} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  COMMUNITY_FEED_PERSON_FRAGMENT,
+} from '../../../components/CommunityFeedItem/queries';
+import { CommunityFeedPerson } from '../../CommunityFeedItem/__generated__/CommunityFeedPerson';
+import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import { CommentLikeComponent } from '..';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');
 
-const mePerson = mockFragment<CelebrateItemPerson>(COMMUNITY_PERSON_FRAGMENT);
-const otherPerson = mockFragment<CelebrateItemPerson>(
-  COMMUNITY_PERSON_FRAGMENT,
+const mePerson = mockFragment<CommunityFeedPerson>(
+  COMMUNITY_FEED_PERSON_FRAGMENT,
+);
+const otherPerson = mockFragment<CommunityFeedPerson>(
+  COMMUNITY_FEED_PERSON_FRAGMENT,
 );
 const myId = mePerson.id;
-const organization: Organization = { id: '567' };
-const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const orgId = '567';
+const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 
 const toggleLikeResponse = { type: 'item was liked' };
 const trackActionResponse = { type: 'tracked action' };
@@ -48,8 +47,8 @@ beforeEach(() => {
 it('renders nothing with no subject person', () => {
   renderWithContext(
     <CommentLikeComponent
-      event={{ ...event, subjectPerson: null }}
-      organization={organization}
+      item={{ ...item, subjectPerson: null }}
+      orgId={orgId}
       onRefresh={onRefresh}
     />,
     {
@@ -62,11 +61,11 @@ describe('with subject person', () => {
   it('renders for me', () => {
     renderWithContext(
       <CommentLikeComponent
-        event={{
-          ...event,
+        item={{
+          ...item,
           subjectPerson: mePerson,
         }}
-        organization={organization}
+        orgId={orgId}
         onRefresh={onRefresh}
       />,
       {
@@ -78,11 +77,11 @@ describe('with subject person', () => {
   it('renders for someone else', () => {
     renderWithContext(
       <CommentLikeComponent
-        event={{
-          ...event,
+        item={{
+          ...item,
           subjectPerson: otherPerson,
         }}
-        organization={organization}
+        orgId={orgId}
         onRefresh={onRefresh}
       />,
       {
@@ -94,12 +93,12 @@ describe('with subject person', () => {
   it('renders when not liked', () => {
     renderWithContext(
       <CommentLikeComponent
-        event={{
-          ...event,
+        item={{
+          ...item,
           subjectPerson: otherPerson,
           liked: false,
         }}
-        organization={organization}
+        orgId={orgId}
         onRefresh={onRefresh}
       />,
       {
@@ -111,12 +110,18 @@ describe('with subject person', () => {
   it('renders 0 comments_count', () => {
     renderWithContext(
       <CommentLikeComponent
-        event={{
-          ...event,
+        item={{
+          ...item,
           subjectPerson: otherPerson,
-          commentsCount: 0,
+          comments: {
+            ...item.comments,
+            pageInfo: {
+              ...item.comments.pageInfo,
+              totalCount: 0,
+            },
+          },
         }}
-        organization={organization}
+        orgId={orgId}
         onRefresh={onRefresh}
       />,
       {
@@ -128,12 +133,12 @@ describe('with subject person', () => {
   it('renders 0 likes_count', () => {
     renderWithContext(
       <CommentLikeComponent
-        event={{
-          ...event,
+        item={{
+          ...item,
           subjectPerson: mePerson,
           likesCount: 0,
         }}
-        organization={organization}
+        orgId={orgId}
         onRefresh={onRefresh}
       />,
       {
@@ -154,12 +159,12 @@ describe('with subject person', () => {
       beforeEach(() => {
         screen = renderWithContext(
           <CommentLikeComponent
-            event={{
-              ...event,
+            item={{
+              ...item,
               subjectPerson: mePerson,
               liked: false,
             }}
-            organization={organization}
+            orgId={orgId}
             onRefresh={onRefresh}
           />,
           {
@@ -181,11 +186,7 @@ describe('with subject person', () => {
       it('toggles like', async () => {
         await fireEvent.press(screen.getByTestId('LikeIconButton'));
 
-        expect(toggleLike).toHaveBeenCalledWith(
-          event.id,
-          false,
-          organization.id,
-        );
+        expect(toggleLike).toHaveBeenCalledWith(item.id, false, orgId);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
         expect(screen.store.getActions()).toEqual([
           toggleLikeResponse,
@@ -205,12 +206,12 @@ describe('with subject person', () => {
       beforeEach(() => {
         screen = renderWithContext(
           <CommentLikeComponent
-            event={{
-              ...event,
+            item={{
+              ...item,
               subjectPerson: mePerson,
               liked: true,
             }}
-            organization={organization}
+            orgId={orgId}
             onRefresh={onRefresh}
           />,
           {
@@ -232,11 +233,7 @@ describe('with subject person', () => {
       it('toggles like', async () => {
         await fireEvent.press(screen.getByTestId('LikeIconButton'));
 
-        expect(toggleLike).toHaveBeenCalledWith(
-          event.id,
-          true,
-          organization.id,
-        );
+        expect(toggleLike).toHaveBeenCalledWith(item.id, true, orgId);
         expect(trackActionWithoutData).not.toHaveBeenCalled();
         expect(screen.store.getActions()).toEqual([toggleLikeResponse]);
       });

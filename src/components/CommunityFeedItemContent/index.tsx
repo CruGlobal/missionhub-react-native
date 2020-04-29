@@ -7,7 +7,10 @@ import { Text, Button } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
-import { getFirstNameAndLastInitial } from '../../utils/common';
+import {
+  getFirstNameAndLastInitial,
+  mapPostTypeToFeedType,
+} from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
@@ -22,14 +25,12 @@ import styles from './styles';
 
 export interface CommunityFeedItemContentProps {
   item: CommunityFeedItem;
-  itemType: FeedItemSubjectTypeEnum;
   organization: GetCommunities_communities_nodes;
   style?: StyleProp<ViewStyle>;
 }
 
 export const CommunityFeedItemContent = ({
   item,
-  itemType,
   organization,
   style,
 }: CommunityFeedItemContentProps) => {
@@ -37,6 +38,19 @@ export const CommunityFeedItemContent = ({
   const dispatch = useDispatch();
 
   const { subject, subjectPerson, subjectPersonName } = item;
+  const getFeedItemType = (subjectType: string) => {
+    switch (subjectType) {
+      case 'CommunityChallenge':
+        return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
+      case 'Step':
+        return FeedItemSubjectTypeEnum.STEP;
+      case 'Post':
+        return mapPostTypeToFeedType((subject as CommunityFeedPost).postType);
+      default:
+        return FeedItemSubjectTypeEnum.STORY;
+    }
+  };
+  const itemType = getFeedItemType(subject.__typename);
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(

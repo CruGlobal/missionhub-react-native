@@ -1,21 +1,21 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import CelebrateItemName from '../index';
+import { CommunityFeedItemName } from '../index';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
-import { Organization } from '../../../reducers/organizations';
-import { COMMUNITY_PERSON_FRAGMENT } from '../../CelebrateItem/queries';
-import { GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { COMMUNITY_FEED_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
+import { CommunityFeedPerson } from '../../CommunityFeedItem/__generated__/CommunityFeedPerson';
 
 jest.mock('../../../actions/person');
 
-const person = mockFragment<CelebrateItemPerson>(COMMUNITY_PERSON_FRAGMENT);
+const person = mockFragment<CommunityFeedPerson>(
+  COMMUNITY_FEED_PERSON_FRAGMENT,
+);
 const name = `${person.firstName} ${person.lastName}`;
-const organization: Organization = {
-  id: '235234',
-};
+const personId = person.id;
+const orgId = '235234';
 
 const navToPersonScreenResult = { type: 'navigated to person screen' };
 
@@ -25,10 +25,10 @@ beforeEach(() => {
 
 it('renders correctly without name', () => {
   renderWithContext(
-    <CelebrateItemName
+    <CommunityFeedItemName
       name={null}
-      person={person}
-      organization={organization}
+      personId={personId}
+      orgId={orgId}
       pressable={true}
     />,
   ).snapshot();
@@ -36,10 +36,10 @@ it('renders correctly without name', () => {
 
 it('renders correctly with name', () => {
   renderWithContext(
-    <CelebrateItemName
+    <CommunityFeedItemName
       name={name}
-      person={person}
-      organization={organization}
+      personId={personId}
+      orgId={orgId}
       pressable={true}
     />,
   ).snapshot();
@@ -47,10 +47,10 @@ it('renders correctly with name', () => {
 
 it('renders correctly not pressable', () => {
   renderWithContext(
-    <CelebrateItemName
+    <CommunityFeedItemName
       name={name}
-      person={person}
-      organization={organization}
+      personId={personId}
+      orgId={orgId}
       pressable={false}
     />,
   ).snapshot();
@@ -58,16 +58,19 @@ it('renders correctly not pressable', () => {
 
 it('navigates to person screen', () => {
   const { store, getByTestId } = renderWithContext(
-    <CelebrateItemName
+    <CommunityFeedItemName
       name={name}
-      person={person}
-      organization={organization}
+      personId={personId}
+      orgId={orgId}
       pressable={true}
     />,
   );
 
   fireEvent.press(getByTestId('NameButton'));
 
-  expect(navToPersonScreen).toHaveBeenCalledWith(person, organization);
+  expect(navToPersonScreen).toHaveBeenCalledWith(
+    { id: personId },
+    { id: orgId },
+  );
   expect(store.getActions()).toEqual([navToPersonScreenResult]);
 });

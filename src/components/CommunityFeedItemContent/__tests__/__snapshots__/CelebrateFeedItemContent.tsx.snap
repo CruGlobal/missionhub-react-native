@@ -1,16 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -99,16 +90,7 @@ exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
 `;
 
 exports[`CelebrateItemContent message renders completed challenge event 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -196,50 +178,8 @@ exports[`CelebrateItemContent message renders completed challenge event 1`] = `
 </View>
 `;
 
-exports[`CelebrateItemContent message renders created community event 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. created Celebration Community!
-  </Text>
-</View>
-`;
-
 exports[`CelebrateItemContent message renders event with no subject person name 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -257,286 +197,13 @@ exports[`CelebrateItemContent message renders event with no subject person name 
       ]
     }
   >
-    A MissionHub user completed a Step of Faith with a Forgiven person.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event discipleship 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. had a Discipleship Conversation.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event gospel 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. had a Gospel Presentation.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event holy spirit 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. had a Holy Spirit Presentation.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event not found 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. had a .
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event personal decision 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. saw someone make a Personal Decision.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event something cool 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. saw something cool happen with someone.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders interaction event spiritual 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. had a Spiritual Conversation.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent message renders joined community event 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
+    Post!
   </Text>
 </View>
 `;
 
 exports[`CelebrateItemContent message renders step of faith event with stage 1 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -560,16 +227,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 1 1
 `;
 
 exports[`CelebrateItemContent message renders step of faith event with stage 2 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -593,16 +251,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 2 1
 `;
 
 exports[`CelebrateItemContent message renders step of faith event with stage 3 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -626,16 +275,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 3 1
 `;
 
 exports[`CelebrateItemContent message renders step of faith event with stage 4 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -659,16 +299,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 4 1
 `;
 
 exports[`CelebrateItemContent message renders step of faith event with stage 5 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -692,16 +323,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 5 1
 `;
 
 exports[`CelebrateItemContent message renders step of faith event with stage Not Sure 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -725,16 +347,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage Not
 `;
 
 exports[`CelebrateItemContent message renders step of faith event without stage 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -757,50 +370,8 @@ exports[`CelebrateItemContent message renders step of faith event without stage 
 </View>
 `;
 
-exports[`CelebrateItemContent message renders story 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Once Upon a Time....
-  </Text>
-</View>
-`;
-
 exports[`CelebrateItemContent renders event for subject=me, liked=false, like count=0 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -817,23 +388,12 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
         },
       ]
     }
-  >
-    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;
 
 exports[`CelebrateItemContent renders event for subject=me, liked=false, like count>0 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -850,23 +410,12 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
         },
       ]
     }
-  >
-    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;
 
 exports[`CelebrateItemContent renders event for subject=me, liked=true, like count>0 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -883,23 +432,12 @@ exports[`CelebrateItemContent renders event for subject=me, liked=true, like cou
         },
       ]
     }
-  >
-    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;
 
 exports[`CelebrateItemContent renders event for subject=other, liked=false, like count=0 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -916,23 +454,12 @@ exports[`CelebrateItemContent renders event for subject=other, liked=false, like
         },
       ]
     }
-  >
-    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;
 
 exports[`CelebrateItemContent renders event for subject=other, liked=true, like count>0 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -949,23 +476,12 @@ exports[`CelebrateItemContent renders event for subject=other, liked=true, like 
         },
       ]
     }
-  >
-    John S. joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;
 
 exports[`CelebrateItemContent renders event with no subjectPerson and no subjectPersonName 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -982,23 +498,12 @@ exports[`CelebrateItemContent renders event with no subjectPerson and no subject
         },
       ]
     }
-  >
-    A MissionHub user joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;
 
 exports[`CelebrateItemContent renders event with no subjectPerson, defaults to subjectPersonName 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "marginTop": 14,
-      },
-      undefined,
-    ]
-  }
->
+<View>
   <Text
     style={
       Array [
@@ -1015,8 +520,6 @@ exports[`CelebrateItemContent renders event with no subjectPerson, defaults to s
         },
       ]
     }
-  >
-    Hayden Zieme joined Celebration Community! Now you can see and celebrate the steps of faith they are taking.
-  </Text>
+  />
 </View>
 `;

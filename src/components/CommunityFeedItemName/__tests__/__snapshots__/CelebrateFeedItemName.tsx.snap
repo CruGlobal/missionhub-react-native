@@ -15,7 +15,12 @@ exports[`renders correctly not pressable 1`] = `
           "color": "#007398",
           "fontSize": 16,
         },
-        undefined,
+        Object {
+          "color": "#505256",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "lineHeight": 20,
+        },
       ],
     ]
   }
@@ -69,7 +74,12 @@ exports[`renders correctly with name 1`] = `
               "color": "#007398",
               "fontSize": 16,
             },
-            undefined,
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 20,
+            },
           ],
         ]
       }
@@ -95,7 +105,12 @@ exports[`renders correctly without name 1`] = `
           "color": "#007398",
           "fontSize": 16,
         },
-        undefined,
+        Object {
+          "color": "#505256",
+          "fontSize": 16,
+          "fontWeight": "bold",
+          "lineHeight": 20,
+        },
       ],
     ]
   }

@@ -1,29 +1,23 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import {
-  CELEBRATEABLE_TYPES,
-  INTERACTION_TYPES,
-  GLOBAL_COMMUNITY_ID,
-} from '../../../constants';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import {
-  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem,
-  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson_communityPermissions as CommunityPermission,
-} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 import { Organization } from '../../../reducers/organizations';
 import {
-  CELEBRATE_ITEM_FRAGMENT,
   COMMUNITY_PERMISSIONS_FRAGMENT,
+  COMMUNITY_FEED_ITEM_FRAGMENT,
 } from '../../CommunityFeedItem/queries';
-import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
+import { CommunityPermissions } from '../../CommunityFeedItem/__generated__/CommunityPermissions';
+import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 
-import CelebrateItemContent, { CelebrateItemContentProps } from '..';
+import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
@@ -32,28 +26,34 @@ jest.mock('../../../actions/challenges');
 const myId = '123';
 const otherId = '456';
 const organization: Organization = { id: '111', name: 'Celebration Community' };
-const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
-const communityPermissions = mockFragment<CommunityPermission>(
+const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
+const communityPermissions = mockFragment<CommunityPermissions>(
   COMMUNITY_PERMISSIONS_FRAGMENT,
 );
-const meEvent: CelebrateItem = {
-  ...event,
+const meItem: CommunityFeedItem = {
+  ...item,
   subjectPerson: {
     __typename: 'Person',
     id: myId,
     firstName: 'John',
     lastName: 'Smith',
-    communityPermissions,
+    communityPermissions: {
+      __typename: 'CommunityPermissionConnection',
+      nodes: [communityPermissions],
+    },
   },
 };
-const otherEvent: CelebrateItem = {
-  ...event,
+const otherItem: CommunityFeedItem = {
+  ...item,
   subjectPerson: {
     __typename: 'Person',
     id: otherId,
     firstName: 'John',
     lastName: 'Smith',
-    communityPermissions,
+    communityPermissions: {
+      __typename: 'CommunityPermissionConnection',
+      nodes: [communityPermissions],
+    },
   },
 };
 
@@ -73,12 +73,12 @@ beforeEach(() => {
 
 describe('CelebrateItemContent', () => {
   const testEvent = (
-    e: CelebrateItem,
-    otherProps: Partial<CelebrateItemContentProps> = {},
+    item: CommunityFeedItem,
+    otherProps: Partial<CommunityFeedItemContentProps> = {},
   ) => {
     renderWithContext(
-      <CelebrateItemContent
-        event={e}
+      <CommunityFeedItemContent
+        item={item}
         organization={organization}
         {...otherProps}
       />,
@@ -89,12 +89,12 @@ describe('CelebrateItemContent', () => {
   };
 
   it('renders event with no subjectPerson, defaults to subjectPersonName', () =>
-    testEvent({ ...event, subjectPerson: null }));
+    testEvent({ ...item, subjectPerson: null }));
 
   it('renders event with no subjectPerson and no subjectPersonName', () => {
     testEvent(
       {
-        ...event,
+        ...item,
         subjectPerson: null,
         subjectPersonName: null,
       },
@@ -104,7 +104,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=me, liked=true, like count>0', () => {
     testEvent({
-      ...meEvent,
+      ...meItem,
       likesCount: 1,
       liked: true,
     });
@@ -112,7 +112,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=me, liked=false, like count>0', () => {
     testEvent({
-      ...meEvent,
+      ...meItem,
       likesCount: 1,
       liked: false,
     });
@@ -120,7 +120,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=me, liked=false, like count=0', () => {
     testEvent({
-      ...meEvent,
+      ...meItem,
       likesCount: 0,
       liked: false,
     });
@@ -128,7 +128,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=other, liked=true, like count>0', () => {
     testEvent({
-      ...otherEvent,
+      ...otherItem,
       likesCount: 1,
       liked: true,
     });
@@ -136,36 +136,48 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=other, liked=false, like count=0', () => {
     testEvent({
-      ...otherEvent,
+      ...otherItem,
       likesCount: 0,
       liked: false,
     });
   });
 
   describe('message', () => {
-    const messageBaseEvent: CelebrateItem = {
-      ...meEvent,
+    const messageBaseItem: CommunityFeedItem = {
+      ...meItem,
       likesCount: 0,
       liked: false,
     };
 
     it('renders event with no subject person name', () => {
       testEvent({
-        ...messageBaseEvent,
+        ...messageBaseItem,
         subjectPerson: null,
         subjectPersonName: null,
-        celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
-        adjectiveAttributeValue: '3',
+        subject: {
+          __typename: 'Post',
+          id: '12',
+          content: 'Post!',
+          mediaContentType: null,
+          mediaExpiringUrl: null,
+          postType: PostTypeEnum.story,
+        },
       });
     });
 
     describe('renders step of faith event with stage', () => {
       const testEventStage = (stageNum: string) =>
         testEvent({
-          ...messageBaseEvent,
-          celebrateableType:
-            CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
-          adjectiveAttributeValue: stageNum,
+          ...messageBaseItem,
+          subject: {
+            __typename: 'Step',
+            id: '12',
+            title: 'Step of Faith',
+            receiverStageAtCompletion: {
+              __typename: 'Stage',
+              id: stageNum,
+            },
+          },
         });
 
       it('1', () => testEventStage('1'));
@@ -179,103 +191,78 @@ describe('CelebrateItemContent', () => {
 
     it('renders step of faith event without stage', () => {
       testEvent({
-        ...messageBaseEvent,
-        celebrateableType: CommunityCelebrationCelebrateableEnum.COMPLETED_STEP,
-        adjectiveAttributeValue: null,
+        ...messageBaseItem,
+        subject: {
+          __typename: 'Step',
+          id: '12',
+          title: 'Step of Faith',
+          receiverStageAtCompletion: null,
+        },
       });
-    });
-
-    describe('renders interaction event', () => {
-      const testEventInteraction = (interaction: string) =>
-        testEvent({
-          ...messageBaseEvent,
-          celebrateableType:
-            CommunityCelebrationCelebrateableEnum.COMPLETED_INTERACTION,
-          adjectiveAttributeValue: interaction,
-        });
-
-      it('personal decision', () =>
-        testEventInteraction(
-          INTERACTION_TYPES.MHInteractionTypePersonalDecision.id,
-        ));
-      it('something cool', () =>
-        testEventInteraction(
-          INTERACTION_TYPES.MHInteractionTypeSomethingCoolHappened.id,
-        ));
-      it('spiritual', () =>
-        testEventInteraction(
-          INTERACTION_TYPES.MHInteractionTypeSpiritualConversation.id,
-        ));
-      it('gospel', () =>
-        testEventInteraction(
-          INTERACTION_TYPES.MHInteractionTypeGospelPresentation.id,
-        ));
-      it('holy spirit', () =>
-        testEventInteraction(
-          INTERACTION_TYPES.MHInteractionTypeHolySpiritConversation.id,
-        ));
-      it('discipleship', () =>
-        testEventInteraction(
-          INTERACTION_TYPES.MHInteractionTypeDiscipleshipConversation.id,
-        ));
-      it('not found', () => testEventInteraction('not found'));
     });
 
     it('renders accepted challenge event', () => {
       testEvent({
-        ...messageBaseEvent,
-        celebrateableType:
-          CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
-        changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.accepted,
-        objectDescription: 'Invite a friend to church',
+        ...messageBaseItem,
+        subject: {
+          __typename: 'CommunityChallenge',
+          id: '12',
+          title: 'Invite a friend to church',
+          acceptedCommunityChallengesList: [
+            {
+              __typename: 'AcceptedCommunityChallenge',
+              id: '1',
+              acceptedAt: 'asdfasd',
+              completedAt: null,
+            },
+          ],
+        },
       });
     });
 
     it('renders completed challenge event', () => {
       testEvent({
-        ...messageBaseEvent,
-        celebrateableType:
-          CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
-        changedAttributeName: CELEBRATEABLE_TYPES.challengeItemTypes.completed,
-        objectDescription: 'Invite a friend to church',
-      });
-    });
-
-    it('renders created community event', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateableType:
-          CommunityCelebrationCelebrateableEnum.CREATED_COMMUNITY,
-      });
-    });
-
-    it('renders joined community event', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateableType:
-          CommunityCelebrationCelebrateableEnum.JOINED_COMMUNITY,
-      });
-    });
-
-    it('renders story', () => {
-      testEvent({
-        ...messageBaseEvent,
-        celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
-        objectDescription: 'Once Upon a Time....',
+        ...messageBaseItem,
+        subject: {
+          __typename: 'CommunityChallenge',
+          id: '12',
+          title: 'Invite a friend to church',
+          acceptedCommunityChallengesList: [
+            {
+              __typename: 'AcceptedCommunityChallenge',
+              id: '1',
+              acceptedAt: 'asdfasd',
+              completedAt: 'asdfas',
+            },
+          ],
+        },
       });
     });
   });
 });
 
 describe('onPressChallengeLink', () => {
+  const challengeItem = {
+    ...item,
+    subject: {
+      __typename: 'CommunityChallenge',
+      id: '12',
+      title: 'Invite a friend to church',
+      acceptedCommunityChallengesList: [
+        {
+          __typename: 'AcceptedCommunityChallenge',
+          id: '1',
+          acceptedAt: 'asdfasd',
+          completedAt: 'asdfas',
+        },
+      ],
+    },
+  };
+
   it('navigates to challenge detail screen', async () => {
     const { getByTestId, store } = renderWithContext(
-      <CelebrateItemContent
-        event={{
-          ...event,
-          celebrateableType:
-            CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
-        }}
+      <CommunityFeedItemContent
+        item={challengeItem}
         organization={organization}
       />,
       { initialState },
@@ -283,7 +270,7 @@ describe('onPressChallengeLink', () => {
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
-      challengeId: event.adjectiveAttributeValue,
+      challengeId: challengeItem.subject.id,
       orgId: organization.id,
     });
     expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
@@ -295,12 +282,8 @@ describe('onPressChallengeLink', () => {
 
   it('navigates to challenge detail screen | Global Community Challenge', async () => {
     const { getByTestId, store } = renderWithContext(
-      <CelebrateItemContent
-        event={{
-          ...event,
-          celebrateableType:
-            CommunityCelebrationCelebrateableEnum.COMMUNITY_CHALLENGE,
-        }}
+      <CommunityFeedItemContent
+        item={challengeItem}
         organization={{ name: 'MissionHub Community', id: GLOBAL_COMMUNITY_ID }}
       />,
       { initialState },
@@ -308,7 +291,7 @@ describe('onPressChallengeLink', () => {
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
-      challengeId: event.adjectiveAttributeValue,
+      challengeId: item.subject.id,
       orgId: GLOBAL_COMMUNITY_ID,
     });
     expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);

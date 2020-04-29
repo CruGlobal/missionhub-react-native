@@ -8,6 +8,8 @@ import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
+import { PostTypeEnum } from '../../../__generated__/globalTypes';
 
 import CommentIcon from './commentIcon.svg';
 import HeartActiveIcon from './heartActiveIcon.svg';
@@ -20,14 +22,12 @@ export interface CommentLikeComponentProps {
   orgId: string;
   item: CommunityFeedItem;
   onRefresh: () => void;
-  isPrayer: boolean;
 }
 
 export const CommentLikeComponent = ({
   orgId,
   item,
   onRefresh,
-  isPrayer,
 }: CommentLikeComponentProps) => {
   const {
     id,
@@ -36,8 +36,12 @@ export const CommentLikeComponent = ({
     },
     liked,
     likesCount,
+    subject,
     subjectPerson,
   } = item;
+  const isPrayer =
+    subject.__typename === 'Post' &&
+    (subject as CommunityFeedPost).postType === PostTypeEnum.prayer_request;
 
   const dispatch = useDispatch();
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);

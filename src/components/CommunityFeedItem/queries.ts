@@ -55,6 +55,27 @@ export const COMMUNITY_FEED_POST_FRAGMENT = gql`
   }
 `;
 
+export const CELEBRATE_ITEM_FRAGMENT = gql`
+  fragment CelebrateItem on CommunityCelebrationItem {
+    id
+    adjectiveAttributeName
+    adjectiveAttributeValue
+    celebrateableId
+    celebrateableType
+    changedAttributeName
+    changedAttributeValue
+    commentsCount
+    liked
+    likesCount
+    objectDescription
+    subjectPerson {
+      ...CommunityFeedPerson
+    }
+    subjectPersonName
+  }
+  ${COMMUNITY_FEED_PERSON_FRAGMENT}
+`;
+
 export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
   fragment CommunityFeedItem on FeedItem {
     id

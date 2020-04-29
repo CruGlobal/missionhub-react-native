@@ -124,7 +124,6 @@ const CelebrateDetailScreen = ({
             item={event}
             orgId={organization.id}
             onRefresh={onRefreshCelebrateItem}
-            isPrayer={false} //TODO: use CommunityFeedItem props to determine this
           />
           <BackButton
             style={styles.backButtonStyle}

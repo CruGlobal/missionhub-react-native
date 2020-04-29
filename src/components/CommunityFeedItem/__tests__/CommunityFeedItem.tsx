@@ -1,3 +1,5 @@
+/*eslint max-lines: 0 */
+
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
@@ -14,22 +16,43 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScre
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { Organization } from '../../../reducers/organizations';
 import {
-  GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItemData,
-  GetCelebrateFeed_community_celebrationItems_nodes_subjectPerson as CelebrateItemPerson,
-} from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
-import { CELEBRATE_ITEM_FRAGMENT, COMMUNITY_PERSON_FRAGMENT } from '../queries';
-import { CommunityCelebrationCelebrateableEnum } from '../../../../__generated__/globalTypes';
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  COMMUNITY_FEED_POST_FRAGMENT,
+  COMMUNITY_FEED_STEP_FRAGMENT,
+  COMMUNITY_FEED_CHALLENGE_FRAGMENT,
+  COMMUNITY_FEED_PERSON_FRAGMENT,
+} from '../queries';
+import { CommunityFeedItem as CommunityFeedItemFragment } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CommunityFeedPerson } from '../../CommunityFeedItem/__generated__/CommunityFeedPerson';
+import { CommunityFeedStep } from '../__generated__/CommunityFeedStep';
+import { CommunityFeedChallenge } from '../__generated__/CommunityFeedChallenge';
+import { CommunityFeedPost } from '../__generated__/CommunityFeedPost';
+import { DELETE_POST, REPORT_POST } from '../queries';
 
-import CelebrateItem, { DELETE_STORY, REPORT_STORY } from '..';
+import { CommunityFeedItem } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+jest.mock('../../Avatar', () => 'Avatar');
 
 const globalOrg: Organization = { id: GLOBAL_COMMUNITY_ID };
 const organization: Organization = { id: '3', name: 'Communidad' };
 
-const event = mockFragment<CelebrateItemData>(CELEBRATE_ITEM_FRAGMENT);
-const mePerson = mockFragment<CelebrateItemPerson>(COMMUNITY_PERSON_FRAGMENT);
+const item = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+);
+const mePerson = mockFragment<CommunityFeedPerson>(
+  COMMUNITY_FEED_PERSON_FRAGMENT,
+);
+const postSubject = mockFragment<CommunityFeedPost>(
+  COMMUNITY_FEED_POST_FRAGMENT,
+);
+const stepSubject = mockFragment<CommunityFeedStep>(
+  COMMUNITY_FEED_STEP_FRAGMENT,
+);
+const challengeSubject = mockFragment<CommunityFeedChallenge>(
+  COMMUNITY_FEED_CHALLENGE_FRAGMENT,
+);
 const myId = mePerson.id;
 
 MockDate.set('2019-08-21 12:00:00', 300);
@@ -39,11 +62,6 @@ let onClearNotification = jest.fn();
 
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
-
-const storyEvent: CelebrateItemData = {
-  ...event,
-  celebrateableType: CommunityCelebrationCelebrateableEnum.STORY,
-};
 
 const initialState = { auth: { person: { id: myId } } };
 
@@ -57,8 +75,8 @@ beforeEach(() => {
 describe('global community', () => {
   it('renders correctly', () => {
     renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={item}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -69,8 +87,8 @@ describe('global community', () => {
 
   it('renders with clear notification button correctly', () => {
     renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={item}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -80,10 +98,10 @@ describe('global community', () => {
     ).snapshot();
   });
 
-  it('renders story item correctly', () => {
+  it('renders post item correctly', () => {
     renderWithContext(
-      <CelebrateItem
-        event={storyEvent}
+      <CommunityFeedItem
+        item={{ ...item, subject: { ...postSubject, __typename: 'Post' } }}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -94,10 +112,37 @@ describe('global community', () => {
 });
 
 describe('Community', () => {
-  it('renders correctly', () => {
+  it('renders post correctly', () => {
     renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={{ ...item, subject: { ...postSubject, __typename: 'Post' } }}
+        onRefresh={onRefresh}
+        organization={organization}
+        namePressable={false}
+      />,
+      { initialState },
+    ).snapshot();
+  });
+
+  it('renders step correctly', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={{ ...item, subject: { ...stepSubject, __typename: 'Step' } }}
+        onRefresh={onRefresh}
+        organization={organization}
+        namePressable={false}
+      />,
+      { initialState },
+    ).snapshot();
+  });
+
+  it('renders challenge correctly', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={{
+          ...item,
+          subject: { ...challengeSubject, __typename: 'CommunityChallenge' },
+        }}
         onRefresh={onRefresh}
         organization={organization}
         namePressable={false}
@@ -108,23 +153,11 @@ describe('Community', () => {
 
   it('renders with clear notification button correctly', () => {
     renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={item}
         onRefresh={onRefresh}
         organization={organization}
         onClearNotification={onClearNotification}
-        namePressable={false}
-      />,
-      { initialState },
-    ).snapshot();
-  });
-
-  it('renders story item correctly', () => {
-    renderWithContext(
-      <CelebrateItem
-        event={storyEvent}
-        onRefresh={onRefresh}
-        organization={organization}
         namePressable={false}
       />,
       { initialState },
@@ -134,8 +167,8 @@ describe('Community', () => {
 
 it('renders with name pressable correctly', () => {
   renderWithContext(
-    <CelebrateItem
-      event={event}
+    <CommunityFeedItem
+      item={item}
       onRefresh={onRefresh}
       organization={organization}
       namePressable={true}
@@ -147,8 +180,8 @@ it('renders with name pressable correctly', () => {
 describe('press card', () => {
   it('not pressable in global community', () => {
     const { getByTestId } = renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={item}
         onRefresh={onRefresh}
         organization={globalOrg}
         namePressable={false}
@@ -163,8 +196,8 @@ describe('press card', () => {
 
   it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={item}
         onRefresh={onRefresh}
         organization={organization}
         namePressable={false}
@@ -175,7 +208,7 @@ describe('press card', () => {
     fireEvent.press(getByTestId('CelebrateItemPressable'));
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
-      event,
+      item,
       orgId: organization.id,
       onRefreshCelebrateItem: onRefresh,
     });
@@ -183,19 +216,20 @@ describe('press card', () => {
 });
 
 describe('long-press card', () => {
-  describe('story written by me', () => {
-    const myStoryEvent: CelebrateItemData = {
-      ...storyEvent,
+  describe('post written by me', () => {
+    const myPost: CommunityFeedItemFragment = {
+      ...item,
+      subject: { ...postSubject, __typename: 'Post' },
       subjectPerson: mePerson,
     };
 
-    it('navigates to edit story screen', () => {
+    it('navigates to edit post screen', () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CelebrateItem
-          event={myStoryEvent}
+        <CommunityFeedItem
+          item={myPost}
           onRefresh={onRefresh}
           organization={organization}
           namePressable={false}
@@ -209,20 +243,20 @@ describe('long-press card', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-        post: myStoryEvent,
+        post: myPost,
         onComplete: onRefresh,
         communityId: organization.id,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
     });
 
-    it('deletes story', async () => {
+    it('deletes post', async () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CelebrateItem
-          event={myStoryEvent}
+        <CommunityFeedItem
+          item={myPost}
           onRefresh={onRefresh}
           organization={organization}
           namePressable={false}
@@ -248,21 +282,26 @@ describe('long-press card', () => {
           },
         ],
       );
-      expect(useMutation).toHaveBeenMutatedWith(DELETE_STORY, {
-        variables: { input: { id: myStoryEvent.celebrateableId } },
+      expect(useMutation).toHaveBeenMutatedWith(DELETE_POST, {
+        variables: { id: postSubject.id },
       });
       expect(onRefresh).toHaveBeenCalled();
     });
   });
 
-  describe('story written by other', () => {
-    it('reports story', async () => {
+  describe('post written by other', () => {
+    const otherPost: CommunityFeedItemFragment = {
+      ...item,
+      subject: { ...postSubject, __typename: 'Post' },
+    };
+
+    it('reports post', async () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CelebrateItem
-          event={storyEvent}
+        <CommunityFeedItem
+          item={otherPost}
           onRefresh={onRefresh}
           organization={organization}
           namePressable={false}
@@ -288,8 +327,8 @@ describe('long-press card', () => {
           },
         ],
       );
-      expect(useMutation).toHaveBeenMutatedWith(REPORT_STORY, {
-        variables: { subjectId: storyEvent.celebrateableId },
+      expect(useMutation).toHaveBeenMutatedWith(REPORT_POST, {
+        variables: { id: postSubject.id },
       });
     });
   });
@@ -298,8 +337,8 @@ describe('long-press card', () => {
 describe('clear notification button', () => {
   it('calls onClearNotification', () => {
     const { getByTestId } = renderWithContext(
-      <CelebrateItem
-        event={event}
+      <CommunityFeedItem
+        item={item}
         onRefresh={onRefresh}
         organization={organization}
         onClearNotification={onClearNotification}
@@ -310,6 +349,6 @@ describe('clear notification button', () => {
 
     fireEvent.press(getByTestId('ClearNotificationButton'));
 
-    expect(onClearNotification).toHaveBeenCalledWith(event);
+    expect(onClearNotification).toHaveBeenCalledWith(item);
   });
 });

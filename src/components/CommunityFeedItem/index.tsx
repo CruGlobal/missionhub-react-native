@@ -79,7 +79,6 @@ export const CommunityFeedItem = ({
     FeedItemSubjectTypeEnum.PRAYER_REQUEST,
     FeedItemSubjectTypeEnum.QUESTION,
   ].includes(FeedItemType);
-  const isPrayer = FeedItemType === FeedItemSubjectTypeEnum.PRAYER_REQUEST;
   const isGlobal = orgIsGlobal(organization);
 
   const handlePress = () =>
@@ -97,9 +96,9 @@ export const CommunityFeedItem = ({
   const handleEdit = () =>
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        celebrationItem: item,
-        onRefresh,
-        organization,
+        post: item,
+        onComplete: onRefresh,
+        communityId: orgId,
       }),
     );
 
@@ -201,7 +200,6 @@ export const CommunityFeedItem = ({
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent
-          isPrayer={isPrayer}
           item={item}
           orgId={organization.id}
           onRefresh={onRefresh}
@@ -215,7 +213,6 @@ export const CommunityFeedItem = ({
       {renderHeader()}
       <CommunityFeedItemContent
         item={item}
-        itemType={FeedItemType}
         organization={organization}
         style={styles.postTextWrap}
       />
