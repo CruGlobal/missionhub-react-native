@@ -69,4 +69,11 @@ export const globalMocks: IMocks = {
       permission: faker.random.arrayElement(Object.values(PermissionEnum)),
     };
   },
+  FeedItem: () => {
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+    return {
+      subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
 };

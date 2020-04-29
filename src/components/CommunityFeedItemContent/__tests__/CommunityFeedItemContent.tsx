@@ -7,11 +7,12 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { Organization } from '../../../reducers/organizations';
 import {
   COMMUNITY_PERMISSIONS_FRAGMENT,
   COMMUNITY_FEED_ITEM_FRAGMENT,
 } from '../../CommunityFeedItem/queries';
+import { COMMUNITY_FRAGMENT } from '../../../containers/Groups/queries';
+import { CommunityFragment } from '../../../containers/Groups/__generated__/CommunityFragment';
 import { CommunityPermissions } from '../../CommunityFeedItem/__generated__/CommunityPermissions';
 import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
@@ -25,7 +26,7 @@ jest.mock('../../../actions/challenges');
 
 const myId = '123';
 const otherId = '456';
-const organization: Organization = { id: '111', name: 'Celebration Community' };
+const organization = mockFragment<CommunityFragment>(COMMUNITY_FRAGMENT);
 const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 const communityPermissions = mockFragment<CommunityPermissions>(
   COMMUNITY_PERMISSIONS_FRAGMENT,
@@ -98,7 +99,9 @@ describe('CelebrateItemContent', () => {
         subjectPerson: null,
         subjectPersonName: null,
       },
-      organization,
+      {
+        organization,
+      },
     );
   });
 
@@ -242,11 +245,11 @@ describe('CelebrateItemContent', () => {
 });
 
 describe('onPressChallengeLink', () => {
-  const challengeItem = {
+  const challengeItem: CommunityFeedItem = {
     ...item,
     subject: {
       __typename: 'CommunityChallenge',
-      id: '12',
+      id: item.subject.id,
       title: 'Invite a friend to church',
       acceptedCommunityChallengesList: [
         {
@@ -284,7 +287,11 @@ describe('onPressChallengeLink', () => {
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent
         item={challengeItem}
-        organization={{ name: 'MissionHub Community', id: GLOBAL_COMMUNITY_ID }}
+        organization={{
+          ...organization,
+          name: 'MissionHub Community',
+          id: GLOBAL_COMMUNITY_ID,
+        }}
       />,
       { initialState },
     );

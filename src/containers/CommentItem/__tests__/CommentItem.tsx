@@ -107,11 +107,8 @@ it('renders correctly as mine', () => {
 });
 
 it('renders reported story', () => {
-  const storyItem = {
-    id: '1',
-    content: 'hello roge',
-    createdAt: '2018-06-11 12:00:00 UTC',
-    updated_at: '2018-06-11 12:00:00 UTC',
+  const storyItem: CelebrateComment = {
+    ...item,
     author: {
       id: 'notme',
       firstName: 'Roge',

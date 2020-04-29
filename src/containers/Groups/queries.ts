@@ -1,5 +1,26 @@
 import gql from 'graphql-tag';
 
+export const COMMUNITY_FRAGMENT = gql`
+  fragment CommunityFragment on Community {
+    id
+    name
+    unreadCommentsCount
+    userCreated
+    communityPhotoUrl
+    owner: people(permissions: [owner]) {
+      nodes {
+        firstName
+        lastName
+      }
+    }
+    report(period: "P1W") {
+      contactCount
+      memberCount
+      unassignedCount
+    }
+  }
+`;
+
 export const GET_COMMUNITIES_QUERY = gql`
   query GetCommunities($communityCursor: String) {
     globalCommunity {
@@ -14,22 +35,7 @@ export const GET_COMMUNITIES_QUERY = gql`
       after: $communityCursor
     ) {
       nodes {
-        id
-        name
-        unreadCommentsCount
-        userCreated
-        communityPhotoUrl
-        owner: people(permissions: [owner]) {
-          nodes {
-            firstName
-            lastName
-          }
-        }
-        report(period: "P1W") {
-          contactCount
-          memberCount
-          unassignedCount
-        }
+        ...CommunityFragment
       }
       pageInfo {
         endCursor
@@ -37,4 +43,5 @@ export const GET_COMMUNITIES_QUERY = gql`
       }
     }
   }
+  ${COMMUNITY_FRAGMENT}
 `;

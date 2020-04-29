@@ -548,7 +548,7 @@ exports[`Community renders post correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID="QUESTIONButton"
+              testID="HELP_REQUESTButton"
             >
               <View
                 style={
@@ -574,7 +574,7 @@ exports[`Community renders post correctly 1`] = `
                         "paddingVertical": 10,
                       },
                       Object {
-                        "backgroundColor": "#FFA178",
+                        "backgroundColor": "#FD726D",
                       },
                       null,
                       null,
@@ -613,7 +613,7 @@ exports[`Community renders post correctly 1`] = `
                     ]
                   }
                 >
-                  Spiritual Question
+                  Care Request
                 </Text>
               </View>
             </View>
@@ -2239,7 +2239,7 @@ exports[`global community renders post item correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="QUESTIONButton"
+          testID="HELP_REQUESTButton"
         >
           <View
             style={
@@ -2265,7 +2265,7 @@ exports[`global community renders post item correctly 1`] = `
                     "paddingVertical": 10,
                   },
                   Object {
-                    "backgroundColor": "#FFA178",
+                    "backgroundColor": "#FD726D",
                   },
                   null,
                   null,
@@ -2304,7 +2304,7 @@ exports[`global community renders post item correctly 1`] = `
                 ]
               }
             >
-              Spiritual Question
+              Care Request
             </Text>
           </View>
         </View>

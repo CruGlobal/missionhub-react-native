@@ -13,7 +13,7 @@ import {
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
+import { CommunityFragment } from '../../containers/Groups/__generated__/CommunityFragment';
 import {
   CommunityFeedStep,
   CommunityFeedStep_receiverStageAtCompletion,
@@ -25,7 +25,7 @@ import styles from './styles';
 
 export interface CommunityFeedItemContentProps {
   item: CommunityFeedItem;
-  organization: GetCommunities_communities_nodes;
+  organization: CommunityFragment;
   style?: StyleProp<ViewStyle>;
 }
 

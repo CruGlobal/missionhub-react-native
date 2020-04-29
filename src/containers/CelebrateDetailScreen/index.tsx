@@ -40,7 +40,6 @@ import {
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 
@@ -155,7 +154,6 @@ const CelebrateDetailScreen = ({
           ListHeaderComponent: () => (
             <CommunityFeedItemContent
               item={event}
-              itemType={FeedItemSubjectTypeEnum.STORY} //TODO: use CommunityFeedItem props to determine this
               organization={organization}
               style={styles.itemContent}
             />
@@ -196,20 +194,20 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { event, orgId },
+        params: { item, orgId },
       },
     },
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
-  const { subjectPerson } = event as CommunityFeedItem;
+  const { subjectPerson } = item as CommunityFeedItem;
   const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     organization,
     celebrateComments: celebrateCommentsSelector(
       { celebrateComments },
-      { eventId: event.id },
+      { eventId: item.id },
     ),
     editingCommentId: celebrateComments.editingCommentId,
     analyticsAssignmentType: getAnalyticsAssignmentType(
