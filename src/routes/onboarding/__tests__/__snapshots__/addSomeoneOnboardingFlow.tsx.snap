@@ -1380,6 +1380,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <SelectStepExplainerModal
+    onClose={[Function]}
+  />
 </View>
 `;
 

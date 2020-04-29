@@ -2055,6 +2055,9 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <SelectStepExplainerModal
+    onClose={[Function]}
+  />
 </View>
 `;
 
@@ -2788,6 +2791,9 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <SelectStepExplainerModal
+    onClose={[Function]}
+  />
 </View>
 `;
 

@@ -37,3 +37,11 @@ export const STEP_TYPE_COUNTS_QUERY = gql`
     }
   }
 `;
+
+export const STEP_EXPLAINER_MODAL_VIEWED = gql`
+  query StepExplainerModalViewed {
+    viewedState @client {
+      stepExplainerModal
+    }
+  }
+`;

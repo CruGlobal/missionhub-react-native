@@ -44,7 +44,11 @@ import { FooterLoading } from '../../components/FooterLoading';
 
 import styles from './styles';
 import Checkmark from './checkmark.svg';
-import { STEP_SUGGESTIONS_QUERY, STEP_TYPE_COUNTS_QUERY } from './queries';
+import {
+  STEP_SUGGESTIONS_QUERY,
+  STEP_TYPE_COUNTS_QUERY,
+  STEP_EXPLAINER_MODAL_VIEWED,
+} from './queries';
 import {
   StepSuggestions,
   StepSuggestionsVariables,
@@ -54,6 +58,7 @@ import {
   StepTypeCounts,
   StepTypeCountsVariables,
 } from './__generated__/StepTypeCounts';
+import { StepExplainerModalViewed } from './__generated__/StepExplainerModalViewed';
 
 export interface SelectStepScreenNextProps {
   personId: string;
@@ -74,11 +79,21 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
   const dispatch = useDispatch();
 
-  const [isExplainerOpen, setIsExplainerOpen] = useState(false);
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
   const enableSkipButton: boolean =
     useNavigationParam('enableSkipButton') || false;
+
+  const isMe = useIsMe(personId);
+
+  const { data: viewedData } = useQuery<StepExplainerModalViewed>(
+    STEP_EXPLAINER_MODAL_VIEWED,
+    { skip: isMe },
+  );
+
+  const [isExplainerOpen, setIsExplainerOpen] = useState(
+    !isMe && !viewedData?.viewedState.stepExplainerModal,
+  );
   const analyticsSection = useSelector(
     ({ onboarding }: { onboarding: OnboardingState }) =>
       getAnalyticsSectionType(onboarding),
@@ -92,8 +107,6 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
-
-  const isMe = useIsMe(personId);
 
   const enableStepTypeFilters =
     !isMe &&
