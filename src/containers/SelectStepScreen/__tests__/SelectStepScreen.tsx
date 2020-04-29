@@ -30,6 +30,12 @@ const state = {
   auth: { person: me },
   onboarding: { currentlyOnboarding: false },
 };
+const initialApolloState = {
+  viewedState: {
+    __typename: 'ViewedState',
+    stepExplainerModal: true,
+  },
+};
 
 let screen: ReturnType<typeof renderWithContext>;
 let enableSkipButton = false;
@@ -38,6 +44,7 @@ beforeEach(() => {
   screen = renderWithContext(<SelectStepScreen next={next} />, {
     initialState: state,
     navParams: { personId, orgId, enableSkipButton },
+    initialApolloState,
   });
 });
 
@@ -146,6 +153,13 @@ describe('loading', () => {
 
     i18next.language = originalLanguage;
   });
+
+  it("should show explainer modal if it's never been shown", () => {
+    renderWithContext(<SelectStepScreen next={next} />, {
+      initialState: state,
+      navParams: { personId, orgId, enableSkipButton },
+    }).snapshot;
+  });
 });
 
 describe('in onboarding', () => {
@@ -153,6 +167,7 @@ describe('in onboarding', () => {
     renderWithContext(<SelectStepScreen next={next} />, {
       initialState: { ...state, onboarding: { currentlyOnboarding: true } },
       navParams: { personId, orgId, enableSkipButton },
+      initialApolloState,
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
@@ -212,6 +227,7 @@ it('should hide step count badges when there are no completed steps', async () =
         ],
       }),
     },
+    initialApolloState,
   });
 
   await flushMicrotasksQueue();
