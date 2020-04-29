@@ -482,7 +482,6 @@ exports[`in onboarding renders correctly 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
-                "letterSpacing": 2,
                 "lineHeight": 30,
                 "marginHorizontal": 30,
                 "marginVertical": 35,
@@ -538,7 +537,7 @@ exports[`in onboarding renders correctly 1`] = `
               >
                 <SvgMock
                   color="#ffffff"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -552,9 +551,9 @@ exports[`in onboarding renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -632,7 +631,7 @@ exports[`in onboarding renders correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -646,9 +645,9 @@ exports[`in onboarding renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -698,7 +697,7 @@ exports[`in onboarding renders correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -712,9 +711,9 @@ exports[`in onboarding renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -764,7 +763,7 @@ exports[`in onboarding renders correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -778,9 +777,9 @@ exports[`in onboarding renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -831,7 +830,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -487,311 +487,10 @@
+@@ -486,311 +486,10 @@
                 },
               ]
             }
@@ -883,7 +882,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -               >
 -                 <SvgMock
 -                   color=\\"#ffffff\\"
--                   height={24}
+-                   height={32}
 -                 />
 -                 <Text
 -                   style={
@@ -897,9 +896,9 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                       Array [
 -                         Object {
 -                           \\"color\\": \\"#ffffff\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
+-                           \\"fontSize\\": 14,
+-                           \\"fontWeight\\": \\"normal\\",
+-                           \\"marginTop\\": 7,
 -                           \\"paddingLeft\\": 4,
 -                         },
 -                         undefined,
@@ -977,7 +976,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -               >
 -                 <SvgMock
 -                   color=\\"#52C5DC\\"
--                   height={24}
+-                   height={32}
 -                 />
 -                 <Text
 -                   style={
@@ -991,9 +990,9 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                       Array [
 -                         Object {
 -                           \\"color\\": \\"#52C5DC\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
+-                           \\"fontSize\\": 14,
+-                           \\"fontWeight\\": \\"normal\\",
+-                           \\"marginTop\\": 7,
 -                           \\"paddingLeft\\": 4,
 -                         },
 -                         undefined,
@@ -1043,7 +1042,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -               >
 -                 <SvgMock
 -                   color=\\"#52C5DC\\"
--                   height={24}
+-                   height={32}
 -                 />
 -                 <Text
 -                   style={
@@ -1057,9 +1056,9 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                       Array [
 -                         Object {
 -                           \\"color\\": \\"#52C5DC\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
+-                           \\"fontSize\\": 14,
+-                           \\"fontWeight\\": \\"normal\\",
+-                           \\"marginTop\\": 7,
 -                           \\"paddingLeft\\": 4,
 -                         },
 -                         undefined,
@@ -1109,7 +1108,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -               >
 -                 <SvgMock
 -                   color=\\"#52C5DC\\"
--                   height={24}
+-                   height={32}
 -                 />
 -                 <Text
 -                   style={
@@ -1123,9 +1122,9 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -                       Array [
 -                         Object {
 -                           \\"color\\": \\"#52C5DC\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
+-                           \\"fontSize\\": 14,
+-                           \\"fontWeight\\": \\"normal\\",
+-                           \\"marginTop\\": 7,
 -                           \\"paddingLeft\\": 4,
 -                         },
 -                         undefined,
@@ -1560,7 +1559,6 @@ exports[`loading should render correctly 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
-                "letterSpacing": 2,
                 "lineHeight": 30,
                 "marginHorizontal": 30,
                 "marginVertical": 35,
@@ -1616,7 +1614,7 @@ exports[`loading should render correctly 1`] = `
               >
                 <SvgMock
                   color="#ffffff"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1630,9 +1628,9 @@ exports[`loading should render correctly 1`] = `
                       Array [
                         Object {
                           "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -1710,7 +1708,7 @@ exports[`loading should render correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1724,9 +1722,9 @@ exports[`loading should render correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -1776,7 +1774,7 @@ exports[`loading should render correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1790,9 +1788,9 @@ exports[`loading should render correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -1842,7 +1840,7 @@ exports[`loading should render correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -1856,9 +1854,9 @@ exports[`loading should render correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -2032,51 +2030,7 @@ exports[`loading should render for self steps correctly 1`] = `
               "flexDirection": "row",
             }
           }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="SelectStepExplainerIconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
-          </View>
-        </View>
+        />
       </View>
     </View>
   </RCTSafeAreaView>
@@ -2293,7 +2247,6 @@ exports[`loading should render for self steps correctly 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
-                "letterSpacing": 2,
                 "lineHeight": 30,
                 "marginHorizontal": 30,
                 "marginVertical": 35,
@@ -2802,7 +2755,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
-                "letterSpacing": 2,
                 "lineHeight": 30,
                 "marginHorizontal": 30,
                 "marginVertical": 35,
@@ -2858,7 +2810,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
               >
                 <SvgMock
                   color="#ffffff"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -2872,9 +2824,9 @@ exports[`loading skip button should render skip button correctly 1`] = `
                       Array [
                         Object {
                           "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -2952,7 +2904,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -2966,9 +2918,9 @@ exports[`loading skip button should render skip button correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -3018,7 +2970,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -3032,9 +2984,9 @@ exports[`loading skip button should render skip button correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -3084,7 +3036,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -3098,9 +3050,9 @@ exports[`loading skip button should render skip button correctly 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -3643,7 +3595,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
-                "letterSpacing": 2,
                 "lineHeight": 30,
                 "marginHorizontal": 30,
                 "marginVertical": 35,
@@ -3699,7 +3650,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               >
                 <SvgMock
                   color="#ffffff"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -3713,9 +3664,9 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                       Array [
                         Object {
                           "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -3793,7 +3744,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -3807,9 +3758,9 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -3859,7 +3810,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -3873,9 +3824,9 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -3925,7 +3876,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
               >
                 <SvgMock
                   color="#52C5DC"
-                  height={24}
+                  height={32}
                 />
                 <Text
                   style={
@@ -3939,9 +3890,9 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                       Array [
                         Object {
                           "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
+                          "marginTop": 7,
                           "paddingLeft": 4,
                         },
                         undefined,
@@ -4190,7 +4141,7 @@ exports[`should load step suggestions 1`] = `
             \\"position\\": \\"absolute\\",
             \\"right\\": 0,
             \\"top\\": 0,
-@@ -419,11 +527,11 @@
+@@ -418,11 +526,11 @@
                   \\"textAlign\\": \\"center\\",
                 },
               ]
@@ -4203,7 +4154,7 @@ exports[`should load step suggestions 1`] = `
             style={
               Object {
                 \\"flexDirection\\": \\"row\\",
-@@ -491,11 +599,50 @@
+@@ -490,11 +598,50 @@
                         ],
                       ]
                     }
@@ -4254,7 +4205,7 @@ exports[`should load step suggestions 1`] = `
                   style={
                     Array [
                       Object {
-@@ -585,11 +732,50 @@
+@@ -584,11 +731,50 @@
                         ],
                       ]
                     }
@@ -4305,7 +4256,7 @@ exports[`should load step suggestions 1`] = `
             </View>
             <View
               accessible={true}
-@@ -653,12 +839,51 @@
+@@ -652,12 +838,51 @@
                     }
                   >
                     Care
@@ -4357,7 +4308,7 @@ exports[`should load step suggestions 1`] = `
               focusable={true}
               isTVSelectable={true}
               onClick={[Function bound touchableHandlePress]}
-@@ -717,11 +942,50 @@
+@@ -716,11 +941,50 @@
                         ],
                       ]
                     }
@@ -4569,7 +4520,7 @@ exports[`should paginate 1`] = `
             }
           />
           <View
-@@ -527,11 +653,11 @@
+@@ -526,11 +652,11 @@
                   \\"textAlign\\": \\"center\\",
                 },
               ]
@@ -4589,7 +4540,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -989,6 +989,9 @@
+@@ -988,6 +988,9 @@
             </View>
           </View>
         </View>
