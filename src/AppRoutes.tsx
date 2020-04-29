@@ -242,22 +242,34 @@ export const navItem = (name: string) => ({
 }) => <TabIcon name={name} tintColor={tintColor} />;
 
 const tabs = {
-  [PEOPLE_TAB]: buildTrackedScreen(PeopleScreen, undefined, {
-    // @ts-ignore
-    tabBarLabel: navItem('people'),
-  }),
-  [STEPS_TAB]: buildTrackedScreen(StepsScreen, undefined, {
-    // @ts-ignore
-    tabBarLabel: navItem('steps'),
-  }),
-  [COMMUNITIES_TAB]: buildTrackedScreen(GroupsListScreen, undefined, {
-    // @ts-ignore
-    tabBarLabel: navItem('communities'),
-  }),
-  [NOTIFICATIONS_TAB]: buildTrackedScreen(NotificationCenterScreen, undefined, {
-    // @ts-ignore
-    tabBarLabel: navItem('notifications'),
-  }),
+  [PEOPLE_TAB]: {
+    screen: PeopleScreen,
+    navigationOptions: {
+      // @ts-ignore
+      tabBarLabel: navItem('people'),
+    },
+  },
+  [STEPS_TAB]: {
+    screen: StepsScreen,
+    navigationOptions: {
+      // @ts-ignore
+      tabBarLabel: navItem('steps'),
+    },
+  },
+  [COMMUNITIES_TAB]: {
+    screen: GroupsListScreen,
+    navigationOptions: {
+      // @ts-ignore
+      tabBarLabel: navItem('communities'),
+    },
+  },
+  [NOTIFICATIONS_TAB]: {
+    screen: NotificationCenterScreen,
+    navigationOptions: {
+      // @ts-ignore
+      tabBarLabel: navItem('notifications'),
+    },
+  },
 };
 
 export const MainTabBar = createBottomTabNavigator(tabs, {
