@@ -30,31 +30,20 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
   const showNotification = unreadCommentsCount > 0;
 
   const icon = () => {
+    const props = {
+      color: tintColor,
+      width: iconSize,
+      height: iconSize,
+    };
     switch (name) {
       case 'people':
-        return (
-          <PeopleIcon color={tintColor} width={iconSize} height={iconSize} />
-        );
+        return <PeopleIcon {...props} />;
       case 'steps':
-        return (
-          <StepsIcon color={tintColor} width={iconSize} height={iconSize} />
-        );
+        return <StepsIcon {...props} />;
       case 'communities':
-        return (
-          <CommunitiesIcon
-            color={tintColor}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
+        return <CommunitiesIcon {...props} />;
       case 'notifications':
-        return (
-          <NotificationsIcon
-            color={tintColor}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
+        return <NotificationsIcon {...props} />;
     }
   };
 
