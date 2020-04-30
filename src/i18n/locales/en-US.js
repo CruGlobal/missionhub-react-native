@@ -517,7 +517,7 @@ export default {
     group: 'Communities',
   },
   communityTabs: {
-    celebrate: 'Celebrate',
+    feed: 'Feed',
     challenges: 'Challenges',
     impact: 'Impact',
   },
