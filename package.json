@@ -14,7 +14,7 @@
     "test:c": "npm run test:coverage",
     "test:s": "npm run test:snapshot",
     "ios": "react-native run-ios",
-    "ios:pod": "cd ios && pod install",
+    "ios:pod": "cd ios && bundle exec pod install",
     "lint": "eslint './*.{js,ts,tsx}' './{src,testUtils}/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint './*.{js,ts,tsx}' './{src,testUtils}/**/*.{js,ts,tsx}' --fix",
     "lint:ts": "tsc",
