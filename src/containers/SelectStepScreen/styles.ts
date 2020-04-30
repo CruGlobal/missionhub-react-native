@@ -15,7 +15,6 @@ export default StyleSheet.create({
     fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
-    letterSpacing: 2,
   },
   collapsibleView: {
     flex: 1,

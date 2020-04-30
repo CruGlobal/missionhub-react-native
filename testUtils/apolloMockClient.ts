@@ -2,6 +2,7 @@ import { ApolloClient } from 'apollo-client';
 import {
   InMemoryCache,
   IntrospectionFragmentMatcher,
+  IntrospectionResultData,
 } from 'apollo-cache-inmemory';
 import { SchemaLink } from 'apollo-link-schema';
 import { addMockFunctionsToSchema, IMocks } from 'graphql-tools';
@@ -11,17 +12,24 @@ import gql from 'fraql';
 import { createMockerFromIntrospection } from 'fraql/mock';
 
 import introspectionQuery from '../schema.json';
+import {
+  typeDefs,
+  resolvers,
+  initializeLocalState,
+} from '../src/apolloLocalState';
 
 import { globalMocks } from './globalMocks';
 
-export const createApolloMockClient = (mocks: IMocks = {}) => {
+export const createApolloMockClient = (
+  mocks: IMocks = {},
+  initialApolloState?: unknown,
+) => {
   const schema = buildClientSchema(
     (introspectionQuery as unknown) as IntrospectionQuery,
   );
 
   const fragmentMatcher = new IntrospectionFragmentMatcher({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    introspectionQueryResultData: introspectionQuery as any,
+    introspectionQueryResultData: introspectionQuery as IntrospectionResultData,
   });
 
   addMockFunctionsToSchema({
@@ -29,10 +37,20 @@ export const createApolloMockClient = (mocks: IMocks = {}) => {
     mocks: { ...globalMocks, ...mocks },
   });
 
-  return new ApolloClient({
+  const apolloClient = new ApolloClient({
     cache: new InMemoryCache({ fragmentMatcher }),
     link: new SchemaLink({ schema }),
+    typeDefs,
+    resolvers,
   });
+
+  initializeLocalState(apolloClient);
+  initialApolloState && apolloClient.writeData({ data: initialApolloState });
+  apolloClient.onClearStore(() =>
+    Promise.resolve(initializeLocalState(apolloClient)),
+  );
+
+  return apolloClient;
 };
 
 export const mockFragment = <TData>(
