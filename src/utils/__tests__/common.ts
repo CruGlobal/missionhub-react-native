@@ -760,37 +760,37 @@ describe('keyExtractorId', () => {
 });
 
 describe('mapPostTypeToFeedType', () => {
-  it('returns STORY', () => {
+  it('maps for Story', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.story)).toEqual(
       FeedItemSubjectTypeEnum.STORY,
     );
   });
 
-  it('returns PRAYER_REQUEST', () => {
+  it('maps for Prayer Request', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.prayer_request)).toEqual(
       FeedItemSubjectTypeEnum.PRAYER_REQUEST,
     );
   });
 
-  it('returns QUESTION', () => {
+  it('maps for Question', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.question)).toEqual(
       FeedItemSubjectTypeEnum.QUESTION,
     );
   });
 
-  it('returns HELP_REQUEST', () => {
+  it('maps for Help Request', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.help_request)).toEqual(
       FeedItemSubjectTypeEnum.HELP_REQUEST,
     );
   });
 
-  it('returns THOUGHT', () => {
+  it('maps for Thought', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.thought)).toEqual(
       FeedItemSubjectTypeEnum.THOUGHT,
     );
   });
 
-  it('returns ANNOUNCEMENT', () => {
+  it('maps for Announcement', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.announcement)).toEqual(
       FeedItemSubjectTypeEnum.ANNOUNCEMENT,
     );

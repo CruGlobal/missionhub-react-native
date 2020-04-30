@@ -24,7 +24,7 @@ it('renders image picker', () => {
     <ImagePicker onSelectImage={onSelectImage}>
       <View />
     </ImagePicker>,
-  );
+  ).snapshot();
 });
 
 describe('press image picker', () => {

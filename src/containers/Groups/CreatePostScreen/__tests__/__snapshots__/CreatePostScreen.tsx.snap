@@ -58,21 +58,22 @@ exports[`Creating a post user types a post 1`] = `
 +                 }
 +               }
               />
-+           </View>
-          </View>
+            </View>
++         </View>
 +       </View>
 +     </View>
     </RCTSafeAreaView>
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-@@ -303,10 +352,11 @@
+    <RCTScrollView
+      contentInset={
+        Object {
+          \\"bottom\\": 90,
+@@ -315,11 +364,11 @@
               },
             ]
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+-         value=\\"\\"
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
@@ -86,7 +87,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -352,11 +352,11 @@
+@@ -364,11 +364,11 @@
               },
             ]
           }
@@ -275,91 +276,6 @@ exports[`renders correctly for new post 1`] = `
       />
     </View>
   </RCTSafeAreaView>
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="PRAYER_REQUESTButton"
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          null,
-          Array [
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "height": 36,
-              "justifyContent": "space-between",
-              "paddingVertical": 10,
-            },
-            Object {
-              "backgroundColor": "#A97398",
-            },
-            null,
-            null,
-          ],
-          Object {
-            "borderRadius": 50,
-          },
-        ]
-      }
-    >
-      <SvgMock
-        color="#ffffff"
-        height={20}
-        style={
-          Object {
-            "marginLeft": -10,
-            "marginRight": 10,
-          }
-        }
-        width={20}
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Prayer Request
-      </Text>
-    </View>
-  </View>
   <RCTScrollView
     contentInset={
       Object {
@@ -373,6 +289,102 @@ exports[`renders correctly for new post 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "marginTop": 26,
+            "paddingHorizontal": 35,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="PRAYER_REQUESTButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#A97398",
+                  },
+                  null,
+                  null,
+                ],
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Prayer Request
+            </Text>
+          </View>
+        </View>
+      </View>
       <TextInput
         allowFontScaling={true}
         autoCorrect={true}
@@ -402,13 +414,15 @@ exports[`renders correctly for new post 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "paddingBottom": 28,
               "paddingHorizontal": 35,
-              "paddingVertical": 20,
+              "paddingTop": 20,
             },
           ]
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
       />
       <View
         accessible={true}
@@ -714,91 +728,6 @@ exports[`renders correctly for update post 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="PRAYER_REQUESTButton"
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          null,
-          Array [
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "height": 36,
-              "justifyContent": "space-between",
-              "paddingVertical": 10,
-            },
-            Object {
-              "backgroundColor": "#A97398",
-            },
-            null,
-            null,
-          ],
-          Object {
-            "borderRadius": 50,
-          },
-        ]
-      }
-    >
-      <SvgMock
-        color="#ffffff"
-        height={20}
-        style={
-          Object {
-            "marginLeft": -10,
-            "marginRight": 10,
-          }
-        }
-        width={20}
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Prayer Request
-      </Text>
-    </View>
-  </View>
   <RCTScrollView
     contentInset={
       Object {
@@ -812,6 +741,102 @@ exports[`renders correctly for update post 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "marginTop": 26,
+            "paddingHorizontal": 35,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="PRAYER_REQUESTButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#A97398",
+                  },
+                  null,
+                  null,
+                ],
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Prayer Request
+            </Text>
+          </View>
+        </View>
+      </View>
       <TextInput
         allowFontScaling={true}
         autoCorrect={true}
@@ -841,8 +866,9 @@ exports[`renders correctly for update post 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "paddingBottom": 28,
               "paddingHorizontal": 35,
-              "paddingVertical": 20,
+              "paddingTop": 20,
             },
           ]
         }
@@ -1154,91 +1180,6 @@ exports[`renders correctly on android 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
-    accessible={true}
-    focusable={true}
-    isTVSelectable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="PRAYER_REQUESTButton"
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "height": 60,
-            "justifyContent": "center",
-            "margin": 0,
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
-          },
-          null,
-          Array [
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "height": 36,
-              "justifyContent": "space-between",
-              "paddingVertical": 10,
-            },
-            Object {
-              "backgroundColor": "#A97398",
-            },
-            null,
-            null,
-          ],
-          Object {
-            "borderRadius": 50,
-          },
-        ]
-      }
-    >
-      <SvgMock
-        color="#ffffff"
-        height={20}
-        style={
-          Object {
-            "marginLeft": -10,
-            "marginRight": 10,
-          }
-        }
-        width={20}
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Prayer Request
-      </Text>
-    </View>
-  </View>
   <RCTScrollView
     contentInset={
       Object {
@@ -1252,6 +1193,102 @@ exports[`renders correctly on android 1`] = `
     }
   >
     <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "marginTop": 26,
+            "paddingHorizontal": 35,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="PRAYER_REQUESTButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#A97398",
+                  },
+                  null,
+                  null,
+                ],
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Prayer Request
+            </Text>
+          </View>
+        </View>
+      </View>
       <TextInput
         allowFontScaling={true}
         autoCorrect={true}
@@ -1281,8 +1318,9 @@ exports[`renders correctly on android 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "paddingBottom": 28,
               "paddingHorizontal": 35,
-              "paddingVertical": 20,
+              "paddingTop": 20,
             },
           ]
         }
