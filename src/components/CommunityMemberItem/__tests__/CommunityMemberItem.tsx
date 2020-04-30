@@ -9,174 +9,82 @@ import CommunityMemberItem from '..';
 
 jest.mock('../../../selectors/people');
 
-const stage = {
-  id: 1,
-  name: 'Uninterested',
-};
-
 const myId = '1';
-const me = {
-  id: myId,
-  full_name: 'Me',
-  stage,
-};
+const me = { id: myId, full_name: 'Me' };
 
 const member = {
   id: '123',
-  full_name: 'Full Name',
-  contact_count: 5,
-  uncontacted_count: 3,
+  firstName: 'Firstname',
+  createdAt: '2020-04-15T12:00:00.000',
 };
 
-const orgPermission = { id: '111' };
+const orgPerm = { id: '111' };
 
-const memberPermissions = {
-  ...orgPermission,
-  permission_id: ORG_PERMISSIONS.USER,
-};
-const adminPermissions = {
-  ...orgPermission,
-  permission_id: ORG_PERMISSIONS.ADMIN,
-};
-const ownerPermissions = {
-  ...orgPermission,
-  permission_id: ORG_PERMISSIONS.OWNER,
-};
+const memberPermissions = { ...orgPerm, permission_id: ORG_PERMISSIONS.USER };
+const adminPermissions = { ...orgPerm, permission_id: ORG_PERMISSIONS.ADMIN };
+const ownerPermissions = { ...orgPerm, permission_id: ORG_PERMISSIONS.OWNER };
 
 const organization = { id: '1234', user_created: false };
+const userOrg = { ...organization, user_created: true };
 
-const reverse_contact_assignments = [
-  { id: '555', assigned_to: { id: myId }, pathway_stage_id: stage.id },
-];
+const initialState = {
+  auth: { person: me },
+  organizations: { all: [organization] },
+};
 
 const props = {
   onSelect: jest.fn(),
   person: member,
-  myOrgPermission: orgPermission,
-  myId,
+  personOrgPermission: memberPermissions,
   organization,
-};
-
-const initialState = {
-  auth: { person: me },
-  stages: {
-    stagesObj: {
-      [`${stage.id}`]: stage,
-    },
-  },
 };
 
 beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    memberPermissions,
+    adminPermissions,
   );
 });
 
 describe('render contacts count', () => {
   describe('user created org', () => {
-    const newOrg = { ...organization, user_created: true };
-
-    it('should not crash without an org permission', () => {
+    it('should not crash without my org permission', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
 
       renderWithContext(
-        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
+        <CommunityMemberItem {...{ ...props, organization: userOrg }} />,
         { initialState },
       );
     });
 
-    it('should render no stage, member permissions', () => {
+    it('should render member permissions', () => {
       renderWithContext(
-        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
+        <CommunityMemberItem {...{ ...props, organization: userOrg }} />,
         { initialState },
       ).snapshot();
     });
 
-    it('should render no stage, admin permissions', () => {
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-        adminPermissions,
-      );
-      renderWithContext(
-        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
-        { initialState },
-      ).snapshot();
-    });
-
-    it('should render no stage, owner permissions', () => {
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-        ownerPermissions,
-      );
-      renderWithContext(
-        <CommunityMemberItem {...{ ...props, organization: newOrg }} />,
-        { initialState },
-      ).snapshot();
-    });
-
-    it('should render stage, member permissions', () => {
-      const newMember = {
-        ...member,
-        reverse_contact_assignments,
-      };
+    it('should render admin permissions', () => {
       renderWithContext(
         <CommunityMemberItem
-          {...{ ...props, organization: newOrg, person: newMember }}
+          {...{
+            ...props,
+            personOrgPermission: adminPermissions,
+            organization: userOrg,
+          }}
         />,
         { initialState },
       ).snapshot();
     });
 
-    it('should render stage, admin permissions', () => {
-      const newMember = {
-        ...member,
-        reverse_contact_assignments,
-      };
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-        adminPermissions,
-      );
+    it('should render owner permissions', () => {
       renderWithContext(
         <CommunityMemberItem
-          {...{ ...props, organization: newOrg, person: newMember }}
+          {...{
+            ...props,
+            personOrgPermission: ownerPermissions,
+            organization: userOrg,
+          }}
         />,
-        { initialState },
-      ).snapshot();
-    });
-
-    it('should render stage, owner permissions', () => {
-      const newMember = {
-        ...member,
-        reverse_contact_assignments,
-      };
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-        ownerPermissions,
-      );
-      renderWithContext(
-        <CommunityMemberItem
-          {...{ ...props, organization: newOrg, person: newMember }}
-        />,
-        { initialState },
-      ).snapshot();
-    });
-  });
-
-  describe('cru org', () => {
-    it('should render assigned and uncontacted', () => {
-      renderWithContext(<CommunityMemberItem {...props} />, {
-        initialState,
-      }).snapshot();
-    });
-
-    it('should render 0 assigned', () => {
-      const newMember = { ...member, contact_count: 0 };
-      renderWithContext(
-        <CommunityMemberItem {...{ ...props, person: newMember }} />,
-        { initialState },
-      ).snapshot();
-    });
-
-    it('should render 0 uncontacted', () => {
-      const newMember = { ...member, uncontacted_count: 0 };
-      renderWithContext(
-        <CommunityMemberItem {...{ ...props, person: newMember }} />,
         { initialState },
       ).snapshot();
     });
@@ -185,35 +93,29 @@ describe('render contacts count', () => {
 
 describe('render MemberOptionsMenu', () => {
   it('should render menu if person is me', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-      memberPermissions,
-    );
-    const newMember = { ...member, id: myId };
-    renderWithContext(
-      <CommunityMemberItem {...{ ...props, person: newMember }} />,
-      { initialState },
-    ).snapshot();
-  });
-
-  it('should render menu if I am admin and person is not owner', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-      memberPermissions,
-    );
     renderWithContext(
       <CommunityMemberItem
-        {...{ ...props, myOrgPermission: adminPermissions }}
+        {...{ ...props, person: { ...member, id: myId } }}
       />,
       { initialState },
     ).snapshot();
   });
 
-  it('should not render menu if person is owner', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-      ownerPermissions,
-    );
+  it('should render menu if I am admin and person is not owner', () => {
     renderWithContext(
       <CommunityMemberItem
-        {...{ ...props, myOrgPermission: adminPermissions }}
+        {...{ ...props, personOrgPermission: memberPermissions }}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
+  });
+
+  it('should not render menu if person is owner', () => {
+    renderWithContext(
+      <CommunityMemberItem
+        {...{ ...props, personOrgPermission: ownerPermissions }}
       />,
       { initialState },
     ).snapshot();
@@ -223,21 +125,25 @@ describe('render MemberOptionsMenu', () => {
     ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
       memberPermissions,
     );
-    renderWithContext(<CommunityMemberItem {...props} />, {
-      initialState,
-    }).snapshot();
+    renderWithContext(
+      <CommunityMemberItem
+        {...{ ...props, personOrgPermission: memberPermissions }}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
   });
 });
 
 describe('onSelect', () => {
   it('calls onSelect prop', () => {
-    const onSelect = jest.fn();
     const { getByTestId } = renderWithContext(
-      <CommunityMemberItem {...{ ...props, onSelect }} />,
+      <CommunityMemberItem {...props} />,
       { initialState },
     );
     fireEvent.press(getByTestId('CommunityMemberItem'));
 
-    expect(onSelect).toHaveBeenCalled();
+    expect(props.onSelect).toHaveBeenCalled();
   });
 });

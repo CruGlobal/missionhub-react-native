@@ -20,6 +20,10 @@ function renders(props: AvatarProps) {
   }).snapshot();
 }
 
+it('renders text extrasmall', () => {
+  renders({ person, size: 'extrasmall' });
+});
+
 it('renders text small', () => {
   renders({ person, size: 'small' });
 });
@@ -34,6 +38,10 @@ it('renders text large', () => {
 
 it('renders image small', () => {
   renders({ person: personImage, size: 'small' });
+});
+
+it('renders image extrasmall', () => {
+  renders({ person: personImage, size: 'extrasmall' });
 });
 
 it('renders image medium', () => {

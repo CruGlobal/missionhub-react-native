@@ -1,405 +1,353 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
-import MockDate from 'mockdate';
+import { Alert, Share } from 'react-native';
+import i18n from 'i18next';
 
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import * as challenges from '../../../actions/challenges';
-import { renderWithContext } from '../../../../testUtils';
-import { ORG_PERMISSIONS, ACTIONS } from '../../../constants';
-import { orgPermissionSelector } from '../../../selectors/people';
-import { navigatePush } from '../../../actions/navigation';
-import { GROUP_ONBOARDING_TYPES } from '../../../containers/Groups/OnboardingCard';
-import { trackActionWithoutData } from '../../../actions/analytics';
-import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
+import {
+  renderShallow,
+  createThunkStore,
+  testSnapshotShallow,
+} from '../../../../testUtils';
+import { navToPersonScreen } from '../../../actions/person';
 import * as common from '../../../utils/common';
+import {
+  getOrganizationMembers,
+  getOrganizationMembersNextPage,
+  refreshCommunity,
+} from '../../../actions/organizations';
+import { trackActionWithoutData } from '../../../actions/analytics';
+import { ORG_PERMISSIONS, ACTIONS } from '../../../constants';
+import { removeGroupInviteInfo } from '../../../actions/swipe';
+import { navigatePush } from '../../../actions/navigation';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
 
-import ChallengeFeed from '..';
+import CommunityMembers from '..';
 
-jest.mock('../../../selectors/people');
-jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/person');
+jest.mock('../../../actions/swipe');
 jest.mock('../../../actions/analytics');
-jest.mock('../../../actions/challenges', () => ({
-  completeChallenge: jest.fn(() => ({ type: 'complete' })),
-  joinChallenge: jest.fn(() => ({ type: 'join' })),
-  updateChallenge: jest.fn(() => ({ type: 'update' })),
-}));
+jest.mock('../../../actions/navigation');
+// @ts-ignore
+common.refresh = jest.fn();
+Alert.alert = jest.fn();
 
-const myId = '123';
-const organization = { id: '456' };
-const navigatePushResult = { type: 'navigate push' };
-const trackActionWithoutDataResult = { type: 'track action' };
-const accepted_community_challenges = [
-  {
-    id: 'a1',
-    person: { id: myId },
-  },
-];
-const mockDate = '2020-03-03T14:13:21Z';
-MockDate.set(mockDate);
-const date = '2020-03-04T14:13:21Z';
-const challengeItems = [
-  {
-    title: '',
-    data: [
-      {
-        id: '1',
-        creator_id: 'person1',
-        organization_id: organization.id,
-        title: 'Read "There and Back Again"',
-        end_date: date,
-        accepted_count: 5,
-        completed_count: 3,
-        accepted_community_challenges: [],
-        isPast: false,
-      },
-      {
-        id: '2',
-        creator_id: 'person2',
-        organization_id: organization.id,
-        title: 'Invite a neighbor over for mince pie.',
-        end_date: date,
-        accepted_count: 5,
-        completed_count: 3,
-        accepted_community_challenges,
-        isPast: false,
-      },
-    ],
-  },
-  {
-    title: 'Past Challenges',
-    data: [
-      {
-        id: '3',
-        creator_id: 'person3',
-        organization_id: organization.id,
-        title: 'Invite Smeagol over for fresh fish',
-        end_date: date,
-        accepted_count: 5,
-        completed_count: 0,
-        accepted_community_challenges,
-        isPast: true,
-      },
-      {
-        id: '4',
-        creator_id: 'person4',
-        organization_id: organization.id,
-        title: 'Who can wear the ring the longest.',
-        end_date: date,
-        accepted_count: 5,
-        completed_count: 3,
-        accepted_community_challenges,
-        isPast: true,
-      },
-    ],
-  },
+const members = [
+  { id: '1', full_name: 'Test User 1', contact_assignments: [] },
+  { id: '2', full_name: 'Test User 2', contact_assignments: [] },
+  { id: '3', full_name: 'Test User 3', contact_assignments: [] },
 ];
 
-beforeEach(() => {
-  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
-  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
-  (trackActionWithoutData as jest.Mock).mockReturnValue(
-    trackActionWithoutDataResult,
-  );
-});
+const orgId = '1';
+const myId = '111';
 
-const props = {
-  loadMoreItemsCallback: jest.fn(),
-  refreshCallback: jest.fn(),
-  extraPadding: false,
-  refreshing: false,
-};
-
-const initialState = {
+const organization = { id: orgId, name: 'Test Org', user_created: true };
+const state = {
+  organizations: {
+    all: [{ ...organization, members }],
+    membersPagination: { hasNextPage: true },
+  },
   auth: {
     person: {
       id: myId,
+      organizational_permissions: [
+        {
+          organization_id: orgId,
+          permission_id: ORG_PERMISSIONS.USER,
+        },
+      ],
     },
   },
-  swipe: {
-    groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: true },
-  },
+  swipe: { groupInviteInfo: true },
 };
 
-describe('Challenge Feed rendering', () => {
-  it('renders correctly for challenge feed', () => {
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
+// @ts-ignore
+let store;
 
-  it('renders correctly on android', () => {
-    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-  });
-
-  it('renders with extra padding', () => {
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-        extraPadding={true}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
-
-  it('renders with extra padding on android', () => {
-    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-        extraPadding={true}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-  });
-
-  it('renders null component | Member', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-      permission_id: ORG_PERMISSIONS.USER,
-    });
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={[{ title: '', data: [] }]}
-        organization={organization}
-      />,
-      {
-        initialState: {
-          ...initialState,
-          swipe: {
-            groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: false },
-          },
-        },
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
-
-  it('renders null component | Admin', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-      permission_id: ORG_PERMISSIONS.ADMIN,
-    });
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={[{ title: '', data: [] }]}
-        organization={organization}
-      />,
-      {
-        initialState: {
-          ...initialState,
-          swipe: {
-            groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: false },
-          },
-        },
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
-
-  it('renders challenges without header', () => {
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
-
-  it('renders null without header', () => {
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={[{ title: '', data: [] }]}
-        organization={organization}
-      />,
-      {
-        initialState: {
-          ...initialState,
-          swipe: {
-            groupOnboarding: { [GROUP_ONBOARDING_TYPES.challenges]: false },
-          },
-        },
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
-
-  it('renders null with header', () => {
-    renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={[{ title: '', data: [] }]}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-    expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'feed']);
-  });
+// @ts-ignore
+trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
+// @ts-ignore
+removeGroupInviteInfo.mockReturnValue({ type: 'removed group invite info' });
+// @ts-ignore
+navToPersonScreen.mockReturnValue({ type: 'navigated to person screen' });
+// @ts-ignore
+getOrganizationMembersNextPage.mockReturnValue({
+  type: 'got org members next page',
 });
+// @ts-ignore
+getOrganizationMembers.mockReturnValue({
+  type: 'got org members',
+});
+// @ts-ignore
+refreshCommunity.mockReturnValue({ type: 'refreshed community' });
 
-describe('item action methods', () => {
-  it('calls onRefresh', () => {
-    const { getByTestId } = renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    );
+xdescribe('CommunityMembers', () => {
+  //@ts-ignore
+  const component = <CommunityMembers orgId={orgId} />;
 
-    fireEvent(getByTestId('ChallengeFeed'), 'onRefresh');
-    expect(props.refreshCallback).toHaveBeenCalled();
+  beforeEach(() => {
+    store = createThunkStore(state);
   });
 
-  it('calls onScrollEndDrag and onEndReached', async () => {
-    const { getByTestId } = renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    );
-
-    await fireEvent(getByTestId('ChallengeFeed'), 'onScrollEndDrag');
-    await fireEvent(getByTestId('ChallengeFeed'), 'onEndReached');
-    expect(props.loadMoreItemsCallback).toHaveBeenCalled();
-  });
-  it('calls onRefresh', () => {
-    const { getByTestId } = renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    );
-
-    fireEvent(getByTestId('ChallengeFeed'), 'onRefresh');
-    expect(props.refreshCallback).toHaveBeenCalled();
+  it('should render correctly', () => {
+    // @ts-ignore
+    testSnapshotShallow(component, store);
   });
 
-  it('calls handleSelectRow', () => {
-    const { getAllByTestId } = renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
+  it('should mount correctly', () => {
+    store = createThunkStore({
+      ...state,
+      organizations: {
+        all: [{ ...organization, members: [] }],
+        membersPagination: { hasNextPage: true },
       },
-    );
-
-    fireEvent(
-      getAllByTestId('ChallengeItemSelectButton')[0],
-      'onSelect',
-      challengeItems[0].data[0],
-    );
-
-    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
-      challengeId: challengeItems[0].data[0].id,
-      isAdmin: true,
-      orgId: organization.id,
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
+      swipe: { groupInviteInfo: true },
     });
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.CHALLENGE_DETAIL,
-    );
+    const instance = renderShallow(component, store).instance();
+    // @ts-ignore
+    instance.componentDidMount();
+    expect(refreshCommunity).toHaveBeenCalledWith(orgId);
+    expect(getOrganizationMembers).toHaveBeenCalledWith(orgId);
   });
 
-  it('calls handleComplete', () => {
-    const accepted_community_challenges = {
-      id: 'a1',
-      person: { id: myId },
-    };
-
-    const { getAllByTestId } = renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
+  it('should not render load more correctly', () => {
+    store = createThunkStore({
+      ...state,
+      organizations: {
+        all: [{ ...organization, members }],
+        membersPagination: { hasNextPage: false },
       },
-    );
+      auth: {
+        person: {
+          organizational_permissions: [
+            {
+              organization_id: orgId,
+              permission_id: ORG_PERMISSIONS.USER,
+            },
+          ],
+        },
+      },
+      swipe: { groupInviteInfo: true },
+    });
 
-    fireEvent(
-      getAllByTestId('ChallengeItemActionButton')[0],
-      'onComplete',
-      challengeItems[0].data[1],
-    );
-
-    expect(challenges.completeChallenge).toHaveBeenCalledWith(
-      accepted_community_challenges,
-      organization.id,
-    );
+    const instance = renderShallow(component, store).instance();
+    // @ts-ignore
+    instance.componentDidMount();
+    expect(refreshCommunity).not.toHaveBeenCalled();
+    expect(getOrganizationMembers).not.toHaveBeenCalled();
   });
 
-  it('calls handleJoin', () => {
-    const { getAllByTestId } = renderWithContext(
-      <ChallengeFeed
-        {...props}
-        items={challengeItems}
-        organization={organization}
-      />,
-      {
-        initialState,
-      },
-    );
+  it('should handleSelect correctly', () => {
+    const member = members[0];
+    // @ts-ignore
+    const screen = renderShallow(component, store);
+    const listItem = screen
+      .childAt(1)
+      .props()
+      .renderItem({ item: member });
 
-    fireEvent(
-      getAllByTestId('ChallengeItemActionButton')[0],
-      'onJoin',
-      challengeItems[0].data[0],
-    );
-    expect(challenges.joinChallenge).toHaveBeenCalledWith(
-      challengeItems[0].data[0],
-      organization.id,
-    );
+    listItem.props.onSelect(member);
+
+    expect(navToPersonScreen).toHaveBeenCalledWith(member, {
+      ...organization,
+      members,
+    });
+  });
+
+  it('should handleLoadMore correctly', () => {
+    // @ts-ignore
+    const instance = renderShallow(component, store).instance();
+    // @ts-ignore
+    instance.handleLoadMore();
+    expect(getOrganizationMembersNextPage).toHaveBeenCalled();
+  });
+
+  it('should handleRefresh correctly', () => {
+    // @ts-ignore
+    const instance = renderShallow(component, store).instance();
+    // @ts-ignore
+    instance.handleRefresh();
+    expect(common.refresh).toHaveBeenCalled();
+  });
+
+  it('calls render item', () => {
+    // @ts-ignore
+    const instance = renderShallow(component, store).instance();
+    // @ts-ignore
+    const renderedItem = instance.renderItem({ item: members[0] });
+    expect(renderedItem).toMatchSnapshot();
+  });
+
+  describe('invite button', () => {
+    describe('user_created', () => {
+      it('should call invite and show alert', async () => {
+        const url = '123';
+        const code = 'ABCDEF';
+        store = createThunkStore({
+          ...state,
+          organizations: {
+            ...state.organizations,
+            all: [
+              {
+                ...organization,
+                community_url: url,
+                community_code: code,
+                members,
+              },
+            ],
+          },
+          auth: {
+            person: {
+              ...state.auth.person,
+              organizational_permissions: [
+                {
+                  organization_id: orgId,
+                  permission_id: ORG_PERMISSIONS.ADMIN,
+                },
+              ],
+            },
+          },
+        });
+        const component = renderShallow(
+          //@ts-ignore
+          <CommunityMembers orgId={orgId} />,
+          store,
+        );
+        // @ts-ignore
+        Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+        // @ts-ignore
+        common.getCommunityUrl = jest.fn(() => url);
+        await component
+          .childAt(2)
+          .props()
+          .onPress();
+
+        expect(Share.share).toHaveBeenCalledWith({
+          message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
+        });
+        expect(Alert.alert).toHaveBeenCalledWith(
+          '',
+          i18n.t('groupsMembers:invited', { orgName: organization.name }),
+        );
+        expect(removeGroupInviteInfo).toHaveBeenCalled();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(
+          ACTIONS.SEND_COMMUNITY_INVITE,
+        );
+      });
+
+      it('should call invite and not show alert', async () => {
+        const url = '123';
+        const code = 'ABCDEF';
+        store = createThunkStore({
+          organizations: {
+            all: [
+              {
+                ...organization,
+                community_url: url,
+                community_code: code,
+                members,
+              },
+            ],
+            membersPagination: { hasNextPage: true },
+          },
+          auth: {
+            person: {
+              organizational_permissions: [
+                {
+                  organization_id: orgId,
+                  permission_id: ORG_PERMISSIONS.ADMIN,
+                },
+              ],
+            },
+          },
+          swipe: { groupInviteInfo: false },
+        });
+        const component = renderShallow(
+          //@ts-ignore
+          <CommunityMembers orgId={orgId} />,
+          store,
+        );
+        // @ts-ignore
+        Share.share = jest.fn(() => ({ action: Share.sharedAction }));
+        // @ts-ignore
+        common.getCommunityUrl = jest.fn(() => url);
+        await component
+          .childAt(2)
+          .props()
+          .onPress();
+
+        expect(Share.share).toHaveBeenCalledWith({
+          message: i18n.t('groupsMembers:sendInviteMessage', { url, code }),
+        });
+        expect(Alert.alert).not.toHaveBeenCalled();
+        expect(removeGroupInviteInfo).not.toHaveBeenCalled();
+        expect(trackActionWithoutData).toHaveBeenCalledWith(
+          ACTIONS.SEND_COMMUNITY_INVITE,
+        );
+      });
+    });
+    describe('non user_created', () => {
+      it('should navigate to ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW', async () => {
+        // @ts-ignore
+        navigatePush.mockReturnValue({ type: 'navigatePush' });
+        const nonUserCreatedOrg = {
+          ...organization,
+          user_created: false,
+        };
+        store = createThunkStore({
+          organizations: {
+            all: [nonUserCreatedOrg],
+            membersPagination: { hasNextPage: true },
+          },
+          auth: {
+            person: {
+              organizational_permissions: [
+                {
+                  organization_id: orgId,
+                  permission_id: ORG_PERMISSIONS.ADMIN,
+                },
+              ],
+            },
+          },
+          swipe: { groupInviteInfo: true },
+        });
+        const component = renderShallow(
+          //@ts-ignore
+          <CommunityMembers orgId={orgId} />,
+          store,
+        );
+        await component
+          .childAt(2)
+          .props()
+          .onPress();
+
+        expect(navigatePush).toHaveBeenCalledWith(
+          ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW,
+          {
+            organization: nonUserCreatedOrg,
+          },
+        );
+      });
+    });
+  });
+
+  it('renderHeader match snapshot', () => {
+    // @ts-ignore
+    const instance = renderShallow(component, store).instance();
+    // @ts-ignore
+    const header = instance.renderHeader();
+    expect(header).toMatchSnapshot();
   });
 });
