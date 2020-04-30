@@ -11,12 +11,14 @@ import { Organization } from '../../../reducers/organizations';
 import { Person } from '../../../reducers/people';
 import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from '../queries';
 
-import CelebrateFeed from '..';
+import { CelebrateFeed } from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../components/CelebrateItem', () => 'CelebrateItem');
-jest.mock('../../Groups/CreatePostInput', () => 'CreatePostInput');
+jest.mock('../../Groups/CreatePostButton', () => ({
+  CreatePostButton: 'CreatePostButton',
+}));
 jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
 
 const myId = '123';

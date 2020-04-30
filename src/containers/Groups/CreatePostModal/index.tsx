@@ -6,19 +6,22 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
-  PostTypeEnum,
   PostLabelSizeEnum,
 } from '../../../components/PostTypeLabel';
 import CloseIcon from '../../../../assets/images/closeIcon.svg';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
-import { isAdminOrOwner } from '../../../utils/common';
+import { isAdminOrOwner, mapPostTypeToFeedType } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { useMyId } from '../../../utils/hooks/useIsMe';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
-import { CELEBRATE_SHARE_STORY_SCREEN } from '../ShareStoryScreen';
+import { CREATE_POST_SCREEN } from '../CreatePostScreen';
+import {
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../../__generated__/globalTypes';
 import theme from '../../../theme';
 
 import {
@@ -31,9 +34,14 @@ import styles from './styles';
 interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
+  refreshItems: () => void;
 }
 
-const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
+const CreatePostModal = ({
+  closeModal,
+  communityId,
+  refreshItems,
+}: CreatePostModalProps) => {
   const {
     modalStyle,
     containerStyle,
@@ -66,22 +74,23 @@ const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
     },
   });
 
-  const navigateToCreatePostScreen = (type: PostTypeEnum) => {
+  const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();
     return dispatch(
-      navigatePush(CELEBRATE_SHARE_STORY_SCREEN, {
+      navigatePush(CREATE_POST_SCREEN, {
+        refreshItems,
         communityId: community?.id,
-        type,
+        postType,
       }),
     );
   };
 
   const postTypeArray = [
-    PostTypeEnum.godStory,
-    PostTypeEnum.prayerRequest,
-    PostTypeEnum.spiritualQuestion,
-    PostTypeEnum.careRequest,
-    PostTypeEnum.onYourMind,
+    PostTypeEnum.story,
+    PostTypeEnum.prayer_request,
+    PostTypeEnum.question,
+    PostTypeEnum.help_request,
+    PostTypeEnum.thought,
   ];
 
   return (
@@ -106,7 +115,7 @@ const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
           {postTypeArray.map(type => (
             <PostTypeLabel
               key={type}
-              type={type}
+              type={mapPostTypeToFeedType(type)}
               size={PostLabelSizeEnum.large}
               onPress={() => navigateToCreatePostScreen(type)}
             />
@@ -124,7 +133,7 @@ const CreatePostModal = ({ closeModal, communityId }: CreatePostModalProps) => {
                 <LineIcon width="21" color={theme.grey} />
               </Flex>
               <PostTypeLabel
-                type={PostTypeEnum.announcement}
+                type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
                 size={PostLabelSizeEnum.large}
                 onPress={() =>
                   navigateToCreatePostScreen(PostTypeEnum.announcement)

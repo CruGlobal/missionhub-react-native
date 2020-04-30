@@ -32,6 +32,7 @@ import {
   isAuthenticated,
   personIsCurrentUser,
   isOnboarding,
+  mapPostTypeToFeedType,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
@@ -43,7 +44,11 @@ import {
 import { createThunkStore } from '../../../testUtils';
 import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
-import { PermissionEnum } from '../../../__generated__/globalTypes';
+import {
+  PermissionEnum,
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../__generated__/globalTypes';
 
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -747,5 +752,43 @@ describe('keyExtractorId', () => {
     const item = { id: 'test' };
     const result = keyExtractorId(item);
     expect(result).toEqual(item.id);
+  });
+});
+
+describe('mapPostTypeToFeedType', () => {
+  it('maps for Story', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.story)).toEqual(
+      FeedItemSubjectTypeEnum.STORY,
+    );
+  });
+
+  it('maps for Prayer Request', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.prayer_request)).toEqual(
+      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    );
+  });
+
+  it('maps for Question', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.question)).toEqual(
+      FeedItemSubjectTypeEnum.QUESTION,
+    );
+  });
+
+  it('maps for Help Request', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.help_request)).toEqual(
+      FeedItemSubjectTypeEnum.HELP_REQUEST,
+    );
+  });
+
+  it('maps for Thought', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.thought)).toEqual(
+      FeedItemSubjectTypeEnum.THOUGHT,
+    );
+  });
+
+  it('maps for Announcement', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.announcement)).toEqual(
+      FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    );
   });
 });

@@ -6,19 +6,24 @@ import { useMyId } from '../../../utils/hooks/useIsMe';
 import { Button, Text } from '../../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
-import { PostTypeEnum } from '../../../components/PostTypeLabel';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import CreatePostModal from '../CreatePostModal';
 
 import styles from './styles';
 
-interface CreatePostInputProps {
+interface CreatePostButtonProps {
+  refreshItems: () => void;
   type?: PostTypeEnum;
   communityId: string;
 }
 
-const CreatePostInput = ({ type, communityId }: CreatePostInputProps) => {
+export const CreatePostButton = ({
+  refreshItems,
+  type,
+  communityId,
+}: CreatePostButtonProps) => {
   const { t } = useTranslation('createPostScreen');
-  const { container, inputButton, inputText } = styles;
+  const { container, button, buttonText } = styles;
   const personId = useMyId();
   const [isModalOpen, changeModalVisibility] = useState(false);
 
@@ -32,16 +37,18 @@ const CreatePostInput = ({ type, communityId }: CreatePostInputProps) => {
   return communityId !== GLOBAL_COMMUNITY_ID ? (
     <View style={container}>
       {isModalOpen ? (
-        <CreatePostModal closeModal={closeModal} communityId={communityId} />
+        <CreatePostModal
+          closeModal={closeModal}
+          communityId={communityId}
+          refreshItems={refreshItems}
+        />
       ) : null}
-      <Button style={inputButton} onPress={openModal} testID="CreatePostInput">
+      <Button style={button} onPress={openModal} testID="CreatePostButton">
         <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />
-        <Text style={inputText}>
-          {type ? t(`${type}`) : t('inputPlaceholder')}
+        <Text style={buttonText}>
+          {type ? t(`createPostButton.${type}`) : t('inputPlaceholder')}
         </Text>
       </Button>
     </View>
   ) : null;
 };
-
-export default CreatePostInput;

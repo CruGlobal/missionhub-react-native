@@ -92,7 +92,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="godStoryButton"
+        testID="STORYButton"
       >
         <View
           style={
@@ -179,7 +179,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="prayerRequestButton"
+        testID="PRAYER_REQUESTButton"
       >
         <View
           style={
@@ -266,7 +266,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="spiritualQuestionButton"
+        testID="QUESTIONButton"
       >
         <View
           style={
@@ -353,7 +353,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="careRequestButton"
+        testID="HELP_REQUESTButton"
       >
         <View
           style={
@@ -440,7 +440,7 @@ exports[`renders correctly 1`] = `
             "opacity": 1,
           }
         }
-        testID="onYourMindButton"
+        testID="THOUGHTButton"
       >
         <View
           style={
@@ -640,7 +640,7 @@ exports[`renders correctly for admin 1`] = `
             "opacity": 1,
           }
         }
-        testID="godStoryButton"
+        testID="STORYButton"
       >
         <View
           style={
@@ -727,7 +727,7 @@ exports[`renders correctly for admin 1`] = `
             "opacity": 1,
           }
         }
-        testID="prayerRequestButton"
+        testID="PRAYER_REQUESTButton"
       >
         <View
           style={
@@ -814,7 +814,7 @@ exports[`renders correctly for admin 1`] = `
             "opacity": 1,
           }
         }
-        testID="spiritualQuestionButton"
+        testID="QUESTIONButton"
       >
         <View
           style={
@@ -901,7 +901,7 @@ exports[`renders correctly for admin 1`] = `
             "opacity": 1,
           }
         }
-        testID="careRequestButton"
+        testID="HELP_REQUESTButton"
       >
         <View
           style={
@@ -988,7 +988,7 @@ exports[`renders correctly for admin 1`] = `
             "opacity": 1,
           }
         }
-        testID="onYourMindButton"
+        testID="THOUGHTButton"
       >
         <View
           style={
@@ -1111,7 +1111,7 @@ exports[`renders correctly for admin 1`] = `
             "opacity": 1,
           }
         }
-        testID="announcementButton"
+        testID="ANNOUNCEMENTButton"
       >
         <View
           style={
@@ -1311,7 +1311,7 @@ exports[`renders correctly for owner 1`] = `
             "opacity": 1,
           }
         }
-        testID="godStoryButton"
+        testID="STORYButton"
       >
         <View
           style={
@@ -1398,7 +1398,7 @@ exports[`renders correctly for owner 1`] = `
             "opacity": 1,
           }
         }
-        testID="prayerRequestButton"
+        testID="PRAYER_REQUESTButton"
       >
         <View
           style={
@@ -1485,7 +1485,7 @@ exports[`renders correctly for owner 1`] = `
             "opacity": 1,
           }
         }
-        testID="spiritualQuestionButton"
+        testID="QUESTIONButton"
       >
         <View
           style={
@@ -1572,7 +1572,7 @@ exports[`renders correctly for owner 1`] = `
             "opacity": 1,
           }
         }
-        testID="careRequestButton"
+        testID="HELP_REQUESTButton"
       >
         <View
           style={
@@ -1659,7 +1659,7 @@ exports[`renders correctly for owner 1`] = `
             "opacity": 1,
           }
         }
-        testID="onYourMindButton"
+        testID="THOUGHTButton"
       >
         <View
           style={
@@ -1782,7 +1782,7 @@ exports[`renders correctly for owner 1`] = `
             "opacity": 1,
           }
         }
-        testID="announcementButton"
+        testID="ANNOUNCEMENTButton"
       >
         <View
           style={

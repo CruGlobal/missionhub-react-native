@@ -7,7 +7,7 @@ import { DateComponent } from '../../components/common';
 import CelebrateItem from '../../components/CelebrateItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
-import CreatePostInput from '../Groups/CreatePostInput';
+import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
   CelebrateFeedSection,
@@ -38,7 +38,7 @@ export interface CelebrateFeedProps {
   testID?: string;
 }
 
-const CelebrateFeed = ({
+export const CelebrateFeed = ({
   organization,
   person,
   itemNamePressable,
@@ -219,7 +219,12 @@ const CelebrateFeed = ({
               isMember={!!person}
               organization={organization}
             />
-            {!person ? <CreatePostInput communityId={organization.id} /> : null}
+            {!person ? (
+              <CreatePostButton
+                refreshItems={handleRefreshing}
+                communityId={organization.id}
+              />
+            ) : null}
           </>
         )}
       </>
@@ -251,5 +256,3 @@ const CelebrateFeed = ({
     />
   );
 };
-
-export default CelebrateFeed;

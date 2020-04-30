@@ -16,7 +16,7 @@ export default StyleSheet.create({
     marginTop: -5,
     paddingTop: 5,
   },
-  inputButton: {
+  button: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -26,10 +26,9 @@ export default StyleSheet.create({
     height: 36,
     marginHorizontal: 20,
   },
-  inputText: {
+  buttonText: {
     fontSize: 14,
     height: 18,
-    color: theme.grey,
     paddingLeft: 10,
   },
 });
