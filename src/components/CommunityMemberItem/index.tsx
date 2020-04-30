@@ -8,38 +8,39 @@ import { Flex, Text, DateComponent, Dot, Touchable } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
 import { isAdminOrOwner, isOwner } from '../../utils/common';
-import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import Avatar from '../Avatar';
-import { useIsMe } from '../../utils/hooks/useIsMe';
+import { RootState } from '../../reducers';
+import { useMyId } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
 
 interface CommunityMemberItemProps {
   onSelect: (person: Person) => void;
-  person: Person;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  person: any;
   organization: Organization;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  personOrgPermission: any;
 }
 
 const CommunityMemberItem = ({
   onSelect,
   person,
   organization,
+  personOrgPermission,
 }: CommunityMemberItemProps) => {
   const { t } = useTranslation('groupItem');
-  const me = useSelector(({ auth }: { auth: AuthState }) => auth.person);
-  const myOrgPermission = useSelector(({ auth }: { auth: AuthState }) =>
+  const myId = useMyId();
+  const isMe = myId === person.id;
+  const myOrgPermission = useSelector(({ auth }: RootState) =>
     orgPermissionSelector({}, { person: auth.person, organization }),
-  );
-  const personOrgPermission = useSelector(() =>
-    orgPermissionSelector({}, { person, organization }),
   );
   const iAmAdmin = isAdminOrOwner(myOrgPermission);
   const iAmOwner = isOwner(myOrgPermission);
   const personIsAdmin = isAdminOrOwner(personOrgPermission);
   const personIsOwner = isOwner(personOrgPermission);
-  const isMe = useIsMe(person.id);
 
   return (
     <Touchable
@@ -50,7 +51,7 @@ const CommunityMemberItem = ({
       <Flex value={1} justify="center" align="center" direction="row">
         <Avatar size="small" person={person} style={styles.avatar} />
         <Flex value={1} direction="column">
-          <Text style={styles.name}>{person.first_name}</Text>
+          <Text style={styles.name}>{person.firstName}</Text>
           <Flex align="center" direction="row">
             <Text style={styles.info}>
               {personIsOwner ? (
@@ -59,10 +60,16 @@ const CommunityMemberItem = ({
                   <Dot />
                 </>
               ) : null}
+              {personIsAdmin ? (
+                <>
+                  {t('profileLabels.admin')}
+                  <Dot />
+                </>
+              ) : null}
               {t('memberSince')}{' '}
               <DateComponent
                 style={styles.info}
-                date={person.created_at}
+                date={person.createdAt}
                 format="MMMM YYYY"
               />
             </Text>
@@ -71,7 +78,7 @@ const CommunityMemberItem = ({
         {isMe || (iAmAdmin && !personIsOwner) ? (
           <MemberOptionsMenu
             // @ts-ignore
-            myId={me.id}
+            myId={myId}
             person={person}
             organization={organization}
             personOrgPermission={personOrgPermission}

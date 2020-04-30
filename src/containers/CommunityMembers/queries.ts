@@ -7,7 +7,12 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
       report(period: "P99Y") {
         memberCount
       }
-      people(after: $after, sortBy: firstName_ASC) {
+      people(
+        after: $after
+        first: 25
+        permissions: [owner, admin, user]
+        sortBy: firstName_ASC
+      ) {
         edges {
           communityPermission {
             permission
@@ -21,6 +26,7 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
           createdAt
           communityPermissions {
             nodes {
+              id
               permission
             }
           }

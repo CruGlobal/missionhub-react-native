@@ -674,6 +674,7 @@ export default {
       'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
     invited:
       "Anyone you've invited to {{orgName}} will show up here when they join.",
+    errorLoadingMembers: 'Error loading members',
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:

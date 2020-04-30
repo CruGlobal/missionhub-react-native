@@ -138,7 +138,7 @@ class MemberOptionsMenu extends Component {
       // @ts-ignore
       t,
       // @ts-ignore
-      person: { full_name: personName },
+      person: { fullName: personName },
       // @ts-ignore
       organization: { name: communityName },
     } = this.props;

@@ -118,6 +118,7 @@ export const CommunityHeader = () => {
                 pill={true}
                 type="transparent"
                 onPress={() =>
+                  !isGlobalCommunity &&
                   dispatch(navigatePush(COMMUNITY_MEMBERS, { communityId }))
                 }
                 style={styles.communityMembersButton}
