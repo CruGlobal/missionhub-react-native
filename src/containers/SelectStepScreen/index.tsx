@@ -319,12 +319,13 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       />
       <CollapsibleHeaderFlatList
         headerHeight={enableStepTypeFilters ? (showCounts ? 240 : 195) : 130}
-        clipHeader={true}
+        clipHeader
+        disableHeaderSnap
         headerContainerBackgroundColor={theme.extraLightGrey}
         CollapsibleHeaderComponent={renderCollapsibleHeader()}
         style={styles.collapsibleView}
         contentContainerStyle={styles.contentContainerStyle}
-        bounces={true}
+        bounces
         data={cardData}
         renderItem={({ item }) => (
           <Card style={styles.card} onPress={item.action}>
