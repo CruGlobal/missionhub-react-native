@@ -372,9 +372,8 @@ exports[`renders correctly renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#B4B6BA",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
                           "paddingLeft": 0,
                         },
                         Array [
@@ -559,9 +558,8 @@ exports[`renders correctly renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#B4B6BA",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
                           "paddingLeft": 0,
                         },
                         Array [
@@ -746,9 +744,8 @@ exports[`renders correctly renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#B4B6BA",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
                           "paddingLeft": 0,
                         },
                         Array [
@@ -933,9 +930,8 @@ exports[`renders correctly renders correctly 1`] = `
                       Array [
                         Object {
                           "color": "#B4B6BA",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
+                          "fontSize": 14,
+                          "fontWeight": "normal",
                           "paddingLeft": 0,
                         },
                         Array [

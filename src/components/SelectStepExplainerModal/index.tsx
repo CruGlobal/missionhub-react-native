@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, ImageSourcePropType } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import i18next from 'i18next';
+import { useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 import { Text, IconButton } from '../../components/common';
 import theme from '../../theme';
@@ -9,6 +11,15 @@ import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles, { sliderWidth, sliderHeight } from './styles';
+import { SetStepExplainerModalViewed } from './__generated__/SetStepExplainerModalViewed';
+
+const SET_STEP_EXPLAINER_MODAL_VIEWED = gql`
+  mutation SetStepExplainerModalViewed {
+    viewedStepExplainerModal @client {
+      stepExplainerModal
+    }
+  }
+`;
 
 export const AddStepExplainer: {
   source: ImageSourcePropType;
@@ -42,6 +53,13 @@ export const AddStepExplainer: {
 ];
 
 function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
+  const [setViewed] = useMutation<SetStepExplainerModalViewed>(
+    SET_STEP_EXPLAINER_MODAL_VIEWED,
+  );
+  useEffect(() => {
+    setViewed();
+  }, []);
+
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <View style={styles.container}>
@@ -54,7 +72,11 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
             const { source, text, stepType } = item;
             return (
               <>
-                <View style={{ flex: 1 }}>
+                <View
+                  style={{
+                    flex: 1,
+                  }}
+                >
                   <Image
                     source={source}
                     style={styles.image}
@@ -75,7 +97,14 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                     />
                   </View>
                 )}
-                <View style={[{ flex: 0.9 }, styles.textWrap]}>
+                <View
+                  style={[
+                    {
+                      flex: 0.9,
+                    },
+                    styles.textWrap,
+                  ]}
+                >
                   {text && !stepType && (
                     <Text style={[styles.text, styles.textOnly]}>{text}</Text>
                   )}
@@ -111,9 +140,17 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           inactiveDotScale={0.9}
           dotColor={theme.impactBlue}
           inactiveDotColor={theme.grey3}
-          containerStyle={{ marginBottom: 10 }}
-          dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
-          dotContainerStyle={{ marginHorizontal: 4 }}
+          containerStyle={{
+            marginBottom: 10,
+          }}
+          dotStyle={{
+            width: 8,
+            height: 8,
+            borderRadius: 4,
+          }}
+          dotContainerStyle={{
+            marginHorizontal: 4,
+          }}
         />
         <View style={styles.closeButtonWrap}>
           <IconButton
