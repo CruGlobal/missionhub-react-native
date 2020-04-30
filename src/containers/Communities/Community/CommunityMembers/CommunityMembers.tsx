@@ -12,27 +12,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
-import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { RefreshControl } from '../../components/common';
-import BottomButton from '../../components/BottomButton';
-import { getCommunityUrl, keyExtractorId } from '../../utils/common';
-import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
-import CommunityMemberItem from '../../components/CommunityMemberItem';
-import { navToPersonScreen } from '../../actions/person';
-import { organizationSelector } from '../../selectors/organizations';
-import { removeGroupInviteInfo } from '../../actions/swipe';
-import { trackActionWithoutData } from '../../actions/analytics';
-import { navigatePush, navigateBack } from '../../actions/navigation';
-import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
-import IconButton from '../../components/IconButton';
-import Text from '../../components/Text';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { Organization } from '../../reducers/organizations';
-import theme from '../../theme';
-import { RootState } from '../../reducers';
-import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import LoadMore from '../../components/LoadMore';
+import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
+import { RefreshControl } from '../../../../components/common';
+import BottomButton from '../../../../components/BottomButton';
+import { getCommunityUrl, keyExtractorId } from '../../../../utils/common';
+import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
+import { getAnalyticsPermissionType } from '../../../../utils/analytics';
+import CommunityMemberItem from '../../../../components/CommunityMemberItem';
+import { navToPersonScreen } from '../../../../actions/person';
+import { organizationSelector } from '../../../../selectors/organizations';
+import { removeGroupInviteInfo } from '../../../../actions/swipe';
+import { trackActionWithoutData } from '../../../../actions/analytics';
+import { navigatePush, navigateBack } from '../../../../actions/navigation';
+import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../../routes/constants';
+import IconButton from '../../../../components/IconButton';
+import Text from '../../../../components/Text';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import { Organization } from '../../../../reducers/organizations';
+import theme from '../../../../theme';
+import { RootState } from '../../../../reducers';
+import { useRefreshing } from '../../../../utils/hooks/useRefreshing';
+import LoadMore from '../../../../components/LoadMore';
 
 import styles from './styles';
 import { COMMUNITY_MEMBERS_QUERY } from './queries';
@@ -166,7 +166,11 @@ export const CommunityMembersScreen = () => {
           hasNextPage ? <LoadMore onPress={loadNextPage} /> : undefined
         }
       />
-      <BottomButton onPress={handleInvite} text={t('invite')} />
+      <BottomButton
+        onPress={handleInvite}
+        text={t('invite')}
+        testID="CommunityMemberInviteButton"
+      />
       <SafeAreaView style={styles.closeSafe}>
         <View style={styles.closeWrap}>
           <IconButton

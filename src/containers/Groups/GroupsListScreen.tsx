@@ -37,7 +37,6 @@ import {
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { COMMUNITY_MEMBERS } from '../CommunityMembers';
 import { COMMUNITY_TABS } from '../Communities/Community/constants';
 
 import styles from './styles';
@@ -211,8 +210,7 @@ const GroupsListScreen = ({
   };
 
   const join = () => {
-    dispatch(navigatePush(COMMUNITY_MEMBERS, { orgId: communities[3].id }));
-    // dispatch(navigatePush(JOIN_BY_CODE_FLOW));
+    dispatch(navigatePush(JOIN_BY_CODE_FLOW));
   };
 
   const create = () => {

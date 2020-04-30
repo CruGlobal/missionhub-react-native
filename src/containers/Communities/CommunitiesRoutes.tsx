@@ -1,5 +1,6 @@
-import CommunityMembers, { COMMUNITY_MEMBERS } from '../CommunityMembers';
-
+import CommunityMembers, {
+  COMMUNITY_MEMBERS,
+} from './Community/CommunityMembers/CommunityMembers';
 import { CommunityTabs } from './Community/CommunityTabs';
 import { COMMUNITY_TABS } from './Community/constants';
 import {

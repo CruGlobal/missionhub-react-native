@@ -17,7 +17,7 @@ import Header from '../../../../components/Header';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
 import { navigatePush } from '../../../../actions/navigation';
 import { COMMUNITY_PROFILE } from '../CommunityProfile/CommunityProfile';
-import { COMMUNITY_MEMBERS } from '../../../CommunityMembers';
+import { COMMUNITY_MEMBERS } from '../CommunityMembers/CommunityMembers';
 import InfoIcon from '../../../../../assets/images/infoIcon.svg';
 import EditIcon from '../../../../../assets/images/editIcon.svg';
 import { useMyId } from '../../../../utils/hooks/useIsMe';

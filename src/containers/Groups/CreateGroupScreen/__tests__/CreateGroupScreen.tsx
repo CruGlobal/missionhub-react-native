@@ -18,7 +18,7 @@ import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { ACTIONS, GROUPS_TAB } from '../../../../constants';
 import { COMMUNITY_TABS } from '../../../Communities/Community/constants';
-import { COMMUNITY_MEMBERS } from '../../../CommunityMembers';
+import { COMMUNITY_MEMBERS } from '../../../Communities/Community/CommunityMembers/CommunityMembers';
 
 import CreateGroupScreen from '..';
 
