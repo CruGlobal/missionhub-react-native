@@ -27,7 +27,11 @@ import {
   trackScreenChange,
 } from '../../../../actions/analytics';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ORG_PERMISSIONS, ACTIONS, GROUPS_TAB } from '../../../../constants';
+import {
+  ORG_PERMISSIONS,
+  ACTIONS,
+  COMMUNITIES_TAB,
+} from '../../../../constants';
 import * as common from '../../../../utils/common';
 
 import GroupProfile from '..';
@@ -301,7 +305,7 @@ describe('GroupProfile', () => {
       await Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(deleteOrganization).toHaveBeenCalledWith(orgId);
-      expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
+      expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
     });
 
     it('stops editing', () => {

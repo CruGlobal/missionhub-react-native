@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { FetchMoreOptions } from 'apollo-client';
 
-import { Button, RefreshControl } from '../../components/common';
+import { Button, RefreshControl, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import NULL from '../../../assets/images/footprints.png';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
@@ -175,16 +175,20 @@ const ContactSteps = ({ person, organization }: ContactStepsProps) => {
 
   const renderCompletedStepsButton = () =>
     hasCompletedSteps ? (
-      <Button
-        testID="completedStepsButton"
-        pill={true}
-        text={t(
-          hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps',
-        ).toUpperCase()}
-        onPress={toggleCompletedSteps}
-        style={styles.completedStepsButton}
-        buttonTextStyle={styles.completedStepsButtonText}
-      />
+      <View style={styles.completedStepsButtonWrap}>
+        <Button
+          testID="completedStepsButton"
+          pill={true}
+          onPress={toggleCompletedSteps}
+          style={styles.completedStepsButton}
+        >
+          <Text style={styles.completedStepsButtonText} numberOfLines={1}>
+            {t(
+              hideCompleted ? 'showCompletedSteps' : 'hideCompletedSteps',
+            ).toUpperCase()}
+          </Text>
+        </Button>
+      </View>
     ) : null;
 
   const renderSectionFooter = ({

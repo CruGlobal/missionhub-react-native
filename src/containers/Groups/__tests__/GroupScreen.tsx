@@ -11,7 +11,7 @@ import {
   createThunkStore,
   renderShallow,
 } from '../../../../testUtils';
-import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../../constants';
+import { GLOBAL_COMMUNITY_ID, COMMUNITIES_TAB } from '../../../constants';
 import * as common from '../../../utils/common';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../routes/constants';
 import { navigatePush, navigateToMainTabs } from '../../../actions/navigation';
@@ -130,7 +130,7 @@ describe('GroupScreen', () => {
       .props()
       .left.props.onPress();
 
-    expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
+    expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
   });
 
   it('calls disable back add', () => {
