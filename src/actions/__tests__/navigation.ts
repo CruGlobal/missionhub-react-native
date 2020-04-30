@@ -16,7 +16,11 @@ import {
   navigateToCommunity,
   navigateToCelebrateComments,
 } from '../navigation';
-import { MAIN_TABS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
+import {
+  MAIN_TABS,
+  GLOBAL_COMMUNITY_ID,
+  COMMUNITIES_TAB,
+} from '../../constants';
 import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
 import {
@@ -192,7 +196,7 @@ describe('navigateReplace', () => {
 
 describe('navigateToMainTabs', () => {
   it('should dispatch loadHome and then navigate to main tabs', () => {
-    store.dispatch<any>(navigateToMainTabs(GROUPS_TAB));
+    store.dispatch<any>(navigateToMainTabs(COMMUNITIES_TAB));
 
     expect(loadHome).toHaveBeenCalled();
     expect(store.getActions()).toEqual([
@@ -205,7 +209,7 @@ describe('navigateToMainTabs', () => {
           {
             type: 'Navigation/NAVIGATE',
             routeName: MAIN_TABS,
-            action: NavigationActions.navigate({ routeName: GROUPS_TAB }),
+            action: NavigationActions.navigate({ routeName: COMMUNITIES_TAB }),
           },
         ],
       },

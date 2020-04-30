@@ -23,7 +23,7 @@ import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
 import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
-import { ACTIONS, GROUPS_TAB } from '../../../constants';
+import { ACTIONS, COMMUNITIES_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
 
@@ -90,7 +90,7 @@ class CreateGroupScreen extends Component {
 
     // If for some reason the organization was not created and put in redux properly,
     // reset the user back to the communities tab
-    dispatch(navigateToMainTabs(GROUPS_TAB));
+    dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
   // @ts-ignore

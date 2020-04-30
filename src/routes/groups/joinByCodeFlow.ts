@@ -11,7 +11,7 @@ import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from '../../containers/NotificationOffScreen';
 import { wrapNextAction } from '../helpers';
-import { GROUPS_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import { COMMUNITIES_TAB, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { checkNotifications } from '../../actions/notifications';
 import { joinCommunity } from '../../actions/organizations';
 import { setScrollGroups } from '../../actions/swipe';
@@ -27,7 +27,7 @@ export const JoinByCodeFlowScreens = {
 
         await dispatch(
           checkNotifications(NOTIFICATION_PROMPT_TYPES.JOIN_COMMUNITY, () =>
-            dispatch(navigateToMainTabs(GROUPS_TAB)),
+            dispatch(navigateToMainTabs(COMMUNITIES_TAB)),
           ),
         );
       },
@@ -35,10 +35,10 @@ export const JoinByCodeFlowScreens = {
     defaultNavigationOptions: { gesturedEnabled: true },
   },
   [NOTIFICATION_PRIMER_SCREEN]: wrapNextAction(NotificationPrimerScreen, () =>
-    navigateToMainTabs(GROUPS_TAB),
+    navigateToMainTabs(COMMUNITIES_TAB),
   ),
   [NOTIFICATION_OFF_SCREEN]: wrapNextAction(NotificationOffScreen, () =>
-    navigateToMainTabs(GROUPS_TAB),
+    navigateToMainTabs(COMMUNITIES_TAB),
   ),
 };
 

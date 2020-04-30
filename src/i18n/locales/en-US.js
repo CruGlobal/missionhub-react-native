@@ -511,10 +511,10 @@ export default {
     errorLoadingStepCounts: 'Error loading step counts for your people',
   },
   appRoutes: {
-    steps: 'Steps',
+    steps: 'Steps of Faith',
     people: 'People',
-    impact: 'Impact',
-    group: 'Communities',
+    notifications: 'Notifications',
+    communities: 'Communities',
   },
   groupTabs: {
     celebrate: 'Celebrate',
@@ -952,5 +952,8 @@ export default {
     },
     addAPhoto: 'Add a Photo',
     buttonPlaceholder: 'Post to community...',
+  },
+  notificationsCenter: {
+    title: 'Notifications',
   },
 };

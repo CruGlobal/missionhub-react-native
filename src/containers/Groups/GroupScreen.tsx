@@ -12,7 +12,7 @@ import IconButton from '../../components/IconButton';
 import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../routes/constants';
 import { organizationSelector } from '../../selectors/organizations';
 import { buildTrackingObj, disableBack } from '../../utils/common';
-import { GLOBAL_COMMUNITY_ID, GROUPS_TAB } from '../../constants';
+import { GLOBAL_COMMUNITY_ID, COMMUNITIES_TAB } from '../../constants';
 import theme from '../../theme';
 
 import GroupCelebrate from './GroupCelebrate';
@@ -55,7 +55,7 @@ class GroupScreen extends Component {
 
   back = () => {
     // @ts-ignore
-    this.props.dispatch(navigateToMainTabs(GROUPS_TAB));
+    this.props.dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
   renderAddContactIcon() {

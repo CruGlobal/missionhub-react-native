@@ -46,32 +46,36 @@ const NotificationOffScreen = ({
   const [settingsOpened, setSettingsOpened] = useState(false);
   const appState = useAppState();
 
-  const close = async () => {
-    let nativePermissionsEnabled = false;
-    try {
-      const response = await dispatch(requestNativePermissions());
-      nativePermissionsEnabled = response.nativePermissionsEnabled;
-    } finally {
-      next
-        ? dispatch(next())
-        : onComplete
-        ? onComplete({ nativePermissionsEnabled, showedPrompt: true })
-        : dispatch(navigateBack());
+  const close = async (returnFromSettings: boolean) => {
+    const { nativePermissionsEnabled } = await dispatch(
+      requestNativePermissions(),
+    );
+
+    if (returnFromSettings && !nativePermissionsEnabled) {
+      return;
     }
+
+    next
+      ? dispatch(next())
+      : onComplete
+      ? onComplete({ nativePermissionsEnabled, showedPrompt: true })
+      : dispatch(navigateBack());
   };
+
+  const onReturnFromSettings = () => close(true);
 
   useEffect(() => {
     if (appState === 'background') {
       setSettingsOpened(true);
     }
     if (appState === 'active' && settingsOpened) {
-      close();
+      close(true);
       setSettingsOpened(false);
     }
   }, [appState]);
 
   const notNow = () => {
-    close();
+    close(false);
     dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   };
 
@@ -85,13 +89,13 @@ const NotificationOffScreen = ({
       }
     }
 
-    close();
+    close(false);
   };
 
   useEffect(() => {
-    Linking.addEventListener('url', close);
+    Linking.addEventListener('url', onReturnFromSettings);
 
-    return () => Linking.removeEventListener('url', close);
+    return () => Linking.removeEventListener('url', onReturnFromSettings);
   }, []);
 
   const descriptionText = t(

@@ -75,4 +75,9 @@ describe('StepTypeBadge', () => {
       <StepTypeBadge stepType={StepTypeEnum.share} labelUppercase={false} />,
     ).snapshot();
   });
+  it('should render large icons', () => {
+    renderWithContext(
+      <StepTypeBadge stepType={StepTypeEnum.share} largeIcon />,
+    ).snapshot();
+  });
 });
