@@ -5,14 +5,12 @@ import { CommunityFeedItemName } from '../index';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
-import { COMMUNITY_FEED_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
-import { CommunityFeedPerson } from '../../CommunityFeedItem/__generated__/CommunityFeedPerson';
+import { COMMUNITY_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
+import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
 
 jest.mock('../../../actions/person');
 
-const person = mockFragment<CommunityFeedPerson>(
-  COMMUNITY_FEED_PERSON_FRAGMENT,
-);
+const person = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
 const name = `${person.firstName} ${person.lastName}`;
 const personId = person.id;
 const orgId = '235234';

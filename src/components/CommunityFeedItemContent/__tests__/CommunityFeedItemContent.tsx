@@ -7,14 +7,13 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import {
-  COMMUNITY_PERMISSIONS_FRAGMENT,
-  COMMUNITY_FEED_ITEM_FRAGMENT,
-} from '../../CommunityFeedItem/queries';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../CommunityFeedItem/queries';
 import { COMMUNITY_FRAGMENT } from '../../../containers/Groups/queries';
 import { CommunityFragment } from '../../../containers/Groups/__generated__/CommunityFragment';
-import { CommunityPermissions } from '../../CommunityFeedItem/__generated__/CommunityPermissions';
-import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
+import {
+  CommunityFeedItem,
+  CommunityFeedItem_subjectPerson,
+} from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 
@@ -25,36 +24,13 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
 
 const myId = '123';
-const otherId = '456';
 const organization = mockFragment<CommunityFragment>(COMMUNITY_FRAGMENT);
 const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
-const communityPermissions = mockFragment<CommunityPermissions>(
-  COMMUNITY_PERMISSIONS_FRAGMENT,
-);
 const meItem: CommunityFeedItem = {
   ...item,
   subjectPerson: {
-    __typename: 'Person',
+    ...(item.subjectPerson as CommunityFeedItem_subjectPerson),
     id: myId,
-    firstName: 'John',
-    lastName: 'Smith',
-    communityPermissions: {
-      __typename: 'CommunityPermissionConnection',
-      nodes: [communityPermissions],
-    },
-  },
-};
-const otherItem: CommunityFeedItem = {
-  ...item,
-  subjectPerson: {
-    __typename: 'Person',
-    id: otherId,
-    firstName: 'John',
-    lastName: 'Smith',
-    communityPermissions: {
-      __typename: 'CommunityPermissionConnection',
-      nodes: [communityPermissions],
-    },
   },
 };
 
@@ -131,7 +107,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=other, liked=true, like count>0', () => {
     testEvent({
-      ...otherItem,
+      ...item,
       likesCount: 1,
       liked: true,
     });
@@ -139,7 +115,7 @@ describe('CelebrateItemContent', () => {
 
   it('renders event for subject=other, liked=false, like count=0', () => {
     testEvent({
-      ...otherItem,
+      ...item,
       likesCount: 0,
       liked: false,
     });

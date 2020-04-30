@@ -23,7 +23,7 @@ export const CommunityFeedItemName = ({
   pressable,
   customContent,
 }: CommunityFeedItemNameProps) => {
-  const { t } = useTranslation('celebrateFeeds');
+  const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
   const onPressNameLink = () =>

@@ -11,9 +11,9 @@ import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import {
   COMMUNITY_FEED_ITEM_FRAGMENT,
-  COMMUNITY_FEED_PERSON_FRAGMENT,
+  COMMUNITY_PERSON_FRAGMENT,
 } from '../../../components/CommunityFeedItem/queries';
-import { CommunityFeedPerson } from '../../CommunityFeedItem/__generated__/CommunityFeedPerson';
+import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
 import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import { CommentLikeComponent } from '..';
@@ -21,15 +21,12 @@ import { CommentLikeComponent } from '..';
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');
 
-const mePerson = mockFragment<CommunityFeedPerson>(
-  COMMUNITY_FEED_PERSON_FRAGMENT,
-);
-const otherPerson = mockFragment<CommunityFeedPerson>(
-  COMMUNITY_FEED_PERSON_FRAGMENT,
-);
+const mePerson = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
+const otherPerson = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
+const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
+
 const myId = mePerson.id;
 const orgId = '567';
-const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 
 const toggleLikeResponse = { type: 'item was liked' };
 const trackActionResponse = { type: 'tracked action' };

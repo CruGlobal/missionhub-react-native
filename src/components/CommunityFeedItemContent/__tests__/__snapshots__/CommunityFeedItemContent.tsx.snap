@@ -19,7 +19,7 @@ exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
       ]
     }
   >
-    John S. accepted a Challenge:
+    Marcellus H. accepted a Challenge:
   </Text>
   <View
     style={
@@ -108,7 +108,7 @@ exports[`CelebrateItemContent message renders completed challenge event 1`] = `
       ]
     }
   >
-    John S. completed a Challenge:
+    Marcellus H. completed a Challenge:
   </Text>
   <View
     style={
@@ -221,7 +221,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 1 1
       ]
     }
   >
-    John S. completed a Step of Faith with a Uninterested person.
+    Marcellus H. completed a Step of Faith with a Uninterested person.
   </Text>
 </View>
 `;
@@ -245,7 +245,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 2 1
       ]
     }
   >
-    John S. completed a Step of Faith with a Curious person.
+    Marcellus H. completed a Step of Faith with a Curious person.
   </Text>
 </View>
 `;
@@ -269,7 +269,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 3 1
       ]
     }
   >
-    John S. completed a Step of Faith with a Forgiven person.
+    Marcellus H. completed a Step of Faith with a Forgiven person.
   </Text>
 </View>
 `;
@@ -293,7 +293,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 4 1
       ]
     }
   >
-    John S. completed a Step of Faith with a Growing person.
+    Marcellus H. completed a Step of Faith with a Growing person.
   </Text>
 </View>
 `;
@@ -317,7 +317,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 5 1
       ]
     }
   >
-    John S. completed a Step of Faith with a Guiding person.
+    Marcellus H. completed a Step of Faith with a Guiding person.
   </Text>
 </View>
 `;
@@ -341,7 +341,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage Not
       ]
     }
   >
-    John S. completed a Step of Faith.
+    Marcellus H. completed a Step of Faith.
   </Text>
 </View>
 `;
@@ -365,7 +365,7 @@ exports[`CelebrateItemContent message renders step of faith event without stage 
       ]
     }
   >
-    John S. completed a Step of Faith with someone.
+    Marcellus H. completed a Step of Faith with someone.
   </Text>
 </View>
 `;
@@ -388,7 +388,9 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
         },
       ]
     }
-  />
+  >
+    Marcellus H. completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;
 
@@ -410,7 +412,9 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
         },
       ]
     }
-  />
+  >
+    Marcellus H. completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;
 
@@ -432,7 +436,9 @@ exports[`CelebrateItemContent renders event for subject=me, liked=true, like cou
         },
       ]
     }
-  />
+  >
+    Marcellus H. completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;
 
@@ -454,7 +460,9 @@ exports[`CelebrateItemContent renders event for subject=other, liked=false, like
         },
       ]
     }
-  />
+  >
+    Marcellus H. completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;
 
@@ -476,7 +484,9 @@ exports[`CelebrateItemContent renders event for subject=other, liked=true, like 
         },
       ]
     }
-  />
+  >
+    Marcellus H. completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;
 
@@ -498,7 +508,9 @@ exports[`CelebrateItemContent renders event with no subjectPerson and no subject
         },
       ]
     }
-  />
+  >
+    A MissionHub user completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;
 
@@ -520,6 +532,8 @@ exports[`CelebrateItemContent renders event with no subjectPerson, defaults to s
         },
       ]
     }
-  />
+  >
+    Marcellus Hyatt completed a Step of Faith with a Growing person.
+  </Text>
 </View>
 `;

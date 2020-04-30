@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 import {
-  COMMUNITY_FEED_PERSON_FRAGMENT,
+  COMMUNITY_PERSON_FRAGMENT,
   COMMUNITY_FEED_ITEM_FRAGMENT,
 } from '../../components/CommunityFeedItem/queries';
 
@@ -26,7 +26,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
           likesCount
           objectDescription
           subjectPerson {
-            ...CommunityFeedPerson
+            ...CommunityPerson
           }
           subjectPersonName
         }
@@ -37,7 +37,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
       }
     }
   }
-  ${COMMUNITY_FEED_PERSON_FRAGMENT}
+  ${COMMUNITY_PERSON_FRAGMENT}
 `;
 
 export const GET_COMMUNITY_FEED = gql`
@@ -49,6 +49,10 @@ export const GET_COMMUNITY_FEED = gql`
       feedItems(subjectType: $subjectType) {
         nodes {
           ...CommunityFeedItem
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
     }

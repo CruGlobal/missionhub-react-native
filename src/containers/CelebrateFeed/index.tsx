@@ -16,6 +16,7 @@ import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { momentUtc } from '../../utils/date';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
@@ -33,6 +34,51 @@ export interface CelebrateFeedProps {
   onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
 }
+
+export interface CommunityFeedSection {
+  id: number;
+  date: string;
+  data: FeedItemFragment[];
+}
+
+const sortCommunityFeed = (items: FeedItemFragment[]) => {
+  const sortByDate = items;
+  sortByDate.sort(compare);
+
+  const dateSections: CommunityFeedSection[] = [];
+  sortByDate.forEach(item => {
+    const length = dateSections.length;
+    const itemMoment = momentUtc(item.createdAt);
+
+    if (
+      length > 0 &&
+      itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
+    ) {
+      dateSections[length - 1].data.push(item);
+    } else {
+      dateSections.push({
+        id: dateSections.length,
+        date: item.createdAt,
+        data: [item],
+      });
+    }
+  });
+
+  return dateSections;
+};
+
+const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
+  const aValue = a.createdAt,
+    bValue = b.createdAt;
+
+  if (aValue < bValue) {
+    return 1;
+  }
+  if (aValue > bValue) {
+    return -1;
+  }
+  return 0;
+};
 
 export const CelebrateFeed = ({
   organization,
@@ -55,7 +101,7 @@ export const CelebrateFeed = ({
   const {
     data: {
       community: {
-        celebrationItems: {
+        feedItems: {
           nodes = [],
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
@@ -92,9 +138,9 @@ export const CelebrateFeed = ({
     skip: !isGlobal,
   });
 
-  const celebrationItems = celebrationSelector({
-    celebrateItems: isGlobal ? globalNodes : nodes,
-  });
+  const items = isGlobal
+    ? celebrationSelector({ celebrateItems: globalNodes })
+    : sortCommunityFeed(nodes);
 
   const handleRefreshing = () => {
     isGlobal ? globalRefetch() : refetch();
@@ -116,13 +162,12 @@ export const CelebrateFeed = ({
                 community: {
                   ...prev.community,
                   ...fetchMoreResult.community,
-                  celebrationItems: {
-                    ...prev.community.celebrationItems,
-                    ...fetchMoreResult.community.celebrationItems,
+                  feedItems: {
+                    ...prev.community.feedItems,
+                    ...fetchMoreResult.community.feedItems,
                     nodes: [
-                      ...(prev.community.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.community.celebrationItems.nodes ||
-                        []),
+                      ...(prev.community.feedItems.nodes || []),
+                      ...(fetchMoreResult.community.feedItems.nodes || []),
                     ],
                   },
                 },
@@ -234,7 +279,7 @@ export const CelebrateFeed = ({
 
   return (
     <SectionList
-      sections={celebrationItems}
+      sections={items}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}

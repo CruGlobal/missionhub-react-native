@@ -16,10 +16,9 @@ import { CommunityFeedItemName } from '../CommunityFeedItemName';
 import PostTypeLabel from '../PostTypeLabel';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
-import { orgIsGlobal, mapPostTypeToFeedType } from '../../utils/common';
+import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
@@ -49,7 +48,7 @@ export const CommunityFeedItem = ({
   const personId = subjectPerson?.id;
   const orgId = organization.id;
 
-  const { t } = useTranslation('celebrateItems');
+  const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(personId || '');
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
@@ -59,19 +58,7 @@ export const CommunityFeedItem = ({
     REPORT_POST,
   );
 
-  const getFeedItemType = (subjectType: string) => {
-    switch (subjectType) {
-      case 'CommunityChallenge':
-        return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
-      case 'Step':
-        return FeedItemSubjectTypeEnum.STEP;
-      case 'Post':
-        return mapPostTypeToFeedType((subject as CommunityFeedPost).postType);
-      default:
-        return FeedItemSubjectTypeEnum.STORY;
-    }
-  };
-  const FeedItemType = getFeedItemType(subject.__typename);
+  const FeedItemType = getFeedItemType(subject);
 
   const isPost = subject.__typename === 'Post';
   const addToSteps = [
@@ -216,11 +203,13 @@ export const CommunityFeedItem = ({
         organization={organization}
         style={styles.postTextWrap}
       />
-      {/*<Image
-        source={GLOBAL_COMMUNITY_IMAGE}
-        style={{ width: '100%' }}
-        resizeMode="contain"
-      />*/}
+      {
+        <Image
+          source={GLOBAL_COMMUNITY_IMAGE}
+          style={{ width: '100%' }}
+          resizeMode="contain"
+        />
+      }
       <Separator />
       {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}
@@ -228,7 +217,7 @@ export const CommunityFeedItem = ({
   );
 
   const renderCardGlobal = () => (
-    <Card testID="CelebrateItemPressable">{renderContent()}</Card>
+    <Card testID="CommunityFeedItem">{renderContent()}</Card>
   );
 
   const renderCardLongPressable = () => (
@@ -236,7 +225,7 @@ export const CommunityFeedItem = ({
       <View style={{ flex: 1 }}>
         <PopupMenu
           // @ts-ignore
-          testID="CelebrateItemPressable"
+          testID="CommunityFeedItem"
           actions={menuActions}
           buttonProps={{
             onPress: handlePress,
@@ -251,7 +240,7 @@ export const CommunityFeedItem = ({
   );
 
   const renderCardPressable = () => (
-    <Card testID="CelebrateItemPressable" onPress={handlePress}>
+    <Card testID="CommunityFeedItem" onPress={handlePress}>
       {renderContent()}
     </Card>
   );

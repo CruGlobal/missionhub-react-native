@@ -92,7 +92,7 @@ exports[`Updating a post user types a post 1`] = `
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"esse repellat quisquam\\"
+-         value=\\"repellat quisquam recusandae\\"
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
@@ -848,7 +848,7 @@ exports[`renders correctly for update post 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="esse repellat quisquam"
+        value="repellat quisquam recusandae"
       />
       <View
         accessible={true}
@@ -1288,7 +1288,7 @@ exports[`renders correctly on android 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="esse repellat quisquam"
+        value="repellat quisquam recusandae"
       />
       <View
         accessible={true}

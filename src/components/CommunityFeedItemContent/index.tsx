@@ -9,7 +9,7 @@ import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import {
   getFirstNameAndLastInitial,
-  mapPostTypeToFeedType,
+  getFeedItemType,
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
@@ -34,23 +34,11 @@ export const CommunityFeedItemContent = ({
   organization,
   style,
 }: CommunityFeedItemContentProps) => {
-  const { t } = useTranslation('celebrateFeeds');
+  const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
   const { subject, subjectPerson, subjectPersonName } = item;
-  const getFeedItemType = (subjectType: string) => {
-    switch (subjectType) {
-      case 'CommunityChallenge':
-        return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
-      case 'Step':
-        return FeedItemSubjectTypeEnum.STEP;
-      case 'Post':
-        return mapPostTypeToFeedType((subject as CommunityFeedPost).postType);
-      default:
-        return FeedItemSubjectTypeEnum.STORY;
-    }
-  };
-  const itemType = getFeedItemType(subject.__typename);
+  const itemType = getFeedItemType(subject);
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(

@@ -15,8 +15,8 @@ import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
-import { CommunityFeedPost } from '../../../../components/CelebrateItem/__generated__/CommunityFeedPost';
-import { COMMUNITY_FEED_POST_FRAGMENT } from '../../../../components/CelebrateItem/queries';
+import { CommunityFeedPost } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
+import { COMMUNITY_FEED_POST_FRAGMENT } from '../../../../components/CommunityFeedItem/queries';
 import { CREATE_POST, UPDATE_POST } from '../queries';
 
 import { CreatePostScreen } from '..';

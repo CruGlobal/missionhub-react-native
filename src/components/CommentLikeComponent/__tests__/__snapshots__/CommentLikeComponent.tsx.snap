@@ -105,7 +105,7 @@ exports[`renders nothing with no subject person 1`] = `
         ]
       }
     >
-      41919
+      68521
     </Text>
     <SvgMock />
   </View>
@@ -371,7 +371,7 @@ exports[`with subject person renders 0 likes_count 1`] = `
         ]
       }
     >
-      41919
+      68521
     </Text>
     <SvgMock />
   </View>
@@ -417,7 +417,7 @@ exports[`with subject person renders for me 1`] = `
         ]
       }
     >
-      52454
+      44345
     </Text>
     <View
       accessible={true}
@@ -485,7 +485,7 @@ exports[`with subject person renders for me 1`] = `
         ]
       }
     >
-      41919
+      68521
     </Text>
     <SvgMock />
   </View>
@@ -597,7 +597,7 @@ exports[`with subject person renders for someone else 1`] = `
         ]
       }
     >
-      41919
+      68521
     </Text>
     <SvgMock />
   </View>
@@ -709,7 +709,7 @@ exports[`with subject person renders when not liked 1`] = `
         ]
       }
     >
-      41919
+      68521
     </Text>
     <SvgMock />
   </View>

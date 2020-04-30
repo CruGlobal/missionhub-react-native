@@ -9,8 +9,8 @@ export const COMMUNITY_PERMISSIONS_FRAGMENT = gql`
   }
 `;
 
-export const COMMUNITY_FEED_PERSON_FRAGMENT = gql`
-  fragment CommunityFeedPerson on Person {
+export const COMMUNITY_PERSON_FRAGMENT = gql`
+  fragment CommunityPerson on Person {
     id
     firstName
     lastName
@@ -21,38 +21,6 @@ export const COMMUNITY_FEED_PERSON_FRAGMENT = gql`
     }
   }
   ${COMMUNITY_PERMISSIONS_FRAGMENT}
-`;
-
-export const COMMUNITY_FEED_CHALLENGE_FRAGMENT = gql`
-  fragment CommunityFeedChallenge on CommunityChallenge {
-    id
-    title
-    acceptedCommunityChallengesList {
-      id
-      acceptedAt
-      completedAt
-    }
-  }
-`;
-
-export const COMMUNITY_FEED_STEP_FRAGMENT = gql`
-  fragment CommunityFeedStep on Step {
-    id
-    title
-    receiverStageAtCompletion {
-      id
-    }
-  }
-`;
-
-export const COMMUNITY_FEED_POST_FRAGMENT = gql`
-  fragment CommunityFeedPost on Post {
-    id
-    content
-    mediaContentType
-    mediaExpiringUrl
-    postType
-  }
 `;
 
 export const CELEBRATE_ITEM_FRAGMENT = gql`
@@ -69,11 +37,46 @@ export const CELEBRATE_ITEM_FRAGMENT = gql`
     likesCount
     objectDescription
     subjectPerson {
-      ...CommunityFeedPerson
+      ...CommunityPerson
     }
     subjectPersonName
   }
-  ${COMMUNITY_FEED_PERSON_FRAGMENT}
+  ${COMMUNITY_PERSON_FRAGMENT}
+`;
+
+export const COMMUNITY_FEED_CHALLENGE_FRAGMENT = gql`
+  fragment CommunityFeedChallenge on CommunityChallenge {
+    __typename
+    id
+    title
+    acceptedCommunityChallengesList {
+      id
+      acceptedAt
+      completedAt
+    }
+  }
+`;
+
+export const COMMUNITY_FEED_STEP_FRAGMENT = gql`
+  fragment CommunityFeedStep on Step {
+    __typename
+    id
+    title
+    receiverStageAtCompletion {
+      id
+    }
+  }
+`;
+
+export const COMMUNITY_FEED_POST_FRAGMENT = gql`
+  fragment CommunityFeedPost on Post {
+    __typename
+    id
+    content
+    mediaContentType
+    mediaExpiringUrl
+    postType
+  }
 `;
 
 export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
@@ -100,14 +103,14 @@ export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
       }
     }
     subjectPerson {
-      ...CommunityFeedPerson
+      ...CommunityPerson
     }
     subjectPersonName
   }
   ${COMMUNITY_FEED_CHALLENGE_FRAGMENT}
   ${COMMUNITY_FEED_STEP_FRAGMENT}
   ${COMMUNITY_FEED_POST_FRAGMENT}
-  ${COMMUNITY_FEED_PERSON_FRAGMENT}
+  ${COMMUNITY_PERSON_FRAGMENT}
 `;
 
 export const DELETE_POST = gql`

@@ -442,7 +442,9 @@ exports[`renders correctly 1`] = `
                   },
                 ]
               }
-            />
+            >
+              Hayden Z. completed a Step of Faith with a Forgiven person.
+            </Text>
           </View>
         </View>
         <View

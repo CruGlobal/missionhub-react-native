@@ -569,30 +569,6 @@ export default {
   celebrateFeed: {
     errorLoadingCelebrateFeed: 'Error loading celebrate feed',
   },
-  celebrateFeeds: {
-    title: '',
-    emptyFeedTitle: 'Celebrate!',
-    emptyFeedDescription:
-      'You can celebrate {{firstName}} Steps of Faith here.',
-    emptyFeedGroupNameValue: 'each other',
-    stepOfFaith:
-      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
-    stepOfFaithUnknownStage:
-      '{{initiator}} completed a Step of Faith with someone.',
-    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
-    interaction: '{{initiator}} had a {{interactionName}}.',
-    interactionDecision: '{{initiator}} saw someone make a Personal Decision.',
-    addedContact: '{{initiator}} added a {{receiverStage}} person.',
-    somethingCoolHappened:
-      '{{initiator}} saw something cool happen with someone.',
-    challengeAccepted: '{{initiator}} accepted a Challenge:',
-    challengeCompleted: '{{initiator}} completed a Challenge:',
-    communityCreated: '{{initiator}} created {{communityName}}!',
-    joinedCommunity:
-      '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
-    missionHubUser: 'MissionHub user',
-    aMissionHubUser: 'A MissionHub user',
-  },
   communityFeedItems: {
     edit: {
       buttonText: 'Edit Post',
@@ -611,6 +587,15 @@ export default {
       confirmButtonText: 'Report Post',
     },
     addToMySteps: 'Add to My Steps',
+    stepOfFaith:
+      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
+    stepOfFaithUnknownStage:
+      '{{initiator}} completed a Step of Faith with someone.',
+    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
+    challengeAccepted: '{{initiator}} accepted a Challenge:',
+    challengeCompleted: '{{initiator}} completed a Challenge:',
+    missionHubUser: 'MissionHub user',
+    aMissionHubUser: 'A MissionHub user',
   },
   challengeFeeds: {
     past: 'Past Challenges',

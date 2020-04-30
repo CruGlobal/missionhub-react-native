@@ -22,8 +22,8 @@ import { navigatePush } from '../../../actions/navigation';
 import { Person } from '../../../reducers/people';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
-import { CommunityFeedItem } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
+import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
 
 import CommentsList from '..';
 
@@ -37,7 +37,7 @@ jest.mock('../../../selectors/celebrateComments');
 const me: Person = { id: '1', first_name: 'Matt', last_name: 'Smith' };
 const otherPerson: Person = { id: '2', first_name: 'Will', last_name: 'Smith' };
 const organization: Organization = { id: '24234234' };
-const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
+const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const comments: { comments: CelebrateComment[]; pagination: any } = {
   comments: [
