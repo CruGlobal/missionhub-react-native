@@ -41,7 +41,7 @@ import {
 import { organizationSelector } from '../../../selectors/organizations';
 import {
   ACTIONS,
-  GROUPS_TAB,
+  COMMUNITIES_TAB,
   ANALYTICS_PERMISSION_TYPE,
 } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
@@ -131,7 +131,7 @@ class GroupProfile extends Component {
     // @ts-ignore
     const { dispatch, organization } = this.props;
     await dispatch(deleteOrganization(organization.id));
-    dispatch(navigateToMainTabs(GROUPS_TAB));
+    dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
   checkDeleteOrg = () => {
