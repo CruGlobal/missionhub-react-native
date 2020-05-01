@@ -4,6 +4,7 @@ import React from 'react';
 import { Alert, Share } from 'react-native';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import i18n from 'i18next';
+import * as apolloHooks from '@apollo/react-hooks';
 
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../../../testUtils';
@@ -29,6 +30,7 @@ jest.mock('../../../../../actions/person');
 jest.mock('../../../../../actions/swipe');
 jest.mock('../../../../../actions/analytics');
 jest.mock('../../../../../utils/common');
+
 // @ts-ignore
 common.refresh = jest.fn();
 Alert.alert = jest.fn();
@@ -169,5 +171,40 @@ describe('CommunityMembers', () => {
     await fireEvent.press(getByTestId('CommunityMemberInviteButton'));
 
     expect(navigatePush).toHaveBeenCalled();
+  });
+
+  it('should load next page', async () => {
+    const fetchMore = jest.fn();
+    const apolloHooksActual = jest.requireActual('@apollo/react-hooks');
+    // @ts-ignore
+    apolloHooks.useQuery = jest.fn((...args) => ({
+      ...apolloHooksActual.useQuery(...args),
+      fetchMore,
+    }));
+    const { getByTestId } = renderWithContext(<CommunityMembers />, {
+      initialState,
+      navParams: { communityId },
+      mocks: {
+        Query: () => ({
+          community: () => ({
+            userCreated: () => true,
+            people: () => ({
+              pageInfo: () => ({ endCursor: '1', hasNextPage: true }),
+            }),
+          }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    await getByTestId(
+      'CommunityMemberList',
+    ).props.ListFooterComponent.props.onPress();
+
+    expect(fetchMore).toHaveBeenCalledWith({
+      updateQuery: expect.any(Function),
+      variables: { after: '1' },
+    });
+
+    // expect(navigatePush).toHaveBeenCalled();
   });
 });

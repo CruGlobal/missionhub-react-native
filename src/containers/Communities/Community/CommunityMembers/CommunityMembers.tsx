@@ -134,6 +134,7 @@ export const CommunityMembersScreen = () => {
       <StatusBar {...theme.statusBar.darkContent} />
 
       <FlatList
+        testID="CommunityMemberList"
         data={nodes}
         keyExtractor={keyExtractorId}
         ListHeaderComponent={() => (
