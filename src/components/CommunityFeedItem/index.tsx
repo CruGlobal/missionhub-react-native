@@ -99,7 +99,7 @@ export const CommunityFeedItem = ({
   const handleEdit = () =>
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        post: item,
+        post: item.subject,
         onComplete: onRefresh,
         communityId: orgId,
       }),

@@ -39,17 +39,17 @@ import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
-interface CreatePostNavParams {
+interface CreatePostScreenParams {
+  onComplete: () => void;
+  communityId: string;
+}
+interface CreatePostNavParams extends CreatePostScreenParams {
   postType: PostTypeEnum;
-  onComplete: () => void;
-  communityId: string;
 }
-
-interface UpdatePostNavParams {
+interface UpdatePostNavParams extends CreatePostScreenParams {
   post: CommunityFeedPost;
-  onComplete: () => void;
-  communityId: string;
 }
+type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
 
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
@@ -82,7 +82,7 @@ export const CreatePostScreen = () => {
   );
   const [postText, changePostText] = useState<string>(post?.content || '');
   const [postImage, changePostImage] = useState<string | undefined>(undefined); //TODO: use image from post
-
+  console.log(post);
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
     permissionType
@@ -101,7 +101,7 @@ export const CreatePostScreen = () => {
     UPDATE_POST,
   );
 
-  const savePost = async () => {
+  const savePost = () => {
     if (!postText) {
       return;
     }
@@ -109,11 +109,11 @@ export const CreatePostScreen = () => {
     Keyboard.dismiss();
 
     if (post) {
-      await updatePost({
+      updatePost({
         variables: { input: { id: post.id, content: postText } },
       });
     } else {
-      await createPost({
+      createPost({
         variables: {
           input: { content: postText, communityId, postType },
         },
