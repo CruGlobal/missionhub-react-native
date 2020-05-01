@@ -81,6 +81,15 @@ export const globalMocks: IMocks = {
       postType: faker.random.arrayElement(Object.values(PostTypeEnum)),
     };
   },
+  FeedItemSubject: () => {
+    return {
+      __typename: faker.random.arrayElement([
+        'CommunityChallenge',
+        'Step',
+        'Post',
+      ]),
+    };
+  },
   FeedItem: () => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();

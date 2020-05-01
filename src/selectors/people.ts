@@ -3,7 +3,6 @@ import { createSelector } from 'reselect';
 import { PeopleState, Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 import { Organization } from '../reducers/organizations';
-import { CommunityPermissions } from '../components/CommunityFeedItem/__generated__/CommunityPermissions';
 
 import { removeHiddenOrgs } from './selectorUtils';
 

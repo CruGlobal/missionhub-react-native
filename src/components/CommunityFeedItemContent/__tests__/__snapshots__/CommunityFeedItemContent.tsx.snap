@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
+exports[`CelebrateItemContent Challenge Items renders for accepted challenge 1`] = `
 <View>
   <Text
     style={
@@ -89,7 +89,7 @@ exports[`CelebrateItemContent message renders accepted challenge event 1`] = `
 </View>
 `;
 
-exports[`CelebrateItemContent message renders completed challenge event 1`] = `
+exports[`CelebrateItemContent Challenge Items renders for completed challenge 1`] = `
 <View>
   <Text
     style={
@@ -178,7 +178,185 @@ exports[`CelebrateItemContent message renders completed challenge event 1`] = `
 </View>
 `;
 
-exports[`CelebrateItemContent message renders event with no subject person name 1`] = `
+exports[`CelebrateItemContent Challenge Items renders with no subjectPerson and no subjectPersonName 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    A MissionHub user completed a Challenge:
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ChallengeLinkButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 4,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textAlign": "left",
+              },
+            ]
+          }
+        >
+          Invite a friend to church
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent Challenge Items renders with no subjectPerson, defaults to subjectPersonName 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Marcellus Hyatt completed a Challenge:
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ChallengeLinkButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 4,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textAlign": "left",
+              },
+            ]
+          }
+        >
+          Invite a friend to church
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent Post Items renders post 1`] = `
 <View>
   <Text
     style={
@@ -202,7 +380,7 @@ exports[`CelebrateItemContent message renders event with no subject person name 
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event with stage 1 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 1 1`] = `
 <View>
   <Text
     style={
@@ -226,7 +404,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 1 1
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event with stage 2 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 2 1`] = `
 <View>
   <Text
     style={
@@ -250,7 +428,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 2 1
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event with stage 3 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 3 1`] = `
 <View>
   <Text
     style={
@@ -274,7 +452,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 3 1
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event with stage 4 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 4 1`] = `
 <View>
   <Text
     style={
@@ -298,7 +476,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 4 1
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event with stage 5 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 5 1`] = `
 <View>
   <Text
     style={
@@ -322,7 +500,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage 5 1
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event with stage Not Sure 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event with stage Not Sure 1`] = `
 <View>
   <Text
     style={
@@ -346,7 +524,7 @@ exports[`CelebrateItemContent message renders step of faith event with stage Not
 </View>
 `;
 
-exports[`CelebrateItemContent message renders step of faith event without stage 1`] = `
+exports[`CelebrateItemContent Step Item renders step of faith event without stage 1`] = `
 <View>
   <Text
     style={
@@ -370,7 +548,7 @@ exports[`CelebrateItemContent message renders step of faith event without stage 
 </View>
 `;
 
-exports[`CelebrateItemContent renders event for subject=me, liked=false, like count=0 1`] = `
+exports[`CelebrateItemContent Step Item renders with no subjectPerson and no subjectPersonName 1`] = `
 <View>
   <Text
     style={
@@ -389,12 +567,12 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Growing person.
+    A MissionHub user completed a Step of Faith with a Uninterested person.
   </Text>
 </View>
 `;
 
-exports[`CelebrateItemContent renders event for subject=me, liked=false, like count>0 1`] = `
+exports[`CelebrateItemContent Step Item renders with no subjectPerson, defaults to subjectPersonName 1`] = `
 <View>
   <Text
     style={
@@ -413,127 +591,7 @@ exports[`CelebrateItemContent renders event for subject=me, liked=false, like co
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Growing person.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent renders event for subject=me, liked=true, like count>0 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Marcellus H. completed a Step of Faith with a Growing person.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent renders event for subject=other, liked=false, like count=0 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Marcellus H. completed a Step of Faith with a Growing person.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent renders event for subject=other, liked=true, like count>0 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Marcellus H. completed a Step of Faith with a Growing person.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent renders event with no subjectPerson and no subjectPersonName 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    A MissionHub user completed a Step of Faith with a Growing person.
-  </Text>
-</View>
-`;
-
-exports[`CelebrateItemContent renders event with no subjectPerson, defaults to subjectPersonName 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Marcellus Hyatt completed a Step of Faith with a Growing person.
+    Marcellus Hyatt completed a Step of Faith with a Uninterested person.
   </Text>
 </View>
 `;

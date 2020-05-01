@@ -126,7 +126,7 @@ exports[`Community renders challenge correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="15"
+          personId="13"
           size="medium"
         />
         <View
@@ -219,7 +219,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Richard B. completed a Challenge:
+        Orlando S. completed a Challenge:
       </Text>
       <View
         style={
@@ -592,7 +592,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="15"
+              personId="13"
               size="medium"
             />
             <View
@@ -1058,7 +1058,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           >
             <Avatar
               orgId="3"
-              personId="15"
+              personId="13"
               size="medium"
             />
             <View
@@ -1438,7 +1438,7 @@ exports[`Community renders step correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="15"
+          personId="13"
           size="medium"
         />
         <View
@@ -1531,7 +1531,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Richard B. completed a Step of Faith with a  person.
+        Orlando S. completed a Step of Faith with a  person.
       </Text>
     </View>
     <Image
@@ -1839,7 +1839,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="15"
+              personId="13"
               size="medium"
             />
             <View
@@ -2288,7 +2288,7 @@ exports[`global community renders correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="15"
+          personId="13"
           size="medium"
         />
         <View
@@ -2381,7 +2381,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Richard B. completed a Step of Faith with a  person.
+        Orlando S. completed a Step of Faith with a  person.
       </Text>
     </View>
     <Image
@@ -2665,7 +2665,7 @@ exports[`global community renders post item correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="15"
+          personId="13"
           size="medium"
         />
         <View
@@ -3042,7 +3042,7 @@ exports[`global community renders with clear notification button correctly 1`] =
       >
         <Avatar
           orgId="_global_community_id"
-          personId="15"
+          personId="13"
           size="medium"
         />
         <View
@@ -3135,7 +3135,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Richard B. completed a Step of Faith with a  person.
+        Orlando S. completed a Step of Faith with a  person.
       </Text>
     </View>
     <Image
@@ -3513,7 +3513,7 @@ exports[`renders with name pressable correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="15"
+              personId="13"
               size="medium"
             />
             <View

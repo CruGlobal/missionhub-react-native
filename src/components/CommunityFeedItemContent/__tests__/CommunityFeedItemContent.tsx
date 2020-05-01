@@ -10,10 +10,7 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../CommunityFeedItem/queries';
 import { COMMUNITY_FRAGMENT } from '../../../containers/Groups/queries';
 import { CommunityFragment } from '../../../containers/Groups/__generated__/CommunityFragment';
-import {
-  CommunityFeedItem,
-  CommunityFeedItem_subjectPerson,
-} from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 
@@ -23,18 +20,8 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
 
-const myId = '123';
 const organization = mockFragment<CommunityFragment>(COMMUNITY_FRAGMENT);
 const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
-const meItem: CommunityFeedItem = {
-  ...item,
-  subjectPerson: {
-    ...(item.subjectPerson as CommunityFeedItem_subjectPerson),
-    id: myId,
-  },
-};
-
-const initialState = { auth: { person: { id: myId } } };
 
 const navigateResponse = { type: 'navigate push' };
 const trackActionResult = { type: 'tracked plain action' };
@@ -59,95 +46,91 @@ describe('CelebrateItemContent', () => {
         organization={organization}
         {...otherProps}
       />,
-      {
-        initialState,
-      },
     ).snapshot();
   };
 
-  it('renders event with no subjectPerson, defaults to subjectPersonName', () =>
-    testEvent({ ...item, subjectPerson: null }));
-
-  it('renders event with no subjectPerson and no subjectPersonName', () => {
-    testEvent(
-      {
-        ...item,
-        subjectPerson: null,
-        subjectPersonName: null,
-      },
-      {
-        organization,
-      },
-    );
-  });
-
-  it('renders event for subject=me, liked=true, like count>0', () => {
-    testEvent({
-      ...meItem,
-      likesCount: 1,
-      liked: true,
-    });
-  });
-
-  it('renders event for subject=me, liked=false, like count>0', () => {
-    testEvent({
-      ...meItem,
-      likesCount: 1,
-      liked: false,
-    });
-  });
-
-  it('renders event for subject=me, liked=false, like count=0', () => {
-    testEvent({
-      ...meItem,
-      likesCount: 0,
-      liked: false,
-    });
-  });
-
-  it('renders event for subject=other, liked=true, like count>0', () => {
-    testEvent({
-      ...item,
-      likesCount: 1,
-      liked: true,
-    });
-  });
-
-  it('renders event for subject=other, liked=false, like count=0', () => {
-    testEvent({
-      ...item,
-      likesCount: 0,
-      liked: false,
-    });
-  });
-
-  describe('message', () => {
-    const messageBaseItem: CommunityFeedItem = {
-      ...meItem,
-      likesCount: 0,
-      liked: false,
-    };
-
-    it('renders event with no subject person name', () => {
+  describe('Challenge Items', () => {
+    it('renders for accepted challenge', () =>
       testEvent({
-        ...messageBaseItem,
+        ...item,
+        subject: {
+          __typename: 'CommunityChallenge',
+          id: '12',
+          title: 'Invite a friend to church',
+          acceptedCommunityChallengesList: [
+            {
+              __typename: 'AcceptedCommunityChallenge',
+              id: '1',
+              acceptedAt: 'asdfasd',
+              completedAt: null,
+            },
+          ],
+        },
+      }));
+
+    it('renders for completed challenge', () =>
+      testEvent({
+        ...item,
+        subject: {
+          __typename: 'CommunityChallenge',
+          id: '12',
+          title: 'Invite a friend to church',
+          acceptedCommunityChallengesList: [
+            {
+              __typename: 'AcceptedCommunityChallenge',
+              id: '1',
+              acceptedAt: 'asdfasd',
+              completedAt: 'asdfas',
+            },
+          ],
+        },
+      }));
+
+    it('renders with no subjectPerson, defaults to subjectPersonName', () =>
+      testEvent({
+        ...item,
+        subject: {
+          __typename: 'CommunityChallenge',
+          id: '12',
+          title: 'Invite a friend to church',
+          acceptedCommunityChallengesList: [
+            {
+              __typename: 'AcceptedCommunityChallenge',
+              id: '1',
+              acceptedAt: 'asdfasd',
+              completedAt: 'asdfas',
+            },
+          ],
+        },
+        subjectPerson: null,
+      }));
+
+    it('renders with no subjectPerson and no subjectPersonName', () =>
+      testEvent({
+        ...item,
+        subject: {
+          __typename: 'CommunityChallenge',
+          id: '12',
+          title: 'Invite a friend to church',
+          acceptedCommunityChallengesList: [
+            {
+              __typename: 'AcceptedCommunityChallenge',
+              id: '1',
+              acceptedAt: 'asdfasd',
+              completedAt: 'asdfas',
+            },
+          ],
+        },
         subjectPerson: null,
         subjectPersonName: null,
-        subject: {
-          __typename: 'Post',
-          id: '12',
-          content: 'Post!',
-          mediaContentType: null,
-          mediaExpiringUrl: null,
-          postType: PostTypeEnum.story,
-        },
-      });
-    });
+      }));
+  });
 
+  describe('Step Item', () => {
     describe('renders step of faith event with stage', () => {
       const testEventStage = (stageNum: string) =>
         testEvent({
-          ...messageBaseItem,
+          ...item,
           subject: {
             __typename: 'Step',
             id: '12',
@@ -164,13 +147,12 @@ describe('CelebrateItemContent', () => {
       it('3', () => testEventStage('3'));
       it('4', () => testEventStage('4'));
       it('5', () => testEventStage('5'));
-
       it('Not Sure', () => testEventStage('6'));
     });
 
     it('renders step of faith event without stage', () => {
       testEvent({
-        ...messageBaseItem,
+        ...item,
         subject: {
           __typename: 'Step',
           id: '12',
@@ -180,40 +162,49 @@ describe('CelebrateItemContent', () => {
       });
     });
 
-    it('renders accepted challenge event', () => {
+    it('renders with no subjectPerson, defaults to subjectPersonName', () =>
       testEvent({
-        ...messageBaseItem,
+        ...item,
         subject: {
-          __typename: 'CommunityChallenge',
+          __typename: 'Step',
           id: '12',
-          title: 'Invite a friend to church',
-          acceptedCommunityChallengesList: [
-            {
-              __typename: 'AcceptedCommunityChallenge',
-              id: '1',
-              acceptedAt: 'asdfasd',
-              completedAt: null,
-            },
-          ],
+          title: 'Step of Faith',
+          receiverStageAtCompletion: {
+            __typename: 'Stage',
+            id: '1',
+          },
         },
-      });
-    });
+        subjectPerson: null,
+      }));
 
-    it('renders completed challenge event', () => {
+    it('renders with no subjectPerson and no subjectPersonName', () =>
       testEvent({
-        ...messageBaseItem,
+        ...item,
         subject: {
-          __typename: 'CommunityChallenge',
+          __typename: 'Step',
           id: '12',
-          title: 'Invite a friend to church',
-          acceptedCommunityChallengesList: [
-            {
-              __typename: 'AcceptedCommunityChallenge',
-              id: '1',
-              acceptedAt: 'asdfasd',
-              completedAt: 'asdfas',
-            },
-          ],
+          title: 'Step of Faith',
+          receiverStageAtCompletion: {
+            __typename: 'Stage',
+            id: '1',
+          },
+        },
+        subjectPerson: null,
+        subjectPersonName: null,
+      }));
+  });
+
+  describe('Post Items', () => {
+    it('renders post', () => {
+      testEvent({
+        ...item,
+        subject: {
+          __typename: 'Post',
+          id: '12',
+          content: 'Post!',
+          mediaContentType: null,
+          mediaExpiringUrl: null,
+          postType: PostTypeEnum.story,
         },
       });
     });
@@ -244,7 +235,6 @@ describe('onPressChallengeLink', () => {
         item={challengeItem}
         organization={organization}
       />,
-      { initialState },
     );
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
@@ -269,7 +259,6 @@ describe('onPressChallengeLink', () => {
           id: GLOBAL_COMMUNITY_ID,
         }}
       />,
-      { initialState },
     );
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
