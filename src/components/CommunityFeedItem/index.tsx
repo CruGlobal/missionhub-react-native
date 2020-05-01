@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/react-hooks';
 import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
+import { CardHorizontalMargin } from '../Card/styles';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
@@ -21,6 +22,7 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
+import theme from '../../theme';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -28,6 +30,9 @@ import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
+import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
+
+const cardWidth = theme.fullWidth - CardHorizontalMargin * 2;
 
 export interface CommunityFeedItemProps {
   item: FeedItemFragment;
@@ -67,6 +72,17 @@ export const CommunityFeedItem = ({
     FeedItemSubjectTypeEnum.QUESTION,
   ].includes(FeedItemType);
   const isGlobal = orgIsGlobal(organization);
+
+  const imageSource = GLOBAL_COMMUNITY_IMAGE;
+  //(isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
+  const imageHeight = useMemo(() => {
+    if (!imageSource) {
+      return 0;
+    }
+
+    const { width, height } = Image.resolveAssetSource(GLOBAL_COMMUNITY_IMAGE);
+    return (cardWidth / width) * height;
+  }, [imageSource]);
 
   const handlePress = () =>
     dispatch(
@@ -134,6 +150,16 @@ export const CommunityFeedItem = ({
             },
           ]
       : null;
+
+  const renderImage = () => (
+    <View style={{ flex: 1, justifyContent: 'center' }}>
+      <Image
+        source={GLOBAL_COMMUNITY_IMAGE}
+        style={{ width: cardWidth, height: imageHeight }}
+        resizeMode="contain"
+      />
+    </View>
+  );
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
@@ -203,13 +229,7 @@ export const CommunityFeedItem = ({
         organization={organization}
         style={styles.postTextWrap}
       />
-      {
-        <Image
-          source={GLOBAL_COMMUNITY_IMAGE}
-          style={{ width: '100%' }}
-          resizeMode="cover"
-        />
-      }
+      {imageSource ? renderImage() : null}
       <Separator />
       {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}

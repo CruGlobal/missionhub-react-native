@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export const CardVerticalMargin = 8;
+export const CardHorizontalMargin = 16;
 
 export default StyleSheet.create({
   card: {
