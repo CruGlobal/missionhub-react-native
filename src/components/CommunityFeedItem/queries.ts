@@ -61,7 +61,6 @@ export const COMMUNITY_FEED_STEP_FRAGMENT = gql`
   fragment CommunityFeedStep on Step {
     __typename
     id
-    title
     receiverStageAtCompletion {
       id
     }

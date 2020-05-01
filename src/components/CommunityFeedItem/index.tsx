@@ -167,7 +167,7 @@ export const CommunityFeedItem = ({
       </View>
       <View style={styles.headerRow}>
         {personId ? (
-          <Avatar size={'medium'} personId={personId} orgId={orgId} />
+          <Avatar size={'medium'} person={subjectPerson} orgId={orgId} />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
@@ -207,7 +207,7 @@ export const CommunityFeedItem = ({
         <Image
           source={GLOBAL_COMMUNITY_IMAGE}
           style={{ width: '100%' }}
-          resizeMode="contain"
+          resizeMode="cover"
         />
       }
       <Separator />

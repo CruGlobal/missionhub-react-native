@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  avatar: { alignItems: 'center', justifyContent: 'center' },
+  avatar: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.communityProfileGreen,
+  },
   text: { color: theme.white },
 });

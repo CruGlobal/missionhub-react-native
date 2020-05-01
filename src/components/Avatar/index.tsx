@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
   View,
   StyleProp,
@@ -8,7 +8,6 @@ import {
   TextStyle,
 } from 'react-native';
 import { useSelector } from 'react-redux';
-import colorThis from '@eknowles/color-this';
 
 import { PeopleState } from '../../reducers/people';
 import { personSelector } from '../../selectors/people';
@@ -49,20 +48,23 @@ interface AvatarPropsCommon {
   size: AvatarSize;
   style?: StyleProp<ViewStyle>;
   personId?: string;
-  person?: PersonType;
+  person?: PersonType | null;
   orgId?: string;
 }
 interface AvatarPropsPerson extends AvatarPropsCommon {
-  person: PersonType;
+  person: PersonType | null;
 }
 interface AvatarPropsPersonId extends AvatarPropsCommon {
   personId: string;
 }
 export type AvatarProps = AvatarPropsPerson | AvatarPropsPersonId;
+interface AvatarViewProps extends AvatarPropsCommon {
+  person: PersonType;
+}
 
 const EMPTY_PERSON = { id: '-', first_name: '-' };
 
-const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
+const AvatarView = React.memo(({ person, size, style }: AvatarViewProps) => {
   const name =
     person.firstName ||
     person.first_name ||
@@ -70,9 +72,8 @@ const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
     person.full_name ||
     '';
   const initial = name[0] || '-';
-  const color = useMemo(() => colorThis(`${name}${person.id}`, 1), [person]);
 
-  const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
+  const wrapStyle = [wrapStyles[size], style];
 
   if (person.picture) {
     return (
