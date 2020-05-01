@@ -1,14 +1,13 @@
 /* eslint-disable max-lines */
 
 import React, { useState, useCallback } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import { CollapsibleHeaderFlatList } from 'react-native-collapsible-header-views';
 
 import {
   getAnalyticsSectionType,
@@ -317,14 +316,12 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
         }
         style={{ backgroundColor: theme.primaryColor }}
       />
-      <CollapsibleHeaderFlatList
-        headerHeight={enableStepTypeFilters ? (showCounts ? 240 : 195) : 130}
-        clipHeader={true}
-        headerContainerBackgroundColor={theme.extraLightGrey}
-        CollapsibleHeaderComponent={renderCollapsibleHeader()}
+      {renderCollapsibleHeader()}
+      <FlatList
         style={styles.collapsibleView}
         contentContainerStyle={styles.contentContainerStyle}
-        bounces={true}
+        // There's some weird interaction between the SafeAreaView and the Scroll View causing the scrollbar to float away from the right https://github.com/facebook/react-native/issues/26610#issuecomment-539843444
+        scrollIndicatorInsets={{ right: 1 }}
         data={cardData}
         renderItem={({ item }) => (
           <Card style={styles.card} onPress={item.action}>
