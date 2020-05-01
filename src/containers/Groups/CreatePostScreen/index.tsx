@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
-import { View, Keyboard, ScrollView, Image } from 'react-native';
+import React, { useState, useMemo } from 'react';
+import {
+  View,
+  Keyboard,
+  ScrollView,
+  Image,
+  ImageSourcePropType,
+} from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -81,8 +87,10 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [postText, changePostText] = useState<string>(post?.content || '');
-  const [postImage, changePostImage] = useState<string | undefined>(undefined); //TODO: use image from post
-  console.log(post);
+  const [postImage, changePostImage] = useState<string | null>(
+    post?.mediaExpiringUrl || null,
+  );
+
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
     permissionType
@@ -128,6 +136,16 @@ export const CreatePostScreen = () => {
   const handleSavePhoto = (image: SelectImageParams) =>
     changePostImage(image.data);
 
+  const imageHeight = useMemo(() => {
+    if (!postImage) {
+      return 0;
+    }
+
+    const { width, height } = Image.resolveAssetSource({ url: postImage });
+    console.log(width);
+    return (theme.fullWidth / width) * height;
+  }, [postImage]);
+
   const renderHeader = () => (
     <Header
       left={<BackButton iconStyle={styles.backButton} />}
@@ -152,7 +170,7 @@ export const CreatePostScreen = () => {
         <Image
           resizeMode="contain"
           source={{ uri: postImage }}
-          style={styles.image}
+          style={{ width: theme.fullWidth }}
         />
       ) : (
         <>
