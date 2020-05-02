@@ -111,11 +111,26 @@ it('renders correctly in onboarding', async () => {
 
 describe('bottomButtonProps', () => {
   it('adds step', async () => {
+    const personId = '1';
+    const stepId = '2';
+    const stageId = '3';
+
     const { getByTestId, store } = renderWithContext(
       <SuggestedStepDetailScreen next={next} />,
       {
         initialState,
         navParams: { stepSuggestionId, personId, orgId },
+        mocks: {
+          Person: () => ({
+            id: personId,
+          }),
+          StepSuggestion: () => ({
+            id: stepId,
+            stage: {
+              id: stageId,
+            },
+          }),
+        },
       },
     );
 
@@ -135,11 +150,11 @@ describe('bottomButtonProps', () => {
     expect(store.getActions()).toEqual([trackStepAddedResponse, nextResponse]);
     expect(trackStepAdded).toHaveBeenCalledWith({
       __typename: 'Step',
-      receiver: { __typename: 'Person', id: '1' },
+      receiver: { __typename: 'Person', id: personId },
       stepSuggestion: {
         __typename: 'StepSuggestion',
-        id: '2',
-        stage: { __typename: 'Stage', id: '3' },
+        id: stepId,
+        stage: { __typename: 'Stage', id: stageId },
       },
       stepType: 'care',
     });

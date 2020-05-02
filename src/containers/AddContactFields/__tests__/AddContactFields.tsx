@@ -67,6 +67,7 @@ it('render correctly | With Person', () => {
         firstName: 'Christian',
         lastName: 'Huffman',
         stage: {
+          id: '2',
           name: 'Forgiven',
           __typename: 'Stage',
         },
@@ -143,6 +144,7 @@ describe('calls methods', () => {
           firstName: 'Christian',
           lastName: 'Huffman',
           stage: {
+            id: '2',
             name: 'Forgiven',
             __typename: 'Stage',
           },
@@ -183,6 +185,7 @@ describe('calls methods', () => {
           lastName: 'Huffman',
           stage: {
             __typename: 'Stage',
+            id: '2',
             name: 'Forgiven',
           },
         }}

@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
             \\"userCreated\\": true,
           },
-@@ -656,12 +656,302 @@
+@@ -676,10 +676,320 @@
               \\"contactCount\\": 62169,
               \\"memberCount\\": 7379,
               \\"unassignedCount\\": 11474,
@@ -29,7 +29,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"doloremque molestias dolore\\",
-+           \\"id\\": \\"11\\",
++           \\"id\\": \\"31\\",
 +           \\"name\\": \\"User-centric actuating hierarchy\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -37,11 +37,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Bartholome\\",
++                 \\"id\\": \\"32\\",
 +                 \\"lastName\\": \\"Stokes\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Edwina\\",
++                 \\"id\\": \\"33\\",
 +                 \\"lastName\\": \\"Lind\\",
 +               },
 +             ],
@@ -58,7 +60,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"quia ut minima\\",
-+           \\"id\\": \\"12\\",
++           \\"id\\": \\"34\\",
 +           \\"name\\": \\"Grass-roots logistical task-force\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -66,11 +68,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Audra\\",
++                 \\"id\\": \\"35\\",
 +                 \\"lastName\\": \\"McDermott\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Kevon\\",
++                 \\"id\\": \\"36\\",
 +                 \\"lastName\\": \\"Wisozk\\",
 +               },
 +             ],
@@ -87,7 +91,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"et nostrum ut\\",
-+           \\"id\\": \\"13\\",
++           \\"id\\": \\"37\\",
 +           \\"name\\": \\"Intuitive exuding core\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -95,11 +99,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Mike\\",
++                 \\"id\\": \\"38\\",
 +                 \\"lastName\\": \\"Schoen\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Lesley\\",
++                 \\"id\\": \\"39\\",
 +                 \\"lastName\\": \\"Howe\\",
 +               },
 +             ],
@@ -116,7 +122,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"iste molestiae dolores\\",
-+           \\"id\\": \\"14\\",
++           \\"id\\": \\"40\\",
 +           \\"name\\": \\"Right-sized transitional product\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -124,11 +130,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Francesco\\",
++                 \\"id\\": \\"41\\",
 +                 \\"lastName\\": \\"Beier\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Candida\\",
++                 \\"id\\": \\"42\\",
 +                 \\"lastName\\": \\"Cartwright\\",
 +               },
 +             ],
@@ -145,7 +153,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"tempora et quo\\",
-+           \\"id\\": \\"15\\",
++           \\"id\\": \\"43\\",
 +           \\"name\\": \\"Organized disintermediate ability\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -153,11 +161,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Alfred\\",
++                 \\"id\\": \\"44\\",
 +                 \\"lastName\\": \\"Macejkovic\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Madeline\\",
++                 \\"id\\": \\"45\\",
 +                 \\"lastName\\": \\"Anderson\\",
 +               },
 +             ],
@@ -174,7 +184,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"similique ad sed\\",
-+           \\"id\\": \\"16\\",
++           \\"id\\": \\"46\\",
 +           \\"name\\": \\"Robust mobile capability\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -182,11 +192,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"April\\",
++                 \\"id\\": \\"47\\",
 +                 \\"lastName\\": \\"Fritsch\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Camylle\\",
++                 \\"id\\": \\"48\\",
 +                 \\"lastName\\": \\"Roberts\\",
 +               },
 +             ],
@@ -203,7 +215,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"ut ab nulla\\",
-+           \\"id\\": \\"17\\",
++           \\"id\\": \\"49\\",
 +           \\"name\\": \\"Function-based logistical interface\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -211,11 +223,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Nannie\\",
++                 \\"id\\": \\"50\\",
 +                 \\"lastName\\": \\"Ferry\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Eliezer\\",
++                 \\"id\\": \\"51\\",
 +                 \\"lastName\\": \\"Kunde\\",
 +               },
 +             ],
@@ -232,7 +246,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"nesciunt omnis sit\\",
-+           \\"id\\": \\"18\\",
++           \\"id\\": \\"52\\",
 +           \\"name\\": \\"Adaptive tangible orchestration\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -240,11 +254,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Mac\\",
++                 \\"id\\": \\"53\\",
 +                 \\"lastName\\": \\"Bernier\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Aliya\\",
++                 \\"id\\": \\"54\\",
 +                 \\"lastName\\": \\"Kuhic\\",
 +               },
 +             ],
@@ -256,12 +272,12 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +             \\"unassignedCount\\": 76257,
 +           },
 +           \\"unreadCommentsCount\\": 82898,
-            \\"userCreated\\": true,
++           \\"userCreated\\": true,
 +         },
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"voluptatem provident doloribus\\",
-+           \\"id\\": \\"19\\",
++           \\"id\\": \\"55\\",
 +           \\"name\\": \\"Grass-roots holistic support\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -269,11 +285,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Berneice\\",
++                 \\"id\\": \\"56\\",
 +                 \\"lastName\\": \\"Mayert\\",
-                },
++               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Cade\\",
++                 \\"id\\": \\"57\\",
 +                 \\"lastName\\": \\"Hoeger\\",
 +               },
 +             ],
@@ -290,7 +308,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +         Object {
 +           \\"__typename\\": \\"Community\\",
 +           \\"communityPhotoUrl\\": \\"libero laudantium voluptatem\\",
-+           \\"id\\": \\"20\\",
++           \\"id\\": \\"58\\",
 +           \\"name\\": \\"Right-sized mobile implementation\\",
 +           \\"owner\\": Object {
 +             \\"__typename\\": \\"CommunityPersonConnection\\",
@@ -298,11 +316,13 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Brenna\\",
++                 \\"id\\": \\"59\\",
 +                 \\"lastName\\": \\"Bergstrom\\",
 +               },
 +               Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"firstName\\": \\"Norris\\",
++                 \\"id\\": \\"60\\",
 +                 \\"lastName\\": \\"Hills\\",
 +               },
 +             ],
@@ -314,14 +334,12 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 +             \\"unassignedCount\\": 7425,
 +           },
 +           \\"unreadCommentsCount\\": 74533,
-+           \\"userCreated\\": true,
-+         },
+            \\"userCreated\\": true,
+          },
         ]
       }
       disableVirtualization={false}
-      getItem={[Function anonymous]}
-      getItemCount={[Function anonymous]}
-@@ -719,11 +1009,11 @@
+@@ -739,11 +1049,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -334,7 +352,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
                 \\"userCreated\\": true,
               }
-@@ -1084,11 +1374,11 @@
+@@ -1122,11 +1432,11 @@
           />
         </View>
         <View
@@ -743,11 +761,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Kaci",
+                "id": "2",
                 "lastName": "Donnelly",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Mathew",
+                "id": "3",
                 "lastName": "Green",
               },
             ],
@@ -764,7 +784,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "velit sit aperiam",
-          "id": "2",
+          "id": "4",
           "name": "Adaptive bandwidth-monitored encryption",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -772,11 +792,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Nelson",
+                "id": "5",
                 "lastName": "Mueller",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Yasmin",
+                "id": "6",
                 "lastName": "Olson",
               },
             ],
@@ -793,7 +815,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "modi aut architecto",
-          "id": "3",
+          "id": "7",
           "name": "Vision-oriented bifurcated core",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -801,11 +823,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Isai",
+                "id": "8",
                 "lastName": "Koss",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Sylvan",
+                "id": "9",
                 "lastName": "Boyer",
               },
             ],
@@ -822,7 +846,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "cupiditate sit vitae",
-          "id": "4",
+          "id": "10",
           "name": "Compatible foreground collaboration",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -830,11 +854,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Mariela",
+                "id": "11",
                 "lastName": "Von",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Coty",
+                "id": "12",
                 "lastName": "Vandervort",
               },
             ],
@@ -851,7 +877,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "error sunt laborum",
-          "id": "5",
+          "id": "13",
           "name": "Innovative encompassing moratorium",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -859,11 +885,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Caesar",
+                "id": "14",
                 "lastName": "Will",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Laisha",
+                "id": "15",
                 "lastName": "Gerlach",
               },
             ],
@@ -880,7 +908,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "hic eligendi quos",
-          "id": "6",
+          "id": "16",
           "name": "Integrated user-facing intranet",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -888,11 +916,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Harrison",
+                "id": "17",
                 "lastName": "Lindgren",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Amaya",
+                "id": "18",
                 "lastName": "Runolfsdottir",
               },
             ],
@@ -909,7 +939,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "autem rerum doloremque",
-          "id": "7",
+          "id": "19",
           "name": "Switchable full-range extranet",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -917,11 +947,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Kyleigh",
+                "id": "20",
                 "lastName": "Tillman",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Stewart",
+                "id": "21",
                 "lastName": "Lindgren",
               },
             ],
@@ -938,7 +970,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "vel in ut",
-          "id": "8",
+          "id": "22",
           "name": "Public-key incremental concept",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -946,11 +978,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Cassandra",
+                "id": "23",
                 "lastName": "O'Hara",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Timmy",
+                "id": "24",
                 "lastName": "Hessel",
               },
             ],
@@ -967,7 +1001,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "consequuntur aut est",
-          "id": "9",
+          "id": "25",
           "name": "Monitored system-worthy contingency",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -975,11 +1009,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Linda",
+                "id": "26",
                 "lastName": "O'Connell",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Nettie",
+                "id": "27",
                 "lastName": "Herman",
               },
             ],
@@ -996,7 +1032,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
         Object {
           "__typename": "Community",
           "communityPhotoUrl": "facere molestiae aut",
-          "id": "10",
+          "id": "28",
           "name": "Ameliorated intangible moratorium",
           "owner": Object {
             "__typename": "CommunityPersonConnection",
@@ -1004,11 +1040,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
               Object {
                 "__typename": "Person",
                 "firstName": "Violette",
+                "id": "29",
                 "lastName": "Anderson",
               },
               Object {
                 "__typename": "Person",
                 "firstName": "Makenzie",
+                "id": "30",
                 "lastName": "Kuphal",
               },
             ],
@@ -1110,11 +1148,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Kaci",
+                    "id": "2",
                     "lastName": "Donnelly",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Mathew",
+                    "id": "3",
                     "lastName": "Green",
                   },
                 ],
@@ -1141,7 +1181,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "velit sit aperiam",
-              "id": "2",
+              "id": "4",
               "name": "Adaptive bandwidth-monitored encryption",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1149,11 +1189,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Nelson",
+                    "id": "5",
                     "lastName": "Mueller",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Yasmin",
+                    "id": "6",
                     "lastName": "Olson",
                   },
                 ],
@@ -1180,7 +1222,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "modi aut architecto",
-              "id": "3",
+              "id": "7",
               "name": "Vision-oriented bifurcated core",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1188,11 +1230,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Isai",
+                    "id": "8",
                     "lastName": "Koss",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Sylvan",
+                    "id": "9",
                     "lastName": "Boyer",
                   },
                 ],
@@ -1219,7 +1263,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "cupiditate sit vitae",
-              "id": "4",
+              "id": "10",
               "name": "Compatible foreground collaboration",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1227,11 +1271,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Mariela",
+                    "id": "11",
                     "lastName": "Von",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Coty",
+                    "id": "12",
                     "lastName": "Vandervort",
                   },
                 ],
@@ -1258,7 +1304,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "error sunt laborum",
-              "id": "5",
+              "id": "13",
               "name": "Innovative encompassing moratorium",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1266,11 +1312,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Caesar",
+                    "id": "14",
                     "lastName": "Will",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Laisha",
+                    "id": "15",
                     "lastName": "Gerlach",
                   },
                 ],
@@ -1297,7 +1345,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "hic eligendi quos",
-              "id": "6",
+              "id": "16",
               "name": "Integrated user-facing intranet",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1305,11 +1353,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Harrison",
+                    "id": "17",
                     "lastName": "Lindgren",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Amaya",
+                    "id": "18",
                     "lastName": "Runolfsdottir",
                   },
                 ],
@@ -1336,7 +1386,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "autem rerum doloremque",
-              "id": "7",
+              "id": "19",
               "name": "Switchable full-range extranet",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1344,11 +1394,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Kyleigh",
+                    "id": "20",
                     "lastName": "Tillman",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Stewart",
+                    "id": "21",
                     "lastName": "Lindgren",
                   },
                 ],
@@ -1375,7 +1427,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "vel in ut",
-              "id": "8",
+              "id": "22",
               "name": "Public-key incremental concept",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1383,11 +1435,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Cassandra",
+                    "id": "23",
                     "lastName": "O'Hara",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Timmy",
+                    "id": "24",
                     "lastName": "Hessel",
                   },
                 ],
@@ -1414,7 +1468,7 @@ exports[`GroupsListScreen renders with communities 1`] = `
             Object {
               "__typename": "Community",
               "communityPhotoUrl": "consequuntur aut est",
-              "id": "9",
+              "id": "25",
               "name": "Monitored system-worthy contingency",
               "owner": Object {
                 "__typename": "CommunityPersonConnection",
@@ -1422,11 +1476,13 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   Object {
                     "__typename": "Person",
                     "firstName": "Linda",
+                    "id": "26",
                     "lastName": "O'Connell",
                   },
                   Object {
                     "__typename": "Person",
                     "firstName": "Nettie",
+                    "id": "27",
                     "lastName": "Herman",
                   },
                 ],

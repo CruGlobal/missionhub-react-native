@@ -431,6 +431,9 @@ describe('savePerson', () => {
         ]);
       });
       it('should navigate to select a stage', async () => {
+        const stageId = '1';
+        const stageName = 'Forgiven';
+
         const handleUpdateData = expect.any(Function);
         const { getByTestId, store } = renderWithContext(
           <AddContactScreen next={next} />,
@@ -447,7 +450,8 @@ describe('savePerson', () => {
                 id: person.id,
                 relationshipType: null,
                 stage: {
-                  name: 'Forgiven',
+                  id: stageId,
+                  name: stageName,
                 },
               }),
             },
@@ -467,7 +471,8 @@ describe('savePerson', () => {
             relationshipType: null,
             stage: {
               __typename: 'Stage',
-              name: 'Forgiven',
+              id: stageId,
+              name: stageName,
             },
           },
           updatePerson: handleUpdateData,
