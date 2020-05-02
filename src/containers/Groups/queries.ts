@@ -21,6 +21,7 @@ export const GET_COMMUNITIES_QUERY = gql`
         communityPhotoUrl
         owner: people(permissions: [owner]) {
           nodes {
+            id
             firstName
             lastName
           }
