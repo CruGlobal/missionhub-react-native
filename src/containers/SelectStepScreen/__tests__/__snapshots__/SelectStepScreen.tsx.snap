@@ -3474,13 +3474,13 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
         Object {
           "action": [Function],
           "icon": false,
-          "key": "3",
+          "key": "5",
           "text": "ut libero qui",
         },
         Object {
           "action": [Function],
           "icon": false,
-          "key": "4",
+          "key": "6",
           "text": "recusandae ut nulla",
         },
       ]
@@ -3964,13 +3964,13 @@ exports[`should load step suggestions 1`] = `
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"3\\",
++           \\"key\\": \\"5\\",
 +           \\"text\\": \\"ut libero qui\\",
           },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"4\\",
++           \\"key\\": \\"6\\",
 +           \\"text\\": \\"recusandae ut nulla\\",
 +         },
         ]
@@ -4166,19 +4166,19 @@ exports[`should paginate 1`] = `
           Object {
             \\"action\\": [Function action],
             \\"icon\\": false,
-            \\"key\\": \\"4\\",
+            \\"key\\": \\"6\\",
             \\"text\\": \\"recusandae ut nulla\\",
 +         },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"5\\",
++           \\"key\\": \\"8\\",
 +           \\"text\\": \\"debitis incidunt accusantium\\",
 +         },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
-+           \\"key\\": \\"6\\",
++           \\"key\\": \\"9\\",
 +           \\"text\\": \\"sed libero repudiandae\\",
           },
         ]

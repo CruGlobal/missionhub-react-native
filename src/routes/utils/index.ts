@@ -80,6 +80,7 @@ function getStageId(
 const STEP_COUNT_WITH_PERSON_QUERY = gql`
   query StepCountWithPerson($personId: ID!) {
     person(id: $personId) {
+      id
       steps(completed: true) {
         pageInfo {
           totalCount

@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -72,200 +72,10 @@
+@@ -72,187 +72,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -103,19 +103,6 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -                   \\"type\\": \\"person\\",
 -                 }
 -               }
--               stepsData={
--                 Object {
--                   \\"__typename\\": \\"Person\\",
--                   \\"id\\": \\"1\\",
--                   \\"steps\\": Object {
--                     \\"__typename\\": \\"StepConnection\\",
--                     \\"pageInfo\\": Object {
--                       \\"__typename\\": \\"BasePageInfo\\",
--                       \\"totalCount\\": 9233,
--                     },
--                   },
--                 }
--               }
 -             />
 -           </View>
 -           <View
@@ -158,7 +145,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -                     \\"__typename\\": \\"StepConnection\\",
 -                     \\"pageInfo\\": Object {
 -                       \\"__typename\\": \\"BasePageInfo\\",
--                       \\"totalCount\\": 39658,
+-                       \\"totalCount\\": 9233,
 -                     },
 -                   },
 -                 }
@@ -205,7 +192,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -                     \\"__typename\\": \\"StepConnection\\",
 -                     \\"pageInfo\\": Object {
 -                       \\"__typename\\": \\"BasePageInfo\\",
--                       \\"totalCount\\": 39676,
+-                       \\"totalCount\\": 39658,
 -                     },
 -                   },
 -                 }
@@ -300,10 +287,23 @@ exports[`renders correctly as Casey 1`] = `
               "type": "person",
             }
           }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "id": "2",
+              "type": "person",
+            }
+          }
           stepsData={
             Object {
               "__typename": "Person",
-              "id": "1",
+              "id": "2",
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
@@ -322,45 +322,19 @@ exports[`renders correctly as Casey 1`] = `
         <PersonItem
           person={
             Object {
-              "id": "2",
+              "id": "3",
               "type": "person",
             }
           }
           stepsData={
             Object {
               "__typename": "Person",
-              "id": "2",
+              "id": "3",
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
                   "totalCount": 39658,
-                },
-              },
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <PersonItem
-          person={
-            Object {
-              "id": "3",
-              "type": "person",
-            }
-          }
-          stepsData={
-            Object {
-              "__typename": "Person",
-              "id": "3",
-              "steps": Object {
-                "__typename": "StepConnection",
-                "pageInfo": Object {
-                  "__typename": "BasePageInfo",
-                  "totalCount": 39676,
                 },
               },
             }
@@ -528,19 +502,6 @@ exports[`renders correctly as Jean 1`] = `
                   "type": "person",
                 }
               }
-              stepsData={
-                Object {
-                  "__typename": "Person",
-                  "id": "1",
-                  "steps": Object {
-                    "__typename": "StepConnection",
-                    "pageInfo": Object {
-                      "__typename": "BasePageInfo",
-                      "totalCount": 9233,
-                    },
-                  },
-                }
-              }
             />
           </View>
           <View
@@ -583,7 +544,7 @@ exports[`renders correctly as Jean 1`] = `
                     "__typename": "StepConnection",
                     "pageInfo": Object {
                       "__typename": "BasePageInfo",
-                      "totalCount": 39658,
+                      "totalCount": 9233,
                     },
                   },
                 }
@@ -630,7 +591,7 @@ exports[`renders correctly as Jean 1`] = `
                     "__typename": "StepConnection",
                     "pageInfo": Object {
                       "__typename": "BasePageInfo",
-                      "totalCount": 39676,
+                      "totalCount": 39658,
                     },
                   },
                 }
