@@ -1,11 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  View,
-  Keyboard,
-  ScrollView,
-  Image,
-  ImageSourcePropType,
-} from 'react-native';
+import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -86,10 +80,11 @@ export const CreatePostScreen = () => {
   const [postType] = useState<PostTypeEnum>(
     post?.postType || navPostType || PostTypeEnum.story,
   );
-  const [postText, changePostText] = useState<string>(post?.content || '');
-  const [postImage, changePostImage] = useState<string | null>(
+  const [text, changeText] = useState<string>(post?.content || '');
+  const [imageURI, changeImageURI] = useState<string | null>(
     post?.mediaExpiringUrl || null,
   );
+  const [imageHeight, changeImageHeight] = useState<number>(0);
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -110,7 +105,7 @@ export const CreatePostScreen = () => {
   );
 
   const savePost = () => {
-    if (!postText) {
+    if (!text) {
       return;
     }
 
@@ -118,12 +113,12 @@ export const CreatePostScreen = () => {
 
     if (post) {
       updatePost({
-        variables: { input: { id: post.id, content: postText } },
+        variables: { input: { id: post.id, content: text } },
       });
     } else {
       createPost({
         variables: {
-          input: { content: postText, communityId, postType },
+          input: { content: text, communityId, postType },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -133,18 +128,19 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = (image: SelectImageParams) =>
-    changePostImage(image.data);
+  const handleSavePhoto = ({ uri }: SelectImageParams) => changeImageURI(uri);
 
-  const imageHeight = useMemo(() => {
-    if (!postImage) {
-      return 0;
+  useMemo(() => {
+    if (!imageURI) {
+      return changeImageHeight(0);
     }
 
-    const { width, height } = Image.resolveAssetSource({ url: postImage });
-    console.log(width);
-    return (theme.fullWidth / width) * height;
-  }, [postImage]);
+    Image.getSize(
+      imageURI,
+      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
+      () => {},
+    );
+  }, [imageURI]);
 
   const renderHeader = () => (
     <Header
@@ -155,7 +151,7 @@ export const CreatePostScreen = () => {
         </Text>
       }
       right={
-        postText ? (
+        text ? (
           <Button onPress={savePost} testID="CreatePostButton">
             <SendIcon style={styles.icon} />
           </Button>
@@ -166,11 +162,11 @@ export const CreatePostScreen = () => {
 
   const renderAddPhotoButton = () => (
     <ImagePicker onSelectImage={handleSavePhoto}>
-      {postImage ? (
+      {imageURI ? (
         <Image
           resizeMode="contain"
-          source={{ uri: postImage }}
-          style={{ width: theme.fullWidth }}
+          source={{ uri: imageURI }}
+          style={{ width: theme.fullWidth, height: imageHeight }}
         />
       ) : (
         <>
@@ -195,9 +191,9 @@ export const CreatePostScreen = () => {
         <Input
           testID="PostInput"
           scrollEnabled={false}
-          onChangeText={e => changePostText(e)}
+          onChangeText={e => changeText(e)}
           placeholder={t(`placeholder.${postType}`)}
-          value={postText}
+          value={text}
           autoFocus={true}
           autoCorrect={true}
           multiline={true}
