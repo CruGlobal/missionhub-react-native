@@ -20,7 +20,6 @@ import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -31,7 +30,7 @@ import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 
 export interface CommunityFeedItemProps {
   item: FeedItemFragment;
-  organization: GetCommunities_communities_nodes;
+  communityId: string;
   namePressable: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
   onRefresh: () => void;
@@ -39,14 +38,13 @@ export interface CommunityFeedItemProps {
 
 export const CommunityFeedItem = ({
   item,
-  organization,
+  communityId,
   namePressable,
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { createdAt, subject, subjectPerson, subjectPersonName } = item;
   const personId = subjectPerson?.id;
-  const orgId = organization.id;
 
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -66,13 +64,13 @@ export const CommunityFeedItem = ({
     FeedItemSubjectTypeEnum.PRAYER_REQUEST,
     FeedItemSubjectTypeEnum.QUESTION,
   ].includes(FeedItemType);
-  const isGlobal = orgIsGlobal(organization);
+  const isGlobal = orgIsGlobal({ id: communityId });
 
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
         item,
-        orgId,
+        orgId: communityId,
         onRefreshCelebrateItem: onRefresh,
       }),
     );
@@ -85,7 +83,7 @@ export const CommunityFeedItem = ({
       navigatePush(CREATE_POST_SCREEN, {
         post: item,
         onComplete: onRefresh,
-        communityId: orgId,
+        communityId,
       }),
     );
 
@@ -167,13 +165,13 @@ export const CommunityFeedItem = ({
       </View>
       <View style={styles.headerRow}>
         {personId ? (
-          <Avatar size={'medium'} personId={personId} orgId={orgId} />
+          <Avatar size={'medium'} personId={personId} orgId={communityId} />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
             personId={personId}
-            orgId={orgId}
+            communityId={communityId}
             pressable={namePressable}
           />
           <CardTime date={createdAt} style={styles.headerTime} />
@@ -188,7 +186,7 @@ export const CommunityFeedItem = ({
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent
           item={item}
-          orgId={organization.id}
+          communityId={communityId}
           onRefresh={onRefresh}
         />
       </View>
@@ -200,7 +198,7 @@ export const CommunityFeedItem = ({
       {renderHeader()}
       <CommunityFeedItemContent
         item={item}
-        organization={organization}
+        communityId={communityId}
         style={styles.postTextWrap}
       />
       {

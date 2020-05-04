@@ -231,7 +231,7 @@ export const CelebrateFeed = ({
     <CommunityFeedItem
       onClearNotification={onClearNotification}
       item={item}
-      organization={organization}
+      communityId={organization.id}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />

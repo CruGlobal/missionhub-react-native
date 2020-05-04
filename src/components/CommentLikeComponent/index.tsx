@@ -10,22 +10,21 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
+import theme from '../../theme';
 
 import CommentIcon from './commentIcon.svg';
-import HeartActiveIcon from './heartActiveIcon.svg';
-import HeartInactiveIcon from './heartInactiveIcon.svg';
-import PrayerActionIcon from './prayerActiveIcon.svg';
-import PrayerInactiveIcon from './prayerInactiveIcon.svg';
+import HeartIcon from './heartIcon.svg';
+import PrayerIcon from './prayerIcon.svg';
 import styles from './styles';
 
 export interface CommentLikeComponentProps {
-  orgId: string;
+  communityId: string;
   item: CommunityFeedItem;
   onRefresh: () => void;
 }
 
 export const CommentLikeComponent = ({
-  orgId,
+  communityId,
   item,
   onRefresh,
 }: CommentLikeComponentProps) => {
@@ -50,7 +49,7 @@ export const CommentLikeComponent = ({
   const onPressLikeIcon = async () => {
     try {
       setIsLikeDisabled(true);
-      await dispatch(toggleLike(id, liked, orgId));
+      await dispatch(toggleLike(id, liked, communityId));
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       setIsLikeDisabled(false);
@@ -72,7 +71,7 @@ export const CommentLikeComponent = ({
   };
 
   const renderLikeIcon = () => {
-    const displayLikeCount = likesCount > 0 && isMe;
+    const displayLikeCount = isMe && likesCount > 0;
 
     return (
       <View style={styles.iconAndCountWrap}>
@@ -87,15 +86,16 @@ export const CommentLikeComponent = ({
           style={styles.icon}
         >
           {isPrayer ? (
-            liked ? (
-              <PrayerActionIcon />
-            ) : (
-              <PrayerInactiveIcon />
-            )
-          ) : liked ? (
-            <HeartActiveIcon />
+            <PrayerIcon
+              color={
+                liked ? theme.communityPrayerRequestPurple : theme.textColor
+              }
+            />
           ) : (
-            <HeartInactiveIcon />
+            <HeartIcon
+              color={liked ? theme.red : theme.textColor}
+              fill={liked ? theme.red : undefined}
+            />
           )}
         </Button>
       </View>
