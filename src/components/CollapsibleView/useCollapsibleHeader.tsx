@@ -222,7 +222,7 @@ export const useCollapsibleHeader = ({
       onScrollEndDrag: onScrollEndDrag,
       onScroll: Animated.event(
         [{ nativeEvent: { contentOffset: { y: scrollAnim.current } } }],
-        { useNativeDriver: true },
+        { useNativeDriver: false }, // ImpactView has issues if this is set to true :(
       ),
     };
 
