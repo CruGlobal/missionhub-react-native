@@ -14,7 +14,6 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
-import { Organization } from '../../../reducers/organizations';
 import {
   COMMUNITY_FEED_ITEM_FRAGMENT,
   COMMUNITY_FEED_POST_FRAGMENT,
@@ -37,8 +36,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../Avatar', () => 'Avatar');
 jest.mock('../../Card', () => 'Card');
 
-const globalOrg: Organization = { id: GLOBAL_COMMUNITY_ID };
-const organization: Organization = { id: '3', name: 'Communidad' };
+const communityId = '3';
 
 const mePerson = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
 const myId = mePerson.id;
@@ -101,7 +99,7 @@ describe('global community', () => {
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
-        organization={globalOrg}
+        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
       { initialState },
@@ -113,7 +111,7 @@ describe('global community', () => {
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
-        organization={globalOrg}
+        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
         onClearNotification={onClearNotification}
       />,
@@ -126,7 +124,7 @@ describe('global community', () => {
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
-        organization={globalOrg}
+        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
       { initialState },
@@ -140,7 +138,7 @@ describe('Community', () => {
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -152,7 +150,7 @@ describe('Community', () => {
       <CommunityFeedItem
         item={prayerPostItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -164,7 +162,7 @@ describe('Community', () => {
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -176,7 +174,7 @@ describe('Community', () => {
       <CommunityFeedItem
         item={challengeItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -188,7 +186,7 @@ describe('Community', () => {
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -202,7 +200,7 @@ it('renders with name pressable correctly', () => {
     <CommunityFeedItem
       item={storyPostItem}
       onRefresh={onRefresh}
-      organization={organization}
+      communityId={communityId}
       namePressable={true}
     />,
     { initialState },
@@ -215,7 +213,7 @@ describe('press card', () => {
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
-        organization={globalOrg}
+        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
       { initialState },
@@ -229,7 +227,7 @@ describe('press card', () => {
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -239,7 +237,7 @@ describe('press card', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
       item: stepItem,
-      orgId: organization.id,
+      orgId: communityId,
       onRefreshCelebrateItem: onRefresh,
     });
   });
@@ -260,7 +258,7 @@ describe('long-press card', () => {
         <CommunityFeedItem
           item={myPost}
           onRefresh={onRefresh}
-          organization={organization}
+          communityId={communityId}
           namePressable={false}
         />,
         { initialState },
@@ -274,7 +272,7 @@ describe('long-press card', () => {
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
         post: myPost,
         onComplete: onRefresh,
-        communityId: organization.id,
+        communityId,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
     });
@@ -287,7 +285,7 @@ describe('long-press card', () => {
         <CommunityFeedItem
           item={myPost}
           onRefresh={onRefresh}
-          organization={organization}
+          communityId={communityId}
           namePressable={false}
         />,
         { initialState },
@@ -327,7 +325,7 @@ describe('long-press card', () => {
         <CommunityFeedItem
           item={storyPostItem}
           onRefresh={onRefresh}
-          organization={organization}
+          communityId={communityId}
           namePressable={false}
         />,
         { initialState },
@@ -364,7 +362,7 @@ describe('clear notification button', () => {
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
-        organization={organization}
+        communityId={communityId}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,

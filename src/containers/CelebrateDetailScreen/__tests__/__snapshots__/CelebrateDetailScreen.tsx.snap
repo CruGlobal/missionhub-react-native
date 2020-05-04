@@ -187,7 +187,9 @@ exports[`renders correctly 1`] = `
                   ]
                 }
               >
-                <SvgMock />
+                <SvgMock
+                  color="#505256"
+                />
               </View>
             </View>
           </View>

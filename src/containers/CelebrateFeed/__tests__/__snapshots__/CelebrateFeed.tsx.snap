@@ -956,6 +956,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="_global_community_id"
         item={
           Object {
             "__typename": "CommunityCelebrationItem",
@@ -1002,11 +1003,6 @@ exports[`renders for Global Community renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "_global_community_id",
-          }
-        }
       />
     </View>
     <View
@@ -1054,6 +1050,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="_global_community_id"
         item={
           Object {
             "__typename": "CommunityCelebrationItem",
@@ -1100,11 +1097,6 @@ exports[`renders for Global Community renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "_global_community_id",
-          }
-        }
       />
     </View>
     <View
@@ -1152,6 +1144,7 @@ exports[`renders for Global Community renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="_global_community_id"
         item={
           Object {
             "__typename": "CommunityCelebrationItem",
@@ -1198,11 +1191,6 @@ exports[`renders for Global Community renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "_global_community_id",
-          }
-        }
       />
     </View>
     <View
@@ -2607,6 +2595,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -2673,11 +2662,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -2725,6 +2709,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -2780,11 +2765,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -2832,6 +2812,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -2898,11 +2879,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -4303,6 +4279,7 @@ exports[`renders for member renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -4369,11 +4346,6 @@ exports[`renders for member renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -4421,6 +4393,7 @@ exports[`renders for member renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -4476,11 +4449,6 @@ exports[`renders for member renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -4528,6 +4496,7 @@ exports[`renders for member renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -4594,11 +4563,6 @@ exports[`renders for member renders correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -5990,6 +5954,7 @@ exports[`renders for member renders without header 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -6056,11 +6021,6 @@ exports[`renders for member renders without header 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -6108,6 +6068,7 @@ exports[`renders for member renders without header 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -6163,11 +6124,6 @@ exports[`renders for member renders without header 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -6215,6 +6171,7 @@ exports[`renders for member renders without header 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -6281,11 +6238,6 @@ exports[`renders for member renders without header 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -7690,6 +7642,7 @@ exports[`renders with celebration items correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -7756,11 +7709,6 @@ exports[`renders with celebration items correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -7808,6 +7756,7 @@ exports[`renders with celebration items correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -7863,11 +7812,6 @@ exports[`renders with celebration items correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -7915,6 +7859,7 @@ exports[`renders with celebration items correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -7981,11 +7926,6 @@ exports[`renders with celebration items correctly 1`] = `
         }
         namePressable={true}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -9390,6 +9330,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -9457,11 +9398,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         namePressable={true}
         onClearNotification={[MockFunction]}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -9509,6 +9445,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -9565,11 +9502,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         namePressable={true}
         onClearNotification={[MockFunction]}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View
@@ -9617,6 +9549,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       style={null}
     >
       <CommunityFeedItem
+        communityId="456"
         item={
           Object {
             "__typename": "FeedItem",
@@ -9684,11 +9617,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         namePressable={true}
         onClearNotification={[MockFunction]}
         onRefresh={[Function]}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
       />
     </View>
     <View

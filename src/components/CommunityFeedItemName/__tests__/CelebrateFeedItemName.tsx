@@ -13,7 +13,7 @@ jest.mock('../../../actions/person');
 const person = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
 const name = `${person.firstName} ${person.lastName}`;
 const personId = person.id;
-const orgId = '235234';
+const communityId = '235234';
 
 const navToPersonScreenResult = { type: 'navigated to person screen' };
 
@@ -26,7 +26,7 @@ it('renders correctly without name', () => {
     <CommunityFeedItemName
       name={null}
       personId={personId}
-      orgId={orgId}
+      communityId={communityId}
       pressable={true}
     />,
   ).snapshot();
@@ -37,7 +37,7 @@ it('renders correctly with name', () => {
     <CommunityFeedItemName
       name={name}
       personId={personId}
-      orgId={orgId}
+      communityId={communityId}
       pressable={true}
     />,
   ).snapshot();
@@ -48,7 +48,7 @@ it('renders correctly not pressable', () => {
     <CommunityFeedItemName
       name={name}
       personId={personId}
-      orgId={orgId}
+      communityId={communityId}
       pressable={false}
     />,
   ).snapshot();
@@ -59,7 +59,7 @@ it('navigates to person screen', () => {
     <CommunityFeedItemName
       name={name}
       personId={personId}
-      orgId={orgId}
+      communityId={communityId}
       pressable={true}
     />,
   );
@@ -68,7 +68,7 @@ it('navigates to person screen', () => {
 
   expect(navToPersonScreen).toHaveBeenCalledWith(
     { id: personId },
-    { id: orgId },
+    { id: communityId },
   );
   expect(store.getActions()).toEqual([navToPersonScreenResult]);
 });

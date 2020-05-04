@@ -399,7 +399,10 @@ exports[`Community renders challenge correctly 1`] = `
                   ]
                 }
               >
-                <SvgMock />
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
               </View>
             </View>
           </View>
@@ -863,7 +866,9 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                       ]
                     }
                   >
-                    <SvgMock />
+                    <SvgMock
+                      color="#A97398"
+                    />
                   </View>
                 </View>
               </View>
@@ -1266,7 +1271,10 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                       ]
                     }
                   >
-                    <SvgMock />
+                    <SvgMock
+                      color="#FF5532"
+                      fill="#FF5532"
+                    />
                   </View>
                 </View>
               </View>
@@ -1646,7 +1654,10 @@ exports[`Community renders step correctly 1`] = `
                   ]
                 }
               >
-                <SvgMock />
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
               </View>
             </View>
           </View>
@@ -2047,7 +2058,10 @@ exports[`Community renders with clear notification button correctly 1`] = `
                       ]
                     }
                   >
-                    <SvgMock />
+                    <SvgMock
+                      color="#FF5532"
+                      fill="#FF5532"
+                    />
                   </View>
                 </View>
               </View>
@@ -2496,7 +2510,10 @@ exports[`global community renders correctly 1`] = `
                   ]
                 }
               >
-                <SvgMock />
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
               </View>
             </View>
           </View>
@@ -2873,7 +2890,10 @@ exports[`global community renders post item correctly 1`] = `
                   ]
                 }
               >
-                <SvgMock />
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
               </View>
             </View>
           </View>
@@ -3250,7 +3270,10 @@ exports[`global community renders with clear notification button correctly 1`] =
                   ]
                 }
               >
-                <SvgMock />
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
               </View>
             </View>
           </View>
@@ -3753,7 +3776,10 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    <SvgMock />
+                    <SvgMock
+                      color="#FF5532"
+                      fill="#FF5532"
+                    />
                   </View>
                 </View>
               </View>
