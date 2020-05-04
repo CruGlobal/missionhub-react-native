@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -62,6 +62,7 @@ export const CommunityFeedItem = ({
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
+  const [imageHeight, changeImageHeight] = useState<number>(0);
 
   const FeedItemType = getFeedItemType(subject);
 
@@ -73,16 +74,19 @@ export const CommunityFeedItem = ({
   ].includes(FeedItemType);
   const isGlobal = orgIsGlobal(organization);
 
-  const imageSource = GLOBAL_COMMUNITY_IMAGE;
-  //(isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
-  const imageHeight = useMemo(() => {
-    if (!imageSource) {
-      return 0;
+  const imageData =
+    (isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
+  useMemo(() => {
+    if (!imageData) {
+      return changeImageHeight(0);
     }
 
-    const { width, height } = Image.resolveAssetSource(GLOBAL_COMMUNITY_IMAGE);
-    return (cardWidth / width) * height;
-  }, [imageSource]);
+    Image.getSize(
+      imageData,
+      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
+      () => {},
+    );
+  }, [imageData]);
 
   const handlePress = () =>
     dispatch(
@@ -150,16 +154,6 @@ export const CommunityFeedItem = ({
             },
           ]
       : null;
-
-  const renderImage = () => (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Image
-        source={GLOBAL_COMMUNITY_IMAGE}
-        style={{ width: cardWidth, height: imageHeight }}
-        resizeMode="contain"
-      />
-    </View>
-  );
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
@@ -229,7 +223,15 @@ export const CommunityFeedItem = ({
         organization={organization}
         style={styles.postTextWrap}
       />
-      {imageSource ? renderImage() : null}
+      {imageData ? (
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <Image
+            source={{ uri: imageData }}
+            style={{ width: cardWidth, height: imageHeight }}
+            resizeMode="contain"
+          />
+        </View>
+      ) : null}
       <Separator />
       {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}
