@@ -8,6 +8,7 @@ export const COMPLETED_STEP_DETAIL_QUERY = gql`
       completedAt
       stepType
       stepSuggestion {
+        id
         descriptionMarkdown
       }
       receiver {
