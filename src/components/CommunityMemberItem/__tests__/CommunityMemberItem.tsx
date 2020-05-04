@@ -1,9 +1,12 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { ORG_PERMISSIONS } from '../../../constants';
 import { orgPermissionSelector } from '../../../selectors/people';
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { CommunityMemberItem as CommunityMemberItemType } from '../__generated__/CommunityMemberItem';
+import { COMMUNITY_MEMBER_ITEM_FRAGMENT } from '../queries';
+import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 import CommunityMemberItem from '..';
 
@@ -12,17 +15,15 @@ jest.mock('../../../selectors/people');
 const myId = '1';
 const me = { id: myId, full_name: 'Me' };
 
-const member = {
-  id: '123',
-  firstName: 'Firstname',
-  createdAt: '2020-04-15T12:00:00.000',
-};
+const member = mockFragment<CommunityMemberItemType>(
+  COMMUNITY_MEMBER_ITEM_FRAGMENT,
+);
 
 const orgPerm = { id: '111' };
 
-const memberPermissions = { ...orgPerm, permission_id: ORG_PERMISSIONS.USER };
-const adminPermissions = { ...orgPerm, permission_id: ORG_PERMISSIONS.ADMIN };
-const ownerPermissions = { ...orgPerm, permission_id: ORG_PERMISSIONS.OWNER };
+const memberPermissions = { ...orgPerm, permission: PermissionEnum.user };
+const adminPermissions = { ...orgPerm, permission: PermissionEnum.admin };
+const ownerPermissions = { ...orgPerm, permission: PermissionEnum.owner };
 
 const organization = { id: '1234', user_created: false };
 const userOrg = { ...organization, user_created: true };
@@ -51,14 +52,14 @@ describe('render contacts count', () => {
       ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
 
       renderWithContext(
-        <CommunityMemberItem {...{ ...props, organization: userOrg }} />,
+        <CommunityMemberItem {...props} organization={userOrg} />,
         { initialState },
       );
     });
 
     it('should render member permissions', () => {
       renderWithContext(
-        <CommunityMemberItem {...{ ...props, organization: userOrg }} />,
+        <CommunityMemberItem {...props} organization={userOrg} />,
         { initialState },
       ).snapshot();
     });
@@ -66,11 +67,9 @@ describe('render contacts count', () => {
     it('should render admin permissions', () => {
       renderWithContext(
         <CommunityMemberItem
-          {...{
-            ...props,
-            personOrgPermission: adminPermissions,
-            organization: userOrg,
-          }}
+          {...props}
+          organization={userOrg}
+          personOrgPermission={adminPermissions}
         />,
         { initialState },
       ).snapshot();
@@ -79,11 +78,9 @@ describe('render contacts count', () => {
     it('should render owner permissions', () => {
       renderWithContext(
         <CommunityMemberItem
-          {...{
-            ...props,
-            personOrgPermission: ownerPermissions,
-            organization: userOrg,
-          }}
+          {...props}
+          organization={userOrg}
+          personOrgPermission={ownerPermissions}
         />,
         { initialState },
       ).snapshot();
@@ -94,9 +91,7 @@ describe('render contacts count', () => {
 describe('render MemberOptionsMenu', () => {
   it('should render menu if person is me', () => {
     renderWithContext(
-      <CommunityMemberItem
-        {...{ ...props, person: { ...member, id: myId } }}
-      />,
+      <CommunityMemberItem {...props} person={{ ...member, id: myId }} />,
       { initialState },
     ).snapshot();
   });
@@ -104,7 +99,8 @@ describe('render MemberOptionsMenu', () => {
   it('should render menu if I am admin and person is not owner', () => {
     renderWithContext(
       <CommunityMemberItem
-        {...{ ...props, personOrgPermission: memberPermissions }}
+        {...props}
+        personOrgPermission={memberPermissions}
       />,
       {
         initialState,
@@ -114,9 +110,7 @@ describe('render MemberOptionsMenu', () => {
 
   it('should not render menu if person is owner', () => {
     renderWithContext(
-      <CommunityMemberItem
-        {...{ ...props, personOrgPermission: ownerPermissions }}
-      />,
+      <CommunityMemberItem {...props} personOrgPermission={ownerPermissions} />,
       { initialState },
     ).snapshot();
   });
@@ -127,7 +121,8 @@ describe('render MemberOptionsMenu', () => {
     );
     renderWithContext(
       <CommunityMemberItem
-        {...{ ...props, personOrgPermission: memberPermissions }}
+        {...props}
+        personOrgPermission={memberPermissions}
       />,
       {
         initialState,

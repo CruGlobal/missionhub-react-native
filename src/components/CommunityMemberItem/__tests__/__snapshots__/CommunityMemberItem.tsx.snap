@@ -46,53 +46,29 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(123, 155, 152)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -120,7 +96,7 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -168,8 +144,89 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#B2B0B2",
+                      "margin": 0,
+                      "paddingHorizontal": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
         </Text>
       </View>
     </View>
@@ -223,53 +280,29 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(123, 155, 152)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -297,7 +330,7 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -387,8 +420,89 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#B2B0B2",
+                      "margin": 0,
+                      "paddingHorizontal": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
         </Text>
       </View>
     </View>
@@ -442,53 +556,29 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(123, 155, 152)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -516,7 +606,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -564,7 +654,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
         </Text>
       </View>
@@ -700,53 +790,29 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(199, 154, 115)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -774,7 +840,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -822,7 +888,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
         </Text>
       </View>
@@ -958,53 +1024,29 @@ exports[`render contacts count user created org should render admin permissions 
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(123, 155, 152)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -1032,7 +1074,7 @@ exports[`render contacts count user created org should render admin permissions 
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -1101,7 +1143,7 @@ exports[`render contacts count user created org should render admin permissions 
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
         </Text>
       </View>
@@ -1237,53 +1279,29 @@ exports[`render contacts count user created org should render member permissions
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(123, 155, 152)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -1311,7 +1329,7 @@ exports[`render contacts count user created org should render member permissions
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -1359,7 +1377,7 @@ exports[`render contacts count user created org should render member permissions
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
         </Text>
       </View>
@@ -1495,53 +1513,29 @@ exports[`render contacts count user created org should render owner permissions 
       ]
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "quisquam recusandae alias",
+        }
+      }
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
           },
-          Array [
-            Object {
-              "borderRadius": 18,
-              "height": 36,
-              "width": 36,
-            },
-            Object {
-              "backgroundColor": "rgb(123, 155, 152)",
-            },
-            Object {
-              "marginRight": 8,
-            },
-          ],
+          Object {
+            "backgroundColor": "rgb(161, 125, 115)",
+          },
+          Object {
+            "marginRight": 8,
+          },
         ]
       }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#ffffff",
-              },
-              Object {
-                "fontSize": 20,
-                "fontWeight": "300",
-              },
-            ],
-          ]
-        }
-      >
-        F
-      </Text>
-    </View>
+    />
     <View
       style={
         Array [
@@ -1569,7 +1563,7 @@ exports[`render contacts count user created org should render owner permissions 
           ]
         }
       >
-        Firstname
+        Hayden
       </Text>
       <View
         style={
@@ -1659,8 +1653,89 @@ exports[`render contacts count user created org should render owner permissions 
             }
             testID="Text"
           >
-            April 2020
+            October 2018
           </Text>
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              Object {
+                "height": 32,
+                "width": 32,
+              },
+            ],
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 18,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Array [
+                    Object {
+                      "color": "#B2B0B2",
+                      "margin": 0,
+                      "paddingHorizontal": 10,
+                    },
+                    undefined,
+                  ],
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
         </Text>
       </View>
     </View>

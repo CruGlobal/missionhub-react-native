@@ -12,17 +12,17 @@ import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import Avatar from '../Avatar';
 import { RootState } from '../../reducers';
-import { useMyId } from '../../utils/hooks/useIsMe';
+import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
+import { PermissionEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
+import { CommunityMemberItem as CommunityMemberItemType } from './__generated__/CommunityMemberItem';
 
-interface CommunityMemberItemProps {
+export interface CommunityMemberItemProps {
   onSelect: (person: Person) => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  person: any;
+  person: CommunityMemberItemType;
   organization: Organization;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  personOrgPermission: any;
+  personOrgPermission: { id: string; permission: PermissionEnum };
 }
 
 const CommunityMemberItem = ({
@@ -33,7 +33,7 @@ const CommunityMemberItem = ({
 }: CommunityMemberItemProps) => {
   const { t } = useTranslation('groupItem');
   const myId = useMyId();
-  const isMe = myId === person.id;
+  const isMe = useIsMe(person.id);
   const myOrgPermission = useSelector(({ auth }: RootState) =>
     orgPermissionSelector({}, { person: auth.person, organization }),
   );
@@ -49,7 +49,9 @@ const CommunityMemberItem = ({
       style={styles.card}
     >
       <Flex value={1} justify="center" align="center" direction="row">
-        <Avatar size="small" person={person} style={styles.avatar} />
+        {person ? (
+          <Avatar size="small" person={person} style={styles.avatar} />
+        ) : null}
         <Flex value={1} direction="column">
           <Text style={styles.name}>{person.firstName}</Text>
           <Flex align="center" direction="row">

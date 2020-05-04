@@ -4,7 +4,6 @@ import React from 'react';
 import { Alert, Share } from 'react-native';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import i18n from 'i18next';
-import * as apolloHooks from '@apollo/react-hooks';
 
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../../../testUtils';
@@ -47,14 +46,18 @@ const organization = {
   community_code: testcode,
 };
 
-// @ts-ignore
-trackScreenChange.mockReturnValue({ type: 'tracked screen change' });
-// @ts-ignore
-trackActionWithoutData.mockReturnValue({ type: 'tracked action without data' });
-// @ts-ignore
-removeGroupInviteInfo.mockReturnValue({ type: 'removed group invite info' });
-// @ts-ignore
-navToPersonScreen.mockReturnValue({ type: 'navigated to person screen' });
+(trackScreenChange as jest.Mock).mockReturnValue({
+  type: 'tracked screen change',
+});
+(trackActionWithoutData as jest.Mock).mockReturnValue({
+  type: 'tracked action without data',
+});
+(removeGroupInviteInfo as jest.Mock).mockReturnValue({
+  type: 'removed group invite info',
+});
+(navToPersonScreen as jest.Mock).mockReturnValue({
+  type: 'navigated to person screen',
+});
 
 const communityId = '123';
 
@@ -79,6 +82,18 @@ describe('CommunityMembers', () => {
     }).snapshot();
   });
 
+  it('should render empty state', () => {
+    renderWithContext(<CommunityMembers />, {
+      initialState,
+      mocks: {
+        Query: () => ({
+          community: () => ({ people: () => ({ edges: () => [] }) }),
+        }),
+      },
+      navParams: { communityId },
+    }).snapshot();
+  });
+
   it('renders with content', async () => {
     const { snapshot } = renderWithContext(<CommunityMembers />, {
       initialState,
@@ -92,20 +107,6 @@ describe('CommunityMembers', () => {
                 {
                   communityPermission: () => ({
                     permission: PermissionEnum.user,
-                  }),
-                },
-              ],
-              nodes: () => [
-                {
-                  id: 'person1',
-                  firstName: 'First',
-                  lastName: 'Last',
-                  picture: null,
-                  createdAt: '2020-04-15T12:00:00.000',
-                  communityPermissions: () => ({
-                    nodes: () => [
-                      { id: 'perm1', permission: PermissionEnum.admin },
-                    ],
                   }),
                 },
               ],
@@ -174,37 +175,25 @@ describe('CommunityMembers', () => {
   });
 
   it('should load next page', async () => {
-    const fetchMore = jest.fn();
-    const apolloHooksActual = jest.requireActual('@apollo/react-hooks');
-    // @ts-ignore
-    apolloHooks.useQuery = jest.fn((...args) => ({
-      ...apolloHooksActual.useQuery(...args),
-      fetchMore,
-    }));
-    const { getByTestId } = renderWithContext(<CommunityMembers />, {
-      initialState,
-      navParams: { communityId },
-      mocks: {
-        Query: () => ({
-          community: () => ({
-            userCreated: () => true,
-            people: () => ({
-              pageInfo: () => ({ endCursor: '1', hasNextPage: true }),
-            }),
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <CommunityMembers />,
+      {
+        initialState,
+        navParams: { communityId },
+        mocks: {
+          BasePageInfo: () => ({
+            endCursor: 'MQ',
+            hasNextPage: true,
           }),
-        }),
+        },
       },
-    });
+    );
     await flushMicrotasksQueue();
-    await getByTestId(
-      'CommunityMemberList',
-    ).props.ListFooterComponent.props.onPress();
+    recordSnapshot();
 
-    expect(fetchMore).toHaveBeenCalledWith({
-      updateQuery: expect.any(Function),
-      variables: { after: '1' },
-    });
+    fireEvent(getByTestId('CommunityMemberList'), 'onEndReached');
 
-    // expect(navigatePush).toHaveBeenCalled();
+    await flushMicrotasksQueue();
+    diffSnapshot();
   });
 });

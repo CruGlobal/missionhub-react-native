@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 
+import { COMMUNITY_MEMBER_ITEM_FRAGMENT } from '../../../../components/CommunityMemberItem/queries';
+
 export const COMMUNITY_MEMBERS_QUERY = gql`
   query CommunityMembers($id: ID!, $after: String) {
     community(id: $id) {
@@ -15,20 +17,11 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
       ) {
         edges {
           communityPermission {
+            id
             permission
           }
-        }
-        nodes {
-          id
-          firstName
-          lastName
-          picture
-          createdAt
-          communityPermissions {
-            nodes {
-              id
-              permission
-            }
+          node {
+            ...CommunityMemberItem
           }
         }
         pageInfo {
@@ -38,4 +31,5 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
       }
     }
   }
+  ${COMMUNITY_MEMBER_ITEM_FRAGMENT}
 `;

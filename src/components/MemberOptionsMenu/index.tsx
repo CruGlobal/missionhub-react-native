@@ -17,6 +17,7 @@ import {
   archiveOrgPermission,
 } from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
+import { CommunityMemberItem } from '../CommunityMemberItem/__generated__/CommunityMemberItem';
 
 import styles from './styles';
 
@@ -25,7 +26,11 @@ export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
 
 // @ts-ignore
 @withTranslation('groupMemberOptions')
-class MemberOptionsMenu extends Component {
+class MemberOptionsMenu extends Component<{
+  person: CommunityMemberItem;
+  organization: { id: string; name: string };
+  personOrgPermission: { id: string; permission: string };
+}> {
   async componentWillUnmount() {
     // @ts-ignore
     if (this.leaveCommunityOnUnmount) {

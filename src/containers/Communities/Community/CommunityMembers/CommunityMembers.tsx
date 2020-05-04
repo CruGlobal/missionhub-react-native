@@ -15,7 +15,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
 import { RefreshControl } from '../../../../components/common';
 import BottomButton from '../../../../components/BottomButton';
-import { getCommunityUrl, keyExtractorId } from '../../../../utils/common';
+import { getCommunityUrl } from '../../../../utils/common';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import CommunityMemberItem from '../../../../components/CommunityMemberItem';
@@ -31,35 +31,23 @@ import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { Organization } from '../../../../reducers/organizations';
 import theme from '../../../../theme';
 import { RootState } from '../../../../reducers';
-import { useRefreshing } from '../../../../utils/hooks/useRefreshing';
-import LoadMore from '../../../../components/LoadMore';
+import { FooterLoading } from '../../../../components/FooterLoading';
 
 import styles from './styles';
 import { COMMUNITY_MEMBERS_QUERY } from './queries';
-import { CommunityMembers } from './__generated__/CommunityMembers';
+import {
+  CommunityMembers,
+  CommunityMembersVariables,
+} from './__generated__/CommunityMembers';
 
 export const CommunityMembersScreen = () => {
   const dispatch = useDispatch();
   const communityId: string = useNavigationParam('communityId');
 
-  const {
-    data: {
-      community: {
-        userCreated = false,
-        people: {
-          nodes = [],
-          pageInfo: { endCursor = null, hasNextPage = false } = {},
-        } = {},
-        report: { memberCount = 0 } = {},
-      } = {},
-    } = {},
-    error,
-    fetchMore,
-    refetch,
-  } = useQuery<CommunityMembers>(COMMUNITY_MEMBERS_QUERY, {
-    variables: { id: communityId },
-  });
-  const { isRefreshing, refresh } = useRefreshing(refetch);
+  const { data, error, fetchMore, refetch, loading } = useQuery<
+    CommunityMembers,
+    CommunityMembersVariables
+  >(COMMUNITY_MEMBERS_QUERY, { variables: { id: communityId } });
 
   const organization: Organization = useSelector(
     ({ organizations }: RootState) =>
@@ -79,9 +67,9 @@ export const CommunityMembersScreen = () => {
   const { t } = useTranslation('groupsMembers');
 
   const loadNextPage = async () => {
-    if (hasNextPage) {
+    if (!loading && data?.community.people.pageInfo.hasNextPage) {
       await fetchMore({
-        variables: { after: endCursor },
+        variables: { after: data?.community.people.pageInfo.endCursor },
         updateQuery: (prev, { fetchMoreResult }) =>
           fetchMoreResult
             ? {
@@ -93,9 +81,9 @@ export const CommunityMembersScreen = () => {
                   people: {
                     ...prev.community.people,
                     ...fetchMoreResult.community.people,
-                    nodes: [
-                      ...(prev.community.people.nodes || []),
-                      ...(fetchMoreResult.community.people.nodes || []),
+                    edges: [
+                      ...(prev.community.people.edges || []),
+                      ...(fetchMoreResult.community.people.edges || []),
                     ],
                   },
                 },
@@ -106,7 +94,7 @@ export const CommunityMembersScreen = () => {
   };
 
   async function handleInvite() {
-    if (userCreated) {
+    if (data?.community.userCreated) {
       const url = getCommunityUrl(organization.community_url);
       const code = organization.community_code;
 
@@ -135,12 +123,14 @@ export const CommunityMembersScreen = () => {
 
       <FlatList
         testID="CommunityMemberList"
-        data={nodes}
-        keyExtractor={keyExtractorId}
+        data={data?.community.people.edges || []}
+        keyExtractor={k => k.node.id}
         ListHeaderComponent={() => (
           <SafeAreaView>
             <Text style={styles.membersCount}>
-              {t('communityHeader:memberCount', { count: memberCount ?? 0 })}
+              {t('communityHeader:memberCount', {
+                count: data?.community.report.memberCount ?? 0,
+              })}
             </Text>
             <ErrorNotice
               message={t('errorLoadingMembers')}
@@ -153,19 +143,19 @@ export const CommunityMembersScreen = () => {
         renderItem={({ item }) => (
           <CommunityMemberItem
             organization={organization}
-            personOrgPermission={item.communityPermissions.nodes[0]}
-            person={item}
+            personOrgPermission={item.communityPermission}
+            person={item.node}
             onSelect={person =>
               dispatch(navToPersonScreen(person, organization))
             }
           />
         )}
         refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
+          <RefreshControl refreshing={loading} onRefresh={refetch} />
         }
-        ListFooterComponent={
-          hasNextPage ? <LoadMore onPress={loadNextPage} /> : undefined
-        }
+        onEndReached={loadNextPage}
+        onEndReachedThreshold={0.2}
+        ListFooterComponent={loading ? <FooterLoading /> : null}
       />
       <BottomButton
         onPress={handleInvite}
