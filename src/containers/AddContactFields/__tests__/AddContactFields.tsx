@@ -166,6 +166,7 @@ describe('calls methods', () => {
       id: '1',
       relationshipType: RelationshipTypeEnum.friend,
       stage: {
+        id: '2',
         name: 'Forgiven',
         __typename: 'Stage',
       },
@@ -204,6 +205,7 @@ describe('calls methods', () => {
         lastName: 'Huffman',
         stage: {
           __typename: 'Stage',
+          id: '2',
           name: 'Forgiven',
         },
       },
