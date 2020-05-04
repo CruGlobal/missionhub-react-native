@@ -811,7 +811,6 @@ describe('getFeedItemType', () => {
     const step: CommunityFeedStep = {
       __typename: 'Step',
       id: '1',
-      title: 'asdf',
       receiverStageAtCompletion: null,
     };
 

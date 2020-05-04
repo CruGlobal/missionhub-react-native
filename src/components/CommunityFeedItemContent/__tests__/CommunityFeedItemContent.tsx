@@ -132,7 +132,6 @@ describe('CelebrateItemContent', () => {
           subject: {
             __typename: 'Step',
             id: '12',
-            title: 'Step of Faith',
             receiverStageAtCompletion: {
               __typename: 'Stage',
               id: stageNum,
@@ -154,7 +153,6 @@ describe('CelebrateItemContent', () => {
         subject: {
           __typename: 'Step',
           id: '12',
-          title: 'Step of Faith',
           receiverStageAtCompletion: null,
         },
       });
@@ -166,7 +164,6 @@ describe('CelebrateItemContent', () => {
         subject: {
           __typename: 'Step',
           id: '12',
-          title: 'Step of Faith',
           receiverStageAtCompletion: {
             __typename: 'Stage',
             id: '1',
@@ -181,7 +178,6 @@ describe('CelebrateItemContent', () => {
         subject: {
           __typename: 'Step',
           id: '12',
-          title: 'Step of Faith',
           receiverStageAtCompletion: {
             __typename: 'Stage',
             id: '1',

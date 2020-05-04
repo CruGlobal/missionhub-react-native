@@ -1641,7 +1641,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -1767,7 +1766,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2287,7 +2285,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2413,7 +2410,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3329,7 +3325,6 @@ exports[`renders for member renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3455,7 +3450,6 @@ exports[`renders for member renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3975,7 +3969,6 @@ exports[`renders for member renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -4101,7 +4094,6 @@ exports[`renders for member renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -5013,7 +5005,6 @@ exports[`renders for member renders without header 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -5139,7 +5130,6 @@ exports[`renders for member renders without header 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -5659,7 +5649,6 @@ exports[`renders for member renders without header 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -5785,7 +5774,6 @@ exports[`renders for member renders without header 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -6688,7 +6676,6 @@ exports[`renders with celebration items correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -6814,7 +6801,6 @@ exports[`renders with celebration items correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -7334,7 +7320,6 @@ exports[`renders with celebration items correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -7460,7 +7445,6 @@ exports[`renders with celebration items correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -8376,7 +8360,6 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -8502,7 +8485,6 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -9022,7 +9004,6 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "58",
               },
-              "title": "Vel et nostrum.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -9148,7 +9129,6 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "26",
               },
-              "title": "Et molestiae ea ut.",
             },
             "subjectPerson": Object {
               "__typename": "Person",
