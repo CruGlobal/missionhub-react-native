@@ -81,8 +81,8 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [imageURI, changeImageURI] = useState<string | null>(
-    post?.mediaExpiringUrl || null,
+  const [imageData, changeImageData] = useState<string | undefined>(
+    post?.mediaExpiringUrl || undefined,
   );
   const [imageHeight, changeImageHeight] = useState<number>(0);
 
@@ -113,12 +113,14 @@ export const CreatePostScreen = () => {
 
     if (post) {
       updatePost({
-        variables: { input: { id: post.id, content: text } },
+        variables: {
+          input: { id: post.id, content: text, media: imageData },
+        },
       });
     } else {
       createPost({
         variables: {
-          input: { content: text, communityId, postType },
+          input: { content: text, communityId, postType, media: imageData },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -128,19 +130,20 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = ({ uri }: SelectImageParams) => changeImageURI(uri);
+  const handleSavePhoto = ({ data }: SelectImageParams) =>
+    changeImageData(data);
 
   useMemo(() => {
-    if (!imageURI) {
+    if (!imageData) {
       return changeImageHeight(0);
     }
 
     Image.getSize(
-      imageURI,
+      imageData,
       (width, height) => changeImageHeight((height * theme.fullWidth) / width),
       () => {},
     );
-  }, [imageURI]);
+  }, [imageData]);
 
   const renderHeader = () => (
     <Header
@@ -162,10 +165,10 @@ export const CreatePostScreen = () => {
 
   const renderAddPhotoButton = () => (
     <ImagePicker onSelectImage={handleSavePhoto}>
-      {imageURI ? (
+      {imageData ? (
         <Image
           resizeMode="contain"
-          source={{ uri: imageURI }}
+          source={{ uri: imageData }}
           style={{ width: theme.fullWidth, height: imageHeight }}
         />
       ) : (
