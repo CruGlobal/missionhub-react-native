@@ -606,6 +606,7 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#00CA99",
               "justifyContent": "center",
             },
             Array [
@@ -615,9 +616,6 @@ exports[`renders correctly 1`] = `
                 "borderWidth": 1,
                 "height": 24,
                 "width": 24,
-              },
-              Object {
-                "backgroundColor": "rgb(199, 163, 67)",
               },
               Object {
                 "marginLeft": -15,
@@ -746,6 +744,7 @@ exports[`renders correctly with type 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#00CA99",
               "justifyContent": "center",
             },
             Array [
@@ -755,9 +754,6 @@ exports[`renders correctly with type 1`] = `
                 "borderWidth": 1,
                 "height": 24,
                 "width": 24,
-              },
-              Object {
-                "backgroundColor": "rgb(199, 163, 67)",
               },
               Object {
                 "marginLeft": -15,

@@ -1,7 +1,7 @@
 /*eslint max-lines: 0 */
 
 import React from 'react';
-import { Alert, ActionSheetIOS, Image } from 'react-native';
+import { Alert, ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
