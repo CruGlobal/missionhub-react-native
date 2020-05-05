@@ -58,7 +58,9 @@ matrix:
       env:
         - ENVFILE=.env.production
       before_install:
+        - rm -rf ~/.nvm # remove nvm in favor of node from brew
         - brew update
+        - brew upgrade node
         - brew install yarn watchman
       install:
         - yarn
