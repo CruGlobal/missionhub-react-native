@@ -270,7 +270,7 @@ describe('long-press card', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-        post: myPost,
+        post: storyPostSubject,
         onComplete: onRefresh,
         communityId,
       });

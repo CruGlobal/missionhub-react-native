@@ -287,19 +287,6 @@ exports[`Community renders challenge correctly 1`] = `
         </View>
       </View>
     </View>
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/globalCommunityImage.png",
-        }
-      }
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -691,19 +678,6 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             sunt qui amet
           </Text>
         </View>
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../assets/images/globalCommunityImage.png",
-            }
-          }
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -1159,19 +1133,6 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             nulla quam ipsam
           </Text>
         </View>
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../assets/images/globalCommunityImage.png",
-            }
-          }
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -1542,19 +1503,6 @@ exports[`Community renders step correctly 1`] = `
         Orlando S. completed a Step of Faith with a  person.
       </Text>
     </View>
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/globalCommunityImage.png",
-        }
-      }
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -1946,19 +1894,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
             nulla quam ipsam
           </Text>
         </View>
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../assets/images/globalCommunityImage.png",
-            }
-          }
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -2398,19 +2333,6 @@ exports[`global community renders correctly 1`] = `
         Orlando S. completed a Step of Faith with a  person.
       </Text>
     </View>
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/globalCommunityImage.png",
-        }
-      }
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -2778,19 +2700,6 @@ exports[`global community renders post item correctly 1`] = `
         nulla quam ipsam
       </Text>
     </View>
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/globalCommunityImage.png",
-        }
-      }
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -3158,19 +3067,6 @@ exports[`global community renders with clear notification button correctly 1`] =
         Orlando S. completed a Step of Faith with a  person.
       </Text>
     </View>
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/globalCommunityImage.png",
-        }
-      }
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -3664,19 +3560,6 @@ exports[`renders with name pressable correctly 1`] = `
             nulla quam ipsam
           </Text>
         </View>
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "testUri": "../../../assets/images/globalCommunityImage.png",
-            }
-          }
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
-        />
         <View
           style={
             Array [

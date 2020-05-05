@@ -78,7 +78,7 @@ const CreatePostModal = ({
     closeModal();
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        refreshItems,
+        onComplete: refreshItems,
         communityId: community?.id,
         postType,
       }),
