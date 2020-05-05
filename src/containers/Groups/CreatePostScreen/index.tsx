@@ -51,6 +51,8 @@ interface UpdatePostNavParams extends CreatePostScreenParams {
 }
 type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
 
+const EMPTY_IMAGE_URI = '/media/original/missing.png';
+
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
     case PostTypeEnum.story:
@@ -81,8 +83,8 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [imageData, changeImageData] = useState<string | undefined>(
-    post?.mediaExpiringUrl || undefined,
+  const [imageData, changeImageData] = useState<string | null>(
+    post?.mediaExpiringUrl || null,
   );
   const [imageHeight, changeImageHeight] = useState<number>(0);
 
@@ -165,7 +167,7 @@ export const CreatePostScreen = () => {
 
   const renderAddPhotoButton = () => (
     <ImagePicker onSelectImage={handleSavePhoto}>
-      {imageData ? (
+      {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
         <Image
           resizeMode="contain"
           source={{ uri: imageData }}

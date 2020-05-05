@@ -73,6 +73,7 @@ export const CommunityFeedItem = ({
 
   const imageData =
     (isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
+
   useMemo(() => {
     if (!imageData) {
       return changeImageHeight(0);
@@ -80,7 +81,7 @@ export const CommunityFeedItem = ({
 
     Image.getSize(
       imageData,
-      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
+      (width, height) => changeImageHeight((height * cardWidth) / width),
       () => {},
     );
   }, [imageData]);
@@ -221,13 +222,11 @@ export const CommunityFeedItem = ({
         style={styles.postTextWrap}
       />
       {imageData ? (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Image
-            source={{ uri: imageData }}
-            style={{ width: cardWidth, height: imageHeight }}
-            resizeMode="contain"
-          />
-        </View>
+        <Image
+          source={{ uri: imageData }}
+          style={{ width: cardWidth, height: imageHeight }}
+          resizeMode="contain"
+        />
       ) : null}
       <Separator />
       {renderFooter()}

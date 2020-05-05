@@ -13,7 +13,7 @@ export default StyleSheet.create({
     shadowRadius: 2,
     elevation: 4,
     borderRadius: 8,
-    marginHorizontal: 16,
+    marginHorizontal: CardHorizontalMargin,
     marginVertical: CardVerticalMargin,
     flexDirection: 'row',
     backgroundColor: theme.white,

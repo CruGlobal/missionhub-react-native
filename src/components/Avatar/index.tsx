@@ -48,11 +48,11 @@ interface AvatarPropsCommon {
   size: AvatarSize;
   style?: StyleProp<ViewStyle>;
   personId?: string;
-  person?: PersonType | null;
+  person?: PersonType;
   orgId?: string;
 }
 interface AvatarPropsPerson extends AvatarPropsCommon {
-  person: PersonType | null;
+  person: PersonType;
 }
 interface AvatarPropsPersonId extends AvatarPropsCommon {
   personId: string;
