@@ -6,6 +6,7 @@ exports[`lookup person by id renders empty when cant find person 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -15,9 +16,6 @@ exports[`lookup person by id renders empty when cant find person 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(199, 163, 67)",
         },
         undefined,
       ],
@@ -55,6 +53,7 @@ exports[`lookup person by id renders person lookup by id 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -64,9 +63,6 @@ exports[`lookup person by id renders person lookup by id 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
         },
         undefined,
       ],
@@ -114,9 +110,6 @@ exports[`renders image large 1`] = `
           "height": 96,
           "width": 96,
         },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
-        },
         undefined,
       ],
     ]
@@ -139,9 +132,6 @@ exports[`renders image medium 1`] = `
           "borderRadius": 24,
           "height": 48,
           "width": 48,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
         },
         undefined,
       ],
@@ -168,9 +158,6 @@ exports[`renders image small 1`] = `
           "height": 24,
           "width": 24,
         },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
-        },
         undefined,
       ],
     ]
@@ -184,6 +171,7 @@ exports[`renders person first_name 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -193,9 +181,6 @@ exports[`renders person first_name 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
         },
         undefined,
       ],
@@ -233,6 +218,7 @@ exports[`renders person firstName 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -242,9 +228,6 @@ exports[`renders person firstName 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
         },
         undefined,
       ],
@@ -282,6 +265,7 @@ exports[`renders person full_name 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -291,9 +275,6 @@ exports[`renders person full_name 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
         },
         undefined,
       ],
@@ -331,6 +312,7 @@ exports[`renders person fullName 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -340,9 +322,6 @@ exports[`renders person fullName 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
         },
         undefined,
       ],
@@ -380,6 +359,7 @@ exports[`renders text large 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -387,9 +367,6 @@ exports[`renders text large 1`] = `
           "borderRadius": 48,
           "height": 96,
           "width": 96,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
         },
         undefined,
       ],
@@ -428,6 +405,7 @@ exports[`renders text medium 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -435,9 +413,6 @@ exports[`renders text medium 1`] = `
           "borderRadius": 24,
           "height": 48,
           "width": 48,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
         },
         undefined,
       ],
@@ -476,6 +451,7 @@ exports[`renders text small 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "backgroundColor": "#00CA99",
         "justifyContent": "center",
       },
       Array [
@@ -485,9 +461,6 @@ exports[`renders text small 1`] = `
           "borderWidth": 1,
           "height": 24,
           "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
         },
         undefined,
       ],

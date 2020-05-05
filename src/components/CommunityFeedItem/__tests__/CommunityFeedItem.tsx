@@ -1,7 +1,7 @@
 /*eslint max-lines: 0 */
 
 import React from 'react';
-import { Alert, ActionSheetIOS } from 'react-native';
+import { Alert, ActionSheetIOS, Image } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
@@ -157,6 +157,21 @@ describe('Community', () => {
     ).snapshot();
   });
 
+  it('renders post correctly without image', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={{
+          ...storyPostItem,
+          subject: { ...storyPostSubject, mediaExpiringUrl: null },
+        }}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={false}
+      />,
+      { initialState },
+    ).snapshot();
+  });
+
   it('renders step correctly', () => {
     renderWithContext(
       <CommunityFeedItem
@@ -270,7 +285,7 @@ describe('long-press card', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-        post: myPost,
+        post: storyPostSubject,
         onComplete: onRefresh,
         communityId,
       });

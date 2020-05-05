@@ -121,7 +121,7 @@ it('fires onPress and navigates | member', async () => {
   });
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    refreshItems,
+    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
   });
@@ -151,7 +151,7 @@ it('fires onPress and navigates | owner', async () => {
   });
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    refreshItems,
+    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,
   });
