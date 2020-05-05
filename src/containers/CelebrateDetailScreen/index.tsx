@@ -114,14 +114,14 @@ const CelebrateDetailScreen = ({
             <CommunityFeedItemName
               name={event.subjectPersonName}
               personId={event.subjectPerson?.id}
-              orgId={organization.id}
+              communityId={organization.id}
               pressable={true}
             />
             <CardTime date={event.createdAt} />
           </View>
           <CommentLikeComponent
             item={event}
-            orgId={organization.id}
+            communityId={organization.id}
             onRefresh={onRefreshCelebrateItem}
           />
           <BackButton
@@ -154,7 +154,7 @@ const CelebrateDetailScreen = ({
           ListHeaderComponent: () => (
             <CommunityFeedItemContent
               item={event}
-              organization={organization}
+              communityId={organization.id}
               style={styles.itemContent}
             />
           ),

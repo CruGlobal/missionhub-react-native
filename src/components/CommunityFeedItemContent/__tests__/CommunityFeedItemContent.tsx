@@ -8,8 +8,6 @@ import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../CommunityFeedItem/queries';
-import { COMMUNITY_FRAGMENT } from '../../../containers/Groups/queries';
-import { CommunityFragment } from '../../../containers/Groups/__generated__/CommunityFragment';
 import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
@@ -20,7 +18,7 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
 
-const organization = mockFragment<CommunityFragment>(COMMUNITY_FRAGMENT);
+const communityId = '123';
 const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 
 const navigateResponse = { type: 'navigate push' };
@@ -43,7 +41,7 @@ describe('CelebrateItemContent', () => {
     renderWithContext(
       <CommunityFeedItemContent
         item={item}
-        organization={organization}
+        communityId={communityId}
         {...otherProps}
       />,
     ).snapshot();
@@ -134,7 +132,6 @@ describe('CelebrateItemContent', () => {
           subject: {
             __typename: 'Step',
             id: '12',
-            title: 'Step of Faith',
             receiverStageAtCompletion: {
               __typename: 'Stage',
               id: stageNum,
@@ -156,7 +153,6 @@ describe('CelebrateItemContent', () => {
         subject: {
           __typename: 'Step',
           id: '12',
-          title: 'Step of Faith',
           receiverStageAtCompletion: null,
         },
       });
@@ -168,7 +164,6 @@ describe('CelebrateItemContent', () => {
         subject: {
           __typename: 'Step',
           id: '12',
-          title: 'Step of Faith',
           receiverStageAtCompletion: {
             __typename: 'Stage',
             id: '1',
@@ -183,7 +178,6 @@ describe('CelebrateItemContent', () => {
         subject: {
           __typename: 'Step',
           id: '12',
-          title: 'Step of Faith',
           receiverStageAtCompletion: {
             __typename: 'Stage',
             id: '1',
@@ -233,16 +227,16 @@ describe('onPressChallengeLink', () => {
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent
         item={challengeItem}
-        organization={organization}
+        communityId={communityId}
       />,
     );
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
       challengeId: challengeItem.subject.id,
-      orgId: organization.id,
+      orgId: communityId,
     });
-    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
+    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(communityId);
     expect(store.getActions()).toEqual([
       reloadGroupChallengeFeedReponse,
       navigateResponse,
@@ -253,11 +247,7 @@ describe('onPressChallengeLink', () => {
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent
         item={challengeItem}
-        organization={{
-          ...organization,
-          name: 'MissionHub Community',
-          id: GLOBAL_COMMUNITY_ID,
-        }}
+        communityId={GLOBAL_COMMUNITY_ID}
       />,
     );
     await fireEvent.press(getByTestId('ChallengeLinkButton'));

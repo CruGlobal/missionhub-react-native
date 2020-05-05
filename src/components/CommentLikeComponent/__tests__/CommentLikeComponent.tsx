@@ -26,7 +26,7 @@ const otherPerson = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
 const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 
 const myId = mePerson.id;
-const orgId = '567';
+const communityId = '567';
 
 const toggleLikeResponse = { type: 'item was liked' };
 const trackActionResponse = { type: 'tracked action' };
@@ -45,7 +45,7 @@ it('renders nothing with no subject person', () => {
   renderWithContext(
     <CommentLikeComponent
       item={{ ...item, subjectPerson: null }}
-      orgId={orgId}
+      communityId={communityId}
       onRefresh={onRefresh}
     />,
     {
@@ -62,7 +62,7 @@ describe('with subject person', () => {
           ...item,
           subjectPerson: mePerson,
         }}
-        orgId={orgId}
+        communityId={communityId}
         onRefresh={onRefresh}
       />,
       {
@@ -78,7 +78,7 @@ describe('with subject person', () => {
           ...item,
           subjectPerson: otherPerson,
         }}
-        orgId={orgId}
+        communityId={communityId}
         onRefresh={onRefresh}
       />,
       {
@@ -95,7 +95,7 @@ describe('with subject person', () => {
           subjectPerson: otherPerson,
           liked: false,
         }}
-        orgId={orgId}
+        communityId={communityId}
         onRefresh={onRefresh}
       />,
       {
@@ -118,7 +118,7 @@ describe('with subject person', () => {
             },
           },
         }}
-        orgId={orgId}
+        communityId={communityId}
         onRefresh={onRefresh}
       />,
       {
@@ -135,7 +135,7 @@ describe('with subject person', () => {
           subjectPerson: mePerson,
           likesCount: 0,
         }}
-        orgId={orgId}
+        communityId={communityId}
         onRefresh={onRefresh}
       />,
       {
@@ -161,7 +161,7 @@ describe('with subject person', () => {
               subjectPerson: mePerson,
               liked: false,
             }}
-            orgId={orgId}
+            communityId={communityId}
             onRefresh={onRefresh}
           />,
           {
@@ -183,7 +183,7 @@ describe('with subject person', () => {
       it('toggles like', async () => {
         await fireEvent.press(screen.getByTestId('LikeIconButton'));
 
-        expect(toggleLike).toHaveBeenCalledWith(item.id, false, orgId);
+        expect(toggleLike).toHaveBeenCalledWith(item.id, false, communityId);
         expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ITEM_LIKED);
         expect(screen.store.getActions()).toEqual([
           toggleLikeResponse,
@@ -208,7 +208,7 @@ describe('with subject person', () => {
               subjectPerson: mePerson,
               liked: true,
             }}
-            orgId={orgId}
+            communityId={communityId}
             onRefresh={onRefresh}
           />,
           {
@@ -230,7 +230,7 @@ describe('with subject person', () => {
       it('toggles like', async () => {
         await fireEvent.press(screen.getByTestId('LikeIconButton'));
 
-        expect(toggleLike).toHaveBeenCalledWith(item.id, true, orgId);
+        expect(toggleLike).toHaveBeenCalledWith(item.id, true, communityId);
         expect(trackActionWithoutData).not.toHaveBeenCalled();
         expect(screen.store.getActions()).toEqual([toggleLikeResponse]);
       });

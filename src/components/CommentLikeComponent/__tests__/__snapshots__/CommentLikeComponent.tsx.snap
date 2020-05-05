@@ -72,7 +72,9 @@ exports[`renders nothing with no subject person 1`] = `
           ]
         }
       >
-        <SvgMock />
+        <SvgMock
+          color="#505256"
+        />
       </View>
     </View>
   </View>
@@ -228,7 +230,9 @@ exports[`with subject person renders 0 comments_count 1`] = `
           ]
         }
       >
-        <SvgMock />
+        <SvgMock
+          color="#505256"
+        />
       </View>
     </View>
   </View>
@@ -338,7 +342,9 @@ exports[`with subject person renders 0 likes_count 1`] = `
           ]
         }
       >
-        <SvgMock />
+        <SvgMock
+          color="#505256"
+        />
       </View>
     </View>
   </View>
@@ -452,7 +458,9 @@ exports[`with subject person renders for me 1`] = `
           ]
         }
       >
-        <SvgMock />
+        <SvgMock
+          color="#505256"
+        />
       </View>
     </View>
   </View>
@@ -564,7 +572,9 @@ exports[`with subject person renders for someone else 1`] = `
           ]
         }
       >
-        <SvgMock />
+        <SvgMock
+          color="#505256"
+        />
       </View>
     </View>
   </View>
@@ -676,7 +686,9 @@ exports[`with subject person renders when not liked 1`] = `
           ]
         }
       >
-        <SvgMock />
+        <SvgMock
+          color="#505256"
+        />
       </View>
     </View>
   </View>

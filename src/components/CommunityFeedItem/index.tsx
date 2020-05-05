@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 
-import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { CardHorizontalMargin } from '../Card/styles';
@@ -21,7 +20,6 @@ import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 import theme from '../../theme';
 
 import PlusIcon from './plusIcon.svg';
@@ -36,7 +34,7 @@ const cardWidth = theme.fullWidth - CardHorizontalMargin * 2;
 
 export interface CommunityFeedItemProps {
   item: FeedItemFragment;
-  organization: GetCommunities_communities_nodes;
+  communityId: string;
   namePressable: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
   onRefresh: () => void;
@@ -44,14 +42,13 @@ export interface CommunityFeedItemProps {
 
 export const CommunityFeedItem = ({
   item,
-  organization,
+  communityId,
   namePressable,
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { createdAt, subject, subjectPerson, subjectPersonName } = item;
   const personId = subjectPerson?.id;
-  const orgId = organization.id;
 
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -72,7 +69,7 @@ export const CommunityFeedItem = ({
     FeedItemSubjectTypeEnum.PRAYER_REQUEST,
     FeedItemSubjectTypeEnum.QUESTION,
   ].includes(FeedItemType);
-  const isGlobal = orgIsGlobal(organization);
+  const isGlobal = orgIsGlobal({ id: communityId });
 
   const imageData =
     (isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
@@ -92,7 +89,7 @@ export const CommunityFeedItem = ({
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
         item,
-        orgId,
+        orgId: communityId,
         onRefreshCelebrateItem: onRefresh,
       }),
     );
@@ -105,7 +102,7 @@ export const CommunityFeedItem = ({
       navigatePush(CREATE_POST_SCREEN, {
         post: item.subject,
         onComplete: onRefresh,
-        communityId: orgId,
+        communityId,
       }),
     );
 
@@ -187,13 +184,13 @@ export const CommunityFeedItem = ({
       </View>
       <View style={styles.headerRow}>
         {personId ? (
-          <Avatar size={'medium'} person={subjectPerson} orgId={orgId} />
+          <Avatar size={'medium'} personId={personId} orgId={communityId} />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
             personId={personId}
-            orgId={orgId}
+            communityId={communityId}
             pressable={namePressable}
           />
           <CardTime date={createdAt} style={styles.headerTime} />
@@ -208,7 +205,7 @@ export const CommunityFeedItem = ({
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent
           item={item}
-          orgId={organization.id}
+          communityId={communityId}
           onRefresh={onRefresh}
         />
       </View>
@@ -220,7 +217,7 @@ export const CommunityFeedItem = ({
       {renderHeader()}
       <CommunityFeedItemContent
         item={item}
-        organization={organization}
+        communityId={communityId}
         style={styles.postTextWrap}
       />
       {imageData ? (

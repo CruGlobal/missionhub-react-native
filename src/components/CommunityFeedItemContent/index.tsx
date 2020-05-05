@@ -13,7 +13,6 @@ import {
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { CommunityFragment } from '../../containers/Groups/__generated__/CommunityFragment';
 import {
   CommunityFeedStep,
   CommunityFeedStep_receiverStageAtCompletion,
@@ -25,13 +24,13 @@ import styles from './styles';
 
 export interface CommunityFeedItemContentProps {
   item: CommunityFeedItem;
-  organization: CommunityFragment;
+  communityId: string;
   style?: StyleProp<ViewStyle>;
 }
 
 export const CommunityFeedItemContent = ({
   item,
-  organization,
+  communityId,
   style,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
@@ -50,14 +49,13 @@ export const CommunityFeedItemContent = ({
     : t('aMissionHubUser');
 
   const onPressChallengeLink = async () => {
-    const orgId = organization.id;
     const challengeId = subject.id;
-    if (orgId) {
-      await dispatch(reloadGroupChallengeFeed(orgId));
+    if (communityId) {
+      await dispatch(reloadGroupChallengeFeed(communityId));
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
           challengeId,
-          orgId,
+          orgId: communityId,
         }),
       );
     }

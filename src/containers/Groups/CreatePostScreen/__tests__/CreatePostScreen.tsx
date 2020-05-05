@@ -96,6 +96,62 @@ it('renders correctly on android', () => {
   }).snapshot();
 });
 
+describe('renders for post types', () => {
+  it('renders for story', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: { onComplete, communityId, postType: PostTypeEnum.story },
+    }).snapshot();
+  });
+
+  it('renders for prayer request', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType: PostTypeEnum.prayer_request,
+      },
+    }).snapshot();
+  });
+
+  it('renders for spiritual question', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: { onComplete, communityId, postType: PostTypeEnum.question },
+    }).snapshot();
+  });
+
+  it('renders for help request', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType: PostTypeEnum.help_request,
+      },
+    }).snapshot();
+  });
+
+  it('renders for thought', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: { onComplete, communityId, postType: PostTypeEnum.thought },
+    }).snapshot();
+  });
+
+  it('renders for announcement', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType: PostTypeEnum.announcement,
+      },
+    }).snapshot();
+  });
+});
+
 describe('Creating a post', () => {
   it('user types a post', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(

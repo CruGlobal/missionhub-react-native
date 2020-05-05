@@ -25,7 +25,7 @@ import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
 import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { Person } from '../../reducers/people';
 
 jest.mock('../api');

@@ -19,7 +19,7 @@ exports[`CelebrateItemContent Challenge Items renders for accepted challenge 1`]
       ]
     }
   >
-    Marcellus H. accepted a Challenge:
+    Hayden Z. accepted a Challenge:
   </Text>
   <View
     style={
@@ -108,7 +108,7 @@ exports[`CelebrateItemContent Challenge Items renders for completed challenge 1`
       ]
     }
   >
-    Marcellus H. completed a Challenge:
+    Hayden Z. completed a Challenge:
   </Text>
   <View
     style={
@@ -286,7 +286,7 @@ exports[`CelebrateItemContent Challenge Items renders with no subjectPerson, def
       ]
     }
   >
-    Marcellus Hyatt completed a Challenge:
+    Hayden Zieme completed a Challenge:
   </Text>
   <View
     style={
@@ -399,7 +399,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event with stage 1
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Uninterested person.
+    Hayden Z. completed a Step of Faith with a Uninterested person.
   </Text>
 </View>
 `;
@@ -423,7 +423,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event with stage 2
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Curious person.
+    Hayden Z. completed a Step of Faith with a Curious person.
   </Text>
 </View>
 `;
@@ -447,7 +447,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event with stage 3
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Forgiven person.
+    Hayden Z. completed a Step of Faith with a Forgiven person.
   </Text>
 </View>
 `;
@@ -471,7 +471,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event with stage 4
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Growing person.
+    Hayden Z. completed a Step of Faith with a Growing person.
   </Text>
 </View>
 `;
@@ -495,7 +495,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event with stage 5
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with a Guiding person.
+    Hayden Z. completed a Step of Faith with a Guiding person.
   </Text>
 </View>
 `;
@@ -519,7 +519,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event with stage N
       ]
     }
   >
-    Marcellus H. completed a Step of Faith.
+    Hayden Z. completed a Step of Faith.
   </Text>
 </View>
 `;
@@ -543,7 +543,7 @@ exports[`CelebrateItemContent Step Item renders step of faith event without stag
       ]
     }
   >
-    Marcellus H. completed a Step of Faith with someone.
+    Hayden Z. completed a Step of Faith with someone.
   </Text>
 </View>
 `;
@@ -591,7 +591,7 @@ exports[`CelebrateItemContent Step Item renders with no subjectPerson, defaults 
       ]
     }
   >
-    Marcellus Hyatt completed a Step of Faith with a Uninterested person.
+    Hayden Zieme completed a Step of Faith with a Uninterested person.
   </Text>
 </View>
 `;

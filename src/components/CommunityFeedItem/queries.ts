@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-export const COMMUNITY_PERMISSIONS_FRAGMENT = gql`
-  fragment CommunityPermissions on CommunityPermission {
+export const COMMUNITY_PERMISSION_FRAGMENT = gql`
+  fragment CommunityPermission on CommunityPermission {
     community {
       id
     }
@@ -16,11 +16,11 @@ export const COMMUNITY_PERSON_FRAGMENT = gql`
     lastName
     communityPermissions {
       nodes {
-        ...CommunityPermissions
+        ...CommunityPermission
       }
     }
   }
-  ${COMMUNITY_PERMISSIONS_FRAGMENT}
+  ${COMMUNITY_PERMISSION_FRAGMENT}
 `;
 
 export const CELEBRATE_ITEM_FRAGMENT = gql`

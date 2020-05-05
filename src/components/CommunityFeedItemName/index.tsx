@@ -11,7 +11,7 @@ import styles from './styles';
 export interface CommunityFeedItemNameProps {
   name: string | null;
   personId?: string;
-  orgId: string;
+  communityId: string;
   pressable: boolean;
   customContent?: JSX.Element;
 }
@@ -19,7 +19,7 @@ export interface CommunityFeedItemNameProps {
 export const CommunityFeedItemName = ({
   name,
   personId,
-  orgId,
+  communityId,
   pressable,
   customContent,
 }: CommunityFeedItemNameProps) => {
@@ -27,7 +27,8 @@ export const CommunityFeedItemName = ({
   const dispatch = useDispatch();
 
   const onPressNameLink = () =>
-    personId && dispatch(navToPersonScreen({ id: personId }, { id: orgId }));
+    personId &&
+    dispatch(navToPersonScreen({ id: personId }, { id: communityId }));
 
   const content = customContent || (
     <ItemHeaderText

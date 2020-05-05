@@ -2,21 +2,17 @@ import { createSelector } from 'reselect';
 
 import { momentUtc } from '../utils/date';
 import { CELEBRATEABLE_TYPES } from '../constants';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CelebrateItem } from '../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { CommunityCelebrationCelebrateableEnum } from '../../__generated__/globalTypes';
 
 export interface CelebrateFeedSection {
   id: number;
   date: string;
-  data: GetCelebrateFeed_community_celebrationItems_nodes[];
+  data: CelebrateItem[];
 }
 
 export const celebrationSelector = createSelector(
-  ({
-    celebrateItems,
-  }: {
-    celebrateItems: GetCelebrateFeed_community_celebrationItems_nodes[];
-  }) => celebrateItems,
+  ({ celebrateItems }: { celebrateItems: CelebrateItem[] }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
     const sortByDate = filteredCelebrateItems;
@@ -45,10 +41,7 @@ export const celebrationSelector = createSelector(
   },
 );
 
-const compare = (
-  a: GetCelebrateFeed_community_celebrationItems_nodes,
-  b: GetCelebrateFeed_community_celebrationItems_nodes,
-) => {
+const compare = (a: CelebrateItem, b: CelebrateItem) => {
   const aValue = a.changedAttributeValue,
     bValue = b.changedAttributeValue;
 
@@ -61,9 +54,7 @@ const compare = (
   return 0;
 };
 
-const filterCelebrationFeedItems = (
-  items: GetCelebrateFeed_community_celebrationItems_nodes[],
-) => {
+const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
   const { validInteractionTypes } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {

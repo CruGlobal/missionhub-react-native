@@ -1,6 +1,6 @@
 import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { celebrationSelector } from '../celebration';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
