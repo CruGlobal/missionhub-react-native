@@ -15,8 +15,8 @@ import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
-import { CommunityFeedPost } from '../../../../components/CelebrateItem/__generated__/CommunityFeedPost';
-import { COMMUNITY_FEED_POST_FRAGMENT } from '../../../../components/CelebrateItem/queries';
+import { CommunityFeedPost } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
+import { COMMUNITY_FEED_POST_FRAGMENT } from '../../../../components/CommunityFeedItem/queries';
 import { CREATE_POST, UPDATE_POST } from '../queries';
 
 import { CreatePostScreen } from '..';
@@ -94,6 +94,62 @@ it('renders correctly on android', () => {
       post: { ...post, postType: PostTypeEnum.prayer_request },
     },
   }).snapshot();
+});
+
+describe('renders for post types', () => {
+  it('renders for story', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: { onComplete, communityId, postType: PostTypeEnum.story },
+    }).snapshot();
+  });
+
+  it('renders for prayer request', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType: PostTypeEnum.prayer_request,
+      },
+    }).snapshot();
+  });
+
+  it('renders for spiritual question', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: { onComplete, communityId, postType: PostTypeEnum.question },
+    }).snapshot();
+  });
+
+  it('renders for help request', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType: PostTypeEnum.help_request,
+      },
+    }).snapshot();
+  });
+
+  it('renders for thought', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: { onComplete, communityId, postType: PostTypeEnum.thought },
+    }).snapshot();
+  });
+
+  it('renders for announcement', () => {
+    renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType: PostTypeEnum.announcement,
+      },
+    }).snapshot();
+  });
 });
 
 describe('Creating a post', () => {

@@ -1,0 +1,597 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CelebrateItemContent Challenge Items renders for accepted challenge 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. accepted a Challenge:
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ChallengeLinkButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 4,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textAlign": "left",
+              },
+            ]
+          }
+        >
+          Invite a friend to church
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent Challenge Items renders for completed challenge 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Challenge:
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ChallengeLinkButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 4,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textAlign": "left",
+              },
+            ]
+          }
+        >
+          Invite a friend to church
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent Challenge Items renders with no subjectPerson and no subjectPersonName 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    A MissionHub user completed a Challenge:
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ChallengeLinkButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 4,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textAlign": "left",
+              },
+            ]
+          }
+        >
+          Invite a friend to church
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent Challenge Items renders with no subjectPerson, defaults to subjectPersonName 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Zieme completed a Challenge:
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ChallengeLinkButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "marginTop": 4,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontSize": 14,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textAlign": "left",
+              },
+            ]
+          }
+        >
+          Invite a friend to church
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`CelebrateItemContent Post Items renders post 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Post!
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 1 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith with a Uninterested person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 2 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith with a Curious person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 3 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith with a Forgiven person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 4 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith with a Growing person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event with stage 5 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith with a Guiding person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event with stage Not Sure 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders step of faith event without stage 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Z. completed a Step of Faith with someone.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders with no subjectPerson and no subjectPersonName 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    A MissionHub user completed a Step of Faith with a Uninterested person.
+  </Text>
+</View>
+`;
+
+exports[`CelebrateItemContent Step Item renders with no subjectPerson, defaults to subjectPersonName 1`] = `
+<View>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "fontSize": 14,
+          "justifyContent": "flex-start",
+          "lineHeight": 18,
+        },
+      ]
+    }
+  >
+    Hayden Zieme completed a Step of Faith with a Uninterested person.
+  </Text>
+</View>
+`;

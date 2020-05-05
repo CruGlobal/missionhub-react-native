@@ -22,7 +22,7 @@ import {
   markCommentRead,
 } from '../../actions/unreadComments';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import styles from './styles';
 
@@ -52,9 +52,8 @@ const GroupUnreadFeed = ({
     back();
   };
 
-  const handleClearNotification = (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => dispatch(markCommentRead(event.id, organization.id));
+  const handleClearNotification = (item: CommunityFeedItem) =>
+    dispatch(markCommentRead(item.id, organization.id));
 
   return (
     <View style={styles.pageContainer}>

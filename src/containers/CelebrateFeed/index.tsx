@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
-import CelebrateItem from '../../components/CelebrateItem';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import { CreatePostButton } from '../Groups/CreatePostButton';
@@ -15,13 +15,12 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { momentUtc } from '../../utils/date';
 
-import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
-import {
-  GetCelebrateFeed,
-  GetCelebrateFeed_community_celebrationItems_nodes,
-} from './__generated__/GetCelebrateFeed';
-import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
+import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
+import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
+import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
@@ -32,11 +31,54 @@ export interface CelebrateFeedProps {
   showUnreadOnly?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
-  onClearNotification?: (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => void;
+  onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
 }
+
+export interface CommunityFeedSection {
+  id: number;
+  date: string;
+  data: FeedItemFragment[];
+}
+
+const sortCommunityFeed = (items: FeedItemFragment[]) => {
+  const sortByDate = items;
+  sortByDate.sort(compare);
+
+  const dateSections: CommunityFeedSection[] = [];
+  sortByDate.forEach(item => {
+    const length = dateSections.length;
+    const itemMoment = momentUtc(item.createdAt);
+
+    if (
+      length > 0 &&
+      itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
+    ) {
+      dateSections[length - 1].data.push(item);
+    } else {
+      dateSections.push({
+        id: dateSections.length,
+        date: item.createdAt,
+        data: [item],
+      });
+    }
+  });
+
+  return dateSections;
+};
+
+const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
+  const aValue = a.createdAt,
+    bValue = b.createdAt;
+
+  if (aValue < bValue) {
+    return 1;
+  }
+  if (aValue > bValue) {
+    return -1;
+  }
+  return 0;
+};
 
 export const CelebrateFeed = ({
   organization,
@@ -59,7 +101,7 @@ export const CelebrateFeed = ({
   const {
     data: {
       community: {
-        celebrationItems: {
+        feedItems: {
           nodes = [],
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
@@ -69,7 +111,7 @@ export const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
+  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
     skip: isGlobal,
@@ -91,14 +133,14 @@ export const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
+  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
     pollInterval: 30000,
     skip: !isGlobal,
   });
 
-  const celebrationItems = celebrationSelector({
-    celebrateItems: isGlobal ? globalNodes : nodes,
-  });
+  const items = isGlobal
+    ? celebrationSelector({ celebrateItems: globalNodes })
+    : sortCommunityFeed(nodes);
 
   const handleRefreshing = () => {
     isGlobal ? globalRefetch() : refetch();
@@ -120,13 +162,12 @@ export const CelebrateFeed = ({
                 community: {
                   ...prev.community,
                   ...fetchMoreResult.community,
-                  celebrationItems: {
-                    ...prev.community.celebrationItems,
-                    ...fetchMoreResult.community.celebrationItems,
+                  feedItems: {
+                    ...prev.community.feedItems,
+                    ...fetchMoreResult.community.feedItems,
                     nodes: [
-                      ...(prev.community.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.community.celebrationItems.nodes ||
-                        []),
+                      ...(prev.community.feedItems.nodes || []),
+                      ...(fetchMoreResult.community.feedItems.nodes || []),
                     ],
                   },
                 },
@@ -186,15 +227,11 @@ export const CelebrateFeed = ({
     [],
   );
 
-  const renderItem = ({
-    item,
-  }: {
-    item: GetCelebrateFeed_community_celebrationItems_nodes;
-  }) => (
-    <CelebrateItem
+  const renderItem = ({ item }: { item: FeedItemFragment }) => (
+    <CommunityFeedItem
       onClearNotification={onClearNotification}
-      event={item}
-      organization={organization}
+      item={item}
+      communityId={organization.id}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />
@@ -242,7 +279,7 @@ export const CelebrateFeed = ({
 
   return (
     <SectionList
-      sections={celebrationItems}
+      sections={items}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}

@@ -1,38 +1,12 @@
 import gql from 'graphql-tag';
 
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import {
+  COMMUNITY_PERSON_FRAGMENT,
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+} from '../../components/CommunityFeedItem/queries';
 
-export const GET_CELEBRATE_FEED = gql`
-  query GetCelebrateFeed(
-    $communityId: ID!
-    $personIds: [ID!] = null
-    $hasUnreadComments: Boolean = false
-    $celebrateCursor: String
-  ) {
-    community(id: $communityId) {
-      id
-      celebrationItems(
-        sortBy: createdAt_DESC
-        first: 25
-        after: $celebrateCursor
-        subjectPersonIds: $personIds
-        hasUnreadComments: $hasUnreadComments
-      ) {
-        nodes {
-          ...CelebrateItem
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
-    }
-  }
-  ${CELEBRATE_ITEM_FRAGMENT}
-`;
-
-export const GET_GLOBAL_CELEBRATE_FEED = gql`
-  query GetGlobalCelebrateFeed($celebrateCursor: String) {
+export const GET_GLOBAL_COMMUNITY_FEED = gql`
+  query GetGlobalCommunityFeed($celebrateCursor: String) {
     globalCommunity {
       celebrationItems(
         sortBy: createdAt_DESC
@@ -40,7 +14,21 @@ export const GET_GLOBAL_CELEBRATE_FEED = gql`
         after: $celebrateCursor
       ) {
         nodes {
-          ...CelebrateItem
+          id
+          adjectiveAttributeName
+          adjectiveAttributeValue
+          celebrateableId
+          celebrateableType
+          changedAttributeName
+          changedAttributeValue
+          commentsCount
+          liked
+          likesCount
+          objectDescription
+          subjectPerson {
+            ...CommunityPerson
+          }
+          subjectPersonName
         }
         pageInfo {
           endCursor
@@ -49,7 +37,7 @@ export const GET_GLOBAL_CELEBRATE_FEED = gql`
       }
     }
   }
-  ${CELEBRATE_ITEM_FRAGMENT}
+  ${COMMUNITY_PERSON_FRAGMENT}
 `;
 
 export const GET_COMMUNITY_FEED = gql`
@@ -61,10 +49,14 @@ export const GET_COMMUNITY_FEED = gql`
       id
       feedItems(subjectType: $subjectType) {
         nodes {
-          id
+          ...CommunityFeedItem
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
         }
       }
     }
   }
-  ${CELEBRATE_ITEM_FRAGMENT}
+  ${COMMUNITY_FEED_ITEM_FRAGMENT}
 `;
