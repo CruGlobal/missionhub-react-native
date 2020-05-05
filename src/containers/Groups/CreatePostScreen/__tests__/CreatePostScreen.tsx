@@ -152,6 +152,8 @@ describe('renders for post types', () => {
   });
 });
 
+describe('upload photo', () => {});
+
 describe('Creating a post', () => {
   it('user types a post', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
@@ -192,6 +194,7 @@ describe('Creating a post', () => {
           content: MOCK_POST,
           communityId,
           postType: PostTypeEnum.prayer_request,
+          media: null,
         },
       },
     });
@@ -237,6 +240,7 @@ describe('Updating a post', () => {
         input: {
           content: MOCK_POST,
           id: post.id,
+          media: post.mediaExpiringUrl,
         },
       },
     });
