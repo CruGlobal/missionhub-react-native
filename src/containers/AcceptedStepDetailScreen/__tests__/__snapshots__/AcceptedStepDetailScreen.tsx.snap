@@ -6,12 +6,12 @@ Array [
     "id": "1",
     "organization": Object {
       "__typename": "Community",
-      "id": "3",
+      "id": "4",
     },
     "receiver": Object {
       "__typename": "Person",
       "firstName": "Grace",
-      "id": "2",
+      "id": "3",
     },
   },
   "Step Detail",
@@ -25,23 +25,24 @@ Array [
     "__typename": "Step",
     "community": Object {
       "__typename": "Community",
-      "id": "3",
+      "id": "4",
     },
     "id": "1",
     "receiver": Object {
       "__typename": "Person",
       "firstName": "Grace",
-      "id": "2",
+      "id": "3",
     },
     "reminder": Object {
       "__typename": "StepReminder",
-      "id": "4",
+      "id": "5",
       "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
       "reminderType": "once",
     },
     "stepSuggestion": Object {
       "__typename": "StepSuggestion",
       "descriptionMarkdown": "ratione ut sunt",
+      "id": "2",
     },
     "stepType": "share",
     "title": "Repellat quisquam recusandae alias consequuntur corporis.",
@@ -1627,7 +1628,7 @@ exports[`with description, with reminder should render correctly 1`] = `
         reminder={
           Object {
             "__typename": "StepReminder",
-            "id": "4",
+            "id": "5",
             "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
             "reminderType": "once",
           }
@@ -1707,7 +1708,7 @@ exports[`with description, with reminder should render correctly 1`] = `
               reminder={
                 Object {
                   "__typename": "StepReminder",
-                  "id": "4",
+                  "id": "5",
                   "nextOccurrenceAt": "2016-01-26T19:10:10.481Z",
                   "reminderType": "once",
                 }

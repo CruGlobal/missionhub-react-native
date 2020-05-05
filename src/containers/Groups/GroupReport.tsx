@@ -30,16 +30,17 @@ import styles from './styles';
 export const GET_REPORTED_CONTENT = gql`
   query GetReportedContent($id: ID!) {
     community(id: $id) {
+      id
       contentComplaints(ignored: false) {
         nodes {
           id
           subject {
             __typename
             ... on Story {
+              id
               content
               createdAt
               updatedAt
-              id
               author {
                 fullName
                 firstName
@@ -48,31 +49,30 @@ export const GET_REPORTED_CONTENT = gql`
               }
             }
             ... on Post {
+              id
               content
               createdAt
               updatedAt
-              id
               author {
+                id
                 fullName
                 firstName
-
-                id
               }
             }
             ... on CommunityCelebrationItemComment {
+              id
               content
               createdAt
               updatedAt
-              id
               person {
+                id
                 fullName
                 firstName
-
-                id
               }
             }
           }
           person {
+            id
             fullName
           }
         }

@@ -8,6 +8,7 @@ export const STEP_SUGGESTIONS_QUERY = gql`
     $seed: Float
   ) {
     person(id: $personId) {
+      id
       firstName
       stepSuggestions(
         stepType: $stepType

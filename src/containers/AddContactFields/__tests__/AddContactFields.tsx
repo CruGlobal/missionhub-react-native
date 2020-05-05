@@ -94,6 +94,7 @@ it('render correctly | With Person | No Picture', () => {
         firstName: 'Christian',
         lastName: 'Huffman',
         stage: {
+          id: '2',
           name: 'Forgiven',
           __typename: 'Stage',
         },
@@ -173,6 +174,7 @@ describe('calls methods', () => {
           firstName: 'Christian',
           lastName: 'Huffman',
           stage: {
+            id: '2',
             name: 'Forgiven',
             __typename: 'Stage',
           },
@@ -195,6 +197,7 @@ describe('calls methods', () => {
       id: '1',
       relationshipType: RelationshipTypeEnum.friend,
       stage: {
+        id: '2',
         name: 'Forgiven',
         __typename: 'Stage',
       },
@@ -255,6 +258,7 @@ describe('calls methods', () => {
           lastName: 'Huffman',
           stage: {
             __typename: 'Stage',
+            id: '2',
             name: 'Forgiven',
           },
           picture: mockImage,
@@ -274,6 +278,7 @@ describe('calls methods', () => {
         lastName: 'Huffman',
         stage: {
           __typename: 'Stage',
+          id: '2',
           name: 'Forgiven',
         },
         picture: mockImage,
