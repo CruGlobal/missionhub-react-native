@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Alert, Image } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 
-import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
@@ -81,7 +80,7 @@ export const CommunityFeedItem = ({
   const handleEdit = () =>
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        post: item,
+        post: subject,
         onComplete: onRefresh,
         communityId,
       }),
@@ -201,13 +200,6 @@ export const CommunityFeedItem = ({
         communityId={communityId}
         style={styles.postTextWrap}
       />
-      {
-        <Image
-          source={GLOBAL_COMMUNITY_IMAGE}
-          style={{ width: '100%' }}
-          resizeMode="contain"
-        />
-      }
       <Separator />
       {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}
