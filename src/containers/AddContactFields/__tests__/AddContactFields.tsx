@@ -70,6 +70,7 @@ it('render correctly | With Person | With Picture', () => {
         lastName: 'Huffman',
         stage: {
           name: 'Forgiven',
+          id: '2',
           __typename: 'Stage',
         },
         picture: mockImage,
@@ -218,6 +219,7 @@ describe('calls methods', () => {
           lastName: 'Huffman',
           stage: {
             name: 'Forgiven',
+            id: '2',
             __typename: 'Stage',
           },
           picture: null,
@@ -239,6 +241,7 @@ describe('calls methods', () => {
       relationshipType: RelationshipTypeEnum.family,
       stage: {
         name: 'Forgiven',
+        id: '2',
         __typename: 'Stage',
       },
       picture: `data:image/jpeg;base64,${mockImage}`,
