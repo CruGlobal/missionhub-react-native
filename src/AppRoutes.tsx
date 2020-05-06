@@ -87,18 +87,6 @@ import {
 } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import {
-  groupScreenTabNavigator,
-  userCreatedScreenTabNavigator,
-  globalScreenTabNavigator,
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-  GLOBAL_GROUP_SCREEN,
-  GROUP_TABS,
-} from './containers/Groups/GroupScreen';
-import SurveyContacts, {
-  GROUPS_SURVEY_CONTACTS,
-} from './containers/Groups/SurveyContacts';
 import GroupReport, {
   GROUPS_REPORT_SCREEN,
 } from './containers/Groups/GroupReport';
@@ -126,7 +114,6 @@ import StatusComplete, {
 import StatusReason, {
   STATUS_REASON_SCREEN,
 } from './containers/StatusReasonScreen';
-import GroupProfile, { GROUP_PROFILE } from './containers/Groups/GroupProfile';
 import { buildTrackedScreen } from './routes/helpers';
 import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,
@@ -218,6 +205,7 @@ import LoadingScreen, { LOADING_SCREEN } from './containers/LoadingScreen';
 import ChallengeMembers, {
   CHALLENGE_MEMBERS_SCREEN,
 } from './containers/ChallengeMembers';
+import { CommunitiesRoutes } from './containers/Communities/CommunitiesRoutes';
 import NotificationCenterScreen from './containers/NotificationCenterScreen';
 
 // Do custom animations between pages
@@ -384,36 +372,6 @@ const screens = {
     buildTrackingObj('search : refine', 'search', 'refine'),
     { gesturesEnabled: true },
   ),
-  [GROUP_SCREEN]: buildTrackedScreen(
-    groupScreenTabNavigator,
-    // @ts-ignore
-    buildTrackingObj('communities : community', 'communities', 'community'),
-  ),
-  [USER_CREATED_GROUP_SCREEN]: buildTrackedScreen(
-    userCreatedScreenTabNavigator,
-    // @ts-ignore
-    buildTrackingObj('communities : community', 'communities', 'community'),
-  ),
-  [GLOBAL_GROUP_SCREEN]: buildTrackedScreen(
-    globalScreenTabNavigator,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : global community',
-      'communities',
-      'global community',
-    ),
-  ),
-  [GROUPS_SURVEY_CONTACTS]: buildTrackedScreen(
-    SurveyContacts,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : surveys : respondants',
-      'communities',
-      'surveys',
-      'respondants',
-    ),
-    { gesturesEnabled: true },
-  ),
   [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
     GroupReport,
     // @ts-ignore
@@ -535,7 +493,6 @@ const screens = {
 export const trackableScreens = {
   ...screens,
   ...tabs,
-  ...GROUP_TABS,
   ...ALL_PERSON_TAB_ROUTES,
   ...JoinByCodeFlowScreens,
   ...JoinByCodeOnboardingFlowScreens,
@@ -555,6 +512,7 @@ const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
+    ...CommunitiesRoutes,
     [LANDING_SCREEN]: { screen: LandingScreen },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
@@ -584,7 +542,6 @@ export const MainStackRoutes = createStackNavigator(
       // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },
-    [GROUP_PROFILE]: { screen: GroupProfile },
   },
   {
     initialRouteName: MAIN_TABS,

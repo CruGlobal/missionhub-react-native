@@ -48,6 +48,7 @@ const CelebrateFeedHeader = ({
     variables: {
       id: orgId,
     },
+    skip: orgIsGlobal(organization),
   });
   const unreadCommentCount = organization.unread_comments_count;
   const reportedContentCount = ReportedContent.length;

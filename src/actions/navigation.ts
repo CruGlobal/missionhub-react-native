@@ -8,12 +8,11 @@ import {
   NavigationNavigateAction,
 } from 'react-navigation';
 
-import { orgIsUserCreated } from '../utils/common';
-import { getScreenForOrg } from '../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
-import { MAIN_TABS, PEOPLE_TAB, GLOBAL_COMMUNITY_ID } from '../constants';
+import { MAIN_TABS, PEOPLE_TAB } from '../constants';
 import { Organization } from '../reducers/organizations';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
 import { loadHome } from './auth/userData';
 
@@ -95,29 +94,11 @@ export const navigateToMainTabs = (tab = PEOPLE_TAB) => (
   dispatch(navigateResetTab(MAIN_TABS, tab));
 };
 
-export function navigateToCommunity(
-  community: Organization = { id: GLOBAL_COMMUNITY_ID },
-  initialTab?: string,
-) {
-  return (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const orgId = community.id;
-    const userCreated = orgIsUserCreated(community);
-
-    return dispatch(
-      navigatePush(getScreenForOrg(orgId, userCreated), {
-        orgId,
-        initialTab,
-      }),
-    );
-  };
-}
-
 export const navigateToCelebrateComments = (
   community: Organization,
   celebrationItemId?: string | null,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
   const orgId = community.id;
-  const userCreated = orgIsUserCreated(community);
 
   const event = { id: celebrationItemId };
 
@@ -125,8 +106,8 @@ export const navigateToCelebrateComments = (
     dispatch(
       navigateNestedReset([
         {
-          routeName: getScreenForOrg(orgId, userCreated),
-          params: { orgId },
+          routeName: COMMUNITY_TABS,
+          params: { communityId: orgId },
         },
         {
           routeName: GROUP_UNREAD_FEED_SCREEN,
@@ -136,6 +117,10 @@ export const navigateToCelebrateComments = (
       ]),
     );
   } else {
-    dispatch(navigateToCommunity(community));
+    dispatch(
+      navigatePush(COMMUNITY_TABS, {
+        communityId: community.id,
+      }),
+    );
   }
 };

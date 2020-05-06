@@ -146,7 +146,7 @@ export const CommunityFeedItem = ({
               onPress: () => handleReport(),
             },
           ]
-      : null;
+      : [];
 
   const renderAddToStepsButton = () => (
     <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
@@ -230,7 +230,6 @@ export const CommunityFeedItem = ({
     <Card>
       <View style={{ flex: 1 }}>
         <PopupMenu
-          // @ts-ignore
           testID="CommunityFeedItem"
           actions={menuActions}
           buttonProps={{
@@ -253,7 +252,7 @@ export const CommunityFeedItem = ({
 
   return isGlobal
     ? renderCardGlobal()
-    : menuActions
+    : menuActions.length
     ? renderCardLongPressable()
     : renderCardPressable();
 };
