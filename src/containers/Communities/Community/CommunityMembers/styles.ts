@@ -29,10 +29,10 @@ export default StyleSheet.create({
     paddingVertical: 10,
   },
   close: {
-    margin: 5,
+    margin: 2,
   },
   closeButton: {
     backgroundColor: theme.lightGrey,
-    borderRadius: 5,
+    borderRadius: 25,
   },
 });

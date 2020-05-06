@@ -252,7 +252,7 @@ export class AssignedPersonScreen extends Component {
     } = this.props;
 
     // If the keyboard is up, show the person's name and the organization
-    const name = person.first_name || '';
+    const name = person.first_name || person.firstName || '';
 
     return (
       <View style={styles.container}>

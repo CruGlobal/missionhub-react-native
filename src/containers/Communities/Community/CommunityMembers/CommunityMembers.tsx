@@ -19,7 +19,6 @@ import { getCommunityUrl } from '../../../../utils/common';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import CommunityMemberItem from '../../../../components/CommunityMemberItem';
-import { navToPersonScreen } from '../../../../actions/person';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { removeGroupInviteInfo } from '../../../../actions/swipe';
 import { trackActionWithoutData } from '../../../../actions/analytics';
@@ -145,9 +144,6 @@ export const CommunityMembersScreen = () => {
             organization={organization}
             personOrgPermission={item.communityPermission}
             person={item.node}
-            onSelect={person =>
-              dispatch(navToPersonScreen(person, organization))
-            }
           />
         )}
         refreshControl={
@@ -172,7 +168,7 @@ export const CommunityMembersScreen = () => {
             onPress={() => dispatch(navigateBack())}
             name="close"
             type="Material"
-            size={24}
+            size={26}
           />
         </View>
       </SafeAreaView>

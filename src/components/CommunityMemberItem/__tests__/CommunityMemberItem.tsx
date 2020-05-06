@@ -1,11 +1,10 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
 
 import { orgPermissionSelector } from '../../../selectors/people';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { CommunityMemberItem as CommunityMemberItemType } from '../__generated__/CommunityMemberItem';
-import { COMMUNITY_MEMBER_ITEM_FRAGMENT } from '../queries';
+import { CommunityMemberPerson } from '../__generated__/CommunityMemberPerson';
+import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../queries';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 import CommunityMemberItem from '..';
@@ -15,8 +14,8 @@ jest.mock('../../../selectors/people');
 const myId = '1';
 const me = { id: myId, full_name: 'Me' };
 
-const member = mockFragment<CommunityMemberItemType>(
-  COMMUNITY_MEMBER_ITEM_FRAGMENT,
+const member = mockFragment<CommunityMemberPerson>(
+  COMMUNITY_MEMBER_PERSON_FRAGMENT,
 );
 
 const orgPerm = { id: '111' };
@@ -34,7 +33,6 @@ const initialState = {
 };
 
 const props = {
-  onSelect: jest.fn(),
   person: member,
   personOrgPermission: memberPermissions,
   organization,
@@ -128,17 +126,5 @@ describe('render MemberOptionsMenu', () => {
         initialState,
       },
     ).snapshot();
-  });
-});
-
-describe('onSelect', () => {
-  it('calls onSelect prop', () => {
-    const { getByTestId } = renderWithContext(
-      <CommunityMemberItem {...props} />,
-      { initialState },
-    );
-    fireEvent.press(getByTestId('CommunityMemberItem'));
-
-    expect(props.onSelect).toHaveBeenCalled();
   });
 });

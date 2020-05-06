@@ -2,36 +2,46 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Flex, Text, DateComponent, Dot, Touchable } from '../common';
+import { hasOrgPermissions } from '../../utils/common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
 import { orgPermissionSelector } from '../../selectors/people';
 import { isAdminOrOwner, isOwner } from '../../utils/common';
-import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import Avatar from '../Avatar';
 import { RootState } from '../../reducers';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { PermissionEnum } from '../../../__generated__/globalTypes';
+import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
+import { navigatePush } from '../../actions/navigation';
+import {
+  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
+  IS_GROUPS_MEMBER_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
+  ME_PERSONAL_PERSON_SCREEN,
+  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
+  ME_COMMUNITY_PERSON_SCREEN,
+} from '../../containers/Groups/AssignedPersonScreen/constants';
 
 import styles from './styles';
-import { CommunityMemberItem as CommunityMemberItemType } from './__generated__/CommunityMemberItem';
+import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
 
 export interface CommunityMemberItemProps {
-  onSelect: (person: Person) => void;
-  person: CommunityMemberItemType;
+  person: CommunityMemberPerson;
   organization: Organization;
   personOrgPermission: { id: string; permission: PermissionEnum };
 }
 
 const CommunityMemberItem = ({
-  onSelect,
   person,
   organization,
   personOrgPermission,
 }: CommunityMemberItemProps) => {
   const { t } = useTranslation('groupItem');
+  const dispatch = useDispatch();
+  const me = useSelector(({ auth }: RootState) => auth.person);
   const myId = useMyId();
   const isMe = useIsMe(person.id);
   const myOrgPermission = useSelector(({ auth }: RootState) =>
@@ -41,10 +51,52 @@ const CommunityMemberItem = ({
   const iAmOwner = isOwner(myOrgPermission);
   const personIsAdmin = isAdminOrOwner(personOrgPermission);
   const personIsOwner = isOwner(personOrgPermission);
+  const personIsMember = hasOrgPermissions(personOrgPermission);
+
+  // TODO: This was pulled from the "actions/person.ts"->"navToPersonScreen" action
+  // That function uses the redux organization and person for all of the contact assignment information
+  // We now need to use the graphQL information instead. Leaving this in here for now so that it will
+  // continue working until we get a new person screen and navToPerson function hooked up with graphQL
+  function getScreen() {
+    const isUserCreatedOrg = organization.user_created;
+    const isGroups = me.user?.groups_feature;
+
+    if (isMe) {
+      if (personIsMember) {
+        if (isGroups) {
+          return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
+        }
+        return ME_COMMUNITY_PERSON_SCREEN;
+      }
+      return ME_PERSONAL_PERSON_SCREEN;
+    }
+
+    if (personIsMember) {
+      if (isUserCreatedOrg) {
+        return IS_USER_CREATED_MEMBER_PERSON_SCREEN;
+      }
+      if (isGroups) {
+        return IS_GROUPS_MEMBER_PERSON_SCREEN;
+      }
+      return MEMBER_PERSON_SCREEN;
+    }
+
+    return UNASSIGNED_PERSON_SCREEN;
+  }
+
+  function navToPerson() {
+    dispatch(
+      navigatePush(getScreen(), {
+        person,
+        organization,
+        isMember: personIsMember,
+      }),
+    );
+  }
 
   return (
     <Touchable
-      onPress={() => onSelect(person)}
+      onPress={navToPerson}
       testID="CommunityMemberItem"
       style={styles.card}
     >
