@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   StyleProp,
@@ -8,6 +8,7 @@ import {
   TextStyle,
 } from 'react-native';
 import { useSelector } from 'react-redux';
+import colorThis from '@eknowles/color-this';
 
 import { PeopleState } from '../../reducers/people';
 import { personSelector } from '../../selectors/people';
@@ -58,13 +59,10 @@ interface AvatarPropsPersonId extends AvatarPropsCommon {
   personId: string;
 }
 export type AvatarProps = AvatarPropsPerson | AvatarPropsPersonId;
-interface AvatarViewProps extends AvatarPropsCommon {
-  person: PersonType;
-}
 
 const EMPTY_PERSON = { id: '-', first_name: '-' };
 
-const AvatarView = React.memo(({ person, size, style }: AvatarViewProps) => {
+const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
   const name =
     person.firstName ||
     person.first_name ||
@@ -72,8 +70,9 @@ const AvatarView = React.memo(({ person, size, style }: AvatarViewProps) => {
     person.full_name ||
     '';
   const initial = name[0] || '-';
+  const color = useMemo(() => colorThis(`${name}${person.id}`, 1), [person]);
 
-  const wrapStyle = [wrapStyles[size], style];
+  const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
 
   if (person.picture) {
     return (
@@ -99,11 +98,7 @@ const AvatarPersonId = ({ personId, orgId, ...rest }: AvatarPropsPersonId) => {
   return <AvatarView person={person || EMPTY_PERSON} {...rest} />;
 };
 
-const Avatar = ({
-  person,
-  personId,
-  ...rest
-}: AvatarPropsPerson | AvatarPropsPersonId) => {
+const Avatar = ({ person, personId, ...rest }: AvatarProps) => {
   if (personId) {
     return <AvatarPersonId personId={personId} {...rest} />;
   }

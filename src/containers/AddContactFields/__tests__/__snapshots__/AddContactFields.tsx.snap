@@ -139,7 +139,6 @@ exports[`render correctly | With Person | No Picture 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "#00CA99",
                   "justifyContent": "center",
                 },
                 Array [
@@ -147,6 +146,9 @@ exports[`render correctly | With Person | No Picture 1`] = `
                     "borderRadius": 48,
                     "height": 96,
                     "width": 96,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(55, 161, 152)",
                   },
                   undefined,
                 ],
@@ -462,6 +464,9 @@ exports[`render correctly | With Person | With Picture 1`] = `
                     "borderRadius": 48,
                     "height": 96,
                     "width": 96,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(55, 161, 152)",
                   },
                   undefined,
                 ],

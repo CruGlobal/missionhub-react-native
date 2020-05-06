@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -74,7 +74,7 @@ export const CommunityFeedItem = ({
   const imageData =
     (isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
 
-  useMemo(() => {
+  useEffect(() => {
     if (!imageData) {
       return changeImageHeight(0);
     }

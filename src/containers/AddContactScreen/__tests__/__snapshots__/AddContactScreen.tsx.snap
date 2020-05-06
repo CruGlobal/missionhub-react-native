@@ -3527,7 +3527,6 @@ exports[`savePerson update existing person without org updates users profile pic
                     Array [
                       Object {
                         "alignItems": "center",
-                        "backgroundColor": "#00CA99",
                         "justifyContent": "center",
                       },
                       Array [
@@ -3535,6 +3534,9 @@ exports[`savePerson update existing person without org updates users profile pic
                           "borderRadius": 48,
                           "height": 96,
                           "width": 96,
+                        },
+                        Object {
+                          "backgroundColor": "rgb(192, 115, 216)",
                         },
                         undefined,
                       ],

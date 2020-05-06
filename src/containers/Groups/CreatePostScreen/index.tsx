@@ -53,8 +53,6 @@ type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
 
 const EMPTY_IMAGE_URI = '/media/original/missing.png';
 
-type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
-
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
     case PostTypeEnum.story:
