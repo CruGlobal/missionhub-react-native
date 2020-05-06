@@ -82,6 +82,82 @@ exports[`Creating a post user types a post 1`] = `
           isTVSelectable={true}"
 `;
 
+exports[`Select image should select an image 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -335,63 +335,20 @@
+              \\"opacity\\": 1,
+            }
+          }
+          testID=\\"popupMenuButton\\"
+        >
+-         <View
+-           style={
+-             Object {
+-               \\"backgroundColor\\": \\"#ECEEF2\\",
+-               \\"height\\": 1,
+-               \\"width\\": 750,
+-             }
+-           }
+-         />
+-         <View
+-           style={
++         <Image
++           resizeMode=\\"contain\\"
++           source={
+              Object {
+-               \\"flex\\": 1,
+-               \\"flexDirection\\": \\"row\\",
+-               \\"justifyContent\\": \\"flex-start\\",
+-               \\"paddingHorizontal\\": 35,
+-               \\"paddingVertical\\": 20,
+-             }
+-           }
+-         >
+-           <SvgMock
+-             style={
+-               Object {
+-                 \\"height\\": 24,
+-                 \\"width\\": 24,
++               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
+              }
+            }
+-           />
+-           <Text
+            style={
+-               Array [
+              Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 },
+-                 Object {
+-                   \\"fontSize\\": 16,
+-                   \\"lineHeight\\": 24,
+-                   \\"paddingHorizontal\\": 10,
+-                 },
+-               ]
+-             }
+-           >
+-             Add a Photo
+-           </Text>
+-         </View>
+-         <View
+-           style={
+-             Object {
+-               \\"backgroundColor\\": \\"#ECEEF2\\",
+-               \\"height\\": 1,
++               \\"height\\": 0,
+                \\"width\\": 750,
+              }
+            }
+          />
+        </View>"
+`;
+
 exports[`Updating a post user types a post 1`] = `
 "Snapshot Diff:
 - First value

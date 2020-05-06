@@ -38,6 +38,7 @@ const postType = PostTypeEnum.prayer_request;
 const post = mockFragment<CommunityFeedPost>(COMMUNITY_FEED_POST_FRAGMENT);
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
+const MOCK_IMAGE = 'base64image.jpeg';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
@@ -149,6 +150,29 @@ describe('renders for post types', () => {
         postType: PostTypeEnum.announcement,
       },
     }).snapshot();
+  });
+});
+
+describe('Select image', () => {
+  it('should select an image', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <CreatePostScreen />,
+      {
+        initialState,
+        navParams: {
+          onComplete,
+          communityId,
+          postType: PostTypeEnum.story,
+        },
+      },
+    );
+    recordSnapshot();
+
+    await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      data: `data:image/jpeg;base64,${MOCK_IMAGE}`,
+    });
+
+    diffSnapshot();
   });
 });
 

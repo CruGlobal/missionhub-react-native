@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -39,17 +39,19 @@ import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
-interface CreatePostNavParams {
-  postType: PostTypeEnum;
+interface CreatePostScreenParams {
   onComplete: () => void;
   communityId: string;
 }
 
-interface UpdatePostNavParams {
-  post: CommunityFeedPost;
-  onComplete: () => void;
-  communityId: string;
+interface CreatePostNavParams extends CreatePostScreenParams {
+  postType: PostTypeEnum;
 }
+interface UpdatePostNavParams extends CreatePostScreenParams {
+  post: CommunityFeedPost;
+}
+
+type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
 
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
@@ -80,8 +82,9 @@ export const CreatePostScreen = () => {
   const [postType] = useState<PostTypeEnum>(
     post?.postType || navPostType || PostTypeEnum.story,
   );
-  const [postText, changePostText] = useState<string>(post?.content || '');
-  const [postImage, changePostImage] = useState<string | undefined>(undefined); //TODO: use image from post
+  const [text, changeText] = useState<string>(post?.content || '');
+  const [imageData, changeImageData] = useState<string | null>(null);
+  const [imageHeight, changeImageHeight] = useState<number>(0);
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -101,21 +104,21 @@ export const CreatePostScreen = () => {
     UPDATE_POST,
   );
 
-  const savePost = async () => {
-    if (!postText) {
+  const savePost = () => {
+    if (!text) {
       return;
     }
 
     Keyboard.dismiss();
 
     if (post) {
-      await updatePost({
-        variables: { input: { id: post.id, content: postText } },
+      updatePost({
+        variables: { input: { id: post.id, content: text } },
       });
     } else {
-      await createPost({
+      createPost({
         variables: {
-          input: { content: postText, communityId, postType },
+          input: { content: text, communityId, postType },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -126,7 +129,19 @@ export const CreatePostScreen = () => {
   };
 
   const handleSavePhoto = (image: SelectImageParams) =>
-    changePostImage(image.data);
+    changeImageData(image.data);
+
+  useMemo(() => {
+    if (!imageData) {
+      return changeImageHeight(0);
+    }
+
+    Image.getSize(
+      imageData,
+      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
+      () => {},
+    );
+  }, [imageData]);
 
   const renderHeader = () => (
     <Header
@@ -137,7 +152,7 @@ export const CreatePostScreen = () => {
         </Text>
       }
       right={
-        postText ? (
+        text ? (
           <Button onPress={savePost} testID="CreatePostButton">
             <SendIcon style={styles.icon} />
           </Button>
@@ -147,12 +162,13 @@ export const CreatePostScreen = () => {
   );
 
   const renderAddPhotoButton = () => (
-    <ImagePicker onSelectImage={handleSavePhoto}>
-      {postImage ? (
+    // @ts-ignore
+    <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+      {imageData ? (
         <Image
           resizeMode="contain"
-          source={{ uri: postImage }}
-          style={styles.image}
+          source={{ uri: imageData }}
+          style={{ width: theme.fullWidth, height: imageHeight }}
         />
       ) : (
         <>
@@ -177,9 +193,9 @@ export const CreatePostScreen = () => {
         <Input
           testID="PostInput"
           scrollEnabled={false}
-          onChangeText={e => changePostText(e)}
+          onChangeText={e => changeText(e)}
           placeholder={t(`placeholder.${postType}`)}
-          value={postText}
+          value={text}
           autoFocus={true}
           autoCorrect={true}
           multiline={true}
