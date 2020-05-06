@@ -178,3 +178,5 @@ const mapStateToProps = ({ auth, organizations, swipe }, { orgId }) => {
 };
 
 export default connect(mapStateToProps)(Members);
+
+export const COMMUNITY_MEMBERS = 'nav/COMMUNITY_MEMBERS';

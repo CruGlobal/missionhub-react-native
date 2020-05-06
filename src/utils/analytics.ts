@@ -8,6 +8,7 @@ import { TrackStateContext } from '../actions/analytics';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { orgPermissionSelector } from '../selectors/people';
+import { PermissionEnum } from '../../__generated__/globalTypes';
 
 import {
   personIsCurrentUser,
@@ -64,4 +65,18 @@ export const getAnalyticsPermissionType = (
       ? 'admin'
       : 'member'
     : '';
+};
+
+export const getAnalyticsPermissionTypeGraphQL = (
+  permission?: PermissionEnum,
+): TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE] => {
+  switch (permission) {
+    case PermissionEnum.owner:
+    case PermissionEnum.admin:
+      return permission;
+    case PermissionEnum.user:
+      return 'member';
+    default:
+      return '';
+  }
 };

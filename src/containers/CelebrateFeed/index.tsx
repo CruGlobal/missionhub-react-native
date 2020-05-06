@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { SectionList, View, SectionListData } from 'react-native';
+import { Animated, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
@@ -15,6 +15,7 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc } from '../../utils/date';
 
@@ -33,6 +34,7 @@ export interface CelebrateFeedProps {
   onFetchMore?: () => void;
   onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
+  collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
 export interface CommunityFeedSection {
@@ -89,6 +91,7 @@ export const CelebrateFeed = ({
   onRefetch,
   onFetchMore,
   onClearNotification,
+  collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
   const isGlobal = orgIsGlobal(organization);
@@ -278,7 +281,8 @@ export const CelebrateFeed = ({
   );
 
   return (
-    <SectionList
+    <Animated.SectionList
+      {...collapsibleScrollViewProps}
       sections={items}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
@@ -289,7 +293,10 @@ export const CelebrateFeed = ({
       onRefresh={handleRefreshing}
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
-      contentContainerStyle={styles.listContent}
+      contentContainerStyle={[
+        collapsibleScrollViewProps?.contentContainerStyle,
+        styles.listContent,
+      ]}
     />
   );
 };

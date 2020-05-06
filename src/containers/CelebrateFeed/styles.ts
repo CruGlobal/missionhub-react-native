@@ -10,7 +10,9 @@ export default StyleSheet.create({
   listContent: {
     paddingBottom: 10,
   },
+
   header: {
+    flex: 1,
     alignItems: 'center',
     alignContent: 'center',
     paddingVertical: 10,
