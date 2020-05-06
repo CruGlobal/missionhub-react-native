@@ -78,7 +78,7 @@ const CommentItem = ({
         ) : (
           <CommunityFeedItemName
             name={name}
-            personId={person?.id}
+            person={person}
             communityId={organization.id}
             pressable={!isReported}
             customContent={<Text style={nameStyle}>{name}</Text>}

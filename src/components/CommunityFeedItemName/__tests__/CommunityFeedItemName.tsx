@@ -7,25 +7,32 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
 import { COMMUNITY_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
 import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
+import { orgPermissionSelector } from '../../../selectors/people';
+import { ORG_PERMISSIONS } from '../../../constants';
 
 jest.mock('../../../actions/person');
+jest.mock('../../../selectors/people');
 
 const person = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
+
 const name = `${person.firstName} ${person.lastName}`;
-const personId = person.id;
+
 const communityId = '235234';
 
 const navToPersonScreenResult = { type: 'navigated to person screen' };
 
 beforeEach(() => {
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+    permission_id: ORG_PERMISSIONS.USER,
+  });
 });
 
 it('renders correctly without name', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={null}
-      personId={personId}
+      person={person}
       communityId={communityId}
       pressable={true}
     />,
@@ -36,7 +43,7 @@ it('renders correctly with name', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={name}
-      personId={personId}
+      person={person}
       communityId={communityId}
       pressable={true}
     />,
@@ -47,7 +54,7 @@ it('renders correctly not pressable', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={name}
-      personId={personId}
+      person={person}
       communityId={communityId}
       pressable={false}
     />,
@@ -58,7 +65,7 @@ it('navigates to person screen', () => {
   const { store, getByTestId } = renderWithContext(
     <CommunityFeedItemName
       name={name}
-      personId={personId}
+      person={person}
       communityId={communityId}
       pressable={true}
     />,
@@ -66,9 +73,23 @@ it('navigates to person screen', () => {
 
   fireEvent.press(getByTestId('NameButton'));
 
-  expect(navToPersonScreen).toHaveBeenCalledWith(
-    { id: personId },
-    { id: communityId },
-  );
+  expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: communityId });
   expect(store.getActions()).toEqual([navToPersonScreenResult]);
+});
+
+it('does not navigate if not apart of community', () => {
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
+  const { store, getByTestId } = renderWithContext(
+    <CommunityFeedItemName
+      name={name}
+      person={person}
+      communityId={communityId}
+      pressable={true}
+    />,
+  );
+
+  fireEvent.press(getByTestId('NameButton'));
+
+  expect(navToPersonScreen).not.toHaveBeenCalled();
+  expect(store.getActions()).toEqual([]);
 });

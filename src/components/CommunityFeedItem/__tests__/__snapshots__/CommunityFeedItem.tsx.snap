@@ -126,7 +126,42 @@ exports[`Community renders challenge correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="13"
+          person={
+            Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "3",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "4",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "esse repellat quisquam",
+              "id": "1",
+              "lastName": "recusandae alias consequuntur",
+              "picture": "ut sunt qui",
+              "relationshipType": "family",
+              "stage": Object {
+                "__typename": "Stage",
+                "id": "2",
+                "name": "corporis repellat ratione",
+              },
+            }
+          }
           size="medium"
         />
         <View
@@ -595,7 +630,42 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "__typename": "Person",
+                  "communityPermissions": Object {
+                    "__typename": "CommunityPermissionConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "3",
+                        },
+                        "permission": "admin",
+                      },
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "4",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "esse repellat quisquam",
+                  "id": "1",
+                  "lastName": "recusandae alias consequuntur",
+                  "picture": "ut sunt qui",
+                  "relationshipType": "family",
+                  "stage": Object {
+                    "__typename": "Stage",
+                    "id": "2",
+                    "name": "corporis repellat ratione",
+                  },
+                }
+              }
               size="medium"
             />
             <View
@@ -1063,7 +1133,42 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "__typename": "Person",
+                  "communityPermissions": Object {
+                    "__typename": "CommunityPermissionConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "3",
+                        },
+                        "permission": "admin",
+                      },
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "4",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "esse repellat quisquam",
+                  "id": "1",
+                  "lastName": "recusandae alias consequuntur",
+                  "picture": "ut sunt qui",
+                  "relationshipType": "family",
+                  "stage": Object {
+                    "__typename": "Stage",
+                    "id": "2",
+                    "name": "corporis repellat ratione",
+                  },
+                }
+              }
               size="medium"
             />
             <View
@@ -1446,7 +1551,42 @@ exports[`Community renders step correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="13"
+          person={
+            Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "3",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "4",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "esse repellat quisquam",
+              "id": "1",
+              "lastName": "recusandae alias consequuntur",
+              "picture": "ut sunt qui",
+              "relationshipType": "family",
+              "stage": Object {
+                "__typename": "Stage",
+                "id": "2",
+                "name": "corporis repellat ratione",
+              },
+            }
+          }
           size="medium"
         />
         <View
@@ -1850,7 +1990,42 @@ exports[`Community renders with clear notification button correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "__typename": "Person",
+                  "communityPermissions": Object {
+                    "__typename": "CommunityPermissionConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "3",
+                        },
+                        "permission": "admin",
+                      },
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "4",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "esse repellat quisquam",
+                  "id": "1",
+                  "lastName": "recusandae alias consequuntur",
+                  "picture": "ut sunt qui",
+                  "relationshipType": "family",
+                  "stage": Object {
+                    "__typename": "Stage",
+                    "id": "2",
+                    "name": "corporis repellat ratione",
+                  },
+                }
+              }
               size="medium"
             />
             <View
@@ -2302,7 +2477,42 @@ exports[`global community renders correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "3",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "4",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "esse repellat quisquam",
+              "id": "1",
+              "lastName": "recusandae alias consequuntur",
+              "picture": "ut sunt qui",
+              "relationshipType": "family",
+              "stage": Object {
+                "__typename": "Stage",
+                "id": "2",
+                "name": "corporis repellat ratione",
+              },
+            }
+          }
           size="medium"
         />
         <View
@@ -2682,7 +2892,42 @@ exports[`global community renders post item correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "3",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "4",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "esse repellat quisquam",
+              "id": "1",
+              "lastName": "recusandae alias consequuntur",
+              "picture": "ut sunt qui",
+              "relationshipType": "family",
+              "stage": Object {
+                "__typename": "Stage",
+                "id": "2",
+                "name": "corporis repellat ratione",
+              },
+            }
+          }
           size="medium"
         />
         <View
@@ -3062,7 +3307,42 @@ exports[`global community renders with clear notification button correctly 1`] =
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "3",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "4",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "esse repellat quisquam",
+              "id": "1",
+              "lastName": "recusandae alias consequuntur",
+              "picture": "ut sunt qui",
+              "relationshipType": "family",
+              "stage": Object {
+                "__typename": "Stage",
+                "id": "2",
+                "name": "corporis repellat ratione",
+              },
+            }
+          }
           size="medium"
         />
         <View
@@ -3536,7 +3816,42 @@ exports[`renders with name pressable correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "__typename": "Person",
+                  "communityPermissions": Object {
+                    "__typename": "CommunityPermissionConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "3",
+                        },
+                        "permission": "admin",
+                      },
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "4",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "esse repellat quisquam",
+                  "id": "1",
+                  "lastName": "recusandae alias consequuntur",
+                  "picture": "ut sunt qui",
+                  "relationshipType": "family",
+                  "stage": Object {
+                    "__typename": "Stage",
+                    "id": "2",
+                    "name": "corporis repellat ratione",
+                  },
+                }
+              }
               size="medium"
             />
             <View

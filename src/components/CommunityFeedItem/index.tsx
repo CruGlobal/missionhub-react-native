@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import { navigatePush } from '../../actions/navigation';
@@ -25,8 +25,16 @@ import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
-import { DELETE_POST, REPORT_POST } from './queries';
+import {
+  DELETE_POST,
+  REPORT_POST,
+  GET_PERSON_AND_PERMISSIONS,
+} from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
+import {
+  GetPersonAndPermissions,
+  GetPersonAndPermissionsVariables,
+} from './__generated__/GetPersonAndPermissions';
 
 export interface CommunityFeedItemProps {
   item: FeedItemFragment;
@@ -44,7 +52,15 @@ export const CommunityFeedItem = ({
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { createdAt, subject, subjectPerson, subjectPersonName } = item;
-  const personId = subjectPerson?.id;
+  const personId = subjectPerson?.id || '';
+
+  const { data: { person } = { person: undefined } } = useQuery<
+    GetPersonAndPermissions,
+    GetPersonAndPermissionsVariables
+  >(GET_PERSON_AND_PERMISSIONS, {
+    variables: { id: personId },
+    skip: !personId,
+  });
 
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -164,13 +180,13 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} />
       </View>
       <View style={styles.headerRow}>
-        {personId ? (
-          <Avatar size={'medium'} personId={personId} orgId={communityId} />
+        {person ? (
+          <Avatar size={'medium'} person={person} orgId={communityId} />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
-            personId={personId}
+            person={person}
             communityId={communityId}
             pressable={namePressable}
           />
