@@ -76,6 +76,8 @@
 	<string>$(PRODUCT_NAME) would like to allow you to add a photo into your profile or community</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to allow you to add a photo into your profile or community</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to allow you to record audio to send to your community</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AmaticSC-Bold.ttf</string>

@@ -219,6 +219,10 @@ import ChallengeMembers, {
   CHALLENGE_MEMBERS_SCREEN,
 } from './containers/ChallengeMembers';
 import NotificationCenterScreen from './containers/NotificationCenterScreen';
+import {
+  RecordVideoScreen,
+  RECORD_VIDEO_SCREEN,
+} from './containers/RecordVideoScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -530,6 +534,7 @@ const screens = {
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
   [LOADING_SCREEN]: LoadingScreen,
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
+  [RECORD_VIDEO_SCREEN]: RecordVideoScreen,
 };
 
 export const trackableScreens = {

@@ -18,6 +18,7 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
+import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
@@ -76,13 +77,7 @@ const CreatePostModal = ({
 
   const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();
-    return dispatch(
-      navigatePush(CREATE_POST_SCREEN, {
-        onComplete: refreshItems,
-        communityId: community?.id,
-        postType,
-      }),
-    );
+    return dispatch(navigatePush(RECORD_VIDEO_SCREEN));
   };
 
   const postTypeArray = [
