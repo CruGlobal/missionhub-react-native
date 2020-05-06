@@ -31,6 +31,7 @@ jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useIsMe');
 jest.mock('react-navigation-drawer');
+jest.mock('../../../components/ImagePicker', () => 'ImagePicker');
 
 const me = { id: '99' };
 const contactId = '23';
@@ -41,6 +42,7 @@ const person = {
   firstName: contactFName,
   organization,
 };
+const mockImage = 'base64image.jpeg';
 
 const trackActionResponse = { type: 'track action' };
 const trackScreenChangeResponse = { type: 'track screen change' };
@@ -76,7 +78,7 @@ beforeEach(() => {
   Alert.alert = jest.fn();
 });
 
-it('renders correctly', async () => {
+it('renders correctly | With Person', async () => {
   const { snapshot } = renderWithContext(<AddContactScreen next={next} />, {
     initialState,
     navParams: {
@@ -104,6 +106,28 @@ it('renders correctly', async () => {
     },
     onCompleted: expect.any(Function),
     skip: false,
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
+});
+
+it('renders correctly | No Person', async () => {
+  const { snapshot } = renderWithContext(<AddContactScreen next={next} />, {
+    initialState,
+    navParams: {
+      organization,
+      person: {},
+    },
+  });
+
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+    variables: {
+      id: '',
+    },
+    onCompleted: expect.any(Function),
+    skip: true,
   });
 
   expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
@@ -372,6 +396,75 @@ describe('savePerson', () => {
           nextResponse,
         ]);
       });
+
+      it('updates users profile picture', async () => {
+        (useIsMe as jest.Mock).mockReturnValue(true);
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization: undefined,
+              person: {
+                id: me.id,
+              },
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: me.id,
+                relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
+                picture: null,
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
+        snapshot();
+        await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+          data: `data:image/jpeg;base64,${mockImage}`,
+        });
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
+        expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+          variables: {
+            id: me.id,
+          },
+          onCompleted: expect.any(Function),
+          skip: false,
+        });
+        expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+          variables: {
+            input: {
+              id: me.id,
+              firstName: newName,
+              lastName: '',
+              relationshipType: null,
+              picture: `data:image/jpeg;base64,${mockImage}`,
+            },
+          },
+        });
+        expect(trackActionWithoutData).not.toHaveBeenCalled();
+
+        expect(next).toHaveBeenCalledWith({
+          personId: me.id,
+          relationshipType: null,
+          orgId: undefined,
+          didSavePerson: true,
+          isMe: true,
+        });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
+        expect(store.getActions()).toEqual([
+          getPersonDetailsResults,
+          closeDrawerResults,
+          nextResponse,
+        ]);
+      });
     });
 
     describe('with org', () => {
@@ -431,6 +524,9 @@ describe('savePerson', () => {
         ]);
       });
       it('should navigate to select a stage', async () => {
+        const stageId = '1';
+        const stageName = 'Forgiven';
+
         const handleUpdateData = expect.any(Function);
         const { getByTestId, store } = renderWithContext(
           <AddContactScreen next={next} />,
@@ -447,8 +543,10 @@ describe('savePerson', () => {
                 id: person.id,
                 relationshipType: null,
                 stage: {
-                  name: 'Forgiven',
+                  id: stageId,
+                  name: stageName,
                 },
+                picture: null,
               }),
             },
           },
@@ -467,8 +565,10 @@ describe('savePerson', () => {
             relationshipType: null,
             stage: {
               __typename: 'Stage',
-              name: 'Forgiven',
+              id: stageId,
+              name: stageName,
             },
+            picture: null,
           },
           updatePerson: handleUpdateData,
         });

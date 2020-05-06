@@ -15,7 +15,6 @@ import {
   requestNativePermissions,
   parseNotificationData,
   SET_NOTIFICATION_ANALYTICS,
-  UPDATE_ACCEPTED_NOTIFICATIONS,
   RNPushNotificationPayload,
   PushNotificationPayloadData,
   PushNotificationPayloadIosOrAndroid,
@@ -104,7 +103,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -123,7 +121,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -132,9 +129,7 @@ describe('checkNotifications', () => {
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-      ]);
+      expect(store.getActions()).toEqual([]);
     });
 
     it('requests permissions if iOS user has already approved and native permissions are enabled', async () => {
@@ -143,7 +138,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -152,12 +146,10 @@ describe('checkNotifications', () => {
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-      ]);
+      expect(store.getActions()).toEqual([]);
     });
 
-    it('navigates to NotificationOffScreen if iOS user has already approved but native permissions are disabled', async () => {
+    it('navigates to NotificationOffScreen if native permissions are disabled', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
@@ -165,7 +157,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -181,11 +172,7 @@ describe('checkNotifications', () => {
         onComplete: undefined,
       });
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: false },
-        callApiResult,
-        navigatePushResult,
-      ]);
+      expect(store.getActions()).toEqual([callApiResult, navigatePushResult]);
     });
 
     it('navigates to NotificationPrimerScreen if iOS user has not already approved and prompt has not been shown', async () => {
@@ -194,7 +181,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
-          userHasAcceptedNotifications: false,
         },
       });
 
@@ -209,7 +195,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([navigatePushResult]);
     });
 
-    it('does nothing if iOS user has not already approved but prompt has already been shown', async () => {
+    it('Does nothing if LOGIN and native permissions are disabled', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
@@ -217,18 +203,17 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
-          userHasAcceptedNotifications: false,
         },
       });
 
-      await store.dispatch<any>(checkNotifications(notificationType));
+      await store.dispatch<any>(
+        checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN),
+      );
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: false },
-      ]);
+      expect(store.getActions()).toEqual([]);
     });
   });
 
@@ -241,7 +226,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -264,7 +248,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -279,9 +262,7 @@ describe('checkNotifications', () => {
         nativePermissionsEnabled: true,
         showedPrompt: false,
       });
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-      ]);
+      expect(store.getActions()).toEqual([]);
     });
 
     it('requests permissions if iOS user has already approved and native permissions are enabled', async () => {
@@ -290,7 +271,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -305,12 +285,10 @@ describe('checkNotifications', () => {
         nativePermissionsEnabled: true,
         showedPrompt: false,
       });
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-      ]);
+      expect(store.getActions()).toEqual([]);
     });
 
-    it('navigates to NotificationOffScreen if iOS user has already approved but native permissions are disabled', async () => {
+    it('navigates to NotificationOffScreen if native permissions are disabled', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
@@ -318,7 +296,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
-          userHasAcceptedNotifications: true,
         },
       });
 
@@ -337,11 +314,7 @@ describe('checkNotifications', () => {
       });
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
       expect(onComplete).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: false },
-        callApiResult,
-        navigatePushResult,
-      ]);
+      expect(store.getActions()).toEqual([callApiResult, navigatePushResult]);
     });
 
     it('navigates to NotificationPrimerScreen if iOS user has not already approved and prompt has not been shown', async () => {
@@ -350,7 +323,6 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: false,
-          userHasAcceptedNotifications: false,
         },
       });
 
@@ -368,7 +340,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([navigatePushResult]);
     });
 
-    it('does nothing if iOS user has not already approved but prompt has already been shown', async () => {
+    it('Does nothing if LOGIN and native permissions are disabled', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
@@ -376,24 +348,17 @@ describe('checkNotifications', () => {
         notifications: {
           pushDevice,
           appHasShownPrompt: true,
-          userHasAcceptedNotifications: false,
         },
       });
 
       await store.dispatch<any>(
-        checkNotifications(notificationType, onComplete),
+        checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN, onComplete),
       );
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(onComplete).toHaveBeenCalledWith({
-        nativePermissionsEnabled: false,
-        showedPrompt: false,
-      });
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
-      expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: false },
-      ]);
+      expect(store.getActions()).toEqual([]);
     });
   });
 });
@@ -461,10 +426,7 @@ describe('askNotificationPermissions', () => {
           },
         },
       );
-      expect(store.getActions()).toEqual([
-        callApiResult,
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-      ]);
+      expect(store.getActions()).toEqual([callApiResult]);
     });
 
     it('should update notification token for android devices', async () => {
@@ -485,10 +447,7 @@ describe('askNotificationPermissions', () => {
           },
         },
       );
-      expect(store.getActions()).toEqual([
-        callApiResult,
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-      ]);
+      expect(store.getActions()).toEqual([callApiResult]);
     });
 
     it("should do nothing if the token hasn't changed", async () => {
@@ -579,7 +538,6 @@ describe('askNotificationPermissions', () => {
           PushNotificationIOS.FetchResult.NoData,
         );
         expect(store.getActions()).toEqual([
-          { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
           { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
           navigateToMainTabsResult,
         ]);
@@ -590,9 +548,7 @@ describe('askNotificationPermissions', () => {
 
         await testNotification({ ...baseNotification, screen: 'home' }, false);
 
-        expect(store.getActions()).toEqual([
-          { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
-        ]);
+        expect(store.getActions()).toEqual([]);
       });
     });
 
@@ -601,7 +557,6 @@ describe('askNotificationPermissions', () => {
 
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
         navigateToMainTabsResult,
       ]);
@@ -612,7 +567,6 @@ describe('askNotificationPermissions', () => {
 
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'steps' },
         navigateToMainTabsResult,
       ]);
@@ -629,7 +583,6 @@ describe('askNotificationPermissions', () => {
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
         navToPersonScreenResult,
@@ -657,7 +610,6 @@ describe('askNotificationPermissions', () => {
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
       expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
         navToPersonScreenResult,
@@ -669,7 +621,6 @@ describe('askNotificationPermissions', () => {
 
       expect(navToPersonScreen).toHaveBeenCalledWith(person);
       expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'my_steps' },
         navToPersonScreenResult,
       ]);
@@ -692,7 +643,6 @@ describe('askNotificationPermissions', () => {
         },
       );
       expect(store.getActions()).toEqual([
-        { type: UPDATE_ACCEPTED_NOTIFICATIONS, acceptedNotifications: true },
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'add_a_person' },
         navigatePushResult,
       ]);

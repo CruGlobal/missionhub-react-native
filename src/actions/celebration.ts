@@ -4,7 +4,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { GLOBAL_COMMUNITY_ID } from '../constants';
 import { apolloClient } from '../apolloClient';
 import { REQUESTS } from '../api/routes';
-import { GET_CELEBRATE_FEED } from '../containers/CelebrateFeed/queries';
+import { GET_COMMUNITY_FEED } from '../containers/CelebrateFeed/queries';
 
 import callApi from './api';
 
@@ -14,7 +14,7 @@ export const getCelebrateFeed = async (
   hasUnreadComments?: boolean,
 ) => {
   await apolloClient.query({
-    query: GET_CELEBRATE_FEED,
+    query: GET_COMMUNITY_FEED,
     variables: {
       communityId,
       personIds: personId,

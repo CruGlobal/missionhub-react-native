@@ -4,6 +4,7 @@ export const GET_PEOPLE_STEPS_COUNT = gql`
   query GetPeopleStepsCount($myId: [ID!]) {
     communities {
       nodes {
+        id
         people(assignedTos: $myId) {
           nodes {
             id
@@ -17,6 +18,7 @@ export const GET_PEOPLE_STEPS_COUNT = gql`
       }
     }
     currentUser {
+      id
       person {
         id
         steps(completed: false) {
@@ -26,9 +28,10 @@ export const GET_PEOPLE_STEPS_COUNT = gql`
         }
         contactAssignments(organizationIds: [null]) {
           nodes {
+            id
             person {
-              fullName
               id
+              fullName
               steps(completed: false) {
                 pageInfo {
                   totalCount

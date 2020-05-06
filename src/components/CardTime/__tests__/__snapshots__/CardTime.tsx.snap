@@ -3,10 +3,13 @@
 exports[`renders correctly 1`] = `
 <MyText
   style={
-    Object {
-      "color": "#B2B0B2",
-      "fontSize": 12,
-    }
+    Array [
+      Object {
+        "color": "#B2B0B2",
+        "fontSize": 12,
+      },
+      Object {},
+    ]
   }
   testID="Text"
 >
@@ -17,13 +20,35 @@ exports[`renders correctly 1`] = `
 exports[`renders correctly with comment formatting 1`] = `
 <MyText
   style={
-    Object {
-      "color": "#B2B0B2",
-      "fontSize": 12,
-    }
+    Array [
+      Object {
+        "color": "#B2B0B2",
+        "fontSize": 12,
+      },
+      Object {},
+    ]
   }
   testID="Text"
 >
   Monday @ 1:51 PM
+</MyText>
+`;
+
+exports[`renders correctly with custom styling 1`] = `
+<MyText
+  style={
+    Array [
+      Object {
+        "color": "#B2B0B2",
+        "fontSize": 12,
+      },
+      Object {
+        "color": "blue",
+      },
+    ]
+  }
+  testID="Text"
+>
+  1:51 PM
 </MyText>
 `;

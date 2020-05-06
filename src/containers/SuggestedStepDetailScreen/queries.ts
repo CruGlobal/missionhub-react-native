@@ -5,11 +5,13 @@ import { STEP_ADDED_ANALYTICS_FRAGMENT } from '../../actions/analyticsQueries';
 export const STEP_SUGGESTION_QUERY = gql`
   query StepSuggestion($stepSuggestionId: ID!, $personId: ID!) {
     stepSuggestion(id: $stepSuggestionId) {
+      id
       body
       descriptionMarkdown
       stepType
     }
     person(id: $personId) {
+      id
       firstName
     }
   }

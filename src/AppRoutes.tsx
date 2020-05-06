@@ -78,7 +78,13 @@ import {
 import SettingsMenu from './components/SettingsMenu';
 import { PersonSideMenu } from './components/PersonSideMenu';
 import theme from './theme';
-import { MAIN_TABS, PEOPLE_TAB, STEPS_TAB, GROUPS_TAB } from './constants';
+import {
+  MAIN_TABS,
+  PEOPLE_TAB,
+  STEPS_TAB,
+  COMMUNITIES_TAB,
+  NOTIFICATIONS_TAB,
+} from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import GroupReport, {
@@ -191,17 +197,16 @@ import GroupUnreadFeed, {
   GROUP_UNREAD_FEED_SCREEN,
 } from './containers/Groups/GroupUnreadFeed';
 import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFlow';
-import ShareStoryScreen, {
-  CELEBRATE_SHARE_STORY_SCREEN,
-} from './containers/Groups/ShareStoryScreen';
-import EditStoryScreen, {
-  CELEBRATE_EDIT_STORY_SCREEN,
-} from './containers/Groups/EditStoryScreen';
+import {
+  CreatePostScreen,
+  CREATE_POST_SCREEN,
+} from './containers/Groups/CreatePostScreen';
 import LoadingScreen, { LOADING_SCREEN } from './containers/LoadingScreen';
 import ChallengeMembers, {
   CHALLENGE_MEMBERS_SCREEN,
 } from './containers/ChallengeMembers';
 import { CommunitiesRoutes } from './containers/Communities/CommunitiesRoutes';
+import NotificationCenterScreen from './containers/NotificationCenterScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -216,36 +221,41 @@ import { CommunitiesRoutes } from './containers/Communities/CommunitiesRoutes';
 //   },
 // });
 
-// @ts-ignore
-export const navItem = name => ({ tintColor }) => (
-  <TabIcon name={name} tintColor={tintColor} />
-);
+export const navItem = (name: string) => ({
+  tintColor,
+}: {
+  tintColor: string;
+}) => <TabIcon name={name} tintColor={tintColor} />;
 
-// @ts-ignore
-export const stepsTab = buildTrackingObj('steps', 'steps');
 const tabs = {
-  [STEPS_TAB]: buildTrackedScreen(StepsScreen, stepsTab, {
-    // @ts-ignore
-    tabBarLabel: navItem('steps'),
-  }),
-  [PEOPLE_TAB]: buildTrackedScreen(
-    PeopleScreen,
-    // @ts-ignore
-    buildTrackingObj('people', 'people'),
-    {
+  [PEOPLE_TAB]: {
+    screen: PeopleScreen,
+    navigationOptions: {
       // @ts-ignore
       tabBarLabel: navItem('people'),
     },
-  ),
-  [GROUPS_TAB]: buildTrackedScreen(
-    GroupsListScreen,
-    // @ts-ignore
-    buildTrackingObj('communities', 'communities'),
-    {
+  },
+  [STEPS_TAB]: {
+    screen: StepsScreen,
+    navigationOptions: {
       // @ts-ignore
-      tabBarLabel: navItem('group'),
+      tabBarLabel: navItem('steps'),
     },
-  ),
+  },
+  [COMMUNITIES_TAB]: {
+    screen: GroupsListScreen,
+    navigationOptions: {
+      // @ts-ignore
+      tabBarLabel: navItem('communities'),
+    },
+  },
+  [NOTIFICATIONS_TAB]: {
+    screen: NotificationCenterScreen,
+    navigationOptions: {
+      // @ts-ignore
+      tabBarLabel: navItem('notifications'),
+    },
+  },
 };
 
 export const MainTabBar = createBottomTabNavigator(tabs, {
@@ -267,11 +277,6 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
   swipeEnabled: false,
   animationEnabled: false,
   lazy: true,
-  paths: {
-    [STEPS_TAB]: '/steps',
-    [PEOPLE_TAB]: '/people',
-    [GROUPS_TAB]: '/groups',
-  },
 });
 
 export const MAIN_TABS_SCREEN = createDrawerNavigator(
@@ -462,20 +467,11 @@ const screens = {
     ),
     { gesturesEnabled: true },
   ),
-  [CELEBRATE_SHARE_STORY_SCREEN]: buildTrackedScreen(
-    ShareStoryScreen,
+  [CREATE_POST_SCREEN]: buildTrackedScreen(
+    CreatePostScreen,
     // @ts-ignore
     buildTrackingObj(
       'communities : celebration : sharestory',
-      'communities',
-      'celebration',
-    ),
-  ),
-  [CELEBRATE_EDIT_STORY_SCREEN]: buildTrackedScreen(
-    EditStoryScreen,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : celebration : editstory',
       'communities',
       'celebration',
     ),
@@ -511,11 +507,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [
-  CELEBRATE_DETAIL_SCREEN,
-  GROUPS_REPORT_SCREEN,
-  CELEBRATE_SHARE_STORY_SCREEN,
-];
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

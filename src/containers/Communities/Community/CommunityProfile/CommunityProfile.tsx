@@ -43,7 +43,7 @@ import {
 } from '../../../../actions/analytics';
 import {
   ACTIONS,
-  GROUPS_TAB,
+  COMMUNITIES_TAB,
   ANALYTICS_PERMISSION_TYPE,
 } from '../../../../constants';
 import PopupMenu from '../../../../components/PopupMenu';
@@ -137,7 +137,7 @@ export const CommunityProfile = () => {
 
   const deleteOrg = async () => {
     await dispatch(deleteOrganization(communityId));
-    dispatch(navigateToMainTabs(GROUPS_TAB));
+    dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
   const checkDeleteOrg = () => {

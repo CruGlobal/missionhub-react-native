@@ -339,58 +339,11 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
             ]
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            hitSlop={
-              Object {
-                "bottom": 10,
-                "left": 10,
-                "right": 10,
-                "top": 10,
-              }
-            }
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeIcon.png",
-                  }
-                }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+            onPress={[Function]}
+            testID="CloseIcon"
+          />
         </View>
       </View>
     </View>
@@ -2194,58 +2147,11 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
             ]
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            hitSlop={
-              Object {
-                "bottom": 10,
-                "left": 10,
-                "right": 10,
-                "top": 10,
-              }
-            }
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeIcon.png",
-                  }
-                }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+            onPress={[Function]}
+            testID="CloseIcon"
+          />
         </View>
       </View>
     </View>
@@ -4051,58 +3957,11 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
             ]
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            hitSlop={
-              Object {
-                "bottom": 10,
-                "left": 10,
-                "right": 10,
-                "top": 10,
-              }
-            }
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeIcon.png",
-                  }
-                }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+            onPress={[Function]}
+            testID="CloseIcon"
+          />
         </View>
       </View>
     </View>
@@ -6001,58 +5860,11 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
             ]
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            hitSlop={
-              Object {
-                "bottom": 10,
-                "left": 10,
-                "right": 10,
-                "top": 10,
-              }
-            }
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeIcon.png",
-                  }
-                }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+            onPress={[Function]}
+            testID="CloseIcon"
+          />
         </View>
       </View>
     </View>
@@ -6557,58 +6369,11 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
             ]
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            hitSlop={
-              Object {
-                "bottom": 10,
-                "left": 10,
-                "right": 10,
-                "top": 10,
-              }
-            }
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeIcon.png",
-                  }
-                }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+            onPress={[Function]}
+            testID="CloseIcon"
+          />
         </View>
       </View>
     </View>
@@ -8414,58 +8179,11 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
             ]
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            hitSlop={
-              Object {
-                "bottom": 10,
-                "left": 10,
-                "right": 10,
-                "top": 10,
-              }
-            }
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../assets/images/closeIcon.png",
-                  }
-                }
-                style={
-                  Object {
-                    "margin": 10,
-                  }
-                }
-              />
-            </View>
-          </View>
+          <SvgMock
+            color="#B4B6BA"
+            onPress={[Function]}
+            testID="CloseIcon"
+          />
         </View>
       </View>
     </View>

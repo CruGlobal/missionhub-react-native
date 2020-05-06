@@ -33,6 +33,10 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 jest.mock('../../../utils/hooks/useAnalytics', () => ({
   useAnalytics: jest.fn(),
 }));
+jest.mock(
+  '../../../components/SelectStepExplainerModal',
+  () => 'SelectStepExplainerModal',
+);
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;

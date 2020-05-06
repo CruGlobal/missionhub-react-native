@@ -8,6 +8,7 @@ export const STEP_SUGGESTIONS_QUERY = gql`
     $seed: Float
   ) {
     person(id: $personId) {
+      id
       firstName
       stepSuggestions(
         stepType: $stepType
@@ -34,6 +35,14 @@ export const STEP_TYPE_COUNTS_QUERY = gql`
     completedStepsReport(personId: $personId, period: "P99Y") {
       count
       stepType
+    }
+  }
+`;
+
+export const STEP_EXPLAINER_MODAL_VIEWED = gql`
+  query StepExplainerModalViewed {
+    viewedState @client {
+      stepExplainerModal
     }
   }
 `;

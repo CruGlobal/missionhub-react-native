@@ -1,0 +1,1859 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Modal
+  animationType="slide"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 14,
+            "justifyContent": "space-around",
+            "padding": 14,
+            "paddingVertical": 50,
+            "width": "80%",
+          },
+          Object {
+            "flex": 0.5,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "width": "100%",
+            },
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          onPress={[MockFunction]}
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "justifyContent": "flex-end",
+              "position": "absolute",
+              "right": -5,
+              "top": -40,
+            }
+          }
+          testID="CloseButton"
+        />
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingBottom": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Choose a Post Type
+      </Text>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="PRAYER_REQUESTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#A97398",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Prayer Request
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="QUESTIONButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#FFA178",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Spiritual Question
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="HELP_REQUESTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#FD726D",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Care Request
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="THOUGHTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#B4B6BA",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            What's on Your Mind
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`renders correctly for admin 1`] = `
+<Modal
+  animationType="slide"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 14,
+            "justifyContent": "space-around",
+            "padding": 14,
+            "paddingVertical": 50,
+            "width": "80%",
+          },
+          Object {
+            "flex": 0.6,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "width": "100%",
+            },
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          onPress={[MockFunction]}
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "justifyContent": "flex-end",
+              "position": "absolute",
+              "right": -5,
+              "top": -40,
+            }
+          }
+          testID="CloseButton"
+        />
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingBottom": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Choose a Post Type
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ECEEF2"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
+          }
+        >
+          Everyone
+        </Text>
+        <SvgMock
+          color="#ECEEF2"
+        />
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="PRAYER_REQUESTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#A97398",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Prayer Request
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="QUESTIONButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#FFA178",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Spiritual Question
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="HELP_REQUESTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#FD726D",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Care Request
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="THOUGHTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#B4B6BA",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            What's on Your Mind
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#505256"
+          width="21"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
+          }
+        >
+          Owners and Admins
+        </Text>
+        <SvgMock
+          color="#505256"
+          width="21"
+        />
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ANNOUNCEMENTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#505256",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Announcement
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;
+
+exports[`renders correctly for owner 1`] = `
+<Modal
+  animationType="slide"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 14,
+            "justifyContent": "space-around",
+            "padding": 14,
+            "paddingVertical": 50,
+            "width": "80%",
+          },
+          Object {
+            "flex": 0.6,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "width": "100%",
+            },
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          onPress={[MockFunction]}
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "justifyContent": "flex-end",
+              "position": "absolute",
+              "right": -5,
+              "top": -40,
+            }
+          }
+          testID="CloseButton"
+        />
+      </View>
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingBottom": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Choose a Post Type
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ECEEF2"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
+          }
+        >
+          Everyone
+        </Text>
+        <SvgMock
+          color="#ECEEF2"
+        />
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="PRAYER_REQUESTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#A97398",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Prayer Request
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="QUESTIONButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#FFA178",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Spiritual Question
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="HELP_REQUESTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#FD726D",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Care Request
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="THOUGHTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#B4B6BA",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            What's on Your Mind
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#505256"
+          width="21"
+        />
+        <Text
+          style={
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
+          }
+        >
+          Owners and Admins
+        </Text>
+        <SvgMock
+          color="#505256"
+          width="21"
+        />
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ANNOUNCEMENTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#505256",
+                },
+                Object {
+                  "height": 48,
+                },
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={24}
+            style={
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              }
+            }
+            width={24}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Announcement
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

@@ -22,7 +22,9 @@ jest.mock('../../../actions/reportComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../CelebrateFeed', () => 'CelebrateFeed');
+jest.mock('../../CelebrateFeed', () => ({
+  CelebrateFeed: 'CelebrateFeed',
+}));
 
 MockDate.set('2017-06-18');
 

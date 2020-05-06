@@ -55,7 +55,8 @@ export const ACCEPTED_STEP = 'accepted_challenge';
 
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
-export const GROUPS_TAB = 'GroupsTab';
+export const COMMUNITIES_TAB = 'CommunitiesTab';
+export const NOTIFICATIONS_TAB = 'NotificationsTab';
 
 export const NAVIGATE_FORWARD = 'Navigation/PUSH';
 export const NAVIGATE_RESET = 'Navigation/RESET';
