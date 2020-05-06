@@ -687,8 +687,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           }
           style={
             Object {
-              "height": 0,
-              "width": 718,
+              "aspectRatio": 2,
             }
           }
         />
@@ -1156,8 +1155,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           }
           style={
             Object {
-              "height": 0,
-              "width": 718,
+              "aspectRatio": 2,
             }
           }
         />
@@ -2324,8 +2322,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
           }
           style={
             Object {
-              "height": 0,
-              "width": 718,
+              "aspectRatio": 2,
             }
           }
         />
@@ -3144,8 +3141,7 @@ exports[`global community renders post item correctly 1`] = `
       }
       style={
         Object {
-          "height": 0,
-          "width": 718,
+          "aspectRatio": 2,
         }
       }
     />
@@ -4018,8 +4014,7 @@ exports[`renders with name pressable correctly 1`] = `
           }
           style={
             Object {
-              "height": 0,
-              "width": 718,
+              "aspectRatio": 2,
             }
           }
         />

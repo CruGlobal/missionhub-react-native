@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
-import { CardHorizontalMargin } from '../Card/styles';
 import { Card, Separator, Touchable, Icon, Text } from '../common';
 import CardTime from '../CardTime';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
@@ -18,9 +17,11 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import {
+  CommunityFeedItem as FeedItemFragment,
+  CommunityFeedItem_subject,
+} from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import theme from '../../theme';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -29,8 +30,6 @@ import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
-
-const cardWidth = theme.fullWidth - CardHorizontalMargin * 2;
 
 export interface CommunityFeedItemProps {
   item: FeedItemFragment;
@@ -59,11 +58,10 @@ export const CommunityFeedItem = ({
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
-  const [imageHeight, changeImageHeight] = useState<number>(0);
+  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
   const FeedItemType = getFeedItemType(subject);
 
-  const isPost = subject.__typename === 'Post';
   const addToSteps = [
     FeedItemSubjectTypeEnum.HELP_REQUEST,
     FeedItemSubjectTypeEnum.PRAYER_REQUEST,
@@ -71,17 +69,20 @@ export const CommunityFeedItem = ({
   ].includes(FeedItemType);
   const isGlobal = orgIsGlobal({ id: communityId });
 
-  const imageData =
-    (isPost && (subject as CommunityFeedPost).mediaExpiringUrl) || null;
+  const isPost = (
+    subject: CommunityFeedItem_subject,
+  ): subject is CommunityFeedPost => subject.__typename === 'Post';
+
+  const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
 
   useEffect(() => {
     if (!imageData) {
-      return changeImageHeight(0);
+      return;
     }
 
     Image.getSize(
       imageData,
-      (width, height) => changeImageHeight((height * cardWidth) / width),
+      (width, height) => changeImageAspectRatio(width / height),
       () => {},
     );
   }, [imageData]);
@@ -133,7 +134,7 @@ export const CommunityFeedItem = ({
   };
 
   const menuActions =
-    !isGlobal && isPost
+    !isGlobal && isPost(subject)
       ? isMe
         ? [
             {
@@ -224,7 +225,7 @@ export const CommunityFeedItem = ({
       {imageData ? (
         <Image
           source={{ uri: imageData }}
-          style={{ width: cardWidth, height: imageHeight }}
+          style={{ aspectRatio: imageAspectRatio }}
           resizeMode="contain"
         />
       ) : null}
