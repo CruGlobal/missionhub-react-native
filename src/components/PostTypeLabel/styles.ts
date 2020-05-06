@@ -18,7 +18,7 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   headerContainer: {
-    paddingVertical: 45,
+    paddingVertical: 35,
     padding: 25,
   },
   headerText: {
@@ -30,7 +30,7 @@ export default StyleSheet.create({
   },
   headerBackButtonWrap: {
     position: 'absolute',
-    top: 40,
+    top: 10,
     left: 10,
   },
   icon: {

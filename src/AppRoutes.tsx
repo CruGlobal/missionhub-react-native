@@ -219,6 +219,9 @@ import ChallengeMembers, {
   CHALLENGE_MEMBERS_SCREEN,
 } from './containers/ChallengeMembers';
 import NotificationCenterScreen from './containers/NotificationCenterScreen';
+import CelebrateFeedWithType, {
+  CELEBRATE_FEED_WITH_TYPE_SCREEN,
+} from './containers/CelebrateFeedWithType';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -530,6 +533,7 @@ const screens = {
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
   [LOADING_SCREEN]: LoadingScreen,
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
+  [CELEBRATE_FEED_WITH_TYPE_SCREEN]: CelebrateFeedWithType,
 };
 
 export const trackableScreens = {

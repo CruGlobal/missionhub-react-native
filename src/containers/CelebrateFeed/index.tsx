@@ -2,8 +2,9 @@ import React, { useCallback } from 'react';
 import { SectionList, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 
-import { DateComponent } from '../../components/common';
+import { DateComponent, Button } from '../../components/common';
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
@@ -17,11 +18,15 @@ import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc } from '../../utils/date';
+import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../CelebrateFeedWithType';
+import { navigatePush } from '../../actions/navigation';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
 import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
+import BackButton from '../BackButton';
 
 export interface CelebrateFeedProps {
   organization: Organization;
@@ -33,6 +38,7 @@ export interface CelebrateFeedProps {
   onFetchMore?: () => void;
   onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
+  type?: FeedItemSubjectTypeEnum;
 }
 
 export interface CommunityFeedSection {
@@ -89,13 +95,16 @@ export const CelebrateFeed = ({
   onRefetch,
   onFetchMore,
   onClearNotification,
+  type,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
+  const dispatch = useDispatch();
   const isGlobal = orgIsGlobal(organization);
   const queryVariables = {
     communityId: organization.id,
     personIds: person && person.id,
     hasUnreadComments: showUnreadOnly,
+    subjectType: type,
   };
 
   const {
@@ -252,16 +261,34 @@ export const CelebrateFeed = ({
         />
         {noHeader ? null : (
           <>
-            <CelebrateFeedHeader
-              isMember={!!person}
-              organization={organization}
-            />
+            {type ? null : (
+              <CelebrateFeedHeader
+                isMember={!!person}
+                organization={organization}
+              />
+            )}
             {!person ? (
               <CreatePostButton
                 refreshItems={handleRefreshing}
                 communityId={organization.id}
               />
             ) : null}
+            {type ? null : (
+              <View>
+                <Button
+                  type="primary"
+                  text="Feed type"
+                  onPress={() =>
+                    dispatch(
+                      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+                        organization,
+                        type: FeedItemSubjectTypeEnum.STEP,
+                      }),
+                    )
+                  }
+                />
+              </View>
+            )}
           </>
         )}
       </>

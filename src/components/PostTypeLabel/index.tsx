@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
@@ -135,20 +136,22 @@ const PostTypeLabel = ({
   const renderContent = () => {
     if (size === PostLabelSizeEnum.extraLarge) {
       return (
-        <Card style={[styles.headerCard, styles[type]]}>
-          <Flex
-            value={1}
-            align="center"
-            justify="center"
-            style={styles.headerContainer}
-          >
-            {renderIcon()}
-            <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
-          </Flex>
-          <Flex style={styles.headerBackButtonWrap}>
-            <BackButton />
-          </Flex>
-        </Card>
+        <SafeAreaView style={[styles[type]]}>
+          <Card style={[styles.headerCard, styles[type], { shadowOpacity: 0 }]}>
+            <Flex
+              value={1}
+              align="center"
+              justify="center"
+              style={styles.headerContainer}
+            >
+              {renderIcon()}
+              <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
+            </Flex>
+            <Flex style={styles.headerBackButtonWrap}>
+              <BackButton />
+            </Flex>
+          </Card>
+        </SafeAreaView>
       );
     } else {
       return (
