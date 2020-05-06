@@ -221,7 +221,7 @@ describe('Community', () => {
         },
       },
     );
-    await flushMicrotasksQueue;
+    await flushMicrotasksQueue();
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
       variables: { id: prayerPostItem.subjectPerson?.id },
