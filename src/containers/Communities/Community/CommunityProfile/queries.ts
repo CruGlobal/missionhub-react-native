@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 export const COMMUNITY_PROFILE_QUERY = gql`
   query CommunityProfile($communityId: ID!, $myId: ID!) {
     community(id: $communityId) {
+      id
       name
       createdAt
       communityCode
@@ -18,6 +19,7 @@ export const COMMUNITY_PROFILE_QUERY = gql`
       }
       owners: people(permissions: owner) {
         nodes {
+          id
           fullName
         }
       }
