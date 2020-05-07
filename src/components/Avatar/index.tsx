@@ -1,12 +1,5 @@
 import React, { useMemo } from 'react';
-import {
-  View,
-  StyleProp,
-  ViewStyle,
-  Image,
-  ImageStyle,
-  TextStyle,
-} from 'react-native';
+import { View, StyleProp, Image, ImageStyle, TextStyle } from 'react-native';
 import { useSelector } from 'react-redux';
 import colorThis from '@eknowles/color-this';
 
@@ -26,28 +19,30 @@ type PersonType = {
   picture?: string | null;
 };
 
-type AvatarSize = 'small' | 'medium' | 'large';
+type AvatarSize = 'extrasmall' | 'small' | 'medium' | 'large';
 
-const wrapStyles: { [key in AvatarSize]: StyleProp<ViewStyle> } = {
-  small: {
+const wrapStyles: { [key in AvatarSize]: StyleProp<ImageStyle> } = {
+  extrasmall: {
     width: 24,
     height: 24,
     borderRadius: 12,
     borderWidth: 1,
     borderColor: theme.white,
   },
+  small: { width: 36, height: 36, borderRadius: 18 },
   medium: { width: 48, height: 48, borderRadius: 24 },
   large: { width: 96, height: 96, borderRadius: 48 },
 };
 const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
-  small: { fontSize: 12 },
+  extrasmall: { fontSize: 12 },
+  small: { fontSize: 20, fontWeight: '300' },
   medium: { fontSize: 26, fontWeight: '300' },
   large: { fontSize: 64, fontWeight: '300' },
 };
 
 interface AvatarPropsCommon {
   size: AvatarSize;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ImageStyle>;
   personId?: string;
   person?: PersonType;
   orgId?: string;
@@ -78,7 +73,7 @@ const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
     return (
       <Image
         source={{ uri: person.picture }}
-        style={[wrapStyle as StyleProp<ImageStyle>]}
+        style={wrapStyle}
         resizeMode="cover"
       />
     );

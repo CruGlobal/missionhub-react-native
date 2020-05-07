@@ -1,23 +1,45 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { combineReducers } from 'redux';
 
-import auth from './auth';
+import auth, { AuthState } from './auth';
 import nav from './nav';
-import stages from './stages';
-import { onboardingReducer as onboarding } from './onboarding';
-import organizations from './organizations';
-import people from './people';
-import notifications from './notifications';
+import stages, { StagesState } from './stages';
+import { onboardingReducer as onboarding, OnboardingState } from './onboarding';
+import organizations, { OrganizationsState } from './organizations';
+import people, { PeopleState } from './people';
+import notifications, { NotificationsState } from './notifications';
 import impact from './impact';
 import groups from './groups';
 import surveys from './surveys';
 import labels from './labels';
-import analytics from './analytics';
-import swipe from './swipe';
-import drawer from './drawer';
+import analytics, { AnalyticsState } from './analytics';
+import swipe, { SwipeState } from './swipe';
+import drawer, { DrawerState } from './drawer';
 import journey from './journey';
-import celebrateComments from './celebrateComments';
-import reportedComments from './reportedComments';
-import stepReminders from './stepReminders';
+import celebrateComments, { CelebrateCommentsState } from './celebrateComments';
+import reportedComments, { ReportedCommentsState } from './reportedComments';
+import stepReminders, { StepReminderState } from './stepReminders';
+
+export type RootState = {
+  analytics: AnalyticsState;
+  auth: AuthState;
+  drawer: DrawerState;
+  groups: any; // TODO: Fill out these reducer type states
+  impact: any;
+  journey: any;
+  labels: any;
+  nav: any;
+  notifications: NotificationsState;
+  onboarding: OnboardingState;
+  organizations: OrganizationsState;
+  people: PeopleState;
+  stages: StagesState;
+  stepReminders: StepReminderState;
+  surveys: any;
+  swipe: SwipeState;
+  celebrateComments: CelebrateCommentsState;
+  reportedComments: ReportedCommentsState;
+};
 
 export default combineReducers({
   analytics,

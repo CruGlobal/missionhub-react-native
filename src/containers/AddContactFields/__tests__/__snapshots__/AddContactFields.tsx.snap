@@ -459,17 +459,15 @@ exports[`render correctly | With Person | With Picture 1`] = `
             }
             style={
               Array [
-                Array [
-                  Object {
-                    "borderRadius": 48,
-                    "height": 96,
-                    "width": 96,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(55, 161, 152)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "borderRadius": 48,
+                  "height": 96,
+                  "width": 96,
+                },
+                Object {
+                  "backgroundColor": "rgb(55, 161, 152)",
+                },
+                undefined,
               ]
             }
           />

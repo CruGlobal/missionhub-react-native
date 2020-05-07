@@ -43,7 +43,7 @@ exports[`renders activity list 1`] = `
         ]
       }
     >
-      Full Name
+      Hayden Zieme
     </Text>
     <View
       accessible={true}
@@ -942,7 +942,7 @@ exports[`renders empty list 1`] = `
         ]
       }
     >
-      Full Name
+      Hayden Zieme
     </Text>
     <View
       accessible={true}
@@ -1131,7 +1131,7 @@ exports[`renders person without full name 1`] = `
         ]
       }
     >
-      First Last
+      Hayden Zieme
     </Text>
     <View
       accessible={true}
@@ -2030,7 +2030,7 @@ exports[`renders person without last name 1`] = `
         ]
       }
     >
-      First
+      Hayden
     </Text>
     <View
       accessible={true}
