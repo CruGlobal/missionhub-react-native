@@ -13,7 +13,6 @@ import {
   navigateNestedReset,
   navigateResetTab,
   navigateToMainTabs,
-  navigateToCommunity,
   navigateToCelebrateComments,
 } from '../navigation';
 import {
@@ -23,14 +22,9 @@ import {
 } from '../../constants';
 import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
-import {
-  GROUP_CHALLENGES,
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-  GLOBAL_GROUP_SCREEN,
-} from '../../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
 jest.mock('../auth/userData');
 
@@ -217,133 +211,6 @@ describe('navigateToMainTabs', () => {
   });
 });
 
-describe('navigateToCommunity', () => {
-  const orgId = '123456';
-
-  describe('default', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: GLOBAL_COMMUNITY_ID,
-          user_created: false,
-        }),
-      );
-    });
-
-    it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: GLOBAL_GROUP_SCREEN,
-          params: {
-            orgId: GLOBAL_COMMUNITY_ID,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: orgId,
-          user_created: false,
-        }),
-      );
-    });
-
-    it('navigates to GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: GROUP_SCREEN,
-          params: {
-            orgId,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('user-created org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: orgId,
-          userCreated: true,
-        }),
-      );
-    });
-
-    it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: USER_CREATED_GROUP_SCREEN,
-          params: {
-            orgId,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('global org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: GLOBAL_COMMUNITY_ID,
-          userCreated: false,
-        }),
-      );
-    });
-
-    it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: GLOBAL_GROUP_SCREEN,
-          params: {
-            orgId: GLOBAL_COMMUNITY_ID,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('intial tab', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity(
-          {
-            id: orgId,
-            userCreated: true,
-          },
-          GROUP_CHALLENGES,
-        ),
-      );
-    });
-
-    it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: USER_CREATED_GROUP_SCREEN,
-          params: {
-            orgId,
-            initialTab: GROUP_CHALLENGES,
-          },
-        },
-      ]);
-    });
-  });
-});
-
 describe('navigateToCelebrateComments', () => {
   const cruOrgId = '123456';
   const cruOrg = { id: cruOrgId, user_created: false };
@@ -373,10 +240,9 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: cruOrgId,
-              initialTab: undefined,
+              communityId: cruOrgId,
             },
           },
         ]);
@@ -392,10 +258,9 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: cruOrgId,
-              initialTab: undefined,
+              communityId: cruOrgId,
             },
           },
         ]);
@@ -412,10 +277,9 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: USER_CREATED_GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: userCreatedOrgId,
-              initialTab: undefined,
+              communityId: userCreatedOrgId,
             },
           },
         ]);
@@ -430,47 +294,13 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: USER_CREATED_GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: userCreatedOrgId,
-              initialTab: undefined,
+              communityId: userCreatedOrgId,
             },
           },
         ]);
       });
-    });
-  });
-
-  describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(navigateToCelebrateComments(cruOrg, celebrateItemId));
-    });
-
-    it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/RESET',
-          index: 2,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_SCREEN,
-              params: { orgId: cruOrgId },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_UNREAD_FEED_SCREEN,
-              params: { organization: cruOrg },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: CELEBRATE_DETAIL_SCREEN,
-              params: { event: { id: celebrateItemId }, orgId: cruOrgId },
-            },
-          ],
-        },
-      ]);
     });
   });
 
@@ -490,8 +320,8 @@ describe('navigateToCelebrateComments', () => {
           actions: [
             {
               type: 'Navigation/NAVIGATE',
-              routeName: USER_CREATED_GROUP_SCREEN,
-              params: { orgId: userCreatedOrgId },
+              routeName: COMMUNITY_TABS,
+              params: { communityId: userCreatedOrgId },
             },
             {
               type: 'Navigation/NAVIGATE',

@@ -1,0 +1,1450 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommunityMembers renders with content 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListFooterComponent={null}
+    ListHeaderComponent={[Function]}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 90,
+        "paddingHorizontal": 20,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "__typename": "CommunityPersonEdge",
+          "communityPermission": Object {
+            "__typename": "CommunityPermission",
+            "id": "1",
+            "permission": "user",
+          },
+          "node": Object {
+            "__typename": "Person",
+            "createdAt": "2019-02-10T23:08:19.603Z",
+            "firstName": "Branson",
+            "fullName": "Branson Gutkowski",
+            "id": "2",
+            "lastName": "Gutkowski",
+            "picture": "repellat ratione ut",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    testID="CommunityMemberList"
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "marginBottom": 20,
+                  "marginTop": 15,
+                },
+              ]
+            }
+          >
+            93255 Members
+          </Text>
+        </RCTSafeAreaView>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "marginHorizontal": 0,
+              "marginVertical": 4,
+              "opacity": 1,
+              "paddingLeft": 14,
+              "paddingVertical": 14,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 6,
+            }
+          }
+          testID="CommunityMemberItem"
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "repellat ratione ut",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 18,
+                    "height": 36,
+                    "width": 36,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(161, 109, 125)",
+                  },
+                  Object {
+                    "marginRight": 8,
+                  },
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "column",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                    },
+                  ]
+                }
+              >
+                Branson
+              </Text>
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                        "fontSize": 12,
+                      },
+                    ]
+                  }
+                >
+                  Member since
+                   
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#505256",
+                        },
+                        Object {
+                          "fontFamily": "SourceSansPro-Regular",
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontSize": 12,
+                        },
+                      ]
+                    }
+                    testID="Text"
+                  >
+                    February 2019
+                  </Text>
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          INVITE MEMBER
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "backgroundColor": "#B4B6BA",
+                "borderRadius": 25,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 26,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "margin": 2,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`CommunityMembers should load next page 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -49,10 +49,44 @@
+              \\"id\\": \\"4\\",
+              \\"lastName\\": \\"Heathcote\\",
+              \\"picture\\": \\"libero qui recusandae\\",
+            },
+          },
++         Object {
++           \\"__typename\\": \\"CommunityPersonEdge\\",
++           \\"communityPermission\\": Object {
++             \\"__typename\\": \\"CommunityPermission\\",
++             \\"id\\": \\"5\\",
++             \\"permission\\": \\"admin\\",
++           },
++           \\"node\\": Object {
++             \\"__typename\\": \\"Person\\",
++             \\"createdAt\\": \\"2013-05-02T19:02:46.486Z\\",
++             \\"firstName\\": \\"Immanuel\\",
++             \\"fullName\\": \\"Immanuel Thiel\\",
++             \\"id\\": \\"6\\",
++             \\"lastName\\": \\"Thiel\\",
++             \\"picture\\": \\"incidunt accusantium sed\\",
++           },
++         },
++         Object {
++           \\"__typename\\": \\"CommunityPersonEdge\\",
++           \\"communityPermission\\": Object {
++             \\"__typename\\": \\"CommunityPermission\\",
++             \\"id\\": \\"7\\",
++             \\"permission\\": \\"user\\",
++           },
++           \\"node\\": Object {
++             \\"__typename\\": \\"Person\\",
++             \\"createdAt\\": \\"2010-08-26T04:24:18.529Z\\",
++             \\"firstName\\": \\"Haylee\\",
++             \\"fullName\\": \\"Haylee Klocko\\",
++             \\"id\\": \\"8\\",
++             \\"lastName\\": \\"Klocko\\",
++             \\"picture\\": \\"natus et eos\\",
++           },
++         },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+      getItemCount={[Function anonymous]}
+@@ -110,11 +144,11 @@
+                    \\"marginTop\\": 15,
+                  },
+                ]
+              }
+            >
+-             11 Members
++             52454 Members
+            </Text>
+          </RCTSafeAreaView>
+        </View>
+        <View
+          onLayout={[Function onLayout]}
+@@ -417,10 +451,320 @@
+                        ]
+                      }
+                      testID=\\"Text\\"
+                    >
+                      August 2014
++                   </Text>
++                 </Text>
++               </View>
++             </View>
++           </View>
++         </View>
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"marginHorizontal\\": 0,
++               \\"marginVertical\\": 4,
++               \\"opacity\\": 1,
++               \\"paddingLeft\\": 14,
++               \\"paddingVertical\\": 14,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.1,
++               \\"shadowRadius\\": 6,
++             }
++           }
++           testID=\\"CommunityMemberItem\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {},
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"flex\\": 1,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"justifyContent\\": \\"center\\",
++                 },
++               ]
++             }
++           >
++             <Image
++               resizeMode=\\"cover\\"
++               source={
++                 Object {
++                   \\"uri\\": \\"incidunt accusantium sed\\",
++                 }
++               }
++               style={
++                 Array [
++                   Object {
++                     \\"borderRadius\\": 18,
++                     \\"height\\": 36,
++                     \\"width\\": 36,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"rgb(198, 101, 155)\\",
++                   },
++                   Object {
++                     \\"marginRight\\": 8,
++                   },
++                 ]
++               }
++             />
++             <View
++               style={
++                 Array [
++                   Object {},
++                   Object {
++                     \\"flex\\": 1,
++                     \\"flexDirection\\": \\"column\\",
++                   },
++                 ]
++               }
++             >
++               <Text
++                 style={
++                   Array [
++                     Object {
++                       \\"color\\": \\"#505256\\",
++                     },
++                     Object {
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     },
++                     Object {
++                       \\"color\\": \\"#505256\\",
++                       \\"fontSize\\": 16,
++                     },
++                   ]
++                 }
++               >
++                 Immanuel
++               </Text>
++               <View
++                 style={
++                   Array [
++                     Object {},
++                     Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"flexDirection\\": \\"row\\",
++                     },
++                   ]
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#B4B6BA\\",
++                         \\"fontSize\\": 12,
++                       },
++                     ]
++                   }
++                 >
++                   Member since
++                    
++                   <Text
++                     style={
++                       Array [
++                         Object {
++                           \\"color\\": \\"#505256\\",
++                         },
++                         Object {
++                           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                         },
++                         Object {
++                           \\"color\\": \\"#B4B6BA\\",
++                           \\"fontSize\\": 12,
++                         },
++                       ]
++                     }
++                     testID=\\"Text\\"
++                   >
++                     May 2013
++                   </Text>
++                 </Text>
++               </View>
++             </View>
++           </View>
++         </View>
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"marginHorizontal\\": 0,
++               \\"marginVertical\\": 4,
++               \\"opacity\\": 1,
++               \\"paddingLeft\\": 14,
++               \\"paddingVertical\\": 14,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.1,
++               \\"shadowRadius\\": 6,
++             }
++           }
++           testID=\\"CommunityMemberItem\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {},
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"flex\\": 1,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"justifyContent\\": \\"center\\",
++                 },
++               ]
++             }
++           >
++             <Image
++               resizeMode=\\"cover\\"
++               source={
++                 Object {
++                   \\"uri\\": \\"natus et eos\\",
++                 }
++               }
++               style={
++                 Array [
++                   Object {
++                     \\"borderRadius\\": 18,
++                     \\"height\\": 36,
++                     \\"width\\": 36,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"rgb(52, 139, 130)\\",
++                   },
++                   Object {
++                     \\"marginRight\\": 8,
++                   },
++                 ]
++               }
++             />
++             <View
++               style={
++                 Array [
++                   Object {},
++                   Object {
++                     \\"flex\\": 1,
++                     \\"flexDirection\\": \\"column\\",
++                   },
++                 ]
++               }
++             >
++               <Text
++                 style={
++                   Array [
++                     Object {
++                       \\"color\\": \\"#505256\\",
++                     },
++                     Object {
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     },
++                     Object {
++                       \\"color\\": \\"#505256\\",
++                       \\"fontSize\\": 16,
++                     },
++                   ]
++                 }
++               >
++                 Haylee
++               </Text>
++               <View
++                 style={
++                   Array [
++                     Object {},
++                     Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"flexDirection\\": \\"row\\",
++                     },
++                   ]
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#B4B6BA\\",
++                         \\"fontSize\\": 12,
++                       },
++                     ]
++                   }
++                 >
++                   Member since
++                    
++                   <Text
++                     style={
++                       Array [
++                         Object {
++                           \\"color\\": \\"#505256\\",
++                         },
++                         Object {
++                           \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                         },
++                         Object {
++                           \\"color\\": \\"#B4B6BA\\",
++                           \\"fontSize\\": 12,
++                         },
++                       ]
++                     }
++                     testID=\\"Text\\"
++                   >
++                     August 2010
+                    </Text>
+                  </Text>
+                </View>
+              </View>
+            </View>"
+`;
+
+exports[`CommunityMembers should render empty state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListFooterComponent={<FooterLoading />}
+    ListHeaderComponent={[Function]}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 90,
+        "paddingHorizontal": 20,
+      }
+    }
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    testID="CommunityMemberList"
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "marginBottom": 20,
+                  "marginTop": 15,
+                },
+              ]
+            }
+          >
+            0 Members
+          </Text>
+        </RCTSafeAreaView>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "padding": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="rgba(0, 0, 0, 1)"
+            hidesWhenStopped={true}
+            size="small"
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          INVITE MEMBER
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "backgroundColor": "#B4B6BA",
+                "borderRadius": 25,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 26,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "margin": 2,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`CommunityMembers should render loading state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListFooterComponent={<FooterLoading />}
+    ListHeaderComponent={[Function]}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 90,
+        "paddingHorizontal": 20,
+      }
+    }
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    testID="CommunityMemberList"
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "marginBottom": 20,
+                  "marginTop": 15,
+                },
+              ]
+            }
+          >
+            0 Members
+          </Text>
+        </RCTSafeAreaView>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "padding": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="rgba(0, 0, 0, 1)"
+            hidesWhenStopped={true}
+            size="small"
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderRadius": 0,
+              "borderWidth": 0,
+              "height": 60,
+              "justifyContent": "center",
+              "margin": 0,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          INVITE MEMBER
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        hitSlop={
+          Object {
+            "bottom": 10,
+            "left": 10,
+            "right": 10,
+            "top": 10,
+          }
+        }
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="IconButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Object {
+                "backgroundColor": "#B4B6BA",
+                "borderRadius": 25,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                  },
+                  Object {
+                    "fontSize": 26,
+                  },
+                  Array [
+                    Object {
+                      "margin": 10,
+                    },
+                    Object {
+                      "margin": 2,
+                    },
+                  ],
+                ],
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;

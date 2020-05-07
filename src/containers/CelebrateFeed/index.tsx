@@ -1,5 +1,6 @@
+/* eslint-disable max-lines */
 import React, { useCallback } from 'react';
-import { SectionList, View, SectionListData } from 'react-native';
+import { Animated, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -16,6 +17,7 @@ import {
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
@@ -26,7 +28,6 @@ import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
 import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
-import BackButton from '../BackButton';
 
 export interface CelebrateFeedProps {
   organization: Organization;
@@ -39,6 +40,7 @@ export interface CelebrateFeedProps {
   onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
   type?: FeedItemSubjectTypeEnum;
+  collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
 export interface CommunityFeedSection {
@@ -96,6 +98,7 @@ export const CelebrateFeed = ({
   onFetchMore,
   onClearNotification,
   type,
+  collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
   const dispatch = useDispatch();
@@ -305,7 +308,8 @@ export const CelebrateFeed = ({
   );
 
   return (
-    <SectionList
+    <Animated.SectionList
+      {...collapsibleScrollViewProps}
       sections={items}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
@@ -316,7 +320,10 @@ export const CelebrateFeed = ({
       onRefresh={handleRefreshing}
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
-      contentContainerStyle={styles.listContent}
+      contentContainerStyle={[
+        collapsibleScrollViewProps?.contentContainerStyle,
+        styles.listContent,
+      ]}
     />
   );
 };

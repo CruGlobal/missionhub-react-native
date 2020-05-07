@@ -516,13 +516,10 @@ export default {
     notifications: 'Notifications',
     communities: 'Communities',
   },
-  groupTabs: {
-    celebrate: 'Celebrate',
+  communityTabs: {
+    feed: 'Feed',
     challenges: 'Challenges',
-    members: 'Members',
     impact: 'Impact',
-    contacts: 'Contacts',
-    surveys: 'Surveys',
   },
   personTabs: {
     celebrate: 'Celebrate',
@@ -658,11 +655,12 @@ export default {
     stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
-    invite: 'Send Invite',
+    invite: 'Invite Member',
     sendInviteMessage:
       'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
     invited:
       "Anyone you've invited to {{orgName}} will show up here when they join.",
+    errorLoadingMembers: 'Error loading members',
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:
@@ -753,6 +751,7 @@ export default {
     join: 'Join',
     selectStage: 'Select Stage',
     privateGroup: 'Private Group',
+    memberSince: 'Member since',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',
@@ -816,7 +815,7 @@ export default {
     errorBody:
       'There was an error processing your request. Please try again later.',
   },
-  groupProfile: {
+  communityProfile: {
     created: 'Created',
     members: 'Members',
     code: 'Community Code',
@@ -830,6 +829,7 @@ export default {
     cannotBeUndone: 'This cannot be undone',
     codeCopyText:
       'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
+    errorLoadingCommunityDetails: 'Error loading community details',
   },
   landing: {
     getStarted: 'Get Started',
@@ -924,6 +924,15 @@ export default {
     share: 'Share',
     stepOfFaith: 'Step of Faith',
     step: 'Step',
+  },
+  communityHeader: {
+    feed: 'Feed',
+    challenges: 'Challenges',
+    impact: 'Impact',
+    memberCount: '{{count}} Member',
+    memberCount_plural: '{{count}} Members',
+    errorLoadingCommunityDetails: 'Error loading community details',
+    globalCommunity: 'MissionHub Community',
   },
   createPost: {
     godStory: {

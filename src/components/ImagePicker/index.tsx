@@ -1,11 +1,11 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import ImageCropPicker from 'react-native-image-crop-picker';
+// eslint-disable-next-line import/named
+import ImageCropPicker, { Image } from 'react-native-image-crop-picker';
 
 import PopupMenu from '../../components/PopupMenu';
-// @ts-ignore
-import theme from '../../theme.ts';
+import theme from '../../theme';
 import { LOG } from '../../utils/logging';
 
 // See all options: https://github.com/ivpusic/react-native-image-crop-picker
@@ -17,18 +17,6 @@ const DEFAULT_OPTIONS = {
   cropping: true,
   includeBase64: true,
 };
-
-export type PickerImage = {
-  filename: string;
-  path: string;
-  size: number;
-  mime: string;
-  width: number;
-  height: number;
-  data: string;
-};
-
-export type ImageCropPickerResponse = PickerImage | PickerImage[];
 
 export type SelectImageParams = {
   fileSize: number;
@@ -46,7 +34,7 @@ interface ImagePickerProps {
   children: JSX.Element | JSX.Element[];
 }
 
-function getType(image: PickerImage) {
+function getType(image: Image) {
   if (image.path.toLowerCase().includes('.png')) {
     return 'image/png';
   }
@@ -62,11 +50,9 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
 
   const selectImage = async (takePhoto: boolean) => {
     try {
-      const response = (await (takePhoto
+      const response = await (takePhoto
         ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
-        : ImageCropPicker.openPicker(
-            DEFAULT_OPTIONS,
-          ))) as ImageCropPickerResponse;
+        : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
 
       const image = Array.isArray(response) ? response[0] : response;
 
@@ -109,7 +95,6 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
 
   return (
     <PopupMenu
-      //@ts-ignore
       actions={[
         { text: t('takePhoto'), onPress: takePhoto },
         { text: t('chooseFromLibrary'), onPress: chooseFromLibrary },

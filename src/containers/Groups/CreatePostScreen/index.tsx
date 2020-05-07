@@ -43,15 +43,15 @@ interface CreatePostScreenParams {
   onComplete: () => void;
   communityId: string;
 }
-
 interface CreatePostNavParams extends CreatePostScreenParams {
   postType: PostTypeEnum;
 }
 interface UpdatePostNavParams extends CreatePostScreenParams {
   post: CommunityFeedPost;
 }
-
 type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
+
+const EMPTY_IMAGE_URI = '/media/original/missing.png';
 
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
@@ -83,7 +83,9 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [imageData, changeImageData] = useState<string | null>(null);
+  const [imageData, changeImageData] = useState<string | null>(
+    post?.mediaExpiringUrl || null,
+  );
   const [imageHeight, changeImageHeight] = useState<number>(0);
 
   const analyticsPermissionType = useSelector<
@@ -113,12 +115,14 @@ export const CreatePostScreen = () => {
 
     if (post) {
       updatePost({
-        variables: { input: { id: post.id, content: text } },
+        variables: {
+          input: { id: post.id, content: text, media: imageData },
+        },
       });
     } else {
       createPost({
         variables: {
-          input: { content: text, communityId, postType },
+          input: { content: text, communityId, postType, media: imageData },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -128,8 +132,8 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = (image: SelectImageParams) =>
-    changeImageData(image.data);
+  const handleSavePhoto = ({ data }: SelectImageParams) =>
+    changeImageData(data);
 
   useMemo(() => {
     if (!imageData) {
@@ -162,9 +166,9 @@ export const CreatePostScreen = () => {
   );
 
   const renderAddPhotoButton = () => (
-    // @ts-ignore
+    //@ts-ignore
     <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
-      {imageData ? (
+      {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
         <Image
           resizeMode="contain"
           source={{ uri: imageData }}

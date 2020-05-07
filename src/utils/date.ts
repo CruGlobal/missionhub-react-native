@@ -15,6 +15,7 @@ export type dateFormat =
   | 'dddd, MMMM D'
   | 'dddd, MMMM D YYYY'
   | 'MMM D @ LT'
+  | 'MMMM YYYY'
   | 'LL @ LT';
 
 export const getDate = (date: string | Date) => {
