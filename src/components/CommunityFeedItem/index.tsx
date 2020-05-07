@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Alert } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
@@ -17,7 +17,10 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { CommunityFeedItem as FeedItemFragment } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import {
+  CommunityFeedItem as FeedItemFragment,
+  CommunityFeedItem_subject,
+} from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 
 import PlusIcon from './plusIcon.svg';
@@ -26,6 +29,7 @@ import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
+import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
 
 export interface CommunityFeedItemProps {
   item: FeedItemFragment;
@@ -54,16 +58,34 @@ export const CommunityFeedItem = ({
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
+  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
   const FeedItemType = getFeedItemType(subject);
 
-  const isPost = subject.__typename === 'Post';
   const addToSteps = [
     FeedItemSubjectTypeEnum.HELP_REQUEST,
     FeedItemSubjectTypeEnum.PRAYER_REQUEST,
     FeedItemSubjectTypeEnum.QUESTION,
   ].includes(FeedItemType);
   const isGlobal = orgIsGlobal({ id: communityId });
+
+  const isPost = (
+    subject: CommunityFeedItem_subject,
+  ): subject is CommunityFeedPost => subject.__typename === 'Post';
+
+  const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
+
+  useEffect(() => {
+    if (!imageData) {
+      return;
+    }
+
+    Image.getSize(
+      imageData,
+      (width, height) => changeImageAspectRatio(width / height),
+      () => {},
+    );
+  }, [imageData]);
 
   const handlePress = () =>
     dispatch(
@@ -112,7 +134,7 @@ export const CommunityFeedItem = ({
   };
 
   const menuActions =
-    !isGlobal && isPost
+    !isGlobal && isPost(subject)
       ? isMe
         ? [
             {
@@ -200,6 +222,13 @@ export const CommunityFeedItem = ({
         communityId={communityId}
         style={styles.postTextWrap}
       />
+      {imageData ? (
+        <Image
+          source={{ uri: imageData }}
+          style={{ aspectRatio: imageAspectRatio }}
+          resizeMode="contain"
+        />
+      ) : null}
       <Separator />
       {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}

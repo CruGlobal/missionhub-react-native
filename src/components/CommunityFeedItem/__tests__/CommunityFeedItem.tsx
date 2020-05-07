@@ -157,6 +157,21 @@ describe('Community', () => {
     ).snapshot();
   });
 
+  it('renders post correctly without image', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={{
+          ...storyPostItem,
+          subject: { ...storyPostSubject, mediaExpiringUrl: null },
+        }}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={false}
+      />,
+      { initialState },
+    ).snapshot();
+  });
+
   it('renders step correctly', () => {
     renderWithContext(
       <CommunityFeedItem
