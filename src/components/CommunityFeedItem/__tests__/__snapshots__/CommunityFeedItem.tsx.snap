@@ -757,7 +757,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -1260,7 +1260,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -1561,7 +1561,42 @@ exports[`Community renders post correctly without image 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "__typename": "Person",
+                  "communityPermissions": Object {
+                    "__typename": "CommunityPermissionConnection",
+                    "nodes": Array [
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "3",
+                        },
+                        "permission": "admin",
+                      },
+                      Object {
+                        "__typename": "CommunityPermission",
+                        "community": Object {
+                          "__typename": "Community",
+                          "id": "4",
+                        },
+                        "permission": "admin",
+                      },
+                    ],
+                  },
+                  "firstName": "Hayden",
+                  "id": "1",
+                  "lastName": "Zieme",
+                  "picture": "consequuntur corporis repellat",
+                  "relationshipType": "coworker",
+                  "stage": Object {
+                    "__typename": "Stage",
+                    "id": "2",
+                    "name": "quisquam recusandae alias",
+                  },
+                }
+              }
               size="medium"
             />
             <View
@@ -2497,7 +2532,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -3386,7 +3421,7 @@ exports[`global community renders post item correctly 1`] = `
       }
       style={
         Object {
-          "aspectRatio": 2,
+          "aspectRatio": 1.3333333333333333,
         }
       }
     />
@@ -4329,7 +4364,7 @@ exports[`renders with name pressable correctly 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
