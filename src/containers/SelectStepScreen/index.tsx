@@ -1,14 +1,13 @@
 /* eslint-disable max-lines */
 
 import React, { useState, useCallback } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import { CollapsibleHeaderFlatList } from 'react-native-collapsible-header-views';
 
 import {
   getAnalyticsSectionType,
@@ -44,7 +43,11 @@ import { FooterLoading } from '../../components/FooterLoading';
 
 import styles from './styles';
 import Checkmark from './checkmark.svg';
-import { STEP_SUGGESTIONS_QUERY, STEP_TYPE_COUNTS_QUERY } from './queries';
+import {
+  STEP_SUGGESTIONS_QUERY,
+  STEP_TYPE_COUNTS_QUERY,
+  STEP_EXPLAINER_MODAL_VIEWED,
+} from './queries';
 import {
   StepSuggestions,
   StepSuggestionsVariables,
@@ -54,6 +57,7 @@ import {
   StepTypeCounts,
   StepTypeCountsVariables,
 } from './__generated__/StepTypeCounts';
+import { StepExplainerModalViewed } from './__generated__/StepExplainerModalViewed';
 
 export interface SelectStepScreenNextProps {
   personId: string;
@@ -74,11 +78,21 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
   const dispatch = useDispatch();
 
-  const [isExplainerOpen, setIsExplainerOpen] = useState(false);
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
   const enableSkipButton: boolean =
     useNavigationParam('enableSkipButton') || false;
+
+  const isMe = useIsMe(personId);
+
+  const { data: viewedData } = useQuery<StepExplainerModalViewed>(
+    STEP_EXPLAINER_MODAL_VIEWED,
+    { skip: isMe },
+  );
+
+  const [isExplainerOpen, setIsExplainerOpen] = useState(
+    !isMe && !viewedData?.viewedState.stepExplainerModal,
+  );
   const analyticsSection = useSelector(
     ({ onboarding }: { onboarding: OnboardingState }) =>
       getAnalyticsSectionType(onboarding),
@@ -92,8 +106,6 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
       [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
-
-  const isMe = useIsMe(personId);
 
   const enableStepTypeFilters =
     !isMe &&
@@ -223,6 +235,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
               displayVertically={true}
               color={isSelected ? theme.white : theme.secondaryColor}
               stepType={stepType}
+              largeIcon
               labelUppercase={false}
               includeStepInLabel={false}
             />
@@ -291,24 +304,24 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
         right={
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}
-            <Button
-              onPress={() => setIsExplainerOpen(true)}
-              testID="SelectStepExplainerIconButton"
-            >
-              <InfoIcon color={theme.white} />
-            </Button>
+            {isMe ? null : (
+              <Button
+                onPress={() => setIsExplainerOpen(true)}
+                testID="SelectStepExplainerIconButton"
+              >
+                <InfoIcon color={theme.white} />
+              </Button>
+            )}
           </View>
         }
         style={{ backgroundColor: theme.primaryColor }}
       />
-      <CollapsibleHeaderFlatList
-        headerHeight={enableStepTypeFilters ? (showCounts ? 240 : 195) : 130}
-        clipHeader={true}
-        headerContainerBackgroundColor={theme.extraLightGrey}
-        CollapsibleHeaderComponent={renderCollapsibleHeader()}
+      {renderCollapsibleHeader()}
+      <FlatList
         style={styles.collapsibleView}
         contentContainerStyle={styles.contentContainerStyle}
-        bounces={true}
+        // There's some weird interaction between the SafeAreaView and the Scroll View causing the scrollbar to float away from the right https://github.com/facebook/react-native/issues/26610#issuecomment-539843444
+        scrollIndicatorInsets={{ right: 1 }}
         data={cardData}
         renderItem={({ item }) => (
           <Card style={styles.card} onPress={item.action}>

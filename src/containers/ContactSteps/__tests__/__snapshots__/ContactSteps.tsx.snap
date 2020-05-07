@@ -362,18 +362,18 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "3",
+                "id": "4",
               },
               "completedAt": null,
-              "id": "1",
+              "id": "2",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Chyna Howe",
-                "id": "2",
+                "id": "3",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "4",
+                "id": "5",
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
@@ -389,18 +389,18 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "7",
+                "id": "9",
               },
               "completedAt": null,
-              "id": "5",
+              "id": "7",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Alek Lesch",
-                "id": "6",
+                "id": "8",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "8",
+                "id": "10",
                 "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
@@ -444,18 +444,18 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "3",
+                "id": "4",
               },
               "completedAt": null,
-              "id": "1",
+              "id": "2",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Chyna Howe",
-                "id": "2",
+                "id": "3",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "4",
+                "id": "5",
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
@@ -471,18 +471,18 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "7",
+                "id": "9",
               },
               "completedAt": null,
-              "id": "5",
+              "id": "7",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Alek Lesch",
-                "id": "6",
+                "id": "8",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "8",
+                "id": "10",
                 "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
@@ -522,18 +522,18 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "3",
+                "id": "4",
               },
               "completedAt": null,
-              "id": "1",
+              "id": "2",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Chyna Howe",
-                "id": "2",
+                "id": "3",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "4",
+                "id": "5",
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
@@ -549,82 +549,87 @@ exports[`renders correctly with completed steps 1`] = `
         style={null}
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "opacity": 1,
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
             }
           }
-          testID="completedStepsButton"
         >
           <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderColor": "#A0A2A6",
-                  "borderWidth": 1,
-                  "height": 36,
-                  "marginHorizontal": 68,
-                  "marginVertical": 15,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
+              Object {
+                "opacity": 1,
+              }
             }
+            testID="completedStepsButton"
           >
-            <Text
+            <View
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderColor": "#A0A2A6",
+                    "borderWidth": 1,
+                    "height": 36,
+                    "marginHorizontal": 20,
+                    "marginVertical": 15,
+                    "minWidth": 250,
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "borderRadius": 50,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 14,
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                    },
-                  ],
                 ]
               }
             >
-              HIDE COMPLETED STEPS
-            </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#A0A2A6",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                HIDE COMPLETED STEPS
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -643,18 +648,18 @@ exports[`renders correctly with completed steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "7",
+                "id": "9",
               },
               "completedAt": null,
-              "id": "5",
+              "id": "7",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Alek Lesch",
-                "id": "6",
+                "id": "8",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "8",
+                "id": "10",
                 "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                 "reminderType": "once",
               },
@@ -958,18 +963,18 @@ exports[`renders correctly with steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "3",
+                "id": "4",
               },
               "completedAt": null,
-              "id": "1",
+              "id": "2",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Chyna Howe",
-                "id": "2",
+                "id": "3",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "4",
+                "id": "5",
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
@@ -1013,18 +1018,18 @@ exports[`renders correctly with steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "3",
+                "id": "4",
               },
               "completedAt": null,
-              "id": "1",
+              "id": "2",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Chyna Howe",
-                "id": "2",
+                "id": "3",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "4",
+                "id": "5",
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
@@ -1063,18 +1068,18 @@ exports[`renders correctly with steps 1`] = `
               "__typename": "Step",
               "community": Object {
                 "__typename": "Community",
-                "id": "3",
+                "id": "4",
               },
               "completedAt": null,
-              "id": "1",
+              "id": "2",
               "receiver": Object {
                 "__typename": "Person",
                 "fullName": "Chyna Howe",
-                "id": "2",
+                "id": "3",
               },
               "reminder": Object {
                 "__typename": "StepReminder",
-                "id": "4",
+                "id": "5",
                 "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
                 "reminderType": "once",
               },
@@ -1191,18 +1196,18 @@ exports[`should paginate 1`] = `
 +               \\"__typename\\": \\"Step\\",
 +               \\"community\\": Object {
 +                 \\"__typename\\": \\"Community\\",
-+                 \\"id\\": \\"7\\",
++                 \\"id\\": \\"9\\",
 +               },
 +               \\"completedAt\\": null,
-+               \\"id\\": \\"5\\",
++               \\"id\\": \\"7\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"fullName\\": \\"Alek Lesch\\",
-+                 \\"id\\": \\"6\\",
++                 \\"id\\": \\"8\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
-+                 \\"id\\": \\"8\\",
++                 \\"id\\": \\"10\\",
 +                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
@@ -1225,18 +1230,18 @@ exports[`should paginate 1`] = `
 +               \\"__typename\\": \\"Step\\",
 +               \\"community\\": Object {
 +                 \\"__typename\\": \\"Community\\",
-+                 \\"id\\": \\"7\\",
++                 \\"id\\": \\"9\\",
 +               },
 +               \\"completedAt\\": null,
-+               \\"id\\": \\"5\\",
++               \\"id\\": \\"7\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"fullName\\": \\"Alek Lesch\\",
-+                 \\"id\\": \\"6\\",
++                 \\"id\\": \\"8\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
-+                 \\"id\\": \\"8\\",
++                 \\"id\\": \\"10\\",
 +                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },
@@ -1261,18 +1266,18 @@ exports[`should paginate 1`] = `
 +               \\"__typename\\": \\"Step\\",
 +               \\"community\\": Object {
 +                 \\"__typename\\": \\"Community\\",
-+                 \\"id\\": \\"7\\",
++                 \\"id\\": \\"9\\",
 +               },
 +               \\"completedAt\\": null,
-+               \\"id\\": \\"5\\",
++               \\"id\\": \\"7\\",
 +               \\"receiver\\": Object {
 +                 \\"__typename\\": \\"Person\\",
 +                 \\"fullName\\": \\"Alek Lesch\\",
-+                 \\"id\\": \\"6\\",
++                 \\"id\\": \\"8\\",
 +               },
 +               \\"reminder\\": Object {
 +                 \\"__typename\\": \\"StepReminder\\",
-+                 \\"id\\": \\"8\\",
++                 \\"id\\": \\"10\\",
 +                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
 +                 \\"reminderType\\": \\"once\\",
 +               },

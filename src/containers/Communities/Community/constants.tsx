@@ -1,8 +1,6 @@
 import i18next from 'i18next';
 
-import GroupCelebrate, {
-  COMMUNITY_CELEBRATE,
-} from '../../Groups/GroupCelebrate';
+import GroupCelebrate, { COMMUNITY_FEED } from '../../Groups/GroupCelebrate';
 import GroupChallenges, {
   COMMUNITY_CHALLENGES,
 } from '../../Groups/GroupChallenges';
@@ -17,8 +15,8 @@ export const COMMUNITY_TABS = 'nav/COMMUNITY_TABS';
 
 export const communityTabs = [
   {
-    name: i18next.t('communityTabs:celebrate'),
-    navigationAction: COMMUNITY_CELEBRATE,
+    name: i18next.t('communityTabs:feed'),
+    navigationAction: COMMUNITY_FEED,
     component: GroupCelebrate,
   },
   {

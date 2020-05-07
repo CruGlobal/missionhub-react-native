@@ -1,27 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders image picker 1`] = `
-<withI18nextTranslation(PopupMenu)
-  actions={
-    Array [
-      Object {
-        "onPress": [Function],
-        "text": "Take Photo",
-      },
-      Object {
-        "onPress": [Function],
-        "text": "Choose from Library...",
-      },
-    ]
-  }
-  buttonProps={
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
     Object {
-      "activeOpacity": 0.75,
-      "isAndroidOpacity": true,
+      "opacity": 1,
     }
   }
-  title="Select Image"
+  testID="popupMenuButton"
 >
   <View />
-</withI18nextTranslation(PopupMenu)>
+</View>
 `;

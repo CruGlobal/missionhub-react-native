@@ -93,11 +93,7 @@ const AvatarPersonId = ({ personId, orgId, ...rest }: AvatarPropsPersonId) => {
   return <AvatarView person={person || EMPTY_PERSON} {...rest} />;
 };
 
-const Avatar = ({
-  person,
-  personId,
-  ...rest
-}: AvatarPropsPerson | AvatarPropsPersonId) => {
+const Avatar = ({ person, personId, ...rest }: AvatarProps) => {
   if (personId) {
     return <AvatarPersonId personId={personId} {...rest} />;
   }

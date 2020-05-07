@@ -10,7 +10,7 @@ import {
 
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
-import { MAIN_TABS, STEPS_TAB } from '../constants';
+import { MAIN_TABS, PEOPLE_TAB } from '../constants';
 import { Organization } from '../reducers/organizations';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
@@ -87,7 +87,7 @@ export function navigateReplace(screen: string, props = {}) {
   };
 }
 
-export const navigateToMainTabs = (tab = STEPS_TAB) => (
+export const navigateToMainTabs = (tab = PEOPLE_TAB) => (
   dispatch: ThunkDispatch<never, {}, AnyAction>,
 ) => {
   dispatch(loadHome());

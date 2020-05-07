@@ -9,14 +9,18 @@ import { renderWithContext } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { Organization } from '../../../reducers/organizations';
 import { Person } from '../../../reducers/people';
-import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from '../queries';
+import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
 
-import CelebrateFeed from '..';
+import { CelebrateFeed } from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
-jest.mock('../../../components/CelebrateItem', () => 'CelebrateItem');
-jest.mock('../../Groups/ShareStoryInput', () => 'ShareStoryInput');
+jest.mock('../../../components/CommunityFeedItem', () => ({
+  CommunityFeedItem: 'CommunityFeedItem',
+}));
+jest.mock('../../Groups/CreatePostButton', () => ({
+  CreatePostButton: 'CreatePostButton',
+}));
 jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
 
 const myId = '123';
@@ -46,7 +50,7 @@ it('renders empty correctly', () => {
     {
       initialState,
       mocks: {
-        CommunityCelebrationItemConnection: () => ({
+        FeedItemConnection: () => ({
           nodes: () => new MockList(10),
         }),
       },
@@ -60,7 +64,7 @@ it('renders with celebration items correctly', async () => {
     {
       initialState,
       mocks: {
-        CommunityCelebrationItemConnection: () => ({
+        FeedItemConnection: () => ({
           nodes: () => new MockList(10),
         }),
       },
@@ -70,7 +74,7 @@ it('renders with celebration items correctly', async () => {
   await flushMicrotasksQueue();
   snapshot();
 
-  expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+  expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
     skip: false,
     pollInterval: 30000,
     variables: {
@@ -79,7 +83,7 @@ it('renders with celebration items correctly', async () => {
       personIds: undefined,
     },
   });
-  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
     skip: true,
     pollInterval: 30000,
   });
@@ -96,7 +100,7 @@ describe('renders for member', () => {
       {
         initialState,
         mocks: {
-          CommunityCelebrationItemConnection: () => ({
+          FeedItemConnection: () => ({
             nodes: () => new MockList(10),
           }),
         },
@@ -106,7 +110,7 @@ describe('renders for member', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       pollInterval: 30000,
       variables: {
@@ -115,7 +119,7 @@ describe('renders for member', () => {
         personIds: person.id,
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
       pollInterval: 30000,
     });
@@ -132,7 +136,7 @@ describe('renders for member', () => {
       {
         initialState,
         mocks: {
-          CommunityCelebrationItemConnection: () => ({
+          FeedItemConnection: () => ({
             nodes: () => new MockList(10),
           }),
         },
@@ -142,7 +146,7 @@ describe('renders for member', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       pollInterval: 30000,
       variables: {
@@ -151,7 +155,7 @@ describe('renders for member', () => {
         personIds: person.id,
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
       pollInterval: 30000,
     });
@@ -169,7 +173,7 @@ describe('renders with clear notification', () => {
       {
         initialState,
         mocks: {
-          CommunityCelebrationItemConnection: () => ({
+          FeedItemConnection: () => ({
             nodes: () => new MockList(10),
           }),
         },
@@ -179,7 +183,7 @@ describe('renders with clear notification', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       pollInterval: 30000,
       variables: {
@@ -188,7 +192,7 @@ describe('renders with clear notification', () => {
         personIds: undefined,
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
       pollInterval: 30000,
     });
@@ -206,7 +210,7 @@ describe('renders for Unread Comments', () => {
       {
         initialState,
         mocks: {
-          CommunityCelebrationItemConnection: () => ({
+          FeedItemConnection: () => ({
             nodes: () => new MockList(10),
           }),
         },
@@ -216,7 +220,7 @@ describe('renders for Unread Comments', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       pollInterval: 30000,
       variables: {
@@ -225,7 +229,7 @@ describe('renders for Unread Comments', () => {
         personIds: undefined,
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
       pollInterval: 30000,
     });
@@ -252,7 +256,7 @@ describe('renders for Global Community', () => {
     await flushMicrotasksQueue();
     snapshot();
 
-    expect(useQuery).toHaveBeenCalledWith(GET_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: true,
       pollInterval: 30000,
       variables: {
@@ -261,7 +265,7 @@ describe('renders for Global Community', () => {
         personIds: undefined,
       },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_CELEBRATE_FEED, {
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: false,
       pollInterval: 30000,
     });

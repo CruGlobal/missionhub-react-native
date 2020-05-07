@@ -21,8 +21,8 @@ import {
 export const GET_ANNOUNCEMENT = gql`
   query GetAnnouncement {
     announcement {
-      body
       id
+      body
       title
       actions {
         nodes {

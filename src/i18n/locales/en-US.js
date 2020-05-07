@@ -81,7 +81,6 @@ export default {
       every: 'Every',
       onceAMonth: 'Once a month on the',
     },
-    steps: {},
     yes: 'Yes',
     no: 'No',
     copy: 'Copy',
@@ -202,6 +201,7 @@ export default {
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
+    editProfile: 'Edit Profile',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     categoryPrompt: 'How do you know each other?',
     stage: 'Stage',
@@ -511,13 +511,13 @@ export default {
     errorLoadingStepCounts: 'Error loading step counts for your people',
   },
   appRoutes: {
-    steps: 'Steps',
+    steps: 'Steps of Faith',
     people: 'People',
-    impact: 'Impact',
-    group: 'Communities',
+    notifications: 'Notifications',
+    communities: 'Communities',
   },
   communityTabs: {
-    celebrate: 'Celebrate',
+    feed: 'Feed',
     challenges: 'Challenges',
     impact: 'Impact',
   },
@@ -566,31 +566,7 @@ export default {
   celebrateFeed: {
     errorLoadingCelebrateFeed: 'Error loading celebrate feed',
   },
-  celebrateFeeds: {
-    title: '',
-    emptyFeedTitle: 'Celebrate!',
-    emptyFeedDescription:
-      'You can celebrate {{firstName}} Steps of Faith here.',
-    emptyFeedGroupNameValue: 'each other',
-    stepOfFaith:
-      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
-    stepOfFaithUnknownStage:
-      '{{initiator}} completed a Step of Faith with someone.',
-    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
-    interaction: '{{initiator}} had a {{interactionName}}.',
-    interactionDecision: '{{initiator}} saw someone make a Personal Decision.',
-    addedContact: '{{initiator}} added a {{receiverStage}} person.',
-    somethingCoolHappened:
-      '{{initiator}} saw something cool happen with someone.',
-    challengeAccepted: '{{initiator}} accepted a Challenge:',
-    challengeCompleted: '{{initiator}} completed a Challenge:',
-    communityCreated: '{{initiator}} created {{communityName}}!',
-    joinedCommunity:
-      '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
-    missionHubUser: 'MissionHub user',
-    aMissionHubUser: 'A MissionHub user',
-  },
-  celebrateItems: {
+  communityFeedItems: {
     edit: {
       buttonText: 'Edit Post',
     },
@@ -607,6 +583,16 @@ export default {
         'Are you sure you want to report this comment to the community owner?',
       confirmButtonText: 'Report Post',
     },
+    addToMySteps: 'Add to My Steps',
+    stepOfFaith:
+      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
+    stepOfFaithUnknownStage:
+      '{{initiator}} completed a Step of Faith with someone.',
+    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
+    challengeAccepted: '{{initiator}} accepted a Challenge:',
+    challengeCompleted: '{{initiator}} completed a Challenge:',
+    missionHubUser: 'MissionHub user',
+    aMissionHubUser: 'A MissionHub user',
   },
   challengeFeeds: {
     past: 'Past Challenges',
@@ -890,6 +876,47 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
+  postTypes: {
+    STORY: 'God Story',
+    PRAYER_REQUEST: 'Prayer Request',
+    QUESTION: 'Spiritual Question',
+    HELP_REQUEST: 'Care Request',
+    THOUGHT: "What's on Your Mind",
+    COMMUNITY_CHALLENGE: 'Challenge',
+    ANNOUNCEMENT: 'Announcement',
+    STEP: 'Step of Faith',
+    header: {
+      STORY: 'Read a God Story',
+      PRAYER_REQUEST: 'Answer a Prayer Request',
+      QUESTION: 'Answer a Question',
+      HELP_REQUEST: 'Provide Help',
+      ANNOUNCEMENT: 'Announcements',
+      STEP: 'Celebrate Others',
+    },
+  },
+  createPostScreen: {
+    choosePostType: 'Choose a Post Type',
+    inputPlaceholder: 'Post to community...',
+    everyone: 'Everyone',
+    ownersAndAdmins: 'Owners and Admins',
+    addAPhoto: 'Add a Photo',
+    createButtonPlaceholder: 'Post to community...',
+    createPostButton: {
+      story: 'Share a God Story',
+      prayer_request: 'Ask for Prayer',
+      question: 'Ask a Spiritual Question',
+      help_request: 'Ask for Help',
+      announcement: 'Make an Announcement',
+    },
+    placeholder: {
+      story: 'Share an inspiring God story...',
+      prayer_request: 'Share a prayer need...',
+      question: 'Ask a spiritual question...',
+      help_request: 'Ask for help...',
+      thought: "What's on your mind?",
+      announcement: 'Make an announcement...',
+    },
+  },
   stepTypes: {
     relate: 'Relate',
     pray: 'Pray',
@@ -906,5 +933,36 @@ export default {
     memberCount_plural: '{{count}} Members',
     errorLoadingCommunityDetails: 'Error loading community details',
     globalCommunity: 'MissionHub Community',
+  },
+  createPost: {
+    godStory: {
+      label: 'God Story',
+      placeholder: 'Share an inspiring God story...',
+    },
+    prayerRequest: {
+      label: 'Prayer Request',
+      placeholder: 'Share a prayer need...',
+    },
+    spiritualQuestion: {
+      label: 'Spiritual Question',
+      placeholder: 'Ask a spiritual question...',
+    },
+    careRequest: {
+      label: 'Care Request',
+      placeholder: 'Ask for help...',
+    },
+    onYourMind: {
+      label: "What's On Your Mind",
+      placeholder: "What's on your mind?",
+    },
+    announcement: {
+      label: 'Announcement',
+      placeholder: 'Make an announcement...',
+    },
+    addAPhoto: 'Add a Photo',
+    buttonPlaceholder: 'Post to community...',
+  },
+  notificationsCenter: {
+    title: 'Notifications',
   },
 };

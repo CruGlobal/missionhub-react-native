@@ -19,8 +19,8 @@ jest.mock('../../../actions/person');
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 const getPersonDetailsResults = { type: 'get person details' };
 const navigatePushResults = { type: 'navigate push' };
-
-const initialState = { auth: { person: {} } };
+const myMockId = '2';
+const initialState = { auth: { person: { id: myMockId } } };
 const onUpdateData = jest.fn();
 const emptyPerson = {
   id: '',
@@ -28,8 +28,10 @@ const emptyPerson = {
   lastName: '',
   relationshipType: null,
   stage: null,
+  picture: null,
 };
 const next = jest.fn();
+const mockImage = 'base64image.jpeg';
 
 beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
@@ -55,21 +57,49 @@ it('renders correctly | No Person', () => {
   snapshot();
 });
 
-it('render correctly | With Person', () => {
+it('render correctly | With Person | With Picture', () => {
   const { snapshot } = renderWithContext(
     <AddContactFields
       next={next}
       organization={null}
       onUpdateData={onUpdateData}
       person={{
-        id: '1',
+        id: myMockId,
         relationshipType: null,
         firstName: 'Christian',
         lastName: 'Huffman',
         stage: {
           name: 'Forgiven',
+          id: '2',
           __typename: 'Stage',
         },
+        picture: mockImage,
+      }}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+});
+
+it('render correctly | With Person | No Picture', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      next={next}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{
+        id: myMockId,
+        relationshipType: null,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        stage: {
+          id: '2',
+          name: 'Forgiven',
+          __typename: 'Stage',
+        },
+        picture: null,
       }}
     />,
     {
@@ -102,6 +132,7 @@ describe('calls methods', () => {
       lastName: '',
       relationshipType: null,
       stage: null,
+      picture: null,
     });
   });
 
@@ -127,6 +158,7 @@ describe('calls methods', () => {
       id: '',
       relationshipType: null,
       stage: null,
+      picture: null,
     });
   });
 
@@ -143,9 +175,11 @@ describe('calls methods', () => {
           firstName: 'Christian',
           lastName: 'Huffman',
           stage: {
+            id: '2',
             name: 'Forgiven',
             __typename: 'Stage',
           },
+          picture: mockImage,
         }}
       />,
       {
@@ -164,9 +198,53 @@ describe('calls methods', () => {
       id: '1',
       relationshipType: RelationshipTypeEnum.friend,
       stage: {
+        id: '2',
         name: 'Forgiven',
         __typename: 'Stage',
       },
+      picture: mockImage,
+    });
+  });
+
+  it('updates profile picture', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddContactFields
+        next={next}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{
+          id: myMockId,
+          relationshipType: RelationshipTypeEnum.family,
+          firstName: 'Christian',
+          lastName: 'Huffman',
+          stage: {
+            name: 'Forgiven',
+            id: '2',
+            __typename: 'Stage',
+          },
+          picture: null,
+        }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      data: `data:image/jpeg;base64,${mockImage}`,
+    });
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: 'Christian',
+      lastName: 'Huffman',
+      id: myMockId,
+      relationshipType: RelationshipTypeEnum.family,
+      stage: {
+        name: 'Forgiven',
+        id: '2',
+        __typename: 'Stage',
+      },
+      picture: `data:image/jpeg;base64,${mockImage}`,
     });
   });
 
@@ -183,8 +261,10 @@ describe('calls methods', () => {
           lastName: 'Huffman',
           stage: {
             __typename: 'Stage',
+            id: '2',
             name: 'Forgiven',
           },
+          picture: mockImage,
         }}
       />,
       {
@@ -201,8 +281,10 @@ describe('calls methods', () => {
         lastName: 'Huffman',
         stage: {
           __typename: 'Stage',
+          id: '2',
           name: 'Forgiven',
         },
+        picture: mockImage,
       },
       navigateToStageSelection: true,
       updatePerson: onUpdateData,

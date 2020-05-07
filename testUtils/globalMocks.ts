@@ -7,6 +7,7 @@ import {
   PermissionEnum,
   ReminderTypeEnum,
   StepTypeEnum,
+  PostTypeEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -67,6 +68,34 @@ export const globalMocks: IMocks = {
   CommunityPermission: () => {
     return {
       permission: faker.random.arrayElement(Object.values(PermissionEnum)),
+    };
+  },
+  AcceptedCommunityChallenge: () => {
+    return {
+      acceptedAt: moment(faker.date.past(10, '2020-01-14')).toISOString(),
+      completedAt: moment(faker.date.past(10, '2020-01-14')).toISOString(),
+    };
+  },
+  Post: () => {
+    return {
+      postType: faker.random.arrayElement(Object.values(PostTypeEnum)),
+    };
+  },
+  FeedItemSubject: () => {
+    return {
+      __typename: faker.random.arrayElement([
+        'CommunityChallenge',
+        'Step',
+        'Post',
+      ]),
+    };
+  },
+  FeedItem: () => {
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+    return {
+      subjectPerson: { firstName, lastName },
+      subjectPersonName: `${firstName} ${lastName}`,
     };
   },
 };

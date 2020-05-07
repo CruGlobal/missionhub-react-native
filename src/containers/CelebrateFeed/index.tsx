@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Animated, View, SectionListData } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
-import CelebrateItem from '../../components/CelebrateItem';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
-import ShareStoryInput from '../Groups/ShareStoryInput';
+import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
   CelebrateFeedSection,
@@ -19,17 +16,15 @@ import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
+import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { momentUtc } from '../../utils/date';
 
-import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
-import {
-  GetCelebrateFeed,
-  GetCelebrateFeed_community_celebrationItems_nodes,
-} from './__generated__/GetCelebrateFeed';
-import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
+import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
+import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
+import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   person?: Person;
   itemNamePressable: boolean;
@@ -37,15 +32,57 @@ export interface CelebrateFeedProps {
   showUnreadOnly?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
-  onClearNotification?: (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => void;
+  onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
   collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
-const CelebrateFeed = ({
-  dispatch,
+export interface CommunityFeedSection {
+  id: number;
+  date: string;
+  data: FeedItemFragment[];
+}
+
+const sortCommunityFeed = (items: FeedItemFragment[]) => {
+  const sortByDate = items;
+  sortByDate.sort(compare);
+
+  const dateSections: CommunityFeedSection[] = [];
+  sortByDate.forEach(item => {
+    const length = dateSections.length;
+    const itemMoment = momentUtc(item.createdAt);
+
+    if (
+      length > 0 &&
+      itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
+    ) {
+      dateSections[length - 1].data.push(item);
+    } else {
+      dateSections.push({
+        id: dateSections.length,
+        date: item.createdAt,
+        data: [item],
+      });
+    }
+  });
+
+  return dateSections;
+};
+
+const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
+  const aValue = a.createdAt,
+    bValue = b.createdAt;
+
+  if (aValue < bValue) {
+    return 1;
+  }
+  if (aValue > bValue) {
+    return -1;
+  }
+  return 0;
+};
+
+export const CelebrateFeed = ({
   organization,
   person,
   itemNamePressable,
@@ -67,7 +104,7 @@ const CelebrateFeed = ({
   const {
     data: {
       community: {
-        celebrationItems: {
+        feedItems: {
           nodes = [],
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
@@ -77,7 +114,7 @@ const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
+  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
     pollInterval: 30000,
     skip: isGlobal,
@@ -99,14 +136,14 @@ const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
+  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
     pollInterval: 30000,
     skip: !isGlobal,
   });
 
-  const celebrationItems = celebrationSelector({
-    celebrateItems: isGlobal ? globalNodes : nodes,
-  });
+  const items = isGlobal
+    ? celebrationSelector({ celebrateItems: globalNodes })
+    : sortCommunityFeed(nodes);
 
   const handleRefreshing = () => {
     isGlobal ? globalRefetch() : refetch();
@@ -128,13 +165,12 @@ const CelebrateFeed = ({
                 community: {
                   ...prev.community,
                   ...fetchMoreResult.community,
-                  celebrationItems: {
-                    ...prev.community.celebrationItems,
-                    ...fetchMoreResult.community.celebrationItems,
+                  feedItems: {
+                    ...prev.community.feedItems,
+                    ...fetchMoreResult.community.feedItems,
                     nodes: [
-                      ...(prev.community.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.community.celebrationItems.nodes ||
-                        []),
+                      ...(prev.community.feedItems.nodes || []),
+                      ...(fetchMoreResult.community.feedItems.nodes || []),
                     ],
                   },
                 },
@@ -177,68 +213,77 @@ const CelebrateFeed = ({
     }
   };
 
-  const renderSectionHeader = ({
-    section: { date },
-  }: {
-    section: SectionListData<CelebrateFeedSection>;
-  }) => (
-    <View style={styles.header}>
-      <DateComponent
-        date={date}
-        relativeFormatting={true}
-        style={styles.title}
-      />
-    </View>
+  const renderSectionHeader = useCallback(
+    ({
+      section: { date },
+    }: {
+      section: SectionListData<CelebrateFeedSection>;
+    }) => (
+      <View style={styles.header}>
+        <DateComponent
+          date={date}
+          relativeFormatting={true}
+          style={styles.title}
+        />
+      </View>
+    ),
+    [],
   );
 
-  const renderItem = ({
-    item,
-  }: {
-    item: GetCelebrateFeed_community_celebrationItems_nodes;
-  }) => (
-    <CelebrateItem
+  const renderItem = ({ item }: { item: FeedItemFragment }) => (
+    <CommunityFeedItem
       onClearNotification={onClearNotification}
-      event={item}
-      organization={organization}
+      item={item}
+      communityId={organization.id}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />
   );
 
-  const renderHeader = () => (
-    <>
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={error}
-        refetch={refetch}
-      />
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={globalError}
-        refetch={globalRefetch}
-      />
-      {noHeader ? null : (
-        <>
-          <CelebrateFeedHeader
-            isMember={!!person}
-            organization={organization}
-          />
-          {!person ? (
-            <ShareStoryInput
-              dispatch={dispatch}
-              refreshItems={handleRefreshing}
+  const renderHeader = useCallback(
+    () => (
+      <>
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={error}
+          refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={globalError}
+          refetch={globalRefetch}
+        />
+        {noHeader ? null : (
+          <>
+            <CelebrateFeedHeader
+              isMember={!!person}
               organization={organization}
             />
-          ) : null}
-        </>
-      )}
-    </>
+            {!person ? (
+              <CreatePostButton
+                refreshItems={handleRefreshing}
+                communityId={organization.id}
+              />
+            ) : null}
+          </>
+        )}
+      </>
+    ),
+    [
+      error,
+      refetch,
+      globalError,
+      globalRefetch,
+      noHeader,
+      person,
+      organization,
+    ],
   );
 
   return (
     <Animated.SectionList
       {...collapsibleScrollViewProps}
-      sections={celebrationItems}
+      sections={items}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
@@ -255,5 +300,3 @@ const CelebrateFeed = ({
     />
   );
 };
-
-export default connect()(CelebrateFeed);

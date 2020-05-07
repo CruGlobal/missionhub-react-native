@@ -32,6 +32,8 @@ import {
   isAuthenticated,
   personIsCurrentUser,
   isOnboarding,
+  mapPostTypeToFeedType,
+  getFeedItemType,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
@@ -43,7 +45,14 @@ import {
 import { createThunkStore } from '../../../testUtils';
 import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
-import { PermissionEnum } from '../../../__generated__/globalTypes';
+import {
+  PermissionEnum,
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../__generated__/globalTypes';
+import { CommunityFeedStep } from '../../components/CommunityFeedItem/__generated__/CommunityFeedStep';
+import { CommunityFeedChallenge } from '../../components/CommunityFeedItem/__generated__/CommunityFeedChallenge';
+import { CommunityFeedPost } from '../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -728,5 +737,113 @@ describe('keyExtractorId', () => {
     const item = { id: 'test' };
     const result = keyExtractorId(item);
     expect(result).toEqual(item.id);
+  });
+});
+
+describe('mapPostTypeToFeedType', () => {
+  it('maps for Story', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.story)).toEqual(
+      FeedItemSubjectTypeEnum.STORY,
+    );
+  });
+
+  it('maps for Prayer Request', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.prayer_request)).toEqual(
+      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    );
+  });
+
+  it('maps for Question', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.question)).toEqual(
+      FeedItemSubjectTypeEnum.QUESTION,
+    );
+  });
+
+  it('maps for Help Request', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.help_request)).toEqual(
+      FeedItemSubjectTypeEnum.HELP_REQUEST,
+    );
+  });
+
+  it('maps for Thought', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.thought)).toEqual(
+      FeedItemSubjectTypeEnum.THOUGHT,
+    );
+  });
+
+  it('maps for Announcement', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.announcement)).toEqual(
+      FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    );
+  });
+});
+
+describe('getFeedItemType', () => {
+  const post: CommunityFeedPost = {
+    __typename: 'Post',
+    id: '1',
+    content: 'asdf',
+    mediaContentType: '',
+    mediaExpiringUrl: '',
+    postType: PostTypeEnum.story,
+  };
+
+  it('returns STEP', () => {
+    const step: CommunityFeedStep = {
+      __typename: 'Step',
+      id: '1',
+      receiverStageAtCompletion: null,
+    };
+
+    expect(getFeedItemType(step)).toEqual(FeedItemSubjectTypeEnum.STEP);
+  });
+
+  it('returns COMMUNITY_CHALLENGE', () => {
+    const challenge: CommunityFeedChallenge = {
+      __typename: 'CommunityChallenge',
+      id: '1',
+      title: 'asdf',
+      acceptedCommunityChallengesList: [],
+    };
+
+    expect(getFeedItemType(challenge)).toEqual(
+      FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE,
+    );
+  });
+
+  it('returns STORY', () => {
+    expect(getFeedItemType({ ...post, postType: PostTypeEnum.story })).toEqual(
+      FeedItemSubjectTypeEnum.STORY,
+    );
+  });
+
+  it('returns PRAYER_REQUEST', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.prayer_request }),
+    ).toEqual(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+  });
+
+  it('returns QUESTION', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.question }),
+    ).toEqual(FeedItemSubjectTypeEnum.QUESTION);
+  });
+
+  it('returns HELP_REQUEST', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.help_request }),
+    ).toEqual(FeedItemSubjectTypeEnum.HELP_REQUEST);
+  });
+
+  it('returns THOUGHT', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.thought }),
+    ).toEqual(FeedItemSubjectTypeEnum.THOUGHT);
+  });
+
+  it('returns ANNOUNCEMENT', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.announcement }),
+    ).toEqual(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
   });
 });

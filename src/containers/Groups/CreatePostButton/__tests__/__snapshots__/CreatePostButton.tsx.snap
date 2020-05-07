@@ -1,0 +1,814 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not render for Global Community 1`] = `null`;
+
+exports[`onPress opens modal 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -16,10 +16,523 @@
+        \\"shadowOpacity\\": 0.3,
+        \\"shadowRadius\\": 2,
+      }
+    }
+  >
++   <Modal
++     animationType=\\"slide\\"
++     hardwareAccelerated={false}
++     transparent={true}
++     visible={true}
++   >
++     <View
++       style={
++         Object {
++           \\"alignItems\\": \\"center\\",
++           \\"backgroundColor\\": \\"rgba(0,0,0,0.5)\\",
++           \\"flex\\": 1,
++           \\"justifyContent\\": \\"center\\",
++         }
++       }
++     >
++       <View
++         style={
++           Array [
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 14,
++               \\"justifyContent\\": \\"space-around\\",
++               \\"padding\\": 14,
++               \\"paddingVertical\\": 50,
++               \\"width\\": \\"80%\\",
++             },
++             Object {
++               \\"flex\\": 0.5,
++             },
++           ]
++         }
++       >
++         <View
++           style={
++             Array [
++               Object {
++                 \\"width\\": \\"100%\\",
++               },
++               Object {
++                 \\"flexDirection\\": \\"row\\",
++                 \\"justifyContent\\": \\"flex-end\\",
++               },
++             ]
++           }
++         >
++           <SvgMock
++             onPress={[Function closeModal]}
++             style={
++               Object {
++                 \\"color\\": \\"#B4B6BA\\",
++                 \\"justifyContent\\": \\"flex-end\\",
++                 \\"position\\": \\"absolute\\",
++                 \\"right\\": -5,
++                 \\"top\\": -40,
++               }
++             }
++             testID=\\"CloseButton\\"
++           />
++         </View>
++         <Text
++           style={
++             Object {
++               \\"color\\": \\"#505256\\",
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               \\"fontSize\\": 14,
++               \\"lineHeight\\": 20,
++               \\"paddingBottom\\": 20,
++               \\"textAlign\\": \\"center\\",
++             }
++           }
++         >
++           Choose a Post Type
++         </Text>
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"STORYButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderRadius\\": 0,
++                   \\"borderWidth\\": 0,
++                   \\"height\\": 60,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"margin\\": 0,
++                   \\"paddingHorizontal\\": 20,
++                   \\"paddingVertical\\": 10,
++                 },
++                 null,
++                 Array [
++                   Object {
++                     \\"alignItems\\": \\"center\\",
++                     \\"flexDirection\\": \\"row\\",
++                     \\"height\\": 36,
++                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingVertical\\": 10,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"#7076B5\\",
++                   },
++                   Object {
++                     \\"height\\": 48,
++                   },
++                   null,
++                 ],
++                 Object {
++                   \\"borderRadius\\": 50,
++                 },
++               ]
++             }
++           >
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
++               style={
++                 Object {
++                   \\"marginLeft\\": -10,
++                   \\"marginRight\\": 10,
++                 }
++               }
++               width={24}
++             />
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontSize\\": 14,
++                     \\"lineHeight\\": 20,
++                   },
++                 ]
++               }
++             >
++               God Story
++             </Text>
++           </View>
++         </View>
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"PRAYER_REQUESTButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderRadius\\": 0,
++                   \\"borderWidth\\": 0,
++                   \\"height\\": 60,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"margin\\": 0,
++                   \\"paddingHorizontal\\": 20,
++                   \\"paddingVertical\\": 10,
++                 },
++                 null,
++                 Array [
++                   Object {
++                     \\"alignItems\\": \\"center\\",
++                     \\"flexDirection\\": \\"row\\",
++                     \\"height\\": 36,
++                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingVertical\\": 10,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"#A97398\\",
++                   },
++                   Object {
++                     \\"height\\": 48,
++                   },
++                   null,
++                 ],
++                 Object {
++                   \\"borderRadius\\": 50,
++                 },
++               ]
++             }
++           >
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
++               style={
++                 Object {
++                   \\"marginLeft\\": -10,
++                   \\"marginRight\\": 10,
++                 }
++               }
++               width={24}
++             />
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontSize\\": 14,
++                     \\"lineHeight\\": 20,
++                   },
++                 ]
++               }
++             >
++               Prayer Request
++             </Text>
++           </View>
++         </View>
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"QUESTIONButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderRadius\\": 0,
++                   \\"borderWidth\\": 0,
++                   \\"height\\": 60,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"margin\\": 0,
++                   \\"paddingHorizontal\\": 20,
++                   \\"paddingVertical\\": 10,
++                 },
++                 null,
++                 Array [
++                   Object {
++                     \\"alignItems\\": \\"center\\",
++                     \\"flexDirection\\": \\"row\\",
++                     \\"height\\": 36,
++                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingVertical\\": 10,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"#FFA178\\",
++                   },
++                   Object {
++                     \\"height\\": 48,
++                   },
++                   null,
++                 ],
++                 Object {
++                   \\"borderRadius\\": 50,
++                 },
++               ]
++             }
++           >
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
++               style={
++                 Object {
++                   \\"marginLeft\\": -10,
++                   \\"marginRight\\": 10,
++                 }
++               }
++               width={24}
++             />
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontSize\\": 14,
++                     \\"lineHeight\\": 20,
++                   },
++                 ]
++               }
++             >
++               Spiritual Question
++             </Text>
++           </View>
++         </View>
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"HELP_REQUESTButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderRadius\\": 0,
++                   \\"borderWidth\\": 0,
++                   \\"height\\": 60,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"margin\\": 0,
++                   \\"paddingHorizontal\\": 20,
++                   \\"paddingVertical\\": 10,
++                 },
++                 null,
++                 Array [
++                   Object {
++                     \\"alignItems\\": \\"center\\",
++                     \\"flexDirection\\": \\"row\\",
++                     \\"height\\": 36,
++                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingVertical\\": 10,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"#FD726D\\",
++                   },
++                   Object {
++                     \\"height\\": 48,
++                   },
++                   null,
++                 ],
++                 Object {
++                   \\"borderRadius\\": 50,
++                 },
++               ]
++             }
++           >
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
++               style={
++                 Object {
++                   \\"marginLeft\\": -10,
++                   \\"marginRight\\": 10,
++                 }
++               }
++               width={24}
++             />
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontSize\\": 14,
++                     \\"lineHeight\\": 20,
++                   },
++                 ]
++               }
++             >
++               Care Request
++             </Text>
++           </View>
++         </View>
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"opacity\\": 1,
++             }
++           }
++           testID=\\"THOUGHTButton\\"
++         >
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderRadius\\": 0,
++                   \\"borderWidth\\": 0,
++                   \\"height\\": 60,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"margin\\": 0,
++                   \\"paddingHorizontal\\": 20,
++                   \\"paddingVertical\\": 10,
++                 },
++                 null,
++                 Array [
++                   Object {
++                     \\"alignItems\\": \\"center\\",
++                     \\"flexDirection\\": \\"row\\",
++                     \\"height\\": 36,
++                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingVertical\\": 10,
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"#B4B6BA\\",
++                   },
++                   Object {
++                     \\"height\\": 48,
++                   },
++                   null,
++                 ],
++                 Object {
++                   \\"borderRadius\\": 50,
++                 },
++               ]
++             }
++           >
++             <SvgMock
++               color=\\"#ffffff\\"
++               height={24}
++               style={
++                 Object {
++                   \\"marginLeft\\": -10,
++                   \\"marginRight\\": 10,
++                 }
++               }
++               width={24}
++             />
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontSize\\": 14,
++                     \\"lineHeight\\": 20,
++                   },
++                 ]
++               }
++             >
++               What's on Your Mind
++             </Text>
++           </View>
++         </View>
++       </View>
++     </View>
++   </Modal>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function bound touchableHandlePress]}"
+`;
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="CreatePostButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "borderRadius": 20,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "flex-start",
+            "marginHorizontal": 20,
+            "marginVertical": 20,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Object {
+                "marginLeft": -15,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "height": 18,
+              "paddingLeft": 10,
+            },
+          ]
+        }
+      >
+        Post to community...
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly with type 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="CreatePostButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "borderRadius": 20,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "flex-start",
+            "marginHorizontal": 20,
+            "marginVertical": 20,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Object {
+                "marginLeft": -15,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "height": 18,
+              "paddingLeft": 10,
+            },
+          ]
+        }
+      >
+        Share a God Story
+      </Text>
+    </View>
+  </View>
+</View>
+`;

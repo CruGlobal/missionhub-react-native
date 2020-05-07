@@ -22,7 +22,7 @@ import {
   trackActionWithoutData,
   trackScreenChange,
 } from '../../../../../actions/analytics';
-import { ACTIONS, GROUPS_TAB } from '../../../../../constants';
+import { ACTIONS, COMMUNITIES_TAB } from '../../../../../constants';
 import * as common from '../../../../../utils/common';
 import { CommunityProfile } from '../CommunityProfile';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
@@ -334,7 +334,7 @@ describe('CommunityProfile', () => {
       await Alert.alert.mock.calls[0][2][1].onPress();
 
       expect(deleteOrganization).toHaveBeenCalledWith(communityId);
-      expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
+      expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
     });
 
     it('should stop editing', async () => {

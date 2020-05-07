@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import CelebrateFeed from '../CelebrateFeed';
+import { CelebrateFeed } from '../CelebrateFeed';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
@@ -62,4 +62,4 @@ const GroupCelebrate = () => {
 
 export default GroupCelebrate;
 
-export const COMMUNITY_CELEBRATE = 'nav/COMMUNITY_CELEBRATE';
+export const COMMUNITY_FEED = 'nav/COMMUNITY_FEED';
