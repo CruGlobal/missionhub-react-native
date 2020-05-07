@@ -229,6 +229,28 @@ describe('Community', () => {
     });
   });
 
+  it('renders post correctly without image', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem
+        item={{
+          ...storyPostItem,
+          subject: { ...storyPostSubject, mediaExpiringUrl: null },
+        }}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+    await flushMicrotasksQueue();
+
+    snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
+      variables: { id: storyPostItem.subjectPerson?.id },
+      skip: false,
+    });
+  });
+
   it('renders step correctly', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeedItem

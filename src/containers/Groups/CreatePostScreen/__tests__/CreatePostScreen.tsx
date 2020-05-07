@@ -216,6 +216,7 @@ describe('Creating a post', () => {
           content: MOCK_POST,
           communityId,
           postType: PostTypeEnum.prayer_request,
+          media: null,
         },
       },
     });
@@ -261,6 +262,7 @@ describe('Updating a post', () => {
         input: {
           content: MOCK_POST,
           id: post.id,
+          media: post.mediaExpiringUrl,
         },
       },
     });
