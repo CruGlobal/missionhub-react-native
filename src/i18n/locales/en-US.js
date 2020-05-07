@@ -899,6 +899,7 @@ export default {
     inputPlaceholder: 'Post to community...',
     everyone: 'Everyone',
     ownersAndAdmins: 'Owners and Admins',
+    recordVideo: 'Record a 15-Second Video',
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {

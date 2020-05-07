@@ -12,12 +12,13 @@ import {
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
-import { Input, Text, Button } from '../../../components/common';
+import { Input, Text, Button, Touchable } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
+import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
@@ -26,12 +27,13 @@ import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../../actions/analytics';
-import { navigateBack } from '../../../actions/navigation';
+import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import SendIcon from './sendIcon.svg';
-import CameraIcon from './cameraIcon.svg';
+import PhotoIcon from './photoIcon.svg';
+import VideoIcon from './videoIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
@@ -143,6 +145,10 @@ export const CreatePostScreen = () => {
     );
   }, [imageData]);
 
+  const navigateToRecordVideo = () => {
+    dispatch(navigatePush(RECORD_VIDEO_SCREEN));
+  };
+
   const renderHeader = () => (
     <Header
       left={<BackButton iconStyle={styles.backButton} />}
@@ -161,27 +167,40 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderAddPhotoButton = () => (
-    // @ts-ignore
-    <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
-      {imageData ? (
+  const renderAddPhotoButton = () =>
+    imageData ? (
+      // @ts-ignore
+      <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
         <Image
           resizeMode="contain"
           source={{ uri: imageData }}
           style={{ width: theme.fullWidth, height: imageHeight }}
         />
-      ) : (
-        <>
-          <View style={styles.lineBreak} />
+      </ImagePicker>
+    ) : (
+      <>
+        <View style={styles.lineBreak} />
+        <Touchable
+          style={styles.addPhotoButton}
+          onPress={navigateToRecordVideo}
+        >
+          <VideoIcon style={styles.icon} />
+          <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
+        </Touchable>
+        <View style={styles.lineBreak} />
+        <ImagePicker
+          // @ts-ignore
+          testID="ImagePicker"
+          onSelectImage={handleSavePhoto}
+        >
           <View style={styles.addPhotoButton}>
-            <CameraIcon style={styles.icon} />
+            <PhotoIcon style={styles.icon} />
             <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
           </View>
-          <View style={styles.lineBreak} />
-        </>
-      )}
-    </ImagePicker>
-  );
+        </ImagePicker>
+        <View style={styles.lineBreak} />
+      </>
+    );
 
   return (
     <View style={styles.container}>
