@@ -963,4 +963,16 @@ export default {
   notificationsCenter: {
     title: 'Notifications',
   },
+  addPostToStepsScreen: {
+    addToSteps: 'Add to my steps',
+    prayerStepMessage: "Pray for {{personName}}'s request.",
+    shareStepMessage: "Answer {{personName}}'s question.",
+    careStepMessage: 'Help with {{personName}} request.',
+    setReminder: 'Set a Reminder',
+    postType: {
+      prayer: 'Prayer Step',
+      care: 'Care Step',
+      share: 'Share Step',
+    },
+  },
 };

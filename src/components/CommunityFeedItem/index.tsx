@@ -25,6 +25,7 @@ import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
@@ -129,9 +130,13 @@ export const CommunityFeedItem = ({
       },
     ]);
 
-  const handleAddToMySteps = () => {
-    //TODO: add to my steps
-  };
+  const handleAddToMySteps = () =>
+    dispatch(
+      navigatePush(ADD_POST_TO_STEPS_SCREEN, {
+        item,
+        communityId,
+      }),
+    );
 
   const menuActions =
     !isGlobal && isPost(subject)
