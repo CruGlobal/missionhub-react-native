@@ -72,18 +72,3 @@ it('renders activity list', () => {
 it('renders empty list', () => {
   renderWithContext(<GroupsContactList {...props} activity={[]} />).snapshot();
 });
-
-it('renders person without full name', () => {
-  renderWithContext(
-    <GroupsContactList {...props} person={{ ...person, fullName: '' }} />,
-  ).snapshot();
-});
-
-it('renders person without last name', () => {
-  renderWithContext(
-    <GroupsContactList
-      {...props}
-      person={{ ...person, fullName: '', lastName: '' }}
-    />,
-  ).snapshot();
-});

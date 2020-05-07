@@ -101,9 +101,7 @@ const CommunityMemberItem = ({
       style={styles.card}
     >
       <Flex value={1} justify="center" align="center" direction="row">
-        {person ? (
-          <Avatar size="small" person={person} style={styles.avatar} />
-        ) : null}
+        <Avatar size="small" person={person} style={styles.avatar} />
         <Flex value={1} direction="column">
           <Text style={styles.name}>{person.firstName}</Text>
           <Flex align="center" direction="row">

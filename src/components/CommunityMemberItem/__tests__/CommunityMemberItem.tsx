@@ -1,4 +1,5 @@
 import React from 'react';
+import { fireEvent } from 'react-native-testing-library';
 
 import { orgPermissionSelector } from '../../../selectors/people';
 import { renderWithContext } from '../../../../testUtils';
@@ -6,10 +7,14 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { CommunityMemberPerson } from '../__generated__/CommunityMemberPerson';
 import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../queries';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
+import { navigatePush } from '../../../actions/navigation';
 
 import CommunityMemberItem from '..';
 
 jest.mock('../../../selectors/people');
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn().mockReturnValue({ type: 'navigatePush' }),
+}));
 
 const myId = '1';
 const me = { id: myId, full_name: 'Me' };
@@ -126,5 +131,17 @@ describe('render MemberOptionsMenu', () => {
         initialState,
       },
     ).snapshot();
+  });
+});
+
+describe('nav to person', () => {
+  it('should nav to person', () => {
+    const { getByTestId } = renderWithContext(
+      <CommunityMemberItem {...props} person={{ ...member, id: myId }} />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('CommunityMemberItem'));
+    expect(navigatePush).toHaveBeenCalled();
   });
 });
