@@ -10,11 +10,9 @@ exports[`lookup person by id renders empty when cant find person 1`] = `
       },
       Array [
         Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
         },
         Object {
           "backgroundColor": "rgb(199, 163, 67)",
@@ -38,7 +36,8 @@ exports[`lookup person by id renders empty when cant find person 1`] = `
             "color": "#ffffff",
           },
           Object {
-            "fontSize": 12,
+            "fontSize": 20,
+            "fontWeight": "300",
           },
         ],
       ]
@@ -50,6 +49,344 @@ exports[`lookup person by id renders empty when cant find person 1`] = `
 `;
 
 exports[`lookup person by id renders person lookup by id 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(55, 123, 152)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    P
+  </Text>
+</View>
+`;
+
+exports[`renders image extrasmall 1`] = `
+<Image
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "123",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "borderColor": "#ffffff",
+        "borderRadius": 12,
+        "borderWidth": 1,
+        "height": 24,
+        "width": 24,
+      },
+      Object {
+        "backgroundColor": "rgb(55, 123, 152)",
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders image large 1`] = `
+<Image
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "123",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "borderRadius": 48,
+        "height": 96,
+        "width": 96,
+      },
+      Object {
+        "backgroundColor": "rgb(55, 123, 152)",
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders image medium 1`] = `
+<Image
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "123",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "borderRadius": 24,
+        "height": 48,
+        "width": 48,
+      },
+      Object {
+        "backgroundColor": "rgb(55, 123, 152)",
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders image small 1`] = `
+<Image
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "123",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "borderRadius": 18,
+        "height": 36,
+        "width": 36,
+      },
+      Object {
+        "backgroundColor": "rgb(55, 123, 152)",
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders person first_name 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(197, 144, 216)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    t
+  </Text>
+</View>
+`;
+
+exports[`renders person firstName 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(197, 144, 216)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    t
+  </Text>
+</View>
+`;
+
+exports[`renders person full_name 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(197, 144, 216)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    t
+  </Text>
+</View>
+`;
+
+exports[`renders person fullName 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(197, 144, 216)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    t
+  </Text>
+</View>
+`;
+
+exports[`renders text extrasmall 1`] = `
 <View
   style={
     Array [
@@ -94,282 +431,6 @@ exports[`lookup person by id renders person lookup by id 1`] = `
     }
   >
     P
-  </Text>
-</View>
-`;
-
-exports[`renders image large 1`] = `
-<Image
-  resizeMode="cover"
-  source={
-    Object {
-      "uri": "123",
-    }
-  }
-  style={
-    Array [
-      Array [
-        Object {
-          "borderRadius": 48,
-          "height": 96,
-          "width": 96,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
-        },
-        undefined,
-      ],
-    ]
-  }
-/>
-`;
-
-exports[`renders image medium 1`] = `
-<Image
-  resizeMode="cover"
-  source={
-    Object {
-      "uri": "123",
-    }
-  }
-  style={
-    Array [
-      Array [
-        Object {
-          "borderRadius": 24,
-          "height": 48,
-          "width": 48,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
-        },
-        undefined,
-      ],
-    ]
-  }
-/>
-`;
-
-exports[`renders image small 1`] = `
-<Image
-  resizeMode="cover"
-  source={
-    Object {
-      "uri": "123",
-    }
-  }
-  style={
-    Array [
-      Array [
-        Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(55, 123, 152)",
-        },
-        undefined,
-      ],
-    ]
-  }
-/>
-`;
-
-exports[`renders person first_name 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      Array [
-        Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
-        },
-        undefined,
-      ],
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 12,
-          },
-        ],
-      ]
-    }
-  >
-    t
-  </Text>
-</View>
-`;
-
-exports[`renders person firstName 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      Array [
-        Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
-        },
-        undefined,
-      ],
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 12,
-          },
-        ],
-      ]
-    }
-  >
-    t
-  </Text>
-</View>
-`;
-
-exports[`renders person full_name 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      Array [
-        Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
-        },
-        undefined,
-      ],
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 12,
-          },
-        ],
-      ]
-    }
-  >
-    t
-  </Text>
-</View>
-`;
-
-exports[`renders person fullName 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      Array [
-        Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
-        },
-        Object {
-          "backgroundColor": "rgb(197, 144, 216)",
-        },
-        undefined,
-      ],
-    ]
-  }
->
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Array [
-          Object {
-            "color": "#ffffff",
-          },
-          Object {
-            "fontSize": 12,
-          },
-        ],
-      ]
-    }
-  >
-    t
   </Text>
 </View>
 `;
@@ -480,11 +541,9 @@ exports[`renders text small 1`] = `
       },
       Array [
         Object {
-          "borderColor": "#ffffff",
-          "borderRadius": 12,
-          "borderWidth": 1,
-          "height": 24,
-          "width": 24,
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
         },
         Object {
           "backgroundColor": "rgb(55, 123, 152)",
@@ -508,7 +567,8 @@ exports[`renders text small 1`] = `
             "color": "#ffffff",
           },
           Object {
-            "fontSize": 12,
+            "fontSize": 20,
+            "fontWeight": "300",
           },
         ],
       ]

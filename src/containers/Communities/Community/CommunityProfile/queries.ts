@@ -19,6 +19,7 @@ export const COMMUNITY_PROFILE_QUERY = gql`
       }
       owners: people(permissions: owner) {
         nodes {
+          id
           fullName
         }
       }

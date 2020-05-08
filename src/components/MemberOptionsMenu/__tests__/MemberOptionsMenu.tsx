@@ -17,6 +17,10 @@ import {
   archiveOrgPermission,
 } from '../../../actions/person';
 import { navigateBack } from '../../../actions/navigation';
+import { PermissionEnum } from '../../../../__generated__/globalTypes';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../../../components/CommunityMemberItem/queries';
+import { CommunityMemberPerson } from '../../../components/CommunityMemberItem/__generated__/CommunityMemberPerson';
 
 import MemberOptionsMenu, {
   API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
@@ -29,9 +33,11 @@ jest.mock('../../../actions/navigation');
 const myId = '1';
 const otherId = '2';
 const organization = { name: "Roge's org", id: '08747283423' };
-const personOrgPermission = { id: '25234234' };
+const personOrgPermission = { id: '25234234', permission: PermissionEnum.user };
 
-const person = { full_name: 'Roge' };
+const person = mockFragment<CommunityMemberPerson>(
+  COMMUNITY_MEMBER_PERSON_FRAGMENT,
+);
 const mockStore = configureStore([thunk]);
 
 // @ts-ignore
@@ -247,7 +253,7 @@ describe('confirm screen', () => {
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:makeAdmin:modalTitle', {
-          personName: person.full_name,
+          personName: person.fullName,
           communityName: organization.name,
         }),
         i18next.t('groupMemberOptions:makeAdmin:modalDescription'),
@@ -352,7 +358,7 @@ describe('confirm screen', () => {
 
       expect(Alert.alert).toHaveBeenCalledWith(
         i18next.t('groupMemberOptions:removeAdmin:modalTitle', {
-          personName: person.full_name,
+          personName: person.fullName,
           communityName: organization.name,
         }),
         null,
