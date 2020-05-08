@@ -40,7 +40,7 @@ export const CommunityFeedItemName = ({
 
   const onPressNameLink = () =>
     personId &&
-    // only navigate if they are a member of the community
+    // only navigate if they are still a member of the community
     communityPerm &&
     dispatch(navToPersonScreen(person, { id: communityId }));
 
