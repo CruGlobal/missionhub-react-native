@@ -8,6 +8,7 @@ import {
   ViewProps,
 } from 'react-native';
 import moment from 'moment';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { Touchable } from '../common';
 import { getDate, modeIs24Hour } from '../../utils/date';
@@ -64,6 +65,8 @@ const MyDatePickerAndroid = ({
   is24Hour = modeIs24Hour(format),
 }: MyDatePickerAndroidProps) => {
   const [date, setDate] = useState<Date>(getDate(dateProp));
+  const [datePickerVisible, setDatePickerVisible] = useState(false);
+  const [timePickerVisible, setTimePickerVisible] = useState(false);
 
   useEffect(() => {
     setDate(getDate(dateProp));
@@ -83,10 +86,12 @@ const MyDatePickerAndroid = ({
 
     switch (mode) {
       case 'date':
-        dateTimeSelections = await launchDatePicker();
+        setDatePickerVisible(true);
+        // dateTimeSelections = await launchDatePicker();
         break;
       case 'time':
-        dateTimeSelections = await launchTimePicker();
+        setTimePickerVisible(true);
+        // dateTimeSelections = await launchTimePicker();
         break;
       case 'datetime':
         dateTimeSelections = await launchDateThenTimePicker();
@@ -170,6 +175,8 @@ const MyDatePickerAndroid = ({
   return (
     <View>
       <Touchable onPress={onPressDate}>{children}</Touchable>
+      {datePickerVisible && <DateTimePicker mode="date" value={date} />}
+      {timePickerVisible && <DateTimePicker mode="time" value={date} />}
     </View>
   );
 };
