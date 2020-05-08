@@ -4,7 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 
-import PostTypeLabel, { PostLabelSizeEnum } from '..';
+import PostTypeLabel, { PostLabelSizeEnum, PostTypeCardWithPeople } from '..';
 
 it('renders correctly', () => {
   renderWithContext(<PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} />, {
@@ -108,4 +108,85 @@ it('fires onPress when pressed', () => {
 
   fireEvent.press(getByTestId('STORYButton'));
   expect(onPress).toHaveBeenCalled();
+});
+
+describe('post types cards', () => {
+  const onPress = jest.fn();
+  it('renders God Story Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STORY}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
+  it('renders Prayer Request Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
+  it('renders Spiritual Question Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.QUESTION}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
+  it('renders Care Request Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.HELP_REQUEST}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
+  it('renders On Your Mind Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.THOUGHT}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
+  it('renders Announcement Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
+  it('renders Step Of Faith Label', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STEP}
+      />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
+  });
 });
