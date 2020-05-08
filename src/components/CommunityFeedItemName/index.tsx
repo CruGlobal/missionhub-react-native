@@ -12,7 +12,7 @@ import styles from './styles';
 
 export interface CommunityFeedItemNameProps {
   name: string | null;
-  person?: CommunityPerson;
+  person?: CommunityPerson | null;
   communityId: string;
   pressable: boolean;
   customContent?: JSX.Element;

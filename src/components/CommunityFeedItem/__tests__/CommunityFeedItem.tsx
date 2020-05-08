@@ -111,11 +111,6 @@ describe('global community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -137,11 +132,6 @@ describe('global community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -162,11 +152,6 @@ describe('global community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -189,11 +174,6 @@ describe('Community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -214,11 +194,6 @@ describe('Community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -261,11 +236,6 @@ describe('Community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -286,11 +256,6 @@ describe('Community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();
@@ -312,11 +277,6 @@ describe('Community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     );
     await flushMicrotasksQueue();

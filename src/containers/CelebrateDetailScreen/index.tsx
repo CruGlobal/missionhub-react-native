@@ -40,7 +40,6 @@ import {
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { CommunityPerson } from '../../components/CommunityFeedItem/__generated__/CommunityPerson';
 
 import styles from './styles';
 
@@ -79,7 +78,7 @@ const CelebrateDetailScreen = ({
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
-  const person = event.subjectPerson as CommunityPerson;
+  const person = event.subjectPerson;
 
   const listRef = useRef<FlatList<CelebrateComment>>(null);
 
