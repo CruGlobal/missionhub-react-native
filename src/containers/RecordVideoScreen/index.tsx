@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -12,11 +12,9 @@ import theme from '../../theme';
 import CameraRotateIcon from './cameraRotateIcon.svg';
 import styles from './styles';
 
-enum VideoState {
-  NOT_RECORDING,
-  RECORDING,
-  PROCESSING,
-}
+const { front: FrontCamera, back: BackCamera } = RNCamera.Constants.Type;
+type CameraType = typeof FrontCamera | typeof BackCamera;
+type VideoState = 'NOT_RECORDING' | 'RECORDING' | 'PROCESSING';
 
 interface RecordVideoScreenNavParams {
   onEndRecord: (uri: string) => void;
@@ -26,23 +24,55 @@ export const RecordVideoScreen = () => {
   const camera = useRef<RNCamera>(null);
   const dispatch = useDispatch();
   const onEndRecord = useNavigationParam('onEndRecord');
-  const [videoState, setVideoState] = useState<VideoState>(
-    VideoState.NOT_RECORDING,
-  );
-  const [countDownTime, setCountdownTime] = useState<number>(15000);
+  const [videoState, setVideoState] = useState<VideoState>('NOT_RECORDING');
+  const [countDownTime, setCountdownTime] = useState<number>(15);
+  const [cameraType, setCameraType] = useState<CameraType>(FrontCamera);
 
-  const startRecording = () => {
-    camera.current?.recordAsync();
+  let interval: NodeJS.Timer | null = null;
+
+  useEffect(() => {
+    if (interval && countDownTime === 0) {
+      console.log('countdown is zero');
+      endRecording();
+    }
+
+    return endCountdown;
+  }, [countDownTime]);
+
+  const startCountdown = () => {
+    console.log('start countdown');
+    setCountdownTime(15);
+    interval = setInterval(() => setCountdownTime(countDownTime - 1), 1000);
+  };
+
+  const endCountdown = () => {
+    console.log('end countdown');
+    interval && clearInterval(interval);
+  };
+
+  const startRecording = async () => {
+    setVideoState('RECORDING');
+    console.log('start recording');
+    /*if (camera.current) {
+      const { uri } = await camera.current.recordAsync();
+
+      onEndRecord(uri);
+    }*/
+    startCountdown();
   };
 
   const endRecording = () => {
-    onEndRecord('');
-    dispatch(navigateBack());
+    setVideoState('NOT_RECORDING');
+    console.log('end recording');
+    /*camera.current?.stopRecording();
+    dispatch(navigateBack());*/
+    endCountdown();
   };
 
   const handleClose = () => dispatch(navigateBack());
 
-  const handleFlipCamera = () => {};
+  const handleFlipCamera = () =>
+    setCameraType(cameraType === FrontCamera ? BackCamera : FrontCamera);
 
   const renderCloseButton = () => (
     <SafeAreaView style={styles.closeButtonWrap}>
@@ -59,11 +89,9 @@ export const RecordVideoScreen = () => {
   const renderRecordButton = () => (
     <Touchable
       style={styles.recordButton}
-      onPress={
-        videoState === VideoState.NOT_RECORDING ? startRecording : endRecording
-      }
+      onPress={videoState === 'NOT_RECORDING' ? startRecording : endRecording}
     >
-      {videoState === VideoState.NOT_RECORDING ? (
+      {videoState === 'NOT_RECORDING' ? (
         <View style={styles.startRecordIcon} />
       ) : (
         <View style={styles.endRecordIcon} />
@@ -76,9 +104,7 @@ export const RecordVideoScreen = () => {
       <View style={styles.controlBarBackground} />
       <SafeAreaView>
         <View style={styles.controlBarContainer}>
-          <Text style={styles.countdownText}>{`:${Math.ceil(
-            countDownTime / 1000,
-          )}`}</Text>
+          <Text style={styles.countdownText}>{`:${countDownTime}`}</Text>
           {renderRecordButton()}
           <Touchable onPress={handleFlipCamera}>
             <CameraRotateIcon />
@@ -89,17 +115,9 @@ export const RecordVideoScreen = () => {
   );
 
   const renderCameraView = () => (
-    <View
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-      }}
-    >
+    <View style={styles.cameraContainer}>
       <RNCamera
-        type={RNCamera.Constants.Type.front}
+        type={cameraType}
         flashMode={RNCamera.Constants.FlashMode.auto}
       />
     </View>

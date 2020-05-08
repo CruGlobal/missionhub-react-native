@@ -200,8 +200,12 @@ export const CreatePostScreen = () => {
         <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
       </Touchable>
       <View style={styles.lineBreak} />
-      // @ts-ignore
-      <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+
+      <ImagePicker
+        // @ts-ignore
+        testID="ImagePicker"
+        onSelectImage={handleSavePhoto}
+      >
         <View style={styles.addPhotoButton}>
           <PhotoIcon style={styles.icon} />
           <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>

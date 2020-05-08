@@ -4,6 +4,13 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: { flex: 1, justifyContent: 'space-between' },
+  cameraContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
   controlBarBackground: {
     position: 'absolute',
     top: 0,
