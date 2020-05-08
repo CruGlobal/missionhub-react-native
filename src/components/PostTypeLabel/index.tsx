@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleProp, ViewStyle, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
@@ -17,6 +17,7 @@ import { Card, Flex } from '../common';
 import BackButton from '../../containers/BackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import Avatar from '../Avatar';
 
 import styles from './styles';
 
@@ -24,6 +25,59 @@ export enum PostLabelSizeEnum {
   normal = 'normal',
   large = 'large',
   extraLarge = 'extraLarge',
+}
+
+export const PostTypeBgStyle: {
+  [key in FeedItemSubjectTypeEnum]: StyleProp<ViewStyle>;
+} = {
+  ANNOUNCEMENT: styles.ANNOUNCEMENT,
+  COMMUNITY_CHALLENGE: styles.COMMUNITY_CHALLENGE,
+  HELP_REQUEST: styles.HELP_REQUEST,
+  PRAYER_REQUEST: styles.PRAYER_REQUEST,
+  QUESTION: styles.QUESTION,
+  STEP: styles.STEP,
+  STORY: styles.STORY,
+  THOUGHT: styles.THOUGHT,
+};
+
+interface PostTypeIconProps {
+  type: FeedItemSubjectTypeEnum;
+  size: PostLabelSizeEnum;
+  color?: string;
+  style?: StyleProp<ViewStyle>;
+}
+
+export function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
+  const iconSize =
+    size === PostLabelSizeEnum.extraLarge
+      ? 72
+      : size === PostLabelSizeEnum.large
+      ? 24
+      : 20;
+  const iconProps = {
+    color: color || theme.white,
+    style: [styles.icon, style],
+    width: iconSize,
+    height: iconSize,
+  };
+  switch (type) {
+    case FeedItemSubjectTypeEnum.STORY:
+      return <GodStoryIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
+      return <PrayerRequestIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.QUESTION:
+      return <SpiritualQuestionIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.HELP_REQUEST:
+      return <CareRequestIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.THOUGHT:
+      return <OnYourMindIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
+      return <ChallengesIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
+      return <AnnouncementIcon {...iconProps} />;
+    case FeedItemSubjectTypeEnum.STEP:
+      return <StepsOfFaithIcon {...iconProps} />;
+  }
 }
 
 interface PostTypeLabelProps {
@@ -41,141 +95,88 @@ const PostTypeLabel = ({
 }: PostTypeLabelProps) => {
   const { t } = useTranslation('postTypes');
 
-  const handlePress = () => onPress && onPress();
+  if (size === PostLabelSizeEnum.extraLarge) {
+    return (
+      <SafeAreaView style={[styles[type]]}>
+        <Card style={[styles.headerCard, styles[type], { shadowOpacity: 0 }]}>
+          <Flex
+            value={1}
+            align="center"
+            justify="center"
+            style={styles.headerContainer}
+          >
+            <PostTypeIcon type={type} size={size} />
+            <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
+          </Flex>
+          <Flex style={styles.headerBackButtonWrap}>
+            <BackButton />
+          </Flex>
+        </Card>
+      </SafeAreaView>
+    );
+  }
+  return (
+    <Button
+      onPress={() => onPress && onPress()}
+      testID={`${type}Button`}
+      pill={true}
+      style={[
+        styles.button,
+        styles[type],
+        size === PostLabelSizeEnum.large ? styles.largeSize : null,
+        showText ? null : styles.noText,
+      ]}
+    >
+      <PostTypeIcon type={type} size={size} />
+      {showText ? <Text style={styles.buttonText}>{t(`${type}`)}</Text> : null}
+    </Button>
+  );
+};
 
-  const iconSize =
-    size === PostLabelSizeEnum.extraLarge
-      ? 72
-      : size === PostLabelSizeEnum.large
-      ? 24
-      : 20;
+interface PostTypeCardWithPeopleProps {
+  type: FeedItemSubjectTypeEnum;
+  onPress: TouchablePress;
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  people?: any[]; // TODO: Set this up
+}
+export const PostTypeCardWithPeople = ({
+  type,
+  onPress,
+  people,
+}: PostTypeCardWithPeopleProps) => {
+  const { t } = useTranslation('postTypes');
+  const visiblePeople = people?.slice(0, 9);
 
-  const renderIcon = () => {
-    switch (type) {
-      case FeedItemSubjectTypeEnum.STORY:
-        return (
-          <GodStoryIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
+  return (
+    <Card onPress={onPress} style={styles.peopleCard}>
+      <View style={[styles[type], styles.peopleCardTop]}>
+        <PostTypeIcon
+          type={type}
+          size={PostLabelSizeEnum.large}
+          style={{ marginLeft: 0, marginRight: 0 }}
+        />
+        <View style={styles.peopleCardList}>
+          {visiblePeople?.map((p, i) => (
+            <Avatar
+              key={i}
+              person={p}
+              size="extrasmall"
+              style={{ marginRight: -10 * i }}
+            />
+          ))}
+          <Avatar
+            person={null}
+            customText="+9"
+            size="extrasmall"
+            style={[styles[type]]}
           />
-        );
-      case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
-        return (
-          <PrayerRequestIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-
-      case FeedItemSubjectTypeEnum.QUESTION:
-        return (
-          <SpiritualQuestionIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-
-      case FeedItemSubjectTypeEnum.HELP_REQUEST:
-        return (
-          <CareRequestIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-
-      case FeedItemSubjectTypeEnum.THOUGHT:
-        return (
-          <OnYourMindIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-
-      case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
-        return (
-          <ChallengesIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-
-      case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
-        return (
-          <AnnouncementIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-
-      case FeedItemSubjectTypeEnum.STEP:
-        return (
-          <StepsOfFaithIcon
-            color={theme.white}
-            style={styles.icon}
-            width={iconSize}
-            height={iconSize}
-          />
-        );
-    }
-  };
-
-  const renderContent = () => {
-    if (size === PostLabelSizeEnum.extraLarge) {
-      return (
-        <SafeAreaView style={[styles[type]]}>
-          <Card style={[styles.headerCard, styles[type], { shadowOpacity: 0 }]}>
-            <Flex
-              value={1}
-              align="center"
-              justify="center"
-              style={styles.headerContainer}
-            >
-              {renderIcon()}
-              <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
-            </Flex>
-            <Flex style={styles.headerBackButtonWrap}>
-              <BackButton />
-            </Flex>
-          </Card>
-        </SafeAreaView>
-      );
-    } else {
-      return (
-        <Button
-          onPress={handlePress}
-          testID={`${type}Button`}
-          pill={true}
-          style={[
-            styles.button,
-            styles[type],
-            size === PostLabelSizeEnum.large ? styles.largeSize : null,
-            showText ? null : styles.noText,
-          ]}
-        >
-          {renderIcon()}
-          {showText ? (
-            <Text style={styles.buttonText}>{t(`${type}`)}</Text>
-          ) : null}
-        </Button>
-      );
-    }
-  };
-
-  return renderContent();
+        </View>
+      </View>
+      <View style={styles.peopleCardBottom}>
+        <Text style={styles.peopleCardText}>{t(`card.${type}`)}</Text>
+      </View>
+    </Card>
+  );
 };
 
 export default PostTypeLabel;

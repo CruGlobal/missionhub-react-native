@@ -44,7 +44,11 @@ export const CreatePostButton = ({
         />
       ) : null}
       <Button style={button} onPress={openModal} testID="CreatePostButton">
-        <Avatar size="small" personId={personId} style={{ marginLeft: -15 }} />
+        <Avatar
+          size="extrasmall"
+          personId={personId}
+          style={{ marginLeft: -15 }}
+        />
         <Text style={buttonText}>
           {type ? t(`createPostButton.${type}`) : t('inputPlaceholder')}
         </Text>

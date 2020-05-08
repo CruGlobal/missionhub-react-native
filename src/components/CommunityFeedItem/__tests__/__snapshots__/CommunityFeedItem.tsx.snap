@@ -86,10 +86,13 @@ exports[`Community renders challenge correctly 1`] = `
               color="#ffffff"
               height={20}
               style={
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                }
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
               }
               width={20}
             />
@@ -126,7 +129,29 @@ exports[`Community renders challenge correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "14",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "15",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
+            }
+          }
           size="medium"
         />
         <View
@@ -542,10 +567,13 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   color="#ffffff"
                   height={20}
                   style={
-                    Object {
-                      "marginLeft": -10,
-                      "marginRight": 10,
-                    }
+                    Array [
+                      Object {
+                        "marginLeft": -10,
+                        "marginRight": 10,
+                      },
+                      undefined,
+                    ]
                   }
                   width={20}
                 />
@@ -582,7 +610,29 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "14",
+                        },
+                        "permission": "owner",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "15",
+                        },
+                        "permission": "admin",
+                      },
+                    ],
+                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
+                }
+              }
               size="medium"
             />
             <View
@@ -1010,10 +1060,13 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   color="#ffffff"
                   height={20}
                   style={
-                    Object {
-                      "marginLeft": -10,
-                      "marginRight": 10,
-                    }
+                    Array [
+                      Object {
+                        "marginLeft": -10,
+                        "marginRight": 10,
+                      },
+                      undefined,
+                    ]
                   }
                   width={20}
                 />
@@ -1050,7 +1103,29 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "14",
+                        },
+                        "permission": "owner",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "15",
+                        },
+                        "permission": "admin",
+                      },
+                    ],
+                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
+                }
+              }
               size="medium"
             />
             <View
@@ -1416,10 +1491,13 @@ exports[`Community renders post correctly without image 1`] = `
                   color="#ffffff"
                   height={20}
                   style={
-                    Object {
-                      "marginLeft": -10,
-                      "marginRight": 10,
-                    }
+                    Array [
+                      Object {
+                        "marginLeft": -10,
+                        "marginRight": 10,
+                      },
+                      undefined,
+                    ]
                   }
                   width={20}
                 />
@@ -1456,7 +1534,29 @@ exports[`Community renders post correctly without image 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "14",
+                        },
+                        "permission": "owner",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "15",
+                        },
+                        "permission": "admin",
+                      },
+                    ],
+                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
+                }
+              }
               size="medium"
             />
             <View
@@ -1786,10 +1886,13 @@ exports[`Community renders step correctly 1`] = `
               color="#ffffff"
               height={20}
               style={
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                }
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
               }
               width={20}
             />
@@ -1826,7 +1929,29 @@ exports[`Community renders step correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "14",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "15",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
+            }
+          }
           size="medium"
         />
         <View
@@ -2177,10 +2302,13 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   color="#ffffff"
                   height={20}
                   style={
-                    Object {
-                      "marginLeft": -10,
-                      "marginRight": 10,
-                    }
+                    Array [
+                      Object {
+                        "marginLeft": -10,
+                        "marginRight": 10,
+                      },
+                      undefined,
+                    ]
                   }
                   width={20}
                 />
@@ -2217,7 +2345,29 @@ exports[`Community renders with clear notification button correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "14",
+                        },
+                        "permission": "owner",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "15",
+                        },
+                        "permission": "admin",
+                      },
+                    ],
+                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
+                }
+              }
               size="medium"
             />
             <View
@@ -2629,10 +2779,13 @@ exports[`global community renders correctly 1`] = `
               color="#ffffff"
               height={20}
               style={
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                }
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
               }
               width={20}
             />
@@ -2669,7 +2822,29 @@ exports[`global community renders correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "14",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "15",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
+            }
+          }
           size="medium"
         />
         <View
@@ -2996,10 +3171,13 @@ exports[`global community renders post item correctly 1`] = `
               color="#ffffff"
               height={20}
               style={
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                }
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
               }
               width={20}
             />
@@ -3036,7 +3214,29 @@ exports[`global community renders post item correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "14",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "15",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
+            }
+          }
           size="medium"
         />
         <View
@@ -3376,10 +3576,13 @@ exports[`global community renders with clear notification button correctly 1`] =
               color="#ffffff"
               height={20}
               style={
-                Object {
-                  "marginLeft": -10,
-                  "marginRight": 10,
-                }
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
               }
               width={20}
             />
@@ -3416,7 +3619,29 @@ exports[`global community renders with clear notification button correctly 1`] =
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "14",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "15",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
+            }
+          }
           size="medium"
         />
         <View
@@ -3837,10 +4062,13 @@ exports[`renders with name pressable correctly 1`] = `
                   color="#ffffff"
                   height={20}
                   style={
-                    Object {
-                      "marginLeft": -10,
-                      "marginRight": 10,
-                    }
+                    Array [
+                      Object {
+                        "marginLeft": -10,
+                        "marginRight": 10,
+                      },
+                      undefined,
+                    ]
                   }
                   width={20}
                 />
@@ -3877,7 +4105,29 @@ exports[`renders with name pressable correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "14",
+                        },
+                        "permission": "owner",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "15",
+                        },
+                        "permission": "admin",
+                      },
+                    ],
+                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
+                }
+              }
               size="medium"
             />
             <View

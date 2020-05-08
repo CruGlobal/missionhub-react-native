@@ -44,11 +44,12 @@ interface AvatarPropsCommon {
   size: AvatarSize;
   style?: StyleProp<ImageStyle>;
   personId?: string;
-  person?: PersonType;
+  person?: PersonType | null;
   orgId?: string;
+  customText?: string;
 }
 interface AvatarPropsPerson extends AvatarPropsCommon {
-  person: PersonType;
+  person: PersonType | null;
 }
 interface AvatarPropsPersonId extends AvatarPropsCommon {
   personId: string;
@@ -57,34 +58,36 @@ export type AvatarProps = AvatarPropsPerson | AvatarPropsPersonId;
 
 const EMPTY_PERSON = { id: '-', first_name: '-' };
 
-const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
-  const name =
-    person.firstName ||
-    person.first_name ||
-    person.fullName ||
-    person.full_name ||
-    '';
-  const initial = name[0] || '-';
-  const color = useMemo(() => colorThis(`${name}${person.id}`, 1), [person]);
+const AvatarView = React.memo(
+  ({ person, size, style, customText }: AvatarPropsPerson) => {
+    const name =
+      person?.firstName ||
+      person?.first_name ||
+      person?.fullName ||
+      person?.full_name ||
+      '';
+    const initial = customText || name[0] || '-';
+    const color = useMemo(() => colorThis(`${name}${person?.id}`, 1), [person]);
 
-  const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
+    const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
 
-  if (person.picture) {
+    if (person?.picture) {
+      return (
+        <Image
+          source={{ uri: person?.picture }}
+          style={wrapStyle}
+          resizeMode="cover"
+        />
+      );
+    }
+
     return (
-      <Image
-        source={{ uri: person.picture }}
-        style={wrapStyle}
-        resizeMode="cover"
-      />
+      <View style={[styles.avatar, wrapStyle]}>
+        <Text style={[styles.text, textStyles[size]]}>{initial}</Text>
+      </View>
     );
-  }
-
-  return (
-    <View style={[styles.avatar, wrapStyle]}>
-      <Text style={[styles.text, textStyles[size]]}>{initial}</Text>
-    </View>
-  );
-});
+  },
+);
 
 const AvatarPersonId = ({ personId, orgId, ...rest }: AvatarPropsPersonId) => {
   const person = useSelector<{ people: PeopleState }, PersonType>(

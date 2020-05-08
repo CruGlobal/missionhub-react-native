@@ -7,7 +7,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,523 @@
+@@ -16,10 +16,538 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -147,10 +147,13 @@ exports[`onPress opens modal 1`] = `
 +               color=\\"#ffffff\\"
 +               height={24}
 +               style={
-+                 Object {
-+                   \\"marginLeft\\": -10,
-+                   \\"marginRight\\": 10,
-+                 }
++                 Array [
++                   Object {
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
++                   },
++                   undefined,
++                 ]
 +               }
 +               width={24}
 +             />
@@ -234,10 +237,13 @@ exports[`onPress opens modal 1`] = `
 +               color=\\"#ffffff\\"
 +               height={24}
 +               style={
-+                 Object {
-+                   \\"marginLeft\\": -10,
-+                   \\"marginRight\\": 10,
-+                 }
++                 Array [
++                   Object {
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
++                   },
++                   undefined,
++                 ]
 +               }
 +               width={24}
 +             />
@@ -321,10 +327,13 @@ exports[`onPress opens modal 1`] = `
 +               color=\\"#ffffff\\"
 +               height={24}
 +               style={
-+                 Object {
-+                   \\"marginLeft\\": -10,
-+                   \\"marginRight\\": 10,
-+                 }
++                 Array [
++                   Object {
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
++                   },
++                   undefined,
++                 ]
 +               }
 +               width={24}
 +             />
@@ -408,10 +417,13 @@ exports[`onPress opens modal 1`] = `
 +               color=\\"#ffffff\\"
 +               height={24}
 +               style={
-+                 Object {
-+                   \\"marginLeft\\": -10,
-+                   \\"marginRight\\": 10,
-+                 }
++                 Array [
++                   Object {
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
++                   },
++                   undefined,
++                 ]
 +               }
 +               width={24}
 +             />
@@ -495,10 +507,13 @@ exports[`onPress opens modal 1`] = `
 +               color=\\"#ffffff\\"
 +               height={24}
 +               style={
-+                 Object {
-+                   \\"marginLeft\\": -10,
-+                   \\"marginRight\\": 10,
-+                 }
++                 Array [
++                   Object {
++                     \\"marginLeft\\": -10,
++                     \\"marginRight\\": 10,
++                   },
++                   undefined,
++                 ]
 +               }
 +               width={24}
 +             />
@@ -610,9 +625,11 @@ exports[`renders correctly 1`] = `
             },
             Array [
               Object {
-                "borderRadius": 18,
-                "height": 36,
-                "width": 36,
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
               },
               Object {
                 "backgroundColor": "rgb(199, 163, 67)",
@@ -638,8 +655,7 @@ exports[`renders correctly 1`] = `
                   "color": "#ffffff",
                 },
                 Object {
-                  "fontSize": 20,
-                  "fontWeight": "300",
+                  "fontSize": 12,
                 },
               ],
             ]
@@ -749,9 +765,11 @@ exports[`renders correctly with type 1`] = `
             },
             Array [
               Object {
-                "borderRadius": 18,
-                "height": 36,
-                "width": 36,
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
               },
               Object {
                 "backgroundColor": "rgb(199, 163, 67)",
@@ -777,8 +795,7 @@ exports[`renders correctly with type 1`] = `
                   "color": "#ffffff",
                 },
                 Object {
-                  "fontSize": 20,
-                  "fontWeight": "300",
+                  "fontSize": 12,
                 },
               ],
             ]

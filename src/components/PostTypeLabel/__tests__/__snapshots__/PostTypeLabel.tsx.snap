@@ -1,37 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`label variations render extra large label 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
+        "backgroundColor": "#7076B5",
       },
-      Array [
-        Object {
-          "borderRadius": 0,
-          "marginBottom": 5,
-          "marginHorizontal": 0,
-          "marginVertical": 0,
-          "position": "relative",
-        },
-        Object {
-          "backgroundColor": "#7076B5",
-        },
-      ],
     ]
   }
 >
@@ -39,59 +15,36 @@ exports[`label variations render extra large label 1`] = `
     style={
       Array [
         Object {
-          "padding": 25,
-          "paddingVertical": 45,
-        },
-        Object {
           "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
-      ]
-    }
-  >
-    <SvgMock
-      color="#ffffff"
-      height={72}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={72}
-    />
-    <Text
-      style={
         Array [
           Object {
-            "color": "#505256",
+            "borderRadius": 0,
+            "marginBottom": 5,
+            "marginHorizontal": 0,
+            "marginVertical": 0,
+            "position": "relative",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "backgroundColor": "#7076B5",
           },
           Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 10,
-            "textAlign": "center",
+            "shadowOpacity": 0,
           },
-        ]
-      }
-    >
-      Read a God Story
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "left": 10,
-          "position": "absolute",
-          "top": 40,
-        },
-        Object {},
+        ],
       ]
     }
   >
@@ -99,82 +52,146 @@ exports[`label variations render extra large label 1`] = `
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
+            "padding": 25,
+            "paddingVertical": 35,
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
             "justifyContent": "center",
           },
-          undefined,
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={72}
+        style={
+          Array [
+            Object {
+              "marginLeft": -10,
+              "marginRight": 10,
+            },
+            undefined,
+          ]
+        }
+        width={72}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "paddingTop": 10,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Read a God Story
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "left": 10,
+            "position": "absolute",
+            "top": 10,
+          },
+          Object {},
         ]
       }
     >
       <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
         }
-        testID="IconButton"
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              null,
-              Object {},
-              null,
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
+          testID="IconButton"
         >
-          <Text
-            allowFontScaling={false}
+          <View
             style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "backgroundColor": "transparent",
                 },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
+                null,
                 Object {},
+                null,
               ]
             }
           >
-            
-          </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
         </View>
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`label variations renders label with no text 1`] = `
@@ -237,10 +254,13 @@ exports[`label variations renders label with no text 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -308,10 +328,13 @@ exports[`label variations renders large label 1`] = `
       color="#ffffff"
       height={24}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={24}
     />
@@ -396,10 +419,13 @@ exports[`post types renders Announcement Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -484,10 +510,13 @@ exports[`post types renders Care Request Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -572,10 +601,13 @@ exports[`post types renders God Story Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -660,10 +692,13 @@ exports[`post types renders On Your Mind Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -748,10 +783,13 @@ exports[`post types renders Prayer Request Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -836,10 +874,13 @@ exports[`post types renders Spiritual Question Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -924,10 +965,13 @@ exports[`post types renders Step Of Faith Label 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />
@@ -1012,10 +1056,13 @@ exports[`renders correctly 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />

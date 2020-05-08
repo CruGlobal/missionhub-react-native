@@ -135,10 +135,13 @@ exports[`renders correctly 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -222,10 +225,13 @@ exports[`renders correctly 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -309,10 +315,13 @@ exports[`renders correctly 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -396,10 +405,13 @@ exports[`renders correctly 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -483,10 +495,13 @@ exports[`renders correctly 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -683,10 +698,13 @@ exports[`renders correctly for admin 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -770,10 +788,13 @@ exports[`renders correctly for admin 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -857,10 +878,13 @@ exports[`renders correctly for admin 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -944,10 +968,13 @@ exports[`renders correctly for admin 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1031,10 +1058,13 @@ exports[`renders correctly for admin 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1154,10 +1184,13 @@ exports[`renders correctly for admin 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1354,10 +1387,13 @@ exports[`renders correctly for owner 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1441,10 +1477,13 @@ exports[`renders correctly for owner 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1528,10 +1567,13 @@ exports[`renders correctly for owner 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1615,10 +1657,13 @@ exports[`renders correctly for owner 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1702,10 +1747,13 @@ exports[`renders correctly for owner 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />
@@ -1825,10 +1873,13 @@ exports[`renders correctly for owner 1`] = `
             color="#ffffff"
             height={24}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={24}
           />

@@ -67,6 +67,56 @@ exports[`renders empty correctly 1`] = `
         communityId="456"
         refreshItems={[Function]}
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
   </View>
 </RCTScrollView>
@@ -920,6 +970,56 @@ exports[`renders for Global Community renders correctly 1`] = `
         communityId="_global_community_id"
         refreshItems={[Function]}
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -2562,6 +2662,56 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         communityId="456"
         refreshItems={[Function]}
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -4249,6 +4399,56 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -4621,6 +4821,333 @@ exports[`renders for member renders correctly 1`] = `
         </Text>
       </View>
     </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders for member renders with type 1`] = `
+<RCTScrollView
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 99904,
+              },
+            },
+            "createdAt": "2018-07-27T08:11:00.872Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 9233,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2016-01-26T19:10:10.481Z",
+                  "completedAt": "2010-09-08T06:46:37.996Z",
+                  "id": "4",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2014-08-26T07:39:14.970Z",
+                  "completedAt": "2011-07-30T23:09:48.676Z",
+                  "id": "5",
+                },
+              ],
+              "id": "3",
+              "title": "iure ut libero",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "7",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "8",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "id": "6",
+              "lastName": "Abbott",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+        ],
+        "date": "2018-07-27T08:11:00.872Z",
+        "id": 0,
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 99904,
+              },
+            },
+            "createdAt": "2018-07-27T08:11:00.872Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 9233,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2016-01-26T19:10:10.481Z",
+                  "completedAt": "2010-09-08T06:46:37.996Z",
+                  "id": "4",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2014-08-26T07:39:14.970Z",
+                  "completedAt": "2011-07-30T23:09:48.676Z",
+                  "id": "5",
+                },
+              ],
+              "id": "3",
+              "title": "iure ut libero",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "7",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "8",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "id": "6",
+              "lastName": "Abbott",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+        ],
+        "date": "2018-07-27T08:11:00.872Z",
+        "id": 0,
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "flex": 1,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+          testID="Text"
+        >
+          Friday, July 27 2018
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 99904,
+              },
+            },
+            "createdAt": "2018-07-27T08:11:00.872Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 9233,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2016-01-26T19:10:10.481Z",
+                  "completedAt": "2010-09-08T06:46:37.996Z",
+                  "id": "4",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2014-08-26T07:39:14.970Z",
+                  "completedAt": "2011-07-30T23:09:48.676Z",
+                  "id": "5",
+                },
+              ],
+              "id": "3",
+              "title": "iure ut libero",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "7",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "8",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "id": "6",
+              "lastName": "Abbott",
+            },
+            "subjectPersonName": "Torey Abbott",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
     <View
       style={
         Object {
@@ -7618,6 +8145,56 @@ exports[`renders with celebration items correctly 1`] = `
         communityId="456"
         refreshItems={[Function]}
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -9309,6 +9886,56 @@ exports[`renders with clear notification renders correctly 1`] = `
         communityId="456"
         refreshItems={[Function]}
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
     <View
       onLayout={[Function]}
