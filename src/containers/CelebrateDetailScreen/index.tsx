@@ -40,6 +40,7 @@ import {
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -75,6 +76,11 @@ const CelebrateDetailScreen = ({
       fragment: CELEBRATE_ITEM_FRAGMENT,
       fragmentName: 'CelebrateItem',
     }) || navParamsEvent;
+
+  if (Object.keys(event).length === 1 && Object.keys(event)[0] === 'id') {
+    dispatch(navigateBack()); // Would be better to load celebrate item from GraphQL using cache-and-network fetchPolicy but no root query currently exists. Hopefully we can do this when moving to feedItems.
+  }
+
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
