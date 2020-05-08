@@ -40,6 +40,7 @@ import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
+type MediaType = 'NONE' | 'IMAGE' | 'VIDEO';
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -85,8 +86,9 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [imageData, changeImageData] = useState<string | null>(null);
-  const [imageHeight, changeImageHeight] = useState<number>(0);
+  const [mediaType, changeMediaType] = useState<MediaType>('NONE');
+  const [mediaData, changeMediaData] = useState<string | null>(null);
+  const [mediaHeight, changeMediaHeight] = useState<number>(0);
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -130,23 +132,32 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = (image: SelectImageParams) =>
-    changeImageData(image.data);
+  const handleSavePhoto = (image: SelectImageParams) => {
+    changeMediaType('IMAGE');
+    changeMediaData(image.data);
+  };
+
+  const handleSaveVideo = (uri: string) => {
+    changeMediaType('VIDEO');
+    changeMediaData(uri);
+  };
 
   useMemo(() => {
-    if (!imageData) {
-      return changeImageHeight(0);
+    if (!mediaData) {
+      return changeMediaHeight(0);
     }
 
     Image.getSize(
-      imageData,
-      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
+      mediaData,
+      (width, height) => changeMediaHeight((height * theme.fullWidth) / width),
       () => {},
     );
-  }, [imageData]);
+  }, [mediaData]);
 
   const navigateToRecordVideo = () => {
-    dispatch(navigatePush(RECORD_VIDEO_SCREEN));
+    dispatch(
+      navigatePush(RECORD_VIDEO_SCREEN, { onEndRecord: handleSaveVideo }),
+    );
   };
 
   const renderHeader = () => (
@@ -167,40 +178,49 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderAddPhotoButton = () =>
-    imageData ? (
+  const renderVideo = () => <View />; //render video
+
+  const renderImage = () =>
+    mediaData ? (
       // @ts-ignore
       <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
         <Image
           resizeMode="contain"
-          source={{ uri: imageData }}
-          style={{ width: theme.fullWidth, height: imageHeight }}
+          source={{ uri: mediaData }}
+          style={{ width: theme.fullWidth, height: mediaHeight }}
         />
       </ImagePicker>
-    ) : (
-      <>
-        <View style={styles.lineBreak} />
-        <Touchable
-          style={styles.addPhotoButton}
-          onPress={navigateToRecordVideo}
-        >
-          <VideoIcon style={styles.icon} />
-          <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
-        </Touchable>
-        <View style={styles.lineBreak} />
-        <ImagePicker
-          // @ts-ignore
-          testID="ImagePicker"
-          onSelectImage={handleSavePhoto}
-        >
-          <View style={styles.addPhotoButton}>
-            <PhotoIcon style={styles.icon} />
-            <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
-          </View>
-        </ImagePicker>
-        <View style={styles.lineBreak} />
-      </>
-    );
+    ) : null;
+
+  const renderVideoPhotoButtons = () => (
+    <>
+      <View style={styles.lineBreak} />
+      <Touchable style={styles.addPhotoButton} onPress={navigateToRecordVideo}>
+        <VideoIcon style={styles.icon} />
+        <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
+      </Touchable>
+      <View style={styles.lineBreak} />
+      // @ts-ignore
+      <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+        <View style={styles.addPhotoButton}>
+          <PhotoIcon style={styles.icon} />
+          <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
+        </View>
+      </ImagePicker>
+      <View style={styles.lineBreak} />
+    </>
+  );
+
+  const renderMedia = () => {
+    switch (mediaType) {
+      case 'NONE':
+        return renderVideoPhotoButtons();
+      case 'IMAGE':
+        return renderImage();
+      case 'VIDEO':
+        return renderVideo();
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -222,7 +242,7 @@ export const CreatePostScreen = () => {
           placeholderTextColor={theme.lightGrey}
           style={styles.textInput}
         />
-        {renderAddPhotoButton()}
+        {renderMedia()}
       </ScrollView>
     </View>
   );

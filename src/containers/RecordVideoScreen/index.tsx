@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, SafeAreaView } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { useNavigationParam } from 'react-navigation-hooks';
 import { RNCamera } from 'react-native-camera';
 
+import { navigateBack } from '../../actions/navigation';
 import { Text, Button, Touchable } from '../../components/common';
 import CloseButton from '../../../assets/images/closeIcon.svg';
 import theme from '../../theme';
@@ -15,17 +18,29 @@ enum VideoState {
   PROCESSING,
 }
 
+interface RecordVideoScreenNavParams {
+  onEndRecord: (uri: string) => void;
+}
+
 export const RecordVideoScreen = () => {
+  const camera = useRef<RNCamera>(null);
+  const dispatch = useDispatch();
+  const onEndRecord = useNavigationParam('onEndRecord');
   const [videoState, setVideoState] = useState<VideoState>(
     VideoState.NOT_RECORDING,
   );
   const [countDownTime, setCountdownTime] = useState<number>(15000);
 
-  const startRecording = () => {};
+  const startRecording = () => {
+    camera.current?.recordAsync();
+  };
 
-  const endRecording = () => {};
+  const endRecording = () => {
+    onEndRecord('');
+    dispatch(navigateBack());
+  };
 
-  const handleClose = () => {};
+  const handleClose = () => dispatch(navigateBack());
 
   const handleFlipCamera = () => {};
 
@@ -73,8 +88,26 @@ export const RecordVideoScreen = () => {
     </View>
   );
 
+  const renderCameraView = () => (
+    <View
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+      }}
+    >
+      <RNCamera
+        type={RNCamera.Constants.Type.front}
+        flashMode={RNCamera.Constants.FlashMode.auto}
+      />
+    </View>
+  );
+
   return (
     <View style={styles.container}>
+      {renderCameraView()}
       {renderCloseButton()}
       {renderControlBar()}
     </View>
@@ -82,16 +115,3 @@ export const RecordVideoScreen = () => {
 };
 
 export const RECORD_VIDEO_SCREEN = 'nav/RECORD_VIDEO_SCREEN';
-
-/*<View style={{ flex: 1 }}>
-      <RNCamera
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-        }}
-        type={RNCamera.Constants.Type.front}
-        flashMode={RNCamera.Constants.FlashMode.auto}
-      />*/
