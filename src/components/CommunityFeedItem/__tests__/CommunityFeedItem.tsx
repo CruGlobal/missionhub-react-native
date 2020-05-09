@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
-import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -30,11 +30,7 @@ import {
   PostTypeEnum,
   RelationshipTypeEnum,
 } from '../../../../__generated__/globalTypes';
-import {
-  DELETE_POST,
-  REPORT_POST,
-  GET_PERSON_AND_PERMISSIONS,
-} from '../queries';
+import { DELETE_POST, REPORT_POST } from '../queries';
 
 import { CommunityFeedItem } from '..';
 
@@ -101,8 +97,8 @@ beforeEach(() => {
 });
 
 describe('global community', () => {
-  it('renders correctly', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders correctly', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
@@ -111,18 +107,17 @@ describe('global community', () => {
       />,
       {
         initialState,
+        mocks: {
+          Person: () => ({
+            relationshipType: RelationshipTypeEnum.family,
+          }),
+        },
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: stepItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders with clear notification button correctly', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders with clear notification button correctly', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
@@ -132,18 +127,17 @@ describe('global community', () => {
       />,
       {
         initialState,
+        mocks: {
+          Person: () => ({
+            relationshipType: RelationshipTypeEnum.family,
+          }),
+        },
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: stepItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders post item correctly', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders post item correctly', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
@@ -152,20 +146,19 @@ describe('global community', () => {
       />,
       {
         initialState,
+        mocks: {
+          Person: () => ({
+            relationshipType: RelationshipTypeEnum.family,
+          }),
+        },
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: storyPostItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 });
 
 describe('Community', () => {
-  it('renders post correctly without add to steps button ', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders post correctly without add to steps button ', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
@@ -175,17 +168,11 @@ describe('Community', () => {
       {
         initialState,
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: storyPostItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders post correctly with add to steps button', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders post correctly with add to steps button', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={prayerPostItem}
         onRefresh={onRefresh}
@@ -195,17 +182,11 @@ describe('Community', () => {
       {
         initialState,
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: prayerPostItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders post correctly without image', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders post correctly without image', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={{
           ...storyPostItem,
@@ -216,18 +197,11 @@ describe('Community', () => {
         namePressable={false}
       />,
       { initialState },
-    );
-    await flushMicrotasksQueue();
-
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: storyPostItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders step correctly', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders step correctly', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={stepItem}
         onRefresh={onRefresh}
@@ -237,17 +211,11 @@ describe('Community', () => {
       {
         initialState,
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: stepItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders challenge correctly', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders challenge correctly', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={challengeItem}
         onRefresh={onRefresh}
@@ -257,17 +225,11 @@ describe('Community', () => {
       {
         initialState,
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: challengeItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 
-  it('renders with clear notification button correctly', async () => {
-    const { snapshot } = renderWithContext(
+  it('renders with clear notification button correctly', () => {
+    renderWithContext(
       <CommunityFeedItem
         item={storyPostItem}
         onRefresh={onRefresh}
@@ -278,18 +240,12 @@ describe('Community', () => {
       {
         initialState,
       },
-    );
-    await flushMicrotasksQueue();
-    snapshot();
-    expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-      variables: { id: storyPostItem.subjectPerson?.id },
-      skip: false,
-    });
+    ).snapshot();
   });
 });
 
-it('renders with name pressable correctly', async () => {
-  const { snapshot } = renderWithContext(
+it('renders with name pressable correctly', () => {
+  renderWithContext(
     <CommunityFeedItem
       item={storyPostItem}
       onRefresh={onRefresh}
@@ -304,17 +260,11 @@ it('renders with name pressable correctly', async () => {
         }),
       },
     },
-  );
-  await flushMicrotasksQueue();
-  snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_PERSON_AND_PERMISSIONS, {
-    variables: { id: storyPostItem.subjectPerson?.id },
-    skip: false,
-  });
+  ).snapshot();
 });
 
 describe('press card', () => {
-  it('not pressable in global community', async () => {
+  it('not pressable in global community', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
         item={stepItem}
@@ -324,11 +274,11 @@ describe('press card', () => {
       />,
       { initialState },
     );
-    await flushMicrotasksQueue();
+
     expect(getByTestId('CommunityFeedItem').props.onPress).toEqual(undefined);
   });
 
-  it('navigates to celebrate detail screen', async () => {
+  it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
         item={stepItem}
@@ -338,7 +288,7 @@ describe('press card', () => {
       />,
       { initialState },
     );
-    await flushMicrotasksQueue();
+
     fireEvent.press(getByTestId('CommunityFeedItem'));
 
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
@@ -356,7 +306,7 @@ describe('long-press card', () => {
       subjectPerson: mePerson,
     };
 
-    it('navigates to edit post screen', async () => {
+    it('navigates to edit post screen', () => {
       ActionSheetIOS.showActionSheetWithOptions = jest.fn();
       Alert.alert = jest.fn();
 
@@ -369,7 +319,6 @@ describe('long-press card', () => {
         />,
         { initialState },
       );
-      await flushMicrotasksQueue();
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
@@ -397,7 +346,7 @@ describe('long-press card', () => {
         />,
         { initialState },
       );
-      await flushMicrotasksQueue();
+
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
         1,
@@ -437,7 +386,7 @@ describe('long-press card', () => {
         />,
         { initialState },
       );
-      await flushMicrotasksQueue();
+
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
         0,
@@ -464,7 +413,7 @@ describe('long-press card', () => {
 });
 
 describe('clear notification button', () => {
-  it('calls onClearNotification', async () => {
+  it('calls onClearNotification', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
         item={storyPostItem}
@@ -475,7 +424,7 @@ describe('clear notification button', () => {
       />,
       { initialState },
     );
-    await flushMicrotasksQueue();
+
     fireEvent.press(getByTestId('ClearNotificationButton'));
 
     expect(onClearNotification).toHaveBeenCalledWith(storyPostItem);

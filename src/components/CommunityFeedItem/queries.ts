@@ -112,30 +112,6 @@ export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
   ${COMMUNITY_PERSON_FRAGMENT}
 `;
 
-export const GET_PERSON_AND_PERMISSIONS = gql`
-  query GetPersonAndPermissions($id: ID!) {
-    person(id: $id) {
-      id
-      firstName
-      lastName
-      stage {
-        id
-        name
-      }
-      relationshipType
-      picture
-      communityPermissions {
-        nodes {
-          permission
-          community {
-            id
-          }
-        }
-      }
-    }
-  }
-`;
-
 export const DELETE_POST = gql`
   mutation DeletePost($id: ID!) {
     deletePost(input: { id: $id }) {

@@ -128,38 +128,25 @@ exports[`Community renders challenge correctly 1`] = `
           orgId="3"
           person={
             Object {
-              "__typename": "Person",
               "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
                 "nodes": Array [
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "3",
+                      "id": "14",
                     },
-                    "permission": "admin",
+                    "permission": "owner",
                   },
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "4",
+                      "id": "15",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Hayden",
-              "id": "1",
-              "lastName": "Zieme",
-              "picture": "corporis repellat ratione",
-              "relationshipType": "coworker",
-              "stage": Object {
-                "__typename": "Stage",
-                "id": "2",
-                "name": "quisquam recusandae alias",
-              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
             }
           }
           size="medium"
@@ -619,38 +606,25 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               orgId="3"
               person={
                 Object {
-                  "__typename": "Person",
                   "communityPermissions": Object {
-                    "__typename": "CommunityPermissionConnection",
                     "nodes": Array [
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "3",
+                          "id": "14",
                         },
-                        "permission": "admin",
+                        "permission": "owner",
                       },
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "4",
+                          "id": "15",
                         },
                         "permission": "admin",
                       },
                     ],
                   },
-                  "firstName": "Hayden",
-                  "id": "1",
-                  "lastName": "Zieme",
-                  "picture": "corporis repellat ratione",
-                  "relationshipType": "coworker",
-                  "stage": Object {
-                    "__typename": "Stage",
-                    "id": "2",
-                    "name": "quisquam recusandae alias",
-                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
                 }
               }
               size="medium"
@@ -757,7 +731,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.3333333333333333,
+              "aspectRatio": 2,
             }
           }
         />
@@ -1122,38 +1096,25 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               orgId="3"
               person={
                 Object {
-                  "__typename": "Person",
                   "communityPermissions": Object {
-                    "__typename": "CommunityPermissionConnection",
                     "nodes": Array [
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "3",
+                          "id": "14",
                         },
-                        "permission": "admin",
+                        "permission": "owner",
                       },
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "4",
+                          "id": "15",
                         },
                         "permission": "admin",
                       },
                     ],
                   },
-                  "firstName": "Hayden",
-                  "id": "1",
-                  "lastName": "Zieme",
-                  "picture": "corporis repellat ratione",
-                  "relationshipType": "coworker",
-                  "stage": Object {
-                    "__typename": "Stage",
-                    "id": "2",
-                    "name": "quisquam recusandae alias",
-                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
                 }
               }
               size="medium"
@@ -1260,7 +1221,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.3333333333333333,
+              "aspectRatio": 2,
             }
           }
         />
@@ -1563,38 +1524,25 @@ exports[`Community renders post correctly without image 1`] = `
               orgId="3"
               person={
                 Object {
-                  "__typename": "Person",
                   "communityPermissions": Object {
-                    "__typename": "CommunityPermissionConnection",
                     "nodes": Array [
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "3",
+                          "id": "14",
                         },
-                        "permission": "admin",
+                        "permission": "owner",
                       },
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "4",
+                          "id": "15",
                         },
                         "permission": "admin",
                       },
                     ],
                   },
-                  "firstName": "Hayden",
-                  "id": "1",
-                  "lastName": "Zieme",
-                  "picture": "corporis repellat ratione",
-                  "relationshipType": "coworker",
-                  "stage": Object {
-                    "__typename": "Stage",
-                    "id": "2",
-                    "name": "quisquam recusandae alias",
-                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
                 }
               }
               size="medium"
@@ -1968,38 +1916,25 @@ exports[`Community renders step correctly 1`] = `
           orgId="3"
           person={
             Object {
-              "__typename": "Person",
               "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
                 "nodes": Array [
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "3",
+                      "id": "14",
                     },
-                    "permission": "admin",
+                    "permission": "owner",
                   },
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "4",
+                      "id": "15",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Hayden",
-              "id": "1",
-              "lastName": "Zieme",
-              "picture": "corporis repellat ratione",
-              "relationshipType": "coworker",
-              "stage": Object {
-                "__typename": "Stage",
-                "id": "2",
-                "name": "quisquam recusandae alias",
-              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
             }
           }
           size="medium"
@@ -2394,38 +2329,25 @@ exports[`Community renders with clear notification button correctly 1`] = `
               orgId="3"
               person={
                 Object {
-                  "__typename": "Person",
                   "communityPermissions": Object {
-                    "__typename": "CommunityPermissionConnection",
                     "nodes": Array [
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "3",
+                          "id": "14",
                         },
-                        "permission": "admin",
+                        "permission": "owner",
                       },
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "4",
+                          "id": "15",
                         },
                         "permission": "admin",
                       },
                     ],
                   },
-                  "firstName": "Hayden",
-                  "id": "1",
-                  "lastName": "Zieme",
-                  "picture": "corporis repellat ratione",
-                  "relationshipType": "coworker",
-                  "stage": Object {
-                    "__typename": "Stage",
-                    "id": "2",
-                    "name": "quisquam recusandae alias",
-                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
                 }
               }
               size="medium"
@@ -2532,7 +2454,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.3333333333333333,
+              "aspectRatio": 2,
             }
           }
         />
@@ -2881,38 +2803,25 @@ exports[`global community renders correctly 1`] = `
           orgId="_global_community_id"
           person={
             Object {
-              "__typename": "Person",
               "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
                 "nodes": Array [
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "3",
+                      "id": "14",
                     },
-                    "permission": "admin",
+                    "permission": "owner",
                   },
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "4",
+                      "id": "15",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Hayden",
-              "id": "1",
-              "lastName": "Zieme",
-              "picture": "corporis repellat ratione",
-              "relationshipType": "coworker",
-              "stage": Object {
-                "__typename": "Stage",
-                "id": "2",
-                "name": "quisquam recusandae alias",
-              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
             }
           }
           size="medium"
@@ -3283,38 +3192,25 @@ exports[`global community renders post item correctly 1`] = `
           orgId="_global_community_id"
           person={
             Object {
-              "__typename": "Person",
               "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
                 "nodes": Array [
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "3",
+                      "id": "14",
                     },
-                    "permission": "admin",
+                    "permission": "owner",
                   },
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "4",
+                      "id": "15",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Hayden",
-              "id": "1",
-              "lastName": "Zieme",
-              "picture": "corporis repellat ratione",
-              "relationshipType": "coworker",
-              "stage": Object {
-                "__typename": "Stage",
-                "id": "2",
-                "name": "quisquam recusandae alias",
-              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
             }
           }
           size="medium"
@@ -3421,7 +3317,7 @@ exports[`global community renders post item correctly 1`] = `
       }
       style={
         Object {
-          "aspectRatio": 1.3333333333333333,
+          "aspectRatio": 2,
         }
       }
     />
@@ -3698,38 +3594,25 @@ exports[`global community renders with clear notification button correctly 1`] =
           orgId="_global_community_id"
           person={
             Object {
-              "__typename": "Person",
               "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
                 "nodes": Array [
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "3",
+                      "id": "14",
                     },
-                    "permission": "admin",
+                    "permission": "owner",
                   },
                   Object {
-                    "__typename": "CommunityPermission",
                     "community": Object {
-                      "__typename": "Community",
-                      "id": "4",
+                      "id": "15",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Hayden",
-              "id": "1",
-              "lastName": "Zieme",
-              "picture": "corporis repellat ratione",
-              "relationshipType": "coworker",
-              "stage": Object {
-                "__typename": "Stage",
-                "id": "2",
-                "name": "quisquam recusandae alias",
-              },
+              "firstName": "Orlando",
+              "id": "13",
+              "lastName": "Schmidt",
             }
           }
           size="medium"
@@ -4194,38 +4077,25 @@ exports[`renders with name pressable correctly 1`] = `
               orgId="3"
               person={
                 Object {
-                  "__typename": "Person",
                   "communityPermissions": Object {
-                    "__typename": "CommunityPermissionConnection",
                     "nodes": Array [
                       Object {
-                        "__typename": "CommunityPermission",
                         "community": Object {
-                          "__typename": "Community",
-                          "id": "3",
+                          "id": "14",
+                        },
+                        "permission": "owner",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "15",
                         },
                         "permission": "admin",
                       },
-                      Object {
-                        "__typename": "CommunityPermission",
-                        "community": Object {
-                          "__typename": "Community",
-                          "id": "4",
-                        },
-                        "permission": "no_permissions",
-                      },
                     ],
                   },
-                  "firstName": "esse repellat quisquam",
-                  "id": "1",
-                  "lastName": "recusandae alias consequuntur",
-                  "picture": "ut sunt qui",
-                  "relationshipType": "family",
-                  "stage": Object {
-                    "__typename": "Stage",
-                    "id": "2",
-                    "name": "corporis repellat ratione",
-                  },
+                  "firstName": "Orlando",
+                  "id": "13",
+                  "lastName": "Schmidt",
                 }
               }
               size="medium"
@@ -4364,7 +4234,7 @@ exports[`renders with name pressable correctly 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.3333333333333333,
+              "aspectRatio": 2,
             }
           }
         />
