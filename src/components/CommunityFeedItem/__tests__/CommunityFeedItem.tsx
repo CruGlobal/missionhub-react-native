@@ -107,11 +107,6 @@ describe('global community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     ).snapshot();
   });
@@ -127,11 +122,6 @@ describe('global community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     ).snapshot();
   });
@@ -146,11 +136,6 @@ describe('global community', () => {
       />,
       {
         initialState,
-        mocks: {
-          Person: () => ({
-            relationshipType: RelationshipTypeEnum.family,
-          }),
-        },
       },
     ).snapshot();
   });
@@ -254,11 +239,6 @@ it('renders with name pressable correctly', () => {
     />,
     {
       initialState,
-      mocks: {
-        Person: () => ({
-          relationshipType: RelationshipTypeEnum.family,
-        }),
-      },
     },
   ).snapshot();
 });
