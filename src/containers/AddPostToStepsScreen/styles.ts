@@ -25,4 +25,12 @@ export default StyleSheet.create({
     paddingRight: 8,
     color: theme.parakeetBlue,
   },
+  personNameStyle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  dateTextStyle: {
+    color: theme.communityThoughtGrey,
+    fontSize: 12,
+  },
 });

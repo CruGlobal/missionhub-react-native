@@ -967,7 +967,7 @@ export default {
     addToSteps: 'Add to my steps',
     prayerStepMessage: "Pray for {{personName}}'s request.",
     shareStepMessage: "Answer {{personName}}'s question.",
-    careStepMessage: 'Help with {{personName}} request.',
+    careStepMessage: "Help with {{personName}}'s request.",
     setReminder: 'Set a Reminder',
     postType: {
       prayer: 'Prayer Step',

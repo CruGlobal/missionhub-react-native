@@ -6,7 +6,8 @@ import { ScrollView } from 'react-native';
 import Header from '../Header/index';
 import BackButton from '../../containers/BackButton/index';
 import BottomButton, { BottomButtonProps } from '../BottomButton/index';
-import { Text } from '../common';
+import { Text, Flex, DateComponent } from '../common';
+import Avatar from '../Avatar';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
 import { isAndroid } from '../../utils/common';
@@ -26,6 +27,7 @@ interface StepDetailScreenProps {
   CenterContent?: React.ReactNode;
   Banner?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
+  post?: any;
 }
 
 const StepDetailScreen = ({
@@ -38,6 +40,7 @@ const StepDetailScreen = ({
   CenterContent,
   bottomButtonProps,
   Banner = null,
+  post,
 }: StepDetailScreenProps) => {
   const {
     stepTypeBadge,
@@ -45,19 +48,42 @@ const StepDetailScreen = ({
     body,
     backButton,
     pageContainer,
+    personNameStyle,
+    dateTextStyle,
+    postTitleTextStyle,
   } = styles;
 
   const renderContent = () => (
     <>
       {Banner}
       <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
-      <Text style={stepTitleText}>{text}</Text>
+      <Text style={post ? postTitleTextStyle : stepTitleText}>{text}</Text>
       {CenterContent}
       <View style={body}>
         {markdown ? (
           <Markdown style={markdownStyles}>
             {insertName(markdown, firstName)}
           </Markdown>
+        ) : null}
+        {post ? (
+          <>
+            <Flex direction="row">
+              <Avatar person={post.author} size={'medium'} />
+              <Flex style={{ marginLeft: 10 }}>
+                <Text style={personNameStyle}>{post.author.fullName}</Text>
+                <DateComponent
+                  style={dateTextStyle}
+                  date={post.createdAt}
+                  format={'MMM D @ LT'}
+                />
+              </Flex>
+            </Flex>
+            <Flex style={{ paddingTop: 10 }}>
+              <Text style={{ fontSize: 16, color: theme.grey }}>
+                {post.content}
+              </Text>
+            </Flex>
+          </>
         ) : null}
       </View>
     </>
@@ -71,7 +97,7 @@ const StepDetailScreen = ({
         center={CenterHeader}
         right={RightHeader}
       />
-      {markdown ? (
+      {markdown || post ? (
         <ScrollView
           style={{ flex: 1 }}
           contentContainerStyle={{

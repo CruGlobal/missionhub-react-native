@@ -8,26 +8,41 @@ import { ScrollView } from 'react-native';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { navigateBack } from '../../actions/navigation';
 import Header from '../../components/Header';
-import { Button, Flex, Text, Separator } from '../../components/common';
+import {
+  Button,
+  Flex,
+  Text,
+  Separator,
+  DateComponent,
+} from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import CardTime from '../../components/CardTime';
 import CloseIcon from '../../../assets/images/closeButton.svg';
 import PrayerIcon from '../../../assets/images/prayerRequestIcon.svg';
-import ShareIcon from '../../../assets/images/onYourMindIcon.svg';
+import ShareIcon from './shareStepIcon.svg';
 import CareIcon from '../../../assets/images/careRequestIcon.svg';
 import Avatar from '../../components/Avatar';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
+import {
+  AddPostToMySteps,
+  AddPostToMyStepsVariables,
+} from './__generated__/AddPostToMySteps';
+import { ADD_POST_TO_MY_STEPS } from './queries';
 import styles from './styles';
 
 import theme from '../../theme';
 
 const AddPostToStepsScreen = () => {
   const { t } = useTranslation('addPostToStepsScreen');
+  useAnalytics(['add steps', 'step detail']);
   const dispatch = useDispatch();
+
   const item = useNavigationParam('item');
   const person = item.subjectPerson;
 
-  useAnalytics(['add steps', 'step detail']);
+  const [addPostToMySteps] = useMutation<
+    AddPostToMySteps,
+    AddPostToMyStepsVariables
+  >(ADD_POST_TO_MY_STEPS);
 
   const onClose = () => {
     dispatch(navigateBack());
@@ -37,7 +52,7 @@ const AddPostToStepsScreen = () => {
     switch (item.subject.postType) {
       case PostTypeEnum.prayer_request:
         return <PrayerIcon color={theme.communityThoughtGrey} />;
-      case PostTypeEnum.thought:
+      case PostTypeEnum.question:
         return <ShareIcon color={theme.communityThoughtGrey} />;
       case PostTypeEnum.help_request:
         return <CareIcon color={theme.communityThoughtGrey} />;
@@ -47,7 +62,7 @@ const AddPostToStepsScreen = () => {
     switch (item.subject.postType) {
       case PostTypeEnum.prayer_request:
         return t('postType.prayer').toUpperCase();
-      case PostTypeEnum.thought:
+      case PostTypeEnum.question:
         return t('postType.share').toUpperCase();
       case PostTypeEnum.help_request:
         return t('postType.care').toUpperCase();
@@ -58,14 +73,28 @@ const AddPostToStepsScreen = () => {
     switch (item.subject.postType) {
       case PostTypeEnum.prayer_request:
         return t('prayerStepMessage', { personName: person.firstName });
-      case PostTypeEnum.thought:
+      case PostTypeEnum.question:
         return t('shareStepMessage', { personName: person.firstName });
       case PostTypeEnum.help_request:
         return t('careStepMessage', { personName: person.firstName });
     }
   };
 
-  const onAddToSteps = () => console.log('added to steps');
+  const onAddToSteps = async () => {
+    await addPostToMySteps({
+      variables: {
+        input: {
+          postId: item.subject.id,
+          title: getTitleText(),
+        },
+      },
+    });
+    dispatch(navigateBack());
+  };
+
+  // const onCompleteStep = () => {
+  // Add ability to complete step if step exist
+  // };
 
   return (
     <Flex value={1}>
@@ -91,10 +120,14 @@ const AddPostToStepsScreen = () => {
           <Flex direction="row">
             <Avatar person={person} size={'medium'} />
             <Flex style={{ marginLeft: 10 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+              <Text style={styles.personNameStyle}>
                 {item.subjectPersonName}
               </Text>
-              <CardTime date={item.createdAt} />
+              <DateComponent
+                style={styles.dateTextStyle}
+                date={item.createdAt}
+                format={'MMM D @ LT'}
+              />
             </Flex>
           </Flex>
           <Flex style={{ paddingTop: 10 }}>

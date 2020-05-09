@@ -24,6 +24,16 @@ export const ACCEPTED_STEP_DETAIL_QUERY = gql`
         ...ReminderButton
         ...ReminderDateText
       }
+      post {
+        id
+        author {
+          id
+          fullName
+          picture
+        }
+        content
+        createdAt
+      }
     }
   }
   ${REMINDER_BUTTON_FRAGMENT}
