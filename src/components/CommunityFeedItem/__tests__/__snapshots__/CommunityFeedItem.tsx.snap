@@ -132,21 +132,22 @@ exports[`Community renders challenge correctly 1`] = `
                 "nodes": Array [
                   Object {
                     "community": Object {
-                      "id": "14",
+                      "id": "16",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "community": Object {
-                      "id": "15",
+                      "id": "17",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Orlando",
-              "id": "13",
-              "lastName": "Schmidt",
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
             }
           }
           size="medium"
@@ -185,7 +186,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -211,7 +212,7 @@ exports[`Community renders challenge correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -241,7 +242,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Orlando S. completed a Challenge:
+        Samantha T. completed a Challenge:
       </Text>
       <View
         style={
@@ -303,7 +304,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              esse blanditiis natus
+              ut et ipsam
             </Text>
           </View>
         </View>
@@ -444,7 +445,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -610,21 +611,22 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     "nodes": Array [
                       Object {
                         "community": Object {
-                          "id": "14",
+                          "id": "16",
                         },
-                        "permission": "owner",
+                        "permission": "no_permissions",
                       },
                       Object {
                         "community": Object {
-                          "id": "15",
+                          "id": "17",
                         },
-                        "permission": "admin",
+                        "permission": "no_permissions",
                       },
                     ],
                   },
-                  "firstName": "Orlando",
-                  "id": "13",
-                  "lastName": "Schmidt",
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
                 }
               }
               size="medium"
@@ -663,7 +665,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -689,7 +691,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -719,14 +721,14 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               ]
             }
           >
-            sunt qui amet
+            iure ut libero
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "qui recusandae ut",
+              "uri": "nulla quam ipsam",
             }
           }
           style={
@@ -932,7 +934,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -1100,21 +1102,22 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     "nodes": Array [
                       Object {
                         "community": Object {
-                          "id": "14",
+                          "id": "16",
                         },
-                        "permission": "owner",
+                        "permission": "no_permissions",
                       },
                       Object {
                         "community": Object {
-                          "id": "15",
+                          "id": "17",
                         },
-                        "permission": "admin",
+                        "permission": "no_permissions",
                       },
                     ],
                   },
-                  "firstName": "Orlando",
-                  "id": "13",
-                  "lastName": "Schmidt",
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
                 }
               }
               size="medium"
@@ -1153,7 +1156,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -1179,7 +1182,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -1209,14 +1212,14 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "dignissimos debitis incidunt",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -1360,7 +1363,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -1528,21 +1531,22 @@ exports[`Community renders post correctly without image 1`] = `
                     "nodes": Array [
                       Object {
                         "community": Object {
-                          "id": "14",
+                          "id": "16",
                         },
-                        "permission": "owner",
+                        "permission": "no_permissions",
                       },
                       Object {
                         "community": Object {
-                          "id": "15",
+                          "id": "17",
                         },
-                        "permission": "admin",
+                        "permission": "no_permissions",
                       },
                     ],
                   },
-                  "firstName": "Orlando",
-                  "id": "13",
-                  "lastName": "Schmidt",
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
                 }
               }
               size="medium"
@@ -1581,7 +1585,7 @@ exports[`Community renders post correctly without image 1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -1607,7 +1611,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -1637,7 +1641,7 @@ exports[`Community renders post correctly without image 1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <View
@@ -1775,7 +1779,7 @@ exports[`Community renders post correctly without image 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -1920,21 +1924,22 @@ exports[`Community renders step correctly 1`] = `
                 "nodes": Array [
                   Object {
                     "community": Object {
-                      "id": "14",
+                      "id": "16",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "community": Object {
-                      "id": "15",
+                      "id": "17",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Orlando",
-              "id": "13",
-              "lastName": "Schmidt",
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
             }
           }
           size="medium"
@@ -1973,7 +1978,7 @@ exports[`Community renders step correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -1999,7 +2004,7 @@ exports[`Community renders step correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -2029,7 +2034,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Orlando S. completed a Step of Faith with a  person.
+        Samantha T. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2167,7 +2172,7 @@ exports[`Community renders step correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -2333,21 +2338,22 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     "nodes": Array [
                       Object {
                         "community": Object {
-                          "id": "14",
+                          "id": "16",
                         },
-                        "permission": "owner",
+                        "permission": "no_permissions",
                       },
                       Object {
                         "community": Object {
-                          "id": "15",
+                          "id": "17",
                         },
-                        "permission": "admin",
+                        "permission": "no_permissions",
                       },
                     ],
                   },
-                  "firstName": "Orlando",
-                  "id": "13",
-                  "lastName": "Schmidt",
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
                 }
               }
               size="medium"
@@ -2386,7 +2392,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -2412,7 +2418,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -2442,14 +2448,14 @@ exports[`Community renders with clear notification button correctly 1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "dignissimos debitis incidunt",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -2593,7 +2599,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -2807,21 +2813,22 @@ exports[`global community renders correctly 1`] = `
                 "nodes": Array [
                   Object {
                     "community": Object {
-                      "id": "14",
+                      "id": "16",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "community": Object {
-                      "id": "15",
+                      "id": "17",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Orlando",
-              "id": "13",
-              "lastName": "Schmidt",
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
             }
           }
           size="medium"
@@ -2860,7 +2867,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -2886,7 +2893,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -2916,7 +2923,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Orlando S. completed a Step of Faith with a  person.
+        Samantha T. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3054,7 +3061,7 @@ exports[`global community renders correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -3196,21 +3203,22 @@ exports[`global community renders post item correctly 1`] = `
                 "nodes": Array [
                   Object {
                     "community": Object {
-                      "id": "14",
+                      "id": "16",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "community": Object {
-                      "id": "15",
+                      "id": "17",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Orlando",
-              "id": "13",
-              "lastName": "Schmidt",
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
             }
           }
           size="medium"
@@ -3249,7 +3257,7 @@ exports[`global community renders post item correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -3275,7 +3283,7 @@ exports[`global community renders post item correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -3305,14 +3313,14 @@ exports[`global community renders post item correctly 1`] = `
           ]
         }
       >
-        nulla quam ipsam
+        nobis cupiditate sed
       </Text>
     </View>
     <Image
       resizeMode="contain"
       source={
         Object {
-          "uri": "dignissimos debitis incidunt",
+          "uri": "accusantium sed libero",
         }
       }
       style={
@@ -3456,7 +3464,7 @@ exports[`global community renders post item correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -3598,21 +3606,22 @@ exports[`global community renders with clear notification button correctly 1`] =
                 "nodes": Array [
                   Object {
                     "community": Object {
-                      "id": "14",
+                      "id": "16",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "community": Object {
-                      "id": "15",
+                      "id": "17",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Orlando",
-              "id": "13",
-              "lastName": "Schmidt",
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
             }
           }
           size="medium"
@@ -3651,7 +3660,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -3677,7 +3686,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -3707,7 +3716,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Orlando S. completed a Step of Faith with a  person.
+        Samantha T. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3845,7 +3854,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -4081,21 +4090,22 @@ exports[`renders with name pressable correctly 1`] = `
                     "nodes": Array [
                       Object {
                         "community": Object {
-                          "id": "14",
+                          "id": "16",
                         },
-                        "permission": "owner",
+                        "permission": "no_permissions",
                       },
                       Object {
                         "community": Object {
-                          "id": "15",
+                          "id": "17",
                         },
-                        "permission": "admin",
+                        "permission": "no_permissions",
                       },
                     ],
                   },
-                  "firstName": "Orlando",
-                  "id": "13",
-                  "lastName": "Schmidt",
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
                 }
               }
               size="medium"
@@ -4164,7 +4174,7 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    Orlando Schmidt
+                    Samantha Tremblay
                   </Text>
                 </View>
               </View>
@@ -4192,7 +4202,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -4222,14 +4232,14 @@ exports[`renders with name pressable correctly 1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "dignissimos debitis incidunt",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -4373,7 +4383,7 @@ exports[`renders with name pressable correctly 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
