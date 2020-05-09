@@ -26,10 +26,7 @@ import { CommunityPerson } from '../../CommunityFeedItem/__generated__/Community
 import { CommunityFeedStep } from '../__generated__/CommunityFeedStep';
 import { CommunityFeedChallenge } from '../__generated__/CommunityFeedChallenge';
 import { CommunityFeedPost } from '../__generated__/CommunityFeedPost';
-import {
-  PostTypeEnum,
-  RelationshipTypeEnum,
-} from '../../../../__generated__/globalTypes';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
 import { CommunityFeedItem } from '..';
