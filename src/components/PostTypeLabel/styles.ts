@@ -9,6 +9,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     height: 36,
     paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 18,
   },
   headerCard: {
     position: 'relative',

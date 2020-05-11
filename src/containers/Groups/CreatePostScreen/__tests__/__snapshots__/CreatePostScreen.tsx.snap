@@ -67,7 +67,7 @@ exports[`Creating a post user types a post 1`] = `
       contentInset={
         Object {
           \\"bottom\\": 90,
-@@ -318,11 +367,11 @@
+@@ -285,11 +334,11 @@
               },
             ]
           }
@@ -87,7 +87,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -338,63 +338,20 @@
+@@ -305,63 +305,20 @@
               \\"opacity\\": 1,
             }
           }
@@ -163,7 +163,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -367,11 +367,11 @@
+@@ -334,11 +334,11 @@
               },
             ]
           }
@@ -376,92 +376,59 @@ exports[`renders correctly for new post 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#A97398",
+              },
+              null,
+              null,
+            ]
           }
-          testID="PRAYER_REQUESTButton"
+          testID="PRAYER_REQUESTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <TextInput
@@ -831,92 +798,59 @@ exports[`renders correctly for update post 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#A97398",
+              },
+              null,
+              null,
+            ]
           }
-          testID="PRAYER_REQUESTButton"
+          testID="PRAYER_REQUESTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <TextInput
@@ -1243,92 +1177,59 @@ exports[`renders correctly on android 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#A97398",
+              },
+              null,
+              null,
+            ]
           }
-          testID="PRAYER_REQUESTButton"
+          testID="PRAYER_REQUESTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <TextInput
@@ -1606,92 +1507,59 @@ exports[`renders for post types renders for announcement 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#505256",
+              },
+              null,
+              null,
+            ]
           }
-          testID="ANNOUNCEMENTButton"
+          testID="ANNOUNCEMENTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#505256",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Announcement
-            </Text>
-          </View>
+            Announcement
+          </Text>
         </View>
       </View>
       <TextInput
@@ -2012,92 +1880,59 @@ exports[`renders for post types renders for help request 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#FD726D",
+              },
+              null,
+              null,
+            ]
           }
-          testID="HELP_REQUESTButton"
+          testID="HELP_REQUESTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#FD726D",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Care Request
-            </Text>
-          </View>
+            Care Request
+          </Text>
         </View>
       </View>
       <TextInput
@@ -2418,92 +2253,59 @@ exports[`renders for post types renders for prayer request 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#A97398",
+              },
+              null,
+              null,
+            ]
           }
-          testID="PRAYER_REQUESTButton"
+          testID="PRAYER_REQUESTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Prayer Request
-            </Text>
-          </View>
+            Prayer Request
+          </Text>
         </View>
       </View>
       <TextInput
@@ -2824,92 +2626,59 @@ exports[`renders for post types renders for spiritual question 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#FFA178",
+              },
+              null,
+              null,
+            ]
           }
-          testID="QUESTIONButton"
+          testID="QUESTIONLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#FFA178",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Spiritual Question
-            </Text>
-          </View>
+            Spiritual Question
+          </Text>
         </View>
       </View>
       <TextInput
@@ -3230,92 +2999,59 @@ exports[`renders for post types renders for story 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#7076B5",
+              },
+              null,
+              null,
+            ]
           }
-          testID="STORYButton"
+          testID="STORYLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              God Story
-            </Text>
-          </View>
+            God Story
+          </Text>
         </View>
       </View>
       <TextInput
@@ -3636,92 +3372,59 @@ exports[`renders for post types renders for thought 1`] = `
         }
       >
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              Object {
+                "backgroundColor": "#B4B6BA",
+              },
+              null,
+              null,
+            ]
           }
-          testID="THOUGHTButton"
+          testID="THOUGHTLabel"
         >
-          <View
+          <SvgMock
+            color="#ffffff"
+            height={20}
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "marginLeft": -10,
+                  "marginRight": 10,
                 },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                  null,
-                  null,
-                ],
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
                 Object {
-                  "borderRadius": 50,
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
                 },
               ]
             }
           >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              What's on Your Mind
-            </Text>
-          </View>
+            What's on Your Mind
+          </Text>
         </View>
       </View>
       <TextInput

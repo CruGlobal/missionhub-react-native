@@ -112,9 +112,11 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -202,9 +204,11 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -292,9 +296,11 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -382,9 +388,11 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -472,9 +480,11 @@ exports[`renders correctly 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -675,9 +685,11 @@ exports[`renders correctly for admin 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -765,9 +777,11 @@ exports[`renders correctly for admin 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -855,9 +869,11 @@ exports[`renders correctly for admin 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -945,9 +961,11 @@ exports[`renders correctly for admin 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1035,9 +1053,11 @@ exports[`renders correctly for admin 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1161,9 +1181,11 @@ exports[`renders correctly for admin 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1364,9 +1386,11 @@ exports[`renders correctly for owner 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1454,9 +1478,11 @@ exports[`renders correctly for owner 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1544,9 +1570,11 @@ exports[`renders correctly for owner 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1634,9 +1662,11 @@ exports[`renders correctly for owner 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1724,9 +1754,11 @@ exports[`renders correctly for owner 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
@@ -1850,9 +1882,11 @@ exports[`renders correctly for owner 1`] = `
               Array [
                 Object {
                   "alignItems": "center",
+                  "borderRadius": 18,
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
                   "paddingVertical": 10,
                 },
                 Object {
