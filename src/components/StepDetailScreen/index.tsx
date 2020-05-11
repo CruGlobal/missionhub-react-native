@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
 
@@ -14,6 +15,7 @@ import { isAndroid } from '../../utils/common';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
+import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
 
 import styles from './styles';
 
@@ -27,7 +29,7 @@ interface StepDetailScreenProps {
   CenterContent?: React.ReactNode;
   Banner?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
-  post?: any;
+  post?: Post | null;
 }
 
 const StepDetailScreen = ({
@@ -52,6 +54,11 @@ const StepDetailScreen = ({
     dateTextStyle,
     postTitleTextStyle,
   } = styles;
+  const { t } = useTranslation('stepDetail');
+
+  const postAuthorName = post?.author.fullName
+    ? post.author.fullName
+    : `${post?.author.firstName} ${post?.author.lastName}`;
 
   const renderContent = () => (
     <>
@@ -70,12 +77,24 @@ const StepDetailScreen = ({
             <Flex direction="row">
               <Avatar person={post.author} size={'medium'} />
               <Flex style={{ marginLeft: 10 }}>
-                <Text style={personNameStyle}>{post.author.fullName}</Text>
-                <DateComponent
-                  style={dateTextStyle}
-                  date={post.createdAt}
-                  format={'MMM D @ LT'}
-                />
+                <Text style={personNameStyle}>{postAuthorName}</Text>
+                <Flex direction="row" justify="center" align="center">
+                  <DateComponent
+                    style={dateTextStyle}
+                    date={post.createdAt}
+                    format={'MMM D @ LT'}
+                  />
+                  <Text
+                    // TODO Add openPost action
+                    style={{
+                      paddingLeft: 10,
+                      color: theme.parakeetBlue,
+                      fontSize: 12,
+                    }}
+                  >
+                    {t('openPost')}
+                  </Text>
+                </Flex>
               </Flex>
             </Flex>
             <Flex style={{ paddingTop: 10 }}>

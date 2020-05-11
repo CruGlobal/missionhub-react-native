@@ -263,6 +263,9 @@ export default {
     part5:
       'Talk about what this person believes and ways you can help them know the truth about God.',
   },
+  stepDetail: {
+    openPost: 'Open Post',
+  },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
     errorLoadingSuggestedStepDetails: 'Error loading suggested step details',
@@ -968,11 +971,6 @@ export default {
     prayerStepMessage: "Pray for {{personName}}'s request.",
     shareStepMessage: "Answer {{personName}}'s question.",
     careStepMessage: "Help with {{personName}}'s request.",
-    setReminder: 'Set a Reminder',
-    postType: {
-      prayer: 'Prayer Step',
-      care: 'Care Step',
-      share: 'Share Step',
-    },
+    errorSavingStep: 'Error saving step',
   },
 };

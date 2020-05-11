@@ -3,33 +3,19 @@ import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ScrollView } from 'react-native';
 
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { navigateBack } from '../../actions/navigation';
-import Header from '../../components/Header';
-import {
-  Button,
-  Flex,
-  Text,
-  Separator,
-  DateComponent,
-} from '../../components/common';
-import BottomButton from '../../components/BottomButton';
-import CloseIcon from '../../../assets/images/closeButton.svg';
-import PrayerIcon from '../../../assets/images/prayerRequestIcon.svg';
-import ShareIcon from './shareStepIcon.svg';
-import CareIcon from '../../../assets/images/careRequestIcon.svg';
-import Avatar from '../../components/Avatar';
-import { PostTypeEnum } from '../../../__generated__/globalTypes';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import StepDetailScreen from '../../components/StepDetailScreen';
+import { PostTypeEnum, StepTypeEnum } from '../../../__generated__/globalTypes';
+import { Separator } from '../../components/common';
+
 import {
   AddPostToMySteps,
   AddPostToMyStepsVariables,
 } from './__generated__/AddPostToMySteps';
 import { ADD_POST_TO_MY_STEPS } from './queries';
-import styles from './styles';
-
-import theme from '../../theme';
 
 const AddPostToStepsScreen = () => {
   const { t } = useTranslation('addPostToStepsScreen');
@@ -39,35 +25,10 @@ const AddPostToStepsScreen = () => {
   const item = useNavigationParam('item');
   const person = item.subjectPerson;
 
-  const [addPostToMySteps] = useMutation<
+  const [addPostToMySteps, { error: createStepError }] = useMutation<
     AddPostToMySteps,
     AddPostToMyStepsVariables
   >(ADD_POST_TO_MY_STEPS);
-
-  const onClose = () => {
-    dispatch(navigateBack());
-  };
-
-  const getIcon = () => {
-    switch (item.subject.postType) {
-      case PostTypeEnum.prayer_request:
-        return <PrayerIcon color={theme.communityThoughtGrey} />;
-      case PostTypeEnum.question:
-        return <ShareIcon color={theme.communityThoughtGrey} />;
-      case PostTypeEnum.help_request:
-        return <CareIcon color={theme.communityThoughtGrey} />;
-    }
-  };
-  const getText = () => {
-    switch (item.subject.postType) {
-      case PostTypeEnum.prayer_request:
-        return t('postType.prayer').toUpperCase();
-      case PostTypeEnum.question:
-        return t('postType.share').toUpperCase();
-      case PostTypeEnum.help_request:
-        return t('postType.care').toUpperCase();
-    }
-  };
 
   const getTitleText = () => {
     switch (item.subject.postType) {
@@ -77,6 +38,17 @@ const AddPostToStepsScreen = () => {
         return t('shareStepMessage', { personName: person.firstName });
       case PostTypeEnum.help_request:
         return t('careStepMessage', { personName: person.firstName });
+    }
+  };
+
+  const getType = () => {
+    switch (item.subject.postType) {
+      case PostTypeEnum.prayer_request:
+        return StepTypeEnum.pray;
+      case PostTypeEnum.question:
+        return StepTypeEnum.share;
+      case PostTypeEnum.help_request:
+        return StepTypeEnum.care;
     }
   };
 
@@ -91,54 +63,30 @@ const AddPostToStepsScreen = () => {
     });
     dispatch(navigateBack());
   };
-
-  // const onCompleteStep = () => {
-  // Add ability to complete step if step exist
-  // };
-
+  const post = { ...item.subject, author: { ...person } };
   return (
-    <Flex value={1}>
-      <ScrollView>
-        <Header
-          right={
-            <Button onPress={onClose}>
-              <CloseIcon color={theme.white} />
-            </Button>
-          }
-        />
-        <Flex style={{ paddingHorizontal: 40, paddingVertical: 10 }}>
-          <Flex direction="row">
-            {getIcon()}
-            <Text style={styles.textStyle}>{getText()}</Text>
-          </Flex>
-          <Flex>
-            <Text style={styles.titleTextStyle}>{getTitleText()}</Text>
-          </Flex>
-        </Flex>
-        <Separator />
-        <Flex style={{ paddingHorizontal: 40, paddingVertical: 20 }}>
-          <Flex direction="row">
-            <Avatar person={person} size={'medium'} />
-            <Flex style={{ marginLeft: 10 }}>
-              <Text style={styles.personNameStyle}>
-                {item.subjectPersonName}
-              </Text>
-              <DateComponent
-                style={styles.dateTextStyle}
-                date={item.createdAt}
-                format={'MMM D @ LT'}
-              />
-            </Flex>
-          </Flex>
-          <Flex style={{ paddingTop: 10 }}>
-            <Text style={{ fontSize: 16, color: theme.grey }}>
-              {item.subject.content}
-            </Text>
-          </Flex>
-        </Flex>
-      </ScrollView>
-      <BottomButton onPress={onAddToSteps} text={t('addToSteps')} />
-    </Flex>
+    <StepDetailScreen
+      CenterHeader={null}
+      RightHeader={null}
+      Banner={
+        <>
+          <ErrorNotice
+            message={t('errorSavingStep')}
+            error={createStepError}
+            refetch={addPostToMySteps}
+          />
+        </>
+      }
+      CenterContent={<Separator />}
+      text={getTitleText()}
+      stepType={getType()}
+      bottomButtonProps={{
+        onPress: onAddToSteps,
+        text: t('addToSteps'),
+        testID: 'AddToMyStepsButton',
+      }}
+      post={post}
+    />
   );
 };
 

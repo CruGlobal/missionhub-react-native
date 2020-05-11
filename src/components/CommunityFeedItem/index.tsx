@@ -22,10 +22,10 @@ import {
   CommunityFeedItem_subject,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
-import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
