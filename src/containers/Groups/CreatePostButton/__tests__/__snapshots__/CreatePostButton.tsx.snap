@@ -7,7 +7,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,523 @@
+@@ -16,10 +16,533 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -124,9 +124,11 @@ exports[`onPress opens modal 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"alignItems\\": \\"center\\",
++                     \\"borderRadius\\": 18,
 +                     \\"flexDirection\\": \\"row\\",
 +                     \\"height\\": 36,
 +                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingHorizontal\\": 20,
 +                     \\"paddingVertical\\": 10,
 +                   },
 +                   Object {
@@ -211,9 +213,11 @@ exports[`onPress opens modal 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"alignItems\\": \\"center\\",
++                     \\"borderRadius\\": 18,
 +                     \\"flexDirection\\": \\"row\\",
 +                     \\"height\\": 36,
 +                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingHorizontal\\": 20,
 +                     \\"paddingVertical\\": 10,
 +                   },
 +                   Object {
@@ -298,9 +302,11 @@ exports[`onPress opens modal 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"alignItems\\": \\"center\\",
++                     \\"borderRadius\\": 18,
 +                     \\"flexDirection\\": \\"row\\",
 +                     \\"height\\": 36,
 +                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingHorizontal\\": 20,
 +                     \\"paddingVertical\\": 10,
 +                   },
 +                   Object {
@@ -385,9 +391,11 @@ exports[`onPress opens modal 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"alignItems\\": \\"center\\",
++                     \\"borderRadius\\": 18,
 +                     \\"flexDirection\\": \\"row\\",
 +                     \\"height\\": 36,
 +                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingHorizontal\\": 20,
 +                     \\"paddingVertical\\": 10,
 +                   },
 +                   Object {
@@ -472,9 +480,11 @@ exports[`onPress opens modal 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"alignItems\\": \\"center\\",
++                     \\"borderRadius\\": 18,
 +                     \\"flexDirection\\": \\"row\\",
 +                     \\"height\\": 36,
 +                     \\"justifyContent\\": \\"space-between\\",
++                     \\"paddingHorizontal\\": 20,
 +                     \\"paddingVertical\\": 10,
 +                   },
 +                   Object {

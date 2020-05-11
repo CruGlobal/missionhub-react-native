@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
@@ -132,47 +133,50 @@ const PostTypeLabel = ({
     }
   };
 
-  const renderContent = () => {
-    if (size === PostLabelSizeEnum.extraLarge) {
-      return (
-        <Card style={[styles.headerCard, styles[type]]}>
-          <Flex
-            value={1}
-            align="center"
-            justify="center"
-            style={styles.headerContainer}
-          >
-            {renderIcon()}
-            <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
-          </Flex>
-          <Flex style={styles.headerBackButtonWrap}>
-            <BackButton />
-          </Flex>
-        </Card>
-      );
-    } else {
-      return (
-        <Button
-          onPress={handlePress}
-          testID={`${type}Button`}
-          pill={true}
-          style={[
-            styles.button,
-            styles[type],
-            size === PostLabelSizeEnum.large ? styles.largeSize : null,
-            showText ? null : styles.noText,
-          ]}
-        >
-          {renderIcon()}
-          {showText ? (
-            <Text style={styles.buttonText}>{t(`${type}`)}</Text>
-          ) : null}
-        </Button>
-      );
-    }
-  };
-
-  return renderContent();
+  return size === PostLabelSizeEnum.extraLarge ? (
+    <Card style={[styles.headerCard, styles[type]]}>
+      <Flex
+        value={1}
+        align="center"
+        justify="center"
+        style={styles.headerContainer}
+      >
+        {renderIcon()}
+        <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
+      </Flex>
+      <Flex style={styles.headerBackButtonWrap}>
+        <BackButton />
+      </Flex>
+    </Card>
+  ) : onPress ? (
+    <Button
+      onPress={handlePress}
+      testID={`${type}Button`}
+      pill={true}
+      style={[
+        styles.button,
+        styles[type],
+        size === PostLabelSizeEnum.large ? styles.largeSize : null,
+        showText ? null : styles.noText,
+      ]}
+    >
+      {renderIcon()}
+      {showText ? <Text style={styles.buttonText}>{t(`${type}`)}</Text> : null}
+    </Button>
+  ) : (
+    <View
+      testID={`${type}Label`}
+      style={[
+        styles.button,
+        styles[type],
+        size === PostLabelSizeEnum.large ? styles.largeSize : null,
+        showText ? null : styles.noText,
+      ]}
+    >
+      {renderIcon()}
+      {showText ? <Text style={styles.buttonText}>{t(`${type}`)}</Text> : null}
+    </View>
+  );
 };
 
 export default PostTypeLabel;
