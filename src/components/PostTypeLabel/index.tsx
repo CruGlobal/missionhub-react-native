@@ -115,11 +115,30 @@ const PostTypeLabel = ({
       </SafeAreaView>
     );
   }
+  if (onPress) {
+    return (
+      <Button
+        onPress={() => onPress && onPress()}
+        testID={`${type}Button`}
+        pill={true}
+        style={[
+          styles.button,
+          styles[type],
+          size === PostLabelSizeEnum.large ? styles.largeSize : null,
+          showText ? null : styles.noText,
+        ]}
+      >
+        <PostTypeIcon type={type} size={size} />
+        {showText ? (
+          <Text style={styles.buttonText}>{t(`${type}`)}</Text>
+        ) : null}
+      </Button>
+    );
+  }
+
   return (
-    <Button
-      onPress={() => onPress && onPress()}
-      testID={`${type}Button`}
-      pill={true}
+    <View
+      testID={`${type}Label`}
       style={[
         styles.button,
         styles[type],
@@ -129,7 +148,7 @@ const PostTypeLabel = ({
     >
       <PostTypeIcon type={type} size={size} />
       {showText ? <Text style={styles.buttonText}>{t(`${type}`)}</Text> : null}
-    </Button>
+    </View>
   );
 };
 
