@@ -711,3 +711,93 @@ exports[`renders correctly 1`] = `
   </Text>
 </View>
 `;
+
+exports[`renders pressable correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="STORYButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 18,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          Object {
+            "backgroundColor": "#7076B5",
+          },
+          null,
+          null,
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={20}
+      style={
+        Object {
+          "marginLeft": -10,
+          "marginRight": 10,
+        }
+      }
+      width={20}
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "lineHeight": 20,
+          },
+        ]
+      }
+    >
+      God Story
+    </Text>
+  </View>
+</View>
+`;
