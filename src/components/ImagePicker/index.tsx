@@ -32,6 +32,7 @@ export type SelectImageParams = {
 interface ImagePickerProps {
   onSelectImage: (image: SelectImageParams) => void;
   children: JSX.Element | JSX.Element[];
+  circleOverlay?: boolean;
 }
 
 function getType(image: Image) {
@@ -41,7 +42,11 @@ function getType(image: Image) {
   return 'image/jpeg';
 }
 
-export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
+export const ImagePicker = ({
+  onSelectImage,
+  children,
+  circleOverlay = false,
+}: ImagePickerProps) => {
   const { t } = useTranslation('imagePicker');
 
   const takePhoto = () => selectImage(true);
@@ -51,8 +56,14 @@ export const ImagePicker = ({ onSelectImage, children }: ImagePickerProps) => {
   const selectImage = async (takePhoto: boolean) => {
     try {
       const response = await (takePhoto
-        ? ImageCropPicker.openCamera(DEFAULT_OPTIONS)
-        : ImageCropPicker.openPicker(DEFAULT_OPTIONS));
+        ? ImageCropPicker.openCamera({
+            ...DEFAULT_OPTIONS,
+            cropperCircleOverlay: circleOverlay ? true : false,
+          })
+        : ImageCropPicker.openPicker({
+            ...DEFAULT_OPTIONS,
+            cropperCircleOverlay: circleOverlay ? true : false,
+          }));
 
       const image = Array.isArray(response) ? response[0] : response;
 
