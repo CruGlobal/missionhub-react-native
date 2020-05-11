@@ -30,56 +30,91 @@ exports[`Community renders challenge correctly 1`] = `
         }
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#00CA99",
-              },
-              null,
-              null,
-            ]
-          }
-          testID="COMMUNITY_CHALLENGELabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+            Object {
+              "opacity": 1,
             }
-            width={20}
-          />
-          <Text
+          }
+          testID="COMMUNITY_CHALLENGEButton"
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#00CA99",
+                  },
+                  null,
+                  null,
+                ],
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
+                  "borderRadius": 50,
                 },
               ]
             }
           >
-            Challenge
-          </Text>
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Challenge
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -453,56 +488,91 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#A97398",
-                  },
-                  null,
-                  null,
-                ]
-              }
-              testID="PRAYER_REQUESTLabel"
-            >
-              <SvgMock
-                color="#ffffff"
-                height={20}
-                style={
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  }
+                Object {
+                  "opacity": 1,
                 }
-                width={20}
-              />
-              <Text
+              }
+              testID="PRAYER_REQUESTButton"
+            >
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
                     },
+                    null,
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "borderRadius": 18,
+                        "flexDirection": "row",
+                        "height": 36,
+                        "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#A97398",
+                      },
+                      null,
+                      null,
+                    ],
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
+                      "borderRadius": 50,
                     },
                   ]
                 }
               >
-                Prayer Request
-              </Text>
+                <SvgMock
+                  color="#ffffff"
+                  height={20}
+                  style={
+                    Object {
+                      "marginLeft": -10,
+                      "marginRight": 10,
+                    }
+                  }
+                  width={20}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ]
+                  }
+                >
+                  Prayer Request
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -888,56 +958,91 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  null,
-                  null,
-                ]
-              }
-              testID="STORYLabel"
-            >
-              <SvgMock
-                color="#ffffff"
-                height={20}
-                style={
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  }
+                Object {
+                  "opacity": 1,
                 }
-                width={20}
-              />
-              <Text
+              }
+              testID="STORYButton"
+            >
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
                     },
+                    null,
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "borderRadius": 18,
+                        "flexDirection": "row",
+                        "height": 36,
+                        "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#7076B5",
+                      },
+                      null,
+                      null,
+                    ],
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
+                      "borderRadius": 50,
                     },
                   ]
                 }
               >
-                God Story
-              </Text>
+                <SvgMock
+                  color="#ffffff"
+                  height={20}
+                  style={
+                    Object {
+                      "marginLeft": -10,
+                      "marginRight": 10,
+                    }
+                  }
+                  width={20}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ]
+                  }
+                >
+                  God Story
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -1261,56 +1366,91 @@ exports[`Community renders post correctly without image 1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  null,
-                  null,
-                ]
-              }
-              testID="STORYLabel"
-            >
-              <SvgMock
-                color="#ffffff"
-                height={20}
-                style={
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  }
+                Object {
+                  "opacity": 1,
                 }
-                width={20}
-              />
-              <Text
+              }
+              testID="STORYButton"
+            >
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
                     },
+                    null,
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "borderRadius": 18,
+                        "flexDirection": "row",
+                        "height": 36,
+                        "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#7076B5",
+                      },
+                      null,
+                      null,
+                    ],
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
+                      "borderRadius": 50,
                     },
                   ]
                 }
               >
-                God Story
-              </Text>
+                <SvgMock
+                  color="#ffffff"
+                  height={20}
+                  style={
+                    Object {
+                      "marginLeft": -10,
+                      "marginRight": 10,
+                    }
+                  }
+                  width={20}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ]
+                  }
+                >
+                  God Story
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -1598,56 +1738,91 @@ exports[`Community renders step correctly 1`] = `
         }
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#3CC8E6",
-              },
-              null,
-              null,
-            ]
-          }
-          testID="STEPLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+            Object {
+              "opacity": 1,
             }
-            width={20}
-          />
-          <Text
+          }
+          testID="STEPButton"
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#3CC8E6",
+                  },
+                  null,
+                  null,
+                ],
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
+                  "borderRadius": 50,
                 },
               ]
             }
           >
-            Step of Faith
-          </Text>
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Step of Faith
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -1956,56 +2131,91 @@ exports[`Community renders with clear notification button correctly 1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  null,
-                  null,
-                ]
-              }
-              testID="STORYLabel"
-            >
-              <SvgMock
-                color="#ffffff"
-                height={20}
-                style={
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  }
+                Object {
+                  "opacity": 1,
                 }
-                width={20}
-              />
-              <Text
+              }
+              testID="STORYButton"
+            >
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
                     },
+                    null,
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "borderRadius": 18,
+                        "flexDirection": "row",
+                        "height": 36,
+                        "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#7076B5",
+                      },
+                      null,
+                      null,
+                    ],
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
+                      "borderRadius": 50,
                     },
                   ]
                 }
               >
-                God Story
-              </Text>
+                <SvgMock
+                  color="#ffffff"
+                  height={20}
+                  style={
+                    Object {
+                      "marginLeft": -10,
+                      "marginRight": 10,
+                    }
+                  }
+                  width={20}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ]
+                  }
+                >
+                  God Story
+                </Text>
+              </View>
             </View>
           </View>
           <View
@@ -2375,56 +2585,91 @@ exports[`global community renders correctly 1`] = `
         }
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#3CC8E6",
-              },
-              null,
-              null,
-            ]
-          }
-          testID="STEPLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+            Object {
+              "opacity": 1,
             }
-            width={20}
-          />
-          <Text
+          }
+          testID="STEPButton"
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#3CC8E6",
+                  },
+                  null,
+                  null,
+                ],
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
+                  "borderRadius": 50,
                 },
               ]
             }
           >
-            Step of Faith
-          </Text>
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Step of Faith
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -2709,56 +2954,91 @@ exports[`global community renders post item correctly 1`] = `
         }
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#7076B5",
-              },
-              null,
-              null,
-            ]
-          }
-          testID="STORYLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+            Object {
+              "opacity": 1,
             }
-            width={20}
-          />
-          <Text
+          }
+          testID="STORYButton"
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#7076B5",
+                  },
+                  null,
+                  null,
+                ],
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
+                  "borderRadius": 50,
                 },
               ]
             }
           >
-            God Story
-          </Text>
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              God Story
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -3056,56 +3336,91 @@ exports[`global community renders with clear notification button correctly 1`] =
         }
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#3CC8E6",
-              },
-              null,
-              null,
-            ]
-          }
-          testID="STEPLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={20}
-            style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+            Object {
+              "opacity": 1,
             }
-            width={20}
-          />
-          <Text
+          }
+          testID="STEPButton"
+        >
+          <View
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#3CC8E6",
+                  },
+                  null,
+                  null,
+                ],
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
+                  "borderRadius": 50,
                 },
               ]
             }
           >
-            Step of Faith
-          </Text>
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                }
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Step of Faith
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -3484,56 +3799,91 @@ exports[`renders with name pressable correctly 1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  Object {
-                    "backgroundColor": "#7076B5",
-                  },
-                  null,
-                  null,
-                ]
-              }
-              testID="STORYLabel"
-            >
-              <SvgMock
-                color="#ffffff"
-                height={20}
-                style={
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  }
+                Object {
+                  "opacity": 1,
                 }
-                width={20}
-              />
-              <Text
+              }
+              testID="STORYButton"
+            >
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
                     },
+                    null,
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "borderRadius": 18,
+                        "flexDirection": "row",
+                        "height": 36,
+                        "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#7076B5",
+                      },
+                      null,
+                      null,
+                    ],
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
+                      "borderRadius": 50,
                     },
                   ]
                 }
               >
-                God Story
-              </Text>
+                <SvgMock
+                  color="#ffffff"
+                  height={20}
+                  style={
+                    Object {
+                      "marginLeft": -10,
+                      "marginRight": 10,
+                    }
+                  }
+                  width={20}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ]
+                  }
+                >
+                  God Story
+                </Text>
+              </View>
             </View>
           </View>
           <View
