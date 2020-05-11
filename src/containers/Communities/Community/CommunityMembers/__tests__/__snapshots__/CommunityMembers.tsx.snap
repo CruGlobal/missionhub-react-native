@@ -24,7 +24,7 @@ exports[`CommunityMembers renders with content 1`] = `
           "__typename": "CommunityPersonEdge",
           "communityPermission": Object {
             "__typename": "CommunityPermission",
-            "id": "1",
+            "id": "2",
             "permission": "user",
           },
           "node": Object {
@@ -32,7 +32,7 @@ exports[`CommunityMembers renders with content 1`] = `
             "createdAt": "2019-02-10T23:08:19.603Z",
             "firstName": "Branson",
             "fullName": "Branson Gutkowski",
-            "id": "2",
+            "id": "3",
             "lastName": "Gutkowski",
             "picture": "repellat ratione ut",
           },
@@ -166,7 +166,7 @@ exports[`CommunityMembers renders with content 1`] = `
                     "width": 36,
                   },
                   Object {
-                    "backgroundColor": "rgb(161, 109, 125)",
+                    "backgroundColor": "rgb(216, 122, 125)",
                   },
                   Object {
                     "marginRight": 8,
@@ -461,7 +461,7 @@ exports[`CommunityMembers should load next page 1`] = `
 + Second value
 
 @@ -49,10 +49,44 @@
-              \\"id\\": \\"4\\",
+              \\"id\\": \\"5\\",
               \\"lastName\\": \\"Heathcote\\",
               \\"picture\\": \\"libero qui recusandae\\",
             },
@@ -470,7 +470,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +           \\"__typename\\": \\"CommunityPersonEdge\\",
 +           \\"communityPermission\\": Object {
 +             \\"__typename\\": \\"CommunityPermission\\",
-+             \\"id\\": \\"5\\",
++             \\"id\\": \\"7\\",
 +             \\"permission\\": \\"admin\\",
 +           },
 +           \\"node\\": Object {
@@ -478,7 +478,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +             \\"createdAt\\": \\"2013-05-02T19:02:46.486Z\\",
 +             \\"firstName\\": \\"Immanuel\\",
 +             \\"fullName\\": \\"Immanuel Thiel\\",
-+             \\"id\\": \\"6\\",
++             \\"id\\": \\"8\\",
 +             \\"lastName\\": \\"Thiel\\",
 +             \\"picture\\": \\"incidunt accusantium sed\\",
 +           },
@@ -487,7 +487,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +           \\"__typename\\": \\"CommunityPersonEdge\\",
 +           \\"communityPermission\\": Object {
 +             \\"__typename\\": \\"CommunityPermission\\",
-+             \\"id\\": \\"7\\",
++             \\"id\\": \\"9\\",
 +             \\"permission\\": \\"user\\",
 +           },
 +           \\"node\\": Object {
@@ -495,7 +495,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +             \\"createdAt\\": \\"2010-08-26T04:24:18.529Z\\",
 +             \\"firstName\\": \\"Haylee\\",
 +             \\"fullName\\": \\"Haylee Klocko\\",
-+             \\"id\\": \\"8\\",
++             \\"id\\": \\"10\\",
 +             \\"lastName\\": \\"Klocko\\",
 +             \\"picture\\": \\"natus et eos\\",
 +           },
@@ -595,7 +595,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(198, 101, 155)\\",
++                     \\"backgroundColor\\": \\"rgb(192, 102, 115)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,
@@ -750,7 +750,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(52, 139, 130)\\",
++                     \\"backgroundColor\\": \\"rgb(167, 162, 115)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,
