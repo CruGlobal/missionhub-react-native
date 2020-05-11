@@ -12,6 +12,15 @@ it('renders correctly', () => {
   }).snapshot();
 });
 
+it('renders pressable correctly', () => {
+  renderWithContext(
+    <PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} onPress={jest.fn()} />,
+    {
+      noWrappers: true,
+    },
+  ).snapshot();
+});
+
 describe('post types', () => {
   it('renders God Story Label', () => {
     renderWithContext(<PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} />, {

@@ -40,6 +40,7 @@ import {
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -75,6 +76,13 @@ const CelebrateDetailScreen = ({
       fragment: COMMUNITY_FEED_ITEM_FRAGMENT,
       fragmentName: 'CommunityFeedItem',
     }) || navParamsEvent;
+
+  const eventIsNotLoaded =
+    Object.keys(event).length === 1 && Object.keys(event)[0] === 'id';
+  if (eventIsNotLoaded) {
+    dispatch(navigateBack()); // Would be better to load celebrate item from GraphQL using cache-and-network fetchPolicy but no root query currently exists. Hopefully we can do this when moving to feedItems.
+  }
+
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
@@ -120,11 +128,13 @@ const CelebrateDetailScreen = ({
             />
             <CardTime date={event.createdAt} />
           </View>
-          <CommentLikeComponent
-            item={event}
-            communityId={organization.id}
-            onRefresh={onRefreshCelebrateItem}
-          />
+          {!eventIsNotLoaded && (
+            <CommentLikeComponent
+              item={event}
+              communityId={organization.id}
+              onRefresh={onRefreshCelebrateItem}
+            />
+          )}
           <BackButton
             style={styles.backButtonStyle}
             iconStyle={styles.backButtonIconStyle}
@@ -139,28 +149,30 @@ const CelebrateDetailScreen = ({
     <View style={styles.contentContainer}>
       <Image source={TRAILS1} style={styles.trailsTop} />
       <Image source={TRAILS2} style={styles.trailsBottom} />
-      <CommentsList
-        //@ts-ignore
-        event={event} //TODO: Modify to use CommunityFeedItem type
-        organization={organization}
-        listProps={{
-          ref: listRef,
-          refreshControl: (
-            <RefreshControl
-              testID="RefreshControl"
-              refreshing={isRefreshing}
-              onRefresh={refresh}
-            />
-          ),
-          ListHeaderComponent: () => (
-            <CommunityFeedItemContent
-              item={event}
-              communityId={organization.id}
-              style={styles.itemContent}
-            />
-          ),
-        }}
-      />
+      {!eventIsNotLoaded && (
+        <CommentsList
+          //@ts-ignore
+          event={event} //TODO: Modify to use CommunityFeedItem type
+          organization={organization}
+          listProps={{
+            ref: listRef,
+            refreshControl: (
+              <RefreshControl
+                testID="RefreshControl"
+                refreshing={isRefreshing}
+                onRefresh={refresh}
+              />
+            ),
+            ListHeaderComponent: () => (
+              <CommunityFeedItemContent
+                item={event}
+                communityId={organization.id}
+                style={styles.itemContent}
+              />
+            ),
+          }}
+        />
+      )}
     </View>
   );
 

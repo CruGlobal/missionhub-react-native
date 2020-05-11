@@ -133,6 +133,10 @@ export const CommunityFeedItem = ({
     //TODO: add to my steps
   };
 
+  const navToFilteredFeed = () => {
+    //TODO: navigate to filtered feed for post type
+  };
+
   const menuActions =
     !isGlobal && isPost(subject)
       ? isMe
@@ -182,7 +186,7 @@ export const CommunityFeedItem = ({
   const renderHeader = () => (
     <View style={styles.headerWrap}>
       <View style={styles.headerRow}>
-        <PostTypeLabel type={FeedItemType} />
+        <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
         {item.subjectPerson ? (
