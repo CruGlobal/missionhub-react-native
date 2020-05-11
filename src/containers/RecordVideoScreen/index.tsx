@@ -25,47 +25,49 @@ export const RecordVideoScreen = () => {
   const dispatch = useDispatch();
   const onEndRecord = useNavigationParam('onEndRecord');
   const [videoState, setVideoState] = useState<VideoState>('NOT_RECORDING');
-  const [countDownTime, setCountdownTime] = useState<number>(15);
+  const [timer, setTimer] = useState<NodeJS.Timer | null>(null);
+  const [countdownTime, setCountdownTime] = useState<number>(15);
   const [cameraType, setCameraType] = useState<CameraType>(FrontCamera);
 
-  let interval: NodeJS.Timer | null = null;
-
   useEffect(() => {
-    if (interval && countDownTime === 0) {
-      console.log('countdown is zero');
+    if (timer && countdownTime <= 0) {
       endRecording();
     }
+  }, [countdownTime]);
 
+  useEffect(() => {
     return endCountdown;
-  }, [countDownTime]);
+  }, []);
 
   const startCountdown = () => {
-    console.log('start countdown');
     setCountdownTime(15);
-    interval = setInterval(() => setCountdownTime(countDownTime - 1), 1000);
+    setTimer(
+      setInterval(() => {
+        setCountdownTime(time => time - 1);
+      }, 1000),
+    );
   };
 
   const endCountdown = () => {
-    console.log('end countdown');
-    interval && clearInterval(interval);
+    setCountdownTime(15);
+    timer && clearInterval(timer);
+    setTimer(null);
   };
 
   const startRecording = async () => {
     setVideoState('RECORDING');
-    console.log('start recording');
-    /*if (camera.current) {
+    if (camera.current) {
       const { uri } = await camera.current.recordAsync();
 
       onEndRecord(uri);
-    }*/
+    }
     startCountdown();
   };
 
   const endRecording = () => {
     setVideoState('NOT_RECORDING');
-    console.log('end recording');
-    /*camera.current?.stopRecording();
-    dispatch(navigateBack());*/
+    camera.current?.stopRecording();
+    dispatch(navigateBack());
     endCountdown();
   };
 
@@ -104,7 +106,9 @@ export const RecordVideoScreen = () => {
       <View style={styles.controlBarBackground} />
       <SafeAreaView>
         <View style={styles.controlBarContainer}>
-          <Text style={styles.countdownText}>{`:${countDownTime}`}</Text>
+          <View style={{ borderWidth: 1, width: 40, alignItems: 'flex-start' }}>
+            <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
+          </View>
           {renderRecordButton()}
           <Touchable onPress={handleFlipCamera}>
             <CameraRotateIcon />
