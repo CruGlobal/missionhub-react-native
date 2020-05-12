@@ -121,7 +121,7 @@ const CelebrateDetailScreen = ({
           <View style={{ flex: 1 }}>
             <CommunityFeedItemName
               name={event.subjectPersonName}
-              personId={event.subjectPerson?.id}
+              person={event.subjectPerson}
               communityId={organization.id}
               pressable={true}
             />

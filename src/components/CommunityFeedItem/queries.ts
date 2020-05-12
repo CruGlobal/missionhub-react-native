@@ -14,6 +14,7 @@ export const COMMUNITY_PERSON_FRAGMENT = gql`
     id
     firstName
     lastName
+    picture
     communityPermissions {
       nodes {
         ...CommunityPermission
