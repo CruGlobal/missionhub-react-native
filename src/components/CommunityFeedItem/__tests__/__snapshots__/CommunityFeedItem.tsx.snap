@@ -782,6 +782,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 "opacity": 1,
               }
             }
+            testID="AddToMyStepsButton"
           >
             <SvgMock
               style={

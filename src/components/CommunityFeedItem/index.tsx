@@ -162,7 +162,11 @@ export const CommunityFeedItem = ({
       : [];
 
   const renderAddToStepsButton = () => (
-    <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
+    <Touchable
+      style={styles.addStepWrap}
+      onPress={handleAddToMySteps}
+      testID="AddToMyStepsButton"
+    >
       <StepIcon style={styles.stepIcon} />
       <PlusIcon style={styles.plusIcon} />
       <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
