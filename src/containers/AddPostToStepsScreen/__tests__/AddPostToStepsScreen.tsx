@@ -59,7 +59,7 @@ const sharePostSubject = mockFragment<CommunityFeedPost>(
   {
     mocks: {
       Post: () => ({
-        postType: () => PostTypeEnum.help_request,
+        postType: () => PostTypeEnum.question,
       }),
     },
   },

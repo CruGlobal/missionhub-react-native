@@ -1053,7 +1053,7 @@ exports[`should render correctly | Share Step 1`] = `
             ]
           }
         >
-          CARE STEP
+          SHARE STEP
         </Text>
       </View>
       <Text
@@ -1076,7 +1076,7 @@ exports[`should render correctly | Share Step 1`] = `
           ]
         }
       >
-        Help with Hayden's request.
+        Answer Hayden's question.
       </Text>
       <View
         style={
