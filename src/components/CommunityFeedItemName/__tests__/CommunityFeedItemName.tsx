@@ -7,8 +7,6 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
 import { COMMUNITY_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
 import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
-import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS } from '../../../constants';
 
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/people');
@@ -23,9 +21,6 @@ const navToPersonScreenResult = { type: 'navigated to person screen' };
 
 beforeEach(() => {
   (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-    permission_id: ORG_PERMISSIONS.USER,
-  });
 });
 
 it('renders correctly without name', () => {
@@ -78,11 +73,10 @@ it('navigates to person screen', () => {
 });
 
 it('does not navigate if not apart of community', () => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
   const { store, getByTestId } = renderWithContext(
     <CommunityFeedItemName
       name={name}
-      person={person}
+      person={null}
       communityId={communityId}
       pressable={true}
     />,

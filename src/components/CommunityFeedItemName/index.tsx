@@ -1,11 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Button } from '../common';
 import ItemHeaderText from '../ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
-import { orgPermissionSelector } from '../../selectors/people';
 import { CommunityPerson } from '../CommunityFeedItem/__generated__/CommunityPerson';
 
 import styles from './styles';
@@ -27,22 +26,9 @@ export const CommunityFeedItemName = ({
 }: CommunityFeedItemNameProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
-  const personId = person?.id;
-  const communityPerm = useSelector(() =>
-    orgPermissionSelector(
-      {},
-      {
-        person,
-        organization: { id: communityId },
-      },
-    ),
-  );
 
   const onPressNameLink = () =>
-    personId &&
-    // only navigate if they are still a member of the community
-    communityPerm &&
-    dispatch(navToPersonScreen(person, { id: communityId }));
+    person && dispatch(navToPersonScreen(person, { id: communityId }));
 
   const content = customContent || (
     <ItemHeaderText
