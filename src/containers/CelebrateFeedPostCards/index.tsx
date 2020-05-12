@@ -1,36 +1,34 @@
 /* eslint-disable max-lines */
 import React from 'react';
 import { View } from 'react-native';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
-import { orgIsGlobal } from '../../utils/common';
-import { celebrationSelector } from '../../selectors/celebration';
+import { mapPostTypeToFeedType } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
-import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { momentUtc } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../CelebrateFeedWithType';
 import { navigatePush } from '../../actions/navigation';
 import { PostTypeCardWithPeople } from '../../components/PostTypeLabel';
 
-import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
-import styles from './styles';
+import {
+  GET_COMMUNITY_POST_CARDS,
+  MARK_COMMUNITY_FEED_ITEMS_READ,
+} from './queries';
+import {
+  GetCommunityPostCards,
+  GetCommunityPostCards_community_feedItems_nodes,
+} from './__generated__/GetCommunityPostCards';
+import { FeedItemPostCard_author } from './__generated__/FeedItemPostCard';
+import { FeedItemStepCard_owner } from './__generated__/FeedItemStepCard';
+import {
+  MarkCommunityFeedItemsReadVariables,
+  MarkCommunityFeedItemsRead,
+} from './__generated__/MarkCommunityFeedItemsRead';
 
 export interface CelebrateFeedPostCardsProps {
   organization: Organization;
-  person?: Person;
-  itemNamePressable: boolean;
-  noHeader?: boolean;
-  showUnreadOnly?: boolean;
-  onRefetch?: () => void;
-  onFetchMore?: () => void;
-  onClearNotification?: (post: FeedItemFragment) => void;
-  testID?: string;
-  filteredFeedType?: FeedItemSubjectTypeEnum;
-  collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
 export interface CommunityFeedSection {
@@ -39,127 +37,122 @@ export interface CommunityFeedSection {
   data: FeedItemFragment[];
 }
 
-const sortCommunityFeed = (items: FeedItemFragment[]) => {
-  const sortByDate = items;
-  sortByDate.sort(compare);
-
-  const dateSections: CommunityFeedSection[] = [];
-  sortByDate.forEach(item => {
-    const length = dateSections.length;
-    const itemMoment = momentUtc(item.createdAt);
-
-    if (
-      length > 0 &&
-      itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
-    ) {
-      dateSections[length - 1].data.push(item);
-    } else {
-      dateSections.push({
-        id: dateSections.length,
-        date: item.createdAt,
-        data: [item],
-      });
+const getGroupPostCards = (
+  nodes: GetCommunityPostCards_community_feedItems_nodes[],
+) => {
+  const groups: {
+    [key in
+      | FeedItemSubjectTypeEnum.PRAYER_REQUEST
+      | FeedItemSubjectTypeEnum.STEP
+      | FeedItemSubjectTypeEnum.QUESTION
+      | FeedItemSubjectTypeEnum.STORY
+      | FeedItemSubjectTypeEnum.HELP_REQUEST
+      | FeedItemSubjectTypeEnum.ANNOUNCEMENT]:
+      | FeedItemPostCard_author[]
+      | FeedItemStepCard_owner[];
+  } = {
+    [FeedItemSubjectTypeEnum.PRAYER_REQUEST]: [],
+    [FeedItemSubjectTypeEnum.STEP]: [],
+    [FeedItemSubjectTypeEnum.QUESTION]: [],
+    [FeedItemSubjectTypeEnum.STORY]: [],
+    [FeedItemSubjectTypeEnum.HELP_REQUEST]: [],
+    [FeedItemSubjectTypeEnum.ANNOUNCEMENT]: [],
+  };
+  nodes.forEach(i => {
+    const subject = i.subject;
+    if (subject.__typename === 'Step') {
+      groups[FeedItemSubjectTypeEnum.STEP].push(subject.owner);
+    } else if (subject.__typename === 'Post') {
+      const feedType = mapPostTypeToFeedType(subject.postType);
+      if (
+        feedType === FeedItemSubjectTypeEnum.PRAYER_REQUEST ||
+        feedType === FeedItemSubjectTypeEnum.QUESTION ||
+        feedType === FeedItemSubjectTypeEnum.STORY ||
+        feedType === FeedItemSubjectTypeEnum.HELP_REQUEST ||
+        feedType === FeedItemSubjectTypeEnum.ANNOUNCEMENT
+      ) {
+        groups[feedType].push(subject.author);
+      }
     }
   });
-
-  return dateSections;
-};
-
-const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
-  const aValue = a.createdAt,
-    bValue = b.createdAt;
-
-  if (aValue < bValue) {
-    return 1;
-  }
-  if (aValue > bValue) {
-    return -1;
-  }
-  return 0;
+  return groups;
 };
 
 export const CelebrateFeedPostCards = ({
   organization,
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
-  const isGlobal = orgIsGlobal(organization);
   const queryVariables = {
     communityId: organization.id,
   };
 
-  const {
-    data: { community: { feedItems: { nodes = [] } = {} } = {} } = {},
-    loading,
-    error,
-    fetchMore,
-    refetch,
-  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
-    variables: queryVariables,
-    pollInterval: 30000,
-    skip: isGlobal,
-  });
+  const { data, refetch } = useQuery<GetCommunityPostCards>(
+    GET_COMMUNITY_POST_CARDS,
+    { variables: queryVariables },
+  );
 
-  const {
-    data: {
-      globalCommunity: {
-        celebrationItems: {
-          nodes: globalNodes = [],
-          pageInfo: {
-            endCursor: globalEndCursor = null,
-            hasNextPage: globalHasNextPage = false,
-          } = {},
-        } = {},
-      } = {},
-    } = {},
-    loading: globalLoading,
-    error: globalError,
-    fetchMore: globalFetchMore,
-    refetch: globalRefetch,
-  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
-    pollInterval: 30000,
-    skip: !isGlobal,
-  });
+  const groups = getGroupPostCards(data?.community.feedItems.nodes || []);
 
-  const items = isGlobal
-    ? celebrationSelector({ celebrateItems: globalNodes })
-    : sortCommunityFeed(nodes);
+  const [markCommunityFeedItemsAsRead] = useMutation<
+    MarkCommunityFeedItemsRead,
+    MarkCommunityFeedItemsReadVariables
+  >(MARK_COMMUNITY_FEED_ITEMS_READ);
 
-  const navToFeedType = (type: FeedItemSubjectTypeEnum) => {
+  const navToFeedType = async (type: FeedItemSubjectTypeEnum) => {
     dispatch(
       navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, { type, organization }),
     );
+    await markCommunityFeedItemsAsRead({
+      variables: {
+        input: { feedItemSubjectType: type, communityId: organization.id },
+      },
+    });
+    refetch();
   };
 
   return (
     <View>
       <View style={{ flexDirection: 'row' }}>
         <PostTypeCardWithPeople
+          testID="PostCard_PRAYER_REQUEST"
           type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
           onPress={() => navToFeedType(FeedItemSubjectTypeEnum.PRAYER_REQUEST)}
+          people={groups[FeedItemSubjectTypeEnum.PRAYER_REQUEST]}
         />
         <PostTypeCardWithPeople
+          testID="PostCard_STEP"
           type={FeedItemSubjectTypeEnum.STEP}
           onPress={() => navToFeedType(FeedItemSubjectTypeEnum.STEP)}
+          people={groups[FeedItemSubjectTypeEnum.STEP]}
         />
       </View>
       <View style={{ flexDirection: 'row' }}>
         <PostTypeCardWithPeople
+          testID="PostCard_QUESTION"
           type={FeedItemSubjectTypeEnum.QUESTION}
           onPress={() => navToFeedType(FeedItemSubjectTypeEnum.QUESTION)}
+          people={groups[FeedItemSubjectTypeEnum.QUESTION]}
         />
         <PostTypeCardWithPeople
+          testID="PostCard_STORY"
           type={FeedItemSubjectTypeEnum.STORY}
           onPress={() => navToFeedType(FeedItemSubjectTypeEnum.STORY)}
+          people={groups[FeedItemSubjectTypeEnum.STORY]}
         />
       </View>
       <View style={{ flexDirection: 'row' }}>
         <PostTypeCardWithPeople
+          testID="PostCard_HELP_REQUEST"
           type={FeedItemSubjectTypeEnum.HELP_REQUEST}
           onPress={() => navToFeedType(FeedItemSubjectTypeEnum.HELP_REQUEST)}
+          people={groups[FeedItemSubjectTypeEnum.HELP_REQUEST]}
         />
         <PostTypeCardWithPeople
+          testID="PostCard_ANNOUNCEMENT"
           type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
           onPress={() => navToFeedType(FeedItemSubjectTypeEnum.ANNOUNCEMENT)}
+          people={groups[FeedItemSubjectTypeEnum.ANNOUNCEMENT]}
+          countOnly={true}
         />
       </View>
     </View>

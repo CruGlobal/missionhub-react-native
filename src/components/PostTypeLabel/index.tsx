@@ -18,6 +18,8 @@ import BackButton from '../../containers/BackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import Avatar from '../Avatar';
+import { FeedItemPostCard_author } from '../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
+import { FeedItemStepCard_owner } from '../../containers/CelebrateFeedPostCards/__generated__/FeedItemStepCard';
 
 import styles from './styles';
 
@@ -152,19 +154,32 @@ const PostTypeLabel = ({
   );
 };
 
+const SHOW_PEOPLE = 3;
+function getExtraCount(numPeople = 0, countOnly = false) {
+  let num = countOnly ? numPeople : numPeople - SHOW_PEOPLE;
+  num = num <= 0 ? 0 : num;
+  if (num > 9) {
+    num = 9;
+  }
+  return num;
+}
+
 interface PostTypeCardWithPeopleProps {
   type: FeedItemSubjectTypeEnum;
   onPress: TouchablePress;
-  //eslint-disable-next-line @typescript-eslint/no-explicit-any
-  people?: any[]; // TODO: Set this up
+  people?: FeedItemPostCard_author[] | FeedItemStepCard_owner[];
+  countOnly?: boolean;
+  testID?: string;
 }
 export const PostTypeCardWithPeople = ({
   type,
   onPress,
   people,
+  countOnly = false,
 }: PostTypeCardWithPeopleProps) => {
   const { t } = useTranslation('postTypes');
-  const visiblePeople = people?.slice(0, 9);
+  const visiblePeople = people?.slice(0, 3);
+  const num = getExtraCount(people?.length, countOnly);
 
   return (
     <Card onPress={onPress} style={styles.peopleCard}>
@@ -175,20 +190,23 @@ export const PostTypeCardWithPeople = ({
           style={{ marginLeft: 0, marginRight: 0 }}
         />
         <View style={styles.peopleCardList}>
-          {visiblePeople?.map((p, i) => (
+          {!countOnly &&
+            visiblePeople?.map((p, i) => (
+              <Avatar
+                key={i}
+                person={p}
+                size="extrasmall"
+                style={{ marginLeft: -12 }}
+              />
+            ))}
+          {num > 0 && (
             <Avatar
-              key={i}
-              person={p}
+              person={null}
+              customText={`+${num}`}
               size="extrasmall"
-              style={{ marginRight: -10 * i }}
+              style={[styles[type], { marginLeft: -12 }]}
             />
-          ))}
-          <Avatar
-            person={null}
-            customText="+9"
-            size="extrasmall"
-            style={[styles[type]]}
-          />
+          )}
         </View>
       </View>
       <View style={styles.peopleCardBottom}>

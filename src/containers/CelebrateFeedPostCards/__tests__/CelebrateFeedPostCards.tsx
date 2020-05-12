@@ -1,293 +1,114 @@
 import React from 'react';
 import { MockList } from 'graphql-tools';
-import { flushMicrotasksQueue } from 'react-native-testing-library';
-import { useQuery } from '@apollo/react-hooks';
+import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
+import { ReactTestInstance } from 'react-test-renderer';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { organizationSelector } from '../../../selectors/organizations';
 import { Organization } from '../../../reducers/organizations';
-import { Person } from '../../../reducers/people';
-import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
+import {
+  GET_COMMUNITY_POST_CARDS,
+  MARK_COMMUNITY_FEED_ITEMS_READ,
+} from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
 
-import { CelebrateFeed } from '..';
+import { CelebrateFeedPostCards } from '..';
 
-jest.mock('../../../actions/navigation');
-jest.mock('../../../selectors/organizations');
-jest.mock('../../../components/CommunityFeedItem', () => ({
-  CommunityFeedItem: 'CommunityFeedItem',
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn(() => ({ type: 'navigatePush' })),
 }));
+jest.mock('../../../selectors/organizations');
 jest.mock('../../../components/PostTypeLabel', () => ({
   PostTypeCardWithPeople: 'PostTypeCardWithPeople',
 }));
-jest.mock('../../Groups/CreatePostButton', () => ({
-  CreatePostButton: 'CreatePostButton',
-}));
-jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
 
 const myId = '123';
 const organization: Organization = { id: '456' };
-const person: Person = { id: '789' };
-
-const navigatePushResult = { type: 'navigated' };
 
 const initialState = {
   auth: { person: { id: myId } },
   organizations: { all: [organization] },
-  reportedComments: { all: { [organization.id]: [] } },
-  swipe: { groupOnboarding: {} },
 };
 
 beforeEach(() => {
-  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
     organization,
   );
-  jest.useFakeTimers();
 });
 
 it('renders empty correctly', () => {
-  renderWithContext(
-    <CelebrateFeed organization={organization} itemNamePressable={true} />,
-    {
-      initialState,
-      mocks: {
-        FeedItemConnection: () => ({
-          nodes: () => new MockList(10),
-        }),
-      },
-    },
-  ).snapshot();
+  renderWithContext(<CelebrateFeedPostCards organization={organization} />, {
+    initialState,
+    mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(0) }) },
+  }).snapshot();
 });
 
-it('renders with celebration items correctly', async () => {
+it('renders with feed items correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CelebrateFeed organization={organization} itemNamePressable={true} />,
+    <CelebrateFeedPostCards organization={organization} />,
     {
       initialState,
-      mocks: {
-        FeedItemConnection: () => ({
-          nodes: () => new MockList(10),
-        }),
-      },
+      mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
     },
   );
 
   await flushMicrotasksQueue();
   snapshot();
 
-  expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
-    skip: false,
-    pollInterval: 30000,
-    variables: {
-      communityId: organization.id,
-      hasUnreadComments: undefined,
-      personIds: undefined,
-    },
-  });
-  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-    skip: true,
-    pollInterval: 30000,
+  expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_POST_CARDS, {
+    variables: { communityId: organization.id },
   });
 });
 
-describe('renders for member', () => {
-  it('renders correctly', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        person={person}
-        itemNamePressable={true}
-      />,
+describe('navs to screens', () => {
+  let myGetByTestId: (testID: string) => ReactTestInstance;
+  beforeEach(() => {
+    const { getByTestId } = renderWithContext(
+      <CelebrateFeedPostCards organization={organization} />,
       {
         initialState,
         mocks: {
-          FeedItemConnection: () => ({
-            nodes: () => new MockList(10),
-          }),
+          FeedItemConnection: () => ({ nodes: () => new MockList(1) }),
         },
       },
     );
-
-    await flushMicrotasksQueue();
-    snapshot();
-
-    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
-      skip: false,
-      pollInterval: 30000,
-      variables: {
-        communityId: organization.id,
-        hasUnreadComments: undefined,
-        personIds: person.id,
-      },
-    });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-      skip: true,
-      pollInterval: 30000,
-    });
+    myGetByTestId = getByTestId;
   });
-
-  it('renders without header', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        person={person}
-        itemNamePressable={true}
-        noHeader={true}
-      />,
-      {
-        initialState,
-        mocks: {
-          FeedItemConnection: () => ({ nodes: () => new MockList(10) }),
+  async function check(type: FeedItemSubjectTypeEnum) {
+    await flushMicrotasksQueue();
+    await fireEvent.press(myGetByTestId(`PostCard_${type}`));
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+      type,
+      organization,
+    });
+    expect(useMutation).toHaveBeenMutatedWith(MARK_COMMUNITY_FEED_ITEMS_READ, {
+      variables: {
+        input: {
+          communityId: organization.id,
+          feedItemSubjectType: type,
         },
       },
-    );
-
-    await flushMicrotasksQueue();
-    snapshot();
-
-    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
-      skip: false,
-      pollInterval: 30000,
-      variables: {
-        communityId: organization.id,
-        hasUnreadComments: undefined,
-        personIds: person.id,
-      },
     });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-      skip: true,
-      pollInterval: 30000,
-    });
+  }
+  it('navs to PRAYER_REQUEST', async () => {
+    await check(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
   });
-
-  it('renders with type', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        person={person}
-        itemNamePressable={true}
-        filteredFeedType={FeedItemSubjectTypeEnum.STEP}
-      />,
-      {
-        initialState,
-        mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(1) }) },
-      },
-    );
-
-    await flushMicrotasksQueue();
-    snapshot();
+  it('navs to STEP', async () => {
+    await check(FeedItemSubjectTypeEnum.STEP);
   });
-});
-
-describe('renders with clear notification', () => {
-  it('renders correctly', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        itemNamePressable={true}
-        onClearNotification={jest.fn()}
-      />,
-      {
-        initialState,
-        mocks: {
-          FeedItemConnection: () => ({
-            nodes: () => new MockList(10),
-          }),
-        },
-      },
-    );
-
-    await flushMicrotasksQueue();
-    snapshot();
-
-    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
-      skip: false,
-      pollInterval: 30000,
-      variables: {
-        communityId: organization.id,
-        hasUnreadComments: undefined,
-        personIds: undefined,
-      },
-    });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-      skip: true,
-      pollInterval: 30000,
-    });
+  it('navs to QUESTION', async () => {
+    await check(FeedItemSubjectTypeEnum.QUESTION);
   });
-});
-
-describe('renders for Unread Comments', () => {
-  it('renders correctly', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        itemNamePressable={true}
-        showUnreadOnly={true}
-      />,
-      {
-        initialState,
-        mocks: {
-          FeedItemConnection: () => ({
-            nodes: () => new MockList(10),
-          }),
-        },
-      },
-    );
-
-    await flushMicrotasksQueue();
-    snapshot();
-
-    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
-      skip: false,
-      pollInterval: 30000,
-      variables: {
-        communityId: organization.id,
-        hasUnreadComments: true,
-        personIds: undefined,
-      },
-    });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-      skip: true,
-      pollInterval: 30000,
-    });
+  it('navs to STORY', async () => {
+    await check(FeedItemSubjectTypeEnum.STORY);
   });
-});
-
-describe('renders for Global Community', () => {
-  it('renders correctly', async () => {
-    const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
-        itemNamePressable={true}
-      />,
-      {
-        initialState,
-        mocks: {
-          CommunityCelebrationItemConnection: () => ({
-            nodes: () => new MockList(10),
-          }),
-        },
-      },
-    );
-
-    await flushMicrotasksQueue();
-    snapshot();
-
-    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
-      skip: true,
-      pollInterval: 30000,
-      variables: {
-        communityId: GLOBAL_COMMUNITY_ID,
-        hasUnreadComments: undefined,
-        personIds: undefined,
-      },
-    });
-    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-      skip: false,
-      pollInterval: 30000,
-    });
+  it('navs to HELP_REQUEST', async () => {
+    await check(FeedItemSubjectTypeEnum.HELP_REQUEST);
+  });
+  it('navs to ANNOUNCEMENT', async () => {
+    await check(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
   });
 });

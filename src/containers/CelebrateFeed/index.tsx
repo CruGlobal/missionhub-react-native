@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { Animated, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 
 import { DateComponent } from '../../components/common';
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
@@ -21,9 +20,7 @@ import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/Col
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../CelebrateFeedWithType';
-import { navigatePush } from '../../actions/navigation';
-import { PostTypeCardWithPeople } from '../../components/PostTypeLabel';
+import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
@@ -102,7 +99,6 @@ export const CelebrateFeed = ({
   collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
-  const dispatch = useDispatch();
   const isGlobal = orgIsGlobal(organization);
   const queryVariables = {
     communityId: organization.id,
@@ -158,12 +154,6 @@ export const CelebrateFeed = ({
   const handleRefreshing = () => {
     isGlobal ? globalRefetch() : refetch();
     onRefetch && onRefetch();
-  };
-
-  const navToFeedType = (type: FeedItemSubjectTypeEnum) => {
-    dispatch(
-      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, { type, organization }),
-    );
   };
 
   const handleOnEndReached = () => {
@@ -283,47 +273,8 @@ export const CelebrateFeed = ({
                 communityId={organization.id}
               />
             ) : null}
-            {filteredFeedType ? null : (
-              <View>
-                <View style={{ flexDirection: 'row' }}>
-                  <PostTypeCardWithPeople
-                    type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
-                    onPress={() =>
-                      navToFeedType(FeedItemSubjectTypeEnum.PRAYER_REQUEST)
-                    }
-                  />
-                  <PostTypeCardWithPeople
-                    type={FeedItemSubjectTypeEnum.STEP}
-                    onPress={() => navToFeedType(FeedItemSubjectTypeEnum.STEP)}
-                  />
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                  <PostTypeCardWithPeople
-                    type={FeedItemSubjectTypeEnum.QUESTION}
-                    onPress={() =>
-                      navToFeedType(FeedItemSubjectTypeEnum.QUESTION)
-                    }
-                  />
-                  <PostTypeCardWithPeople
-                    type={FeedItemSubjectTypeEnum.STORY}
-                    onPress={() => navToFeedType(FeedItemSubjectTypeEnum.STORY)}
-                  />
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                  <PostTypeCardWithPeople
-                    type={FeedItemSubjectTypeEnum.HELP_REQUEST}
-                    onPress={() =>
-                      navToFeedType(FeedItemSubjectTypeEnum.HELP_REQUEST)
-                    }
-                  />
-                  <PostTypeCardWithPeople
-                    type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
-                    onPress={() =>
-                      navToFeedType(FeedItemSubjectTypeEnum.ANNOUNCEMENT)
-                    }
-                  />
-                </View>
-              </View>
+            {filteredFeedType || isGlobal ? null : (
+              <CelebrateFeedPostCards organization={organization} />
             )}
           </>
         )}

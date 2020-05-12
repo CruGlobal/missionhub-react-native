@@ -2,7 +2,10 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
+import { FeedItemPostCard_author } from '../../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
+import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CelebrateFeedPostCards/queries';
 
 import PostTypeLabel, { PostLabelSizeEnum, PostTypeCardWithPeople } from '..';
 
@@ -30,41 +33,31 @@ describe('post types', () => {
   it('renders Prayer Request Label', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.PRAYER_REQUEST} />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Spiritual Question Label', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.QUESTION} />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Care Request Label', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders On Your Mind Label', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.THOUGHT} />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Announcement Label', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.ANNOUNCEMENT} />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Step Of Faith Label', () => {
@@ -81,9 +74,7 @@ describe('label variations', () => {
         type={FeedItemSubjectTypeEnum.STORY}
         size={PostLabelSizeEnum.large}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
 
@@ -99,9 +90,7 @@ describe('label variations', () => {
   it('renders label with no text', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} showText={false} />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
 });
@@ -127,9 +116,7 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.STORY}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Prayer Request Label', () => {
@@ -138,9 +125,7 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Spiritual Question Label', () => {
@@ -149,9 +134,7 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.QUESTION}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Care Request Label', () => {
@@ -160,9 +143,7 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.HELP_REQUEST}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders On Your Mind Label', () => {
@@ -171,9 +152,7 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.THOUGHT}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Announcement Label', () => {
@@ -182,9 +161,7 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     ).snapshot();
   });
   it('renders Step Of Faith Label', () => {
@@ -193,9 +170,39 @@ describe('post types cards', () => {
         onPress={onPress}
         type={FeedItemSubjectTypeEnum.STEP}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
+    ).snapshot();
+  });
+
+  const people = [
+    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+  ];
+
+  it('renders people', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STEP}
+        people={people}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+
+  it('renders people with count only', () => {
+    renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STEP}
+        people={people}
+        countOnly={true}
+      />,
+      { noWrappers: true },
     ).snapshot();
   });
 });
