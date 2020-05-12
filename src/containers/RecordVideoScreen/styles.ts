@@ -5,11 +5,9 @@ import theme from '../../theme';
 export default StyleSheet.create({
   container: { flex: 1, justifyContent: 'space-between' },
   cameraContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
+    flex: 1,
+    borderWidth: 2,
+    borderColor: 'red',
   },
   controlBarBackground: {
     position: 'absolute',
@@ -26,6 +24,10 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 24,
     paddingHorizontal: 32,
+  },
+  countdownTextWrap: {
+    width: 40,
+    alignItems: 'flex-start',
   },
   countdownText: {
     fontWeight: '300',
@@ -56,13 +58,13 @@ export default StyleSheet.create({
     borderRadius: 2,
   },
   closeButtonWrap: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    position: 'absolute',
+    top: 18,
+    right: 18,
   },
   closeButton: {
     backgroundColor: theme.black,
     borderRadius: 18,
     opacity: 0.5,
-    margin: 18,
   },
 });

@@ -55,20 +55,28 @@ export const RecordVideoScreen = () => {
   };
 
   const startRecording = async () => {
-    setVideoState('RECORDING');
-    if (camera.current) {
-      const { uri } = await camera.current.recordAsync();
-
-      onEndRecord(uri);
+    if (!camera.current) {
+      return;
     }
+
+    console.log('start recording');
+    setVideoState('RECORDING');
     startCountdown();
+
+    const { uri } = await camera.current.recordAsync();
+    console.log(uri);
+    onEndRecord(uri);
   };
 
   const endRecording = () => {
+    console.log('stop recording');
+
     setVideoState('NOT_RECORDING');
-    camera.current?.stopRecording();
-    dispatch(navigateBack());
     endCountdown();
+
+    camera.current?.stopRecording();
+
+    dispatch(navigateBack());
   };
 
   const handleClose = () => dispatch(navigateBack());
@@ -106,7 +114,7 @@ export const RecordVideoScreen = () => {
       <View style={styles.controlBarBackground} />
       <SafeAreaView>
         <View style={styles.controlBarContainer}>
-          <View style={{ borderWidth: 1, width: 40, alignItems: 'flex-start' }}>
+          <View style={styles.countdownTextWrap}>
             <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
           </View>
           {renderRecordButton()}
@@ -121,8 +129,22 @@ export const RecordVideoScreen = () => {
   const renderCameraView = () => (
     <View style={styles.cameraContainer}>
       <RNCamera
+        ref={camera}
         type={cameraType}
         flashMode={RNCamera.Constants.FlashMode.auto}
+        ratio={'16:9'}
+        androidCameraPermissionOptions={{
+          title: 'Permission to use camera',
+          message: 'We need your permission to use your camera',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        }}
+        androidRecordAudioPermissionOptions={{
+          title: 'Permission to use audio recording',
+          message: 'We need your permission to use your audio',
+          buttonPositive: 'Ok',
+          buttonNegative: 'Cancel',
+        }}
       />
     </View>
   );
