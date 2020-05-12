@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux';
 import { Button } from '../common';
 import ItemHeaderText from '../ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
+import { CommunityPerson } from '../CommunityFeedItem/__generated__/CommunityPerson';
 
 import styles from './styles';
 
 export interface CommunityFeedItemNameProps {
   name: string | null;
-  personId?: string;
+  person?: CommunityPerson | null;
   communityId: string;
   pressable: boolean;
   customContent?: JSX.Element;
@@ -18,7 +19,7 @@ export interface CommunityFeedItemNameProps {
 
 export const CommunityFeedItemName = ({
   name,
-  personId,
+  person,
   communityId,
   pressable,
   customContent,
@@ -27,8 +28,7 @@ export const CommunityFeedItemName = ({
   const dispatch = useDispatch();
 
   const onPressNameLink = () =>
-    personId &&
-    dispatch(navToPersonScreen({ id: personId }, { id: communityId }));
+    person && dispatch(navToPersonScreen(person, { id: communityId }));
 
   const content = customContent || (
     <ItemHeaderText

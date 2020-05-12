@@ -102,7 +102,9 @@ describe('global community', () => {
         communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -115,7 +117,9 @@ describe('global community', () => {
         namePressable={false}
         onClearNotification={onClearNotification}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -127,7 +131,9 @@ describe('global community', () => {
         communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 });
@@ -141,7 +147,9 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -153,7 +161,9 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -180,7 +190,9 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -192,7 +204,9 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -205,7 +219,9 @@ describe('Community', () => {
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 });
@@ -218,7 +234,9 @@ it('renders with name pressable correctly', () => {
       communityId={communityId}
       namePressable={true}
     />,
-    { initialState },
+    {
+      initialState,
+    },
   ).snapshot();
 });
 
