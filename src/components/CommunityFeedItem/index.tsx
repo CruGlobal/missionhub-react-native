@@ -47,11 +47,9 @@ export const CommunityFeedItem = ({
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { createdAt, subject, subjectPerson, subjectPersonName } = item;
-  const personId = subjectPerson?.id || '';
-
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
-  const isMe = useIsMe(personId || '');
+  const isMe = useIsMe(subjectPerson?.id || '');
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
   );

@@ -86,7 +86,6 @@ const CelebrateDetailScreen = ({
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
-  const person = event.subjectPerson;
 
   const listRef = useRef<FlatList<CelebrateComment>>(null);
 
@@ -122,7 +121,7 @@ const CelebrateDetailScreen = ({
           <View style={{ flex: 1 }}>
             <CommunityFeedItemName
               name={event.subjectPersonName}
-              person={person}
+              person={event.subjectPerson}
               communityId={organization.id}
               pressable={true}
             />
