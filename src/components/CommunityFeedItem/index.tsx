@@ -22,6 +22,7 @@ import {
   CommunityFeedItem_subject,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -132,7 +133,12 @@ export const CommunityFeedItem = ({
   };
 
   const navToFilteredFeed = () => {
-    //TODO: navigate to filtered feed for post type
+    dispatch(
+      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+        type: FeedItemType,
+        communityId,
+      }),
+    );
   };
 
   const menuActions =

@@ -87,6 +87,7 @@ interface PostTypeLabelProps {
   onPress?: TouchablePress;
   showText?: boolean;
   size?: PostLabelSizeEnum;
+  testID?: string;
 }
 
 const PostTypeLabel = ({
