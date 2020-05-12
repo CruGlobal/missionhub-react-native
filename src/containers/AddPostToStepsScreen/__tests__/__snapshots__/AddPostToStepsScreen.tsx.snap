@@ -43,88 +43,7 @@ exports[`should render correctly | Care Step 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "flex-start",
-                "alignSelf": "flex-start",
-                "justifyContent": "center",
-              },
-              undefined,
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#A0A2A6",
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
+      />
       <View
         style={
           Array [
@@ -138,7 +57,58 @@ exports[`should render correctly | Care Step 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
@@ -212,7 +182,7 @@ exports[`should render correctly | Care Step 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontWeight": "300",
               "lineHeight": 38,
@@ -253,51 +223,27 @@ exports[`should render correctly | Care Step 1`] = `
             ]
           }
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "quam ipsam nobis",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
                 },
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(123, 167, 115)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "backgroundColor": "rgb(123, 167, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 26,
-                      "fontWeight": "300",
-                    },
-                  ],
-                ]
-              }
-            >
-              H
-            </Text>
-          </View>
+          />
           <View
             style={
               Array [
@@ -324,7 +270,7 @@ exports[`should render correctly | Care Step 1`] = `
                 ]
               }
             >
-              Hayden Zieme
+              Kali Stamm
             </Text>
             <View
               style={
@@ -405,7 +351,7 @@ exports[`should render correctly | Care Step 1`] = `
               ]
             }
           >
-            itaque velit omnis
+            et porro ut
           </Text>
         </View>
       </View>
@@ -539,88 +485,7 @@ exports[`should render correctly | Pray Step 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "flex-start",
-                "alignSelf": "flex-start",
-                "justifyContent": "center",
-              },
-              undefined,
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#A0A2A6",
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
+      />
       <View
         style={
           Array [
@@ -634,7 +499,58 @@ exports[`should render correctly | Pray Step 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
@@ -708,7 +624,7 @@ exports[`should render correctly | Pray Step 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontWeight": "300",
               "lineHeight": 38,
@@ -749,51 +665,27 @@ exports[`should render correctly | Pray Step 1`] = `
             ]
           }
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "quam ipsam nobis",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
                 },
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(123, 167, 115)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "backgroundColor": "rgb(123, 167, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 26,
-                      "fontWeight": "300",
-                    },
-                  ],
-                ]
-              }
-            >
-              H
-            </Text>
-          </View>
+          />
           <View
             style={
               Array [
@@ -820,7 +712,7 @@ exports[`should render correctly | Pray Step 1`] = `
                 ]
               }
             >
-              Hayden Zieme
+              Kali Stamm
             </Text>
             <View
               style={
@@ -901,7 +793,7 @@ exports[`should render correctly | Pray Step 1`] = `
               ]
             }
           >
-            accusantium sed libero
+            repudiandae esse blanditiis
           </Text>
         </View>
       </View>
@@ -1035,88 +927,7 @@ exports[`should render correctly | Share Step 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "flex-start",
-                "alignSelf": "flex-start",
-                "justifyContent": "center",
-              },
-              undefined,
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#A0A2A6",
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
+      />
       <View
         style={
           Array [
@@ -1130,7 +941,58 @@ exports[`should render correctly | Share Step 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
     </View>
   </RCTSafeAreaView>
   <RCTScrollView
@@ -1204,7 +1066,7 @@ exports[`should render correctly | Share Step 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 32,
               "fontWeight": "300",
               "lineHeight": 38,
@@ -1245,51 +1107,27 @@ exports[`should render correctly | Share Step 1`] = `
             ]
           }
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "quam ipsam nobis",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
                 },
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(123, 167, 115)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "backgroundColor": "rgb(123, 167, 115)",
+                },
+                undefined,
               ]
             }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 26,
-                      "fontWeight": "300",
-                    },
-                  ],
-                ]
-              }
-            >
-              H
-            </Text>
-          </View>
+          />
           <View
             style={
               Array [
@@ -1316,7 +1154,7 @@ exports[`should render correctly | Share Step 1`] = `
                 ]
               }
             >
-              Hayden Zieme
+              Kali Stamm
             </Text>
             <View
               style={
@@ -1397,7 +1235,7 @@ exports[`should render correctly | Share Step 1`] = `
               ]
             }
           >
-            eligendi occaecati debitis
+            et saepe eum
           </Text>
         </View>
       </View>

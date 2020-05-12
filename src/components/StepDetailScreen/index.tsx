@@ -16,6 +16,7 @@ import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
 import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
+import BackIcon from '../../../assets/images/backIcon.svg';
 
 import styles from './styles';
 
@@ -26,6 +27,7 @@ interface StepDetailScreenProps {
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
+  noLeftHeader?: boolean;
   CenterContent?: React.ReactNode;
   Banner?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
@@ -39,6 +41,7 @@ const StepDetailScreen = ({
   stepType,
   CenterHeader,
   RightHeader,
+  noLeftHeader = false,
   CenterContent,
   bottomButtonProps,
   Banner = null,
@@ -52,19 +55,14 @@ const StepDetailScreen = ({
     pageContainer,
     personNameStyle,
     dateTextStyle,
-    postTitleTextStyle,
   } = styles;
   const { t } = useTranslation('stepDetail');
-
-  const postAuthorName = post?.author.fullName
-    ? post.author.fullName
-    : `${post?.author.firstName} ${post?.author.lastName}`;
 
   const renderContent = () => (
     <>
       {Banner}
       <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
-      <Text style={post ? postTitleTextStyle : stepTitleText}>{text}</Text>
+      <Text style={stepTitleText}>{text}</Text>
       {CenterContent}
       <View style={body}>
         {markdown ? (
@@ -77,7 +75,7 @@ const StepDetailScreen = ({
             <Flex direction="row">
               <Avatar person={post.author} size={'medium'} />
               <Flex style={{ marginLeft: 10 }}>
-                <Text style={personNameStyle}>{postAuthorName}</Text>
+                <Text style={personNameStyle}>{post.author.fullName}</Text>
                 <Flex direction="row" justify="center" align="center">
                   <DateComponent
                     style={dateTextStyle}
@@ -112,7 +110,14 @@ const StepDetailScreen = ({
     <View style={pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={<BackButton iconStyle={backButton} />}
+        left={
+          noLeftHeader ? null : (
+            <BackButton
+              RenderIcon={<BackIcon color={theme.lightGrey} />}
+              iconStyle={backButton}
+            />
+          )
+        }
         center={CenterHeader}
         right={RightHeader}
       />

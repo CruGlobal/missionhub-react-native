@@ -10,6 +10,9 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { PostTypeEnum, StepTypeEnum } from '../../../__generated__/globalTypes';
 import { Separator } from '../../components/common';
+import CloseIcon from '../../../assets/images/closeButton.svg';
+import BackButton from '../BackButton';
+import theme from '../../theme';
 
 import {
   AddPostToMySteps,
@@ -67,7 +70,10 @@ const AddPostToStepsScreen = () => {
   return (
     <StepDetailScreen
       CenterHeader={null}
-      RightHeader={null}
+      RightHeader={
+        <BackButton RenderIcon={<CloseIcon color={theme.white} />} />
+      }
+      noLeftHeader={true}
       Banner={
         <>
           <ErrorNotice

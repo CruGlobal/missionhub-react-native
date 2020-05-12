@@ -13,6 +13,7 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
+import Button from '../../components/Button';
 
 import styles from './styles';
 
@@ -20,6 +21,7 @@ interface BackButtonProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   style?: StyleProp<ViewStyle>;
   customIcon?: string;
+  RenderIcon?: React.ReactNode;
   image?: ImageSourcePropType;
   iconStyle?: StyleProp<TextStyle>;
   customNavigate?: () => void;
@@ -28,6 +30,7 @@ interface BackButtonProps {
 const BackButton = ({
   dispatch,
   style,
+  RenderIcon,
   customIcon,
   image,
   iconStyle,
@@ -37,6 +40,14 @@ const BackButton = ({
     customNavigate ? customNavigate() : dispatch(navigateBack());
     Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
   };
+
+  if (RenderIcon) {
+    return (
+      <Button style={[styles.container, style]} onPress={onPress}>
+        {RenderIcon}
+      </Button>
+    );
+  }
 
   return (
     <View style={[styles.container, style]}>

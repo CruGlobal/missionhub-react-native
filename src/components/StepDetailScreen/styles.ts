@@ -26,14 +26,6 @@ export default StyleSheet.create({
     marginVertical: 16,
     marginHorizontal: 32,
   },
-  postTitleTextStyle: {
-    fontSize: 32,
-    lineHeight: 38,
-    fontWeight: '300',
-    color: theme.parakeetBlue,
-    marginVertical: 16,
-    marginHorizontal: 32,
-  },
   personNameStyle: {
     fontSize: 16,
     fontWeight: 'bold',
