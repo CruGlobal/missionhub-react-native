@@ -47,11 +47,9 @@ export const CommunityFeedItem = ({
   onRefresh,
 }: CommunityFeedItemProps) => {
   const { createdAt, subject, subjectPerson, subjectPersonName } = item;
-  const personId = subjectPerson?.id;
-
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
-  const isMe = useIsMe(personId || '');
+  const isMe = useIsMe(subjectPerson?.id || '');
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
   );
@@ -189,11 +187,11 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        <Avatar size="medium" person={subjectPerson} orgId={communityId} />
+        <Avatar size="medium" person={item.subjectPerson} orgId={communityId} />
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
-            personId={personId}
+            person={item.subjectPerson}
             communityId={communityId}
             pressable={namePressable}
           />

@@ -152,17 +152,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "possimus molestias facere",
-            "adjectiveAttributeValue": "quia et ab",
+            "adjectiveAttributeName": "eos quis ut",
+            "adjectiveAttributeValue": "incidunt omnis delectus",
             "celebrateableId": "32",
             "celebrateableType": "STORY",
-            "changedAttributeName": "quo occaecati quia",
+            "changedAttributeName": "voluptas minima quia",
             "changedAttributeValue": "2017-09-28T01:02:07.116Z",
-            "commentsCount": 17227,
+            "commentsCount": 23362,
             "id": "31",
             "liked": false,
-            "likesCount": 39631,
-            "objectDescription": "accusantium odit doloremque",
+            "likesCount": 9155,
+            "objectDescription": "qui similique ut",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -174,7 +174,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "34",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -182,13 +182,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "35",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Johathan",
+              "firstName": "Haylie",
               "id": "33",
-              "lastName": "Frami",
+              "lastName": "Macejkovic",
+              "picture": "consequatur sit vel",
             },
             "subjectPersonName": "Connor Kihn",
           },
@@ -200,17 +201,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "sed quae nam",
-            "adjectiveAttributeValue": "eos sint autem",
+            "adjectiveAttributeName": "rerum doloremque officia",
+            "adjectiveAttributeValue": "aut ut ut",
             "celebrateableId": "12",
             "celebrateableType": "COMMUNITY_CHALLENGE",
-            "changedAttributeName": "rerum doloremque officia",
+            "changedAttributeName": "eos ducimus eos",
             "changedAttributeValue": "2016-01-27T11:31:41.601Z",
-            "commentsCount": 88312,
+            "commentsCount": 89213,
             "id": "11",
             "liked": true,
-            "likesCount": 54078,
-            "objectDescription": "eos ducimus eos",
+            "likesCount": 37758,
+            "objectDescription": "in ut dolorem",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -222,7 +223,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "14",
                     },
-                    "permission": "no_permissions",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -230,13 +231,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "15",
                     },
-                    "permission": "no_permissions",
+                    "permission": "owner",
                   },
                 ],
               },
-              "firstName": "Simeon",
+              "firstName": "Mack",
               "id": "13",
-              "lastName": "Schoen",
+              "lastName": "Walter",
+              "picture": "ea ut sunt",
             },
             "subjectPersonName": "Caesar Feest",
           },
@@ -248,17 +250,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "iste molestiae dolores",
-            "adjectiveAttributeValue": "commodi inventore sequi",
+            "adjectiveAttributeName": "similique ad sed",
+            "adjectiveAttributeValue": "architecto magnam voluptatem",
             "celebrateableId": "42",
             "celebrateableType": "CREATED_COMMUNITY",
-            "changedAttributeName": "quia itaque quae",
+            "changedAttributeName": "maxime neque adipisci",
             "changedAttributeValue": "2015-09-24T22:48:18.365Z",
-            "commentsCount": 91640,
+            "commentsCount": 93871,
             "id": "41",
-            "liked": false,
-            "likesCount": 78195,
-            "objectDescription": "tempora et quo",
+            "liked": true,
+            "likesCount": 37113,
+            "objectDescription": "ut ab nulla",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -278,13 +280,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "45",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                 ],
               },
-              "firstName": "Alfred",
+              "firstName": "Nannie",
               "id": "43",
-              "lastName": "Macejkovic",
+              "lastName": "Ferry",
+              "picture": "ullam quos sed",
             },
             "subjectPersonName": "Haylee Klocko",
           },
@@ -296,17 +299,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "impedit ex rem",
-            "adjectiveAttributeValue": "voluptates voluptas fuga",
+            "adjectiveAttributeName": "ipsum rem eos",
+            "adjectiveAttributeValue": "quod recusandae consectetur",
             "celebrateableId": "27",
             "celebrateableType": "JOINED_COMMUNITY",
-            "changedAttributeName": "totam perferendis ut",
+            "changedAttributeName": "optio laudantium et",
             "changedAttributeValue": "2014-10-17T09:34:50.933Z",
-            "commentsCount": 92943,
+            "commentsCount": 23036,
             "id": "26",
             "liked": true,
-            "likesCount": 69089,
-            "objectDescription": "omnis repellat quasi",
+            "likesCount": 50824,
+            "objectDescription": "facere quia et",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -326,13 +329,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "30",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Celine",
+              "firstName": "Amara",
               "id": "28",
-              "lastName": "Kovacek",
+              "lastName": "Rath",
+              "picture": "occaecati quia ipsum",
             },
             "subjectPersonName": "Heather Hahn",
           },
@@ -344,17 +348,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "sunt placeat quidem",
-            "adjectiveAttributeValue": "est consequuntur aut",
+            "adjectiveAttributeName": "placeat ex ut",
+            "adjectiveAttributeValue": "voluptas enim ex",
             "celebrateableId": "17",
             "celebrateableType": "COMPLETED_STEP",
-            "changedAttributeName": "est fuga est",
+            "changedAttributeName": "eveniet facere molestiae",
             "changedAttributeValue": "2013-05-05T10:14:48.380Z",
-            "commentsCount": 75094,
+            "commentsCount": 88134,
             "id": "16",
-            "liked": false,
-            "likesCount": 34889,
-            "objectDescription": "voluptas enim ex",
+            "liked": true,
+            "likesCount": 1166,
+            "objectDescription": "nam et dolorum",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -374,13 +378,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "20",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Sonny",
+              "firstName": "Anya",
               "id": "18",
-              "lastName": "Rolfson",
+              "lastName": "Buckridge",
+              "picture": "repellendus hic veritatis",
             },
             "subjectPersonName": "Chyna Howe",
           },
@@ -392,17 +397,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "fugit repellendus hic",
-            "adjectiveAttributeValue": "veritatis qui ex",
+            "adjectiveAttributeName": "ut est sunt",
+            "adjectiveAttributeValue": "corporis alias est",
             "celebrateableId": "22",
             "celebrateableType": "CREATED_COMMUNITY",
-            "changedAttributeName": "culpa earum voluptate",
+            "changedAttributeName": "et sequi voluptas",
             "changedAttributeValue": "2011-07-30T23:09:48.676Z",
-            "commentsCount": 37980,
+            "commentsCount": 57863,
             "id": "21",
-            "liked": false,
-            "likesCount": 76292,
-            "objectDescription": "ut est sunt",
+            "liked": true,
+            "likesCount": 900,
+            "objectDescription": "rerum impedit ex",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -414,7 +419,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "24",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -422,13 +427,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "25",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Elisha",
+              "firstName": "Janick",
               "id": "23",
-              "lastName": "Abernathy",
+              "lastName": "Upton",
+              "picture": "voluptas fuga totam",
             },
             "subjectPersonName": "Gracie Weber",
           },
@@ -440,17 +446,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "minima quia ut",
-            "adjectiveAttributeValue": "minima sunt qui",
+            "adjectiveAttributeName": "et facere placeat",
+            "adjectiveAttributeValue": "molestiae iste molestiae",
             "celebrateableId": "37",
             "celebrateableType": "JOINED_COMMUNITY",
-            "changedAttributeName": "similique ut quam",
+            "changedAttributeName": "dolores commodi inventore",
             "changedAttributeValue": "2010-11-26T00:55:36.529Z",
-            "commentsCount": 56103,
+            "commentsCount": 15333,
             "id": "36",
             "liked": false,
-            "likesCount": 1864,
-            "objectDescription": "vel et nostrum",
+            "likesCount": 93719,
+            "objectDescription": "quae sint odit",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -462,7 +468,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "39",
                     },
-                    "permission": "user",
+                    "permission": "owner",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -474,9 +480,10 @@ exports[`renders for Global Community renders correctly 1`] = `
                   },
                 ],
               },
-              "firstName": "Daron",
+              "firstName": "Oswaldo",
               "id": "38",
-              "lastName": "Raynor",
+              "lastName": "Fadel",
+              "picture": "et quo aperiam",
             },
             "subjectPersonName": "Alek Lesch",
           },
@@ -525,6 +532,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "firstName": "Stewart",
               "id": "3",
               "lastName": "Grant",
+              "picture": "sed magni cupiditate",
             },
             "subjectPersonName": "Hayden Zieme",
           },
@@ -566,17 +574,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "possimus molestias facere",
-            "adjectiveAttributeValue": "quia et ab",
+            "adjectiveAttributeName": "eos quis ut",
+            "adjectiveAttributeValue": "incidunt omnis delectus",
             "celebrateableId": "32",
             "celebrateableType": "STORY",
-            "changedAttributeName": "quo occaecati quia",
+            "changedAttributeName": "voluptas minima quia",
             "changedAttributeValue": "2017-09-28T01:02:07.116Z",
-            "commentsCount": 17227,
+            "commentsCount": 23362,
             "id": "31",
             "liked": false,
-            "likesCount": 39631,
-            "objectDescription": "accusantium odit doloremque",
+            "likesCount": 9155,
+            "objectDescription": "qui similique ut",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -588,7 +596,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "34",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -596,13 +604,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "35",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Johathan",
+              "firstName": "Haylie",
               "id": "33",
-              "lastName": "Frami",
+              "lastName": "Macejkovic",
+              "picture": "consequatur sit vel",
             },
             "subjectPersonName": "Connor Kihn",
           },
@@ -614,17 +623,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "sed quae nam",
-            "adjectiveAttributeValue": "eos sint autem",
+            "adjectiveAttributeName": "rerum doloremque officia",
+            "adjectiveAttributeValue": "aut ut ut",
             "celebrateableId": "12",
             "celebrateableType": "COMMUNITY_CHALLENGE",
-            "changedAttributeName": "rerum doloremque officia",
+            "changedAttributeName": "eos ducimus eos",
             "changedAttributeValue": "2016-01-27T11:31:41.601Z",
-            "commentsCount": 88312,
+            "commentsCount": 89213,
             "id": "11",
             "liked": true,
-            "likesCount": 54078,
-            "objectDescription": "eos ducimus eos",
+            "likesCount": 37758,
+            "objectDescription": "in ut dolorem",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -636,7 +645,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "14",
                     },
-                    "permission": "no_permissions",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -644,13 +653,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "15",
                     },
-                    "permission": "no_permissions",
+                    "permission": "owner",
                   },
                 ],
               },
-              "firstName": "Simeon",
+              "firstName": "Mack",
               "id": "13",
-              "lastName": "Schoen",
+              "lastName": "Walter",
+              "picture": "ea ut sunt",
             },
             "subjectPersonName": "Caesar Feest",
           },
@@ -662,17 +672,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "iste molestiae dolores",
-            "adjectiveAttributeValue": "commodi inventore sequi",
+            "adjectiveAttributeName": "similique ad sed",
+            "adjectiveAttributeValue": "architecto magnam voluptatem",
             "celebrateableId": "42",
             "celebrateableType": "CREATED_COMMUNITY",
-            "changedAttributeName": "quia itaque quae",
+            "changedAttributeName": "maxime neque adipisci",
             "changedAttributeValue": "2015-09-24T22:48:18.365Z",
-            "commentsCount": 91640,
+            "commentsCount": 93871,
             "id": "41",
-            "liked": false,
-            "likesCount": 78195,
-            "objectDescription": "tempora et quo",
+            "liked": true,
+            "likesCount": 37113,
+            "objectDescription": "ut ab nulla",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -692,13 +702,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "45",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                 ],
               },
-              "firstName": "Alfred",
+              "firstName": "Nannie",
               "id": "43",
-              "lastName": "Macejkovic",
+              "lastName": "Ferry",
+              "picture": "ullam quos sed",
             },
             "subjectPersonName": "Haylee Klocko",
           },
@@ -710,17 +721,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "impedit ex rem",
-            "adjectiveAttributeValue": "voluptates voluptas fuga",
+            "adjectiveAttributeName": "ipsum rem eos",
+            "adjectiveAttributeValue": "quod recusandae consectetur",
             "celebrateableId": "27",
             "celebrateableType": "JOINED_COMMUNITY",
-            "changedAttributeName": "totam perferendis ut",
+            "changedAttributeName": "optio laudantium et",
             "changedAttributeValue": "2014-10-17T09:34:50.933Z",
-            "commentsCount": 92943,
+            "commentsCount": 23036,
             "id": "26",
             "liked": true,
-            "likesCount": 69089,
-            "objectDescription": "omnis repellat quasi",
+            "likesCount": 50824,
+            "objectDescription": "facere quia et",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -740,13 +751,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "30",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Celine",
+              "firstName": "Amara",
               "id": "28",
-              "lastName": "Kovacek",
+              "lastName": "Rath",
+              "picture": "occaecati quia ipsum",
             },
             "subjectPersonName": "Heather Hahn",
           },
@@ -758,17 +770,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "sunt placeat quidem",
-            "adjectiveAttributeValue": "est consequuntur aut",
+            "adjectiveAttributeName": "placeat ex ut",
+            "adjectiveAttributeValue": "voluptas enim ex",
             "celebrateableId": "17",
             "celebrateableType": "COMPLETED_STEP",
-            "changedAttributeName": "est fuga est",
+            "changedAttributeName": "eveniet facere molestiae",
             "changedAttributeValue": "2013-05-05T10:14:48.380Z",
-            "commentsCount": 75094,
+            "commentsCount": 88134,
             "id": "16",
-            "liked": false,
-            "likesCount": 34889,
-            "objectDescription": "voluptas enim ex",
+            "liked": true,
+            "likesCount": 1166,
+            "objectDescription": "nam et dolorum",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -788,13 +800,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "20",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Sonny",
+              "firstName": "Anya",
               "id": "18",
-              "lastName": "Rolfson",
+              "lastName": "Buckridge",
+              "picture": "repellendus hic veritatis",
             },
             "subjectPersonName": "Chyna Howe",
           },
@@ -806,17 +819,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "fugit repellendus hic",
-            "adjectiveAttributeValue": "veritatis qui ex",
+            "adjectiveAttributeName": "ut est sunt",
+            "adjectiveAttributeValue": "corporis alias est",
             "celebrateableId": "22",
             "celebrateableType": "CREATED_COMMUNITY",
-            "changedAttributeName": "culpa earum voluptate",
+            "changedAttributeName": "et sequi voluptas",
             "changedAttributeValue": "2011-07-30T23:09:48.676Z",
-            "commentsCount": 37980,
+            "commentsCount": 57863,
             "id": "21",
-            "liked": false,
-            "likesCount": 76292,
-            "objectDescription": "ut est sunt",
+            "liked": true,
+            "likesCount": 900,
+            "objectDescription": "rerum impedit ex",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -828,7 +841,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "24",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -836,13 +849,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "25",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Elisha",
+              "firstName": "Janick",
               "id": "23",
-              "lastName": "Abernathy",
+              "lastName": "Upton",
+              "picture": "voluptas fuga totam",
             },
             "subjectPersonName": "Gracie Weber",
           },
@@ -854,17 +868,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "minima quia ut",
-            "adjectiveAttributeValue": "minima sunt qui",
+            "adjectiveAttributeName": "et facere placeat",
+            "adjectiveAttributeValue": "molestiae iste molestiae",
             "celebrateableId": "37",
             "celebrateableType": "JOINED_COMMUNITY",
-            "changedAttributeName": "similique ut quam",
+            "changedAttributeName": "dolores commodi inventore",
             "changedAttributeValue": "2010-11-26T00:55:36.529Z",
-            "commentsCount": 56103,
+            "commentsCount": 15333,
             "id": "36",
             "liked": false,
-            "likesCount": 1864,
-            "objectDescription": "vel et nostrum",
+            "likesCount": 93719,
+            "objectDescription": "quae sint odit",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -876,7 +890,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "39",
                     },
-                    "permission": "user",
+                    "permission": "owner",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -888,9 +902,10 @@ exports[`renders for Global Community renders correctly 1`] = `
                   },
                 ],
               },
-              "firstName": "Daron",
+              "firstName": "Oswaldo",
               "id": "38",
-              "lastName": "Raynor",
+              "lastName": "Fadel",
+              "picture": "et quo aperiam",
             },
             "subjectPersonName": "Alek Lesch",
           },
@@ -939,6 +954,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "firstName": "Stewart",
               "id": "3",
               "lastName": "Grant",
+              "picture": "sed magni cupiditate",
             },
             "subjectPersonName": "Hayden Zieme",
           },
@@ -1030,17 +1046,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         item={
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "possimus molestias facere",
-            "adjectiveAttributeValue": "quia et ab",
+            "adjectiveAttributeName": "eos quis ut",
+            "adjectiveAttributeValue": "incidunt omnis delectus",
             "celebrateableId": "32",
             "celebrateableType": "STORY",
-            "changedAttributeName": "quo occaecati quia",
+            "changedAttributeName": "voluptas minima quia",
             "changedAttributeValue": "2017-09-28T01:02:07.116Z",
-            "commentsCount": 17227,
+            "commentsCount": 23362,
             "id": "31",
             "liked": false,
-            "likesCount": 39631,
-            "objectDescription": "accusantium odit doloremque",
+            "likesCount": 9155,
+            "objectDescription": "qui similique ut",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -1052,7 +1068,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "34",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -1060,13 +1076,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "35",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Johathan",
+              "firstName": "Haylie",
               "id": "33",
-              "lastName": "Frami",
+              "lastName": "Macejkovic",
+              "picture": "consequatur sit vel",
             },
             "subjectPersonName": "Connor Kihn",
           }
@@ -1125,17 +1142,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         item={
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "sed quae nam",
-            "adjectiveAttributeValue": "eos sint autem",
+            "adjectiveAttributeName": "rerum doloremque officia",
+            "adjectiveAttributeValue": "aut ut ut",
             "celebrateableId": "12",
             "celebrateableType": "COMMUNITY_CHALLENGE",
-            "changedAttributeName": "rerum doloremque officia",
+            "changedAttributeName": "eos ducimus eos",
             "changedAttributeValue": "2016-01-27T11:31:41.601Z",
-            "commentsCount": 88312,
+            "commentsCount": 89213,
             "id": "11",
             "liked": true,
-            "likesCount": 54078,
-            "objectDescription": "eos ducimus eos",
+            "likesCount": 37758,
+            "objectDescription": "in ut dolorem",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -1147,7 +1164,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "14",
                     },
-                    "permission": "no_permissions",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -1155,13 +1172,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "15",
                     },
-                    "permission": "no_permissions",
+                    "permission": "owner",
                   },
                 ],
               },
-              "firstName": "Simeon",
+              "firstName": "Mack",
               "id": "13",
-              "lastName": "Schoen",
+              "lastName": "Walter",
+              "picture": "ea ut sunt",
             },
             "subjectPersonName": "Caesar Feest",
           }
@@ -1220,17 +1238,17 @@ exports[`renders for Global Community renders correctly 1`] = `
         item={
           Object {
             "__typename": "CommunityCelebrationItem",
-            "adjectiveAttributeName": "iste molestiae dolores",
-            "adjectiveAttributeValue": "commodi inventore sequi",
+            "adjectiveAttributeName": "similique ad sed",
+            "adjectiveAttributeValue": "architecto magnam voluptatem",
             "celebrateableId": "42",
             "celebrateableType": "CREATED_COMMUNITY",
-            "changedAttributeName": "quia itaque quae",
+            "changedAttributeName": "maxime neque adipisci",
             "changedAttributeValue": "2015-09-24T22:48:18.365Z",
-            "commentsCount": 91640,
+            "commentsCount": 93871,
             "id": "41",
-            "liked": false,
-            "likesCount": 78195,
-            "objectDescription": "tempora et quo",
+            "liked": true,
+            "likesCount": 37113,
+            "objectDescription": "ut ab nulla",
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
@@ -1250,13 +1268,14 @@ exports[`renders for Global Community renders correctly 1`] = `
                       "__typename": "Community",
                       "id": "45",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                 ],
               },
-              "firstName": "Alfred",
+              "firstName": "Nannie",
               "id": "43",
-              "lastName": "Macejkovic",
+              "lastName": "Ferry",
+              "picture": "ullam quos sed",
             },
             "subjectPersonName": "Haylee Klocko",
           }
@@ -1398,10 +1417,10 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Valentina",
-                  "fullName": "Valentina Walsh",
-                  "id": "70",
-                  "picture": "iste sed repudiandae",
+                  "firstName": "Craig",
+                  "fullName": "Craig Murphy",
+                  "id": "62",
+                  "picture": "architecto non explicabo",
                 },
               ]
             }
@@ -1410,31 +1429,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={
-              Array [
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Lemuel",
-                  "fullName": "Lemuel Ruecker",
-                  "id": "63",
-                  "picture": "similique blanditiis voluptatem",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Jake",
-                  "fullName": "Jake Gislason",
-                  "id": "64",
-                  "picture": "magni et voluptas",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Nicholas",
-                  "fullName": "Nicholas Crooks",
-                  "id": "65",
-                  "picture": "et ex quaerat",
-                },
-              ]
-            }
+            people={Array []}
             testID="PostCard_STEP"
             type="STEP"
           />
@@ -1452,10 +1447,10 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Olga",
-                  "fullName": "Olga Rippin",
-                  "id": "68",
-                  "picture": "voluptates dolorem recusandae",
+                  "firstName": "Kirk",
+                  "fullName": "Kirk Ledner",
+                  "id": "64",
+                  "picture": "voluptas molestiae fuga",
                 },
               ]
             }
@@ -1464,7 +1459,17 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={Array []}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Joyce",
+                  "fullName": "Joyce Rutherford",
+                  "id": "65",
+                  "picture": "id voluptates dolorem",
+                },
+              ]
+            }
             testID="PostCard_STORY"
             type="STORY"
           />
@@ -1489,17 +1494,10 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Clement",
-                  "fullName": "Clement Waters",
-                  "id": "66",
-                  "picture": "rerum in cupiditate",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Herta",
-                  "fullName": "Herta Feest",
-                  "id": "69",
-                  "picture": "qui et possimus",
+                  "firstName": "Annabelle",
+                  "fullName": "Annabelle Hermann",
+                  "id": "63",
+                  "picture": "quaerat explicabo aut",
                 },
               ]
             }
@@ -1590,10 +1588,10 @@ exports[`renders for member renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Valentina",
-                  "fullName": "Valentina Walsh",
-                  "id": "70",
-                  "picture": "iste sed repudiandae",
+                  "firstName": "Craig",
+                  "fullName": "Craig Murphy",
+                  "id": "62",
+                  "picture": "architecto non explicabo",
                 },
               ]
             }
@@ -1602,31 +1600,7 @@ exports[`renders for member renders correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={
-              Array [
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Lemuel",
-                  "fullName": "Lemuel Ruecker",
-                  "id": "63",
-                  "picture": "similique blanditiis voluptatem",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Jake",
-                  "fullName": "Jake Gislason",
-                  "id": "64",
-                  "picture": "magni et voluptas",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Nicholas",
-                  "fullName": "Nicholas Crooks",
-                  "id": "65",
-                  "picture": "et ex quaerat",
-                },
-              ]
-            }
+            people={Array []}
             testID="PostCard_STEP"
             type="STEP"
           />
@@ -1644,10 +1618,10 @@ exports[`renders for member renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Olga",
-                  "fullName": "Olga Rippin",
-                  "id": "68",
-                  "picture": "voluptates dolorem recusandae",
+                  "firstName": "Kirk",
+                  "fullName": "Kirk Ledner",
+                  "id": "64",
+                  "picture": "voluptas molestiae fuga",
                 },
               ]
             }
@@ -1656,7 +1630,17 @@ exports[`renders for member renders correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={Array []}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Joyce",
+                  "fullName": "Joyce Rutherford",
+                  "id": "65",
+                  "picture": "id voluptates dolorem",
+                },
+              ]
+            }
             testID="PostCard_STORY"
             type="STORY"
           />
@@ -1681,17 +1665,10 @@ exports[`renders for member renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Clement",
-                  "fullName": "Clement Waters",
-                  "id": "66",
-                  "picture": "rerum in cupiditate",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Herta",
-                  "fullName": "Herta Feest",
-                  "id": "69",
-                  "picture": "qui et possimus",
+                  "firstName": "Annabelle",
+                  "fullName": "Annabelle Hermann",
+                  "id": "63",
+                  "picture": "quaerat explicabo aut",
                 },
               ]
             }
@@ -1764,7 +1741,7 @@ exports[`renders for member renders with type 1`] = `
                       "__typename": "Community",
                       "id": "7",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -1772,13 +1749,14 @@ exports[`renders for member renders with type 1`] = `
                       "__typename": "Community",
                       "id": "8",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                 ],
               },
               "firstName": "Torey",
               "id": "6",
               "lastName": "Abbott",
+              "picture": "nobis cupiditate sed",
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -1862,7 +1840,7 @@ exports[`renders for member renders with type 1`] = `
                       "__typename": "Community",
                       "id": "7",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -1870,13 +1848,14 @@ exports[`renders for member renders with type 1`] = `
                       "__typename": "Community",
                       "id": "8",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                 ],
               },
               "firstName": "Torey",
               "id": "6",
               "lastName": "Abbott",
+              "picture": "nobis cupiditate sed",
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -1994,7 +1973,7 @@ exports[`renders for member renders with type 1`] = `
                       "__typename": "Community",
                       "id": "7",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -2002,13 +1981,14 @@ exports[`renders for member renders with type 1`] = `
                       "__typename": "Community",
                       "id": "8",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                 ],
               },
               "firstName": "Torey",
               "id": "6",
               "lastName": "Abbott",
+              "picture": "nobis cupiditate sed",
             },
             "subjectPersonName": "Torey Abbott",
           }
@@ -2053,32 +2033,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 51886,
+                "totalCount": 54060,
               },
             },
-            "createdAt": "2018-10-17T09:51:48.448Z",
-            "id": "49",
-            "liked": false,
-            "likesCount": 1988,
+            "createdAt": "2019-07-15T16:04:36.274Z",
+            "id": "19",
+            "liked": true,
+            "likesCount": 53589,
             "read": false,
             "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
+              "__typename": "Step",
+              "id": "20",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "21",
+              },
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2089,28 +2058,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "54",
+                      "id": "23",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "55",
+                      "id": "24",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
+              "firstName": "Darwin",
+              "id": "22",
+              "lastName": "Bosco",
+              "picture": "ut ut eos",
             },
-            "subjectPersonName": "Roscoe Johnson",
+            "subjectPersonName": "Darwin Bosco",
           },
         ],
-        "date": "2018-10-17T09:51:48.448Z",
+        "date": "2019-07-15T16:04:36.274Z",
         "id": 0,
       },
       Object {
@@ -2121,21 +2091,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 69975,
+                "totalCount": 5991,
               },
             },
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
+            "createdAt": "2018-07-03T07:32:54.839Z",
+            "id": "56",
             "liked": false,
-            "likesCount": 53344,
+            "likesCount": 93719,
             "read": false,
             "subject": Object {
               "__typename": "Post",
-              "content": "quos esse ut",
-              "id": "20",
-              "mediaContentType": "ab voluptas sed",
-              "mediaExpiringUrl": "quae nam eos",
-              "postType": "story",
+              "content": "dolor tempora et",
+              "id": "57",
+              "mediaContentType": "quo aperiam natus",
+              "mediaExpiringUrl": "et perferendis magni",
+              "postType": "announcement",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2146,97 +2116,30 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "22",
+                      "id": "59",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "23",
+                      "id": "60",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
+              "firstName": "Elza",
+              "id": "58",
+              "lastName": "Paucek",
+              "picture": "delectus ea similique",
             },
-            "subjectPersonName": "Darwin Bosco",
+            "subjectPersonName": "Elza Paucek",
           },
         ],
-        "date": "2017-09-22T19:02:55.923Z",
+        "date": "2018-07-03T07:32:54.839Z",
         "id": 1,
-      },
-      Object {
-        "data": Array [
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 90337,
-              },
-            },
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-            "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-12-02T13:22:38.102Z",
-                  "completedAt": "2010-12-08T20:43:18.852Z",
-                  "id": "14",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-05-19T18:06:45.322Z",
-                  "completedAt": "2017-01-17T21:43:19.533Z",
-                  "id": "15",
-                },
-              ],
-              "id": "13",
-              "title": "vitae soluta sint",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "17",
-                    },
-                    "permission": "admin",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "18",
-                    },
-                    "permission": "owner",
-                  },
-                ],
-              },
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-            },
-            "subjectPersonName": "Zola Corkery",
-          },
-        ],
-        "date": "2017-02-27T14:52:47.103Z",
-        "id": 2,
       },
       Object {
         "data": Array [
@@ -2273,7 +2176,7 @@ exports[`renders for member renders without header 1`] = `
                       "__typename": "Community",
                       "id": "5",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -2288,11 +2191,70 @@ exports[`renders for member renders without header 1`] = `
               "firstName": "Torey",
               "id": "4",
               "lastName": "Abbott",
+              "picture": "deserunt quam tempore",
             },
             "subjectPersonName": "Torey Abbott",
           },
         ],
         "date": "2016-11-26T00:02:28.431Z",
+        "id": 2,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          },
+        ],
+        "date": "2014-10-16T11:34:26.098Z",
         "id": 3,
       },
       Object {
@@ -2303,21 +2265,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 28962,
+                "totalCount": 9155,
               },
             },
-            "createdAt": "2016-11-18T08:49:49.007Z",
-            "id": "7",
-            "liked": false,
-            "likesCount": 68650,
-            "read": true,
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
             "subject": Object {
-              "__typename": "Post",
-              "content": "sit aperiam placeat",
-              "id": "8",
-              "mediaContentType": "fuga doloribus distinctio",
-              "mediaExpiringUrl": "placeat ullam minima",
-              "postType": "prayer_request",
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2328,28 +2290,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "10",
+                      "id": "54",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "11",
+                      "id": "55",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                 ],
               },
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
+              "firstName": "Roscoe",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
             },
-            "subjectPersonName": "Branson Gutkowski",
+            "subjectPersonName": "Roscoe Johnson",
           },
         ],
-        "date": "2016-11-18T08:49:49.007Z",
+        "date": "2014-03-07T23:29:16.858Z",
         "id": 4,
       },
       Object {
@@ -2360,21 +2323,32 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 35393,
+                "totalCount": 68650,
               },
             },
-            "createdAt": "2016-07-19T12:30:19.282Z",
-            "id": "30",
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
             "liked": true,
-            "likesCount": 26992,
+            "likesCount": 41253,
             "read": false,
             "subject": Object {
-              "__typename": "Post",
-              "content": "molestiae aut delectus",
-              "id": "31",
-              "mediaContentType": "aut nam et",
-              "mediaExpiringUrl": "dolorum architecto fugit",
-              "postType": "story",
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2385,28 +2359,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "33",
+                      "id": "12",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "34",
+                      "id": "13",
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
+              "firstName": "Branson",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
             },
-            "subjectPersonName": "Gideon Heathcote",
+            "subjectPersonName": "Branson Gutkowski",
           },
         ],
-        "date": "2016-07-19T12:30:19.282Z",
+        "date": "2012-03-16T21:39:07.726Z",
         "id": 5,
       },
       Object {
@@ -2417,20 +2392,20 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 58575,
+                "totalCount": 11474,
               },
             },
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
             "liked": true,
-            "likesCount": 41792,
-            "read": true,
+            "likesCount": 6406,
+            "read": false,
             "subject": Object {
               "__typename": "Step",
-              "id": "57",
+              "id": "31",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
-                "id": "58",
+                "id": "32",
               },
             },
             "subjectPerson": Object {
@@ -2442,28 +2417,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "60",
+                      "id": "34",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "61",
+                      "id": "35",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
+              "firstName": "Gideon",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
             },
-            "subjectPersonName": "Elza Paucek",
+            "subjectPersonName": "Gideon Heathcote",
           },
         ],
-        "date": "2014-05-04T06:09:38.351Z",
+        "date": "2012-03-03T15:03:02.973Z",
         "id": 6,
       },
       Object {
@@ -2474,32 +2450,32 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 92943,
+                "totalCount": 47064,
               },
             },
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
             "liked": true,
-            "likesCount": 55132,
-            "read": true,
+            "likesCount": 62336,
+            "read": false,
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
                 Object {
                   "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2012-08-11T21:48:03.869Z",
-                  "completedAt": "2010-09-19T00:38:14.132Z",
-                  "id": "44",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
                 },
                 Object {
                   "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2018-02-12T08:38:51.042Z",
-                  "completedAt": "2013-01-26T14:43:43.912Z",
-                  "id": "45",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
                 },
               ],
-              "id": "43",
-              "title": "ipsum rem eos",
+              "id": "37",
+              "title": "ut non fugiat",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2510,7 +2486,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "47",
+                      "id": "41",
                     },
                     "permission": "admin",
                   },
@@ -2518,20 +2494,21 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "48",
+                      "id": "42",
                     },
-                    "permission": "user",
+                    "permission": "owner",
                   },
                 ],
               },
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
+              "firstName": "Marcellus",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
             },
-            "subjectPersonName": "Tre Lind",
+            "subjectPersonName": "Marcellus Hyatt",
           },
         ],
-        "date": "2011-09-22T07:43:44.823Z",
+        "date": "2010-12-15T20:19:16.437Z",
         "id": 7,
       },
       Object {
@@ -2542,21 +2519,90 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 13927,
+                "totalCount": 20856,
               },
             },
-            "createdAt": "2011-02-13T16:53:52.387Z",
-            "id": "24",
-            "liked": true,
-            "likesCount": 37758,
-            "read": false,
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
             "subject": Object {
-              "__typename": "Step",
-              "id": "25",
-              "receiverStageAtCompletion": Object {
-                "__typename": "Stage",
-                "id": "26",
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
               },
+              "firstName": "Tre",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          },
+        ],
+        "date": "2010-10-23T23:03:00.746Z",
+        "id": 8,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 65229,
+              },
+            },
+            "createdAt": "2010-10-07T14:14:54.569Z",
+            "id": "25",
+            "liked": false,
+            "likesCount": 34776,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "est consequuntur aut",
+              "id": "26",
+              "mediaContentType": "est fuga est",
+              "mediaExpiringUrl": "placeat ex ut",
+              "postType": "question",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2569,7 +2615,7 @@ exports[`renders for member renders without header 1`] = `
                       "__typename": "Community",
                       "id": "28",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -2577,86 +2623,19 @@ exports[`renders for member renders without header 1`] = `
                       "__typename": "Community",
                       "id": "29",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                 ],
               },
               "firstName": "Grace",
               "id": "27",
               "lastName": "Dibbert",
+              "picture": "ex eveniet facere",
             },
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2011-02-13T16:53:52.387Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 76292,
-              },
-            },
-            "createdAt": "2011-01-03T15:57:15.597Z",
-            "id": "35",
-            "liked": true,
-            "likesCount": 57367,
-            "read": false,
-            "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2016-10-08T17:54:22.995Z",
-                  "completedAt": "2014-04-02T23:40:02.805Z",
-                  "id": "37",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2014-10-08T05:42:35.245Z",
-                  "completedAt": "2019-12-12T02:53:57.554Z",
-                  "id": "38",
-                },
-              ],
-              "id": "36",
-              "title": "est et sequi",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "40",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "41",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Marcellus",
-              "id": "39",
-              "lastName": "Hyatt",
-            },
-            "subjectPersonName": "Marcellus Hyatt",
-          },
-        ],
-        "date": "2011-01-03T15:57:15.597Z",
+        "date": "2010-10-07T14:14:54.569Z",
         "id": 9,
       },
     ]
@@ -2697,32 +2676,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 51886,
+                "totalCount": 54060,
               },
             },
-            "createdAt": "2018-10-17T09:51:48.448Z",
-            "id": "49",
-            "liked": false,
-            "likesCount": 1988,
+            "createdAt": "2019-07-15T16:04:36.274Z",
+            "id": "19",
+            "liked": true,
+            "likesCount": 53589,
             "read": false,
             "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
+              "__typename": "Step",
+              "id": "20",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "21",
+              },
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2733,28 +2701,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "54",
+                      "id": "23",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "55",
+                      "id": "24",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
+              "firstName": "Darwin",
+              "id": "22",
+              "lastName": "Bosco",
+              "picture": "ut ut eos",
             },
-            "subjectPersonName": "Roscoe Johnson",
+            "subjectPersonName": "Darwin Bosco",
           },
         ],
-        "date": "2018-10-17T09:51:48.448Z",
+        "date": "2019-07-15T16:04:36.274Z",
         "id": 0,
       },
       Object {
@@ -2765,21 +2734,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 69975,
+                "totalCount": 5991,
               },
             },
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
+            "createdAt": "2018-07-03T07:32:54.839Z",
+            "id": "56",
             "liked": false,
-            "likesCount": 53344,
+            "likesCount": 93719,
             "read": false,
             "subject": Object {
               "__typename": "Post",
-              "content": "quos esse ut",
-              "id": "20",
-              "mediaContentType": "ab voluptas sed",
-              "mediaExpiringUrl": "quae nam eos",
-              "postType": "story",
+              "content": "dolor tempora et",
+              "id": "57",
+              "mediaContentType": "quo aperiam natus",
+              "mediaExpiringUrl": "et perferendis magni",
+              "postType": "announcement",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2790,97 +2759,30 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "22",
+                      "id": "59",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "23",
+                      "id": "60",
                     },
                     "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
+              "firstName": "Elza",
+              "id": "58",
+              "lastName": "Paucek",
+              "picture": "delectus ea similique",
             },
-            "subjectPersonName": "Darwin Bosco",
+            "subjectPersonName": "Elza Paucek",
           },
         ],
-        "date": "2017-09-22T19:02:55.923Z",
+        "date": "2018-07-03T07:32:54.839Z",
         "id": 1,
-      },
-      Object {
-        "data": Array [
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 90337,
-              },
-            },
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-            "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-12-02T13:22:38.102Z",
-                  "completedAt": "2010-12-08T20:43:18.852Z",
-                  "id": "14",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-05-19T18:06:45.322Z",
-                  "completedAt": "2017-01-17T21:43:19.533Z",
-                  "id": "15",
-                },
-              ],
-              "id": "13",
-              "title": "vitae soluta sint",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "17",
-                    },
-                    "permission": "admin",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "18",
-                    },
-                    "permission": "owner",
-                  },
-                ],
-              },
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-            },
-            "subjectPersonName": "Zola Corkery",
-          },
-        ],
-        "date": "2017-02-27T14:52:47.103Z",
-        "id": 2,
       },
       Object {
         "data": Array [
@@ -2917,7 +2819,7 @@ exports[`renders for member renders without header 1`] = `
                       "__typename": "Community",
                       "id": "5",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -2932,11 +2834,70 @@ exports[`renders for member renders without header 1`] = `
               "firstName": "Torey",
               "id": "4",
               "lastName": "Abbott",
+              "picture": "deserunt quam tempore",
             },
             "subjectPersonName": "Torey Abbott",
           },
         ],
         "date": "2016-11-26T00:02:28.431Z",
+        "id": 2,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          },
+        ],
+        "date": "2014-10-16T11:34:26.098Z",
         "id": 3,
       },
       Object {
@@ -2947,21 +2908,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 28962,
+                "totalCount": 9155,
               },
             },
-            "createdAt": "2016-11-18T08:49:49.007Z",
-            "id": "7",
-            "liked": false,
-            "likesCount": 68650,
-            "read": true,
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
             "subject": Object {
-              "__typename": "Post",
-              "content": "sit aperiam placeat",
-              "id": "8",
-              "mediaContentType": "fuga doloribus distinctio",
-              "mediaExpiringUrl": "placeat ullam minima",
-              "postType": "prayer_request",
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -2972,28 +2933,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "10",
+                      "id": "54",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "11",
+                      "id": "55",
                     },
-                    "permission": "admin",
+                    "permission": "user",
                   },
                 ],
               },
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
+              "firstName": "Roscoe",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
             },
-            "subjectPersonName": "Branson Gutkowski",
+            "subjectPersonName": "Roscoe Johnson",
           },
         ],
-        "date": "2016-11-18T08:49:49.007Z",
+        "date": "2014-03-07T23:29:16.858Z",
         "id": 4,
       },
       Object {
@@ -3004,21 +2966,32 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 35393,
+                "totalCount": 68650,
               },
             },
-            "createdAt": "2016-07-19T12:30:19.282Z",
-            "id": "30",
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
             "liked": true,
-            "likesCount": 26992,
+            "likesCount": 41253,
             "read": false,
             "subject": Object {
-              "__typename": "Post",
-              "content": "molestiae aut delectus",
-              "id": "31",
-              "mediaContentType": "aut nam et",
-              "mediaExpiringUrl": "dolorum architecto fugit",
-              "postType": "story",
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3029,28 +3002,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "33",
+                      "id": "12",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "34",
+                      "id": "13",
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
+              "firstName": "Branson",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
             },
-            "subjectPersonName": "Gideon Heathcote",
+            "subjectPersonName": "Branson Gutkowski",
           },
         ],
-        "date": "2016-07-19T12:30:19.282Z",
+        "date": "2012-03-16T21:39:07.726Z",
         "id": 5,
       },
       Object {
@@ -3061,20 +3035,20 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 58575,
+                "totalCount": 11474,
               },
             },
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
             "liked": true,
-            "likesCount": 41792,
-            "read": true,
+            "likesCount": 6406,
+            "read": false,
             "subject": Object {
               "__typename": "Step",
-              "id": "57",
+              "id": "31",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
-                "id": "58",
+                "id": "32",
               },
             },
             "subjectPerson": Object {
@@ -3086,28 +3060,29 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "60",
+                      "id": "34",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "61",
+                      "id": "35",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                 ],
               },
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
+              "firstName": "Gideon",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
             },
-            "subjectPersonName": "Elza Paucek",
+            "subjectPersonName": "Gideon Heathcote",
           },
         ],
-        "date": "2014-05-04T06:09:38.351Z",
+        "date": "2012-03-03T15:03:02.973Z",
         "id": 6,
       },
       Object {
@@ -3118,32 +3093,32 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 92943,
+                "totalCount": 47064,
               },
             },
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
             "liked": true,
-            "likesCount": 55132,
-            "read": true,
+            "likesCount": 62336,
+            "read": false,
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
                 Object {
                   "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2012-08-11T21:48:03.869Z",
-                  "completedAt": "2010-09-19T00:38:14.132Z",
-                  "id": "44",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
                 },
                 Object {
                   "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2018-02-12T08:38:51.042Z",
-                  "completedAt": "2013-01-26T14:43:43.912Z",
-                  "id": "45",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
                 },
               ],
-              "id": "43",
-              "title": "ipsum rem eos",
+              "id": "37",
+              "title": "ut non fugiat",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3154,7 +3129,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "47",
+                      "id": "41",
                     },
                     "permission": "admin",
                   },
@@ -3162,20 +3137,21 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "48",
+                      "id": "42",
                     },
-                    "permission": "user",
+                    "permission": "owner",
                   },
                 ],
               },
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
+              "firstName": "Marcellus",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
             },
-            "subjectPersonName": "Tre Lind",
+            "subjectPersonName": "Marcellus Hyatt",
           },
         ],
-        "date": "2011-09-22T07:43:44.823Z",
+        "date": "2010-12-15T20:19:16.437Z",
         "id": 7,
       },
       Object {
@@ -3186,21 +3162,90 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 13927,
+                "totalCount": 20856,
               },
             },
-            "createdAt": "2011-02-13T16:53:52.387Z",
-            "id": "24",
-            "liked": true,
-            "likesCount": 37758,
-            "read": false,
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
             "subject": Object {
-              "__typename": "Step",
-              "id": "25",
-              "receiverStageAtCompletion": Object {
-                "__typename": "Stage",
-                "id": "26",
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
               },
+              "firstName": "Tre",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          },
+        ],
+        "date": "2010-10-23T23:03:00.746Z",
+        "id": 8,
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 65229,
+              },
+            },
+            "createdAt": "2010-10-07T14:14:54.569Z",
+            "id": "25",
+            "liked": false,
+            "likesCount": 34776,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "est consequuntur aut",
+              "id": "26",
+              "mediaContentType": "est fuga est",
+              "mediaExpiringUrl": "placeat ex ut",
+              "postType": "question",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3213,7 +3258,7 @@ exports[`renders for member renders without header 1`] = `
                       "__typename": "Community",
                       "id": "28",
                     },
-                    "permission": "owner",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
@@ -3221,86 +3266,19 @@ exports[`renders for member renders without header 1`] = `
                       "__typename": "Community",
                       "id": "29",
                     },
-                    "permission": "owner",
+                    "permission": "user",
                   },
                 ],
               },
               "firstName": "Grace",
               "id": "27",
               "lastName": "Dibbert",
+              "picture": "ex eveniet facere",
             },
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2011-02-13T16:53:52.387Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 76292,
-              },
-            },
-            "createdAt": "2011-01-03T15:57:15.597Z",
-            "id": "35",
-            "liked": true,
-            "likesCount": 57367,
-            "read": false,
-            "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2016-10-08T17:54:22.995Z",
-                  "completedAt": "2014-04-02T23:40:02.805Z",
-                  "id": "37",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2014-10-08T05:42:35.245Z",
-                  "completedAt": "2019-12-12T02:53:57.554Z",
-                  "id": "38",
-                },
-              ],
-              "id": "36",
-              "title": "est et sequi",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "40",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "41",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Marcellus",
-              "id": "39",
-              "lastName": "Hyatt",
-            },
-            "subjectPersonName": "Marcellus Hyatt",
-          },
-        ],
-        "date": "2011-01-03T15:57:15.597Z",
+        "date": "2010-10-07T14:14:54.569Z",
         "id": 9,
       },
     ]
@@ -3361,7 +3339,7 @@ exports[`renders for member renders without header 1`] = `
           }
           testID="Text"
         >
-          Wednesday, October 17 2018
+          Monday, July 15 2019
         </Text>
       </View>
     </View>
@@ -3378,163 +3356,49 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 51886,
+                "totalCount": 54060,
               },
             },
-            "createdAt": "2018-10-17T09:51:48.448Z",
-            "id": "49",
-            "liked": false,
-            "likesCount": 1988,
-            "read": false,
-            "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "54",
-                    },
-                    "permission": "owner",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "55",
-                    },
-                    "permission": "user",
-                  },
-                ],
-              },
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-            },
-            "subjectPersonName": "Roscoe Johnson",
-          }
-        }
-        namePressable={true}
-        onRefresh={[Function]}
-      />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Friday, September 22 2017
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <CommunityFeedItem
-        communityId="456"
-        item={
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 69975,
-              },
-            },
-            "createdAt": "2017-09-22T19:02:55.923Z",
+            "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
-            "liked": false,
-            "likesCount": 53344,
+            "liked": true,
+            "likesCount": 53589,
             "read": false,
             "subject": Object {
-              "__typename": "Post",
-              "content": "quos esse ut",
+              "__typename": "Step",
               "id": "20",
-              "mediaContentType": "ab voluptas sed",
-              "mediaExpiringUrl": "quae nam eos",
-              "postType": "story",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "21",
+              },
             },
             "subjectPerson": Object {
               "__typename": "Person",
               "communityPermissions": Object {
                 "__typename": "CommunityPermissionConnection",
                 "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "22",
-                    },
-                    "permission": "user",
-                  },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
                       "id": "23",
                     },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "24",
+                    },
                     "permission": "admin",
                   },
                 ],
               },
               "firstName": "Darwin",
-              "id": "21",
+              "id": "22",
               "lastName": "Bosco",
+              "picture": "ut ut eos",
             },
             "subjectPersonName": "Darwin Bosco",
           }
@@ -3580,7 +3444,7 @@ exports[`renders for member renders without header 1`] = `
           }
           testID="Text"
         >
-          Monday, February 27 2017
+          Tuesday, July 3 2018
         </Text>
       </View>
     </View>
@@ -3597,32 +3461,21 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 90337,
+                "totalCount": 5991,
               },
             },
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
+            "createdAt": "2018-07-03T07:32:54.839Z",
+            "id": "56",
             "liked": false,
-            "likesCount": 13002,
-            "read": true,
+            "likesCount": 93719,
+            "read": false,
             "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-12-02T13:22:38.102Z",
-                  "completedAt": "2010-12-08T20:43:18.852Z",
-                  "id": "14",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-05-19T18:06:45.322Z",
-                  "completedAt": "2017-01-17T21:43:19.533Z",
-                  "id": "15",
-                },
-              ],
-              "id": "13",
-              "title": "vitae soluta sint",
+              "__typename": "Post",
+              "content": "dolor tempora et",
+              "id": "57",
+              "mediaContentType": "quo aperiam natus",
+              "mediaExpiringUrl": "et perferendis magni",
+              "postType": "announcement",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3633,25 +3486,26 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "17",
+                      "id": "59",
                     },
-                    "permission": "admin",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "18",
+                      "id": "60",
                     },
-                    "permission": "owner",
+                    "permission": "admin",
                   },
                 ],
               },
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
+              "firstName": "Elza",
+              "id": "58",
+              "lastName": "Paucek",
+              "picture": "delectus ea similique",
             },
-            "subjectPersonName": "Zola Corkery",
+            "subjectPersonName": "Elza Paucek",
           }
         }
         namePressable={true}
@@ -3696,6 +3550,111 @@ exports[`renders for member renders without header 1`] = `
           testID="Text"
         >
           Saturday, November 26 2016
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 80275,
+              },
+            },
+            "createdAt": "2016-11-26T00:02:28.431Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 69232,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "saepe eum dicta",
+              "id": "3",
+              "mediaContentType": "eum eaque enim",
+              "mediaExpiringUrl": "ipsum inventore debitis",
+              "postType": "thought",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "5",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "6",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "id": "4",
+              "lastName": "Abbott",
+              "picture": "deserunt quam tempore",
+            },
+            "subjectPersonName": "Torey Abbott",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "flex": 1,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 12,
+                "textAlign": "center",
+              },
+            ]
+          }
+          testID="Text"
+        >
+          Thursday, October 16 2014
         </Text>
       </View>
     </View>
@@ -3791,10 +3750,10 @@ exports[`renders with celebration items correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Valentina",
-                  "fullName": "Valentina Walsh",
-                  "id": "70",
-                  "picture": "iste sed repudiandae",
+                  "firstName": "Craig",
+                  "fullName": "Craig Murphy",
+                  "id": "62",
+                  "picture": "architecto non explicabo",
                 },
               ]
             }
@@ -3803,31 +3762,7 @@ exports[`renders with celebration items correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={
-              Array [
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Lemuel",
-                  "fullName": "Lemuel Ruecker",
-                  "id": "63",
-                  "picture": "similique blanditiis voluptatem",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Jake",
-                  "fullName": "Jake Gislason",
-                  "id": "64",
-                  "picture": "magni et voluptas",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Nicholas",
-                  "fullName": "Nicholas Crooks",
-                  "id": "65",
-                  "picture": "et ex quaerat",
-                },
-              ]
-            }
+            people={Array []}
             testID="PostCard_STEP"
             type="STEP"
           />
@@ -3845,10 +3780,10 @@ exports[`renders with celebration items correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Olga",
-                  "fullName": "Olga Rippin",
-                  "id": "68",
-                  "picture": "voluptates dolorem recusandae",
+                  "firstName": "Kirk",
+                  "fullName": "Kirk Ledner",
+                  "id": "64",
+                  "picture": "voluptas molestiae fuga",
                 },
               ]
             }
@@ -3857,7 +3792,17 @@ exports[`renders with celebration items correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={Array []}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Joyce",
+                  "fullName": "Joyce Rutherford",
+                  "id": "65",
+                  "picture": "id voluptates dolorem",
+                },
+              ]
+            }
             testID="PostCard_STORY"
             type="STORY"
           />
@@ -3882,17 +3827,10 @@ exports[`renders with celebration items correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Clement",
-                  "fullName": "Clement Waters",
-                  "id": "66",
-                  "picture": "rerum in cupiditate",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Herta",
-                  "fullName": "Herta Feest",
-                  "id": "69",
-                  "picture": "qui et possimus",
+                  "firstName": "Annabelle",
+                  "fullName": "Annabelle Hermann",
+                  "id": "63",
+                  "picture": "quaerat explicabo aut",
                 },
               ]
             }
@@ -3987,10 +3925,10 @@ exports[`renders with clear notification renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Valentina",
-                  "fullName": "Valentina Walsh",
-                  "id": "70",
-                  "picture": "iste sed repudiandae",
+                  "firstName": "Craig",
+                  "fullName": "Craig Murphy",
+                  "id": "62",
+                  "picture": "architecto non explicabo",
                 },
               ]
             }
@@ -3999,31 +3937,7 @@ exports[`renders with clear notification renders correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={
-              Array [
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Lemuel",
-                  "fullName": "Lemuel Ruecker",
-                  "id": "63",
-                  "picture": "similique blanditiis voluptatem",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Jake",
-                  "fullName": "Jake Gislason",
-                  "id": "64",
-                  "picture": "magni et voluptas",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Nicholas",
-                  "fullName": "Nicholas Crooks",
-                  "id": "65",
-                  "picture": "et ex quaerat",
-                },
-              ]
-            }
+            people={Array []}
             testID="PostCard_STEP"
             type="STEP"
           />
@@ -4041,10 +3955,10 @@ exports[`renders with clear notification renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Olga",
-                  "fullName": "Olga Rippin",
-                  "id": "68",
-                  "picture": "voluptates dolorem recusandae",
+                  "firstName": "Kirk",
+                  "fullName": "Kirk Ledner",
+                  "id": "64",
+                  "picture": "voluptas molestiae fuga",
                 },
               ]
             }
@@ -4053,7 +3967,17 @@ exports[`renders with clear notification renders correctly 1`] = `
           />
           <PostTypeCardWithPeople
             onPress={[Function]}
-            people={Array []}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Joyce",
+                  "fullName": "Joyce Rutherford",
+                  "id": "65",
+                  "picture": "id voluptates dolorem",
+                },
+              ]
+            }
             testID="PostCard_STORY"
             type="STORY"
           />
@@ -4078,17 +4002,10 @@ exports[`renders with clear notification renders correctly 1`] = `
               Array [
                 Object {
                   "__typename": "Person",
-                  "firstName": "Clement",
-                  "fullName": "Clement Waters",
-                  "id": "66",
-                  "picture": "rerum in cupiditate",
-                },
-                Object {
-                  "__typename": "Person",
-                  "firstName": "Herta",
-                  "fullName": "Herta Feest",
-                  "id": "69",
-                  "picture": "qui et possimus",
+                  "firstName": "Annabelle",
+                  "fullName": "Annabelle Hermann",
+                  "id": "63",
+                  "picture": "quaerat explicabo aut",
                 },
               ]
             }
