@@ -65,9 +65,11 @@ exports[`Community renders challenge correctly 1`] = `
                 Array [
                   Object {
                     "alignItems": "center",
+                    "borderRadius": 18,
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 10,
                   },
                   Object {
@@ -126,7 +128,30 @@ exports[`Community renders challenge correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "16",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "17",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
+            }
+          }
           size="medium"
         />
         <View
@@ -163,7 +188,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -189,7 +214,7 @@ exports[`Community renders challenge correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -219,7 +244,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Orlando S. completed a Challenge:
+        Samantha T. completed a Challenge:
       </Text>
       <View
         style={
@@ -281,7 +306,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              esse blanditiis natus
+              ut et ipsam
             </Text>
           </View>
         </View>
@@ -422,7 +447,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -521,9 +546,11 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     Array [
                       Object {
                         "alignItems": "center",
+                        "borderRadius": 18,
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
                         "paddingVertical": 10,
                       },
                       Object {
@@ -582,7 +609,30 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "16",
+                        },
+                        "permission": "no_permissions",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "17",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
+                }
+              }
               size="medium"
             />
             <View
@@ -619,7 +669,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -645,7 +695,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -675,14 +725,14 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               ]
             }
           >
-            sunt qui amet
+            iure ut libero
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "qui recusandae ut",
+              "uri": "nulla quam ipsam",
             }
           }
           style={
@@ -888,7 +938,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -989,9 +1039,11 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     Array [
                       Object {
                         "alignItems": "center",
+                        "borderRadius": 18,
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
                         "paddingVertical": 10,
                       },
                       Object {
@@ -1050,7 +1102,30 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "16",
+                        },
+                        "permission": "no_permissions",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "17",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
+                }
+              }
               size="medium"
             />
             <View
@@ -1087,7 +1162,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -1113,7 +1188,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -1143,14 +1218,14 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "dignissimos debitis incidunt",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -1294,7 +1369,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -1395,9 +1470,11 @@ exports[`Community renders post correctly without image 1`] = `
                     Array [
                       Object {
                         "alignItems": "center",
+                        "borderRadius": 18,
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
                         "paddingVertical": 10,
                       },
                       Object {
@@ -1456,7 +1533,30 @@ exports[`Community renders post correctly without image 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "16",
+                        },
+                        "permission": "no_permissions",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "17",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
+                }
+              }
               size="medium"
             />
             <View
@@ -1493,7 +1593,7 @@ exports[`Community renders post correctly without image 1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -1519,7 +1619,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -1549,7 +1649,7 @@ exports[`Community renders post correctly without image 1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <View
@@ -1687,7 +1787,7 @@ exports[`Community renders post correctly without image 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -1765,9 +1865,11 @@ exports[`Community renders step correctly 1`] = `
                 Array [
                   Object {
                     "alignItems": "center",
+                    "borderRadius": 18,
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 10,
                   },
                   Object {
@@ -1826,7 +1928,30 @@ exports[`Community renders step correctly 1`] = `
       >
         <Avatar
           orgId="3"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "16",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "17",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
+            }
+          }
           size="medium"
         />
         <View
@@ -1863,7 +1988,7 @@ exports[`Community renders step correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -1889,7 +2014,7 @@ exports[`Community renders step correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -1919,7 +2044,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Orlando S. completed a Step of Faith with a  person.
+        Samantha T. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2057,7 +2182,7 @@ exports[`Community renders step correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -2156,9 +2281,11 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     Array [
                       Object {
                         "alignItems": "center",
+                        "borderRadius": 18,
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
                         "paddingVertical": 10,
                       },
                       Object {
@@ -2217,7 +2344,30 @@ exports[`Community renders with clear notification button correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "16",
+                        },
+                        "permission": "no_permissions",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "17",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
+                }
+              }
               size="medium"
             />
             <View
@@ -2254,7 +2404,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   ]
                 }
               >
-                Orlando Schmidt
+                Samantha Tremblay
               </Text>
               <Text
                 style={
@@ -2280,7 +2430,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -2310,14 +2460,14 @@ exports[`Community renders with clear notification button correctly 1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "dignissimos debitis incidunt",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -2461,7 +2611,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>
@@ -2608,9 +2758,11 @@ exports[`global community renders correctly 1`] = `
                 Array [
                   Object {
                     "alignItems": "center",
+                    "borderRadius": 18,
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 10,
                   },
                   Object {
@@ -2669,7 +2821,30 @@ exports[`global community renders correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "16",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "17",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
+            }
+          }
           size="medium"
         />
         <View
@@ -2706,7 +2881,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -2732,7 +2907,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -2762,7 +2937,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Orlando S. completed a Step of Faith with a  person.
+        Samantha T. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2900,7 +3075,7 @@ exports[`global community renders correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -2975,9 +3150,11 @@ exports[`global community renders post item correctly 1`] = `
                 Array [
                   Object {
                     "alignItems": "center",
+                    "borderRadius": 18,
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 10,
                   },
                   Object {
@@ -3036,7 +3213,30 @@ exports[`global community renders post item correctly 1`] = `
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "16",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "17",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
+            }
+          }
           size="medium"
         />
         <View
@@ -3073,7 +3273,7 @@ exports[`global community renders post item correctly 1`] = `
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -3099,7 +3299,7 @@ exports[`global community renders post item correctly 1`] = `
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -3129,14 +3329,14 @@ exports[`global community renders post item correctly 1`] = `
           ]
         }
       >
-        nulla quam ipsam
+        nobis cupiditate sed
       </Text>
     </View>
     <Image
       resizeMode="contain"
       source={
         Object {
-          "uri": "dignissimos debitis incidunt",
+          "uri": "accusantium sed libero",
         }
       }
       style={
@@ -3280,7 +3480,7 @@ exports[`global community renders post item correctly 1`] = `
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -3355,9 +3555,11 @@ exports[`global community renders with clear notification button correctly 1`] =
                 Array [
                   Object {
                     "alignItems": "center",
+                    "borderRadius": 18,
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 10,
                   },
                   Object {
@@ -3416,7 +3618,30 @@ exports[`global community renders with clear notification button correctly 1`] =
       >
         <Avatar
           orgId="_global_community_id"
-          personId="13"
+          person={
+            Object {
+              "communityPermissions": Object {
+                "nodes": Array [
+                  Object {
+                    "community": Object {
+                      "id": "16",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "community": Object {
+                      "id": "17",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Samantha",
+              "id": "15",
+              "lastName": "Tremblay",
+              "picture": "provident velit eligendi",
+            }
+          }
           size="medium"
         />
         <View
@@ -3453,7 +3678,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            Orlando Schmidt
+            Samantha Tremblay
           </Text>
           <Text
             style={
@@ -3479,7 +3704,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            8:17 PM
+            2:07 PM
           </Text>
         </View>
       </View>
@@ -3509,7 +3734,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Orlando S. completed a Step of Faith with a  person.
+        Samantha T. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3647,7 +3872,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 ]
               }
             >
-              71597
+              82914
             </Text>
             <SvgMock />
           </View>
@@ -3816,9 +4041,11 @@ exports[`renders with name pressable correctly 1`] = `
                     Array [
                       Object {
                         "alignItems": "center",
+                        "borderRadius": 18,
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
                         "paddingVertical": 10,
                       },
                       Object {
@@ -3877,7 +4104,30 @@ exports[`renders with name pressable correctly 1`] = `
           >
             <Avatar
               orgId="3"
-              personId="13"
+              person={
+                Object {
+                  "communityPermissions": Object {
+                    "nodes": Array [
+                      Object {
+                        "community": Object {
+                          "id": "16",
+                        },
+                        "permission": "no_permissions",
+                      },
+                      Object {
+                        "community": Object {
+                          "id": "17",
+                        },
+                        "permission": "no_permissions",
+                      },
+                    ],
+                  },
+                  "firstName": "Samantha",
+                  "id": "15",
+                  "lastName": "Tremblay",
+                  "picture": "provident velit eligendi",
+                }
+              }
               size="medium"
             />
             <View
@@ -3944,7 +4194,7 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    Orlando Schmidt
+                    Samantha Tremblay
                   </Text>
                 </View>
               </View>
@@ -3972,7 +4222,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
                 testID="Text"
               >
-                8:17 PM
+                2:07 PM
               </Text>
             </View>
           </View>
@@ -4002,14 +4252,14 @@ exports[`renders with name pressable correctly 1`] = `
               ]
             }
           >
-            nulla quam ipsam
+            nobis cupiditate sed
           </Text>
         </View>
         <Image
           resizeMode="contain"
           source={
             Object {
-              "uri": "dignissimos debitis incidunt",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -4153,7 +4403,7 @@ exports[`renders with name pressable correctly 1`] = `
                     ]
                   }
                 >
-                  71597
+                  82914
                 </Text>
                 <SvgMock />
               </View>

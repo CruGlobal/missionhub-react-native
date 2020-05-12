@@ -8,6 +8,7 @@ import {
   ReminderTypeEnum,
   StepTypeEnum,
   PostTypeEnum,
+  RelationshipTypeEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -36,7 +37,8 @@ export const globalMocks: IMocks = {
   }),
   ReminderTypeEnum: () => ReminderTypeEnum.once,
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
-
+  RelationshipTypeEnum: () =>
+    faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
   Step: () => ({
     title: faker.lorem.sentence(),
   }),

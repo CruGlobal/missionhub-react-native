@@ -26,7 +26,7 @@ import { ACTIONS, COMMUNITIES_TAB } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
-import { COMMUNITY_MEMBERS } from '../Members';
+import { COMMUNITY_MEMBERS } from '../../Communities/Community/CommunityMembers/CommunityMembers';
 
 import styles from './styles';
 

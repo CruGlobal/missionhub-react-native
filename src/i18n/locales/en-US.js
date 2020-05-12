@@ -658,11 +658,12 @@ export default {
     stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
-    invite: 'Send Invite',
+    invite: 'Invite Member',
     sendInviteMessage:
       'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
     invited:
       "Anyone you've invited to {{orgName}} will show up here when they join.",
+    errorLoadingMembers: 'Error loading members',
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:
@@ -753,6 +754,7 @@ export default {
     join: 'Join',
     selectStage: 'Select Stage',
     privateGroup: 'Private Group',
+    memberSince: 'Member since',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',

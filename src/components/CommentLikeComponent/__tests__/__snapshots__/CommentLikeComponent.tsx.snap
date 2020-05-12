@@ -73,7 +73,8 @@ exports[`renders nothing with no subject person 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#FF5532"
+          fill="#FF5532"
         />
       </View>
     </View>
@@ -107,7 +108,7 @@ exports[`renders nothing with no subject person 1`] = `
         ]
       }
     >
-      68521
+      2738
     </Text>
     <SvgMock />
   </View>
@@ -231,7 +232,8 @@ exports[`with subject person renders 0 comments_count 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#FF5532"
+          fill="#FF5532"
         />
       </View>
     </View>
@@ -343,7 +345,8 @@ exports[`with subject person renders 0 likes_count 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#FF5532"
+          fill="#FF5532"
         />
       </View>
     </View>
@@ -377,7 +380,7 @@ exports[`with subject person renders 0 likes_count 1`] = `
         ]
       }
     >
-      68521
+      2738
     </Text>
     <SvgMock />
   </View>
@@ -423,7 +426,7 @@ exports[`with subject person renders for me 1`] = `
         ]
       }
     >
-      44345
+      91396
     </Text>
     <View
       accessible={true}
@@ -459,7 +462,8 @@ exports[`with subject person renders for me 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#FF5532"
+          fill="#FF5532"
         />
       </View>
     </View>
@@ -493,7 +497,7 @@ exports[`with subject person renders for me 1`] = `
         ]
       }
     >
-      68521
+      2738
     </Text>
     <SvgMock />
   </View>
@@ -573,7 +577,8 @@ exports[`with subject person renders for someone else 1`] = `
         }
       >
         <SvgMock
-          color="#505256"
+          color="#FF5532"
+          fill="#FF5532"
         />
       </View>
     </View>
@@ -607,7 +612,7 @@ exports[`with subject person renders for someone else 1`] = `
         ]
       }
     >
-      68521
+      2738
     </Text>
     <SvgMock />
   </View>
@@ -721,7 +726,7 @@ exports[`with subject person renders when not liked 1`] = `
         ]
       }
     >
-      68521
+      2738
     </Text>
     <SvgMock />
   </View>

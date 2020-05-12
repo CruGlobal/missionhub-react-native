@@ -221,7 +221,7 @@ it('saves step', async () => {
   );
 
   fireEvent.changeText(getByTestId('stepInput'), text);
-  debugger;
+
   fireEvent.press(getByTestId('bottomButton'));
   await flushMicrotasksQueue();
 

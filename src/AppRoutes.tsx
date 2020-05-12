@@ -271,6 +271,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
     },
     activeTintColor: theme.primaryColor,
     inactiveTintColor: theme.inactiveColor,
+    // @ts-ignore
     indicatorStyle: { backgroundColor: 'transparent' },
     upperCaseLabel: false,
     // Android
