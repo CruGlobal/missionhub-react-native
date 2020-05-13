@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderTabBar should render tabs 1`] = `
+exports[`HeaderTabBar should render active tab 1`] = `
 <RCTScrollView
   bounces={false}
   contentContainerStyle={
@@ -48,6 +48,110 @@ exports[`HeaderTabBar should render tabs 1`] = `
             },
             Object {
               "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Tab One
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#3CC8E6",
+          "borderBottomWidth": 2,
+          "flexGrow": 1,
+          "justifyContent": "center",
+          "minWidth": 100,
+          "opacity": 1,
+          "paddingHorizontal": 12,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#3CC8E6",
+            },
+          ]
+        }
+      >
+        Tab Two
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`HeaderTabBar should render tabs 1`] = `
+<RCTScrollView
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "backgroundColor": "#ffffff",
+      "height": 50,
+      "minWidth": "100%",
+    }
+  }
+  horizontal={true}
+  showsHorizontalScrollIndicator={false}
+>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#3CC8E6",
+          "borderBottomWidth": 2,
+          "flexGrow": 1,
+          "justifyContent": "center",
+          "minWidth": 100,
+          "opacity": 1,
+          "paddingHorizontal": 12,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#3CC8E6",
             },
           ]
         }

@@ -22,7 +22,7 @@ import ImagePicker from '../../../components/ImagePicker';
 import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { ACTIONS, COMMUNITIES_TAB } from '../../../constants';
+import { ACTIONS, COMMUNITIES_TAB, MAIN_TABS } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
@@ -78,8 +78,11 @@ class CreateGroupScreen extends Component {
 
       if (organization) {
         dispatch(
-          // TODO: make sure this works with new community members screen
           navigateNestedReset([
+            {
+              routeName: MAIN_TABS,
+              tabName: COMMUNITIES_TAB,
+            },
             {
               routeName: COMMUNITY_TABS,
               params: {

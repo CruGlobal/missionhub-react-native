@@ -16,7 +16,7 @@ import { addNewOrganization } from '../../../../actions/organizations';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ACTIONS, COMMUNITIES_TAB } from '../../../../constants';
+import { ACTIONS, COMMUNITIES_TAB, MAIN_TABS } from '../../../../constants';
 import { COMMUNITY_TABS } from '../../../Communities/Community/constants';
 import { COMMUNITY_MEMBERS } from '../../../Communities/Community/CommunityMembers/CommunityMembers';
 
@@ -187,6 +187,7 @@ describe('CreateGroupScreen', () => {
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
     expect(navigateNestedReset).toHaveBeenCalledWith([
+      { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
       {
         routeName: COMMUNITY_TABS,
         params: {
@@ -227,6 +228,7 @@ describe('CreateGroupScreen', () => {
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
     expect(navigateNestedReset).toHaveBeenCalledWith([
+      { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
       {
         routeName: COMMUNITY_TABS,
         params: {
