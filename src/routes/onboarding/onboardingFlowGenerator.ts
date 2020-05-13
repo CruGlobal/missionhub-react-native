@@ -18,6 +18,14 @@ import SetupScreen, {
   SETUP_SCREEN,
   SETUP_PERSON_SCREEN,
 } from '../../containers/SetupScreen';
+import {
+  OnboardingAddPhotoScreen,
+  ONBOARDING_ADD_PHOTO_SCREEN,
+} from '../../containers/OnboardingAddPhotoScreen';
+import {
+  OnboardingPhotoConfirmScreen,
+  ONBOARDING_PHOTO_CONFIRM_SCREEN,
+} from '../../containers/OnboardingPhotoConfirmScreen';
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';
@@ -66,9 +74,21 @@ export const onboardingFlowGenerator = ({
   ...(startScreen === WELCOME_SCREEN
     ? {
         [WELCOME_SCREEN]: wrapNextScreen(WelcomeScreen, SETUP_SCREEN),
-        [SETUP_SCREEN]: wrapNextScreen(SetupScreen, GET_STARTED_SCREEN, {
-          isMe: true,
-        }),
+        [SETUP_SCREEN]: wrapNextScreen(
+          SetupScreen,
+          ONBOARDING_ADD_PHOTO_SCREEN,
+        ),
+        [ONBOARDING_ADD_PHOTO_SCREEN]: wrapNextAction(
+          OnboardingAddPhotoScreen,
+          ({ skip }: { skip: boolean }) =>
+            navigatePush(
+              skip ? GET_STARTED_SCREEN : ONBOARDING_PHOTO_CONFIRM_SCREEN,
+            ),
+        ),
+        [ONBOARDING_PHOTO_CONFIRM_SCREEN]: wrapNextScreen(
+          OnboardingPhotoConfirmScreen,
+          GET_STARTED_SCREEN,
+        ),
       }
     : {}),
   ...(startScreen === WELCOME_SCREEN || startScreen === GET_STARTED_SCREEN
