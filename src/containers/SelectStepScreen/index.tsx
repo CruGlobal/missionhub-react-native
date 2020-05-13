@@ -24,7 +24,7 @@ import {
   RefreshControl,
   Button,
 } from '../../components/common';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
 import Header from '../../components/Header';
@@ -300,7 +300,7 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     <View style={styles.container}>
       <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
       <Header
-        left={<BackButton />}
+        left={<DeprecatedBackButton />}
         right={
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}

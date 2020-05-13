@@ -19,7 +19,7 @@ describe('back button', () => {
   it('calls navigate back once', () => {
     const { store, getByTestId } = renderWithContext(<BackButton />);
 
-    fireEvent.press(getByTestId('BackButton'));
+    fireEvent.press(getByTestId('DeprecatedBackButton'));
 
     expect(store.getActions()).toMatchInlineSnapshot(`
       Array [
@@ -41,7 +41,7 @@ describe('back button customNavigate', () => {
       <BackButton customNavigate={mockCustomNav} />,
     );
 
-    fireEvent.press(getByTestId('BackButton'));
+    fireEvent.press(getByTestId('DeprecatedBackButton'));
 
     expect(mockCustomNav).toHaveBeenCalledTimes(1);
   });

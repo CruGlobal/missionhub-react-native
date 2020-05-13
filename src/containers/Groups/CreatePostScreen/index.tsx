@@ -18,7 +18,7 @@ import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -149,7 +149,7 @@ export const CreatePostScreen = () => {
 
   const renderHeader = () => (
     <Header
-      left={<BackButton iconStyle={styles.backButton} />}
+      left={<DeprecatedBackButton iconStyle={styles.backButton} />}
       center={
         <Text style={styles.headerText}>
           {t(`postTypes:${mapPostTypeToFeedType(postType)}`)}

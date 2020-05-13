@@ -16,7 +16,7 @@ import IconButton from '../../components/IconButton';
 
 import styles from './styles';
 
-interface BackButtonProps {
+interface DeprecatedBackButtonProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   style?: StyleProp<ViewStyle>;
   customIcon?: string;
@@ -26,14 +26,14 @@ interface BackButtonProps {
   customNavigate?: () => void;
 }
 
-const BackButton = ({
+const DeprecatedBackButton = ({
   dispatch,
   style,
   customIcon,
   image,
   iconStyle,
   customNavigate,
-}: BackButtonProps) => {
+}: DeprecatedBackButtonProps) => {
   const onPress = () => {
     customNavigate ? customNavigate() : dispatch(navigateBack());
     Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
@@ -47,10 +47,10 @@ const BackButton = ({
         onPress={onPress}
         style={iconStyle}
         image={image}
-        testID="BackButton"
+        testID="DeprecatedBackButton"
       />
     </View>
   );
 };
 
-export default connect()(BackButton);
+export default connect()(DeprecatedBackButton);

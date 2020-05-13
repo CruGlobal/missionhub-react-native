@@ -9,7 +9,7 @@ import { useApolloClient } from '@apollo/react-hooks';
 import { CommentLikeComponent } from '../../components/CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
 import TRAILS1 from '../../../assets/images/Trailss.png';
@@ -134,7 +134,7 @@ const CelebrateDetailScreen = ({
               onRefresh={onRefreshCelebrateItem}
             />
           )}
-          <BackButton
+          <DeprecatedBackButton
             style={styles.backButtonStyle}
             iconStyle={styles.backButtonIconStyle}
             customIcon="deleteIcon"

@@ -14,7 +14,7 @@ import { isAndroid } from '../../utils/common';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
-import BackButton from '../../containers/BackButton';
+import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
 
 import styles from './styles';
@@ -109,7 +109,11 @@ const StepDetailScreen = ({
     <View style={pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={hideBackButton ? null : <BackButton iconStyle={backButton} />}
+        left={
+          hideBackButton ? null : (
+            <DeprecatedBackButton iconStyle={backButton} />
+          )
+        }
         center={CenterHeader}
         right={RightHeader}
       />

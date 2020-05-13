@@ -14,7 +14,7 @@ import {
 } from '../../actions/challenges';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { Button } from '../../components/common';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
@@ -104,7 +104,7 @@ const ChallengeDetailScreen = () => {
     <View style={styles.pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={<BackButton iconStyle={{ color: theme.lightGrey }} />}
+        left={<DeprecatedBackButton iconStyle={{ color: theme.lightGrey }} />}
         right={
           !completed && !isPast && canEditChallenges ? (
             <Button

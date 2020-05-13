@@ -45,7 +45,7 @@ jest.mock('../../../../components/common', () => ({
   Icon: 'Icon',
   LoadingWheel: 'LoadingWheel',
 }));
-jest.mock('../../../BackButton', () => 'BackButton');
+jest.mock('../../../DeprecatedBackButton', () => 'DeprecatedBackButton');
 
 it('renders correctly with logo', () => {
   renderWithContext(<SignUpScreen next={next} />).snapshot();
