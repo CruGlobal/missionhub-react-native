@@ -27,6 +27,11 @@ jest.mock('../../../components/ReminderDateText', () => ({
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '4';
+const myPerson = {
+  id: myId,
+  fullName: 'Christian Huffman',
+  picture: 'myavatar.jpg',
+};
 const otherId = '5';
 const person: AcceptedStepDetail_step_receiver = {
   __typename: 'Person',
@@ -54,7 +59,12 @@ it('should render correctly while loading', () => {
     initialState,
     navParams: { stepId, personId: myId },
     mocks: {
-      Step: () => ({ receiver: person, reminder: null, stepSuggestion: null }),
+      Step: () => ({
+        receiver: person,
+        reminder: null,
+        stepSuggestion: null,
+        post: null,
+      }),
     },
   }).snapshot();
 });
@@ -68,6 +78,7 @@ it('should render correctly without description and without reminder for me', as
         receiver: { id: myId },
         reminder: null,
         stepSuggestion: null,
+        post: null,
       }),
     },
   });
@@ -87,6 +98,31 @@ it('should render correctly without description and without reminder for other',
         receiver: { id: otherId },
         reminder: null,
         stepSuggestion: null,
+        post: null,
+      }),
+    },
+  });
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+  });
+});
+
+it('should render correctly post details', async () => {
+  const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
+    initialState,
+    navParams: { stepId, personId: otherId },
+    mocks: {
+      Step: () => ({
+        receiver: { id: otherId },
+        reminder: null,
+        stepSuggestion: null,
+        post: {
+          id: '1234',
+          author: myPerson,
+          content: 'A care request',
+        },
       }),
     },
   });
@@ -103,7 +139,7 @@ describe('with description, without reminder', () => {
       initialState,
       navParams: { stepId, personId: otherId },
       mocks: {
-        Step: () => ({ receiver: { id: otherId }, reminder: null }),
+        Step: () => ({ receiver: { id: otherId }, reminder: null, post: null }),
       },
     });
     await flushMicrotasksQueue();
@@ -116,6 +152,9 @@ describe('with description, with reminder', () => {
     const { snapshot } = renderWithContext(<AcceptedStepDetailScreen />, {
       initialState,
       navParams: { stepId, personId: otherId },
+      mocks: {
+        Step: () => ({ post: null }),
+      },
     });
     await flushMicrotasksQueue();
     snapshot();
@@ -144,6 +183,9 @@ it('should delete step', async () => {
     {
       initialState,
       navParams: { stepId, personId: otherId },
+      mocks: {
+        Step: () => ({ post: null }),
+      },
     },
   );
 
@@ -165,6 +207,7 @@ it('should delete reminder', async () => {
         //eslint-disable-next-line @typescript-eslint/no-explicit-any
         Step: (_: any, context: any) => ({
           id: context.id,
+          post: null,
         }),
       },
     },

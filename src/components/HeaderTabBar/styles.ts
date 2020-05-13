@@ -19,10 +19,10 @@ export default StyleSheet.create({
     color: theme.inactiveColor,
   },
   tabActive: {
-    borderBottomColor: theme.primaryColor,
+    borderBottomColor: theme.parakeetBlue,
     borderBottomWidth: 2,
   },
   tabTextActiveLight: {
-    color: theme.primaryColor,
+    color: theme.parakeetBlue,
   },
 });

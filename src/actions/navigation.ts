@@ -10,7 +10,7 @@ import {
 
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
-import { MAIN_TABS, PEOPLE_TAB } from '../constants';
+import { MAIN_TABS, PEOPLE_TAB, COMMUNITIES_TAB } from '../constants';
 import { Organization } from '../reducers/organizations';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
@@ -45,23 +45,26 @@ export const navigateReset = (screen: string, props = {}) =>
 export const navigateNestedReset = (
   screens: {
     routeName: string;
-    params: { [key: string]: any };
+    tabName?: string;
+    params?: { [key: string]: any };
   }[],
 ) =>
   resetStack(
-    screens.map(({ routeName, params = {} }) =>
-      NavigationActions.navigate({ routeName, params }),
+    screens.map(({ routeName, params, tabName }) =>
+      NavigationActions.navigate({
+        routeName,
+        ...(params ? { params } : {}),
+        ...(tabName
+          ? {
+              action: NavigationActions.navigate({
+                routeName: tabName,
+              }),
+            }
+          : {}),
+      }),
     ),
     screens.length - 1,
   );
-
-export const navigateResetTab = (routeName: string, tabName: string) =>
-  resetStack([
-    NavigationActions.navigate({
-      routeName,
-      action: NavigationActions.navigate({ routeName: tabName }),
-    }),
-  ]);
 
 const resetStack = (actions: NavigationNavigateAction[], index = 0) => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
@@ -87,11 +90,11 @@ export function navigateReplace(screen: string, props = {}) {
   };
 }
 
-export const navigateToMainTabs = (tab = PEOPLE_TAB) => (
+export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
   dispatch: ThunkDispatch<never, {}, AnyAction>,
 ) => {
   dispatch(loadHome());
-  dispatch(navigateResetTab(MAIN_TABS, tab));
+  dispatch(navigateNestedReset([{ routeName: MAIN_TABS, tabName }]));
 };
 
 export const navigateToCelebrateComments = (
@@ -105,6 +108,10 @@ export const navigateToCelebrateComments = (
   if (celebrationItemId) {
     dispatch(
       navigateNestedReset([
+        {
+          routeName: MAIN_TABS,
+          tabName: COMMUNITIES_TAB,
+        },
         {
           routeName: COMMUNITY_TABS,
           params: { communityId: orgId },

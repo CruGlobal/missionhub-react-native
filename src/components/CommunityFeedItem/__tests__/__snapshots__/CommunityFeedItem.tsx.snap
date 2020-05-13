@@ -150,6 +150,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ],
               },
               "firstName": "Samantha",
+              "fullName": "Vernie Jenkins",
               "id": "15",
               "lastName": "Tremblay",
               "picture": "provident velit eligendi",
@@ -634,6 +635,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ],
                   },
                   "firstName": "Samantha",
+                  "fullName": "Vernie Jenkins",
                   "id": "15",
                   "lastName": "Tremblay",
                   "picture": "provident velit eligendi",
@@ -786,6 +788,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 "opacity": 1,
               }
             }
+            testID="AddToMyStepsButton"
           >
             <SvgMock
               style={
@@ -1130,6 +1133,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ],
                   },
                   "firstName": "Samantha",
+                  "fullName": "Vernie Jenkins",
                   "id": "15",
                   "lastName": "Tremblay",
                   "picture": "provident velit eligendi",
@@ -1564,6 +1568,7 @@ exports[`Community renders post correctly without image 1`] = `
                     ],
                   },
                   "firstName": "Samantha",
+                  "fullName": "Vernie Jenkins",
                   "id": "15",
                   "lastName": "Tremblay",
                   "picture": "provident velit eligendi",
@@ -1962,6 +1967,7 @@ exports[`Community renders step correctly 1`] = `
                 ],
               },
               "firstName": "Samantha",
+              "fullName": "Vernie Jenkins",
               "id": "15",
               "lastName": "Tremblay",
               "picture": "provident velit eligendi",
@@ -2381,6 +2387,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ],
                   },
                   "firstName": "Samantha",
+                  "fullName": "Vernie Jenkins",
                   "id": "15",
                   "lastName": "Tremblay",
                   "picture": "provident velit eligendi",
@@ -2861,6 +2868,7 @@ exports[`global community renders correctly 1`] = `
                 ],
               },
               "firstName": "Samantha",
+              "fullName": "Vernie Jenkins",
               "id": "15",
               "lastName": "Tremblay",
               "picture": "provident velit eligendi",
@@ -3256,6 +3264,7 @@ exports[`global community renders post item correctly 1`] = `
                 ],
               },
               "firstName": "Samantha",
+              "fullName": "Vernie Jenkins",
               "id": "15",
               "lastName": "Tremblay",
               "picture": "provident velit eligendi",
@@ -3664,6 +3673,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 ],
               },
               "firstName": "Samantha",
+              "fullName": "Vernie Jenkins",
               "id": "15",
               "lastName": "Tremblay",
               "picture": "provident velit eligendi",
@@ -4153,6 +4163,7 @@ exports[`renders with name pressable correctly 1`] = `
                     ],
                   },
                   "firstName": "Samantha",
+                  "fullName": "Vernie Jenkins",
                   "id": "15",
                   "lastName": "Tremblay",
                   "picture": "provident velit eligendi",

@@ -22,3 +22,26 @@ exports[`renders image picker 1`] = `
   <View />
 </View>
 `;
+
+exports[`renders image picker with circle overlay 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="popupMenuButton"
+>
+  <View />
+</View>
+`;

@@ -11,7 +11,7 @@ import {
 } from '../../../../components/CollapsibleView/CollapsibleView';
 import { Text, Flex, Button } from '../../../../components/common';
 import { HeaderTabBar } from '../../../../components/HeaderTabBar/HeaderTabBar';
-import BackButton from '../../../BackButton';
+import DeprecatedBackButton from '../../../DeprecatedBackButton';
 import theme from '../../../../theme';
 import Header from '../../../../components/Header';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
@@ -76,7 +76,7 @@ export const CommunityHeader = () => {
         <ImageBackground source={communityPhotoSource} style={styles.image}>
           <View style={styles.imageOverlay} />
           <Header
-            left={<BackButton />}
+            left={<DeprecatedBackButton />}
             right={
               isGlobalCommunity ? null : (
                 <Button

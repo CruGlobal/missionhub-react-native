@@ -96,7 +96,7 @@ const CreatePostModal = ({
   return (
     <Modal transparent animationType={'slide'} visible={true}>
       <View style={modalStyle}>
-        <View style={[containerStyle, { flex: adminOrOwner ? 0.6 : 0.5 }]}>
+        <View style={[containerStyle]}>
           <Flex direction="row" justify="end" style={{ width: '100%' }}>
             <CloseIcon
               style={closeButton}
@@ -113,12 +113,14 @@ const CreatePostModal = ({
             </Flex>
           ) : null}
           {postTypeArray.map(type => (
-            <PostTypeLabel
-              key={type}
-              type={mapPostTypeToFeedType(type)}
-              size={PostLabelSizeEnum.large}
-              onPress={() => navigateToCreatePostScreen(type)}
-            />
+            <View style={{ marginVertical: 10 }} key={type}>
+              <PostTypeLabel
+                key={type}
+                type={mapPostTypeToFeedType(type)}
+                size={PostLabelSizeEnum.large}
+                onPress={() => navigateToCreatePostScreen(type)}
+              />
+            </View>
           ))}
           {adminOrOwner ? (
             <>
@@ -132,13 +134,15 @@ const CreatePostModal = ({
                 <Text style={sectionTitle}>{t('ownersAndAdmins')}</Text>
                 <LineIcon width="21" color={theme.grey} />
               </Flex>
-              <PostTypeLabel
-                type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
-                size={PostLabelSizeEnum.large}
-                onPress={() =>
-                  navigateToCreatePostScreen(PostTypeEnum.announcement)
-                }
-              />
+              <View style={{ marginVertical: 10 }}>
+                <PostTypeLabel
+                  type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
+                  size={PostLabelSizeEnum.large}
+                  onPress={() =>
+                    navigateToCreatePostScreen(PostTypeEnum.announcement)
+                  }
+                />
+              </View>
             </>
           ) : null}
         </View>

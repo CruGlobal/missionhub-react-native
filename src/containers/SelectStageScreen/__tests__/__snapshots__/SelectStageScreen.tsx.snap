@@ -37,7 +37,7 @@ exports[`renders for me renders correctly 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={
@@ -500,7 +500,7 @@ exports[`renders for me renders firstItem correctly 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={
@@ -963,7 +963,7 @@ exports[`renders for other renders correctly 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={
@@ -1426,7 +1426,7 @@ exports[`renders for other renders firstItem correctly 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={
@@ -1889,7 +1889,7 @@ exports[`renders renders correctly with question text 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={
@@ -2352,7 +2352,7 @@ exports[`renders renders correctly without back button 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={
@@ -2815,7 +2815,7 @@ exports[`renders renders correctly without stages 1`] = `
     }
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <View
       style={

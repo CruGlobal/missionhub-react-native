@@ -210,6 +210,9 @@ import NotificationCenterScreen from './containers/NotificationCenterScreen';
 import CelebrateFeedWithType, {
   CELEBRATE_FEED_WITH_TYPE_SCREEN,
 } from './containers/CelebrateFeedWithType';
+import AddPostToStepsScreen, {
+  ADD_POST_TO_STEPS_SCREEN,
+} from './containers/AddPostToStepsScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -493,6 +496,7 @@ const screens = {
   [LOADING_SCREEN]: LoadingScreen,
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
   [CELEBRATE_FEED_WITH_TYPE_SCREEN]: CelebrateFeedWithType,
+  [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
 };
 
 export const trackableScreens = {
@@ -512,7 +516,11 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, GROUPS_REPORT_SCREEN];
+const MODAL_SCREENS = [
+  CELEBRATE_DETAIL_SCREEN,
+  GROUPS_REPORT_SCREEN,
+  ADD_POST_TO_STEPS_SCREEN,
+];
 
 export const MainStackRoutes = createStackNavigator(
   {

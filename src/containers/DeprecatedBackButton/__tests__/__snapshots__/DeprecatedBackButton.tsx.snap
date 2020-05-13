@@ -16,7 +16,7 @@ exports[`back button renders normally 1`] = `
   <IconButton
     name="backIcon"
     onPress={[Function]}
-    testID="BackButton"
+    testID="DeprecatedBackButton"
     type="MissionHub"
   />
 </View>
@@ -39,7 +39,7 @@ exports[`back button renders with image 1`] = `
     image={12345}
     name="backIcon"
     onPress={[Function]}
-    testID="BackButton"
+    testID="DeprecatedBackButton"
     type="MissionHub"
   />
 </View>
