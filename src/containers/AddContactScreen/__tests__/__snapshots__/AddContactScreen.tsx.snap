@@ -3773,6 +3773,7 @@ exports[`savePerson update existing person without org updates users profile pic
               }
             >
               <ImagePicker
+                circleOverlay={true}
                 onSelectImage={[Function]}
                 testID="ImagePicker"
               >
