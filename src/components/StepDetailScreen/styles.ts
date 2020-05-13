@@ -7,9 +7,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  backButton: {
-    color: theme.lightGrey,
-  },
   body: {
     paddingTop: 26,
     paddingHorizontal: 32,
