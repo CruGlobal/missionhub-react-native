@@ -16,10 +16,6 @@ describe('back button', () => {
     renderWithContext(<BackButton image={12345} />).snapshot();
   });
 
-  it('renders with RenderIcon', () => {
-    renderWithContext(<BackButton RenderIcon={'testIcon'} />).snapshot();
-  });
-
   it('calls navigate back once', () => {
     const { store, getByTestId } = renderWithContext(<BackButton />);
 

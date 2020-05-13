@@ -8,7 +8,7 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
   },
   backButton: {
-    color: theme.inactiveColor,
+    color: theme.lightGrey,
   },
   body: {
     paddingTop: 26,

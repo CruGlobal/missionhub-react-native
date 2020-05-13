@@ -5,7 +5,6 @@ import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
 
 import Header from '../Header/index';
-import BackButton from '../../containers/BackButton/index';
 import BottomButton, { BottomButtonProps } from '../BottomButton/index';
 import { Text, Flex, DateComponent } from '../common';
 import Avatar from '../Avatar';
@@ -15,8 +14,8 @@ import { isAndroid } from '../../utils/common';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
+import BackButton from '../../containers/BackButton';
 import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
-import BackIcon from '../../../assets/images/backIcon.svg';
 
 import styles from './styles';
 
@@ -27,7 +26,7 @@ interface StepDetailScreenProps {
   markdown?: string;
   CenterHeader?: React.ReactNode;
   RightHeader?: React.ReactNode;
-  noLeftHeader?: boolean;
+  hideBackButton?: boolean;
   CenterContent?: React.ReactNode;
   Banner?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
@@ -41,7 +40,7 @@ const StepDetailScreen = ({
   stepType,
   CenterHeader,
   RightHeader,
-  noLeftHeader = false,
+  hideBackButton = false,
   CenterContent,
   bottomButtonProps,
   Banner = null,
@@ -110,14 +109,7 @@ const StepDetailScreen = ({
     <View style={pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={
-          noLeftHeader ? null : (
-            <BackButton
-              RenderIcon={<BackIcon color={theme.lightGrey} />}
-              iconStyle={backButton}
-            />
-          )
-        }
+        left={hideBackButton ? null : <BackButton iconStyle={backButton} />}
         center={CenterHeader}
         right={RightHeader}
       />

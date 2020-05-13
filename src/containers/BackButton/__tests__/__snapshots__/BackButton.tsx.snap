@@ -22,57 +22,6 @@ exports[`back button renders normally 1`] = `
 </View>
 `;
 
-exports[`back button renders with RenderIcon 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
-  testID="Button"
->
-  <View
-    style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Array [
-          Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
-            "justifyContent": "center",
-          },
-          undefined,
-        ],
-        null,
-      ]
-    }
-  >
-    testIcon
-  </View>
-</View>
-`;
-
 exports[`back button renders with image 1`] = `
 <View
   style={

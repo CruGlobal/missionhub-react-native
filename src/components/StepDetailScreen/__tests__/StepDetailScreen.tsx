@@ -57,9 +57,9 @@ describe('markdown with <<name>> to change', () => {
   });
 });
 
-describe('renders with no leftHeader', () => {
+describe('renders with hideBackButton', () => {
   it('renders correctly', () => {
-    snapshot({ noLeftHeader: true });
+    snapshot({ hideBackButton: true });
   });
 });
 

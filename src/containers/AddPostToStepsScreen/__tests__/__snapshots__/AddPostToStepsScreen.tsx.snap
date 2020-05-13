@@ -74,7 +74,7 @@ exports[`should render correctly | Care Step 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="CloseButton"
         >
           <View
             style={
@@ -516,7 +516,7 @@ exports[`should render correctly | Pray Step 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="CloseButton"
         >
           <View
             style={
@@ -958,7 +958,7 @@ exports[`should render correctly | Share Step 1`] = `
               "opacity": 1,
             }
           }
-          testID="Button"
+          testID="CloseButton"
         >
           <View
             style={
