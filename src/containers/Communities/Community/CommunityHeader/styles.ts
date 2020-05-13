@@ -8,7 +8,7 @@ export default StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 2,
-    backgroundColor: theme.extraLightGrey,
+    backgroundColor: theme.grey3,
   },
   image: { height: 210 },
   imageOverlay: {
