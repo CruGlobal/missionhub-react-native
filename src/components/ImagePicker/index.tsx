@@ -58,11 +58,11 @@ export const ImagePicker = ({
       const response = await (takePhoto
         ? ImageCropPicker.openCamera({
             ...DEFAULT_OPTIONS,
-            cropperCircleOverlay: circleOverlay ? true : false,
+            cropperCircleOverlay: circleOverlay,
           })
         : ImageCropPicker.openPicker({
             ...DEFAULT_OPTIONS,
-            cropperCircleOverlay: circleOverlay ? true : false,
+            cropperCircleOverlay: circleOverlay,
           }));
 
       const image = Array.isArray(response) ? response[0] : response;
