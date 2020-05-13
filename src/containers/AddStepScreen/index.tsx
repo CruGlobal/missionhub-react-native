@@ -18,7 +18,7 @@ import {
   ANALYTICS_SECTION_TYPE,
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
@@ -180,7 +180,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   return (
     <View style={styles.container}>
       <Header
-        left={<BackButton iconStyle={styles.backButtonStyle} />}
+        left={<DeprecatedBackButton iconStyle={styles.backButtonStyle} />}
         right={
           isStepNote ? (
             <Skip onSkip={handleSkip} textStyle={styles.skipBtnText} />

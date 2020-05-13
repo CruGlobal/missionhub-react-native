@@ -2,8 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
-import StepDetailScreen from '../index';
 import * as common from '../../../utils/common';
+
+import StepDetailScreen from '..';
 
 const firstName = 'Christian';
 
@@ -53,6 +54,12 @@ describe('markdown is not null', () => {
 describe('markdown with <<name>> to change', () => {
   it('renders correctly', () => {
     snapshot({ markdown: '<<name>> <<name>> <<name>>' });
+  });
+});
+
+describe('renders with hideBackButton', () => {
+  it('renders correctly', () => {
+    snapshot({ hideBackButton: true });
   });
 });
 

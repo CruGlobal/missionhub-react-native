@@ -8,7 +8,7 @@ import { DrawerActions } from 'react-navigation-drawer';
 import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 import MemberCelebrate from '../../MemberCelebrate';
 import ContactSteps from '../../ContactSteps';
 import ContactNotes from '../../ContactNotes';
@@ -258,7 +258,7 @@ export class AssignedPersonScreen extends Component {
       <View style={styles.container}>
         <StatusBar {...theme.statusBar.lightContent} />
         <Header
-          left={<BackButton />}
+          left={<DeprecatedBackButton />}
           right={
             <IconButton
               name="moreIcon"

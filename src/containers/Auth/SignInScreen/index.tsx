@@ -16,7 +16,7 @@ import {
   LoadingWheel,
   Input,
 } from '../../../components/common';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 import BottomButton from '../../../components/BottomButton';
 import Header from '../../../components/Header';
 import {
@@ -153,7 +153,7 @@ const SignInScreen = ({
   return (
     <View style={styles.container}>
       {renderErrorMessage()}
-      <Header left={forcedLogout ? null : <BackButton />} />
+      <Header left={forcedLogout ? null : <DeprecatedBackButton />} />
       {showLogo ? (
         <Flex align="center" justify="center">
           {forcedLogout ? (

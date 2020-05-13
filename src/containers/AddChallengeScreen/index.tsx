@@ -10,7 +10,7 @@ import { TrackStateContext } from '../../actions/analytics';
 import { Text, Input, Button } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
@@ -187,7 +187,9 @@ const AddChallengeScreen = ({
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={
-          isEdit ? <BackButton iconStyle={{ color: theme.lightGrey }} /> : null
+          isEdit ? (
+            <DeprecatedBackButton iconStyle={{ color: theme.lightGrey }} />
+          ) : null
         }
         right={
           isEdit ? (
@@ -200,7 +202,10 @@ const AddChallengeScreen = ({
               style={{ marginRight: 10 }}
             />
           ) : (
-            <BackButton image={CLOSE_BUTTON} style={styles.backButton} />
+            <DeprecatedBackButton
+              image={CLOSE_BUTTON}
+              style={styles.backButton}
+            />
           )
         }
       />

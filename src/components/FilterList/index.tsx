@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ScrollView } from 'react-native';
 
 import Header from '../Header';
-import BackButton from '../../containers/BackButton';
+import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import FilterItem from '../FilterItem';
 
 import styles from './styles';
@@ -39,7 +39,7 @@ const FilterList = ({
   };
   return (
     <View style={styles.pageContainer}>
-      <Header left={<BackButton />} title={title} />
+      <Header left={<DeprecatedBackButton />} title={title} />
       <ScrollView style={styles.list}>
         {options &&
           options.map((o, i) => (
