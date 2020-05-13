@@ -113,7 +113,7 @@ const CreatePostModal = ({
             </Flex>
           ) : null}
           {postTypeArray.map(type => (
-            <View style={{ marginVertical: 10 }}>
+            <View style={{ marginVertical: 10 }} key={type}>
               <PostTypeLabel
                 key={type}
                 type={mapPostTypeToFeedType(type)}
