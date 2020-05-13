@@ -1,22 +1,15 @@
 import { AnyAction } from 'redux';
 
 import { REQUESTS } from '../api/routes';
-import {
-  LOGOUT,
-  UPDATE_PEOPLE_INTERACTION_REPORT,
-  INTERACTION_TYPES,
-} from '../constants';
+import { LOGOUT } from '../constants';
 
 export interface ImpactState {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   summary: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  interactions: any;
 }
 
 const initialState = {
   summary: {},
-  interactions: {},
 };
 
 export default function impactReducer(
@@ -31,28 +24,6 @@ export default function impactReducer(
         summary: {
           ...state.summary,
           [storageKey(impact.person_id, impact.organization_id)]: impact,
-        },
-      };
-    case UPDATE_PEOPLE_INTERACTION_REPORT:
-      const key = storageKey(action.personId, action.organizationId);
-
-      const report = action.personId
-        ? action.report
-        : action.report.filter(
-            (type: { id: string }) =>
-              type.id !==
-                INTERACTION_TYPES.MHInteractionTypeAssignedContacts.id &&
-              type.id !== INTERACTION_TYPES.MHInteractionTypeUncontacted.id,
-          );
-
-      return {
-        ...state,
-        interactions: {
-          ...state.interactions,
-          [key]: {
-            ...state.interactions[key],
-            [action.period]: report,
-          },
         },
       };
     case LOGOUT:
