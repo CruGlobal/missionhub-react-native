@@ -11,7 +11,6 @@ import {
   navigateReset,
   navigateReplace,
   navigateNestedReset,
-  navigateResetTab,
   navigateToMainTabs,
   navigateToCelebrateComments,
 } from '../navigation';
@@ -123,6 +122,8 @@ describe('navigateReset', () => {
 });
 
 describe('navigateNestedReset', () => {
+  const tabsScreen = 'tabsScreen';
+  const tab1 = 'tab1';
   const screen1 = 'roger';
   const params1 = { id: '1' };
   const screen2 = 'the dummy';
@@ -131,7 +132,8 @@ describe('navigateNestedReset', () => {
   it('should reset to a nested navigate stack', () => {
     store.dispatch<any>(
       navigateNestedReset([
-        { routeName: screen1, params: params1 },
+        { routeName: tabsScreen, tabName: tab1, params: params1 },
+        { routeName: screen1 },
         { routeName: screen2, params: params2 },
       ]),
     );
@@ -139,35 +141,17 @@ describe('navigateNestedReset', () => {
     expect(store.getActions()).toEqual([
       {
         type: 'Navigation/RESET',
-        index: 1,
-        key: null,
-        actions: [
-          { type: 'Navigation/NAVIGATE', routeName: screen1, params: params1 },
-          { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
-        ],
-      },
-    ]);
-  });
-});
-
-describe('navigateResetTab', () => {
-  const screen1 = 'Tabs Screen';
-  const screen2 = 'Specific Tab';
-
-  it('should reset to a specific tab', () => {
-    store.dispatch<any>(navigateResetTab(screen1, screen2));
-
-    expect(store.getActions()).toEqual([
-      {
-        type: 'Navigation/RESET',
-        index: 0,
+        index: 2,
         key: null,
         actions: [
           {
             type: 'Navigation/NAVIGATE',
-            routeName: screen1,
-            action: NavigationActions.navigate({ routeName: screen2 }),
+            routeName: tabsScreen,
+            params: params1,
+            action: NavigationActions.navigate({ routeName: tab1 }),
           },
+          { type: 'Navigation/NAVIGATE', routeName: screen1 },
+          { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
         ],
       },
     ]);
@@ -315,9 +299,17 @@ describe('navigateToCelebrateComments', () => {
       expect(store.getActions()).toEqual([
         {
           type: 'Navigation/RESET',
-          index: 2,
+          index: 3,
           key: null,
           actions: [
+            {
+              type: 'Navigation/NAVIGATE',
+              routeName: MAIN_TABS,
+              action: {
+                type: 'Navigation/NAVIGATE',
+                routeName: COMMUNITIES_TAB,
+              },
+            },
             {
               type: 'Navigation/NAVIGATE',
               routeName: COMMUNITY_TABS,
