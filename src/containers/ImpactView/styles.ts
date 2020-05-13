@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: theme.secondaryColor,
     width: theme.fullWidth,
     // Android was cutting off the top part of the clouds in the image.
-    // Take the image scale and multiple it by the width to get the height
+    // Take the image scale and multiply it by the width to get the height
     height: (205 / 375) * theme.fullWidth,
   },
   text: {
@@ -28,52 +28,5 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingBottom: 40,
     backgroundColor: theme.impactBlue,
-  },
-  interactionsWrap: {
-    paddingHorizontal: 40,
-  },
-  interactionSection: {
-    paddingBottom: 40,
-    backgroundColor: theme.impactBlue,
-  },
-  icon: {
-    fontSize: 28,
-  },
-  interactionText: {
-    fontSize: 16,
-    color: theme.white,
-  },
-  interactionNumber: {
-    fontSize: 24,
-    color: theme.white,
-  },
-  interactionRow: {
-    paddingVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.secondaryColor,
-  },
-  periodButton: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    borderColor: theme.accentColor,
-    borderWidth: 1,
-    backgroundColor: theme.transparent,
-    paddingHorizontal: 5,
-    marginHorizontal: 5,
-  },
-  buttonText: {
-    color: theme.white,
-    fontSize: 18,
-    fontWeight: '100',
-  },
-  activeButton: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: theme.accentColor,
-    borderColor: theme.accentColor,
-    paddingHorizontal: 5,
-    marginHorizontal: 5,
   },
 });
