@@ -14,7 +14,7 @@ import PrayerRequestIcon from '../../../assets/images/prayerRequestIcon.svg';
 import SpiritualQuestionIcon from '../../../assets/images/spiritualQuestionIcon.svg';
 import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
 import { Card, Flex } from '../common';
-import BackButton from '../../containers/BackButton';
+import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 
@@ -145,7 +145,7 @@ const PostTypeLabel = ({
         <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
       </Flex>
       <Flex style={styles.headerBackButtonWrap}>
-        <BackButton />
+        <DeprecatedBackButton />
       </Flex>
     </Card>
   ) : onPress ? (

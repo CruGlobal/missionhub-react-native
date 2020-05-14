@@ -7,7 +7,7 @@ import { getGroupJourney } from '../../../actions/journey';
 import JourneyCommentBox from '../../../components/JourneyCommentBox';
 import GroupsContactList from '../../../components/GroupsContactList';
 import Header from '../../../components/Header';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 import { organizationSelector } from '../../../selectors/organizations';
 import { personSelector } from '../../../selectors/people';
 
@@ -34,7 +34,7 @@ class UnassignedPersonScreen extends Component {
 
     return (
       <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={organization.name} />
+        <Header left={<DeprecatedBackButton />} title={organization.name} />
         <GroupsContactList
           activity={activity}
           person={person}

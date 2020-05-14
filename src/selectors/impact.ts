@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 import { Person } from '../reducers/people';
 import { Organization } from '../reducers/organizations';
-import { ImpactState } from '../reducers/impact';
+import { RootState } from '../reducers';
 
 const personIdSelector = (
   _: unknown,
@@ -14,15 +14,8 @@ const orgIdSelector = (
 ) => organization.id || '';
 
 export const impactSummarySelector = createSelector(
-  ({ impact }: { impact: ImpactState }) => impact.summary,
+  ({ impact }: RootState) => impact.summary,
   personIdSelector,
   orgIdSelector,
   (summary, personId, orgId) => summary[`${personId}-${orgId}`] || {},
-);
-
-export const impactInteractionsSelector = createSelector(
-  ({ impact }: { impact: ImpactState }) => impact.interactions,
-  personIdSelector,
-  orgIdSelector,
-  (interactions, personId, orgId) => interactions[`${personId}-${orgId}`] || {},
 );

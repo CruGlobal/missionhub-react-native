@@ -22,6 +22,7 @@ import {
   CommunityFeedItem_subject,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -127,9 +128,13 @@ export const CommunityFeedItem = ({
       },
     ]);
 
-  const handleAddToMySteps = () => {
-    //TODO: add to my steps
-  };
+  const handleAddToMySteps = () =>
+    dispatch(
+      navigatePush(ADD_POST_TO_STEPS_SCREEN, {
+        item,
+        communityId,
+      }),
+    );
 
   const navToFilteredFeed = () => {
     //TODO: navigate to filtered feed for post type
@@ -157,7 +162,11 @@ export const CommunityFeedItem = ({
       : [];
 
   const renderAddToStepsButton = () => (
-    <Touchable style={styles.addStepWrap} onPress={handleAddToMySteps}>
+    <Touchable
+      style={styles.addStepWrap}
+      onPress={handleAddToMySteps}
+      testID="AddToMyStepsButton"
+    >
       <StepIcon style={styles.stepIcon} />
       <PlusIcon style={styles.plusIcon} />
       <Text style={styles.addStepText}>{t('addToMySteps')}</Text>

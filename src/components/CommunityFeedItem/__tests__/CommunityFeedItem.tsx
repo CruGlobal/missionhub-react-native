@@ -14,6 +14,7 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
 import {
   COMMUNITY_FEED_ITEM_FRAGMENT,
   COMMUNITY_FEED_POST_FRAGMENT,
@@ -405,5 +406,26 @@ describe('clear notification button', () => {
     fireEvent.press(getByTestId('ClearNotificationButton'));
 
     expect(onClearNotification).toHaveBeenCalledWith(storyPostItem);
+  });
+});
+
+describe('add to steps button', () => {
+  it('calls handleAddToMySteps', () => {
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItem
+        item={prayerPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        onClearNotification={onClearNotification}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+    fireEvent.press(getByTestId('AddToMyStepsButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
+      item: prayerPostItem,
+      communityId,
+    });
   });
 });

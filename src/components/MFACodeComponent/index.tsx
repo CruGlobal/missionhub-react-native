@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Flex, Text, Input, Button } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
-import BackButton from '../../containers/BackButton';
+import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import Header from '../Header';
 
 import styles from './styles';
@@ -35,7 +35,7 @@ export const MFACodeComponent = ({
   return (
     <View style={container}>
       <Header
-        left={<BackButton />}
+        left={<DeprecatedBackButton />}
         right={
           <Button
             testID="doneButton"

@@ -18,23 +18,24 @@ import IconButton from '../../components/IconButton';
 import styles from './styles';
 import BackArrowIcon from './BackArrowIcon.svg';
 
-interface BackButtonProps {
+interface DeprecatedBackButtonProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
   style?: StyleProp<ViewStyle>;
   customIcon?: string;
+  RenderIcon?: React.ReactNode;
   image?: ImageSourcePropType;
   iconStyle?: StyleProp<TextStyle>;
   customNavigate?: () => void;
 }
 
-const BackButton = ({
+const DeprecatedBackButton = ({
   dispatch,
   style,
   customIcon,
   image,
   iconStyle,
   customNavigate,
-}: BackButtonProps) => {
+}: DeprecatedBackButtonProps) => {
   const onPress = () => {
     customNavigate ? customNavigate() : dispatch(navigateBack());
     Keyboard.dismiss(); // Always dismiss the keyboard when navigating back
@@ -42,22 +43,16 @@ const BackButton = ({
 
   return (
     <View style={[styles.container, style]}>
-      {customIcon ? (
-        <IconButton
-          name="backIcon"
-          type="MissionHub"
-          onPress={onPress}
-          style={iconStyle}
-          image={image}
-          testID="BackButton"
-        />
-      ) : (
-        <Touchable onPress={onPress} testID="BackButton" style={styles.button}>
-          <BackArrowIcon />
-        </Touchable>
-      )}
+      <IconButton
+        name={customIcon || 'backIcon'}
+        type="MissionHub"
+        onPress={onPress}
+        style={iconStyle}
+        image={image}
+        testID="DeprecatedBackButton"
+      />
     </View>
   );
 };
 
-export default connect()(BackButton);
+export default connect()(DeprecatedBackButton);

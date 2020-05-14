@@ -2,18 +2,26 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { navigateBack } from '../../../actions/navigation';
+import theme from '../../../theme';
 
 import BackButton from '..';
 
-jest.mock('../../../components/IconButton', () => 'IconButton');
+jest.mock('../../../actions/navigation');
+
+const navigateBackResults = { type: 'navigate back' };
+
+beforeEach(() => {
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
+});
 
 describe('back button', () => {
   it('renders normally', () => {
     renderWithContext(<BackButton />).snapshot();
   });
 
-  it('renders with image', () => {
-    renderWithContext(<BackButton image={12345} />).snapshot();
+  it('renders with different color', () => {
+    renderWithContext(<BackButton iconColor={theme.parakeetBlue} />).snapshot();
   });
 
   it('calls navigate back once', () => {
@@ -21,15 +29,7 @@ describe('back button', () => {
 
     fireEvent.press(getByTestId('BackButton'));
 
-    expect(store.getActions()).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "immediate": undefined,
-          "key": undefined,
-          "type": "Navigation/BACK",
-        },
-      ]
-    `);
+    expect(store.getActions()).toEqual([navigateBackResults]);
   });
 });
 

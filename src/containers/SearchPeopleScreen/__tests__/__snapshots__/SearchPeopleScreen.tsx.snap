@@ -411,7 +411,7 @@ exports[`renders with no results state 1`] = `
         />
       </View>
     }
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="filterIcon"
@@ -486,7 +486,7 @@ exports[`renders with results state 1`] = `
         />
       </View>
     }
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="filterIcon"
@@ -588,7 +588,7 @@ exports[`renders with searching state 1`] = `
         />
       </View>
     }
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="filterIcon"
