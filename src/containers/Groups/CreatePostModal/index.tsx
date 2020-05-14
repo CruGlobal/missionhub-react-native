@@ -8,7 +8,6 @@ import { Flex } from '../../../components/common';
 import PostTypeLabel, {
   PostLabelSizeEnum,
 } from '../../../components/PostTypeLabel';
-import CloseIcon from '../../../../assets/images/closeIcon.svg';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
 import { isAdminOrOwner, mapPostTypeToFeedType } from '../../../utils/common';
@@ -18,6 +17,7 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
+import CloseButton from '../../../components/CloseButton';
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
@@ -98,11 +98,7 @@ const CreatePostModal = ({
       <View style={modalStyle}>
         <View style={[containerStyle]}>
           <Flex direction="row" justify="end" style={{ width: '100%' }}>
-            <CloseIcon
-              style={closeButton}
-              testID="CloseButton"
-              onPress={closeModal}
-            />
+            <CloseButton style={closeButton} customNavigate={closeModal} />
           </Flex>
           <Text style={titleText}>{t('choosePostType')}</Text>
           {adminOrOwner ? (
