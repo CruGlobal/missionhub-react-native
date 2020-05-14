@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 
+import BackButton from '../../components/BackButton';
 import { Text } from '../../components/common';
 import Header from '../../components/Header';
 import Skip from '../../components/Skip';
-import BackButton from '../BackButton';
 import ImagePicker, { SelectImageParams } from '../../components/ImagePicker';
 
 import ProfileIcon from './ProfileIcon.svg';
-import ProfileAddIcon from './ProfileAddIcon.svg';
+import ProfilePlusIcon from './ProfilePlusIcon.svg';
 import styles from './styles';
 
 interface OnboardingAddPhotoScreenProps {
@@ -37,21 +37,27 @@ export const OnboardingAddPhotoScreen = ({
 
   return (
     <View style={styles.container}>
+      <View style={styles.profileIconWrap}>
+        <ProfileIcon style={styles.profileIcon} />
+        <ProfilePlusIcon style={styles.profilePlusIcon} />
+      </View>
       <Header
-        left={<BackButton style={{ borderWidth: 1 }} />}
-        right={<Skip onSkip={handleSkip} />}
+        left={<BackButton style={styles.headerButton} />}
+        right={
+          <Skip
+            onSkip={handleSkip}
+            style={styles.headerButton}
+            textStyle={styles.skipText}
+          />
+        }
       />
       <View style={styles.contentWrap}>
         <Text style={styles.headerText}>{t('header')}</Text>
         <Text style={styles.descriptionText}>{t('description')}</Text>
-        <View>
-          <ProfileIcon style={styles.profileIcon} />
-          <ProfileAddIcon style={styles.profileAddIcon} />
-        </View>
       </View>
       <SafeAreaView style={{ position: 'absolute', bottom: 20, left: 50 }}>
         <ImagePicker onSelectImage={handleSelectImage}>
-          <View style={styles.bottomButtonText}>
+          <View style={styles.bottomButtonWrapper}>
             <Text style={styles.bottomButtonText}>
               {t('buttonText').toUpperCase()}
             </Text>

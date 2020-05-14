@@ -3,10 +3,10 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 
+import BackButton from '../../components/BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
 import theme from '../../theme';
-import BackButton from '../BackButton';
 
 interface OnboardingPhotoConfirmProps {
   next: () => // eslint-disable-next-line @typescript-eslint/no-explicit-any

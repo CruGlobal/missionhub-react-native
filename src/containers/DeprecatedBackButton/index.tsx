@@ -11,12 +11,10 @@ import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { Touchable } from '../../components/common';
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
 
 import styles from './styles';
-import BackArrowIcon from './BackArrowIcon.svg';
 
 interface DeprecatedBackButtonProps {
   dispatch: ThunkDispatch<{}, {}, AnyAction>;
