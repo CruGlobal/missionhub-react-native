@@ -28,7 +28,7 @@ import {
 } from './__generated__/MarkCommunityFeedItemsRead';
 
 export interface CelebrateFeedPostCardsProps {
-  organization: Organization;
+  community: Organization;
 }
 
 export interface CommunityFeedSection {
@@ -79,16 +79,13 @@ const getGroupPostCards = (
 };
 
 export const CelebrateFeedPostCards = ({
-  organization,
+  community,
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
-  const queryVariables = {
-    communityId: organization.id,
-  };
 
   const { data, refetch } = useQuery<GetCommunityPostCards>(
     GET_COMMUNITY_POST_CARDS,
-    { variables: queryVariables },
+    { variables: { communityId: community.id } },
   );
 
   const groups = getGroupPostCards(data?.community.feedItems.nodes || []);
@@ -100,11 +97,14 @@ export const CelebrateFeedPostCards = ({
 
   const navToFeedType = async (type: FeedItemSubjectTypeEnum) => {
     dispatch(
-      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, { type, organization }),
+      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+        type,
+        organization: community,
+      }),
     );
     await markCommunityFeedItemsAsRead({
       variables: {
-        input: { feedItemSubjectType: type, communityId: organization.id },
+        input: { feedItemSubjectType: type, communityId: community.id },
       },
     });
     refetch();

@@ -12,9 +12,20 @@ const organization = { id: '1' };
 
 it('renders correctly', () => {
   renderWithContext(<CelebrateFeedWithType />, {
+    initialState: { organizations: { all: [organization] } },
     navParams: {
       type: FeedItemSubjectTypeEnum.STEP,
       organization,
+    },
+  }).snapshot();
+});
+
+it('renders correctly with id', () => {
+  renderWithContext(<CelebrateFeedWithType />, {
+    initialState: { organizations: { all: [organization] } },
+    navParams: {
+      type: FeedItemSubjectTypeEnum.STEP,
+      communityId: organization.id,
     },
   }).snapshot();
 });

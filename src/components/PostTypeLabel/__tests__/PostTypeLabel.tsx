@@ -205,4 +205,22 @@ describe('post types cards', () => {
       { noWrappers: true },
     ).snapshot();
   });
+
+  it('fires onPress when pressed', () => {
+    const onPress = jest.fn();
+    const { getByTestId } = renderWithContext(
+      <PostTypeCardWithPeople
+        onPress={onPress}
+        type={FeedItemSubjectTypeEnum.STORY}
+        people={people}
+        countOnly={true}
+      />,
+      {
+        noWrappers: true,
+      },
+    );
+
+    fireEvent.press(getByTestId('STORYCardWithPeople'));
+    expect(onPress).toHaveBeenCalled();
+  });
 });

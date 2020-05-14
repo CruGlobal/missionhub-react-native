@@ -327,6 +327,7 @@ exports[`post types cards renders Announcement Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="ANNOUNCEMENTCardWithPeople"
 >
   <View
     style={
@@ -435,6 +436,7 @@ exports[`post types cards renders Care Request Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="HELP_REQUESTCardWithPeople"
 >
   <View
     style={
@@ -543,6 +545,7 @@ exports[`post types cards renders God Story Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="STORYCardWithPeople"
 >
   <View
     style={
@@ -651,6 +654,7 @@ exports[`post types cards renders On Your Mind Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="THOUGHTCardWithPeople"
 >
   <View
     style={
@@ -759,6 +763,7 @@ exports[`post types cards renders Prayer Request Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="PRAYER_REQUESTCardWithPeople"
 >
   <View
     style={
@@ -867,6 +872,7 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="QUESTIONCardWithPeople"
 >
   <View
     style={
@@ -975,6 +981,7 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="STEPCardWithPeople"
 >
   <View
     style={
@@ -1083,6 +1090,7 @@ exports[`post types cards renders people 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="STEPCardWithPeople"
 >
   <View
     style={
@@ -1142,7 +1150,7 @@ exports[`post types cards renders people 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(155, 136, 216)",
+                "backgroundColor": "rgb(55, 160, 67)",
               },
               Object {
                 "marginLeft": -12,
@@ -1190,7 +1198,7 @@ exports[`post types cards renders people 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(155, 136, 216)",
+                "backgroundColor": "rgb(216, 155, 216)",
               },
               Object {
                 "marginLeft": -12,
@@ -1238,7 +1246,7 @@ exports[`post types cards renders people 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(155, 136, 216)",
+                "backgroundColor": "rgb(121, 135, 216)",
               },
               Object {
                 "marginLeft": -12,
@@ -1389,6 +1397,7 @@ exports[`post types cards renders people with count only 1`] = `
       "shadowRadius": 2,
     }
   }
+  testID="STEPCardWithPeople"
 >
   <View
     style={

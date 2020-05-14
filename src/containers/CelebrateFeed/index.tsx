@@ -274,7 +274,7 @@ export const CelebrateFeed = ({
               />
             ) : null}
             {filteredFeedType || isGlobal ? null : (
-              <CelebrateFeedPostCards organization={organization} />
+              <CelebrateFeedPostCards community={organization} />
             )}
           </>
         )}

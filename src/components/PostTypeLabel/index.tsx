@@ -87,7 +87,6 @@ interface PostTypeLabelProps {
   onPress?: TouchablePress;
   showText?: boolean;
   size?: PostLabelSizeEnum;
-  testID?: string;
 }
 
 const PostTypeLabel = ({
@@ -183,7 +182,11 @@ export const PostTypeCardWithPeople = ({
   const num = getExtraCount(people?.length, countOnly);
 
   return (
-    <Card onPress={onPress} style={styles.peopleCard}>
+    <Card
+      testID={`${type}CardWithPeople`}
+      onPress={onPress}
+      style={styles.peopleCard}
+    >
       <View style={[styles[type], styles.peopleCardTop]}>
         <PostTypeIcon
           type={type}
@@ -192,10 +195,10 @@ export const PostTypeCardWithPeople = ({
         />
         <View style={styles.peopleCardList}>
           {!countOnly &&
-            visiblePeople?.map((p, i) => (
+            visiblePeople?.map((person, index) => (
               <Avatar
-                key={i}
-                person={p}
+                key={index}
+                person={person}
                 size="extrasmall"
                 style={{ marginLeft: -12 }}
               />

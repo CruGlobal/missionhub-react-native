@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 
 export const FEED_ITEM_POST_CARD_FRAGMENT = gql`
   fragment FeedItemPostCard on Post {
+    id
     __typename
     postType
     author {
@@ -14,6 +15,7 @@ export const FEED_ITEM_POST_CARD_FRAGMENT = gql`
 `;
 export const FEED_ITEM_STEP_CARD_FRAGMENT = gql`
   fragment FeedItemStepCard on Step {
+    id
     __typename
     owner {
       id

@@ -40,7 +40,7 @@ beforeEach(() => {
 });
 
 it('renders empty correctly', () => {
-  renderWithContext(<CelebrateFeedPostCards organization={organization} />, {
+  renderWithContext(<CelebrateFeedPostCards community={organization} />, {
     initialState,
     mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(0) }) },
   }).snapshot();
@@ -48,7 +48,7 @@ it('renders empty correctly', () => {
 
 it('renders with feed items correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CelebrateFeedPostCards organization={organization} />,
+    <CelebrateFeedPostCards community={organization} />,
     {
       initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
@@ -67,7 +67,7 @@ describe('navs to screens', () => {
   let myGetByTestId: (testID: string) => ReactTestInstance;
   beforeEach(() => {
     const { getByTestId } = renderWithContext(
-      <CelebrateFeedPostCards organization={organization} />,
+      <CelebrateFeedPostCards community={organization} />,
       {
         initialState,
         mocks: {

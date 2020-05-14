@@ -386,6 +386,54 @@ exports[`renders person fullName 1`] = `
 </View>
 `;
 
+exports[`renders person without custom text 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(159, 116, 67)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 20,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    +5
+  </Text>
+</View>
+`;
+
 exports[`renders person without name 1`] = `
 <View
   style={
