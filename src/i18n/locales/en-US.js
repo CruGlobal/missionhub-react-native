@@ -188,6 +188,11 @@ export default {
     addPerson: 'Who would you like to take steps of faith with this week?',
     errorSavingPerson: 'Error saving your person. Please try again.',
   },
+  onboardingAddPhoto: {
+    header: 'Add Profile Photo',
+    description: "Add a profile photo so your members know it's you",
+    buttonText: 'Add a Profile Photo',
+  },
   categories: {
     onboardingPrompt:
       'Think of someone you want to help grow closer to God. Who are they?',

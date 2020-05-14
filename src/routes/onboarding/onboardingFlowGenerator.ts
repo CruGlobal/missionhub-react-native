@@ -77,6 +77,9 @@ export const onboardingFlowGenerator = ({
         [SETUP_SCREEN]: wrapNextScreen(
           SetupScreen,
           ONBOARDING_ADD_PHOTO_SCREEN,
+          {
+            isMe: true,
+          },
         ),
         [ONBOARDING_ADD_PHOTO_SCREEN]: wrapNextAction(
           OnboardingAddPhotoScreen,
