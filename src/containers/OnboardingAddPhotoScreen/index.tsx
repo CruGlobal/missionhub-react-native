@@ -33,7 +33,9 @@ export const OnboardingAddPhotoScreen = ({
 
   const handleSkip = () => dispatch(next({ skip: true }));
 
-  const handleSelectImage = (image: SelectImageParams) => {};
+  const handleSelectImage = (image: SelectImageParams) => {
+    handleNext();
+  };
 
   return (
     <View style={styles.container}>

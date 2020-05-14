@@ -193,6 +193,11 @@ export default {
     description: "Add a profile photo so your members know it's you",
     buttonText: 'Add a Profile Photo',
   },
+  onboardingConfirmPhoto: {
+    header: 'Profile Photo Added',
+    changePhoto: 'Change Photo',
+    buttonText: 'Continue',
+  },
   categories: {
     onboardingPrompt:
       'Think of someone you want to help grow closer to God. Who are they?',
