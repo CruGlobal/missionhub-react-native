@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, StyleProp, ViewStyle } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, StyleProp, ViewStyle, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
-import { Text, Button } from '../common';
+import { Text, Button, Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
@@ -12,32 +12,76 @@ import {
   getFeedItemType,
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CombinedFeedItem } from '../CommunityFeedItem';
+import {
+  CommunityFeedItem,
+  CommunityFeedItem_subject,
+} from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import {
   CommunityFeedStep,
   CommunityFeedStep_receiverStageAtCompletion,
 } from '../CommunityFeedItem/__generated__/CommunityFeedStep';
 import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/CommunityFeedChallenge';
+import PostTypeLabel from '../PostTypeLabel';
+import Avatar from '../Avatar';
+import { CommunityFeedItemName } from '../CommunityFeedItemName';
+import CardTime from '../CardTime';
+import { CommentLikeComponent } from '../CommentLikeComponent';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
+import Separator from '../Separator';
 
+import PlusIcon from './plusIcon.svg';
+import StepIcon from './stepIcon.svg';
 import styles from './styles';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 
 export interface CommunityFeedItemContentProps {
   item: CombinedFeedItem;
   communityId: string;
+  namePressable?: boolean;
+  onRefresh?: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
 export const CommunityFeedItemContent = ({
   item,
   communityId,
+  namePressable = false,
+  onRefresh,
   style,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
+  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
+
+  // TODO: share this function?
+  const isPost = (
+    subject: CommunityFeedItem_subject,
+  ): subject is CommunityFeedPost => subject.__typename === 'Post';
+
+  const imageData =
+    (isPost(item.subject) && item.subject.mediaExpiringUrl) || null;
+
+  useEffect(() => {
+    if (!imageData) {
+      return;
+    }
+
+    Image.getSize(
+      imageData,
+      (width, height) => changeImageAspectRatio(width / height),
+      () => {},
+    );
+  }, [imageData]);
+
   const { subject, subjectPerson, subjectPersonName } = item;
   const itemType = getFeedItemType(subject);
+  const addToSteps = [
+    FeedItemSubjectTypeEnum.HELP_REQUEST,
+    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    FeedItemSubjectTypeEnum.QUESTION,
+  ].includes(itemType);
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(
@@ -60,6 +104,23 @@ export const CommunityFeedItemContent = ({
       );
     }
   };
+
+  const navToFilteredFeed = () => {
+    dispatch(
+      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+        type: FeedItemType,
+        communityId,
+      }),
+    );
+  };
+
+  const handleAddToMySteps = () =>
+    dispatch(
+      navigatePush(ADD_POST_TO_STEPS_SCREEN, {
+        item,
+        communityId,
+      }),
+    );
 
   const buildChallengeMessage = () => {
     const isCompleted = (subject as CommunityFeedChallenge).acceptedCommunityChallengesList.some(
@@ -139,12 +200,80 @@ export const CommunityFeedItemContent = ({
     </View>
   );
 
-  return (
-    <View style={style}>
-      <Text style={styles.messageText}>{renderMessage()}</Text>
-      {itemType === FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE
-        ? renderChallengeLink()
-        : null}
+  const renderHeader = () => (
+    <View style={styles.headerWrap}>
+      <View style={styles.headerRow}>
+        <PostTypeLabel type={itemType} onPress={navToFilteredFeed} />
+      </View>
+      <View style={styles.headerRow}>
+        {item.subjectPerson ? (
+          <Avatar
+            size={'medium'}
+            person={item.subjectPerson}
+            orgId={communityId}
+          />
+        ) : null}
+        <View style={styles.headerNameWrapper}>
+          <CommunityFeedItemName
+            name={subjectPersonName}
+            person={item.subjectPerson}
+            communityId={communityId}
+            pressable={namePressable}
+          />
+          <CardTime date={item.createdAt} style={styles.headerTime} />
+        </View>
+      </View>
     </View>
+  );
+
+  const renderImage = () =>
+    imageData ? (
+      <Image
+        source={{ uri: imageData }}
+        style={{
+          aspectRatio: imageAspectRatio,
+        }}
+        resizeMode="contain"
+      />
+    ) : null;
+
+  const renderFooter = () => (
+    <View style={styles.footerWrap}>
+      {addToSteps ? renderAddToStepsButton() : null}
+      <View style={styles.commentLikeWrap}>
+        <CommentLikeComponent
+          item={item}
+          communityId={communityId}
+          onRefresh={onRefresh}
+        />
+      </View>
+    </View>
+  );
+
+  const renderAddToStepsButton = () => (
+    <Touchable
+      style={styles.addStepWrap}
+      onPress={handleAddToMySteps}
+      testID="AddToMyStepsButton"
+    >
+      <StepIcon style={styles.stepIcon} />
+      <PlusIcon style={styles.plusIcon} />
+      <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
+    </Touchable>
+  );
+
+  return (
+    <>
+      {renderHeader()}
+      <View style={style}>
+        <Text style={styles.messageText}>{renderMessage()}</Text>
+        {itemType === FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE
+          ? renderChallengeLink()
+          : null}
+      </View>
+      {renderImage()}
+      <Separator />
+      {renderFooter()}
+    </>
   );
 };
