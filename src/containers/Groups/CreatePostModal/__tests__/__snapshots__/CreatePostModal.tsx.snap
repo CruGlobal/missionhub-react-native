@@ -45,19 +45,62 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        <SvgMock
-          onPress={[MockFunction]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#B4B6BA",
-              "justifyContent": "flex-end",
-              "position": "absolute",
-              "right": -5,
-              "top": -40,
+              "opacity": 1,
             }
           }
           testID="CloseButton"
-        />
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "justifyContent": "flex-end",
+                    "position": "absolute",
+                    "right": -5,
+                    "top": -40,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
+          </View>
+        </View>
       </View>
       <Text
         style={
@@ -623,19 +666,62 @@ exports[`renders correctly for admin 1`] = `
           ]
         }
       >
-        <SvgMock
-          onPress={[MockFunction]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#B4B6BA",
-              "justifyContent": "flex-end",
-              "position": "absolute",
-              "right": -5,
-              "top": -40,
+              "opacity": 1,
             }
           }
           testID="CloseButton"
-        />
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "justifyContent": "flex-end",
+                    "position": "absolute",
+                    "right": -5,
+                    "top": -40,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
+          </View>
+        </View>
       </View>
       <Text
         style={
@@ -1369,19 +1455,62 @@ exports[`renders correctly for owner 1`] = `
           ]
         }
       >
-        <SvgMock
-          onPress={[MockFunction]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#B4B6BA",
-              "justifyContent": "flex-end",
-              "position": "absolute",
-              "right": -5,
-              "top": -40,
+              "opacity": 1,
             }
           }
           testID="CloseButton"
-        />
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "justifyContent": "flex-end",
+                    "position": "absolute",
+                    "right": -5,
+                    "top": -40,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
+          </View>
+        </View>
       </View>
       <Text
         style={
