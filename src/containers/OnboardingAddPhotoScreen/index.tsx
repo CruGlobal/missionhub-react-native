@@ -3,23 +3,37 @@ import { View, SafeAreaView, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 import BackButton from '../../components/BackButton';
 import { Text, Button } from '../../components/common';
 import Header from '../../components/Header';
 import Skip from '../../components/Skip';
 import ImagePicker, { SelectImageParams } from '../../components/ImagePicker';
+import {
+  UpdatePerson,
+  UpdatePersonVariables,
+} from '../SetupScreen/__generated__/UpdatePerson';
+import { UPDATE_PERSON } from '../SetupScreen/queries';
 
 import ProfileIcon from './ProfileIcon.svg';
 import ProfilePlusIcon from './ProfilePlusIcon.svg';
 import styles from './styles';
+import { GetMe } from './__generated__/GetMe';
+
+export const GET_ME = gql`
+  query GetMe {
+    currentUser {
+      person {
+        id
+      }
+    }
+  }
+`;
 
 interface OnboardingAddPhotoScreenProps {
-  next: ({
-    skip,
-  }: {
-    skip: boolean;
-  }) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  next: () => // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ThunkAction<void, any, null, never>;
 }
 
@@ -29,10 +43,22 @@ export const OnboardingAddPhotoScreen = ({
   const { t } = useTranslation('onboardingAddPhoto');
   const dispatch = useDispatch();
   const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [updatePerson] = useMutation<UpdatePerson, UpdatePersonVariables>(
+    UPDATE_PERSON,
+  );
+  const {
+    data: { currentUser: { person: { id: myId = null } = {} } = {} } = {},
+  } = useQuery<GetMe>(GET_ME);
 
-  const handleNext = () => dispatch(next({ skip: false }));
+  const handleNext = () => dispatch(next());
 
-  const handleSkip = () => dispatch(next({ skip: true }));
+  const saveImage = () => {
+    myId &&
+      updatePerson({
+        variables: { input: { id: myId, picture: profileImage } },
+      });
+    handleNext();
+  };
 
   const handleSelectImage = ({ data }: SelectImageParams) => {
     setProfileImage(data);
@@ -48,7 +74,7 @@ export const OnboardingAddPhotoScreen = ({
         left={<BackButton style={styles.headerButton} />}
         right={
           <Skip
-            onSkip={handleSkip}
+            onSkip={handleNext}
             style={styles.headerButton}
             textStyle={styles.skipText}
           />
@@ -89,7 +115,7 @@ export const OnboardingAddPhotoScreen = ({
           <Button
             type="secondary"
             pill={true}
-            onPress={handleNext}
+            onPress={saveImage}
             text={t('imageButtonText').toUpperCase()}
             style={styles.imageBottomButtonWrapper}
             buttonTextStyle={styles.bottomButtonText}
