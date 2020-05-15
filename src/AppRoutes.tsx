@@ -178,7 +178,7 @@ import {
 import { JourneyEditFlowNavigator } from './routes/journey/journeyEditFlow';
 import CelebrateDetailScreen, {
   CELEBRATE_DETAIL_SCREEN,
-} from './containers/CelebrateDetailScreen';
+} from './containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
 import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
 import {

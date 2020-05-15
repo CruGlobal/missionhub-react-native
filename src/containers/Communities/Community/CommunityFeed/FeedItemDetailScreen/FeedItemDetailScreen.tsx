@@ -6,41 +6,44 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useApolloClient } from '@apollo/react-hooks';
 
-import { CommentLikeComponent } from '../../components/CommentLikeComponent';
-import { organizationSelector } from '../../selectors/organizations';
-import CommentsList from '../CommentsList';
-import DeprecatedBackButton from '../DeprecatedBackButton';
-import CelebrateCommentBox from '../../components/CelebrateCommentBox';
-import theme from '../../theme';
+import { CommentLikeComponent } from '../../../../../components/CommentLikeComponent';
+import { organizationSelector } from '../../../../../selectors/organizations';
+import CommentsList from '../../../../CommentsList';
+import DeprecatedBackButton from '../../../../DeprecatedBackButton';
+import CelebrateCommentBox from '../../../../../components/CelebrateCommentBox';
+import theme from '../../../../../theme';
 import TRAILS1 from '../../../assets/images/Trailss.png';
 import TRAILS2 from '../../../assets/images/TrailGrey.png';
-import { reloadCelebrateComments } from '../../actions/celebrateComments';
-import { TrackStateContext } from '../../actions/analytics';
-import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
-import CardTime from '../../components/CardTime';
-import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
-import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
-import { RefreshControl } from '../../components/common';
+import { reloadCelebrateComments } from '../../../../../actions/celebrateComments';
+import { TrackStateContext } from '../../../../../actions/analytics';
+import { celebrateCommentsSelector } from '../../../../../selectors/celebrateComments';
+import CardTime from '../../../../../components/CardTime';
+import { CommunityFeedItemName } from '../../../../../components/CommunityFeedItemName';
+import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
+import { RefreshControl } from '../../../../../components/common';
 import {
   ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_PERMISSION_TYPE,
-} from '../../constants';
-import { CommunityFeedItem } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
-import { Organization, OrganizationsState } from '../../reducers/organizations';
+} from '../../../../../constants';
+import { CommunityFeedItem } from '../../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../../../components/CommunityFeedItem/queries';
+import {
+  Organization,
+  OrganizationsState,
+} from '../../../../../reducers/organizations';
 import {
   CelebrateCommentsState,
   CelebrateComment,
-} from '../../reducers/celebrateComments';
-import { AuthState } from '../../reducers/auth';
+} from '../../../../../reducers/celebrateComments';
+import { AuthState } from '../../../../../reducers/auth';
 import {
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
-} from '../../utils/analytics';
-import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
-import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { navigateBack } from '../../actions/navigation';
+} from '../../../../../utils/analytics';
+import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
+import { useRefreshing } from '../../../../../utils/hooks/useRefreshing';
+import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
+import { navigateBack } from '../../../../../actions/navigation';
 
 import styles from './styles';
 

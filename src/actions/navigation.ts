@@ -9,7 +9,7 @@ import {
 } from 'react-navigation';
 
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
-import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
+import { CELEBRATE_DETAIL_SCREEN } from '../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { MAIN_TABS, PEOPLE_TAB, COMMUNITIES_TAB } from '../constants';
 import { Organization } from '../reducers/organizations';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';

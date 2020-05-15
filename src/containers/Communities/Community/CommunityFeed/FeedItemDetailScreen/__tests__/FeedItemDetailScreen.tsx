@@ -3,30 +3,30 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
-import { renderWithContext } from '../../../../testUtils';
+import { renderWithContext } from '../../../../../../../testUtils';
 import {
   ANALYTICS_ASSIGNMENT_TYPE,
   ORG_PERMISSIONS,
   ANALYTICS_PERMISSION_TYPE,
-} from '../../../constants';
-import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { organizationSelector } from '../../../selectors/organizations';
-import { orgPermissionSelector } from '../../../selectors/people';
-import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
+} from '../../../../../../constants';
+import { mockFragment } from '../../../../../../../testUtils/apolloMockClient';
+import { organizationSelector } from '../../../../../../selectors/organizations';
+import { orgPermissionSelector } from '../../../../../../selectors/people';
+import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import {
   reloadCelebrateComments,
   resetCelebrateEditingComment,
-} from '../../../actions/celebrateComments';
-import CommentsList from '../../CommentsList';
-import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
-import { Organization } from '../../../reducers/organizations';
-import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { CommunityFeedItem } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { navigateBack } from '../../../actions/navigation';
+} from '../../../../../../actions/celebrateComments';
+import CommentsList from '../../../../../CommentsList';
+import { celebrateCommentsSelector } from '../../../../../../selectors/celebrateComments';
+import { Organization } from '../../../../../../reducers/organizations';
+import { CelebrateComment } from '../../../../../../reducers/celebrateComments';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../../../../components/CommunityFeedItem/queries';
+import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
+import { CommunityFeedItem } from '../../../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { navigateBack } from '../../../../../../actions/navigation';
 
-import CelebrateDetailScreen from '..';
+import CelebrateDetailScreen from '../FeedItemDetailScreen';
 
 jest.mock('../../../utils/hooks/useKeyboardListeners');
 jest.mock('../../../selectors/celebration');
