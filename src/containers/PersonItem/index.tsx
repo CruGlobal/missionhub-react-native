@@ -83,7 +83,7 @@ const PersonItem = ({
   const handleSelect = () =>
     dispatch(
       navToPersonScreen(
-        person,
+        person.id,
         organization && !isPersonal ? organization : undefined,
       ),
     );

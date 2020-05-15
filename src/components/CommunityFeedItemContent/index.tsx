@@ -12,16 +12,6 @@ import {
   getFeedItemType,
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import {
-  CommunityFeedItem,
-  CommunityFeedItem_subject,
-} from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import {
-  CommunityFeedStep,
-  CommunityFeedStep_receiverStageAtCompletion,
-} from '../CommunityFeedItem/__generated__/CommunityFeedStep';
-import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
-import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/CommunityFeedChallenge';
 import PostTypeLabel from '../PostTypeLabel';
 import Avatar from '../Avatar';
 import { CommunityFeedItemName } from '../CommunityFeedItemName';
@@ -34,9 +24,16 @@ import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
 import styles from './styles';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
+import {
+  CommunityFeedItemContent as FeedItem,
+  CommunityFeedItemContent_subject_Post,
+  CommunityFeedItemContent_subject_Step,
+  CommunityFeedItemContent_subject_Step_receiverStageAtCompletion,
+  CommunityFeedItemContent_subject_CommunityChallenge,
+} from './__generated__/CommunityFeedItemContent';
 
 export interface CommunityFeedItemContentProps {
-  item: CombinedFeedItem;
+  item: FeedItem;
   communityId: string;
   namePressable?: boolean;
   onRefresh?: () => void;
@@ -47,7 +44,7 @@ export const CommunityFeedItemContent = ({
   item,
   communityId,
   namePressable = false,
-  onRefresh,
+  onRefresh = () => {},
   style,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
@@ -55,13 +52,9 @@ export const CommunityFeedItemContent = ({
 
   const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
-  // TODO: share this function?
-  const isPost = (
-    subject: CommunityFeedItem_subject,
-  ): subject is CommunityFeedPost => subject.__typename === 'Post';
-
   const imageData =
-    (isPost(item.subject) && item.subject.mediaExpiringUrl) || null;
+    (item.subject.__typename === 'Post' && item.subject.mediaExpiringUrl) ||
+    null;
 
   useEffect(() => {
     if (!imageData) {
@@ -122,8 +115,10 @@ export const CommunityFeedItemContent = ({
       }),
     );
 
-  const buildChallengeMessage = () => {
-    const isCompleted = (subject as CommunityFeedChallenge).acceptedCommunityChallengesList.some(
+  const buildChallengeMessage = (
+    subject: CommunityFeedItemContent_subject_CommunityChallenge,
+  ) => {
+    const isCompleted = subject.acceptedCommunityChallengesList.some(
       acceptedChallege => !!acceptedChallege.completedAt,
     );
 
@@ -132,8 +127,10 @@ export const CommunityFeedItemContent = ({
     });
   };
 
-  const renderStepOfFaithMessage = () => {
-    const { receiverStageAtCompletion } = subject as CommunityFeedStep;
+  const renderStepOfFaithMessage = (
+    subject: CommunityFeedItemContent_subject_Step,
+  ) => {
+    const { receiverStageAtCompletion } = subject;
 
     return t(
       receiverStageAtCompletion
@@ -149,7 +146,7 @@ export const CommunityFeedItemContent = ({
   };
 
   const renderStage = (
-    stage: CommunityFeedStep_receiverStageAtCompletion | null,
+    stage: CommunityFeedItemContent_subject_Step_receiverStageAtCompletion | null,
   ) => {
     switch (stage?.id || '') {
       case '1':
@@ -167,25 +164,23 @@ export const CommunityFeedItemContent = ({
     }
   };
 
-  const renderPostMessage = () => (subject as CommunityFeedPost).content;
+  const renderPostMessage = (subject: CommunityFeedItemContent_subject_Post) =>
+    subject.content;
 
   const renderMessage = () => {
-    switch (itemType) {
-      case FeedItemSubjectTypeEnum.STEP:
-        return renderStepOfFaithMessage();
-      case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
-        return buildChallengeMessage();
-      case FeedItemSubjectTypeEnum.STORY:
-      case FeedItemSubjectTypeEnum.QUESTION:
-      case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
-      case FeedItemSubjectTypeEnum.HELP_REQUEST:
-      case FeedItemSubjectTypeEnum.THOUGHT:
-      case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
-        return renderPostMessage();
+    switch (subject.__typename) {
+      case 'Step':
+        return renderStepOfFaithMessage(subject);
+      case 'CommunityChallenge':
+        return buildChallengeMessage(subject);
+      case 'Post':
+        return renderPostMessage(subject);
     }
   };
 
-  const renderChallengeLink = () => (
+  const renderChallengeLink = (
+    subject: CommunityFeedItemContent_subject_CommunityChallenge,
+  ) => (
     <View style={styles.row}>
       <Button
         testID="ChallengeLinkButton"
@@ -194,7 +189,7 @@ export const CommunityFeedItemContent = ({
         style={styles.challengeLinkButton}
       >
         <Text numberOfLines={2} style={styles.challengeLinkText}>
-          {(subject as CommunityFeedChallenge).title}
+          {subject.title}
         </Text>
       </Button>
     </View>
@@ -216,7 +211,7 @@ export const CommunityFeedItemContent = ({
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
-            person={item.subjectPerson}
+            personId={item.subjectPerson?.id}
             communityId={communityId}
             pressable={namePressable}
           />
@@ -267,8 +262,8 @@ export const CommunityFeedItemContent = ({
       {renderHeader()}
       <View style={style}>
         <Text style={styles.messageText}>{renderMessage()}</Text>
-        {itemType === FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE
-          ? renderChallengeLink()
+        {subject.__typename === 'CommunityChallenge'
+          ? renderChallengeLink(subject)
           : null}
       </View>
       {renderImage()}

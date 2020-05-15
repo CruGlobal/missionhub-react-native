@@ -48,7 +48,7 @@ const StepItem = ({
 
   const onPressName = () => {
     const { receiver, community } = step;
-    dispatch(navToPersonScreen(receiver, community));
+    dispatch(navToPersonScreen(receiver.id, community));
   };
 
   const onPressCheckbox = async () => {

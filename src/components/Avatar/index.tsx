@@ -10,13 +10,15 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-type PersonType = {
+type PersonName =
+  | { first_name: string }
+  | { firstName: string }
+  | { fullName: string }
+  | { full_name: string };
+
+type PersonType = PersonName & {
   id: string | number;
-  first_name?: string;
-  firstName?: string;
-  fullName?: string;
-  full_name?: string;
-  picture?: string | null;
+  picture: string | null;
 };
 
 type AvatarSize = 'extrasmall' | 'small' | 'medium' | 'large';
@@ -56,15 +58,15 @@ interface AvatarPropsPersonId extends AvatarPropsCommon {
 }
 export type AvatarProps = AvatarPropsPerson | AvatarPropsPersonId;
 
-const EMPTY_PERSON = { id: '-', first_name: '-' };
+const EMPTY_PERSON = { id: '-', first_name: '-', picture: null };
 
 const AvatarView = React.memo(
   ({ person, size, style, customText }: AvatarPropsPerson) => {
     const name =
-      person?.firstName ||
-      person?.first_name ||
-      person?.fullName ||
-      person?.full_name ||
+      (person as { firstName: string }).firstName ||
+      (person as { first_name: string }).first_name ||
+      (person as { fullName: string }).fullName ||
+      (person as { full_name: string }).full_name ||
       '';
     const initial = customText || name[0] || '-';
     const color = useMemo(() => colorThis(`${name}${person?.id}`, 1), [person]);

@@ -7,8 +7,6 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { CombinedFeedItem } from '../CommunityFeedItem';
-import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
 
@@ -16,10 +14,11 @@ import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
 import PrayerIcon from './prayerIcon.svg';
 import styles from './styles';
+import { CommunityFeedItemCommentLike } from './__generated__/CommunityFeedItemCommentLike';
 
 export interface CommentLikeComponentProps {
   communityId: string;
-  item: CombinedFeedItem;
+  item: CommunityFeedItemCommentLike;
   onRefresh: () => void;
 }
 
@@ -40,7 +39,7 @@ export const CommentLikeComponent = ({
   } = item;
   const isPrayer =
     subject.__typename === 'Post' &&
-    (subject as CommunityFeedPost).postType === PostTypeEnum.prayer_request;
+    subject.postType === PostTypeEnum.prayer_request;
 
   const dispatch = useDispatch();
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);

@@ -455,21 +455,18 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-// @ts-ignore
-export function navToPersonScreen(person, org, props = {}) {
+export function navToPersonScreen(personId: string, org, props = {}) {
   // @ts-ignore
   return (dispatch, getState) => {
     const organization = org ? org : {};
     const { auth, people, organizations } = getState();
     const orgId = organization.id;
-    const personId = person.id;
 
     const selectorOrg =
       organizationSelector({ organizations }, { orgId }) || organization;
     //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
 
-    const selectorPerson =
-      personSelector({ people }, { orgId, personId }) || person;
+    const selectorPerson = personSelector({ people }, { orgId, personId });
 
     const contactAssignment = contactAssignmentSelector(
       { auth },
