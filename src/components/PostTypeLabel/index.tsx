@@ -167,7 +167,7 @@ function getExtraCount(numPeople = 0, countOnly = false) {
 interface PostTypeCardWithPeopleProps {
   type: FeedItemSubjectTypeEnum;
   onPress: TouchablePress;
-  people?: FeedItemPostCard_author[] | FeedItemStepCard_owner[];
+  people?: (FeedItemPostCard_author | FeedItemStepCard_owner)[];
   countOnly?: boolean;
   testID?: string;
 }
@@ -178,7 +178,7 @@ export const PostTypeCardWithPeople = ({
   countOnly = false,
 }: PostTypeCardWithPeopleProps) => {
   const { t } = useTranslation('postTypes');
-  const visiblePeople = people?.slice(0, 3);
+  const visiblePeople = people?.slice(0, 3) || [];
   const num = getExtraCount(people?.length, countOnly);
 
   return (
@@ -195,9 +195,9 @@ export const PostTypeCardWithPeople = ({
         />
         <View style={styles.peopleCardList}>
           {!countOnly &&
-            visiblePeople?.map((person, index) => (
+            visiblePeople.map(person => (
               <Avatar
-                key={index}
+                key={`${person.id}`}
                 person={person}
                 size="extrasmall"
                 style={{ marginLeft: -12 }}
