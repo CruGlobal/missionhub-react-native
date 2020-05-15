@@ -44,6 +44,8 @@ const mockStore = configureStore([thunk]);
 let props;
 // @ts-ignore
 let store;
+const onActionTaken = jest.fn();
+const defaultProps = { t: i18next.t, dispatch: () => {}, myId, onActionTaken };
 
 const test = () => {
   // @ts-ignore
@@ -55,7 +57,7 @@ describe('MemberOptionsMenu', () => {
     beforeEach(
       () =>
         (props = {
-          myId,
+          ...defaultProps,
           person: {
             ...person,
             id: myId,
@@ -89,7 +91,7 @@ describe('MemberOptionsMenu', () => {
 
   it('renders for admin looking at member', () => {
     props = {
-      myId,
+      ...defaultProps,
       person: {
         ...person,
         id: otherId,
@@ -104,7 +106,7 @@ describe('MemberOptionsMenu', () => {
 
   it('renders for admin looking at admin', () => {
     props = {
-      myId,
+      ...defaultProps,
       person: {
         ...person,
         id: otherId,
@@ -121,7 +123,7 @@ describe('MemberOptionsMenu', () => {
     beforeEach(
       () =>
         (props = {
-          myId,
+          ...defaultProps,
           person: {
             ...person,
             id: otherId,
@@ -203,7 +205,7 @@ describe('MemberOptionsMenu', () => {
 
   it('renders for owner looking at admin', () => {
     props = {
-      myId,
+      ...defaultProps,
       person: {
         ...person,
         id: otherId,
@@ -228,7 +230,7 @@ describe('confirm screen', () => {
 
     beforeEach(() => {
       props = {
-        myId,
+        ...defaultProps,
         person: {
           ...person,
           id: otherId,
@@ -336,7 +338,7 @@ describe('confirm screen', () => {
 
     beforeEach(() => {
       props = {
-        myId,
+        ...defaultProps,
         person: {
           ...person,
           id: otherId,
@@ -381,6 +383,7 @@ describe('confirm screen', () => {
 
       // @ts-ignore
       expect(store.getActions()).toEqual([removeAdminResponse]);
+      expect(onActionTaken).toHaveBeenCalled();
       expect(removeAsAdmin).toHaveBeenCalledWith(
         otherId,
         personOrgPermission.id,
@@ -394,7 +397,7 @@ describe('Leave Community', () => {
 
   beforeEach(() => {
     props = {
-      myId,
+      ...defaultProps,
       person: {
         ...person,
         id: myId,
@@ -418,6 +421,7 @@ describe('Leave Community', () => {
     // @ts-ignore
     await screen.instance().leaveCommunity();
 
+    expect(onActionTaken).toHaveBeenCalled();
     // @ts-ignore
     expect(store.getActions()).toEqual([navigateBackResult]);
   });
@@ -458,7 +462,7 @@ describe('Remove from Community', () => {
 
   beforeEach(() => {
     props = {
-      myId,
+      ...defaultProps,
       person: {
         ...person,
         id: otherId,
